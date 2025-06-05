@@ -12980,8 +12980,8 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i: ; preds = %
 
 .noexc139:                                        ; preds = %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i
   %.pre.i.i.i138 = load i64, ptr %22, align 8, !tbaa !271
-  %..i.i8.i = call i64 @llvm.umin.i64(i64 %83, i64 %.pre.i.i.i138)
-  store i64 %..i.i8.i, ptr %23, align 8, !tbaa !277
+  %..i.i9.i = call i64 @llvm.umin.i64(i64 %83, i64 %.pre.i.i.i138)
+  store i64 %..i.i9.i, ptr %23, align 8, !tbaa !277
   br label %88
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.i: ; preds = %82
@@ -13016,8 +13016,8 @@ _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i143: ; preds 
 
 .noexc146:                                        ; preds = %_ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.thread.i143
   %.pre.i.i.i144 = load i64, ptr %27, align 8, !tbaa !271
-  %..i.i8.i145 = call i64 @llvm.umin.i64(i64 %.pre444, i64 %.pre.i.i.i144)
-  store i64 %..i.i8.i145, ptr %28, align 8, !tbaa !277
+  %..i.i9.i145 = call i64 @llvm.umin.i64(i64 %.pre444, i64 %.pre.i.i.i144)
+  store i64 %..i.i9.i145, ptr %28, align 8, !tbaa !277
   br label %98
 
 _ZN3fmt2v819basic_memory_bufferIjLm32ESaIjEE6resizeEm.exit.i140: ; preds = %93

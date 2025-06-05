@@ -16965,8 +16965,8 @@ common.ret21:                                     ; preds = %if.end, %_ZSt16__in
   ret void
 
 if.end:                                           ; preds = %entry
-  %7 = lshr exact i64 %sub.ptr.sub.i, 1
-  %add.ptr.i.idx = and i64 %7, 4611686018427387896
+  %div1920 = lshr exact i64 %sub.ptr.sub.i, 1
+  %add.ptr.i.idx = and i64 %div1920, 4611686018427387896
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__comp.coerce)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_(ptr %add.ptr.i, ptr %__last.coerce, ptr %__comp.coerce)
@@ -16996,8 +16996,8 @@ if.then:                                          ; preds = %entry
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_T1_T2_(ptr %__first.coerce, ptr %add.ptr.i, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr %__comp.coerce)
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_lNS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_T1_T2_(ptr %add.ptr.i, ptr %__last.coerce, ptr noundef %__buffer, i64 noundef %__buffer_size, ptr %__comp.coerce)
   %.pre = ptrtoint ptr %add.ptr.i to i64
-  %.pre34 = sub i64 %sub.ptr.lhs.cast.i, %.pre
-  %.pre35 = ashr exact i64 %.pre34, 3
+  %.pre35 = sub i64 %sub.ptr.lhs.cast.i, %.pre
+  %.pre36 = ashr exact i64 %.pre35, 3
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -17034,7 +17034,7 @@ while.body.i16:                                   ; preds = %_ZSt24__merge_sort_
   br i1 %cmp.i20, label %while.body.i16, label %if.end, !llvm.loop !109
 
 if.end:                                           ; preds = %while.body.i16, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_T1_.exit, %if.then
-  %sub.ptr.div.i29.pre-phi = phi i64 [ %sub.ptr.div.i.i13, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_T1_.exit ], [ %.pre35, %if.then ], [ %sub.ptr.div.i.i13, %while.body.i16 ]
+  %sub.ptr.div.i29.pre-phi = phi i64 [ %sub.ptr.div.i.i13, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_T1_.exit ], [ %.pre36, %if.then ], [ %sub.ptr.div.i.i13, %while.body.i16 ]
   %coerce.val.pi = ptrtoint ptr %__comp.coerce to i64
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEElS7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_SH_T0_SI_T1_SI_T2_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %div, i64 noundef %sub.ptr.div.i29.pre-phi, ptr noundef %__buffer, i64 noundef %__buffer_size, i64 %coerce.val.pi)
   ret void
@@ -18383,8 +18383,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i22, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i21, %add.ptr12.idx.i.i.i.i
   %15 = and i64 %gepdiff.i.i.i.i, -8
@@ -18651,8 +18651,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i21, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i, %add.ptr12.idx.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
@@ -18795,8 +18795,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i22, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i21, %add.ptr12.idx.i.i.i.i
   %15 = and i64 %gepdiff.i.i.i.i, -8
@@ -18940,8 +18940,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i21, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i, %add.ptr12.idx.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
@@ -19086,8 +19086,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i22, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i21, %add.ptr12.idx.i.i.i.i
   %15 = and i64 %gepdiff.i.i.i.i, -8
@@ -19231,8 +19231,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %15, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i21, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i, %add.ptr12.idx.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr12.i.i.i.i, i8 0, i64 %gepdiff.i.i.i.i, i1 false)
@@ -19372,8 +19372,8 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
-  %idx.ext1116.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
-  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1116.i.i.i.i, 3
+  %idx.ext1117.i.i.i.i = phi i64 [ %14, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i ], [ 0, %if.then.i.i.i.i ]
+  %add.ptr12.idx.i.i.i.i = shl nuw nsw i64 %idx.ext1117.i.i.i.i, 3
   %add.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i20, i64 %add.ptr12.idx.i.i.i.i
   %gepdiff.i.i.i.i = sub nsw i64 %add.i19, %add.ptr12.idx.i.i.i.i
   %15 = and i64 %gepdiff.i.i.i.i, -8

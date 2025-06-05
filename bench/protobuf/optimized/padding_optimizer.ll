@@ -2016,8 +2016,8 @@ common.ret21:                                     ; preds = %if.end, %if.then
   ret void
 
 if.end:                                           ; preds = %entry
-  %0 = lshr exact i64 %sub.ptr.sub.i, 1
-  %add.ptr.i.idx = and i64 %0, 4611686018427387872
+  %div1920 = lshr exact i64 %sub.ptr.sub.i, 1
+  %add.ptr.i.idx = and i64 %div1920, 4611686018427387872
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   tail call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %__first.coerce, ptr %add.ptr.i)
   tail call fastcc void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %add.ptr.i, ptr %__last.coerce)
@@ -4102,8 +4102,8 @@ if.then9:                                         ; preds = %if.then
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
-  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i.i
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %idx.neg = sub i64 0, %sub.ptr.sub.i.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.neg
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
   %2 = load ptr, ptr %_M_finish, align 8
   %add.ptr27 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i

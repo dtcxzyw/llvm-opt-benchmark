@@ -3955,7 +3955,7 @@ _ZSt4sortIPiN5faiss12IndirectSortEEvT_S3_T0_.exit: ; preds = %.noexc46
   %67 = ashr exact i64 %66, 2
   %umax.i.us = tail call i64 @llvm.umax.i64(i64 %67, i64 1)
   %68 = mul nuw nsw i64 %indvars.iv183, %59
-  %invariant.gep222 = getelementptr inbounds nuw float, ptr %28, i64 %68
+  %invariant.gep221 = getelementptr inbounds nuw float, ptr %28, i64 %68
   br i1 %.not43.i.us, label %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us, label %.lr.ph40.preheader.i.us
 
 .lr.ph40.preheader.i.us:                          ; preds = %.lr.ph127.us, %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.loopexit.us
@@ -4022,7 +4022,7 @@ _ZSt4sortIPiN5faiss12IndirectSortEEvT_S3_T0_.exit: ; preds = %.noexc46
   br i1 %exitcond46.not.i.us, label %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.loopexit.us, label %.lr.ph40.i.us, !llvm.loop !142
 
 _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.loopexit.us: ; preds = %._crit_edge.i.us
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep222, i64 %indvars.iv173
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep221, i64 %indvars.iv173
   %97 = load float, ptr %gep, align 4, !tbaa !100
   %98 = fpext float %97 to double
   %99 = fadd double %95, %98
@@ -4039,10 +4039,10 @@ _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.loope
 
 _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us: ; preds = %.lr.ph127.us, %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us ], [ 0, %.lr.ph127.us ]
-  %gep223 = getelementptr inbounds nuw float, ptr %invariant.gep222, i64 %indvars.iv178
-  %101 = load float, ptr %gep223, align 4, !tbaa !100
+  %gep222 = getelementptr inbounds nuw float, ptr %invariant.gep221, i64 %indvars.iv178
+  %101 = load float, ptr %gep222, align 4, !tbaa !100
   %102 = fadd float %101, 0.000000e+00
-  store float %102, ptr %gep223, align 4, !tbaa !100
+  store float %102, ptr %gep222, align 4, !tbaa !100
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %59
   br i1 %exitcond182.not, label %._crit_edge128.us, label %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit.us.us, !llvm.loop !143

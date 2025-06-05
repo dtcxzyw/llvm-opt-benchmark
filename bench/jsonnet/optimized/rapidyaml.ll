@@ -5632,8 +5632,8 @@ _ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85:      ; preds = %.critedge
   br label %103
 
 103:                                              ; preds = %_ZNK2c43yml4Tree2idEPKNS0_8NodeDataE.exit85, %94
-  %.not65136 = icmp eq ptr %79, null
-  %.not65 = or i1 %84, %.not65136
+  %.not65135 = icmp eq ptr %79, null
+  %.not65 = or i1 %84, %.not65135
   br i1 %.not65, label %.thread113, label %106
 
 .thread126:                                       ; preds = %.thread

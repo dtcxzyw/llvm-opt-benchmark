@@ -5873,8 +5873,8 @@ common.ret21:                                     ; preds = %for.cond.preheader.
   ret void
 
 if.end:                                           ; preds = %entry
-  %8 = lshr exact i64 %sub.ptr.sub.i, 1
-  %add.ptr.i.idx = and i64 %8, 4611686018427387888
+  %div1920 = lshr exact i64 %sub.ptr.sub.i, 1
+  %add.ptr.i.idx = and i64 %div1920, 4611686018427387888
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %add.ptr.i.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %__first.coerce, ptr %add.ptr.i)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr %add.ptr.i, ptr %__last.coerce)
@@ -5904,8 +5904,8 @@ if.then:                                          ; preds = %entry
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_(ptr %__first.coerce, ptr %add.ptr.i, ptr noundef %__buffer, i64 noundef %__buffer_size)
   tail call void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_T2_(ptr %add.ptr.i, ptr %__last.coerce, ptr noundef %__buffer, i64 noundef %__buffer_size)
   %.pre = ptrtoint ptr %add.ptr.i to i64
-  %.pre34 = sub i64 %sub.ptr.lhs.cast.i, %.pre
-  %.pre35 = ashr exact i64 %.pre34, 4
+  %.pre35 = sub i64 %sub.ptr.lhs.cast.i, %.pre
+  %.pre36 = ashr exact i64 %.pre35, 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -5942,7 +5942,7 @@ while.body.i16:                                   ; preds = %_ZSt24__merge_sort_
   br i1 %cmp.i20, label %while.body.i16, label %if.end, !llvm.loop !69
 
 if.end:                                           ; preds = %while.body.i16, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit, %if.then
-  %sub.ptr.div.i29.pre-phi = phi i64 [ %sub.ptr.div.i.i13, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit ], [ %.pre35, %if.then ], [ %sub.ptr.div.i.i13, %while.body.i16 ]
+  %sub.ptr.div.i29.pre-phi = phi i64 [ %sub.ptr.div.i.i13, %_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_.exit ], [ %.pre36, %if.then ], [ %sub.ptr.div.i.i13, %while.body.i16 ]
   tail call void @_ZSt16__merge_adaptiveIN9__gnu_cxx17__normal_iteratorIPSt4pairImiESt6vectorIS3_SaIS3_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr %__first.coerce, ptr %add.ptr.i, ptr %__last.coerce, i64 noundef %div, i64 noundef %sub.ptr.div.i29.pre-phi, ptr noundef %__buffer, i64 noundef %__buffer_size)
   ret void
 }
@@ -7645,8 +7645,8 @@ if.then9:                                         ; preds = %if.then
   br i1 %cmp15, label %if.then16, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEmEvRT_T0_.exit
 
 if.then16:                                        ; preds = %if.then9
-  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i.i
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
+  %idx.neg = sub i64 0, %sub.ptr.sub.i.i.i
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %idx.neg
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr nonnull align 4 %add.ptr, i64 %sub.ptr.sub.i.i.i, i1 false)
   %2 = load ptr, ptr %_M_finish, align 8
   %add.ptr27 = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i.i

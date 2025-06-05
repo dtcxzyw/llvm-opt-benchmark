@@ -4774,11 +4774,11 @@ common.ret:                                       ; preds = %3
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_20VertexDegreeLessThanIS5_EEEEEvT_SG_T0_(ptr %0, ptr %1, ptr %2)
   br label %common.ret22
 
-common.ret22:                                     ; preds = %8, %common.ret
+common.ret22:                                     ; preds = %9, %common.ret
   ret void
 
-8:                                                ; preds = %3
-  %9 = lshr exact i64 %6, 1
+9:                                                ; preds = %3
+  %10 = lshr exact i64 %6, 1
   %.idx = and i64 %9, 4611686018427387896
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN5ceres8internal14ParameterBlockESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterINS3_20VertexDegreeLessThanIS5_EEEEEvT_SG_T0_(ptr %0, ptr %10, ptr %2)
@@ -5897,14 +5897,14 @@ _ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolic
   br i1 %.not.i48, label %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.thread.i45, label %_ZN5ceres9FindOrDieIN4absl12lts_2024011613flat_hash_mapIPNS_8internal14ParameterBlockENS2_13flat_hash_setIS6_NS2_18container_internal6HashEqIS6_vE4HashENSA_2EqESaIS6_EEESB_SC_SaISt4pairIKS6_SE_EEEEEERKNT_10value_type11second_typeERKSK_RKNSL_10first_typeE.exit50, !prof !238
 
 _ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.thread.i45: ; preds = %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.i47, %._crit_edge.i.i.i.i43
-  %.sroa.013.021.i114 = phi ptr [ %.sroa.013.021.i, %._crit_edge.i.i.i.i43 ], [ %16, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.i47 ]
+  %.sroa.013.021.i115 = phi ptr [ %.sroa.013.021.i, %._crit_edge.i.i.i.i43 ], [ %16, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.i47 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.20, i32 noundef 63, i64 22, ptr nonnull @.str.21) #29
   invoke void @_ZN4absl12lts_2024011612log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 19, ptr nonnull @.str.22)
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i46 unwind label %66
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i46: ; preds = %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.thread.i45
-  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIPN5ceres8internal14ParameterBlockETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.013.021.i114)
+  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIPN5ceres8internal14ParameterBlockETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.013.021.i115)
           to label %65 unwind label %66
 
 65:                                               ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i46
@@ -6223,14 +6223,14 @@ _ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolic
   br i1 %.not.i54, label %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.thread.i51, label %_ZN5ceres9FindOrDieIN4absl12lts_2024011613flat_hash_mapIPNS_8internal14ParameterBlockENS2_13flat_hash_setIS6_NS2_18container_internal6HashEqIS6_vE4HashENSA_2EqESaIS6_EEESB_SC_SaISt4pairIKS6_SE_EEEEEERKNT_10value_type11second_typeERKSK_RKNSL_10first_typeE.exit55, !prof !238
 
 _ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.thread.i51: ; preds = %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.i53, %._crit_edge.i.i.i.i49
-  %.01625.i108 = phi ptr [ %.01625.i, %._crit_edge.i.i.i.i49 ], [ %16, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.i53 ]
+  %.01625.i109 = phi ptr [ %.01625.i, %._crit_edge.i.i.i.i49 ], [ %16, %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.i53 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   call void @_ZN4absl12lts_2024011612log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.20, i32 noundef 63, i64 22, ptr nonnull @.str.21) #29
   invoke void @_ZN4absl12lts_2024011612log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 19, ptr nonnull @.str.22)
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i52 unwind label %66
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i52: ; preds = %_ZNK4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN5ceres8internal14ParameterBlockENS0_13flat_hash_setIS7_NS1_6HashEqIS7_vE4HashENSA_2EqESaIS7_EEEEESB_SC_SaISt4pairIKS7_SE_EEE4findIS7_EENSK_14const_iteratorERKT_.exit.thread.i51
-  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIPN5ceres8internal14ParameterBlockETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %.01625.i108)
+  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIPN5ceres8internal14ParameterBlockETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %.01625.i109)
           to label %65 unwind label %66
 
 65:                                               ; preds = %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit.i52

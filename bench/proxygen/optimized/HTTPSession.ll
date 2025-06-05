@@ -32370,8 +32370,8 @@ entry:
   %and.i.i.i = shl i64 %0, 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %and.i.i.i
   %shr.i.i.i = ashr i64 %and.i.i.i, 6
-  %cmp48.i.i.i = icmp sgt i64 %shr.i.i.i, 0
-  br i1 %cmp48.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end.i.i.i
+  %cmp48.i.i.i.not = icmp sgt i64 %shr.i.i.i, 0
+  br i1 %cmp48.i.i.i.not, label %for.body.lr.ph.i.i.i, label %for.end.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = load ptr, ptr %observer, align 8
@@ -32396,13 +32396,13 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 32
   %6 = load ptr, ptr %incdec.ptr4.i.i.i, align 8
   %cmp.i.i27.i.i.i = icmp eq ptr %6, %2
-  br i1 %cmp.i.i27.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit30, label %if.end7.i.i.i
+  br i1 %cmp.i.i27.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit31, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
   %incdec.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 48
   %7 = load ptr, ptr %incdec.ptr8.i.i.i, align 8
   %cmp.i.i28.i.i.i = icmp eq ptr %7, %2
-  br i1 %cmp.i.i28.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32, label %if.end11.i.i.i
+  br i1 %cmp.i.i28.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit33, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   %incdec.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 64
@@ -32411,11 +32411,11 @@ if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !227
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
-  %gepdiff = and i64 %and.i.i.i, 48
+  %8 = and i64 %and.i.i.i, 48
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %entry
-  %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %gepdiff, %for.end.loopexit.i.i.i ], [ %and.i.i.i, %entry ]
+  %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %8, %for.end.loopexit.i.i.i ], [ %and.i.i.i, %entry ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %cond.i.i, %entry ]
   %sub.ptr.div16.i.i.i = ashr exact i64 %sub.ptr.sub15.pre-phi.i.i.i, 4
   switch i64 %sub.ptr.div16.i.i.i, label %if.end [
@@ -32433,9 +32433,9 @@ for.end.sw.bb21_crit_edge.i.i.i:                  ; preds = %for.end.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
-  %8 = load ptr, ptr %__first.addr.0.lcssa.i.i.i, align 8
-  %9 = load ptr, ptr %observer, align 8
-  %cmp.i.i29.i.i.i = icmp eq ptr %8, %9
+  %9 = load ptr, ptr %__first.addr.0.lcssa.i.i.i, align 8
+  %10 = load ptr, ptr %observer, align 8
+  %cmp.i.i29.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i29.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end19.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -32443,10 +32443,10 @@ if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb21.i.i.i:                                    ; preds = %if.end19.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i
-  %10 = phi ptr [ %9, %if.end19.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
+  %11 = phi ptr [ %10, %if.end19.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
   %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
-  %11 = load ptr, ptr %__first.addr.1.i.i.i, align 8
-  %cmp.i.i30.i.i.i = icmp eq ptr %11, %10
+  %12 = load ptr, ptr %__first.addr.1.i.i.i, align 8
+  %cmp.i.i30.i.i.i = icmp eq ptr %12, %11
   br i1 %cmp.i.i30.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end24.i.i.i
 
 if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
@@ -32454,39 +32454,39 @@ if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   br label %sw.bb26.i.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i
-  %12 = phi ptr [ %10, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
+  %13 = phi ptr [ %11, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
   %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
-  %13 = load ptr, ptr %__first.addr.2.i.i.i, align 8
-  %cmp.i.i31.i.i.i = icmp eq ptr %13, %12
+  %14 = load ptr, ptr %__first.addr.2.i.i.i, align 8
+  %cmp.i.i31.i.i.i = icmp eq ptr %14, %13
   br i1 %cmp.i.i31.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end
 
 _ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 16
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit30: ; preds = %if.end3.i.i.i
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit31: ; preds = %if.end3.i.i.i
   %incdec.ptr4.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 32
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32: ; preds = %if.end7.i.i.i
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit33: ; preds = %if.end7.i.i.i
   %incdec.ptr8.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 48
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit: ; preds = %for.body.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit30, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit: ; preds = %for.body.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit31, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit33, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i
   %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit30 ], [ %incdec.ptr8.i.i.i.le, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   %cmp.not = icmp eq ptr %retval.0.i.i.i, %add.ptr.i
   br i1 %cmp.not, label %if.end, label %return
 
-if.end:                                           ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
+for.end.i.i.i.unreachabledefault:                 ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
   %iterating_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %14 = load i8, ptr %iterating_, align 8
-  %tobool = trunc i8 %14 to i1
+  %15 = load i8, ptr %iterating_, align 8
+  %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %if.then7, label %if.end21
 
 if.then7:                                         ; preds = %if.end
   %hasValue.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %15 = load i8, ptr %hasValue.i, align 8
-  %tobool.i = trunc i8 %15 to i1
+  %16 = load i8, ptr %hasValue.i, align 8
+  %tobool.i = trunc i8 %16 to i1
   br i1 %tobool.i, label %_ZNR5folly8OptionalINS_26ObserverContainerStoreBaseINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEE26InvokeWhileIteratingPolicyEE5valueEv.exit, label %cond.false
 
 cond.false:                                       ; preds = %if.then7
@@ -32503,15 +32503,15 @@ cleanup.action:                                   ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #42
   unreachable
 
 _ZNR5folly8OptionalINS_26ObserverContainerStoreBaseINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEE26InvokeWhileIteratingPolicyEE5valueEv.exit: ; preds = %if.then7
   %maybeCurrentIterationPolicy_ = getelementptr inbounds nuw i8, ptr %this, i64 52
-  %17 = load i32, ptr %maybeCurrentIterationPolicy_, align 4
-  switch i32 %17, label %if.end21 [
+  %18 = load i32, ptr %maybeCurrentIterationPolicy_, align 4
+  switch i32 %18, label %if.end21 [
     i32 3, label %sw.bb20
     i32 2, label %sw.bb19
   ]
@@ -32548,8 +32548,8 @@ entry:
   %and.i.i.i = shl i64 %0, 4
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %and.i.i.i
   %shr.i.i.i = ashr i64 %and.i.i.i, 6
-  %cmp48.i.i.i = icmp sgt i64 %shr.i.i.i, 0
-  br i1 %cmp48.i.i.i, label %for.body.lr.ph.i.i.i, label %for.end.i.i.i
+  %cmp48.i.i.i.not = icmp sgt i64 %shr.i.i.i, 0
+  br i1 %cmp48.i.i.i.not, label %for.body.lr.ph.i.i.i, label %for.end.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %entry
   %2 = load ptr, ptr %observer, align 8
@@ -32574,13 +32574,13 @@ if.end3.i.i.i:                                    ; preds = %if.end.i.i.i
   %incdec.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 32
   %6 = load ptr, ptr %incdec.ptr4.i.i.i, align 8
   %cmp.i.i27.i.i.i = icmp eq ptr %6, %2
-  br i1 %cmp.i.i27.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32, label %if.end7.i.i.i
+  br i1 %cmp.i.i27.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit33, label %if.end7.i.i.i
 
 if.end7.i.i.i:                                    ; preds = %if.end3.i.i.i
   %incdec.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 48
   %7 = load ptr, ptr %incdec.ptr8.i.i.i, align 8
   %cmp.i.i28.i.i.i = icmp eq ptr %7, %2
-  br i1 %cmp.i.i28.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit34, label %if.end11.i.i.i
+  br i1 %cmp.i.i28.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit35, label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   %incdec.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 64
@@ -32589,11 +32589,11 @@ if.end11.i.i.i:                                   ; preds = %if.end7.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %for.end.loopexit.i.i.i, !llvm.loop !227
 
 for.end.loopexit.i.i.i:                           ; preds = %if.end11.i.i.i
-  %gepdiff = and i64 %and.i.i.i, 48
+  %8 = and i64 %and.i.i.i, 48
   br label %for.end.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.end.loopexit.i.i.i, %entry
-  %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %gepdiff, %for.end.loopexit.i.i.i ], [ %and.i.i.i, %entry ]
+  %sub.ptr.sub15.pre-phi.i.i.i = phi i64 [ %8, %for.end.loopexit.i.i.i ], [ %and.i.i.i, %entry ]
   %__first.addr.0.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %for.end.loopexit.i.i.i ], [ %cond.i.i, %entry ]
   %sub.ptr.div16.i.i.i = ashr exact i64 %sub.ptr.sub15.pre-phi.i.i.i, 4
   switch i64 %sub.ptr.div16.i.i.i, label %return [
@@ -32611,9 +32611,9 @@ for.end.sw.bb21_crit_edge.i.i.i:                  ; preds = %for.end.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
-  %8 = load ptr, ptr %__first.addr.0.lcssa.i.i.i, align 8
-  %9 = load ptr, ptr %observer, align 8
-  %cmp.i.i29.i.i.i = icmp eq ptr %8, %9
+  %9 = load ptr, ptr %__first.addr.0.lcssa.i.i.i, align 8
+  %10 = load ptr, ptr %observer, align 8
+  %cmp.i.i29.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i29.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end19.i.i.i
 
 if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
@@ -32621,10 +32621,10 @@ if.end19.i.i.i:                                   ; preds = %sw.bb.i.i.i
   br label %sw.bb21.i.i.i
 
 sw.bb21.i.i.i:                                    ; preds = %if.end19.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i
-  %10 = phi ptr [ %9, %if.end19.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
+  %11 = phi ptr [ %10, %if.end19.i.i.i ], [ %.pre.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
   %__first.addr.1.i.i.i = phi ptr [ %incdec.ptr20.i.i.i, %if.end19.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb21_crit_edge.i.i.i ]
-  %11 = load ptr, ptr %__first.addr.1.i.i.i, align 8
-  %cmp.i.i30.i.i.i = icmp eq ptr %11, %10
+  %12 = load ptr, ptr %__first.addr.1.i.i.i, align 8
+  %cmp.i.i30.i.i.i = icmp eq ptr %12, %11
   br i1 %cmp.i.i30.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %if.end24.i.i.i
 
 if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
@@ -32632,39 +32632,39 @@ if.end24.i.i.i:                                   ; preds = %sw.bb21.i.i.i
   br label %sw.bb26.i.i.i
 
 sw.bb26.i.i.i:                                    ; preds = %if.end24.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i
-  %12 = phi ptr [ %10, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
+  %13 = phi ptr [ %11, %if.end24.i.i.i ], [ %.pre55.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
   %__first.addr.2.i.i.i = phi ptr [ %incdec.ptr25.i.i.i, %if.end24.i.i.i ], [ %__first.addr.0.lcssa.i.i.i, %for.end.sw.bb26_crit_edge.i.i.i ]
-  %13 = load ptr, ptr %__first.addr.2.i.i.i, align 8
-  %cmp.i.i31.i.i.i = icmp eq ptr %13, %12
+  %14 = load ptr, ptr %__first.addr.2.i.i.i, align 8
+  %cmp.i.i31.i.i.i = icmp eq ptr %14, %13
   br i1 %cmp.i.i31.i.i.i, label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit, label %return
 
 _ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit: ; preds = %if.end.i.i.i
   %incdec.ptr.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 16
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32: ; preds = %if.end3.i.i.i
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit33: ; preds = %if.end3.i.i.i
   %incdec.ptr4.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 32
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit34: ; preds = %if.end7.i.i.i
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit35: ; preds = %if.end7.i.i.i
   %incdec.ptr8.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.addr.049.i.i.i, i64 48
   br label %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
 
-_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit: ; preds = %for.body.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit34, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i
+_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit: ; preds = %for.body.i.i.i, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit33, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit35, %sw.bb.i.i.i, %sw.bb21.i.i.i, %sw.bb26.i.i.i
   %retval.0.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.addr.1.i.i.i, %sw.bb21.i.i.i ], [ %__first.addr.2.i.i.i, %sw.bb26.i.i.i ], [ %incdec.ptr.i.i.i.le, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr4.i.i.i.le, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit32 ], [ %incdec.ptr8.i.i.i.le, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit.loopexit.split.loop.exit34 ], [ %__first.addr.049.i.i.i, %for.body.i.i.i ]
   %cmp.not = icmp eq ptr %retval.0.i.i.i, %add.ptr.i
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
   %iterating_ = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %14 = load i8, ptr %iterating_, align 8
-  %tobool = trunc i8 %14 to i1
+  %15 = load i8, ptr %iterating_, align 8
+  %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
   %hasValue.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %15 = load i8, ptr %hasValue.i, align 8
-  %tobool.i = trunc i8 %15 to i1
+  %16 = load i8, ptr %hasValue.i, align 8
+  %tobool.i = trunc i8 %16 to i1
   br i1 %tobool.i, label %_ZNR5folly8OptionalINS_26ObserverContainerStoreBaseINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEE26InvokeWhileIteratingPolicyEE5valueEv.exit, label %cond.false
 
 cond.false:                                       ; preds = %if.then7
@@ -32681,15 +32681,15 @@ cleanup.action:                                   ; preds = %invoke.cont
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %cond.false
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp9) #42
   unreachable
 
 _ZNR5folly8OptionalINS_26ObserverContainerStoreBaseINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEE26InvokeWhileIteratingPolicyEE5valueEv.exit: ; preds = %if.then7
   %maybeCurrentIterationPolicy_ = getelementptr inbounds nuw i8, ptr %this, i64 52
-  %17 = load i32, ptr %maybeCurrentIterationPolicy_, align 4
-  %cond = icmp eq i32 %17, 2
+  %18 = load i32, ptr %maybeCurrentIterationPolicy_, align 4
+  %cond = icmp eq i32 %18, 2
   br i1 %cond, label %sw.bb19, label %sw.epilog
 
 sw.bb19:                                          ; preds = %_ZNR5folly8OptionalINS_26ObserverContainerStoreBaseINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEE26InvokeWhileIteratingPolicyEE5valueEv.exit
@@ -32699,77 +32699,77 @@ sw.bb19:                                          ; preds = %_ZNR5folly8Optional
 sw.epilog:                                        ; preds = %_ZNR5folly8OptionalINS_26ObserverContainerStoreBaseINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEE26InvokeWhileIteratingPolicyEE5valueEv.exit
   store ptr null, ptr %retval.0.i.i.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
-  %18 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %19 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr null, ptr %_M_refcount3.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %18, null
+  %cmp.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.epilog
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %19 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
-  %cmp.i.i.i.i.i11 = icmp eq i64 %19, 4294967297
-  %20 = trunc i64 %19 to i32
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %20 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
+  %cmp.i.i.i.i.i11 = icmp eq i64 %20, 4294967297
+  %21 = trunc i64 %20 to i32
   br i1 %cmp.i.i.i.i.i11, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %18, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
-  %21 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #41
+  %22 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %19) #41
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  %22 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i = icmp eq i8 %22, 0
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %add.i.i.i.i.i.i = add nsw i32 %20, -1
+  %add.i.i.i.i.i.i = add nsw i32 %21, -1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %24 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i = phi i32 [ %20, %if.then.i.i.i.i.i.i ], [ %23, %if.else.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i = phi i32 [ %21, %if.then.i.i.i.i.i.i ], [ %24, %if.else.i.i.i.i.i.i ]
   %cmp6.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i, 1
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
-  %24 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %18) #41
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %25 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %25, 0
+  %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %19) #41
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %26 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i.i = add nsw i32 %26, -1
+  %27 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
+  %add.i.i.i.i.i.i.i.i = add nsw i32 %27, -1
   store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i
-  %27 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
+  %28 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %26, %if.then.i.i.i.i.i.i.i.i ], [ %27, %if.else.i.i.i.i.i.i.i.i ]
+  %retval.i.0.i.i.i.i.i.i.i = phi i32 [ %27, %if.then.i.i.i.i.i.i.i.i ], [ %28, %if.else.i.i.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %18, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
-  %28 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #41
+  %29 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %19) #41
   br label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit
 
 _ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %sw.epilog
@@ -32781,7 +32781,7 @@ if.else:                                          ; preds = %if.end
   %call24 = tail call noundef ptr @_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEELm2EvE5eraseEPKSB_(ptr noundef nonnull align 8 dereferenceable(40) %observers_, ptr noundef nonnull %retval.0.i.i.i)
   br label %return
 
-return:                                           ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, %if.else, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
+for.end.i.i.i.unreachabledefault:                 ; preds = %sw.bb26.i.i.i, %for.end.i.i.i, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit, %if.else, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit
   %cmp19 = phi i1 [ true, %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEED2Ev.exit ], [ true, %if.else ], [ false, %_ZSt4findIPSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS1_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEESB_ET_SD_SD_RKT0_.exit ], [ false, %for.end.i.i.i ], [ false, %sw.bb26.i.i.i ]
   ret i1 %cmp19
 }

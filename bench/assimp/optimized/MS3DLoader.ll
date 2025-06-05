@@ -1292,45 +1292,45 @@ define hidden void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0
   store ptr %22, ptr %12, align 8
   store ptr %21, ptr %4, align 8
   store i32 0, ptr %9, align 8
-  %23 = sdiv i64 %16, 11264
-  %24 = getelementptr inbounds i64, ptr %21, i64 %23
-  %25 = and i64 %17, -9223372036854775745
-  %26 = icmp ugt i64 %25, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i = select i1 %26, i64 -8, i64 0
-  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 %storemerge.idx.i.i.i.i.i
-  %27 = trunc i64 %17 to i32
-  %28 = and i32 %27, 63
+  %24 = sdiv i64 %16, 11264
+  %25 = getelementptr inbounds i64, ptr %21, i64 %24
+  %26 = and i64 %17, -9223372036854775745
+  %27 = icmp ugt i64 %26, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i = select i1 %27, i64 -8, i64 0
+  %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 %storemerge.idx.i.i.i.i.i
+  %28 = trunc i64 %17 to i32
+  %29 = and i32 %28, 63
   store ptr %storemerge.i.i.i.i.i, ptr %10, align 8
-  store i32 %28, ptr %11, align 8
+  store i32 %29, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 0, i64 %20, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %13, %3
-  %29 = phi ptr [ null, %3 ], [ %22, %13 ]
-  %30 = phi ptr [ null, %3 ], [ %21, %13 ]
+  %30 = phi ptr [ null, %3 ], [ %22, %13 ]
+  %31 = phi ptr [ null, %3 ], [ %21, %13 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #26
   store float 1.000000e+00, ptr %5, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %36, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %37, align 4
   invoke void @_ZN6Assimp12MS3DImporter18CollectChildJointsERKSt6vectorINS0_9TempJointESaIS2_EERS1_IbSaIbEEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(64) %5)
-          to label %37 unwind label %45
+          to label %37 unwind label %46
 
-37:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
+38:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #26
-  %.not.i.i7 = icmp eq ptr %30, null
-  br i1 %.not.i.i7, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %38
+  %.not.i.i7 = icmp eq ptr %31, null
+  br i1 %.not.i.i7, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %39
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   %39 = ptrtoint ptr %29 to i64
   %40 = ptrtoint ptr %30 to i64
   %41 = sub i64 %39, %40
@@ -1340,18 +1340,18 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %13, %3
   tail call void @_ZdlPvm(ptr noundef %44, i64 noundef %41) #30
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
-_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %37, %38
+_ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %38, %39
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #26
   ret void
 
-45:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #26
-  %.not.i.i8 = icmp eq ptr %30, null
-  br i1 %.not.i.i8, label %.body, label %47
+  %.not.i.i8 = icmp eq ptr %31, null
+  br i1 %.not.i.i8, label %.body, label %48
 
-47:                                               ; preds = %45
+48:                                               ; preds = %46
   %48 = ptrtoint ptr %29 to i64
   %49 = ptrtoint ptr %30 to i64
   %50 = sub i64 %48, %49
@@ -1361,9 +1361,9 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %37, %38
   tail call void @_ZdlPvm(ptr noundef %53, i64 noundef %50) #30
   br label %.body
 
-.body:                                            ; preds = %47, %45
+.body:                                            ; preds = %48, %46
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #26
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %47
 }
 
 ; Function Attrs: mustprogress uwtable

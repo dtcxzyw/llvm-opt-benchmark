@@ -10740,7 +10740,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit: ; pred
   %26 = phi ptr [ %21, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %24, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   %27 = phi ptr [ %20, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %23, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   %28 = phi ptr [ %19, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %22, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
-  %.sroa.0.0.i18 = phi i64 [ %.sroa.0.0.i.ph, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %15, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
+  %.sroa.0.0.i17 = phi i64 [ %.sroa.0.0.i.ph, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %15, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   %29 = phi i64 [ %5, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit.thread ], [ %.pre, %_ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit ]
   br label %.lr.ph.i
 
@@ -10752,7 +10752,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17h5563e35e04982509E.exit: ; pred
   %32 = load ptr, ptr %30, align 8, !alias.scope !2116, !noalias !2119, !nonnull !9, !noundef !9
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8, !range !2106, !noalias !2123, !noundef !9
-  %.not.i.i = icmp eq i64 %34, %.sroa.0.0.i18
+  %.not.i.i = icmp eq i64 %34, %.sroa.0.0.i17
   br i1 %.not.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17hfe31795ae3554d07E.exit.i", label %35
 
 35:                                               ; preds = %.lr.ph.i

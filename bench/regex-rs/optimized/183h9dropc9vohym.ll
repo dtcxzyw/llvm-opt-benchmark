@@ -9144,11 +9144,11 @@ define hidden void @_ZN14regex_automata3nfa8thompson8compiler12Utf8Compiler3add1
   store i8 %39, ptr %.sroa.4.0..sroa_idx.i, align 1, !noalias !1848
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 26
   store i8 %41, ptr %.sroa.52.0..sroa_idx.i, align 2, !noalias !1848
-  %.idx.i19 = shl i64 %29, 1
-  %42 = getelementptr i8, ptr %30, i64 %.idx.i19
+  %.idx.i = shl i64 %29, 1
+  %42 = getelementptr i8, ptr %30, i64 %.idx.i
   %43 = icmp ne ptr %42, null
   tail call void @llvm.assume(i1 %43)
-  %44 = icmp eq i64 %.idx.i19, 2
+  %44 = icmp eq i64 %.idx.i, 2
   br i1 %44, label %_ZN14regex_automata3nfa8thompson8compiler12Utf8Compiler10add_suffix17h67b9e49571593884E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hd4ba02f9d4026273E.exit.i"

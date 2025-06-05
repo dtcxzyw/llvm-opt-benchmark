@@ -1256,7 +1256,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not11 = icmp eq i64 %.sroa.04.0.i, %16
-  br i1 %.not11, label %18, label %39
+  br i1 %.not11, label %18, label %38
 
 17:                                               ; preds = %3
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.e454849c71ff0ccf6bad19ade5623ee4.25, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e454849c71ff0ccf6bad19ade5623ee4.27) #17
@@ -1301,26 +1301,26 @@ _ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit: ; preds = %
   br i1 %.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit, %.lr.ph.i
-  %.sroa.0.018.i = phi double [ %37, %.lr.ph.i ], [ 1.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
-  %.sroa.03.017.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
-  %32 = add nuw nsw i64 %.sroa.03.017.i, 1
-  %33 = getelementptr inbounds nuw double, ptr %30, i64 %.sroa.03.017.i
-  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.03.017.i
-  %.val15.i = load double, ptr %33, align 8, !noalias !137, !noundef !4
-  %.val16.i = load i64, ptr %34, align 8, !noalias !137, !noundef !4
-  %35 = uitofp i64 %.val16.i to double
-  %36 = call double @llvm.pow.f64(double %.val15.i, double %35)
-  %37 = fmul double %.sroa.0.018.i, %36
-  %exitcond.not.i = icmp eq i64 %32, %31
+  %.sroa.0.018.i = phi double [ %36, %.lr.ph.i ], [ 1.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
+  %.sroa.03.017.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
+  %31 = add nuw nsw i64 %.sroa.03.017.i, 1
+  %32 = getelementptr inbounds nuw double, ptr %30, i64 %.sroa.03.017.i
+  %33 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.03.017.i
+  %.val15.i = load double, ptr %32, align 8, !noalias !137, !noundef !4
+  %.val16.i = load i64, ptr %33, align 8, !noalias !137, !noundef !4
+  %34 = uitofp i64 %.val16.i to double
+  %35 = call double @llvm.pow.f64(double %.val15.i, double %34)
+  %36 = fmul double %.sroa.0.018.i, %35
+  %exitcond.not.i = icmp eq i64 %31, %31
   br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit", label %.lr.ph.i
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit": ; preds = %.lr.ph.i, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit
-  %.sroa.0.0.lcssa.i = phi double [ 1.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ], [ %37, %.lr.ph.i ]
-  %38 = fmul double %28, %.sroa.0.0.lcssa.i
-  br label %39
+  %.sroa.0.0.lcssa.i = phi double [ 1.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ], [ %36, %.lr.ph.i ]
+  %37 = fmul double %28, %.sroa.0.0.lcssa.i
+  br label %38
 
-39:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit"
-  %.sroa.0.0 = phi double [ %38, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit" ], [ 0.000000e+00, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit" ]
+38:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit"
+  %.sroa.0.0 = phi double [ %37, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hce6ee49b5724c13aE.exit" ], [ 0.000000e+00, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit" ]
   ret double %.sroa.0.0
 }
 
@@ -1354,7 +1354,7 @@ define noundef double @"_ZN128_$LT$statrs..distribution..multinomial..Multinomia
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noundef !4
   %.not11 = icmp eq i64 %.sroa.04.0.i, %16
-  br i1 %.not11, label %18, label %41
+  br i1 %.not11, label %18, label %40
 
 17:                                               ; preds = %3
   tail call void @_ZN3std9panicking11begin_panic17h1e4a7cf559eb50c1E(ptr noalias noundef nonnull readonly align 1 @anon.e454849c71ff0ccf6bad19ade5623ee4.25, i64 noundef 39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e454849c71ff0ccf6bad19ade5623ee4.28) #17
@@ -1395,32 +1395,32 @@ _ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit: ; preds = %
   %29 = call noundef double @llvm.log.f64(double %28)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %32 = and i64 %2, 2305843009213693951
+  %31 = and i64 %2, 2305843009213693951
   %.not.i = icmp eq i64 %32, 0
   br i1 %.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit, %.lr.ph.i
-  %.sroa.0.018.i = phi double [ %39, %.lr.ph.i ], [ 0.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
-  %.sroa.03.017.i = phi i64 [ %33, %.lr.ph.i ], [ 0, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
-  %33 = add nuw nsw i64 %.sroa.03.017.i, 1
-  %34 = getelementptr inbounds nuw double, ptr %31, i64 %.sroa.03.017.i
-  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.03.017.i
-  %.val15.i = load double, ptr %34, align 8, !noalias !153, !noundef !4
-  %.val16.i = load i64, ptr %35, align 8, !noalias !153, !noundef !4
-  %36 = uitofp i64 %.val16.i to double
-  %37 = call noundef double @llvm.log.f64(double %.val15.i)
-  %38 = fmul double %37, %36
-  %39 = fadd double %.sroa.0.018.i, %38
-  %exitcond.not.i = icmp eq i64 %33, %32
+  %.sroa.0.018.i = phi double [ %38, %.lr.ph.i ], [ 0.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
+  %.sroa.03.017.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ]
+  %32 = add nuw nsw i64 %.sroa.03.017.i, 1
+  %33 = getelementptr inbounds nuw double, ptr %31, i64 %.sroa.03.017.i
+  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.03.017.i
+  %.val15.i = load double, ptr %33, align 8, !noalias !153, !noundef !4
+  %.val16.i = load i64, ptr %34, align 8, !noalias !153, !noundef !4
+  %35 = uitofp i64 %.val16.i to double
+  %36 = call noundef double @llvm.log.f64(double %.val15.i)
+  %37 = fmul double %36, %35
+  %38 = fadd double %.sroa.0.018.i, %37
+  %exitcond.not.i = icmp eq i64 %32, %32
   br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit", label %.lr.ph.i
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit": ; preds = %.lr.ph.i, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit
-  %.sroa.0.0.lcssa.i = phi double [ 0.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ], [ %39, %.lr.ph.i ]
-  %40 = fadd double %29, %.sroa.0.0.lcssa.i
-  br label %41
+  %.sroa.0.0.lcssa.i = phi double [ 0.000000e+00, %_ZN6statrs8function9factorial11multinomial17hf31164cf5f4b81f6E.exit ], [ %38, %.lr.ph.i ]
+  %39 = fadd double %29, %.sroa.0.0.lcssa.i
+  br label %40
 
-41:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit"
-  %.sroa.0.0 = phi double [ %40, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit" ], [ 0xFFF0000000000000, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit" ]
+40:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit"
+  %.sroa.0.0 = phi double [ %39, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h587648671d7b09fcE.exit" ], [ 0xFFF0000000000000, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bf429878914b819E.exit" ]
   ret double %.sroa.0.0
 }
 

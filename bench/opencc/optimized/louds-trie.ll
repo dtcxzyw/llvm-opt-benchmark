@@ -11387,20 +11387,20 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIPN6marisa8grimoire4trie13W
   %7 = icmp slt i64 %6, 240
   br i1 %7, label %8, label %31
 
-8:                                                ; preds = %2
-  %9 = icmp eq ptr %0, %1
-  br i1 %9, label %common.ret25, label %.preheader.i
+9:                                                ; preds = %2
+  %10 = icmp eq ptr %0, %1
+  br i1 %10, label %common.ret25, label %.preheader.i
 
-.preheader.i:                                     ; preds = %8
+.preheader.i:                                     ; preds = %9
   %.016.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not17.i = icmp eq ptr %.016.i, %1
   br i1 %.not17.i, label %common.ret25, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %11
 
-11:                                               ; preds = %30, %.lr.ph.i
+17:                                               ; preds = %31, %.lr.ph.i
   %.019.i = phi ptr [ %.016.i, %.lr.ph.i ], [ %.0.i, %30 ]
   %.pn18.i = phi ptr [ %0, %.lr.ph.i ], [ %.019.i, %30 ]
   %12 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 28
@@ -11412,52 +11412,52 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIPN6marisa8grimoire4trie13W
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %.019.i, i64 16, i1 false), !tbaa.struct !225
-  %17 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
-  %18 = ptrtoint ptr %.019.i to i64
-  %19 = sub i64 %18, %5
-  %20 = ashr exact i64 %19, 4
-  %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %17, i64 %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %19, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 32
+  %19 = ptrtoint ptr %.019.i to i64
+  %20 = sub i64 %19, %5
+  %21 = ashr exact i64 %20, 4
+  %22 = sub nsw i64 0, %21
+  %23 = getelementptr inbounds %"class.marisa::grimoire::trie::WeightedRange", ptr %18, i64 %22
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %23, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  br label %30
+  br label %31
 
-23:                                               ; preds = %11
+24:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.019.i, i64 12, i1 false), !tbaa.struct !225
-  %24 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 12
-  %25 = load float, ptr %24, align 4, !tbaa !237
-  %26 = fcmp ogt float %13, %25
-  br i1 %26, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i
+  %25 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 12
+  %26 = load float, ptr %25, align 4, !tbaa !237
+  %27 = fcmp ogt float %13, %26
+  br i1 %27, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i
 
-.lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
   %.0911.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.019.i, %23 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0911.i.i, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0.i.i, i64 16, i1 false), !tbaa.struct !225
-  %27 = getelementptr inbounds i8, ptr %.0911.i.i, i64 -20
-  %28 = load float, ptr %27, align 4, !tbaa !237
-  %29 = fcmp ogt float %13, %28
-  br i1 %29, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i, !llvm.loop !257
+  %28 = getelementptr inbounds i8, ptr %.0911.i.i, i64 -20
+  %29 = load float, ptr %28, align 4, !tbaa !237
+  %30 = fcmp ogt float %13, %29
+  br i1 %30, label %.lr.ph.i.i, label %_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i, !llvm.loop !257
 
-_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %23
+_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i: ; preds = %.lr.ph.i.i, %24
   %.09.lcssa.i.i = phi ptr [ %.019.i, %23 ], [ %.0.i.i, %.lr.ph.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i.i, i64 12, i1 false), !tbaa.struct !225
   %.sroa.4.0..09.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.09.lcssa.i.i, i64 12
   store float %13, ptr %.sroa.4.0..09.sroa_idx.i.i, align 4, !tbaa !226
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i.i)
-  br label %30
+  br label %31
 
-30:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i, %16
+31:                                               ; preds = %_ZSt25__unguarded_linear_insertIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops14_Val_comp_iterISt7greaterIS3_EEEEvT_T0_.exit.i, %16
   %.0.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %.not.i = icmp eq ptr %.0.i, %1
   br i1 %.not.i, label %common.ret25, label %11, !llvm.loop !258
 
-common.ret25:                                     ; preds = %.preheader.i, %8, %30, %31
+common.ret25:                                     ; preds = %.preheader.i, %9, %31, %32
   ret void
 
-31:                                               ; preds = %2
-  %32 = lshr exact i64 %6, 1
+32:                                               ; preds = %2
+  %33 = lshr exact i64 %6, 1
   %.idx = and i64 %32, 4611686018427387888
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   tail call void @_ZSt21__inplace_stable_sortIPN6marisa8grimoire4trie13WeightedRangeEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS3_EEEEvT_SB_T0_(ptr noundef %0, ptr noundef %33)
