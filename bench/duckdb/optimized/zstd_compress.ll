@@ -2220,27 +2220,20 @@ define void @_ZN11duckdb_zstd18ZSTD_adjustCParamsENS_26ZSTD_compressionParameter
   %.sroa.617.0.copyload = load i32, ptr %.sroa.617.0..sroa_idx, align 4, !tbaa !62
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !85
-  %4 = icmp slt i32 %.sroa.016.0.copyload, 10
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %.sroa.016.0.copyload, i32 31)
-  %.sroa.0.0 = select i1 %4, i32 10, i32 %spec.select
-  %5 = icmp slt i32 %.sroa.2.0.copyload, 6
-  %spec.select47 = tail call i32 @llvm.umin.i32(i32 %.sroa.2.0.copyload, i32 30)
-  %.sroa.6.0 = select i1 %5, i32 6, i32 %spec.select47
-  %6 = icmp slt i32 %.sroa.3.0.copyload, 6
-  %spec.select48 = tail call i32 @llvm.umin.i32(i32 %.sroa.3.0.copyload, i32 30)
-  %.sroa.8.0 = select i1 %6, i32 6, i32 %spec.select48
-  %7 = icmp slt i32 %.sroa.4.0.copyload, 1
-  %spec.select49 = tail call i32 @llvm.umin.i32(i32 %.sroa.4.0.copyload, i32 30)
-  %.sroa.10.0 = select i1 %7, i32 1, i32 %spec.select49
-  %8 = icmp slt i32 %.sroa.5.0.copyload, 3
-  %spec.select50 = tail call i32 @llvm.umin.i32(i32 %.sroa.5.0.copyload, i32 7)
-  %.sroa.12.0 = select i1 %8, i32 3, i32 %spec.select50
-  %9 = icmp slt i32 %.sroa.617.0.copyload, 0
-  %spec.select51 = tail call i32 @llvm.umin.i32(i32 %.sroa.617.0.copyload, i32 131072)
-  %.sroa.14.0 = select i1 %9, i32 0, i32 %spec.select51
-  %10 = icmp slt i32 %.sroa.7.0.copyload, 1
-  %spec.select52 = tail call i32 @llvm.umin.i32(i32 %.sroa.7.0.copyload, i32 9)
-  %.sroa.16.0 = select i1 %10, i32 1, i32 %spec.select52
+  %4 = tail call i32 @llvm.smax.i32(i32 %.sroa.016.0.copyload, i32 10)
+  %.sroa.0.0 = tail call i32 @llvm.umin.i32(i32 %4, i32 31)
+  %5 = tail call i32 @llvm.smax.i32(i32 %.sroa.2.0.copyload, i32 6)
+  %.sroa.6.0 = tail call i32 @llvm.umin.i32(i32 %5, i32 30)
+  %6 = tail call i32 @llvm.smax.i32(i32 %.sroa.3.0.copyload, i32 6)
+  %.sroa.8.0 = tail call i32 @llvm.umin.i32(i32 %6, i32 30)
+  %7 = tail call i32 @llvm.smax.i32(i32 %.sroa.4.0.copyload, i32 1)
+  %.sroa.10.0 = tail call i32 @llvm.umin.i32(i32 %7, i32 30)
+  %8 = tail call i32 @llvm.smax.i32(i32 %.sroa.5.0.copyload, i32 3)
+  %.sroa.12.0 = tail call i32 @llvm.umin.i32(i32 %8, i32 7)
+  %9 = tail call i32 @llvm.smax.i32(i32 %.sroa.617.0.copyload, i32 0)
+  %.sroa.14.0 = tail call i32 @llvm.umin.i32(i32 %9, i32 131072)
+  %10 = tail call i32 @llvm.smax.i32(i32 %.sroa.7.0.copyload, i32 1)
+  %.sroa.16.0 = tail call i32 @llvm.umin.i32(i32 %10, i32 9)
   store i32 %.sroa.12.0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !62
   store i32 %.sroa.14.0, ptr %.sroa.617.0..sroa_idx, align 4, !tbaa !62
   %11 = icmp eq i64 %2, 0
@@ -2292,7 +2285,7 @@ define void @_ZN11duckdb_zstd18ZSTD_adjustCParamsENS_26ZSTD_compressionParameter
 
 _ZN11duckdb_zstdL21ZSTD_dictAndWindowLogEjmm.exit.i: ; preds = %33, %31, %26, %.thread.i
   %.0.i.i = phi i32 [ %24, %.thread.i ], [ %37, %33 ], [ %24, %26 ], [ 31, %31 ]
-  %38 = icmp samesign ugt i32 %.sroa.16.0, 5
+  %38 = icmp sgt i32 %.sroa.7.0.copyload, 5
   %.neg.i.i = sext i1 %38 to i32
   %39 = add nsw i32 %.sroa.6.0, %.neg.i.i
   %40 = add nuw nsw i32 %.0.i.i, 1
@@ -3038,84 +3031,84 @@ define noundef i64 @_ZN11duckdb_zstd21ZSTD_estimateCCtxSizeEi(i32 noundef %0) lo
   br label %4
 
 4:                                                ; preds = %1, %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit
-  %.014 = phi i32 [ %3, %1 ], [ %42, %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit ]
+  %.014 = phi i32 [ %3, %1 ], [ %43, %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit ]
   %.01013 = phi i64 [ 0, %1 ], [ %spec.select, %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2)
   %5 = icmp eq i32 %.014, 0
   %6 = icmp slt i32 %.014, 0
   %spec.select41.i = tail call i32 @llvm.umax.i32(i32 %.014, i32 -131072)
   %7 = sub nsw i32 0, %spec.select41.i
-  %narrow.i = tail call i32 @llvm.umin.i32(i32 %.014, i32 22)
-  %narrow = select i1 %6, i32 0, i32 %narrow.i
+  %8 = tail call i32 @llvm.smax.i32(i32 %.014, i32 0)
+  %narrow = tail call i32 @llvm.umin.i32(i32 %8, i32 22)
   %narrow16 = select i1 %5, i32 3, i32 %narrow
   %.0.i = zext nneg i32 %narrow16 to i64
   br label %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i
 
-_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i: ; preds = %40, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %40 ]
-  %.09.i = phi i64 [ 0, %4 ], [ %41, %40 ]
-  %8 = getelementptr inbounds nuw [4 x i64], ptr @_ZZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEiE12srcSizeTiers, i64 0, i64 %indvars.iv.i
-  %9 = load i64, ptr %8, align 8, !tbaa !153
+_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i: ; preds = %41, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %41 ]
+  %.09.i = phi i64 [ 0, %4 ], [ %42, %41 ]
+  %9 = getelementptr inbounds nuw [4 x i64], ptr @_ZZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEiE12srcSizeTiers, i64 0, i64 %indvars.iv.i
+  %10 = load i64, ptr %9, align 8, !tbaa !153
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  %10 = icmp ne i64 %indvars.iv.i, 3
-  %11 = zext i1 %10 to i64
-  %12 = icmp samesign ult i64 %indvars.iv.i, 2
-  %13 = zext i1 %12 to i64
-  %14 = add nuw nsw i64 %11, %13
-  %15 = icmp eq i64 %indvars.iv.i, 0
-  %16 = zext i1 %15 to i64
-  %17 = add nuw nsw i64 %14, %16
-  %18 = getelementptr inbounds nuw [4 x [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"]], ptr @_ZN11duckdb_zstdL23ZSTD_defaultCParametersE, i64 0, i64 %17, i64 %.0.i
-  %.sroa.0.sroa.0.0.copyload.i = load i32, ptr %18, align 4, !tbaa !62, !noalias !154
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %11 = icmp ne i64 %indvars.iv.i, 3
+  %12 = zext i1 %11 to i64
+  %13 = icmp samesign ult i64 %indvars.iv.i, 2
+  %14 = zext i1 %13 to i64
+  %15 = add nuw nsw i64 %12, %14
+  %16 = icmp eq i64 %indvars.iv.i, 0
+  %17 = zext i1 %16 to i64
+  %18 = add nuw nsw i64 %15, %17
+  %19 = getelementptr inbounds nuw [4 x [23 x %"struct.duckdb_zstd::ZSTD_compressionParameters"]], ptr @_ZN11duckdb_zstdL23ZSTD_defaultCParametersE, i64 0, i64 %18, i64 %.0.i
+  %.sroa.0.sroa.0.0.copyload.i = load i32, ptr %19, align 4, !tbaa !62, !noalias !154
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.0.sroa.4.0.copyload.i = load i32, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 4, !tbaa !62, !noalias !154
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0.sroa.5.0.copyload.i = load i32, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 4, !tbaa !62, !noalias !154
-  %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.sroa.0.sroa.6.0.copyload.i = load i32, ptr %.sroa.0.sroa.6.0..sroa_idx.i, align 4, !tbaa !62, !noalias !154
-  %.sroa.0.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.0.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.0.sroa.7.0.copyload.i = load i32, ptr %.sroa.0.sroa.7.0..sroa_idx.i, align 4, !tbaa !62, !noalias !154
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 20
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !62, !noalias !154
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 24
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !85, !noalias !154
   %.not12 = icmp eq i64 %indvars.iv.i, 3
-  br i1 %.not12, label %28, label %.thread.i.i
+  br i1 %.not12, label %29, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i
-  %19 = trunc nuw nsw i64 %9 to i32
-  %20 = add nsw i32 %19, -1
-  %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %22 = sub nuw nsw i32 32, %21
-  %spec.store.select40.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 %22)
-  %23 = icmp ugt i32 %.sroa.5.0.copyload.i, 5
-  %.neg.i.i.i = sext i1 %23 to i32
-  %24 = add i32 %.sroa.0.sroa.4.0.copyload.i, %.neg.i.i.i
-  %25 = add nuw nsw i32 %spec.store.select40.i.i, 1
-  %spec.store.select41.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.5.0.copyload.i, i32 %25)
-  %26 = icmp ugt i32 %24, %spec.store.select40.i.i
-  %27 = sub nsw i32 %spec.store.select40.i.i, %.neg.i.i.i
-  %spec.select42.i = select i1 %26, i32 %27, i32 %.sroa.0.sroa.4.0.copyload.i
-  br label %28
+  %20 = trunc nuw nsw i64 %10 to i32
+  %21 = add nsw i32 %20, -1
+  %22 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %21, i1 true)
+  %23 = sub nuw nsw i32 32, %22
+  %spec.store.select40.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.0.0.copyload.i, i32 %23)
+  %24 = icmp ugt i32 %.sroa.5.0.copyload.i, 5
+  %.neg.i.i.i = sext i1 %24 to i32
+  %25 = add i32 %.sroa.0.sroa.4.0.copyload.i, %.neg.i.i.i
+  %26 = add nuw nsw i32 %spec.store.select40.i.i, 1
+  %spec.store.select41.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.0.sroa.5.0.copyload.i, i32 %26)
+  %27 = icmp ugt i32 %25, %spec.store.select40.i.i
+  %28 = sub nsw i32 %spec.store.select40.i.i, %.neg.i.i.i
+  %spec.select42.i = select i1 %27, i32 %28, i32 %.sroa.0.sroa.4.0.copyload.i
+  br label %29
 
-28:                                               ; preds = %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i, %.thread.i.i
+29:                                               ; preds = %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i, %.thread.i.i
   %.sroa.7.0.i = phi i32 [ %spec.select42.i, %.thread.i.i ], [ %.sroa.0.sroa.4.0.copyload.i, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i ]
   %.sroa.11.0.i = phi i32 [ %spec.store.select41.i.i, %.thread.i.i ], [ %.sroa.0.sroa.5.0.copyload.i, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i ]
-  %29 = phi i32 [ %spec.store.select40.i.i, %.thread.i.i ], [ %.sroa.0.sroa.0.0.copyload.i, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i ]
-  %30 = add i32 %.sroa.5.0.copyload.i, -6
-  %31 = icmp ult i32 %30, -3
-  br i1 %31, label %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit, label %32
+  %30 = phi i32 [ %spec.store.select40.i.i, %.thread.i.i ], [ %.sroa.0.sroa.0.0.copyload.i, %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i ]
+  %31 = add i32 %.sroa.5.0.copyload.i, -6
+  %32 = icmp ult i32 %31, -3
+  br i1 %32, label %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit, label %33
 
-32:                                               ; preds = %28
-  %33 = tail call i32 @llvm.umax.i32(i32 %.sroa.0.sroa.6.0.copyload.i, i32 4)
-  %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 6)
-  %35 = or disjoint i32 %34, 24
-  %spec.store.select44.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.11.0.i, i32 %35)
+33:                                               ; preds = %29
+  %34 = tail call i32 @llvm.umax.i32(i32 %.sroa.0.sroa.6.0.copyload.i, i32 4)
+  %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 6)
+  %36 = or disjoint i32 %35, 24
+  %spec.store.select44.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.11.0.i, i32 %36)
   br label %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit
 
-_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit: ; preds = %28, %32
-  %.sroa.11.2.i = phi i32 [ %.sroa.11.0.i, %28 ], [ %spec.store.select44.i.i, %32 ]
-  %spec.store.select42.i.i = tail call i32 @llvm.umax.i32(i32 %29, i32 10)
+_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit: ; preds = %29, %33
+  %.sroa.11.2.i = phi i32 [ %.sroa.11.0.i, %29 ], [ %spec.store.select44.i.i, %33 ]
+  %spec.store.select42.i.i = tail call i32 @llvm.umax.i32(i32 %30, i32 10)
   %.sroa.4.0.i = select i1 %6, i32 %7, i32 %.sroa.4.0.copyload.i
   store i32 %spec.store.select42.i.i, ptr %2, align 8, !tbaa !62, !alias.scope !154
   store i32 %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !62, !alias.scope !154
@@ -3124,28 +3117,28 @@ _ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit: ; p
   store i32 %.sroa.0.sroa.7.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 8, !tbaa !62, !alias.scope !154
   store i32 %.sroa.4.0.i, ptr %.sroa.1835.0..sroa_idx.i, align 4, !tbaa !62, !alias.scope !154
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.19.0..sroa_idx.i, align 8, !tbaa !85, !alias.scope !154
-  %36 = tail call noundef i64 @_ZN11duckdb_zstd34ZSTD_estimateCCtxSize_usingCParamsENS_26ZSTD_compressionParametersE(ptr noundef nonnull byval(%"struct.duckdb_zstd::ZSTD_compressionParameters") align 8 %2)
-  %37 = icmp ugt i64 %36, %.09.i
-  br i1 %37, label %38, label %40
+  %37 = tail call noundef i64 @_ZN11duckdb_zstd34ZSTD_estimateCCtxSize_usingCParamsENS_26ZSTD_compressionParametersE(ptr noundef nonnull byval(%"struct.duckdb_zstd::ZSTD_compressionParameters") align 8 %2)
+  %38 = icmp ugt i64 %37, %.09.i
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit
-  %39 = tail call noundef i64 @_ZN11duckdb_zstd34ZSTD_estimateCCtxSize_usingCParamsENS_26ZSTD_compressionParametersE(ptr noundef nonnull byval(%"struct.duckdb_zstd::ZSTD_compressionParameters") align 8 %2)
-  br label %40
+39:                                               ; preds = %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit
+  %40 = tail call noundef i64 @_ZN11duckdb_zstd34ZSTD_estimateCCtxSize_usingCParamsENS_26ZSTD_compressionParametersE(ptr noundef nonnull byval(%"struct.duckdb_zstd::ZSTD_compressionParameters") align 8 %2)
+  br label %41
 
-40:                                               ; preds = %38, %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit
-  %41 = phi i64 [ %39, %38 ], [ %.09.i, %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit ]
+41:                                               ; preds = %39, %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit
+  %42 = phi i64 [ %40, %39 ], [ %.09.i, %_ZN11duckdb_zstdL24ZSTD_getCParams_internalEiymNS_17ZSTD_cParamMode_eE.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit, label %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i, !llvm.loop !157
 
-_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit: ; preds = %40
+_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit: ; preds = %41
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %41, i64 %.01013)
-  %42 = add i32 %.014, 1
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %42, i64 %.01013)
+  %43 = add i32 %.014, 1
   %exitcond.not = icmp eq i32 %.014, %0
-  br i1 %exitcond.not, label %43, label %4, !llvm.loop !159
+  br i1 %exitcond.not, label %44, label %4, !llvm.loop !159
 
-43:                                               ; preds = %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit
+44:                                               ; preds = %_ZN11duckdb_zstdL30ZSTD_estimateCCtxSize_internalEi.exit
   ret i64 %spec.select
 }
 

@@ -41,9 +41,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @av1_highbd_iwht4x4_16_add_c(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
-  br label %104
+  br label %96
 
-.preheader:                                       ; preds = %104
+.preheader:                                       ; preds = %96
   %6 = ptrtoint ptr %1 to i64
   %7 = shl i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
@@ -58,9 +58,9 @@ define hidden void @av1_highbd_iwht4x4_16_add_c(ptr noundef readonly captures(no
   ]
 
 highbd_clip_pixel_add.exit.thread.us:             ; preds = %.preheader, %highbd_clip_pixel_add.exit.thread.us
-  %.0120.us = phi ptr [ %57, %highbd_clip_pixel_add.exit.thread.us ], [ %8, %.preheader ]
-  %.1119.us = phi ptr [ %56, %highbd_clip_pixel_add.exit.thread.us ], [ %5, %.preheader ]
-  %.188118.us = phi i32 [ %58, %highbd_clip_pixel_add.exit.thread.us ], [ 0, %.preheader ]
+  %.0120.us = phi ptr [ %53, %highbd_clip_pixel_add.exit.thread.us ], [ %8, %.preheader ]
+  %.1119.us = phi ptr [ %52, %highbd_clip_pixel_add.exit.thread.us ], [ %5, %.preheader ]
+  %.188118.us = phi i32 [ %54, %highbd_clip_pixel_add.exit.thread.us ], [ 0, %.preheader ]
   %14 = load i32, ptr %.1119.us, align 4
   %15 = getelementptr inbounds nuw i8, ptr %.1119.us, i64 16
   %16 = load i32, ptr %15, align 4
@@ -74,204 +74,192 @@ highbd_clip_pixel_add.exit.thread.us:             ; preds = %.preheader, %highbd
   %24 = ashr i32 %23, 1
   %25 = sub nsw i32 %24, %20
   %26 = sub nsw i32 %24, %16
-  %27 = sub nsw i32 %21, %25
-  %28 = add nsw i32 %26, %22
-  %29 = load i16, ptr %.0120.us, align 2
-  %30 = zext i16 %29 to i32
-  %31 = add nsw i32 %27, %30
-  %32 = tail call i32 @llvm.umin.i32(i32 %31, i32 4095)
-  %33 = icmp slt i32 %31, 0
-  %34 = trunc nuw nsw i32 %32 to i16
-  %.0.i.i99.us = select i1 %33, i16 0, i16 %34
+  %27 = add nsw i32 %26, %22
+  %28 = load i16, ptr %.0120.us, align 2
+  %29 = zext i16 %28 to i32
+  %30 = add i32 %21, %29
+  %31 = sub i32 %30, %25
+  %32 = tail call i32 @llvm.smax.i32(i32 %31, i32 0)
+  %33 = tail call i32 @llvm.umin.i32(i32 %32, i32 4095)
+  %.0.i.i99.us = trunc nuw nsw i32 %33 to i16
   store i16 %.0.i.i99.us, ptr %.0120.us, align 2
-  %35 = getelementptr inbounds i16, ptr %.0120.us, i64 %9
-  %36 = load i16, ptr %35, align 2
-  %37 = zext i16 %36 to i32
-  %38 = add nsw i32 %25, %37
+  %34 = getelementptr inbounds i16, ptr %.0120.us, i64 %9
+  %35 = load i16, ptr %34, align 2
+  %36 = zext i16 %35 to i32
+  %37 = add nsw i32 %25, %36
+  %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 4095)
-  %40 = icmp slt i32 %38, 0
-  %41 = trunc nuw nsw i32 %39 to i16
-  %.0.i.i90104.us = select i1 %40, i16 0, i16 %41
-  store i16 %.0.i.i90104.us, ptr %35, align 2
-  %42 = getelementptr inbounds i16, ptr %.0120.us, i64 %11
-  %43 = load i16, ptr %42, align 2
-  %44 = zext i16 %43 to i32
-  %45 = add nsw i32 %26, %44
-  %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 4095)
-  %47 = icmp slt i32 %45, 0
-  %48 = trunc nuw nsw i32 %46 to i16
-  %.0.i.i93109.us = select i1 %47, i16 0, i16 %48
-  store i16 %.0.i.i93109.us, ptr %42, align 2
-  %49 = getelementptr inbounds i16, ptr %.0120.us, i64 %13
-  %50 = load i16, ptr %49, align 2
-  %51 = zext i16 %50 to i32
-  %52 = add nsw i32 %28, %51
-  %53 = tail call i32 @llvm.umin.i32(i32 %52, i32 4095)
-  %54 = icmp slt i32 %52, 0
-  %55 = trunc nuw nsw i32 %53 to i16
-  %.0.i.i96.us = select i1 %54, i16 0, i16 %55
-  store i16 %.0.i.i96.us, ptr %49, align 2
-  %56 = getelementptr inbounds nuw i8, ptr %.1119.us, i64 4
-  %57 = getelementptr inbounds nuw i8, ptr %.0120.us, i64 2
-  %58 = add nuw nsw i32 %.188118.us, 1
-  %exitcond131.not = icmp eq i32 %58, 4
-  br i1 %exitcond131.not, label %.split.us, label %highbd_clip_pixel_add.exit.thread.us, !llvm.loop !4
+  %.0.i.i90104.us = trunc nuw nsw i32 %39 to i16
+  store i16 %.0.i.i90104.us, ptr %34, align 2
+  %40 = getelementptr inbounds i16, ptr %.0120.us, i64 %11
+  %41 = load i16, ptr %40, align 2
+  %42 = zext i16 %41 to i32
+  %43 = add nsw i32 %26, %42
+  %44 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
+  %45 = tail call i32 @llvm.umin.i32(i32 %44, i32 4095)
+  %.0.i.i93109.us = trunc nuw nsw i32 %45 to i16
+  store i16 %.0.i.i93109.us, ptr %40, align 2
+  %46 = getelementptr inbounds i16, ptr %.0120.us, i64 %13
+  %47 = load i16, ptr %46, align 2
+  %48 = zext i16 %47 to i32
+  %49 = add nsw i32 %27, %48
+  %50 = tail call i32 @llvm.smax.i32(i32 %49, i32 0)
+  %51 = tail call i32 @llvm.umin.i32(i32 %50, i32 4095)
+  %.0.i.i96.us = trunc nuw nsw i32 %51 to i16
+  store i16 %.0.i.i96.us, ptr %46, align 2
+  %52 = getelementptr inbounds nuw i8, ptr %.1119.us, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.0120.us, i64 2
+  %54 = add nuw nsw i32 %.188118.us, 1
+  %exitcond132.not = icmp eq i32 %54, 4
+  br i1 %exitcond132.not, label %.split.us, label %highbd_clip_pixel_add.exit.thread.us, !llvm.loop !4
 
 highbd_clip_pixel_add.exit.thread100.us:          ; preds = %.preheader, %highbd_clip_pixel_add.exit.thread100.us
-  %.0120.us122 = phi ptr [ %102, %highbd_clip_pixel_add.exit.thread100.us ], [ %8, %.preheader ]
-  %.1119.us123 = phi ptr [ %101, %highbd_clip_pixel_add.exit.thread100.us ], [ %5, %.preheader ]
-  %.188118.us124 = phi i32 [ %103, %highbd_clip_pixel_add.exit.thread100.us ], [ 0, %.preheader ]
-  %59 = load i32, ptr %.1119.us123, align 4
-  %60 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 16
+  %.0120.us122 = phi ptr [ %94, %highbd_clip_pixel_add.exit.thread100.us ], [ %8, %.preheader ]
+  %.1119.us123 = phi ptr [ %93, %highbd_clip_pixel_add.exit.thread100.us ], [ %5, %.preheader ]
+  %.188118.us124 = phi i32 [ %95, %highbd_clip_pixel_add.exit.thread100.us ], [ 0, %.preheader ]
+  %55 = load i32, ptr %.1119.us123, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 16
+  %57 = load i32, ptr %56, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 32
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 48
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 32
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 48
-  %65 = load i32, ptr %64, align 4
-  %66 = add nsw i32 %61, %59
-  %67 = sub nsw i32 %63, %65
-  %68 = sub nsw i32 %66, %67
-  %69 = ashr i32 %68, 1
-  %70 = sub nsw i32 %69, %65
-  %71 = sub nsw i32 %69, %61
-  %72 = sub nsw i32 %66, %70
-  %73 = add nsw i32 %71, %67
-  %74 = load i16, ptr %.0120.us122, align 2
-  %75 = zext i16 %74 to i32
-  %76 = add nsw i32 %72, %75
-  %77 = tail call i32 @llvm.umin.i32(i32 %76, i32 1023)
-  %78 = icmp slt i32 %76, 0
-  %79 = trunc nuw nsw i32 %77 to i16
-  %.0.i.i102.us = select i1 %78, i16 0, i16 %79
+  %62 = add nsw i32 %57, %55
+  %63 = sub nsw i32 %59, %61
+  %64 = sub nsw i32 %62, %63
+  %65 = ashr i32 %64, 1
+  %66 = sub nsw i32 %65, %61
+  %67 = sub nsw i32 %65, %57
+  %68 = add nsw i32 %67, %63
+  %69 = load i16, ptr %.0120.us122, align 2
+  %70 = zext i16 %69 to i32
+  %71 = add i32 %62, %70
+  %72 = sub i32 %71, %66
+  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
+  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 1023)
+  %.0.i.i102.us = trunc nuw nsw i32 %74 to i16
   store i16 %.0.i.i102.us, ptr %.0120.us122, align 2
-  %80 = getelementptr inbounds i16, ptr %.0120.us122, i64 %9
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = add nsw i32 %70, %82
-  %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 1023)
-  %85 = icmp slt i32 %83, 0
-  %86 = trunc nuw nsw i32 %84 to i16
-  %.0.i.i90107.us = select i1 %85, i16 0, i16 %86
-  store i16 %.0.i.i90107.us, ptr %80, align 2
-  %87 = getelementptr inbounds i16, ptr %.0120.us122, i64 %11
+  %75 = getelementptr inbounds i16, ptr %.0120.us122, i64 %9
+  %76 = load i16, ptr %75, align 2
+  %77 = zext i16 %76 to i32
+  %78 = add nsw i32 %66, %77
+  %79 = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
+  %80 = tail call i32 @llvm.umin.i32(i32 %79, i32 1023)
+  %.0.i.i90107.us = trunc nuw nsw i32 %80 to i16
+  store i16 %.0.i.i90107.us, ptr %75, align 2
+  %81 = getelementptr inbounds i16, ptr %.0120.us122, i64 %11
+  %82 = load i16, ptr %81, align 2
+  %83 = zext i16 %82 to i32
+  %84 = add nsw i32 %67, %83
+  %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 0)
+  %86 = tail call i32 @llvm.umin.i32(i32 %85, i32 1023)
+  %.0.i.i93112.us = trunc nuw nsw i32 %86 to i16
+  store i16 %.0.i.i93112.us, ptr %81, align 2
+  %87 = getelementptr inbounds i16, ptr %.0120.us122, i64 %13
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
-  %90 = add nsw i32 %71, %89
-  %91 = tail call i32 @llvm.umin.i32(i32 %90, i32 1023)
-  %92 = icmp slt i32 %90, 0
-  %93 = trunc nuw nsw i32 %91 to i16
-  %.0.i.i93112.us = select i1 %92, i16 0, i16 %93
-  store i16 %.0.i.i93112.us, ptr %87, align 2
-  %94 = getelementptr inbounds i16, ptr %.0120.us122, i64 %13
-  %95 = load i16, ptr %94, align 2
-  %96 = zext i16 %95 to i32
-  %97 = add nsw i32 %73, %96
-  %98 = tail call i32 @llvm.umin.i32(i32 %97, i32 1023)
-  %99 = icmp slt i32 %97, 0
-  %100 = trunc nuw nsw i32 %98 to i16
-  %.0.i.i96.us127 = select i1 %99, i16 0, i16 %100
-  store i16 %.0.i.i96.us127, ptr %94, align 2
-  %101 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 4
-  %102 = getelementptr inbounds nuw i8, ptr %.0120.us122, i64 2
-  %103 = add nuw nsw i32 %.188118.us124, 1
-  %exitcond130.not = icmp eq i32 %103, 4
-  br i1 %exitcond130.not, label %.split.us, label %highbd_clip_pixel_add.exit.thread100.us, !llvm.loop !4
+  %90 = add nsw i32 %68, %89
+  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 1023)
+  %.0.i.i96.us128 = trunc nuw nsw i32 %92 to i16
+  store i16 %.0.i.i96.us128, ptr %87, align 2
+  %93 = getelementptr inbounds nuw i8, ptr %.1119.us123, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.0120.us122, i64 2
+  %95 = add nuw nsw i32 %.188118.us124, 1
+  %exitcond131.not = icmp eq i32 %95, 4
+  br i1 %exitcond131.not, label %.split.us, label %highbd_clip_pixel_add.exit.thread100.us, !llvm.loop !4
 
-104:                                              ; preds = %4, %104
-  %.085117 = phi ptr [ %5, %4 ], [ %128, %104 ]
-  %.086116 = phi ptr [ %0, %4 ], [ %127, %104 ]
-  %.087115 = phi i32 [ 0, %4 ], [ %129, %104 ]
-  %105 = load i32, ptr %.086116, align 4
-  %106 = ashr i32 %105, 2
-  %107 = getelementptr inbounds nuw i8, ptr %.086116, i64 4
-  %108 = load i32, ptr %107, align 4
-  %109 = ashr i32 %108, 2
-  %110 = getelementptr inbounds nuw i8, ptr %.086116, i64 8
-  %111 = load i32, ptr %110, align 4
-  %112 = ashr i32 %111, 2
-  %113 = getelementptr inbounds nuw i8, ptr %.086116, i64 12
-  %114 = load i32, ptr %113, align 4
-  %115 = ashr i32 %114, 2
-  %116 = add nsw i32 %109, %106
-  %117 = sub nsw i32 %112, %115
-  %118 = sub nsw i32 %116, %117
-  %119 = ashr i32 %118, 1
-  %120 = sub nsw i32 %119, %115
-  %121 = sub nsw i32 %119, %109
-  %122 = sub nsw i32 %116, %120
-  %123 = add nsw i32 %121, %117
-  store i32 %122, ptr %.085117, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %.085117, i64 4
-  store i32 %120, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %.085117, i64 8
-  store i32 %121, ptr %125, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %.085117, i64 12
-  store i32 %123, ptr %126, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %.086116, i64 16
-  %128 = getelementptr inbounds nuw i8, ptr %.085117, i64 16
-  %129 = add nuw nsw i32 %.087115, 1
-  %exitcond.not = icmp eq i32 %129, 4
-  br i1 %exitcond.not, label %.preheader, label %104, !llvm.loop !6
+96:                                               ; preds = %4, %96
+  %.085117 = phi ptr [ %5, %4 ], [ %120, %96 ]
+  %.086116 = phi ptr [ %0, %4 ], [ %119, %96 ]
+  %.087115 = phi i32 [ 0, %4 ], [ %121, %96 ]
+  %97 = load i32, ptr %.086116, align 4
+  %98 = ashr i32 %97, 2
+  %99 = getelementptr inbounds nuw i8, ptr %.086116, i64 4
+  %100 = load i32, ptr %99, align 4
+  %101 = ashr i32 %100, 2
+  %102 = getelementptr inbounds nuw i8, ptr %.086116, i64 8
+  %103 = load i32, ptr %102, align 4
+  %104 = ashr i32 %103, 2
+  %105 = getelementptr inbounds nuw i8, ptr %.086116, i64 12
+  %106 = load i32, ptr %105, align 4
+  %107 = ashr i32 %106, 2
+  %108 = add nsw i32 %101, %98
+  %109 = sub nsw i32 %104, %107
+  %110 = sub nsw i32 %108, %109
+  %111 = ashr i32 %110, 1
+  %112 = sub nsw i32 %111, %107
+  %113 = sub nsw i32 %111, %101
+  %114 = sub nsw i32 %108, %112
+  %115 = add nsw i32 %113, %109
+  store i32 %114, ptr %.085117, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %.085117, i64 4
+  store i32 %112, ptr %116, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %.085117, i64 8
+  store i32 %113, ptr %117, align 4
+  %118 = getelementptr inbounds nuw i8, ptr %.085117, i64 12
+  store i32 %115, ptr %118, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %.086116, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.085117, i64 16
+  %121 = add nuw nsw i32 %.087115, 1
+  %exitcond.not = icmp eq i32 %121, 4
+  br i1 %exitcond.not, label %.preheader, label %96, !llvm.loop !6
 
 highbd_clip_pixel_add.exit:                       ; preds = %.preheader, %highbd_clip_pixel_add.exit
-  %.0120 = phi ptr [ %173, %highbd_clip_pixel_add.exit ], [ %8, %.preheader ]
-  %.1119 = phi ptr [ %172, %highbd_clip_pixel_add.exit ], [ %5, %.preheader ]
-  %.188118 = phi i32 [ %174, %highbd_clip_pixel_add.exit ], [ 0, %.preheader ]
-  %130 = load i32, ptr %.1119, align 4
-  %131 = getelementptr inbounds nuw i8, ptr %.1119, i64 16
-  %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %.1119, i64 32
-  %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %.1119, i64 48
-  %136 = load i32, ptr %135, align 4
-  %137 = add nsw i32 %132, %130
-  %138 = sub nsw i32 %134, %136
-  %139 = sub nsw i32 %137, %138
-  %140 = ashr i32 %139, 1
-  %141 = sub nsw i32 %140, %136
-  %142 = sub nsw i32 %140, %132
-  %143 = sub nsw i32 %137, %141
-  %144 = add nsw i32 %142, %138
-  %145 = load i16, ptr %.0120, align 2
-  %146 = zext i16 %145 to i32
-  %147 = add nsw i32 %143, %146
-  %148 = tail call i32 @llvm.umin.i32(i32 %147, i32 255)
-  %149 = icmp slt i32 %147, 0
-  %150 = trunc nuw nsw i32 %148 to i16
-  %.0.i.i = select i1 %149, i16 0, i16 %150
+  %.0120 = phi ptr [ %161, %highbd_clip_pixel_add.exit ], [ %8, %.preheader ]
+  %.1119 = phi ptr [ %160, %highbd_clip_pixel_add.exit ], [ %5, %.preheader ]
+  %.188118 = phi i32 [ %162, %highbd_clip_pixel_add.exit ], [ 0, %.preheader ]
+  %122 = load i32, ptr %.1119, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %.1119, i64 16
+  %124 = load i32, ptr %123, align 4
+  %125 = getelementptr inbounds nuw i8, ptr %.1119, i64 32
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %.1119, i64 48
+  %128 = load i32, ptr %127, align 4
+  %129 = add nsw i32 %124, %122
+  %130 = sub nsw i32 %126, %128
+  %131 = sub nsw i32 %129, %130
+  %132 = ashr i32 %131, 1
+  %133 = sub nsw i32 %132, %128
+  %134 = sub nsw i32 %132, %124
+  %135 = add nsw i32 %134, %130
+  %136 = load i16, ptr %.0120, align 2
+  %137 = zext i16 %136 to i32
+  %138 = add i32 %129, %137
+  %139 = sub i32 %138, %133
+  %140 = tail call i32 @llvm.smax.i32(i32 %139, i32 0)
+  %141 = tail call i32 @llvm.umin.i32(i32 %140, i32 255)
+  %.0.i.i = trunc nuw nsw i32 %141 to i16
   store i16 %.0.i.i, ptr %.0120, align 2
-  %151 = getelementptr inbounds i16, ptr %.0120, i64 %9
-  %152 = load i16, ptr %151, align 2
-  %153 = zext i16 %152 to i32
-  %154 = add nsw i32 %141, %153
-  %155 = tail call i32 @llvm.umin.i32(i32 %154, i32 255)
-  %156 = icmp slt i32 %154, 0
-  %157 = trunc nuw nsw i32 %155 to i16
-  %.0.i.i90 = select i1 %156, i16 0, i16 %157
-  store i16 %.0.i.i90, ptr %151, align 2
-  %158 = getelementptr inbounds i16, ptr %.0120, i64 %11
-  %159 = load i16, ptr %158, align 2
-  %160 = zext i16 %159 to i32
-  %161 = add nsw i32 %142, %160
-  %162 = tail call i32 @llvm.umin.i32(i32 %161, i32 255)
-  %163 = icmp slt i32 %161, 0
-  %164 = trunc nuw nsw i32 %162 to i16
-  %.0.i.i93 = select i1 %163, i16 0, i16 %164
-  store i16 %.0.i.i93, ptr %158, align 2
-  %165 = getelementptr inbounds i16, ptr %.0120, i64 %13
-  %166 = load i16, ptr %165, align 2
-  %167 = zext i16 %166 to i32
-  %168 = add nsw i32 %144, %167
-  %169 = tail call i32 @llvm.umin.i32(i32 %168, i32 255)
-  %170 = icmp slt i32 %168, 0
-  %171 = trunc nuw nsw i32 %169 to i16
-  %.0.i.i96 = select i1 %170, i16 0, i16 %171
-  store i16 %.0.i.i96, ptr %165, align 2
-  %172 = getelementptr inbounds nuw i8, ptr %.1119, i64 4
-  %173 = getelementptr inbounds nuw i8, ptr %.0120, i64 2
-  %174 = add nuw nsw i32 %.188118, 1
-  %exitcond132.not = icmp eq i32 %174, 4
-  br i1 %exitcond132.not, label %.split.us, label %highbd_clip_pixel_add.exit, !llvm.loop !4
+  %142 = getelementptr inbounds i16, ptr %.0120, i64 %9
+  %143 = load i16, ptr %142, align 2
+  %144 = zext i16 %143 to i32
+  %145 = add nsw i32 %133, %144
+  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 0)
+  %147 = tail call i32 @llvm.umin.i32(i32 %146, i32 255)
+  %.0.i.i90 = trunc nuw nsw i32 %147 to i16
+  store i16 %.0.i.i90, ptr %142, align 2
+  %148 = getelementptr inbounds i16, ptr %.0120, i64 %11
+  %149 = load i16, ptr %148, align 2
+  %150 = zext i16 %149 to i32
+  %151 = add nsw i32 %134, %150
+  %152 = tail call i32 @llvm.smax.i32(i32 %151, i32 0)
+  %153 = tail call i32 @llvm.umin.i32(i32 %152, i32 255)
+  %.0.i.i93 = trunc nuw nsw i32 %153 to i16
+  store i16 %.0.i.i93, ptr %148, align 2
+  %154 = getelementptr inbounds i16, ptr %.0120, i64 %13
+  %155 = load i16, ptr %154, align 2
+  %156 = zext i16 %155 to i32
+  %157 = add nsw i32 %135, %156
+  %158 = tail call i32 @llvm.smax.i32(i32 %157, i32 0)
+  %159 = tail call i32 @llvm.umin.i32(i32 %158, i32 255)
+  %.0.i.i96 = trunc nuw nsw i32 %159 to i16
+  store i16 %.0.i.i96, ptr %154, align 2
+  %160 = getelementptr inbounds nuw i8, ptr %.1119, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %.0120, i64 2
+  %162 = add nuw nsw i32 %.188118, 1
+  %exitcond133.not = icmp eq i32 %162, 4
+  br i1 %exitcond133.not, label %.split.us, label %highbd_clip_pixel_add.exit, !llvm.loop !4
 
 .split.us:                                        ; preds = %highbd_clip_pixel_add.exit.thread100.us, %highbd_clip_pixel_add.exit.thread.us, %highbd_clip_pixel_add.exit
   ret void
@@ -305,148 +293,136 @@ define hidden void @av1_highbd_iwht4x4_1_add_c(ptr noundef readonly captures(non
   ]
 
 highbd_clip_pixel_add.exit.thread.us:             ; preds = %4, %highbd_clip_pixel_add.exit.thread.us
-  %.072.us = phi ptr [ %52, %highbd_clip_pixel_add.exit.thread.us ], [ %8, %4 ]
-  %.04271.us = phi i32 [ %53, %highbd_clip_pixel_add.exit.thread.us ], [ 0, %4 ]
-  %.04370.us = phi ptr [ %51, %highbd_clip_pixel_add.exit.thread.us ], [ %5, %4 ]
+  %.072.us = phi ptr [ %48, %highbd_clip_pixel_add.exit.thread.us ], [ %8, %4 ]
+  %.04271.us = phi i32 [ %49, %highbd_clip_pixel_add.exit.thread.us ], [ 0, %4 ]
+  %.04370.us = phi ptr [ %47, %highbd_clip_pixel_add.exit.thread.us ], [ %5, %4 ]
   %21 = load i32, ptr %.04370.us, align 4
   %22 = ashr i32 %21, 1
-  %23 = sub nsw i32 %21, %22
+  %23 = sub i32 %21, %22
   %24 = load i16, ptr %.072.us, align 2
   %25 = zext i16 %24 to i32
   %26 = add nsw i32 %23, %25
-  %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 4095)
-  %28 = icmp slt i32 %26, 0
-  %29 = trunc nuw nsw i32 %27 to i16
-  %.0.i.i54.us = select i1 %28, i16 0, i16 %29
+  %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
+  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 4095)
+  %.0.i.i54.us = trunc nuw nsw i32 %28 to i16
   store i16 %.0.i.i54.us, ptr %.072.us, align 2
-  %30 = getelementptr inbounds i16, ptr %.072.us, i64 %16
-  %31 = load i16, ptr %30, align 2
-  %32 = zext i16 %31 to i32
-  %33 = add nsw i32 %22, %32
+  %29 = getelementptr inbounds i16, ptr %.072.us, i64 %16
+  %30 = load i16, ptr %29, align 2
+  %31 = zext i16 %30 to i32
+  %32 = add nsw i32 %22, %31
+  %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
   %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 4095)
-  %35 = icmp slt i32 %33, 0
-  %36 = trunc nuw nsw i32 %34 to i16
-  %.0.i.i4559.us = select i1 %35, i16 0, i16 %36
-  store i16 %.0.i.i4559.us, ptr %30, align 2
-  %37 = getelementptr inbounds i16, ptr %.072.us, i64 %18
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i32
-  %40 = add nsw i32 %22, %39
-  %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 4095)
-  %42 = icmp slt i32 %40, 0
-  %43 = trunc nuw nsw i32 %41 to i16
-  %.0.i.i4864.us = select i1 %42, i16 0, i16 %43
-  store i16 %.0.i.i4864.us, ptr %37, align 2
-  %44 = getelementptr inbounds i16, ptr %.072.us, i64 %20
-  %45 = load i16, ptr %44, align 2
-  %46 = zext i16 %45 to i32
-  %47 = add nsw i32 %22, %46
-  %48 = tail call i32 @llvm.umin.i32(i32 %47, i32 4095)
-  %49 = icmp slt i32 %47, 0
-  %50 = trunc nuw nsw i32 %48 to i16
-  %.0.i.i51.us = select i1 %49, i16 0, i16 %50
-  store i16 %.0.i.i51.us, ptr %44, align 2
-  %51 = getelementptr inbounds nuw i8, ptr %.04370.us, i64 4
-  %52 = getelementptr inbounds nuw i8, ptr %.072.us, i64 2
-  %53 = add nuw nsw i32 %.04271.us, 1
-  %exitcond84.not = icmp eq i32 %53, 4
-  br i1 %exitcond84.not, label %.split74.us, label %highbd_clip_pixel_add.exit.thread.us, !llvm.loop !7
+  %.0.i.i4559.us = trunc nuw nsw i32 %34 to i16
+  store i16 %.0.i.i4559.us, ptr %29, align 2
+  %35 = getelementptr inbounds i16, ptr %.072.us, i64 %18
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  %38 = add nsw i32 %22, %37
+  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
+  %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 4095)
+  %.0.i.i4864.us = trunc nuw nsw i32 %40 to i16
+  store i16 %.0.i.i4864.us, ptr %35, align 2
+  %41 = getelementptr inbounds i16, ptr %.072.us, i64 %20
+  %42 = load i16, ptr %41, align 2
+  %43 = zext i16 %42 to i32
+  %44 = add nsw i32 %22, %43
+  %45 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
+  %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 4095)
+  %.0.i.i51.us = trunc nuw nsw i32 %46 to i16
+  store i16 %.0.i.i51.us, ptr %41, align 2
+  %47 = getelementptr inbounds nuw i8, ptr %.04370.us, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.072.us, i64 2
+  %49 = add nuw nsw i32 %.04271.us, 1
+  %exitcond85.not = icmp eq i32 %49, 4
+  br i1 %exitcond85.not, label %.split74.us, label %highbd_clip_pixel_add.exit.thread.us, !llvm.loop !7
 
 highbd_clip_pixel_add.exit.thread55.us:           ; preds = %4, %highbd_clip_pixel_add.exit.thread55.us
-  %.072.us76 = phi ptr [ %85, %highbd_clip_pixel_add.exit.thread55.us ], [ %8, %4 ]
-  %.04271.us77 = phi i32 [ %86, %highbd_clip_pixel_add.exit.thread55.us ], [ 0, %4 ]
-  %.04370.us78 = phi ptr [ %84, %highbd_clip_pixel_add.exit.thread55.us ], [ %5, %4 ]
-  %54 = load i32, ptr %.04370.us78, align 4
-  %55 = ashr i32 %54, 1
-  %56 = sub nsw i32 %54, %55
-  %57 = load i16, ptr %.072.us76, align 2
-  %58 = zext i16 %57 to i32
-  %59 = add nsw i32 %56, %58
-  %60 = tail call i32 @llvm.umin.i32(i32 %59, i32 1023)
-  %61 = icmp slt i32 %59, 0
-  %62 = trunc nuw nsw i32 %60 to i16
-  %.0.i.i57.us = select i1 %61, i16 0, i16 %62
+  %.072.us76 = phi ptr [ %77, %highbd_clip_pixel_add.exit.thread55.us ], [ %8, %4 ]
+  %.04271.us77 = phi i32 [ %78, %highbd_clip_pixel_add.exit.thread55.us ], [ 0, %4 ]
+  %.04370.us78 = phi ptr [ %76, %highbd_clip_pixel_add.exit.thread55.us ], [ %5, %4 ]
+  %50 = load i32, ptr %.04370.us78, align 4
+  %51 = ashr i32 %50, 1
+  %52 = sub i32 %50, %51
+  %53 = load i16, ptr %.072.us76, align 2
+  %54 = zext i16 %53 to i32
+  %55 = add nsw i32 %52, %54
+  %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
+  %57 = tail call i32 @llvm.umin.i32(i32 %56, i32 1023)
+  %.0.i.i57.us = trunc nuw nsw i32 %57 to i16
   store i16 %.0.i.i57.us, ptr %.072.us76, align 2
-  %63 = getelementptr inbounds i16, ptr %.072.us76, i64 %16
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = add nsw i32 %55, %65
-  %67 = tail call i32 @llvm.umin.i32(i32 %66, i32 1023)
-  %68 = icmp slt i32 %66, 0
-  %69 = trunc nuw nsw i32 %67 to i16
-  %.0.i.i4562.us = select i1 %68, i16 0, i16 %69
-  store i16 %.0.i.i4562.us, ptr %63, align 2
-  %70 = getelementptr inbounds i16, ptr %.072.us76, i64 %18
+  %58 = getelementptr inbounds i16, ptr %.072.us76, i64 %16
+  %59 = load i16, ptr %58, align 2
+  %60 = zext i16 %59 to i32
+  %61 = add nsw i32 %51, %60
+  %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
+  %63 = tail call i32 @llvm.umin.i32(i32 %62, i32 1023)
+  %.0.i.i4562.us = trunc nuw nsw i32 %63 to i16
+  store i16 %.0.i.i4562.us, ptr %58, align 2
+  %64 = getelementptr inbounds i16, ptr %.072.us76, i64 %18
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %67 = add nsw i32 %51, %66
+  %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
+  %69 = tail call i32 @llvm.umin.i32(i32 %68, i32 1023)
+  %.0.i.i4867.us = trunc nuw nsw i32 %69 to i16
+  store i16 %.0.i.i4867.us, ptr %64, align 2
+  %70 = getelementptr inbounds i16, ptr %.072.us76, i64 %20
   %71 = load i16, ptr %70, align 2
   %72 = zext i16 %71 to i32
-  %73 = add nsw i32 %55, %72
-  %74 = tail call i32 @llvm.umin.i32(i32 %73, i32 1023)
-  %75 = icmp slt i32 %73, 0
-  %76 = trunc nuw nsw i32 %74 to i16
-  %.0.i.i4867.us = select i1 %75, i16 0, i16 %76
-  store i16 %.0.i.i4867.us, ptr %70, align 2
-  %77 = getelementptr inbounds i16, ptr %.072.us76, i64 %20
-  %78 = load i16, ptr %77, align 2
-  %79 = zext i16 %78 to i32
-  %80 = add nsw i32 %55, %79
-  %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 1023)
-  %82 = icmp slt i32 %80, 0
-  %83 = trunc nuw nsw i32 %81 to i16
-  %.0.i.i51.us81 = select i1 %82, i16 0, i16 %83
-  store i16 %.0.i.i51.us81, ptr %77, align 2
-  %84 = getelementptr inbounds nuw i8, ptr %.04370.us78, i64 4
-  %85 = getelementptr inbounds nuw i8, ptr %.072.us76, i64 2
-  %86 = add nuw nsw i32 %.04271.us77, 1
-  %exitcond.not = icmp eq i32 %86, 4
+  %73 = add nsw i32 %51, %72
+  %74 = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
+  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 1023)
+  %.0.i.i51.us82 = trunc nuw nsw i32 %75 to i16
+  store i16 %.0.i.i51.us82, ptr %70, align 2
+  %76 = getelementptr inbounds nuw i8, ptr %.04370.us78, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.072.us76, i64 2
+  %78 = add nuw nsw i32 %.04271.us77, 1
+  %exitcond.not = icmp eq i32 %78, 4
   br i1 %exitcond.not, label %.split74.us, label %highbd_clip_pixel_add.exit.thread55.us, !llvm.loop !7
 
 highbd_clip_pixel_add.exit:                       ; preds = %4, %highbd_clip_pixel_add.exit
-  %.072 = phi ptr [ %118, %highbd_clip_pixel_add.exit ], [ %8, %4 ]
-  %.04271 = phi i32 [ %119, %highbd_clip_pixel_add.exit ], [ 0, %4 ]
-  %.04370 = phi ptr [ %117, %highbd_clip_pixel_add.exit ], [ %5, %4 ]
-  %87 = load i32, ptr %.04370, align 4
-  %88 = ashr i32 %87, 1
-  %89 = sub nsw i32 %87, %88
-  %90 = load i16, ptr %.072, align 2
-  %91 = zext i16 %90 to i32
-  %92 = add nsw i32 %89, %91
-  %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 255)
-  %94 = icmp slt i32 %92, 0
-  %95 = trunc nuw nsw i32 %93 to i16
-  %.0.i.i = select i1 %94, i16 0, i16 %95
+  %.072 = phi ptr [ %106, %highbd_clip_pixel_add.exit ], [ %8, %4 ]
+  %.04271 = phi i32 [ %107, %highbd_clip_pixel_add.exit ], [ 0, %4 ]
+  %.04370 = phi ptr [ %105, %highbd_clip_pixel_add.exit ], [ %5, %4 ]
+  %79 = load i32, ptr %.04370, align 4
+  %80 = ashr i32 %79, 1
+  %81 = sub i32 %79, %80
+  %82 = load i16, ptr %.072, align 2
+  %83 = zext i16 %82 to i32
+  %84 = add nsw i32 %81, %83
+  %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 0)
+  %86 = tail call i32 @llvm.umin.i32(i32 %85, i32 255)
+  %.0.i.i = trunc nuw nsw i32 %86 to i16
   store i16 %.0.i.i, ptr %.072, align 2
-  %96 = getelementptr inbounds i16, ptr %.072, i64 %16
-  %97 = load i16, ptr %96, align 2
-  %98 = zext i16 %97 to i32
-  %99 = add nsw i32 %88, %98
-  %100 = tail call i32 @llvm.umin.i32(i32 %99, i32 255)
-  %101 = icmp slt i32 %99, 0
-  %102 = trunc nuw nsw i32 %100 to i16
-  %.0.i.i45 = select i1 %101, i16 0, i16 %102
-  store i16 %.0.i.i45, ptr %96, align 2
-  %103 = getelementptr inbounds i16, ptr %.072, i64 %18
-  %104 = load i16, ptr %103, align 2
-  %105 = zext i16 %104 to i32
-  %106 = add nsw i32 %88, %105
-  %107 = tail call i32 @llvm.umin.i32(i32 %106, i32 255)
-  %108 = icmp slt i32 %106, 0
-  %109 = trunc nuw nsw i32 %107 to i16
-  %.0.i.i48 = select i1 %108, i16 0, i16 %109
-  store i16 %.0.i.i48, ptr %103, align 2
-  %110 = getelementptr inbounds i16, ptr %.072, i64 %20
-  %111 = load i16, ptr %110, align 2
-  %112 = zext i16 %111 to i32
-  %113 = add nsw i32 %88, %112
-  %114 = tail call i32 @llvm.umin.i32(i32 %113, i32 255)
-  %115 = icmp slt i32 %113, 0
-  %116 = trunc nuw nsw i32 %114 to i16
-  %.0.i.i51 = select i1 %115, i16 0, i16 %116
-  store i16 %.0.i.i51, ptr %110, align 2
-  %117 = getelementptr inbounds nuw i8, ptr %.04370, i64 4
-  %118 = getelementptr inbounds nuw i8, ptr %.072, i64 2
-  %119 = add nuw nsw i32 %.04271, 1
-  %exitcond85.not = icmp eq i32 %119, 4
-  br i1 %exitcond85.not, label %.split74.us, label %highbd_clip_pixel_add.exit, !llvm.loop !7
+  %87 = getelementptr inbounds i16, ptr %.072, i64 %16
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i32
+  %90 = add nsw i32 %80, %89
+  %91 = tail call i32 @llvm.smax.i32(i32 %90, i32 0)
+  %92 = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
+  %.0.i.i45 = trunc nuw nsw i32 %92 to i16
+  store i16 %.0.i.i45, ptr %87, align 2
+  %93 = getelementptr inbounds i16, ptr %.072, i64 %18
+  %94 = load i16, ptr %93, align 2
+  %95 = zext i16 %94 to i32
+  %96 = add nsw i32 %80, %95
+  %97 = tail call i32 @llvm.smax.i32(i32 %96, i32 0)
+  %98 = tail call i32 @llvm.umin.i32(i32 %97, i32 255)
+  %.0.i.i48 = trunc nuw nsw i32 %98 to i16
+  store i16 %.0.i.i48, ptr %93, align 2
+  %99 = getelementptr inbounds i16, ptr %.072, i64 %20
+  %100 = load i16, ptr %99, align 2
+  %101 = zext i16 %100 to i32
+  %102 = add nsw i32 %80, %101
+  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
+  %104 = tail call i32 @llvm.umin.i32(i32 %103, i32 255)
+  %.0.i.i51 = trunc nuw nsw i32 %104 to i16
+  store i16 %.0.i.i51, ptr %99, align 2
+  %105 = getelementptr inbounds nuw i8, ptr %.04370, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.072, i64 2
+  %107 = add nuw nsw i32 %.04271, 1
+  %exitcond86.not = icmp eq i32 %107, 4
+  br i1 %exitcond86.not, label %.split74.us, label %highbd_clip_pixel_add.exit, !llvm.loop !7
 
 .split74.us:                                      ; preds = %highbd_clip_pixel_add.exit.thread55.us, %highbd_clip_pixel_add.exit.thread.us, %highbd_clip_pixel_add.exit
   ret void
@@ -622,11 +598,11 @@ set_flip_cfg.exit.i:
   %switch.cast = zext nneg i8 %4 to i16
   %switch.downshift = lshr i16 -16721, %switch.cast
   %switch.masked = trunc i16 %switch.downshift to i1
-  %switch.cast27 = zext nneg i8 %4 to i16
-  %switch.downshift29 = lshr i16 32543, %switch.cast27
-  %switch.masked30 = trunc i16 %switch.downshift29 to i1
+  %switch.cast26 = zext nneg i8 %4 to i16
+  %switch.downshift28 = lshr i16 32543, %switch.cast26
+  %switch.masked29 = trunc i16 %switch.downshift28 to i1
   %10 = select i1 %9, i1 %switch.masked, i1 true
-  %11 = select i1 %9, i1 %switch.masked30, i1 true
+  %11 = select i1 %9, i1 %switch.masked29, i1 true
   %12 = zext i8 %4 to i64
   %13 = getelementptr inbounds nuw [16 x i8], ptr @vtx_tab, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
@@ -717,8 +693,8 @@ get_rect_tx_log_ratio.exit.i:                     ; preds = %63, %60, %57, %54, 
 .lr.ph.i.preheader.i:                             ; preds = %66
   %narrow = add nsw i8 %43, -1
   %68 = tail call i8 @llvm.umin.i8(i8 %narrow, i8 11)
-  %narrow8 = add nuw nsw i8 %68, 1
-  %69 = zext nneg i8 %narrow8 to i64
+  %narrow7 = add nuw nsw i8 %68, 1
+  %69 = zext nneg i8 %narrow7 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, i8 %.0.i133.i, i64 %69, i1 false)
   br label %.preheader.i.i
 
@@ -727,36 +703,36 @@ get_rect_tx_log_ratio.exit.i:                     ; preds = %63, %60, %57, %54, 
   br i1 %70, label %.lr.ph45.i.preheader.i, label %av1_gen_inv_stage_range.exit.i
 
 .lr.ph45.i.preheader.i:                           ; preds = %.preheader.i.i
-  %narrow9 = add nsw i8 %40, -1
-  %71 = tail call i8 @llvm.umin.i8(i8 %narrow9, i8 11)
-  %narrow10 = add nuw nsw i8 %71, 1
-  %72 = zext nneg i8 %narrow10 to i64
+  %narrow8 = add nsw i8 %40, -1
+  %71 = tail call i8 @llvm.umin.i8(i8 %narrow8, i8 11)
+  %narrow9 = add nuw nsw i8 %71, 1
+  %72 = zext nneg i8 %narrow9 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 %.040.i.i, i64 %72, i1 false)
   br label %av1_gen_inv_stage_range.exit.i
 
 av1_gen_inv_stage_range.exit.i:                   ; preds = %.lr.ph45.i.preheader.i, %.preheader.i.i
   %73 = icmp ult i8 %34, 12
-  br i1 %73, label %switch.lookup31, label %inv_txfm_type_to_func.exit.i
+  br i1 %73, label %switch.lookup30, label %inv_txfm_type_to_func.exit.i
 
-switch.lookup31:                                  ; preds = %av1_gen_inv_stage_range.exit.i
+switch.lookup30:                                  ; preds = %av1_gen_inv_stage_range.exit.i
   %74 = zext nneg i8 %34 to i64
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.inv_txfm2d_add_facade.2, i64 0, i64 %74
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %inv_txfm_type_to_func.exit.i
 
-inv_txfm_type_to_func.exit.i:                     ; preds = %av1_gen_inv_stage_range.exit.i, %switch.lookup31
-  %.0.i134.i = phi ptr [ %switch.load, %switch.lookup31 ], [ null, %av1_gen_inv_stage_range.exit.i ]
+inv_txfm_type_to_func.exit.i:                     ; preds = %av1_gen_inv_stage_range.exit.i, %switch.lookup30
+  %.0.i134.i = phi ptr [ %switch.load, %switch.lookup30 ], [ null, %av1_gen_inv_stage_range.exit.i ]
   %75 = icmp ult i8 %37, 12
-  br i1 %75, label %switch.lookup32, label %.lr.ph174.i
+  br i1 %75, label %switch.lookup31, label %.lr.ph174.i
 
-switch.lookup32:                                  ; preds = %inv_txfm_type_to_func.exit.i
+switch.lookup31:                                  ; preds = %inv_txfm_type_to_func.exit.i
   %76 = zext nneg i8 %37 to i64
-  %switch.gep33 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.inv_txfm2d_add_facade.2, i64 0, i64 %76
-  %switch.load34 = load ptr, ptr %switch.gep33, align 8
+  %switch.gep32 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.inv_txfm2d_add_facade.2, i64 0, i64 %76
+  %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %.lr.ph174.i
 
-.lr.ph174.i:                                      ; preds = %inv_txfm_type_to_func.exit.i, %switch.lookup32
-  %.0.i135.i = phi ptr [ %switch.load34, %switch.lookup32 ], [ null, %inv_txfm_type_to_func.exit.i ]
+.lr.ph174.i:                                      ; preds = %inv_txfm_type_to_func.exit.i, %switch.lookup31
+  %.0.i135.i = phi ptr [ %switch.load33, %switch.lookup31 ], [ null, %inv_txfm_type_to_func.exit.i ]
   %77 = tail call i32 @llvm.smax.i32(i32 %47, i32 %45)
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i32, ptr %3, i64 %78
@@ -992,28 +968,27 @@ clamp_buf.exit155.i:                              ; preds = %clamp_value.exit.i1
   %177 = load i32, ptr %176, align 4
   %178 = zext i16 %175 to i32
   %179 = add nsw i32 %177, %178
-  switch i32 %6, label %180 [
-    i32 12, label %184
-    i32 10, label %182
+  %180 = call i32 @llvm.smax.i32(i32 %179, i32 0)
+  switch i32 %6, label %181 [
+    i32 12, label %185
+    i32 10, label %183
   ]
 
-180:                                              ; preds = %.lr.ph185.i
-  %181 = call i32 @llvm.umin.i32(i32 %179, i32 255)
+181:                                              ; preds = %.lr.ph185.i
+  %182 = call i32 @llvm.umin.i32(i32 %180, i32 255)
   br label %highbd_clip_pixel_add.exit.i
 
-182:                                              ; preds = %.lr.ph185.i
-  %183 = call i32 @llvm.umin.i32(i32 %179, i32 1023)
+183:                                              ; preds = %.lr.ph185.i
+  %184 = call i32 @llvm.umin.i32(i32 %180, i32 1023)
   br label %highbd_clip_pixel_add.exit.i
 
-184:                                              ; preds = %.lr.ph185.i
-  %185 = call i32 @llvm.umin.i32(i32 %179, i32 4095)
+185:                                              ; preds = %.lr.ph185.i
+  %186 = call i32 @llvm.umin.i32(i32 %180, i32 4095)
   br label %highbd_clip_pixel_add.exit.i
 
-highbd_clip_pixel_add.exit.i:                     ; preds = %184, %182, %180
-  %.sink.i.i.i7 = phi i32 [ %185, %184 ], [ %183, %182 ], [ %181, %180 ]
-  %186 = icmp slt i32 %179, 0
-  %187 = trunc nuw nsw i32 %.sink.i.i.i7 to i16
-  %.0.i.i.i = select i1 %186, i16 0, i16 %187
+highbd_clip_pixel_add.exit.i:                     ; preds = %185, %183, %181
+  %.0.in.i.i.i = phi i32 [ %182, %181 ], [ %186, %185 ], [ %184, %183 ]
+  %.0.i.i.i = trunc nuw nsw i32 %.0.in.i.i.i to i16
   store i16 %.0.i.i.i, ptr %gep254.i, align 2
   %indvars.iv.next234.i = add nuw nsw i64 %indvars.iv233.i, 1
   %exitcond238.not.i = icmp eq i64 %indvars.iv.next234.i, %wide.trip.count219.i
@@ -1021,17 +996,18 @@ highbd_clip_pixel_add.exit.i:                     ; preds = %184, %182, %180
 
 .lr.ph183.i:                                      ; preds = %clamp_buf.exit155.i, %highbd_clip_pixel_add.exit158.i
   %indvars.iv227.i = phi i64 [ %indvars.iv.next228.i, %highbd_clip_pixel_add.exit158.i ], [ 0, %clamp_buf.exit155.i ]
-  %188 = mul nsw i64 %indvars.iv227.i, %135
-  %gep252.i = getelementptr i16, ptr %invariant.gep253.i, i64 %188
-  %189 = load i16, ptr %gep252.i, align 2
-  %190 = trunc i64 %indvars.iv227.i to i32
-  %191 = xor i32 %190, -1
-  %192 = add i32 %47, %191
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i32, ptr %79, i64 %193
-  %195 = load i32, ptr %194, align 4
-  %196 = zext i16 %189 to i32
-  %197 = add nsw i32 %195, %196
+  %187 = mul nsw i64 %indvars.iv227.i, %135
+  %gep252.i = getelementptr i16, ptr %invariant.gep253.i, i64 %187
+  %188 = load i16, ptr %gep252.i, align 2
+  %189 = trunc i64 %indvars.iv227.i to i32
+  %190 = xor i32 %189, -1
+  %191 = add i32 %47, %190
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds i32, ptr %79, i64 %192
+  %194 = load i32, ptr %193, align 4
+  %195 = zext i16 %188 to i32
+  %196 = add nsw i32 %194, %195
+  %197 = call i32 @llvm.smax.i32(i32 %196, i32 0)
   switch i32 %6, label %198 [
     i32 12, label %202
     i32 10, label %200
@@ -1050,10 +1026,8 @@ highbd_clip_pixel_add.exit.i:                     ; preds = %184, %182, %180
   br label %highbd_clip_pixel_add.exit158.i
 
 highbd_clip_pixel_add.exit158.i:                  ; preds = %202, %200, %198
-  %.sink.i.i156.i = phi i32 [ %203, %202 ], [ %201, %200 ], [ %199, %198 ]
-  %204 = icmp slt i32 %197, 0
-  %205 = trunc nuw nsw i32 %.sink.i.i156.i to i16
-  %.0.i.i157.i = select i1 %204, i16 0, i16 %205
+  %.0.in.i.i156.i = phi i32 [ %199, %198 ], [ %203, %202 ], [ %201, %200 ]
+  %.0.i.i157.i = trunc nuw nsw i32 %.0.in.i.i156.i to i16
   store i16 %.0.i.i157.i, ptr %gep252.i, align 2
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 1
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next228.i, %wide.trip.count219.i

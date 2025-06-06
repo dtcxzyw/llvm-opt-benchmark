@@ -2863,9 +2863,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = icmp slt i32 %1, 0
-  %..i = tail call i32 @llvm.umin.i32(i32 %1, i32 4)
-  %.0.i = select i1 %7, i32 0, i32 %..i
+  %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = zext nneg i32 %.0.i to i64
   %10 = getelementptr inbounds nuw [5 x %"class.boost::thread_specific_ptr"], ptr %8, i64 0, i64 %9
@@ -5590,9 +5589,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = icmp slt i32 %1, 0
-  %..i = tail call i32 @llvm.umin.i32(i32 %1, i32 4)
-  %.0.i = select i1 %7, i32 0, i32 %..i
+  %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %.0.i = tail call noundef i32 @llvm.umin.i32(i32 %7, i32 4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = zext nneg i32 %.0.i to i64
   %10 = getelementptr inbounds nuw [5 x %"class.boost::thread_specific_ptr"], ptr %8, i64 0, i64 %9
@@ -6053,6 +6051,9 @@ declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

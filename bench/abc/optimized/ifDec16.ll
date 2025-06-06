@@ -2947,15 +2947,11 @@ If_CluPrintGroup.exit:                            ; preds = %17, %5
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %26 = load i8, ptr %1, align 1, !tbaa !110
   %27 = icmp slt i8 %26, 6
-  br i1 %27, label %If_CluAdjust.exit, label %If_CluPrintGroup.exit._crit_edge
-
-If_CluPrintGroup.exit._crit_edge:                 ; preds = %If_CluPrintGroup.exit
-  %.pre = zext nneg i8 %26 to i32
-  br label %52
+  br i1 %27, label %If_CluAdjust.exit, label %51
 
 If_CluAdjust.exit:                                ; preds = %If_CluPrintGroup.exit
-  %28 = sext i8 %26 to i32
-  %29 = shl nuw nsw i32 1, %28
+  %28 = zext nneg i8 %26 to i32
+  %29 = shl nuw i32 1, %28
   %30 = zext nneg i32 %29 to i64
   %notmask.i = shl nsw i64 -1, %30
   %31 = xor i64 %notmask.i, -1
@@ -2968,32 +2964,28 @@ If_CluAdjust.exit:                                ; preds = %If_CluPrintGroup.ex
   %37 = shl i64 %.030.i, 2
   %38 = select i1 %36, i64 %37, i64 0
   %.131.i = or i64 %38, %.030.i
-  %.1.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %28, i32 2)
   %39 = icmp ult i8 %26, 3
   %40 = shl i64 %.131.i, 4
   %41 = select i1 %39, i64 %40, i64 0
   %.232.i = or i64 %41, %.131.i
-  %.2.i = select i1 %39, i32 3, i32 %.1.i
-  %42 = icmp eq i32 %.2.i, 3
+  %42 = icmp ult i8 %26, 4
   %43 = shl i64 %.232.i, 8
   %44 = select i1 %42, i64 %43, i64 0
   %.333.i = or i64 %44, %.232.i
-  %.3.i = select i1 %42, i32 4, i32 %.2.i
-  %45 = icmp eq i32 %.3.i, 4
+  %45 = icmp ult i8 %26, 5
   %46 = shl i64 %.333.i, 16
   %47 = select i1 %45, i64 %46, i64 0
   %.434.i = or i64 %47, %.333.i
-  %48 = and i32 %.3.i, -2
-  %49 = icmp eq i32 %48, 4
-  %50 = shl i64 %.434.i, 32
-  %51 = select i1 %49, i64 %50, i64 0
-  %.5.i = or i64 %51, %.434.i
+  %48 = icmp ult i8 %26, 6
+  %49 = shl i64 %.434.i, 32
+  %50 = select i1 %48, i64 %49, i64 0
+  %.5.i = or i64 %50, %.434.i
   store i64 %.5.i, ptr %6, align 8, !tbaa !16
-  br label %52
+  br label %51
 
-52:                                               ; preds = %If_CluPrintGroup.exit._crit_edge, %If_CluAdjust.exit
-  %.pre-phi = phi i32 [ %.pre, %If_CluPrintGroup.exit._crit_edge ], [ %28, %If_CluAdjust.exit ]
-  call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %6, i32 noundef %.pre-phi) #22
+51:                                               ; preds = %If_CluAdjust.exit, %If_CluPrintGroup.exit
+  %52 = sext i8 %26 to i32
+  call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %6, i32 noundef %52) #22
   %putchar = call i32 @putchar(i32 10)
   %53 = load i8, ptr %2, align 1, !tbaa !110
   %54 = sext i8 %53 to i32
@@ -3006,7 +2998,7 @@ If_CluAdjust.exit:                                ; preds = %If_CluPrintGroup.ex
   %61 = icmp sgt i8 %60, 0
   br i1 %61, label %.lr.ph.i14, label %If_CluPrintGroup.exit17
 
-.lr.ph.i14:                                       ; preds = %52
+.lr.ph.i14:                                       ; preds = %51
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %63
 
@@ -3023,24 +3015,20 @@ If_CluAdjust.exit:                                ; preds = %If_CluPrintGroup.ex
   %71 = icmp slt i64 %indvars.iv.next.i16, %70
   br i1 %71, label %63, label %If_CluPrintGroup.exit17, !llvm.loop !113
 
-If_CluPrintGroup.exit17:                          ; preds = %63, %52
+If_CluPrintGroup.exit17:                          ; preds = %63, %51
   %puts.i13 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %72 = load i8, ptr %2, align 1, !tbaa !110
   %73 = icmp slt i8 %72, 6
-  br i1 %73, label %If_CluAdjust.exit29, label %If_CluPrintGroup.exit17._crit_edge
+  br i1 %73, label %If_CluAdjust.exit26, label %98
 
-If_CluPrintGroup.exit17._crit_edge:               ; preds = %If_CluPrintGroup.exit17
-  %.pre30 = zext nneg i8 %72 to i32
-  br label %99
-
-If_CluAdjust.exit29:                              ; preds = %If_CluPrintGroup.exit17
-  %74 = sext i8 %72 to i32
-  %75 = load i64, ptr %4, align 8, !tbaa !16
-  %76 = shl nuw nsw i32 1, %74
+If_CluAdjust.exit26:                              ; preds = %If_CluPrintGroup.exit17
+  %74 = load i64, ptr %4, align 8, !tbaa !16
+  %75 = zext nneg i8 %72 to i32
+  %76 = shl nuw i32 1, %75
   %77 = zext nneg i32 %76 to i64
   %notmask.i18 = shl nsw i64 -1, %77
   %78 = xor i64 %notmask.i18, -1
-  %79 = and i64 %75, %78
+  %79 = and i64 %74, %78
   %80 = icmp eq i8 %72, 0
   %81 = shl nuw nsw i64 %79, %77
   %82 = select i1 %80, i64 %81, i64 0
@@ -3049,32 +3037,28 @@ If_CluAdjust.exit29:                              ; preds = %If_CluPrintGroup.ex
   %84 = shl i64 %.030.i19, 2
   %85 = select i1 %83, i64 %84, i64 0
   %.131.i20 = or i64 %85, %.030.i19
-  %.1.i21 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %74, i32 2)
   %86 = icmp ult i8 %72, 3
   %87 = shl i64 %.131.i20, 4
   %88 = select i1 %86, i64 %87, i64 0
-  %.232.i22 = or i64 %88, %.131.i20
-  %.2.i23 = select i1 %86, i32 3, i32 %.1.i21
-  %89 = icmp eq i32 %.2.i23, 3
-  %90 = shl i64 %.232.i22, 8
+  %.232.i21 = or i64 %88, %.131.i20
+  %89 = icmp ult i8 %72, 4
+  %90 = shl i64 %.232.i21, 8
   %91 = select i1 %89, i64 %90, i64 0
-  %.333.i24 = or i64 %91, %.232.i22
-  %.3.i25 = select i1 %89, i32 4, i32 %.2.i23
-  %92 = icmp eq i32 %.3.i25, 4
-  %93 = shl i64 %.333.i24, 16
+  %.333.i22 = or i64 %91, %.232.i21
+  %92 = icmp ult i8 %72, 5
+  %93 = shl i64 %.333.i22, 16
   %94 = select i1 %92, i64 %93, i64 0
-  %.434.i26 = or i64 %94, %.333.i24
-  %95 = and i32 %.3.i25, -2
-  %96 = icmp eq i32 %95, 4
-  %97 = shl i64 %.434.i26, 32
-  %98 = select i1 %96, i64 %97, i64 0
-  %.5.i27 = or i64 %98, %.434.i26
-  store i64 %.5.i27, ptr %4, align 8, !tbaa !16
-  br label %99
+  %.434.i23 = or i64 %94, %.333.i22
+  %95 = icmp ult i8 %72, 6
+  %96 = shl i64 %.434.i23, 32
+  %97 = select i1 %95, i64 %96, i64 0
+  %.5.i24 = or i64 %97, %.434.i23
+  store i64 %.5.i24, ptr %4, align 8, !tbaa !16
+  br label %98
 
-99:                                               ; preds = %If_CluPrintGroup.exit17._crit_edge, %If_CluAdjust.exit29
-  %.pre-phi31 = phi i32 [ %.pre30, %If_CluPrintGroup.exit17._crit_edge ], [ %74, %If_CluAdjust.exit29 ]
-  call void @Kit_DsdPrintFromTruth(ptr noundef %4, i32 noundef %.pre-phi31) #22
+98:                                               ; preds = %If_CluAdjust.exit26, %If_CluPrintGroup.exit17
+  %99 = sext i8 %72 to i32
+  call void @Kit_DsdPrintFromTruth(ptr noundef %4, i32 noundef %99) #22
   %putchar12 = call i32 @putchar(i32 10)
   ret void
 }
@@ -5756,26 +5740,26 @@ If_CluCountCofs4.exit:                            ; preds = %39
   br i1 %or.cond, label %47, label %48
 
 47:                                               ; preds = %If_CluCountCofs4.exit.thread, %If_CluCountCofs4.exit
-  %.sroa.0.188 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.pre.i, %If_CluCountCofs4.exit ]
-  %.sroa.1568.086 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.145.i, %If_CluCountCofs4.exit ]
-  %.sroa.564.184 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.pre70.i, %If_CluCountCofs4.exit ]
-  %.sroa.1367.082 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.1.i, %If_CluCountCofs4.exit ]
-  %.sroa.865.180 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.pre72.i, %If_CluCountCofs4.exit ]
-  %.sroa.1166.078 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %spec.select.i, %If_CluCountCofs4.exit ]
+  %.sroa.0.180 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.pre.i, %If_CluCountCofs4.exit ]
+  %.sroa.1560.078 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.145.i, %If_CluCountCofs4.exit ]
+  %.sroa.556.176 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.pre70.i, %If_CluCountCofs4.exit ]
+  %.sroa.1359.074 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.1.i, %If_CluCountCofs4.exit ]
+  %.sroa.857.172 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %.pre72.i, %If_CluCountCofs4.exit ]
+  %.sroa.1158.070 = phi i64 [ 0, %If_CluCountCofs4.exit.thread ], [ %spec.select.i, %If_CluCountCofs4.exit ]
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   br label %48
 
 48:                                               ; preds = %47, %If_CluCountCofs4.exit
-  %.sroa.0.187 = phi i64 [ %.sroa.0.188, %47 ], [ %.pre.i, %If_CluCountCofs4.exit ]
-  %.sroa.1568.085 = phi i64 [ %.sroa.1568.086, %47 ], [ %.145.i, %If_CluCountCofs4.exit ]
-  %.sroa.564.183 = phi i64 [ %.sroa.564.184, %47 ], [ %.pre70.i, %If_CluCountCofs4.exit ]
-  %.sroa.1367.081 = phi i64 [ %.sroa.1367.082, %47 ], [ %.1.i, %If_CluCountCofs4.exit ]
-  %.sroa.865.179 = phi i64 [ %.sroa.865.180, %47 ], [ %.pre72.i, %If_CluCountCofs4.exit ]
-  %.sroa.1166.077 = phi i64 [ %.sroa.1166.078, %47 ], [ %spec.select.i, %If_CluCountCofs4.exit ]
-  %49 = shl i64 %.sroa.564.183, %16
-  %50 = or i64 %49, %.sroa.0.187
-  %51 = shl i64 %.sroa.1166.077, %16
-  %52 = or i64 %51, %.sroa.865.179
+  %.sroa.0.179 = phi i64 [ %.sroa.0.180, %47 ], [ %.pre.i, %If_CluCountCofs4.exit ]
+  %.sroa.1560.077 = phi i64 [ %.sroa.1560.078, %47 ], [ %.145.i, %If_CluCountCofs4.exit ]
+  %.sroa.556.175 = phi i64 [ %.sroa.556.176, %47 ], [ %.pre70.i, %If_CluCountCofs4.exit ]
+  %.sroa.1359.073 = phi i64 [ %.sroa.1359.074, %47 ], [ %.1.i, %If_CluCountCofs4.exit ]
+  %.sroa.857.171 = phi i64 [ %.sroa.857.172, %47 ], [ %.pre72.i, %If_CluCountCofs4.exit ]
+  %.sroa.1158.069 = phi i64 [ %.sroa.1158.070, %47 ], [ %spec.select.i, %If_CluCountCofs4.exit ]
+  %49 = shl i64 %.sroa.556.175, %16
+  %50 = or i64 %49, %.sroa.0.179
+  %51 = shl i64 %.sroa.1158.069, %16
+  %52 = or i64 %51, %.sroa.857.171
   %53 = add nsw i32 %12, 1
   %54 = shl nuw i32 1, %53
   %55 = zext nneg i32 %54 to i64
@@ -5806,125 +5790,117 @@ If_CluAdjust.exit:                                ; preds = %48
   %69 = shl i64 %.030.i, 2
   %70 = select i1 %68, i64 %69, i64 0
   %.131.i = or i64 %70, %.030.i
-  %.1.i38 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %58, i32 2)
   %71 = icmp ult i32 %58, 3
   %72 = shl i64 %.131.i, 4
   %73 = select i1 %71, i64 %72, i64 0
   %.232.i = or i64 %73, %.131.i
-  %.2.i39 = select i1 %71, i32 3, i32 %.1.i38
-  %74 = icmp eq i32 %.2.i39, 3
+  %74 = icmp ult i32 %58, 4
   %75 = shl i64 %.232.i, 8
   %76 = select i1 %74, i64 %75, i64 0
   %.333.i = or i64 %76, %.232.i
-  %.3.i = select i1 %74, i32 4, i32 %.2.i39
-  %77 = icmp eq i32 %.3.i, 4
+  %77 = icmp ult i32 %58, 5
   %78 = shl i64 %.333.i, 16
   %79 = select i1 %77, i64 %78, i64 0
   %.434.i = or i64 %79, %.333.i
-  %80 = and i32 %.3.i, -2
-  %81 = icmp eq i32 %80, 4
-  %82 = shl i64 %.434.i, 32
-  %83 = select i1 %81, i64 %82, i64 0
-  %.5.i = or i64 %83, %.434.i
+  %80 = icmp ult i32 %58, 6
+  %81 = shl i64 %.434.i, 32
+  %82 = select i1 %80, i64 %81, i64 0
+  %.5.i = or i64 %82, %.434.i
   store i64 %.5.i, ptr %0, align 8, !tbaa !16
-  %84 = trunc i32 %58 to i8
-  store i8 %84, ptr %5, align 1, !tbaa !110
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 0, ptr %85, align 1, !tbaa !112
-  %86 = icmp sgt i32 %12, 0
-  br i1 %86, label %.lr.ph, label %._crit_edge
+  %83 = trunc i32 %58 to i8
+  store i8 %83, ptr %5, align 1, !tbaa !110
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 0, ptr %84, align 1, !tbaa !112
+  %85 = icmp sgt i32 %12, 0
+  br i1 %85, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %If_CluAdjust.exit.thread, %If_CluAdjust.exit
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %wide.trip.count = zext nneg i32 %12 to i64
-  br label %88
+  br label %87
 
-88:                                               ; preds = %.lr.ph, %88
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %90 = load i32, ptr %89, align 4, !tbaa !6
-  %91 = trunc i32 %90 to i8
-  %92 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 0, i64 %indvars.iv
-  store i8 %91, ptr %92, align 1, !tbaa !59
+87:                                               ; preds = %.lr.ph, %87
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
+  %88 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %89 = load i32, ptr %88, align 4, !tbaa !6
+  %90 = trunc i32 %89 to i8
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 0, i64 %indvars.iv
+  store i8 %90, ptr %91, align 1, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %88, !llvm.loop !162
+  br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !162
 
-._crit_edge:                                      ; preds = %88, %If_CluAdjust.exit
-  %93 = trunc i32 %1 to i8
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %95 = sext i32 %12 to i64
-  %96 = getelementptr inbounds [16 x i8], ptr %94, i64 0, i64 %95
-  store i8 %93, ptr %96, align 1, !tbaa !59
-  %97 = add i8 %93, 1
-  %98 = sext i32 %53 to i64
-  %99 = getelementptr inbounds [16 x i8], ptr %94, i64 0, i64 %98
-  store i8 %97, ptr %99, align 1, !tbaa !59
-  %100 = load i8, ptr %4, align 1, !tbaa !110
-  %101 = icmp eq i8 %100, 6
-  br i1 %101, label %If_CluAdjust.exit63, label %102
+._crit_edge:                                      ; preds = %87, %If_CluAdjust.exit
+  %92 = trunc i32 %1 to i8
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %94 = sext i32 %12 to i64
+  %95 = getelementptr inbounds [16 x i8], ptr %93, i64 0, i64 %94
+  store i8 %92, ptr %95, align 1, !tbaa !59
+  %96 = add i8 %92, 1
+  %97 = sext i32 %53 to i64
+  %98 = getelementptr inbounds [16 x i8], ptr %93, i64 0, i64 %97
+  store i8 %96, ptr %98, align 1, !tbaa !59
+  %99 = load i8, ptr %4, align 1, !tbaa !110
+  %100 = icmp eq i8 %99, 6
+  br i1 %100, label %If_CluAdjust.exit55, label %101
 
-102:                                              ; preds = %._crit_edge
-  %103 = sext i8 %100 to i32
-  %104 = shl nuw i32 1, %103
-  %105 = zext i32 %104 to i64
-  %notmask.i40 = shl nsw i64 -1, %105
-  %106 = xor i64 %notmask.i40, -1
-  %107 = and i64 %.sroa.1367.081, %106
-  %108 = icmp eq i8 %100, 0
-  %109 = shl nuw nsw i64 %107, %105
-  %110 = select i1 %108, i64 %109, i64 0
-  %.030.i41 = or i64 %110, %107
-  %111 = icmp ult i8 %100, 2
-  %112 = shl i64 %.030.i41, 2
-  %113 = select i1 %111, i64 %112, i64 0
-  %.131.i42 = or i64 %113, %.030.i41
-  %.1.i43 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %103, i32 2)
-  %114 = icmp ult i8 %100, 3
-  %115 = shl i64 %.131.i42, 4
-  %116 = select i1 %114, i64 %115, i64 0
-  %.232.i44 = or i64 %116, %.131.i42
-  %.2.i45 = select i1 %114, i32 3, i32 %.1.i43
-  %117 = icmp eq i32 %.2.i45, 3
-  %118 = shl i64 %.232.i44, 8
-  %119 = select i1 %117, i64 %118, i64 0
-  %.333.i46 = or i64 %119, %.232.i44
-  %.3.i47 = select i1 %117, i32 4, i32 %.2.i45
-  %120 = icmp eq i32 %.3.i47, 4
-  %121 = shl i64 %.333.i46, 16
-  %122 = select i1 %120, i64 %121, i64 0
-  %.434.i48 = or i64 %122, %.333.i46
-  %123 = and i32 %.3.i47, -2
-  %124 = icmp eq i32 %123, 4
-  %125 = shl i64 %.434.i48, 32
-  %126 = select i1 %124, i64 %125, i64 0
-  %.5.i49 = or i64 %126, %.434.i48
-  %127 = and i64 %.sroa.1568.085, %106
-  %128 = shl nuw nsw i64 %127, %105
-  %129 = select i1 %108, i64 %128, i64 0
-  %.030.i53 = or i64 %129, %127
-  %130 = shl i64 %.030.i53, 2
-  %131 = select i1 %111, i64 %130, i64 0
-  %.131.i54 = or i64 %131, %.030.i53
-  %132 = shl i64 %.131.i54, 4
-  %133 = select i1 %114, i64 %132, i64 0
-  %.232.i56 = or i64 %133, %.131.i54
-  %134 = shl i64 %.232.i56, 8
-  %135 = select i1 %117, i64 %134, i64 0
-  %.333.i58 = or i64 %135, %.232.i56
-  %136 = shl i64 %.333.i58, 16
-  %137 = select i1 %120, i64 %136, i64 0
-  %.434.i60 = or i64 %137, %.333.i58
-  %138 = shl i64 %.434.i60, 32
-  %139 = select i1 %124, i64 %138, i64 0
-  %.5.i61 = or i64 %139, %.434.i60
-  br label %If_CluAdjust.exit63
+101:                                              ; preds = %._crit_edge
+  %102 = zext nneg i8 %99 to i32
+  %103 = shl nuw i32 1, %102
+  %104 = zext i32 %103 to i64
+  %notmask.i38 = shl nsw i64 -1, %104
+  %105 = xor i64 %notmask.i38, -1
+  %106 = and i64 %.sroa.1359.073, %105
+  %107 = icmp eq i8 %99, 0
+  %108 = shl nuw nsw i64 %106, %104
+  %109 = select i1 %107, i64 %108, i64 0
+  %.030.i39 = or i64 %109, %106
+  %110 = icmp ult i8 %99, 2
+  %111 = shl i64 %.030.i39, 2
+  %112 = select i1 %110, i64 %111, i64 0
+  %.131.i40 = or i64 %112, %.030.i39
+  %113 = icmp ult i8 %99, 3
+  %114 = shl i64 %.131.i40, 4
+  %115 = select i1 %113, i64 %114, i64 0
+  %.232.i41 = or i64 %115, %.131.i40
+  %116 = icmp ult i8 %99, 4
+  %117 = shl i64 %.232.i41, 8
+  %118 = select i1 %116, i64 %117, i64 0
+  %.333.i42 = or i64 %118, %.232.i41
+  %119 = icmp ult i8 %99, 5
+  %120 = shl i64 %.333.i42, 16
+  %121 = select i1 %119, i64 %120, i64 0
+  %.434.i43 = or i64 %121, %.333.i42
+  %122 = icmp ult i8 %99, 6
+  %123 = shl i64 %.434.i43, 32
+  %124 = select i1 %122, i64 %123, i64 0
+  %.5.i44 = or i64 %124, %.434.i43
+  %125 = and i64 %.sroa.1560.077, %105
+  %126 = shl nuw nsw i64 %125, %104
+  %127 = select i1 %107, i64 %126, i64 0
+  %.030.i48 = or i64 %127, %125
+  %128 = shl i64 %.030.i48, 2
+  %129 = select i1 %110, i64 %128, i64 0
+  %.131.i49 = or i64 %129, %.030.i48
+  %130 = shl i64 %.131.i49, 4
+  %131 = select i1 %113, i64 %130, i64 0
+  %.232.i50 = or i64 %131, %.131.i49
+  %132 = shl i64 %.232.i50, 8
+  %133 = select i1 %116, i64 %132, i64 0
+  %.333.i51 = or i64 %133, %.232.i50
+  %134 = shl i64 %.333.i51, 16
+  %135 = select i1 %119, i64 %134, i64 0
+  %.434.i52 = or i64 %135, %.333.i51
+  %136 = shl i64 %.434.i52, 32
+  %137 = select i1 %122, i64 %136, i64 0
+  %.5.i53 = or i64 %137, %.434.i52
+  br label %If_CluAdjust.exit55
 
-If_CluAdjust.exit63:                              ; preds = %._crit_edge, %102
-  %.5.i49.sink = phi i64 [ %.5.i49, %102 ], [ %.sroa.1367.081, %._crit_edge ]
-  %.035.i62 = phi i64 [ %.5.i61, %102 ], [ %.sroa.1568.085, %._crit_edge ]
-  store i64 %.5.i49.sink, ptr %6, align 8, !tbaa !16
-  store i64 %.035.i62, ptr %7, align 8, !tbaa !16
+If_CluAdjust.exit55:                              ; preds = %._crit_edge, %101
+  %.5.i44.sink = phi i64 [ %.5.i44, %101 ], [ %.sroa.1359.073, %._crit_edge ]
+  %.035.i54 = phi i64 [ %.5.i53, %101 ], [ %.sroa.1560.077, %._crit_edge ]
+  store i64 %.5.i44.sink, ptr %6, align 8, !tbaa !16
+  store i64 %.035.i54, ptr %7, align 8, !tbaa !16
   ret void
 }
 
@@ -7460,8 +7436,8 @@ If_CluSupport.exit:                               ; preds = %If_CluHasVar.exit.t
 84:                                               ; preds = %If_CluSupport.exit
   %85 = add nsw i32 %83, 1
   %86 = and i32 %85, %83
-  %.not210 = icmp eq i32 %86, 0
-  br i1 %.not210, label %87, label %If_CluSupport.exit.thread
+  %.not204 = icmp eq i32 %86, 0
+  br i1 %.not204, label %87, label %If_CluSupport.exit.thread
 
 87:                                               ; preds = %84
   %88 = icmp ne i32 %12, 0
@@ -7476,10 +7452,10 @@ If_CluSupport.exit:                               ; preds = %If_CluHasVar.exit.t
 91:                                               ; preds = %89
   %92 = load i32, ptr %90, align 4, !tbaa !6
   %.not136 = icmp eq i32 %92, 255
-  br i1 %.not136, label %If_CluUns2Grp.exit, label %.preheader213
+  br i1 %.not136, label %If_CluUns2Grp.exit, label %.preheader207
 
-.preheader213:                                    ; preds = %91, %.preheader213
-  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i154, %.preheader213 ], [ 0, %91 ]
+.preheader207:                                    ; preds = %91, %.preheader207
+  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i154, %.preheader207 ], [ 0, %91 ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i153 to i32
   %93 = shl i32 %indvars.iv.tr.i, 2
   %94 = lshr i32 %92, %93
@@ -7489,10 +7465,10 @@ If_CluSupport.exit:                               ; preds = %If_CluHasVar.exit.t
   store i8 %96, ptr %97, align 1, !tbaa !59
   %indvars.iv.next.i154 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i155 = icmp eq i64 %indvars.iv.next.i154, 8
-  br i1 %exitcond.not.i155, label %If_CluUns2Grp.exit, label %.preheader213, !llvm.loop !178
+  br i1 %exitcond.not.i155, label %If_CluUns2Grp.exit, label %.preheader207, !llvm.loop !178
 
-If_CluUns2Grp.exit:                               ; preds = %.preheader213, %89, %91, %87
-  %.0112 = phi ptr [ %90, %91 ], [ null, %89 ], [ null, %87 ], [ %90, %.preheader213 ]
+If_CluUns2Grp.exit:                               ; preds = %.preheader207, %89, %91, %87
+  %.0112 = phi ptr [ %90, %91 ], [ null, %89 ], [ null, %87 ], [ %90, %.preheader207 ]
   %.not137 = icmp eq i32 %5, 0
   br i1 %.not137, label %100, label %98
 
@@ -7590,7 +7566,7 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader213, %89,
 
 146:                                              ; preds = %107, %132, %135, %.thread, %100
   %147 = phi i8 [ %.pre, %107 ], [ %133, %132 ], [ %136, %135 ], [ %113, %.thread ], [ %101, %100 ]
-  br i1 %.not, label %330, label %148
+  br i1 %.not, label %331, label %148
 
 148:                                              ; preds = %146
   %149 = icmp sgt i8 %147, 0
@@ -7598,13 +7574,13 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader213, %89,
 
 .lr.ph.i160:                                      ; preds = %148
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %wide.trip.count234 = zext nneg i8 %147 to i64
+  %wide.trip.count228 = zext nneg i8 %147 to i64
   %151 = zext nneg i8 %147 to i64
   br label %152
 
 152:                                              ; preds = %152, %.lr.ph.i160
-  %indvars.iv231 = phi i64 [ %indvars.iv.next232, %152 ], [ 0, %.lr.ph.i160 ]
-  %153 = xor i64 %indvars.iv231, -1
+  %indvars.iv225 = phi i64 [ %indvars.iv.next226, %152 ], [ 0, %.lr.ph.i160 ]
+  %153 = xor i64 %indvars.iv225, -1
   %154 = add nsw i64 %151, %153
   %155 = getelementptr inbounds [16 x i8], ptr %150, i64 0, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !59
@@ -7612,9 +7588,9 @@ If_CluUns2Grp.exit:                               ; preds = %.preheader213, %89,
   %158 = trunc i64 %153 to i32
   %159 = add i32 %3, %158
   call void @If_CluMoveVar(ptr noundef nonnull %17, i32 noundef %3, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef %157, i32 noundef %159)
-  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %If_CluMoveGroupToMsb.exit, label %152, !llvm.loop !138
+  %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
+  %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
+  br i1 %exitcond229.not, label %If_CluMoveGroupToMsb.exit, label %152, !llvm.loop !138
 
 If_CluMoveGroupToMsb.exit:                        ; preds = %152, %148
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -7705,19 +7681,19 @@ If_CluDeriveDisjoint.exit:                        ; preds = %189, %If_CluCopy.ex
   %205 = load i8, ptr %15, align 1, !tbaa !110
   %206 = sext i8 %205 to i32
   %207 = add nsw i32 %206, -2
-  %.pre245 = load i8, ptr %0, align 1, !tbaa !110
+  %.pre239 = load i8, ptr %0, align 1, !tbaa !110
   br label %208
 
 208:                                              ; preds = %203, %If_CluDeriveDisjoint.exit
   %209 = phi i8 [ %200, %If_CluDeriveDisjoint.exit ], [ %205, %203 ]
-  %210 = phi i8 [ %147, %If_CluDeriveDisjoint.exit ], [ %.pre245, %203 ]
+  %210 = phi i8 [ %147, %If_CluDeriveDisjoint.exit ], [ %.pre239, %203 ]
   %.0114 = phi i64 [ %199, %If_CluDeriveDisjoint.exit ], [ %204, %203 ]
   %.0109 = phi i32 [ %202, %If_CluDeriveDisjoint.exit ], [ %207, %203 ]
   %211 = icmp eq i8 %210, 6
   br i1 %211, label %If_CluAdjust.exit, label %212
 
 212:                                              ; preds = %208
-  %213 = sext i8 %210 to i32
+  %213 = zext nneg i8 %210 to i32
   %214 = shl nuw i32 1, %213
   %215 = zext i32 %214 to i64
   %notmask.i = shl nsw i64 -1, %215
@@ -7731,47 +7707,43 @@ If_CluDeriveDisjoint.exit:                        ; preds = %189, %If_CluCopy.ex
   %222 = shl i64 %.030.i, 2
   %223 = select i1 %221, i64 %222, i64 0
   %.131.i = or i64 %223, %.030.i
-  %.1.i = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %213, i32 2)
   %224 = icmp ult i8 %210, 3
   %225 = shl i64 %.131.i, 4
   %226 = select i1 %224, i64 %225, i64 0
   %.232.i = or i64 %226, %.131.i
-  %.2.i = select i1 %224, i32 3, i32 %.1.i
-  %227 = icmp eq i32 %.2.i, 3
+  %227 = icmp ult i8 %210, 4
   %228 = shl i64 %.232.i, 8
   %229 = select i1 %227, i64 %228, i64 0
   %.333.i = or i64 %229, %.232.i
-  %.3.i = select i1 %227, i32 4, i32 %.2.i
-  %230 = icmp eq i32 %.3.i, 4
+  %230 = icmp ult i8 %210, 5
   %231 = shl i64 %.333.i, 16
   %232 = select i1 %230, i64 %231, i64 0
   %.434.i = or i64 %232, %.333.i
-  %233 = and i32 %.3.i, -2
-  %234 = icmp eq i32 %233, 4
-  %235 = shl i64 %.434.i, 32
-  %236 = select i1 %234, i64 %235, i64 0
-  %.5.i = or i64 %236, %.434.i
+  %233 = icmp ult i8 %210, 6
+  %234 = shl i64 %.434.i, 32
+  %235 = select i1 %233, i64 %234, i64 0
+  %.5.i = or i64 %235, %.434.i
   br label %If_CluAdjust.exit
 
 If_CluAdjust.exit:                                ; preds = %208, %212
   %.035.i = phi i64 [ %.5.i, %212 ], [ %.0114, %208 ]
-  %237 = icmp slt i8 %209, 6
-  br i1 %237, label %238, label %.thread249
+  %236 = icmp slt i8 %209, 6
+  br i1 %236, label %238, label %.thread241
 
-.thread249:                                       ; preds = %If_CluAdjust.exit
-  %.pre246 = zext nneg i8 %209 to i32
+.thread241:                                       ; preds = %If_CluAdjust.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20) #22
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #22
-  br label %.lr.ph221.preheader
+  %237 = zext nneg i8 %209 to i32
+  br label %.lr.ph215.preheader
 
 238:                                              ; preds = %If_CluAdjust.exit
-  %239 = sext i8 %209 to i32
-  %240 = load i64, ptr %17, align 16, !tbaa !16
-  %241 = shl nuw nsw i32 1, %239
+  %239 = load i64, ptr %17, align 16, !tbaa !16
+  %240 = zext nneg i8 %209 to i32
+  %241 = shl nuw i32 1, %240
   %242 = zext nneg i32 %241 to i64
   %notmask.i166 = shl nsw i64 -1, %242
   %243 = xor i64 %notmask.i166, -1
-  %244 = and i64 %240, %243
+  %244 = and i64 %239, %243
   %245 = icmp eq i8 %209, 0
   %246 = shl nuw nsw i64 %244, %242
   %247 = select i1 %245, i64 %246, i64 0
@@ -7780,221 +7752,214 @@ If_CluAdjust.exit:                                ; preds = %208, %212
   %249 = shl i64 %.030.i167, 2
   %250 = select i1 %248, i64 %249, i64 0
   %.131.i168 = or i64 %250, %.030.i167
-  %.1.i169 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %239, i32 2)
   %251 = icmp ult i8 %209, 3
   %252 = shl i64 %.131.i168, 4
   %253 = select i1 %251, i64 %252, i64 0
-  %.232.i170 = or i64 %253, %.131.i168
-  %.2.i171 = select i1 %251, i32 3, i32 %.1.i169
-  %254 = icmp eq i32 %.2.i171, 3
-  %255 = shl i64 %.232.i170, 8
+  %.232.i169 = or i64 %253, %.131.i168
+  %254 = icmp ult i8 %209, 4
+  %255 = shl i64 %.232.i169, 8
   %256 = select i1 %254, i64 %255, i64 0
-  %.333.i172 = or i64 %256, %.232.i170
-  %.3.i173 = select i1 %254, i32 4, i32 %.2.i171
-  %257 = icmp eq i32 %.3.i173, 4
-  %258 = shl i64 %.333.i172, 16
+  %.333.i170 = or i64 %256, %.232.i169
+  %257 = icmp ult i8 %209, 5
+  %258 = shl i64 %.333.i170, 16
   %259 = select i1 %257, i64 %258, i64 0
-  %.434.i174 = or i64 %259, %.333.i172
-  %260 = and i32 %.3.i173, -2
-  %261 = icmp eq i32 %260, 4
-  %262 = shl i64 %.434.i174, 32
-  %263 = select i1 %261, i64 %262, i64 0
-  %.5.i175 = or i64 %263, %.434.i174
-  store i64 %.5.i175, ptr %17, align 16, !tbaa !16
+  %.434.i171 = or i64 %259, %.333.i170
+  %260 = icmp ult i8 %209, 6
+  %261 = shl i64 %.434.i171, 32
+  %262 = select i1 %260, i64 %261, i64 0
+  %.5.i172 = or i64 %262, %.434.i171
+  store i64 %.5.i172, ptr %17, align 16, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20) #22
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #22
+  %263 = sext i8 %209 to i32
   %264 = icmp sgt i8 %209, 0
-  br i1 %264, label %.lr.ph221.preheader, label %._crit_edge222
+  br i1 %264, label %.lr.ph215.preheader, label %._crit_edge216
 
-.lr.ph221.preheader:                              ; preds = %.thread249, %238
-  %.pre-phi251 = phi i32 [ %.pre246, %.thread249 ], [ %239, %238 ]
-  %wide.trip.count239 = zext i32 %.pre-phi251 to i64
-  br label %.lr.ph221
+.lr.ph215.preheader:                              ; preds = %.thread241, %238
+  %265 = phi i32 [ %237, %.thread241 ], [ %263, %238 ]
+  %wide.trip.count233 = zext nneg i32 %265 to i64
+  br label %.lr.ph215
 
-.lr.ph221:                                        ; preds = %.lr.ph221.preheader, %.lr.ph221
-  %indvars.iv236 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next237, %.lr.ph221 ]
-  %265 = getelementptr inbounds nuw [18 x i32], ptr %21, i64 0, i64 %indvars.iv236
-  %266 = trunc nuw nsw i64 %indvars.iv236 to i32
-  store i32 %266, ptr %265, align 4, !tbaa !6
-  %267 = getelementptr inbounds nuw [18 x i32], ptr %20, i64 0, i64 %indvars.iv236
-  store i32 %266, ptr %267, align 4, !tbaa !6
-  %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
-  %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
-  br i1 %exitcond240.not, label %._crit_edge222, label %.lr.ph221, !llvm.loop !180
+.lr.ph215:                                        ; preds = %.lr.ph215.preheader, %.lr.ph215
+  %indvars.iv230 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next231, %.lr.ph215 ]
+  %266 = getelementptr inbounds nuw [18 x i32], ptr %21, i64 0, i64 %indvars.iv230
+  %267 = trunc nuw nsw i64 %indvars.iv230 to i32
+  store i32 %267, ptr %266, align 4, !tbaa !6
+  %268 = getelementptr inbounds nuw [18 x i32], ptr %20, i64 0, i64 %indvars.iv230
+  store i32 %267, ptr %268, align 4, !tbaa !6
+  %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
+  %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
+  br i1 %exitcond234.not, label %._crit_edge216, label %.lr.ph215, !llvm.loop !180
 
-._crit_edge222:                                   ; preds = %.lr.ph221, %238
-  %.pre-phi252 = phi i32 [ %239, %238 ], [ %.pre-phi251, %.lr.ph221 ]
-  call void @If_CluMoveVar(ptr noundef nonnull %17, i32 noundef %.pre-phi252, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef %.0109, i32 noundef %4)
-  %268 = icmp sgt i32 %.0109, %4
-  br i1 %268, label %.lr.ph225, label %._crit_edge222.._crit_edge226_crit_edge
+._crit_edge216:                                   ; preds = %.lr.ph215, %238
+  %269 = phi i32 [ %263, %238 ], [ %265, %.lr.ph215 ]
+  call void @If_CluMoveVar(ptr noundef nonnull %17, i32 noundef %269, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef %.0109, i32 noundef %4)
+  %270 = icmp sgt i32 %.0109, %4
+  br i1 %270, label %.lr.ph219, label %._crit_edge216.._crit_edge220_crit_edge
 
-._crit_edge222.._crit_edge226_crit_edge:          ; preds = %._crit_edge222
-  %.pre247 = sext i32 %4 to i64
-  br label %._crit_edge226
+._crit_edge216.._crit_edge220_crit_edge:          ; preds = %._crit_edge216
+  %.pre240 = sext i32 %4 to i64
+  br label %._crit_edge220
 
-.lr.ph225:                                        ; preds = %._crit_edge222
-  %269 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %270 = sext i32 %.0109 to i64
-  %271 = sext i32 %4 to i64
-  br label %272
+.lr.ph219:                                        ; preds = %._crit_edge216
+  %271 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %272 = sext i32 %.0109 to i64
+  %273 = sext i32 %4 to i64
+  br label %274
 
-272:                                              ; preds = %.lr.ph225, %272
-  %indvars.iv242 = phi i64 [ %270, %.lr.ph225 ], [ %indvars.iv.next243, %272 ]
-  %indvars.iv.next243 = add nsw i64 %indvars.iv242, -1
-  %273 = getelementptr inbounds [16 x i8], ptr %269, i64 0, i64 %indvars.iv.next243
-  %274 = load i8, ptr %273, align 1, !tbaa !59
-  %275 = getelementptr inbounds [16 x i8], ptr %269, i64 0, i64 %indvars.iv242
-  store i8 %274, ptr %275, align 1, !tbaa !59
-  %276 = icmp sgt i64 %indvars.iv.next243, %271
-  br i1 %276, label %272, label %._crit_edge226, !llvm.loop !181
+274:                                              ; preds = %.lr.ph219, %274
+  %indvars.iv236 = phi i64 [ %272, %.lr.ph219 ], [ %indvars.iv.next237, %274 ]
+  %indvars.iv.next237 = add nsw i64 %indvars.iv236, -1
+  %275 = getelementptr inbounds [16 x i8], ptr %271, i64 0, i64 %indvars.iv.next237
+  %276 = load i8, ptr %275, align 1, !tbaa !59
+  %277 = getelementptr inbounds [16 x i8], ptr %271, i64 0, i64 %indvars.iv236
+  store i8 %276, ptr %277, align 1, !tbaa !59
+  %278 = icmp sgt i64 %indvars.iv.next237, %273
+  br i1 %278, label %274, label %._crit_edge220, !llvm.loop !181
 
-._crit_edge226:                                   ; preds = %272, %._crit_edge222.._crit_edge226_crit_edge
-  %.pre-phi248 = phi i64 [ %.pre247, %._crit_edge222.._crit_edge226_crit_edge ], [ %271, %272 ]
-  %277 = trunc i32 %3 to i8
-  %278 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %279 = getelementptr inbounds [16 x i8], ptr %278, i64 0, i64 %.pre-phi248
-  store i8 %277, ptr %279, align 1, !tbaa !59
+._crit_edge220:                                   ; preds = %274, %._crit_edge216.._crit_edge220_crit_edge
+  %.pre-phi = phi i64 [ %.pre240, %._crit_edge216.._crit_edge220_crit_edge ], [ %273, %274 ]
+  %279 = trunc i32 %3 to i8
+  %280 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %281 = getelementptr inbounds [16 x i8], ptr %280, i64 0, i64 %.pre-phi
+  store i8 %279, ptr %281, align 1, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20) #22
   %.not138 = icmp eq ptr %11, null
-  br i1 %.not138, label %If_CluAdjustBig.exit, label %280
+  br i1 %.not138, label %If_CluAdjustBig.exit, label %282
 
-280:                                              ; preds = %._crit_edge226
-  %281 = load i8, ptr %15, align 1, !tbaa !110
-  %282 = sext i8 %281 to i32
-  %283 = icmp slt i8 %281, 6
-  br i1 %283, label %If_CluAdjust.exit189, label %308
+282:                                              ; preds = %._crit_edge220
+  %283 = load i8, ptr %15, align 1, !tbaa !110
+  %284 = sext i8 %283 to i32
+  %285 = icmp slt i8 %283, 6
+  br i1 %285, label %If_CluAdjust.exit183, label %309
 
-If_CluAdjust.exit189:                             ; preds = %280
-  %284 = load i64, ptr %17, align 16, !tbaa !16
-  %285 = shl nuw i32 1, %282
-  %286 = zext i32 %285 to i64
-  %notmask.i178 = shl nsw i64 -1, %286
-  %287 = xor i64 %notmask.i178, -1
-  %288 = and i64 %284, %287
-  %289 = icmp eq i8 %281, 0
-  %290 = shl nuw nsw i64 %288, %286
-  %291 = select i1 %289, i64 %290, i64 0
-  %.030.i179 = or i64 %291, %288
-  %292 = icmp ult i8 %281, 2
-  %293 = shl i64 %.030.i179, 2
-  %294 = select i1 %292, i64 %293, i64 0
-  %.131.i180 = or i64 %294, %.030.i179
-  %.1.i181 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %282, i32 2)
-  %295 = icmp ult i8 %281, 3
-  %296 = shl i64 %.131.i180, 4
-  %297 = select i1 %295, i64 %296, i64 0
-  %.232.i182 = or i64 %297, %.131.i180
-  %.2.i183 = select i1 %295, i32 3, i32 %.1.i181
-  %298 = icmp eq i32 %.2.i183, 3
-  %299 = shl i64 %.232.i182, 8
-  %300 = select i1 %298, i64 %299, i64 0
-  %.333.i184 = or i64 %300, %.232.i182
-  %.3.i185 = select i1 %298, i32 4, i32 %.2.i183
-  %301 = icmp eq i32 %.3.i185, 4
-  %302 = shl i64 %.333.i184, 16
-  %303 = select i1 %301, i64 %302, i64 0
-  %.434.i186 = or i64 %303, %.333.i184
-  %304 = and i32 %.3.i185, -2
-  %305 = icmp eq i32 %304, 4
-  %306 = shl i64 %.434.i186, 32
-  %307 = select i1 %305, i64 %306, i64 0
-  %.5.i187 = or i64 %307, %.434.i186
-  store i64 %.5.i187, ptr %11, align 8, !tbaa !16
-  br label %If_CluCopy.exit196
+If_CluAdjust.exit183:                             ; preds = %282
+  %286 = load i64, ptr %17, align 16, !tbaa !16
+  %287 = shl nuw i32 1, %284
+  %288 = zext i32 %287 to i64
+  %notmask.i175 = shl nsw i64 -1, %288
+  %289 = xor i64 %notmask.i175, -1
+  %290 = and i64 %286, %289
+  %291 = icmp eq i8 %283, 0
+  %292 = shl nuw nsw i64 %290, %288
+  %293 = select i1 %291, i64 %292, i64 0
+  %.030.i176 = or i64 %293, %290
+  %294 = icmp ult i8 %283, 2
+  %295 = shl i64 %.030.i176, 2
+  %296 = select i1 %294, i64 %295, i64 0
+  %.131.i177 = or i64 %296, %.030.i176
+  %297 = icmp ult i8 %283, 3
+  %298 = shl i64 %.131.i177, 4
+  %299 = select i1 %297, i64 %298, i64 0
+  %.232.i178 = or i64 %299, %.131.i177
+  %300 = icmp ult i8 %283, 4
+  %301 = shl i64 %.232.i178, 8
+  %302 = select i1 %300, i64 %301, i64 0
+  %.333.i179 = or i64 %302, %.232.i178
+  %303 = icmp ult i8 %283, 5
+  %304 = shl i64 %.333.i179, 16
+  %305 = select i1 %303, i64 %304, i64 0
+  %.434.i180 = or i64 %305, %.333.i179
+  %306 = icmp ult i8 %283, 6
+  %307 = shl i64 %.434.i180, 32
+  %308 = select i1 %306, i64 %307, i64 0
+  %.5.i181 = or i64 %308, %.434.i180
+  store i64 %.5.i181, ptr %11, align 8, !tbaa !16
+  br label %If_CluCopy.exit190
 
-308:                                              ; preds = %280
-  %309 = add nsw i32 %282, -6
-  %.not211 = icmp eq i32 %309, 31
-  br i1 %.not211, label %If_CluCopy.exit196, label %.lr.ph.preheader.i190
+309:                                              ; preds = %282
+  %310 = add nsw i32 %284, -6
+  %.not205 = icmp eq i32 %310, 31
+  br i1 %.not205, label %If_CluCopy.exit190, label %.lr.ph.preheader.i184
 
-.lr.ph.preheader.i190:                            ; preds = %308
-  %310 = shl nuw i32 1, %309
-  %wide.trip.count.i191 = zext nneg i32 %310 to i64
-  %311 = shl nuw nsw i64 %wide.trip.count.i191, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 16 dereferenceable(1) %17, i64 %311, i1 false), !tbaa !16
-  br label %If_CluCopy.exit196
+.lr.ph.preheader.i184:                            ; preds = %309
+  %311 = shl nuw i32 1, %310
+  %wide.trip.count.i185 = zext nneg i32 %311 to i64
+  %312 = shl nuw nsw i64 %wide.trip.count.i185, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %11, ptr noundef nonnull align 16 dereferenceable(1) %17, i64 %312, i1 false), !tbaa !16
+  br label %If_CluCopy.exit190
 
-If_CluCopy.exit196:                               ; preds = %.lr.ph.preheader.i190, %308, %If_CluAdjust.exit189
-  %312 = icmp ne i32 %28, %282
-  %313 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -128, 128) %282, i32 6)
-  %314 = icmp slt i32 %313, %28
-  %or.cond.i = select i1 %312, i1 %314, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i197, label %If_CluAdjustBig.exit
+If_CluCopy.exit190:                               ; preds = %.lr.ph.preheader.i184, %309, %If_CluAdjust.exit183
+  %313 = icmp ne i32 %28, %284
+  %314 = call range(i32 -176, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -128, 128) %284, i32 6)
+  %315 = icmp slt i32 %314, %28
+  %or.cond.i = select i1 %313, i1 %315, i1 false
+  br i1 %or.cond.i, label %.lr.ph.i191, label %If_CluAdjustBig.exit
 
-.lr.ph.i197:                                      ; preds = %If_CluCopy.exit196, %If_CluCopy.exit.i
-  %.012.i198 = phi i32 [ %325, %If_CluCopy.exit.i ], [ %313, %If_CluCopy.exit196 ]
-  %315 = icmp samesign ult i32 %.012.i198, 7
-  %316 = add nsw i32 %.012.i198, -6
-  %317 = shl nuw i32 1, %316
-  %318 = select i1 %315, i32 1, i32 %317
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds i64, ptr %11, i64 %319
-  %321 = icmp sgt i32 %318, 0
-  br i1 %321, label %.lr.ph.preheader.i.i200, label %If_CluCopy.exit.i
+.lr.ph.i191:                                      ; preds = %If_CluCopy.exit190, %If_CluCopy.exit.i
+  %.012.i192 = phi i32 [ %326, %If_CluCopy.exit.i ], [ %314, %If_CluCopy.exit190 ]
+  %316 = icmp samesign ult i32 %.012.i192, 7
+  %317 = add nsw i32 %.012.i192, -6
+  %318 = shl nuw i32 1, %317
+  %319 = select i1 %316, i32 1, i32 %318
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr inbounds i64, ptr %11, i64 %320
+  %322 = icmp sgt i32 %319, 0
+  br i1 %322, label %.lr.ph.preheader.i.i194, label %If_CluCopy.exit.i
 
-.lr.ph.preheader.i.i200:                          ; preds = %.lr.ph.i197
-  %wide.trip.count.i.i201 = zext nneg i32 %318 to i64
+.lr.ph.preheader.i.i194:                          ; preds = %.lr.ph.i191
+  %wide.trip.count.i.i195 = zext nneg i32 %319 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i200
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i200 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %322 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i.i
-  %323 = load i64, ptr %322, align 8, !tbaa !16
-  %324 = getelementptr inbounds nuw i64, ptr %320, i64 %indvars.iv.i.i
-  store i64 %323, ptr %324, align 8, !tbaa !16
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i194
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i194 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %323 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i.i
+  %324 = load i64, ptr %323, align 8, !tbaa !16
+  %325 = getelementptr inbounds nuw i64, ptr %321, i64 %indvars.iv.i.i
+  store i64 %324, ptr %325, align 8, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i201
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i195
   br i1 %exitcond.not.i.i, label %If_CluCopy.exit.i, label %.lr.ph.i.i, !llvm.loop !137
 
-If_CluCopy.exit.i:                                ; preds = %.lr.ph.i.i, %.lr.ph.i197
-  %325 = add nuw nsw i32 %.012.i198, 1
-  %exitcond.not.i199 = icmp eq i32 %325, %28
-  br i1 %exitcond.not.i199, label %If_CluAdjustBig.exit, label %.lr.ph.i197, !llvm.loop !182
+If_CluCopy.exit.i:                                ; preds = %.lr.ph.i.i, %.lr.ph.i191
+  %326 = add nuw nsw i32 %.012.i192, 1
+  %exitcond.not.i193 = icmp eq i32 %326, %28
+  br i1 %exitcond.not.i193, label %If_CluAdjustBig.exit, label %.lr.ph.i191, !llvm.loop !182
 
-If_CluAdjustBig.exit:                             ; preds = %If_CluCopy.exit.i, %If_CluCopy.exit196, %._crit_edge226
+If_CluAdjustBig.exit:                             ; preds = %If_CluCopy.exit.i, %If_CluCopy.exit190, %._crit_edge220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %8, ptr noundef nonnull align 1 dereferenceable(18) %15, i64 18, i1 false), !tbaa.struct !183
   %.not139 = icmp eq ptr %9, null
-  br i1 %.not139, label %328, label %326
+  br i1 %.not139, label %329, label %327
 
-326:                                              ; preds = %If_CluAdjustBig.exit
-  %327 = load i64, ptr %17, align 16, !tbaa !16
-  store i64 %327, ptr %9, align 8, !tbaa !16
-  br label %328
+327:                                              ; preds = %If_CluAdjustBig.exit
+  %328 = load i64, ptr %17, align 16, !tbaa !16
+  store i64 %328, ptr %9, align 8, !tbaa !16
+  br label %329
 
-328:                                              ; preds = %326, %If_CluAdjustBig.exit
+329:                                              ; preds = %327, %If_CluAdjustBig.exit
   %.not140 = icmp eq ptr %10, null
-  br i1 %.not140, label %330, label %329
+  br i1 %.not140, label %331, label %330
 
-329:                                              ; preds = %328
+330:                                              ; preds = %329
   store i64 %.035.i, ptr %10, align 8, !tbaa !16
-  br label %330
+  br label %331
 
-330:                                              ; preds = %328, %329, %146
+331:                                              ; preds = %329, %330, %146
   %.not141 = icmp eq ptr %.0112, null
-  br i1 %.not141, label %If_CluSupport.exit.thread, label %.preheader212
+  br i1 %.not141, label %If_CluSupport.exit.thread, label %.preheader206
 
-.preheader212:                                    ; preds = %330, %.preheader212
-  %indvars.iv.i202 = phi i64 [ %indvars.iv.next.i205, %.preheader212 ], [ 0, %330 ]
-  %.078.i203 = phi i32 [ %337, %.preheader212 ], [ 0, %330 ]
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i202
-  %332 = load i8, ptr %331, align 1, !tbaa !59
-  %333 = and i8 %332, 15
-  %334 = zext nneg i8 %333 to i32
-  %indvars.iv.tr.i204 = trunc i64 %indvars.iv.i202 to i32
-  %335 = shl i32 %indvars.iv.tr.i204, 2
-  %336 = shl nuw i32 %334, %335
-  %337 = or i32 %336, %.078.i203
-  %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i202, 1
-  %exitcond.not.i206 = icmp eq i64 %indvars.iv.next.i205, 8
-  br i1 %exitcond.not.i206, label %If_CluSupport.exit.thread.sink.split, label %.preheader212, !llvm.loop !179
+.preheader206:                                    ; preds = %331, %.preheader206
+  %indvars.iv.i196 = phi i64 [ %indvars.iv.next.i199, %.preheader206 ], [ 0, %331 ]
+  %.078.i197 = phi i32 [ %338, %.preheader206 ], [ 0, %331 ]
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i196
+  %333 = load i8, ptr %332, align 1, !tbaa !59
+  %334 = and i8 %333, 15
+  %335 = zext nneg i8 %334 to i32
+  %indvars.iv.tr.i198 = trunc i64 %indvars.iv.i196 to i32
+  %336 = shl i32 %indvars.iv.tr.i198, 2
+  %337 = shl nuw i32 %335, %336
+  %338 = or i32 %337, %.078.i197
+  %indvars.iv.next.i199 = add nuw nsw i64 %indvars.iv.i196, 1
+  %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, 8
+  br i1 %exitcond.not.i200, label %If_CluSupport.exit.thread.sink.split, label %.preheader206, !llvm.loop !179
 
-If_CluSupport.exit.thread.sink.split:             ; preds = %.preheader212, %.preheader
-  %.lcssa254.sink = phi i32 [ %145, %.preheader ], [ %337, %.preheader212 ]
-  store i32 %.lcssa254.sink, ptr %.0112, align 4, !tbaa !6
+If_CluSupport.exit.thread.sink.split:             ; preds = %.preheader206, %.preheader
+  %.lcssa243.sink = phi i32 [ %145, %.preheader ], [ %338, %.preheader206 ]
+  store i32 %.lcssa243.sink, ptr %.0112, align 4, !tbaa !6
   br label %If_CluSupport.exit.thread
 
-If_CluSupport.exit.thread:                        ; preds = %If_CluSupport.exit.thread.sink.split, %If_CluCopy.exit151, %.lr.ph.i152, %330, %138, %If_CluSupport.exit, %84
+If_CluSupport.exit.thread:                        ; preds = %If_CluSupport.exit.thread.sink.split, %If_CluCopy.exit151, %.lr.ph.i152, %331, %138, %If_CluSupport.exit, %84
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #22
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %17) #22
@@ -8317,10 +8282,10 @@ define range(i32 0, 2) i32 @If_CutPerformCheck45(ptr noundef captures(address_is
 If_CluAdjust.exit:                                ; preds = %5
   %11 = load i64, ptr %8, align 8, !tbaa !16
   %12 = icmp eq i8 %.sroa.0.0.copyload, 6
-  br i1 %12, label %If_CluAdjust.exit22.thread, label %If_CluAdjust.exit22
+  br i1 %12, label %If_CluAdjust.exit19.thread, label %If_CluAdjust.exit19
 
-If_CluAdjust.exit22:                              ; preds = %If_CluAdjust.exit
-  %13 = sext i8 %.sroa.0.0.copyload to i32
+If_CluAdjust.exit19:                              ; preds = %If_CluAdjust.exit
+  %13 = zext nneg i8 %.sroa.0.0.copyload to i32
   %14 = shl nuw i32 1, %13
   %15 = zext nneg i32 %14 to i64
   %notmask.i11 = shl nsw i64 -1, %15
@@ -8330,92 +8295,88 @@ If_CluAdjust.exit22:                              ; preds = %If_CluAdjust.exit
   %19 = shl i64 %17, 2
   %20 = select i1 %18, i64 %19, i64 0
   %.131.i13 = or i64 %20, %17
-  %.1.i14 = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %13, i32 2)
   %21 = icmp ult i8 %.sroa.0.0.copyload, 3
   %22 = shl i64 %.131.i13, 4
   %23 = select i1 %21, i64 %22, i64 0
-  %.232.i15 = or i64 %23, %.131.i13
-  %.2.i16 = select i1 %21, i32 3, i32 %.1.i14
-  %24 = icmp eq i32 %.2.i16, 3
-  %25 = shl i64 %.232.i15, 8
+  %.232.i14 = or i64 %23, %.131.i13
+  %24 = icmp ult i8 %.sroa.0.0.copyload, 4
+  %25 = shl i64 %.232.i14, 8
   %26 = select i1 %24, i64 %25, i64 0
-  %.333.i17 = or i64 %26, %.232.i15
-  %.3.i18 = select i1 %24, i32 4, i32 %.2.i16
-  %27 = icmp eq i32 %.3.i18, 4
-  %28 = shl i64 %.333.i17, 16
+  %.333.i15 = or i64 %26, %.232.i14
+  %27 = icmp ult i8 %.sroa.0.0.copyload, 5
+  %28 = shl i64 %.333.i15, 16
   %29 = select i1 %27, i64 %28, i64 0
-  %.434.i19 = or i64 %29, %.333.i17
-  %30 = and i32 %.3.i18, -2
-  %31 = icmp eq i32 %30, 4
-  %32 = shl i64 %.434.i19, 32
-  %33 = select i1 %31, i64 %32, i64 0
-  %.5.i20 = or i64 %33, %.434.i19
-  %34 = icmp slt i8 %.sroa.0.0.copyload, 5
-  br i1 %34, label %If_CluCheckDecOutU.exit, label %If_CluAdjust.exit22.thread
+  %.434.i16 = or i64 %29, %.333.i15
+  %30 = icmp ult i8 %.sroa.0.0.copyload, 6
+  %31 = shl i64 %.434.i16, 32
+  %32 = select i1 %30, i64 %31, i64 0
+  %.5.i17 = or i64 %32, %.434.i16
+  %33 = icmp slt i8 %.sroa.0.0.copyload, 5
+  br i1 %33, label %If_CluCheckDecOutU.exit, label %If_CluAdjust.exit19.thread
 
-If_CluAdjust.exit22.thread:                       ; preds = %If_CluAdjust.exit, %If_CluAdjust.exit22
-  %.035.i2135 = phi i64 [ %.5.i20, %If_CluAdjust.exit22 ], [ %11, %If_CluAdjust.exit ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
-  %38 = load i32, ptr %37, align 8, !tbaa !190
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %If_CluCheckDecOut.exit, label %39
+If_CluAdjust.exit19.thread:                       ; preds = %If_CluAdjust.exit, %If_CluAdjust.exit19
+  %.035.i1832 = phi i64 [ %.5.i17, %If_CluAdjust.exit19 ], [ %11, %If_CluAdjust.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 136
+  %37 = load i32, ptr %36, align 8, !tbaa !190
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %If_CluCheckDecOut.exit, label %38
 
-39:                                               ; preds = %If_CluAdjust.exit22.thread
-  %40 = xor i64 %.035.i2135, -1
+38:                                               ; preds = %If_CluAdjust.exit19.thread
+  %39 = xor i64 %.035.i1832, -1
   br label %.lr.ph.i
 
-41:                                               ; preds = %48
+40:                                               ; preds = %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %If_CluCheckDecOut.exit, label %.lr.ph.i, !llvm.loop !188
 
-.lr.ph.i:                                         ; preds = %41, %39
-  %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
-  %43 = load i64, ptr %42, align 8, !tbaa !16
-  %44 = and i64 %43, %.035.i2135
-  %45 = icmp eq i64 %44, 0
-  %46 = and i64 %43, %40
-  %47 = icmp eq i64 %46, 0
-  %or.cond22.i = or i1 %45, %47
-  br i1 %or.cond22.i, label %If_CluCheckDecOutU.exit, label %48
+.lr.ph.i:                                         ; preds = %40, %38
+  %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %40 ]
+  %41 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
+  %42 = load i64, ptr %41, align 8, !tbaa !16
+  %43 = and i64 %42, %.035.i1832
+  %44 = icmp eq i64 %43, 0
+  %45 = and i64 %42, %39
+  %46 = icmp eq i64 %45, 0
+  %or.cond22.i = or i1 %44, %46
+  br i1 %or.cond22.i, label %If_CluCheckDecOutU.exit, label %47
 
-48:                                               ; preds = %.lr.ph.i
-  %49 = xor i64 %43, -1
-  %50 = and i64 %.035.i2135, %49
-  %51 = icmp eq i64 %50, 0
-  %52 = or i64 %43, %.035.i2135
-  %53 = icmp eq i64 %52, -1
-  %or.cond.i = or i1 %51, %53
-  br i1 %or.cond.i, label %If_CluCheckDecOutU.exit, label %41
+47:                                               ; preds = %.lr.ph.i
+  %48 = xor i64 %42, -1
+  %49 = and i64 %.035.i1832, %48
+  %50 = icmp eq i64 %49, 0
+  %51 = or i64 %42, %.035.i1832
+  %52 = icmp eq i64 %51, -1
+  %or.cond.i = or i1 %50, %52
+  br i1 %or.cond.i, label %If_CluCheckDecOutU.exit, label %40
 
-If_CluCheckDecOut.exit:                           ; preds = %41, %If_CluAdjust.exit22.thread
-  %54 = getelementptr inbounds nuw i8, ptr %36, i64 140
-  %55 = load i32, ptr %54, align 4, !tbaa !191
-  %.not9 = icmp eq i32 %55, 0
-  br i1 %.not9, label %If_CluCheckDecOutU.exit, label %.lr.ph.i23
+If_CluCheckDecOut.exit:                           ; preds = %40, %If_CluAdjust.exit19.thread
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 140
+  %54 = load i32, ptr %53, align 4, !tbaa !191
+  %.not9 = icmp eq i32 %54, 0
+  br i1 %.not9, label %If_CluCheckDecOutU.exit, label %.lr.ph.i20
 
-56:                                               ; preds = %.lr.ph.i23
-  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i24, 1
-  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 5
-  br i1 %exitcond.not.i27, label %If_CluCheckDecOutU.exit, label %.lr.ph.i23, !llvm.loop !189
+55:                                               ; preds = %.lr.ph.i20
+  %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i21, 1
+  %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, 5
+  br i1 %exitcond.not.i24, label %If_CluCheckDecOutU.exit, label %.lr.ph.i20, !llvm.loop !189
 
-.lr.ph.i23:                                       ; preds = %If_CluCheckDecOut.exit, %56
-  %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i26, %56 ], [ 0, %If_CluCheckDecOut.exit ]
-  %57 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i24
-  %58 = load i64, ptr %57, align 8, !tbaa !16
-  %59 = xor i64 %58, -1
-  %60 = and i64 %.035.i2135, %59
-  %61 = icmp eq i64 %60, 0
-  %62 = or i64 %58, %.035.i2135
-  %63 = icmp eq i64 %62, -1
-  %or.cond.i25 = or i1 %61, %63
-  br i1 %or.cond.i25, label %If_CluCheckDecOutU.exit, label %56
+.lr.ph.i20:                                       ; preds = %If_CluCheckDecOut.exit, %55
+  %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i23, %55 ], [ 0, %If_CluCheckDecOut.exit ]
+  %56 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i21
+  %57 = load i64, ptr %56, align 8, !tbaa !16
+  %58 = xor i64 %57, -1
+  %59 = and i64 %.035.i1832, %58
+  %60 = icmp eq i64 %59, 0
+  %61 = or i64 %57, %.035.i1832
+  %62 = icmp eq i64 %61, -1
+  %or.cond.i22 = or i1 %60, %62
+  br i1 %or.cond.i22, label %If_CluCheckDecOutU.exit, label %55
 
-If_CluCheckDecOutU.exit:                          ; preds = %48, %.lr.ph.i, %56, %.lr.ph.i23, %If_CluCheckDecOut.exit, %If_CluAdjust.exit22, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit22 ], [ 0, %If_CluCheckDecOut.exit ], [ 0, %56 ], [ 1, %.lr.ph.i23 ], [ 1, %.lr.ph.i ], [ 1, %48 ]
+If_CluCheckDecOutU.exit:                          ; preds = %47, %.lr.ph.i, %55, %.lr.ph.i20, %If_CluCheckDecOut.exit, %If_CluAdjust.exit19, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit19 ], [ 0, %If_CluCheckDecOut.exit ], [ 0, %55 ], [ 1, %.lr.ph.i20 ], [ 1, %.lr.ph.i ], [ 1, %47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #22
@@ -8445,7 +8406,7 @@ define range(i32 0, 2) i32 @If_CutPerformCheck54(ptr noundef captures(address_is
   br i1 %14, label %If_CluAdjust.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = sext i8 %13 to i32
+  %16 = zext nneg i8 %13 to i32
   %17 = shl nuw i32 1, %16
   %18 = zext i32 %17 to i64
   %notmask.i = shl nsw i64 -1, %18
@@ -8459,155 +8420,151 @@ define range(i32 0, 2) i32 @If_CutPerformCheck54(ptr noundef captures(address_is
   %25 = shl i64 %.030.i, 2
   %26 = select i1 %24, i64 %25, i64 0
   %.131.i = or i64 %26, %.030.i
-  %.1.i = call i32 @llvm.umax.i32(i32 range(i32 -2147483646, -2147483648) %16, i32 2)
   %27 = icmp ult i8 %13, 3
   %28 = shl i64 %.131.i, 4
   %29 = select i1 %27, i64 %28, i64 0
   %.232.i = or i64 %29, %.131.i
-  %.2.i = select i1 %27, i32 3, i32 %.1.i
-  %30 = icmp eq i32 %.2.i, 3
+  %30 = icmp ult i8 %13, 4
   %31 = shl i64 %.232.i, 8
   %32 = select i1 %30, i64 %31, i64 0
   %.333.i = or i64 %32, %.232.i
-  %.3.i = select i1 %30, i32 4, i32 %.2.i
-  %33 = icmp eq i32 %.3.i, 4
+  %33 = icmp ult i8 %13, 5
   %34 = shl i64 %.333.i, 16
   %35 = select i1 %33, i64 %34, i64 0
   %.434.i = or i64 %35, %.333.i
-  %36 = and i32 %.3.i, -2
-  %37 = icmp eq i32 %36, 4
-  %38 = shl i64 %.434.i, 32
-  %39 = select i1 %37, i64 %38, i64 0
-  %.5.i = or i64 %39, %.434.i
+  %36 = icmp ult i8 %13, 6
+  %37 = shl i64 %.434.i, 32
+  %38 = select i1 %36, i64 %37, i64 0
+  %.5.i = or i64 %38, %.434.i
   br label %If_CluAdjust.exit
 
 If_CluAdjust.exit:                                ; preds = %11, %15
   %.035.i = phi i64 [ %.5.i, %15 ], [ %12, %11 ]
-  %40 = icmp slt i8 %13, 5
-  br i1 %40, label %If_CluCheckDecInU.exit, label %41
+  %39 = icmp slt i8 %13, 5
+  br i1 %39, label %If_CluCheckDecInU.exit, label %40
 
-41:                                               ; preds = %If_CluAdjust.exit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !24
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
-  %45 = load i32, ptr %44, align 8, !tbaa !190
-  %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %If_CluCheckDecIn.exit, label %46
+40:                                               ; preds = %If_CluAdjust.exit
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
+  %44 = load i32, ptr %43, align 8, !tbaa !190
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %If_CluCheckDecIn.exit, label %45
 
-46:                                               ; preds = %41
-  %47 = and i64 %.035.i, -6148914691236517206
-  %48 = lshr exact i64 %47, 1
-  %49 = or disjoint i64 %48, %47
-  %50 = and i64 %.035.i, 6148914691236517205
-  %sext.i = mul i64 %50, 12884901888
-  %51 = ashr exact i64 %sext.i, 32
-  %sext34.i = shl i64 %49, 32
-  %52 = ashr exact i64 %sext34.i, 32
-  br label %54
+45:                                               ; preds = %40
+  %46 = and i64 %.035.i, -6148914691236517206
+  %47 = lshr exact i64 %46, 1
+  %48 = or disjoint i64 %47, %46
+  %49 = and i64 %.035.i, 6148914691236517205
+  %sext.i = mul i64 %49, 12884901888
+  %50 = ashr exact i64 %sext.i, 32
+  %sext34.i = shl i64 %48, 32
+  %51 = ashr exact i64 %sext34.i, 32
+  br label %53
 
-53:                                               ; preds = %83
+52:                                               ; preds = %82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %If_CluCheckDecIn.exit, label %54, !llvm.loop !186
+  br i1 %exitcond.not.i, label %If_CluCheckDecIn.exit, label %53, !llvm.loop !186
 
-54:                                               ; preds = %53, %46
-  %indvars.iv.i = phi i64 [ 1, %46 ], [ %indvars.iv.next.i, %53 ]
-  %55 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
-  %56 = load i64, ptr %55, align 8, !tbaa !16
-  %57 = and i64 %56, %51
-  %58 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %59 = shl nuw i32 1, %58
-  %60 = zext nneg i32 %59 to i64
-  %61 = shl i64 %57, %60
-  %62 = or i64 %61, %57
-  %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
-  %65 = load i64, ptr %64, align 8, !tbaa !16
-  %66 = and i64 %65, %51
-  %67 = lshr i64 %66, %60
-  %68 = or i64 %67, %66
-  %69 = trunc i64 %68 to i32
-  %70 = and i64 %56, %52
-  %71 = shl i64 %70, %60
-  %72 = or i64 %71, %70
-  %73 = trunc i64 %72 to i32
-  %74 = and i64 %65, %52
-  %75 = lshr i64 %74, %60
-  %76 = or i64 %75, %74
-  %77 = trunc i64 %76 to i32
-  %78 = icmp eq i32 %63, %69
-  %79 = icmp eq i32 %63, %73
-  %or.cond.i = select i1 %78, i1 %79, i1 false
-  br i1 %or.cond.i, label %If_CluCheckDecInU.exit, label %80
+53:                                               ; preds = %52, %45
+  %indvars.iv.i = phi i64 [ 1, %45 ], [ %indvars.iv.next.i, %52 ]
+  %54 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
+  %55 = load i64, ptr %54, align 8, !tbaa !16
+  %56 = and i64 %55, %50
+  %57 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %58 = shl nuw i32 1, %57
+  %59 = zext nneg i32 %58 to i64
+  %60 = shl i64 %56, %59
+  %61 = or i64 %60, %56
+  %62 = trunc i64 %61 to i32
+  %63 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
+  %64 = load i64, ptr %63, align 8, !tbaa !16
+  %65 = and i64 %64, %50
+  %66 = lshr i64 %65, %59
+  %67 = or i64 %66, %65
+  %68 = trunc i64 %67 to i32
+  %69 = and i64 %55, %51
+  %70 = shl i64 %69, %59
+  %71 = or i64 %70, %69
+  %72 = trunc i64 %71 to i32
+  %73 = and i64 %64, %51
+  %74 = lshr i64 %73, %59
+  %75 = or i64 %74, %73
+  %76 = trunc i64 %75 to i32
+  %77 = icmp eq i32 %62, %68
+  %78 = icmp eq i32 %62, %72
+  %or.cond.i = select i1 %77, i1 %78, i1 false
+  br i1 %or.cond.i, label %If_CluCheckDecInU.exit, label %79
 
-80:                                               ; preds = %54
-  %81 = icmp eq i32 %63, %77
-  %82 = or i1 %79, %78
-  %or.cond38.i = select i1 %82, i1 %81, i1 false
-  br i1 %or.cond38.i, label %If_CluCheckDecInU.exit, label %83
+79:                                               ; preds = %53
+  %80 = icmp eq i32 %62, %76
+  %81 = or i1 %78, %77
+  %or.cond38.i = select i1 %81, i1 %80, i1 false
+  br i1 %or.cond38.i, label %If_CluCheckDecInU.exit, label %82
 
-83:                                               ; preds = %80
-  %84 = icmp eq i32 %69, %73
-  %85 = icmp eq i32 %69, %77
-  %or.cond37.i = select i1 %84, i1 %85, i1 false
-  br i1 %or.cond37.i, label %If_CluCheckDecInU.exit, label %53
+82:                                               ; preds = %79
+  %83 = icmp eq i32 %68, %72
+  %84 = icmp eq i32 %68, %76
+  %or.cond37.i = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond37.i, label %If_CluCheckDecInU.exit, label %52
 
-If_CluCheckDecIn.exit:                            ; preds = %53, %41
-  %86 = getelementptr inbounds nuw i8, ptr %43, i64 140
-  %87 = load i32, ptr %86, align 4, !tbaa !191
-  %.not8 = icmp eq i32 %87, 0
-  br i1 %.not8, label %If_CluCheckDecInU.exit, label %88
+If_CluCheckDecIn.exit:                            ; preds = %52, %40
+  %85 = getelementptr inbounds nuw i8, ptr %42, i64 140
+  %86 = load i32, ptr %85, align 4, !tbaa !191
+  %.not8 = icmp eq i32 %86, 0
+  br i1 %.not8, label %If_CluCheckDecInU.exit, label %87
 
-88:                                               ; preds = %If_CluCheckDecIn.exit
-  %89 = and i64 %.035.i, -6148914691236517206
-  %90 = lshr exact i64 %89, 1
-  %91 = or disjoint i64 %90, %89
-  %92 = and i64 %.035.i, 6148914691236517205
-  %sext.i22 = mul i64 %92, 12884901888
-  %93 = ashr exact i64 %sext.i22, 32
-  %sext25.i = shl i64 %91, 32
-  %94 = ashr exact i64 %sext25.i, 32
-  br label %96
+87:                                               ; preds = %If_CluCheckDecIn.exit
+  %88 = and i64 %.035.i, -6148914691236517206
+  %89 = lshr exact i64 %88, 1
+  %90 = or disjoint i64 %89, %88
+  %91 = and i64 %.035.i, 6148914691236517205
+  %sext.i19 = mul i64 %91, 12884901888
+  %92 = ashr exact i64 %sext.i19, 32
+  %sext25.i = shl i64 %90, 32
+  %93 = ashr exact i64 %sext25.i, 32
+  br label %95
 
-95:                                               ; preds = %96
-  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
-  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 5
-  br i1 %exitcond.not.i25, label %If_CluCheckDecInU.exit, label %96, !llvm.loop !187
+94:                                               ; preds = %95
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 5
+  br i1 %exitcond.not.i22, label %If_CluCheckDecInU.exit, label %95, !llvm.loop !187
 
-96:                                               ; preds = %95, %88
-  %indvars.iv.i23 = phi i64 [ 1, %88 ], [ %indvars.iv.next.i24, %95 ]
-  %97 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i23
-  %98 = load i64, ptr %97, align 8, !tbaa !16
-  %99 = and i64 %98, %93
-  %100 = trunc nuw nsw i64 %indvars.iv.i23 to i32
-  %101 = shl nuw i32 1, %100
-  %102 = zext nneg i32 %101 to i64
-  %103 = shl i64 %99, %102
-  %104 = or i64 %103, %99
-  %105 = trunc i64 %104 to i32
-  %106 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i23
-  %107 = load i64, ptr %106, align 8, !tbaa !16
-  %108 = and i64 %107, %93
-  %109 = lshr i64 %108, %102
-  %110 = or i64 %109, %108
-  %111 = trunc i64 %110 to i32
-  %112 = and i64 %98, %94
-  %113 = shl i64 %112, %102
-  %114 = or i64 %113, %112
-  %115 = trunc i64 %114 to i32
-  %116 = and i64 %107, %94
-  %117 = lshr i64 %116, %102
-  %118 = or i64 %117, %116
-  %119 = trunc i64 %118 to i32
-  %120 = icmp eq i32 %105, %111
-  %121 = icmp eq i32 %105, %115
-  %122 = icmp eq i32 %105, %119
-  %123 = select i1 %120, i1 true, i1 %122
-  %or.cond27.i = select i1 %121, i1 %123, i1 false
-  br i1 %or.cond27.i, label %If_CluCheckDecInU.exit, label %95
+95:                                               ; preds = %94, %87
+  %indvars.iv.i20 = phi i64 [ 1, %87 ], [ %indvars.iv.next.i21, %94 ]
+  %96 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i20
+  %97 = load i64, ptr %96, align 8, !tbaa !16
+  %98 = and i64 %97, %92
+  %99 = trunc nuw nsw i64 %indvars.iv.i20 to i32
+  %100 = shl nuw i32 1, %99
+  %101 = zext nneg i32 %100 to i64
+  %102 = shl i64 %98, %101
+  %103 = or i64 %102, %98
+  %104 = trunc i64 %103 to i32
+  %105 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i20
+  %106 = load i64, ptr %105, align 8, !tbaa !16
+  %107 = and i64 %106, %92
+  %108 = lshr i64 %107, %101
+  %109 = or i64 %108, %107
+  %110 = trunc i64 %109 to i32
+  %111 = and i64 %97, %93
+  %112 = shl i64 %111, %101
+  %113 = or i64 %112, %111
+  %114 = trunc i64 %113 to i32
+  %115 = and i64 %106, %93
+  %116 = lshr i64 %115, %101
+  %117 = or i64 %116, %115
+  %118 = trunc i64 %117 to i32
+  %119 = icmp eq i32 %104, %110
+  %120 = icmp eq i32 %104, %114
+  %121 = icmp eq i32 %104, %118
+  %122 = select i1 %119, i1 true, i1 %121
+  %or.cond27.i = select i1 %120, i1 %122, i1 false
+  br i1 %or.cond27.i, label %If_CluCheckDecInU.exit, label %94
 
-If_CluCheckDecInU.exit:                           ; preds = %54, %80, %83, %95, %96, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 0, %95 ], [ 1, %96 ], [ 1, %83 ], [ 1, %80 ], [ 1, %54 ]
+If_CluCheckDecInU.exit:                           ; preds = %53, %79, %82, %94, %95, %If_CluCheckDecIn.exit, %If_CluAdjust.exit, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %If_CluAdjust.exit ], [ 0, %If_CluCheckDecIn.exit ], [ 0, %94 ], [ 1, %95 ], [ 1, %82 ], [ 1, %79 ], [ 1, %53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %6) #22

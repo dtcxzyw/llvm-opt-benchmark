@@ -15867,9 +15867,8 @@ _ZN3tev11ImageViewer18sizeToFitAllImagesEv.exit:  ; preds = %_ZN3tev11ImageViewe
   br i1 %109, label %122, label %.preheader
 
 .preheader:                                       ; preds = %102
-  %110 = icmp slt i32 %105, 1
-  %.sroa.speculate.load.false.sroa.speculated = call i32 @llvm.umin.i32(i32 %105, i32 1000)
-  %.sroa.speculated = select i1 %110, i32 1, i32 %.sroa.speculate.load.false.sroa.speculated
+  %110 = call i32 @llvm.smax.i32(i32 %105, i32 1)
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %110, i32 1000)
   %111 = uitofp nneg i32 %.sroa.speculated to float
   %112 = fdiv float 1.000000e+00, %111
   %113 = fmul float %112, 1.000000e+09

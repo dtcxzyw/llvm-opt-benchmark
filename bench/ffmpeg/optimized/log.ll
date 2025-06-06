@@ -635,9 +635,8 @@ sanitize.exit41.loopexit:                         ; preds = %99
 sanitize.exit41:                                  ; preds = %sanitize.exit41.loopexit, %sanitize.exit34
   %102 = phi ptr [ %.pre51, %sanitize.exit41.loopexit ], [ %93, %sanitize.exit34 ]
   %103 = ashr i32 %.014, 3
-  %104 = icmp slt i32 %103, 0
-  %..i = call i32 @llvm.umin.i32(i32 %103, i32 7)
-  %.0.i = select i1 %104, i32 0, i32 %..i
+  %104 = call i32 @llvm.smax.i32(i32 %103, i32 0)
+  %.0.i = call i32 @llvm.umin.i32(i32 %104, i32 7)
   call fastcc void @colored_fputs(i32 noundef %.0.i, i32 noundef %.0, ptr noundef %102)
   %105 = load ptr, ptr %21, align 16, !tbaa !15
   %106 = load i8, ptr %105, align 1, !tbaa !27
@@ -1181,6 +1180,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

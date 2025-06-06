@@ -58048,9 +58048,8 @@ JS_DupValue.exit.i:                               ; preds = %JS_FreeValue.exit24
 
 .thread:                                          ; preds = %JS_DupValue.exit.i
   %227 = load i32, ptr %10, align 4, !tbaa !67
-  %228 = icmp slt i32 %227, 0
-  %spec.select = call i32 @llvm.umin.i32(i32 %227, i32 10)
-  %229 = select i1 %228, i32 0, i32 %spec.select
+  %228 = call i32 @llvm.smax.i32(i32 %227, i32 0)
+  %229 = call i32 @llvm.umin.i32(i32 %228, i32 10)
   %230 = zext nneg i32 %229 to i64
   %231 = call { i64, i64 } @JS_NewStringLen(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i64 noundef %230)
   %232 = extractvalue { i64, i64 } %231, 0

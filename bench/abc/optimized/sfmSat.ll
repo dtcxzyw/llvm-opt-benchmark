@@ -2190,12 +2190,12 @@ define i64 @Sfm_ComputeInterpolant2(ptr noundef captures(none) %0) local_unnamed
   store i32 0, ptr %4, align 4, !tbaa !28
   %5 = call i32 @Sfm_ComputeInterpolantInt(ptr noundef %0, ptr noundef nonnull %2)
   switch i32 %5, label %7 [
-    i32 0, label %55
+    i32 0, label %54
     i32 1, label %6
   ]
 
 6:                                                ; preds = %1
-  br label %55
+  br label %54
 
 7:                                                ; preds = %1
   %8 = load i64, ptr %2, align 16, !tbaa !55
@@ -2211,59 +2211,55 @@ define i64 @Sfm_ComputeInterpolant2(ptr noundef captures(none) %0) local_unnamed
   %17 = select i1 %12, i64 %14, i64 %16
   %18 = mul nuw nsw i64 %17, 5
   %.126.i = select i1 %15, i64 %18, i64 %8
-  %.1.i = tail call i32 @llvm.umax.i32(i32 %.val13, i32 2)
   %19 = icmp ult i32 %.val13, 3
   %20 = and i64 %.126.i, 15
   %21 = mul nuw nsw i64 %20, 17
   %.227.i = select i1 %19, i64 %21, i64 %8
-  %.2.i = select i1 %19, i32 3, i32 %.1.i
-  %22 = icmp eq i32 %.2.i, 3
+  %22 = icmp ult i32 %.val13, 4
   %23 = and i64 %.227.i, 255
   %24 = mul nuw nsw i64 %23, 257
-  %.328.i = select i1 %22, i64 %24, i64 %.227.i
-  %.3.i = select i1 %22, i32 4, i32 %.2.i
-  %25 = icmp eq i32 %.3.i, 4
+  %.328.i = select i1 %22, i64 %24, i64 %8
+  %25 = icmp ult i32 %.val13, 5
   %26 = and i64 %.328.i, 65535
   %27 = mul nuw nsw i64 %26, 65537
-  %.429.i = select i1 %25, i64 %27, i64 %.328.i
-  %28 = and i32 %.3.i, -2
-  %29 = icmp eq i32 %28, 4
-  %30 = and i64 %.429.i, 4294967295
-  %31 = mul nuw i64 %30, 4294967297
-  %.5.i = select i1 %29, i64 %31, i64 %.429.i
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !55
-  %34 = trunc i64 %33 to i1
-  %35 = select i1 %34, i64 3, i64 0
-  %36 = and i64 %33, 3
-  %37 = select i1 %12, i64 %35, i64 %36
-  %38 = mul nuw nsw i64 %37, 5
-  %.126.i14 = select i1 %15, i64 %38, i64 %33
-  %39 = and i64 %.126.i14, 15
-  %40 = mul nuw nsw i64 %39, 17
-  %.227.i16 = select i1 %19, i64 %40, i64 %33
-  %41 = and i64 %.227.i16, 255
-  %42 = mul nuw nsw i64 %41, 257
-  %.328.i18 = select i1 %22, i64 %42, i64 %.227.i16
-  %43 = and i64 %.328.i18, 65535
-  %44 = mul nuw nsw i64 %43, 65537
-  %.429.i20 = select i1 %25, i64 %44, i64 %.328.i18
-  %45 = and i64 %.429.i20, 4294967295
-  %46 = mul nuw i64 %45, 4294967297
-  %.5.i21 = select i1 %29, i64 %46, i64 %.429.i20
-  %47 = xor i64 %.5.i, -1
-  %48 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i21, i64 noundef %47, i32 noundef %.val13, ptr noundef %3)
-  %49 = xor i64 %.5.i21, -1
-  %50 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %49, i32 noundef %.val13, ptr noundef %4)
-  %51 = load i32, ptr %3, align 4, !tbaa !28
-  %52 = load i32, ptr %4, align 4, !tbaa !28
-  %.not = icmp sgt i32 %51, %52
-  %53 = xor i64 %50, -1
-  %54 = select i1 %.not, i64 %53, i64 %48
-  br label %55
+  %.429.i = select i1 %25, i64 %27, i64 %8
+  %28 = icmp ult i32 %.val13, 6
+  %29 = and i64 %.429.i, 4294967295
+  %30 = mul nuw i64 %29, 4294967297
+  %.5.i = select i1 %28, i64 %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !55
+  %33 = trunc i64 %32 to i1
+  %34 = select i1 %33, i64 3, i64 0
+  %35 = and i64 %32, 3
+  %36 = select i1 %12, i64 %34, i64 %35
+  %37 = mul nuw nsw i64 %36, 5
+  %.126.i14 = select i1 %15, i64 %37, i64 %32
+  %38 = and i64 %.126.i14, 15
+  %39 = mul nuw nsw i64 %38, 17
+  %.227.i15 = select i1 %19, i64 %39, i64 %32
+  %40 = and i64 %.227.i15, 255
+  %41 = mul nuw nsw i64 %40, 257
+  %.328.i16 = select i1 %22, i64 %41, i64 %32
+  %42 = and i64 %.328.i16, 65535
+  %43 = mul nuw nsw i64 %42, 65537
+  %.429.i17 = select i1 %25, i64 %43, i64 %32
+  %44 = and i64 %.429.i17, 4294967295
+  %45 = mul nuw i64 %44, 4294967297
+  %.5.i18 = select i1 %28, i64 %45, i64 %32
+  %46 = xor i64 %.5.i, -1
+  %47 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i18, i64 noundef %46, i32 noundef %.val13, ptr noundef %3)
+  %48 = xor i64 %.5.i18, -1
+  %49 = call fastcc i64 @Abc_Tt6Isop(i64 noundef %.5.i, i64 noundef %48, i32 noundef %.val13, ptr noundef %4)
+  %50 = load i32, ptr %3, align 4, !tbaa !28
+  %51 = load i32, ptr %4, align 4, !tbaa !28
+  %.not = icmp sgt i32 %50, %51
+  %52 = xor i64 %49, -1
+  %53 = select i1 %.not, i64 %52, i64 %47
+  br label %54
 
-55:                                               ; preds = %1, %7, %6
-  %.0 = phi i64 [ -8690466094656961759, %6 ], [ %54, %7 ], [ 1311768465173141112, %1 ]
+54:                                               ; preds = %1, %7, %6
+  %.0 = phi i64 [ -8690466094656961759, %6 ], [ %53, %7 ], [ 1311768465173141112, %1 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
@@ -2540,9 +2536,6 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

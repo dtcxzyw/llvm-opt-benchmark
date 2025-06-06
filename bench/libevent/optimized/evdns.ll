@@ -5399,9 +5399,8 @@ str_matches_option.exit257:                       ; preds = %str_matches_option.
   br i1 %.not195, label %.thread274, label %strtoint_clipped.exit
 
 strtoint_clipped.exit:                            ; preds = %94
-  %96 = icmp slt i32 %91, 1
-  %..i = tail call i32 @llvm.umin.i32(i32 %91, i32 255)
-  %.0.i258.ph = select i1 %96, i32 1, i32 %..i
+  %96 = tail call i32 @llvm.smax.i32(i32 %91, i32 1)
+  %.0.i258.ph = tail call i32 @llvm.umin.i32(i32 %96, i32 255)
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.84, i32 noundef %.0.i258.ph)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %.0.i258.ph, ptr %97, align 8
