@@ -105781,12 +105781,12 @@ define hidden void @_ZN5typst4math8equation19add_equation_number17h0e3cb18c986ea
   br i1 %.not, label %16, label %19
 
 14:                                               ; preds = %32
-  br i1 %.131, label %124, label %125
+  br i1 %.131, label %119, label %120
 
 .thread:                                          ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h8f8d12ff456822e1E.exit"
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %119
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -105819,12 +105819,12 @@ define hidden void @_ZN5typst4math8equation19add_equation_number17h0e3cb18c986ea
   invoke void @_ZN5typst4math3row19MathRunFrameBuilder5build17he9a8b03277ee84caE(ptr noalias noundef nonnull sret({ { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %10)
           to label %34 unwind label %.thread
 
-32:                                               ; preds = %63, %119, %89, %87, %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
+32:                                               ; preds = %62, %114, %87, %85, %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
   %.131 = phi i1 [ true, %89 ], [ false, %119 ], [ true, %87 ], [ true, %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit ], [ true, %63 ]
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$typst..layout..frame..Frame$GT$17h70b9fd71c3f114e6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #82
-          to label %14 unwind label %122
+          to label %14 unwind label %117
 
 34:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h8f8d12ff456822e1E.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
@@ -105836,8 +105836,8 @@ define hidden void @_ZN5typst4math8equation19add_equation_number17h0e3cb18c986ea
   %.027 = phi double [ %6, %34 ], [ %.0.i.i.i, %38 ]
   switch i8 %4, label %43 [
     i8 0, label %.thread126
-    i8 1, label %55
-    i8 2, label %64
+    i8 1, label %54
+    i8 2, label %63
   ]
 
 38:                                               ; preds = %34
@@ -105851,7 +105851,7 @@ define hidden void @_ZN5typst4math8equation19add_equation_number17h0e3cb18c986ea
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %42, double 0.000000e+00
   br label %37
 
-43:                                               ; preds = %90, %37
+43:                                               ; preds = %88, %37
   unreachable
 
 .thread126:                                       ; preds = %37
@@ -105864,204 +105864,204 @@ define hidden void @_ZN5typst4math8equation19add_equation_number17h0e3cb18c986ea
   %.0.i.inv.i.i.i1.i = fcmp ord double %47, 0.000000e+00
   %48 = fmul double %47, 5.000000e-01
   %49 = select i1 %.0.i.inv.i.i.i1.i, double %48, double 0.000000e+00
-  %50 = fneg double %.sroa.8.0122
+  %49 = fneg double %.sroa.8.0122
   %.0.i.inv.i.i.i.i43 = fcmp ord double %.sroa.8.0122, 0.000000e+00
-  %.0.i.i.i.i44 = select i1 %.0.i.inv.i.i.i.i43, double %50, double 0.000000e+00
-  %51 = fadd double %.0.i.i.i.i44, %49
-  %.0.i.inv.i.i.i1.i45 = fcmp ord double %51, 0.000000e+00
-  %.0.i.i.i2.i46 = select i1 %.0.i.inv.i.i.i1.i45, double %51, double 0.000000e+00
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %53 = load double, ptr %52, align 8, !alias.scope !25648, !noundef !12
+  %.0.i.i.i.i44 = select i1 %.0.i.inv.i.i.i.i43, double %49, double 0.000000e+00
+  %50 = fadd double %.0.i.i.i.i44, %49
+  %.0.i.inv.i.i.i1.i45 = fcmp ord double %50, 0.000000e+00
+  %.0.i.i.i2.i46 = select i1 %.0.i.inv.i.i.i1.i45, double %50, double 0.000000e+00
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %52 = load double, ptr %51, align 8, !alias.scope !25648, !noundef !12
   %.inv132 = fcmp oge double %.0.i.i.i2.i46, 0.000000e+00
   %.0.sroa.speculated.i.i = select i1 %.inv132, double %.0.i.i.i2.i46, double 0.000000e+00
-  %54 = fadd double %53, %.0.sroa.speculated.i.i
-  %.0.i.inv.i.i.i47 = fcmp ord double %54, 0.000000e+00
-  %.0.i.i.i48 = select i1 %.0.i.inv.i.i.i47, double %54, double 0.000000e+00
+  %53 = fadd double %52, %.0.sroa.speculated.i.i
+  %.0.i.inv.i.i.i47 = fcmp ord double %53, 0.000000e+00
+  %.0.i.i.i48 = select i1 %.0.i.inv.i.i.i47, double %53, double 0.000000e+00
   br label %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
 
-55:                                               ; preds = %37
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %57 = load double, ptr %56, align 8, !alias.scope !25651, !noundef !12
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %59 = load double, ptr %58, align 8, !alias.scope !25654, !noundef !12
-  %60 = fcmp ugt double %57, %59
-  br i1 %60, label %61, label %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
+54:                                               ; preds = %37
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %56 = load double, ptr %55, align 8, !alias.scope !25651, !noundef !12
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %58 = load double, ptr %57, align 8, !alias.scope !25654, !noundef !12
+  %59 = fcmp ugt double %56, %58
+  br i1 %59, label %60, label %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
 
-61:                                               ; preds = %55
-  %62 = fcmp ult double %57, %59
-  br i1 %62, label %63, label %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
+60:                                               ; preds = %54
+  %61 = fcmp ult double %56, %58
+  br i1 %61, label %62, label %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
 
-63:                                               ; preds = %61
+62:                                               ; preds = %60
   invoke void @_ZN4core6option13expect_failed17h5c9b166b5a7a71f0E(ptr noalias noundef nonnull readonly align 1 @anon.a2b023d1a4e2834952d16152dce23780.284.llvm.7889846851399105414, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.288.llvm.7889846851399105414) #81
           to label %.noexc50 unwind label %32
 
-.noexc50:                                         ; preds = %63
+.noexc50:                                         ; preds = %62
   unreachable
 
-64:                                               ; preds = %37
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %66 = load double, ptr %65, align 8, !alias.scope !25657, !noundef !12
-  %67 = fadd double %.sroa.4105.0, %66
-  %.0.i.inv.i.i.i52 = fcmp ord double %67, 0.000000e+00
-  %68 = fmul double %67, 5.000000e-01
+63:                                               ; preds = %37
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %65 = load double, ptr %64, align 8, !alias.scope !25657, !noundef !12
+  %66 = fadd double %.sroa.4105.0, %65
+  %.0.i.inv.i.i.i52 = fcmp ord double %66, 0.000000e+00
+  %68 = fmul double %66, 5.000000e-01
   %69 = select i1 %.0.i.inv.i.i.i52, double %68, double 0.000000e+00
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %71 = load double, ptr %70, align 8, !alias.scope !25660, !noundef !12
-  %72 = fneg double %71
-  %.0.i.inv.i.i.i.i56 = fcmp ord double %71, 0.000000e+00
-  %.0.i.i.i.i57 = select i1 %.0.i.inv.i.i.i.i56, double %72, double 0.000000e+00
-  %73 = fadd double %69, %.0.i.i.i.i57
-  %.0.i.inv.i.i.i1.i58 = fcmp ord double %73, 0.000000e+00
-  %.0.i.i.i2.i59 = select i1 %.0.i.inv.i.i.i1.i58, double %73, double 0.000000e+00
-  %74 = fadd double %.sroa.8108.0, %.0.i.i.i2.i59
-  %.0.i.inv.i.i.i60 = fcmp ord double %74, 0.000000e+00
-  %.0.i.i.i61 = select i1 %.0.i.inv.i.i.i60, double %74, double 0.000000e+00
+  %68 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %69 = load double, ptr %68, align 8, !alias.scope !25660, !noundef !12
+  %70 = fneg double %69
+  %.0.i.inv.i.i.i.i56 = fcmp ord double %69, 0.000000e+00
+  %.0.i.i.i.i57 = select i1 %.0.i.inv.i.i.i.i56, double %70, double 0.000000e+00
+  %71 = fadd double %69, %.0.i.i.i.i57
+  %.0.i.inv.i.i.i1.i58 = fcmp ord double %71, 0.000000e+00
+  %.0.i.i.i2.i59 = select i1 %.0.i.inv.i.i.i1.i58, double %71, double 0.000000e+00
+  %72 = fadd double %.sroa.8108.0, %.0.i.i.i2.i59
+  %.0.i.inv.i.i.i60 = fcmp ord double %72, 0.000000e+00
+  %.0.i.i.i61 = select i1 %.0.i.inv.i.i.i60, double %72, double 0.000000e+00
   %.inv = fcmp oge double %.0.i.i.i61, 0.000000e+00
   %.0.sroa.speculated.i.i62 = select i1 %.inv, double %.0.i.i.i61, double 0.000000e+00
-  %75 = fadd double %71, %.0.sroa.speculated.i.i62
-  %.0.i.inv.i.i.i65 = fcmp ord double %75, 0.000000e+00
-  %.0.i.i.i66 = select i1 %.0.i.inv.i.i.i65, double %75, double 0.000000e+00
+  %73 = fadd double %69, %.0.sroa.speculated.i.i62
+  %.0.i.inv.i.i.i65 = fcmp ord double %73, 0.000000e+00
+  %.0.i.i.i66 = select i1 %.0.i.inv.i.i.i65, double %73, double 0.000000e+00
   br label %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
 
-_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit: ; preds = %64, %.thread126, %61, %55
-  %76 = phi double [ %66, %64 ], [ %45, %.thread126 ], [ %59, %61 ], [ %59, %55 ]
-  %.033128 = phi double [ %.0.i.i.i66, %64 ], [ %.0.i.i.i48, %.thread126 ], [ %57, %61 ], [ %59, %55 ]
+_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit: ; preds = %63, %.thread126, %60, %54
+  %74 = phi double [ %65, %64 ], [ %45, %.thread126 ], [ %58, %61 ], [ %58, %55 ]
+  %.033128 = phi double [ %.0.i.i.i66, %64 ], [ %.0.i.i.i48, %.thread126 ], [ %56, %61 ], [ %58, %55 ]
   %.0.i = phi i8 [ 0, %64 ], [ 2, %.thread126 ], [ 1, %61 ], [ 1, %55 ]
-  %77 = invoke { double, double } @_ZN5typst6layout5frame5Frame6resize17h1d05ba3e2c373cefE(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, double noundef %.027, double noundef %.033128, i8 noundef %5, i8 noundef %.0.i)
+  %75 = invoke { double, double } @_ZN5typst6layout5frame5Frame6resize17h1d05ba3e2c373cefE(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, double noundef %.027, double noundef %.033128, i8 noundef %5, i8 noundef %.0.i)
           to label %78 unwind label %32
 
-78:                                               ; preds = %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
-  %79 = extractvalue { double, double } %77, 1
+76:                                               ; preds = %_ZN5typst6layout5align14FixedAlignment3inv17h72d8d65fcf205aa4E.exit
+  %77 = extractvalue { double, double } %75, 1
   switch i8 %5, label %80 [
-    i8 0, label %81
-    i8 2, label %83
+    i8 0, label %79
+    i8 2, label %81
   ]
 
-80:                                               ; preds = %83, %81, %78
-  br label %87
+78:                                               ; preds = %81, %79, %76
+  br label %85
 
-81:                                               ; preds = %78
-  %82 = icmp eq i8 %3, 0
-  br i1 %82, label %87, label %80
+79:                                               ; preds = %76
+  %80 = icmp eq i8 %3, 0
+  br i1 %80, label %85, label %78
 
-83:                                               ; preds = %78
-  %84 = icmp eq i8 %3, 2
-  br i1 %84, label %85, label %80
+81:                                               ; preds = %76
+  %82 = icmp eq i8 %3, 2
+  br i1 %82, label %83, label %78
 
-85:                                               ; preds = %83
-  %86 = fneg double %7
+83:                                               ; preds = %81
+  %84 = fneg double %7
   %.0.i.inv.i.i.i67 = fcmp ord double %7, 0.000000e+00
-  %.0.i.i.i68 = select i1 %.0.i.inv.i.i.i67, double %86, double 0.000000e+00
-  br label %87
+  %.0.i.i.i68 = select i1 %.0.i.inv.i.i.i67, double %84, double 0.000000e+00
+  br label %85
 
-87:                                               ; preds = %81, %80, %85
+85:                                               ; preds = %79, %78, %83
   %.035 = phi double [ %7, %81 ], [ %.0.i.i.i68, %85 ], [ 0.000000e+00, %80 ]
   invoke void @_ZN5typst6layout5frame5Frame9translate17h1326e7c94f0d7f3cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, double noundef %.035, double noundef 0.000000e+00)
           to label %88 unwind label %32
 
-88:                                               ; preds = %87
+86:                                               ; preds = %85
   switch i8 %3, label %89 [
-    i8 0, label %90
-    i8 2, label %91
+    i8 0, label %88
+    i8 2, label %89
   ]
 
-89:                                               ; preds = %88
+87:                                               ; preds = %86
   invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.405, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.406) #81
           to label %121 unwind label %32
 
-90:                                               ; preds = %88, %91
+88:                                               ; preds = %86, %89
   %.034 = phi double [ %.0.i.i.i2.i72, %91 ], [ 0.000000e+00, %88 ]
   switch i8 %4, label %43 [
-    i8 0, label %98
-    i8 1, label %105
-    i8 2, label %112
+    i8 0, label %96
+    i8 1, label %102
+    i8 2, label %108
   ]
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %93 = load double, ptr %92, align 8, !alias.scope !25663, !noundef !12
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %95 = load double, ptr %94, align 8, !alias.scope !25666, !noundef !12
-  %96 = fneg double %95
-  %.0.i.inv.i.i.i.i69 = fcmp ord double %95, 0.000000e+00
-  %.0.i.i.i.i70 = select i1 %.0.i.inv.i.i.i.i69, double %96, double 0.000000e+00
-  %97 = fadd double %93, %.0.i.i.i.i70
-  %.0.i.inv.i.i.i1.i71 = fcmp ord double %97, 0.000000e+00
-  %.0.i.i.i2.i72 = select i1 %.0.i.inv.i.i.i1.i71, double %97, double 0.000000e+00
-  br label %90
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %91 = load double, ptr %90, align 8, !alias.scope !25663, !noundef !12
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %93 = load double, ptr %92, align 8, !alias.scope !25666, !noundef !12
+  %94 = fneg double %93
+  %.0.i.inv.i.i.i.i69 = fcmp ord double %93, 0.000000e+00
+  %.0.i.i.i.i70 = select i1 %.0.i.inv.i.i.i.i69, double %94, double 0.000000e+00
+  %95 = fadd double %91, %.0.i.i.i.i70
+  %.0.i.inv.i.i.i1.i71 = fcmp ord double %95, 0.000000e+00
+  %.0.i.i.i2.i72 = select i1 %.0.i.inv.i.i.i1.i71, double %95, double 0.000000e+00
+  br label %88
 
-98:                                               ; preds = %90
-  %99 = fadd double %.sroa.8.0122, %79
-  %.0.i.inv.i.i.i73 = fcmp ord double %99, 0.000000e+00
-  %.0.i.i.i74 = select i1 %.0.i.inv.i.i.i73, double %99, double 0.000000e+00
-  %100 = fneg double %76
-  %.0.i.inv.i.i.i.i77 = fcmp ord double %76, 0.000000e+00
-  %.0.i.i.i.i78 = select i1 %.0.i.inv.i.i.i.i77, double %100, double 0.000000e+00
-  %101 = fadd double %.sroa.4.0124, %.0.i.i.i.i78
-  %.0.i.inv.i.i.i1.i79 = fcmp ord double %101, 0.000000e+00
-  %102 = fmul double %101, 5.000000e-01
+96:                                               ; preds = %88
+  %97 = fadd double %.sroa.8.0122, %77
+  %.0.i.inv.i.i.i73 = fcmp ord double %97, 0.000000e+00
+  %.0.i.i.i74 = select i1 %.0.i.inv.i.i.i73, double %97, double 0.000000e+00
+  %98 = fneg double %74
+  %.0.i.inv.i.i.i.i77 = fcmp ord double %74, 0.000000e+00
+  %.0.i.i.i.i78 = select i1 %.0.i.inv.i.i.i.i77, double %98, double 0.000000e+00
+  %99 = fadd double %.sroa.4.0124, %.0.i.i.i.i78
+  %.0.i.inv.i.i.i1.i79 = fcmp ord double %99, 0.000000e+00
+  %102 = fmul double %99, 5.000000e-01
   %103 = select i1 %.0.i.inv.i.i.i1.i79, double %102, double 0.000000e+00
-  %104 = fadd double %.0.i.i.i74, %103
-  %.0.i.inv.i.i.i83 = fcmp ord double %104, 0.000000e+00
-  %.0.i.i.i84 = select i1 %.0.i.inv.i.i.i83, double %104, double 0.000000e+00
-  br label %119
+  %101 = fadd double %.0.i.i.i74, %103
+  %.0.i.inv.i.i.i83 = fcmp ord double %101, 0.000000e+00
+  %.0.i.i.i84 = select i1 %.0.i.inv.i.i.i83, double %101, double 0.000000e+00
+  br label %114
 
-105:                                              ; preds = %90
-  %106 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %107 = load double, ptr %106, align 8, !alias.scope !25669, !noundef !12
-  %108 = fneg double %76
-  %.0.i.inv.i.i.i.i85 = fcmp ord double %76, 0.000000e+00
-  %.0.i.i.i.i86 = select i1 %.0.i.inv.i.i.i.i85, double %108, double 0.000000e+00
-  %109 = fadd double %107, %.0.i.i.i.i86
-  %.0.i.inv.i.i.i1.i87 = fcmp ord double %109, 0.000000e+00
-  %110 = fmul double %109, 5.000000e-01
+102:                                              ; preds = %88
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %104 = load double, ptr %103, align 8, !alias.scope !25669, !noundef !12
+  %105 = fneg double %74
+  %.0.i.inv.i.i.i.i85 = fcmp ord double %74, 0.000000e+00
+  %.0.i.i.i.i86 = select i1 %.0.i.inv.i.i.i.i85, double %105, double 0.000000e+00
+  %106 = fadd double %104, %.0.i.i.i.i86
+  %.0.i.inv.i.i.i1.i87 = fcmp ord double %106, 0.000000e+00
+  %110 = fmul double %106, 5.000000e-01
   %111 = select i1 %.0.i.inv.i.i.i1.i87, double %110, double 0.000000e+00
-  br label %119
+  br label %114
 
-112:                                              ; preds = %90
-  %113 = fadd double %.sroa.8108.0, %79
-  %.0.i.inv.i.i.i75 = fcmp ord double %113, 0.000000e+00
-  %.0.i.i.i76 = select i1 %.0.i.inv.i.i.i75, double %113, double 0.000000e+00
-  %114 = fneg double %76
-  %.0.i.inv.i.i.i.i91 = fcmp ord double %76, 0.000000e+00
-  %.0.i.i.i.i92 = select i1 %.0.i.inv.i.i.i.i91, double %114, double 0.000000e+00
-  %115 = fadd double %.sroa.4105.0, %.0.i.i.i.i92
-  %.0.i.inv.i.i.i1.i93 = fcmp ord double %115, 0.000000e+00
-  %116 = fmul double %115, 5.000000e-01
+108:                                              ; preds = %88
+  %109 = fadd double %.sroa.8108.0, %77
+  %.0.i.inv.i.i.i75 = fcmp ord double %109, 0.000000e+00
+  %.0.i.i.i76 = select i1 %.0.i.inv.i.i.i75, double %109, double 0.000000e+00
+  %110 = fneg double %74
+  %.0.i.inv.i.i.i.i91 = fcmp ord double %74, 0.000000e+00
+  %.0.i.i.i.i92 = select i1 %.0.i.inv.i.i.i.i91, double %110, double 0.000000e+00
+  %111 = fadd double %.sroa.4105.0, %.0.i.i.i.i92
+  %.0.i.inv.i.i.i1.i93 = fcmp ord double %111, 0.000000e+00
+  %116 = fmul double %111, 5.000000e-01
   %117 = select i1 %.0.i.inv.i.i.i1.i93, double %116, double 0.000000e+00
-  %118 = fadd double %.0.i.i.i76, %117
-  %.0.i.inv.i.i.i97 = fcmp ord double %118, 0.000000e+00
-  %.0.i.i.i98 = select i1 %.0.i.inv.i.i.i97, double %118, double 0.000000e+00
-  br label %119
+  %113 = fadd double %.0.i.i.i76, %117
+  %.0.i.inv.i.i.i97 = fcmp ord double %113, 0.000000e+00
+  %.0.i.i.i98 = select i1 %.0.i.inv.i.i.i97, double %113, double 0.000000e+00
+  br label %114
 
-119:                                              ; preds = %98, %105, %112
+114:                                              ; preds = %96, %102, %108
   %.032 = phi double [ %.0.i.i.i84, %98 ], [ %111, %105 ], [ %.0.i.i.i98, %112 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   invoke void @_ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE(ptr noalias noundef nonnull align 8 dereferenceable(48) %11, double noundef %.034, double noundef %.032, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %120 unwind label %32
 
-120:                                              ; preds = %119
+115:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   ret void
 
-121:                                              ; preds = %89
+116:                                              ; preds = %87
   unreachable
 
-122:                                              ; preds = %124, %32
-  %123 = landingpad { ptr, i32 }
+117:                                              ; preds = %119, %32
+  %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #83
   unreachable
 
-124:                                              ; preds = %.thread, %14
+119:                                              ; preds = %.thread, %14
   %.pn117 = phi { ptr, i32 } [ %15, %.thread ], [ %33, %14 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$typst..layout..frame..Frame$GT$17h70b9fd71c3f114e6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #82
-          to label %125 unwind label %122
+          to label %125 unwind label %117
 
-125:                                              ; preds = %14, %124
+120:                                              ; preds = %14, %119
   %.pn116 = phi { ptr, i32 } [ %.pn117, %124 ], [ %33, %14 ]
   resume { ptr, i32 } %.pn116
 }
