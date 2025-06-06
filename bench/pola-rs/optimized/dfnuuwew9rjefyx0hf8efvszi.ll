@@ -8325,22 +8325,19 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit13": ; preds = %_ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb4bedd8121c1f674E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %.sroa.09.0.i.add, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a96b5e9258cdab0d6665d86ea4df4314.36)
   %18 = zext i32 %3 to i64
-  %19 = lshr i64 %18, 3
-  %20 = and i64 %18, 7
-  %21 = icmp ne i64 %20, 0
-  %22 = zext i1 %21 to i64
-  %23 = add nuw nsw i64 %19, %22
+  %19 = add nuw nsw i64 %18, 7
+  %20 = lshr i64 %19, 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %2, ptr %5, align 4
-  %24 = icmp samesign ugt i64 %23, 4
-  br i1 %24, label %25, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit", !prof !290
+  %21 = icmp ugt i32 %3, 32
+  br i1 %21, label %22, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit", !prof !290
 
-25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit13"
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %23, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a96b5e9258cdab0d6665d86ea4df4314.140) #31, !noalias !1392
+22:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit13"
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h3977c10d2b967b2dE(i64 noundef %20, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a96b5e9258cdab0d6665d86ea4df4314.140) #31, !noalias !1392
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h27665d27856e7d26E.exit13"
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb4bedd8121c1f674E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a96b5e9258cdab0d6665d86ea4df4314.36)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hb4bedd8121c1f674E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a96b5e9258cdab0d6665d86ea4df4314.36)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6)
   ret void

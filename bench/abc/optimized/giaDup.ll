@@ -3737,12 +3737,12 @@ Vec_BitAlloc.exit:                                ; preds = %3, %11
   br label %19
 
 19:                                               ; preds = %.lr.ph, %Vec_BitPush.exit
-  %20 = phi ptr [ %15, %.lr.ph ], [ %58, %Vec_BitPush.exit ]
-  %21 = phi ptr [ %15, %.lr.ph ], [ %77, %Vec_BitPush.exit ]
-  %22 = phi i32 [ %10, %.lr.ph ], [ %60, %Vec_BitPush.exit ]
-  %23 = phi i32 [ 0, %.lr.ph ], [ %78, %Vec_BitPush.exit ]
+  %20 = phi ptr [ %15, %.lr.ph ], [ %56, %Vec_BitPush.exit ]
+  %21 = phi ptr [ %15, %.lr.ph ], [ %75, %Vec_BitPush.exit ]
+  %22 = phi i32 [ %10, %.lr.ph ], [ %58, %Vec_BitPush.exit ]
+  %23 = phi i32 [ 0, %.lr.ph ], [ %76, %Vec_BitPush.exit ]
   %.val1928 = phi i32 [ %.val20, %.lr.ph ], [ %.val19, %Vec_BitPush.exit ]
-  %.027 = phi i32 [ 0, %.lr.ph ], [ %79, %Vec_BitPush.exit ]
+  %.027 = phi i32 [ 0, %.lr.ph ], [ %77, %Vec_BitPush.exit ]
   %.val = load ptr, ptr %16, align 8, !tbaa !12
   %.not = icmp eq ptr %.val, null
   br i1 %.not, label %.critedge, label %24
@@ -3781,79 +3781,77 @@ Vec_BitAlloc.exit:                                ; preds = %3, %11
   br label %Vec_BitGrow.exit17.i
 
 43:                                               ; preds = %36
-  %44 = lshr i32 %22, 4
-  %45 = and i32 %22, 15
-  %46 = icmp ne i32 %45, 0
-  %47 = zext i1 %46 to i32
-  %48 = add nuw nsw i32 %44, %47
+  %44 = shl nuw nsw i32 %22, 1
+  %45 = add nuw i32 %44, 31
   %.not11.i16.i = icmp eq ptr %21, null
-  %49 = shl nuw nsw i32 %48, 2
-  %50 = zext nneg i32 %49 to i64
-  br i1 %.not11.i16.i, label %53, label %51
+  %46 = lshr i32 %45, 3
+  %47 = and i32 %46, 536870908
+  %48 = zext nneg i32 %47 to i64
+  br i1 %.not11.i16.i, label %51, label %49
+
+49:                                               ; preds = %43
+  %50 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %48) #30
+  br label %53
 
 51:                                               ; preds = %43
-  %52 = tail call ptr @realloc(ptr noundef nonnull %21, i64 noundef %50) #30
-  br label %55
+  %52 = tail call noalias ptr @malloc(i64 noundef %48) #29
+  br label %53
 
-53:                                               ; preds = %43
-  %54 = tail call noalias ptr @malloc(i64 noundef %50) #29
-  br label %55
-
-55:                                               ; preds = %53, %51
-  %56 = phi ptr [ %52, %51 ], [ %54, %53 ]
-  %57 = shl nuw nsw i32 %48, 5
+53:                                               ; preds = %51, %49
+  %54 = phi ptr [ %50, %49 ], [ %52, %51 ]
+  %55 = and i32 %45, -32
   br label %Vec_BitGrow.exit17.i
 
-Vec_BitGrow.exit17.i:                             ; preds = %55, %41, %39, %24
-  %58 = phi ptr [ %20, %24 ], [ %56, %55 ], [ %40, %39 ], [ %42, %41 ]
-  %59 = phi ptr [ %21, %24 ], [ %56, %55 ], [ %40, %39 ], [ %42, %41 ]
-  %60 = phi i32 [ %22, %24 ], [ %57, %55 ], [ 32, %39 ], [ 32, %41 ]
-  %61 = and i64 %34, 1073741824
-  %.not.i24 = icmp eq i64 %61, 0
-  %62 = and i32 %23, 31
-  %63 = shl nuw i32 1, %62
-  br i1 %.not.i24, label %70, label %64
+Vec_BitGrow.exit17.i:                             ; preds = %53, %41, %39, %24
+  %56 = phi ptr [ %20, %24 ], [ %54, %53 ], [ %40, %39 ], [ %42, %41 ]
+  %57 = phi ptr [ %21, %24 ], [ %54, %53 ], [ %40, %39 ], [ %42, %41 ]
+  %58 = phi i32 [ %22, %24 ], [ %55, %53 ], [ 32, %39 ], [ 32, %41 ]
+  %59 = and i64 %34, 1073741824
+  %.not.i24 = icmp eq i64 %59, 0
+  %60 = and i32 %23, 31
+  %61 = shl nuw i32 1, %60
+  br i1 %.not.i24, label %68, label %62
 
-64:                                               ; preds = %Vec_BitGrow.exit17.i
-  %65 = lshr i32 %23, 5
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %59, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !11
-  %69 = or i32 %68, %63
-  store i32 %69, ptr %67, align 4, !tbaa !11
+62:                                               ; preds = %Vec_BitGrow.exit17.i
+  %63 = lshr i32 %23, 5
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %57, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !11
+  %67 = or i32 %66, %61
+  store i32 %67, ptr %65, align 4, !tbaa !11
   br label %Vec_BitPush.exit
 
-70:                                               ; preds = %Vec_BitGrow.exit17.i
-  %71 = xor i32 %63, -1
-  %72 = lshr i32 %23, 5
-  %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %58, i64 %73
-  %75 = load i32, ptr %74, align 4, !tbaa !11
-  %76 = and i32 %75, %71
-  store i32 %76, ptr %74, align 4, !tbaa !11
+68:                                               ; preds = %Vec_BitGrow.exit17.i
+  %69 = xor i32 %61, -1
+  %70 = lshr i32 %23, 5
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw i32, ptr %56, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !11
+  %74 = and i32 %73, %69
+  store i32 %74, ptr %72, align 4, !tbaa !11
   br label %Vec_BitPush.exit
 
-Vec_BitPush.exit:                                 ; preds = %64, %70
-  %77 = phi ptr [ %59, %64 ], [ %58, %70 ]
-  %78 = add nuw nsw i32 %23, 1
-  %79 = add nuw nsw i32 %.027, 1
+Vec_BitPush.exit:                                 ; preds = %62, %68
+  %75 = phi ptr [ %57, %62 ], [ %56, %68 ]
+  %76 = add nuw nsw i32 %23, 1
+  %77 = add nuw nsw i32 %.027, 1
   %.val19 = load i32, ptr %4, align 8, !tbaa !57
-  %80 = icmp slt i32 %79, %.val19
-  br i1 %80, label %19, label %.critedge, !llvm.loop !98
+  %78 = icmp slt i32 %77, %.val19
+  br i1 %78, label %19, label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %19, %Vec_BitPush.exit, %Vec_BitAlloc.exit
-  %.val23 = phi ptr [ %15, %Vec_BitAlloc.exit ], [ %20, %19 ], [ %58, %Vec_BitPush.exit ]
-  %81 = tail call ptr @Gia_ManDupFlip(ptr noundef nonnull %0, ptr noundef %.val23)
+  %.val23 = phi ptr [ %15, %Vec_BitAlloc.exit ], [ %20, %19 ], [ %56, %Vec_BitPush.exit ]
+  %79 = tail call ptr @Gia_ManDupFlip(ptr noundef nonnull %0, ptr noundef %.val23)
   %.not.i25 = icmp eq ptr %.val23, null
-  br i1 %.not.i25, label %Vec_BitFree.exit, label %82
+  br i1 %.not.i25, label %Vec_BitFree.exit, label %80
 
-82:                                               ; preds = %.critedge
+80:                                               ; preds = %.critedge
   tail call void @free(ptr noundef nonnull %.val23) #31
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge, %82
+Vec_BitFree.exit:                                 ; preds = %.critedge, %80
   tail call void @Gia_ManCleanMark0(ptr noundef nonnull %0) #31
-  ret ptr %81
+  ret ptr %79
 }
 
 declare void @Gia_ManCleanMark0(ptr noundef) local_unnamed_addr #4

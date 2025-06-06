@@ -2896,7 +2896,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1854 = private unnamed_addr constant [24 x i8] c"Tetra-UNITDATA-REQ Done\00", align 1
 @.str.1855 = private unnamed_addr constant [20 x i8] c"Unknown command: %d\00", align 1
 @.str.1856 = private unnamed_addr constant [43 x i8] c" (Multiple frame: %d, Frame: %d, Slot: %d)\00", align 1
-@switch.table.dissect_tetra = private unnamed_addr constant [11 x i32] [i32 14, i32 268, i32 124, i32 0, i32 60, i32 124, i32 274, i32 137, i32 144, i32 288, i32 124], align 4
+@switch.table.dissect_tetra = private unnamed_addr constant [11 x i32] [i32 2, i32 34, i32 16, i32 0, i32 8, i32 16, i32 35, i32 18, i32 18, i32 36, i32 16], align 4
 @switch.table.dissect_tetra.15 = private unnamed_addr constant [15 x i32] [i32 14, i32 268, i32 124, i32 0, i32 60, i32 124, i32 274, i32 137, i32 144, i32 288, i32 124, i32 0, i32 0, i32 0, i32 92], align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -3440,8 +3440,8 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
   switch i8 %10, label %dissect_tetra_UNITDATA_REQ.exit [
     i8 1, label %76
     i8 -128, label %76
-    i8 2, label %110
-    i8 127, label %110
+    i8 2, label %107
+    i8 127, label %107
   ]
 
 76:                                               ; preds = %60, %60
@@ -3475,7 +3475,7 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
 94:                                               ; preds = %get_tx_pdu_length.exit.i, %90
   %indvars.iv.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i, %get_tx_pdu_length.exit.i ]
   %.150.i = phi i32 [ %spec.select.i, %90 ], [ %102, %get_tx_pdu_length.exit.i ]
-  %.04548.i = phi i32 [ %91, %90 ], [ %109, %get_tx_pdu_length.exit.i ]
+  %.04548.i = phi i32 [ %91, %90 ], [ %106, %get_tx_pdu_length.exit.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #3
   %95 = load i32, ptr @hf_tetra_channel1, align 4
   store i32 %95, ptr %6, align 4
@@ -3500,96 +3500,90 @@ switch.lookup:                                    ; preds = %94
 
 get_tx_pdu_length.exit.i:                         ; preds = %switch.lookup, %94
   %.0.i.i = phi i32 [ 0, %94 ], [ %switch.load, %switch.lookup ]
-  %105 = lshr i32 %.0.i.i, 3
-  %106 = and i32 %.0.i.i, 7
-  %.not.i = icmp ne i32 %106, 0
-  %107 = zext i1 %.not.i to i32
-  %spec.select47.i = add nuw nsw i32 %105, %107
-  %108 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.04548.i, i32 noundef %spec.select47.i)
-  tail call void @tetra_dissect_pdu(i32 noundef %98, i32 noundef 1, ptr noundef %108, ptr noundef %85, ptr noundef %1)
-  %109 = add i32 %spec.select47.i, %.04548.i
+  %105 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.04548.i, i32 noundef %.0.i.i)
+  tail call void @tetra_dissect_pdu(i32 noundef %98, i32 noundef 1, ptr noundef %105, ptr noundef %85, ptr noundef %1)
+  %106 = add i32 %.0.i.i, %.04548.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %dissect_tetra_UNITDATA_REQ.exit, label %94, !llvm.loop !8
 
-110:                                              ; preds = %60, %60
-  %111 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef range(i32 5, 7) %75)
-  %112 = load i32, ptr @hf_tetra_len0, align 4
-  %113 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %112, ptr noundef %0, i32 noundef range(i32 5, 7) %75, i32 noundef 4, i32 noundef %111)
-  %114 = or disjoint i32 %.0, 8
-  %115 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %114)
-  %116 = load i32, ptr @hf_tetra_rvstr, align 4
-  %117 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %116, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef %115)
-  %118 = and i32 %115, 3
-  %119 = load i32, ptr @hf_tetra_channels, align 4
-  %120 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %119, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef %118)
-  %121 = load i32, ptr @ett_tetra, align 4
-  %122 = tail call ptr @proto_item_add_subtree(ptr noundef %120, i32 noundef %121)
-  %.not59.i = icmp eq i32 %118, 0
+107:                                              ; preds = %60, %60
+  %108 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef range(i32 5, 7) %75)
+  %109 = load i32, ptr @hf_tetra_len0, align 4
+  %110 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %109, ptr noundef %0, i32 noundef range(i32 5, 7) %75, i32 noundef 4, i32 noundef %108)
+  %111 = or disjoint i32 %.0, 8
+  %112 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %111)
+  %113 = load i32, ptr @hf_tetra_rvstr, align 4
+  %114 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %113, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef %112)
+  %115 = and i32 %112, 3
+  %116 = load i32, ptr @hf_tetra_channels, align 4
+  %117 = tail call ptr @proto_tree_add_uint(ptr noundef %64, i32 noundef %116, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef %115)
+  %118 = load i32, ptr @ett_tetra, align 4
+  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118)
+  %.not59.i = icmp eq i32 %115, 0
   br i1 %.not59.i, label %dissect_tetra_UNITDATA_REQ.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %110
-  %123 = or disjoint i32 %.0, 12
-  %124 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %wide.trip.count.i59 = zext nneg i32 %118 to i64
-  br label %126
+.lr.ph.i:                                         ; preds = %107
+  %120 = or disjoint i32 %.0, 12
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %wide.trip.count.i59 = zext nneg i32 %115 to i64
+  br label %123
 
-126:                                              ; preds = %get_rx_pdu_length.exit.i, %.lr.ph.i
+123:                                              ; preds = %get_rx_pdu_length.exit.i, %.lr.ph.i
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i61, %get_rx_pdu_length.exit.i ]
-  %.05557.i = phi i32 [ %123, %.lr.ph.i ], [ %149, %get_rx_pdu_length.exit.i ]
+  %.05557.i = phi i32 [ %120, %.lr.ph.i ], [ %145, %get_rx_pdu_length.exit.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #3
-  %127 = load i32, ptr @hf_tetra_rxchannel1, align 4
-  store i32 %127, ptr %5, align 4
-  %128 = load i32, ptr @hf_tetra_rxchannel2, align 4
-  store i32 %128, ptr %124, align 4
-  %129 = load i32, ptr @hf_tetra_rxchannel3, align 4
-  store i32 %129, ptr %125, align 4
+  %124 = load i32, ptr @hf_tetra_rxchannel1, align 4
+  store i32 %124, ptr %5, align 4
+  %125 = load i32, ptr @hf_tetra_rxchannel2, align 4
+  store i32 %125, ptr %121, align 4
+  %126 = load i32, ptr @hf_tetra_rxchannel3, align 4
+  store i32 %126, ptr %122, align 4
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %indvars.iv.next.tr.i = trunc i64 %indvars.iv.next.i61 to i32
-  %130 = shl i32 %indvars.iv.next.tr.i, 2
-  %131 = lshr i32 %115, %130
-  %132 = and i32 %131, 15
-  %133 = getelementptr [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i60
-  %134 = load i32, ptr %133, align 4
-  %135 = tail call ptr @proto_tree_add_uint(ptr noundef %122, i32 noundef %134, ptr noundef %0, i32 noundef %114, i32 noundef 4, i32 noundef %132)
-  %136 = load i32, ptr @hf_tetra_crc, align 4
-  %137 = trunc nuw nsw i64 %indvars.iv.i60 to i32
-  %138 = shl i32 4, %137
-  %139 = and i32 %138, %115
-  %.not.i62 = icmp eq i32 %139, 0
-  %140 = zext i1 %.not.i62 to i64
-  %141 = tail call ptr @proto_tree_add_boolean(ptr noundef %122, i32 noundef %136, ptr noundef %0, i32 noundef %114, i32 noundef 4, i64 noundef %140)
-  %switch.tableidx71 = add nsw i32 %132, -1
-  %142 = icmp ult i32 %switch.tableidx71, 15
-  br i1 %142, label %switch.lookup70, label %get_rx_pdu_length.exit.i
+  %127 = shl i32 %indvars.iv.next.tr.i, 2
+  %128 = lshr i32 %112, %127
+  %129 = and i32 %128, 15
+  %130 = getelementptr [3 x i32], ptr %5, i64 0, i64 %indvars.iv.i60
+  %131 = load i32, ptr %130, align 4
+  %132 = tail call ptr @proto_tree_add_uint(ptr noundef %119, i32 noundef %131, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef %129)
+  %133 = load i32, ptr @hf_tetra_crc, align 4
+  %134 = trunc nuw nsw i64 %indvars.iv.i60 to i32
+  %135 = shl i32 4, %134
+  %136 = and i32 %135, %112
+  %.not.i = icmp eq i32 %136, 0
+  %137 = zext i1 %.not.i to i64
+  %138 = tail call ptr @proto_tree_add_boolean(ptr noundef %119, i32 noundef %133, ptr noundef %0, i32 noundef %111, i32 noundef 4, i64 noundef %137)
+  %switch.tableidx70 = add nsw i32 %129, -1
+  %139 = icmp ult i32 %switch.tableidx70, 15
+  br i1 %139, label %switch.lookup69, label %get_rx_pdu_length.exit.i
 
-switch.lookup70:                                  ; preds = %126
-  %143 = zext nneg i32 %switch.tableidx71 to i64
-  %switch.gep72 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dissect_tetra.15, i64 0, i64 %143
-  %switch.load73 = load i32, ptr %switch.gep72, align 4
+switch.lookup69:                                  ; preds = %123
+  %140 = zext nneg i32 %switch.tableidx70 to i64
+  %switch.gep71 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dissect_tetra.15, i64 0, i64 %140
+  %switch.load72 = load i32, ptr %switch.gep71, align 4
   br label %get_rx_pdu_length.exit.i
 
-get_rx_pdu_length.exit.i:                         ; preds = %126, %switch.lookup70
-  %.0.i.i63 = phi i32 [ %switch.load73, %switch.lookup70 ], [ 0, %126 ]
-  %144 = lshr i32 %.0.i.i63, 3
-  %145 = and i32 %.0.i.i63, 7
-  %.not56.i = icmp ne i32 %145, 0
-  %146 = zext i1 %.not56.i to i32
-  %spec.select.i64 = add nuw nsw i32 %144, %146
-  %147 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05557.i, i32 noundef %spec.select.i64)
-  tail call void @tetra_dissect_pdu(i32 noundef %132, i32 noundef 0, ptr noundef %147, ptr noundef %122, ptr noundef %1)
-  %148 = add nsw i32 %spec.select.i64, -1
-  %.1.i = select i1 %.not56.i, i32 %148, i32 %144
-  %149 = add i32 %.1.i, %.05557.i
+get_rx_pdu_length.exit.i:                         ; preds = %123, %switch.lookup69
+  %.0.i.i62 = phi i32 [ %switch.load72, %switch.lookup69 ], [ 0, %123 ]
+  %141 = and i32 %.0.i.i62, 7
+  %.not56.not.i = icmp ne i32 %141, 0
+  %142 = add nuw nsw i32 %.0.i.i62, 7
+  %spec.select.i63 = lshr i32 %142, 3
+  %143 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05557.i, i32 noundef %spec.select.i63)
+  tail call void @tetra_dissect_pdu(i32 noundef %129, i32 noundef 0, ptr noundef %143, ptr noundef %119, ptr noundef %1)
+  %144 = sext i1 %.not56.not.i to i32
+  %.1.i = add i32 %spec.select.i63, %.05557.i
+  %145 = add i32 %.1.i, %144
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #3
-  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i59
-  br i1 %exitcond.not.i65, label %dissect_tetra_UNITDATA_REQ.exit, label %126, !llvm.loop !10
+  %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i59
+  br i1 %exitcond.not.i64, label %dissect_tetra_UNITDATA_REQ.exit, label %123, !llvm.loop !10
 
-dissect_tetra_UNITDATA_REQ.exit:                  ; preds = %get_rx_pdu_length.exit.i, %get_tx_pdu_length.exit.i, %110, %60
-  %150 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %150
+dissect_tetra_UNITDATA_REQ.exit:                  ; preds = %get_rx_pdu_length.exit.i, %get_tx_pdu_length.exit.i, %107, %60
+  %146 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %146
 }
 
 ; Function Attrs: null_pointer_is_valid
