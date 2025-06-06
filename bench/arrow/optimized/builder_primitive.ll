@@ -1198,7 +1198,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   store ptr %.pr, ptr %0, align 8, !tbaa !72, !alias.scope !105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   %14 = icmp eq ptr %.pr, null
-  br i1 %14, label %15, label %32
+  br i1 %14, label %15, label %35
 
 15:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit9.thread, %_ZN5arrow6StatusD2Ev.exit
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %2, i64 32)
@@ -1211,32 +1211,32 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13, %8
   call void @_ZN5arrow13BufferBuilder6ResizeElb(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %16, i64 noundef %20, i1 noundef zeroext true), !noalias !109
   %21 = load ptr, ptr %4, align 8, !tbaa !72, !noalias !112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20, !noalias !109
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %_ZN5arrow6StatusD2Ev.exit13.i, label %30
+  %25 = icmp eq ptr %21, null
+  br i1 %25, label %_ZN5arrow6StatusD2Ev.exit13.i, label %33
 
 _ZN5arrow6StatusD2Ev.exit13.i:                    ; preds = %15
-  %23 = load i64, ptr %17, align 8, !tbaa !108, !noalias !109
-  %24 = icmp sgt i64 %23, %18
-  br i1 %24, label %25, label %31
+  %26 = load i64, ptr %17, align 8, !tbaa !108, !noalias !109
+  %27 = icmp sgt i64 %26, %18
+  br i1 %27, label %28, label %34
 
-25:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13.i
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %27 = load ptr, ptr %26, align 8, !tbaa !81, !noalias !109
-  %28 = getelementptr inbounds i8, ptr %27, i64 %18
-  %29 = sub nsw i64 %23, %18
-  call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %29, i1 false), !noalias !109
-  br label %31
+28:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13.i
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %30 = load ptr, ptr %29, align 8, !tbaa !81, !noalias !109
+  %31 = getelementptr inbounds i8, ptr %30, i64 %18
+  %32 = sub nsw i64 %26, %18
+  call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false), !noalias !109
+  br label %34
 
-30:                                               ; preds = %15
+33:                                               ; preds = %15
   store ptr %21, ptr %0, align 8, !tbaa !72, !alias.scope !115
-  br label %32
+  br label %35
 
-31:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13.i, %25
+34:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13.i, %28
   store ptr null, ptr %0, align 8, !tbaa !72, !alias.scope !118
   call void @_ZN5arrow12ArrayBuilder6ResizeEl(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %.sroa.speculated)
-  br label %32
+  br label %35
 
-32:                                               ; preds = %30, %_ZN5arrow6StatusD2Ev.exit, %31
+35:                                               ; preds = %33, %_ZN5arrow6StatusD2Ev.exit, %34
   ret void
 }
 

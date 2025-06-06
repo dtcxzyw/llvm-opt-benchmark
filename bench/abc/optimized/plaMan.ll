@@ -147,70 +147,70 @@ Vec_BitStartFull.exit:
 
 ._crit_edge.thread:                               ; preds = %Vec_BitStartFull.exit
   store i32 %1, ptr %10, align 4, !tbaa !16
-  %13 = load i32, ptr %9, align 4, !tbaa !17
-  %14 = and i32 %13, -4
-  store i32 %14, ptr %9, align 4, !tbaa !17
+  %16 = load i32, ptr %9, align 4, !tbaa !17
+  %17 = and i32 %16, -4
+  store i32 %17, ptr %9, align 4, !tbaa !17
   br label %.lr.ph32.preheader
 
 .lr.ph:                                           ; preds = %Vec_BitStartFull.exit, %.lr.ph
-  %.025 = phi i32 [ %23, %.lr.ph ], [ %1, %Vec_BitStartFull.exit ]
-  %15 = and i32 %.025, 31
-  %16 = shl nuw i32 1, %15
-  %17 = xor i32 %16, -1
-  %18 = ashr i32 %.025, 5
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %9, i64 %19
-  %21 = load i32, ptr %20, align 4, !tbaa !17
-  %22 = and i32 %21, %17
-  store i32 %22, ptr %20, align 4, !tbaa !17
-  %23 = add i32 %.025, 1
-  %exitcond.not = icmp eq i32 %23, 64
+  %.025 = phi i32 [ %26, %.lr.ph ], [ %1, %Vec_BitStartFull.exit ]
+  %18 = and i32 %.025, 31
+  %19 = shl nuw i32 1, %18
+  %20 = xor i32 %19, -1
+  %21 = ashr i32 %.025, 5
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i32, ptr %9, i64 %22
+  %24 = load i32, ptr %23, align 4, !tbaa !17
+  %25 = and i32 %24, %20
+  store i32 %25, ptr %23, align 4, !tbaa !17
+  %26 = add i32 %.025, 1
+  %exitcond.not = icmp eq i32 %26, 64
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i32 %1, ptr %10, align 4, !tbaa !16
-  %24 = load i32, ptr %9, align 4, !tbaa !17
-  %25 = and i32 %24, -4
-  store i32 %25, ptr %9, align 4, !tbaa !17
-  %26 = icmp sgt i32 %1, 2
-  br i1 %26, label %.lr.ph32.preheader, label %._crit_edge33
+  %27 = load i32, ptr %9, align 4, !tbaa !17
+  %28 = and i32 %27, -4
+  store i32 %28, ptr %9, align 4, !tbaa !17
+  %29 = icmp sgt i32 %1, 2
+  br i1 %29, label %.lr.ph32.preheader, label %._crit_edge33
 
 .lr.ph32.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
   br label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.loopexit
-  %.02329 = phi i32 [ %46, %.loopexit ], [ 2, %.lr.ph32.preheader ]
-  %27 = lshr i32 %.02329, 5
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %28
-  %30 = load i32, ptr %29, align 4, !tbaa !17
-  %31 = and i32 %.02329, 31
-  %32 = shl nuw i32 1, %31
-  %33 = and i32 %30, %32
-  %.not = icmp ne i32 %33, 0
-  %34 = shl nuw nsw i32 %.02329, 1
-  %35 = icmp slt i32 %34, %1
-  %or.cond = select i1 %.not, i1 %35, i1 false
+  %.02329 = phi i32 [ %49, %.loopexit ], [ 2, %.lr.ph32.preheader ]
+  %30 = lshr i32 %.02329, 5
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw i32, ptr %9, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !17
+  %34 = and i32 %.02329, 31
+  %35 = shl nuw i32 1, %34
+  %36 = and i32 %33, %35
+  %.not = icmp ne i32 %36, 0
+  %37 = shl nuw nsw i32 %.02329, 1
+  %38 = icmp slt i32 %37, %1
+  %or.cond = select i1 %.not, i1 %38, i1 false
   br i1 %or.cond, label %.lr.ph28, label %.loopexit
 
 .lr.ph28:                                         ; preds = %.lr.ph32, %.lr.ph28
-  %.126 = phi i32 [ %44, %.lr.ph28 ], [ %34, %.lr.ph32 ]
-  %36 = and i32 %.126, 31
-  %37 = shl nuw i32 1, %36
-  %38 = xor i32 %37, -1
-  %39 = lshr i32 %.126, 5
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %9, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !17
-  %43 = and i32 %42, %38
-  store i32 %43, ptr %41, align 4, !tbaa !17
-  %44 = add nuw nsw i32 %.126, %.02329
-  %45 = icmp slt i32 %44, %1
-  br i1 %45, label %.lr.ph28, label %.loopexit, !llvm.loop !19
+  %.126 = phi i32 [ %47, %.lr.ph28 ], [ %37, %.lr.ph32 ]
+  %39 = and i32 %.126, 31
+  %40 = shl nuw i32 1, %39
+  %41 = xor i32 %40, -1
+  %42 = lshr i32 %.126, 5
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds nuw i32, ptr %9, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !17
+  %46 = and i32 %45, %41
+  store i32 %46, ptr %44, align 4, !tbaa !17
+  %47 = add nuw nsw i32 %.126, %.02329
+  %48 = icmp slt i32 %47, %1
+  br i1 %48, label %.lr.ph28, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph28, %.lr.ph32
-  %46 = add nuw nsw i32 %.02329, 1
-  %exitcond35.not = icmp eq i32 %46, %1
+  %49 = add nuw nsw i32 %.02329, 1
+  %exitcond35.not = icmp eq i32 %49, %1
   br i1 %exitcond35.not, label %._crit_edge33, label %.lr.ph32, !llvm.loop !20
 
 ._crit_edge33:                                    ; preds = %.loopexit, %._crit_edge

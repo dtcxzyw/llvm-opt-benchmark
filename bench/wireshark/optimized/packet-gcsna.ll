@@ -387,18 +387,18 @@ gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145,
 
 gcsna_message_decode.exit:                        ; preds = %gcsna_message_GCSNA1xCircuitService.exit.i, %80, %gcsna_message_GCSNAServiceReject.exit.i
   %.129 = phi i32 [ %79, %gcsna_message_GCSNA1xCircuitService.exit.i ], [ %88, %80 ], [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.exit.i ]
-  %151 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.129)
-  %.not42 = icmp eq i32 %151, 0
+  %154 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.129)
+  %.not42 = icmp eq i32 %154, 0
   br i1 %.not42, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !10
 
-152:                                              ; preds = %.lr.ph
-  %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %17)
-  %154 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_gcsna_error)
+155:                                              ; preds = %.lr.ph
+  %156 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %17)
+  %157 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_gcsna_error)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %gcsna_message_decode.exit, %12, %152, %4
-  %155 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  ret i32 %155
+._crit_edge.thread:                               ; preds = %gcsna_message_decode.exit, %12, %155, %4
+  %158 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %158
 }
 
 ; Function Attrs: null_pointer_is_valid

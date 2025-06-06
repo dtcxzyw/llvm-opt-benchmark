@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MatchStackLimitSize = internal unnamed_addr global i32 0, align 4
 @onig_search_gpos.address_for_empty_string = internal constant [1 x i8] zeroinitializer, align 1
 @match_at.FinishCode = internal constant [1 x i8] zeroinitializer, align 1
-@match_at.oplabels = internal unnamed_addr constant [98 x ptr] [ptr blockaddress(@match_at, %6391), ptr blockaddress(@match_at, %131), ptr blockaddress(@match_at, %204), ptr blockaddress(@match_at, %232), ptr blockaddress(@match_at, %247), ptr blockaddress(@match_at, %267), ptr blockaddress(@match_at, %292), ptr blockaddress(@match_at, %322), ptr blockaddress(@match_at, %364), ptr blockaddress(@match_at, %379), ptr blockaddress(@match_at, %404), ptr blockaddress(@match_at, %439), ptr blockaddress(@match_at, %464), ptr blockaddress(@match_at, %494), ptr blockaddress(@match_at, %214), ptr blockaddress(@match_at, %340), ptr blockaddress(@match_at, %520), ptr blockaddress(@match_at, %550), ptr blockaddress(@match_at, %579), ptr blockaddress(@match_at, %607), ptr blockaddress(@match_at, %636), ptr blockaddress(@match_at, %676), ptr blockaddress(@match_at, %703), ptr blockaddress(@match_at, %751), ptr blockaddress(@match_at, %769), ptr blockaddress(@match_at, %1017), ptr blockaddress(@match_at, %1238), ptr blockaddress(@match_at, %1498), ptr blockaddress(@match_at, %1731), ptr blockaddress(@match_at, %1789), ptr blockaddress(@match_at, %1847), ptr blockaddress(@match_at, %1951), ptr blockaddress(@match_at, %2051), ptr blockaddress(@match_at, %2107), ptr blockaddress(@match_at, %1755), ptr blockaddress(@match_at, %1813), ptr blockaddress(@match_at, %1875), ptr blockaddress(@match_at, %1977), ptr blockaddress(@match_at, %2069), ptr blockaddress(@match_at, %2125), ptr blockaddress(@match_at, %2163), ptr blockaddress(@match_at, %2171), ptr blockaddress(@match_at, %2179), ptr blockaddress(@match_at, %2215), ptr blockaddress(@match_at, %2227), ptr blockaddress(@match_at, %2290), ptr blockaddress(@match_at, %2689), ptr blockaddress(@match_at, %2685), ptr blockaddress(@match_at, %2686), ptr blockaddress(@match_at, %2756), ptr blockaddress(@match_at, %2835), ptr blockaddress(@match_at, %2914), ptr blockaddress(@match_at, %3004), ptr blockaddress(@match_at, %2374), ptr blockaddress(@match_at, %2295), ptr blockaddress(@match_at, %2383), ptr blockaddress(@match_at, %2473), ptr blockaddress(@match_at, %2462), ptr blockaddress(@match_at, %2577), ptr blockaddress(@match_at, %2470), ptr blockaddress(@match_at, %is_mbc_newline_ex.exit.thread), ptr blockaddress(@match_at, %3351), ptr blockaddress(@match_at, %3364), ptr blockaddress(@match_at, %3540), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %3546), ptr blockaddress(@match_at, %3732), ptr blockaddress(@match_at, %4031), ptr blockaddress(@match_at, %4330), ptr blockaddress(@match_at, %4624), ptr blockaddress(@match_at, %4601), ptr blockaddress(@match_at, %5002), ptr blockaddress(@match_at, %3083), ptr blockaddress(@match_at, %3148), ptr blockaddress(@match_at, %3179), ptr blockaddress(@match_at, %3233), ptr blockaddress(@match_at, %5025), ptr blockaddress(@match_at, %5092), ptr blockaddress(@match_at, %5122), ptr blockaddress(@match_at, %memoize_extended_match_cache_point.exit3249), ptr blockaddress(@match_at, %5254), ptr blockaddress(@match_at, %5316), ptr blockaddress(@match_at, %5328), ptr blockaddress(@match_at, %5337), ptr blockaddress(@match_at, %5418), ptr blockaddress(@match_at, %5455), ptr blockaddress(@match_at, %5520), ptr blockaddress(@match_at, %5955), ptr blockaddress(@match_at, %5992), ptr blockaddress(@match_at, %6060), ptr blockaddress(@match_at, %6134), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484)], align 16
+@match_at.oplabels = internal unnamed_addr constant [98 x ptr] [ptr blockaddress(@match_at, %6393), ptr blockaddress(@match_at, %131), ptr blockaddress(@match_at, %204), ptr blockaddress(@match_at, %232), ptr blockaddress(@match_at, %247), ptr blockaddress(@match_at, %267), ptr blockaddress(@match_at, %292), ptr blockaddress(@match_at, %322), ptr blockaddress(@match_at, %364), ptr blockaddress(@match_at, %379), ptr blockaddress(@match_at, %404), ptr blockaddress(@match_at, %439), ptr blockaddress(@match_at, %464), ptr blockaddress(@match_at, %494), ptr blockaddress(@match_at, %214), ptr blockaddress(@match_at, %340), ptr blockaddress(@match_at, %520), ptr blockaddress(@match_at, %550), ptr blockaddress(@match_at, %579), ptr blockaddress(@match_at, %607), ptr blockaddress(@match_at, %636), ptr blockaddress(@match_at, %676), ptr blockaddress(@match_at, %703), ptr blockaddress(@match_at, %751), ptr blockaddress(@match_at, %769), ptr blockaddress(@match_at, %1017), ptr blockaddress(@match_at, %1238), ptr blockaddress(@match_at, %1498), ptr blockaddress(@match_at, %1731), ptr blockaddress(@match_at, %1789), ptr blockaddress(@match_at, %1847), ptr blockaddress(@match_at, %1951), ptr blockaddress(@match_at, %2051), ptr blockaddress(@match_at, %2107), ptr blockaddress(@match_at, %1755), ptr blockaddress(@match_at, %1813), ptr blockaddress(@match_at, %1875), ptr blockaddress(@match_at, %1977), ptr blockaddress(@match_at, %2069), ptr blockaddress(@match_at, %2125), ptr blockaddress(@match_at, %2163), ptr blockaddress(@match_at, %2171), ptr blockaddress(@match_at, %2179), ptr blockaddress(@match_at, %2215), ptr blockaddress(@match_at, %2227), ptr blockaddress(@match_at, %2290), ptr blockaddress(@match_at, %2689), ptr blockaddress(@match_at, %2685), ptr blockaddress(@match_at, %2686), ptr blockaddress(@match_at, %2756), ptr blockaddress(@match_at, %2835), ptr blockaddress(@match_at, %2914), ptr blockaddress(@match_at, %3004), ptr blockaddress(@match_at, %2374), ptr blockaddress(@match_at, %2295), ptr blockaddress(@match_at, %2383), ptr blockaddress(@match_at, %2473), ptr blockaddress(@match_at, %2462), ptr blockaddress(@match_at, %2577), ptr blockaddress(@match_at, %2470), ptr blockaddress(@match_at, %is_mbc_newline_ex.exit.thread), ptr blockaddress(@match_at, %3351), ptr blockaddress(@match_at, %3364), ptr blockaddress(@match_at, %3540), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %3546), ptr blockaddress(@match_at, %3732), ptr blockaddress(@match_at, %4031), ptr blockaddress(@match_at, %4330), ptr blockaddress(@match_at, %4624), ptr blockaddress(@match_at, %4601), ptr blockaddress(@match_at, %5002), ptr blockaddress(@match_at, %3083), ptr blockaddress(@match_at, %3148), ptr blockaddress(@match_at, %3179), ptr blockaddress(@match_at, %3233), ptr blockaddress(@match_at, %5025), ptr blockaddress(@match_at, %5092), ptr blockaddress(@match_at, %5122), ptr blockaddress(@match_at, %memoize_extended_match_cache_point.exit3249), ptr blockaddress(@match_at, %5254), ptr blockaddress(@match_at, %5316), ptr blockaddress(@match_at, %5328), ptr blockaddress(@match_at, %5337), ptr blockaddress(@match_at, %5418), ptr blockaddress(@match_at, %5455), ptr blockaddress(@match_at, %5520), ptr blockaddress(@match_at, %5955), ptr blockaddress(@match_at, %5992), ptr blockaddress(@match_at, %6060), ptr blockaddress(@match_at, %6134), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484), ptr blockaddress(@match_at, %.thread3484)], align 16
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @onig_check_linear_time(ptr noundef %0) local_unnamed_addr #0 {
@@ -700,7 +700,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .loopexit3529:                                    ; preds = %197, %143, %131, %141, %137
   %.12188 = phi i64 [ %134, %141 ], [ %.02187, %137 ], [ %.02187, %131 ], [ %134, %143 ], [ %134, %197 ]
-  br i1 %.not2818, label %6391, label %199
+  br i1 %.not2818, label %6393, label %199
 
 199:                                              ; preds = %.loopexit3529
   %200 = load ptr, ptr %19, align 8
@@ -711,7 +711,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 202:                                              ; preds = %199
   %203 = icmp ult ptr %200, %.02177
   %or.cond2839 = select i1 %.not2820, i1 %203, i1 false
-  br i1 %or.cond2839, label %is_mbc_newline_ex.exit.thread, label %6391
+  br i1 %or.cond2839, label %is_mbc_newline_ex.exit.thread, label %6393
 
 204:                                              ; preds = %.backedge
   %205 = load ptr, ptr %19, align 8, !tbaa !18
@@ -731,9 +731,9 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %213 = getelementptr i8, ptr %.02204, i64 2
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %211, %._crit_edge4077, %244, %264, %289, %319, %338, %._crit_edge4071, %376, %401, %436, %._crit_edge4092, %._crit_edge4087, %._crit_edge4082, %544, %575, %599, %630, %670, %695, %747, %767, %841, %1015, %1089, %1236, %1311, %._crit_edge4056, %1571, %._crit_edge4049, %1749, %1783, %1807, %1841, %1873, %1949, %1975, %2049, %2067, %2105, %2123, %2161, %2169, %2177, %2185, %2213, %2221, %2225, %2233, %2251, %2288, %2293, %2354, %2374, %2442, %2462, %2470, %2559, %2679, %2754, %2833, %2912, %3002, %3078, %3135, %3177, %.thread3394, %3341, %3362, %3434, %3528, %3540, %3616, %3716, %3728, %3925, %4029, %4224, %4328, %4424, %4599, %4775, %5000, %5082, %5100, %5181, %5311, %5326, %5333, %5416, %5512, %5953, %6051, %6129, %6153, %6389
+.backedge.backedge:                               ; preds = %211, %._crit_edge4077, %244, %264, %289, %319, %338, %._crit_edge4071, %376, %401, %436, %._crit_edge4092, %._crit_edge4087, %._crit_edge4082, %544, %575, %599, %630, %670, %695, %747, %767, %841, %1015, %1089, %1236, %1311, %._crit_edge4056, %1571, %._crit_edge4049, %1749, %1783, %1807, %1841, %1873, %1949, %1975, %2049, %2067, %2105, %2123, %2161, %2169, %2177, %2185, %2213, %2221, %2225, %2233, %2251, %2288, %2293, %2354, %2374, %2442, %2462, %2470, %2559, %2679, %2754, %2833, %2912, %3002, %3078, %3135, %3177, %.thread3394, %3341, %3362, %3434, %3528, %3540, %3616, %3716, %3728, %3925, %4029, %4224, %4328, %4424, %4599, %4775, %5000, %5082, %5100, %5181, %5311, %5326, %5333, %5416, %5512, %5953, %6051, %6129, %6153, %6391
   %.02225.be = phi ptr [ %.02225, %211 ], [ %.02225, %._crit_edge4077 ], [ %.02225, %244 ], [ %.02225, %264 ], [ %.02225, %289 ], [ %.02225, %319 ], [ %.02225, %338 ], [ %.02225, %._crit_edge4071 ], [ %.02225, %376 ], [ %.02225, %401 ], [ %.02225, %436 ], [ %.02225, %._crit_edge4092 ], [ %.02225, %._crit_edge4087 ], [ %.02225, %._crit_edge4082 ], [ %.02225, %544 ], [ %.02225, %575 ], [ %.02225, %599 ], [ %.02225, %630 ], [ %.02225, %670 ], [ %.02225, %695 ], [ %.02225, %747 ], [ %.02225, %767 ], [ %.02225, %841 ], [ %.02225, %1015 ], [ %.02225, %1089 ], [ %.02225, %1236 ], [ %.02225, %1311 ], [ %.02225, %._crit_edge4056 ], [ %.02225, %1571 ], [ %.02225, %._crit_edge4049 ], [ %.02225, %1749 ], [ %.02225, %1783 ], [ %.02225, %1807 ], [ %.02225, %1841 ], [ %.02225, %1873 ], [ %.02225, %1949 ], [ %.02225, %1975 ], [ %.02225, %2049 ], [ %.02225, %2067 ], [ %.02225, %2105 ], [ %.02225, %2123 ], [ %.02225, %2161 ], [ %.02225, %2169 ], [ %.02225, %2177 ], [ %.02225, %2185 ], [ %.02225, %2213 ], [ %.02225, %2221 ], [ %.02225, %2225 ], [ %.02225, %2233 ], [ %.02225, %2251 ], [ %.02225, %2288 ], [ %.02225, %2293 ], [ %.02225, %2354 ], [ %.02225, %2374 ], [ %.02225, %2442 ], [ %.02225, %2462 ], [ %2471, %2470 ], [ %.02225, %2559 ], [ %.02225, %2679 ], [ %.02225, %2754 ], [ %.02225, %2833 ], [ %.02225, %2912 ], [ %.02225, %3002 ], [ %.02225, %3078 ], [ %.02225, %3135 ], [ %.02225, %3177 ], [ %.02225, %.thread3394 ], [ %.02225, %3341 ], [ %.02225, %3362 ], [ %.02225, %3434 ], [ %.02225, %3528 ], [ %.02225, %3540 ], [ %.02225, %3616 ], [ %.02225, %3716 ], [ %.02225, %3728 ], [ %.02225, %3925 ], [ %.02225, %4029 ], [ %.02225, %4224 ], [ %.02225, %4328 ], [ %.02225, %4424 ], [ %.02225, %4599 ], [ %.02225, %4775 ], [ %.02225, %5000 ], [ %.02225, %5082 ], [ %.02225, %5100 ], [ %.02225, %5181 ], [ %.02225, %5311 ], [ %.02225, %5326 ], [ %.02225, %5333 ], [ %.02225, %5416 ], [ %.02225, %5512 ], [ %.02225, %5953 ], [ %.02225, %6051 ], [ %.02225, %6129 ], [ %.02225, %6153 ], [ %6317, %6389 ]
-  %.02204.be = phi ptr [ %213, %211 ], [ %231, %._crit_edge4077 ], [ %246, %244 ], [ %266, %264 ], [ %291, %289 ], [ %321, %319 ], [ %332, %338 ], [ %363, %._crit_edge4071 ], [ %378, %376 ], [ %403, %401 ], [ %438, %436 ], [ %463, %._crit_edge4092 ], [ %493, %._crit_edge4087 ], [ %519, %._crit_edge4082 ], [ %549, %544 ], [ %578, %575 ], [ %606, %599 ], [ %635, %630 ], [ %675, %670 ], [ %702, %695 ], [ %750, %747 ], [ %768, %767 ], [ %844, %841 ], [ %1016, %1015 ], [ %1092, %1089 ], [ %1237, %1236 ], [ %1314, %1311 ], [ %1497, %._crit_edge4056 ], [ %1574, %1571 ], [ %1730, %._crit_edge4049 ], [ %1754, %1749 ], [ %1788, %1783 ], [ %1812, %1807 ], [ %1846, %1841 ], [ %1874, %1873 ], [ %1950, %1949 ], [ %1976, %1975 ], [ %2050, %2049 ], [ %2068, %2067 ], [ %2106, %2105 ], [ %2124, %2123 ], [ %2162, %2161 ], [ %2170, %2169 ], [ %2178, %2177 ], [ %2186, %2185 ], [ %2214, %2213 ], [ %2222, %2221 ], [ %2226, %2225 ], [ %2234, %2233 ], [ %2252, %2251 ], [ %2289, %2288 ], [ %2294, %2293 ], [ %2373, %2354 ], [ %2382, %2374 ], [ %2461, %2442 ], [ %2469, %2462 ], [ %2472, %2470 ], [ %2576, %2559 ], [ %2684, %2679 ], [ %2755, %2754 ], [ %2834, %2833 ], [ %2913, %2912 ], [ %3003, %3002 ], [ %3082, %3078 ], [ %3147, %3135 ], [ %3178, %3177 ], [ %3232, %.thread3394 ], [ %3350, %3341 ], [ %3363, %3362 ], [ %3437, %3434 ], [ %3539, %3528 ], [ %3545, %3540 ], [ %3619, %3616 ], [ %3727, %3716 ], [ %3731, %3728 ], [ %3928, %3925 ], [ %4030, %4029 ], [ %4227, %4224 ], [ %4329, %4328 ], [ %4427, %4424 ], [ %4600, %4599 ], [ %4778, %4775 ], [ %5001, %5000 ], [ %5091, %5082 ], [ %5105, %5100 ], [ %5192, %5181 ], [ %5315, %5311 ], [ %5327, %5326 ], [ %5336, %5333 ], [ %5417, %5416 ], [ %5519, %5512 ], [ %5954, %5953 ], [ %6059, %6051 ], [ %6133, %6129 ], [ %6154, %6153 ], [ %6390, %6389 ]
+  %.02204.be = phi ptr [ %213, %211 ], [ %231, %._crit_edge4077 ], [ %246, %244 ], [ %266, %264 ], [ %291, %289 ], [ %321, %319 ], [ %332, %338 ], [ %363, %._crit_edge4071 ], [ %378, %376 ], [ %403, %401 ], [ %438, %436 ], [ %463, %._crit_edge4092 ], [ %493, %._crit_edge4087 ], [ %519, %._crit_edge4082 ], [ %549, %544 ], [ %578, %575 ], [ %606, %599 ], [ %635, %630 ], [ %675, %670 ], [ %702, %695 ], [ %750, %747 ], [ %768, %767 ], [ %844, %841 ], [ %1016, %1015 ], [ %1092, %1089 ], [ %1237, %1236 ], [ %1314, %1311 ], [ %1497, %._crit_edge4056 ], [ %1574, %1571 ], [ %1730, %._crit_edge4049 ], [ %1754, %1749 ], [ %1788, %1783 ], [ %1812, %1807 ], [ %1846, %1841 ], [ %1874, %1873 ], [ %1950, %1949 ], [ %1976, %1975 ], [ %2050, %2049 ], [ %2068, %2067 ], [ %2106, %2105 ], [ %2124, %2123 ], [ %2162, %2161 ], [ %2170, %2169 ], [ %2178, %2177 ], [ %2186, %2185 ], [ %2214, %2213 ], [ %2222, %2221 ], [ %2226, %2225 ], [ %2234, %2233 ], [ %2252, %2251 ], [ %2289, %2288 ], [ %2294, %2293 ], [ %2373, %2354 ], [ %2382, %2374 ], [ %2461, %2442 ], [ %2469, %2462 ], [ %2472, %2470 ], [ %2576, %2559 ], [ %2684, %2679 ], [ %2755, %2754 ], [ %2834, %2833 ], [ %2913, %2912 ], [ %3003, %3002 ], [ %3082, %3078 ], [ %3147, %3135 ], [ %3178, %3177 ], [ %3232, %.thread3394 ], [ %3350, %3341 ], [ %3363, %3362 ], [ %3437, %3434 ], [ %3539, %3528 ], [ %3545, %3540 ], [ %3619, %3616 ], [ %3727, %3716 ], [ %3731, %3728 ], [ %3928, %3925 ], [ %4030, %4029 ], [ %4227, %4224 ], [ %4329, %4328 ], [ %4427, %4424 ], [ %4600, %4599 ], [ %4778, %4775 ], [ %5001, %5000 ], [ %5091, %5082 ], [ %5105, %5100 ], [ %5192, %5181 ], [ %5315, %5311 ], [ %5327, %5326 ], [ %5336, %5333 ], [ %5417, %5416 ], [ %5519, %5512 ], [ %5954, %5953 ], [ %6059, %6051 ], [ %6133, %6129 ], [ %6154, %6153 ], [ %6392, %6389 ]
   %.02187.be = phi i64 [ %.02187, %211 ], [ %.02187, %._crit_edge4077 ], [ %.02187, %244 ], [ %.02187, %264 ], [ %.02187, %289 ], [ %.02187, %319 ], [ %.02187, %338 ], [ %.02187, %._crit_edge4071 ], [ %.02187, %376 ], [ %.02187, %401 ], [ %.02187, %436 ], [ %.02187, %._crit_edge4092 ], [ %.02187, %._crit_edge4087 ], [ %.02187, %._crit_edge4082 ], [ %.02187, %544 ], [ %.02187, %575 ], [ %.02187, %599 ], [ %.02187, %630 ], [ %.02187, %670 ], [ %.02187, %695 ], [ %.02187, %747 ], [ %.02187, %767 ], [ %.02187, %841 ], [ %.02187, %1015 ], [ %.02187, %1089 ], [ %.02187, %1236 ], [ %.02187, %1311 ], [ %.02187, %._crit_edge4056 ], [ %.02187, %1571 ], [ %.02187, %._crit_edge4049 ], [ %.02187, %1749 ], [ %.02187, %1783 ], [ %.02187, %1807 ], [ %.02187, %1841 ], [ %.02187, %1873 ], [ %.02187, %1949 ], [ %.02187, %1975 ], [ %.02187, %2049 ], [ %.02187, %2067 ], [ %.02187, %2105 ], [ %.02187, %2123 ], [ %.02187, %2161 ], [ %.02187, %2169 ], [ %.02187, %2177 ], [ %.02187, %2185 ], [ %.02187, %2213 ], [ %.02187, %2221 ], [ %.02187, %2225 ], [ %.02187, %2233 ], [ %.02187, %2251 ], [ %.02187, %2288 ], [ %.02187, %2293 ], [ %.02187, %2354 ], [ %.02187, %2374 ], [ %.02187, %2442 ], [ %.02187, %2462 ], [ %.02187, %2470 ], [ %.02187, %2559 ], [ %.02187, %2679 ], [ %.02187, %2754 ], [ %.02187, %2833 ], [ %.02187, %2912 ], [ %.02187, %3002 ], [ %.02187, %3078 ], [ %.02187, %3135 ], [ %.02187, %3177 ], [ %.02187, %.thread3394 ], [ %.02187, %3341 ], [ %.02187, %3362 ], [ %.02187, %3434 ], [ %.02187, %3528 ], [ %.02187, %3540 ], [ %.02187, %3616 ], [ %.02187, %3716 ], [ %.02187, %3728 ], [ %.02187, %3925 ], [ %.02187, %4029 ], [ %.02187, %4224 ], [ %.02187, %4328 ], [ %.02187, %4424 ], [ %.02187, %4599 ], [ %.02187, %4775 ], [ %.02187, %5000 ], [ %.02187, %5082 ], [ %.02187, %5100 ], [ %.02187, %5181 ], [ %.02187, %5311 ], [ %.02187, %5326 ], [ %.02187, %5333 ], [ %.02187, %5416 ], [ %.02187, %5512 ], [ %.02187, %5953 ], [ %.02187, %6051 ], [ %.02187, %6129 ], [ %.02187, %6153 ], [ %.221894629, %6389 ]
   %.02178.be = phi ptr [ %205, %211 ], [ %215, %._crit_edge4077 ], [ %241, %244 ], [ %261, %264 ], [ %286, %289 ], [ %316, %319 ], [ %339, %338 ], [ %.12179.lcssa, %._crit_edge4071 ], [ %365, %376 ], [ %393, %401 ], [ %428, %436 ], [ %462, %._crit_edge4092 ], [ %492, %._crit_edge4087 ], [ %518, %._crit_edge4082 ], [ %521, %544 ], [ %.02201, %575 ], [ %580, %599 ], [ %608, %630 ], [ %.12202, %670 ], [ %677, %695 ], [ %704, %747 ], [ %752, %767 ], [ %.22180, %841 ], [ %.22180, %1015 ], [ %.32181, %1089 ], [ %.32181, %1236 ], [ %.54053, %1311 ], [ %1239, %._crit_edge4056 ], [ %.64046, %1571 ], [ %1499, %._crit_edge4049 ], [ %1732, %1749 ], [ %1756, %1783 ], [ %1790, %1807 ], [ %1814, %1841 ], [ %.02178, %1873 ], [ %.02178, %1949 ], [ %.02178, %1975 ], [ %.02178, %2049 ], [ %.02178, %2067 ], [ %.02178, %2105 ], [ %.02178, %2123 ], [ %.02178, %2161 ], [ %.02178, %2169 ], [ %.02178, %2177 ], [ %.02178, %2185 ], [ %.02178, %2213 ], [ %.02178, %2221 ], [ %.02178, %2225 ], [ %.02178, %2233 ], [ %.02178, %2251 ], [ %.02178, %2288 ], [ %.02178, %2293 ], [ %.02178, %2354 ], [ %.02178, %2374 ], [ %.02178, %2442 ], [ %.02178, %2462 ], [ %.02178, %2470 ], [ %.02178, %2559 ], [ %.02178, %2679 ], [ %.8, %2754 ], [ %.9, %2833 ], [ %.11, %2912 ], [ %.15, %3002 ], [ %.18, %3078 ], [ %.02178, %3135 ], [ %.02178, %3177 ], [ %.02178, %.thread3394 ], [ %.02178, %3341 ], [ %.02178, %3362 ], [ %.02178, %3434 ], [ %.02178, %3528 ], [ %.02178, %3540 ], [ %.02178, %3616 ], [ %.02178, %3716 ], [ %.02178, %3728 ], [ %.02178, %3925 ], [ %.02178, %4029 ], [ %.02178, %4224 ], [ %.02178, %4328 ], [ %.02178, %4424 ], [ %.02178, %4599 ], [ %.02178, %4775 ], [ %.02178, %5000 ], [ %.02178, %5082 ], [ %5104, %5100 ], [ %.02178, %5181 ], [ %.02178, %5311 ], [ %.02178, %5326 ], [ %5335, %5333 ], [ %.19, %5416 ], [ %.02178, %5512 ], [ %.02178, %5953 ], [ %.02178, %6051 ], [ %.02178, %6129 ], [ %.02178, %6153 ], [ %6315, %6389 ]
   %.02177.be = phi ptr [ %.02177, %211 ], [ %.02177, %._crit_edge4077 ], [ %.02177, %244 ], [ %.02177, %264 ], [ %.02177, %289 ], [ %.02177, %319 ], [ %.02177, %338 ], [ %.02177, %._crit_edge4071 ], [ %.02177, %376 ], [ %.02177, %401 ], [ %.02177, %436 ], [ %.02177, %._crit_edge4092 ], [ %.02177, %._crit_edge4087 ], [ %.02177, %._crit_edge4082 ], [ %.02177, %544 ], [ %.02177, %575 ], [ %.02177, %599 ], [ %.02177, %630 ], [ %.02177, %670 ], [ %.02177, %695 ], [ %.02177, %747 ], [ %.02177, %767 ], [ %.02177, %841 ], [ %.02177, %1015 ], [ %.02177, %1089 ], [ %.02177, %1236 ], [ %.02177, %1311 ], [ %.02177, %._crit_edge4056 ], [ %.02177, %1571 ], [ %.02177, %._crit_edge4049 ], [ %.02177, %1749 ], [ %.02177, %1783 ], [ %.02177, %1807 ], [ %.02177, %1841 ], [ %.02177, %1873 ], [ %.02177, %1949 ], [ %.02177, %1975 ], [ %.02177, %2049 ], [ %.02177, %2067 ], [ %.02177, %2105 ], [ %.02177, %2123 ], [ %.02177, %2161 ], [ %.02177, %2169 ], [ %.02177, %2177 ], [ %.02177, %2185 ], [ %.02177, %2213 ], [ %.02177, %2221 ], [ %.02177, %2225 ], [ %.02177, %2233 ], [ %.02177, %2251 ], [ %.02177, %2288 ], [ %.02177, %2293 ], [ %.02177, %2354 ], [ %.02177, %2374 ], [ %.02177, %2442 ], [ %.02177, %2462 ], [ %.02177, %2470 ], [ %.02177, %2559 ], [ %.02177, %2679 ], [ %.02177, %2754 ], [ %.02177, %2833 ], [ %.02177, %2912 ], [ %.02177, %3002 ], [ %.02177, %3078 ], [ %.02177, %3135 ], [ %.02177, %3177 ], [ %.02177, %.thread3394 ], [ %.02177, %3341 ], [ %.02177, %3362 ], [ %.02177, %3434 ], [ %.02177, %3528 ], [ %.02177, %3540 ], [ %.02177, %3616 ], [ %.02177, %3716 ], [ %.02177, %3728 ], [ %.02177, %3925 ], [ %.02177, %4029 ], [ %.02177, %4224 ], [ %.02177, %4328 ], [ %.02177, %4424 ], [ %.02177, %4599 ], [ %.02177, %4775 ], [ %.02177, %5000 ], [ %.02177, %5082 ], [ %.02177, %5100 ], [ %.02177, %5181 ], [ %.02177, %5311 ], [ %.02177, %5326 ], [ %.02177, %5333 ], [ %.02177, %5416 ], [ %.02177, %5512 ], [ %.1, %5953 ], [ %.02177, %6051 ], [ %.02177, %6129 ], [ %.02177, %6153 ], [ %.34631, %6389 ]
@@ -6695,7 +6695,7 @@ stack_double.exit3101:                            ; preds = %3311, %3322
 3359:                                             ; preds = %3351
   store i32 0, ptr %112, align 8, !tbaa !38
   %3360 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #21
-  br i1 %3360, label %6419, label %3361
+  br i1 %3360, label %6421, label %3361
 
 3361:                                             ; preds = %3359
   call void @rb_thread_check_ints() #21
@@ -9009,7 +9009,7 @@ stack_double.exit3201:                            ; preds = %4551, %4562
 4596:                                             ; preds = %4588
   store i32 0, ptr %112, align 8, !tbaa !38
   %4597 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #21
-  br i1 %4597, label %6419, label %4598
+  br i1 %4597, label %6421, label %4598
 
 4598:                                             ; preds = %4596
   call void @rb_thread_check_ints() #21
@@ -9793,7 +9793,7 @@ stack_double.exit3233:                            ; preds = %4951, %4962
 4997:                                             ; preds = %4993
   store i32 0, ptr %112, align 8, !tbaa !38
   %4998 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #21
-  br i1 %4998, label %6419, label %4999
+  br i1 %4998, label %6421, label %4999
 
 4999:                                             ; preds = %4997
   call void @rb_thread_check_ints() #21
@@ -12381,49 +12381,49 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6332, %6335
   %6380 = icmp eq ptr %6379, null
   br i1 %6380, label %.loopexit3614, label %6381
 
-6381:                                             ; preds = %6375
+6381:; preds = %6375
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6379, i8 noundef 0, i64 noundef range(i64 1, 1152921504606846978) %6378, i1 noundef false) #21
   store ptr %6379, ptr %103, align 8, !tbaa !46
   br label %6382
 
-6382:                                             ; preds = %6343, %6344, %6368, %6381, %6319, %.loopexit3524
+6382:; preds = %6343, %6344, %6368, %6381, %6319, %.loopexit3524
   %6383 = load i32, ptr %112, align 8, !tbaa !38
   %6384 = add i32 %6383, 1
   store i32 %6384, ptr %112, align 8, !tbaa !38
   %6385 = icmp sgt i32 %6384, 127
-  br i1 %6385, label %6386, label %6389
+  br i1 %6385, label %6386, label %6391
 
-6386:                                             ; preds = %6382
+6386:; preds = %6382
   store i32 0, ptr %112, align 8, !tbaa !38
-  %6387 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #21
-  br i1 %6387, label %6419, label %6388
+  %6389 = call zeroext i1 @rb_reg_timeout_p(ptr noundef nonnull %0, ptr noundef nonnull %113) #21
+  br i1 %6389, label %6421, label %6390
 
-6388:                                             ; preds = %6386
+6390:                                             ; preds = %6386
   call void @rb_thread_check_ints() #21
-  br label %6389
+  br label %6391
 
-6389:                                             ; preds = %6382, %6388
-  %6390 = getelementptr i8, ptr %6311, i64 1
+6391:                                             ; preds = %6382, %6390
+  %6392 = getelementptr i8, ptr %6311, i64 1
   br label %.backedge.backedge
 
-6391:                                             ; preds = %.backedge, %202, %.loopexit3529
+6393:                                             ; preds = %.backedge, %202, %.loopexit3529
   %.32190 = phi i64 [ %.12188, %202 ], [ %.12188, %.loopexit3529 ], [ %.02187, %.backedge ]
-  %6392 = load ptr, ptr %20, align 8, !tbaa !50
-  %.not2836 = icmp eq ptr %6392, %76
-  br i1 %.not2836, label %6400, label %6393
+  %6394 = load ptr, ptr %20, align 8, !tbaa !50
+  %.not2836 = icmp eq ptr %6394, %76
+  br i1 %.not2836, label %6402, label %6395
 
-6393:                                             ; preds = %6391
-  store ptr %6392, ptr %5, align 8, !tbaa !30
-  %6394 = load ptr, ptr %22, align 8, !tbaa !50
-  %6395 = ptrtoint ptr %6394 to i64
-  %6396 = ptrtoint ptr %6392 to i64
-  %6397 = sub i64 %6395, %6396
-  %6398 = sdiv exact i64 %6397, 48
-  %6399 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %6398, ptr %6399, align 8, !tbaa !52
-  br label %6400
+6395:                                             ; preds = %6393
+  store ptr %6394, ptr %5, align 8, !tbaa !30
+  %6396 = load ptr, ptr %22, align 8, !tbaa !50
+  %6397 = ptrtoint ptr %6396 to i64
+  %6398 = ptrtoint ptr %6394 to i64
+  %6399 = sub i64 %6397, %6398
+  %6400 = sdiv exact i64 %6399, 48
+  %6401 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %6400, ptr %6401, align 8, !tbaa !52
+  br label %6402
 
-6400:                                             ; preds = %6391, %6393
+6402:                                             ; preds = %6393, %6395
   call void @free(ptr noundef %.02227) #21
   br label %.loopexit3614
 
@@ -12432,66 +12432,66 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6332, %6335
   br label %.thread3484
 
 .thread3484:                                      ; preds = %.thread3484.sink.split, %6359, %6365, %.backedge
-  %6401 = load ptr, ptr %20, align 8, !tbaa !50
-  %.not2830 = icmp eq ptr %6401, %76
-  br i1 %.not2830, label %6409, label %6402
+  %6403 = load ptr, ptr %20, align 8, !tbaa !50
+  %.not2830 = icmp eq ptr %6403, %76
+  br i1 %.not2830, label %6411, label %6404
 
-6402:                                             ; preds = %.thread3484
-  store ptr %6401, ptr %5, align 8, !tbaa !30
-  %6403 = load ptr, ptr %22, align 8, !tbaa !50
-  %6404 = ptrtoint ptr %6403 to i64
-  %6405 = ptrtoint ptr %6401 to i64
-  %6406 = sub i64 %6404, %6405
-  %6407 = sdiv exact i64 %6406, 48
-  %6408 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %6407, ptr %6408, align 8, !tbaa !52
-  br label %6409
+6404:                                             ; preds = %.thread3484
+  store ptr %6403, ptr %5, align 8, !tbaa !30
+  %6405 = load ptr, ptr %22, align 8, !tbaa !50
+  %6406 = ptrtoint ptr %6405 to i64
+  %6407 = ptrtoint ptr %6403 to i64
+  %6408 = sub i64 %6406, %6407
+  %6409 = sdiv exact i64 %6408, 48
+  %6410 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %6409, ptr %6410, align 8, !tbaa !52
+  br label %6411
 
-6409:                                             ; preds = %.thread3484, %6402
+6411:                                             ; preds = %.thread3484, %6404
   call void @free(ptr noundef %.02227) #21
   br label %.loopexit3614
 
 .loopexit3594:                                    ; preds = %._crit_edge3997.thread, %..loopexit3594_crit_edge
-  %6410 = phi ptr [ %.pre4576, %..loopexit3594_crit_edge ], [ %3171, %._crit_edge3997.thread ]
-  %.not2828 = icmp eq ptr %6410, %76
-  br i1 %.not2828, label %6418, label %6411
+  %6412 = phi ptr [ %.pre4576, %..loopexit3594_crit_edge ], [ %3171, %._crit_edge3997.thread ]
+  %.not2828 = icmp eq ptr %6412, %76
+  br i1 %.not2828, label %6420, label %6413
 
-6411:                                             ; preds = %.loopexit3594
-  store ptr %6410, ptr %5, align 8, !tbaa !30
-  %6412 = load ptr, ptr %22, align 8, !tbaa !50
-  %6413 = ptrtoint ptr %6412 to i64
-  %6414 = ptrtoint ptr %6410 to i64
-  %6415 = sub i64 %6413, %6414
-  %6416 = sdiv exact i64 %6415, 48
-  %6417 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %6416, ptr %6417, align 8, !tbaa !52
-  br label %6418
+6413:                                             ; preds = %.loopexit3594
+  store ptr %6412, ptr %5, align 8, !tbaa !30
+  %6414 = load ptr, ptr %22, align 8, !tbaa !50
+  %6415 = ptrtoint ptr %6414 to i64
+  %6416 = ptrtoint ptr %6412 to i64
+  %6417 = sub i64 %6415, %6416
+  %6418 = sdiv exact i64 %6417, 48
+  %6419 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %6418, ptr %6419, align 8, !tbaa !52
+  br label %6420
 
-6418:                                             ; preds = %.loopexit3594, %6411
+6420:                                             ; preds = %.loopexit3594, %6413
   call void @free(ptr noundef %.02227) #21
   br label %.loopexit3614
 
-6419:                                             ; preds = %3359, %4596, %4997, %6386
-  %6420 = load ptr, ptr %20, align 8, !tbaa !50
-  %.not2829 = icmp eq ptr %6420, %76
-  br i1 %.not2829, label %6428, label %6421
+6421:                                             ; preds = %3359, %4596, %4997, %6386
+  %6422 = load ptr, ptr %20, align 8, !tbaa !50
+  %.not2829 = icmp eq ptr %6422, %76
+  br i1 %.not2829, label %6430, label %6423
 
-6421:                                             ; preds = %6419
-  store ptr %6420, ptr %5, align 8, !tbaa !30
-  %6422 = load ptr, ptr %22, align 8, !tbaa !50
-  %6423 = ptrtoint ptr %6422 to i64
-  %6424 = ptrtoint ptr %6420 to i64
-  %6425 = sub i64 %6423, %6424
-  %6426 = sdiv exact i64 %6425, 48
-  %6427 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %6426, ptr %6427, align 8, !tbaa !52
-  br label %6428
+6423:                                             ; preds = %6421
+  store ptr %6422, ptr %5, align 8, !tbaa !30
+  %6424 = load ptr, ptr %22, align 8, !tbaa !50
+  %6425 = ptrtoint ptr %6424 to i64
+  %6426 = ptrtoint ptr %6422 to i64
+  %6427 = sub i64 %6425, %6426
+  %6428 = sdiv exact i64 %6427, 48
+  %6429 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %6428, ptr %6429, align 8, !tbaa !52
+  br label %6430
 
-6428:                                             ; preds = %6419, %6421
+6430:                                             ; preds = %6421, %6423
   call void @free(ptr noundef %.02227) #21
   br label %.loopexit3614
 
-.loopexit3614:                                    ; preds = %6375, %6371, %6351, %6428, %6418, %6409, %6400, %6121, %6043, %5941, %5877, %5817, %5740, %5504, %5396, %5303, %5173, %5074, %4980, %4918, %4860, %4797, %4693, %4580, %4509, %4446, %4309, %4246, %4136, %4085, %4010, %3947, %3837, %3786, %3708, %3638, %3520, %3456, %3340, %3134, %2671, %2551, %2434, %2346, %1691, %1623, %1431, %1363, %1204, %1141, %956, %893
+.loopexit3614:                                    ; preds = %6375, %6371, %6351, %6430, %6420, %6411, %6402, %6121, %6043, %5941, %5877, %5817, %5740, %5504, %5396, %5303, %5173, %5074, %4980, %4918, %4860, %4797, %4693, %4580, %4509, %4446, %4309, %4246, %4136, %4085, %4010, %3947, %3837, %3786, %3708, %3638, %3520, %3456, %3340, %3134, %2671, %2551, %2434, %2346, %1691, %1623, %1431, %1363, %1204, %1141, %956, %893
   %.0 = phi i64 [ %.32190, %6400 ], [ -13, %6409 ], [ -23, %6428 ], [ -14, %6418 ], [ %.0.i2892.ph, %893 ], [ %.0.i2897.ph, %956 ], [ %.0.i2920.ph, %1141 ], [ %.0.i2926.ph, %1204 ], [ %.0.i2943.ph, %1363 ], [ %.0.i2949.ph, %1431 ], [ %.0.i2972.ph, %1623 ], [ %.0.i2978.ph, %1691 ], [ %.0.i3039.ph, %2346 ], [ %.0.i3045.ph, %2434 ], [ %.0.i3051.ph, %2551 ], [ %.0.i3057.ph, %2671 ], [ %3457, %3456 ], [ %.0.i3114.ph, %3520 ], [ %3639, %3638 ], [ %.0.i3128.ph, %3708 ], [ %.0.i3134.ph, %3786 ], [ %.0.i3140.ph, %3837 ], [ %3948, %3947 ], [ %.0.i3154.ph, %4010 ], [ %.0.i3160.ph, %4085 ], [ %.0.i3166.ph, %4136 ], [ %4247, %4246 ], [ %.0.i3180.ph, %4309 ], [ %.0.i3200.ph, %4580 ], [ %4447, %4446 ], [ %.0.i3194.ph, %4509 ], [ %.0.i3206.ph, %4693 ], [ %4798, %4797 ], [ %.0.i3220.ph, %4860 ], [ %.0.i3226.ph, %4918 ], [ %.0.i3232.ph, %4980 ], [ %.0.i3094.ph, %3134 ], [ %.0.i3100.ph, %3340 ], [ %.0.i3238.ph, %5074 ], [ %.0.i3246.ph, %5173 ], [ %.0.i3254.ph, %5303 ], [ %.0.i3260.ph, %5396 ], [ %.0.i3266.ph, %5504 ], [ %.0.i3278.ph, %5740 ], [ %.0.i3284.ph, %5817 ], [ %.0.i3290.ph, %5877 ], [ %.0.i3296.ph, %5941 ], [ %.0.i3302.ph, %6043 ], [ %.0.i3308.ph, %6121 ], [ -5, %6351 ], [ -5, %6371 ], [ -5, %6375 ]
   ret i64 %.0
 
@@ -12505,8 +12505,8 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6332, %6335
   %.pn.in = load i8, ptr %.pn.in.in, align 1, !tbaa !57
   %.pn = zext i8 %.pn.in to i64
   %.in = getelementptr [98 x ptr], ptr @match_at.oplabels, i64 0, i64 %.pn
-  %6429 = load ptr, ptr %.in, align 8, !tbaa !76
-  indirectbr ptr %6429, [label %6391, label %131, label %204, label %232, label %247, label %267, label %292, label %322, label %364, label %379, label %404, label %439, label %464, label %494, label %214, label %340, label %520, label %550, label %579, label %607, label %636, label %676, label %703, label %751, label %769, label %1017, label %1238, label %1498, label %1731, label %1789, label %1847, label %1951, label %2051, label %2107, label %1755, label %1813, label %1875, label %1977, label %2069, label %2125, label %2163, label %2171, label %2179, label %2215, label %2227, label %2290, label %2689, label %2685, label %2686, label %2756, label %2835, label %2914, label %3004, label %2374, label %2295, label %2383, label %2473, label %2462, label %2577, label %2470, label %is_mbc_newline_ex.exit.thread, label %3351, label %3364, label %3540, label %.thread3484, label %3546, label %3732, label %4031, label %4330, label %4624, label %4601, label %5002, label %3083, label %3148, label %3179, label %3233, label %5025, label %5092, label %5122, label %memoize_extended_match_cache_point.exit3249, label %5254, label %5316, label %5328, label %5337, label %5418, label %5455, label %5520, label %5955, label %5992, label %6060, label %6134]
+  %6431 = load ptr, ptr %.in, align 8, !tbaa !76
+  indirectbr ptr %6431, [label %6393, label %131, label %204, label %232, label %247, label %267, label %292, label %322, label %364, label %379, label %404, label %439, label %464, label %494, label %214, label %340, label %520, label %550, label %579, label %607, label %636, label %676, label %703, label %751, label %769, label %1017, label %1238, label %1498, label %1731, label %1789, label %1847, label %1951, label %2051, label %2107, label %1755, label %1813, label %1875, label %1977, label %2069, label %2125, label %2163, label %2171, label %2179, label %2215, label %2227, label %2290, label %2689, label %2685, label %2686, label %2756, label %2835, label %2914, label %3004, label %2374, label %2295, label %2383, label %2473, label %2462, label %2577, label %2470, label %is_mbc_newline_ex.exit.thread, label %3351, label %3364, label %3540, label %.thread3484, label %3546, label %3732, label %4031, label %4330, label %4624, label %4601, label %5002, label %3083, label %3148, label %3179, label %3233, label %5025, label %5092, label %5122, label %memoize_extended_match_cache_point.exit3249, label %5254, label %5316, label %5328, label %5337, label %5418, label %5455, label %5520, label %5955, label %5992, label %6060, label %6134]
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

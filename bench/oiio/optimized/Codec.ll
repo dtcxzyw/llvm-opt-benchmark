@@ -225,18 +225,18 @@ define hidden noundef zeroext i1 @_ZN3dpx5Codec4ReadERKNS_6HeaderEPNS_17ElementR
 
 _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %11, %13
   %.0.i = phi i32 [ %21, %13 ], [ 32, %11 ]
-  %22 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %1)
-  %23 = mul i32 %.0.i, %12
+  %20 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %1)
+  %21 = mul i32 %.0.i, %12
   %24 = mul i32 %23, %22
   %25 = lshr i32 %24, 2
   %narrow = add nuw nsw i32 %25, 1
-  %26 = zext nneg i32 %narrow to i64
+  %24 = zext nneg i32 %narrow to i64
   %27 = shl nuw nsw i64 %26, 2
   %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #10
   store ptr %28, ptr %8, align 8, !tbaa !6
   br label %29
 
-29:                                               ; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit, %7
+29:; preds = %_ZNK3dpx13GenericHeader8BitDepthEi.exit, %7
   %30 = phi ptr [ %28, %_ZNK3dpx13GenericHeader8BitDepthEi.exit ], [ %9, %7 ]
   %31 = tail call noundef zeroext i1 @_ZN3dpx14ReadImageBlockINS_17ElementReadStreamEEEbRKNS_6HeaderEPjPT_iRKNS_5BlockEPvNS_8DataSizeE(ptr noundef nonnull align 4 dereferenceable(2049) %1, ptr noundef nonnull %30, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %5, i32 noundef %6)
   ret i1 %31
