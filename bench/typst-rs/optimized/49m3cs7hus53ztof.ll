@@ -61541,7 +61541,6 @@ define hidden { double, double } @_ZN5typst6layout3pad4grow17hc4f8ba70e3595b78E(
   %10 = load double, ptr %9, align 8, !alias.scope !10025, !noalias !10028, !noundef !16
   %11 = fadd double %4, %8
   %.0.i.inv.i.i.i.i.i = fcmp ord double %11, 0.000000e+00
-  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %11, double 0.000000e+00
   %12 = fadd double %6, %10
   %.0.i.inv.i.i.i1.i.i = fcmp ord double %12, 0.000000e+00
   %.0.i.i.i2.i.i = select i1 %.0.i.inv.i.i.i1.i.i, double %12, double 0.000000e+00
@@ -61555,27 +61554,28 @@ define hidden { double, double } @_ZN5typst6layout3pad4grow17hc4f8ba70e3595b78E(
   %20 = load double, ptr %19, align 8, !alias.scope !10025, !noalias !10028, !noundef !16
   %21 = fadd double %14, %18
   %.0.i.inv.i.i.i.i2.i = fcmp ord double %21, 0.000000e+00
-  %.0.i.i.i.i3.i = select i1 %.0.i.inv.i.i.i.i2.i, double %21, double 0.000000e+00
   %22 = fadd double %16, %20
   %.0.i.inv.i.i.i1.i4.i = fcmp ord double %22, 0.000000e+00
   %.0.i.i.i2.i5.i = select i1 %.0.i.inv.i.i.i1.i4.i, double %22, double 0.000000e+00
   %23 = fadd double %0, %.0.i.i.i2.i.i
   %.0.i.inv.i.i.i.i.i1 = fcmp ord double %23, 0.000000e+00
   %.0.i.i.i.i.i2 = select i1 %.0.i.inv.i.i.i.i.i1, double %23, double 0.000000e+00
-  %24 = fsub double 1.000000e+00, %.0.i.i.i.i.i
-  %25 = fdiv double %.0.i.i.i.i.i2, %24
-  %.0.i.inv.i.i.i1.i.i3 = fcmp ord double %25, 0.000000e+00
-  %.0.i.i.i2.i.i4 = select i1 %.0.i.inv.i.i.i1.i.i3, double %25, double 0.000000e+00
-  %26 = fadd double %1, %.0.i.i.i2.i5.i
-  %.0.i.inv.i.i.i.i10.i = fcmp ord double %26, 0.000000e+00
-  %.0.i.i.i.i11.i = select i1 %.0.i.inv.i.i.i.i10.i, double %26, double 0.000000e+00
-  %27 = fsub double 1.000000e+00, %.0.i.i.i.i3.i
-  %28 = fdiv double %.0.i.i.i.i11.i, %27
-  %.0.i.inv.i.i.i1.i14.i = fcmp ord double %28, 0.000000e+00
-  %.0.i.i.i2.i15.i = select i1 %.0.i.inv.i.i.i1.i14.i, double %28, double 0.000000e+00
-  %29 = insertvalue { double, double } poison, double %.0.i.i.i2.i.i4, 0
-  %30 = insertvalue { double, double } %29, double %.0.i.i.i2.i15.i, 1
-  ret { double, double } %30
+  %24 = fsub double 1.000000e+00, %11
+  %25 = select i1 %.0.i.inv.i.i.i.i.i, double %24, double 1.000000e+00
+  %26 = fdiv double %.0.i.i.i.i.i2, %25
+  %.0.i.inv.i.i.i1.i.i3 = fcmp ord double %26, 0.000000e+00
+  %.0.i.i.i2.i.i4 = select i1 %.0.i.inv.i.i.i1.i.i3, double %26, double 0.000000e+00
+  %27 = fadd double %1, %.0.i.i.i2.i5.i
+  %.0.i.inv.i.i.i.i10.i = fcmp ord double %27, 0.000000e+00
+  %.0.i.i.i.i11.i = select i1 %.0.i.inv.i.i.i.i10.i, double %27, double 0.000000e+00
+  %28 = fsub double 1.000000e+00, %21
+  %29 = select i1 %.0.i.inv.i.i.i.i2.i, double %28, double 1.000000e+00
+  %30 = fdiv double %.0.i.i.i.i11.i, %29
+  %.0.i.inv.i.i.i1.i14.i = fcmp ord double %30, 0.000000e+00
+  %.0.i.i.i2.i15.i = select i1 %.0.i.inv.i.i.i1.i14.i, double %30, double 0.000000e+00
+  %31 = insertvalue { double, double } poison, double %.0.i.i.i2.i.i4, 0
+  %32 = insertvalue { double, double } %31, double %.0.i.i.i2.i15.i, 1
+  ret { double, double } %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
