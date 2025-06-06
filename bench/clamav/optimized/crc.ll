@@ -160,42 +160,42 @@ define noundef zeroext i16 @_Z10Checksum14tPKvm(i16 noundef zeroext %0, ptr noun
 define internal void @_GLOBAL__sub_I_crc.cpp() #2 section ".text.startup" {
   br label %1
 
-1:                                                ; preds = %4, %0
+_Z9InitCRC32Pj.exit.i.i.i.preheader:              ; preds = %3, %0
   %indvars.iv16.i.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next17.i.i.i, %4 ]
   %2 = getelementptr inbounds nuw [256 x i32], ptr @_ZL10crc_tables, i64 0, i64 %indvars.iv16.i.i.i
   %3 = load i32, ptr %2, align 4, !tbaa !6
   br label %5
 
-4:                                                ; preds = %5
+3:                                                ; preds = %5
   %indvars.iv.next17.i.i.i = add nuw nsw i64 %indvars.iv16.i.i.i, 1
   %exitcond19.not.i.i.i = icmp eq i64 %indvars.iv.next17.i.i.i, 256
-  br i1 %exitcond19.not.i.i.i, label %__cxx_global_var_init.exit, label %1, !llvm.loop !13
+  br i1 %exitcond19.not.i.i.i, label %__cxx_global_var_init.exit, label %_Z9InitCRC32Pj.exit.i.i.i.preheader, !llvm.loop !13
 
-5:                                                ; preds = %5, %1
-  %indvars.iv.i.i.i = phi i64 [ 1, %1 ], [ %indvars.iv.next.i.i.i, %5 ]
-  %.01012.i.i.i = phi i32 [ %3, %1 ], [ %11, %5 ]
-  %6 = and i32 %.01012.i.i.i, 255
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw [256 x i32], ptr @_ZL10crc_tables, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4, !tbaa !6
-  %10 = lshr i32 %.01012.i.i.i, 8
-  %11 = xor i32 %9, %10
-  %12 = getelementptr inbounds nuw [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 %indvars.iv.i.i.i, i64 %indvars.iv16.i.i.i
-  store i32 %11, ptr %12, align 4, !tbaa !6
+14:                                               ; preds = %14, %_Z9InitCRC32Pj.exit.i.i.i.preheader
+  %indvars.iv.i.i.i = phi i64 [ _Z9InitCRC32Pj.exit.i.i.i.preheader, %1 ], [ %indvars.iv.next.i.i.i, %5 ]
+  %.01012.i.i.i = phi i32 [ %3, %1 ], [ %1_Z9InitCRC32Pj.exit.i.i.i.preheader, %5 ]
+  %15 = and i32 %.01012.i.i.i, 255
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @_ZL10crc_tables, i64 0, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !6
+  %19 = lshr i32 %.01012.i.i.i, 8
+  %20 = xor i32 %18, %19
+  %21 = getelementptr inbounds nuw [8 x [256 x i32]], ptr @_ZL10crc_tables, i64 0, i64 %indvars.iv.i.i.i, i64 %indvars.iv16.i.i.i
+  store i32 %20, ptr %21, align 4, !tbaa !6
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %4, label %5, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %3, label %14, !llvm.loop !14
 
-__cxx_global_var_init.exit:                       ; preds = %4
+__cxx_global_var_init.exit:                       ; preds = %3
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #3
+declare i16 @llvm.fshl.i16(i16, i16, i16) #4
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}

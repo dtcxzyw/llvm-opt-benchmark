@@ -115,17 +115,17 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
 
 9:                                                ; preds = %2
   %.b8.i = load i1, ptr @H5_crc_table_computed, align 1
-  br i1 %.b8.i, label %10, label %.preheader.i.preheader.i
+  br i1 %.b8.i, label %18, label %.preheader.i.i
 
-.preheader.i.preheader.i:                         ; preds = %9
+.preheader.i.i:                                   ; preds = %9
   store i1 true, ptr @H5_crc_table_computed, align 1
-  br label %10
+  br label %18
 
-10:                                               ; preds = %.preheader.i.preheader.i, %9
+18:                                               ; preds = %.preheader.i.i, %9
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %H5__checksum_crc_update.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %10, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.010.i = phi i64 [ %12, %.lr.ph.i ], [ 0, %10 ]
   %.19.i = phi i32 [ %11, %.lr.ph.i ], [ -1, %10 ]
   %11 = lshr i32 %.19.i, 8
@@ -134,11 +134,11 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
   br i1 %exitcond.not.i, label %H5__checksum_crc_update.exit.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 H5__checksum_crc_update.exit.loopexit:            ; preds = %.lr.ph.i
-  %13 = xor i32 %11, -1
+  %27 = xor i32 %11, -1
   br label %H5__checksum_crc_update.exit
 
-H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_update.exit.loopexit, %2, %10
-  %.07.i = phi i32 [ 0, %2 ], [ 0, %10 ], [ %13, %H5__checksum_crc_update.exit.loopexit ]
+H5__checksum_crc_update.exit:                     ; preds = %H5__checksum_crc_update.exit.loopexit, %2, %18
+  %.07.i = phi i32 [ 0, %2 ], [ 0, %10 ], [ %27, %H5__checksum_crc_update.exit.loopexit ]
   ret i32 %.07.i
 }
 
