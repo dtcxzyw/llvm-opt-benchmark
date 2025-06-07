@@ -2720,24 +2720,27 @@ _ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit:    ; preds = %.lr.ph.i.i.i, %66, 
 
 .lr.ph.preheader:                                 ; preds = %_ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit
   %.ptr = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %86 = trunc nuw i8 %81 to i1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %87
   %.02439 = phi ptr [ %90, %87 ], [ %.ptr, %.lr.ph.preheader ]
-  %.02638 = phi i8 [ %spec.select, %87 ], [ %81, %.lr.ph.preheader ]
-  %86 = trunc nuw i8 %.02638 to i1
-  br i1 %86, label %87, label %._crit_edge.loopexit
+  %.02638 = phi i1 [ %89, %87 ], [ %86, %.lr.ph.preheader ]
+  br i1 %.02638, label %87, label %._crit_edge.loopexit
 
 87:                                               ; preds = %.lr.ph
   %88 = load ptr, ptr %.02439, align 8, !tbaa !39
   %89 = call noundef zeroext i1 @_ZN2qe10mbi_plugin9is_sharedEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %88)
-  %spec.select = select i1 %89, i8 %.02638, i8 0
   %90 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
   %.not29 = icmp eq ptr %90, %.ptr42
-  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not29, label %._crit_edge.loopexit.split.loop.exit52, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %87
-  %.127.ph = phi i8 [ %spec.select, %87 ], [ 0, %.lr.ph ]
+._crit_edge.loopexit.split.loop.exit52:           ; preds = %87
+  %spec.select.le = zext i1 %89 to i8
+  br label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %._crit_edge.loopexit.split.loop.exit52
+  %.127.ph = phi i8 [ %spec.select.le, %._crit_edge.loopexit.split.loop.exit52 ], [ 0, %.lr.ph ]
   %.pre = load ptr, ptr %18, align 8, !tbaa !75
   br label %._crit_edge
 

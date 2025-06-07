@@ -4929,7 +4929,7 @@ _ZNKSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPKSt13_Rb_tree
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #32
   %139 = load i32, ptr %19, align 8
   %140 = icmp slt i32 %.2.lcssa, %139
-  br i1 %140, label %.lr.ph142.split, label %.outer._crit_edge
+  br i1 %140, label %.lr.ph142.split, label %.outer._crit_edge.thread
 
 141:                                              ; preds = %133, %.critedge
   %142 = landingpad { ptr, i32 }
@@ -4947,17 +4947,13 @@ _ZNKSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPKSt13_Rb_tree
   %145 = icmp slt i32 %143, %144
   br i1 %145, label %.lr.ph142, label %.outer._crit_edge, !llvm.loop !36
 
-.outer._crit_edge:                                ; preds = %.outer, %137
-  %.071.ph.lcssa133 = phi i8 [ %.071.ph160, %137 ], [ %.172, %.outer ]
-  %.068.lcssa = phi i16 [ %138, %137 ], [ %.169, %.outer ]
-  %.0.lcssa = phi i32 [ %.066140, %137 ], [ %.1, %.outer ]
-  %.lcssa = phi i32 [ %139, %137 ], [ %144, %.outer ]
-  %146 = trunc nuw i8 %.071.ph.lcssa133 to i1
+.outer._crit_edge:                                ; preds = %.outer
+  %146 = trunc nuw i8 %.172 to i1
   br i1 %146, label %147, label %.outer._crit_edge.thread
 
 147:                                              ; preds = %.outer._crit_edge
-  %148 = sub nsw i32 %.lcssa, %.0.lcssa
-  call void @_ZNK4pkpy3Str6substrEii(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef %.0.lcssa, i32 noundef %148)
+  %148 = sub nsw i32 %144, %.1
+  call void @_ZNK4pkpy3Str6substrEii(ptr dead_on_unwind nonnull writable sret(%"struct.pkpy::Str") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef %.1, i32 noundef %148)
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %10, align 8
@@ -4973,7 +4969,7 @@ _ZNKSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPKSt13_Rb_tree
           to label %159 unwind label %161
 
 159:                                              ; preds = %154
-  %160 = add i16 %.068.lcssa, 1
+  %160 = add i16 %.169, 1
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #32
   br label %.outer._crit_edge.thread
 
@@ -4983,8 +4979,8 @@ _ZNKSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPKSt13_Rb_tree
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #32
   br label %166
 
-.outer._crit_edge.thread:                         ; preds = %18, %159, %.outer._crit_edge
-  %.270 = phi i16 [ %160, %159 ], [ %.068.lcssa, %.outer._crit_edge ], [ 0, %18 ]
+.outer._crit_edge.thread:                         ; preds = %137, %18, %159, %.outer._crit_edge
+  %.270 = phi i16 [ %160, %159 ], [ %.169, %.outer._crit_edge ], [ 0, %18 ], [ %138, %137 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %164 = load i32, ptr %163, align 8
   %165 = call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 43, i16 noundef zeroext %.270, i32 noundef %164, i1 noundef zeroext false)

@@ -14297,10 +14297,11 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   br i1 %46, label %"_ZN4core3ptr117drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$$GT$17ha1e3275a43388ac7E.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17head25dcadc1c13faE.exit.i.i"
 
 .split.us.i:                                      ; preds = %43, %34
+  %.us-phi.i = phi i16 [ 1, %34 ], [ 0, %43 ]
   call void @llvm.lifetime.start.p0(i64 126, ptr nonnull %.sroa.54.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.4.0..sroa_idx.i.i.i.i, i64 126, i1 false), !noalias !1895
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4), !noalias !1874
-  store i16 %.fr.i, ptr %0, align 8, !alias.scope !1851, !noalias !1898
+  store i16 %.us-phi.i, ptr %0, align 8, !alias.scope !1851, !noalias !1898
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.54.i, i64 126, i1 false), !noalias !1898
   br label %48
@@ -14934,10 +14935,11 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   br i1 %46, label %"_ZN4core3ptr119drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$ockam_transport_tcp..registry..common..TcpListenerInfo$GT$$GT$17h4bbc9df70c47297aE.exit.i", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8f3fc761cee8a8b8E.exit.i.i"
 
 .split.us.i:                                      ; preds = %43, %34
+  %.us-phi.i = phi i16 [ 1, %34 ], [ 0, %43 ]
   call void @llvm.lifetime.start.p0(i64 86, ptr nonnull %.sroa.54.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.4.0..sroa_idx.i.i.i.i, i64 86, i1 false), !noalias !2075
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !2054
-  store i16 %.fr.i, ptr %0, align 8, !alias.scope !2032, !noalias !2078
+  store i16 %.us-phi.i, ptr %0, align 8, !alias.scope !2032, !noalias !2078
   %.sroa.54.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(86) %.sroa.54.i, i64 86, i1 false), !noalias !2078
   br label %48

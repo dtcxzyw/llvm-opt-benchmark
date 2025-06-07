@@ -410,12 +410,12 @@ _ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit: ; preds = %32
   %.pre = load i32, ptr %7, align 4, !tbaa !44
   %.pre42 = load i8, ptr %37, align 8, !tbaa !24, !range !42
   %.pre44 = sext i32 %.pre to i64
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %80 = trunc nuw i8 %.pre42 to i1
-  br i1 %80, label %81, label %114
+  %79 = trunc nuw i8 %.pre42 to i1
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %79, label %81, label %114
 
 81:                                               ; preds = %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit
-  %82 = phi ptr [ %75, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread ], [ %79, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit ]
+  %82 = phi ptr [ %75, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread ], [ %80, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit ]
   %.pre-phi46 = phi i64 [ %40, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread ], [ %.pre44, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %84 = load ptr, ptr %83, align 16, !tbaa !30
@@ -457,11 +457,11 @@ _ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit: ; preds = %32
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %116 = load ptr, ptr %115, align 16, !tbaa !26
   %117 = getelementptr inbounds %struct.b3OptimizedBvhNode, ptr %116, i64 %.pre44, i32 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %117, ptr noundef nonnull align 16 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %117, ptr noundef nonnull align 16 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !55
   br label %_ZN14b3QuantizedBvh22setInternalNodeAabbMaxEiRK9b3Vector3.exit
 
 _ZN14b3QuantizedBvh22setInternalNodeAabbMaxEiRK9b3Vector3.exit: ; preds = %81, %114
-  %118 = phi ptr [ %82, %81 ], [ %79, %114 ]
+  %118 = phi ptr [ %82, %81 ], [ %80, %114 ]
   %119 = icmp slt i32 %1, %2
   br i1 %119, label %.lr.ph, label %._crit_edge
 

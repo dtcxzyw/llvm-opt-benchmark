@@ -1727,59 +1727,47 @@ FlushPendingEvents.exit:                          ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 397
   %53 = load i8, ptr %52, align 1, !range !5, !noundef !6
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %58, label %55
+  br i1 %54, label %57, label %55
 
 55:                                               ; preds = %FlushPendingEvents.exit
   %56 = icmp eq i32 %3, 2
   %.mux = select i1 %56, i32 2, i32 1
-  switch i32 %3, label %.thread.thread [
+  switch i32 %3, label %.thread [
     i32 2, label %.thread32
     i32 0, label %.thread32
   ]
 
-.thread.thread:                                   ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %6, i64 401
-  store i8 1, ptr %57, align 1
-  br label %62
+57:                                               ; preds = %FlushPendingEvents.exit
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %.thread, label %61
 
-58:                                               ; preds = %FlushPendingEvents.exit
-  %59 = icmp ne i32 %3, 0
-  %60 = zext i1 %59 to i8
-  %.not = icmp eq i8 %53, %60
-  br i1 %.not, label %65, label %.thread
-
-.thread:                                          ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 401
-  store i8 0, ptr %61, align 1
-  br i1 %59, label %62, label %63
-
-62:                                               ; preds = %.thread.thread, %.thread
-  br label %63
-
-63:                                               ; preds = %.thread, %62
-  %64 = phi ptr [ %10, %62 ], [ null, %.thread ]
-  tail call fastcc void @SetFullscreen(ptr noundef nonnull %1, ptr noundef %64)
+.thread:                                          ; preds = %55, %57
+  %58 = phi ptr [ null, %57 ], [ %10, %55 ]
+  %59 = phi i8 [ 0, %57 ], [ 1, %55 ]
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 401
+  store i8 %59, ptr %60, align 1
+  tail call fastcc void @SetFullscreen(ptr noundef nonnull %1, ptr noundef %58)
   br label %.thread32
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 364
-  %67 = load i32, ptr %66, align 4
-  %68 = load i32, ptr %2, align 8
-  %.not30 = icmp eq i32 %67, %68
-  br i1 %.not30, label %71, label %69
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 364
+  %63 = load i32, ptr %62, align 4
+  %64 = load i32, ptr %2, align 8
+  %.not30 = icmp eq i32 %63, %64
+  br i1 %.not30, label %67, label %65
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 401
-  store i8 1, ptr %70, align 1
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 401
+  store i8 1, ptr %66, align 1
   tail call fastcc void @SetFullscreen(ptr noundef nonnull %1, ptr noundef %10)
   br label %.thread32
 
-71:                                               ; preds = %65
-  %72 = tail call fastcc zeroext i1 @ConfigureWindowGeometry(ptr noundef nonnull %1)
+67:                                               ; preds = %61
+  %68 = tail call fastcc zeroext i1 @ConfigureWindowGeometry(ptr noundef nonnull %1)
   br label %.thread32
 
-.thread32:                                        ; preds = %55, %55, %63, %69, %30, %14, %4, %71
-  %.0 = phi i32 [ 1, %71 ], [ 0, %4 ], [ 1, %14 ], [ 1, %30 ], [ %.mux, %55 ], [ 2, %69 ], [ 2, %63 ], [ %.mux, %55 ]
+.thread32:                                        ; preds = %55, %55, %.thread, %65, %30, %14, %4, %67
+  %.0 = phi i32 [ 1, %67 ], [ 0, %4 ], [ 1, %14 ], [ 1, %30 ], [ %.mux, %55 ], [ 2, %65 ], [ 2, %.thread ], [ %.mux, %55 ]
   ret i32 %.0
 }
 

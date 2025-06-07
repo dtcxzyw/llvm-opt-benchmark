@@ -25825,9 +25825,8 @@ define hidden void @"_ZN171_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %20 = load i64, ptr %0, align 8, !range !143, !noundef !3
   %21 = trunc nuw i64 %20 to i1
   %22 = fadd double %19, %18
-  %.sink9 = select i1 %21, i64 1, i64 %15
   %.sink = select i1 %21, double %22, double %19
-  store i64 %.sink9, ptr %0, align 8
+  store i64 1, ptr %0, align 8
   store double %.sink, ptr %17, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8, !noundef !3
@@ -25936,7 +25935,7 @@ define hidden void @"_ZN171_$LT$polars_pipe..executors..sinks..group_by..aggrega
   br i1 %17, label %20, label %24
 
 20:                                               ; preds = %19
-  store i64 %13, ptr %0, align 8
+  store i64 1, ptr %0, align 8
   store double %15, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8, !noundef !3
@@ -25988,7 +25987,7 @@ define hidden void @"_ZN171_$LT$polars_pipe..executors..sinks..group_by..aggrega
   br i1 %17, label %20, label %24
 
 20:                                               ; preds = %19
-  store i32 %13, ptr %0, align 4
+  store i32 1, ptr %0, align 4
   store float %15, ptr %11, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 4, !noundef !3

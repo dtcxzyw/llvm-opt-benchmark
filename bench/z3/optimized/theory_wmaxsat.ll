@@ -5342,8 +5342,8 @@ define hidden void @_ZN3smt14theory_wmaxsat9propagateEv(ptr noundef nonnull alig
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
-8:                                                ; preds = %.lr.ph, %34
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
+8:                                                ; preds = %.backedge, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.be, %.backedge ]
   %9 = load ptr, ptr %5, align 8, !tbaa !12
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %11
@@ -5359,7 +5359,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   %15 = icmp samesign ult i64 %indvars.iv, %.0.i.i
   br i1 %15, label %17, label %.critedge
 
-.critedge:                                        ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %34, %1
+.critedge:                                        ; preds = %29, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %1
   store i8 0, ptr %2, align 8, !tbaa !84
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 889
   store i8 0, ptr %16, align 1, !tbaa !219
@@ -5377,7 +5377,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !262
   %28 = icmp eq i8 %27, 1
-  br i1 %28, label %29, label %34
+  br i1 %28, label %29, label %.backedge
 
 29:                                               ; preds = %17
   %30 = load ptr, ptr %0, align 8, !tbaa !3
@@ -5386,12 +5386,11 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(952) %0, i32 noundef %20, i1 noundef zeroext true)
   %.pre = load i8, ptr %2, align 8, !tbaa !84, !range !107
   %33 = trunc nuw i8 %.pre to i1
-  br label %34
+  br i1 %33, label %.backedge, label %.critedge
 
-34:                                               ; preds = %29, %17
-  %35 = phi i1 [ %33, %29 ], [ true, %17 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %35, label %8, label %.critedge, !llvm.loop !263
+.backedge:                                        ; preds = %17, %29
+  %indvars.iv.be = add nuw nsw i64 %indvars.iv, 1
+  br label %8, !llvm.loop !263
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -709,13 +709,13 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit.i: ; preds = %8, %4
   store ptr %28, ptr %11, align 8, !tbaa !26
   store i32 %23, ptr %26, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr align 1 %28, i8 0, i64 %27, i1 false)
+  %.pre.pre.i = load i32, ptr %22, align 8, !tbaa !28
   store i8 1, ptr %5, align 8, !tbaa !22
-  %.pre.i = load i32, ptr %22, align 8, !tbaa !28
-  %29 = sext i32 %.pre.i to i64
+  %29 = sext i32 %.pre.pre.i to i64
   br label %_ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi.exit.i
 
 _ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi.exit.i: ; preds = %25, %21
-  %30 = phi i32 [ 0, %21 ], [ %.pre.i, %25 ]
+  %30 = phi i32 [ 0, %21 ], [ %.pre.pre.i, %25 ]
   %31 = phi i64 [ 0, %21 ], [ %29, %25 ]
   %32 = phi ptr [ null, %21 ], [ %28, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -945,9 +945,9 @@ _ZN6icu_776number4impl15DecimalQuantity12setBcdToZeroEv.exit: ; preds = %2, %6
   store ptr %26, ptr %9, align 8, !tbaa !26
   store i32 %21, ptr %24, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 0, i64 %25, i1 false)
+  %.pre.pre = load i32, ptr %20, align 8, !tbaa !28
   store i8 1, ptr %3, align 8, !tbaa !22
-  %.pre = load i32, ptr %20, align 8, !tbaa !28
-  %27 = sext i32 %.pre to i64
+  %27 = sext i32 %.pre.pre to i64
   br label %_ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi.exit
 
 _ZN6icu_776number4impl15DecimalQuantity14ensureCapacityEi.exit: ; preds = %19, %23

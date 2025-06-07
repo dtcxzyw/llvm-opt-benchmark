@@ -3447,7 +3447,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
   %107 = getelementptr inbounds nuw i8, ptr %40, i64 98
   store i8 %82, ptr %107, align 2, !alias.scope !303, !noalias !306
   %108 = getelementptr inbounds nuw i8, ptr %40, i64 99
-  store i8 %48, ptr %108, align 1, !alias.scope !303, !noalias !306
+  store i8 0, ptr %108, align 1, !alias.scope !303, !noalias !306
   %109 = getelementptr inbounds nuw i8, ptr %40, i64 100
   store i8 %84, ptr %109, align 4, !alias.scope !303, !noalias !306
   %110 = getelementptr inbounds nuw i8, ptr %40, i64 101
@@ -3492,7 +3492,7 @@ define hidden void @_ZN6brotli3enc9metablock20BrotliBuildMetaBlock17hefd00365c03
   %128 = getelementptr inbounds nuw i8, ptr %39, i64 98
   store i8 %82, ptr %128, align 2, !alias.scope !315, !noalias !310
   %129 = getelementptr inbounds nuw i8, ptr %39, i64 99
-  store i8 %48, ptr %129, align 1, !alias.scope !315, !noalias !310
+  store i8 0, ptr %129, align 1, !alias.scope !315, !noalias !310
   %130 = getelementptr inbounds nuw i8, ptr %39, i64 100
   store i8 %84, ptr %130, align 4, !alias.scope !315, !noalias !310
   %131 = getelementptr inbounds nuw i8, ptr %39, i64 101

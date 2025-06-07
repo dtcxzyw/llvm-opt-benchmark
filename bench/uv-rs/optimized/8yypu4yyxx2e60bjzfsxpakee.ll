@@ -2704,89 +2704,87 @@ _ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16: ; preds =
 64:                                               ; preds = %51
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 130
   %66 = load i16, ptr %65, align 2
-  %67 = insertvalue { i16, i16 } poison, i16 %53, 0
-  %68 = insertvalue { i16, i16 } %67, i16 %66, 1
+  %67 = insertvalue { i16, i16 } { i16 1, i16 poison }, i16 %66, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit": ; preds = %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i", %64
-  %.merged.i = phi { i16, i16 } [ %63, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i" ], [ %68, %64 ]
-  %69 = extractvalue { i16, i16 } %.merged.i, 0
-  %70 = extractvalue { i16, i16 } %.merged.i, 1
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %72 = load i16, ptr %71, align 8, !range !452, !noundef !25
-  %trunc.i21 = trunc nuw i16 %72 to i1
-  br i1 %trunc.i21, label %83, label %73
+  %.merged.i = phi { i16, i16 } [ %63, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i" ], [ %67, %64 ]
+  %68 = extractvalue { i16, i16 } %.merged.i, 0
+  %69 = extractvalue { i16, i16 } %.merged.i, 1
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %71 = load i16, ptr %70, align 8, !range !452, !noundef !25
+  %trunc.i21 = trunc nuw i16 %71 to i1
+  br i1 %trunc.i21, label %82, label %72
 
-73:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit"
-  br i1 %27, label %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", label %74
+72:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit"
+  br i1 %27, label %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", label %73
+
+73:                                               ; preds = %72
+  %.not.i.i.i.i.i.i22 = icmp ugt i64 %25, %26
+  br i1 %.not.i.i.i.i.i.i22, label %76, label %74
 
 74:                                               ; preds = %73
-  %.not.i.i.i.i.i.i22 = icmp ugt i64 %25, %26
-  br i1 %.not.i.i.i.i.i.i22, label %77, label %75
+  %75 = icmp eq i64 %25, %26
+  br i1 %75, label %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", label %80
 
-75:                                               ; preds = %74
-  %76 = icmp eq i64 %25, %26
-  br i1 %76, label %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", label %81
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 %26
+  %78 = load i8, ptr %77, align 1, !alias.scope !466, !noalias !473, !noundef !25
+  %79 = icmp sgt i8 %78, -65
+  br i1 %79, label %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", label %80
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %23, i64 %26
-  %79 = load i8, ptr %78, align 1, !alias.scope !466, !noalias !473, !noundef !25
-  %80 = icmp sgt i8 %79, -65
-  br i1 %80, label %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", label %81
-
-81:                                               ; preds = %77, %75
+80:                                               ; preds = %76, %74
   tail call void @_ZN4core3str16slice_error_fail17hbde71130ea7318aaE(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %25, i64 noundef 0, i64 noundef %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.873fb0d86143753e3abb6b4e004918ca.36.llvm.9275802895842548201) #30, !noalias !478
   unreachable
 
-"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23": ; preds = %77, %75, %73
-  %82 = tail call { i16, i16 } @_ZN3url6parser12default_port17he0e556486d621237E(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %26)
+"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23": ; preds = %76, %74, %72
+  %81 = tail call { i16, i16 } @_ZN3url6parser12default_port17he0e556486d621237E(ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %26)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
 
-83:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit"
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %85 = load i16, ptr %84, align 2
-  %86 = insertvalue { i16, i16 } poison, i16 %72, 0
-  %87 = insertvalue { i16, i16 } %86, i16 %85, 1
+82:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit"
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %84 = load i16, ptr %83, align 2
+  %85 = insertvalue { i16, i16 } { i16 1, i16 poison }, i16 %84, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25": ; preds = %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", %83
-  %.merged.i24 = phi { i16, i16 } [ %82, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23" ], [ %87, %83 ]
-  %88 = extractvalue { i16, i16 } %.merged.i24, 0
-  %switch = icmp eq i16 %69, 0
-  br i1 %switch, label %89, label %91
+"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25": ; preds = %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23", %82
+  %.merged.i24 = phi { i16, i16 } [ %81, %"_ZN3url3Url21port_or_known_default28_$u7b$$u7b$closure$u7d$$u7d$17h82eeed5bf0762c52E.exit.i23" ], [ %85, %82 ]
+  %86 = extractvalue { i16, i16 } %.merged.i24, 0
+  %switch = icmp eq i16 %68, 0
+  br i1 %switch, label %87, label %89
+
+87:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
+  %88 = icmp eq i16 %86, 0
+  br i1 %88, label %92, label %.thread
 
 89:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
-  %90 = icmp eq i16 %88, 0
-  br i1 %90, label %94, label %.thread
+  %90 = extractvalue { i16, i16 } %.merged.i24, 1
+  %switch12 = icmp ne i16 %86, 0
+  %91 = icmp eq i16 %69, %90
+  %or.cond = select i1 %switch12, i1 %91, i1 false
+  br i1 %or.cond, label %92, label %.thread
 
-91:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hd5ce220ca14a10c5E.exit25"
-  %92 = extractvalue { i16, i16 } %.merged.i24, 1
-  %switch12 = icmp ne i16 %88, 0
-  %93 = icmp eq i16 %70, %92
-  %or.cond = select i1 %switch12, i1 %93, i1 false
-  br i1 %or.cond, label %94, label %.thread
-
-94:                                               ; preds = %91, %89
-  %95 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
-  %96 = extractvalue { ptr, i64 } %95, 0
-  %97 = extractvalue { ptr, i64 } %95, 1
-  %98 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %3)
-  %99 = extractvalue { ptr, i64 } %98, 0
-  %100 = extractvalue { ptr, i64 } %98, 1
-  %101 = icmp ne ptr %96, null
-  tail call void @llvm.assume(i1 %101)
-  %102 = icmp ne ptr %99, null
-  tail call void @llvm.assume(i1 %102)
-  %.not.i26 = icmp ult i64 %97, %100
+92:                                               ; preds = %89, %87
+  %93 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %1)
+  %94 = extractvalue { ptr, i64 } %93, 0
+  %95 = extractvalue { ptr, i64 } %93, 1
+  %96 = tail call { ptr, i64 } @_ZN3url3Url4path17hb2f38af7471df853E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %3)
+  %97 = extractvalue { ptr, i64 } %96, 0
+  %98 = extractvalue { ptr, i64 } %96, 1
+  %99 = icmp ne ptr %94, null
+  tail call void @llvm.assume(i1 %99)
+  %100 = icmp ne ptr %97, null
+  tail call void @llvm.assume(i1 %100)
+  %.not.i26 = icmp ult i64 %95, %98
   br i1 %.not.i26, label %.thread, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i": ; preds = %94
-  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %99, ptr nonnull readonly align 1 %96, i64 %100), !alias.scope !479
-  %103 = icmp eq i32 %bcmp.i.i, 0
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i": ; preds = %92
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %97, ptr nonnull readonly align 1 %94, i64 %98), !alias.scope !479
+  %101 = icmp eq i32 %bcmp.i.i, 0
   br label %.thread
 
-.thread:                                          ; preds = %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i", %94, %89, %44, %91, %49, %46, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit"
-  %.sroa.0.0 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit" ], [ false, %46 ], [ false, %49 ], [ false, %91 ], [ false, %44 ], [ false, %89 ], [ %103, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i" ], [ false, %94 ], [ false, %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16 ]
+.thread:                                          ; preds = %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i", %92, %87, %44, %89, %49, %46, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit"
+  %.sroa.0.0 = phi i1 [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit" ], [ false, %46 ], [ false, %49 ], [ false, %89 ], [ false, %44 ], [ false, %87 ], [ %101, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h24b4baccdac0c687E.exit.i" ], [ false, %92 ], [ false, %_ZN3url3Url5slice17hedfc11584b6a259aE.llvm.9275802895842548201.exit16 ]
   ret i1 %.sroa.0.0
 }
 

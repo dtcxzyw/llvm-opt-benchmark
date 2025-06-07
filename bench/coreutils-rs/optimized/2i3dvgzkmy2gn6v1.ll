@@ -6955,7 +6955,7 @@ define hidden void @_ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h09dae599bdcb2b1
   %.046.ph148 = phi i8 [ 1, %.lr.ph.lr.ph ], [ %.046122, %.outer ]
   %.048.ph147 = phi i64 [ -1, %.lr.ph.lr.ph ], [ %spec.select, %.outer ]
   %.052.ph146 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %.outer ]
-  %.067.ph145 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.067120, %.outer ]
+  %.067.ph145 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.288167, %.outer ]
   %.sroa.0.069.ph144 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %.sink, %.outer ]
   %.sroa.11.0.ph143 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %53, %.outer ]
   %9 = icmp ne i64 %.sroa.0.0.ph151, 0
@@ -7054,17 +7054,17 @@ define hidden void @_ZN7uu_sort15numeric_str_cmp7NumInfo5parse17h09dae599bdcb2b1
   br label %.thread
 
 .thread:                                          ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread", %4, %106, %99, %105, %103, %54
-  %.048.ph147.lcssa218.sink = phi i64 [ 0, %103 ], [ %.048.ph.lcssa, %54 ], [ %.048.ph147, %105 ], [ %.048.ph147, %99 ], [ %.048.ph147, %106 ], [ 0, %4 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  %.046122.lcssa211.sink = phi i8 [ 1, %103 ], [ %55, %54 ], [ %.046122, %105 ], [ %.046122, %99 ], [ %.046122, %106 ], [ 1, %4 ], [ 1, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  %.sroa.9.0.ph150.lcssa220.sink = phi i64 [ %.63, %103 ], [ %.sroa.9.0.ph.lcssa, %54 ], [ %.sroa.9.0.ph150, %105 ], [ %.sroa.9.0.ph150, %99 ], [ %.sroa.9.0.ph150, %106 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  %.sink225 = phi i64 [ %.63, %103 ], [ %2, %54 ], [ %.sroa.11.0118, %105 ], [ %.sroa.11.0118, %99 ], [ %107, %106 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
-  store i64 %.048.ph147.lcssa218.sink, ptr %0, align 8
+  %.048.ph147.lcssa217.sink = phi i64 [ 0, %103 ], [ %.048.ph.lcssa, %54 ], [ %.048.ph147, %105 ], [ %.048.ph147, %99 ], [ %.048.ph147, %106 ], [ 0, %4 ], [ 0, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  %.046122.lcssa210.sink = phi i8 [ 1, %103 ], [ %55, %54 ], [ %.046122, %105 ], [ %.046122, %99 ], [ %.046122, %106 ], [ 1, %4 ], [ 1, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  %.sroa.9.0.ph150.lcssa219.sink = phi i64 [ %.63, %103 ], [ %.sroa.9.0.ph.lcssa, %54 ], [ %.sroa.9.0.ph150, %105 ], [ %.sroa.9.0.ph150, %99 ], [ %.sroa.9.0.ph150, %106 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  %.sink224 = phi i64 [ %.63, %103 ], [ %2, %54 ], [ %.sroa.11.0118, %105 ], [ %.sroa.11.0118, %99 ], [ %107, %106 ], [ 0, %4 ], [ %.0.lcssa, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.llvm.687266931824691263.exit.thread" ]
+  store i64 %.048.ph147.lcssa217.sink, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.046122.lcssa211.sink, ptr %56, align 8
+  store i8 %.046122.lcssa210.sink, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.0.ph150.lcssa220.sink, ptr %57, align 8
+  store i64 %.sroa.9.0.ph150.lcssa219.sink, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink225, ptr %58, align 8
+  store i64 %.sink224, ptr %58, align 8
   ret void
 
 .critedge62:                                      ; preds = %61
@@ -7161,9 +7161,10 @@ _ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.t
 
 .outer:                                           ; preds = %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread85, %97
   %91 = phi i1 [ true, %97 ], [ %90, %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread85 ]
+  %.288167 = phi i8 [ 1, %97 ], [ %.067120, %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread85 ]
   %.149 = phi i64 [ %98, %97 ], [ %.048.ph147, %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread85 ]
-  %92 = xor i8 %.067120, 1
-  %93 = zext nneg i8 %92 to i64
+  %92 = xor i8 %.288167, 1
+  %93 = zext i8 %92 to i64
   %spec.select = add i64 %.149, %93
   %or.cond3 = or i1 %9, %91
   %.sroa.9.1 = select i1 %or.cond3, i64 %.sroa.9.0.ph150, i64 %.sroa.11.0118

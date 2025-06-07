@@ -6506,9 +6506,9 @@ statistic_proc_security_check.exit:               ; preds = %21, %15
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %38, 0
   %or.cond = select i1 %36, i1 %39, i1 false
-  br i1 %or.cond, label %.thread11, label %59
+  br i1 %or.cond, label %.thread12, label %59
 
-.thread11:                                        ; preds = %33
+.thread12:                                        ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = load i64, ptr %41, align 8
@@ -6541,7 +6541,7 @@ statistic_proc_security_check.exit:               ; preds = %21, %15
 .thread10:                                        ; preds = %statistic_proc_security_check.exit, %59
   %60 = load ptr, ptr %13, align 8
   %61 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %12, ptr noundef %60, i32 noundef 2, i32 noundef 0, i32 noundef 1) #12
-  br i1 %61, label %62, label %67
+  br i1 %61, label %62, label %.thread20
 
 62:                                               ; preds = %.thread10
   %63 = load i16, ptr %9, align 2
@@ -6550,82 +6550,89 @@ statistic_proc_security_check.exit:               ; preds = %21, %15
   call fastcc void @get_stats_slot_range(ptr noundef %12, i32 noundef %16, ptr noundef %11, i32 noundef %2, i16 noundef signext %63, i1 noundef zeroext %65, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   call void @free_attstatsslot(ptr noundef nonnull %12) #12
   %.pre = load i8, ptr %8, align 1, !range !4
-  %66 = trunc nuw i8 %.pre to i1
+  %.pre.fr = freeze i8 %.pre
+  %66 = trunc i8 %.pre.fr to i1
+  %spec.select = select i1 %66, i32 1, i32 3
   br label %67
 
-67:                                               ; preds = %.thread11, %62, %.thread10
-  %68 = phi i1 [ %66, %62 ], [ false, %.thread10 ], [ true, %.thread11 ]
+67:                                               ; preds = %62, %.thread12
+  %.pre6815 = phi i1 [ true, %.thread12 ], [ %66, %62 ]
+  %68 = phi i32 [ 1, %.thread12 ], [ %spec.select, %62 ]
   %69 = load ptr, ptr %13, align 8
-  %70 = select i1 %68, i32 1, i32 3
-  %71 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %12, ptr noundef %69, i32 noundef 1, i32 noundef 0, i32 noundef %70) #12
-  br i1 %71, label %72, label %98
+  %70 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %12, ptr noundef %69, i32 noundef 1, i32 noundef 0, i32 noundef %68) #12
+  br i1 %70, label %73, label %100
 
-72:                                               ; preds = %67
-  br i1 %68, label %.thread, label %.preheader
+.thread20:                                        ; preds = %.thread10
+  %71 = load ptr, ptr %13, align 8
+  %72 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %12, ptr noundef %71, i32 noundef 1, i32 noundef 0, i32 noundef 3) #12
+  br i1 %72, label %.preheader, label %100
 
-.preheader:                                       ; preds = %72
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %.lr.ph, label %._crit_edge
+73:                                               ; preds = %67
+  br i1 %.pre6815, label %.thread, label %.preheader
+
+.preheader:                                       ; preds = %.thread20, %73
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %76 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %77 = load ptr, ptr %76, align 8
-  %wide.trip.count = zext nneg i32 %74 to i64
-  br label %78
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %78 = load ptr, ptr %77, align 8
+  %wide.trip.count = zext nneg i32 %75 to i64
+  br label %79
 
-78:                                               ; preds = %.lr.ph, %78
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %.0263 = phi double [ 0.000000e+00, %.lr.ph ], [ %82, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv
-  %80 = load float, ptr %79, align 4
-  %81 = fpext float %80 to double
-  %82 = fadd double %.0263, %81
+79:                                               ; preds = %.lr.ph, %79
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
+  %.0263 = phi double [ 0.000000e+00, %.lr.ph ], [ %83, %79 ]
+  %80 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv
+  %81 = load float, ptr %80, align 4
+  %82 = fpext float %81 to double
+  %83 = fadd double %.0263, %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %79, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %78, %.preheader
-  %.026.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %82, %78 ]
-  %83 = load ptr, ptr %13, align 8
-  %84 = getelementptr i8, ptr %83, i64 16
-  %.val = load ptr, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.val, i64 22
-  %86 = load i8, ptr %85, align 2
-  %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i8, ptr %.val, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = load float, ptr %89, align 4
-  %91 = fpext float %90 to double
-  %92 = fadd double %.026.lcssa, %91
-  %93 = fcmp ogt double %92, 9.999900e-01
-  br i1 %93, label %.thread, label %97
+._crit_edge:                                      ; preds = %79, %.preheader
+  %.026.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %83, %79 ]
+  %84 = load ptr, ptr %13, align 8
+  %85 = getelementptr i8, ptr %84, i64 16
+  %.val = load ptr, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %87 = load i8, ptr %86, align 2
+  %88 = zext i8 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %.val, i64 %88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load float, ptr %90, align 4
+  %92 = fpext float %91 to double
+  %93 = fadd double %.026.lcssa, %92
+  %94 = fcmp ogt double %93, 9.999900e-01
+  br i1 %94, label %.thread, label %99
 
-.thread:                                          ; preds = %72, %._crit_edge
-  %94 = load i16, ptr %9, align 2
-  %95 = load i8, ptr %10, align 1, !range !4, !noundef !5
-  %96 = trunc nuw i8 %95 to i1
-  call fastcc void @get_stats_slot_range(ptr noundef %12, i32 noundef %16, ptr noundef %11, i32 noundef %2, i16 noundef signext %94, i1 noundef zeroext %96, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+.thread:                                          ; preds = %73, %._crit_edge
+  %95 = load i16, ptr %9, align 2
+  %96 = load i8, ptr %10, align 1, !range !4, !noundef !5
+  %97 = trunc nuw i8 %96 to i1
+  call fastcc void @get_stats_slot_range(ptr noundef %12, i32 noundef %16, ptr noundef %11, i32 noundef %2, i16 noundef signext %95, i1 noundef zeroext %97, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.pre6.pre = load i8, ptr %8, align 1, !range !4
-  %.pre9 = trunc nuw i8 %.pre6.pre to i1
-  br label %97
+  %98 = trunc nuw i8 %.pre6.pre to i1
+  br label %99
 
-97:                                               ; preds = %.thread, %._crit_edge
-  %.pre8.pre-phi = phi i1 [ %.pre9, %.thread ], [ false, %._crit_edge ]
+99:                                               ; preds = %.thread, %._crit_edge
+  %.pre6 = phi i1 [ %98, %.thread ], [ false, %._crit_edge ]
   call void @free_attstatsslot(ptr noundef nonnull %12) #12
-  br label %98
+  br label %100
 
-98:                                               ; preds = %97, %67
-  %.pre-phi = phi i1 [ %.pre8.pre-phi, %97 ], [ %68, %67 ]
-  %99 = load i64, ptr %6, align 8
-  store i64 %99, ptr %3, align 8
-  %100 = load i64, ptr %7, align 8
-  store i64 %100, ptr %4, align 8
+100:                                              ; preds = %.thread20, %99, %67
+  %.pre-phi = phi i1 [ %.pre6, %99 ], [ %.pre6815, %67 ], [ false, %.thread20 ]
+  %101 = load i64, ptr %6, align 8
+  store i64 %101, ptr %3, align 8
+  %102 = load i64, ptr %7, align 8
+  store i64 %102, ptr %4, align 8
   br label %statistic_proc_security_check.exit.thread
 
-statistic_proc_security_check.exit.thread:        ; preds = %25, %23, %20, %5, %98
-  %.025 = phi i1 [ %.pre-phi, %98 ], [ false, %5 ], [ false, %20 ], [ false, %23 ], [ false, %25 ]
+statistic_proc_security_check.exit.thread:        ; preds = %25, %23, %20, %5, %100
+  %.025 = phi i1 [ %.pre-phi, %100 ], [ false, %5 ], [ false, %20 ], [ false, %23 ], [ false, %25 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12

@@ -2256,6 +2256,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread293: ; preds = %_ZN5Yosys7hashlib4poolISt4pairIPNS_5RTLIL4CellEiENS0_8hash_opsIS6_EEE6insertEOS6_.exit, %412, %415, %418, %421, %424, %427, %433, %434, %442, %443, %451, %452, %460, %461, %467, %475, %476, %482, %485
+  %.098457.lcssa502 = phi i8 [ %.098457, %_ZN5Yosys7hashlib4poolISt4pairIPNS_5RTLIL4CellEiENS0_8hash_opsIS6_EEE6insertEOS6_.exit ], [ 1, %412 ], [ 1, %415 ], [ 1, %418 ], [ 1, %421 ], [ 1, %424 ], [ 1, %427 ], [ 1, %433 ], [ 1, %434 ], [ 1, %442 ], [ 1, %443 ], [ 1, %451 ], [ 1, %452 ], [ 1, %460 ], [ 1, %461 ], [ 1, %467 ], [ 1, %475 ], [ 1, %476 ], [ 1, %482 ], [ 1, %485 ]
   call void @_ZN5Yosys6FfDataD2Ev(ptr noundef nonnull align 8 dereferenceable(800) %17) #25
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %17) #25
   br label %.loopexit.sink.split
@@ -2355,11 +2356,12 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288: ; pr
   br label %679
 
 .loopexit.sink.split:                             ; preds = %325, %322, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread293
+  %.098412.ph = phi i8 [ %.098457.lcssa502, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread293 ], [ %.098457, %322 ], [ %.098457, %325 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288, %.loopexit.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135
-  %.098412 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %.098457, %.loopexit.sink.split ], [ %.2100291, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288 ]
+  %.098412 = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ %.098412.ph, %.loopexit.sink.split ], [ %.2100291, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288 ]
   %.not296390 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135 ], [ false, %.loopexit.sink.split ], [ true, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit162.thread288 ]
   %678 = trunc nuw i8 %.098412 to i1
   %.5 = select i1 %.not296390, i1 %678, i1 false

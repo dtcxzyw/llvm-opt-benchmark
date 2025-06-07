@@ -6283,6 +6283,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha7
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.split, %.split.us.split.us, %.split
+  %.sroa.914.0.copyload44 = phi i8 [ %.sroa.914.0.copyload, %.split ], [ 1, %.split.us.split ], [ 1, %.split.us.split.us ]
   %.us-phi25 = phi ptr [ %.sroa.5.08.i, %.split ], [ %.sroa.5.08.i.us, %.split.us.split ], [ %17, %.split.us.split.us ]
   %.us-phi26 = phi { ptr, i32 } [ %110, %.split ], [ %70, %.split.us.split ], [ %42, %.split.us.split.us ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi25, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01, i64 32, i1 false)
@@ -6301,7 +6302,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17ha7
   %.sroa.9.0..sroa.5.08.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi25, i64 132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(164) %.sroa.9.0..sroa.5.08.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(164) %.sroa.9, i64 164, i1 false)
   %.sroa.914.0..sroa.5.08.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi25, i64 296
-  store i8 %.sroa.914.0.copyload, ptr %.sroa.914.0..sroa.5.08.i.sroa_idx, align 8
+  store i8 %.sroa.914.0.copyload44, ptr %.sroa.914.0..sroa.5.08.i.sroa_idx, align 8
   %.sroa.10.0..sroa.5.08.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi25, i64 297
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa.5.08.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(7) %.sroa.10, i64 7, i1 false)
   resume { ptr, i32 } %.us-phi26

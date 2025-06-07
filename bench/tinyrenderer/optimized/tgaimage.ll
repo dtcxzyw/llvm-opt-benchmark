@@ -995,10 +995,10 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.critedge60
 
-.critedge60:                                      ; preds = %53, %2
-  %.053 = phi i64 [ 0, %2 ], [ %55, %53 ]
+.critedge60:                                      ; preds = %54, %2
+  %.053 = phi i64 [ 0, %2 ], [ %56, %54 ]
   %.not.not.not.not.not = icmp uge i64 %.053, %7
-  br i1 %.not.not.not.not.not, label %68, label %10
+  br i1 %.not.not.not.not.not, label %69, label %10
 
 10:                                               ; preds = %.critedge60
   %11 = load i8, ptr %8, align 8, !tbaa !17
@@ -1018,18 +1018,19 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %indvars.iv87 = phi i64 [ 1, %.split.us.preheader ], [ %indvars.iv.next88, %21 ]
   %.049.us = phi i64 [ %13, %.split.us.preheader ], [ %22, %21 ]
   %.044.us = phi i8 [ 1, %.split.us.preheader ], [ %.2.us, %21 ]
+  %.044.us.fr = freeze i8 %.044.us
   %16 = add nuw i64 %.053, %indvars.iv87
   %17 = icmp ult i64 %16, %7
   %18 = trunc nuw i64 %indvars.iv87 to i8
   %19 = icmp sgt i8 %18, -1
   %20 = and i1 %19, %17
-  br i1 %20, label %.preheader.us, label %.thread.loopexit99
+  br i1 %20, label %.preheader.us, label %.thread
 
 21:                                               ; preds = %..critedge_crit_edge.us
   %22 = add i64 %.049.us, %12
   %or.cond3.us = or i1 %27, %32
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  br i1 %or.cond3.us, label %.split.us, label %.thread.loopexit99
+  br i1 %or.cond3.us, label %.split.us, label %.thread.thread104
 
 .preheader.us:                                    ; preds = %.split.us, %.preheader.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.split.us ]
@@ -1048,7 +1049,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %29 = icmp eq i64 %indvars.iv87, 1
   %30 = xor i1 %27, true
   %31 = zext i1 %30 to i8
-  %.2.us = select i1 %29, i8 %31, i8 %.044.us
+  %.2.us = select i1 %29, i8 %31, i8 %.044.us.fr
   %32 = trunc nuw i8 %.2.us to i1
   %or.cond.us = and i1 %27, %32
   br i1 %or.cond.us, label %.split69.us, label %21
@@ -1056,7 +1057,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 .split:                                           ; preds = %10
   %33 = add nuw i64 %.053, 1
   %34 = icmp ult i64 %33, %7
-  br i1 %34, label %.preheader, label %.thread
+  br i1 %34, label %.preheader, label %.thread.thread104
 
 .preheader:                                       ; preds = %.split, %39
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %39 ], [ 1, %.split ]
@@ -1072,7 +1073,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 .split69.us:                                      ; preds = %..critedge_crit_edge.us, %.split69.us.loopexit
   %.us-phi70 = phi i8 [ %37, %.split69.us.loopexit ], [ %18, %..critedge_crit_edge.us ]
   %38 = add nsw i8 %.us-phi70, -1
-  br label %.thread
+  br label %.thread.thread104
 
 39:                                               ; preds = %.preheader
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
@@ -1081,46 +1082,46 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %42 = trunc nuw i64 %indvars.iv.next91 to i8
   %43 = icmp sgt i8 %42, -1
   %44 = and i1 %43, %41
-  br i1 %44, label %.preheader, label %.thread
+  br i1 %44, label %.preheader, label %.thread.thread104
 
-.thread.loopexit99:                               ; preds = %.split.us, %21
-  %.145.ph = phi i8 [ 0, %21 ], [ %.044.us, %.split.us ]
-  %45 = trunc nuw i8 %.145.ph to i1
-  br label %.thread
+.thread:                                          ; preds = %.split.us
+  %45 = trunc i8 %.044.us.fr to i1
+  %spec.select = select i1 %45, i8 -1, i8 127
+  br label %.thread.thread104
 
-.thread:                                          ; preds = %39, %.thread.loopexit99, %.split, %.split69.us
-  %.147 = phi i8 [ %38, %.split69.us ], [ 1, %.split ], [ %18, %.thread.loopexit99 ], [ %42, %39 ]
-  %.145 = phi i1 [ true, %.split69.us ], [ true, %.split ], [ %45, %.thread.loopexit99 ], [ false, %39 ]
-  %.v = select i1 %.145, i8 -1, i8 127
-  %46 = add i8 %.v, %.147
-  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %46)
-  %48 = load ptr, ptr %1, align 8, !tbaa !25
-  %49 = getelementptr i8, ptr %48, i64 -24
-  %50 = load i64, ptr %49, align 8
-  %gep = getelementptr i8, ptr %invariant.gep75, i64 %50
-  %51 = load i32, ptr %gep, align 8, !tbaa !27
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %68, !llvm.loop !61
+.thread.thread104:                                ; preds = %21, %39, %.thread, %.split, %.split69.us
+  %.14598 = phi i1 [ true, %.split69.us ], [ true, %.split ], [ %45, %.thread ], [ false, %39 ], [ false, %21 ]
+  %.14796 = phi i8 [ %38, %.split69.us ], [ 1, %.split ], [ %18, %.thread ], [ %42, %39 ], [ %18, %21 ]
+  %46 = phi i8 [ -1, %.split69.us ], [ -1, %.split ], [ %spec.select, %.thread ], [ 127, %39 ], [ 127, %21 ]
+  %47 = add i8 %46, %.14796
+  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %47)
+  %49 = load ptr, ptr %1, align 8, !tbaa !25
+  %50 = getelementptr i8, ptr %49, i64 -24
+  %51 = load i64, ptr %50, align 8
+  %gep = getelementptr i8, ptr %invariant.gep75, i64 %51
+  %52 = load i32, ptr %gep, align 8, !tbaa !27
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %69, !llvm.loop !61
 
-53:                                               ; preds = %.thread
-  %54 = zext i8 %.147 to i64
-  %55 = add i64 %.053, %54
-  %56 = load ptr, ptr %9, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %13
-  %58 = load i8, ptr %8, align 8
-  %59 = zext i8 %58 to i64
-  %60 = select i1 %.145, i64 %54, i64 1
-  %61 = mul nuw nsw i64 %60, %59
-  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %57, i64 noundef %61)
-  %63 = load ptr, ptr %1, align 8, !tbaa !25
-  %64 = getelementptr i8, ptr %63, i64 -24
-  %65 = load i64, ptr %64, align 8
-  %gep77 = getelementptr i8, ptr %invariant.gep75, i64 %65
-  %66 = load i32, ptr %gep77, align 8, !tbaa !27
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %.critedge60, label %68, !llvm.loop !61
+54:                                               ; preds = %.thread.thread104
+  %55 = zext i8 %.14796 to i64
+  %56 = add i64 %.053, %55
+  %57 = load ptr, ptr %9, align 8, !tbaa !18
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %13
+  %59 = load i8, ptr %8, align 8
+  %60 = zext i8 %59 to i64
+  %61 = select i1 %.14598, i64 %55, i64 1
+  %62 = mul nuw nsw i64 %61, %60
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %58, i64 noundef %62)
+  %64 = load ptr, ptr %1, align 8, !tbaa !25
+  %65 = getelementptr i8, ptr %64, i64 -24
+  %66 = load i64, ptr %65, align 8
+  %gep77 = getelementptr i8, ptr %invariant.gep75, i64 %66
+  %67 = load i32, ptr %gep77, align 8, !tbaa !27
+  %68 = icmp eq i32 %67, 0
+  br i1 %68, label %.critedge60, label %69, !llvm.loop !61
 
-68:                                               ; preds = %.critedge60, %.thread, %53
+69:                                               ; preds = %.critedge60, %.thread.thread104, %54
   ret i1 %.not.not.not.not.not
 }
 
