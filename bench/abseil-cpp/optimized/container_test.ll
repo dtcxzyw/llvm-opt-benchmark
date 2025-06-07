@@ -94981,7 +94981,7 @@ _ZNSt13random_deviceC2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   %.08.i = phi i64 [ %26, %.noexc ], [ 312, %_ZNSt13random_deviceC2Ev.exit ]
   %.057.i = phi ptr [ %27, %.noexc ], [ %5, %_ZNSt13random_deviceC2Ev.exit ]
   %25 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %.noexc unwind label %61
+          to label %.noexc unwind label %66
 
 .noexc:                                           ; preds = %.lr.ph.i
   store i32 %25, ptr %.057.i, align 4, !tbaa !20
@@ -94994,13 +94994,13 @@ _ZSt10generate_nIPjmSt17reference_wrapperISt13random_deviceEET_S4_T0_T1_.exit: ;
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 1248
   invoke void @_ZNSt8seed_seqC2IPjEET_S2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %5, ptr noundef nonnull %28)
-          to label %29 unwind label %63
+          to label %29 unwind label %68
 
 29:                                               ; preds = %_ZSt10generate_nIPjmSt17reference_wrapperISt13random_deviceEET_S4_T0_T1_.exit
   call void @llvm.lifetime.start.p0(i64 2496, ptr nonnull %2) #32
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 2496
   invoke void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %2, ptr noundef nonnull %30)
-          to label %.preheader.i.i unwind label %65
+          to label %.preheader.i.i unwind label %70
 
 .preheader.i.i:                                   ; preds = %29, %.preheader.i.i.backedge
   %.01826.i.i = phi i64 [ %.01826.i.i.be, %.preheader.i.i.backedge ], [ 0, %29 ]
@@ -95008,7 +95008,7 @@ _ZSt10generate_nIPjmSt17reference_wrapperISt13random_deviceEET_S4_T0_T1_.exit: ;
   %31 = shl nuw nsw i64 %.01826.i.i, 1
   br label %35
 
-32:                                               ; preds = %44
+53:                                               ; preds = %44
   br i1 %.not.i.i, label %49, label %.loopexit
 
 33:                                               ; preds = %35
@@ -95052,87 +95052,87 @@ _ZSt10generate_nIPjmSt17reference_wrapperISt13random_deviceEET_S4_T0_T1_.exit: ;
 
 49:                                               ; preds = %32
   store i64 -9223372036854775808, ptr %0, align 8, !tbaa !50
-  br label %.loopexit
+  br label %54
 
-.loopexit:                                        ; preds = %.thread.i.i, %49, %32
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  store i64 312, ptr %50, align 8, !tbaa !2331
+54:                                               ; preds = %.thread.i.i, %49, %32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2496
+  store i64 312, ptr %55, align 8, !tbaa !2331
   call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %2) #32
-  %51 = load ptr, ptr %6, align 8, !tbaa !2333
-  %.not.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8seed_seqD2Ev.exit, label %52
+  %56 = load ptr, ptr %6, align 8, !tbaa !2333
+  %.not.i.i.i.i = icmp eq ptr %56, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8seed_seqD2Ev.exit, label %57
 
-52:                                               ; preds = %.loopexit
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !2335
-  %55 = ptrtoint ptr %54 to i64
-  %56 = ptrtoint ptr %51 to i64
-  %57 = sub i64 %55, %56
-  call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #34
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !2335
+  %60 = ptrtoint ptr %59 to i64
+  %61 = ptrtoint ptr %56 to i64
+  %62 = sub i64 %60, %61
+  call void @_ZdlPvm(ptr noundef nonnull %56, i64 noundef %62) #34
   br label %_ZNSt8seed_seqD2Ev.exit
 
-_ZNSt8seed_seqD2Ev.exit:                          ; preds = %.loopexit, %52
+_ZNSt8seed_seqD2Ev.exit:                          ; preds = %54, %57
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
   call void @llvm.lifetime.end.p0(i64 1248, ptr nonnull %5) #32
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZNSt13random_deviceD2Ev.exit unwind label %58
+          to label %_ZNSt13random_deviceD2Ev.exit unwind label %63
 
-58:                                               ; preds = %_ZNSt8seed_seqD2Ev.exit
-  %59 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt8seed_seqD2Ev.exit
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #33
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #33
   unreachable
 
 _ZNSt13random_deviceD2Ev.exit:                    ; preds = %_ZNSt8seed_seqD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %4) #32
   ret void
 
-61:                                               ; preds = %.lr.ph.i
-  %62 = landingpad { ptr, i32 }
+66:                                               ; preds = %.lr.ph.i
+  %67 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %79
 
-63:                                               ; preds = %_ZSt10generate_nIPjmSt17reference_wrapperISt13random_deviceEET_S4_T0_T1_.exit
-  %64 = landingpad { ptr, i32 }
+68:                                               ; preds = %_ZSt10generate_nIPjmSt17reference_wrapperISt13random_deviceEET_S4_T0_T1_.exit
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8seed_seqD2Ev.exit7
 
-65:                                               ; preds = %29
-  %66 = landingpad { ptr, i32 }
+70:                                               ; preds = %29
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %67 = load ptr, ptr %6, align 8, !tbaa !2333
-  %.not.i.i.i.i6 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i6, label %_ZNSt8seed_seqD2Ev.exit7, label %68
+  %72 = load ptr, ptr %6, align 8, !tbaa !2333
+  %.not.i.i.i.i6 = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i6, label %_ZNSt8seed_seqD2Ev.exit7, label %73
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !2335
-  %71 = ptrtoint ptr %70 to i64
-  %72 = ptrtoint ptr %67 to i64
-  %73 = sub i64 %71, %72
-  call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %73) #34
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !2335
+  %76 = ptrtoint ptr %75 to i64
+  %77 = ptrtoint ptr %72 to i64
+  %78 = sub i64 %76, %77
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #34
   br label %_ZNSt8seed_seqD2Ev.exit7
 
-_ZNSt8seed_seqD2Ev.exit7:                         ; preds = %68, %65, %63
-  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %66, %65 ], [ %66, %68 ]
+_ZNSt8seed_seqD2Ev.exit7:                         ; preds = %73, %70, %68
+  %.pn = phi { ptr, i32 } [ %69, %63 ], [ %71, %65 ], [ %71, %68 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
-  br label %74
+  br label %79
 
-74:                                               ; preds = %_ZNSt8seed_seqD2Ev.exit7, %61
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt8seed_seqD2Ev.exit7 ], [ %62, %61 ]
+79:                                               ; preds = %_ZNSt8seed_seqD2Ev.exit7, %66
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt8seed_seqD2Ev.exit7 ], [ %67, %61 ]
   call void @llvm.lifetime.end.p0(i64 1248, ptr nonnull %5) #32
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZNSt13random_deviceD2Ev.exit8 unwind label %75
+          to label %_ZNSt13random_deviceD2Ev.exit8 unwind label %80
 
-75:                                               ; preds = %74
-  %76 = landingpad { ptr, i32 }
+80:                                               ; preds = %79
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #33
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #33
   unreachable
 
-_ZNSt13random_deviceD2Ev.exit8:                   ; preds = %74
+_ZNSt13random_deviceD2Ev.exit8:                   ; preds = %79
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %4) #32
   br label %common.resume
 }

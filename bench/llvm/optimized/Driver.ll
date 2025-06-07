@@ -75873,14 +75873,14 @@ define internal noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_123OffloadingAction
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load i8, ptr %19, align 8, !tbaa !1291, !range !93, !noundef !94
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %345
+  br i1 %21, label %22, label %344
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load i32, ptr %24, align 8, !tbaa !135
   %.not.i = icmp eq i32 %25, 0
-  br i1 %.not.i, label %345, label %26
+  br i1 %.not.i, label %344, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 522
@@ -76188,7 +76188,7 @@ _ZN5clang6driver13OffloadAction17DeviceDependencesD2Ev.exit: ; preds = %_ZN4llvm
   %177 = load i8, ptr %173, align 8, !range !93
   %178 = trunc nuw i8 %177 to i1
   %or.cond90 = select i1 %.not88, i1 true, i1 %178
-  br i1 %or.cond90, label %179, label %345
+  br i1 %or.cond90, label %179, label %344
 
 179:                                              ; preds = %172, %._crit_edge
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -76219,14 +76219,14 @@ _ZN5clang6driver13OffloadAction17DeviceDependencesD2Ev.exit: ; preds = %_ZN4llvm
 194:                                              ; preds = %186, %179
   %.pre = phi i32 [ %193, %186 ], [ 2, %179 ]
   store i32 0, ptr %24, align 8, !tbaa !135
-  br label %345
+  br label %344
 
 195:                                              ; preds = %26
   %196 = icmp eq i32 %2, 5
   br i1 %196, label %197, label %.lr.ph103
 
 197:                                              ; preds = %195
-  br i1 %.not, label %345, label %198
+  br i1 %.not, label %344, label %198
 
 198:                                              ; preds = %197
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -76324,7 +76324,7 @@ _ZN4llvm15SmallVectorImplINS_11SmallVectorIPN5clang6driver6ActionELj3EEEE6resize
   %236 = load i8, ptr %235, align 1, !tbaa !1295, !range !93, !noundef !94
   %237 = shl nuw nsw i8 %236, 1
   %238 = zext nneg i8 %237 to i32
-  br label %345
+  br label %344
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit83
   %.059112 = phi ptr [ %255, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit83 ], [ %234, %.lr.ph113.preheader ]
@@ -76526,14 +76526,14 @@ _ZN5clang6driver13OffloadAction17DeviceDependencesD2Ev.exit87: ; preds = %_ZN4ll
   %.mux = select i1 %340, i32 2, i32 0
   br i1 %brmerge, label %345, label %341
 
-341:                                              ; preds = %338
-  %342 = icmp eq i32 %2, 4
-  %343 = and i1 %342, %.not
-  %344 = select i1 %343, i32 2, i32 0
-  br label %345
+340:                                              ; preds = %338
+  %341 = icmp eq i32 %2, 4
+  %342 = and i1 %341, %.not
+  %343 = select i1 %342, i32 2, i32 0
+  br label %344
 
-345:                                              ; preds = %194, %172, %338, %._crit_edge114, %197, %341, %22, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %22 ], [ %238, %._crit_edge114 ], [ 0, %197 ], [ %.mux, %338 ], [ %344, %341 ], [ 2, %172 ], [ %.pre, %194 ]
+344:                                              ; preds = %194, %172, %338, %._crit_edge114, %197, %340, %22, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %22 ], [ %238, %._crit_edge114 ], [ 0, %197 ], [ %.mux, %338 ], [ %343, %341 ], [ 2, %172 ], [ %.pre, %194 ]
   ret i32 %.0
 }
 

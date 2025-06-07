@@ -25225,7 +25225,7 @@ common.resume:                                    ; preds = %.body, %7
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #23
   invoke void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %6)
-          to label %.noexc unwind label %81
+          to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %9
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -25360,13 +25360,13 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #23
   ret void
 
-81:                                               ; preds = %9
-  %82 = landingpad { ptr, i32 }
+99:                                               ; preds = %9
+  %100 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %12, %81
-  %eh.lpad-body = phi { ptr, i32 } [ %82, %81 ], [ %13, %12 ]
+.body:                                            ; preds = %12, %99
+  %eh.lpad-body = phi { ptr, i32 } [ %100, %81 ], [ %13, %12 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev(ptr noundef nonnull align 16 dereferenceable(64) %5) #23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #23

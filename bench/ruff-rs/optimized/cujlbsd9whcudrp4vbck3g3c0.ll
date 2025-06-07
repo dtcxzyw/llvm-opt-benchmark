@@ -1133,11 +1133,11 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %36 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %35, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit"
 
-37:                                               ; preds = %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h62b46b308cff977cE.exit"
+36:                                               ; preds = %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h62b46b308cff977cE.exit"
   %38 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17hb3d2bf2adda0ca6eE(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit"
 
-39:                                               ; preds = %3
+"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit": ; preds = %3
   %40 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit"
 

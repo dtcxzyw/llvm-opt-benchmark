@@ -66286,7 +66286,7 @@ _ZN5Eigen6BDCSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE9secularEqEdRKNS_3RefINS
   %327 = fcmp olt double %311, 0.000000e+00
   %328 = fcmp ogt double %311, %121
   %or.cond179 = or i1 %327, %328
-  %narrow = select i1 %236, i1 %or.cond179, i1 false
+  %spec.select180 = select i1 %236, i1 %or.cond179, i1 false
   %329 = fcmp olt double %311, %286
   %330 = fcmp ogt double %311, 0.000000e+00
   %or.cond7 = or i1 %329, %330
@@ -66295,7 +66295,7 @@ _ZN5Eigen6BDCSVDINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE9secularEqEdRKNS_3RefINS
   %333 = tail call noundef double @llvm.fabs.f64(double %.1345383)
   %334 = fcmp ogt double %332, %333
   %335 = select i1 %334, i1 true, i1 %331
-  %narrow416 = select i1 %335, i1 true, i1 %narrow
+  %.3 = select i1 %335, i1 true, i1 %narrow
   %.3 = zext i1 %narrow416 to i8
   %336 = fcmp une double %.0.lcssa.i215, 0.000000e+00
   br i1 %336, label %287, label %.critedge5.loopexit, !llvm.loop !2976

@@ -40593,7 +40593,7 @@ common.resume:                                    ; preds = %.body, %18, %22
 .body:                                            ; preds = %49, %42, %56
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %50, %49 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr50drop_in_place$LT$polars_core..frame..DataFrame$GT$17h208169e893cdbb12E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9) #29
-          to label %common.resume unwind label %72
+          to label %common.resume unwind label %73
 
 49:                                               ; preds = %.invoke, %44, %32, %58, %47
   %50 = landingpad { ptr, i32 }
@@ -40672,8 +40672,8 @@ common.resume:                                    ; preds = %.body, %18, %22
   invoke void @_ZN11polars_core5frame9DataFrame4head17ha7cda372934d6a44E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %7, ptr noundef nonnull align 8 %9, i64 noundef 1, i64 %71)
           to label %65 unwind label %49
 
-72:                                               ; preds = %.body
-  %73 = landingpad { ptr, i32 }
+73:                                               ; preds = %.body
+  %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #28
   unreachable

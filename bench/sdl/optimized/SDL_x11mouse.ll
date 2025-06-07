@@ -676,7 +676,7 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @SDL_GetMouseFocus_REAL() #5
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %39, label %7
+  br i1 %.not, label %40, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -689,12 +689,12 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
   %15 = trunc nuw i8 %14 to i1
   br i1 %12, label %16, label %18
 
-16:                                               ; preds = %7
+15:                                               ; preds = %7
   br i1 %15, label %.thread30, label %.thread
 
-.thread30:                                        ; preds = %16
+.thread30:                                        ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 118
-  br label %20
+  br label %21
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 118
@@ -703,59 +703,59 @@ define internal zeroext i1 @X11_CaptureMouse(ptr noundef readonly captures(addre
 ._crit_edge27:                                    ; preds = %18
   %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre29 = load i64, ptr %.phi.trans.insert28, align 8
-  br label %24
+  br label %25
 
-20:                                               ; preds = %.thread30, %18
-  %21 = phi ptr [ %17, %.thread30 ], [ %19, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %23 = load i64, ptr %22, align 8
-  br label %24
+21:                                               ; preds = %.thread30, %18
+  %22 = phi ptr [ %17, %.thread30 ], [ %19, %18 ]
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %24 = load i64, ptr %23, align 8
+  br label %25
 
-24:                                               ; preds = %._crit_edge27, %20
-  %25 = phi ptr [ %21, %20 ], [ %19, %._crit_edge27 ]
-  %26 = phi i64 [ %23, %20 ], [ %.pre29, %._crit_edge27 ]
-  %27 = phi i64 [ %23, %20 ], [ 0, %._crit_edge27 ]
-  %28 = load ptr, ptr @X11_XGrabPointer, align 8
-  %29 = tail call i32 %28(ptr noundef %5, i64 noundef %26, i32 noundef 0, i32 noundef 2097228, i32 noundef 1, i32 noundef 1, i64 noundef %27, i64 noundef 0, i64 noundef 0) #5
-  %.not24 = icmp eq i32 %29, 0
-  br i1 %.not24, label %30, label %37
+25:                                               ; preds = %._crit_edge27, %21
+  %26 = phi ptr [ %22, %20 ], [ %19, %._crit_edge27 ]
+  %27 = phi i64 [ %24, %20 ], [ %.pre29, %._crit_edge27 ]
+  %28 = phi i64 [ %24, %20 ], [ 0, %._crit_edge27 ]
+  %29 = load ptr, ptr @X11_XGrabPointer, align 8
+  %30 = tail call i32 %28(ptr noundef %5, i64 noundef %27, i32 noundef 0, i32 noundef 2097228, i32 noundef 1, i32 noundef 1, i64 noundef %28, i64 noundef 0, i64 noundef 0) #5
+  %.not24 = icmp eq i32 %30, 0
+  br i1 %.not24, label %31, label %38
 
-30:                                               ; preds = %24
-  %31 = load i8, ptr %25, align 2, !range !8, !noundef !9
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %.thread
+31:                                               ; preds = %25
+  %32 = load i8, ptr %26, align 2, !range !8, !noundef !9
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %.thread
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 336
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1656
-  store i8 1, ptr %36, align 8
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 336
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1656
+  store i8 1, ptr %37, align 8
   br label %.thread
 
-37:                                               ; preds = %24
-  %38 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #5
-  br label %46
+38:                                               ; preds = %25
+  %39 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #5
+  br label %47
 
-39:                                               ; preds = %1
+40:                                               ; preds = %1
   %.not23 = icmp eq ptr %6, null
-  br i1 %.not23, label %41, label %40
+  br i1 %.not23, label %42, label %41
 
-40:                                               ; preds = %39
+41:                                               ; preds = %40
   tail call void @SDL_UpdateWindowGrab(ptr noundef nonnull %6) #5
   br label %.thread
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr @X11_XUngrabPointer, align 8
-  %43 = tail call i32 %42(ptr noundef %5, i64 noundef 0) #5
+42:                                               ; preds = %40
+  %43 = load ptr, ptr @X11_XUngrabPointer, align 8
+  %44 = tail call i32 %42(ptr noundef %5, i64 noundef 0) #5
   br label %.thread
 
-.thread:                                          ; preds = %33, %30, %16, %40, %41
-  %44 = load ptr, ptr @X11_XSync, align 8
-  %45 = tail call i32 %44(ptr noundef %5, i32 noundef 0) #5
-  br label %46
+.thread:                                          ; preds = %34, %31, %15, %41, %42
+  %45 = load ptr, ptr @X11_XSync, align 8
+  %46 = tail call i32 %44(ptr noundef %5, i32 noundef 0) #5
+  br label %47
 
-46:                                               ; preds = %37, %.thread
-  %.3 = phi i1 [ true, %.thread ], [ %38, %37 ]
+47:                                               ; preds = %38, %.thread
+  %.3 = phi i1 [ true, %.thread ], [ %39, %37 ]
   ret i1 %.3
 }
 

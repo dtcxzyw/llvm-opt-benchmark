@@ -36184,7 +36184,7 @@ _ZN7hir_def4path5lower10lower_path9qualifier17haf42dd9cdecd23abE.exit.thread785:
   invoke fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$intern..Interned$LT$hir_def..path..GenericArgs$GT$$GT$$GT$17hbc223c94e745a8ddE"(ptr noalias noundef align 8 dereferenceable(8) %63) #59
           to label %.body286 unwind label %496
 
-496:                                              ; preds = %1237, %1055, %1035, %925, %924, %593, %160, %154, %114, %.body366, %.body453.thread, %1241, %1240, %1139, %1137, %903, %.thread745.thread, %898, %696, %.body344.thread, %.body286.thread, %.body290.thread
+496:                                              ; preds = %1237, %1055, %1035, %925, %924, %593, %160, %154, %114, %.body366, %1242, %1241, %1240, %1139, %1137, %903, %.thread745.thread, %898, %696, %.body344.thread, %.body286.thread, %.body290.thread
   %497 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
@@ -38407,7 +38407,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8c82349e4c39bbe4E.exit: ; preds = %1026
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #58
   unreachable
 
-.body459:                                         ; preds = %1139, %1238, %1221, %1216, %.body453.thread, %.body453
+.body459:                                         ; preds = %1139, %1238, %1221, %1216, %1242, %.body453
   %.pn248 = phi { ptr, i32 } [ %.pn2461941, %.body453.thread ], [ %.pn244, %.body453 ], [ %1239, %1238 ], [ %1217, %1221 ], [ %1217, %1216 ], [ %1138, %1139 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !10181)
   call void @llvm.experimental.noalias.scope.decl(metadata !10184)
@@ -38440,7 +38440,7 @@ _ZN4core3ops8function6FnOnce9call_once17h8c82349e4c39bbe4E.exit: ; preds = %1026
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$hir_expand..name..Name$GT$$GT$17h70042679f2c32b39E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %71) #59
           to label %.body453 unwind label %496
 
-.body453.thread:                                  ; preds = %.body476, %1204, %.body453
+1242:                                             ; preds = %.body476, %1204, %.body453
   %.pn2461941 = phi { ptr, i32 } [ %.pn244, %.body453 ], [ %1187, %.body476 ], [ %1205, %1204 ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$intern..Interned$LT$hir_def..hir..type_ref..TypeRef$GT$$GT$$GT$17hef17bdfb87d58062E.llvm.15602210471604820194"(ptr noalias noundef nonnull align 8 dereferenceable(8) %72) #59
           to label %.body459 unwind label %496

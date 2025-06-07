@@ -26688,19 +26688,19 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.us.i.
   %.sroa.610.033.i.i = phi ptr [ %.sroa.610.033.i.i.ph, %.split.i.i.outer ], [ null, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ]
   %.sroa.811.0.i.i = phi i64 [ %.sroa.811.0.i.i.ph, %.split.i.i.outer ], [ %.sroa.811.2.i.i, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ]
   %.sroa.11.0.i.i = phi i64 [ %.sroa.11.0.i.i.ph, %.split.i.i.outer ], [ %.sroa.11.2.i.i, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ]
-  %.sroa.1413.0.i.i = phi i64 [ %.sroa.1413.0.i.i.ph, %.split.i.i.outer ], [ %576, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ]
+  %.sroa.1413.0.i.i = phi i64 [ %.sroa.1413.0.i.i.ph, %.split.i.i.outer ], [ %575, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ]
   %549 = icmp eq i64 %.sroa.09.0.i.i, 2
   br i1 %549, label %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i.i, label %550
 
-550:                                              ; preds = %.split.i.i
+550:; preds = %.split.i.i
   %trunc.i.i.i.i.i65.i = trunc nuw i64 %.sroa.09.0.i.i to i1
   br i1 %trunc.i.i.i.i.i65.i, label %551, label %.cont17.i.i
 
-551:                                              ; preds = %550
+551:; preds = %550
   %552 = icmp eq ptr %.sroa.610.033.i.i, null
   br i1 %552, label %.cont19.preheader.i.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %551, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
+.preheader.i.i:; preds = %551, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
   %.sroa.811.1.i.i = phi i64 [ %555, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %.sroa.811.0.i.i, %551 ]
   %.sroa.11.1.i.i = phi i64 [ %574, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %.sroa.11.0.i.i, %551 ]
   %553 = icmp ult i64 %.sroa.811.1.i.i, %.sroa.1012.0.copyload.i.i
@@ -26709,35 +26709,35 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.us.i.
 554:                                              ; preds = %.preheader.i.i
   %555 = add nuw i64 %.sroa.811.1.i.i, 1
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.610.033.i.i, align 8, !noalias !4970, !noundef !14
-  %556 = and i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %557 = icmp eq i64 %556, 0
-  br i1 %557, label %558, label %562
+  %555 = and i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  %556 = icmp eq i64 %555, 0
+  br i1 %556, label %557, label %561
 
-558:                                              ; preds = %554
-  %559 = and i64 %.sroa.811.1.i.i, 63
-  %560 = xor i64 %559, 63
-  %561 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %560
+557:                                              ; preds = %554
+  %558 = and i64 %.sroa.811.1.i.i, 63
+  %559 = xor i64 %558, 63
+  %560 = lshr i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %559
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
-562:                                              ; preds = %554
-  %563 = and i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -2
-  %564 = inttoptr i64 %563 to ptr
-  %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
-  %566 = load i64, ptr %565, align 8, !noalias !4970, !noundef !14
-  %567 = getelementptr inbounds nuw i8, ptr %564, i64 16
-  %568 = lshr i64 %.sroa.811.1.i.i, 6
-  %569 = and i64 %.sroa.811.1.i.i, 63
-  %570 = icmp ult i64 %568, %566
-  call void @llvm.assume(i1 %570)
-  %571 = getelementptr inbounds nuw i64, ptr %567, i64 %568
-  %572 = load i64, ptr %571, align 8, !noalias !4970, !noundef !14
-  %573 = lshr i64 %572, %569
+561:                                              ; preds = %554
+  %562 = and i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -2
+  %563 = inttoptr i64 %562 to ptr
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 8
+  %565 = load i64, ptr %564, align 8, !noalias !4970, !noundef !14
+  %566 = getelementptr inbounds nuw i8, ptr %563, i64 16
+  %567 = lshr i64 %.sroa.811.1.i.i, 6
+  %568 = and i64 %.sroa.811.1.i.i, 63
+  %569 = icmp ult i64 %567, %565
+  call void @llvm.assume(i1 %569)
+  %570 = getelementptr inbounds nuw i64, ptr %566, i64 %567
+  %571 = load i64, ptr %570, align 8, !noalias !4970, !noundef !14
+  %572 = lshr i64 %571, %568
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 
-"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %562, %558
-  %.0.in.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %561, %558 ], [ %573, %562 ]
+"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %561, %557
+  %.0.in.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %560, %558 ], [ %572, %562 ]
   %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %.0.in.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i1
-  %574 = add i64 %.sroa.11.1.i.i, 1
+  %573 = add i64 %.sroa.11.1.i.i, 1
   br i1 %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.thread119.thread.i.i, label %.preheader.i.i
 
 .cont19.preheader.i.i:                            ; preds = %.preheader.i.i, %551
@@ -26746,40 +26746,40 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.us.i.
   br label %.cont19.i.i
 
 .cont19.i.i:                                      ; preds = %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i", %.cont19.preheader.i.i
-  %.sroa.1413.1.i.i = phi i64 [ %576, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ], [ %.sroa.1413.0.i.i, %.cont19.preheader.i.i ]
-  %575 = icmp ult i64 %.sroa.1413.1.i.i, %.sroa.15.0.copyload.i.i
-  br i1 %575, label %.cont23.i.i, label %.cont17.i.i
+  %.sroa.1413.1.i.i = phi i64 [ %575, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i" ], [ %.sroa.1413.0.i.i, %.cont19.preheader.i.i ]
+  %574 = icmp ult i64 %.sroa.1413.1.i.i, %.sroa.15.0.copyload.i.i
+  br i1 %574, label %.cont23.i.i, label %.cont17.i.i
 
 .cont23.i.i:                                      ; preds = %.cont19.i.i
-  %576 = add nuw i64 %.sroa.1413.1.i.i, 1
+  %575 = add nuw i64 %.sroa.1413.1.i.i, 1
   %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.13.0.copyload.fr.i.i, align 8, !noalias !4998, !noundef !14
-  %577 = and i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, 1
-  %578 = icmp eq i64 %577, 0
-  br i1 %578, label %579, label %583
+  %576 = and i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, 1
+  %577 = icmp eq i64 %576, 0
+  br i1 %577, label %578, label %582
 
-579:                                              ; preds = %.cont23.i.i
-  %580 = and i64 %.sroa.1413.1.i.i, 63
-  %581 = xor i64 %580, 63
-  %582 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, %581
+578:                                              ; preds = %.cont23.i.i
+  %579 = and i64 %.sroa.1413.1.i.i, 63
+  %580 = xor i64 %579, 63
+  %581 = lshr i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, %580
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i"
 
-583:                                              ; preds = %.cont23.i.i
-  %584 = and i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, -2
-  %585 = inttoptr i64 %584 to ptr
-  %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
-  %587 = load i64, ptr %586, align 8, !noalias !5014, !noundef !14
-  %588 = getelementptr inbounds nuw i8, ptr %585, i64 16
-  %589 = lshr i64 %.sroa.1413.1.i.i, 6
-  %590 = and i64 %.sroa.1413.1.i.i, 63
-  %591 = icmp ult i64 %589, %587
-  call void @llvm.assume(i1 %591)
-  %592 = getelementptr inbounds nuw i64, ptr %588, i64 %589
-  %593 = load i64, ptr %592, align 8, !noalias !5014, !noundef !14
-  %594 = lshr i64 %593, %590
+582:                                              ; preds = %.cont23.i.i
+  %583 = and i64 %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i, -2
+  %584 = inttoptr i64 %583 to ptr
+  %585 = getelementptr inbounds nuw i8, ptr %584, i64 8
+  %586 = load i64, ptr %585, align 8, !noalias !5014, !noundef !14
+  %587 = getelementptr inbounds nuw i8, ptr %584, i64 16
+  %588 = lshr i64 %.sroa.1413.1.i.i, 6
+  %589 = and i64 %.sroa.1413.1.i.i, 63
+  %590 = icmp ult i64 %588, %586
+  call void @llvm.assume(i1 %590)
+  %591 = getelementptr inbounds nuw i64, ptr %587, i64 %588
+  %592 = load i64, ptr %591, align 8, !noalias !5014, !noundef !14
+  %593 = lshr i64 %592, %589
   br label %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i"
 
-"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i": ; preds = %583, %579
-  %.0.in.in.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i = phi i64 [ %582, %579 ], [ %594, %583 ]
+"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i4.i.i.i.i.i.i.cont.i.i": ; preds = %582, %578
+  %.0.in.in.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i = phi i64 [ %581, %579 ], [ %593, %583 ]
   %.0.in.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = trunc i64 %.0.in.in.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i.i to i1
   br i1 %.0.in.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i.i, label %.split.i.i, label %.cont19.i.i
 
@@ -26811,8 +26811,8 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i.i: 
   %.sroa.11.498135.i.i = phi i64 [ %.sroa.11.3.i.i, %.cont17.i.i ], [ %.sroa.11.4.ph.i.i, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i.i ]
   %.sroa.18.2100134.i.i = phi i8 [ 5, %.cont17.i.i ], [ %.sroa.18.0.i.i.ph, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i.i ]
   %.sroa.1413.4104132.i.i = phi i64 [ %.sroa.1413.3.i.i, %.cont17.i.i ], [ %.sroa.1413.4.ph.i.i, %_ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i.i ]
-  %595 = icmp eq i8 %.sroa.2.0.i.pn.i141.i.i, 3
-  br i1 %595, label %.thread119.thread.i.i, label %.split.i.i.outer.backedge
+  %594 = icmp eq i8 %.sroa.2.0.i.pn.i141.i.i, 3
+  br i1 %594, label %.thread119.thread.i.i, label %.split.i.i.outer.backedge
 
 .split.i.i.outer:                                 ; preds = %.split.i.i.outer.backedge, %.split.preheader.i.i
   %.sroa.09.0.i.i.ph = phi i64 [ %.sroa.09.0.copyload.i.i, %.split.preheader.i.i ], [ %.sroa.09.0.i.i.ph.be, %.split.i.i.outer.backedge ]
@@ -26827,7 +26827,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i.i: 
 .thread119.thread.i.i:                            ; preds = %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i", %.thread119.i.i
   %.sroa.1413.4104132350.i.i = phi i64 [ %.sroa.1413.4104132.i.i, %.thread119.i.i ], [ %.sroa.1413.0.i.i, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %.sroa.18.2100134346.i.i = phi i8 [ %.sroa.18.2100134.i.i, %.thread119.i.i ], [ %.sroa.18.0.i.i.ph, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
-  %.sroa.11.498135344.i.i = phi i64 [ %.sroa.11.498135.i.i, %.thread119.i.i ], [ %574, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
+  %.sroa.11.498135344.i.i = phi i64 [ %.sroa.11.498135.i.i, %.thread119.i.i ], [ %573, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %.sroa.811.496136342.i.i = phi i64 [ %.sroa.811.496136.i.i, %.thread119.i.i ], [ %555, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %.sroa.610.394137340.i.i = phi ptr [ %.sroa.610.394137.i.i, %.thread119.i.i ], [ %.sroa.610.033.i.i, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %.sroa.09.292138338.i.i = phi i64 [ %.sroa.09.292138.i.i, %.thread119.i.i ], [ 1, %"_ZN76_$LT$smallbitvec..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd1b6a64934494676E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]

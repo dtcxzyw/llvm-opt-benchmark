@@ -4707,7 +4707,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_6SDNodeEE6insertES2_.exit:
   %or.cond = select i1 %24, i1 true, i1 %.not.not.i.i
   br i1 %or.cond, label %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit.thread, label %.lr.ph.i.i5, !llvm.loop !280
 
-_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit.thread: ; preds = %.lr.ph.i.i5, %18
+_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit.thread:; preds = %.lr.ph.i.i5, %18
   %.1.i.i.ph = phi i1 [ false, %18 ], [ %24, %.lr.ph.i.i5 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #19
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
@@ -4720,12 +4720,12 @@ _ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit: ; preds = %_ZN4llvm15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #19
   br i1 %28, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %29
 
-29:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit
-  %30 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @free(ptr noundef %30) #19
+31:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit
+  %32 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @free(ptr noundef %32) #19
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit.thread, %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit, %29
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit.thread, %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit, %31
   %.1.i.i10 = phi i1 [ %.1.i.i.ph, %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit.thread ], [ %27, %_ZNK4llvm15SmallPtrSetImplIPNS_6SDNodeEE5countEPKS1_.exit ], [ %27, %29 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #19
   ret i1 %.1.i.i10

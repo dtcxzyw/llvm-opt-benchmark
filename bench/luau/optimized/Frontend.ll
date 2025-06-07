@@ -15804,9 +15804,9 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit138:       ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not272, label %.critedge.loopexit, label %.lr.ph428
 
 .critedge.loopexit:                               ; preds = %438, %._crit_edge417
-  %.373.lcssa = phi i8 [ %.373, %438 ], [ 0, %._crit_edge417 ]
-  %spec.select281.lcssa = phi i8 [ %spec.select281, %438 ], [ 0, %._crit_edge417 ]
-  %.sroa.16.1.lcssa.ph = phi ptr [ %.sroa.16.1424, %438 ], [ %.sroa.16.5.lcssa, %._crit_edge417 ]
+  %.sroa.16.1.lcssa.ph = phi i8 [ %.373, %438 ], [ 0, %._crit_edge417 ]
+  %.sroa.10.1.lcssa.ph = phi i8 [ %spec.select281, %438 ], [ 0, %._crit_edge417 ]
+  %.sroa.0236.1.lcssa.ph = phi ptr [ %.sroa.16.1424, %438 ], [ %.sroa.16.5.lcssa, %._crit_edge417 ]
   %.sroa.10.1.lcssa.ph = phi ptr [ %.sroa.10.1425, %438 ], [ %.sroa.10.3.lcssa, %._crit_edge417 ]
   %.sroa.0236.1.lcssa.ph = phi ptr [ %.sroa.0236.1426, %438 ], [ %.sroa.0236.5.lcssa, %._crit_edge417 ]
   %.pre546 = load ptr, ptr %411, align 8, !tbaa !560

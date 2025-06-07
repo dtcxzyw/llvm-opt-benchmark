@@ -251,12 +251,12 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i8 1, ptr %1, align 1
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %55, label %7
+  br i1 %6, label %56, label %7
 
 7:                                                ; preds = %2
   %8 = load i8, ptr %0, align 1
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %55, label %10
+  br i1 %9, label %56, label %10
 
 10:                                               ; preds = %7
   %11 = tail call ptr @list_create(ptr noundef nonnull @license_free_rec) #11
@@ -266,8 +266,8 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
   %.not65 = icmp eq ptr %13, null
   br i1 %.not65, label %.critedge, label %.lr.ph68
 
-.lr.ph68:                                         ; preds = %10, %49
-  %.04266 = phi ptr [ %50, %49 ], [ %13, %10 ]
+.lr.ph68:                                         ; preds = %10, %50
+  %.04266 = phi ptr [ %51, %49 ], [ %13, %10 ]
   %14 = load i8, ptr %1, align 1, !range !11, !noundef !12
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.preheader, label %.critedge
@@ -322,9 +322,9 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
 
 37:                                               ; preds = %26, %33
   %38 = icmp slt i32 %30, 0
-  br i1 %38, label %.thread57, label %.thread
+  br i1 %38, label %.thread57, label %..thread_crit_edge
 
-.thread:                                          ; preds = %37
+..thread_crit_edge:                               ; preds = %37
   %.pre = load i8, ptr %1, align 1, !range !11
   %39 = trunc nuw i8 %.pre to i1
   br i1 %39, label %.thread.thread, label %.thread57
@@ -335,46 +335,46 @@ define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef capt
 
 .thread.thread:                                   ; preds = %34, %.preheader, %.thread
   %.05673 = phi i32 [ %30, %.thread ], [ 1, %.preheader ], [ 1, %34 ]
-  %40 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04266) #11
-  %.not53 = icmp eq ptr %40, null
-  br i1 %.not53, label %45, label %41
+  %41 = call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_license_find_rec, ptr noundef nonnull %.04266) #11
+  %.not53 = icmp eq ptr %41, null
+  br i1 %.not53, label %46, label %42
 
-41:                                               ; preds = %.thread.thread
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = load i32, ptr %42, align 8
-  %44 = add i32 %43, %.05673
-  store i32 %44, ptr %42, align 8
-  br label %49
+42:                                               ; preds = %.thread.thread
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = add i32 %44, %.05673
+  store i32 %45, ptr %43, align 8
+  br label %50
 
-45:                                               ; preds = %.thread.thread
-  %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 183, ptr noundef nonnull @__func__._build_license_list) #11
-  %47 = call ptr @xstrdup(ptr noundef nonnull %.04266) #11
-  store ptr %47, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 %.05673, ptr %48, align 8
-  call void @list_push(ptr noundef %11, ptr noundef nonnull %46) #11
-  br label %49
+46:                                               ; preds = %.thread.thread
+  %47 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.22, i32 noundef 183, ptr noundef nonnull @__func__._build_license_list) #11
+  %48 = call ptr @xstrdup(ptr noundef nonnull %.04266) #11
+  store ptr %48, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i32 %.05673, ptr %49, align 8
+  call void @list_push(ptr noundef %11, ptr noundef nonnull %47) #11
+  br label %50
 
-49:                                               ; preds = %41, %45
-  %50 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef nonnull %5) #11
-  %.not = icmp eq ptr %50, null
+50:                                               ; preds = %42, %46
+  %51 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef nonnull %5) #11
+  %.not = icmp eq ptr %51, null
   br i1 %.not, label %.critedge, label %.lr.ph68
 
-.critedge:                                        ; preds = %.lr.ph68, %49, %10, %.thread57
+.critedge:                                        ; preds = %.lr.ph68, %50, %10, %.thread57
   call void @slurm_xfree(ptr noundef nonnull %4) #11
-  %51 = load i8, ptr %1, align 1, !range !11, !noundef !12
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %55
+  %52 = load i8, ptr %1, align 1, !range !11, !noundef !12
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %.critedge
+54:                                               ; preds = %.critedge
   %.not54 = icmp eq ptr %11, null
-  br i1 %.not54, label %55, label %54
+  br i1 %.not54, label %56, label %55
 
-54:                                               ; preds = %53
+55:                                               ; preds = %54
   call void @list_destroy(ptr noundef nonnull %11) #11
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.critedge, %54, %53, %2, %7
+56:                                               ; preds = %.critedge, %55, %54, %2, %7
   %.044 = phi ptr [ null, %7 ], [ null, %2 ], [ %11, %.critedge ], [ null, %54 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11

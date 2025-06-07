@@ -5811,7 +5811,7 @@ define internal fastcc zeroext i1 @sema_analyse_for_stmt(ptr noundef %0, ptr nou
 16:                                               ; preds = %2
   %17 = load i64, ptr %12, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %17, ptr noundef nonnull @.str.56) #9
-  br label %184
+  br label %185
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -5825,7 +5825,7 @@ define internal fastcc zeroext i1 @sema_analyse_for_stmt(ptr noundef %0, ptr nou
 24:                                               ; preds = %18
   %25 = load i64, ptr %12, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %25, ptr noundef nonnull @.str.57) #9
-  br label %184
+  br label %185
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -5949,7 +5949,7 @@ sema_analyse_for_cond.exit:                       ; preds = %37, %.critedge.i
 
 sema_analyse_for_cond.exit.thread:                ; preds = %49, %47, %sema_analyse_for_cond.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br label %184
+  br label %185
 
 91:                                               ; preds = %sema_analyse_for_cond.exit, %35
   %.089 = phi i1 [ false, %35 ], [ %.3, %sema_analyse_for_cond.exit ]
@@ -5990,7 +5990,7 @@ sema_analyse_for_cond.exit.thread:                ; preds = %49, %47, %sema_anal
   tail call void @context_change_scope_with_flags(ptr noundef nonnull %0, i32 noundef 0) #9
   %111 = load i32, ptr %7, align 4
   %.not.i79 = icmp eq i32 %111, 0
-  br i1 %.not.i79, label %sema_analyse_for_cond.exit87.thread96, label %112
+  br i1 %.not.i79, label %sema_analyse_for_cond.exit87.thread, label %112
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr @expr_arena, align 8
@@ -6050,7 +6050,7 @@ sema_analyse_for_cond.exit.thread:                ; preds = %49, %47, %sema_anal
   br i1 %147, label %148, label %156
 
 148:                                              ; preds = %144
-  br i1 %127, label %149, label %sema_analyse_for_cond.exit87
+  br i1 %127, label %149, label %.critedge.i83
 
 149:                                              ; preds = %148
   %150 = getelementptr inbounds nuw i8, ptr %115, i64 24
@@ -6062,7 +6062,7 @@ sema_analyse_for_cond.exit.thread:                ; preds = %49, %47, %sema_anal
   %153 = getelementptr inbounds i8, ptr %151, i64 -8
   %154 = load i32, ptr %153, align 4
   %155 = icmp eq i32 %154, 1
-  br i1 %155, label %sema_analyse_for_cond.exit87, label %156
+  br i1 %155, label %.critedge.i83, label %156
 
 156:                                              ; preds = %152, %149, %144, %.thread.i81
   %storemerge.ph.i82 = phi i1 [ false, %.thread.i81 ], [ false, %144 ], [ true, %152 ], [ true, %149 ]
@@ -6072,15 +6072,15 @@ sema_analyse_for_cond.exit.thread:                ; preds = %49, %47, %sema_anal
   %160 = sub i64 %158, %159
   %161 = sdiv exact i64 %160, 56
   %162 = trunc i64 %161 to i32
-  br label %sema_analyse_for_cond.exit87
+  br label %.critedge.i83
 
-sema_analyse_for_cond.exit87:                     ; preds = %156, %152, %148
+.critedge.i83:                                    ; preds = %156, %152, %148
   %.4 = phi i1 [ %storemerge.ph.i82, %156 ], [ true, %152 ], [ true, %148 ]
   %163 = phi i32 [ %162, %156 ], [ 0, %152 ], [ 0, %148 ]
   store i32 %163, ptr %7, align 4
   br i1 %102, label %164, label %sema_analyse_for_cond.exit87.thread
 
-sema_analyse_for_cond.exit87.thread96:            ; preds = %110
+sema_analyse_for_cond.exit87.thread:              ; preds = %110
   br i1 %102, label %.thread, label %sema_analyse_for_cond.exit87.thread
 
 .thread:                                          ; preds = %sema_analyse_for_cond.exit87.thread96
@@ -6089,29 +6089,29 @@ sema_analyse_for_cond.exit87.thread96:            ; preds = %110
 
 sema_analyse_for_cond.exit87.thread:              ; preds = %sema_analyse_for_cond.exit87.thread96, %122, %120, %sema_analyse_for_cond.exit87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br label %184
+  br label %185
 
 164:                                              ; preds = %sema_analyse_for_cond.exit87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  br i1 %.4, label %165, label %.thread100
+  br i1 %.4, label %165, label %.thread
 
 165:                                              ; preds = %.thread, %164
   %166 = load i8, ptr %19, align 4
   %167 = and i8 %166, -5
   store i8 %167, ptr %19, align 4
-  br label %.thread100
+  br label %.thread
 
 168:                                              ; preds = %91
-  br i1 %102, label %.thread100, label %177
+  br i1 %102, label %.thread, label %177
 
-.thread100:                                       ; preds = %165, %164, %168
-  %.1103 = phi i1 [ %.089, %168 ], [ false, %164 ], [ true, %165 ]
+.thread:                                          ; preds = %165, %164, %168
+  %.198 = phi i1 [ %.089, %168 ], [ false, %164 ], [ true, %165 ]
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %170 = load i32, ptr %169, align 4
   %.not78 = icmp eq i32 %170, 0
   br i1 %.not78, label %177, label %171
 
-171:                                              ; preds = %.thread100
+171:                                              ; preds = %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
   tail call void @context_change_scope_with_flags(ptr noundef nonnull %0, i32 noundef 0) #9
   %172 = load i32, ptr %169, align 4
@@ -6124,26 +6124,26 @@ sema_analyse_for_cond.exit87.thread:              ; preds = %sema_analyse_for_co
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   br i1 %.1103, label %178, label %184
 
-177:                                              ; preds = %.thread100, %168
-  %.1102 = phi i1 [ %.1103, %.thread100 ], [ %.089, %168 ]
+177:                                              ; preds = %.thread, %168
+  %.197 = phi i1 [ %.198, %.thread100 ], [ %.089, %168 ]
   %.1.in = phi i1 [ true, %.thread100 ], [ false, %168 ]
   tail call void @context_pop_defers_and_replace_ast(ptr noundef nonnull %0, ptr noundef nonnull %1) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br i1 %.1102, label %178, label %184
+  br i1 %.197, label %178, label %184
 
 178:                                              ; preds = %171, %177
   %.1.in104 = phi i1 [ %176, %171 ], [ %.1.in, %177 ]
-  %179 = load i8, ptr %19, align 4
-  %180 = trunc i8 %179 to i1
-  br i1 %180, label %184, label %181
+  %180 = load i8, ptr %19, align 4
+  %181 = trunc i8 %180 to i1
+  br i1 %181, label %185, label %182
 
-181:                                              ; preds = %178
-  %182 = load i8, ptr %103, align 4
-  %183 = or i8 %182, 2
-  store i8 %183, ptr %103, align 4
-  br label %184
+182:                                              ; preds = %178
+  %183 = load i8, ptr %103, align 4
+  %184 = or i8 %183, 2
+  store i8 %184, ptr %103, align 4
+  br label %185
 
-184:                                              ; preds = %171, %177, %178, %181, %sema_analyse_for_cond.exit87.thread, %sema_analyse_for_cond.exit.thread, %24, %16
+185:                                              ; preds = %171, %177, %178, %182, %sema_analyse_for_cond.exit87.thread, %sema_analyse_for_cond.exit.thread, %24, %16
   %.0 = phi i1 [ false, %16 ], [ false, %24 ], [ false, %sema_analyse_for_cond.exit87.thread ], [ false, %sema_analyse_for_cond.exit.thread ], [ %.1.in104, %181 ], [ %.1.in104, %178 ], [ %.1.in, %177 ], [ %176, %171 ]
   ret i1 %.0
 }

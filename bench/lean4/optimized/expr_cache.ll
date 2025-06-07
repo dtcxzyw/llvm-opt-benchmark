@@ -157,13 +157,13 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   %50 = trunc nuw i8 %.pre10.pre to i1
   store ptr %43, ptr %23, align 8, !tbaa !32
   store ptr %47, ptr %24, align 8, !tbaa !29
-  %51 = getelementptr inbounds nuw i32, ptr %43, i64 %41
-  store ptr %51, ptr %26, align 8, !tbaa !30
-  %52 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %.pre.pre, i64 %16
+  %50 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  store ptr %50, ptr %26, align 8, !tbaa !30
+  %51 = getelementptr inbounds nuw %"struct.lean::expr_cache::entry", ptr %.pre.pre, i64 %16
   br i1 %50, label %53, label %_ZN4lean10object_refD2Ev.exit.i
 
 53:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %54 = phi ptr [ %21, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread ], [ %52, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %54 = phi ptr [ %21, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread ], [ %51, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !3
   %57 = ptrtoint ptr %56 to i64
@@ -197,7 +197,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
   unreachable
 
 _ZN4lean10object_refD2Ev.exit.i:                  ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13, %65, %64, %62, %53, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %69 = phi ptr [ %54, %65 ], [ %54, %64 ], [ %54, %62 ], [ %54, %53 ], [ %52, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %29, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13 ], [ %49, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14 ]
+  %69 = phi ptr [ %54, %65 ], [ %54, %64 ], [ %54, %62 ], [ %54, %53 ], [ %51, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ], [ %29, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread13 ], [ %49, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.thread14 ]
   store i8 1, ptr %69, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %1, align 8, !tbaa !3

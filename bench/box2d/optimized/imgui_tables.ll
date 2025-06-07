@@ -15760,7 +15760,7 @@ _ZN5ImGui15GetColumnOffsetEi.exit:                ; preds = %61, %70
   %101 = trunc nuw i8 %.pre to i1
   br i1 %101, label %105, label %.thread105
 
-.thread105:                                       ; preds = %93, %100, %94
+102:                                              ; preds = %93, %100, %94
   %102 = load i8, ptr %2, align 1, !range !152
   %103 = trunc nuw i8 %102 to i1
   %104 = select i1 %103, i32 28, i32 27
@@ -15772,11 +15772,11 @@ _ZN5ImGui15GetColumnOffsetEi.exit:                ; preds = %61, %70
   %108 = and i32 %107, 2
   %.not81 = icmp eq i32 %108, 0
   %spec.select = select i1 %.not81, i32 %84, i32 %.07489
-  br label %109
+  br label %._crit_edge100
 
-109:                                              ; preds = %.thread105, %105
-  %.2107 = phi i32 [ %spec.select, %105 ], [ %.07489, %.thread105 ]
-  %110 = phi i32 [ 29, %105 ], [ %104, %.thread105 ]
+._crit_edge100:                                   ; preds = %102, %105
+  %106 = phi i32 [ %spec.select, %105 ], [ %.07489, %.thread105 ]
+  %.2 = phi i32 [ 29, %105 ], [ %104, %.thread105 ]
   %111 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %110, float noundef 1.000000e+00)
   %112 = fptosi float %82 to i32
   %113 = sitofp i32 %112 to float
@@ -15794,7 +15794,7 @@ _ZN5ImGui15GetColumnOffsetEi.exit:                ; preds = %61, %70
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
   br label %115
 
-115:                                              ; preds = %_ZN5ImGui15GetColumnOffsetEi.exit, %109
+115:                                              ; preds = %_ZN5ImGui15GetColumnOffsetEi.exit, %._crit_edge100
   %.175 = phi i32 [ %.2107, %109 ], [ %.07489, %_ZN5ImGui15GetColumnOffsetEi.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -2733,9 +2733,9 @@ _ZN2qe10mbi_plugin9is_sharedEP9func_decl.exit:    ; preds = %.lr.ph.i.i.i, %66, 
   %89 = call noundef zeroext i1 @_ZN2qe10mbi_plugin9is_sharedEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %88)
   %90 = getelementptr inbounds nuw i8, ptr %.02439, i64 8
   %.not29 = icmp eq ptr %90, %.ptr42
-  br i1 %.not29, label %._crit_edge.loopexit.split.loop.exit52, label %.lr.ph
+  br i1 %.not29, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit.split.loop.exit52:           ; preds = %87
+._crit_edge.loopexit:                             ; preds = %87
   %spec.select.le = zext i1 %89 to i8
   br label %._crit_edge.loopexit
 

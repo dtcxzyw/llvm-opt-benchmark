@@ -18750,7 +18750,7 @@ define linkonce_odr dso_local void @_ZN5boost14multiprecision8backends11eval_div
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #22
   call void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(64) %3)
   invoke void @_ZN5boost14multiprecision8backends11eval_divideINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEEvRNS1_16rational_adaptorIT_EERKSA_SD_(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) %1)
-          to label %4 unwind label %66
+          to label %4 unwind label %68
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -18849,31 +18849,31 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i
 
 _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i: ; preds = %56, %58
-  %.pre5 = load i8, ptr %25, align 2, !range !10
+  %59 = load i8, ptr %25, align 2, !range !10
   %.pre = load i8, ptr %23, align 1, !tbaa !4, !range !10
   %59 = trunc nuw i8 %.pre to i1
-  %60 = trunc nuw i8 %.pre5 to i1
-  %or.cond.i.i4 = select i1 %59, i1 true, i1 %60
-  br i1 %or.cond.i.i4, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEED2Ev.exit, label %61
+  %62 = trunc nuw i8 %59 to i1
+  %or.cond.i.i4 = select i1 %59, i1 true, i1 %62
+  br i1 %or.cond.i.i4, label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEED2Ev.exit, label %63
 
-61:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i64, ptr %3, align 16
-  %65 = shl i64 %64, 3
-  call void @_ZdlPvm(ptr noundef %63, i64 noundef %65) #37
+63:                                               ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i64, ptr %3, align 16
+  %67 = shl i64 %66, 3
+  call void @_ZdlPvm(ptr noundef %65, i64 noundef %67) #37
   br label %_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEED2Ev.exit
 
-_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEED2Ev.exit: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i, %61
+_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEED2Ev.exit: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i, %63
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #22
   ret void
 
-66:                                               ; preds = %2
-  %67 = landingpad { ptr, i32 }
+68:                                               ; preds = %2
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(64) %3) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #22
-  resume { ptr, i32 } %67
+  resume { ptr, i32 } %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -70208,7 +70208,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL23CartesianKernelFunctors18Construc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
   store i64 0, ptr %4, align 8, !tbaa !215
   invoke void @_ZN5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEC2IxEERKT_PKNSt9enable_ifIXaasr3std16is_constructibleIS7_SA_EE5valuentsr3std17is_floating_pointISA_EE5valueEvE4typeE(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
-          to label %7 unwind label %75
+          to label %7 unwind label %93
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
@@ -70332,13 +70332,13 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #22
   ret void
 
-75:                                               ; preds = %2
-  %76 = landingpad { ptr, i32 }
+93:                                               ; preds = %2
+  %94 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #22
   call void @_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev(ptr noundef nonnull align 16 dereferenceable(64) %5) #22
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #22
-  resume { ptr, i32 } %76
+  resume { ptr, i32 } %94
 }
 
 ; Function Attrs: mustprogress uwtable

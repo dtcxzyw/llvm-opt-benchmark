@@ -69081,7 +69081,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6df301f8714803aeE.exit", label %206
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6df301f8714803aeE.exit", label %205
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -69379,7 +69379,7 @@ _ZN5rayon5slice9quicksort10shift_head17hf83902bf21a1f31eE.exit: ; preds = %"_ZN1
   %exitcond74.not = icmp eq i64 %11, 5
   br i1 %exitcond74.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17ha00f3f92f596066bE.exit.thread.thread", label %10
 
-206:                                              ; preds = %70
+205:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -69521,7 +69521,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h4a00c42c57c00bd2E.exit", label %208
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h4a00c42c57c00bd2E.exit", label %207
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -69833,7 +69833,7 @@ _ZN5rayon5slice9quicksort10shift_head17h0d487b1ee78a9215E.exit: ; preds = %"_ZN1
   %exitcond66.not = icmp eq i64 %11, 5
   br i1 %exitcond66.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h6f9160bd25ebeb23E.exit.thread.thread", label %10
 
-208:                                              ; preds = %70
+207:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -74822,7 +74822,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3ca902aa556eb79E.exit", label %208
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3ca902aa556eb79E.exit", label %207
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -75134,7 +75134,7 @@ _ZN5rayon5slice9quicksort10shift_head17hce5bf019d04ceeeaE.exit: ; preds = %"_ZN1
   %exitcond66.not = icmp eq i64 %11, 5
   br i1 %exitcond66.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hda634240f2bb74abE.exit.thread.thread", label %10
 
-208:                                              ; preds = %70
+207:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -75848,7 +75848,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hde80e93709eb8600E.exit", label %208
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hde80e93709eb8600E.exit", label %207
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -76171,7 +76171,7 @@ _ZN5rayon5slice9quicksort10shift_head17headea23506083fb7E.exit: ; preds = %"_ZN1
   %exitcond68.not = icmp eq i64 %11, 5
   br i1 %exitcond68.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf8bf02c6a3ed162aE.exit.thread.thread", label %10
 
-208:                                              ; preds = %70
+207:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -79618,7 +79618,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc663023a56135172E.exit", label %208
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc663023a56135172E.exit", label %207
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -79941,7 +79941,7 @@ _ZN5rayon5slice9quicksort10shift_head17h780661ae7735feefE.exit: ; preds = %"_ZN1
   %exitcond68.not = icmp eq i64 %11, 5
   br i1 %exitcond68.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hd8b9685cfc54fd7aE.exit.thread.thread", label %10
 
-208:                                              ; preds = %70
+207:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -81414,7 +81414,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..o
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5798eeddf8c2b6fcE.exit", label %214
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5798eeddf8c2b6fcE.exit", label %213
 
 73:                                               ; preds = %69
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %70, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -81714,7 +81714,7 @@ _ZN5rayon5slice9quicksort10shift_head17he41b6a9660f55c05E.exit: ; preds = %"_ZN1
   %exitcond66.not = icmp eq i64 %11, 5
   br i1 %exitcond66.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17ha10212f9f6ff6dd5E.exit.thread.thread", label %10
 
-214:                                              ; preds = %72
+213:                                              ; preds = %72
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -82429,7 +82429,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..o
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha64c5ccbde57d287E.exit", label %216
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha64c5ccbde57d287E.exit", label %215
 
 73:                                               ; preds = %69
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %70, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -82745,7 +82745,7 @@ _ZN5rayon5slice9quicksort10shift_head17h5e48512b2536557cE.exit: ; preds = %"_ZN1
   %exitcond54.not = icmp eq i64 %11, 5
   br i1 %exitcond54.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hb0ff6907967e8ab6E.exit.thread.thread", label %10
 
-216:                                              ; preds = %72
+215:                                              ; preds = %72
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }

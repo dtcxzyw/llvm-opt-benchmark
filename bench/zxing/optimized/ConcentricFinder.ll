@@ -1212,7 +1212,7 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17
   br label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i
 
 common.resume:                                    ; preds = %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i ], [ %575, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i ], [ %576, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit40.i: ; preds = %.thread76.i, %105
@@ -1233,7 +1233,7 @@ _ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit: ; preds = 
   %.sroa.019.037 = phi ptr [ null, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit.thread ], [ %.sroa.046.5.i, %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit ]
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %111, align 8, !tbaa !44
-  br label %580
+  br label %581
 
 112:                                              ; preds = %_ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10)
@@ -2166,96 +2166,96 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i.i:           ; preds = %543, %539
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #15, !noalias !64
   br i1 %.sroa.6.1, label %551, label %573
 
-551:                                              ; preds = %550
+552:                                              ; preds = %550
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
   %.sroa.08.0.copyload.i = load double, ptr %16, align 8, !tbaa !23
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.29.0.copyload.i = load double, ptr %.sroa.29.0..sroa_idx.i, align 8, !tbaa !23
-  %552 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.sroa.06.0.copyload.i = load double, ptr %552, align 8, !tbaa !23
+  %553 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %.sroa.06.0.copyload.i = load double, ptr %553, align 8, !tbaa !23
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 56
   %.sroa.27.0.copyload.i = load double, ptr %.sroa.27.0..sroa_idx.i, align 8, !tbaa !23
-  %553 = fsub double %.sroa.08.0.copyload.i, %.sroa.06.0.copyload.i
-  %554 = fsub double %.sroa.29.0.copyload.i, %.sroa.27.0.copyload.i
-  %555 = fmul double %554, %554
-  %556 = call noundef double @llvm.fmuladd.f64(double %553, double %553, double %555)
-  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %556)
-  br label %557
+  %554 = fsub double %.sroa.08.0.copyload.i, %.sroa.06.0.copyload.i
+  %555 = fsub double %.sroa.29.0.copyload.i, %.sroa.27.0.copyload.i
+  %556 = fmul double %555, %555
+  %557 = call noundef double @llvm.fmuladd.f64(double %554, double %554, double %556)
+  %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %557)
+  br label %558
 
-557:                                              ; preds = %557, %551
+558:                                              ; preds = %558, %552
   %.sroa.22.0.copyload.i = phi double [ %.sroa.29.0.copyload.i, %551 ], [ %.sroa.2.0.copyload.i, %557 ]
   %.sroa.01.0.copyload.i = phi double [ %.sroa.08.0.copyload.i, %551 ], [ %.sroa.0.0.copyload.i, %557 ]
   %indvars.iv.i13 = phi i64 [ 1, %551 ], [ %indvars.iv.next.i15, %557 ]
   %.01518.i = phi double [ %sqrt.i.i.i, %551 ], [ %.sroa.speculated.i.i14, %557 ]
   %.01617.i = phi double [ %sqrt.i.i.i, %551 ], [ %.sroa.speculated8.i.i, %557 ]
-  %558 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %16, i64 0, i64 %indvars.iv.i13
-  %.sroa.0.0.copyload.i = load double, ptr %558, align 8, !tbaa !23
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %558, i64 8
+  %559 = getelementptr inbounds nuw [4 x %"struct.ZXing::PointT"], ptr %16, i64 0, i64 %indvars.iv.i13
+  %.sroa.0.0.copyload.i = load double, ptr %559, align 8, !tbaa !23
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %559, i64 8
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !23
-  %559 = fsub double %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
-  %560 = fsub double %.sroa.22.0.copyload.i, %.sroa.2.0.copyload.i
-  %561 = fmul double %560, %560
-  %562 = call noundef double @llvm.fmuladd.f64(double %559, double %559, double %561)
-  %sqrt.i.i11.i = call noundef double @llvm.sqrt.f64(double %562)
-  %563 = fcmp olt double %sqrt.i.i11.i, %.01617.i
-  %.sroa.speculated8.i.i = select i1 %563, double %sqrt.i.i11.i, double %.01617.i
-  %564 = fcmp olt double %.01518.i, %sqrt.i.i11.i
-  %.sroa.speculated.i.i14 = select i1 %564, double %sqrt.i.i11.i, double %.01518.i
+  %560 = fsub double %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
+  %561 = fsub double %.sroa.22.0.copyload.i, %.sroa.2.0.copyload.i
+  %562 = fmul double %561, %561
+  %563 = call noundef double @llvm.fmuladd.f64(double %560, double %560, double %562)
+  %sqrt.i.i11.i = call noundef double @llvm.sqrt.f64(double %563)
+  %564 = fcmp olt double %sqrt.i.i11.i, %.01617.i
+  %.sroa.speculated8.i.i = select i1 %564, double %sqrt.i.i11.i, double %.01617.i
+  %565 = fcmp olt double %.01518.i, %sqrt.i.i11.i
+  %.sroa.speculated.i.i14 = select i1 %565, double %sqrt.i.i11.i, double %.01518.i
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i15, 4
-  br i1 %exitcond.not.i, label %565, label %557, !llvm.loop !91
+  br i1 %exitcond.not.i, label %566, label %558, !llvm.loop !91
 
-565:                                              ; preds = %557
+566:                                              ; preds = %558
   %.neg = sext i1 %6 to i32
-  %566 = add i32 %5, %.neg
-  %567 = shl nsw i32 %566, 1
-  %568 = sitofp i32 %567 to double
-  %569 = fcmp oge double %.sroa.speculated8.i.i, %568
-  %570 = fdiv double %.sroa.speculated.i.i14, 3.000000e+00
-  %571 = fcmp ogt double %.sroa.speculated8.i.i, %570
-  %572 = select i1 %569, i1 %571, i1 false
-  br i1 %572, label %578, label %573
+  %567 = add i32 %5, %.neg
+  %568 = shl nsw i32 %567, 1
+  %569 = sitofp i32 %568 to double
+  %570 = fcmp oge double %.sroa.speculated8.i.i, %569
+  %571 = fdiv double %.sroa.speculated.i.i14, 3.000000e+00
+  %572 = fcmp ogt double %.sroa.speculated8.i.i, %571
+  %573 = select i1 %570, i1 %572, i1 false
+  br i1 %573, label %579, label %574
 
-573:                                              ; preds = %565, %550
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 0, ptr %574, align 8, !tbaa !44
-  br label %579
+574:                                              ; preds = %566, %550
+  %575 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i8 0, ptr %575, align 8, !tbaa !44
+  br label %580
 
 _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit: ; preds = %"_ZSt11max_elementIPN5ZXing6PointTIdEEZNS0_L23FitQadrilateralToPointsES2_RSt6vectorIS2_SaIS2_EEE3$_0ET_S9_S9_T0_.exit.i"
-  %575 = landingpad { ptr, i32 }
+  %576 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
-  %576 = ptrtoint ptr %.sroa.21.5.i to i64
-  %577 = sub i64 %576, %92
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.046.5.i, i64 noundef %577) #17
+  %577 = ptrtoint ptr %.sroa.21.5.i to i64
+  %578 = sub i64 %577, %92
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.046.5.i, i64 noundef %578) #17
   br label %common.resume
 
-578:                                              ; preds = %565
+579:                                              ; preds = %566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, i64 7, i1 false)
-  br label %579
-
-579:                                              ; preds = %578, %573
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   br label %580
 
-580:                                              ; preds = %579, %110
+580:                                              ; preds = %579, %574
+  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
+  br label %581
+
+581:                                              ; preds = %580, %110
   %.sroa.18.039 = phi ptr [ %.sroa.21.5.i, %579 ], [ %.sroa.18.040, %110 ]
   %.sroa.019.036 = phi ptr [ %.sroa.046.5.i, %579 ], [ %.sroa.019.037, %110 ]
   %.not.i.i.i17 = icmp eq ptr %.sroa.019.036, null
-  br i1 %.not.i.i.i17, label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit18, label %581
+  br i1 %.not.i.i.i17, label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit18, label %582
 
-581:                                              ; preds = %580
-  %582 = ptrtoint ptr %.sroa.18.039 to i64
-  %583 = ptrtoint ptr %.sroa.019.036 to i64
-  %584 = sub i64 %582, %583
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.036, i64 noundef %584) #17
+582:                                              ; preds = %581
+  %583 = ptrtoint ptr %.sroa.18.039 to i64
+  %584 = ptrtoint ptr %.sroa.019.036 to i64
+  %585 = sub i64 %583, %584
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.036, i64 noundef %585) #17
   br label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit18
 
-_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit18: ; preds = %580, %581
+_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EED2Ev.exit18: ; preds = %581, %582
   ret void
 }
 

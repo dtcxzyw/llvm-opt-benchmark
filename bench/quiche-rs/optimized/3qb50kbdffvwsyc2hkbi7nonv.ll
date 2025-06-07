@@ -4769,16 +4769,16 @@ define internal fastcc void @"_ZN6quiche19Connection$LT$F$GT$11recv_single17hc28
   %507 = invoke fastcc i64 @"_ZN6quiche19Connection$LT$F$GT$16set_initial_dcid17he4d8bdc9cb0981f1E"(ptr noalias noundef align 16 dereferenceable(15216) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %121, i128 noundef 0, i128 undef, i64 noundef %506)
           to label %._crit_edge1721 unwind label %498
 
-._crit_edge1721:                                  ; preds = %505
+._crit_edge1722:                                  ; preds = %505
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %121)
   %.not1026 = icmp eq i64 %507, 20
   br i1 %.not1026, label %509, label %508
 
-508:                                              ; preds = %._crit_edge1721
+508:                                              ; preds = %._crit_edge1722
   store i64 %507, ptr %0, align 8
   br label %413
 
-509:                                              ; preds = %._crit_edge1721
+509:                                              ; preds = %._crit_edge1722
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %120)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %119)
   invoke fastcc void @"_ZN6quiche19Connection$LT$F$GT$14destination_id17hbcbdaf3c6b419895E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %119, ptr noalias noundef readonly align 16 dereferenceable(15216) %1)
@@ -6427,16 +6427,16 @@ select.unfold:                                    ; preds = %721, %718
   %1127 = invoke fastcc i64 @"_ZN6quiche19Connection$LT$F$GT$16set_initial_dcid17he4d8bdc9cb0981f1E"(ptr noalias noundef align 16 dereferenceable(15216) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %69, i128 noundef %1124, i128 %1126, i64 noundef %.sroa.0520.0)
           to label %._crit_edge1722 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge1722:                                  ; preds = %1123
+._crit_edge1723:                                  ; preds = %1123
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
   %.not906 = icmp eq i64 %1127, 20
   br i1 %.not906, label %.sink.split, label %1128
 
-1128:                                             ; preds = %._crit_edge1722
+1128:                                             ; preds = %._crit_edge1723
   store i64 %1127, ptr %0, align 8
   br label %941
 
-.sink.split:                                      ; preds = %._crit_edge1722, %1140, %1155
+.sink.split:                                      ; preds = %._crit_edge1723, %1140, %1155
   store i8 1, ptr %938, align 1
   br label %1129
 
@@ -6467,16 +6467,16 @@ select.unfold:                                    ; preds = %721, %718
   %1138 = invoke fastcc i64 @"_ZN6quiche19Connection$LT$F$GT$16set_initial_dcid17he4d8bdc9cb0981f1E"(ptr noalias noundef align 16 dereferenceable(15216) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %68, i128 noundef 0, i128 undef, i64 noundef %.sroa.0520.0)
           to label %._crit_edge1724 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-._crit_edge1724:                                  ; preds = %1137
+._crit_edge1725:                                  ; preds = %1137
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   %.not910 = icmp eq i64 %1138, 20
   br i1 %.not910, label %1140, label %1139
 
-1139:                                             ; preds = %._crit_edge1724
+1139:                                             ; preds = %._crit_edge1725
   store i64 %1138, ptr %0, align 8
   br label %941
 
-1140:                                             ; preds = %._crit_edge1724
+1140:                                             ; preds = %._crit_edge1725
   %1141 = getelementptr inbounds nuw i8, ptr %1, i64 15192
   %1142 = load i8, ptr %1141, align 8, !range !76, !noundef !4
   %1143 = trunc nuw i8 %1142 to i1
@@ -7059,7 +7059,7 @@ select.unfold:                                    ; preds = %721, %718
   store i8 1, ptr %1328, align 16
   br label %1287
 
-1342:                                             ; preds = %.backedge1783, %1287
+1342:                                             ; preds = %.backedge1784, %1287
   %.sroa.0411.0 = phi i1 [ false, %1287 ], [ %.sroa.0411.1.ph.lcssa, %.backedge1783 ]
   %1343 = invoke { i64, ptr } @"_ZN81_$LT$slab..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d08d9df593577aeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %47)
           to label %1344 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -7094,7 +7094,7 @@ select.unfold:                                    ; preds = %721, %718
   %1356 = getelementptr inbounds nuw i8, ptr %1, i64 14713
   br label %1357
 
-1357:                                             ; preds = %.backedge1780, %1350
+1357:                                             ; preds = %.backedge1781, %1350
   %1358 = invoke { i64, ptr } @"_ZN81_$LT$slab..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d08d9df593577aeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
           to label %.noexc1146 unwind label %.loopexit
 
@@ -7107,9 +7107,9 @@ select.unfold:                                    ; preds = %721, %718
   %1361 = getelementptr inbounds nuw i8, ptr %1359, i64 16
   %1362 = load i64, ptr %1361, align 8, !range !42, !alias.scope !302, !noundef !4
   %.not.i.i.i.not.i = icmp eq i64 %1362, 0
-  br i1 %.not.i.i.i.not.i, label %1363, label %.backedge1780
+  br i1 %.not.i.i.i.not.i, label %1363, label %.backedge1781
 
-.backedge1780:                                    ; preds = %1360, %.backedge
+.backedge1781:                                    ; preds = %1360, %.backedge
   br label %1357
 
 1363:                                             ; preds = %1360
@@ -7135,7 +7135,7 @@ select.unfold:                                    ; preds = %721, %718
   store i64 1, ptr %1364, align 8
   %1370 = getelementptr inbounds nuw i8, ptr %1359, i64 24
   store i64 %.sink1712, ptr %1370, align 8
-  br label %.backedge1780
+  br label %.backedge1781
 
 1371:                                             ; preds = %1369
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
@@ -7582,7 +7582,7 @@ select.unfold:                                    ; preds = %721, %718
 
 1559:                                             ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h704ccdfc7ec869a8E.exit.thread"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
-  br i1 %.sroa.0411.1.ph.lcssa, label %1560, label %.backedge1783
+  br i1 %.sroa.0411.1.ph.lcssa, label %1560, label %.backedge1784
 
 1560:                                             ; preds = %1559
   %1561 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h006982150ee466c6E monotonic, align 8
@@ -7644,8 +7644,8 @@ select.unfold:                                    ; preds = %721, %718
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
   %1576 = load i64, ptr %1130, align 16, !range !278
   %.not988 = icmp ne i64 %1576, 3
-  %or.cond1715.not = select i1 %1574, i1 %.not988, i1 false
-  br i1 %or.cond1715.not, label %1580, label %1577
+  %or.cond1716.not = select i1 %1574, i1 %.not988, i1 false
+  br i1 %or.cond1716.not, label %1580, label %1577
 
 1577:                                             ; preds = %1575, %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17hff7244c42f331fe0E.exit1152"
   %1578 = getelementptr inbounds nuw i8, ptr %1345, i64 2496
@@ -7710,14 +7710,14 @@ select.unfold:                                    ; preds = %721, %718
   invoke void @"_ZN100_$LT$quiche..recovery..gcongestion..recovery..GRecovery$u20$as$u20$quiche..recovery..RecoveryOps$GT$30pmtud_update_max_datagram_size17hed685cf55c11a0beE"(ptr noalias noundef nonnull align 8 dereferenceable(1952) %1603, i64 noundef %1579)
           to label %.backedge1783 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.backedge1783:                                    ; preds = %1602, %1604, %1559
+.backedge1784:                                    ; preds = %1602, %1604, %1559
   br label %1342
 
 1604:                                             ; preds = %1599
   invoke void @"_ZN104_$LT$quiche..recovery..congestion..recovery..LegacyRecovery$u20$as$u20$quiche..recovery..RecoveryOps$GT$30pmtud_update_max_datagram_size17hfac1ac3a3662395bE"(ptr noalias noundef nonnull align 8 dereferenceable(2320) %1347, i64 noundef %1579)
           to label %.backedge1783 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.loopexit1500:                                    ; preds = %1554, %.invoke1716, %1740, %1737, %1710, %1705, %1702, %1641, %1650, %1630, %1613
+.loopexit1500:                                    ; preds = %1554, %.invoke1717, %1740, %1737, %1710, %1705, %1702, %1641, %1650, %1630, %1613
   %.sroa.0411.2 = phi i1 [ true, %1650 ], [ true, %1641 ], [ %.sroa.0411.1.ph1582, %1613 ], [ %.sroa.0411.1.ph1582, %1705 ], [ %.sroa.0411.1.ph1582, %1702 ], [ %.sroa.0411.1.ph1582, %1710 ], [ %.sroa.0411.1.ph1582, %1740 ], [ %.sroa.0411.1.ph1582, %1737 ], [ %.sroa.0411.1.ph1582, %1630 ], [ %.sroa.0411.1.ph1582, %.invoke1716 ], [ %.sroa.0411.1.ph1582, %1554 ]
   %1605 = load i64, ptr %44, align 8, !range !22, !noundef !4
   %1606 = add nsw i64 %1605, -2
@@ -7792,7 +7792,7 @@ select.unfold:                                    ; preds = %721, %718
           cleanup
   br label %1634
 
-.loopexit.split-lp1502:                           ; preds = %.invoke1716, %1621, %1631, %1639, %1640, %1645, %1647, %1649, %1659, %1694, %1703, %1710, %1713, %1721, %1725, %1729, %1731, %1738, %1736
+.loopexit.split-lp1502:                           ; preds = %.invoke1717, %1621, %1631, %1639, %1640, %1645, %1647, %1649, %1659, %1694, %1703, %1710, %1713, %1721, %1725, %1729, %1731, %1738, %1736
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %1634
@@ -8025,9 +8025,9 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %1671, %.no
           to label %1705 unwind label %.loopexit.split-lp1502
 
 1705:                                             ; preds = %1703
-  br i1 %1704, label %.loopexit1500, label %.invoke1716
+  br i1 %1704, label %.loopexit1500, label %.invoke1717
 
-.invoke1716:                                      ; preds = %1705, %1740
+.invoke1717:                                      ; preds = %1705, %1740
   %.lcssa1662.sink = phi ptr [ %1629, %1740 ], [ %1620, %1705 ]
   %1706 = phi i64 [ %1626, %1740 ], [ %1619, %1705 ]
   %1707 = getelementptr inbounds nuw i8, ptr %.lcssa1662.sink, i64 369
@@ -8082,8 +8082,8 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %1671, %.no
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37)
   %1728 = load i64, ptr %1130, align 16, !range !278
   %.not996 = icmp ne i64 %1728, 3
-  %or.cond1720.not = select i1 %1726, i1 %.not996, i1 false
-  br i1 %or.cond1720.not, label %1731, label %1729
+  %or.cond1721.not = select i1 %1726, i1 %.not996, i1 false
+  br i1 %or.cond1721.not, label %1731, label %1729
 
 1729:                                             ; preds = %1727, %"_ZN4core3ptr71drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$qlog..Error$GT$$GT$17hff7244c42f331fe0E.exit1156"
   %1730 = invoke noundef zeroext i1 @"_ZN6quiche6stream15Stream$LT$F$GT$11is_complete17hc9b93d6ef18c13d0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(368) %1714)
@@ -8128,7 +8128,7 @@ _ZN6quiche6ranges8RangeSet5fixup17he0ee683f30d10b21E.exit: ; preds = %1671, %.no
           to label %1740 unwind label %.loopexit.split-lp1502
 
 1740:                                             ; preds = %1738
-  br i1 %1739, label %.loopexit1500, label %.invoke1716
+  br i1 %1739, label %.loopexit1500, label %.invoke1717
 
 1741:                                             ; preds = %1634
   invoke fastcc void @"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E"(ptr noalias noundef align 8 dereferenceable(128) %44) #19

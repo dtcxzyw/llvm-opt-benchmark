@@ -164,24 +164,24 @@ lv_theme_simple_is_inited.exit.i.i:               ; preds = %lv_theme_simple_is_
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr @lv_font_montserrat_14, ptr %18, align 8, !tbaa !26
   store ptr @theme_apply, ptr %13, align 8, !tbaa !27
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 168
   br i1 %14, label %21, label %lv_theme_simple_is_inited.exit.thread.i.i
 
 21:                                               ; preds = %lv_theme_simple_is_inited.exit.i.i.thread, %lv_theme_simple_is_inited.exit.i.i
-  %22 = phi ptr [ %12, %lv_theme_simple_is_inited.exit.i.i.thread ], [ %20, %lv_theme_simple_is_inited.exit.i.i ]
-  %23 = phi ptr [ %11, %lv_theme_simple_is_inited.exit.i.i.thread ], [ %19, %lv_theme_simple_is_inited.exit.i.i ]
+  %22 = phi ptr [ %12, %lv_theme_simple_is_inited.exit.i.i.thread ], [ %19, %lv_theme_simple_is_inited.exit.i.i ]
+  %23 = phi ptr [ %11, %lv_theme_simple_is_inited.exit.i.i.thread ], [ %18, %lv_theme_simple_is_inited.exit.i.i ]
   %24 = phi ptr [ %2, %lv_theme_simple_is_inited.exit.i.i.thread ], [ %13, %lv_theme_simple_is_inited.exit.i.i ]
   tail call void @lv_style_reset(ptr noundef nonnull %22) #3
   br label %style_init_reset.exit.i
 
 lv_theme_simple_is_inited.exit.thread.i.i:        ; preds = %lv_theme_simple_is_inited.exit.i.i
-  tail call void @lv_style_init(ptr noundef nonnull %20) #3
+  tail call void @lv_style_init(ptr noundef nonnull %19) #3
   br label %style_init_reset.exit.i
 
 style_init_reset.exit.i:                          ; preds = %lv_theme_simple_is_inited.exit.thread.i.i, %21
-  %25 = phi ptr [ %20, %lv_theme_simple_is_inited.exit.thread.i.i ], [ %22, %21 ]
-  %26 = phi ptr [ %19, %lv_theme_simple_is_inited.exit.thread.i.i ], [ %23, %21 ]
+  %25 = phi ptr [ %19, %lv_theme_simple_is_inited.exit.thread.i.i ], [ %22, %21 ]
+  %26 = phi ptr [ %18, %lv_theme_simple_is_inited.exit.thread.i.i ], [ %23, %21 ]
   %27 = phi ptr [ %13, %lv_theme_simple_is_inited.exit.thread.i.i ], [ %24, %21 ]
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %25, i8 noundef zeroext -1) #3
   %28 = tail call i24 @lv_palette_main(i32 noundef 18) #3

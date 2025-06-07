@@ -1737,11 +1737,11 @@ FlushPendingEvents.exit:                          ; preds = %43
     i32 0, label %.thread32
   ]
 
-57:                                               ; preds = %FlushPendingEvents.exit
+.thread.thread:                                   ; preds = %FlushPendingEvents.exit
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.thread, label %61
+  br i1 %.not, label %58, label %61
 
-.thread:                                          ; preds = %55, %57
+58:                                               ; preds = %55, %57
   %58 = phi ptr [ null, %57 ], [ %10, %55 ]
   %59 = phi i8 [ 0, %57 ], [ 1, %55 ]
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 401
@@ -1749,24 +1749,24 @@ FlushPendingEvents.exit:                          ; preds = %43
   tail call fastcc void @SetFullscreen(ptr noundef nonnull %1, ptr noundef %58)
   br label %.thread32
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 364
-  %63 = load i32, ptr %62, align 4
-  %64 = load i32, ptr %2, align 8
-  %.not30 = icmp eq i32 %63, %64
-  br i1 %.not30, label %67, label %65
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 364
+  %67 = load i32, ptr %66, align 4
+  %68 = load i32, ptr %2, align 8
+  %.not30 = icmp eq i32 %67, %68
+  br i1 %.not30, label %71, label %69
 
-65:                                               ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 401
-  store i8 1, ptr %66, align 1
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 401
+  store i8 1, ptr %70, align 1
   tail call fastcc void @SetFullscreen(ptr noundef nonnull %1, ptr noundef %10)
   br label %.thread32
 
-67:                                               ; preds = %61
-  %68 = tail call fastcc zeroext i1 @ConfigureWindowGeometry(ptr noundef nonnull %1)
+71:                                               ; preds = %65
+  %72 = tail call fastcc zeroext i1 @ConfigureWindowGeometry(ptr noundef nonnull %1)
   br label %.thread32
 
-.thread32:                                        ; preds = %55, %55, %.thread, %65, %30, %14, %4, %67
+.thread32:                                        ; preds = %55, %55, %58, %69, %30, %14, %4, %71
   %.0 = phi i32 [ 1, %67 ], [ 0, %4 ], [ 1, %14 ], [ 1, %30 ], [ %.mux, %55 ], [ 2, %65 ], [ 2, %.thread ], [ %.mux, %55 ]
   ret i32 %.0
 }

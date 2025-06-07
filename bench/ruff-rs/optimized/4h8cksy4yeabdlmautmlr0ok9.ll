@@ -373,7 +373,7 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %37 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h176642a344ae572eE(ptr noundef nonnull align 8 %36, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b54e1adda139e12E.exit"
 
-38:                                               ; preds = %3
+"_ZN4core6option15Option$LT$T$GT$7or_else17h2b54e1adda139e12E.exit": ; preds = %3
   %39 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h2b54e1adda139e12E.exit"
 

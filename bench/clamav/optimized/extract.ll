@@ -3506,13 +3506,13 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtrDllGetPasswordEv(ptr noundef non
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 100872
   %7 = load i8, ptr %6, align 8, !tbaa !119, !range !67, !noundef !68
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %38, label %9
+  br i1 %8, label %37, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 83440
   %11 = load ptr, ptr %10, align 8, !tbaa !223
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.thread2, label %12
+  br i1 %.not, label %.thread3, label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %2) #24
@@ -3567,13 +3567,13 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtrDllGetPasswordEv(ptr noundef non
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %2) #24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 100872
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !119, !range !67
-  %37 = trunc nuw i8 %.pre to i1
-  br i1 %37, label %38, label %.thread2
+  %.pre2 = trunc nuw i8 %.pre to i1
+  br i1 %.pre2, label %37, label %.thread3
 
-38:                                               ; preds = %32, %1
-  br label %.thread2
+37:                                               ; preds = %32, %1
+  br label %.thread3
 
-.thread2:                                         ; preds = %9, %32, %38
+.thread3:                                         ; preds = %9, %32, %37
   %.0 = phi i1 [ true, %38 ], [ false, %32 ], [ false, %9 ]
   ret i1 %.0
 }

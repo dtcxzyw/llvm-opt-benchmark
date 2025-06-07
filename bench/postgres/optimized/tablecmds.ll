@@ -13513,7 +13513,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   br label %ATExecAddIndexConstraint.exit
 
 ATExecAddIndexConstraint.exit:                    ; preds = %1001, %1005
-  %1006 = phi i8 [ %.pre.i210, %1005 ], [ 0, %1001 ]
+  %.pre-phi.i = phi i8 [ %.pre.i210, %1005 ], [ 0, %1001 ]
   %1007 = trunc nuw i8 %1006 to i1
   %..i = select i1 %1007, i8 112, i8 117
   %1008 = getelementptr inbounds nuw i8, ptr %965, i64 110
