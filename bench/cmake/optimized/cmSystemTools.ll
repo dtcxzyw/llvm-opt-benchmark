@@ -4894,8 +4894,8 @@ define internal fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorI
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %7, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !63, !noalias !179
   store ptr %25, ptr %27, align 8, !noalias !179
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !26, !noalias !179
+  %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i64 0, ptr %.sroa.434.0..sroa_idx, align 8, !noalias !179
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN13cmSystemTools16RunSingleCommandERKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EESaIS9_EEPS9_SE_PiPKcNS4_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSE_RS2_iPFvRKS9_ERbEUlS2_E_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation", ptr %28, align 8, !tbaa !63, !noalias !179
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -4915,8 +4915,8 @@ define internal fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorI
   %.sroa.932.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %7, ptr %.sroa.932.0..sroa_idx, align 16, !tbaa !63, !noalias !179
   store ptr %30, ptr %32, align 8, !noalias !179
-  %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store i64 0, ptr %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx, align 8, !tbaa !26, !noalias !179
+  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 64
+  store i64 0, ptr %.sroa.437.0..sroa_idx, align 8, !noalias !179
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_SD_PiPKcNS1_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSD_RS2_IcS7_EiPFvRKS8_ERbEUlvE_E10_M_managerERSt9_Any_dataRKS12_St18_Manager_operation", ptr %33, align 8, !tbaa !63, !noalias !179
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 80
@@ -18265,16 +18265,16 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.ex
   store ptr %124, ptr %11, align 8, !tbaa !149, !alias.scope !498
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i64 %27, ptr %125, align 8, !noalias !499
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %124, i64 32
-  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i, align 8, !tbaa !26, !noalias !499
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %124, i64 32
+  store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !499
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS8_RNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EENSt6chrono8durationIdSt5ratioILl1ELl1EEEERS2_SK_ENK3$_0clES8_RZNS4_11WaitForLineES6_S8_S8_SE_SJ_SK_SK_E8ReadDataEUlS2_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %126, align 8, !tbaa !63, !noalias !499
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 48
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS8_RNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EENSt6chrono8durationIdSt5ratioILl1ELl1EEEERS2_SK_ENK3$_0clES8_RZNS4_11WaitForLineES6_S8_S8_SE_SJ_SK_SK_E8ReadDataEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_", ptr %127, align 8, !tbaa !63, !noalias !499
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 56
   store i64 %27, ptr %128, align 8, !noalias !499
-  %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %124, i64 64
-  store i64 0, ptr %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx.i, align 8, !tbaa !26, !noalias !499
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %124, i64 64
+  store i64 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !499
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS5_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSt6chrono8durationIdSt5ratioILl1ELl1EEEERSt6vectorIcSA_ESK_ENK3$_0clES5_RZNS1_11WaitForLineES3_S5_S5_SC_SH_SK_SK_E8ReadDataEUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %129, align 8, !tbaa !63, !noalias !499
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 80
@@ -18305,16 +18305,16 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.ex
   store ptr %134, ptr %13, align 8, !tbaa !149, !alias.scope !509
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i64 %29, ptr %135, align 8, !noalias !510
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i129 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx.i129, align 8, !tbaa !26, !noalias !510
+  %.sroa.4.0..sroa_idx.i129 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  store i64 0, ptr %.sroa.4.0..sroa_idx.i129, align 8, !noalias !510
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS8_RNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EENSt6chrono8durationIdSt5ratioILl1ELl1EEEERS2_SK_ENK3$_0clES8_RZNS4_11WaitForLineES6_S8_S8_SE_SJ_SK_SK_E8ReadDataEUlS2_E_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %136, align 8, !tbaa !63, !noalias !510
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 48
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS8_RNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EENSt6chrono8durationIdSt5ratioILl1ELl1EEEERS2_SK_ENK3$_0clES8_RZNS4_11WaitForLineES6_S8_S8_SE_SJ_SK_SK_E8ReadDataEUlS2_E_E9_M_invokeERKSt9_Any_dataOS2_", ptr %137, align 8, !tbaa !63, !noalias !510
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store i64 %29, ptr %138, align 8, !noalias !510
-  %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx.i130 = getelementptr inbounds nuw i8, ptr %134, i64 64
-  store i64 0, ptr %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx.i130, align 8, !tbaa !26, !noalias !510
+  %.sroa.42.0..sroa_idx.i130 = getelementptr inbounds nuw i8, ptr %134, i64 64
+  store i64 0, ptr %.sroa.42.0..sroa_idx.i130, align 8, !noalias !510
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS5_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSt6chrono8durationIdSt5ratioILl1ELl1EEEERSt6vectorIcSA_ESK_ENK3$_0clES5_RZNS1_11WaitForLineES3_S5_S5_SC_SH_SK_SK_E8ReadDataEUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %139, align 8, !tbaa !63, !noalias !510
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 80

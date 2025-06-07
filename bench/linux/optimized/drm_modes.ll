@@ -1243,15 +1243,11 @@ define dso_local void @drm_mode_get_hv_timing(ptr noundef readonly captures(none
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @drm_mode_init(ptr noundef captures(none) initializes((0, 120)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
-  %3 = alloca %struct.list_head, align 8
+define dso_local void @drm_mode_init(ptr noundef writeonly captures(none) initializes((0, 120)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(120) %0, ptr noundef align 8 dereferenceable(120) %1, i64 120, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
 }
 

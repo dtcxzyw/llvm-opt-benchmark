@@ -6044,7 +6044,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(164) ptr @_ZN
 
 ._crit_edge:                                      ; preds = %2
   %.pre = load i32, ptr %10, align 4, !tbaa !66
-  br label %51
+  br label %49
 
 _ZSt9make_pairIRKPN4llvm7PHINodeENS0_20RecurrenceDescriptorEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5) #20
@@ -6074,82 +6074,79 @@ _ZSt9make_pairIRKPN4llvm7PHINodeENS0_20RecurrenceDescriptorEESt4pairINSt25__stri
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(34) %29, i64 34, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjS3_OS0_(ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull %31, i32 noundef 8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(88) %16) #20
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 168
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %34 = load i32, ptr %33, align 8, !tbaa !412, !noalias !470
-  store i32 %34, ptr %32, align 8, !tbaa !412, !alias.scope !470
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %24, i8 0, i64 50, i1 false)
+  call void @_ZN4llvm19SmallPtrSetImplBaseC2EPPKvjS3_OS0_(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull %29, i32 noundef 8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(88) %16) #20
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %32 = load i32, ptr %31, align 8, !tbaa !412, !noalias !470
+  store i32 %32, ptr %30, align 8, !tbaa !412, !alias.scope !470
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_7PHINodeENS_20RecurrenceDescriptorEELb0EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(176) %5)
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  %36 = load i8, ptr %35, align 4, !tbaa !32, !range !48, !noundef !49
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, label %38
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 100
+  %34 = load i8, ptr %33, align 4, !tbaa !32, !range !48, !noundef !49
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, label %36
 
-38:                                               ; preds = %_ZSt9make_pairIRKPN4llvm7PHINodeENS0_20RecurrenceDescriptorEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
-  %39 = load ptr, ptr %30, align 8, !tbaa !28
-  call void @free(ptr noundef %39) #20
+36:                                               ; preds = %_ZSt9make_pairIRKPN4llvm7PHINodeENS0_20RecurrenceDescriptorEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
+  %37 = load ptr, ptr %28, align 8, !tbaa !28
+  call void @free(ptr noundef %37) #20
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i:       ; preds = %38, %_ZSt9make_pairIRKPN4llvm7PHINodeENS0_20RecurrenceDescriptorEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
-  %40 = load ptr, ptr %25, align 8, !tbaa !346
-  %magicptr.i.i.i.i = ptrtoint ptr %40 to i64
-  switch i64 %magicptr.i.i.i.i, label %41 [
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i:       ; preds = %36, %_ZSt9make_pairIRKPN4llvm7PHINodeENS0_20RecurrenceDescriptorEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit
+  %38 = load ptr, ptr %25, align 8, !tbaa !346
+  %magicptr.i.i.i.i = ptrtoint ptr %38 to i64
+  switch i64 %magicptr.i.i.i.i, label %39 [
     i64 0, label %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
     i64 -4096, label %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
     i64 -8192, label %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
   ]
 
-41:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i
+39:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #20
   br label %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
 
-_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, %41
-  %42 = load i8, ptr %20, align 4, !tbaa !32, !range !48, !noundef !49
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %44
+_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit: ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i.i, %39
+  %40 = load i8, ptr %20, align 4, !tbaa !32, !range !48, !noundef !49
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, label %42
 
-44:                                               ; preds = %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
-  %45 = load ptr, ptr %16, align 8, !tbaa !28
-  call void @free(ptr noundef %45) #20
+42:                                               ; preds = %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
+  %43 = load ptr, ptr %16, align 8, !tbaa !28
+  call void @free(ptr noundef %43) #20
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %44, %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
-  %46 = load ptr, ptr %26, align 8, !tbaa !346
-  %magicptr.i.i.i = ptrtoint ptr %46 to i64
-  switch i64 %magicptr.i.i.i, label %47 [
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i:         ; preds = %42, %_ZNSt4pairIPN4llvm7PHINodeENS0_20RecurrenceDescriptorEED2Ev.exit
+  %44 = load ptr, ptr %26, align 8, !tbaa !346
+  %magicptr.i.i.i = ptrtoint ptr %44 to i64
+  switch i64 %magicptr.i.i.i, label %45 [
     i64 0, label %_ZN4llvm20RecurrenceDescriptorD2Ev.exit
     i64 -4096, label %_ZN4llvm20RecurrenceDescriptorD2Ev.exit
     i64 -8192, label %_ZN4llvm20RecurrenceDescriptorD2Ev.exit
   ]
 
-47:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
+45:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #20
   br label %_ZN4llvm20RecurrenceDescriptorD2Ev.exit
 
-_ZN4llvm20RecurrenceDescriptorD2Ev.exit:          ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %47
+_ZN4llvm20RecurrenceDescriptorD2Ev.exit:          ; preds = %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit.i, %45
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #20
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load i32, ptr %48, align 8, !tbaa !26
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %10, align 4, !tbaa !66
-  br label %51
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = load i32, ptr %46, align 8, !tbaa !26
+  %48 = add i32 %47, -1
+  store i32 %48, ptr %10, align 4, !tbaa !66
+  br label %49
 
-51:                                               ; preds = %._crit_edge, %_ZN4llvm20RecurrenceDescriptorD2Ev.exit
-  %52 = phi i32 [ %.pre, %._crit_edge ], [ %50, %_ZN4llvm20RecurrenceDescriptorD2Ev.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %54 = zext i32 %52 to i64
-  %55 = load ptr, ptr %53, align 8, !tbaa !25
-  %56 = getelementptr inbounds nuw %"struct.std::pair.423", ptr %55, i64 %54, i32 1
+49:                                               ; preds = %._crit_edge, %_ZN4llvm20RecurrenceDescriptorD2Ev.exit
+  %50 = phi i32 [ %.pre, %._crit_edge ], [ %48, %_ZN4llvm20RecurrenceDescriptorD2Ev.exit ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = zext i32 %50 to i64
+  %53 = load ptr, ptr %51, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw %"struct.std::pair.423", ptr %53, i64 %52, i32 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
-  ret ptr %56
+  ret ptr %54
 }
 
 declare noundef zeroext i1 @_ZN4llvm19InductionDescriptor14isInductionPHIEPNS_7PHINodeEPKNS_4LoopERNS_25PredicatedScalarEvolutionERS0_b(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(80), i1 noundef zeroext) local_unnamed_addr #5

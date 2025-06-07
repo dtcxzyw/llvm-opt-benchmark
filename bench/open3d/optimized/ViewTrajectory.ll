@@ -8854,94 +8854,77 @@ define void @_ZN6open3d13visualization14ViewTrajectory20GetInterpolatedFrameEm(p
 _ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit: ; preds = %24, %26
   %.0.i = phi i64 [ %25, %24 ], [ %29, %26 ]
   %.not = icmp ult i64 %2, %.0.i
-  br i1 %.not, label %42, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
+  br i1 %.not, label %31, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
 
 _ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread: ; preds = %3, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %0, align 8, !tbaa !4, !alias.scope !322
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !tbaa.struct !325
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !tbaa.struct !325
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !tbaa.struct !325
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false), !tbaa.struct !325
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !325
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i8 0, ptr %41, align 8, !tbaa !326, !alias.scope !322
-  br label %77
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(137) %30, i8 0, i64 137, i1 false)
+  br label %66
 
-42:                                               ; preds = %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
-  %43 = udiv i64 %2, %19
-  %44 = mul i64 %43, %19
+31:                                               ; preds = %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
+  %32 = udiv i64 %2, %19
+  %33 = mul i64 %32, %19
   %.recomposed = urem i64 %2, %19
-  %45 = uitofp i64 %.recomposed to double
-  %46 = sitofp i32 %18 to double
-  %47 = fdiv double %45, %46
-  %48 = fmul double %47, %47
-  %49 = fmul double %47, %48
-  %.sroa.0.8.vec.insert = insertelement <2 x double> <double 1.000000e+00, double poison>, double %47, i64 1
-  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %48, i64 0
-  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %49, i64 1
+  %34 = uitofp i64 %.recomposed to double
+  %35 = sitofp i32 %18 to double
+  %36 = fdiv double %34, %35
+  %37 = fmul double %36, %36
+  %38 = fmul double %36, %37
+  %.sroa.0.8.vec.insert = insertelement <2 x double> <double 1.000000e+00, double poison>, double %36, i64 1
+  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %37, i64 0
+  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %38, i64 1
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #28
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !7
-  %52 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %51, i64 %43
-  br label %53
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %40 = load ptr, ptr %39, align 8, !tbaa !7
+  %41 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %40, i64 %32
+  br label %42
 
-53:                                               ; preds = %53, %42
-  %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %42 ], [ %64, %53 ]
-  %54 = getelementptr inbounds nuw double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i.i
+42:                                               ; preds = %42, %31
+  %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %31 ], [ %53, %42 ]
+  %43 = getelementptr inbounds nuw double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 5
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %56 = load <2 x double>, ptr %55, align 16, !tbaa !40
-  %57 = fmul <2 x double> %56, %.sroa.0.8.vec.insert
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %59 = load <2 x double>, ptr %58, align 16, !tbaa !40
-  %60 = fmul <2 x double> %59, %.sroa.5.24.vec.insert
-  %61 = fadd <2 x double> %57, %60
-  %shift = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %62 = fadd <2 x double> %61, %shift
-  %63 = extractelement <2 x double> %62, i64 0
-  store double %63, ptr %54, align 8, !tbaa !41
-  %64 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %64, 17
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, label %53, !llvm.loop !328
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %45 = load <2 x double>, ptr %44, align 16, !tbaa !40
+  %46 = fmul <2 x double> %45, %.sroa.0.8.vec.insert
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %48 = load <2 x double>, ptr %47, align 16, !tbaa !40
+  %49 = fmul <2 x double> %48, %.sroa.5.24.vec.insert
+  %50 = fadd <2 x double> %46, %49
+  %shift = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %51 = fadd <2 x double> %50, %shift
+  %52 = extractelement <2 x double> %51, i64 0
+  store double %52, ptr %43, align 8, !tbaa !41
+  %53 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %53, 17
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, label %42, !llvm.loop !325
 
-_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %53
+_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %42
   call void @_ZN6open3d13visualization14ViewParameters20ConvertFromVector17dERKN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(136) %5)
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %0, align 8, !tbaa !4, !alias.scope !329
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false), !tbaa.struct !325
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false), !tbaa.struct !325
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false), !tbaa.struct !325
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false), !tbaa.struct !325
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !325
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i8 1, ptr %76, align 8, !tbaa !326, !alias.scope !329
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %0, align 8, !tbaa !4, !alias.scope !326
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false), !tbaa.struct !329
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false), !tbaa.struct !329
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false), !tbaa.struct !329
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !tbaa.struct !329
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false), !tbaa.struct !329
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i8 1, ptr %65, align 8, !tbaa !330, !alias.scope !326
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #28
-  br label %77
+  br label %66
 
-77:                                               ; preds = %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
+66:                                               ; preds = %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #28
   ret void
 }
@@ -9194,19 +9177,19 @@ _ZSt27__uninitialized_default_n_aIPN6open3d13visualization14ViewParametersEmS2_E
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !tbaa.struct !325
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !tbaa.struct !329
   %37 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 48
   %38 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false), !tbaa.struct !325
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false), !tbaa.struct !329
   %39 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 72
   %40 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !325
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !329
   %41 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 96
   %42 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !325
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !329
   %43 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 120
   %44 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 120
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !tbaa.struct !325
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false), !tbaa.struct !329
   %45 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 144
   %46 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 144
   %.not.i.i.i.i.i = icmp eq ptr %45, %5
@@ -9646,13 +9629,13 @@ attributes #32 = { builtin allocsize(0) }
 !322 = !{!323}
 !323 = distinct !{!323, !324, !"_ZSt10make_tupleIJbRN6open3d13visualization14ViewParametersEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
 !324 = distinct !{!324, !"_ZSt10make_tupleIJbRN6open3d13visualization14ViewParametersEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
-!325 = !{i64 0, i64 24, !40}
-!326 = !{!327, !26, i64 0}
-!327 = !{!"_ZTSSt10_Head_baseILm0EbLb0EE", !26, i64 0}
-!328 = distinct !{!328, !17}
-!329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZSt10make_tupleIJbRN6open3d13visualization14ViewParametersEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
-!331 = distinct !{!331, !"_ZSt10make_tupleIJbRN6open3d13visualization14ViewParametersEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
+!325 = distinct !{!325, !17}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZSt10make_tupleIJbRN6open3d13visualization14ViewParametersEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_: argument 0"}
+!328 = distinct !{!328, !"_ZSt10make_tupleIJbRN6open3d13visualization14ViewParametersEEESt5tupleIJDpNSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeEEEDpOS7_"}
+!329 = !{i64 0, i64 24, !40}
+!330 = !{!331, !26, i64 0}
+!331 = !{!"_ZTSSt10_Head_baseILm0EbLb0EE", !26, i64 0}
 !332 = !{!36, !37, i64 0}
 !333 = distinct !{!333, !17}
 !334 = distinct !{!334, !17}

@@ -3550,7 +3550,6 @@ define void @"_ZN84_$LT$ui..components..button..button..Button$u20$as$u20$gpui..
   %14 = alloca [24 x i8], align 8
   %.sroa.0135 = alloca [728 x i8], align 8
   %.sroa.8146.sroa.0 = alloca [56 x i8], align 8
-  %.sroa.10154 = alloca [3 x i8], align 1
   %.sroa.12161 = alloca [31 x i8], align 1
   %.sroa.0104.sroa.0 = alloca [728 x i8], align 8
   %.sroa.0104.sroa.9.sroa.0 = alloca [56 x i8], align 8
@@ -3973,8 +3972,6 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit54: ; preds = %.noexc
   %.sroa.7141.0.copyload = load float, ptr %.sroa.7141.0..sroa_idx, align 4, !noalias !610
   %.sroa.8146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 736
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8146.sroa.0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8146.0..sroa_idx, i64 56, i1 false)
-  %.sroa.10154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 813
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10154, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10154.0..sroa_idx, i64 3, i1 false)
   %.sroa.12161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 817
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12161, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12161.0..sroa_idx, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 824, ptr nonnull %7), !noalias !613
@@ -3992,7 +3989,7 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit54: ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %.sroa.0104.sroa.0, ptr noundef nonnull align 8 dereferenceable(728) %.sroa.0135, i64 728, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0104.sroa.9.sroa.0, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.8146.sroa.0, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0104.sroa.9.sroa.7, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.6176, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6110.sroa.0, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.10154, i64 3, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6110.sroa.0, i8 0, i64 3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.6110.sroa.7.sroa.0, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.12161, i64 31, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %15, ptr noundef nonnull align 8 dereferenceable(728) %.sroa.0104.sroa.0, i64 728, i1 false), !alias.scope !634
   %.sroa.0104.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 728

@@ -795,7 +795,6 @@ declare noundef i64 @_ZNK4llvm3pdb13NativeSession19getVAFromSectOffsetEjj(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb20NativeFunctionSymbol20findInlineFramesByVAEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.46") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(92) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector.13", align 8
-  %.sroa.2.i38.i = alloca [39 x i8], align 1
   %5 = alloca %"struct.llvm::codeview::BinaryAnnotationIterator", align 8
   %6 = alloca %"class.llvm::codeview::InlineSiteSym", align 8
   %7 = alloca %"class.llvm::Error", align 8
@@ -937,7 +936,6 @@ _ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23VarStream
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %.sroa.2.7..sroa_idx.i39.i = getelementptr inbounds nuw i8, ptr %.sroa.2.i38.i, i64 7
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1181,13 +1179,11 @@ _ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %158, %157, 
 183:                                              ; preds = %179, %176, %172, %169, %.lr.ph.i
   %.129.i = phi i32 [ %.02820.i, %.lr.ph.i ], [ %171, %169 ], [ %174, %172 ], [ %178, %179 ], [ %178, %176 ]
   %.126.i = phi i1 [ %.02521.i, %.lr.ph.i ], [ %spec.select.i, %169 ], [ false, %172 ], [ false, %179 ], [ false, %176 ]
-  call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.2.i38.i)
   %184 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   br i1 %184, label %186, label %185
 
 185:                                              ; preds = %183
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.2.i38.i, i8 0, i64 39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.7..sroa_idx.i39.i, i64 16, i1 false), !tbaa.struct !110
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   br label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i
 
 186:                                              ; preds = %183
@@ -1202,7 +1198,6 @@ _ZN4llvm8ExpectedINS_8codeview13InlineSiteSymEED2Ev.exit: ; preds = %158, %157, 
   br label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i
 
 _ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit.i: ; preds = %189, %186, %185
-  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.2.i38.i)
   %.sroa.22.0.copyload.i.i.i = load i64, ptr %.sroa.66.56..sroa_idx.i, align 8, !tbaa !42
   %.not.i.i.i.i.not.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i, 0
   br i1 %.not.i.i.i.i.not.i, label %.loopexit, label %.lr.ph.i
