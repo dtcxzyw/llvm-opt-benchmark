@@ -4948,8 +4948,8 @@ _ZN4llvm15ParserCallbacksC2ERKS0_.exit:           ; preds = %_ZNSt8optionalISt8f
   store ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPNS0_6ModuleEbbNS0_15ParserCallbacksEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %409, align 8, !tbaa !110, !noalias !570
   %410 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %233, ptr %410, align 8, !noalias !570
-  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 0, ptr %.sroa.499.0..sroa_idx, align 8, !noalias !570
+  %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i64 0, ptr %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx, align 8, !noalias !570
   %411 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @"_ZNSt17_Function_handlerIFjjjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %411, align 8, !tbaa !110, !noalias !570
   %412 = getelementptr inbounds nuw i8, ptr %8, i64 56

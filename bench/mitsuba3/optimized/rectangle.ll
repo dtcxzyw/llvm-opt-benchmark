@@ -1189,7 +1189,7 @@ _ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersec
   store ptr null, ptr %77, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(212) %75, i8 0, i64 212, i1 false)
   store float 0x7FF0000000000000, ptr %0, align 16
-  br label %175
+  br label %174
 
 .critedge.i:                                      ; preds = %_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersect_preliminaryERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1240,98 +1240,98 @@ _ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE25ray_intersec
   %.pre79.i = load <4 x float>, ptr %.sroa.3321.0..sroa_idx.i, align 16
   br label %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28finalize_surface_interactionERKNS_23PreliminaryIntersectionIfNS_5ShapeIfS5_EEEERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
 
-103:                                              ; preds = %.critedge.i
-  %104 = load <4 x float>, ptr %86, align 16
-  %105 = load <4 x float>, ptr %.sroa.3321.0..sroa_idx.i, align 16
-  %106 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %105, <4 x float> %104, i8 113)
-  %107 = extractelement <4 x float> %106, i64 0
-  %108 = fneg contract float %107
-  %109 = insertelement <4 x float> poison, float %108, i64 0
-  %110 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> zeroinitializer
-  %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %105, <4 x float> %110, <4 x float> %104)
-  %112 = fmul contract <4 x float> %111, %111
-  %shift = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %113 = fadd contract <4 x float> %112, %shift
-  %shift256 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %114 = fadd contract <4 x float> %shift256, %113
-  %115 = extractelement <4 x float> %114, i64 0
-  %116 = tail call contract noundef float @llvm.sqrt.f32(float %115)
-  %117 = fdiv contract float 1.000000e+00, %116
-  %118 = insertelement <4 x float> poison, float %117, i64 0
-  %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> zeroinitializer
-  %120 = fmul contract <4 x float> %111, %119
-  %121 = fcmp contract oeq <4 x float> %104, zeroinitializer
-  %122 = shufflevector <4 x i1> %121, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %123 = bitcast <8 x i1> %122 to i8
-  %124 = and i8 %123, 7
-  %125 = icmp eq i8 %124, 7
-  br i1 %125, label %126, label %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i
+102:                                              ; preds = %.critedge.i
+  %103 = load <4 x float>, ptr %86, align 16
+  %104 = load <4 x float>, ptr %.sroa.3321.0..sroa_idx.i, align 16
+  %105 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %104, <4 x float> %103, i8 113)
+  %106 = extractelement <4 x float> %105, i64 0
+  %107 = fneg contract float %106
+  %108 = insertelement <4 x float> poison, float %107, i64 0
+  %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> zeroinitializer
+  %110 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %104, <4 x float> %109, <4 x float> %103)
+  %111 = fmul contract <4 x float> %110, %110
+  %shift = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %112 = fadd contract <4 x float> %111, %shift
+  %shift256 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %113 = fadd contract <4 x float> %shift256, %112
+  %114 = extractelement <4 x float> %113, i64 0
+  %115 = tail call contract noundef float @llvm.sqrt.f32(float %114)
+  %116 = fdiv contract float 1.000000e+00, %115
+  %117 = insertelement <4 x float> poison, float %116, i64 0
+  %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> zeroinitializer
+  %119 = fmul contract <4 x float> %110, %118
+  %120 = fcmp contract oeq <4 x float> %103, zeroinitializer
+  %121 = shufflevector <4 x i1> %120, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %122 = bitcast <8 x i1> %121 to i8
+  %123 = and i8 %122, 7
+  %124 = icmp eq i8 %123, 7
+  br i1 %124, label %125, label %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i
 
-126:                                              ; preds = %103
-  %127 = extractelement <4 x float> %105, i64 0
-  %bc.i.i203 = bitcast <4 x float> %105 to <4 x i32>
-  %128 = extractelement <4 x i32> %bc.i.i203, i64 2
-  %129 = and i32 %128, -2147483648
-  %130 = or disjoint i32 %129, 1065353216
-  %131 = bitcast i32 %130 to float
-  %.cast.i.i.i = bitcast i32 %128 to float
-  %132 = fadd contract float %.cast.i.i.i, %131
-  %133 = fdiv contract float -1.000000e+00, %132
-  %shift257 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %134 = fmul contract <4 x float> %105, %shift257
-  %135 = extractelement <4 x float> %134, i64 0
-  %136 = fmul contract float %135, %133
-  %137 = fmul contract <4 x float> %105, %105
-  %138 = extractelement <4 x float> %137, i64 0
-  %139 = fmul contract float %138, %133
-  %140 = bitcast float %139 to i32
-  %141 = xor i32 %129, %140
-  %142 = bitcast i32 %141 to float
-  %143 = bitcast float %136 to i32
-  %144 = xor i32 %129, %143
-  %145 = bitcast i32 %144 to float
-  %146 = fcmp contract ult float %.cast.i.i.i, 0.000000e+00
-  %147 = fneg contract float %127
-  %148 = select contract i1 %146, float %127, float %147
-  %149 = fadd contract float %142, 1.000000e+00
-  %150 = insertelement <4 x float> poison, float %149, i64 0
-  %151 = insertelement <4 x float> %150, float %145, i64 1
-  %152 = insertelement <4 x float> %151, float %148, i64 2
-  %153 = shufflevector <4 x float> %152, <4 x float> %120, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+125:                                              ; preds = %102
+  %126 = extractelement <4 x float> %104, i64 0
+  %bc.i.i203 = bitcast <4 x float> %104 to <4 x i32>
+  %127 = extractelement <4 x i32> %bc.i.i203, i64 2
+  %128 = and i32 %127, -2147483648
+  %129 = or disjoint i32 %128, 1065353216
+  %130 = bitcast i32 %129 to float
+  %.cast.i.i.i = bitcast i32 %127 to float
+  %131 = fadd contract float %.cast.i.i.i, %130
+  %132 = fdiv contract float -1.000000e+00, %131
+  %shift257 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %133 = fmul contract <4 x float> %104, %shift257
+  %134 = extractelement <4 x float> %133, i64 0
+  %135 = fmul contract float %134, %132
+  %136 = fmul contract <4 x float> %104, %104
+  %137 = extractelement <4 x float> %136, i64 0
+  %138 = fmul contract float %137, %132
+  %139 = bitcast float %138 to i32
+  %140 = xor i32 %128, %139
+  %141 = bitcast i32 %140 to float
+  %142 = bitcast float %135 to i32
+  %143 = xor i32 %128, %142
+  %144 = bitcast i32 %143 to float
+  %145 = fcmp contract ult float %.cast.i.i.i, 0.000000e+00
+  %146 = fneg contract float %126
+  %147 = select contract i1 %145, float %126, float %146
+  %148 = fadd contract float %141, 1.000000e+00
+  %149 = insertelement <4 x float> poison, float %148, i64 0
+  %150 = insertelement <4 x float> %149, float %144, i64 1
+  %151 = insertelement <4 x float> %150, float %147, i64 2
+  %152 = shufflevector <4 x float> %151, <4 x float> %119, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   br label %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i
 
-_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i: ; preds = %126, %103
-  %154 = phi <4 x float> [ %153, %126 ], [ %120, %103 ]
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store <4 x float> %154, ptr %155, align 16
-  %156 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %157 = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %158 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
-  %159 = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %160 = fneg contract <4 x float> %159
-  %161 = fmul contract <4 x float> %158, %160
-  %162 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %156, <4 x float> %157, <4 x float> %161)
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store <4 x float> %162, ptr %163, align 16
+_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i: ; preds = %125, %102
+  %153 = phi <4 x float> [ %152, %126 ], [ %119, %103 ]
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store <4 x float> %153, ptr %154, align 16
+  %155 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %156 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %157 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 2, i32 0, i32 1, i32 3>
+  %158 = shufflevector <4 x float> %153, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %159 = fneg contract <4 x float> %158
+  %160 = fmul contract <4 x float> %157, %159
+  %161 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %155, <4 x float> %156, <4 x float> %160)
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store <4 x float> %161, ptr %162, align 16
   br label %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28finalize_surface_interactionERKNS_23PreliminaryIntersectionIfNS_5ShapeIfS5_EEEERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit
 
 _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28finalize_surface_interactionERKNS_23PreliminaryIntersectionIfNS_5ShapeIfS5_EEEERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit: ; preds = %.critedge._crit_edge.i, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i
-  %164 = phi <4 x float> [ %.pre79.i, %.critedge._crit_edge.i ], [ %105, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
-  %165 = phi <4 x float> [ zeroinitializer, %.critedge._crit_edge.i ], [ %162, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
-  %166 = phi <4 x float> [ zeroinitializer, %.critedge._crit_edge.i ], [ %154, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
-  %167 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %29, <4 x float> %166, i8 113)
-  %168 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %29, <4 x float> %165, i8 113)
-  %169 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %29, <4 x float> %164, i8 113)
-  %170 = shufflevector <4 x float> %167, <4 x float> %168, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
-  %171 = shufflevector <4 x float> %170, <4 x float> %169, <4 x i32> <i32 0, i32 1, i32 4, i32 poison>
-  %172 = shufflevector <4 x float> %171, <4 x float> %29, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store <4 x float> %172, ptr %173, align 16
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %174, i8 0, i64 16, i1 false)
-  br label %175
+  %163 = phi <4 x float> [ %.pre79.i, %.critedge._crit_edge.i ], [ %104, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
+  %164 = phi <4 x float> [ zeroinitializer, %.critedge._crit_edge.i ], [ %161, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
+  %165 = phi <4 x float> [ zeroinitializer, %.critedge._crit_edge.i ], [ %153, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
+  %166 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %29, <4 x float> %165, i8 113)
+  %167 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %29, <4 x float> %164, i8 113)
+  %168 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %29, <4 x float> %163, i8 113)
+  %169 = shufflevector <4 x float> %166, <4 x float> %167, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %170 = shufflevector <4 x float> %169, <4 x float> %168, <4 x i32> <i32 0, i32 1, i32 4, i32 poison>
+  %171 = shufflevector <4 x float> %170, <4 x float> %29, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store <4 x float> %171, ptr %172, align 16
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %173, i8 0, i64 16, i1 false)
+  br label %174
 
-175:                                              ; preds = %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28finalize_surface_interactionERKNS_23PreliminaryIntersectionIfNS_5ShapeIfS5_EEEERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit, %76
+174:                                              ; preds = %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28finalize_surface_interactionERKNS_23PreliminaryIntersectionIfNS_5ShapeIfS5_EEEERKNS_3RayINS_5PointIfLm3EEES5_EEjb.exit, %76
   ret void
 }
 

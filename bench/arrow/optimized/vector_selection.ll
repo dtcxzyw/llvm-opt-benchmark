@@ -1265,8 +1265,8 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   store i8 1, ptr %48, align 2, !tbaa !70
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_13FilterOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %49, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %50, align 8, !tbaa !71
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1640,8 +1640,8 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   store i8 1, ptr %189, align 2, !tbaa !70
   %190 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %190, align 8
-  %.sroa.4197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 0, ptr %.sroa.4197.0..sroa_idx, align 8
+  %.sroa.0.i.i.i59.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i64 0, ptr %.sroa.0.i.i.i59.sroa.4.0..sroa_idx, align 8
   %191 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %191, align 8, !tbaa !71
   %192 = getelementptr inbounds nuw i8, ptr %27, i64 40

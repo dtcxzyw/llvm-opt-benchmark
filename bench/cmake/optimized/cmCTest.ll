@@ -24697,8 +24697,8 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit171: ; pred
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %363, i64 48
   store ptr %6, ptr %.sroa.9.0..sroa_idx, align 16, !tbaa !612, !noalias !598
   store ptr %363, ptr %365, align 8, !noalias !598
-  %.sroa.4396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 32
-  store i64 0, ptr %.sroa.4396.0..sroa_idx, align 8, !noalias !598
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 32
+  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !noalias !598
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZN7cmCTest14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EERS9_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEERSoN15cmProcessOutput8EncodingEE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %366, align 8, !tbaa !613, !noalias !598
   %367 = getelementptr inbounds nuw i8, ptr %362, i64 48
@@ -24716,8 +24716,8 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit171: ; pred
   %.sroa.6394.0..sroa_idx = getelementptr inbounds nuw i8, ptr %368, i64 24
   store ptr %6, ptr %.sroa.6394.0..sroa_idx, align 8, !tbaa !612, !noalias !598
   store ptr %368, ptr %370, align 8, !noalias !598
-  %.sroa.4399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 64
-  store i64 0, ptr %.sroa.4399.0..sroa_idx, align 8, !noalias !598
+  %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 64
+  store i64 0, ptr %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx, align 8, !noalias !598
   %371 = getelementptr inbounds nuw i8, ptr %362, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7cmCTest14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS7_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEERSoN15cmProcessOutput8EncodingEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %371, align 8, !tbaa !613, !noalias !598
   %372 = getelementptr inbounds nuw i8, ptr %362, i64 80
@@ -71109,8 +71109,8 @@ define internal fastcc void @"_ZZN7cmCTest10RunCommandERKSt6vectorINSt7__cxx1112
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %16, ptr %.sroa.5.0..sroa_idx, align 16, !tbaa !608, !noalias !2774
   store ptr %18, ptr %19, align 8, !noalias !2774
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i64 0, ptr %.sroa.48.0..sroa_idx, align 8, !noalias !2774
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !noalias !2774
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN7cmCTest10RunCommandERKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EESaIS9_EEPS9_SE_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRS2_RbEUlS2_E_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation", ptr %20, align 8, !tbaa !613, !noalias !2774
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -71118,8 +71118,8 @@ define internal fastcc void @"_ZZN7cmCTest10RunCommandERKSt6vectorINSt7__cxx1112
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %23 = ptrtoint ptr %5 to i64
   store i64 %23, ptr %22, align 8, !noalias !2774
-  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i64 0, ptr %.sroa.411.0..sroa_idx, align 8, !noalias !2774
+  %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 64
+  store i64 0, ptr %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx, align 8, !noalias !2774
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN7cmCTest10RunCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_SD_PiPKcNSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRS2_IcS7_ERbEUlvE_E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation", ptr %24, align 8, !tbaa !613, !noalias !2774
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 80

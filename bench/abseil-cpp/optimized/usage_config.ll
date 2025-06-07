@@ -158,47 +158,47 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_st
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %15, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_124ContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %16, align 8
-  %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %.sroa.425.0..sroa_idx, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %17, align 8, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 0, ptr %17, align 8
+  %.sroa.0.i.i.i2.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %.sroa.0.i.i.i2.sroa.4.0..sroa_idx, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %18, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_124ContainsHelppackageFlagsESt17basic_string_viewIcSt11char_traitsIcEE, ptr %19, align 8
-  %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 0, ptr %.sroa.427.0..sroa_idx, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %20, align 8, !tbaa !13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 0, ptr %20, align 8
+  %.sroa.0.i.i.i7.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %.sroa.0.i.i.i7.sroa.4.0..sroa_idx, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @_ZNSt17_Function_handlerIFbSt17basic_string_viewIcSt11char_traitsIcEEEPS4_E9_M_invokeERKSt9_Any_dataOS3_, ptr %21, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_113VersionStringB5cxx11Ev, ptr %22, align 8
-  %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 0, ptr %.sroa.429.0..sroa_idx, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %23, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 0, ptr %23, align 8
+  %.sroa.0.i.i.i12.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr %.sroa.0.i.i.i12.sroa.4.0..sroa_idx, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEPS6_E9_M_invokeERKSt9_Any_data, ptr %24, align 8, !tbaa !13
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @_ZN4absl14flags_internal12_GLOBAL__N_117NormalizeFilenameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr %25, align 8
-  %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 0, ptr %.sroa.431.0..sroa_idx, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %26, align 8, !tbaa !13
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 0, ptr %26, align 8
+  %.sroa.0.i.i.i15.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %.sroa.0.i.i.i15.sroa.4.0..sroa_idx, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E9_M_invokeERKSt9_Any_dataOS7_, ptr %27, align 8, !tbaa !13
   br label %28
 
-28:                                               ; preds = %8, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEEaSIPS8_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS9_E4typeEOSD_.exit
+28:; preds = %8, %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEEaSIPS8_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS9_E4typeEOSD_.exit
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN4absl14flags_internal12_GLOBAL__N_122CustomUsageConfigMutexEvE5mutex)
-          to label %_ZN4absl9MutexLockD2Ev.exit18 unwind label %29
+          to label %_ZN4absl9MutexLockD2Ev.exit18 unwind label %30
 
-29:                                               ; preds = %28
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #17
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #17
   unreachable
 
 _ZN4absl9MutexLockD2Ev.exit18:                    ; preds = %28

@@ -1817,10 +1817,10 @@ define hidden void @_ZNK5ceres8internal10LineSearch6SearchEdddPNS1_7SummaryE(ptr
   br i1 %43, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %.critedge
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %45 = load i64, ptr %44, align 8, !tbaa !11
-  %46 = icmp ult i64 %45, 16
-  call void @llvm.assume(i1 %46)
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %53 = load i64, ptr %52, align 8, !tbaa !11
+  %54 = icmp ult i64 %53, 16
+  call void @llvm.assume(i1 %54)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1828,30 +1828,30 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %.not22.i.i, label %_ZN5ceres8internal10LineSearch7SummaryaSEOS2_.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i, !prof !32
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  store i64 0, ptr %47, align 8, !tbaa !11
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  store i64 0, ptr %55, align 8, !tbaa !11
   store i8 0, ptr %41, align 1, !tbaa !12
   %.pre.i.i = load ptr, ptr %13, align 8, !tbaa !3
   br label %_ZN5ceres8internal10LineSearch7SummaryaSEOS2_.exit
 
 _ZN5ceres8internal10LineSearch7SummaryaSEOS2_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i
-  %48 = phi ptr [ %.pre.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ]
+  %56 = phi ptr [ %.pre.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i ], [ %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i ]
   store i64 0, ptr %15, align 8, !tbaa !11
-  store i8 0, ptr %48, align 1, !tbaa !12
-  %49 = load ptr, ptr %13, align 8, !tbaa !3
-  %50 = icmp eq ptr %49, %14
-  br i1 %50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  store i8 0, ptr %56, align 1, !tbaa !12
+  %57 = load ptr, ptr %13, align 8, !tbaa !3
+  %58 = icmp eq ptr %57, %14
+  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN5ceres8internal10LineSearch7SummaryaSEOS2_.exit
-  %51 = load i64, ptr %15, align 8, !tbaa !11
-  %52 = icmp ult i64 %51, 16
-  call void @llvm.assume(i1 %52)
+  %59 = load i64, ptr %15, align 8, !tbaa !11
+  %60 = icmp ult i64 %59, 16
+  call void @llvm.assume(i1 %60)
   br label %_ZN5ceres8internal10LineSearch7SummaryD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN5ceres8internal10LineSearch7SummaryaSEOS2_.exit
-  %53 = load i64, ptr %14, align 8, !tbaa !12
-  %54 = add i64 %53, 1
-  call void @_ZdlPvm(ptr noundef %49, i64 noundef %54) #33
+  %61 = load i64, ptr %14, align 8, !tbaa !12
+  %62 = add i64 %61, 1
+  call void @_ZdlPvm(ptr noundef %57, i64 noundef %62) #33
   br label %_ZN5ceres8internal10LineSearch7SummaryD2Ev.exit
 
 _ZN5ceres8internal10LineSearch7SummaryD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -1860,31 +1860,31 @@ _ZN5ceres8internal10LineSearch7SummaryD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %.fca.0.extract33 = extractvalue { i64, i32 } %9, 0
   %.fca.1.extract34 = extractvalue { i64, i32 } %9, 1
-  %58 = load ptr, ptr %30, align 8, !tbaa !45
-  call void @free(ptr noundef %58) #32
-  %59 = load ptr, ptr %20, align 8, !tbaa !45
-  call void @free(ptr noundef %59) #32
+  %63 = load ptr, ptr %30, align 8, !tbaa !45
+  call void @free(ptr noundef %63) #32
+  %64 = load ptr, ptr %20, align 8, !tbaa !45
+  call void @free(ptr noundef %64) #32
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #32
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %57, i8 0, i64 36, i1 false)
-  %61 = load ptr, ptr %60, align 8, !tbaa !79
-  call void @_ZN5ceres8internal18LineSearchFunction19ResetTimeStatisticsEv(ptr noundef nonnull align 8 dereferenceable(80) %61)
-  %62 = load ptr, ptr %0, align 8, !tbaa !13
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !79
+  call void @_ZN5ceres8internal18LineSearchFunction19ResetTimeStatisticsEv(ptr noundef nonnull align 8 dereferenceable(80) %66)
+  %67 = load ptr, ptr %0, align 8, !tbaa !13
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(88) %0, double noundef %1, double noundef %2, double noundef %3, ptr noundef nonnull %4)
-  %65 = load ptr, ptr %60, align 8, !tbaa !79
-  call void @_ZNK5ceres8internal18LineSearchFunction14TimeStatisticsEPN4absl12lts_202401168DurationES5_(ptr noundef nonnull align 8 dereferenceable(80) %65, ptr noundef nonnull %57, ptr noundef nonnull %56)
-  %66 = call { i64, i32 } @_ZN4absl12lts_202401163NowEv()
-  %.fca.0.extract7 = extractvalue { i64, i32 } %66, 0
-  %.fca.1.extract8 = extractvalue { i64, i32 } %66, 1
+  %70 = load ptr, ptr %65, align 8, !tbaa !79
+  call void @_ZNK5ceres8internal18LineSearchFunction14TimeStatisticsEPN4absl12lts_202401168DurationES5_(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull %57, ptr noundef nonnull %56)
+  %71 = call { i64, i32 } @_ZN4absl12lts_202401163NowEv()
+  %.fca.0.extract7 = extractvalue { i64, i32 } %71, 0
+  %.fca.1.extract8 = extractvalue { i64, i32 } %71, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   store i64 %.fca.0.extract7, ptr %6, align 8
   %.sroa.210.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.fca.1.extract8, ptr %.sroa.210.0..sroa_idx.i.i, align 8
-  %67 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl12lts_202401168DurationmIES1_(ptr noundef nonnull align 4 dereferenceable(12) %6, i64 %.fca.0.extract33, i32 %.fca.1.extract34) #32
-  %.sroa.011.0.copyload.i.i = load i64, ptr %67, align 4
-  %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %72 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl12lts_202401168DurationmIES1_(ptr noundef nonnull align 4 dereferenceable(12) %6, i64 %.fca.0.extract33, i32 %.fca.1.extract34) #32
+  %.sroa.011.0.copyload.i.i = load i64, ptr %72, align 4
+  %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %72, i64 8
   %.sroa.212.0.copyload.i.i = load i32, ptr %.sroa.212.0..sroa_idx.i.i, align 4, !tbaa !20
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   store i64 %.sroa.011.0.copyload.i.i, ptr %55, align 8

@@ -175609,7 +175609,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_
   store i32 %.0.i, ptr %3, align 4, !tbaa !77
   %32 = call noundef i32 @_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_lookupERKS3_Rj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %73
+  br i1 %33, label %34, label %74
 
 34:                                               ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #32
@@ -175655,60 +175655,60 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_
   %54 = invoke noundef i32 @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE9do_insertEOSt4pairIS3_S4_ERj(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %55 unwind label %71
 
-55:                                               ; preds = %45
+56:                                               ; preds = %45
   call void @_ZN5Yosys8CellTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(123) %46) #32
-  %56 = load i32, ptr %4, align 8, !tbaa !266
-  %57 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !130, !range !143, !noundef !144
-  %58 = trunc nuw i8 %57 to i1
-  %59 = icmp ne i32 %56, 0
-  %or.cond.i.i.i = and i1 %59, %58
-  br i1 %or.cond.i.i.i, label %60, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit
+  %57 = load i32, ptr %4, align 8, !tbaa !266
+  %58 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !130, !range !143, !noundef !144
+  %59 = trunc nuw i8 %58 to i1
+  %60 = icmp ne i32 %57, 0
+  %or.cond.i.i.i = and i1 %60, %59
+  br i1 %or.cond.i.i.i, label %61, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit
 
-60:                                               ; preds = %55
-  %61 = sext i32 %56 to i64
-  %62 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !6
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %61
-  %64 = load i32, ptr %63, align 4, !tbaa !77
-  %65 = add nsw i32 %64, -1
-  store i32 %65, ptr %63, align 4, !tbaa !77
-  %66 = icmp sgt i32 %64, 1
-  br i1 %66, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit, label %67
+61:                                               ; preds = %56
+  %62 = sext i32 %57 to i64
+  %63 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !6
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %62
+  %65 = load i32, ptr %64, align 4, !tbaa !77
+  %66 = add nsw i32 %65, -1
+  store i32 %66, ptr %64, align 4, !tbaa !77
+  %67 = icmp sgt i32 %65, 1
+  br i1 %67, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit, label %68
 
-67:                                               ; preds = %60
-  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %56)
-          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit unwind label %68
+68:                                               ; preds = %61
+  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %57)
+          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit unwind label %69
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #33
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #33
   unreachable
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit: ; preds = %55, %60, %67
+_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit: ; preds = %56, %61, %68
   call void @_ZN5Yosys8CellTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(123) %5) #32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #32
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #32
-  br label %73
+  br label %74
 
-71:                                               ; preds = %45
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %45
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #32
   call void @_ZN5Yosys8CellTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(123) %5) #32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #32
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #32
-  resume { ptr, i32 } %72
+  resume { ptr, i32 } %73
 
-73:                                               ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
+74:                                               ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit
   %.08 = phi i32 [ %54, %_ZNSt4pairIN5Yosys5RTLIL8IdStringENS0_8CellTypeEED2Ev.exit ], [ %32, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS_8CellTypeENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit ]
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %75 = sext i32 %.08 to i64
-  %76 = load ptr, ptr %74, align 8, !tbaa !270
-  %77 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::CellType>::entry_t", ptr %76, i64 %75, i32 0, i32 2
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %76 = sext i32 %.08 to i64
+  %77 = load ptr, ptr %75, align 8, !tbaa !270
+  %78 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::CellType>::entry_t", ptr %77, i64 %76, i32 0, i32 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #32
-  ret ptr %77
+  ret ptr %78
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

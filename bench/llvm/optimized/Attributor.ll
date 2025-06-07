@@ -32308,8 +32308,8 @@ _ZNSt8functionIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERN
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %35 = ptrtoint ptr %9 to i64
   store i64 %35, ptr %34, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEZL24runAttributorOnFunctionsRNS0_16InformationCacheERNS0_9SetVectorIPS8_NS0_11SmallVectorISE_Lj0EEENS0_8DenseSetISE_NS0_12DenseMapInfoISE_vEEEELj0EEERNS0_14AnalysisGetterERNS0_16CallGraphUpdaterEbbE3$_0E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation", ptr %27, align 8, !tbaa !378
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr @"_ZNSt17_Function_handlerIFbRN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_8CallBaseERNS0_8FunctionEjEZL24runAttributorOnFunctionsRNS0_16InformationCacheERNS0_9SetVectorIPS8_NS0_11SmallVectorISE_Lj0EEENS0_8DenseSetISE_NS0_12DenseMapInfoISE_vEEEELj0EEERNS0_14AnalysisGetterERNS0_16CallGraphUpdaterEbbE3$_0E9_M_invokeERKSt9_Any_dataS2_S5_S7_S9_Oj", ptr %36, align 8, !tbaa !378

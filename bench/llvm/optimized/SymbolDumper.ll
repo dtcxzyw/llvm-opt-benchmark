@@ -9345,12 +9345,12 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   store i8 0, ptr %37, align 8, !tbaa !333, !alias.scope !335
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %31, ptr %38, align 8, !tbaa !86
-  %.sroa.558.56..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %36, ptr %.sroa.558.56..sroa_idx, align 8, !tbaa !87
+  %.sroa.560.56..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %36, ptr %.sroa.560.56..sroa_idx, align 8, !tbaa !87
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !335
-  %.not.i.i.i.i73 = icmp eq ptr %33, %31
-  br i1 %.not.i.i.i.i73, label %_ZN4llvm9ListScopeD2Ev.exit, label %.lr.ph
+  %.not.i.i.i.i75 = icmp eq ptr %33, %31
+  br i1 %.not.i.i.i.i75, label %_ZN4llvm9ListScopeD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32

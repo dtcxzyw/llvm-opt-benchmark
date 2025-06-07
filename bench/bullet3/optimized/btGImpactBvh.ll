@@ -662,7 +662,7 @@ define dso_local void @_ZN12btGImpactBvh8buildSetEv(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %13 unwind label %33
+          to label %13 unwind label %36
 
 13:                                               ; preds = %1
   %14 = icmp sgt i32 %12, 0
@@ -672,7 +672,7 @@ define dso_local void @_ZN12btGImpactBvh8buildSetEv(ptr noundef nonnull align 8 
   %16 = zext nneg i32 %12 to i64
   %17 = mul nuw nsw i64 %16, 36
   %18 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %17, i32 noundef 16)
-          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i unwind label %35
+          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i unwind label %38
 
 _ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i: ; preds = %15
   %.pre.i = load i32, ptr %5, align 4, !tbaa !39
@@ -709,7 +709,7 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %20, 
 
 30:                                               ; preds = %_ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.pre.pre)
-          to label %.lr.ph.i unwind label %35
+          to label %.lr.ph.i unwind label %38
 
 .lr.ph.i:                                         ; preds = %_ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i, %30
   store i8 1, ptr %3, align 8, !tbaa !52
@@ -735,72 +735,72 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %20, 
   %.pre16 = load ptr, ptr %4, align 8, !tbaa !4
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %46, %.loopexit
+._crit_edge:                                      ; preds = %49, %.loopexit
   invoke void @_ZN9btBvhTree10build_treeER18GIM_BVH_DATA_ARRAY(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(25) %2)
-          to label %52 unwind label %33
+          to label %52 unwind label %36
 
-33:                                               ; preds = %._crit_edge, %1
-  %34 = landingpad { ptr, i32 }
+36:                                               ; preds = %._crit_edge, %1
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  br label %63
+
+38:                                               ; preds = %30, %15
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %60
 
-35:                                               ; preds = %30, %15
-  %36 = landingpad { ptr, i32 }
+40:                                               ; preds = %.lr.ph
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %63
 
-37:                                               ; preds = %.lr.ph
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  br label %60
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %39 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %47, %46 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %42 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %50, %46 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %40 = load ptr, ptr %7, align 8, !tbaa !46
-  %41 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %39, i64 %indvars.iv
-  %42 = load ptr, ptr %40, align 8, !tbaa !49
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %40, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(32) %41)
-          to label %46 unwind label %37
+  %43 = load ptr, ptr %7, align 8, !tbaa !46
+  %44 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %42, i64 %indvars.iv
+  %45 = load ptr, ptr %43, align 8, !tbaa !49
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %47 = load ptr, ptr %46, align 8
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %43, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(32) %44)
+          to label %46 unwind label %40
 
-46:                                               ; preds = %.lr.ph
-  %47 = load ptr, ptr %4, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %47, i64 %indvars.iv, i32 1
-  store i32 %45, ptr %48, align 4, !tbaa !21
+49:                                               ; preds = %.lr.ph
+  %50 = load ptr, ptr %4, align 8, !tbaa !4
+  %51 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %50, i64 %indvars.iv, i32 1
+  store i32 %48, ptr %51, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = load i32, ptr %5, align 4, !tbaa !39
-  %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !56
+  %52 = load i32, ptr %5, align 4, !tbaa !39
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next, %53
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
-52:                                               ; preds = %._crit_edge
-  %53 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not.i.i.i12 = icmp ne ptr %53, null
-  %54 = load i8, ptr %3, align 8, !range !43
-  %55 = trunc nuw i8 %54 to i1
-  %or.cond.i.i13 = select i1 %.not.i.i.i12, i1 %55, i1 false
-  br i1 %or.cond.i.i13, label %56, label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit
+55:                                               ; preds = %._crit_edge
+  %56 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not.i.i.i12 = icmp ne ptr %56, null
+  %57 = load i8, ptr %3, align 8, !range !43
+  %58 = trunc nuw i8 %57 to i1
+  %or.cond.i.i13 = select i1 %.not.i.i.i12, i1 %58, i1 false
+  br i1 %or.cond.i.i13, label %59, label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit
 
-56:                                               ; preds = %52
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %53)
-          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit unwind label %57
+59:                                               ; preds = %55
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %56)
+          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit unwind label %60
 
-57:                                               ; preds = %56
-  %58 = landingpad { ptr, i32 }
+60:                                               ; preds = %59
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  call void @__clang_call_terminate(ptr %59) #15
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #15
   unreachable
 
-_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit: ; preds = %52, %56
+_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit: ; preds = %55, %59
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
   ret void
 
-60:                                               ; preds = %37, %35, %33
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ], [ %36, %35 ]
+63:                                               ; preds = %40, %38, %36
+  %.pn = phi { ptr, i32 } [ %41, %37 ], [ %37, %33 ], [ %39, %35 ]
   call void @_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
   resume { ptr, i32 } %.pn

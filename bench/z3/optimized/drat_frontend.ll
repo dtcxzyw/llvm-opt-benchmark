@@ -287,8 +287,8 @@ define hidden noundef i32 @_Z9read_dratPKc(ptr noundef %0) local_unnamed_addr #3
   store ptr @"_ZNSt17_Function_handlerIF6symboliEZ9read_dratPKcE3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %30, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %26, ptr %33, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @"_ZNSt17_Function_handlerIFiPKcEZ9read_dratS1_E3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %34, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 72

@@ -8854,7 +8854,7 @@ define void @_ZN6open3d13visualization14ViewTrajectory20GetInterpolatedFrameEm(p
 _ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit: ; preds = %24, %26
   %.0.i = phi i64 [ %25, %24 ], [ %29, %26 ]
   %.not = icmp ult i64 %2, %.0.i
-  br i1 %.not, label %31, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
+  br i1 %.not, label %42, label %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
 
 _ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread: ; preds = %3, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %0, align 8, !tbaa !4, !alias.scope !322
@@ -8862,69 +8862,69 @@ _ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread: ; preds =
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(137) %30, i8 0, i64 137, i1 false)
   br label %66
 
-31:                                               ; preds = %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
-  %32 = udiv i64 %2, %19
-  %33 = mul i64 %32, %19
+42:                                               ; preds = %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit
+  %43 = udiv i64 %2, %19
+  %44 = mul i64 %43, %19
   %.recomposed = urem i64 %2, %19
-  %34 = uitofp i64 %.recomposed to double
-  %35 = sitofp i32 %18 to double
-  %36 = fdiv double %34, %35
-  %37 = fmul double %36, %36
-  %38 = fmul double %36, %37
-  %.sroa.0.8.vec.insert = insertelement <2 x double> <double 1.000000e+00, double poison>, double %36, i64 1
-  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %37, i64 0
-  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %38, i64 1
+  %45 = uitofp i64 %.recomposed to double
+  %46 = sitofp i32 %18 to double
+  %47 = fdiv double %45, %46
+  %48 = fmul double %47, %47
+  %49 = fmul double %47, %48
+  %.sroa.0.8.vec.insert = insertelement <2 x double> <double 1.000000e+00, double poison>, double %47, i64 1
+  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %48, i64 0
+  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %49, i64 1
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #28
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !7
-  %41 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %40, i64 %32
-  br label %42
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !7
+  %52 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %51, i64 %43
+  br label %53
 
-42:                                               ; preds = %42, %31
-  %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %31 ], [ %53, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i.i
+53:                                               ; preds = %53, %42
+  %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %31 ], [ %64, %42 ]
+  %54 = getelementptr inbounds nuw double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 5
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %45 = load <2 x double>, ptr %44, align 16, !tbaa !40
-  %46 = fmul <2 x double> %45, %.sroa.0.8.vec.insert
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %48 = load <2 x double>, ptr %47, align 16, !tbaa !40
-  %49 = fmul <2 x double> %48, %.sroa.5.24.vec.insert
-  %50 = fadd <2 x double> %46, %49
-  %shift = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %51 = fadd <2 x double> %50, %shift
-  %52 = extractelement <2 x double> %51, i64 0
-  store double %52, ptr %43, align 8, !tbaa !41
-  %53 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %53, 17
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, label %42, !llvm.loop !325
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %56 = load <2 x double>, ptr %55, align 16, !tbaa !40
+  %57 = fmul <2 x double> %56, %.sroa.0.8.vec.insert
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %59 = load <2 x double>, ptr %58, align 16, !tbaa !40
+  %60 = fmul <2 x double> %59, %.sroa.5.24.vec.insert
+  %61 = fadd <2 x double> %57, %60
+  %shift = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %62 = fadd <2 x double> %61, %shift
+  %63 = extractelement <2 x double> %62, i64 0
+  store double %63, ptr %54, align 8, !tbaa !41
+  %64 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %64, 17
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, label %53, !llvm.loop !325
 
-_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %42
+_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %53
   call void @_ZN6open3d13visualization14ViewParameters20ConvertFromVector17dERKN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEE(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(136) %5)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6open3d13visualization14ViewParametersE, i64 16), ptr %0, align 8, !tbaa !4, !alias.scope !326
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false), !tbaa.struct !329
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false), !tbaa.struct !329
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false), !tbaa.struct !329
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false), !tbaa.struct !329
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false), !tbaa.struct !329
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i8 1, ptr %65, align 8, !tbaa !330, !alias.scope !326
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false), !tbaa.struct !329
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false), !tbaa.struct !329
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false), !tbaa.struct !329
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false), !tbaa.struct !329
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !329
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i8 1, ptr %76, align 8, !tbaa !330, !alias.scope !326
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #28
-  br label %66
+  br label %77
 
-66:                                               ; preds = %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
+77:                                               ; preds = %_ZN5Eigen6MatrixIdLi17ELi1ELi0ELi17ELi1EEC2INS_7ProductINS0_IdLi17ELi4ELi1ELi17ELi4EEENS0_IdLi4ELi1ELi0ELi4ELi1EEELi0EEEEERKNS_9EigenBaseIT_EE.exit, %_ZNK6open3d13visualization14ViewTrajectory11NumOfFramesEv.exit.thread
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #28
   ret void
 }

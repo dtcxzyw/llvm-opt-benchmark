@@ -16450,8 +16450,8 @@ define internal fastcc void @"_ZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %21, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !350, !noalias !567
   store ptr %23, ptr %25, align 8, !noalias !567
-  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i64 0, ptr %.sroa.430.0..sroa_idx, align 8, !noalias !567
+  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !noalias !567
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS1_ERbiEUlS2_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %26, align 8, !tbaa !577, !noalias !567
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -16475,8 +16475,8 @@ define internal fastcc void @"_ZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 48
   store ptr %5, ptr %.sroa.10.0..sroa_idx, align 16, !tbaa !578, !noalias !567
   store ptr %28, ptr %30, align 8, !noalias !567
-  %.sroa.433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store i64 0, ptr %.sroa.433.0..sroa_idx, align 8, !noalias !567
+  %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store i64 0, ptr %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx, align 8, !noalias !567
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN19cmCTestBuildHandler14RunMakeCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPiPKciRSoN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiRSt5dequeIcS6_ERbiEUlvE_E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %31, align 8, !tbaa !577, !noalias !567
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 80
