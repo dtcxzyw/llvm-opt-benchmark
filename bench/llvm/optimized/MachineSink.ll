@@ -21311,7 +21311,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit.i: ; preds =
   %125 = phi i32 [ %96, %106 ], [ %96, %.lr.ph.i ], [ %123, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %96, %118 ], [ %96, %.lr.ph.i.i.i ]
   %126 = phi i32 [ %97, %106 ], [ %97, %.lr.ph.i ], [ %122, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %.pre.i, %118 ], [ %95, %.lr.ph.i.i.i ]
   %127 = phi ptr [ %98, %106 ], [ %98, %.lr.ph.i ], [ %.pre5.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %120, %118 ], [ %98, %.lr.ph.i.i.i ]
-  %128 = phi i8 [ %99, %106 ], [ %99, %.lr.ph.i ], [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %99, %118 ], [ %99, %.lr.ph.i.i.i ]
+  %128 = phi i8 [ %99, %106 ], [ %99, %.lr.ph.i ], [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ 1, %118 ], [ 1, %.lr.ph.i.i.i ]
   %129 = getelementptr inbounds nuw i8, ptr %.0100134.i, i64 8
   %.not.i = icmp eq ptr %129, %93
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i

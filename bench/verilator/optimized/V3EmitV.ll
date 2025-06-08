@@ -4085,7 +4085,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
           to label %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit24 unwind label %69
 
 _ZN14VNVisitorConst12iterateConstEP7AstNode.exit24: ; preds = %52
-  store i8 %6, ptr %5, align 2, !tbaa !167
+  store i8 1, ptr %5, align 2, !tbaa !167
   br label %80
 
 61:                                               ; preds = %._crit_edge.i.i
@@ -4141,7 +4141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %_ZN
 
 79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
   %.pn11 = phi { ptr, i32 } [ %70, %69 ], [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ]
-  store i8 %6, ptr %5, align 2, !tbaa !167
+  store i8 1, ptr %5, align 2, !tbaa !167
   resume { ptr, i32 } %.pn11
 
 80:                                               ; preds = %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit24, %8
@@ -14526,13 +14526,13 @@ _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit: ; p
           to label %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit unwind label %34
 
 _ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit: ; preds = %30, %33
-  store i8 %5, ptr %4, align 2, !tbaa !167
+  store i8 1, ptr %4, align 2, !tbaa !167
   br label %_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit.thread
 
 34:                                               ; preds = %33
   %35 = landingpad { ptr, i32 }
           cleanup
-  store i8 %5, ptr %4, align 2, !tbaa !167
+  store i8 1, ptr %4, align 2, !tbaa !167
   resume { ptr, i32 } %35
 
 _ZN7AstNode9privateIsI19AstUnpackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit.thread: ; preds = %27, %_ZN14VNVisitorConst23iterateAndNextConstNullEP7AstNode.exit, %_ZN7AstNode9privateIsI19AstUnpackArrayDTypeP17AstNodeArrayDTypeEEbPKS_.exit
@@ -20609,7 +20609,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
           to label %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit40 unwind label %58
 
 _ZN14VNVisitorConst12iterateConstEP7AstNode.exit40: ; preds = %81
-  store i8 %7, ptr %6, align 2, !tbaa !167
+  store i8 1, ptr %6, align 2, !tbaa !167
   br label %99
 
 90:                                               ; preds = %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit
@@ -20637,7 +20637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 
 98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
   %.pn15 = phi { ptr, i32 } [ %59, %58 ], [ %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43 ], [ %61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ]
-  store i8 %7, ptr %6, align 2, !tbaa !167
+  store i8 1, ptr %6, align 2, !tbaa !167
   resume { ptr, i32 } %.pn15
 
 99:                                               ; preds = %_ZN14VNVisitorConst12iterateConstEP7AstNode.exit40, %9

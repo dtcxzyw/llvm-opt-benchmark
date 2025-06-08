@@ -5684,7 +5684,7 @@ _ZN6syntax3ast4edit11IndentLevel9from_node17h228c916f89a2521eE.exit: ; preds = %
 
 216:                                              ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit.thread"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store i64 %202, ptr %13, align 8
+  store i64 0, ptr %13, align 8
   %217 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %204, ptr %217, align 8
   %218 = invoke { i64, ptr } @_ZN5rowan6cursor10SyntaxNode21next_sibling_or_token17had2923385774471dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %217)
@@ -5692,7 +5692,7 @@ _ZN6syntax3ast4edit11IndentLevel9from_node17h228c916f89a2521eE.exit: ; preds = %
 
 219:                                              ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  store i64 %202, ptr %13, align 8
+  store i64 1, ptr %13, align 8
   %220 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %204, ptr %220, align 8
   %221 = invoke { i64, ptr } @_ZN5rowan6cursor11SyntaxToken21next_sibling_or_token17h324fef41d7efac53E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %220)

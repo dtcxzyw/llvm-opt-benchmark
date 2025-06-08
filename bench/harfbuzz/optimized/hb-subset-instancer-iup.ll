@@ -1819,121 +1819,121 @@ define internal fastcc noundef zeroext i1 @_ZL10rotate_setRK8hb_set_tijRS_(ptr n
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  br label %32
+  br label %33
 
 ._crit_edge:                                      ; preds = %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, %22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !39, !range !27
-  %.pre23 = trunc nuw i8 %.pre to i1
+  %32 = trunc nuw i8 %.pre to i1
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit
 
-32:                                               ; preds = %.lr.ph, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit
-  %33 = phi i32 [ %25, %.lr.ph ], [ %79, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
-  %34 = add i32 %33, %11
-  %35 = urem i32 %34, %2
-  %36 = load i8, ptr %29, align 8, !tbaa !48, !range !27, !noundef !28
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %39, !prof !14
+33:                                               ; preds = %.lr.ph, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit
+  %34 = phi i32 [ %25, %.lr.ph ], [ %80, %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit ]
+  %35 = add i32 %34, %11
+  %36 = urem i32 %35, %2
+  %37 = load i8, ptr %29, align 8, !tbaa !48, !range !27, !noundef !28
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %40, !prof !14
 
-38:                                               ; preds = %32
-  call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %35)
+39:                                               ; preds = %33
+  call void @_ZN12hb_bit_set_t3delEj(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %36)
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
 
-39:                                               ; preds = %32
-  %40 = load i8, ptr %28, align 8, !tbaa !39, !range !27, !noundef !28
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, !prof !50
+40:                                               ; preds = %33
+  %41 = load i8, ptr %28, align 8, !tbaa !39, !range !27, !noundef !28
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, !prof !50
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   store i32 -1, ptr %30, align 4, !tbaa !46
-  %43 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %35, i1 noundef zeroext true)
-  %.not.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, label %44, !prof !14
+  %44 = call noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr noundef nonnull align 8 dereferenceable(49) %28, i32 noundef %36, i1 noundef zeroext true)
+  %.not.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i, label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit, label %45, !prof !14
 
-44:                                               ; preds = %42
-  %45 = and i32 %35, 63
-  %46 = zext nneg i32 %45 to i64
-  %47 = shl nuw i64 1, %46
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %49 = lshr i32 %35, 6
-  %50 = and i32 %49, 7
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [8 x i64], ptr %48, i64 0, i64 %51
-  %53 = load i64, ptr %52, align 8, !tbaa !51
-  %54 = or i64 %53, %47
-  store i64 %54, ptr %52, align 8, !tbaa !51
-  store i32 -1, ptr %43, align 8, !tbaa !53
+45:                                               ; preds = %43
+  %46 = and i32 %36, 63
+  %47 = zext nneg i32 %46 to i64
+  %48 = shl nuw i64 1, %47
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %50 = lshr i32 %36, 6
+  %51 = and i32 %50, 7
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [8 x i64], ptr %49, i64 0, i64 %52
+  %54 = load i64, ptr %53, align 8, !tbaa !51
+  %55 = or i64 %54, %48
+  store i64 %55, ptr %53, align 8, !tbaa !51
+  store i32 -1, ptr %44, align 8, !tbaa !53
   br label %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
 
-_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %38, %39, %42, %44
-  %55 = load ptr, ptr %9, align 8, !tbaa !136
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %57 = load i8, ptr %56, align 8, !tbaa !48, !range !27, !noundef !28
-  %58 = trunc nuw i8 %57 to i1
-  br i1 %58, label %61, label %59, !prof !14
+_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit: ; preds = %39, %40, %43, %45
+  %56 = load ptr, ptr %9, align 8, !tbaa !136
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %58 = load i8, ptr %57, align 8, !tbaa !48, !range !27, !noundef !28
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %62, label %60, !prof !14
 
-59:                                               ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
-  %60 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %55, ptr noundef nonnull %24)
+60:                                               ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
+  %61 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %56, ptr noundef nonnull %24)
   br label %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
 
-61:                                               ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
+62:                                               ; preds = %_ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3addEj.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
-  %62 = load i32, ptr %24, align 8, !tbaa !29
-  store i32 %62, ptr %5, align 4, !tbaa !29
-  %63 = icmp eq i32 %62, -2
-  br i1 %63, label %64, label %65, !prof !14
+  %63 = load i32, ptr %24, align 8, !tbaa !29
+  store i32 %63, ptr %5, align 4, !tbaa !29
+  %64 = icmp eq i32 %63, -2
+  br i1 %64, label %65, label %66, !prof !14
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   store i32 -1, ptr %24, align 8, !tbaa !29
+  br label %76
+
+66:                                               ; preds = %62
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  store i32 %63, ptr %6, align 4, !tbaa !29
+  %67 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %56, ptr noundef nonnull %6)
+  %68 = add i32 %63, 1
+  %69 = load i32, ptr %6, align 4, !tbaa !29
+  %70 = icmp ult i32 %68, %69
+  br i1 %70, label %75, label %71
+
+71:                                               ; preds = %66
+  store i32 %63, ptr %6, align 4, !tbaa !29
+  %72 = call noundef zeroext i1 @_ZNK12hb_bit_set_t10next_rangeEPjS0_(ptr noundef nonnull align 8 dereferenceable(49) %56, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %73 = load i32, ptr %6, align 4, !tbaa !29
+  %74 = add i32 %73, 1
   br label %75
 
-65:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  store i32 %62, ptr %6, align 4, !tbaa !29
-  %66 = call noundef zeroext i1 @_ZNK12hb_bit_set_t4nextEPj(ptr noundef nonnull align 8 dereferenceable(49) %55, ptr noundef nonnull %6)
-  %67 = add i32 %62, 1
-  %68 = load i32, ptr %6, align 4, !tbaa !29
-  %69 = icmp ult i32 %67, %68
-  br i1 %69, label %74, label %70
-
-70:                                               ; preds = %65
-  store i32 %62, ptr %6, align 4, !tbaa !29
-  %71 = call noundef zeroext i1 @_ZNK12hb_bit_set_t10next_rangeEPjS0_(ptr noundef nonnull align 8 dereferenceable(49) %55, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  %72 = load i32, ptr %6, align 4, !tbaa !29
-  %73 = add i32 %72, 1
-  br label %74
-
-74:                                               ; preds = %70, %65
-  %.sink.i.i.i = phi i32 [ %73, %70 ], [ %67, %65 ]
+75:                                               ; preds = %71, %66
+  %.sink.i.i.i = phi i32 [ %74, %71 ], [ %68, %66 ]
   store i32 %.sink.i.i.i, ptr %24, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  br label %75
+  br label %76
 
-75:                                               ; preds = %74, %64
+76:                                               ; preds = %75, %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   br label %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
 
-_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i:   ; preds = %75, %59
-  %76 = load i32, ptr %31, align 4, !tbaa !137
-  %.not.i.i = icmp eq i32 %76, 0
-  br i1 %.not.i.i, label %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, label %77, !prof !14
+_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i:   ; preds = %76, %60
+  %77 = load i32, ptr %31, align 4, !tbaa !137
+  %.not.i.i = icmp eq i32 %77, 0
+  br i1 %.not.i.i, label %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit, label %78, !prof !14
 
-77:                                               ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
-  %78 = add i32 %76, -1
-  store i32 %78, ptr %31, align 4, !tbaa !137
+78:                                               ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i
+  %79 = add i32 %77, -1
+  store i32 %79, ptr %31, align 4, !tbaa !137
   br label %_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit
 
-_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i, %77
-  %79 = load i32, ptr %24, align 8, !tbaa !92
-  %.not.i = icmp ne i32 %79, -1
-  %80 = load ptr, ptr %9, align 8
-  %81 = icmp ne ptr %80, %.fca.0.load.i.i.i20
-  %82 = select i1 %.not.i, i1 true, i1 %81
-  br i1 %82, label %32, label %._crit_edge
+_ZNR9hb_iter_tIN23hb_bit_set_invertible_t6iter_tEjEppEv.exit: ; preds = %_ZNK23hb_bit_set_invertible_t4nextEPj.exit.i.i, %78
+  %80 = load i32, ptr %24, align 8, !tbaa !92
+  %.not.i = icmp ne i32 %80, -1
+  %81 = load ptr, ptr %9, align 8
+  %82 = icmp ne ptr %81, %.fca.0.load.i.i.i20
+  %83 = select i1 %.not.i, i1 true, i1 %82
+  br i1 %83, label %33, label %._crit_edge
 
 _ZN14hb_sparseset_tI23hb_bit_set_invertible_tE3setERKS1_.exit: ; preds = %._crit_edge, %13, %18, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %13 ], [ %.pre23, %._crit_edge ]
+  %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ false, %13 ], [ %32, %._crit_edge ]
   ret i1 %.0
 }
 

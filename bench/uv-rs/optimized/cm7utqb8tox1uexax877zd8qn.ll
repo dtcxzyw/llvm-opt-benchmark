@@ -7598,7 +7598,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
 450:                                              ; preds = %444
   %451 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.val543 = load ptr, ptr %451, align 8
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hc1c82d70167c93a9E"(i8 %445, ptr %.val543)
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hc1c82d70167c93a9E"(i8 1, ptr %.val543)
           to label %449 unwind label %439
 
 452:                                              ; preds = %449
@@ -8013,7 +8013,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uv_installer9satisfies23RequirementSatisf
 588:                                              ; preds = %582
   %589 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.val541 = load ptr, ptr %589, align 8
-  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hc1c82d70167c93a9E"(i8 %583, ptr %.val541)
+  invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17hc1c82d70167c93a9E"(i8 1, ptr %.val541)
           to label %587 unwind label %577
 
 590:                                              ; preds = %587

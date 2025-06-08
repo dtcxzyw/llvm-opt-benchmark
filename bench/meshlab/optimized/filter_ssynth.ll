@@ -12439,7 +12439,7 @@ _ZN5QListI7QStringE9push_backERKS0_.exit.thread:  ; preds = %.critedge144, %_ZN9
 
 _ZN5QListI7QStringE9push_backERKS0_.exit:         ; preds = %247, %_ZN7QStringD2Ev.exit236, %229, %282, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i
   %cond4 = phi i1 [ false, %247 ], [ false, %_ZN7QStringD2Ev.exit236 ], [ true, %229 ], [ true, %282 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i ]
-  %.4105 = phi i8 [ %.0101, %247 ], [ %.0101, %_ZN7QStringD2Ev.exit236 ], [ %.0101, %229 ], [ 1, %282 ], [ 1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i ], [ 1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i ]
+  %.4105 = phi i8 [ 0, %247 ], [ 0, %_ZN7QStringD2Ev.exit236 ], [ 0, %229 ], [ 1, %282 ], [ 1, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i ], [ 1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i ]
   %.5 = phi i32 [ 2, %247 ], [ %274, %_ZN7QStringD2Ev.exit236 ], [ %.2, %229 ], [ %.2, %282 ], [ %.2, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i ], [ %.2, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i ]
   call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #31
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #31
@@ -12451,7 +12451,7 @@ _ZN5QListI7QStringE9push_backERKS0_.exit:         ; preds = %247, %_ZN7QStringD2
   br label %351
 
 344:                                              ; preds = %_ZN5QListI7QStringE9push_backERKS0_.exit.thread, %_ZN5QListI7QStringE9push_backERKS0_.exit, %130
-  %.1102 = phi i8 [ %.4105, %_ZN5QListI7QStringE9push_backERKS0_.exit ], [ 0, %130 ], [ %.0101, %_ZN5QListI7QStringE9push_backERKS0_.exit.thread ]
+  %.1102 = phi i8 [ %.4105, %_ZN5QListI7QStringE9push_backERKS0_.exit ], [ 0, %130 ], [ 0, %_ZN5QListI7QStringE9push_backERKS0_.exit.thread ]
   %.3 = phi i32 [ %.5, %_ZN5QListI7QStringE9push_backERKS0_.exit ], [ %.2, %130 ], [ %.2, %_ZN5QListI7QStringE9push_backERKS0_.exit.thread ]
   %345 = add nsw i32 %.097, 1
   br label %346

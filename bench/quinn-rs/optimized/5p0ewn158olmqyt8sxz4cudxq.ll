@@ -8036,7 +8036,7 @@ common.resume:                                    ; preds = %30, %19, %23
 23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$quinn_proto..connection..streams..state..StreamRecv$GT$17h7119ff472c27c373E"(i64 range(i64 0, 2) %2, ptr %3) #21
+  invoke fastcc void @"_ZN4core3ptr72drop_in_place$LT$quinn_proto..connection..streams..state..StreamRecv$GT$17h7119ff472c27c373E"(i64 0, ptr %3) #21
           to label %common.resume unwind label %21
 
 _ZN11quinn_proto10connection7streams5state10StreamRecv4free17h63106b829b149ffeE.exit: ; preds = %11

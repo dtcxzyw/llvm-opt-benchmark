@@ -46132,7 +46132,7 @@ _ZN6hir_ty5infer14find_breakable17h637686b9d5c6e31aE.exit11.i: ; preds = %972
   %985 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %986 = load i32, ptr %985, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136), !noalias !11523
-  store i32 %974, ptr %136, align 4, !noalias !11524
+  store i32 1, ptr %136, align 4, !noalias !11524
   %987 = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 %986, ptr %987, align 4, !noalias !11524
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %135), !noalias !11524

@@ -1265,10 +1265,10 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
 572:                                              ; preds = %571
   %.phi.trans.insert407 = getelementptr inbounds nuw i8, ptr %530, i64 1816
   %.pre408 = load i8, ptr %.phi.trans.insert407, align 8, !tbaa !99, !range !7
-  %573 = getelementptr inbounds nuw i8, ptr %530, i64 8
-  store ptr %88, ptr %573, align 8, !tbaa !102
-  %574 = trunc nuw i8 %.pre408 to i1
-  br i1 %574, label %575, label %582
+  %573 = trunc nuw i8 %.pre408 to i1
+  %574 = getelementptr inbounds nuw i8, ptr %530, i64 8
+  store ptr %88, ptr %574, align 8, !tbaa !102
+  br i1 %573, label %575, label %582
 
 575:                                              ; preds = %.thread409, %572
   %576 = call i32 @H5F__super_ext_write_msg(ptr noundef nonnull %0, i32 noundef 23, ptr noundef nonnull %14, i1 noundef zeroext false, i32 noundef 16)

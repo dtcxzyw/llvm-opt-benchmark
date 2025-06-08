@@ -15823,16 +15823,16 @@ define void @_ZN9grpc_core13ClientChannel14StartIdleTimerEv(ptr noundef nonnull 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #42
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.1, i32 noundef 1332) #43
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 15, ptr nonnull @.str.2)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit unwind label %485
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit unwind label %486
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; preds = %20
   store ptr %0, ptr %12, align 8, !tbaa !27
   %21 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core13ClientChannelETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS8_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %22 unwind label %487
+          to label %22 unwind label %488
 
 22:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 20, ptr nonnull @.str.58)
-          to label %24 unwind label %487
+          to label %24 unwind label %488
 
 23:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #42
@@ -15855,11 +15855,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #42
   invoke void @_ZN9grpc_core45DefaultMemoryAllocatorForSimpleArenaAllocatorEv(ptr dead_on_unwind nonnull writable sret(%"class.grpc_event_engine::experimental::MemoryAllocator") align 8 %16)
-          to label %29 unwind label %490
+          to label %29 unwind label %491
 
 29:                                               ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_0D2Ev.exit40"
   invoke void @_ZN9grpc_core20SimpleArenaAllocatorEmN17grpc_event_engine12experimental15MemoryAllocatorE(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.274") align 8 %15, i64 noundef 0, ptr noundef nonnull %16)
-          to label %30 unwind label %492
+          to label %30 unwind label %493
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %15, align 8, !tbaa !339
@@ -15867,7 +15867,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit: ; pr
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   invoke void %34(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.264") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %31)
-          to label %35 unwind label %494
+          to label %35 unwind label %495
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %15, align 8, !tbaa !339
@@ -15963,7 +15963,7 @@ _ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit: ; preds = %50, %
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = invoke noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(632) %0)
-          to label %82 unwind label %506
+          to label %82 unwind label %507
 
 82:                                               ; preds = %_ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 56
@@ -16004,7 +16004,7 @@ _ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit: ; preds = %50, %
 "_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit": ; preds = %82, %91
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   %104 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #45
-          to label %.noexc unwind label %509
+          to label %.noexc unwind label %510
 
 .noexc:                                           ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit"
   store ptr %87, ptr %10, align 8, !tbaa !10, !noalias !632
@@ -16058,7 +16058,7 @@ _ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit: ; preds = %50, %
   %127 = getelementptr inbounds nuw i8, ptr %104, i64 89
   store i8 0, ptr %127, align 1, !tbaa !654, !noalias !632
   invoke void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %121)
-          to label %128 unwind label %342, !noalias !632
+          to label %128 unwind label %343, !noalias !632
 
 128:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #42, !noalias !632
@@ -16074,7 +16074,7 @@ _ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit: ; preds = %50, %
   store ptr %129, ptr %7, align 8, !tbaa !10, !noalias !632
   store ptr null, ptr %8, align 8, !tbaa !10, !noalias !632
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i8 %131, ptr %133, align 8, !tbaa !618, !noalias !632
+  store i8 0, ptr %133, align 8, !tbaa !618, !noalias !632
   br label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEEC2ES5_.exit.i.i"
 
 134:                                              ; preds = %128
@@ -16097,7 +16097,7 @@ _ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit: ; preds = %50, %
   store ptr %129, ptr %7, align 8, !tbaa !10, !noalias !632
   store ptr null, ptr %8, align 8, !tbaa !10, !noalias !632
   %147 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i8 %131, ptr %147, align 8, !tbaa !618, !noalias !632
+  store i8 1, ptr %147, align 8, !tbaa !618, !noalias !632
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 %139, ptr %149, align 8, !tbaa !625, !noalias !632
@@ -16111,978 +16111,979 @@ _ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit: ; preds = %50, %
   br label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEEC2ES5_.exit.i.i"
 
 "_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEEC2ES5_.exit.i.i": ; preds = %134, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i.i"
-  %152 = phi ptr [ %133, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i.i" ], [ %147, %134 ]
+  %152 = phi i8 [ 0, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i.i" ], [ 1, %134 ]
+  %153 = phi ptr [ %133, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i.i" ], [ %147, %134 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #42, !noalias !655
   %.not.i.i.i.i.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i, label %155
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i, label %156
 
 _ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i: ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEEC2ES5_.exit.i.i"
-  %153 = call noundef nonnull align 8 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %154 = load ptr, ptr %153, align 8, !tbaa !658, !noalias !655
-  store ptr %154, ptr %4, align 8, !tbaa !659, !noalias !655
+  %154 = call noundef nonnull align 8 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %155 = load ptr, ptr %154, align 8, !tbaa !658, !noalias !655
+  store ptr %155, ptr %4, align 8, !tbaa !659, !noalias !655
   br label %.noexc15.i.i
 
-155:                                              ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEEC2ES5_.exit.i.i"
+156:                                              ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEEC2ES5_.exit.i.i"
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-          to label %.noexc.i.i unwind label %344, !noalias !632
+          to label %.noexc.i.i unwind label %345, !noalias !632
 
-.noexc.i.i:                                       ; preds = %155
-  %156 = call noundef nonnull align 8 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %157 = load ptr, ptr %156, align 8, !tbaa !658, !noalias !655
-  store ptr %157, ptr %4, align 8, !tbaa !659, !noalias !655
+.noexc.i.i:                                       ; preds = %156
+  %157 = call noundef nonnull align 8 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %158 = load ptr, ptr %157, align 8, !tbaa !658, !noalias !655
+  store ptr %158, ptr %4, align 8, !tbaa !659, !noalias !655
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-          to label %.noexc..noexc15_crit_edge.i.i unwind label %344, !noalias !632
+          to label %.noexc..noexc15_crit_edge.i.i unwind label %345, !noalias !632
 
 .noexc..noexc15_crit_edge.i.i:                    ; preds = %.noexc.i.i
   %.pre.i.i = load ptr, ptr %7, align 8, !tbaa !10, !noalias !661
-  %.pre27.i.i = load i8, ptr %152, align 8, !tbaa !618, !range !207, !noalias !661
+  %.pre27.i.i = load i8, ptr %153, align 8, !tbaa !618, !range !207, !noalias !661
   br label %.noexc15.i.i
 
 .noexc15.i.i:                                     ; preds = %.noexc..noexc15_crit_edge.i.i, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i
-  %158 = phi i8 [ %131, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i ], [ %.pre27.i.i, %.noexc..noexc15_crit_edge.i.i ]
-  %159 = phi ptr [ %129, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i ], [ %.pre.i.i, %.noexc..noexc15_crit_edge.i.i ]
-  %160 = phi ptr [ %153, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i ], [ %156, %.noexc..noexc15_crit_edge.i.i ]
-  store ptr %104, ptr %160, align 8, !tbaa !658, !noalias !655
-  %161 = load ptr, ptr %123, align 8, !tbaa !342, !noalias !655
-  %162 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail18ThreadLocalContextINS_5ArenaEE8current_E)
-  %163 = load ptr, ptr %162, align 8, !tbaa !664, !noalias !655
-  store ptr %161, ptr %162, align 8, !tbaa !664, !noalias !655
+  %159 = phi i8 [ %152, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i ], [ %.pre27.i.i, %.noexc..noexc15_crit_edge.i.i ]
+  %160 = phi ptr [ %129, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i ], [ %.pre.i.i, %.noexc..noexc15_crit_edge.i.i ]
+  %161 = phi ptr [ %154, %_ZN9grpc_core8Activity7currentEv.exit.thread.i.i.i.i ], [ %157, %.noexc..noexc15_crit_edge.i.i ]
+  store ptr %104, ptr %161, align 8, !tbaa !658, !noalias !655
+  %162 = load ptr, ptr %123, align 8, !tbaa !342, !noalias !655
+  %163 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail18ThreadLocalContextINS_5ArenaEE8current_E)
+  %164 = load ptr, ptr %163, align 8, !tbaa !664, !noalias !655
+  store ptr %162, ptr %163, align 8, !tbaa !664, !noalias !655
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #42, !noalias !655
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !655
   store ptr null, ptr %7, align 8, !tbaa !10, !noalias !661
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %165 = trunc nuw i8 %158 to i1
-  store i8 %158, ptr %164, align 8, !tbaa !618, !noalias !661
-  br i1 %165, label %167, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i"
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %166 = trunc nuw i8 %159 to i1
+  store i8 %159, ptr %165, align 8, !tbaa !618, !noalias !661
+  br i1 %166, label %168, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i"
 
 "_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i": ; preds = %.noexc15.i.i
-  store ptr %159, ptr %5, align 8, !tbaa !10, !noalias !655
-  %166 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %158, ptr %166, align 8, !tbaa !618, !noalias !655
-  br label %207
+  store ptr %160, ptr %5, align 8, !tbaa !10, !noalias !655
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i8 0, ptr %167, align 8, !tbaa !618, !noalias !655
+  br label %208
 
-167:                                              ; preds = %.noexc15.i.i
-  %168 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %169 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %170 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %171 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %172 = load i8, ptr %171, align 8, !tbaa !625, !noalias !661
-  store i8 %172, ptr %170, align 8, !tbaa !625, !noalias !661
-  %173 = load i64, ptr %169, align 8, !tbaa !210, !noalias !661
-  store i64 %173, ptr %168, align 8, !tbaa !210, !noalias !661
-  %174 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %175 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %176 = load ptr, ptr %175, align 8, !tbaa !627, !noalias !661
-  store ptr null, ptr %175, align 8, !tbaa !627, !noalias !661
-  %177 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %178 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %179 = load ptr, ptr %178, align 8, !tbaa !10, !noalias !661
-  store ptr null, ptr %178, align 8, !tbaa !10, !noalias !661
-  store ptr %159, ptr %5, align 8, !tbaa !10, !noalias !655
+168:                                              ; preds = %.noexc15.i.i
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %173 = load i8, ptr %172, align 8, !tbaa !625, !noalias !661
+  store i8 %173, ptr %171, align 8, !tbaa !625, !noalias !661
+  %174 = load i64, ptr %170, align 8, !tbaa !210, !noalias !661
+  store i64 %174, ptr %169, align 8, !tbaa !210, !noalias !661
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %177 = load ptr, ptr %176, align 8, !tbaa !627, !noalias !661
+  store ptr null, ptr %176, align 8, !tbaa !627, !noalias !661
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %180 = load ptr, ptr %179, align 8, !tbaa !10, !noalias !661
+  store ptr null, ptr %179, align 8, !tbaa !10, !noalias !661
+  store ptr %160, ptr %5, align 8, !tbaa !10, !noalias !655
   store ptr null, ptr %3, align 8, !tbaa !10, !noalias !655
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %158, ptr %180, align 8, !tbaa !618, !noalias !655
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %182 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 %172, ptr %182, align 8, !tbaa !625, !noalias !655
-  store i64 %173, ptr %181, align 8, !tbaa !210, !noalias !655
-  %183 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %174, align 8, !tbaa !627, !noalias !655
-  store ptr %176, ptr %183, align 8, !tbaa !629, !noalias !655
-  %184 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %179, ptr %184, align 8, !tbaa !10, !noalias !655
-  store ptr null, ptr %177, align 8, !tbaa !10, !noalias !655
-  %185 = inttoptr i64 %173 to ptr
-  switch i8 %172, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i" [
-    i8 0, label %191
-    i8 1, label %186
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i8 1, ptr %181, align 8, !tbaa !618, !noalias !655
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 %173, ptr %183, align 8, !tbaa !625, !noalias !655
+  store i64 %174, ptr %182, align 8, !tbaa !210, !noalias !655
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr null, ptr %175, align 8, !tbaa !627, !noalias !655
+  store ptr %177, ptr %184, align 8, !tbaa !629, !noalias !655
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %180, ptr %185, align 8, !tbaa !10, !noalias !655
+  store ptr null, ptr %178, align 8, !tbaa !10, !noalias !655
+  %186 = inttoptr i64 %174 to ptr
+  switch i8 %173, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i" [
+    i8 0, label %192
+    i8 1, label %187
   ]
 
-186:                                              ; preds = %167
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %173, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", label %187
+187:                                              ; preds = %168
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %174, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", label %188
 
-187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %189 = atomicrmw sub ptr %188, i64 1 acq_rel, align 8, !noalias !655
-  %190 = icmp eq i64 %189, 1
-  br i1 %190, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i", label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", !prof !26
+188:                                              ; preds = %187
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %190 = atomicrmw sub ptr %189, i64 1 acq_rel, align 8, !noalias !655
+  %191 = icmp eq i64 %190, 1
+  br i1 %191, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i", label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", !prof !26
 
-191:                                              ; preds = %167
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %168) #42, !noalias !655
-  %.val1.i.i.pre.i.i.i = load ptr, ptr %177, align 8, !tbaa !10, !noalias !655
+192:                                              ; preds = %168
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %169) #42, !noalias !655
+  %.val1.i.i.pre.i.i.i = load ptr, ptr %178, align 8, !tbaa !10, !noalias !655
   %.not.i.i.i2.i.i.i.i.i = icmp eq ptr %.val1.i.i.pre.i.i.i, null
-  br i1 %.not.i.i.i2.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", label %192
+  br i1 %.not.i.i.i2.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", label %193
 
-192:                                              ; preds = %191
-  %193 = getelementptr inbounds nuw i8, ptr %.val1.i.i.pre.i.i.i, i64 8
-  %194 = atomicrmw sub ptr %193, i64 1 acq_rel, align 8, !noalias !655
-  %195 = icmp eq i64 %194, 1
-  br i1 %195, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i", label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", !prof !26
+193:                                              ; preds = %192
+  %194 = getelementptr inbounds nuw i8, ptr %.val1.i.i.pre.i.i.i, i64 8
+  %195 = atomicrmw sub ptr %194, i64 1 acq_rel, align 8, !noalias !655
+  %196 = icmp eq i64 %195, 1
+  br i1 %196, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i", label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i": ; preds = %192, %187
-  %.val1.sink4.i.i.i.i.i = phi ptr [ %185, %187 ], [ %.val1.i.i.pre.i.i.i, %192 ]
-  %196 = load ptr, ptr %.val1.sink4.i.i.i.i.i, align 8, !tbaa !8, !noalias !655
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %198 = load ptr, ptr %197, align 8, !noalias !655
-  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i.i.i) #42, !noalias !655
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i": ; preds = %193, %188
+  %.val1.sink4.i.i.i.i.i = phi ptr [ %186, %188 ], [ %.val1.i.i.pre.i.i.i, %193 ]
+  %197 = load ptr, ptr %.val1.sink4.i.i.i.i.i, align 8, !tbaa !8, !noalias !655
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  %199 = load ptr, ptr %198, align 8, !noalias !655
+  call void %199(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i.i.i) #42, !noalias !655
   br label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i"
 
-"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i", %192, %191, %187, %186, %167
+"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i", %193, %192, %188, %187, %168
   %.val.pr.i.i.i = load ptr, ptr %3, align 8, !tbaa !10, !noalias !655
   %.not.i.i.i8.i.i.i = icmp eq ptr %.val.pr.i.i.i, null
-  br i1 %.not.i.i.i8.i.i.i, label %207, label %199
+  br i1 %.not.i.i.i8.i.i.i, label %208, label %200
 
-199:                                              ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i"
-  %200 = getelementptr inbounds nuw i8, ptr %.val.pr.i.i.i, i64 8
-  %201 = atomicrmw sub ptr %200, i64 1 acq_rel, align 8, !noalias !655
-  %202 = icmp eq i64 %201, 1
-  br i1 %202, label %203, label %207, !prof !26
+200:                                              ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i"
+  %201 = getelementptr inbounds nuw i8, ptr %.val.pr.i.i.i, i64 8
+  %202 = atomicrmw sub ptr %201, i64 1 acq_rel, align 8, !noalias !655
+  %203 = icmp eq i64 %202, 1
+  br i1 %203, label %204, label %208, !prof !26
 
-203:                                              ; preds = %199
-  %204 = load ptr, ptr %.val.pr.i.i.i, align 8, !tbaa !8, !noalias !655
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %206 = load ptr, ptr %205, align 8, !noalias !655
-  call void %206(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr.i.i.i) #42, !noalias !655
-  br label %207
+204:                                              ; preds = %200
+  %205 = load ptr, ptr %.val.pr.i.i.i, align 8, !tbaa !8, !noalias !655
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %207 = load ptr, ptr %206, align 8, !noalias !655
+  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %.val.pr.i.i.i) #42, !noalias !655
+  br label %208
 
-207:                                              ; preds = %203, %199, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i"
-  %208 = phi ptr [ %166, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i" ], [ %180, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i" ], [ %180, %199 ], [ %180, %203 ]
+208:                                              ; preds = %204, %200, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i", %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i"
+  %209 = phi ptr [ %167, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.thread.i.i.i" ], [ %181, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEE4MakeEv.exit.i.i.i" ], [ %181, %200 ], [ %181, %204 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !655
-  %209 = getelementptr inbounds nuw i8, ptr %104, i64 96
-  %210 = load ptr, ptr %5, align 8, !tbaa !10, !noalias !655
-  store ptr %210, ptr %209, align 8, !tbaa !10, !noalias !655
+  %210 = getelementptr inbounds nuw i8, ptr %104, i64 96
+  %211 = load ptr, ptr %5, align 8, !tbaa !10, !noalias !655
+  store ptr %211, ptr %210, align 8, !tbaa !10, !noalias !655
   store ptr null, ptr %5, align 8, !tbaa !10, !noalias !655
-  %211 = getelementptr inbounds nuw i8, ptr %104, i64 136
-  %212 = load i8, ptr %208, align 8, !tbaa !618, !range !207, !noalias !655, !noundef !208
-  %213 = trunc nuw i8 %212 to i1
-  store i8 %212, ptr %211, align 8, !tbaa !618, !noalias !655
-  br i1 %213, label %214, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
+  %212 = getelementptr inbounds nuw i8, ptr %104, i64 136
+  %213 = load i8, ptr %209, align 8, !tbaa !618, !range !207, !noalias !655, !noundef !208
+  %214 = trunc nuw i8 %213 to i1
+  store i8 %213, ptr %212, align 8, !tbaa !618, !noalias !655
+  br i1 %214, label %215, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
 
-214:                                              ; preds = %207
-  %215 = getelementptr inbounds nuw i8, ptr %104, i64 104
-  %216 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %217 = getelementptr inbounds nuw i8, ptr %104, i64 128
-  %218 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %219 = load i8, ptr %218, align 8, !tbaa !625, !noalias !655
-  store i8 %219, ptr %217, align 8, !tbaa !625, !noalias !655
-  %220 = load i64, ptr %216, align 8, !noalias !655
-  store i64 %220, ptr %215, align 8, !tbaa !210, !noalias !655
-  %221 = getelementptr inbounds nuw i8, ptr %104, i64 112
-  %222 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %223 = load ptr, ptr %222, align 8, !tbaa !627, !noalias !655
-  store ptr null, ptr %222, align 8, !tbaa !627, !noalias !655
-  store ptr %223, ptr %221, align 8, !tbaa !629, !noalias !655
-  %224 = getelementptr inbounds nuw i8, ptr %104, i64 120
-  %225 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %226 = load ptr, ptr %225, align 8, !tbaa !10, !noalias !655
-  store ptr %226, ptr %224, align 8, !tbaa !10, !noalias !655
-  store ptr null, ptr %225, align 8, !tbaa !10, !noalias !655
-  %227 = inttoptr i64 %220 to ptr
-  switch i8 %219, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i" [
-    i8 0, label %233
-    i8 1, label %228
+215:                                              ; preds = %208
+  %216 = getelementptr inbounds nuw i8, ptr %104, i64 104
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %104, i64 128
+  %219 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %220 = load i8, ptr %219, align 8, !tbaa !625, !noalias !655
+  store i8 %220, ptr %218, align 8, !tbaa !625, !noalias !655
+  %221 = load i64, ptr %217, align 8, !noalias !655
+  store i64 %221, ptr %216, align 8, !tbaa !210, !noalias !655
+  %222 = getelementptr inbounds nuw i8, ptr %104, i64 112
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %224 = load ptr, ptr %223, align 8, !tbaa !627, !noalias !655
+  store ptr null, ptr %223, align 8, !tbaa !627, !noalias !655
+  store ptr %224, ptr %222, align 8, !tbaa !629, !noalias !655
+  %225 = getelementptr inbounds nuw i8, ptr %104, i64 120
+  %226 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %227 = load ptr, ptr %226, align 8, !tbaa !10, !noalias !655
+  store ptr %227, ptr %225, align 8, !tbaa !10, !noalias !655
+  store ptr null, ptr %226, align 8, !tbaa !10, !noalias !655
+  %228 = inttoptr i64 %221 to ptr
+  switch i8 %220, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i" [
+    i8 0, label %234
+    i8 1, label %229
   ]
 
-228:                                              ; preds = %214
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %220, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", label %229
+229:                                              ; preds = %215
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %221, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", label %230
 
-229:                                              ; preds = %228
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %231 = atomicrmw sub ptr %230, i64 1 acq_rel, align 8, !noalias !655
-  %232 = icmp eq i64 %231, 1
-  br i1 %232, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", !prof !26
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 8
+  %232 = atomicrmw sub ptr %231, i64 1 acq_rel, align 8, !noalias !655
+  %233 = icmp eq i64 %232, 1
+  br i1 %233, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", !prof !26
 
-233:                                              ; preds = %214
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %216) #42, !noalias !655
-  %.val1.i.i.i.pre.i.i.i = load ptr, ptr %225, align 8, !tbaa !10, !noalias !655
+234:                                              ; preds = %215
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %217) #42, !noalias !655
+  %.val1.i.i.i.pre.i.i.i = load ptr, ptr %226, align 8, !tbaa !10, !noalias !655
   %.not.i.i.i2.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i.pre.i.i.i, null
-  br i1 %.not.i.i.i2.i.i.i.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", label %234
+  br i1 %.not.i.i.i2.i.i.i.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", label %235
 
-234:                                              ; preds = %233
-  %235 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.pre.i.i.i, i64 8
-  %236 = atomicrmw sub ptr %235, i64 1 acq_rel, align 8, !noalias !655
-  %237 = icmp eq i64 %236, 1
-  br i1 %237, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", !prof !26
+235:                                              ; preds = %234
+  %236 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.pre.i.i.i, i64 8
+  %237 = atomicrmw sub ptr %236, i64 1 acq_rel, align 8, !noalias !655
+  %238 = icmp eq i64 %237, 1
+  br i1 %238, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i": ; preds = %234, %229
-  %.val1.sink4.i.i.i.i.i.i = phi ptr [ %227, %229 ], [ %.val1.i.i.i.pre.i.i.i, %234 ]
-  %238 = load ptr, ptr %.val1.sink4.i.i.i.i.i.i, align 8, !tbaa !8, !noalias !655
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
-  %240 = load ptr, ptr %239, align 8, !noalias !655
-  call void %240(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i.i.i.i) #42, !noalias !655
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i": ; preds = %235, %230
+  %.val1.sink4.i.i.i.i.i.i = phi ptr [ %228, %230 ], [ %.val1.i.i.i.pre.i.i.i, %235 ]
+  %239 = load ptr, ptr %.val1.sink4.i.i.i.i.i.i, align 8, !tbaa !8, !noalias !655
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %241 = load ptr, ptr %240, align 8, !noalias !655
+  call void %241(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i.i.i.i) #42, !noalias !655
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i", %234, %233, %229, %228, %214
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i.i.i", %235, %234, %230, %229, %215
   %.val.i.pr.i.i.i = load ptr, ptr %5, align 8, !tbaa !10, !noalias !655
   %.not.i.i.i.i12.i.i.i = icmp eq ptr %.val.i.pr.i.i.i, null
-  br i1 %.not.i.i.i.i12.i.i.i, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i", label %241
+  br i1 %.not.i.i.i.i12.i.i.i, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i", label %242
 
-241:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i"
-  %242 = getelementptr inbounds nuw i8, ptr %.val.i.pr.i.i.i, i64 8
-  %243 = atomicrmw sub ptr %242, i64 1 acq_rel, align 8, !noalias !655
-  %244 = icmp eq i64 %243, 1
-  br i1 %244, label %245, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i", !prof !26
+242:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i"
+  %243 = getelementptr inbounds nuw i8, ptr %.val.i.pr.i.i.i, i64 8
+  %244 = atomicrmw sub ptr %243, i64 1 acq_rel, align 8, !noalias !655
+  %245 = icmp eq i64 %244, 1
+  br i1 %245, label %246, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i", !prof !26
 
-245:                                              ; preds = %241
-  %246 = load ptr, ptr %.val.i.pr.i.i.i, align 8, !tbaa !8, !noalias !655
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
-  %248 = load ptr, ptr %247, align 8, !noalias !655
-  call void %248(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.pr.i.i.i) #42, !noalias !655
+246:                                              ; preds = %242
+  %247 = load ptr, ptr %.val.i.pr.i.i.i, align 8, !tbaa !8, !noalias !655
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %249 = load ptr, ptr %248, align 8, !noalias !655
+  call void %249(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.pr.i.i.i) #42, !noalias !655
   br label %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
 
-"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i": ; preds = %245, %241, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", %207
+"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i": ; preds = %246, %242, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i11.i.i.i", %208
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #42, !noalias !655
   invoke fastcc void @"_ZN9grpc_core14promise_detail15PromiseActivityINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EENS_22ExecCtxWakeupSchedulerEZNS3_14StartIdleTimerEvE3$_1JNS_13RefCountedPtrINS_5ArenaEEEEE8StepLoopEv"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %104)
-          to label %249 unwind label %255, !noalias !632
+          to label %250 unwind label %256, !noalias !632
 
-249:                                              ; preds = %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
-  store ptr %163, ptr %162, align 8, !tbaa !664, !noalias !655
-  %250 = load ptr, ptr %4, align 8, !tbaa !659, !noalias !655
-  br i1 %.not.i.i.i.i.i.i.i, label %257, label %251
+250:                                              ; preds = %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
+  store ptr %164, ptr %163, align 8, !tbaa !664, !noalias !655
+  %251 = load ptr, ptr %4, align 8, !tbaa !659, !noalias !655
+  br i1 %.not.i.i.i.i.i.i.i, label %258, label %252
 
-251:                                              ; preds = %249
+252:                                              ; preds = %250
   invoke void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-          to label %257 unwind label %252, !noalias !655
+          to label %258 unwind label %253, !noalias !655
 
-252:                                              ; preds = %251
-  %253 = landingpad { ptr, i32 }
+253:                                              ; preds = %252
+  %254 = landingpad { ptr, i32 }
           catch ptr null
-  %254 = extractvalue { ptr, i32 } %253, 0
-  call void @__clang_call_terminate(ptr %254) #47, !noalias !655
+  %255 = extractvalue { ptr, i32 } %254, 0
+  call void @__clang_call_terminate(ptr %255) #47, !noalias !655
   unreachable
 
-255:                                              ; preds = %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
-  %256 = landingpad { ptr, i32 }
+256:                                              ; preds = %"_ZN9grpc_core14promise_detail11PromiseLikeINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEvED2Ev.exit.i.i.i"
+  %257 = landingpad { ptr, i32 }
           cleanup
-  store ptr %163, ptr %162, align 8, !tbaa !664, !noalias !655
+  store ptr %164, ptr %163, align 8, !tbaa !664, !noalias !655
   call void @_ZN9grpc_core8Activity14ScopedActivityD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #42, !noalias !655
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42, !noalias !655
   br label %.body.i.i
 
-257:                                              ; preds = %251, %249
-  %258 = call noundef nonnull align 8 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  store ptr %250, ptr %258, align 8, !tbaa !658, !noalias !655
+258:                                              ; preds = %252, %250
+  %259 = call noundef nonnull align 8 dereferenceable(8) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  store ptr %251, ptr %259, align 8, !tbaa !658, !noalias !655
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42, !noalias !655
-  %259 = load i8, ptr %152, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
-  %260 = trunc nuw i8 %259 to i1
-  br i1 %260, label %261, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
+  %260 = load i8, ptr %153, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
+  %261 = trunc nuw i8 %260 to i1
+  br i1 %261, label %262, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
 
-261:                                              ; preds = %257
-  %262 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %263 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %264 = load i8, ptr %263, align 8, !tbaa !625, !noalias !632
-  switch i8 %264, label %271 [
-    i8 0, label %265
-    i8 1, label %266
+262:                                              ; preds = %258
+  %263 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %265 = load i8, ptr %264, align 8, !tbaa !625, !noalias !632
+  switch i8 %265, label %272 [
+    i8 0, label %266
+    i8 1, label %267
   ]
 
-265:                                              ; preds = %261
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %262) #42, !noalias !632
-  br label %271
+266:                                              ; preds = %262
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %263) #42, !noalias !632
+  br label %272
 
-266:                                              ; preds = %261
-  %.val.i.i.i.i.i = load ptr, ptr %262, align 8, !tbaa !10, !noalias !632
+267:                                              ; preds = %262
+  %.val.i.i.i.i.i = load ptr, ptr %263, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i.i.i.i16.i.i = icmp eq ptr %.val.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i16.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", label %267
+  br i1 %.not.i.i.i.i.i.i16.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", label %268
 
-267:                                              ; preds = %266
-  %268 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 8
-  %269 = atomicrmw sub ptr %268, i64 1 acq_rel, align 8, !noalias !632
-  %270 = icmp eq i64 %269, 1
-  br i1 %270, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", !prof !26
+268:                                              ; preds = %267
+  %269 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 8
+  %270 = atomicrmw sub ptr %269, i64 1 acq_rel, align 8, !noalias !632
+  %271 = icmp eq i64 %270, 1
+  br i1 %271, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", !prof !26
 
-271:                                              ; preds = %265, %261
-  %272 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val1.i.i.i.i.i = load ptr, ptr %272, align 8, !tbaa !10, !noalias !632
+272:                                              ; preds = %266, %262
+  %273 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val1.i.i.i.i.i = load ptr, ptr %273, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i2.i.i.i19.i.i = icmp eq ptr %.val1.i.i.i.i.i, null
-  br i1 %.not.i.i.i2.i.i.i19.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", label %273
+  br i1 %.not.i.i.i2.i.i.i19.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", label %274
 
-273:                                              ; preds = %271
-  %274 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i, i64 8
-  %275 = atomicrmw sub ptr %274, i64 1 acq_rel, align 8, !noalias !632
-  %276 = icmp eq i64 %275, 1
-  br i1 %276, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", !prof !26
+274:                                              ; preds = %272
+  %275 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i, i64 8
+  %276 = atomicrmw sub ptr %275, i64 1 acq_rel, align 8, !noalias !632
+  %277 = icmp eq i64 %276, 1
+  br i1 %277, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i": ; preds = %273, %267
-  %.val1.sink4.i.i.i18.i.i = phi ptr [ %.val.i.i.i.i.i, %267 ], [ %.val1.i.i.i.i.i, %273 ]
-  %277 = load ptr, ptr %.val1.sink4.i.i.i18.i.i, align 8, !tbaa !8, !noalias !632
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %279 = load ptr, ptr %278, align 8, !noalias !632
-  call void %279(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i18.i.i) #42, !noalias !632
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i": ; preds = %274, %268
+  %.val1.sink4.i.i.i18.i.i = phi ptr [ %.val.i.i.i.i.i, %268 ], [ %.val1.i.i.i.i.i, %274 ]
+  %278 = load ptr, ptr %.val1.sink4.i.i.i18.i.i, align 8, !tbaa !8, !noalias !632
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %280 = load ptr, ptr %279, align 8, !noalias !632
+  call void %280(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i18.i.i) #42, !noalias !632
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i", %273, %271, %267, %266, %257
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i17.i.i", %274, %272, %268, %267, %258
   %.val.i.i.i = load ptr, ptr %7, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i", label %280
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i", label %281
 
-280:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
-  %281 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
-  %282 = atomicrmw sub ptr %281, i64 1 acq_rel, align 8, !noalias !632
-  %283 = icmp eq i64 %282, 1
-  br i1 %283, label %284, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i", !prof !26
+281:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
+  %282 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
+  %283 = atomicrmw sub ptr %282, i64 1 acq_rel, align 8, !noalias !632
+  %284 = icmp eq i64 %283, 1
+  br i1 %284, label %285, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i", !prof !26
 
-284:                                              ; preds = %280
-  %285 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !8, !noalias !632
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  %287 = load ptr, ptr %286, align 8, !noalias !632
-  call void %287(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #42, !noalias !632
+285:                                              ; preds = %281
+  %286 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !8, !noalias !632
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %288 = load ptr, ptr %287, align 8, !noalias !632
+  call void %288(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i.i) #42, !noalias !632
   br label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i"
 
-"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i": ; preds = %284, %280, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
-  %288 = load i8, ptr %130, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
-  %289 = trunc nuw i8 %288 to i1
-  br i1 %289, label %290, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
+"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i": ; preds = %285, %281, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i.i"
+  %289 = load i8, ptr %130, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
+  %290 = trunc nuw i8 %289 to i1
+  br i1 %290, label %291, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
 
-290:                                              ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i"
-  %291 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %292 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %293 = load i8, ptr %292, align 8, !tbaa !625, !noalias !632
-  switch i8 %293, label %300 [
-    i8 0, label %294
-    i8 1, label %295
+291:                                              ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i"
+  %292 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %294 = load i8, ptr %293, align 8, !tbaa !625, !noalias !632
+  switch i8 %294, label %301 [
+    i8 0, label %295
+    i8 1, label %296
   ]
 
-294:                                              ; preds = %290
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %291) #42, !noalias !632
-  br label %300
+295:                                              ; preds = %291
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %292) #42, !noalias !632
+  br label %301
 
-295:                                              ; preds = %290
-  %.val.i.i.i.i = load ptr, ptr %291, align 8, !tbaa !10, !noalias !632
+296:                                              ; preds = %291
+  %.val.i.i.i.i = load ptr, ptr %292, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i.i.i20.i.i = icmp eq ptr %.val.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i20.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", label %296
+  br i1 %.not.i.i.i.i.i20.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", label %297
 
-296:                                              ; preds = %295
-  %297 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 8
-  %298 = atomicrmw sub ptr %297, i64 1 acq_rel, align 8, !noalias !632
-  %299 = icmp eq i64 %298, 1
-  br i1 %299, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", !prof !26
+297:                                              ; preds = %296
+  %298 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 8
+  %299 = atomicrmw sub ptr %298, i64 1 acq_rel, align 8, !noalias !632
+  %300 = icmp eq i64 %299, 1
+  br i1 %300, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", !prof !26
 
-300:                                              ; preds = %294, %290
-  %301 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.val1.i.i.i.i = load ptr, ptr %301, align 8, !tbaa !10, !noalias !632
+301:                                              ; preds = %295, %291
+  %302 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.val1.i.i.i.i = load ptr, ptr %302, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i2.i.i.i.i = icmp eq ptr %.val1.i.i.i.i, null
-  br i1 %.not.i.i.i2.i.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", label %302
+  br i1 %.not.i.i.i2.i.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", label %303
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 8
-  %304 = atomicrmw sub ptr %303, i64 1 acq_rel, align 8, !noalias !632
-  %305 = icmp eq i64 %304, 1
-  br i1 %305, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", !prof !26
+303:                                              ; preds = %301
+  %304 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 8
+  %305 = atomicrmw sub ptr %304, i64 1 acq_rel, align 8, !noalias !632
+  %306 = icmp eq i64 %305, 1
+  br i1 %306, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i": ; preds = %302, %296
-  %.val1.sink4.i.i.i.i = phi ptr [ %.val.i.i.i.i, %296 ], [ %.val1.i.i.i.i, %302 ]
-  %306 = load ptr, ptr %.val1.sink4.i.i.i.i, align 8, !tbaa !8, !noalias !632
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  %308 = load ptr, ptr %307, align 8, !noalias !632
-  call void %308(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i.i) #42, !noalias !632
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i": ; preds = %303, %297
+  %.val1.sink4.i.i.i.i = phi ptr [ %.val.i.i.i.i, %297 ], [ %.val1.i.i.i.i, %303 ]
+  %307 = load ptr, ptr %.val1.sink4.i.i.i.i, align 8, !tbaa !8, !noalias !632
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  %309 = load ptr, ptr %308, align 8, !noalias !632
+  call void %309(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i.i) #42, !noalias !632
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i", %302, %300, %296, %295, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i"
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i.i", %303, %301, %297, %296, %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev.exit.i.i"
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
-  br i1 %.not.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i", label %309
+  br i1 %.not.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i", label %310
 
-309:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
-  %310 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %311 = atomicrmw sub ptr %310, i64 1 acq_rel, align 8, !noalias !632
-  %312 = icmp eq i64 %311, 1
-  br i1 %312, label %313, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i", !prof !26
+310:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
+  %311 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
+  %312 = atomicrmw sub ptr %311, i64 1 acq_rel, align 8, !noalias !632
+  %313 = icmp eq i64 %312, 1
+  br i1 %313, label %314, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i", !prof !26
 
-313:                                              ; preds = %309
-  %314 = load ptr, ptr %.val.i.i, align 8, !tbaa !8, !noalias !632
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %316 = load ptr, ptr %315, align 8, !noalias !632
-  call void %316(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #42, !noalias !632
+314:                                              ; preds = %310
+  %315 = load ptr, ptr %.val.i.i, align 8, !tbaa !8, !noalias !632
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  %317 = load ptr, ptr %316, align 8, !noalias !632
+  call void %317(ptr noundef nonnull align 8 dereferenceable(16) %.val.i.i) #42, !noalias !632
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
 
-"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i": ; preds = %313, %309, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
+"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i": ; preds = %314, %310, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit11.i.i"
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %121)
-          to label %317 unwind label %358, !noalias !632
+          to label %318 unwind label %359, !noalias !632
 
-317:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
-  %318 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %319 = load i8, ptr %318, align 8, !tbaa !665, !range !207, !noalias !632, !noundef !208
-  %320 = trunc nuw i8 %319 to i1
-  br i1 %320, label %321, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
+318:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
+  %319 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %320 = load i8, ptr %319, align 8, !tbaa !665, !range !207, !noalias !632, !noundef !208
+  %321 = trunc nuw i8 %320 to i1
+  br i1 %321, label %322, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
 
-321:                                              ; preds = %317
-  %322 = load i64, ptr %6, align 8, !tbaa !200, !noalias !632
-  store i64 %322, ptr %9, align 8, !tbaa !200, !noalias !632
+322:                                              ; preds = %318
+  %323 = load i64, ptr %6, align 8, !tbaa !200, !noalias !632
+  store i64 %323, ptr %9, align 8, !tbaa !200, !noalias !632
   store i64 55, ptr %6, align 8, !tbaa !200, !noalias !632
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !632
-  %323 = icmp eq i64 %322, 1
-  br i1 %323, label %324, label %335
+  %324 = icmp eq i64 %323, 1
+  br i1 %324, label %325, label %336
 
-324:                                              ; preds = %321
-  %325 = load ptr, ptr %125, align 8, !tbaa !10, !noalias !632
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 336
-  %327 = load ptr, ptr %326, align 8, !tbaa !171, !noalias !632
-  %328 = getelementptr inbounds nuw i8, ptr %325, i64 8
-  %329 = atomicrmw add ptr %328, i64 1 monotonic, align 8, !noalias !632
+325:                                              ; preds = %322
+  %326 = load ptr, ptr %125, align 8, !tbaa !10, !noalias !632
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 336
+  %328 = load ptr, ptr %327, align 8, !tbaa !171, !noalias !632
+  %329 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  %330 = atomicrmw add ptr %329, i64 1 monotonic, align 8, !noalias !632
   %.pre.i.i.i.i = load ptr, ptr %125, align 8, !tbaa !10, !noalias !632
   store ptr %.pre.i.i.i.i, ptr %2, align 16, !tbaa !10, !noalias !632
-  %330 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clENS0_6StatusEEUlvE_JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %330, align 8, !tbaa !174, !noalias !632
-  %331 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable22LocalManagerNontrivialIZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clENS0_6StatusEEUlvE_EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESA_", ptr %331, align 16, !tbaa !176, !noalias !632
-  invoke void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocableIFvvEEENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(8) %327, ptr noundef nonnull %2)
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable12LocalInvokerILb0EvRZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clENS0_6StatusEEUlvE_JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %331, align 8, !tbaa !174, !noalias !632
+  %332 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable22LocalManagerNontrivialIZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clENS0_6StatusEEUlvE_EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESA_", ptr %332, align 16, !tbaa !176, !noalias !632
+  invoke void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocableIFvvEEENS_13DebugLocationE(ptr noundef nonnull align 8 dereferenceable(8) %328, ptr noundef nonnull %2)
           to label %.thread.i.i unwind label %"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i", !noalias !632
 
-.thread.i.i:                                      ; preds = %324
-  %332 = load ptr, ptr %331, align 16, !tbaa !176, !noalias !632
-  call void %332(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %2) #42, !noalias !632
+.thread.i.i:                                      ; preds = %325
+  %333 = load ptr, ptr %332, align 16, !tbaa !176, !noalias !632
+  call void %333(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %2) #42, !noalias !632
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !632
   br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
 
-"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i": ; preds = %324
-  %333 = landingpad { ptr, i32 }
+"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i": ; preds = %325
+  %334 = landingpad { ptr, i32 }
           cleanup
-  %334 = load ptr, ptr %331, align 16, !tbaa !176, !noalias !632
-  call void %334(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %2) #42, !noalias !632
+  %335 = load ptr, ptr %332, align 16, !tbaa !176, !noalias !632
+  call void %335(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %2) #42, !noalias !632
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #42, !noalias !632
-  br label %360
-
-335:                                              ; preds = %321
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !632
-  %336 = and i64 %322, 1
-  %.not.i.i.i.i43 = icmp eq i64 %336, 0
-  br i1 %.not.i.i.i.i43, label %337, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
-
-337:                                              ; preds = %335
-  %338 = inttoptr i64 %322 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %338)
-          to label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i" unwind label %339, !noalias !632
-
-339:                                              ; preds = %337
-  %340 = landingpad { ptr, i32 }
-          catch ptr null
-  %341 = extractvalue { ptr, i32 } %340, 0
-  call void @__clang_call_terminate(ptr %341) #47, !noalias !632
-  unreachable
-
-342:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i"
-  %343 = landingpad { ptr, i32 }
-          cleanup
   br label %361
 
-344:                                              ; preds = %.noexc.i.i, %155
-  %345 = landingpad { ptr, i32 }
+336:                                              ; preds = %322
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !632
+  %337 = and i64 %323, 1
+  %.not.i.i.i.i43 = icmp eq i64 %337, 0
+  br i1 %.not.i.i.i.i43, label %338, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
+
+338:                                              ; preds = %336
+  %339 = inttoptr i64 %323 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %339)
+          to label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i" unwind label %340, !noalias !632
+
+340:                                              ; preds = %338
+  %341 = landingpad { ptr, i32 }
+          catch ptr null
+  %342 = extractvalue { ptr, i32 } %341, 0
+  call void @__clang_call_terminate(ptr %342) #47, !noalias !632
+  unreachable
+
+343:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit.i"
+  %344 = landingpad { ptr, i32 }
+          cleanup
+  br label %362
+
+345:                                              ; preds = %.noexc.i.i, %156
+  %346 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %344, %255
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %345, %344 ], [ %256, %255 ]
+.body.i.i:                                        ; preds = %345, %256
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %346, %345 ], [ %257, %256 ]
   call fastcc void @"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(41) %7) #42, !noalias !632
-  %346 = load i8, ptr %130, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
-  %347 = trunc nuw i8 %346 to i1
-  br i1 %347, label %348, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
+  %347 = load i8, ptr %130, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
+  %348 = trunc nuw i8 %347 to i1
+  br i1 %348, label %349, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
 
-348:                                              ; preds = %.body.i.i
-  %349 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %349) #42, !noalias !632
+349:                                              ; preds = %.body.i.i
+  %350 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %350) #42, !noalias !632
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i": ; preds = %348, %.body.i.i
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i": ; preds = %349, %.body.i.i
   %.val12.i.i = load ptr, ptr %8, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i23.i.i = icmp eq ptr %.val12.i.i, null
-  br i1 %.not.i.i.i23.i.i, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i", label %350
+  br i1 %.not.i.i.i23.i.i, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i", label %351
 
-350:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
-  %351 = getelementptr inbounds nuw i8, ptr %.val12.i.i, i64 8
-  %352 = atomicrmw sub ptr %351, i64 1 acq_rel, align 8, !noalias !632
-  %353 = icmp eq i64 %352, 1
-  br i1 %353, label %354, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i", !prof !26
+351:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
+  %352 = getelementptr inbounds nuw i8, ptr %.val12.i.i, i64 8
+  %353 = atomicrmw sub ptr %352, i64 1 acq_rel, align 8, !noalias !632
+  %354 = icmp eq i64 %353, 1
+  br i1 %354, label %355, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i", !prof !26
 
-354:                                              ; preds = %350
-  %355 = load ptr, ptr %.val12.i.i, align 8, !tbaa !8, !noalias !632
-  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  %357 = load ptr, ptr %356, align 8, !noalias !632
-  call void %357(ptr noundef nonnull align 8 dereferenceable(16) %.val12.i.i) #42, !noalias !632
+355:                                              ; preds = %351
+  %356 = load ptr, ptr %.val12.i.i, align 8, !tbaa !8, !noalias !632
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  %358 = load ptr, ptr %357, align 8, !noalias !632
+  call void %358(ptr noundef nonnull align 8 dereferenceable(16) %.val12.i.i) #42, !noalias !632
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i"
 
-358:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
-  %359 = landingpad { ptr, i32 }
+359:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
+  %360 = landingpad { ptr, i32 }
           cleanup
-  br label %360
+  br label %361
 
-360:                                              ; preds = %358, %"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i"
-  %.pn.i.i = phi { ptr, i32 } [ %333, %"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i" ], [ %359, %358 ]
+361:                                              ; preds = %359, %"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i"
+  %.pn.i.i = phi { ptr, i32 } [ %334, %"_ZZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1clEN4absl12lts_202407226StatusEENUlvE_D2Ev.exit6.i.i.i" ], [ %360, %359 ]
   call void @_ZNSt14_Optional_baseIN4absl12lts_202407226StatusELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #42, !noalias !632
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i"
 
-"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i": ; preds = %360, %354, %350, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
-  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %360 ], [ %eh.lpad-body.i.i, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i, %350 ], [ %eh.lpad-body.i.i, %354 ]
+"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i": ; preds = %361, %355, %351, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i"
+  %.pn.pn.i.i = phi { ptr, i32 } [ %.pn.i.i, %361 ], [ %eh.lpad-body.i.i, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i.i" ], [ %eh.lpad-body.i.i, %351 ], [ %eh.lpad-body.i.i, %355 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #42, !noalias !632
-  br label %361
+  br label %362
 
-361:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i", %342
-  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i" ], [ %343, %342 ]
+362:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i", %343
+  %.pn.pn.pn.i.i = phi { ptr, i32 } [ %.pn.pn.i.i, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit24.i.i" ], [ %344, %343 ]
   %.val14.i.i = load ptr, ptr %125, align 8, !tbaa !10, !noalias !632
   %.not.i.i26.i.i = icmp eq ptr %.val14.i.i, null
-  br i1 %.not.i.i26.i.i, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i", label %362
+  br i1 %.not.i.i26.i.i, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i", label %363
 
-362:                                              ; preds = %361
-  %363 = getelementptr inbounds nuw i8, ptr %.val14.i.i, i64 8
-  %364 = atomicrmw sub ptr %363, i64 1 acq_rel, align 8, !noalias !632
-  %365 = icmp eq i64 %364, 1
-  br i1 %365, label %366, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i", !prof !26
+363:                                              ; preds = %362
+  %364 = getelementptr inbounds nuw i8, ptr %.val14.i.i, i64 8
+  %365 = atomicrmw sub ptr %364, i64 1 acq_rel, align 8, !noalias !632
+  %366 = icmp eq i64 %365, 1
+  br i1 %366, label %367, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i", !prof !26
 
-366:                                              ; preds = %362
-  %367 = load ptr, ptr %.val14.i.i, align 8, !tbaa !8, !noalias !632
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  %369 = load ptr, ptr %368, align 8, !noalias !632
-  call void %369(ptr noundef nonnull align 8 dereferenceable(16) %.val14.i.i) #42, !noalias !632
+367:                                              ; preds = %363
+  %368 = load ptr, ptr %.val14.i.i, align 8, !tbaa !8, !noalias !632
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
+  %370 = load ptr, ptr %369, align 8, !noalias !632
+  call void %370(ptr noundef nonnull align 8 dereferenceable(16) %.val14.i.i) #42, !noalias !632
   br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i"
 
-"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i": ; preds = %366, %362, %361
+"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i": ; preds = %367, %363, %362
   call void @_ZN9grpc_core14promise_detail13ContextHolderINS_13RefCountedPtrINS_5ArenaEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #42, !noalias !632
   call void @_ZN9grpc_core14promise_detail20FreestandingActivityD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %104) #42, !noalias !632
-  %370 = load i8, ptr %105, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
-  %371 = trunc nuw i8 %370 to i1
-  br i1 %371, label %401, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
+  %371 = load i8, ptr %105, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
+  %372 = trunc nuw i8 %371 to i1
+  br i1 %372, label %402, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
 
-"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i": ; preds = %337, %335, %.thread.i.i, %317
+"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i": ; preds = %338, %336, %.thread.i.i, %318
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #42, !noalias !632
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !632
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !632
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !632
-  %372 = load i8, ptr %105, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
-  %373 = trunc nuw i8 %372 to i1
-  br i1 %373, label %374, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
+  %373 = load i8, ptr %105, align 8, !tbaa !618, !range !207, !noalias !632, !noundef !208
+  %374 = trunc nuw i8 %373 to i1
+  br i1 %374, label %375, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
 
-374:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
-  %375 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %376 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %377 = load i8, ptr %376, align 8, !tbaa !625, !noalias !632
-  switch i8 %377, label %384 [
-    i8 0, label %378
-    i8 1, label %379
+375:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
+  %376 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %378 = load i8, ptr %377, align 8, !tbaa !625, !noalias !632
+  switch i8 %378, label %385 [
+    i8 0, label %379
+    i8 1, label %380
   ]
 
-378:                                              ; preds = %374
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %375) #42, !noalias !632
-  br label %384
+379:                                              ; preds = %375
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %376) #42, !noalias !632
+  br label %385
 
-379:                                              ; preds = %374
-  %.val.i.i7.i = load ptr, ptr %375, align 8, !tbaa !10, !noalias !632
+380:                                              ; preds = %375
+  %.val.i.i7.i = load ptr, ptr %376, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i.i.i8.i = icmp eq ptr %.val.i.i7.i, null
-  br i1 %.not.i.i.i.i.i8.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", label %380
+  br i1 %.not.i.i.i.i.i8.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", label %381
 
-380:                                              ; preds = %379
-  %381 = getelementptr inbounds nuw i8, ptr %.val.i.i7.i, i64 8
-  %382 = atomicrmw sub ptr %381, i64 1 acq_rel, align 8, !noalias !632
-  %383 = icmp eq i64 %382, 1
-  br i1 %383, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", !prof !26
+381:                                              ; preds = %380
+  %382 = getelementptr inbounds nuw i8, ptr %.val.i.i7.i, i64 8
+  %383 = atomicrmw sub ptr %382, i64 1 acq_rel, align 8, !noalias !632
+  %384 = icmp eq i64 %383, 1
+  br i1 %384, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", !prof !26
 
-384:                                              ; preds = %378, %374
-  %385 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.val1.i.i.i = load ptr, ptr %385, align 8, !tbaa !10, !noalias !632
+385:                                              ; preds = %379, %375
+  %386 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.val1.i.i.i = load ptr, ptr %386, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i2.i.i.i = icmp eq ptr %.val1.i.i.i, null
-  br i1 %.not.i.i.i2.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", label %386
+  br i1 %.not.i.i.i2.i.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", label %387
 
-386:                                              ; preds = %384
-  %387 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
-  %388 = atomicrmw sub ptr %387, i64 1 acq_rel, align 8, !noalias !632
-  %389 = icmp eq i64 %388, 1
-  br i1 %389, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", !prof !26
+387:                                              ; preds = %385
+  %388 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
+  %389 = atomicrmw sub ptr %388, i64 1 acq_rel, align 8, !noalias !632
+  %390 = icmp eq i64 %389, 1
+  br i1 %390, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i": ; preds = %386, %380
-  %.val1.sink4.i.i.i = phi ptr [ %.val.i.i7.i, %380 ], [ %.val1.i.i.i, %386 ]
-  %390 = load ptr, ptr %.val1.sink4.i.i.i, align 8, !tbaa !8, !noalias !632
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
-  %392 = load ptr, ptr %391, align 8, !noalias !632
-  call void %392(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i) #42, !noalias !632
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i": ; preds = %387, %381
+  %.val1.sink4.i.i.i = phi ptr [ %.val.i.i7.i, %381 ], [ %.val1.i.i.i, %387 ]
+  %391 = load ptr, ptr %.val1.sink4.i.i.i, align 8, !tbaa !8, !noalias !632
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
+  %393 = load ptr, ptr %392, align 8, !noalias !632
+  call void %393(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i.i) #42, !noalias !632
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i", %386, %384, %380, %379, %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i.i", %387, %385, %381, %380, %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i"
   %.val4.i = load ptr, ptr %10, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i9.i = icmp eq ptr %.val4.i, null
-  br i1 %.not.i.i.i9.i, label %411, label %393
+  br i1 %.not.i.i.i9.i, label %412, label %394
 
-393:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
-  %394 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
-  %395 = atomicrmw sub ptr %394, i64 1 acq_rel, align 8, !noalias !632
-  %396 = icmp eq i64 %395, 1
-  br i1 %396, label %397, label %411, !prof !26
+394:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
+  %395 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 8
+  %396 = atomicrmw sub ptr %395, i64 1 acq_rel, align 8, !noalias !632
+  %397 = icmp eq i64 %396, 1
+  br i1 %397, label %398, label %412, !prof !26
 
-397:                                              ; preds = %393
-  %398 = load ptr, ptr %.val4.i, align 8, !tbaa !8, !noalias !632
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
-  %400 = load ptr, ptr %399, align 8, !noalias !632
-  call void %400(ptr noundef nonnull align 8 dereferenceable(16) %.val4.i) #42, !noalias !632
-  br label %411
+398:                                              ; preds = %394
+  %399 = load ptr, ptr %.val4.i, align 8, !tbaa !8, !noalias !632
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
+  %401 = load ptr, ptr %400, align 8, !noalias !632
+  call void %401(ptr noundef nonnull align 8 dereferenceable(16) %.val4.i) #42, !noalias !632
+  br label %412
 
-401:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i"
-  %402 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %402) #42, !noalias !632
+402:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i"
+  %403 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %403) #42, !noalias !632
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i": ; preds = %401, %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i"
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i": ; preds = %402, %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit.i.i"
   %.val.i = load ptr, ptr %10, align 8, !tbaa !10, !noalias !632
   %.not.i.i.i12.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i12.i, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i", label %403
+  br i1 %.not.i.i.i12.i, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i", label %404
 
-403:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
-  %404 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %405 = atomicrmw sub ptr %404, i64 1 acq_rel, align 8, !noalias !632
-  %406 = icmp eq i64 %405, 1
-  br i1 %406, label %407, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i", !prof !26
+404:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
+  %405 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %406 = atomicrmw sub ptr %405, i64 1 acq_rel, align 8, !noalias !632
+  %407 = icmp eq i64 %406, 1
+  br i1 %407, label %408, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i", !prof !26
 
-407:                                              ; preds = %403
-  %408 = load ptr, ptr %.val.i, align 8, !tbaa !8, !noalias !632
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
-  %410 = load ptr, ptr %409, align 8, !noalias !632
-  call void %410(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #42, !noalias !632
+408:                                              ; preds = %404
+  %409 = load ptr, ptr %.val.i, align 8, !tbaa !8, !noalias !632
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  %411 = load ptr, ptr %410, align 8, !noalias !632
+  call void %411(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #42, !noalias !632
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i"
 
-"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i": ; preds = %407, %403, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
+"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i": ; preds = %408, %404, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit3.i"
   call void @_ZdlPvm(ptr noundef nonnull %104, i64 noundef 144) #46, !noalias !632
   br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
 
-411:                                              ; preds = %397, %393, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
+412:                                              ; preds = %398, %394, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit.i"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %413 = ptrtoint ptr %104 to i64
-  %414 = cmpxchg ptr %412, i64 0, i64 %413 acq_rel acquire, align 8
-  %415 = extractvalue { i64, i1 } %414, 1
-  br i1 %415, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit", label %416
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %414 = ptrtoint ptr %104 to i64
+  %415 = cmpxchg ptr %413, i64 0, i64 %414 acq_rel acquire, align 8
+  %416 = extractvalue { i64, i1 } %415, 1
+  br i1 %416, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit", label %417
 
-416:                                              ; preds = %411
-  %417 = load ptr, ptr %104, align 8, !tbaa !8
-  %418 = load ptr, ptr %417, align 8
-  invoke void %418(ptr noundef nonnull align 8 dereferenceable(8) %104)
+417:                                              ; preds = %412
+  %418 = load ptr, ptr %104, align 8, !tbaa !8
+  %419 = load ptr, ptr %418, align 8
+  invoke void %419(ptr noundef nonnull align 8 dereferenceable(8) %104)
           to label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit" unwind label %_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66
 
-"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit": ; preds = %411, %416
-  %419 = load i8, ptr %88, align 8, !tbaa !618, !range !207, !noundef !208
-  %420 = trunc nuw i8 %419 to i1
-  br i1 %420, label %421, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
+"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit": ; preds = %412, %417
+  %420 = load i8, ptr %88, align 8, !tbaa !618, !range !207, !noundef !208
+  %421 = trunc nuw i8 %420 to i1
+  br i1 %421, label %422, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
 
-421:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit"
-  %422 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %423 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %424 = load i8, ptr %423, align 8, !tbaa !625
-  switch i8 %424, label %431 [
-    i8 0, label %425
-    i8 1, label %426
+422:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit"
+  %423 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %425 = load i8, ptr %424, align 8, !tbaa !625
+  switch i8 %425, label %432 [
+    i8 0, label %426
+    i8 1, label %427
   ]
 
-425:                                              ; preds = %421
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %422) #42
-  br label %431
+426:                                              ; preds = %422
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %423) #42
+  br label %432
 
-426:                                              ; preds = %421
-  %.val.i.i47 = load ptr, ptr %422, align 8, !tbaa !10
+427:                                              ; preds = %422
+  %.val.i.i47 = load ptr, ptr %423, align 8, !tbaa !10
   %.not.i.i.i.i.i48 = icmp eq ptr %.val.i.i47, null
-  br i1 %.not.i.i.i.i.i48, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", label %427
+  br i1 %.not.i.i.i.i.i48, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", label %428
 
-427:                                              ; preds = %426
-  %428 = getelementptr inbounds nuw i8, ptr %.val.i.i47, i64 8
-  %429 = atomicrmw sub ptr %428, i64 1 acq_rel, align 8
-  %430 = icmp eq i64 %429, 1
-  br i1 %430, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", !prof !26
+428:                                              ; preds = %427
+  %429 = getelementptr inbounds nuw i8, ptr %.val.i.i47, i64 8
+  %430 = atomicrmw sub ptr %429, i64 1 acq_rel, align 8
+  %431 = icmp eq i64 %430, 1
+  br i1 %431, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", !prof !26
 
-431:                                              ; preds = %425, %421
-  %432 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.val1.i.i = load ptr, ptr %432, align 8, !tbaa !10
+432:                                              ; preds = %426, %422
+  %433 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.val1.i.i = load ptr, ptr %433, align 8, !tbaa !10
   %.not.i.i.i2.i.i = icmp eq ptr %.val1.i.i, null
-  br i1 %.not.i.i.i2.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", label %433
+  br i1 %.not.i.i.i2.i.i, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", label %434
 
-433:                                              ; preds = %431
-  %434 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 8
-  %435 = atomicrmw sub ptr %434, i64 1 acq_rel, align 8
-  %436 = icmp eq i64 %435, 1
-  br i1 %436, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", !prof !26
+434:                                              ; preds = %432
+  %435 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 8
+  %436 = atomicrmw sub ptr %435, i64 1 acq_rel, align 8
+  %437 = icmp eq i64 %436, 1
+  br i1 %437, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i": ; preds = %433, %427
-  %.val1.sink4.i.i = phi ptr [ %.val.i.i47, %427 ], [ %.val1.i.i, %433 ]
-  %437 = load ptr, ptr %.val1.sink4.i.i, align 8, !tbaa !8
-  %438 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  %439 = load ptr, ptr %438, align 8
-  call void %439(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i) #42
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i": ; preds = %434, %428
+  %.val1.sink4.i.i = phi ptr [ %.val.i.i47, %428 ], [ %.val1.i.i, %434 ]
+  %438 = load ptr, ptr %.val1.sink4.i.i, align 8, !tbaa !8
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
+  %440 = load ptr, ptr %439, align 8
+  call void %440(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i) #42
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i", %433, %431, %427, %426, %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit"
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i", %434, %432, %428, %427, %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit"
   %.val36 = load ptr, ptr %17, align 8, !tbaa !10
   %.not.i.i.i49 = icmp eq ptr %.val36, null
-  br i1 %.not.i.i.i49, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", label %440
+  br i1 %.not.i.i.i49, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", label %441
 
-440:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
-  %441 = getelementptr inbounds nuw i8, ptr %.val36, i64 8
-  %442 = atomicrmw sub ptr %441, i64 1 acq_rel, align 8
-  %443 = icmp eq i64 %442, 1
-  br i1 %443, label %444, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", !prof !26
+441:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
+  %442 = getelementptr inbounds nuw i8, ptr %.val36, i64 8
+  %443 = atomicrmw sub ptr %442, i64 1 acq_rel, align 8
+  %444 = icmp eq i64 %443, 1
+  br i1 %444, label %445, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", !prof !26
 
-444:                                              ; preds = %440
-  %445 = load ptr, ptr %.val36, align 8, !tbaa !8
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
-  %447 = load ptr, ptr %446, align 8
-  call void %447(ptr noundef nonnull align 8 dereferenceable(16) %.val36) #42
+445:                                              ; preds = %441
+  %446 = load ptr, ptr %.val36, align 8, !tbaa !8
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
+  %448 = load ptr, ptr %447, align 8
+  call void %448(ptr noundef nonnull align 8 dereferenceable(16) %.val36) #42
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
 
-"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit": ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", %440, %444
-  %448 = load ptr, ptr %14, align 8, !tbaa !342
-  %.not.i50 = icmp eq ptr %448, null
-  br i1 %.not.i50, label %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit, label %449
+"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit": ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", %441, %445
+  %449 = load ptr, ptr %14, align 8, !tbaa !342
+  %.not.i50 = icmp eq ptr %449, null
+  br i1 %.not.i50, label %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit, label %450
 
-449:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
-  %450 = atomicrmw sub ptr %448, i64 1 acq_rel, align 8
-  %451 = icmp eq i64 %450, 1
-  br i1 %451, label %452, label %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit, !prof !26
+450:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit"
+  %451 = atomicrmw sub ptr %449, i64 1 acq_rel, align 8
+  %452 = icmp eq i64 %451, 1
+  br i1 %452, label %453, label %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit, !prof !26
 
-452:                                              ; preds = %449
-  invoke void @_ZNK9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(56) %448)
-          to label %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit unwind label %453
+453:                                              ; preds = %450
+  invoke void @_ZNK9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(56) %449)
+          to label %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit unwind label %454
 
-453:                                              ; preds = %452
-  %454 = landingpad { ptr, i32 }
+454:                                              ; preds = %453
+  %455 = landingpad { ptr, i32 }
           catch ptr null
-  %455 = extractvalue { ptr, i32 } %454, 0
-  call void @__clang_call_terminate(ptr %455) #47
+  %456 = extractvalue { ptr, i32 } %455, 0
+  call void @__clang_call_terminate(ptr %456) #47
   unreachable
 
-_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit: ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", %449, %452
+_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit: ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit", %450, %453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #42
-  %456 = load i8, ptr %28, align 8, !tbaa !618, !range !207, !noundef !208
-  %457 = trunc nuw i8 %456 to i1
-  br i1 %457, label %458, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
+  %457 = load i8, ptr %28, align 8, !tbaa !618, !range !207, !noundef !208
+  %458 = trunc nuw i8 %457 to i1
+  br i1 %458, label %459, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
 
-458:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit
-  %459 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %460 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %461 = load i8, ptr %460, align 8, !tbaa !625
-  switch i8 %461, label %468 [
-    i8 0, label %462
-    i8 1, label %463
+459:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit
+  %460 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %462 = load i8, ptr %461, align 8, !tbaa !625
+  switch i8 %462, label %469 [
+    i8 0, label %463
+    i8 1, label %464
   ]
 
-462:                                              ; preds = %458
-  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %459) #42
-  br label %468
+463:                                              ; preds = %459
+  call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %460) #42
+  br label %469
 
-463:                                              ; preds = %458
-  %.val.i.i51 = load ptr, ptr %459, align 8, !tbaa !10
+464:                                              ; preds = %459
+  %.val.i.i51 = load ptr, ptr %460, align 8, !tbaa !10
   %.not.i.i.i.i.i52 = icmp eq ptr %.val.i.i51, null
-  br i1 %.not.i.i.i.i.i52, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", label %464
+  br i1 %.not.i.i.i.i.i52, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", label %465
 
-464:                                              ; preds = %463
-  %465 = getelementptr inbounds nuw i8, ptr %.val.i.i51, i64 8
-  %466 = atomicrmw sub ptr %465, i64 1 acq_rel, align 8
-  %467 = icmp eq i64 %466, 1
-  br i1 %467, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", !prof !26
+465:                                              ; preds = %464
+  %466 = getelementptr inbounds nuw i8, ptr %.val.i.i51, i64 8
+  %467 = atomicrmw sub ptr %466, i64 1 acq_rel, align 8
+  %468 = icmp eq i64 %467, 1
+  br i1 %468, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", !prof !26
 
-468:                                              ; preds = %462, %458
-  %469 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.val1.i.i55 = load ptr, ptr %469, align 8, !tbaa !10
+469:                                              ; preds = %463, %459
+  %470 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.val1.i.i55 = load ptr, ptr %470, align 8, !tbaa !10
   %.not.i.i.i2.i.i56 = icmp eq ptr %.val1.i.i55, null
-  br i1 %.not.i.i.i2.i.i56, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", label %470
+  br i1 %.not.i.i.i2.i.i56, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", label %471
 
-470:                                              ; preds = %468
-  %471 = getelementptr inbounds nuw i8, ptr %.val1.i.i55, i64 8
-  %472 = atomicrmw sub ptr %471, i64 1 acq_rel, align 8
-  %473 = icmp eq i64 %472, 1
-  br i1 %473, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", !prof !26
+471:                                              ; preds = %469
+  %472 = getelementptr inbounds nuw i8, ptr %.val1.i.i55, i64 8
+  %473 = atomicrmw sub ptr %472, i64 1 acq_rel, align 8
+  %474 = icmp eq i64 %473, 1
+  br i1 %474, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53", label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28", !prof !26
 
-"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53": ; preds = %470, %464
-  %.val1.sink4.i.i54 = phi ptr [ %.val.i.i51, %464 ], [ %.val1.i.i55, %470 ]
-  %474 = load ptr, ptr %.val1.sink4.i.i54, align 8, !tbaa !8
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  %476 = load ptr, ptr %475, align 8
-  call void %476(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i54) #42
+"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53": ; preds = %471, %465
+  %.val1.sink4.i.i54 = phi ptr [ %.val.i.i51, %465 ], [ %.val1.i.i55, %471 ]
+  %475 = load ptr, ptr %.val1.sink4.i.i54, align 8, !tbaa !8
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
+  %477 = load ptr, ptr %476, align 8
+  call void %477(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i54) #42
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53", %470, %468, %464, %463, %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28": ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i53", %471, %469, %465, %464, %_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev.exit
   %.val35 = load ptr, ptr %13, align 8, !tbaa !10
   %.not.i.i.i58 = icmp eq ptr %.val35, null
-  br i1 %.not.i.i.i58, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit, label %477
+  br i1 %.not.i.i.i58, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit, label %478
 
-477:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
-  %478 = getelementptr inbounds nuw i8, ptr %.val35, i64 8
-  %479 = atomicrmw sub ptr %478, i64 1 acq_rel, align 8
-  %480 = icmp eq i64 %479, 1
-  br i1 %480, label %481, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit, !prof !26
+478:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
+  %479 = getelementptr inbounds nuw i8, ptr %.val35, i64 8
+  %480 = atomicrmw sub ptr %479, i64 1 acq_rel, align 8
+  %481 = icmp eq i64 %480, 1
+  br i1 %481, label %482, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit, !prof !26
 
-481:                                              ; preds = %477
-  %482 = load ptr, ptr %.val35, align 8, !tbaa !8
-  %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
-  %484 = load ptr, ptr %483, align 8
-  call void %484(ptr noundef nonnull align 8 dereferenceable(16) %.val35) #42
+482:                                              ; preds = %478
+  %483 = load ptr, ptr %.val35, align 8, !tbaa !8
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
+  %485 = load ptr, ptr %484, align 8
+  call void %485(ptr noundef nonnull align 8 dereferenceable(16) %.val35) #42
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit
 
-_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit: ; preds = %481, %477, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
+_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit: ; preds = %482, %478, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit28"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #42
   ret void
 
-485:                                              ; preds = %20
-  %486 = landingpad { ptr, i32 }
+486:                                              ; preds = %20
+  %487 = landingpad { ptr, i32 }
           cleanup
-  br label %489
+  br label %490
 
-487:                                              ; preds = %22, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit
-  %488 = landingpad { ptr, i32 }
+488:                                              ; preds = %22, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit
+  %489 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #42
-  br label %489
+  br label %490
 
-489:                                              ; preds = %485, %487
-  %.pn = phi { ptr, i32 } [ %488, %487 ], [ %486, %485 ]
+490:                                              ; preds = %486, %488
+  %.pn = phi { ptr, i32 } [ %489, %488 ], [ %487, %486 ]
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #42
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74
 
-490:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_0D2Ev.exit40"
-  %491 = landingpad { ptr, i32 }
+491:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_0D2Ev.exit40"
+  %492 = landingpad { ptr, i32 }
           cleanup
-  br label %505
+  br label %506
 
-492:                                              ; preds = %29
-  %493 = landingpad { ptr, i32 }
+493:                                              ; preds = %29
+  %494 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64
 
-494:                                              ; preds = %30
-  %495 = landingpad { ptr, i32 }
+495:                                              ; preds = %30
+  %496 = landingpad { ptr, i32 }
           cleanup
-  %496 = load ptr, ptr %15, align 8, !tbaa !339
-  %.not.i63 = icmp eq ptr %496, null
-  br i1 %.not.i63, label %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64, label %497
+  %497 = load ptr, ptr %15, align 8, !tbaa !339
+  %.not.i63 = icmp eq ptr %497, null
+  br i1 %.not.i63, label %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64, label %498
 
-497:                                              ; preds = %494
-  %498 = getelementptr inbounds nuw i8, ptr %496, i64 8
-  %499 = atomicrmw sub ptr %498, i64 1 acq_rel, align 8
-  %500 = icmp eq i64 %499, 1
-  br i1 %500, label %501, label %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64, !prof !26
+498:                                              ; preds = %495
+  %499 = getelementptr inbounds nuw i8, ptr %497, i64 8
+  %500 = atomicrmw sub ptr %499, i64 1 acq_rel, align 8
+  %501 = icmp eq i64 %500, 1
+  br i1 %501, label %502, label %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64, !prof !26
 
-501:                                              ; preds = %497
-  %502 = load ptr, ptr %496, align 8, !tbaa !8
-  %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
-  %504 = load ptr, ptr %503, align 8
-  call void %504(ptr noundef nonnull align 8 dereferenceable(32) %496) #42
+502:                                              ; preds = %498
+  %503 = load ptr, ptr %497, align 8, !tbaa !8
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
+  %505 = load ptr, ptr %504, align 8
+  call void %505(ptr noundef nonnull align 8 dereferenceable(32) %497) #42
   br label %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64
 
-_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64: ; preds = %501, %497, %494, %492
-  %.pn17 = phi { ptr, i32 } [ %493, %492 ], [ %495, %494 ], [ %495, %497 ], [ %495, %501 ]
+_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64: ; preds = %502, %498, %495, %493
+  %.pn17 = phi { ptr, i32 } [ %494, %493 ], [ %496, %495 ], [ %496, %498 ], [ %496, %502 ]
   call void @_ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #42
-  br label %505
+  br label %506
 
-505:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64, %490
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64 ], [ %491, %490 ]
+506:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64, %491
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %_ZN9grpc_core13RefCountedPtrINS_12ArenaFactoryEED2Ev.exit64 ], [ %492, %491 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #42
-  br label %529
+  br label %530
 
-506:                                              ; preds = %_ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit
-  %507 = landingpad { ptr, i32 }
-          cleanup
-  br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70"
-
-_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66: ; preds = %416
+507:                                              ; preds = %_ZN17grpc_event_engine12experimental15MemoryAllocatorD2Ev.exit
   %508 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
-
-509:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit"
-  %510 = landingpad { ptr, i32 }
-          cleanup
-  %511 = atomicrmw sub ptr %25, i64 1 acq_rel, align 8
-  %512 = icmp eq i64 %511, 1
-  br i1 %512, label %513, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68", !prof !26
-
-513:                                              ; preds = %509
-  %514 = load ptr, ptr %0, align 8, !tbaa !8
-  %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
-  %516 = load ptr, ptr %515, align 8
-  call void %516(ptr noundef nonnull align 8 dereferenceable(16) %0) #42
-  br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
-
-"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68": ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i", %_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66, %509, %513
-  %.pn2088 = phi { ptr, i32 } [ %510, %509 ], [ %510, %513 ], [ %.pn.pn.pn.i.i, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i" ], [ %508, %_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66 ]
-  %517 = load i8, ptr %88, align 8, !tbaa !618, !range !207, !noundef !208
-  %518 = trunc nuw i8 %517 to i1
-  br i1 %518, label %519, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29"
-
-519:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
-  %520 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %520) #42
-  br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29"
-
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29": ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68", %519
-  %.val34 = load ptr, ptr %17, align 8, !tbaa !10
-  %.not.i.i.i69 = icmp eq ptr %.val34, null
-  br i1 %.not.i.i.i69, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70", label %521
-
-521:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29"
-  %522 = getelementptr inbounds nuw i8, ptr %.val34, i64 8
-  %523 = atomicrmw sub ptr %522, i64 1 acq_rel, align 8
-  %524 = icmp eq i64 %523, 1
-  br i1 %524, label %525, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70", !prof !26
-
-525:                                              ; preds = %521
-  %526 = load ptr, ptr %.val34, align 8, !tbaa !8
-  %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
-  %528 = load ptr, ptr %527, align 8
-  call void %528(ptr noundef nonnull align 8 dereferenceable(16) %.val34) #42
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70"
 
-"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70": ; preds = %525, %521, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29", %506
-  %.sroa.079.1 = phi ptr [ %0, %506 ], [ null, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29" ], [ null, %521 ], [ null, %525 ]
-  %.pn20.pn = phi { ptr, i32 } [ %507, %506 ], [ %.pn2088, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29" ], [ %.pn2088, %521 ], [ %.pn2088, %525 ]
+_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66: ; preds = %417
+  %509 = landingpad { ptr, i32 }
+          cleanup
+  br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
+
+510:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EC2EOS3_.exit"
+  %511 = landingpad { ptr, i32 }
+          cleanup
+  %512 = atomicrmw sub ptr %25, i64 1 acq_rel, align 8
+  %513 = icmp eq i64 %512, 1
+  br i1 %513, label %514, label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68", !prof !26
+
+514:                                              ; preds = %510
+  %515 = load ptr, ptr %0, align 8, !tbaa !8
+  %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
+  %517 = load ptr, ptr %516, align 8
+  call void %517(ptr noundef nonnull align 8 dereferenceable(16) %0) #42
+  br label %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
+
+"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68": ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i", %_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66, %510, %514
+  %.pn2088 = phi { ptr, i32 } [ %511, %510 ], [ %511, %514 ], [ %.pn.pn.pn.i.i, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit13.i" ], [ %509, %_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit66 ]
+  %518 = load i8, ptr %88, align 8, !tbaa !618, !range !207, !noundef !208
+  %519 = trunc nuw i8 %518 to i1
+  br i1 %519, label %520, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29"
+
+520:                                              ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68"
+  %521 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %521) #42
+  br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29"
+
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29": ; preds = %"_ZZN9grpc_core13ClientChannel14StartIdleTimerEvEN3$_1D2Ev.exit68", %520
+  %.val34 = load ptr, ptr %17, align 8, !tbaa !10
+  %.not.i.i.i69 = icmp eq ptr %.val34, null
+  br i1 %.not.i.i.i69, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70", label %522
+
+522:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29"
+  %523 = getelementptr inbounds nuw i8, ptr %.val34, i64 8
+  %524 = atomicrmw sub ptr %523, i64 1 acq_rel, align 8
+  %525 = icmp eq i64 %524, 1
+  br i1 %525, label %526, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70", !prof !26
+
+526:                                              ; preds = %522
+  %527 = load ptr, ptr %.val34, align 8, !tbaa !8
+  %528 = getelementptr inbounds nuw i8, ptr %527, i64 8
+  %529 = load ptr, ptr %528, align 8
+  call void %529(ptr noundef nonnull align 8 dereferenceable(16) %.val34) #42
+  br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70"
+
+"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70": ; preds = %526, %522, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29", %507
+  %.sroa.079.1 = phi ptr [ %0, %507 ], [ null, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29" ], [ null, %522 ], [ null, %526 ]
+  %.pn20.pn = phi { ptr, i32 } [ %508, %507 ], [ %.pn2088, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit29" ], [ %.pn2088, %522 ], [ %.pn2088, %526 ]
   call void @_ZN9grpc_core13RefCountedPtrINS_5ArenaEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #42
-  br label %529
+  br label %530
 
-529:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70", %505
-  %.sroa.079.0 = phi ptr [ %.sroa.079.1, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70" ], [ %0, %505 ]
-  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70" ], [ %.pn17.pn, %505 ]
+530:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70", %506
+  %.sroa.079.0 = phi ptr [ %.sroa.079.1, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70" ], [ %0, %506 ]
+  %.pn20.pn.pn = phi { ptr, i32 } [ %.pn20.pn, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit70" ], [ %.pn17.pn, %506 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #42
-  %530 = load i8, ptr %28, align 8, !tbaa !618, !range !207, !noundef !208
-  %531 = trunc nuw i8 %530 to i1
-  br i1 %531, label %532, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
+  %531 = load i8, ptr %28, align 8, !tbaa !618, !range !207, !noundef !208
+  %532 = trunc nuw i8 %531 to i1
+  br i1 %532, label %533, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
 
-532:                                              ; preds = %529
-  %533 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %533) #42
+533:                                              ; preds = %530
+  %534 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call fastcc void @"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %534) #42
   br label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
 
-"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30": ; preds = %529, %532
+"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30": ; preds = %530, %533
   %.val33 = load ptr, ptr %13, align 8, !tbaa !10
   %.not.i.i.i71 = icmp eq ptr %.val33, null
-  br i1 %.not.i.i.i71, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72", label %534
+  br i1 %.not.i.i.i71, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72", label %535
 
-534:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
-  %535 = getelementptr inbounds nuw i8, ptr %.val33, i64 8
-  %536 = atomicrmw sub ptr %535, i64 1 acq_rel, align 8
-  %537 = icmp eq i64 %536, 1
-  br i1 %537, label %538, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72", !prof !26
+535:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
+  %536 = getelementptr inbounds nuw i8, ptr %.val33, i64 8
+  %537 = atomicrmw sub ptr %536, i64 1 acq_rel, align 8
+  %538 = icmp eq i64 %537, 1
+  br i1 %538, label %539, label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72", !prof !26
 
-538:                                              ; preds = %534
-  %539 = load ptr, ptr %.val33, align 8, !tbaa !8
-  %540 = getelementptr inbounds nuw i8, ptr %539, i64 8
-  %541 = load ptr, ptr %540, align 8
-  call void %541(ptr noundef nonnull align 8 dereferenceable(16) %.val33) #42
+539:                                              ; preds = %535
+  %540 = load ptr, ptr %.val33, align 8, !tbaa !8
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
+  %542 = load ptr, ptr %541, align 8
+  call void %542(ptr noundef nonnull align 8 dereferenceable(16) %.val33) #42
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72"
 
-"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72": ; preds = %538, %534, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
+"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72": ; preds = %539, %535, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit30"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #42
   %.not.i73 = icmp eq ptr %.sroa.079.0, null
-  br i1 %.not.i73, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74, label %542
+  br i1 %.not.i73, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74, label %543
 
-542:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72"
-  %543 = getelementptr inbounds nuw i8, ptr %.sroa.079.0, i64 8
-  %544 = atomicrmw sub ptr %543, i64 1 acq_rel, align 8
-  %545 = icmp eq i64 %544, 1
-  br i1 %545, label %546, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74, !prof !26
+543:                                              ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72"
+  %544 = getelementptr inbounds nuw i8, ptr %.sroa.079.0, i64 8
+  %545 = atomicrmw sub ptr %544, i64 1 acq_rel, align 8
+  %546 = icmp eq i64 %545, 1
+  br i1 %546, label %547, label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74, !prof !26
 
-546:                                              ; preds = %542
-  %547 = load ptr, ptr %.sroa.079.0, align 8, !tbaa !8
-  %548 = getelementptr inbounds nuw i8, ptr %547, i64 8
-  %549 = load ptr, ptr %548, align 8
-  call void %549(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.079.0) #42
+547:                                              ; preds = %543
+  %548 = load ptr, ptr %.sroa.079.0, align 8, !tbaa !8
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
+  %550 = load ptr, ptr %549, align 8
+  call void %550(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.079.0) #42
   br label %_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74
 
-_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74: ; preds = %546, %542, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72", %489
-  %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %489 ], [ %.pn20.pn.pn, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72" ], [ %.pn20.pn.pn, %542 ], [ %.pn20.pn.pn, %546 ]
+_ZN9grpc_core17WeakRefCountedPtrINS_13ClientChannelEED2Ev.exit74: ; preds = %547, %543, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72", %490
+  %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %490 ], [ %.pn20.pn.pn, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvZNS_13ClientChannel14StartIdleTimerEvE3$_0ED2Ev.exit72" ], [ %.pn20.pn.pn, %543 ], [ %.pn20.pn.pn, %547 ]
   resume { ptr, i32 } %.pn20.pn.pn.pn.pn
 }
 
@@ -25211,7 +25212,7 @@ _ZN9grpc_core13RefCountedPtrINS_24UnstartedCallDestinationEED2Ev.exit.i.i101.i: 
   br label %433
 
 433:                                              ; preds = %.body.i, %.body.thread.i
-  %eh.lpad-body221.i = phi { ptr, i32 } [ %431, %.body.thread.i ], [ %432, %.body.i ]
+  %eh.lpad-body217.i = phi { ptr, i32 } [ %431, %.body.thread.i ], [ %432, %.body.i ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %319) #42, !noalias !880
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit.i
 
@@ -25246,7 +25247,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit7.i: ; preds = %426, %4
   unreachable
 
 _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit.i: ; preds = %316, %433
-  %.pn.i = phi { ptr, i32 } [ %317, %316 ], [ %eh.lpad-body221.i, %433 ]
+  %.pn.i = phi { ptr, i32 } [ %317, %316 ], [ %eh.lpad-body217.i, %433 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #42, !noalias !880
   br label %common.resume
 
@@ -31537,7 +31538,7 @@ _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %2, %16
   unreachable
 
 .critedge19:                                      ; preds = %.critedge.preheader, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22
-  %.sroa.6158.0557 = phi i64 [ %.sroa.6158.1195.ph, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22 ], [ undef, %.critedge.preheader ]
+  %.sroa.6158.0559 = phi i64 [ %.sroa.6158.1195.ph, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22 ], [ undef, %.critedge.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #42
   call void @llvm.experimental.noalias.scope.decl(metadata !1037)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
@@ -31720,8 +31721,8 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %77, %74, %71, %66
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.preheader
-  %.sroa.0156.1 = phi i8 [ 0, %.backedge.preheader ], [ %.sroa.0156.2422, %.backedge.backedge ]
-  %.sroa.6158.2 = phi i64 [ %.sroa.6158.0557, %.backedge.preheader ], [ %.sroa.6158.3425, %.backedge.backedge ]
+  %.sroa.0156.1 = phi i8 [ 0, %.backedge.preheader ], [ %.sroa.0156.2417, %.backedge.backedge ]
+  %.sroa.6158.2 = phi i64 [ %.sroa.6158.0559, %.backedge.preheader ], [ %.sroa.6158.3420, %.backedge.backedge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #42, !noalias !1040
   %122 = load i8, ptr %32, align 8, !tbaa !625, !noalias !1050
   %cond.i = icmp eq i8 %122, 0
@@ -31798,7 +31799,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i72:       ; preds = %130
   store i64 %.sink, ptr %10, align 8, !tbaa !200
   %142 = and i64 %.sink, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %142, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit, label %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit, label %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411
 
 .noexc25:                                         ; preds = %137, %139
   store i8 %138, ptr %40, align 8, !tbaa !1066, !noalias !1037
@@ -31829,24 +31830,24 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
   br i1 %151, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i85, label %152
 
 152:                                              ; preds = %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit
-  switch i8 %138, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke [
+  switch i8 %138, label %.invoke.loopexit561 [
     i8 1, label %.noexc26
-    i8 -1, label %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke.loopexit559
+    i8 -1, label %.invoke
   ], !prof !770
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke.loopexit559: ; preds = %152
-  br label %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke
+.invoke.loopexit561:                              ; preds = %152
+  br label %.invoke
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke: ; preds = %152, %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke.loopexit559
-  %.str.95.sink = phi ptr [ @.str.94, %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke.loopexit559 ], [ @.str.95, %152 ]
+.invoke:                                          ; preds = %152, %.invoke.loopexit561
+  %.str.94.sink = phi ptr [ @.str.95, %.invoke.loopexit561 ], [ @.str.94, %152 ]
   %153 = call ptr @__cxa_allocate_exception(i64 16) #42
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %153, align 8, !tbaa !8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store ptr %.str.95.sink, ptr %154, align 8, !tbaa !771
+  store ptr %.str.94.sink, ptr %154, align 8, !tbaa !771
   invoke void @__cxa_throw(ptr nonnull %153, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #49
-          to label %_ZSt26__throw_bad_variant_accessb.exit.i.i.cont unwind label %269
+          to label %.cont unwind label %.thread422
 
-_ZSt26__throw_bad_variant_accessb.exit.i.i.cont:  ; preds = %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke
+.cont:                                            ; preds = %.invoke
   unreachable
 
 .noexc26:                                         ; preds = %152
@@ -31864,12 +31865,12 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.cont:  ; preds = %_ZSt26__throw_bad_v
 _ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit: ; preds = %141
   %160 = inttoptr i64 %.sink to ptr
   %161 = atomicrmw add ptr %160, i32 1 monotonic, align 4
-  br label %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416
+  br label %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411
 
 _ZN4absl12lts_202407226StatusD2Ev.exit.i85:       ; preds = %.noexc26, %157, %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit
-  %.sink538 = phi i8 [ 0, %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit ], [ 1, %157 ], [ 1, %.noexc26 ]
+  %.sink540 = phi i8 [ 0, %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit ], [ 1, %157 ], [ 1, %.noexc26 ]
   %.ph = phi i64 [ undef, %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit ], [ %155, %157 ], [ %155, %.noexc26 ]
-  store i8 %.sink538, ptr %39, align 8, !tbaa !1066
+  store i8 %.sink540, ptr %39, align 8, !tbaa !1066
   %162 = load i8, ptr %40, align 8, !tbaa !1066, !noalias !1037
   switch i8 %162, label %163 [
     i8 -1, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88
@@ -31898,13 +31899,13 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8Con
   store i8 -1, ptr %40, align 8, !tbaa !1066, !noalias !1037
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88
 
-_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416: ; preds = %141, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit
+_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411: ; preds = %141, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit
   store i8 1, ptr %39, align 8, !tbaa !1066
   %171 = and i64 %.sink, 1
   %.not.i.i1.i84 = icmp eq i64 %171, 0
   br i1 %.not.i.i1.i84, label %172, label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88
 
-172:                                              ; preds = %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416
+172:                                              ; preds = %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411
   %173 = inttoptr i64 %.sink to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %173)
           to label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88 unwind label %174, !noalias !1037
@@ -31916,9 +31917,9 @@ _ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7varia
   call void @__clang_call_terminate(ptr %176) #47, !noalias !1037
   unreachable
 
-_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i85, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i86, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416, %172
-  %177 = phi i8 [ %.sink538, %_ZN4absl12lts_202407226StatusD2Ev.exit.i85 ], [ %.sink538, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i86 ], [ 1, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416 ], [ 1, %172 ]
-  %178 = phi i64 [ %.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit.i85 ], [ %.ph, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i86 ], [ %.sink, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread416 ], [ %.sink, %172 ]
+_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i85, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i86, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411, %172
+  %177 = phi i8 [ %.sink540, %_ZN4absl12lts_202407226StatusD2Ev.exit.i85 ], [ %.sink540, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i86 ], [ 1, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411 ], [ 1, %172 ]
+  %178 = phi i64 [ %.ph, %_ZN4absl12lts_202407226StatusD2Ev.exit.i85 ], [ %.ph, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i86 ], [ %.sink, %_ZN9grpc_core14promise_detail10LoopTraitsIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS3_6StatusEEEEEE9ToLoopCtlES9_.exit.thread411 ], [ %.sink, %172 ]
   br label %179
 
 179:                                              ; preds = %185, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev.exit88
@@ -31993,14 +31994,14 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
 
 204:                                              ; preds = %"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev.exit101"
   invoke void @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E()
-          to label %_ZN9grpc_core9Timestamp3NowEv.exit.i103 unwind label %271
+          to label %_ZN9grpc_core9Timestamp3NowEv.exit.i103 unwind label %284
 
 _ZN9grpc_core9Timestamp3NowEv.exit.i103:          ; preds = %204, %"_ZN9grpc_core14promise_detail11PromiseLikeINS0_6TrySeqINS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EEEvED2Ev.exit101"
   %205 = load ptr, ptr %24, align 8, !tbaa !314, !noalias !1076
   %206 = load ptr, ptr %205, align 8, !tbaa !8, !noalias !1076
   %207 = load ptr, ptr %206, align 8, !noalias !1076
   %208 = invoke i64 %207(ptr noundef nonnull align 8 dereferenceable(8) %205)
-          to label %.noexc112 unwind label %271
+          to label %.noexc112 unwind label %284
 
 .noexc112:                                        ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i103
   %209 = load ptr, ptr %21, align 8, !tbaa !10, !noalias !1076
@@ -32038,7 +32039,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i103:          ; preds = %204, %"_ZN9grpc_cor
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i107: ; preds = %224, %221, %218, %213, %.noexc112
   %.0.i.i.i108 = phi i64 [ 9223372036854775807, %.noexc112 ], [ -9223372036854775808, %213 ], [ %225, %224 ], [ 9223372036854775807, %218 ], [ -9223372036854775808, %221 ]
   invoke void @_ZN9grpc_core5SleepC1ENS_9TimestampE(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %.0.i.i.i108)
-          to label %.noexc113 unwind label %271
+          to label %.noexc113 unwind label %284
 
 .noexc113:                                        ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i107
   %226 = load ptr, ptr %21, align 8, !tbaa !10, !noalias !1076
@@ -32121,32 +32122,32 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i107: ; preds = %224, %221, %21
   store ptr %254, ptr %34, align 8, !tbaa !10, !noalias !1037
   store ptr null, ptr %48, align 8, !tbaa !10, !noalias !1037
   %255 = inttoptr i64 %252 to ptr
-  switch i8 %251, label %279 [
+  switch i8 %251, label %274 [
     i8 0, label %261
     i8 1, label %256
   ]
 
 256:                                              ; preds = %.thread187
   %.not.i.i.i.i.i123 = icmp eq i64 %252, 0
-  br i1 %.not.i.i.i.i.i123, label %279, label %257
+  br i1 %.not.i.i.i.i.i123, label %274, label %257
 
 257:                                              ; preds = %256
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %259 = atomicrmw sub ptr %258, i64 1 acq_rel, align 8, !noalias !1037
   %260 = icmp eq i64 %259, 1
-  br i1 %260, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124", label %279, !prof !26
+  br i1 %260, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124", label %274, !prof !26
 
 261:                                              ; preds = %.thread187
   call void @_ZN9grpc_core5SleepD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #42, !noalias !1037
   %.val1.i.i126.pr = load ptr, ptr %48, align 8, !tbaa !10, !noalias !1037
   %.not.i.i.i2.i.i127 = icmp eq ptr %.val1.i.i126.pr, null
-  br i1 %.not.i.i.i2.i.i127, label %279, label %262
+  br i1 %.not.i.i.i2.i.i127, label %274, label %262
 
 262:                                              ; preds = %261
   %263 = getelementptr inbounds nuw i8, ptr %.val1.i.i126.pr, i64 8
   %264 = atomicrmw sub ptr %263, i64 1 acq_rel, align 8, !noalias !1037
   %265 = icmp eq i64 %264, 1
-  br i1 %265, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124", label %279, !prof !26
+  br i1 %265, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124", label %274, !prof !26
 
 "_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124": ; preds = %262, %257
   %.val1.sink4.i.i125 = phi ptr [ %255, %257 ], [ %.val1.i.i126.pr, %262 ]
@@ -32154,226 +32155,224 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i107: ; preds = %224, %221, %21
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %268 = load ptr, ptr %267, align 8, !noalias !1037
   call void %268(ptr noundef nonnull align 8 dereferenceable(16) %.val1.sink4.i.i125) #42, !noalias !1037
-  br label %279
+  br label %274
 
-269:                                              ; preds = %_ZSt26__throw_bad_variant_accessb.exit.i.i.invoke
-  %270 = landingpad { ptr, i32 }
+.thread422:                                       ; preds = %.invoke
+  %269 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #42, !noalias !1037
-  br label %290
-
-271:                                              ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i107, %_ZN9grpc_core9Timestamp3NowEv.exit.i103, %204
-  %272 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #42, !noalias !1040
-  %.pre.pre = load i8, ptr %9, align 8, !tbaa !1064, !range !207, !noalias !1037
-  %273 = trunc nuw i8 %.pre.pre to i1
-  br label %289
+  br label %.sink.split
 
 _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit94.thread: ; preds = %183, %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit94
   %trunc264 = trunc nuw i8 %177 to i1
-  br i1 %trunc264, label %.thread418, label %274, !prof !1079
+  br i1 %trunc264, label %.thread413, label %270, !prof !1079
 
-274:                                              ; preds = %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit94.thread
-  %275 = call ptr @__cxa_allocate_exception(i64 16) #42, !noalias !1037
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %275, align 8, !tbaa !8, !noalias !1037
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  store ptr @.str.95, ptr %276, align 8, !tbaa !771, !noalias !1037
-  invoke void @__cxa_throw(ptr nonnull %275, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #49
-          to label %.noexc130 unwind label %277
+270:                                              ; preds = %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit94.thread
+  %271 = call ptr @__cxa_allocate_exception(i64 16) #42, !noalias !1037
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %271, align 8, !tbaa !8, !noalias !1037
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
+  store ptr @.str.95, ptr %272, align 8, !tbaa !771, !noalias !1037
+  invoke void @__cxa_throw(ptr nonnull %271, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #49
+          to label %.noexc130 unwind label %.thread426
 
-.noexc130:                                        ; preds = %274
+.noexc130:                                        ; preds = %270
   unreachable
 
-.thread418:                                       ; preds = %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit94.thread
+.thread413:                                       ; preds = %_ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEbRKSt7variantIJDpT0_EE.exit94.thread
   store i64 55, ptr %10, align 8, !tbaa !200, !noalias !1037
-  br label %280
+  br label %275
 
-277:                                              ; preds = %274
-  %278 = landingpad { ptr, i32 }
+.thread426:                                       ; preds = %270
+  %273 = landingpad { ptr, i32 }
           cleanup
-  br label %289
+  call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10) #42, !noalias !1037
+  br label %.sink.split
 
-279:                                              ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124", %262, %261, %257, %256, %.thread187
+274:                                              ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZZNS_13ClientChannel14StartIdleTimerEvENK3$_0clEvEUlvE_EED2Ev.exit.sink.split.i.i124", %262, %261, %257, %256, %.thread187
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #42, !noalias !1040
   %.pre260 = load i8, ptr %39, align 8, !tbaa !1066, !noalias !1037
-  switch i8 %.pre260, label %280 [
+  switch i8 %.pre260, label %275 [
     i8 -1, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
     i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
   ], !prof !1080
 
-280:                                              ; preds = %.thread418, %279
-  %.sroa.6158.3426 = phi i64 [ %178, %.thread418 ], [ %.sroa.6158.2, %279 ]
-  %.sroa.0156.2423 = phi i8 [ 1, %.thread418 ], [ %.sroa.0156.1, %279 ]
-  %281 = phi i1 [ false, %.thread418 ], [ true, %279 ]
-  %282 = load i64, ptr %10, align 8, !tbaa !200, !noalias !1037
-  %283 = and i64 %282, 1
-  %.not.i.i.i.i.i.i.i.i.i.i133 = icmp eq i64 %283, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i133, label %284, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
+275:                                              ; preds = %.thread413, %274
+  %.sroa.6158.3421 = phi i64 [ %178, %.thread413 ], [ %.sroa.6158.2, %274 ]
+  %.sroa.0156.2418 = phi i8 [ 1, %.thread413 ], [ %.sroa.0156.1, %274 ]
+  %276 = phi i1 [ false, %.thread413 ], [ true, %274 ]
+  %277 = load i64, ptr %10, align 8, !tbaa !200, !noalias !1037
+  %278 = and i64 %277, 1
+  %.not.i.i.i.i.i.i.i.i.i.i133 = icmp eq i64 %278, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i133, label %279, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
 
-284:                                              ; preds = %280
-  %285 = inttoptr i64 %282 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %285)
-          to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132 unwind label %286, !noalias !1037
+279:                                              ; preds = %275
+  %280 = inttoptr i64 %277 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %280)
+          to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132 unwind label %281, !noalias !1037
 
-286:                                              ; preds = %284
-  %287 = landingpad { ptr, i32 }
+281:                                              ; preds = %279
+  %282 = landingpad { ptr, i32 }
           catch ptr null
-  %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #47, !noalias !1037
+  %283 = extractvalue { ptr, i32 } %282, 0
+  call void @__clang_call_terminate(ptr %283) #47, !noalias !1037
   unreachable
 
-289:                                              ; preds = %277, %271
-  %.pre = phi i1 [ %273, %271 ], [ true, %277 ]
-  %.pn.i = phi { ptr, i32 } [ %272, %271 ], [ %278, %277 ]
+284:                                              ; preds = %204, %_ZN9grpc_core9Timestamp3NowEv.exit.i103, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i107
+  %285 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #42, !noalias !1040
+  %.pre.pre = load i8, ptr %9, align 8, !tbaa !1064, !range !207, !noalias !1037
+  %286 = trunc nuw i8 %.pre.pre to i1
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %10) #42, !noalias !1037
-  br label %290
-
-290:                                              ; preds = %289, %269
-  %291 = phi i1 [ %.pre, %289 ], [ true, %269 ]
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %289 ], [ %270, %269 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #42, !noalias !1040
-  br i1 %291, label %313, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30
+  br i1 %286, label %308, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132: ; preds = %279, %280, %284, %279
-  %.sroa.6158.3425 = phi i64 [ %.sroa.6158.2, %279 ], [ %.sroa.6158.3426, %284 ], [ %.sroa.6158.3426, %280 ], [ %.sroa.6158.2, %279 ]
-  %.sroa.0156.2422 = phi i8 [ %.sroa.0156.1, %279 ], [ %.sroa.0156.2423, %284 ], [ %.sroa.0156.2423, %280 ], [ %.sroa.0156.1, %279 ]
-  %292 = phi i1 [ true, %279 ], [ %281, %284 ], [ %281, %280 ], [ true, %279 ]
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132: ; preds = %274, %275, %279, %274
+  %.sroa.6158.3420 = phi i64 [ %.sroa.6158.2, %274 ], [ %.sroa.6158.3421, %279 ], [ %.sroa.6158.3421, %275 ], [ %.sroa.6158.2, %274 ]
+  %.sroa.0156.2417 = phi i8 [ %.sroa.0156.1, %274 ], [ %.sroa.0156.2418, %279 ], [ %.sroa.0156.2418, %275 ], [ %.sroa.0156.1, %274 ]
+  %287 = phi i1 [ true, %274 ], [ %276, %279 ], [ %276, %275 ], [ true, %274 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #42, !noalias !1040
   %.pre261 = load i8, ptr %9, align 8, !tbaa !1064, !range !207, !noalias !1037
-  %293 = trunc nuw i8 %.pre261 to i1
-  br i1 %293, label %294, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29
+  %288 = trunc nuw i8 %.pre261 to i1
+  br i1 %288, label %289, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29
 
-294:                                              ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
-  %295 = load i64, ptr %36, align 8, !tbaa !200, !noalias !1037
-  %296 = icmp eq i64 %295, 1
-  br i1 %296, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i136, label %306
+289:                                              ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
+  %290 = load i64, ptr %36, align 8, !tbaa !200, !noalias !1037
+  %291 = icmp eq i64 %290, 1
+  br i1 %291, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i136, label %301
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i136:      ; preds = %294
-  %297 = load i8, ptr %37, align 8, !tbaa !1066, !noalias !1037
-  switch i8 %297, label %298 [
+_ZN4absl12lts_202407226StatusD2Ev.exit.i136:      ; preds = %289
+  %292 = load i8, ptr %37, align 8, !tbaa !1066, !noalias !1037
+  switch i8 %292, label %293 [
     i8 -1, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29
     i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137
   ], !prof !1072
 
-298:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i136
-  %299 = load i64, ptr %38, align 8, !tbaa !200, !noalias !1037
-  %300 = and i64 %299, 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i138 = icmp eq i64 %300, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i138, label %301, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137
+293:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i136
+  %294 = load i64, ptr %38, align 8, !tbaa !200, !noalias !1037
+  %295 = and i64 %294, 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i138 = icmp eq i64 %295, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i138, label %296, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137
 
-301:                                              ; preds = %298
-  %302 = inttoptr i64 %299 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %302)
-          to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137 unwind label %303, !noalias !1037
+296:                                              ; preds = %293
+  %297 = inttoptr i64 %294 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %297)
+          to label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137 unwind label %298, !noalias !1037
+
+298:                                              ; preds = %296
+  %299 = landingpad { ptr, i32 }
+          catch ptr null
+  %300 = extractvalue { ptr, i32 } %299, 0
+  call void @__clang_call_terminate(ptr %300) #47, !noalias !1037
+  unreachable
+
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137: ; preds = %296, %293, %_ZN4absl12lts_202407226StatusD2Ev.exit.i136
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #42, !noalias !1040
+  br i1 %287, label %.backedge.backedge, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit"
+
+301:                                              ; preds = %289
+  %302 = and i64 %290, 1
+  %.not.i.i1.i135 = icmp eq i64 %302, 0
+  br i1 %.not.i.i1.i135, label %303, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29
 
 303:                                              ; preds = %301
-  %304 = landingpad { ptr, i32 }
+  %304 = inttoptr i64 %290 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %304)
+          to label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29 unwind label %305, !noalias !1037
+
+305:                                              ; preds = %303
+  %306 = landingpad { ptr, i32 }
           catch ptr null
-  %305 = extractvalue { ptr, i32 } %304, 0
-  call void @__clang_call_terminate(ptr %305) #47, !noalias !1037
+  %307 = extractvalue { ptr, i32 } %306, 0
+  call void @__clang_call_terminate(ptr %307) #47, !noalias !1037
   unreachable
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137: ; preds = %301, %298, %_ZN4absl12lts_202407226StatusD2Ev.exit.i136
+_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29: ; preds = %303, %301, %_ZN4absl12lts_202407226StatusD2Ev.exit.i136, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #42, !noalias !1040
-  br i1 %292, label %.backedge.backedge, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit"
-
-306:                                              ; preds = %294
-  %307 = and i64 %295, 1
-  %.not.i.i1.i135 = icmp eq i64 %307, 0
-  br i1 %.not.i.i1.i135, label %308, label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29
-
-308:                                              ; preds = %306
-  %309 = inttoptr i64 %295 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %309)
-          to label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29 unwind label %310, !noalias !1037
-
-310:                                              ; preds = %308
-  %311 = landingpad { ptr, i32 }
-          catch ptr null
-  %312 = extractvalue { ptr, i32 } %311, 0
-  call void @__clang_call_terminate(ptr %312) #47, !noalias !1037
-  unreachable
-
-_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29: ; preds = %308, %306, %_ZN4absl12lts_202407226StatusD2Ev.exit.i136, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i132
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #42, !noalias !1040
-  br i1 %292, label %.backedge.backedge, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit"
+  br i1 %287, label %.backedge.backedge, label %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit"
 
 .backedge.backedge:                               ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137
   br label %.backedge
 
-313:                                              ; preds = %290
+.sink.split:                                      ; preds = %.thread422, %.thread426
+  %.pn.pn.i425.ph = phi { ptr, i32 } [ %273, %.thread426 ], [ %269, %.thread422 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #42, !noalias !1040
+  br label %308
+
+308:                                              ; preds = %.sink.split, %284
+  %.pn.pn.i425 = phi { ptr, i32 } [ %285, %284 ], [ %.pn.pn.i425.ph, %.sink.split ]
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt7variantIJN9grpc_core8ContinueENS0_6StatusEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #42, !noalias !1037
   br label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30
 
 common.resume:                                    ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit, %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i, %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30 ], [ %.pn526, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.i424, %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30 ], [ %.pn528, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30: ; preds = %290, %313
+_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit30: ; preds = %284, %308
+  %.pn.pn.i424 = phi { ptr, i32 } [ %285, %284 ], [ %.pn.pn.i425, %308 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #42, !noalias !1040
   br label %common.resume
 
 "_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit": ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i137, %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt7variantIJNS_8ContinueENS2_6StatusEEEEEED2Ev.exit29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %314 = trunc nuw i8 %.sroa.0156.2422 to i1
-  store i8 %.sroa.0156.2422, ptr %15, align 8, !tbaa !885, !alias.scope !1037
-  br i1 %314, label %315, label %.critedge21
+  %309 = trunc nuw i8 %.sroa.0156.2417 to i1
+  store i8 %.sroa.0156.2417, ptr %15, align 8, !tbaa !885, !alias.scope !1037
+  br i1 %309, label %310, label %.critedge21
 
-315:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit"
-  store i64 %.sroa.6158.3425, ptr %49, align 8, !tbaa !200
+310:                                              ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit"
+  store i64 %.sroa.6158.3420, ptr %49, align 8, !tbaa !200
   invoke fastcc void @"_ZN9grpc_core14promise_detail15PromiseActivityINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EENS_22ExecCtxWakeupSchedulerEZNS3_14StartIdleTimerEvE3$_1JNS_13RefCountedPtrINS_5ArenaEEEEE8MarkDoneEv"(ptr noundef nonnull align 8 dereferenceable(144) %1)
-          to label %318 unwind label %324
+          to label %313 unwind label %319
 
 .critedge21:                                      ; preds = %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit", %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit.thread"
-  %.sroa.6158.1195.ph = phi i64 [ %.sroa.6158.2, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit.thread" ], [ %.sroa.6158.3425, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit" ]
-  %316 = load i8, ptr %50, align 4, !tbaa !1020
+  %.sroa.6158.1195.ph = phi i64 [ %.sroa.6158.2, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit.thread" ], [ %.sroa.6158.3420, %"_ZN9grpc_core4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EclEv.exit" ]
+  %311 = load i8, ptr %50, align 4, !tbaa !1020
   store i8 0, ptr %50, align 4, !tbaa !1020
-  switch i8 %316, label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22 [
+  switch i8 %311, label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22 [
     i8 0, label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread
-    i8 2, label %317
+    i8 2, label %312
   ]
 
-317:                                              ; preds = %.critedge21
+312:                                              ; preds = %.critedge21
   invoke fastcc void @"_ZN9grpc_core14promise_detail15PromiseActivityINS_4LoopIZNS_13ClientChannel14StartIdleTimerEvE3$_0EENS_22ExecCtxWakeupSchedulerEZNS3_14StartIdleTimerEvE3$_1JNS_13RefCountedPtrINS_5ArenaEEEEE8MarkDoneEv"(ptr noundef nonnull align 8 dereferenceable(144) %1)
-          to label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split unwind label %322
+          to label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split unwind label %317
 
-318:                                              ; preds = %315
-  %319 = load i64, ptr %49, align 8, !tbaa !200
+313:                                              ; preds = %310
+  %314 = load i64, ptr %49, align 8, !tbaa !200
   store i64 55, ptr %49, align 8, !tbaa !200
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split
 
 _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22: ; preds = %.critedge21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #42
-  %320 = load i8, ptr %20, align 8, !tbaa !645, !range !207, !noundef !208
-  %321 = trunc nuw i8 %320 to i1
-  br i1 %321, label %.critedge._crit_edge, label %.critedge19, !prof !1081
+  %315 = load i8, ptr %20, align 8, !tbaa !645, !range !207, !noundef !208
+  %316 = trunc nuw i8 %315 to i1
+  br i1 %316, label %.critedge._crit_edge, label %.critedge19, !prof !1081
 
-322:                                              ; preds = %317
-  %323 = landingpad { ptr, i32 }
+317:                                              ; preds = %312
+  %318 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit
 
-324:                                              ; preds = %315
-  %325 = landingpad { ptr, i32 }
+319:                                              ; preds = %310
+  %320 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #42
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit
 
-_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit: ; preds = %322, %324
-  %.pn526 = phi { ptr, i32 } [ %323, %322 ], [ %325, %324 ]
+_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit: ; preds = %317, %319
+  %.pn528 = phi { ptr, i32 } [ %318, %317 ], [ %320, %319 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #42
   br label %common.resume
 
-_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split: ; preds = %317, %318
-  %.sink558 = phi i64 [ %319, %318 ], [ 5, %317 ]
-  store i64 %.sink558, ptr %0, align 8, !tbaa !200
+_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split: ; preds = %312, %313
+  %.sink560 = phi i64 [ %314, %313 ], [ 5, %312 ]
+  store i64 %.sink560, ptr %0, align 8, !tbaa !200
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread
 
 _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread: ; preds = %.critedge21, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split
-  %storemerge = phi i8 [ 1, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split ], [ %316, %.critedge21 ]
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %storemerge, ptr %326, align 8, !tbaa !665
+  %storemerge = phi i8 [ 1, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit22.thread.sink.split ], [ %311, %.critedge21 ]
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %storemerge, ptr %321, align 8, !tbaa !665
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #42
   ret void
 }

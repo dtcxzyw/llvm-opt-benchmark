@@ -12630,7 +12630,7 @@ _ZN14regex_automata4util4iter8Searcher7advance17h3fcdf13a51e027faE.exit.i: ; pre
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.0.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %88, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i32 1, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %97, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -160706,7 +160706,7 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i: ; preds = %60
 "_ZN103_$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u20$as$u20$pyo3..types..any..PyAnyMethods$GT$7getattr17h8a0e8f20714d4836E.exit.i.i.i": ; preds = %124
   %125 = load i64, ptr %21, align 8, !range !700, !alias.scope !16015, !noundef !4
   %126 = trunc nuw i64 %125 to i1
-  br i1 %126, label %.thread, label %127
+  br i1 %126, label %.thread, label %127, !prof !16016
 
 .thread:                                          ; preds = %"_ZN103_$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u20$as$u20$pyo3..types..any..PyAnyMethods$GT$7getattr17h8a0e8f20714d4836E.exit.i.i.i"
   call void @Py_DecRef(ptr noundef nonnull %113) #40, !noalias !16015
@@ -160716,56 +160716,56 @@ _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i: ; preds = %60
 127:                                              ; preds = %"_ZN103_$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u20$as$u20$pyo3..types..any..PyAnyMethods$GT$7getattr17h8a0e8f20714d4836E.exit.i.i.i"
   %128 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %129 = load ptr, ptr %128, align 8, !alias.scope !16015, !nonnull !4, !noundef !4
-  call void @llvm.experimental.noalias.scope.decl(metadata !16016)
-  call void @llvm.experimental.noalias.scope.decl(metadata !16019)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16017)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16020)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.9.i.i)
-  %130 = call noundef ptr @PyObject_Call(ptr noundef nonnull %129, ptr noundef nonnull %113, ptr noundef null) #40, !noalias !16022
+  %130 = call noundef ptr @PyObject_Call(ptr noundef nonnull %129, ptr noundef nonnull %113, ptr noundef null) #40, !noalias !16023
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %144
 
 132:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !16023
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !16024
   invoke void @_ZN4pyo33err5PyErr4take17hc0d60d7d0bd15e0eE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4)
-          to label %.noexc.i60 unwind label %145, !noalias !16016
+          to label %.noexc.i60 unwind label %145, !noalias !16017
 
 .noexc.i60:                                       ; preds = %132
-  %133 = load i64, ptr %4, align 8, !range !700, !noalias !16023, !noundef !4
+  %133 = load i64, ptr %4, align 8, !range !700, !noalias !16024, !noundef !4
   %134 = trunc nuw i64 %133 to i1
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %.noexc.i60
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %136, align 8, !noalias !16022
+  %.sroa.0.0.copyload.i.i = load i64, ptr %136, align 8, !noalias !16023
   %.sroa.54.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.54.0.copyload.i.i = load ptr, ptr %.sroa.54.0..sroa_idx.i.i61, align 8, !noalias !16022
+  %.sroa.54.0.copyload.i.i = load ptr, ptr %.sroa.54.0..sroa_idx.i.i61, align 8, !noalias !16023
   %.sroa.7.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.7.0.copyload.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i.i62, align 8, !noalias !16022
+  %.sroa.7.0.copyload.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i.i62, align 8, !noalias !16023
   %.sroa.85.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.85.0.copyload.i.i = load ptr, ptr %.sroa.85.0..sroa_idx.i.i, align 8, !noalias !16022
+  %.sroa.85.0.copyload.i.i = load ptr, ptr %.sroa.85.0..sroa_idx.i.i, align 8, !noalias !16023
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.0..sroa_idx.i.i, i64 20, i1 false), !noalias !16022
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.0..sroa_idx.i.i, i64 20, i1 false), !noalias !16023
   %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %.sroa.10.0.copyload.i.i = load i32, ptr %.sroa.10.0..sroa_idx.i.i, align 4, !noalias !16022
+  %.sroa.10.0.copyload.i.i = load i32, ptr %.sroa.10.0..sroa_idx.i.i, align 4, !noalias !16023
   br label %_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i
 
 137:                                              ; preds = %.noexc.i60
-  %138 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !16023
-  %139 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 1873) 16, i64 noundef range(i64 8, 129) 8) #40, !noalias !16023
+  %138 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !16024
+  %139 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 16, 1873) 16, i64 noundef range(i64 8, 129) 8) #40, !noalias !16024
   %140 = icmp eq ptr %139, null
   br i1 %140, label %141, label %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i, !prof !22
 
 141:                                              ; preds = %137
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 8, i64 noundef 16) #41
-          to label %.noexc2.i unwind label %145, !noalias !16016
+          to label %.noexc2.i unwind label %145, !noalias !16017
 
 .noexc2.i:                                        ; preds = %141
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i: ; preds = %137
-  store ptr @anon.0caf704fec8aa675096b192a69548693.365, ptr %139, align 8, !noalias !16023
+  store ptr @anon.0caf704fec8aa675096b192a69548693.365, ptr %139, align 8, !noalias !16024
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  store i64 45, ptr %142, align 8, !noalias !16023
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.i.i, i8 0, i64 20, i1 false), !noalias !16022
+  store i64 45, ptr %142, align 8, !noalias !16024
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.i.i, i8 0, i64 20, i1 false), !noalias !16023
   br label %_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i
 
 _ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i: ; preds = %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i, %135
@@ -160774,29 +160774,29 @@ _ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i: ; preds = %_ZN5alloc5allo
   %.sroa.7.0.i.i = phi ptr [ %.sroa.7.0.copyload.i.i, %135 ], [ %139, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i ]
   %.sroa.54.0.i.i = phi ptr [ %.sroa.54.0.copyload.i.i, %135 ], [ null, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i ]
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %135 ], [ 1, %_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E.exit.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !16023
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !16024
   %143 = inttoptr i64 %.sroa.0.0.i.i to ptr
-  store ptr %143, ptr %128, align 8, !alias.scope !16022
+  store ptr %143, ptr %128, align 8, !alias.scope !16023
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %.sroa.54.0.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !16022
+  store ptr %.sroa.54.0.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !16023
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %.sroa.7.0.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !16022
+  store ptr %.sroa.7.0.i.i, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !16023
   %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr %.sroa.85.0.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !16022
+  store ptr %.sroa.85.0.i.i, ptr %.sroa.5.sroa.6.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !16023
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.9.i.i, i64 20, i1 false)
   %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 60
-  store i32 %.sroa.10.0.i.i, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !16022
+  store i32 %.sroa.10.0.i.i, ptr %.sroa.5.sroa.8.0..sroa.5.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !16023
   br label %149
 
 144:                                              ; preds = %127
-  store ptr %130, ptr %128, align 8, !alias.scope !16022
+  store ptr %130, ptr %128, align 8, !alias.scope !16023
   br label %149
 
 145:                                              ; preds = %141, %132
   %146 = landingpad { ptr, i32 }
           cleanup
-  call void @Py_DecRef(ptr noundef nonnull %113) #40, !noalias !16016
+  call void @Py_DecRef(ptr noundef nonnull %113) #40, !noalias !16017
   br label %.body.i.i.i.body
 
 .body.i.i.i.body:                                 ; preds = %145, %147
@@ -160812,24 +160812,24 @@ _ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i: ; preds = %_ZN5alloc5allo
 
 149:                                              ; preds = %144, %_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.9.i.i)
-  call void @Py_DecRef(ptr noundef nonnull %113) #40, !noalias !16016
+  call void @Py_DecRef(ptr noundef nonnull %113) #40, !noalias !16017
   call void @Py_DecRef(ptr noundef nonnull %129) #40, !noalias !16015
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !16014
-  call void @llvm.experimental.noalias.scope.decl(metadata !16026)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16027)
   br i1 %131, label %150, label %157, !prof !8106
 
 150:                                              ; preds = %.thread, %149
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19), !noalias !16029
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19), !noalias !16030
   %151 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %151, i64 56, i1 false), !noalias !16031
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %151, i64 56, i1 false), !noalias !16032
   invoke void @_ZN4core6result13unwrap_failed17h730db56f15e0885aE(ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.353, i64 noundef 43, ptr noundef nonnull align 1 %19, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.0caf704fec8aa675096b192a69548693.355, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0caf704fec8aa675096b192a69548693.899) #41
-          to label %154 unwind label %152, !noalias !16026
+          to label %154 unwind label %152, !noalias !16027
 
 152:                                              ; preds = %150
   %153 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr37drop_in_place$LT$pyo3..err..PyErr$GT$17h41d1f6affcadbdd2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %19) #42
-          to label %.body unwind label %155, !noalias !16026
+          to label %.body unwind label %155, !noalias !16027
 
 154:                                              ; preds = %150
   unreachable
@@ -160837,12 +160837,12 @@ _ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E.exit.i.i: ; preds = %_ZN5alloc5allo
 155:                                              ; preds = %152
   %156 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43, !noalias !16026
+  call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43, !noalias !16027
   unreachable
 
 157:                                              ; preds = %149
   %158 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %159 = load ptr, ptr %158, align 8, !alias.scope !16026, !noalias !16031, !nonnull !4, !noundef !4
+  %159 = load ptr, ptr %158, align 8, !alias.scope !16027, !noalias !16032, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
   call void @Py_DecRef(ptr noundef nonnull %159) #40
   invoke void @_ZN10polars_ffi9version_09import_df17h2cd810b8c4b53296E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull %99, i64 noundef %90)
@@ -160905,7 +160905,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.905, i64 noundef 12, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.907, i64 noundef 6, i64 noundef 3)
-  %13 = load i64, ptr %7, align 8, !range !16032, !noundef !4
+  %13 = load i64, ptr %7, align 8, !range !16033, !noundef !4
   %.not18 = icmp eq i64 %13, -9223372036854775804
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -160934,7 +160934,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   store ptr %15, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.908, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
-  %20 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %20 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not19 = icmp eq i64 %20, -9223372036854775804
   br i1 %.not19, label %22, label %21
 
@@ -160947,7 +160947,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.909, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %11)
-  %23 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %23 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not20 = icmp eq i64 %23, -9223372036854775804
   br i1 %.not20, label %25, label %24
 
@@ -160960,7 +160960,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.910, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %12)
-  %26 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %26 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not21 = icmp eq i64 %26, -9223372036854775804
   br i1 %.not21, label %28, label %27
 
@@ -160971,7 +160971,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16033
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16034
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %17
 
@@ -160997,7 +160997,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.905, i64 noundef 12, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.907, i64 noundef 6, i64 noundef 3)
-  %13 = load i64, ptr %7, align 8, !range !16032, !noundef !4
+  %13 = load i64, ptr %7, align 8, !range !16033, !noundef !4
   %.not18 = icmp eq i64 %13, -9223372036854775804
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -161026,7 +161026,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   store ptr %15, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.908, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
-  %20 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %20 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not19 = icmp eq i64 %20, -9223372036854775804
   br i1 %.not19, label %22, label %21
 
@@ -161039,7 +161039,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.909, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %11)
-  %23 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %23 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not20 = icmp eq i64 %23, -9223372036854775804
   br i1 %.not20, label %25, label %24
 
@@ -161052,7 +161052,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.910, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %12)
-  %26 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %26 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not21 = icmp eq i64 %26, -9223372036854775804
   br i1 %.not21, label %28, label %27
 
@@ -161063,7 +161063,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16036
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16037
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %17
 
@@ -161089,7 +161089,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.905, i64 noundef 12, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.907, i64 noundef 6, i64 noundef 3)
-  %13 = load i64, ptr %7, align 8, !range !16032, !noundef !4
+  %13 = load i64, ptr %7, align 8, !range !16033, !noundef !4
   %.not18 = icmp eq i64 %13, -9223372036854775804
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -161118,7 +161118,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   store ptr %15, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.908, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %1)
-  %20 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %20 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not19 = icmp eq i64 %20, -9223372036854775804
   br i1 %.not19, label %22, label %21
 
@@ -161131,7 +161131,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.909, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %11)
-  %23 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %23 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not20 = icmp eq i64 %23, -9223372036854775804
   br i1 %.not20, label %25, label %24
 
@@ -161144,7 +161144,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.910, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %12)
-  %26 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %26 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not21 = icmp eq i64 %26, -9223372036854775804
   br i1 %.not21, label %28, label %27
 
@@ -161155,7 +161155,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr6random1_105_$LT$impl$u2
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16039
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16040
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %17
 
@@ -161171,7 +161171,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7rolling1_109_$LT$impl$u
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [8 x i8], align 8
-  %9 = load i64, ptr %1, align 8, !range !16042, !noundef !4
+  %9 = load i64, ptr %1, align 8, !range !16043, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 9)
   switch i64 %11, label %default.unreachable [
@@ -161241,7 +161241,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.911, i64 noundef 15, i32 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.921, i64 noundef 7, i64 noundef 3)
-  %33 = load i64, ptr %7, align 8, !range !16032, !noundef !4
+  %33 = load i64, ptr %7, align 8, !range !16033, !noundef !4
   %.not = icmp eq i64 %33, -9223372036854775804
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -161266,7 +161266,7 @@ default.unreachable:                              ; preds = %3
   store ptr %35, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hc12cf3fbde78f13fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.922, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %39 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %39 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not18 = icmp eq i64 %39, -9223372036854775804
   br i1 %.not18, label %41, label %40
 
@@ -161279,7 +161279,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h98c4ca2aa37d6991E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.923, i64 noundef 16, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %31)
-  %42 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %42 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not19 = icmp eq i64 %42, -9223372036854775804
   br i1 %.not19, label %44, label %43
 
@@ -161292,7 +161292,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.924, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
-  %45 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %45 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not20 = icmp eq i64 %45, -9223372036854775804
   br i1 %.not20, label %47, label %46
 
@@ -161303,7 +161303,7 @@ default.unreachable:                              ; preds = %3
 
 47:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16043
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16044
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %36
 
@@ -161319,7 +161319,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7rolling1_109_$LT$impl$u
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [8 x i8], align 8
-  %9 = load i64, ptr %1, align 8, !range !16042, !noundef !4
+  %9 = load i64, ptr %1, align 8, !range !16043, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 9)
   switch i64 %11, label %default.unreachable [
@@ -161389,7 +161389,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.911, i64 noundef 15, i32 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.921, i64 noundef 7, i64 noundef 3)
-  %33 = load i64, ptr %7, align 8, !range !16032, !noundef !4
+  %33 = load i64, ptr %7, align 8, !range !16033, !noundef !4
   %.not = icmp eq i64 %33, -9223372036854775804
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -161414,7 +161414,7 @@ default.unreachable:                              ; preds = %3
   store ptr %35, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h45174e79d4dcbeceE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.922, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %39 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %39 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not18 = icmp eq i64 %39, -9223372036854775804
   br i1 %.not18, label %41, label %40
 
@@ -161427,7 +161427,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h83906f8bdd8e7f4aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.923, i64 noundef 16, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %31)
-  %42 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %42 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not19 = icmp eq i64 %42, -9223372036854775804
   br i1 %.not19, label %44, label %43
 
@@ -161440,7 +161440,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.924, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
-  %45 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %45 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not20 = icmp eq i64 %45, -9223372036854775804
   br i1 %.not20, label %47, label %46
 
@@ -161451,7 +161451,7 @@ default.unreachable:                              ; preds = %3
 
 47:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16046
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16047
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %36
 
@@ -161467,7 +161467,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7rolling1_109_$LT$impl$u
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [8 x i8], align 8
-  %9 = load i64, ptr %1, align 8, !range !16042, !noundef !4
+  %9 = load i64, ptr %1, align 8, !range !16043, !noundef !4
   %10 = add i64 %9, 9223372036854775807
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 9)
   switch i64 %11, label %default.unreachable [
@@ -161537,7 +161537,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.911, i64 noundef 15, i32 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.921, i64 noundef 7, i64 noundef 3)
-  %33 = load i64, ptr %7, align 8, !range !16032, !noundef !4
+  %33 = load i64, ptr %7, align 8, !range !16033, !noundef !4
   %.not = icmp eq i64 %33, -9223372036854775804
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -161562,7 +161562,7 @@ default.unreachable:                              ; preds = %3
   store ptr %35, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h2bc29c7c964892dfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.922, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
-  %39 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %39 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not18 = icmp eq i64 %39, -9223372036854775804
   br i1 %.not18, label %41, label %40
 
@@ -161575,7 +161575,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17ha261078ffc307cb4E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.923, i64 noundef 16, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %31)
-  %42 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %42 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not19 = icmp eq i64 %42, -9223372036854775804
   br i1 %.not19, label %44, label %43
 
@@ -161588,7 +161588,7 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.924, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %32)
-  %45 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %45 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not20 = icmp eq i64 %45, -9223372036854775804
   br i1 %.not20, label %47, label %46
 
@@ -161599,7 +161599,7 @@ default.unreachable:                              ; preds = %3
 
 47:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16049
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16050
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %36
 
@@ -161670,7 +161670,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7strings1_108_$LT$impl$u
   %61 = alloca [24 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %63 = alloca [8 x i8], align 8
-  %64 = load i8, ptr %1, align 16, !range !16052, !noundef !4
+  %64 = load i8, ptr %1, align 16, !range !16053, !noundef !4
   switch i8 %64, label %default.unreachable856 [
     i8 0, label %65
     i8 1, label %68
@@ -161728,7 +161728,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 0, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.926, i64 noundef 16, i64 noundef 2)
-  %67 = load i64, ptr %62, align 8, !range !16032, !noundef !4
+  %67 = load i64, ptr %62, align 8, !range !16033, !noundef !4
   %.not762 = icmp eq i64 %67, -9223372036854775804
   %.sroa.4364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.4364.0.copyload = load ptr, ptr %.sroa.4364.0..sroa_idx, align 8
@@ -161742,7 +161742,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.929, i64 noundef 14, i64 noundef 2)
-  %70 = load i64, ptr %58, align 8, !range !16032, !noundef !4
+  %70 = load i64, ptr %58, align 8, !range !16033, !noundef !4
   %.not756 = icmp eq i64 %70, -9223372036854775804
   %.sroa.4385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.4385.0.copyload = load ptr, ptr %.sroa.4385.0..sroa_idx, align 8
@@ -161756,7 +161756,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.930, i64 noundef 8, i64 noundef 2)
-  %73 = load i64, ptr %54, align 8, !range !16032, !noundef !4
+  %73 = load i64, ptr %54, align 8, !range !16033, !noundef !4
   %.not750 = icmp eq i64 %73, -9223372036854775804
   %.sroa.4406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.4406.0.copyload = load ptr, ptr %.sroa.4406.0..sroa_idx, align 8
@@ -161788,7 +161788,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %50, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.937, i64 noundef 13, i64 noundef 2)
-  %82 = load i64, ptr %50, align 8, !range !16032, !noundef !4
+  %82 = load i64, ptr %50, align 8, !range !16033, !noundef !4
   %.not744 = icmp eq i64 %82, -9223372036854775804
   %.sroa.4427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.4427.0.copyload = load ptr, ptr %.sroa.4427.0..sroa_idx, align 8
@@ -161802,7 +161802,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.939, i64 noundef 4, i64 noundef 2)
-  %85 = load i64, ptr %46, align 8, !range !16032, !noundef !4
+  %85 = load i64, ptr %46, align 8, !range !16033, !noundef !4
   %.not738 = icmp eq i64 %85, -9223372036854775804
   %.sroa.4448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.4448.0.copyload = load ptr, ptr %.sroa.4448.0..sroa_idx, align 8
@@ -161833,7 +161833,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.944, i64 noundef 10, i64 noundef 2)
-  %93 = load i64, ptr %42, align 8, !range !16032, !noundef !4
+  %93 = load i64, ptr %42, align 8, !range !16033, !noundef !4
   %.not732 = icmp eq i64 %93, -9223372036854775804
   %.sroa.4469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.4469.0.copyload = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8
@@ -161851,7 +161851,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.947, i64 noundef 7, i64 noundef 2)
-  %97 = load i64, ptr %38, align 8, !range !16032, !noundef !4
+  %97 = load i64, ptr %38, align 8, !range !16033, !noundef !4
   %.not726 = icmp eq i64 %97, -9223372036854775804
   %.sroa.4490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.4490.0.copyload = load ptr, ptr %.sroa.4490.0..sroa_idx, align 8
@@ -161864,7 +161864,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %34, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.948, i64 noundef 9, i64 noundef 1)
-  %99 = load i64, ptr %34, align 8, !range !16032, !noundef !4
+  %99 = load i64, ptr %34, align 8, !range !16033, !noundef !4
   %.not722 = icmp eq i64 %99, -9223372036854775804
   %.sroa.4511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.4511.0.copyload = load ptr, ptr %.sroa.4511.0..sroa_idx, align 8
@@ -161882,7 +161882,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.951, i64 noundef 8, i64 noundef 2)
-  %103 = load i64, ptr %31, align 8, !range !16032, !noundef !4
+  %103 = load i64, ptr %31, align 8, !range !16033, !noundef !4
   %.not716 = icmp eq i64 %103, -9223372036854775804
   %.sroa.4526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4526.0.copyload = load ptr, ptr %.sroa.4526.0..sroa_idx, align 8
@@ -161896,7 +161896,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 19, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.954, i64 noundef 6, i64 noundef 2)
-  %106 = load i64, ptr %27, align 8, !range !16032, !noundef !4
+  %106 = load i64, ptr %27, align 8, !range !16033, !noundef !4
   %.not710 = icmp eq i64 %106, -9223372036854775804
   %.sroa.4547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4547.0.copyload = load ptr, ptr %.sroa.4547.0..sroa_idx, align 8
@@ -161964,7 +161964,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 33, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.968, i64 noundef 10, i64 noundef 2)
-  %124 = load i64, ptr %23, align 8, !range !16032, !noundef !4
+  %124 = load i64, ptr %23, align 8, !range !16033, !noundef !4
   %.not704 = icmp eq i64 %124, -9223372036854775804
   %.sroa.4568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.4568.0.copyload = load ptr, ptr %.sroa.4568.0..sroa_idx, align 8
@@ -161982,7 +161982,7 @@ default.unreachable856:                           ; preds = %3
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$23serialize_tuple_variant17hfabff5ea49edd8caE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 35, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.971, i64 noundef 8, i64 noundef 2)
-  %129 = load i64, ptr %20, align 8, !range !16032, !noundef !4
+  %129 = load i64, ptr %20, align 8, !range !16033, !noundef !4
   %.not698 = icmp eq i64 %129, -9223372036854775804
   %.sroa.4589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.4589.0.copyload = load ptr, ptr %.sroa.4589.0..sroa_idx, align 8
@@ -162017,7 +162017,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 41, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.977, i64 noundef 11, i64 noundef 1)
-  %138 = load i64, ptr %16, align 8, !range !16032, !noundef !4
+  %138 = load i64, ptr %16, align 8, !range !16033, !noundef !4
   %.not694 = icmp eq i64 %138, -9223372036854775804
   %.sroa.4610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.4610.0.copyload = load ptr, ptr %.sroa.4610.0..sroa_idx, align 8
@@ -162030,7 +162030,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 42, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.979, i64 noundef 11, i64 noundef 1)
-  %140 = load i64, ptr %13, align 8, !range !16032, !noundef !4
+  %140 = load i64, ptr %13, align 8, !range !16033, !noundef !4
   %.not690 = icmp eq i64 %140, -9223372036854775804
   %.sroa.4625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4625.0.copyload = load ptr, ptr %.sroa.4625.0..sroa_idx, align 8
@@ -162044,7 +162044,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.980, i64 noundef 11, i64 noundef 2)
-  %143 = load i64, ptr %10, align 8, !range !16032, !noundef !4
+  %143 = load i64, ptr %10, align 8, !range !16033, !noundef !4
   %.not684 = icmp eq i64 %143, -9223372036854775804
   %.sroa.4640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.4640.0.copyload = load ptr, ptr %.sroa.4640.0..sroa_idx, align 8
@@ -162058,7 +162058,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17he34fe4091c135cdbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 44, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.982, i64 noundef 8, i64 noundef 2)
-  %146 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %146 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not = icmp eq i64 %146, -9223372036854775804
   %.sroa.4661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4661.0.copyload = load ptr, ptr %.sroa.4661.0..sroa_idx, align 8
@@ -162086,7 +162086,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4364.0.copyload, ptr %63, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17he2784b8ba4a5ce14E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.927, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150)
-  %152 = load i64, ptr %61, align 8, !range !16032, !noundef !4
+  %152 = load i64, ptr %61, align 8, !range !16033, !noundef !4
   %.not764 = icmp eq i64 %152, -9223372036854775804
   br i1 %.not764, label %154, label %153
 
@@ -162102,7 +162102,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.928, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %66)
-  %155 = load i64, ptr %60, align 8, !range !16032, !noundef !4
+  %155 = load i64, ptr %60, align 8, !range !16033, !noundef !4
   %.not766 = icmp eq i64 %155, -9223372036854775804
   br i1 %.not766, label %157, label %156
 
@@ -162116,7 +162116,7 @@ default.unreachable856:                           ; preds = %3
 
 157:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16053
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16054
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
   br label %158
 
@@ -162142,7 +162142,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4385.0.copyload, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17he2784b8ba4a5ce14E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull align 8 dereferenceable(8) %59, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.927, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %162)
-  %164 = load i64, ptr %57, align 8, !range !16032, !noundef !4
+  %164 = load i64, ptr %57, align 8, !range !16033, !noundef !4
   %.not758 = icmp eq i64 %164, -9223372036854775804
   br i1 %.not758, label %166, label %165
 
@@ -162158,7 +162158,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %59, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.928, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %69)
-  %167 = load i64, ptr %56, align 8, !range !16032, !noundef !4
+  %167 = load i64, ptr %56, align 8, !range !16033, !noundef !4
   %.not760 = icmp eq i64 %167, -9223372036854775804
   br i1 %.not760, label %169, label %168
 
@@ -162172,7 +162172,7 @@ default.unreachable856:                           ; preds = %3
 
 169:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16056
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16057
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   br label %158
 
@@ -162195,7 +162195,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4406.0.copyload, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %173)
-  %175 = load i64, ptr %53, align 8, !range !16032, !noundef !4
+  %175 = load i64, ptr %53, align 8, !range !16033, !noundef !4
   %.not752 = icmp eq i64 %175, -9223372036854775804
   br i1 %.not752, label %177, label %176
 
@@ -162211,7 +162211,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.932, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %72)
-  %178 = load i64, ptr %52, align 8, !range !16032, !noundef !4
+  %178 = load i64, ptr %52, align 8, !range !16033, !noundef !4
   %.not754 = icmp eq i64 %178, -9223372036854775804
   br i1 %.not754, label %180, label %179
 
@@ -162225,7 +162225,7 @@ default.unreachable856:                           ; preds = %3
 
 180:                                              ; preds = %177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16059
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16060
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   br label %158
 
@@ -162248,7 +162248,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4427.0.copyload, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h83c729b27b35f16fE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.504, i64 noundef 5, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %184)
-  %186 = load i64, ptr %49, align 8, !range !16032, !noundef !4
+  %186 = load i64, ptr %49, align 8, !range !16033, !noundef !4
   %.not746 = icmp eq i64 %186, -9223372036854775804
   br i1 %.not746, label %188, label %187
 
@@ -162264,7 +162264,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17he2784b8ba4a5ce14E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.938, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81)
-  %189 = load i64, ptr %48, align 8, !range !16032, !noundef !4
+  %189 = load i64, ptr %48, align 8, !range !16033, !noundef !4
   %.not748 = icmp eq i64 %189, -9223372036854775804
   br i1 %.not748, label %191, label %190
 
@@ -162278,7 +162278,7 @@ default.unreachable856:                           ; preds = %3
 
 191:                                              ; preds = %188
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16062
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16063
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   br label %158
 
@@ -162301,7 +162301,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4448.0.copyload, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %195)
-  %197 = load i64, ptr %45, align 8, !range !16032, !noundef !4
+  %197 = load i64, ptr %45, align 8, !range !16033, !noundef !4
   %.not740 = icmp eq i64 %197, -9223372036854775804
   br i1 %.not740, label %199, label %198
 
@@ -162317,7 +162317,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.932, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %84)
-  %200 = load i64, ptr %44, align 8, !range !16032, !noundef !4
+  %200 = load i64, ptr %44, align 8, !range !16033, !noundef !4
   %.not742 = icmp eq i64 %200, -9223372036854775804
   br i1 %.not742, label %202, label %201
 
@@ -162331,7 +162331,7 @@ default.unreachable856:                           ; preds = %3
 
 202:                                              ; preds = %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16065
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16066
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   br label %158
 
@@ -162354,7 +162354,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4469.0.copyload, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hd93f492eed134385E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.504, i64 noundef 5, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %206)
-  %208 = load i64, ptr %41, align 8, !range !16032, !noundef !4
+  %208 = load i64, ptr %41, align 8, !range !16033, !noundef !4
   %.not734 = icmp eq i64 %208, -9223372036854775804
   br i1 %.not734, label %210, label %209
 
@@ -162370,7 +162370,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hd1d97756886d8abfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.945, i64 noundef 16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %92)
-  %211 = load i64, ptr %40, align 8, !range !16032, !noundef !4
+  %211 = load i64, ptr %40, align 8, !range !16033, !noundef !4
   %.not736 = icmp eq i64 %211, -9223372036854775804
   br i1 %.not736, label %213, label %212
 
@@ -162384,7 +162384,7 @@ default.unreachable856:                           ; preds = %3
 
 213:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16068
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16069
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   br label %158
 
@@ -162407,7 +162407,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4490.0.copyload, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h580c77bd3ce4c7ebE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.883, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %217)
-  %219 = load i64, ptr %37, align 8, !range !16032, !noundef !4
+  %219 = load i64, ptr %37, align 8, !range !16033, !noundef !4
   %.not728 = icmp eq i64 %219, -9223372036854775804
   br i1 %.not728, label %221, label %220
 
@@ -162423,7 +162423,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %36, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %96)
-  %222 = load i64, ptr %36, align 8, !range !16032, !noundef !4
+  %222 = load i64, ptr %36, align 8, !range !16033, !noundef !4
   %.not730 = icmp eq i64 %222, -9223372036854775804
   br i1 %.not730, label %224, label %223
 
@@ -162437,7 +162437,7 @@ default.unreachable856:                           ; preds = %3
 
 224:                                              ; preds = %221
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16071
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16072
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   br label %158
 
@@ -162460,7 +162460,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4511.0.copyload, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h4d078c491f16bdcbE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull align 8 dereferenceable(8) %35, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.949, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %228)
-  %230 = load i64, ptr %33, align 8, !range !16032, !noundef !4
+  %230 = load i64, ptr %33, align 8, !range !16033, !noundef !4
   %.not724 = icmp eq i64 %230, -9223372036854775804
   br i1 %.not724, label %232, label %231
 
@@ -162474,7 +162474,7 @@ default.unreachable856:                           ; preds = %3
 
 232:                                              ; preds = %227
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16074
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16075
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   br label %158
 
@@ -162497,7 +162497,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4526.0.copyload, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hac0f59ee01561fabE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.952, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %236)
-  %238 = load i64, ptr %30, align 8, !range !16032, !noundef !4
+  %238 = load i64, ptr %30, align 8, !range !16033, !noundef !4
   %.not718 = icmp eq i64 %238, -9223372036854775804
   br i1 %.not718, label %240, label %239
 
@@ -162513,7 +162513,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h6a647f2a3bad27c0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.953, i64 noundef 9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %102)
-  %241 = load i64, ptr %29, align 8, !range !16032, !noundef !4
+  %241 = load i64, ptr %29, align 8, !range !16033, !noundef !4
   %.not720 = icmp eq i64 %241, -9223372036854775804
   br i1 %.not720, label %243, label %242
 
@@ -162527,7 +162527,7 @@ default.unreachable856:                           ; preds = %3
 
 243:                                              ; preds = %240
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16077
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16078
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   br label %158
 
@@ -162550,7 +162550,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4547.0.copyload, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hac0f59ee01561fabE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.952, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %247)
-  %249 = load i64, ptr %26, align 8, !range !16032, !noundef !4
+  %249 = load i64, ptr %26, align 8, !range !16033, !noundef !4
   %.not712 = icmp eq i64 %249, -9223372036854775804
   br i1 %.not712, label %251, label %250
 
@@ -162566,7 +162566,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h6a647f2a3bad27c0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.953, i64 noundef 9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %105)
-  %252 = load i64, ptr %25, align 8, !range !16032, !noundef !4
+  %252 = load i64, ptr %25, align 8, !range !16033, !noundef !4
   %.not714 = icmp eq i64 %252, -9223372036854775804
   br i1 %.not714, label %254, label %253
 
@@ -162580,7 +162580,7 @@ default.unreachable856:                           ; preds = %3
 
 254:                                              ; preds = %251
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16080
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16081
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   br label %158
 
@@ -162603,7 +162603,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4568.0.copyload, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hac0f59ee01561fabE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.883, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %258)
-  %260 = load i64, ptr %22, align 8, !range !16032, !noundef !4
+  %260 = load i64, ptr %22, align 8, !range !16033, !noundef !4
   %.not706 = icmp eq i64 %260, -9223372036854775804
   br i1 %.not706, label %262, label %261
 
@@ -162619,7 +162619,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.969, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %123)
-  %263 = load i64, ptr %21, align 8, !range !16032, !noundef !4
+  %263 = load i64, ptr %21, align 8, !range !16033, !noundef !4
   %.not708 = icmp eq i64 %263, -9223372036854775804
   br i1 %.not708, label %265, label %264
 
@@ -162633,7 +162633,7 @@ default.unreachable856:                           ; preds = %3
 
 265:                                              ; preds = %262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16083
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16084
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   br label %158
 
@@ -162655,7 +162655,7 @@ default.unreachable856:                           ; preds = %3
   tail call void @llvm.assume(i1 %270)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @"_ZN11polars_core9datatypes6_serde91_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$polars_core..datatypes..dtype..DataType$GT$9serialize17hc9e96e8279041b7cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %269, ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4589.0.copyload)
-  %271 = load i64, ptr %19, align 8, !range !16032, !noundef !4
+  %271 = load i64, ptr %19, align 8, !range !16033, !noundef !4
   %.not700 = icmp eq i64 %271, -9223372036854775804
   br i1 %.not700, label %273, label %272
 
@@ -162671,7 +162671,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @"_ZN11polars_plan3dsl7options1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$polars_plan..dsl..options..StrptimeOptions$GT$9serialize17h62fc270b9a78b9a0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %128, ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4589.0.copyload)
-  %274 = load i64, ptr %18, align 8, !range !16032, !noundef !4
+  %274 = load i64, ptr %18, align 8, !range !16033, !noundef !4
   %.not702 = icmp eq i64 %274, -9223372036854775804
   br i1 %.not702, label %276, label %275
 
@@ -162685,7 +162685,7 @@ default.unreachable856:                           ; preds = %3
 
 276:                                              ; preds = %273
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16086
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16087
   br label %158
 
 277:                                              ; preds = %137
@@ -162703,7 +162703,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4610.0.copyload, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %279)
-  %281 = load i64, ptr %15, align 8, !range !16032, !noundef !4
+  %281 = load i64, ptr %15, align 8, !range !16033, !noundef !4
   %.not696 = icmp eq i64 %281, -9223372036854775804
   br i1 %.not696, label %283, label %282
 
@@ -162717,7 +162717,7 @@ default.unreachable856:                           ; preds = %3
 
 283:                                              ; preds = %278
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16089
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16090
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %158
 
@@ -162740,7 +162740,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4625.0.copyload, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %287)
-  %289 = load i64, ptr %12, align 8, !range !16032, !noundef !4
+  %289 = load i64, ptr %12, align 8, !range !16033, !noundef !4
   %.not692 = icmp eq i64 %289, -9223372036854775804
   br i1 %.not692, label %291, label %290
 
@@ -162754,7 +162754,7 @@ default.unreachable856:                           ; preds = %3
 
 291:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16092
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16093
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %158
 
@@ -162777,7 +162777,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4640.0.copyload, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %295)
-  %297 = load i64, ptr %9, align 8, !range !16032, !noundef !4
+  %297 = load i64, ptr %9, align 8, !range !16033, !noundef !4
   %.not686 = icmp eq i64 %297, -9223372036854775804
   br i1 %.not686, label %299, label %298
 
@@ -162793,7 +162793,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.981, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %142)
-  %300 = load i64, ptr %8, align 8, !range !16032, !noundef !4
+  %300 = load i64, ptr %8, align 8, !range !16033, !noundef !4
   %.not688 = icmp eq i64 %300, -9223372036854775804
   br i1 %.not688, label %302, label %301
 
@@ -162807,7 +162807,7 @@ default.unreachable856:                           ; preds = %3
 
 302:                                              ; preds = %299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16095
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16096
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %158
 
@@ -162830,7 +162830,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4661.0.copyload, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %306)
-  %308 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %308 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not680 = icmp eq i64 %308, -9223372036854775804
   br i1 %.not680, label %310, label %309
 
@@ -162846,7 +162846,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7b49c49086e2d86aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.981, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %145)
-  %311 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %311 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not682 = icmp eq i64 %311, -9223372036854775804
   br i1 %.not682, label %313, label %312
 
@@ -162860,7 +162860,7 @@ default.unreachable856:                           ; preds = %3
 
 313:                                              ; preds = %310
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16098
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16099
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %158
 
@@ -162931,7 +162931,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7strings1_108_$LT$impl$u
   %61 = alloca [24 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %63 = alloca [8 x i8], align 8
-  %64 = load i8, ptr %1, align 16, !range !16052, !noundef !4
+  %64 = load i8, ptr %1, align 16, !range !16053, !noundef !4
   switch i8 %64, label %default.unreachable856 [
     i8 0, label %65
     i8 1, label %68
@@ -162989,7 +162989,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 0, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.926, i64 noundef 16, i64 noundef 2)
-  %67 = load i64, ptr %62, align 8, !range !16032, !noundef !4
+  %67 = load i64, ptr %62, align 8, !range !16033, !noundef !4
   %.not762 = icmp eq i64 %67, -9223372036854775804
   %.sroa.4364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.4364.0.copyload = load ptr, ptr %.sroa.4364.0..sroa_idx, align 8
@@ -163003,7 +163003,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.929, i64 noundef 14, i64 noundef 2)
-  %70 = load i64, ptr %58, align 8, !range !16032, !noundef !4
+  %70 = load i64, ptr %58, align 8, !range !16033, !noundef !4
   %.not756 = icmp eq i64 %70, -9223372036854775804
   %.sroa.4385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.4385.0.copyload = load ptr, ptr %.sroa.4385.0..sroa_idx, align 8
@@ -163017,7 +163017,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.930, i64 noundef 8, i64 noundef 2)
-  %73 = load i64, ptr %54, align 8, !range !16032, !noundef !4
+  %73 = load i64, ptr %54, align 8, !range !16033, !noundef !4
   %.not750 = icmp eq i64 %73, -9223372036854775804
   %.sroa.4406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.4406.0.copyload = load ptr, ptr %.sroa.4406.0..sroa_idx, align 8
@@ -163049,7 +163049,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %50, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.937, i64 noundef 13, i64 noundef 2)
-  %82 = load i64, ptr %50, align 8, !range !16032, !noundef !4
+  %82 = load i64, ptr %50, align 8, !range !16033, !noundef !4
   %.not744 = icmp eq i64 %82, -9223372036854775804
   %.sroa.4427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.4427.0.copyload = load ptr, ptr %.sroa.4427.0..sroa_idx, align 8
@@ -163063,7 +163063,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.939, i64 noundef 4, i64 noundef 2)
-  %85 = load i64, ptr %46, align 8, !range !16032, !noundef !4
+  %85 = load i64, ptr %46, align 8, !range !16033, !noundef !4
   %.not738 = icmp eq i64 %85, -9223372036854775804
   %.sroa.4448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.4448.0.copyload = load ptr, ptr %.sroa.4448.0..sroa_idx, align 8
@@ -163094,7 +163094,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.944, i64 noundef 10, i64 noundef 2)
-  %93 = load i64, ptr %42, align 8, !range !16032, !noundef !4
+  %93 = load i64, ptr %42, align 8, !range !16033, !noundef !4
   %.not732 = icmp eq i64 %93, -9223372036854775804
   %.sroa.4469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.4469.0.copyload = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8
@@ -163112,7 +163112,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.947, i64 noundef 7, i64 noundef 2)
-  %97 = load i64, ptr %38, align 8, !range !16032, !noundef !4
+  %97 = load i64, ptr %38, align 8, !range !16033, !noundef !4
   %.not726 = icmp eq i64 %97, -9223372036854775804
   %.sroa.4490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.4490.0.copyload = load ptr, ptr %.sroa.4490.0..sroa_idx, align 8
@@ -163125,7 +163125,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %34, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.948, i64 noundef 9, i64 noundef 1)
-  %99 = load i64, ptr %34, align 8, !range !16032, !noundef !4
+  %99 = load i64, ptr %34, align 8, !range !16033, !noundef !4
   %.not722 = icmp eq i64 %99, -9223372036854775804
   %.sroa.4511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.4511.0.copyload = load ptr, ptr %.sroa.4511.0..sroa_idx, align 8
@@ -163143,7 +163143,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.951, i64 noundef 8, i64 noundef 2)
-  %103 = load i64, ptr %31, align 8, !range !16032, !noundef !4
+  %103 = load i64, ptr %31, align 8, !range !16033, !noundef !4
   %.not716 = icmp eq i64 %103, -9223372036854775804
   %.sroa.4526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4526.0.copyload = load ptr, ptr %.sroa.4526.0..sroa_idx, align 8
@@ -163157,7 +163157,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 19, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.954, i64 noundef 6, i64 noundef 2)
-  %106 = load i64, ptr %27, align 8, !range !16032, !noundef !4
+  %106 = load i64, ptr %27, align 8, !range !16033, !noundef !4
   %.not710 = icmp eq i64 %106, -9223372036854775804
   %.sroa.4547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4547.0.copyload = load ptr, ptr %.sroa.4547.0..sroa_idx, align 8
@@ -163225,7 +163225,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 33, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.968, i64 noundef 10, i64 noundef 2)
-  %124 = load i64, ptr %23, align 8, !range !16032, !noundef !4
+  %124 = load i64, ptr %23, align 8, !range !16033, !noundef !4
   %.not704 = icmp eq i64 %124, -9223372036854775804
   %.sroa.4568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.4568.0.copyload = load ptr, ptr %.sroa.4568.0..sroa_idx, align 8
@@ -163243,7 +163243,7 @@ default.unreachable856:                           ; preds = %3
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$23serialize_tuple_variant17h9fe9fbfea55c13faE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 35, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.971, i64 noundef 8, i64 noundef 2)
-  %129 = load i64, ptr %20, align 8, !range !16032, !noundef !4
+  %129 = load i64, ptr %20, align 8, !range !16033, !noundef !4
   %.not698 = icmp eq i64 %129, -9223372036854775804
   %.sroa.4589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.4589.0.copyload = load ptr, ptr %.sroa.4589.0..sroa_idx, align 8
@@ -163278,7 +163278,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 41, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.977, i64 noundef 11, i64 noundef 1)
-  %138 = load i64, ptr %16, align 8, !range !16032, !noundef !4
+  %138 = load i64, ptr %16, align 8, !range !16033, !noundef !4
   %.not694 = icmp eq i64 %138, -9223372036854775804
   %.sroa.4610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.4610.0.copyload = load ptr, ptr %.sroa.4610.0..sroa_idx, align 8
@@ -163291,7 +163291,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 42, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.979, i64 noundef 11, i64 noundef 1)
-  %140 = load i64, ptr %13, align 8, !range !16032, !noundef !4
+  %140 = load i64, ptr %13, align 8, !range !16033, !noundef !4
   %.not690 = icmp eq i64 %140, -9223372036854775804
   %.sroa.4625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4625.0.copyload = load ptr, ptr %.sroa.4625.0..sroa_idx, align 8
@@ -163305,7 +163305,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.980, i64 noundef 11, i64 noundef 2)
-  %143 = load i64, ptr %10, align 8, !range !16032, !noundef !4
+  %143 = load i64, ptr %10, align 8, !range !16033, !noundef !4
   %.not684 = icmp eq i64 %143, -9223372036854775804
   %.sroa.4640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.4640.0.copyload = load ptr, ptr %.sroa.4640.0..sroa_idx, align 8
@@ -163319,7 +163319,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h802354d7c4cfcf8cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 44, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.982, i64 noundef 8, i64 noundef 2)
-  %146 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %146 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not = icmp eq i64 %146, -9223372036854775804
   %.sroa.4661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4661.0.copyload = load ptr, ptr %.sroa.4661.0..sroa_idx, align 8
@@ -163347,7 +163347,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4364.0.copyload, ptr %63, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h533ab5ef0d98ba7eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.927, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150)
-  %152 = load i64, ptr %61, align 8, !range !16032, !noundef !4
+  %152 = load i64, ptr %61, align 8, !range !16033, !noundef !4
   %.not764 = icmp eq i64 %152, -9223372036854775804
   br i1 %.not764, label %154, label %153
 
@@ -163363,7 +163363,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.928, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %66)
-  %155 = load i64, ptr %60, align 8, !range !16032, !noundef !4
+  %155 = load i64, ptr %60, align 8, !range !16033, !noundef !4
   %.not766 = icmp eq i64 %155, -9223372036854775804
   br i1 %.not766, label %157, label %156
 
@@ -163377,7 +163377,7 @@ default.unreachable856:                           ; preds = %3
 
 157:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16101
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
   br label %158
 
@@ -163403,7 +163403,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4385.0.copyload, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h533ab5ef0d98ba7eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull align 8 dereferenceable(8) %59, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.927, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %162)
-  %164 = load i64, ptr %57, align 8, !range !16032, !noundef !4
+  %164 = load i64, ptr %57, align 8, !range !16033, !noundef !4
   %.not758 = icmp eq i64 %164, -9223372036854775804
   br i1 %.not758, label %166, label %165
 
@@ -163419,7 +163419,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %59, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.928, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %69)
-  %167 = load i64, ptr %56, align 8, !range !16032, !noundef !4
+  %167 = load i64, ptr %56, align 8, !range !16033, !noundef !4
   %.not760 = icmp eq i64 %167, -9223372036854775804
   br i1 %.not760, label %169, label %168
 
@@ -163433,7 +163433,7 @@ default.unreachable856:                           ; preds = %3
 
 169:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16104
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16105
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   br label %158
 
@@ -163456,7 +163456,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4406.0.copyload, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %173)
-  %175 = load i64, ptr %53, align 8, !range !16032, !noundef !4
+  %175 = load i64, ptr %53, align 8, !range !16033, !noundef !4
   %.not752 = icmp eq i64 %175, -9223372036854775804
   br i1 %.not752, label %177, label %176
 
@@ -163472,7 +163472,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.932, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %72)
-  %178 = load i64, ptr %52, align 8, !range !16032, !noundef !4
+  %178 = load i64, ptr %52, align 8, !range !16033, !noundef !4
   %.not754 = icmp eq i64 %178, -9223372036854775804
   br i1 %.not754, label %180, label %179
 
@@ -163486,7 +163486,7 @@ default.unreachable856:                           ; preds = %3
 
 180:                                              ; preds = %177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16107
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   br label %158
 
@@ -163509,7 +163509,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4427.0.copyload, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0725f099c8606b2dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.504, i64 noundef 5, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %184)
-  %186 = load i64, ptr %49, align 8, !range !16032, !noundef !4
+  %186 = load i64, ptr %49, align 8, !range !16033, !noundef !4
   %.not746 = icmp eq i64 %186, -9223372036854775804
   br i1 %.not746, label %188, label %187
 
@@ -163525,7 +163525,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h533ab5ef0d98ba7eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.938, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81)
-  %189 = load i64, ptr %48, align 8, !range !16032, !noundef !4
+  %189 = load i64, ptr %48, align 8, !range !16033, !noundef !4
   %.not748 = icmp eq i64 %189, -9223372036854775804
   br i1 %.not748, label %191, label %190
 
@@ -163539,7 +163539,7 @@ default.unreachable856:                           ; preds = %3
 
 191:                                              ; preds = %188
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16110
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   br label %158
 
@@ -163562,7 +163562,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4448.0.copyload, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %195)
-  %197 = load i64, ptr %45, align 8, !range !16032, !noundef !4
+  %197 = load i64, ptr %45, align 8, !range !16033, !noundef !4
   %.not740 = icmp eq i64 %197, -9223372036854775804
   br i1 %.not740, label %199, label %198
 
@@ -163578,7 +163578,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.932, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %84)
-  %200 = load i64, ptr %44, align 8, !range !16032, !noundef !4
+  %200 = load i64, ptr %44, align 8, !range !16033, !noundef !4
   %.not742 = icmp eq i64 %200, -9223372036854775804
   br i1 %.not742, label %202, label %201
 
@@ -163592,7 +163592,7 @@ default.unreachable856:                           ; preds = %3
 
 202:                                              ; preds = %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16113
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   br label %158
 
@@ -163615,7 +163615,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4469.0.copyload, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7f3a63b4fb2deb95E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.504, i64 noundef 5, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %206)
-  %208 = load i64, ptr %41, align 8, !range !16032, !noundef !4
+  %208 = load i64, ptr %41, align 8, !range !16033, !noundef !4
   %.not734 = icmp eq i64 %208, -9223372036854775804
   br i1 %.not734, label %210, label %209
 
@@ -163631,7 +163631,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hd67df57ca2318bb9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.945, i64 noundef 16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %92)
-  %211 = load i64, ptr %40, align 8, !range !16032, !noundef !4
+  %211 = load i64, ptr %40, align 8, !range !16033, !noundef !4
   %.not736 = icmp eq i64 %211, -9223372036854775804
   br i1 %.not736, label %213, label %212
 
@@ -163645,7 +163645,7 @@ default.unreachable856:                           ; preds = %3
 
 213:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16116
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   br label %158
 
@@ -163668,7 +163668,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4490.0.copyload, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hba5d68817b18c93cE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.883, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %217)
-  %219 = load i64, ptr %37, align 8, !range !16032, !noundef !4
+  %219 = load i64, ptr %37, align 8, !range !16033, !noundef !4
   %.not728 = icmp eq i64 %219, -9223372036854775804
   br i1 %.not728, label %221, label %220
 
@@ -163684,7 +163684,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %36, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %96)
-  %222 = load i64, ptr %36, align 8, !range !16032, !noundef !4
+  %222 = load i64, ptr %36, align 8, !range !16033, !noundef !4
   %.not730 = icmp eq i64 %222, -9223372036854775804
   br i1 %.not730, label %224, label %223
 
@@ -163698,7 +163698,7 @@ default.unreachable856:                           ; preds = %3
 
 224:                                              ; preds = %221
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16119
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16120
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   br label %158
 
@@ -163721,7 +163721,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4511.0.copyload, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h7dbbfcd879697364E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull align 8 dereferenceable(8) %35, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.949, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %228)
-  %230 = load i64, ptr %33, align 8, !range !16032, !noundef !4
+  %230 = load i64, ptr %33, align 8, !range !16033, !noundef !4
   %.not724 = icmp eq i64 %230, -9223372036854775804
   br i1 %.not724, label %232, label %231
 
@@ -163735,7 +163735,7 @@ default.unreachable856:                           ; preds = %3
 
 232:                                              ; preds = %227
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16122
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   br label %158
 
@@ -163758,7 +163758,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4526.0.copyload, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h3bc771876878650bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.952, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %236)
-  %238 = load i64, ptr %30, align 8, !range !16032, !noundef !4
+  %238 = load i64, ptr %30, align 8, !range !16033, !noundef !4
   %.not718 = icmp eq i64 %238, -9223372036854775804
   br i1 %.not718, label %240, label %239
 
@@ -163774,7 +163774,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h380a4119a1398be7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.953, i64 noundef 9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %102)
-  %241 = load i64, ptr %29, align 8, !range !16032, !noundef !4
+  %241 = load i64, ptr %29, align 8, !range !16033, !noundef !4
   %.not720 = icmp eq i64 %241, -9223372036854775804
   br i1 %.not720, label %243, label %242
 
@@ -163788,7 +163788,7 @@ default.unreachable856:                           ; preds = %3
 
 243:                                              ; preds = %240
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16125
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   br label %158
 
@@ -163811,7 +163811,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4547.0.copyload, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h3bc771876878650bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.952, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %247)
-  %249 = load i64, ptr %26, align 8, !range !16032, !noundef !4
+  %249 = load i64, ptr %26, align 8, !range !16033, !noundef !4
   %.not712 = icmp eq i64 %249, -9223372036854775804
   br i1 %.not712, label %251, label %250
 
@@ -163827,7 +163827,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h380a4119a1398be7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.953, i64 noundef 9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %105)
-  %252 = load i64, ptr %25, align 8, !range !16032, !noundef !4
+  %252 = load i64, ptr %25, align 8, !range !16033, !noundef !4
   %.not714 = icmp eq i64 %252, -9223372036854775804
   br i1 %.not714, label %254, label %253
 
@@ -163841,7 +163841,7 @@ default.unreachable856:                           ; preds = %3
 
 254:                                              ; preds = %251
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16128
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   br label %158
 
@@ -163864,7 +163864,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4568.0.copyload, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h3bc771876878650bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.883, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %258)
-  %260 = load i64, ptr %22, align 8, !range !16032, !noundef !4
+  %260 = load i64, ptr %22, align 8, !range !16033, !noundef !4
   %.not706 = icmp eq i64 %260, -9223372036854775804
   br i1 %.not706, label %262, label %261
 
@@ -163880,7 +163880,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.969, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %123)
-  %263 = load i64, ptr %21, align 8, !range !16032, !noundef !4
+  %263 = load i64, ptr %21, align 8, !range !16033, !noundef !4
   %.not708 = icmp eq i64 %263, -9223372036854775804
   br i1 %.not708, label %265, label %264
 
@@ -163894,7 +163894,7 @@ default.unreachable856:                           ; preds = %3
 
 265:                                              ; preds = %262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16131
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16132
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   br label %158
 
@@ -163916,7 +163916,7 @@ default.unreachable856:                           ; preds = %3
   tail call void @llvm.assume(i1 %270)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @"_ZN11polars_core9datatypes6_serde91_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$polars_core..datatypes..dtype..DataType$GT$9serialize17hcf943232980a2187E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %269, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4589.0.copyload)
-  %271 = load i64, ptr %19, align 8, !range !16032, !noundef !4
+  %271 = load i64, ptr %19, align 8, !range !16033, !noundef !4
   %.not700 = icmp eq i64 %271, -9223372036854775804
   br i1 %.not700, label %273, label %272
 
@@ -163932,7 +163932,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @"_ZN11polars_plan3dsl7options1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$polars_plan..dsl..options..StrptimeOptions$GT$9serialize17h81cce117c01ba17eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %128, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4589.0.copyload)
-  %274 = load i64, ptr %18, align 8, !range !16032, !noundef !4
+  %274 = load i64, ptr %18, align 8, !range !16033, !noundef !4
   %.not702 = icmp eq i64 %274, -9223372036854775804
   br i1 %.not702, label %276, label %275
 
@@ -163946,7 +163946,7 @@ default.unreachable856:                           ; preds = %3
 
 276:                                              ; preds = %273
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16134
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16135
   br label %158
 
 277:                                              ; preds = %137
@@ -163964,7 +163964,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4610.0.copyload, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %279)
-  %281 = load i64, ptr %15, align 8, !range !16032, !noundef !4
+  %281 = load i64, ptr %15, align 8, !range !16033, !noundef !4
   %.not696 = icmp eq i64 %281, -9223372036854775804
   br i1 %.not696, label %283, label %282
 
@@ -163978,7 +163978,7 @@ default.unreachable856:                           ; preds = %3
 
 283:                                              ; preds = %278
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16137
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16138
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %158
 
@@ -164001,7 +164001,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4625.0.copyload, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %287)
-  %289 = load i64, ptr %12, align 8, !range !16032, !noundef !4
+  %289 = load i64, ptr %12, align 8, !range !16033, !noundef !4
   %.not692 = icmp eq i64 %289, -9223372036854775804
   br i1 %.not692, label %291, label %290
 
@@ -164015,7 +164015,7 @@ default.unreachable856:                           ; preds = %3
 
 291:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16140
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16141
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %158
 
@@ -164038,7 +164038,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4640.0.copyload, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %295)
-  %297 = load i64, ptr %9, align 8, !range !16032, !noundef !4
+  %297 = load i64, ptr %9, align 8, !range !16033, !noundef !4
   %.not686 = icmp eq i64 %297, -9223372036854775804
   br i1 %.not686, label %299, label %298
 
@@ -164054,7 +164054,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.981, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %142)
-  %300 = load i64, ptr %8, align 8, !range !16032, !noundef !4
+  %300 = load i64, ptr %8, align 8, !range !16033, !noundef !4
   %.not688 = icmp eq i64 %300, -9223372036854775804
   br i1 %.not688, label %302, label %301
 
@@ -164068,7 +164068,7 @@ default.unreachable856:                           ; preds = %3
 
 302:                                              ; preds = %299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16143
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %158
 
@@ -164091,7 +164091,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4661.0.copyload, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %306)
-  %308 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %308 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not680 = icmp eq i64 %308, -9223372036854775804
   br i1 %.not680, label %310, label %309
 
@@ -164107,7 +164107,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h0a15ee1a9d03dc3aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.981, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %145)
-  %311 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %311 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not682 = icmp eq i64 %311, -9223372036854775804
   br i1 %.not682, label %313, label %312
 
@@ -164121,7 +164121,7 @@ default.unreachable856:                           ; preds = %3
 
 313:                                              ; preds = %310
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16146
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %158
 
@@ -164192,7 +164192,7 @@ define hidden void @"_ZN11polars_plan3dsl13function_expr7strings1_108_$LT$impl$u
   %61 = alloca [24 x i8], align 8
   %62 = alloca [24 x i8], align 8
   %63 = alloca [8 x i8], align 8
-  %64 = load i8, ptr %1, align 16, !range !16052, !noundef !4
+  %64 = load i8, ptr %1, align 16, !range !16053, !noundef !4
   switch i8 %64, label %default.unreachable856 [
     i8 0, label %65
     i8 1, label %68
@@ -164250,7 +164250,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 0, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.926, i64 noundef 16, i64 noundef 2)
-  %67 = load i64, ptr %62, align 8, !range !16032, !noundef !4
+  %67 = load i64, ptr %62, align 8, !range !16033, !noundef !4
   %.not762 = icmp eq i64 %67, -9223372036854775804
   %.sroa.4364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.4364.0.copyload = load ptr, ptr %.sroa.4364.0..sroa_idx, align 8
@@ -164264,7 +164264,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 1, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.929, i64 noundef 14, i64 noundef 2)
-  %70 = load i64, ptr %58, align 8, !range !16032, !noundef !4
+  %70 = load i64, ptr %58, align 8, !range !16033, !noundef !4
   %.not756 = icmp eq i64 %70, -9223372036854775804
   %.sroa.4385.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.4385.0.copyload = load ptr, ptr %.sroa.4385.0..sroa_idx, align 8
@@ -164278,7 +164278,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.930, i64 noundef 8, i64 noundef 2)
-  %73 = load i64, ptr %54, align 8, !range !16032, !noundef !4
+  %73 = load i64, ptr %54, align 8, !range !16033, !noundef !4
   %.not750 = icmp eq i64 %73, -9223372036854775804
   %.sroa.4406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.4406.0.copyload = load ptr, ptr %.sroa.4406.0..sroa_idx, align 8
@@ -164310,7 +164310,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %50, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.937, i64 noundef 13, i64 noundef 2)
-  %82 = load i64, ptr %50, align 8, !range !16032, !noundef !4
+  %82 = load i64, ptr %50, align 8, !range !16033, !noundef !4
   %.not744 = icmp eq i64 %82, -9223372036854775804
   %.sroa.4427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.4427.0.copyload = load ptr, ptr %.sroa.4427.0..sroa_idx, align 8
@@ -164324,7 +164324,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.939, i64 noundef 4, i64 noundef 2)
-  %85 = load i64, ptr %46, align 8, !range !16032, !noundef !4
+  %85 = load i64, ptr %46, align 8, !range !16033, !noundef !4
   %.not738 = icmp eq i64 %85, -9223372036854775804
   %.sroa.4448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.4448.0.copyload = load ptr, ptr %.sroa.4448.0..sroa_idx, align 8
@@ -164355,7 +164355,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.944, i64 noundef 10, i64 noundef 2)
-  %93 = load i64, ptr %42, align 8, !range !16032, !noundef !4
+  %93 = load i64, ptr %42, align 8, !range !16033, !noundef !4
   %.not732 = icmp eq i64 %93, -9223372036854775804
   %.sroa.4469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.4469.0.copyload = load ptr, ptr %.sroa.4469.0..sroa_idx, align 8
@@ -164373,7 +164373,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.947, i64 noundef 7, i64 noundef 2)
-  %97 = load i64, ptr %38, align 8, !range !16032, !noundef !4
+  %97 = load i64, ptr %38, align 8, !range !16033, !noundef !4
   %.not726 = icmp eq i64 %97, -9223372036854775804
   %.sroa.4490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.4490.0.copyload = load ptr, ptr %.sroa.4490.0..sroa_idx, align 8
@@ -164386,7 +164386,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %34, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.948, i64 noundef 9, i64 noundef 1)
-  %99 = load i64, ptr %34, align 8, !range !16032, !noundef !4
+  %99 = load i64, ptr %34, align 8, !range !16033, !noundef !4
   %.not722 = icmp eq i64 %99, -9223372036854775804
   %.sroa.4511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.4511.0.copyload = load ptr, ptr %.sroa.4511.0..sroa_idx, align 8
@@ -164404,7 +164404,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 18, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.951, i64 noundef 8, i64 noundef 2)
-  %103 = load i64, ptr %31, align 8, !range !16032, !noundef !4
+  %103 = load i64, ptr %31, align 8, !range !16033, !noundef !4
   %.not716 = icmp eq i64 %103, -9223372036854775804
   %.sroa.4526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4526.0.copyload = load ptr, ptr %.sroa.4526.0..sroa_idx, align 8
@@ -164418,7 +164418,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 19, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.954, i64 noundef 6, i64 noundef 2)
-  %106 = load i64, ptr %27, align 8, !range !16032, !noundef !4
+  %106 = load i64, ptr %27, align 8, !range !16033, !noundef !4
   %.not710 = icmp eq i64 %106, -9223372036854775804
   %.sroa.4547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4547.0.copyload = load ptr, ptr %.sroa.4547.0..sroa_idx, align 8
@@ -164486,7 +164486,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 33, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.968, i64 noundef 10, i64 noundef 2)
-  %124 = load i64, ptr %23, align 8, !range !16032, !noundef !4
+  %124 = load i64, ptr %23, align 8, !range !16033, !noundef !4
   %.not704 = icmp eq i64 %124, -9223372036854775804
   %.sroa.4568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.4568.0.copyload = load ptr, ptr %.sroa.4568.0..sroa_idx, align 8
@@ -164504,7 +164504,7 @@ default.unreachable856:                           ; preds = %3
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$23serialize_tuple_variant17h1e5aa5d861aa3290E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 35, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.971, i64 noundef 8, i64 noundef 2)
-  %129 = load i64, ptr %20, align 8, !range !16032, !noundef !4
+  %129 = load i64, ptr %20, align 8, !range !16033, !noundef !4
   %.not698 = icmp eq i64 %129, -9223372036854775804
   %.sroa.4589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.4589.0.copyload = load ptr, ptr %.sroa.4589.0..sroa_idx, align 8
@@ -164539,7 +164539,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 41, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.977, i64 noundef 11, i64 noundef 1)
-  %138 = load i64, ptr %16, align 8, !range !16032, !noundef !4
+  %138 = load i64, ptr %16, align 8, !range !16033, !noundef !4
   %.not694 = icmp eq i64 %138, -9223372036854775804
   %.sroa.4610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.4610.0.copyload = load ptr, ptr %.sroa.4610.0..sroa_idx, align 8
@@ -164552,7 +164552,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 42, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.979, i64 noundef 11, i64 noundef 1)
-  %140 = load i64, ptr %13, align 8, !range !16032, !noundef !4
+  %140 = load i64, ptr %13, align 8, !range !16033, !noundef !4
   %.not690 = icmp eq i64 %140, -9223372036854775804
   %.sroa.4625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4625.0.copyload = load ptr, ptr %.sroa.4625.0..sroa_idx, align 8
@@ -164566,7 +164566,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.980, i64 noundef 11, i64 noundef 2)
-  %143 = load i64, ptr %10, align 8, !range !16032, !noundef !4
+  %143 = load i64, ptr %10, align 8, !range !16033, !noundef !4
   %.not684 = icmp eq i64 %143, -9223372036854775804
   %.sroa.4640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.4640.0.copyload = load ptr, ptr %.sroa.4640.0..sroa_idx, align 8
@@ -164580,7 +164580,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @"_ZN97_$LT$$RF$mut$u20$rmp_serde..encode..Serializer$LT$W$C$C$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17h1be28540166e816bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.925, i64 noundef 14, i32 noundef 44, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.982, i64 noundef 8, i64 noundef 2)
-  %146 = load i64, ptr %6, align 8, !range !16032, !noundef !4
+  %146 = load i64, ptr %6, align 8, !range !16033, !noundef !4
   %.not = icmp eq i64 %146, -9223372036854775804
   %.sroa.4661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4661.0.copyload = load ptr, ptr %.sroa.4661.0..sroa_idx, align 8
@@ -164608,7 +164608,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4364.0.copyload, ptr %63, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hff100f787f58820dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %61, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.927, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150)
-  %152 = load i64, ptr %61, align 8, !range !16032, !noundef !4
+  %152 = load i64, ptr %61, align 8, !range !16033, !noundef !4
   %.not764 = icmp eq i64 %152, -9223372036854775804
   br i1 %.not764, label %154, label %153
 
@@ -164624,7 +164624,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull align 8 dereferenceable(8) %63, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.928, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %66)
-  %155 = load i64, ptr %60, align 8, !range !16032, !noundef !4
+  %155 = load i64, ptr %60, align 8, !range !16033, !noundef !4
   %.not766 = icmp eq i64 %155, -9223372036854775804
   br i1 %.not766, label %157, label %156
 
@@ -164638,7 +164638,7 @@ default.unreachable856:                           ; preds = %3
 
 157:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16149
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
   br label %158
 
@@ -164664,7 +164664,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4385.0.copyload, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hff100f787f58820dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull align 8 dereferenceable(8) %59, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.927, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %162)
-  %164 = load i64, ptr %57, align 8, !range !16032, !noundef !4
+  %164 = load i64, ptr %57, align 8, !range !16033, !noundef !4
   %.not758 = icmp eq i64 %164, -9223372036854775804
   br i1 %.not758, label %166, label %165
 
@@ -164680,7 +164680,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %56, ptr noalias noundef nonnull align 8 dereferenceable(8) %59, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.928, i64 noundef 12, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %69)
-  %167 = load i64, ptr %56, align 8, !range !16032, !noundef !4
+  %167 = load i64, ptr %56, align 8, !range !16033, !noundef !4
   %.not760 = icmp eq i64 %167, -9223372036854775804
   br i1 %.not760, label %169, label %168
 
@@ -164694,7 +164694,7 @@ default.unreachable856:                           ; preds = %3
 
 169:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16152
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
   br label %158
 
@@ -164717,7 +164717,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4406.0.copyload, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %173)
-  %175 = load i64, ptr %53, align 8, !range !16032, !noundef !4
+  %175 = load i64, ptr %53, align 8, !range !16033, !noundef !4
   %.not752 = icmp eq i64 %175, -9223372036854775804
   br i1 %.not752, label %177, label %176
 
@@ -164733,7 +164733,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef nonnull align 8 dereferenceable(8) %55, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.932, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %72)
-  %178 = load i64, ptr %52, align 8, !range !16032, !noundef !4
+  %178 = load i64, ptr %52, align 8, !range !16033, !noundef !4
   %.not754 = icmp eq i64 %178, -9223372036854775804
   br i1 %.not754, label %180, label %179
 
@@ -164747,7 +164747,7 @@ default.unreachable856:                           ; preds = %3
 
 180:                                              ; preds = %177
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16155
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
   br label %158
 
@@ -164770,7 +164770,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4427.0.copyload, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h22e3eeeca248e5f5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.504, i64 noundef 5, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %184)
-  %186 = load i64, ptr %49, align 8, !range !16032, !noundef !4
+  %186 = load i64, ptr %49, align 8, !range !16033, !noundef !4
   %.not746 = icmp eq i64 %186, -9223372036854775804
   br i1 %.not746, label %188, label %187
 
@@ -164786,7 +164786,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hff100f787f58820dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull align 8 dereferenceable(8) %51, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.938, i64 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81)
-  %189 = load i64, ptr %48, align 8, !range !16032, !noundef !4
+  %189 = load i64, ptr %48, align 8, !range !16033, !noundef !4
   %.not748 = icmp eq i64 %189, -9223372036854775804
   br i1 %.not748, label %191, label %190
 
@@ -164800,7 +164800,7 @@ default.unreachable856:                           ; preds = %3
 
 191:                                              ; preds = %188
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16158
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16159
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
   br label %158
 
@@ -164823,7 +164823,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4448.0.copyload, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %195)
-  %197 = load i64, ptr %45, align 8, !range !16032, !noundef !4
+  %197 = load i64, ptr %45, align 8, !range !16033, !noundef !4
   %.not740 = icmp eq i64 %197, -9223372036854775804
   br i1 %.not740, label %199, label %198
 
@@ -164839,7 +164839,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef nonnull align 8 dereferenceable(8) %47, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.932, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %84)
-  %200 = load i64, ptr %44, align 8, !range !16032, !noundef !4
+  %200 = load i64, ptr %44, align 8, !range !16033, !noundef !4
   %.not742 = icmp eq i64 %200, -9223372036854775804
   br i1 %.not742, label %202, label %201
 
@@ -164853,7 +164853,7 @@ default.unreachable856:                           ; preds = %3
 
 202:                                              ; preds = %199
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16161
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16162
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
   br label %158
 
@@ -164876,7 +164876,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4469.0.copyload, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hca0eafbdbad5a506E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.504, i64 noundef 5, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %206)
-  %208 = load i64, ptr %41, align 8, !range !16032, !noundef !4
+  %208 = load i64, ptr %41, align 8, !range !16033, !noundef !4
   %.not734 = icmp eq i64 %208, -9223372036854775804
   br i1 %.not734, label %210, label %209
 
@@ -164892,7 +164892,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hf4429b8908c8d62eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %43, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.945, i64 noundef 16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %92)
-  %211 = load i64, ptr %40, align 8, !range !16032, !noundef !4
+  %211 = load i64, ptr %40, align 8, !range !16033, !noundef !4
   %.not736 = icmp eq i64 %211, -9223372036854775804
   br i1 %.not736, label %213, label %212
 
@@ -164906,7 +164906,7 @@ default.unreachable856:                           ; preds = %3
 
 213:                                              ; preds = %210
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16164
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16165
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
   br label %158
 
@@ -164929,7 +164929,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4490.0.copyload, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h9e5f1876daa00eccE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.883, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %217)
-  %219 = load i64, ptr %37, align 8, !range !16032, !noundef !4
+  %219 = load i64, ptr %37, align 8, !range !16033, !noundef !4
   %.not728 = icmp eq i64 %219, -9223372036854775804
   br i1 %.not728, label %221, label %220
 
@@ -164945,7 +164945,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %36, ptr noalias noundef nonnull align 8 dereferenceable(8) %39, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.931, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %96)
-  %222 = load i64, ptr %36, align 8, !range !16032, !noundef !4
+  %222 = load i64, ptr %36, align 8, !range !16033, !noundef !4
   %.not730 = icmp eq i64 %222, -9223372036854775804
   br i1 %.not730, label %224, label %223
 
@@ -164959,7 +164959,7 @@ default.unreachable856:                           ; preds = %3
 
 224:                                              ; preds = %221
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16167
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   br label %158
 
@@ -164982,7 +164982,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4511.0.copyload, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h208baf64a6cfa5b1E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull align 8 dereferenceable(8) %35, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.949, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %228)
-  %230 = load i64, ptr %33, align 8, !range !16032, !noundef !4
+  %230 = load i64, ptr %33, align 8, !range !16033, !noundef !4
   %.not724 = icmp eq i64 %230, -9223372036854775804
   br i1 %.not724, label %232, label %231
 
@@ -164996,7 +164996,7 @@ default.unreachable856:                           ; preds = %3
 
 232:                                              ; preds = %227
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16170
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16171
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
   br label %158
 
@@ -165019,7 +165019,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4526.0.copyload, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h10ca226dbc88ee86E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.952, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %236)
-  %238 = load i64, ptr %30, align 8, !range !16032, !noundef !4
+  %238 = load i64, ptr %30, align 8, !range !16033, !noundef !4
   %.not718 = icmp eq i64 %238, -9223372036854775804
   br i1 %.not718, label %240, label %239
 
@@ -165035,7 +165035,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h434fe45a5800ef25E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.953, i64 noundef 9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %102)
-  %241 = load i64, ptr %29, align 8, !range !16032, !noundef !4
+  %241 = load i64, ptr %29, align 8, !range !16033, !noundef !4
   %.not720 = icmp eq i64 %241, -9223372036854775804
   br i1 %.not720, label %243, label %242
 
@@ -165049,7 +165049,7 @@ default.unreachable856:                           ; preds = %3
 
 243:                                              ; preds = %240
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16173
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
   br label %158
 
@@ -165072,7 +165072,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4547.0.copyload, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h10ca226dbc88ee86E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.952, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %247)
-  %249 = load i64, ptr %26, align 8, !range !16032, !noundef !4
+  %249 = load i64, ptr %26, align 8, !range !16033, !noundef !4
   %.not712 = icmp eq i64 %249, -9223372036854775804
   br i1 %.not712, label %251, label %250
 
@@ -165088,7 +165088,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h434fe45a5800ef25E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(8) %28, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.953, i64 noundef 9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %105)
-  %252 = load i64, ptr %25, align 8, !range !16032, !noundef !4
+  %252 = load i64, ptr %25, align 8, !range !16033, !noundef !4
   %.not714 = icmp eq i64 %252, -9223372036854775804
   br i1 %.not714, label %254, label %253
 
@@ -165102,7 +165102,7 @@ default.unreachable856:                           ; preds = %3
 
 254:                                              ; preds = %251
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16176
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16177
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
   br label %158
 
@@ -165125,7 +165125,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4568.0.copyload, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17h10ca226dbc88ee86E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.883, i64 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %258)
-  %260 = load i64, ptr %22, align 8, !range !16032, !noundef !4
+  %260 = load i64, ptr %22, align 8, !range !16033, !noundef !4
   %.not706 = icmp eq i64 %260, -9223372036854775804
   br i1 %.not706, label %262, label %261
 
@@ -165141,7 +165141,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.969, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %123)
-  %263 = load i64, ptr %21, align 8, !range !16032, !noundef !4
+  %263 = load i64, ptr %21, align 8, !range !16033, !noundef !4
   %.not708 = icmp eq i64 %263, -9223372036854775804
   br i1 %.not708, label %265, label %264
 
@@ -165155,7 +165155,7 @@ default.unreachable856:                           ; preds = %3
 
 265:                                              ; preds = %262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16179
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16180
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   br label %158
 
@@ -165177,7 +165177,7 @@ default.unreachable856:                           ; preds = %3
   tail call void @llvm.assume(i1 %270)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @"_ZN11polars_core9datatypes6_serde91_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$polars_core..datatypes..dtype..DataType$GT$9serialize17he94a5316a7af1086E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %269, ptr noalias noundef nonnull align 8 dereferenceable(64) %.sroa.4589.0.copyload)
-  %271 = load i64, ptr %19, align 8, !range !16032, !noundef !4
+  %271 = load i64, ptr %19, align 8, !range !16033, !noundef !4
   %.not700 = icmp eq i64 %271, -9223372036854775804
   br i1 %.not700, label %273, label %272
 
@@ -165193,7 +165193,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @"_ZN11polars_plan3dsl7options1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$polars_plan..dsl..options..StrptimeOptions$GT$9serialize17hc416536f95c0564aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %128, ptr noalias noundef nonnull align 8 dereferenceable(64) %.sroa.4589.0.copyload)
-  %274 = load i64, ptr %18, align 8, !range !16032, !noundef !4
+  %274 = load i64, ptr %18, align 8, !range !16033, !noundef !4
   %.not702 = icmp eq i64 %274, -9223372036854775804
   br i1 %.not702, label %276, label %275
 
@@ -165207,7 +165207,7 @@ default.unreachable856:                           ; preds = %3
 
 276:                                              ; preds = %273
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16182
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16183
   br label %158
 
 277:                                              ; preds = %137
@@ -165225,7 +165225,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4610.0.copyload, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %17, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %279)
-  %281 = load i64, ptr %15, align 8, !range !16032, !noundef !4
+  %281 = load i64, ptr %15, align 8, !range !16033, !noundef !4
   %.not696 = icmp eq i64 %281, -9223372036854775804
   br i1 %.not696, label %283, label %282
 
@@ -165239,7 +165239,7 @@ default.unreachable856:                           ; preds = %3
 
 283:                                              ; preds = %278
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16185
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16186
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   br label %158
 
@@ -165262,7 +165262,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4625.0.copyload, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %287)
-  %289 = load i64, ptr %12, align 8, !range !16032, !noundef !4
+  %289 = load i64, ptr %12, align 8, !range !16033, !noundef !4
   %.not692 = icmp eq i64 %289, -9223372036854775804
   br i1 %.not692, label %291, label %290
 
@@ -165276,7 +165276,7 @@ default.unreachable856:                           ; preds = %3
 
 291:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16188
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16189
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %158
 
@@ -165299,7 +165299,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4640.0.copyload, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %295)
-  %297 = load i64, ptr %9, align 8, !range !16032, !noundef !4
+  %297 = load i64, ptr %9, align 8, !range !16033, !noundef !4
   %.not686 = icmp eq i64 %297, -9223372036854775804
   br i1 %.not686, label %299, label %298
 
@@ -165315,7 +165315,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.981, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %142)
-  %300 = load i64, ptr %8, align 8, !range !16032, !noundef !4
+  %300 = load i64, ptr %8, align 8, !range !16033, !noundef !4
   %.not688 = icmp eq i64 %300, -9223372036854775804
   br i1 %.not688, label %302, label %301
 
@@ -165329,7 +165329,7 @@ default.unreachable856:                           ; preds = %3
 
 302:                                              ; preds = %299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16191
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16192
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %158
 
@@ -165352,7 +165352,7 @@ default.unreachable856:                           ; preds = %3
   store ptr %.sroa.4661.0.copyload, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.978, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %306)
-  %308 = load i64, ptr %5, align 8, !range !16032, !noundef !4
+  %308 = load i64, ptr %5, align 8, !range !16033, !noundef !4
   %.not680 = icmp eq i64 %308, -9223372036854775804
   br i1 %.not680, label %310, label %309
 
@@ -165368,7 +165368,7 @@ default.unreachable856:                           ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$15serialize_field17hcf80fe01c4d9e050E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.981, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %145)
-  %311 = load i64, ptr %4, align 8, !range !16032, !noundef !4
+  %311 = load i64, ptr %4, align 8, !range !16033, !noundef !4
   %.not682 = icmp eq i64 %311, -9223372036854775804
   br i1 %.not682, label %313, label %312
 
@@ -165382,7 +165382,7 @@ default.unreachable856:                           ; preds = %3
 
 313:                                              ; preds = %310
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16194
+  store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !16195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %158
 
@@ -184655,184 +184655,185 @@ attributes #43 = { cold noreturn nounwind }
 !16013 = distinct !{!16013, !"_ZN4pyo34call10PyCallArgs22call_method_positional17h0b09b12d65450ebaE"}
 !16014 = !{!16006, !16003}
 !16015 = !{!16012, !16006, !16003}
-!16016 = !{!16017}
-!16017 = distinct !{!16017, !16018, !"_ZN99_$LT$pyo3..instance..Bound$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h50a9362d44aa3053E: argument 0"}
-!16018 = distinct !{!16018, !"_ZN99_$LT$pyo3..instance..Bound$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h50a9362d44aa3053E"}
-!16019 = !{!16020}
-!16020 = distinct !{!16020, !16021, !"_ZN102_$LT$pyo3..instance..Borrowed$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h9d0eb87d4e3b4e9eE: argument 0"}
-!16021 = distinct !{!16021, !"_ZN102_$LT$pyo3..instance..Borrowed$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h9d0eb87d4e3b4e9eE"}
-!16022 = !{!16020, !16017}
-!16023 = !{!16024, !16020, !16017}
-!16024 = distinct !{!16024, !16025, !"_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E: argument 0"}
-!16025 = distinct !{!16025, !"_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E"}
-!16026 = !{!16027}
-!16027 = distinct !{!16027, !16028, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c536eaf48a15bd8E: argument 0"}
-!16028 = distinct !{!16028, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c536eaf48a15bd8E"}
-!16029 = !{!16027, !16030}
-!16030 = distinct !{!16030, !16028, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c536eaf48a15bd8E: argument 1"}
-!16031 = !{!16030}
-!16032 = !{i64 0, i64 -9223372036854775803}
-!16033 = !{!16034}
-!16034 = distinct !{!16034, !16035, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16035 = distinct !{!16035, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16036 = !{!16037}
-!16037 = distinct !{!16037, !16038, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16038 = distinct !{!16038, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16039 = !{!16040}
-!16040 = distinct !{!16040, !16041, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16041 = distinct !{!16041, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16042 = !{i64 0, i64 -9223372036854775798}
-!16043 = !{!16044}
-!16044 = distinct !{!16044, !16045, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16045 = distinct !{!16045, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16046 = !{!16047}
-!16047 = distinct !{!16047, !16048, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16048 = distinct !{!16048, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16049 = !{!16050}
-!16050 = distinct !{!16050, !16051, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16051 = distinct !{!16051, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16052 = !{i8 0, i8 46}
-!16053 = !{!16054}
-!16054 = distinct !{!16054, !16055, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16055 = distinct !{!16055, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16056 = !{!16057}
-!16057 = distinct !{!16057, !16058, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16058 = distinct !{!16058, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16059 = !{!16060}
-!16060 = distinct !{!16060, !16061, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16061 = distinct !{!16061, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16062 = !{!16063}
-!16063 = distinct !{!16063, !16064, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16064 = distinct !{!16064, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16065 = !{!16066}
-!16066 = distinct !{!16066, !16067, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16067 = distinct !{!16067, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16068 = !{!16069}
-!16069 = distinct !{!16069, !16070, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16070 = distinct !{!16070, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16071 = !{!16072}
-!16072 = distinct !{!16072, !16073, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16073 = distinct !{!16073, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16074 = !{!16075}
-!16075 = distinct !{!16075, !16076, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16076 = distinct !{!16076, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16077 = !{!16078}
-!16078 = distinct !{!16078, !16079, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16079 = distinct !{!16079, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16080 = !{!16081}
-!16081 = distinct !{!16081, !16082, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16082 = distinct !{!16082, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16083 = !{!16084}
-!16084 = distinct !{!16084, !16085, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16085 = distinct !{!16085, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16086 = !{!16087}
-!16087 = distinct !{!16087, !16088, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17hbb1e745e12a459b2E: argument 0"}
-!16088 = distinct !{!16088, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17hbb1e745e12a459b2E"}
-!16089 = !{!16090}
-!16090 = distinct !{!16090, !16091, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16091 = distinct !{!16091, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16092 = !{!16093}
-!16093 = distinct !{!16093, !16094, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16094 = distinct !{!16094, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16095 = !{!16096}
-!16096 = distinct !{!16096, !16097, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16097 = distinct !{!16097, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16098 = !{!16099}
-!16099 = distinct !{!16099, !16100, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
-!16100 = distinct !{!16100, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
-!16101 = !{!16102}
-!16102 = distinct !{!16102, !16103, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16103 = distinct !{!16103, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16104 = !{!16105}
-!16105 = distinct !{!16105, !16106, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16106 = distinct !{!16106, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16107 = !{!16108}
-!16108 = distinct !{!16108, !16109, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16109 = distinct !{!16109, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16110 = !{!16111}
-!16111 = distinct !{!16111, !16112, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16112 = distinct !{!16112, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16113 = !{!16114}
-!16114 = distinct !{!16114, !16115, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16115 = distinct !{!16115, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16116 = !{!16117}
-!16117 = distinct !{!16117, !16118, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16118 = distinct !{!16118, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16119 = !{!16120}
-!16120 = distinct !{!16120, !16121, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16121 = distinct !{!16121, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16122 = !{!16123}
-!16123 = distinct !{!16123, !16124, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16124 = distinct !{!16124, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16125 = !{!16126}
-!16126 = distinct !{!16126, !16127, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16127 = distinct !{!16127, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16128 = !{!16129}
-!16129 = distinct !{!16129, !16130, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16130 = distinct !{!16130, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16131 = !{!16132}
-!16132 = distinct !{!16132, !16133, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16133 = distinct !{!16133, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16134 = !{!16135}
-!16135 = distinct !{!16135, !16136, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17haa23c8dc6ff66ef7E: argument 0"}
-!16136 = distinct !{!16136, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17haa23c8dc6ff66ef7E"}
-!16137 = !{!16138}
-!16138 = distinct !{!16138, !16139, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16139 = distinct !{!16139, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16140 = !{!16141}
-!16141 = distinct !{!16141, !16142, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16142 = distinct !{!16142, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16143 = !{!16144}
-!16144 = distinct !{!16144, !16145, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16145 = distinct !{!16145, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16146 = !{!16147}
-!16147 = distinct !{!16147, !16148, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
-!16148 = distinct !{!16148, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
-!16149 = !{!16150}
-!16150 = distinct !{!16150, !16151, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16151 = distinct !{!16151, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16152 = !{!16153}
-!16153 = distinct !{!16153, !16154, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16154 = distinct !{!16154, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16155 = !{!16156}
-!16156 = distinct !{!16156, !16157, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16157 = distinct !{!16157, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16158 = !{!16159}
-!16159 = distinct !{!16159, !16160, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16160 = distinct !{!16160, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16161 = !{!16162}
-!16162 = distinct !{!16162, !16163, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16163 = distinct !{!16163, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16164 = !{!16165}
-!16165 = distinct !{!16165, !16166, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16166 = distinct !{!16166, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16167 = !{!16168}
-!16168 = distinct !{!16168, !16169, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16169 = distinct !{!16169, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16170 = !{!16171}
-!16171 = distinct !{!16171, !16172, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16172 = distinct !{!16172, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16173 = !{!16174}
-!16174 = distinct !{!16174, !16175, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16175 = distinct !{!16175, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16176 = !{!16177}
-!16177 = distinct !{!16177, !16178, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16178 = distinct !{!16178, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16179 = !{!16180}
-!16180 = distinct !{!16180, !16181, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16181 = distinct !{!16181, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16182 = !{!16183}
-!16183 = distinct !{!16183, !16184, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h32e44ee83e27cda8E: argument 0"}
-!16184 = distinct !{!16184, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h32e44ee83e27cda8E"}
-!16185 = !{!16186}
-!16186 = distinct !{!16186, !16187, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16187 = distinct !{!16187, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16188 = !{!16189}
-!16189 = distinct !{!16189, !16190, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16190 = distinct !{!16190, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16191 = !{!16192}
-!16192 = distinct !{!16192, !16193, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16193 = distinct !{!16193, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
-!16194 = !{!16195}
-!16195 = distinct !{!16195, !16196, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
-!16196 = distinct !{!16196, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16016 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!16017 = !{!16018}
+!16018 = distinct !{!16018, !16019, !"_ZN99_$LT$pyo3..instance..Bound$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h50a9362d44aa3053E: argument 0"}
+!16019 = distinct !{!16019, !"_ZN99_$LT$pyo3..instance..Bound$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h50a9362d44aa3053E"}
+!16020 = !{!16021}
+!16021 = distinct !{!16021, !16022, !"_ZN102_$LT$pyo3..instance..Borrowed$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h9d0eb87d4e3b4e9eE: argument 0"}
+!16022 = distinct !{!16022, !"_ZN102_$LT$pyo3..instance..Borrowed$LT$pyo3..types..tuple..PyTuple$GT$$u20$as$u20$pyo3..call..PyCallArgs$GT$15call_positional17h9d0eb87d4e3b4e9eE"}
+!16023 = !{!16021, !16018}
+!16024 = !{!16025, !16021, !16018}
+!16025 = distinct !{!16025, !16026, !"_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E: argument 0"}
+!16026 = distinct !{!16026, !"_ZN4pyo33err5PyErr5fetch17ha6dc595b06e54817E"}
+!16027 = !{!16028}
+!16028 = distinct !{!16028, !16029, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c536eaf48a15bd8E: argument 0"}
+!16029 = distinct !{!16029, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c536eaf48a15bd8E"}
+!16030 = !{!16028, !16031}
+!16031 = distinct !{!16031, !16029, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1c536eaf48a15bd8E: argument 1"}
+!16032 = !{!16031}
+!16033 = !{i64 0, i64 -9223372036854775803}
+!16034 = !{!16035}
+!16035 = distinct !{!16035, !16036, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16036 = distinct !{!16036, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16037 = !{!16038}
+!16038 = distinct !{!16038, !16039, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16039 = distinct !{!16039, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16040 = !{!16041}
+!16041 = distinct !{!16041, !16042, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16042 = distinct !{!16042, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16043 = !{i64 0, i64 -9223372036854775798}
+!16044 = !{!16045}
+!16045 = distinct !{!16045, !16046, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16046 = distinct !{!16046, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16047 = !{!16048}
+!16048 = distinct !{!16048, !16049, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16049 = distinct !{!16049, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16050 = !{!16051}
+!16051 = distinct !{!16051, !16052, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16052 = distinct !{!16052, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16053 = !{i8 0, i8 46}
+!16054 = !{!16055}
+!16055 = distinct !{!16055, !16056, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16056 = distinct !{!16056, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16057 = !{!16058}
+!16058 = distinct !{!16058, !16059, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16059 = distinct !{!16059, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16060 = !{!16061}
+!16061 = distinct !{!16061, !16062, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16062 = distinct !{!16062, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16063 = !{!16064}
+!16064 = distinct !{!16064, !16065, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16065 = distinct !{!16065, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16066 = !{!16067}
+!16067 = distinct !{!16067, !16068, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16068 = distinct !{!16068, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16069 = !{!16070}
+!16070 = distinct !{!16070, !16071, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16071 = distinct !{!16071, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16072 = !{!16073}
+!16073 = distinct !{!16073, !16074, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16074 = distinct !{!16074, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16075 = !{!16076}
+!16076 = distinct !{!16076, !16077, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16077 = distinct !{!16077, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16078 = !{!16079}
+!16079 = distinct !{!16079, !16080, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16080 = distinct !{!16080, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16081 = !{!16082}
+!16082 = distinct !{!16082, !16083, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16083 = distinct !{!16083, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16084 = !{!16085}
+!16085 = distinct !{!16085, !16086, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16086 = distinct !{!16086, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16087 = !{!16088}
+!16088 = distinct !{!16088, !16089, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17hbb1e745e12a459b2E: argument 0"}
+!16089 = distinct !{!16089, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17hbb1e745e12a459b2E"}
+!16090 = !{!16091}
+!16091 = distinct !{!16091, !16092, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16092 = distinct !{!16092, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16093 = !{!16094}
+!16094 = distinct !{!16094, !16095, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16095 = distinct !{!16095, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16096 = !{!16097}
+!16097 = distinct !{!16097, !16098, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16098 = distinct !{!16098, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16099 = !{!16100}
+!16100 = distinct !{!16100, !16101, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E: argument 0"}
+!16101 = distinct !{!16101, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd5002195313f0b51E"}
+!16102 = !{!16103}
+!16103 = distinct !{!16103, !16104, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16104 = distinct !{!16104, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16105 = !{!16106}
+!16106 = distinct !{!16106, !16107, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16107 = distinct !{!16107, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16108 = !{!16109}
+!16109 = distinct !{!16109, !16110, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16110 = distinct !{!16110, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16111 = !{!16112}
+!16112 = distinct !{!16112, !16113, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16113 = distinct !{!16113, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16114 = !{!16115}
+!16115 = distinct !{!16115, !16116, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16116 = distinct !{!16116, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16117 = !{!16118}
+!16118 = distinct !{!16118, !16119, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16119 = distinct !{!16119, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16120 = !{!16121}
+!16121 = distinct !{!16121, !16122, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16122 = distinct !{!16122, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16123 = !{!16124}
+!16124 = distinct !{!16124, !16125, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16125 = distinct !{!16125, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16126 = !{!16127}
+!16127 = distinct !{!16127, !16128, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16128 = distinct !{!16128, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16129 = !{!16130}
+!16130 = distinct !{!16130, !16131, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16131 = distinct !{!16131, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16132 = !{!16133}
+!16133 = distinct !{!16133, !16134, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16134 = distinct !{!16134, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16135 = !{!16136}
+!16136 = distinct !{!16136, !16137, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17haa23c8dc6ff66ef7E: argument 0"}
+!16137 = distinct !{!16137, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17haa23c8dc6ff66ef7E"}
+!16138 = !{!16139}
+!16139 = distinct !{!16139, !16140, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16140 = distinct !{!16140, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16141 = !{!16142}
+!16142 = distinct !{!16142, !16143, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16143 = distinct !{!16143, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16144 = !{!16145}
+!16145 = distinct !{!16145, !16146, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16146 = distinct !{!16146, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16147 = !{!16148}
+!16148 = distinct !{!16148, !16149, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E: argument 0"}
+!16149 = distinct !{!16149, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17h3f9485b2cd1f9f72E"}
+!16150 = !{!16151}
+!16151 = distinct !{!16151, !16152, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16152 = distinct !{!16152, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16153 = !{!16154}
+!16154 = distinct !{!16154, !16155, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16155 = distinct !{!16155, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16156 = !{!16157}
+!16157 = distinct !{!16157, !16158, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16158 = distinct !{!16158, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16159 = !{!16160}
+!16160 = distinct !{!16160, !16161, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16161 = distinct !{!16161, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16162 = !{!16163}
+!16163 = distinct !{!16163, !16164, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16164 = distinct !{!16164, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16165 = !{!16166}
+!16166 = distinct !{!16166, !16167, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16167 = distinct !{!16167, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16168 = !{!16169}
+!16169 = distinct !{!16169, !16170, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16170 = distinct !{!16170, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16171 = !{!16172}
+!16172 = distinct !{!16172, !16173, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16173 = distinct !{!16173, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16174 = !{!16175}
+!16175 = distinct !{!16175, !16176, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16176 = distinct !{!16176, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16177 = !{!16178}
+!16178 = distinct !{!16178, !16179, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16179 = distinct !{!16179, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16180 = !{!16181}
+!16181 = distinct !{!16181, !16182, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16182 = distinct !{!16182, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16183 = !{!16184}
+!16184 = distinct !{!16184, !16185, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h32e44ee83e27cda8E: argument 0"}
+!16185 = distinct !{!16185, !"_ZN94_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeTupleVariant$GT$3end17h32e44ee83e27cda8E"}
+!16186 = !{!16187}
+!16187 = distinct !{!16187, !16188, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16188 = distinct !{!16188, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16189 = !{!16190}
+!16190 = distinct !{!16190, !16191, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16191 = distinct !{!16191, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16192 = !{!16193}
+!16193 = distinct !{!16193, !16194, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16194 = distinct !{!16194, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}
+!16195 = !{!16196}
+!16196 = distinct !{!16196, !16197, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE: argument 0"}
+!16197 = distinct !{!16197, !"_ZN95_$LT$rmp_serde..encode..Compound$LT$W$C$C$GT$$u20$as$u20$serde..ser..SerializeStructVariant$GT$3end17hd05c9b20fa6f014eE"}

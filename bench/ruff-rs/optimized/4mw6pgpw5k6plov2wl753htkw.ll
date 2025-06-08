@@ -1717,88 +1717,93 @@ define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..La
   %4 = icmp eq i64 %1, 8033316064163462940
   %5 = icmp eq i64 %2, -2220159511331778529
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %45, label %6
+  br i1 %or.cond, label %49, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %8 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h13f5371f2b8523fdE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(7) %7, i64 noundef %1, i64 noundef %2)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = trunc nuw i64 %9 to i1
-  br i1 %10, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit", label %11
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = icmp eq i64 %1, -3434010194657295892
-  %13 = icmp eq i64 %2, 7156006048119232079
-  %or.cond.i.i.i = and i1 %12, %13
-  br i1 %or.cond.i.i.i, label %43, label %14
-
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %16 = icmp eq i64 %1, -7643731471597900795
-  %17 = icmp eq i64 %2, 5122660710236550520
-  %or.cond.i.i.i.i = and i1 %16, %17
-  br i1 %or.cond.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %19
-
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i": ; preds = %14
-  %18 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %15, 1
+  %12 = extractvalue { i64, ptr } %8, 1
+  %13 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %12, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
 
-19:                                               ; preds = %14
-  %20 = icmp eq i64 %1, 7181427331871710250
-  %21 = icmp eq i64 %2, 6854490230225825033
-  %or.cond5.i.i.i.i = and i1 %20, %21
+14:                                               ; preds = %6
+  %15 = icmp eq i64 %1, -3434010194657295892
+  %16 = icmp eq i64 %2, 7156006048119232079
+  %or.cond.i.i.i = and i1 %15, %16
+  br i1 %or.cond.i.i.i, label %47, label %17
+
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2320
+  %19 = icmp eq i64 %1, -7643731471597900795
+  %20 = icmp eq i64 %2, 5122660710236550520
+  %or.cond.i.i.i.i = and i1 %19, %20
+  br i1 %or.cond.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %21
+
+21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %23 = load i8, ptr %22, align 8, !range !114, !alias.scope !115
   %.not.i.i.i.i = icmp eq i8 %23, 2
-  %or.cond15.i.i.i.i = and i1 %or.cond5.i.i.i.i, %.not.i.i.i.i
-  %.mux.i.i.i.i = zext i1 %or.cond15.i.i.i.i to i64
   br i1 %.not.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", label %24
 
-24:                                               ; preds = %19
-  %25 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, i64 noundef %1, i64 noundef %2)
+24:                                               ; preds = %21
+  %25 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, i64 noundef %1, i64 noundef %2)
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  br label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i"
+  %28 = trunc nuw i64 %26 to i1
+  br i1 %28, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %32
 
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i": ; preds = %24, %19
-  %.sroa.09.0.i.i.i.i = phi i64 [ %.mux.i.i.i.i, %19 ], [ %26, %24 ]
-  %.sroa.5.0.i.i.i.i = phi ptr [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %19 ], [ %27, %24 ]
-  %28 = insertvalue { i64, ptr } poison, i64 %.sroa.09.0.i.i.i.i, 0
-  %29 = insertvalue { i64, ptr } %28, ptr %.sroa.5.0.i.i.i.i, 1
-  %30 = trunc nuw i64 %.sroa.09.0.i.i.i.i to i1
-  br i1 %30, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit", label %31
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i": ; preds = %21
+  %29 = icmp eq i64 %1, 7181427331871710250
+  %30 = icmp eq i64 %2, 6854490230225825033
+  %or.cond5.i.i.i.i = and i1 %29, %30
+  br i1 %or.cond5.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %32
 
-31:                                               ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i"
-  %32 = icmp eq i64 %1, -3424795511029543031
-  %33 = icmp eq i64 %2, 6927684179508038786
-  %or.cond.i.i.i.i.i.i = and i1 %32, %33
-  br i1 %or.cond.i.i.i.i.i.i, label %41, label %34
-
-34:                                               ; preds = %31
-  %35 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
-  %36 = extractvalue { i64, ptr } %35, 0
-  %37 = trunc nuw i64 %36 to i1
-  br i1 %37, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit", label %38
-
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %40 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %39, i64 noundef %1, i64 noundef %2)
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i": ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", %24, %17
+  %.sroa.5.0.i10.i.i.i = phi ptr [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i" ], [ %18, %17 ], [ %27, %24 ]
+  %31 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.5.0.i10.i.i.i, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
 
-41:                                               ; preds = %31
-  %42 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+32:                                               ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", %24
+  %33 = icmp eq i64 %1, -3424795511029543031
+  %34 = icmp eq i64 %2, 6927684179508038786
+  %or.cond.i.i.i.i.i.i = and i1 %33, %34
+  br i1 %or.cond.i.i.i.i.i.i, label %45, label %35
+
+35:                                               ; preds = %32
+  %36 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
+  %37 = extractvalue { i64, ptr } %36, 0
+  %38 = trunc nuw i64 %37 to i1
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35
+  %40 = extractvalue { i64, ptr } %36, 1
+  %41 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %40, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
 
-43:                                               ; preds = %11
-  %44 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %44 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %43, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
 
-45:                                               ; preds = %3
+45:                                               ; preds = %32
   %46 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit": ; preds = %43, %41, %38, %34, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", %6, %45
-  %.merged = phi { i64, ptr } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %38 ], [ %35, %34 ], [ %18, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i" ], [ %29, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i" ], [ %8, %6 ]
+47:                                               ; preds = %14
+  %48 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
+
+49:                                               ; preds = %3
+  %50 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit"
+
+"_ZN4core6option15Option$LT$T$GT$7or_else17h4080ef1322b1e5a5E.exit": ; preds = %47, %45, %42, %39, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", %11, %49
+  %.merged = phi { i64, ptr } [ %50, %49 ], [ %13, %11 ], [ %48, %47 ], [ %31, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i" ], [ %46, %45 ], [ %41, %39 ], [ %44, %42 ]
   ret { i64, ptr } %.merged
 }
 
@@ -1807,71 +1812,71 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %4 = icmp eq i64 %1, -3434010194657295892
   %5 = icmp eq i64 %2, 7156006048119232079
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %35, label %6
+  br i1 %or.cond, label %36, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2320
   %8 = icmp eq i64 %1, -7643731471597900795
   %9 = icmp eq i64 %2, 5122660710236550520
   %or.cond.i = and i1 %8, %9
-  br i1 %or.cond.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread", label %11
+  br i1 %or.cond.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread", label %10
 
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread": ; preds = %6
-  %10 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %7, 1
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %12 = load i8, ptr %11, align 8, !range !114, !alias.scope !118
+  %.not.i = icmp eq i8 %12, 2
+  br i1 %.not.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit", label %13
+
+13:                                               ; preds = %10
+  %14 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, i64 noundef %1, i64 noundef %2)
+  %15 = extractvalue { i64, ptr } %14, 0
+  %16 = extractvalue { i64, ptr } %14, 1
+  %17 = trunc nuw i64 %15 to i1
+  br i1 %17, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread", label %21
+
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit": ; preds = %10
+  %18 = icmp eq i64 %1, 7181427331871710250
+  %19 = icmp eq i64 %2, 6854490230225825033
+  %or.cond5.i = and i1 %18, %19
+  br i1 %or.cond5.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread", label %21
+
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread": ; preds = %13, %6, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit"
+  %.sroa.5.0.i10 = phi ptr [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit" ], [ %7, %6 ], [ %16, %13 ]
+  %20 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.5.0.i10, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit"
 
-11:                                               ; preds = %6
-  %12 = icmp eq i64 %1, 7181427331871710250
-  %13 = icmp eq i64 %2, 6854490230225825033
-  %or.cond5.i = and i1 %12, %13
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %15 = load i8, ptr %14, align 8, !range !114, !alias.scope !118
-  %.not.i = icmp eq i8 %15, 2
-  %or.cond15.i = and i1 %or.cond5.i, %.not.i
-  %.mux.i = zext i1 %or.cond15.i to i64
-  br i1 %.not.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit", label %16
+21:                                               ; preds = %13, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit"
+  %22 = icmp eq i64 %1, -3424795511029543031
+  %23 = icmp eq i64 %2, 6927684179508038786
+  %or.cond.i.i.i = and i1 %22, %23
+  br i1 %or.cond.i.i.i, label %34, label %24
 
-16:                                               ; preds = %11
-  %17 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, i64 noundef %1, i64 noundef %2)
-  %18 = extractvalue { i64, ptr } %17, 0
-  %19 = extractvalue { i64, ptr } %17, 1
-  br label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit"
+24:                                               ; preds = %21
+  %25 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
+  %26 = extractvalue { i64, ptr } %25, 0
+  %27 = trunc nuw i64 %26 to i1
+  br i1 %27, label %28, label %31
 
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit": ; preds = %11, %16
-  %.sroa.09.0.i = phi i64 [ %.mux.i, %11 ], [ %18, %16 ]
-  %.sroa.5.0.i = phi ptr [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %11 ], [ %19, %16 ]
-  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.09.0.i, 0
-  %21 = insertvalue { i64, ptr } %20, ptr %.sroa.5.0.i, 1
-  %22 = trunc nuw i64 %.sroa.09.0.i to i1
-  br i1 %22, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit", label %23
-
-23:                                               ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit"
-  %24 = icmp eq i64 %1, -3424795511029543031
-  %25 = icmp eq i64 %2, 6927684179508038786
-  %or.cond.i.i.i = and i1 %24, %25
-  br i1 %or.cond.i.i.i, label %33, label %26
-
-26:                                               ; preds = %23
-  %27 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
-  %28 = extractvalue { i64, ptr } %27, 0
-  %29 = trunc nuw i64 %28 to i1
-  br i1 %29, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit", label %30
-
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %32 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %31, i64 noundef %1, i64 noundef %2)
+28:                                               ; preds = %24
+  %29 = extractvalue { i64, ptr } %25, 1
+  %30 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %29, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit"
 
-33:                                               ; preds = %23
-  %34 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %33 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %32, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit"
 
-35:                                               ; preds = %3
-  %36 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+34:                                               ; preds = %21
+  %35 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit": ; preds = %33, %30, %26, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread", %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit", %35
-  %.merged = phi { i64, ptr } [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %27, %26 ], [ %10, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread" ], [ %21, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit" ]
+36:                                               ; preds = %3
+  %37 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit"
+
+"_ZN4core6option15Option$LT$T$GT$7or_else17h167ff72eeda9833aE.exit": ; preds = %34, %31, %28, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread", %36
+  %.merged = phi { i64, ptr } [ %37, %36 ], [ %20, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread" ], [ %35, %34 ], [ %30, %28 ], [ %33, %31 ]
   ret { i64, ptr } %.merged
 }
 
@@ -1880,88 +1885,93 @@ define internal { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..La
   %4 = icmp eq i64 %1, 2772913083617556726
   %5 = icmp eq i64 %2, 7249842777544958966
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %45, label %6
+  br i1 %or.cond, label %49, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %8 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h583eb786aa65b323E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(13) %7, i64 noundef %1, i64 noundef %2)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = trunc nuw i64 %9 to i1
-  br i1 %10, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit", label %11
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = icmp eq i64 %1, -3434010194657295892
-  %13 = icmp eq i64 %2, 7156006048119232079
-  %or.cond.i.i.i = and i1 %12, %13
-  br i1 %or.cond.i.i.i, label %43, label %14
-
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %16 = icmp eq i64 %1, -7643731471597900795
-  %17 = icmp eq i64 %2, 5122660710236550520
-  %or.cond.i.i.i.i = and i1 %16, %17
-  br i1 %or.cond.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %19
-
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i": ; preds = %14
-  %18 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %15, 1
+  %12 = extractvalue { i64, ptr } %8, 1
+  %13 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %12, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
 
-19:                                               ; preds = %14
-  %20 = icmp eq i64 %1, 7181427331871710250
-  %21 = icmp eq i64 %2, 6854490230225825033
-  %or.cond5.i.i.i.i = and i1 %20, %21
+14:                                               ; preds = %6
+  %15 = icmp eq i64 %1, -3434010194657295892
+  %16 = icmp eq i64 %2, 7156006048119232079
+  %or.cond.i.i.i = and i1 %15, %16
+  br i1 %or.cond.i.i.i, label %47, label %17
+
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2320
+  %19 = icmp eq i64 %1, -7643731471597900795
+  %20 = icmp eq i64 %2, 5122660710236550520
+  %or.cond.i.i.i.i = and i1 %19, %20
+  br i1 %or.cond.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %21
+
+21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %23 = load i8, ptr %22, align 8, !range !114, !alias.scope !121
   %.not.i.i.i.i = icmp eq i8 %23, 2
-  %or.cond15.i.i.i.i = and i1 %or.cond5.i.i.i.i, %.not.i.i.i.i
-  %.mux.i.i.i.i = zext i1 %or.cond15.i.i.i.i to i64
   br i1 %.not.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", label %24
 
-24:                                               ; preds = %19
-  %25 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15, i64 noundef %1, i64 noundef %2)
+24:                                               ; preds = %21
+  %25 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, i64 noundef %1, i64 noundef %2)
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  br label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i"
+  %28 = trunc nuw i64 %26 to i1
+  br i1 %28, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %32
 
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i": ; preds = %24, %19
-  %.sroa.09.0.i.i.i.i = phi i64 [ %.mux.i.i.i.i, %19 ], [ %26, %24 ]
-  %.sroa.5.0.i.i.i.i = phi ptr [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %19 ], [ %27, %24 ]
-  %28 = insertvalue { i64, ptr } poison, i64 %.sroa.09.0.i.i.i.i, 0
-  %29 = insertvalue { i64, ptr } %28, ptr %.sroa.5.0.i.i.i.i, 1
-  %30 = trunc nuw i64 %.sroa.09.0.i.i.i.i to i1
-  br i1 %30, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit", label %31
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i": ; preds = %21
+  %29 = icmp eq i64 %1, 7181427331871710250
+  %30 = icmp eq i64 %2, 6854490230225825033
+  %or.cond5.i.i.i.i = and i1 %29, %30
+  br i1 %or.cond5.i.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", label %32
 
-31:                                               ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i"
-  %32 = icmp eq i64 %1, -3424795511029543031
-  %33 = icmp eq i64 %2, 6927684179508038786
-  %or.cond.i.i.i.i.i.i = and i1 %32, %33
-  br i1 %or.cond.i.i.i.i.i.i, label %41, label %34
-
-34:                                               ; preds = %31
-  %35 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
-  %36 = extractvalue { i64, ptr } %35, 0
-  %37 = trunc nuw i64 %36 to i1
-  br i1 %37, label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit", label %38
-
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %40 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %39, i64 noundef %1, i64 noundef %2)
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i": ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", %24, %17
+  %.sroa.5.0.i10.i.i.i = phi ptr [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i" ], [ %18, %17 ], [ %27, %24 ]
+  %31 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.5.0.i10.i.i.i, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
 
-41:                                               ; preds = %31
-  %42 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+32:                                               ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", %24
+  %33 = icmp eq i64 %1, -3424795511029543031
+  %34 = icmp eq i64 %2, 6927684179508038786
+  %or.cond.i.i.i.i.i.i = and i1 %33, %34
+  br i1 %or.cond.i.i.i.i.i.i, label %45, label %35
+
+35:                                               ; preds = %32
+  %36 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
+  %37 = extractvalue { i64, ptr } %36, 0
+  %38 = trunc nuw i64 %37 to i1
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35
+  %40 = extractvalue { i64, ptr } %36, 1
+  %41 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %40, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
 
-43:                                               ; preds = %11
-  %44 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %44 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %43, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
 
-45:                                               ; preds = %3
+45:                                               ; preds = %32
   %46 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit": ; preds = %43, %41, %38, %34, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i", %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", %6, %45
-  %.merged = phi { i64, ptr } [ %46, %45 ], [ %44, %43 ], [ %42, %41 ], [ %40, %38 ], [ %35, %34 ], [ %18, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i" ], [ %29, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i.i" ], [ %8, %6 ]
+47:                                               ; preds = %14
+  %48 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
+
+49:                                               ; preds = %3
+  %50 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit"
+
+"_ZN4core6option15Option$LT$T$GT$7or_else17hb28529bd1f9b4121E.exit": ; preds = %47, %45, %42, %39, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i", %11, %49
+  %.merged = phi { i64, ptr } [ %50, %49 ], [ %13, %11 ], [ %48, %47 ], [ %31, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i.i" ], [ %46, %45 ], [ %41, %39 ], [ %44, %42 ]
   ret { i64, ptr } %.merged
 }
 
@@ -1970,25 +1980,30 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %4 = icmp eq i64 %1, -3424795511029543031
   %5 = icmp eq i64 %2, 6927684179508038786
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %13, label %6
+  br i1 %or.cond, label %16, label %6
 
 6:                                                ; preds = %3
   %7 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = trunc nuw i64 %8 to i1
-  br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h29fbb8a8bd22c7a0E.exit", label %10
+  br i1 %9, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %12 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %11, i64 noundef %1, i64 noundef %2)
+  %11 = extractvalue { i64, ptr } %7, 1
+  %12 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %11, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h29fbb8a8bd22c7a0E.exit"
 
-13:                                               ; preds = %3
-  %14 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %15 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %14, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h29fbb8a8bd22c7a0E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h29fbb8a8bd22c7a0E.exit": ; preds = %10, %6, %13
-  %.merged = phi { i64, ptr } [ %14, %13 ], [ %12, %10 ], [ %7, %6 ]
+16:                                               ; preds = %3
+  %17 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h29fbb8a8bd22c7a0E.exit"
+
+"_ZN4core6option15Option$LT$T$GT$7or_else17h29fbb8a8bd22c7a0E.exit": ; preds = %13, %10, %16
+  %.merged = phi { i64, ptr } [ %17, %16 ], [ %12, %10 ], [ %15, %13 ]
   ret { i64, ptr } %.merged
 }
 
@@ -2026,78 +2041,89 @@ define internal noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..lay
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %4 = load i8, ptr %3, align 8, !range !114, !alias.scope !124
   %.not.i.i.i = icmp eq i8 %4, 2
-  br i1 %.not.i.i.i, label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i"
+  br i1 %.not.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", label %5
 
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i": ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %6 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %7 = extractvalue { i64, ptr } %6, 0
-  %8 = trunc nuw i64 %7 to i1
-  br i1 %8, label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, label %9
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2320
+  %7 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  br i1 %10, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", label %12
 
-9:                                                ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i"
-  %10 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = trunc nuw i64 %11 to i1
-  br i1 %12, label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, label %13
-
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %15 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %14, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i": ; preds = %5, %1
+  %.sroa.5.0.i10.i.i = phi ptr [ %9, %5 ], [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %1 ]
+  %11 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.5.0.i10.i.i, 1
   br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
 
-_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; preds = %1, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i", %9, %13
-  %.merged.i.i = phi { i64, ptr } [ %15, %13 ], [ %10, %9 ], [ %6, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i" ], [ { i64 1, ptr @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E }, %1 ]
-  %16 = extractvalue { i64, ptr } %.merged.i.i, 0
-  %17 = icmp eq i64 %16, 1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2351
-  %19 = load i8, ptr %18, align 1, !range !91, !noundef !3
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit", label %21
+12:                                               ; preds = %5
+  %13 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %14 = extractvalue { i64, ptr } %13, 0
+  %15 = trunc nuw i64 %14 to i1
+  br i1 %15, label %16, label %19
 
-21:                                               ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2352
-  %23 = load i8, ptr %22, align 8, !range !91, !noundef !3
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %29
+16:                                               ; preds = %12
+  %17 = extractvalue { i64, ptr } %13, 1
+  %18 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %17, 1
+  br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2353
-  %27 = load i8, ptr %26, align 1, !range !91, !noundef !3
-  %28 = trunc nuw i8 %27 to i1
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %21 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %20, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
+
+_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", %16, %19
+  %.merged.i.i = phi { i64, ptr } [ %11, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i" ], [ %18, %16 ], [ %21, %19 ]
+  %22 = extractvalue { i64, ptr } %.merged.i.i, 0
+  %23 = icmp eq i64 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2351
+  %25 = load i8, ptr %24, align 1, !range !91, !noundef !3
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit", label %27
+
+27:                                               ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2352
+  %29 = load i8, ptr %28, align 8, !range !91, !noundef !3
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2353
+  %33 = load i8, ptr %32, align 1, !range !91, !noundef !3
+  %34 = trunc nuw i8 %33 to i1
   %.not.i = icmp eq i64 %2, 6
-  %or.cond.i = or i1 %.not.i, %28
+  %or.cond.i = or i1 %.not.i, %34
   br i1 %or.cond.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit", label %.thread27.i
 
-29:                                               ; preds = %21
+35:                                               ; preds = %27
   %.not22.i = icmp eq i64 %2, 6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 2353
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !91
-  %30 = trunc nuw i8 %.pre.i to i1
-  br i1 %30, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit", label %.thread27.i
+  %36 = trunc nuw i8 %.pre.i to i1
+  br i1 %36, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit", label %.thread27.i
 
-.thread27.i:                                      ; preds = %29, %25
-  %.not2429.i = phi i1 [ %.not22.i, %29 ], [ false, %25 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2344
-  %32 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h13f5371f2b8523fdE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(7) %31, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %33 = extractvalue { i64, ptr } %32, 0
-  %34 = icmp eq i64 %33, 1
-  br i1 %34, label %36, label %35
+.thread27.i:                                      ; preds = %35, %31
+  %.not2429.i = phi i1 [ %.not22.i, %35 ], [ false, %31 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2344
+  %38 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h13f5371f2b8523fdE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(7) %37, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %39 = extractvalue { i64, ptr } %38, 0
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %42, label %41
 
-35:                                               ; preds = %.thread27.i
+41:                                               ; preds = %.thread27.i
   %.not24.not.i = xor i1 %.not2429.i, true
-  %or.cond16.not.i = and i1 %17, %.not24.not.i
+  %or.cond16.not.i = and i1 %23, %.not24.not.i
   %.not.i.i = icmp eq i64 %2, 5
   %or.cond25.i = and i1 %.not.i.i, %or.cond16.not.i
   %spec.select26.i = select i1 %or.cond25.i, i64 6, i64 %2
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit"
 
-36:                                               ; preds = %.thread27.i
+42:                                               ; preds = %.thread27.i
   %spec.select.i = select i1 %.not2429.i, i64 6, i64 %2
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, %25, %29, %35, %36
-  %.sroa.07.0.i = phi i64 [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %29 ], [ 6, %25 ], [ %spec.select.i, %36 ], [ %spec.select26.i, %35 ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h37b36e0c359f6fccE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, %31, %35, %41, %42
+  %.sroa.07.0.i = phi i64 [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %35 ], [ 6, %31 ], [ %spec.select.i, %42 ], [ %spec.select26.i, %41 ]
   ret i64 %.sroa.07.0.i
 }
 
@@ -2142,84 +2168,89 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   %22 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = trunc nuw i64 %23 to i1
-  br i1 %24, label %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit, label %25
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hd5d2056fcde6135aE.exit"
-  %26 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %5, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %.pre.i = extractvalue { i64, ptr } %26, 0
-  %27 = icmp eq i64 %.pre.i, 1
+  %26 = extractvalue { i64, ptr } %22, 1
+  %27 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %26, 1
   br label %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit
 
-_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit: ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hd5d2056fcde6135aE.exit", %25
-  %.pre-phi.i = phi i1 [ true, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hd5d2056fcde6135aE.exit" ], [ %27, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2336
-  %29 = load i8, ptr %28, align 8, !range !91, !noundef !3
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %31
+28:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hd5d2056fcde6135aE.exit"
+  %29 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %5, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  br label %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit
 
-31:                                               ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2337
-  %33 = load i8, ptr %32, align 1, !range !91, !noundef !3
+_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit: ; preds = %25, %28
+  %.merged.i.i = phi { i64, ptr } [ %27, %25 ], [ %29, %28 ]
+  %30 = extractvalue { i64, ptr } %.merged.i.i, 0
+  %31 = icmp eq i64 %30, 1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2336
+  %33 = load i8, ptr %32, align 8, !range !91, !noundef !3
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %36, label %41
+  br i1 %34, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %35
 
-35:                                               ; preds = %36
-  %.not.i3 = icmp eq i64 %.sroa.07.0.i.i, 6
-  br i1 %.not.i3, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread35.i
+35:                                               ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2337
+  %37 = load i8, ptr %36, align 1, !range !91, !noundef !3
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %40, label %45
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2338
-  %38 = load i8, ptr %37, align 2, !range !91, !noundef !3
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %35
+39:                                               ; preds = %40
+  %.not.i2 = icmp eq i64 %.sroa.07.0.i.i, 6
+  br i1 %.not.i2, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread34.i
 
-40:                                               ; preds = %36
-  %spec.select.i4 = select i1 %.not.i, i64 %.sroa.07.0.i.i, i64 6
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2338
+  %42 = load i8, ptr %41, align 2, !range !91, !noundef !3
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %39
+
+44:                                               ; preds = %40
+  %spec.select.i3 = select i1 %.not.i, i64 %.sroa.07.0.i.i, i64 6
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
-41:                                               ; preds = %31
+45:                                               ; preds = %35
   %.not30.i = icmp eq i64 %.sroa.07.0.i.i, 6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 2338
-  %.pre.i1 = load i8, ptr %.phi.trans.insert.i, align 2, !range !91
-  %.pre34.i = trunc nuw i8 %.pre.i1 to i1
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2, !range !91
+  %46 = trunc nuw i8 %.pre.i to i1
   %not..not.i = xor i1 %.not.i, true
-  %or.cond18.i = and i1 %not..not.i, %.pre34.i
-  br i1 %or.cond18.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread35.i
+  %or.cond18.i = and i1 %not..not.i, %46
+  br i1 %or.cond18.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.thread34.i
 
-.thread35.i:                                      ; preds = %41, %35
-  %.not3240.i = phi i1 [ %.not30.i, %41 ], [ false, %35 ]
-  %42 = load i8, ptr %3, align 8, !range !114, !alias.scope !127
-  %.not.i.i.i = icmp eq i8 %42, 2
+.thread34.i:                                      ; preds = %45, %39
+  %.not3238.i = phi i1 [ %.not30.i, %45 ], [ false, %39 ]
+  %47 = load i8, ptr %3, align 8, !range !114, !alias.scope !127
+  %.not.i.i.i = icmp eq i8 %47, 2
   br i1 %.not.i.i.i, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i
 
-_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i: ; preds = %.thread35.i
-  %43 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %44 = extractvalue { i64, ptr } %43, 0
-  %45 = icmp eq i64 %44, 1
-  br i1 %45, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, label %46
+_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i: ; preds = %.thread34.i
+  %48 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %49 = extractvalue { i64, ptr } %48, 0
+  %50 = icmp eq i64 %49, 1
+  br i1 %50, label %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, label %51
 
-46:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i
-  %.not32.not.i = xor i1 %.not3240.i, true
-  %or.cond20.not.i = and i1 %.pre-phi.i, %.not32.not.i
+51:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i
+  %.not32.not.i = xor i1 %.not3238.i, true
+  %or.cond20.not.i = and i1 %31, %.not32.not.i
   %.not.i.i = icmp eq i64 %.sroa.07.0.i.i, 5
   %or.cond.i = and i1 %.not.i.i, %or.cond20.not.i
   br i1 %or.cond.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %.critedge.i
 
-_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i: ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i, %.thread35.i
-  br i1 %.not3240.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %48
+_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i: ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.i, %.thread34.i
+  br i1 %.not3238.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit", label %53
 
-.critedge.i:                                      ; preds = %46
-  %47 = icmp samesign ult i64 %spec.select.i, %.sroa.07.0.i.i
-  %spec.select.i.i2 = select i1 %.not3240.i, i1 %.not.i, i1 %47
-  %.sroa.0.0.sroa.speculated.i.i = select i1 %spec.select.i.i2, i64 %spec.select.i, i64 %.sroa.07.0.i.i
+.critedge.i:                                      ; preds = %51
+  %52 = icmp samesign ult i64 %spec.select.i, %.sroa.07.0.i.i
+  %spec.select.i.i1 = select i1 %.not3238.i, i1 %.not.i, i1 %52
+  %.sroa.0.0.sroa.speculated.i.i = select i1 %spec.select.i.i1, i64 %spec.select.i, i64 %.sroa.07.0.i.i
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
-48:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i
+53:                                               ; preds = %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i
   %.sroa.0.0.sroa.speculated.i25.i = tail call i64 @llvm.umin.i64(i64 range(i64 5, 7) %spec.select.i, i64 range(i64 0, 7) %.sroa.07.0.i.i)
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit, %35, %40, %41, %46, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, %.critedge.i, %48
-  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %.critedge.i ], [ %spec.select.i, %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit ], [ 6, %35 ], [ 6, %41 ], [ %.sroa.0.0.sroa.speculated.i25.i, %48 ], [ 6, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i ], [ %spec.select.i, %46 ], [ %spec.select.i4, %40 ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h694171959c0f23ddE.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit, %39, %44, %45, %51, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i, %.critedge.i, %53
+  %.sroa.07.0.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i, %.critedge.i ], [ %spec.select.i, %_ZN18tracing_subscriber5layer18subscriber_is_none17ha7d99fdc26a9e7ecE.exit ], [ 6, %39 ], [ 6, %45 ], [ %.sroa.0.0.sroa.speculated.i25.i, %53 ], [ 6, %_ZN18tracing_subscriber5layer13layer_is_none17h57e1a01a4d06b3d9E.exit.thread.i ], [ %spec.select.i, %51 ], [ %spec.select.i3, %44 ]
   ret i64 %.sroa.07.0.i
 }
 
@@ -2265,78 +2296,89 @@ define internal noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..lay
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2328
   %4 = load i8, ptr %3, align 8, !range !114, !alias.scope !132
   %.not.i.i.i = icmp eq i8 %4, 2
-  br i1 %.not.i.i.i, label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i"
+  br i1 %.not.i.i.i, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", label %5
 
-"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i": ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2320
-  %6 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %7 = extractvalue { i64, ptr } %6, 0
-  %8 = trunc nuw i64 %7 to i1
-  br i1 %8, label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, label %9
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2320
+  %7 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17hcff23bf35b38d298E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %8 = extractvalue { i64, ptr } %7, 0
+  %9 = extractvalue { i64, ptr } %7, 1
+  %10 = trunc nuw i64 %8 to i1
+  br i1 %10, label %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", label %12
 
-9:                                                ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i"
-  %10 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = trunc nuw i64 %11 to i1
-  br i1 %12, label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, label %13
-
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1768
-  %15 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %14, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i": ; preds = %5, %1
+  %.sroa.5.0.i10.i.i = phi ptr [ %9, %5 ], [ @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E, %1 ]
+  %11 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.5.0.i10.i.i, 1
   br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
 
-_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; preds = %1, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i", %9, %13
-  %.merged.i.i = phi { i64, ptr } [ %15, %13 ], [ %10, %9 ], [ %6, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.i.i" ], [ { i64 1, ptr @_ZN18tracing_subscriber5layer17NONE_LAYER_MARKER17h90967c991065cba1E }, %1 ]
-  %16 = extractvalue { i64, ptr } %.merged.i.i, 0
-  %17 = icmp eq i64 %16, 1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2357
-  %19 = load i8, ptr %18, align 1, !range !91, !noundef !3
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit", label %21
+12:                                               ; preds = %5
+  %13 = tail call { i64, ptr } @_ZN18tracing_subscriber5layer5Layer12downcast_raw17h48aa8d59ed6c62f4E(ptr noundef nonnull align 8 %0, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %14 = extractvalue { i64, ptr } %13, 0
+  %15 = trunc nuw i64 %14 to i1
+  br i1 %15, label %16, label %19
 
-21:                                               ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2358
-  %23 = load i8, ptr %22, align 2, !range !91, !noundef !3
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %29
+16:                                               ; preds = %12
+  %17 = extractvalue { i64, ptr } %13, 1
+  %18 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %17, 1
+  br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2359
-  %27 = load i8, ptr %26, align 1, !range !91, !noundef !3
-  %28 = trunc nuw i8 %27 to i1
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1768
+  %21 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17h84266b8ca48df3bbE(ptr noundef nonnull align 8 %20, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  br label %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
+
+_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit: ; preds = %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i", %16, %19
+  %.merged.i.i = phi { i64, ptr } [ %11, %"_ZN91_$LT$core..option..Option$LT$L$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17hfe20217e274f18abE.exit.thread.i.i" ], [ %18, %16 ], [ %21, %19 ]
+  %22 = extractvalue { i64, ptr } %.merged.i.i, 0
+  %23 = icmp eq i64 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2357
+  %25 = load i8, ptr %24, align 1, !range !91, !noundef !3
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit", label %27
+
+27:                                               ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2358
+  %29 = load i8, ptr %28, align 2, !range !91, !noundef !3
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %35
+
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2359
+  %33 = load i8, ptr %32, align 1, !range !91, !noundef !3
+  %34 = trunc nuw i8 %33 to i1
   %.not.i = icmp eq i64 %2, 6
-  %or.cond.i = or i1 %.not.i, %28
+  %or.cond.i = or i1 %.not.i, %34
   br i1 %or.cond.i, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit", label %.thread27.i
 
-29:                                               ; preds = %21
+35:                                               ; preds = %27
   %.not22.i = icmp eq i64 %2, 6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 2359
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !91
-  %30 = trunc nuw i8 %.pre.i to i1
-  br i1 %30, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit", label %.thread27.i
+  %36 = trunc nuw i8 %.pre.i to i1
+  br i1 %36, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit", label %.thread27.i
 
-.thread27.i:                                      ; preds = %29, %25
-  %.not2429.i = phi i1 [ %.not22.i, %29 ], [ false, %25 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2344
-  %32 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h583eb786aa65b323E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(13) %31, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
-  %33 = extractvalue { i64, ptr } %32, 0
-  %34 = icmp eq i64 %33, 1
-  br i1 %34, label %36, label %35
+.thread27.i:                                      ; preds = %35, %31
+  %.not2429.i = phi i1 [ %.not22.i, %35 ], [ false, %31 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2344
+  %38 = tail call { i64, ptr } @"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h583eb786aa65b323E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(13) %37, i64 noundef 7181427331871710250, i64 noundef 6854490230225825033)
+  %39 = extractvalue { i64, ptr } %38, 0
+  %40 = icmp eq i64 %39, 1
+  br i1 %40, label %42, label %41
 
-35:                                               ; preds = %.thread27.i
+41:                                               ; preds = %.thread27.i
   %.not24.not.i = xor i1 %.not2429.i, true
-  %or.cond16.not.i = and i1 %17, %.not24.not.i
+  %or.cond16.not.i = and i1 %23, %.not24.not.i
   %.not.i.i = icmp eq i64 %2, 5
   %or.cond25.i = and i1 %.not.i.i, %or.cond16.not.i
   %spec.select26.i = select i1 %or.cond25.i, i64 6, i64 %2
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit"
 
-36:                                               ; preds = %.thread27.i
+42:                                               ; preds = %.thread27.i
   %spec.select.i = select i1 %.not2429.i, i64 6, i64 %2
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, %25, %29, %35, %36
-  %.sroa.07.0.i = phi i64 [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %29 ], [ 6, %25 ], [ %spec.select.i, %36 ], [ %spec.select26.i, %35 ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h64727a87f150fde7E.exit": ; preds = %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit, %31, %35, %41, %42
+  %.sroa.07.0.i = phi i64 [ 6, %_ZN18tracing_subscriber5layer18subscriber_is_none17h1cef810a40acf876E.exit ], [ 6, %35 ], [ 6, %31 ], [ %spec.select.i, %42 ], [ %spec.select26.i, %41 ]
   ret i64 %.sroa.07.0.i
 }
 

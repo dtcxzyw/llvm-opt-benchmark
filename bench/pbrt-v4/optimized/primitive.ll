@@ -955,7 +955,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit: ; preds = %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 %18, ptr %37, align 8, !tbaa !42
+  store i8 1, ptr %37, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef nonnull align 8 dereferenceable(257) %9, i64 72, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %25, ptr %38, align 8, !tbaa !28
@@ -1246,7 +1246,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit: ; preds = %133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #24
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 %131, ptr %157, align 8, !tbaa !42
+  store i8 1, ptr %157, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef nonnull align 8 dereferenceable(257) %10, i64 72, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %136, ptr %158, align 8, !tbaa !28
@@ -1845,7 +1845,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEC2EOS3_.exit: ; preds = %123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #24
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 %121, ptr %147, align 8, !tbaa !42
+  store i8 1, ptr %147, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef nonnull align 8 dereferenceable(257) %11, i64 72, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %126, ptr %148, align 8, !tbaa !28

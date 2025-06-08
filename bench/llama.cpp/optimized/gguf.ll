@@ -1112,8 +1112,8 @@ gguf_free.exit348:                                ; preds = %_ZSt8_DestroyIP7ggu
   %178 = load i64, ptr %117, align 8
   %179 = icmp eq i64 %178, 0
   %.pre = load ptr, ptr %11, align 8
-  %.not836 = icmp eq ptr %172, %173
-  br i1 %.not836, label %.critedge, label %.lr.ph835
+  %.not835 = icmp eq ptr %172, %173
+  br i1 %.not835, label %.critedge, label %.lr.ph834
 
 180:                                              ; preds = %155
   %181 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #29
@@ -1141,15 +1141,15 @@ gguf_free.exit348:                                ; preds = %_ZSt8_DestroyIP7ggu
   %194 = extractvalue { ptr, i32 } %192, 1
   br label %.loopexit476
 
-.lr.ph835:                                        ; preds = %.lr.ph.preheader, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423
-  %.0281577834 = phi i64 [ %202, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423 ], [ 0, %.lr.ph.preheader ]
-  %195 = getelementptr inbounds nuw %struct.gguf_kv, ptr %173, i64 %.0281577834
+.lr.ph834:                                        ; preds = %.lr.ph.preheader, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423
+  %.0281577833 = phi i64 [ %202, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423 ], [ 0, %.lr.ph.preheader ]
+  %195 = getelementptr inbounds nuw %struct.gguf_kv, ptr %173, i64 %.0281577833
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load i64, ptr %196, align 8, !tbaa !58
   %198 = icmp eq i64 %178, %197
   br i1 %198, label %199, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423
 
-199:                                              ; preds = %.lr.ph835
+199:                                              ; preds = %.lr.ph834
   br i1 %179, label %.critedge317.loopexit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %199
@@ -1158,10 +1158,10 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %201 = icmp eq i32 %bcmp.i, 0
   br i1 %201, label %.critedge317.loopexit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423: ; preds = %.lr.ph835, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %202 = add nuw i64 %.0281577834, 1
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423: ; preds = %.lr.ph834, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  %202 = add nuw i64 %.0281577833, 1
   %203 = icmp ult i64 %202, %177
-  br i1 %203, label %.lr.ph835, label %.critedge, !llvm.loop !61
+  br i1 %203, label %.lr.ph834, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread423, %.lr.ph.preheader
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #29
@@ -1293,12 +1293,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .critedge317.loopexit:                            ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %199
   %263 = load ptr, ptr @stderr, align 8, !tbaa !45
-  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._Z24gguf_init_from_file_implP8_IO_FILE16gguf_init_params, ptr noundef %.pre, i64 noundef %.0281577834, i64 noundef %.0277578) #31
+  %264 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %263, ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._Z24gguf_init_from_file_implP8_IO_FILE16gguf_init_params, ptr noundef %.pre, i64 noundef %.0281577833, i64 noundef %.0277578) #31
   br label %.critedge317
 
-.critedge317:                                     ; preds = %259, %223, %226, %229, %232, %235, %238, %241, %244, %247, %250, %253, %256, %183, %161, %.thread685, %.critedge317.loopexit, %165, %.critedge319.thread432, %214, %.critedge319
-  %cond10 = phi i1 [ false, %.critedge319 ], [ false, %214 ], [ false, %.critedge319.thread432 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ false, %.thread685 ], [ false, %161 ], [ false, %183 ], [ true, %256 ], [ true, %253 ], [ true, %250 ], [ true, %247 ], [ true, %244 ], [ true, %241 ], [ true, %238 ], [ true, %235 ], [ true, %232 ], [ true, %229 ], [ true, %226 ], [ true, %223 ], [ true, %259 ]
-  %.9252 = phi i1 [ false, %.critedge319 ], [ false, %214 ], [ false, %.critedge319.thread432 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ false, %.thread685 ], [ false, %161 ], [ false, %183 ], [ %258, %256 ], [ %255, %253 ], [ %252, %250 ], [ %249, %247 ], [ %246, %244 ], [ %243, %241 ], [ %240, %238 ], [ %237, %235 ], [ %234, %232 ], [ %231, %229 ], [ %228, %226 ], [ %225, %223 ], [ false, %259 ]
+.critedge317:                                     ; preds = %183, %161, %259, %223, %226, %229, %232, %235, %238, %241, %244, %247, %250, %253, %256, %.thread685, %.critedge317.loopexit, %165, %.critedge319.thread432, %214, %.critedge319
+  %cond10 = phi i1 [ false, %.critedge319 ], [ false, %214 ], [ false, %.critedge319.thread432 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ false, %.thread685 ], [ true, %256 ], [ true, %253 ], [ true, %250 ], [ true, %247 ], [ true, %244 ], [ true, %241 ], [ true, %238 ], [ true, %235 ], [ true, %232 ], [ true, %229 ], [ true, %226 ], [ true, %223 ], [ true, %259 ], [ false, %161 ], [ false, %183 ]
+  %.9252 = phi i1 [ false, %.critedge319 ], [ false, %214 ], [ false, %.critedge319.thread432 ], [ false, %165 ], [ false, %.critedge317.loopexit ], [ false, %.thread685 ], [ %258, %256 ], [ %255, %253 ], [ %252, %250 ], [ %249, %247 ], [ %246, %244 ], [ %243, %241 ], [ %240, %238 ], [ %237, %235 ], [ %234, %232 ], [ %231, %229 ], [ %228, %226 ], [ %225, %223 ], [ false, %259 ], [ false, %161 ], [ false, %183 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #29
   %265 = load ptr, ptr %11, align 8, !tbaa !60
   %266 = icmp eq ptr %265, %116
@@ -1454,7 +1454,7 @@ gguf_find_key.exit.thread:                        ; preds = %318, %310, %gguf_fi
 
 .preheader472:                                    ; preds = %gguf_find_key.exit.thread
   %.not681 = icmp eq i64 %106, 0
-  br i1 %.not681, label %.critedge837, label %.lr.ph597
+  br i1 %.not681, label %.loopexit473.thread, label %.lr.ph597
 
 .lr.ph597:                                        ; preds = %.preheader472
   %328 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1942,13 +1942,12 @@ _ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit.thread461: ; preds 
 _ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit369
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %13) #29
   %544 = trunc nuw i8 %.15 to i1
-  br label %.loopexit473
+  br i1 %544, label %.loopexit473.thread, label %545
 
-.loopexit473:                                     ; preds = %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit.thread461, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit
-  %.13 = phi i1 [ %544, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit ], [ %516, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit.thread461 ]
-  br i1 %.13, label %.critedge837, label %545
+.loopexit473:                                     ; preds = %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit.thread461
+  br i1 %516, label %.loopexit473.thread, label %545
 
-545:                                              ; preds = %.thread466, %.loopexit473
+545:                                              ; preds = %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit, %.thread466, %.loopexit473
   %546 = load ptr, ptr @stderr, align 8, !tbaa !45
   %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %546, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._Z24gguf_init_from_file_implP8_IO_FILE16gguf_init_params) #31
   %548 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -1996,7 +1995,7 @@ gguf_free.exit379:                                ; preds = %_ZSt8_DestroyIP7ggu
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
   br label %725
 
-.critedge837:                                     ; preds = %.preheader472, %.loopexit473
+.loopexit473.thread:                              ; preds = %.preheader472, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit, %.loopexit473
   %568 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %569 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %570 = load ptr, ptr %569, align 8, !tbaa !75
@@ -2008,11 +2007,11 @@ gguf_free.exit379:                                ; preds = %_ZSt8_DestroyIP7ggu
   %576 = icmp eq i64 %575, %106
   br i1 %576, label %578, label %577
 
-577:                                              ; preds = %.critedge837
+577:                                              ; preds = %.loopexit473.thread
   call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.28, i32 noundef 589, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.43) #33
   unreachable
 
-578:                                              ; preds = %.critedge837
+578:                                              ; preds = %.loopexit473.thread
   %579 = call i64 @ftell(ptr noundef %0)
   %580 = load i64, ptr %19, align 8, !tbaa !40
   %581 = add i64 %579, -1

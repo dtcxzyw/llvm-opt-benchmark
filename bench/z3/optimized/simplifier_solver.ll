@@ -6202,7 +6202,7 @@ define linkonce_odr hidden void @_ZN17simplifier_solver14dep_expr_state6updateEj
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %14, ptr %20, align 8
   %.sroa.6.8..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i8 %15, ptr %.sroa.6.8..sroa_idx.i.i, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx.i.i, align 8
   %21 = load ptr, ptr %17, align 8, !tbaa !209
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.noexc2.i.i, label %23
@@ -6276,7 +6276,7 @@ define linkonce_odr hidden void @_ZN17simplifier_solver14dep_expr_state3addERK14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %14, ptr %20, align 8
   %.sroa.6.8..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i8 %15, ptr %.sroa.6.8..sroa_idx.i.i, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx.i.i, align 8
   %21 = load ptr, ptr %17, align 8, !tbaa !209
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.noexc2.i.i, label %23

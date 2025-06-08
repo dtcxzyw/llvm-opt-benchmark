@@ -19576,7 +19576,6 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %_ZN3sat10simplifier
   br label %315
 
 .loopexit:                                        ; preds = %.critedge9, %287, %_ZN3sat10simplifier19blocked_clause_elim18reset_intersectionEv.exit161, %._crit_edge245.thread, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit
-  %.9105 = phi i8 [ %.5101, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit ], [ 0, %._crit_edge245.thread ], [ %.5101, %_ZN3sat10simplifier19blocked_clause_elim18reset_intersectionEv.exit161 ], [ %.5101, %287 ], [ 0, %.critedge9 ]
   %300 = load ptr, ptr %11, align 8, !tbaa !103
   %301 = icmp eq ptr %300, null
   br i1 %301, label %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.thread, label %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit
@@ -19598,7 +19597,7 @@ _ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.thread: ; preds = %.loopexit, %_ZN
   br label %_ZN6vectorIN3sat7literalELb0EjE6shrinkEj.exit173
 
 308:                                              ; preds = %149, %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit, %.thread214
-  %.7103.ph = phi i8 [ %.5101, %.thread214 ], [ %.9105, %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit ], [ %.5101, %149 ]
+  %.7103.ph = phi i8 [ %.5101, %.thread214 ], [ 0, %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit ], [ %.5101, %149 ]
   %309 = load i32, ptr %140, align 4, !tbaa !311
   %310 = add i32 %309, 1
   store i32 %310, ptr %140, align 4, !tbaa !311

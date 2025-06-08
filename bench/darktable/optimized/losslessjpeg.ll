@@ -2227,92 +2227,94 @@ define linkonce_odr noundef i32 @_ZN11BitPumpJpeg4peekEj(ptr noundef nonnull ali
   %.promoted30 = load i64, ptr %58, align 8, !tbaa !117
   br label %59
 
-59:                                               ; preds = %.lr.ph, %79
-  %60 = phi i64 [ %.promoted30, %.lr.ph ], [ %83, %79 ]
-  %61 = phi i32 [ %.promoted29, %.lr.ph ], [ %84, %79 ]
-  %.028 = phi i32 [ 0, %.lr.ph ], [ %86, %79 ]
-  %62 = phi i32 [ %4, %.lr.ph ], [ %85, %79 ]
-  %.not21 = icmp ult i32 %61, %12
-  br i1 %.not21, label %64, label %63
-
-63:                                               ; preds = %59
-  store i8 1, ptr %6, align 4, !tbaa !118
-  br label %79
+59:                                               ; preds = %.lr.ph, %81
+  %60 = phi i8 [ 0, %.lr.ph ], [ %82, %81 ]
+  %61 = phi i64 [ %.promoted30, %.lr.ph ], [ %86, %81 ]
+  %62 = phi i32 [ %.promoted29, %.lr.ph ], [ %87, %81 ]
+  %.028 = phi i32 [ 0, %.lr.ph ], [ %89, %81 ]
+  %63 = phi i32 [ %4, %.lr.ph ], [ %88, %81 ]
+  %.not21 = icmp ult i32 %62, %12
+  br i1 %.not21, label %65, label %64
 
 64:                                               ; preds = %59
-  %65 = zext i32 %61 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %57, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !15
-  %.not22 = icmp eq i8 %67, -1
-  br i1 %.not22, label %68, label %75
-
-68:                                               ; preds = %64
-  %69 = add nuw i32 %61, 1
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %57, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !15
-  %73 = icmp eq i8 %72, 0
-  br i1 %73, label %75, label %74
-
-74:                                               ; preds = %68
   store i8 1, ptr %6, align 4, !tbaa !118
-  br label %75
+  br label %81
 
-75:                                               ; preds = %68, %64, %74
-  %76 = phi i32 [ %61, %74 ], [ %61, %64 ], [ %69, %68 ]
-  %77 = phi i8 [ 1, %74 ], [ 0, %64 ], [ 0, %68 ]
-  %.1 = phi i8 [ 0, %74 ], [ %67, %64 ], [ -1, %68 ]
-  %78 = zext i8 %.1 to i64
-  br label %79
+65:                                               ; preds = %59
+  %66 = zext i32 %62 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !15
+  %.not22 = icmp eq i8 %68, -1
+  br i1 %.not22, label %69, label %76
 
-79:                                               ; preds = %75, %63
-  %80 = phi i32 [ %61, %63 ], [ %76, %75 ]
-  %81 = phi i8 [ 1, %63 ], [ %77, %75 ]
-  %.010 = phi i64 [ 0, %63 ], [ %78, %75 ]
-  %82 = shl i64 %60, 8
-  %83 = or disjoint i64 %82, %.010
-  store i64 %83, ptr %58, align 8, !tbaa !117
-  %84 = add i32 %80, 1
-  store i32 %84, ptr %55, align 4, !tbaa !116
-  %85 = add i32 %62, 8
-  store i32 %85, ptr %3, align 8, !tbaa !115
-  %86 = add nuw nsw i32 %.028, 1
-  %87 = icmp samesign ugt i32 %.028, 2
-  %88 = trunc nuw i8 %81 to i1
-  %or.cond = select i1 %87, i1 true, i1 %88
+69:                                               ; preds = %65
+  %70 = add nuw i32 %62, 1
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !15
+  %74 = icmp eq i8 %73, 0
+  br i1 %74, label %76, label %75
+
+75:                                               ; preds = %69
+  store i8 1, ptr %6, align 4, !tbaa !118
+  br label %76
+
+76:                                               ; preds = %69, %65, %75
+  %77 = phi i8 [ 1, %75 ], [ %60, %65 ], [ %60, %69 ]
+  %78 = phi i32 [ %62, %75 ], [ %62, %65 ], [ %70, %69 ]
+  %79 = phi i1 [ true, %75 ], [ false, %65 ], [ false, %69 ]
+  %.1 = phi i8 [ 0, %75 ], [ %68, %65 ], [ -1, %69 ]
+  %80 = zext i8 %.1 to i64
+  br label %81
+
+81:                                               ; preds = %76, %64
+  %82 = phi i8 [ 1, %64 ], [ %77, %76 ]
+  %83 = phi i32 [ %62, %64 ], [ %78, %76 ]
+  %84 = phi i1 [ true, %64 ], [ %79, %76 ]
+  %.010 = phi i64 [ 0, %64 ], [ %80, %76 ]
+  %85 = shl i64 %61, 8
+  %86 = or disjoint i64 %85, %.010
+  store i64 %86, ptr %58, align 8, !tbaa !117
+  %87 = add i32 %83, 1
+  store i32 %87, ptr %55, align 4, !tbaa !116
+  %88 = add i32 %63, 8
+  store i32 %88, ptr %3, align 8, !tbaa !115
+  %89 = add nuw nsw i32 %.028, 1
+  %90 = icmp samesign ugt i32 %.028, 2
+  %or.cond = or i1 %90, %84
   br i1 %or.cond, label %.critedge, label %59, !llvm.loop !119
 
-.critedge:                                        ; preds = %79, %2, %8
-  %89 = phi i8 [ 1, %8 ], [ %7, %2 ], [ %81, %79 ]
-  %90 = phi i32 [ %4, %8 ], [ %4, %2 ], [ %85, %79 ]
-  %91 = icmp ugt i32 %1, %90
-  %92 = trunc nuw i8 %89 to i1
-  %or.cond26 = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond26, label %94, label %.critedge._crit_edge
+.critedge:                                        ; preds = %81, %2, %8
+  %91 = phi i8 [ 1, %8 ], [ %7, %2 ], [ %82, %81 ]
+  %92 = phi i32 [ %4, %8 ], [ %4, %2 ], [ %88, %81 ]
+  %93 = icmp ugt i32 %1, %92
+  %94 = trunc nuw i8 %91 to i1
+  %or.cond26 = select i1 %93, i1 %94, i1 false
+  br i1 %or.cond26, label %96, label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge
-  %93 = phi i32 [ %54, %.critedge.thread ], [ %90, %.critedge ]
+  %95 = phi i32 [ %54, %.critedge.thread ], [ %92, %.critedge ]
   %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre33 = load i64, ptr %.phi.trans.insert32, align 8, !tbaa !117
-  br label %99
+  br label %101
 
-94:                                               ; preds = %.critedge
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %96 = load i64, ptr %95, align 8, !tbaa !117
-  %97 = shl i64 %96, 32
-  store i64 %97, ptr %95, align 8, !tbaa !117
-  %98 = add i32 %90, 32
-  store i32 %98, ptr %3, align 8, !tbaa !115
-  br label %99
+96:                                               ; preds = %.critedge
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %98 = load i64, ptr %97, align 8, !tbaa !117
+  %99 = shl i64 %98, 32
+  store i64 %99, ptr %97, align 8, !tbaa !117
+  %100 = add i32 %92, 32
+  store i32 %100, ptr %3, align 8, !tbaa !115
+  br label %101
 
-99:                                               ; preds = %.critedge._crit_edge, %94
-  %100 = phi i32 [ %93, %.critedge._crit_edge ], [ %98, %94 ]
-  %101 = phi i64 [ %.pre33, %.critedge._crit_edge ], [ %97, %94 ]
-  %102 = sub i32 %100, %1
-  %103 = zext nneg i32 %102 to i64
-  %104 = lshr i64 %101, %103
-  %105 = trunc i64 %104 to i32
-  ret i32 %105
+101:                                              ; preds = %.critedge._crit_edge, %96
+  %102 = phi i32 [ %95, %.critedge._crit_edge ], [ %100, %96 ]
+  %103 = phi i64 [ %.pre33, %.critedge._crit_edge ], [ %99, %96 ]
+  %104 = sub i32 %102, %1
+  %105 = zext nneg i32 %104 to i64
+  %106 = lshr i64 %103, %105
+  %107 = trunc i64 %106 to i32
+  ret i32 %107
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

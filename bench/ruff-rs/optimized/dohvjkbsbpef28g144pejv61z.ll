@@ -24604,7 +24604,7 @@ select.unfold.i.i.i.i.i.i.i.i.i.i:                ; preds = %select.unfold.us.i.
   br label %1341
 
 1341:                                             ; preds = %.loopexit1271, %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %1331
-  %.sroa.0743.5.ph = phi i64 [ 4, %1331 ], [ 0, %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.0743.0, %.loopexit1271 ]
+  %.sroa.0743.5.ph = phi i64 [ 4, %1331 ], [ 0, %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 1, %.loopexit1271 ]
   %.sroa.9744.7.ph = phi ptr [ %.sroa.9744.4, %1331 ], [ %.sroa.9744.0, %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.9744.6.lcssa, %.loopexit1271 ]
   %.sroa.12745.8.ph = phi ptr [ %.sroa.12745.4, %1331 ], [ %1317, %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1340, %.loopexit1271 ]
   %.sroa.17.7.ph = phi i64 [ %.sroa.17.4, %1331 ], [ %.sroa.17.0, %.split.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.17.6.lcssa, %.loopexit1271 ]

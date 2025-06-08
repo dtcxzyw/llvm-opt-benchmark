@@ -630,7 +630,7 @@ select.unfold.i.i.i:                              ; preds = %89, %"_ZN4core3str4
   %90 = phi i64 [ %62, %89 ], [ %88, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.lcssa.sink.i.i18.i.i.i = phi ptr [ %.sink18.i.i.i.i.i.i.i, %89 ], [ %.lcssa.sink.i.i19.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.pre.i.i.i15.i.i.i = phi i64 [ %62, %89 ], [ %.pre.i.i.i16.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
-  %91 = phi i8 [ %16, %89 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
+  %91 = phi i8 [ 0, %89 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.pn23.i.i.i = phi i64 [ %20, %89 ], [ %.pre5.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.sroa.4.0.i.i.i.i.i = sub i64 %.pn23.i.i.i, %.pre.i.i.i16.i.i.i
   %.not.i.i.i.i = icmp eq i64 %.sroa.4.0.i.i.i.i.i, 0
@@ -1113,7 +1113,7 @@ select.unfold.i.i.i.i:                            ; preds = %103, %"_ZN4core3str
   %104 = phi i64 [ %76, %103 ], [ %102, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %.lcssa.sink.i.i18.i.i.i.i = phi ptr [ %.sink18.i.i.i.i.i.i.i.i, %103 ], [ %.lcssa.sink.i.i19.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %.pre.i.i.i15.i.i.i.i = phi i64 [ %76, %103 ], [ %.pre.i.i.i16.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
-  %105 = phi i8 [ %30, %103 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
+  %105 = phi i8 [ 0, %103 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %.pn23.i.i.i.i = phi i64 [ %34, %103 ], [ %.pre5.i.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i" ]
   %.not.i.i.i.i.i = icmp eq i64 %.pn23.i.i.i.i, %.pre.i.i.i16.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %28, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread

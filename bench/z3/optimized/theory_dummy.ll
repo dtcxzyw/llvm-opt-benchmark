@@ -177,7 +177,7 @@ define hidden void @_ZN3smt12theory_dummy17found_theory_exprEv(ptr noundef nonnu
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %10, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 %3, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %11 = load ptr, ptr %7, align 8, !tbaa !26
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.noexc2, label %13
@@ -251,7 +251,7 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_atomEP3appb
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %4, ptr %12, align 8
   %.sroa.6.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i8 %5, ptr %.sroa.6.8..sroa_idx.i, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx.i, align 8
   %13 = load ptr, ptr %9, align 8, !tbaa !26
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.noexc2.i, label %15
@@ -304,7 +304,7 @@ define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_termEP3app(
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %11, align 8
   %.sroa.6.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 %4, ptr %.sroa.6.8..sroa_idx.i, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx.i, align 8
   %12 = load ptr, ptr %8, align 8, !tbaa !26
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.noexc2.i, label %14

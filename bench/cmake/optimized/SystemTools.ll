@@ -548,7 +548,7 @@ define dso_local void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx11
   %22 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !20
   %24 = icmp eq i8 %23, 47
-  %spec.select = select i1 %24, i8 1, i8 %.0
+  %spec.select = zext i1 %24 to i8
   br label %25
 
 25:                                               ; preds = %21, %17, %15

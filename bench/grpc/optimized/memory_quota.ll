@@ -8353,9 +8353,9 @@ _ZN9grpc_core4PollIiED2Ev.exit34.thread:          ; preds = %172, %_ZN9__gnu_cxx
   call void @_ZN9grpc_core14ReclaimerQueue8PollNextEv(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::Poll") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %182)
   %183 = load i8, ptr %11, align 8, !tbaa !67, !range !39, !noalias !395, !noundef !40
   %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595", label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit38
+  br i1 %184, label %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread592", label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit38
 
-"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595": ; preds = %.noexc61
+"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread592": ; preds = %.noexc61
   %185 = load ptr, ptr %51, align 8, !tbaa !44, !noalias !395
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #39, !noalias !385
   br label %186
@@ -8364,9 +8364,9 @@ common.resume:                                    ; preds = %328, %324, %.body13
   %common.resume.op = phi { ptr, i32 } [ %457, %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.exit29 ], [ %.pn10.pn.i, %.body135 ], [ %.pn10.pn.i, %324 ], [ %.pn10.pn.i, %328 ]
   resume { ptr, i32 } %common.resume.op
 
-186:                                              ; preds = %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread"
-  %.val69.sink.in = phi ptr [ %.sroa.0261.sroa.9.0..sroa_idx, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595" ], [ %46, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %44, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
-  %.sroa.9505.4.ph = phi ptr [ %185, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595" ], [ %181, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %177, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
+186:                                              ; preds = %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread592", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread"
+  %.val69.sink.in = phi ptr [ %.sroa.0261.sroa.9.0..sroa_idx, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread592" ], [ %46, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %44, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
+  %.sroa.9505.4.ph = phi ptr [ %185, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread592" ], [ %181, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %177, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
   %.val69.sink = load ptr, ptr %.val69.sink.in, align 8, !tbaa !273
   %187 = ptrtoint ptr %.val69.sink to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -8914,14 +8914,14 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %405 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
   %.not.i.i.i.i.i198 = icmp eq i8 %405, 0
-  br i1 %.not.i.i.i.i.i198, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209, label %.thread746
+  br i1 %.not.i.i.i.i.i198, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209, label %.thread748
 
-.thread746:                                       ; preds = %403
+.thread748:                                       ; preds = %403
   %406 = load i32, ptr %404, align 4, !tbaa !31, !noalias !414
   %407 = add nsw i32 %406, 1
   store i32 %407, ptr %404, align 4, !tbaa !31, !noalias !414
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  br label %.thread751
+  br label %.thread753
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209: ; preds = %403
   %409 = atomicrmw volatile add ptr %404, i32 1 acq_rel, align 4, !noalias !414
@@ -8934,16 +8934,16 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209: ; preds = %
   %.pre525 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
   %411 = icmp eq i8 %.pre525, 0
   %412 = getelementptr inbounds nuw i8, ptr %.pr.pre.i210, i64 8
-  br i1 %411, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205, label %.thread751
+  br i1 %411, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205, label %.thread753
 
-.thread751:                                       ; preds = %410, %.thread746
-  %413 = phi ptr [ %408, %.thread746 ], [ %412, %410 ]
-  %414 = phi ptr [ %401, %.thread746 ], [ %.pre.i211, %410 ]
-  %.pr54.i200749 = phi ptr [ %402, %.thread746 ], [ %.pr.pre.i210, %410 ]
+.thread753:                                       ; preds = %410, %.thread748
+  %413 = phi ptr [ %408, %.thread748 ], [ %412, %410 ]
+  %414 = phi ptr [ %401, %.thread748 ], [ %.pre.i211, %410 ]
+  %.pr54.i200751 = phi ptr [ %402, %.thread748 ], [ %.pr.pre.i210, %410 ]
   %415 = load i32, ptr %413, align 4, !tbaa !31, !noalias !414
   %416 = add nsw i32 %415, 1
   store i32 %416, ptr %413, align 4, !tbaa !31, !noalias !414
-  %417 = getelementptr inbounds nuw i8, ptr %.pr54.i200749, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %.pr54.i200751, i64 8
   br label %422
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205: ; preds = %410
@@ -8959,12 +8959,12 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205: ; preds =
   %421 = getelementptr inbounds nuw i8, ptr %.pr44.pre.i206, i64 8
   br i1 %420, label %428, label %422
 
-422:                                              ; preds = %.thread751, %419
-  %423 = phi ptr [ %417, %.thread751 ], [ %421, %419 ]
-  %424 = phi ptr [ %414, %.thread751 ], [ %.pre50.i207, %419 ]
-  %.pr4458.i203756 = phi ptr [ %.pr54.i200749, %.thread751 ], [ %.pr44.pre.i206, %419 ]
-  %.pr54.i200750755 = phi ptr [ %.pr54.i200749, %.thread751 ], [ %.pr.pre.i210, %419 ]
-  %425 = phi ptr [ %414, %.thread751 ], [ %.pre.i211, %419 ]
+422:                                              ; preds = %.thread753, %419
+  %423 = phi ptr [ %417, %.thread753 ], [ %421, %419 ]
+  %424 = phi ptr [ %414, %.thread753 ], [ %.pre50.i207, %419 ]
+  %.pr4458.i203758 = phi ptr [ %.pr54.i200751, %.thread753 ], [ %.pr44.pre.i206, %419 ]
+  %.pr54.i200752757 = phi ptr [ %.pr54.i200751, %.thread753 ], [ %.pr.pre.i210, %419 ]
+  %425 = phi ptr [ %414, %.thread753 ], [ %.pre.i211, %419 ]
   %426 = load i32, ptr %423, align 4, !tbaa !31, !noalias !414
   %427 = add nsw i32 %426, 1
   store i32 %427, ptr %423, align 4, !tbaa !31, !noalias !414
@@ -8987,9 +8987,9 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
 
 432:                                              ; preds = %400, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205, %422, %428
   %433 = phi ptr [ %.pre50.i207, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %424, %422 ], [ %.pre50.i207, %428 ], [ %.pre.i211, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ %401, %400 ]
-  %434 = phi ptr [ %.pr.pre.i210, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr54.i200750755, %422 ], [ %.pr.pre.i210, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
+  %434 = phi ptr [ %.pr.pre.i210, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr54.i200752757, %422 ], [ %.pr.pre.i210, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
   %435 = phi ptr [ %.pre.i211, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %425, %422 ], [ %.pre.i211, %428 ], [ %.pre.i211, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ %401, %400 ]
-  %436 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr4458.i203756, %422 ], [ %.pr44.pre.i206, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
+  %436 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr4458.i203758, %422 ], [ %.pr44.pre.i206, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
   store i8 0, ptr %66, align 8, !tbaa !319, !alias.scope !414
   store i8 0, ptr %72, align 8, !tbaa !319
   store ptr null, ptr %67, align 8, !tbaa !25

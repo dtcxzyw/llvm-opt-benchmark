@@ -11305,9 +11305,9 @@ common.resume:                                    ; preds = %170, %117, %72
 
 100:                                              ; preds = %102
   %.sroa.035.0.copyload.pre = load i64, ptr %16, align 8
+  %101 = trunc nuw i64 %.sroa.035.0.copyload.pre to i1
   store i64 0, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.432, i64 16, i1 false)
-  %101 = trunc nuw i64 %.sroa.035.0.copyload.pre to i1
   br i1 %101, label %116, label %.invoke
 
 102:                                              ; preds = %97
@@ -21161,26 +21161,26 @@ default.unreachable:                              ; preds = %1244
   %.pre1687 = load i8, ptr %584, align 1, !range !90
   %.pre1688 = load i8, ptr %1059, align 4, !range !90
   %.pre1694 = trunc nuw i8 %.pre1687 to i1
-  %1296 = load i32, ptr %1019, align 8, !noundef !3
-  %1297 = trunc nuw i8 %.pre1688 to i1
+  %1296 = trunc nuw i8 %.pre1688 to i1
+  %1297 = load i32, ptr %1019, align 8, !noundef !3
   call void @llvm.experimental.noalias.scope.decl(metadata !1645)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !1645
   store i64 0, ptr %21, align 8, !noalias !1645
   store ptr inttoptr (i64 1 to ptr), ptr %1060, align 8, !noalias !1645
   store i64 0, ptr %1061, align 8, !noalias !1645
   %..i.i.i = select i1 %.pre1694, i8 0, i8 10
-  br i1 %1297, label %.split.i.preheader, label %.split.us.i
+  br i1 %1296, label %.split.i.preheader, label %.split.us.i
 
 .split.i.preheader:                               ; preds = %.thread1696, %1295
   %..i.i.i1699 = phi i8 [ %..i.i.i1698, %.thread1696 ], [ %..i.i.i, %1295 ]
-  %1298 = phi i32 [ %1291, %.thread1696 ], [ %1296, %1295 ]
+  %1298 = phi i32 [ %1291, %.thread1696 ], [ %1297, %1295 ]
   br label %.split.i
 
 .split.us.i:                                      ; preds = %1295, %1325
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %20), !noalias !1645
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %20, i8 0, i64 128, i1 false), !noalias !1645
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19), !noalias !1645
-  invoke void @_ZN4fish6common12read_blocked17hc7f4fe1602d72542E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %19, i32 noundef %1296, ptr noalias noundef nonnull align 1 %20, i64 noundef 128)
+  invoke void @_ZN4fish6common12read_blocked17hc7f4fe1602d72542E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %19, i32 noundef %1297, ptr noalias noundef nonnull align 1 %20, i64 noundef 128)
           to label %1299 unwind label %.loopexit45.split.us.i, !noalias !1645
 
 1299:                                             ; preds = %.split.us.i
@@ -21235,7 +21235,7 @@ default.unreachable:                              ; preds = %1244
 1321:                                             ; preds = %1319
   %reass.sub = sub nsw i64 %.sroa.0.0.i.us.i, %1302
   %1322 = add i64 %reass.sub, 1
-  %1323 = call noundef i64 @lseek(i32 noundef %1296, i64 noundef %1322, i32 noundef 1) #31, !noalias !1645
+  %1323 = call noundef i64 @lseek(i32 noundef %1297, i64 noundef %1322, i32 noundef 1) #31, !noalias !1645
   %1324 = icmp eq i64 %1323, -1
   br i1 %1324, label %.split68.us.i, label %.split70.us.sink.split.i
 

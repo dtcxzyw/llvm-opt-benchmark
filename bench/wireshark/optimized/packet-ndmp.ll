@@ -1215,7 +1215,7 @@ check_ndmp_rm.exit:                               ; preds = %16, %13, %4
   %22 = load i8, ptr @ndmp_defragment, align 1, !range !6
   %23 = trunc nuw i8 %22 to i1
   %or.cond = select i1 %21, i1 %23, i1 false
-  br i1 %or.cond, label %26, label %24
+  br i1 %or.cond, label %27, label %24
 
 24:                                               ; preds = %check_ndmp_rm.exit
   %25 = tail call zeroext i1 @check_if_ndmp(ptr noundef %0, ptr noundef %1)
@@ -1223,17 +1223,17 @@ check_ndmp_rm.exit:                               ; preds = %16, %13, %4
 
 ._crit_edge:                                      ; preds = %24
   %.pre = load i8, ptr @ndmp_desegment, align 1, !range !6
-  %.pre11 = trunc nuw i8 %.pre to i1
-  br label %26
+  %26 = trunc nuw i8 %.pre to i1
+  br label %27
 
-26:                                               ; preds = %._crit_edge, %check_ndmp_rm.exit
-  %.pre-phi = phi i1 [ %.pre11, %._crit_edge ], [ true, %check_ndmp_rm.exit ]
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %.pre-phi, i32 noundef 4, ptr noundef nonnull @get_ndmp_pdu_len, ptr noundef nonnull @dissect_ndmp_message, ptr noundef %3)
-  %27 = tail call i32 @tvb_captured_length(ptr noundef %0)
+27:                                               ; preds = %._crit_edge, %check_ndmp_rm.exit
+  %28 = phi i1 [ %26, %._crit_edge ], [ true, %check_ndmp_rm.exit ]
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %28, i32 noundef 4, ptr noundef nonnull @get_ndmp_pdu_len, ptr noundef nonnull @dissect_ndmp_message, ptr noundef %3)
+  %29 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %check_ndmp_rm.exit.thread
 
-check_ndmp_rm.exit.thread:                        ; preds = %16, %10, %24, %26
-  %.0 = phi i32 [ %27, %26 ], [ 0, %24 ], [ 0, %10 ], [ 0, %16 ]
+check_ndmp_rm.exit.thread:                        ; preds = %16, %10, %24, %27
+  %.0 = phi i32 [ %29, %27 ], [ 0, %24 ], [ 0, %10 ], [ 0, %16 ]
   ret i32 %.0
 }
 

@@ -2294,8 +2294,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv4usac12GraphCutImpl11refine
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %76)
-  %81 = icmp sgt i32 %75, %80
-  %spec.select = select i1 %81, i8 0, i8 %.4.lcssa
+  %81 = icmp sle i32 %75, %80
+  %spec.select = zext i1 %81 to i8
   br label %82
 
 82:                                               ; preds = %74, %._crit_edge

@@ -13353,7 +13353,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit7:
   %94 = load i64, ptr %74, align 8, !noundef !3
   %95 = sub i64 %94, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17he5784701f02fea04E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %95)
-  %96 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h1dbe6956dd963667E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %96 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h1dbe6956dd963667E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %103 unwind label %101
 
 97:                                               ; preds = %72
@@ -13361,7 +13361,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h32c7b6c3d3f9be0cE.exit.loopexit7:
   %98 = load i64, ptr %74, align 8, !noundef !3
   %99 = sub i64 %98, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17he5784701f02fea04E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %99)
-  %100 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h1dbe6956dd963667E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %100 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h1dbe6956dd963667E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %106 unwind label %104
 
 101:                                              ; preds = %93
@@ -13625,7 +13625,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit7:
   %94 = load i64, ptr %74, align 8, !noundef !3
   %95 = sub i64 %94, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17haca749bb2cd0792cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %95)
-  %96 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h4a231a6c6775d7e0E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %96 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h4a231a6c6775d7e0E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %103 unwind label %101
 
 97:                                               ; preds = %72
@@ -13633,7 +13633,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h068f503773eea541E.exit.loopexit7:
   %98 = load i64, ptr %74, align 8, !noundef !3
   %99 = sub i64 %98, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17haca749bb2cd0792cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %99)
-  %100 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h4a231a6c6775d7e0E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %100 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h4a231a6c6775d7e0E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %106 unwind label %104
 
 101:                                              ; preds = %93
@@ -13889,7 +13889,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17he9b462b382939d77E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5394d339c1fbdab7E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5394d339c1fbdab7E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -13897,7 +13897,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2adb5179cfb7942dE.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17he9b462b382939d77E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5394d339c1fbdab7E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5394d339c1fbdab7E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -14155,7 +14155,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit9:
   %87 = load i64, ptr %69, align 8, !noundef !3
   %88 = sub i64 %87, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17hd1863583e752f971E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %88)
-  %89 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5cf76b3c43e75e8fE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %89 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5cf76b3c43e75e8fE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %96 unwind label %94
 
 90:                                               ; preds = %67
@@ -14163,7 +14163,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17haaa85d69e36d1ccdE.exit.loopexit9:
   %91 = load i64, ptr %69, align 8, !noundef !3
   %92 = sub i64 %91, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17hd1863583e752f971E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %92)
-  %93 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5cf76b3c43e75e8fE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %93 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h5cf76b3c43e75e8fE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %99 unwind label %97
 
 94:                                               ; preds = %86
@@ -14419,7 +14419,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h690df5094acfc596E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h891aa275680c95cfE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h891aa275680c95cfE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -14427,7 +14427,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h56d4ee8766193b20E.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h690df5094acfc596E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h891aa275680c95cfE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h891aa275680c95cfE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -14683,7 +14683,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h0a377a6ab30fed33E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h9ecee7c61cfb1e41E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h9ecee7c61cfb1e41E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -14691,7 +14691,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h6f32efc55e0cf21dE.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h0a377a6ab30fed33E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h9ecee7c61cfb1e41E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17h9ecee7c61cfb1e41E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -14947,7 +14947,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h5e55d366b3a74ca0E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17ha8830736081c5dfcE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17ha8830736081c5dfcE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -14955,7 +14955,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17ha39634dd2d1f6605E.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h5e55d366b3a74ca0E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17ha8830736081c5dfcE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17ha8830736081c5dfcE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -15211,7 +15211,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h7d1a0749b12aadccE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hb68a88b47f1eb669E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hb68a88b47f1eb669E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -15219,7 +15219,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h38d98b13d7075eefE.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h7d1a0749b12aadccE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hb68a88b47f1eb669E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hb68a88b47f1eb669E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -15475,7 +15475,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h560f9d3731593026E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hdc989efca8dcfcb8E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hdc989efca8dcfcb8E(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -15483,7 +15483,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h41b33913d7311214E.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h560f9d3731593026E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hdc989efca8dcfcb8E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hdc989efca8dcfcb8E(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -15739,7 +15739,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h1b7f9395a5e587fcE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17he3e1885aa29cdf6cE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17he3e1885aa29cdf6cE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -15747,7 +15747,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hdc5a8b373e82d53aE.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h1b7f9395a5e587fcE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17he3e1885aa29cdf6cE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17he3e1885aa29cdf6cE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85
@@ -16003,7 +16003,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit9:
   %86 = load i64, ptr %68, align 8, !noundef !3
   %87 = sub i64 %86, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h173cafa77ed041daE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 %0, i64 noundef %7, i64 noundef %87)
-  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hf1cc2f72ec34962aE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 %.9.val)
+  %88 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hf1cc2f72ec34962aE(ptr noundef nonnull align 8 %2, i8 %.8.val, i8 0)
           to label %95 unwind label %93
 
 89:                                               ; preds = %66
@@ -16011,7 +16011,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hf4c0881d1ad663e0E.exit.loopexit9:
   %90 = load i64, ptr %68, align 8, !noundef !3
   %91 = sub i64 %90, %7
   call void @"_ZN11polars_core13chunked_array3ops8chunkops67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$5slice17h173cafa77ed041daE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 %0, i64 noundef 0, i64 noundef %91)
-  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hf1cc2f72ec34962aE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 %.9.val)
+  %92 = invoke fastcc noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_ca_num17hf1cc2f72ec34962aE(ptr noundef nonnull align 8 %3, i8 %.8.val, i8 1)
           to label %98 unwind label %96
 
 93:                                               ; preds = %85

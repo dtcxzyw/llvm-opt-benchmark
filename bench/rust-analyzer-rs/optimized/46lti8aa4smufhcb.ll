@@ -22835,7 +22835,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted = load i64, ptr %0, align 8, !alias.scope !7853
-  %.promoted24 = load ptr, ptr %4, align 8, !alias.scope !7853
+  %.promoted21 = load ptr, ptr %4, align 8, !alias.scope !7853
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7856)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !7856
   store i64 2, ptr %0, align 8, !alias.scope !7856
@@ -22851,7 +22851,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb3
 
 8:                                                ; preds = %.lr.ph, %59
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %24, %59 ]
-  %10 = phi ptr [ %.promoted24, %.lr.ph ], [ %25, %59 ]
+  %10 = phi ptr [ %.promoted21, %.lr.ph ], [ %25, %59 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7853)
   store i64 %9, ptr %3, align 8, !noalias !7853
   store ptr %10, ptr %6, align 8, !noalias !7853
@@ -23000,7 +23000,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.
 
 .loopexit:                                        ; preds = %"_ZN3ide16extend_selection16extend_list_item16nearby_delimiter28_$u7b$$u7b$closure$u7d$$u7d$17hf044154ab8309ec3E.exit.i.i", %.noexc.i.i, %23, %.lr.ph.i.i.i.i.i.i, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h9f9a025e4dd9ae41E.exit"
   %.sroa.3.0 = phi ptr [ undef, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h9f9a025e4dd9ae41E.exit" ], [ %27, %.lr.ph.i.i.i.i.i.i ], [ %27, %23 ], [ %27, %.noexc.i.i ], [ %27, %"_ZN3ide16extend_selection16extend_list_item16nearby_delimiter28_$u7b$$u7b$closure$u7d$$u7d$17hf044154ab8309ec3E.exit.i.i" ]
-  %.sroa.0.0 = phi i64 [ 2, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h9f9a025e4dd9ae41E.exit" ], [ %26, %.lr.ph.i.i.i.i.i.i ], [ 1, %"_ZN3ide16extend_selection16extend_list_item16nearby_delimiter28_$u7b$$u7b$closure$u7d$$u7d$17hf044154ab8309ec3E.exit.i.i" ], [ 1, %.noexc.i.i ], [ 0, %23 ]
+  %.sroa.0.0 = phi i64 [ 2, %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$rowan..utility_types..NodeOrToken$LT$rowan..cursor..SyntaxNode$C$rowan..cursor..SyntaxToken$GT$$GT$$GT$17h9f9a025e4dd9ae41E.exit" ], [ 1, %.lr.ph.i.i.i.i.i.i ], [ 1, %"_ZN3ide16extend_selection16extend_list_item16nearby_delimiter28_$u7b$$u7b$closure$u7d$$u7d$17hf044154ab8309ec3E.exit.i.i" ], [ 1, %.noexc.i.i ], [ 0, %23 ]
   %61 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %62 = insertvalue { i64, ptr } %61, ptr %.sroa.3.0, 1
   ret { i64, ptr } %62

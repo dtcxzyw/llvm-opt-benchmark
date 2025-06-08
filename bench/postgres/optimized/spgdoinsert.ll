@@ -1172,7 +1172,7 @@ saveNodeLink.exit.i177:                           ; preds = %.lr.ph.i.i.i171
   %533 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %532, ptr %533, align 4
   %534 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i8 %529, ptr %534, align 4
+  store i8 0, ptr %534, align 4
   %535 = trunc i32 %.0111.lcssa.i to i16
   store i16 %535, ptr %15, align 4
   %536 = getelementptr inbounds nuw i8, ptr %15, i64 3

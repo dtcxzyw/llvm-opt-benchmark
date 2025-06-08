@@ -134201,7 +134201,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23713
   %17 = load i8, ptr %15, align 8, !range !2141, !noalias !23711, !noundef !12
   %trunc4.i = trunc nuw i8 %17 to i1
-  br i1 %trunc4.i, label %.loopexit72, label %.lr.ph.i
+  br i1 %trunc4.i, label %.loopexit75, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -134230,9 +134230,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23713
   %27 = load i8, ptr %15, align 8, !range !2141, !noalias !23711, !noundef !12
   %trunc.i = trunc nuw i8 %27 to i1
-  br i1 %trunc.i, label %.loopexit72, label %21
+  br i1 %trunc.i, label %.loopexit75, label %21
 
-.loopexit72:                                      ; preds = %26, %6
+.loopexit75:                                      ; preds = %26, %6
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !23711, !nonnull !12, !align !59, !noundef !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !23711
@@ -134417,13 +134417,13 @@ _ZN5serde2de10EnumAccess7variant17h3aecbe569ca18a4cE.exit.i: ; preds = %74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !23775
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23777
   %99 = load i8, ptr %9, align 8, !range !2141, !noalias !23775, !noundef !12
-  %trunc.i23 = trunc nuw i8 %99 to i1
-  br i1 %trunc.i23, label %.loopexit, label %93
+  %trunc.i24 = trunc nuw i8 %99 to i1
+  br i1 %trunc.i24, label %.loopexit, label %93
 
 100:                                              ; preds = %86, %85, %84, %79, %74
-  %.sroa.931.0.ph = phi ptr [ %77, %74 ], [ %81, %79 ], [ %82, %84 ], [ %82, %85 ], [ %82, %86 ]
+  %.sroa.932.0.ph = phi ptr [ %77, %74 ], [ %81, %79 ], [ %82, %84 ], [ %82, %85 ], [ %82, %86 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.931.0.ph, ptr %101, align 8
+  store ptr %.sroa.932.0.ph, ptr %101, align 8
   br label %"_ZN178_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..IntervalUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9f0781d807e64fbeE.exit"
 
 .loopexit:                                        ; preds = %98, %87
@@ -134474,8 +134474,8 @@ _ZN5serde2de10EnumAccess7variant17h3aecbe569ca18a4cE.exit.i: ; preds = %74
   store ptr %121, ptr %122, align 8
   br label %"_ZN178_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..IntervalUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9f0781d807e64fbeE.exit"
 
-"_ZN178_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..IntervalUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9f0781d807e64fbeE.exit": ; preds = %63, %61, %59, %57, %116, %114, %105, %.loopexit72, %65, %100, %.loopexit, %31, %39
-  %.sink = phi i8 [ 1, %116 ], [ 0, %114 ], [ 1, %105 ], [ 1, %.loopexit72 ], [ 1, %65 ], [ 1, %100 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %39 ], [ 0, %59 ], [ 0, %61 ], [ 0, %63 ], [ 1, %57 ]
+"_ZN178_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..IntervalUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h9f0781d807e64fbeE.exit": ; preds = %63, %61, %59, %57, %116, %114, %105, %.loopexit75, %65, %100, %.loopexit, %31, %39
+  %.sink = phi i8 [ 1, %116 ], [ 0, %114 ], [ 1, %105 ], [ 1, %.loopexit75 ], [ 1, %65 ], [ 1, %100 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %39 ], [ 0, %59 ], [ 0, %61 ], [ 0, %63 ], [ 1, %57 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -134497,7 +134497,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23807
   %17 = load i8, ptr %15, align 8, !range !2141, !noalias !23805, !noundef !12
   %trunc4.i = trunc nuw i8 %17 to i1
-  br i1 %trunc4.i, label %.loopexit71, label %.lr.ph.i
+  br i1 %trunc4.i, label %.loopexit74, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -134526,9 +134526,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23807
   %27 = load i8, ptr %15, align 8, !range !2141, !noalias !23805, !noundef !12
   %trunc.i = trunc nuw i8 %27 to i1
-  br i1 %trunc.i, label %.loopexit71, label %21
+  br i1 %trunc.i, label %.loopexit74, label %21
 
-.loopexit71:                                      ; preds = %26, %6
+.loopexit74:                                      ; preds = %26, %6
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !23805, !nonnull !12, !align !59, !noundef !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !23805
@@ -134723,13 +134723,13 @@ _ZN5serde2de10EnumAccess7variant17h6257567b7d048bd6E.exit.i: ; preds = %76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !23869
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23871
   %102 = load i8, ptr %9, align 8, !range !2141, !noalias !23869, !noundef !12
-  %trunc.i23 = trunc nuw i8 %102 to i1
-  br i1 %trunc.i23, label %.loopexit, label %96
+  %trunc.i24 = trunc nuw i8 %102 to i1
+  br i1 %trunc.i24, label %.loopexit, label %96
 
 103:                                              ; preds = %89, %88, %87, %86, %81, %76
-  %.sroa.1030.0.ph = phi ptr [ %79, %76 ], [ %83, %81 ], [ %84, %86 ], [ %84, %87 ], [ %84, %88 ], [ %84, %89 ]
+  %.sroa.1031.0.ph = phi ptr [ %79, %76 ], [ %83, %81 ], [ %84, %86 ], [ %84, %87 ], [ %84, %88 ], [ %84, %89 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.1030.0.ph, ptr %104, align 8
+  store ptr %.sroa.1031.0.ph, ptr %104, align 8
   br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..TimeUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha0850290ab6419f2E.exit"
 
 .loopexit:                                        ; preds = %101, %90
@@ -134780,8 +134780,8 @@ _ZN5serde2de10EnumAccess7variant17h6257567b7d048bd6E.exit.i: ; preds = %76
   store ptr %124, ptr %125, align 8
   br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..TimeUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha0850290ab6419f2E.exit"
 
-"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..TimeUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha0850290ab6419f2E.exit": ; preds = %65, %63, %61, %59, %57, %119, %117, %108, %.loopexit71, %67, %103, %.loopexit, %31, %39
-  %.sink = phi i8 [ 1, %119 ], [ 0, %117 ], [ 1, %108 ], [ 1, %.loopexit71 ], [ 1, %67 ], [ 1, %103 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %39 ], [ 0, %59 ], [ 0, %61 ], [ 0, %63 ], [ 0, %65 ], [ 1, %57 ]
+"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..TimeUnit$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17ha0850290ab6419f2E.exit": ; preds = %65, %63, %61, %59, %57, %119, %117, %108, %.loopexit74, %67, %103, %.loopexit, %31, %39
+  %.sink = phi i8 [ 1, %119 ], [ 0, %117 ], [ 1, %108 ], [ 1, %.loopexit74 ], [ 1, %67 ], [ 1, %103 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %39 ], [ 0, %59 ], [ 0, %61 ], [ 0, %63 ], [ 0, %65 ], [ 1, %57 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -134803,7 +134803,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23901
   %17 = load i8, ptr %15, align 8, !range !2141, !noalias !23899, !noundef !12
   %trunc4.i = trunc nuw i8 %17 to i1
-  br i1 %trunc4.i, label %.loopexit74, label %.lr.ph.i
+  br i1 %trunc4.i, label %.loopexit77, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -134832,9 +134832,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23901
   %27 = load i8, ptr %15, align 8, !range !2141, !noalias !23899, !noundef !12
   %trunc.i = trunc nuw i8 %27 to i1
-  br i1 %trunc.i, label %.loopexit74, label %21
+  br i1 %trunc.i, label %.loopexit77, label %21
 
-.loopexit74:                                      ; preds = %26, %6
+.loopexit77:                                      ; preds = %26, %6
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %29 = load ptr, ptr %28, align 8, !noalias !23899, !nonnull !12, !align !59, !noundef !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !23899
@@ -134994,13 +134994,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !23963
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !23965
   %95 = load i8, ptr %9, align 8, !range !2141, !noalias !23963, !noundef !12
-  %trunc.i25 = trunc nuw i8 %95 to i1
-  br i1 %trunc.i25, label %.loopexit, label %89
+  %trunc.i26 = trunc nuw i8 %95 to i1
+  br i1 %trunc.i26, label %.loopexit, label %89
 
 96:                                               ; preds = %80, %77, %72
-  %.sroa.733.0.ph = phi ptr [ %75, %72 ], [ %79, %77 ], [ %81, %80 ]
+  %.sroa.734.0.ph = phi ptr [ %75, %72 ], [ %79, %77 ], [ %81, %80 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.733.0.ph, ptr %97, align 8
+  store ptr %.sroa.734.0.ph, ptr %97, align 8
   br label %"_ZN175_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..UnionMode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h646cc8036ef45865E.exit"
 
 .loopexit:                                        ; preds = %94, %83
@@ -135051,8 +135051,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store ptr %117, ptr %118, align 8
   br label %"_ZN175_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..UnionMode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h646cc8036ef45865E.exit"
 
-"_ZN175_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..UnionMode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h646cc8036ef45865E.exit": ; preds = %62, %61, %59, %112, %110, %101, %.loopexit74, %63, %96, %.loopexit, %31, %39
-  %.sink = phi i8 [ 1, %112 ], [ 0, %110 ], [ 1, %101 ], [ 1, %.loopexit74 ], [ 1, %63 ], [ 1, %96 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %39 ], [ 1, %59 ], [ 0, %62 ], [ 0, %61 ]
+"_ZN175_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..UnionMode$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h646cc8036ef45865E.exit": ; preds = %62, %61, %59, %112, %110, %101, %.loopexit77, %63, %96, %.loopexit, %31, %39
+  %.sink = phi i8 [ 1, %112 ], [ 0, %110 ], [ 1, %101 ], [ 1, %.loopexit77 ], [ 1, %63 ], [ 1, %96 ], [ 1, %.loopexit ], [ 1, %31 ], [ 1, %39 ], [ 1, %59 ], [ 0, %62 ], [ 0, %61 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }
@@ -135104,7 +135104,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %46), !noalias !23995
   %47 = load i8, ptr %43, align 8, !range !2141, !noalias !23993, !noundef !12
   %trunc4.i = trunc nuw i8 %47 to i1
-  br i1 %trunc4.i, label %.loopexit74, label %.lr.ph.i
+  br i1 %trunc4.i, label %.loopexit77, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 1
@@ -135133,9 +135133,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   call void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %46), !noalias !23995
   %57 = load i8, ptr %43, align 8, !range !2141, !noalias !23993, !noundef !12
   %trunc.i = trunc nuw i8 %57 to i1
-  br i1 %trunc.i, label %.loopexit74, label %51
+  br i1 %trunc.i, label %.loopexit77, label %51
 
-.loopexit74:                                      ; preds = %56, %6
+.loopexit77:                                      ; preds = %56, %6
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %59 = load ptr, ptr %58, align 8, !noalias !23993, !nonnull !12, !align !59, !noundef !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !23993
@@ -135577,67 +135577,67 @@ _ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i: ; preds = %157
 165:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %166 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %167 = icmp eq ptr %166, null
-  br i1 %167, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %167, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 168:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %169 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %170 = icmp eq ptr %169, null
-  br i1 %170, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %170, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 171:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %172 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %173 = icmp eq ptr %172, null
-  br i1 %173, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %173, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 174:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %175 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %176, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 177:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %178 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %179, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 180:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %181 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %182, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 183:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %184 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %185 = icmp eq ptr %184, null
-  br i1 %185, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %185, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 186:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %187 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %188, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 189:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %190 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %191 = icmp eq ptr %190, null
-  br i1 %191, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %191, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 192:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %193 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %194 = icmp eq ptr %193, null
-  br i1 %194, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %194, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 195:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %196 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %197 = icmp eq ptr %196, null
-  br i1 %197, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %197, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 198:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %199 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %200 = icmp eq ptr %199, null
-  br i1 %200, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %200, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 201:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %202 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %203, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 204:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   call void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_seq17hf72145a4d20a071dE.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
@@ -135646,12 +135646,12 @@ _ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i: ; preds = %157
 205:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %206 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %207, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 208:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %209 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %210, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 211:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !24167
@@ -135772,7 +135772,7 @@ _ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i: ; preds = %157
 247:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %248 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %249 = icmp eq ptr %248, null
-  br i1 %249, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %249, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 250:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !24167
@@ -135806,17 +135806,17 @@ _ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i: ; preds = %157
 259:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %260 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %261 = icmp eq ptr %260, null
-  br i1 %261, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %261, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 262:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %263 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %264 = icmp eq ptr %263, null
-  br i1 %264, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %264, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 265:                                              ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   %266 = tail call noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17hc6a91861f95df358E.llvm.1318268667020908976"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
+  br i1 %267, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h0761f0020b871a4fE.exit.i18": ; preds = %_ZN5serde2de10EnumAccess7variant17h2d01b3440bce79d2E.exit.i
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %15), !noalias !24208
@@ -135955,18 +135955,18 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
 "_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit": ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exitthread-pre-split", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i23", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i22", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i21", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i20", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i19", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0761f0020b871a4fE.exit.i18", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb24d1474501e8d63E.exit.i17", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i16"
   %311 = phi i8 [ %.pr, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exitthread-pre-split" ], [ %.sink.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i23" ], [ %.sink.i195.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i22" ], [ %.sink.i198.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i21" ], [ %.sink.i201.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i20" ], [ %.sink.i203.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i19" ], [ %spec.select.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0761f0020b871a4fE.exit.i18" ], [ %spec.select214.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb24d1474501e8d63E.exit.i17" ], [ %.sink.i207.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i16" ]
   %312 = icmp eq i8 %311, 35
-  br i1 %312, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit._ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread_crit_edge", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60"
+  br i1 %312, label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit._ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread_crit_edge", label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62"
 
 "_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit._ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread_crit_edge": ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit"
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread"
 
-"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split": ; preds = %265, %262, %259, %247, %208, %205, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165
+"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split": ; preds = %265, %262, %259, %247, %208, %205, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165
   store i8 %159, ptr %44, align 8, !alias.scope !24155, !noalias !24222
-  br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60"
+  br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62"
 
-"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60": ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60.sink.split", %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit"
+"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62": ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62.sink.split", %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   %313 = load i8, ptr %77, align 8, !noundef !12
@@ -135977,17 +135977,17 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
   invoke void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %46)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60"
+.noexc:                                           ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62"
   %315 = load i8, ptr %9, align 8, !range !2141, !noalias !24273, !noundef !12
   %trunc4.i24 = trunc nuw i8 %315 to i1
-  br i1 %trunc4.i24, label %.loopexit73, label %.lr.ph.i25
+  br i1 %trunc4.i24, label %.loopexit76, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %.noexc
   %316 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %317 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %318
 
-318:                                              ; preds = %.noexc29, %.lr.ph.i25
+318:                                              ; preds = %.noexc30, %.lr.ph.i25
   %319 = load i8, ptr %316, align 1, !range !2141, !noalias !24273, !noundef !12
   %320 = trunc nuw i8 %319 to i1
   br i1 %320, label %321, label %331
@@ -136006,12 +136006,12 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !24273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !24273
   invoke void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as$u20$serde_json..read..Read$GT$4peek17h18d51b327d63dbc8E.llvm.1318268667020908976"(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %46)
-          to label %.noexc29 unwind label %.loopexit
+          to label %.noexc30 unwind label %.loopexit
 
-.noexc29:                                         ; preds = %323
+.noexc30:                                         ; preds = %323
   %324 = load i8, ptr %9, align 8, !range !2141, !noalias !24273, !noundef !12
-  %trunc.i27 = trunc nuw i8 %324 to i1
-  br i1 %trunc.i27, label %.loopexit73, label %318
+  %trunc.i28 = trunc nuw i8 %324 to i1
+  br i1 %trunc.i28, label %.loopexit76, label %318
 
 "_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread": ; preds = %265, %262, %259, %247, %208, %205, %201, %198, %195, %192, %189, %186, %183, %180, %177, %174, %171, %168, %165, %157, %162, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit._ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread_crit_edge"
   %325 = phi ptr [ %.pre, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit._ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread_crit_edge" ], [ %164, %162 ], [ %160, %157 ], [ %166, %165 ], [ %169, %168 ], [ %172, %171 ], [ %175, %174 ], [ %178, %177 ], [ %181, %180 ], [ %184, %183 ], [ %187, %186 ], [ %190, %189 ], [ %193, %192 ], [ %196, %195 ], [ %199, %198 ], [ %202, %201 ], [ %206, %205 ], [ %209, %208 ], [ %248, %247 ], [ %260, %259 ], [ %263, %262 ], [ %266, %265 ]
@@ -136027,7 +136027,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
           cleanup
   br label %327
 
-.loopexit.split-lp:                               ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread60"
+.loopexit.split-lp:                               ; preds = %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread62"
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %327
@@ -136037,7 +136037,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
   invoke void @"_ZN4core3ptr53drop_in_place$LT$arrow_schema..datatype..DataType$GT$17he7cb2288da6b5fb2E.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45) #51
           to label %354 unwind label %352
 
-.loopexit73:                                      ; preds = %.noexc29, %.noexc
+.loopexit76:                                      ; preds = %.noexc30, %.noexc
   %328 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %329 = load ptr, ptr %328, align 8, !noalias !24273, !nonnull !12, !align !59, !noundef !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !24273
@@ -136100,9 +136100,9 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
   br label %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h226491c01952fedcE.exit"
 
 .critedge:                                        ; preds = %341, %349
-  %.sink88 = phi ptr [ %336, %341 ], [ %347, %349 ]
+  %.sink91 = phi ptr [ %336, %341 ], [ %347, %349 ]
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink88, ptr %351, align 8
+  store ptr %.sink91, ptr %351, align 8
   store i8 35, ptr %0, align 8
   call void @"_ZN4core3ptr53drop_in_place$LT$arrow_schema..datatype..DataType$GT$17he7cb2288da6b5fb2E.llvm.18016462908235130027"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45)
   br label %350
@@ -136113,7 +136113,7 @@ _ZN5serde2de13VariantAccess15newtype_variant17hcc521cbaefdee538E.exit.i: ; preds
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #52
   unreachable
 
-"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h226491c01952fedcE.exit": ; preds = %.loopexit74, %148, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread", %.loopexit73, %145, %142, %139, %136, %133, %130, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb24d1474501e8d63E.exit.i", %123, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0761f0020b871a4fE.exit.i", %120, %119, %118, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i", %115, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i", %106, %105, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %87, %61, %350, %69
+"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h226491c01952fedcE.exit": ; preds = %.loopexit77, %148, %"_ZN174_$LT$arrow_schema..datatype.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$arrow_schema..datatype..DataType$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hc763b3e104be81d5E.exit.thread", %.loopexit76, %145, %142, %139, %136, %133, %130, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8ba5c851cbaca05eE.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hb24d1474501e8d63E.exit.i", %123, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0761f0020b871a4fE.exit.i", %120, %119, %118, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he0901a0844c6396bE.exit.i", %115, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hfe26b159d12bfd90E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4675a3e1831b0483E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc4325d3874fccce5E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hf54cd8925f556746E.exit.i", %106, %105, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %87, %61, %350, %69
   ret void
 
 354:                                              ; preds = %327, %339

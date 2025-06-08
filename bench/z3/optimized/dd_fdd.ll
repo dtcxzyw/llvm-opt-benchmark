@@ -1337,7 +1337,7 @@ _ZN2dd3bddD2Ev.exit:                              ; preds = %93, %86, %_ZNK6vect
 102:                                              ; preds = %100
   %103 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !43
   %104 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE7get_bitERK3mpzj(ptr noundef nonnull align 8 dereferenceable(728) %103, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %52)
-  %spec.select = select i1 %104, i8 %.027132, i8 0
+  %spec.select = zext i1 %104 to i8
   br label %.thread101
 
 105:                                              ; preds = %_ZN2dd3bddD2Ev.exit
@@ -1459,7 +1459,8 @@ _ZN2dd3bddD2Ev.exit49:                            ; preds = %151, %144, %_ZNK6ve
 160:                                              ; preds = %159
   %161 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !43
   %162 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE7get_bitERK3mpzj(ptr noundef nonnull align 8 dereferenceable(728) %161, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %52)
-  %spec.select31 = select i1 %162, i8 0, i8 %.027132
+  %not. = xor i1 %162, true
+  %spec.select31 = zext i1 %not. to i8
   br label %.thread
 
 163:                                              ; preds = %_ZN2dd3bddD2Ev.exit49

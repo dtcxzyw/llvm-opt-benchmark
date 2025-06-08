@@ -135,36 +135,36 @@ lv_theme_mono_is_inited.exit.i.i:                 ; preds = %lv_theme_mono_is_in
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 776), align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 344
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !8, !range !19
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %0, ptr %16, align 8, !tbaa !23
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr @lv_font_montserrat_14, ptr %17, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr @lv_font_montserrat_14, ptr %18, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store ptr @lv_font_montserrat_14, ptr %19, align 8, !tbaa !26
+  %16 = trunc nuw i8 %.pre to i1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr %0, ptr %17, align 8, !tbaa !23
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr @lv_font_montserrat_14, ptr %18, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store ptr @lv_font_montserrat_14, ptr %19, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store ptr @lv_font_montserrat_14, ptr %20, align 8, !tbaa !26
   store ptr @theme_apply, ptr %15, align 8, !tbaa !27
-  %20 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  %22 = trunc nuw i8 %.pre to i1
-  br i1 %22, label %23, label %lv_theme_mono_is_inited.exit.thread.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  br i1 %16, label %23, label %lv_theme_mono_is_inited.exit.thread.i.i
 
 23:                                               ; preds = %lv_theme_mono_is_inited.exit.i.i.thread, %lv_theme_mono_is_inited.exit.i.i
-  %24 = phi ptr [ %14, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %21, %lv_theme_mono_is_inited.exit.i.i ]
-  %25 = phi ptr [ %13, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %20, %lv_theme_mono_is_inited.exit.i.i ]
-  %26 = phi ptr [ %9, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %16, %lv_theme_mono_is_inited.exit.i.i ]
+  %24 = phi ptr [ %14, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %22, %lv_theme_mono_is_inited.exit.i.i ]
+  %25 = phi ptr [ %13, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %21, %lv_theme_mono_is_inited.exit.i.i ]
+  %26 = phi ptr [ %9, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %17, %lv_theme_mono_is_inited.exit.i.i ]
   %27 = phi ptr [ %4, %lv_theme_mono_is_inited.exit.i.i.thread ], [ %15, %lv_theme_mono_is_inited.exit.i.i ]
   tail call void @lv_style_reset(ptr noundef nonnull %24) #3
   br label %style_init_reset.exit.i
 
 lv_theme_mono_is_inited.exit.thread.i.i:          ; preds = %lv_theme_mono_is_inited.exit.i.i
-  tail call void @lv_style_init(ptr noundef nonnull %21) #3
+  tail call void @lv_style_init(ptr noundef nonnull %22) #3
   br label %style_init_reset.exit.i
 
 style_init_reset.exit.i:                          ; preds = %lv_theme_mono_is_inited.exit.thread.i.i, %23
-  %28 = phi ptr [ %21, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %24, %23 ]
-  %29 = phi ptr [ %20, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %25, %23 ]
-  %30 = phi ptr [ %16, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %26, %23 ]
+  %28 = phi ptr [ %22, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %24, %23 ]
+  %29 = phi ptr [ %21, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %25, %23 ]
+  %30 = phi ptr [ %17, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %26, %23 ]
   %31 = phi ptr [ %15, %lv_theme_mono_is_inited.exit.thread.i.i ], [ %27, %23 ]
   tail call void @lv_style_set_bg_opa(ptr noundef nonnull %28, i8 noundef zeroext -1) #3
   br i1 %1, label %32, label %34

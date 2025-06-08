@@ -20219,8 +20219,8 @@ _ZN14InitializeNode16get_store_offsetEP4NodeP11PhaseValues.exit: ; preds = %60
 
 99:                                               ; preds = %93
   %100 = add nsw i32 %.089118, 1
-  %101 = icmp sgt i32 %.089118, 1
-  %spec.select104 = select i1 %101, i8 0, i8 %.287119
+  %101 = icmp slt i32 %.089118, 2
+  %spec.select104 = zext i1 %101 to i8
   br label %102
 
 102:                                              ; preds = %99, %91, %93, %73

@@ -50548,7 +50548,8 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %44
 
 _ZNK13poly_rewriterI16bv_rewriter_coreE6mon_ltclEP4exprS4_.exit: ; preds = %.noexc117, %64
   %.0.i = phi i1 [ %69, %.noexc117 ], [ %65, %64 ]
-  %spec.select = select i1 %.0.i, i8 0, i8 %.087415
+  %not..0.i = xor i1 %.0.i, true
+  %spec.select = zext i1 %not..0.i to i8
   br label %70
 
 70:                                               ; preds = %_ZNK13poly_rewriterI16bv_rewriter_coreE6mon_ltclEP4exprS4_.exit, %58, %54, %_ZN8rationalpLERKS_.exit

@@ -450,10 +450,10 @@ cache_config_error.exit119:                       ; preds = %162, %164
 174:                                              ; preds = %171
   %175 = tail call fastcc ptr @caches_init(i32 noundef %.0103.lcssa240, i32 noundef %.0100.lcssa242, i32 noundef %.0106.lcssa238)
   %.pre228 = load i8, ptr @use_l2, align 1, !range !3
+  %176 = trunc nuw i8 %.pre228 to i1
   store ptr %175, ptr @l2_ucaches, align 8
-  %176 = icmp eq ptr %175, null
-  %177 = trunc nuw i8 %.pre228 to i1
-  %or.cond = select i1 %176, i1 %177, i1 false
+  %177 = icmp eq ptr %175, null
+  %or.cond = select i1 %177, i1 %176, i1 false
   br i1 %or.cond, label %178, label %187
 
 178:                                              ; preds = %174

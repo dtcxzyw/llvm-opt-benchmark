@@ -573,7 +573,7 @@ define internal range(i32 -1, 1) i32 @H5MF__sect_small_merge(ptr noundef capture
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1976
   %21 = load i64, ptr %20, align 8, !tbaa !43
   %22 = icmp eq i64 %16, %21
-  br i1 %22, label %23, label %60
+  br i1 %22, label %23, label %61
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -629,29 +629,29 @@ define internal range(i32 -1, 1) i32 @H5MF__sect_small_merge(ptr noundef capture
   %58 = load ptr, ptr %0, align 8, !tbaa !22
   %59 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5MF_free_section_t_reg_free_list, ptr noundef %58) #4
   %.pre.pre = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7
-  %.pre32 = trunc nuw i8 %.pre.pre to i1
+  %60 = trunc nuw i8 %.pre.pre to i1
   br label %H5MF__sect_free.exit
 
 H5MF__sect_free.exit:                             ; preds = %50, %57
-  %.pre27.pre-phi = phi i1 [ false, %50 ], [ %.pre32, %57 ]
+  %.pre = phi i1 [ false, %50 ], [ %60, %57 ]
   store ptr null, ptr %0, align 8, !tbaa !22
   %.pre25 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %.pre28 = trunc nuw i8 %.pre25 to i1
   %.pre30 = xor i1 %.pre28, true
-  br label %60
+  br label %61
 
-60:                                               ; preds = %H5MF__sect_free.exit, %10
+61:                                               ; preds = %H5MF__sect_free.exit, %10
   %.pre-phi31 = phi i1 [ %.pre30, %H5MF__sect_free.exit ], [ %8, %10 ]
-  %.pre-phi = phi i1 [ %.pre27.pre-phi, %H5MF__sect_free.exit ], [ %5, %10 ]
-  %61 = select i1 %.pre-phi, i1 true, i1 %.pre-phi31
-  br i1 %61, label %62, label %H5MF__sect_free.exit24, !prof !9
+  %.pre-phi = phi i1 [ %.pre, %H5MF__sect_free.exit ], [ %5, %10 ]
+  %62 = select i1 %.pre-phi, i1 true, i1 %.pre-phi31
+  br i1 %62, label %63, label %H5MF__sect_free.exit24, !prof !9
 
-62:                                               ; preds = %60
-  %63 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5MF_free_section_t_reg_free_list, ptr noundef nonnull %1) #4
+63:                                               ; preds = %61
+  %64 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5MF_free_section_t_reg_free_list, ptr noundef nonnull %1) #4
   br label %H5MF__sect_free.exit24
 
-H5MF__sect_free.exit24:                           ; preds = %62, %60, %29, %46, %3
-  %.0 = phi i32 [ -1, %29 ], [ -1, %46 ], [ 0, %3 ], [ 0, %60 ], [ 0, %62 ]
+H5MF__sect_free.exit24:                           ; preds = %63, %61, %29, %46, %3
+  %.0 = phi i32 [ -1, %29 ], [ -1, %46 ], [ 0, %3 ], [ 0, %61 ], [ 0, %63 ]
   ret i32 %.0
 }
 

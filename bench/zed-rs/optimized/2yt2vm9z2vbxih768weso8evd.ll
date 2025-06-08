@@ -22682,8 +22682,8 @@ define hidden noundef align 16 dereferenceable_or_null(144) ptr @"_ZN96_$LT$sum_
 6:                                                ; preds = %1
   tail call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h1cfd021372229751E.llvm.292912410329304568"(ptr noalias noundef nonnull align 8 dereferenceable(280) %0, ptr noalias nonnull readonly align 1 poison, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.993d40d907f3d57fd383d7fe1fcf6e6f.72.llvm.292912410329304568)
   %.pre = load i8, ptr %3, align 8, !range !86, !alias.scope !4616, !noalias !4619
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4616)
   %7 = trunc nuw i8 %.pre to i1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4616)
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %6
@@ -22760,8 +22760,8 @@ define hidden noundef align 16 dereferenceable_or_null(144) ptr @"_ZN96_$LT$sum_
 6:                                                ; preds = %1
   tail call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hdad3783b3bec3c37E"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noalias nonnull readonly align 1 poison, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.993d40d907f3d57fd383d7fe1fcf6e6f.72.llvm.292912410329304568)
   %.pre = load i8, ptr %3, align 8, !range !86, !alias.scope !4622, !noalias !4625
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4622)
   %7 = trunc nuw i8 %.pre to i1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4622)
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %6

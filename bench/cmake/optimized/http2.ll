@@ -1067,7 +1067,7 @@ define internal void @cf_h2_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   %8 = load ptr, ptr %7, align 8, !tbaa !121
   %.not51 = icmp eq ptr %8, null
-  br i1 %.not51, label %84, label %9
+  br i1 %.not51, label %86, label %9
 
 9:                                                ; preds = %3
   %10 = tail call i32 @Curl_conn_cf_get_socket(ptr noundef nonnull %0, ptr noundef %1) #11
@@ -1077,7 +1077,7 @@ define internal void @cf_h2_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
   %13 = load i8, ptr %5, align 1, !range !113
   %14 = trunc nuw i8 %13 to i1
   %or.cond = select i1 %12, i1 true, i1 %14
-  br i1 %or.cond, label %15, label %56
+  br i1 %or.cond, label %15, label %58
 
 15:                                               ; preds = %9
   %.not55 = icmp eq ptr %1, null
@@ -1122,99 +1122,99 @@ define internal void @cf_h2_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr n
   %38 = call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %37, i32 noundef %34) #11
   %.not57 = icmp eq i32 %38, 0
   %.pre60 = load i8, ptr %5, align 1, !range !113
-  %.pre61 = trunc nuw i8 %.pre60 to i1
   br label %.thread
 
 .thread:                                          ; preds = %21, %36, %32, %27
-  %39 = phi i1 [ %.not56, %36 ], [ %.not56, %32 ], [ %.not56, %27 ], [ false, %21 ]
-  %.pre-phi = phi i1 [ %.pre61, %36 ], [ true, %32 ], [ %30, %27 ], [ false, %21 ]
-  %40 = phi i1 [ %.not57, %36 ], [ false, %32 ], [ false, %27 ], [ false, %21 ]
-  %41 = load i8, ptr %4, align 1, !tbaa !111, !range !113, !noundef !114
-  %42 = trunc nuw i8 %41 to i1
-  %or.cond5 = select i1 %42, i1 true, i1 %39
-  %narrow = or i1 %40, %or.cond5
+  %39 = phi i1 [ %.not56, %32 ], [ %.not56, %27 ], [ %.not56, %36 ], [ false, %21 ]
+  %40 = phi i8 [ 1, %32 ], [ %.pre59, %27 ], [ %.pre60, %36 ], [ 0, %21 ]
+  %41 = phi i1 [ false, %32 ], [ false, %27 ], [ %.not57, %36 ], [ false, %21 ]
+  %42 = load i8, ptr %4, align 1, !tbaa !111, !range !113, !noundef !114
+  %43 = trunc nuw i8 %42 to i1
+  %or.cond5 = select i1 %43, i1 true, i1 %39
+  %narrow = or i1 %41, %or.cond5
   %spec.select = zext i1 %narrow to i8
   store i8 %spec.select, ptr %4, align 1, !tbaa !111
-  %.not = xor i1 %40, true
-  %or.cond7 = select i1 %.not, i1 %.pre-phi, i1 false
-  br i1 %or.cond7, label %51, label %43
+  %.not = xor i1 %41, true
+  %44 = trunc nuw i8 %40 to i1
+  %or.cond7 = select i1 %.not, i1 %44, i1 false
+  br i1 %or.cond7, label %53, label %45
 
-43:                                               ; preds = %.thread
-  br i1 %39, label %47, label %44
+45:                                               ; preds = %.thread
+  br i1 %39, label %49, label %46
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %7, align 8, !tbaa !121
-  %46 = call i32 @nghttp2_session_want_write(ptr noundef %45) #11
-  %.not58 = icmp eq i32 %46, 0
-  br i1 %.not58, label %47, label %51
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %7, align 8, !tbaa !121
+  %48 = call i32 @nghttp2_session_want_write(ptr noundef %47) #11
+  %.not58 = icmp eq i32 %48, 0
+  br i1 %.not58, label %49, label %53
 
-47:                                               ; preds = %44, %43
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %49 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %48) #11
-  %50 = xor i1 %49, true
-  br label %51
+49:                                               ; preds = %46, %45
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %51 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %50) #11
+  %52 = xor i1 %51, true
+  br label %53
 
-51:                                               ; preds = %.thread, %47, %44
-  %52 = phi i1 [ true, %44 ], [ %50, %47 ], [ true, %.thread ]
-  %53 = zext i1 %52 to i8
-  store i8 %53, ptr %5, align 1, !tbaa !111
-  %54 = load i8, ptr %4, align 1, !tbaa !111, !range !113, !noundef !114
-  %55 = trunc nuw i8 %54 to i1
-  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %10, i1 noundef zeroext %55, i1 noundef zeroext %52) #11
+53:                                               ; preds = %.thread, %49, %46
+  %54 = phi i1 [ true, %46 ], [ %52, %49 ], [ true, %.thread ]
+  %55 = zext i1 %54 to i8
+  store i8 %55, ptr %5, align 1, !tbaa !111
+  %56 = load i8, ptr %4, align 1, !tbaa !111, !range !113, !noundef !114
+  %57 = trunc nuw i8 %56 to i1
+  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %10, i1 noundef zeroext %57, i1 noundef zeroext %54) #11
   br label %.sink.split
 
-56:                                               ; preds = %9
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 280
-  %58 = load i8, ptr %57, align 8
-  %59 = and i8 %58, 16
-  %.not52 = icmp eq i8 %59, 0
-  br i1 %.not52, label %84, label %60
+58:                                               ; preds = %9
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 280
+  %60 = load i8, ptr %59, align 8
+  %61 = and i8 %60, 16
+  %.not52 = icmp eq i8 %61, 0
+  br i1 %.not52, label %86, label %62
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %62 = load i8, ptr %61, align 4
-  %63 = and i8 %62, 2
-  %.not53 = icmp eq i8 %63, 0
-  br i1 %.not53, label %64, label %84
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %64 = load i8, ptr %63, align 4
+  %65 = and i8 %64, 2
+  %.not53 = icmp eq i8 %65, 0
+  br i1 %.not53, label %66, label %86
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %6, align 8, !tbaa !107
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %.sroa.0.0.copyload17 = load ptr, ptr %66, align 8, !tbaa !115
-  store ptr %1, ptr %66, align 8, !tbaa !116
-  %67 = load ptr, ptr %7, align 8, !tbaa !121
-  %68 = call i32 @nghttp2_session_want_write(ptr noundef %67) #11
-  %.not54 = icmp eq i32 %68, 0
-  br i1 %.not54, label %69, label %74
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %6, align 8, !tbaa !107
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %.sroa.0.0.copyload17 = load ptr, ptr %68, align 8, !tbaa !115
+  store ptr %1, ptr %68, align 8, !tbaa !116
+  %69 = load ptr, ptr %7, align 8, !tbaa !121
+  %70 = call i32 @nghttp2_session_want_write(ptr noundef %69) #11
+  %.not54 = icmp eq i32 %70, 0
+  br i1 %.not54, label %71, label %76
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %71 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %70) #11
-  %72 = xor i1 %71, true
-  %73 = zext i1 %72 to i8
-  br label %74
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %73 = call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %72) #11
+  %74 = xor i1 %73, true
+  %75 = zext i1 %74 to i8
+  br label %76
 
-74:                                               ; preds = %69, %64
-  %75 = phi i8 [ 1, %64 ], [ %73, %69 ]
-  store i8 %75, ptr %5, align 1, !tbaa !111
-  %76 = load ptr, ptr %7, align 8, !tbaa !121
-  %77 = call i32 @nghttp2_session_want_read(ptr noundef %76) #11
-  %78 = icmp ne i32 %77, 0
-  %79 = zext i1 %78 to i8
-  store i8 %79, ptr %4, align 1, !tbaa !111
-  %80 = load i8, ptr %5, align 1, !tbaa !111, !range !113, !noundef !114
-  %81 = trunc nuw i8 %80 to i1
-  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %10, i1 noundef zeroext %78, i1 noundef zeroext %81) #11
+76:                                               ; preds = %71, %66
+  %77 = phi i8 [ 1, %66 ], [ %75, %71 ]
+  store i8 %77, ptr %5, align 1, !tbaa !111
+  %78 = load ptr, ptr %7, align 8, !tbaa !121
+  %79 = call i32 @nghttp2_session_want_read(ptr noundef %78) #11
+  %80 = icmp ne i32 %79, 0
+  %81 = zext i1 %80 to i8
+  store i8 %81, ptr %4, align 1, !tbaa !111
+  %82 = load i8, ptr %5, align 1, !tbaa !111, !range !113, !noundef !114
+  %83 = trunc nuw i8 %82 to i1
+  call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %10, i1 noundef zeroext %80, i1 noundef zeroext %83) #11
   br label %.sink.split
 
-.sink.split:                                      ; preds = %74, %51
-  %.sroa.0.0.copyload.sink = phi ptr [ %.sroa.0.0.copyload, %51 ], [ %.sroa.0.0.copyload17, %74 ]
-  %82 = load ptr, ptr %6, align 8, !tbaa !107
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %.sroa.0.0.copyload.sink, ptr %83, align 8, !tbaa !115
-  br label %84
+.sink.split:                                      ; preds = %76, %53
+  %.sroa.0.0.copyload.sink = phi ptr [ %.sroa.0.0.copyload, %53 ], [ %.sroa.0.0.copyload17, %76 ]
+  %84 = load ptr, ptr %6, align 8, !tbaa !107
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %.sroa.0.0.copyload.sink, ptr %85, align 8, !tbaa !115
+  br label %86
 
-84:                                               ; preds = %.sink.split, %60, %56, %3
+86:                                               ; preds = %.sink.split, %62, %58, %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
   ret void

@@ -6501,7 +6501,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61: ; preds = %_ZStl
   %187 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %188 = load i32, ptr %187, align 4, !tbaa !53
   %189 = icmp eq i32 %188, 1
-  %spec.select = select i1 %189, i8 1, i8 %.04395
+  %spec.select = zext i1 %189 to i8
   br label %191
 
 .thread:                                          ; preds = %159

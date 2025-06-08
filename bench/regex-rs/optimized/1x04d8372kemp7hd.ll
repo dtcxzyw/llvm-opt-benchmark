@@ -2679,7 +2679,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i424.th
   %158 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %95, ptr %158, align 4, !noalias !837
   %159 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store i8 %66, ptr %159, align 8, !noalias !837
+  store i8 0, ptr %159, align 8, !noalias !837
   call fastcc void @_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE(ptr noalias noundef align 8 dereferenceable(48) %44, i64 noundef %151, i64 noundef %51), !noalias !799
   call void @llvm.experimental.noalias.scope.decl(metadata !844)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !847
@@ -3850,7 +3850,7 @@ _ZN14regex_automata6hybrid3dfa3DFA11start_state17h2564ea2672b0fa76E.exit.i298.th
   %602 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %539, ptr %602, align 4, !noalias !1135
   %603 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store i8 %66, ptr %603, align 8, !noalias !1135
+  store i8 1, ptr %603, align 8, !noalias !1135
   call fastcc void @_ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE(ptr noalias noundef align 8 dereferenceable(48) %40, i64 noundef %595, i64 noundef %51), !noalias !1098
   call void @llvm.experimental.noalias.scope.decl(metadata !1139)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !1142

@@ -2611,7 +2611,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 281
   %31 = load i8, ptr %30, align 1, !range !78, !noundef !5
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %134, label %.thread33
+  br i1 %32, label %134, label %.thread31
 
 33:                                               ; preds = %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hca07b391945e9dcdE.exit.i"
   %34 = landingpad { ptr, i32 }
@@ -2721,14 +2721,14 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !395
   %.pre25 = load i8, ptr %26, align 1, !range !78
   %73 = trunc nuw i8 %.pre25 to i1
-  br i1 %73, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread29", label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit"
+  br i1 %73, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread28", label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit"
 
 "_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14.thread27": ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit.thread", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14"
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
   %75 = load ptr, ptr %74, align 8, !alias.scope !410, !noundef !5
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread29", label %77
+  br i1 %76, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread28", label %77
 
 77:                                               ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14.thread27"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !395
@@ -2763,20 +2763,20 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
           cleanup
   br label %86
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit": ; preds = %25, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14", %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$17hfb23b3f6b2092fcbE.exit.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread29", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit"
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit": ; preds = %25, %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14", %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$17hfb23b3f6b2092fcbE.exit.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread28", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit"
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 282
   %92 = load i8, ptr %91, align 2, !range !78, !noundef !5
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %112, label %"_ZN4core3ptr95drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..Status$GT$17h4ae0cf927d84d4c0E.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread29": ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14.thread27", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit"
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread28": ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit14.thread27", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit"
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
   %95 = load ptr, ptr %94, align 8, !alias.scope !411, !noundef !5
   %96 = icmp eq ptr %95, null
   br i1 %96, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit", label %97
 
-97:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread29"
+97:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread28"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !414
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9860d331864bad50E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %94)
           to label %.noexc17 unwind label %110
@@ -2830,8 +2830,8 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
   invoke void @"_ZN4core3ptr102drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..HandshakeKeys$GT$17hf1923f012d2720f9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %116)
           to label %"_ZN4core3ptr95drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..Status$GT$17h4ae0cf927d84d4c0E.exit" unwind label %120
 
-117:                                              ; preds = %149, %.thread33, %130, %120, %106
-  %.pn8 = phi { ptr, i32 } [ %121, %120 ], [ %.pn6, %130 ], [ %.pn6, %106 ], [ %.pn, %149 ], [ %.pn, %.thread33 ]
+117:                                              ; preds = %149, %.thread31, %130, %120, %106
+  %.pn8 = phi { ptr, i32 } [ %121, %120 ], [ %.pn6, %130 ], [ %.pn6, %106 ], [ %.pn, %149 ], [ %.pn, %.thread31 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 281
   store i8 0, ptr %118, align 1
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 282
@@ -2872,7 +2872,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
 132:                                              ; preds = %134
   %.pre = load i8, ptr %30, align 1, !range !78
   %133 = trunc nuw i8 %.pre to i1
-  br i1 %133, label %138, label %.thread33
+  br i1 %133, label %138, label %.thread31
 
 134:                                              ; preds = %29
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2882,7 +2882,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
 136:                                              ; preds = %138
   %.pre20 = load i8, ptr %30, align 1, !range !78
   %137 = trunc nuw i8 %.pre20 to i1
-  br i1 %137, label %142, label %.thread33
+  br i1 %137, label %142, label %.thread31
 
 138:                                              ; preds = %132
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2892,14 +2892,14 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
 140:                                              ; preds = %142
   %.pre22 = load i8, ptr %30, align 1, !range !78
   %141 = trunc nuw i8 %.pre22 to i1
-  br i1 %141, label %147, label %.thread33
+  br i1 %141, label %147, label %.thread31
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 112
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef align 8 dereferenceable(24) %143) #32
           to label %140 unwind label %124
 
-.thread33:                                        ; preds = %29, %132, %136, %147, %140
+.thread31:                                        ; preds = %29, %132, %136, %147, %140
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 282
   %145 = load i8, ptr %144, align 2, !range !78, !noundef !5
   %146 = trunc nuw i8 %145 to i1
@@ -2908,9 +2908,9 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
 147:                                              ; preds = %140
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 176
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE"(ptr noalias noundef align 8 dereferenceable(24) %148) #32
-          to label %.thread33 unwind label %124
+          to label %.thread31 unwind label %124
 
-149:                                              ; preds = %.thread33
+149:                                              ; preds = %.thread31
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..Status$GT$17h4ae0cf927d84d4c0E"(ptr noalias noundef align 8 dereferenceable(56) %150) #32
           to label %117 unwind label %124
@@ -28817,7 +28817,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1609:                                             ; preds = %1607
   %1610 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread362.i.i
+  br label %.thread360.i.i
 
 1611:                                             ; preds = %1607
   store i8 1, ptr %1597, align 2, !noalias !4005
@@ -28869,9 +28869,9 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
   %1633 = getelementptr inbounds nuw i8, ptr %1, i64 802
   %1634 = load i8, ptr %1633, align 2, !range !78, !noalias !4005, !noundef !5
   %1635 = trunc nuw i8 %1634 to i1
-  br i1 %1635, label %1882, label %.thread362.i.i
+  br i1 %1635, label %1882, label %.thread360.i.i
 
-.thread362.i.i:                                   ; preds = %1896, %1892, %1888, %1884, %1880, %1874, %1628, %1609
+.thread360.i.i:                                   ; preds = %1896, %1892, %1888, %1884, %1880, %1874, %1628, %1609
   %1636 = phi ptr [ %1623, %1874 ], [ %1629, %1896 ], [ %1629, %1892 ], [ %1590, %1609 ], [ %1629, %1888 ], [ %1629, %1884 ], [ %1629, %1880 ], [ %1629, %1628 ]
   %1637 = phi ptr [ %1624, %1874 ], [ %1630, %1896 ], [ %1630, %1892 ], [ %1591, %1609 ], [ %1630, %1888 ], [ %1630, %1884 ], [ %1630, %1880 ], [ %1630, %1628 ]
   %1638 = phi ptr [ %1625, %1874 ], [ %1631, %1896 ], [ %1631, %1892 ], [ %1595, %1609 ], [ %1631, %1888 ], [ %1631, %1884 ], [ %1631, %1880 ], [ %1631, %1628 ]
@@ -28890,12 +28890,12 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
           cleanup
   br label %1644
 
-1644:                                             ; preds = %1642, %.thread362.i.i
-  %1645 = phi ptr [ %1636, %.thread362.i.i ], [ %1590, %1642 ]
-  %1646 = phi ptr [ %1637, %.thread362.i.i ], [ %1591, %1642 ]
-  %1647 = phi ptr [ %1638, %.thread362.i.i ], [ %1595, %1642 ]
-  %1648 = phi ptr [ %1639, %.thread362.i.i ], [ %1596, %1642 ]
-  %.pn146.pn.i.i = phi { ptr, i32 } [ %.pn143.i.i, %.thread362.i.i ], [ %1643, %1642 ]
+1644:                                             ; preds = %1642, %.thread360.i.i
+  %1645 = phi ptr [ %1636, %.thread360.i.i ], [ %1590, %1642 ]
+  %1646 = phi ptr [ %1637, %.thread360.i.i ], [ %1591, %1642 ]
+  %1647 = phi ptr [ %1638, %.thread360.i.i ], [ %1595, %1642 ]
+  %1648 = phi ptr [ %1639, %.thread360.i.i ], [ %1596, %1642 ]
+  %.pn146.pn.i.i = phi { ptr, i32 } [ %.pn143.i.i, %.thread360.i.i ], [ %1643, %1642 ]
   store i8 2, ptr %1647, align 1, !noalias !4005
   br label %.body.i386
 
@@ -29512,7 +29512,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1874:                                             ; preds = %1622
   %1875 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread362.i.i
+  br label %.thread360.i.i
 
 1876:                                             ; preds = %1622
   %1877 = getelementptr inbounds nuw i8, ptr %1, i64 802
@@ -29530,7 +29530,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1880:                                             ; preds = %1882
   %.pre.i.i389 = load i8, ptr %1633, align 2, !range !78, !noalias !4005
   %1881 = trunc nuw i8 %.pre.i.i389 to i1
-  br i1 %1881, label %1886, label %.thread362.i.i
+  br i1 %1881, label %1886, label %.thread360.i.i
 
 1882:                                             ; preds = %1628
   %1883 = getelementptr inbounds nuw i8, ptr %1, i64 584
@@ -29540,7 +29540,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1884:                                             ; preds = %1886
   %.pre350.i.i = load i8, ptr %1633, align 2, !range !78, !noalias !4005
   %1885 = trunc nuw i8 %.pre350.i.i to i1
-  br i1 %1885, label %1890, label %.thread362.i.i
+  br i1 %1885, label %1890, label %.thread360.i.i
 
 1886:                                             ; preds = %1880
   %1887 = getelementptr inbounds nuw i8, ptr %1, i64 608
@@ -29550,7 +29550,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1888:                                             ; preds = %1890
   %.pre352.i.i = load i8, ptr %1633, align 2, !range !78, !noalias !4005
   %1889 = trunc nuw i8 %.pre352.i.i to i1
-  br i1 %1889, label %1894, label %.thread362.i.i
+  br i1 %1889, label %1894, label %.thread360.i.i
 
 1890:                                             ; preds = %1884
   %1891 = getelementptr inbounds nuw i8, ptr %1, i64 632
@@ -29560,7 +29560,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1892:                                             ; preds = %1894
   %.pre354.i.i = load i8, ptr %1633, align 2, !range !78, !noalias !4005
   %1893 = trunc nuw i8 %.pre354.i.i to i1
-  br i1 %1893, label %1896, label %.thread362.i.i
+  br i1 %1893, label %1896, label %.thread360.i.i
 
 1894:                                             ; preds = %1888
   %1895 = getelementptr inbounds nuw i8, ptr %1, i64 696
@@ -29570,7 +29570,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i.i: ; preds = %731
 1896:                                             ; preds = %1892
   %1897 = getelementptr inbounds nuw i8, ptr %1, i64 528
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..Status$GT$17h4ae0cf927d84d4c0E"(ptr noalias noundef align 8 dereferenceable(56) %1897) #32
-          to label %.thread362.i.i unwind label %1741, !noalias !4009
+          to label %.thread360.i.i unwind label %1741, !noalias !4009
 
 1898:                                             ; preds = %.invoke.i407
   %1899 = landingpad { ptr, i32 }
@@ -32657,11 +32657,11 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.3211.i.i.i)
   br label %3092
 
-3077:                                             ; preds = %3818, %.thread255.i.i, %3778, %3770, %3759, %3072
-  %3078 = phi ptr [ %3574, %3770 ], [ %3574, %3778 ], [ %3574, %3759 ], [ %3587, %3818 ], [ %3587, %.thread255.i.i ], [ %3064, %3072 ]
-  %3079 = phi ptr [ %3575, %3770 ], [ %3575, %3778 ], [ %3575, %3759 ], [ %3588, %3818 ], [ %3588, %.thread255.i.i ], [ %3065, %3072 ]
-  %3080 = phi ptr [ %3576, %3770 ], [ %3576, %3778 ], [ %3576, %3759 ], [ %3589, %3818 ], [ %3589, %.thread255.i.i ], [ %3068, %3072 ]
-  %.pn141.i.i = phi { ptr, i32 } [ %3771, %3770 ], [ %.pn139.i.i, %3778 ], [ %.pn139.i.i, %3759 ], [ %.pn132.pn.i.i, %3818 ], [ %.pn132.pn.i.i, %.thread255.i.i ], [ %3073, %3072 ]
+3077:                                             ; preds = %3818, %.thread253.i.i, %3778, %3770, %3759, %3072
+  %3078 = phi ptr [ %3574, %3770 ], [ %3574, %3778 ], [ %3574, %3759 ], [ %3587, %3818 ], [ %3587, %.thread253.i.i ], [ %3064, %3072 ]
+  %3079 = phi ptr [ %3575, %3770 ], [ %3575, %3778 ], [ %3575, %3759 ], [ %3588, %3818 ], [ %3588, %.thread253.i.i ], [ %3065, %3072 ]
+  %3080 = phi ptr [ %3576, %3770 ], [ %3576, %3778 ], [ %3576, %3759 ], [ %3589, %3818 ], [ %3589, %.thread253.i.i ], [ %3068, %3072 ]
+  %.pn141.i.i = phi { ptr, i32 } [ %3771, %3770 ], [ %.pn139.i.i, %3778 ], [ %.pn139.i.i, %3759 ], [ %.pn132.pn.i.i, %3818 ], [ %.pn132.pn.i.i, %.thread253.i.i ], [ %3073, %3072 ]
   %3081 = getelementptr inbounds nuw i8, ptr %1, i64 745
   store i8 0, ptr %3081, align 1, !noalias !4440
   %3082 = getelementptr inbounds nuw i8, ptr %1, i64 746
@@ -33964,7 +33964,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %3590 = getelementptr inbounds nuw i8, ptr %1, i64 745
   %3591 = load i8, ptr %3590, align 1, !range !78, !noalias !4440, !noundef !5
   %3592 = trunc nuw i8 %3591 to i1
-  br i1 %3592, label %3803, label %.thread255.i.i
+  br i1 %3592, label %3803, label %.thread253.i.i
 
 3593:                                             ; preds = %3062
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40), !noalias !4440
@@ -33978,7 +33978,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !4440
   switch i8 %.pre222.i.i, label %default.unreachable857 [
     i8 0, label %3595
-    i8 1, label %.invoke256.i.i
+    i8 1, label %.invoke254.i.i
     i8 2, label %3639
     i8 3, label %._crit_edge.i148.i.i
   ]
@@ -34088,15 +34088,15 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   br label %.body160.i.i
 
 3639:                                             ; preds = %3593
-  br label %.invoke256.i.i
+  br label %.invoke254.i.i
 
-.invoke256.i.i:                                   ; preds = %3639, %3593
+.invoke254.i.i:                                   ; preds = %3639, %3593
   %3640 = phi ptr [ @str.2, %3639 ], [ @str.1, %3593 ]
   %3641 = phi i64 [ 34, %3639 ], [ 35, %3593 ]
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 %3640, i64 noundef %3641, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e71eb53351d9fcba89c0a8961904614.276) #34
-          to label %.cont257.i.i unwind label %3674
+          to label %.cont255.i.i unwind label %3674
 
-.cont257.i.i:                                     ; preds = %.invoke256.i.i
+.cont255.i.i:                                     ; preds = %.invoke254.i.i
   unreachable
 
 3642:                                             ; preds = %3629, %._crit_edge.i148.i.i
@@ -34189,7 +34189,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
   unreachable
 
-3674:                                             ; preds = %.invoke256.i.i
+3674:                                             ; preds = %.invoke254.i.i
   %3675 = landingpad { ptr, i32 }
           cleanup
   br label %.body160.i.i
@@ -34326,14 +34326,14 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !4695
   %.pre230.i.i = load i8, ptr %3577, align 1, !range !78, !noalias !4440
   %3726 = trunc nuw i8 %.pre230.i.i to i1
-  br i1 %3726, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread250.i.i", label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit.i.i483"
+  br i1 %3726, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread249.i.i", label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit.i.i483"
 
 "_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.thread248.i.i": ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit.thread.i.i", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.i.i"
   %3727 = getelementptr inbounds nuw i8, ptr %1, i64 576
   call void @llvm.experimental.noalias.scope.decl(metadata !4710)
   %3728 = load ptr, ptr %3727, align 8, !alias.scope !4710, !noalias !4440, !noundef !5
   %3729 = icmp eq ptr %3728, null
-  br i1 %3729, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread250.i.i", label %3730
+  br i1 %3729, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread249.i.i", label %3730
 
 3730:                                             ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.thread248.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !4695
@@ -34368,20 +34368,20 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
           cleanup
   br label %3739
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit.i.i483": ; preds = %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$17hfb23b3f6b2092fcbE.exit.i178.i.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread250.i.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.i.i", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.i.i", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit.i.i", %3573
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit.i.i483": ; preds = %"_ZN4core3ptr68drop_in_place$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$17hfb23b3f6b2092fcbE.exit.i178.i.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread249.i.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.i.i", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.i.i", %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit.i.i", %3573
   %3744 = getelementptr inbounds nuw i8, ptr %1, i64 746
   %3745 = load i8, ptr %3744, align 2, !range !78, !noalias !4440, !noundef !5
   %3746 = trunc nuw i8 %3745 to i1
   br i1 %3746, label %3765, label %"_ZN4core3ptr95drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..Status$GT$17h4ae0cf927d84d4c0E.exit182.i.i"
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread250.i.i": ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.thread248.i.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.i.i"
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread249.i.i": ; preds = %"_ZN4core3ptr99drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$GT$$GT$17h9740a13e442ea89fE.exit173.thread248.i.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.i.i"
   %3747 = getelementptr inbounds nuw i8, ptr %1, i64 640
   call void @llvm.experimental.noalias.scope.decl(metadata !4711)
   %3748 = load ptr, ptr %3747, align 8, !alias.scope !4711, !noalias !4440, !noundef !5
   %3749 = icmp eq ptr %3748, null
   br i1 %3749, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE.exit.i.i483", label %3750
 
-3750:                                             ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread250.i.i"
+3750:                                             ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE.exit.thread249.i.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !4714
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9860d331864bad50E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3747)
           to label %.noexc179.i.i unwind label %3763
@@ -34517,7 +34517,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 3801:                                             ; preds = %3803
   %.pre223.i.i = load i8, ptr %3590, align 1, !range !78, !noalias !4440
   %3802 = trunc nuw i8 %.pre223.i.i to i1
-  br i1 %3802, label %3807, label %.thread255.i.i
+  br i1 %3802, label %3807, label %.thread253.i.i
 
 3803:                                             ; preds = %3586
   %3804 = getelementptr inbounds nuw i8, ptr %1, i64 528
@@ -34527,7 +34527,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 3805:                                             ; preds = %3807
   %.pre225.i.i = load i8, ptr %3590, align 1, !range !78, !noalias !4440
   %3806 = trunc nuw i8 %.pre225.i.i to i1
-  br i1 %3806, label %3811, label %.thread255.i.i
+  br i1 %3806, label %3811, label %.thread253.i.i
 
 3807:                                             ; preds = %3801
   %3808 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -34537,14 +34537,14 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 3809:                                             ; preds = %3811
   %.pre227.i.i = load i8, ptr %3590, align 1, !range !78, !noalias !4440
   %3810 = trunc nuw i8 %.pre227.i.i to i1
-  br i1 %3810, label %3816, label %.thread255.i.i
+  br i1 %3810, label %3816, label %.thread253.i.i
 
 3811:                                             ; preds = %3805
   %3812 = getelementptr inbounds nuw i8, ptr %1, i64 576
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..hashes..AeadSecretKeyHandle$GT$$GT$17hf5afa723a543eb8fE"(ptr noalias noundef align 8 dereferenceable(24) %3812) #32
           to label %3809 unwind label %3584
 
-.thread255.i.i:                                   ; preds = %3816, %3809, %3805, %3801, %3586
+.thread253.i.i:                                   ; preds = %3816, %3809, %3805, %3801, %3586
   %3813 = getelementptr inbounds nuw i8, ptr %1, i64 746
   %3814 = load i8, ptr %3813, align 2, !range !78, !noalias !4440, !noundef !5
   %3815 = trunc nuw i8 %3814 to i1
@@ -34553,9 +34553,9 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 3816:                                             ; preds = %3809
   %3817 = getelementptr inbounds nuw i8, ptr %1, i64 640
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$$GT$17hd3fa88a31b65142aE"(ptr noalias noundef align 8 dereferenceable(24) %3817) #32
-          to label %.thread255.i.i unwind label %3584
+          to label %.thread253.i.i unwind label %3584
 
-3818:                                             ; preds = %.thread255.i.i
+3818:                                             ; preds = %.thread253.i.i
   %3819 = getelementptr inbounds nuw i8, ptr %1, i64 472
   invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$ockam_identity..secure_channel..handshake..handshake_state_machine..Status$GT$17h4ae0cf927d84d4c0E"(ptr noalias noundef align 8 dereferenceable(56) %3819) #32
           to label %3077 unwind label %3584

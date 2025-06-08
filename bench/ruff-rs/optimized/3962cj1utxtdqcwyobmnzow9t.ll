@@ -2368,7 +2368,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN14ruff_format
   br label %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hd755d78bd503038eE.exit"
 
 "_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hd755d78bd503038eE.exit": ; preds = %48, %._crit_edge.i, %34
-  %49 = phi i8 [ %21, %48 ], [ 1, %._crit_edge.i ], [ %21, %34 ]
+  %49 = phi i8 [ 1, %48 ], [ 1, %._crit_edge.i ], [ %21, %34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2512,7 +2512,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN14ruff_format
   br label %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hdadc43d8f1111227E.exit"
 
 "_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hdadc43d8f1111227E.exit": ; preds = %41, %._crit_edge.i, %23
-  %42 = phi i8 [ %21, %41 ], [ 1, %._crit_edge.i ], [ %21, %23 ]
+  %42 = phi i8 [ 1, %41 ], [ 1, %._crit_edge.i ], [ %21, %23 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -2772,7 +2772,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN14ruff_format
   br label %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hdadc43d8f1111227E.exit"
 
 "_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hdadc43d8f1111227E.exit": ; preds = %41, %._crit_edge.i, %23
-  %42 = phi i8 [ %21, %41 ], [ 1, %._crit_edge.i ], [ %21, %23 ]
+  %42 = phi i8 [ 1, %41 ], [ 1, %._crit_edge.i ], [ %21, %23 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -2979,7 +2979,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN14ruff_format
   br label %._crit_edge.i
 
 "_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17h1334a0e5e313de49E.exit": ; preds = %68, %._crit_edge.i, %42
-  %74 = phi i8 [ %37, %68 ], [ 1, %._crit_edge.i ], [ %37, %42 ]
+  %74 = phi i8 [ 1, %68 ], [ 1, %._crit_edge.i ], [ %37, %42 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
@@ -3160,7 +3160,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN14ruff_format
   br label %"_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hd755d78bd503038eE.exit"
 
 "_ZN14ruff_formatter8builders38JoinBuilder$LT$Separator$C$Context$GT$5entry28_$u7b$$u7b$closure$u7d$$u7d$17hd755d78bd503038eE.exit": ; preds = %47, %._crit_edge.i, %34
-  %48 = phi i8 [ %32, %47 ], [ 1, %._crit_edge.i ], [ %32, %34 ]
+  %48 = phi i8 [ 1, %47 ], [ 1, %._crit_edge.i ], [ %32, %34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)

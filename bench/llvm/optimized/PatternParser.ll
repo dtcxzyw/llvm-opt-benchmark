@@ -1473,8 +1473,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordESt10unique_ptrINS_2gi7PatFragES
   %.sroa.0.1.i = phi ptr [ %41, %.loopexit.i ], [ %28, %20 ], [ %37, %33 ]
   %42 = zext i32 %18 to i64
   %43 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %17, i64 %42
-  %.not79 = icmp eq ptr %.sroa.0.1.i, %43
-  br i1 %.not79, label %66, label %44
+  %.not78 = icmp eq ptr %.sroa.0.1.i, %43
+  br i1 %.not78, label %66, label %44
 
 44:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordESt10unique_ptrINS_2gi7PatFragESt14default_deleteIS7_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E4findES4_.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1529,8 +1529,8 @@ _ZN4llvm15SmallPtrSetImplIPKNS_2gi7PatFragEE6insertES4_.exit: ; preds = %.lr.ph.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   call void @_ZN4llvm2gi13PatternParser16parsePatFragImplEPKNS_6RecordE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.176") align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %16)
   %67 = load ptr, ptr %4, align 8, !tbaa !194
-  %.not80 = icmp eq ptr %67, null
-  br i1 %.not80, label %_ZN4llvmplERKNS_5TwineES2_.exit36, label %102
+  %.not79 = icmp eq ptr %67, null
+  br i1 %.not79, label %_ZN4llvmplERKNS_5TwineES2_.exit36, label %102
 
 _ZN4llvmplERKNS_5TwineES2_.exit36:                ; preds = %66
   %68 = load ptr, ptr %3, align 8, !tbaa !135
@@ -1670,37 +1670,37 @@ _ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EEaSEOS5_.exit: ; pred
   %128 = load i32, ptr %127, align 4, !tbaa !214, !noalias !236
   %129 = zext i32 %128 to i64
   %130 = getelementptr inbounds nuw ptr, ptr %126, i64 %129
-  %.not36.i.i55 = icmp eq i32 %128, 0
-  br i1 %.not36.i.i55, label %._crit_edge.i.i61, label %.lr.ph.i.i56
+  %.not36.i.i54 = icmp eq i32 %128, 0
+  br i1 %.not36.i.i54, label %._crit_edge.i.i60, label %.lr.ph.i.i55
 
-.lr.ph.i.i56:                                     ; preds = %125, %.critedge.i.i59
-  %.02937.i.i57 = phi ptr [ %132, %.critedge.i.i59 ], [ %126, %125 ]
-  %131 = load ptr, ptr %.02937.i.i57, align 8, !tbaa !215, !noalias !236
-  %.not17.i.i58 = icmp eq ptr %131, %67
-  br i1 %.not17.i.i58, label %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit, label %.critedge.i.i59
+.lr.ph.i.i55:                                     ; preds = %125, %.critedge.i.i58
+  %.02937.i.i56 = phi ptr [ %132, %.critedge.i.i58 ], [ %126, %125 ]
+  %131 = load ptr, ptr %.02937.i.i56, align 8, !tbaa !215, !noalias !236
+  %.not17.i.i57 = icmp eq ptr %131, %67
+  br i1 %.not17.i.i57, label %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit, label %.critedge.i.i58
 
-.critedge.i.i59:                                  ; preds = %.lr.ph.i.i56
-  %132 = getelementptr inbounds nuw i8, ptr %.02937.i.i57, i64 8
-  %.not.i.i60 = icmp eq ptr %132, %130
-  br i1 %.not.i.i60, label %._crit_edge.i.i61, label %.lr.ph.i.i56, !llvm.loop !216
+.critedge.i.i58:                                  ; preds = %.lr.ph.i.i55
+  %132 = getelementptr inbounds nuw i8, ptr %.02937.i.i56, i64 8
+  %.not.i.i59 = icmp eq ptr %132, %130
+  br i1 %.not.i.i59, label %._crit_edge.i.i60, label %.lr.ph.i.i55, !llvm.loop !216
 
-._crit_edge.i.i61:                                ; preds = %.critedge.i.i59, %125
+._crit_edge.i.i60:                                ; preds = %.critedge.i.i58, %125
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %134 = load i32, ptr %133, align 8, !tbaa !217, !noalias !236
   %135 = icmp ult i32 %128, %134
   br i1 %135, label %136, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i37
 
-136:                                              ; preds = %._crit_edge.i.i61
+136:                                              ; preds = %._crit_edge.i.i60
   %137 = add nuw i32 %128, 1
   store i32 %137, ptr %127, align 4, !tbaa !214, !noalias !236
   store ptr %67, ptr %130, align 8, !tbaa !215, !noalias !236
   br label %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i37: ; preds = %._crit_edge.i.i61, %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EEaSEOS5_.exit
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i37: ; preds = %._crit_edge.i.i60, %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EEaSEOS5_.exit
   %138 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %121, ptr noundef nonnull %67) #17, !noalias !236
   br label %_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i56, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i37, %136, %_ZN4llvmplERKNS_5TwineES2_.exit36, %_ZNKSt14default_deleteIN4llvm2gi7PatFragEEclEPS2_.exit.i.i.i
+_ZNSt10unique_ptrIN4llvm2gi7PatFragESt14default_deleteIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i55, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i37, %136, %_ZN4llvmplERKNS_5TwineES2_.exit36, %_ZNKSt14default_deleteIN4llvm2gi7PatFragEEclEPS2_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   br label %139
 

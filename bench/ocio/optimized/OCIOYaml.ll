@@ -11816,7 +11816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320.i: ; preds = %
           to label %4449 unwind label %4255
 
 4449:                                             ; preds = %4444, %4438, %4354, %4308
-  %.4 = phi i8 [ 1, %4308 ], [ %.2, %4354 ], [ %.2, %4438 ], [ %.2, %4444 ]
+  %.4 = phi i8 [ 1, %4308 ], [ 0, %4354 ], [ 0, %4438 ], [ 0, %4444 ]
   %4450 = load ptr, ptr %1295, align 8, !tbaa !66
   %4451 = load ptr, ptr %48, align 8, !tbaa !63
   %4452 = ptrtoint ptr %4450 to i64
@@ -56871,10 +56871,10 @@ _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
   store ptr %30, ptr %31, align 8, !tbaa !66
   %.pre = load i8, ptr %0, align 8, !tbaa !24, !range !31, !noalias !734
+  %42 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !734)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %42 = trunc nuw i8 %.pre to i1
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit

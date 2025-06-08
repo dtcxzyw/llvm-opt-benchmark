@@ -1232,7 +1232,7 @@ common.resume:                                    ; preds = %62, %65, %30, %17
   %20 = icmp slt i32 %2, 0
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %6, ptr %21, align 8, !tbaa !7
+  store i8 0, ptr %21, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %24 = load i8, ptr %23, align 1, !tbaa !20, !range !28, !noundef !29

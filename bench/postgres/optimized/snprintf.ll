@@ -1571,7 +1571,7 @@ define i32 @pg_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef captures(non
 7:                                                ; preds = %3
   %8 = tail call ptr @__errno_location() #15
   store i32 22, ptr %8, align 4
-  br label %34
+  br label %flushbuffer.exit
 
 9:                                                ; preds = %3
   store ptr %5, ptr %4, align 8
@@ -1593,33 +1593,29 @@ define i32 @pg_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef captures(non
   %19 = trunc nuw i8 %18 to i1
   %20 = icmp eq ptr %16, %17
   %or.cond.not.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.not.i, label %.flushbuffer.exit_crit_edge, label %22
+  br i1 %or.cond.not.i, label %.flushbuffer.exit_crit_edge, label %23
 
 .flushbuffer.exit_crit_edge:                      ; preds = %9
   %.pre = load i32, ptr %14, align 8
   %21 = trunc nuw i8 %18 to i1
+  %22 = select i1 %21, i32 -1, i32 %.pre
   br label %flushbuffer.exit
 
-22:                                               ; preds = %9
-  %23 = ptrtoint ptr %17 to i64
-  %24 = ptrtoint ptr %16 to i64
-  %25 = sub i64 %24, %23
-  %26 = load ptr, ptr %13, align 8
-  %27 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %25, ptr noundef %26)
-  %28 = load i32, ptr %14, align 8
-  %29 = trunc i64 %27 to i32
-  %30 = add i32 %28, %29
-  %.not.i = icmp ne i64 %27, %25
+23:                                               ; preds = %9
+  %24 = ptrtoint ptr %17 to i64
+  %25 = ptrtoint ptr %16 to i64
+  %26 = sub i64 %25, %24
+  %27 = load ptr, ptr %13, align 8
+  %28 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %26, ptr noundef %27)
+  %29 = load i32, ptr %14, align 8
+  %30 = trunc i64 %28 to i32
+  %31 = add i32 %29, %30
+  %.not.i = icmp eq i64 %28, %26
+  %spec.select = select i1 %.not.i, i32 %31, i32 -1
   br label %flushbuffer.exit
 
-flushbuffer.exit:                                 ; preds = %22, %.flushbuffer.exit_crit_edge
-  %31 = phi i32 [ %.pre, %.flushbuffer.exit_crit_edge ], [ %30, %22 ]
-  %32 = phi i1 [ %21, %.flushbuffer.exit_crit_edge ], [ %.not.i, %22 ]
-  %33 = select i1 %32, i32 -1, i32 %31
-  br label %34
-
-34:                                               ; preds = %flushbuffer.exit, %7
-  %.0 = phi i32 [ -1, %7 ], [ %33, %flushbuffer.exit ]
+flushbuffer.exit:                                 ; preds = %23, %.flushbuffer.exit_crit_edge, %7
+  %.0 = phi i32 [ -1, %7 ], [ %22, %.flushbuffer.exit_crit_edge ], [ %spec.select, %23 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
   ret i32 %.0
@@ -1665,32 +1661,28 @@ define i32 @pg_fprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #
   %19 = trunc nuw i8 %18 to i1
   %20 = icmp eq ptr %16, %17
   %or.cond.not.i.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.not.i.i, label %.flushbuffer.exit_crit_edge.i, label %21
+  br i1 %or.cond.not.i.i, label %.flushbuffer.exit_crit_edge.i, label %22
 
 .flushbuffer.exit_crit_edge.i:                    ; preds = %9
   %.pre.i = load i32, ptr %14, align 8
-  br label %flushbuffer.exit.i
-
-21:                                               ; preds = %9
-  %22 = ptrtoint ptr %17 to i64
-  %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %23, %22
-  %25 = load ptr, ptr %13, align 8
-  %26 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %24, ptr noundef %25)
-  %27 = load i32, ptr %14, align 8
-  %28 = trunc i64 %26 to i32
-  %29 = add i32 %27, %28
-  %.not.i.i = icmp ne i64 %26, %24
-  br label %flushbuffer.exit.i
-
-flushbuffer.exit.i:                               ; preds = %21, %.flushbuffer.exit_crit_edge.i
-  %30 = phi i32 [ %.pre.i, %.flushbuffer.exit_crit_edge.i ], [ %29, %21 ]
-  %31 = phi i1 [ %19, %.flushbuffer.exit_crit_edge.i ], [ %.not.i.i, %21 ]
-  %32 = select i1 %31, i32 -1, i32 %30
+  %21 = select i1 %19, i32 -1, i32 %.pre.i
   br label %pg_vfprintf.exit
 
-pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ %32, %flushbuffer.exit.i ]
+22:                                               ; preds = %9
+  %23 = ptrtoint ptr %17 to i64
+  %24 = ptrtoint ptr %16 to i64
+  %25 = sub i64 %24, %23
+  %26 = load ptr, ptr %13, align 8
+  %27 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %25, ptr noundef %26)
+  %28 = load i32, ptr %14, align 8
+  %29 = trunc i64 %27 to i32
+  %30 = add i32 %28, %29
+  %.not.i.i = icmp eq i64 %27, %25
+  %spec.select.i = select i1 %.not.i.i, i32 %30, i32 -1
+  br label %pg_vfprintf.exit
+
+pg_vfprintf.exit:                                 ; preds = %7, %.flushbuffer.exit_crit_edge.i, %22
+  %.0.i = phi i32 [ -1, %7 ], [ %21, %.flushbuffer.exit_crit_edge.i ], [ %spec.select.i, %22 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -1733,32 +1725,28 @@ define i32 @pg_vprintf(ptr noundef %0, ptr noundef captures(none) %1) local_unna
   %19 = trunc nuw i8 %18 to i1
   %20 = icmp eq ptr %16, %17
   %or.cond.not.i.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.not.i.i, label %.flushbuffer.exit_crit_edge.i, label %21
+  br i1 %or.cond.not.i.i, label %.flushbuffer.exit_crit_edge.i, label %22
 
 .flushbuffer.exit_crit_edge.i:                    ; preds = %9
   %.pre.i = load i32, ptr %14, align 8
-  br label %flushbuffer.exit.i
-
-21:                                               ; preds = %9
-  %22 = ptrtoint ptr %17 to i64
-  %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %23, %22
-  %25 = load ptr, ptr %13, align 8
-  %26 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %24, ptr noundef %25)
-  %27 = load i32, ptr %14, align 8
-  %28 = trunc i64 %26 to i32
-  %29 = add i32 %27, %28
-  %.not.i.i = icmp ne i64 %26, %24
-  br label %flushbuffer.exit.i
-
-flushbuffer.exit.i:                               ; preds = %21, %.flushbuffer.exit_crit_edge.i
-  %30 = phi i32 [ %.pre.i, %.flushbuffer.exit_crit_edge.i ], [ %29, %21 ]
-  %31 = phi i1 [ %19, %.flushbuffer.exit_crit_edge.i ], [ %.not.i.i, %21 ]
-  %32 = select i1 %31, i32 -1, i32 %30
+  %21 = select i1 %19, i32 -1, i32 %.pre.i
   br label %pg_vfprintf.exit
 
-pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ %32, %flushbuffer.exit.i ]
+22:                                               ; preds = %9
+  %23 = ptrtoint ptr %17 to i64
+  %24 = ptrtoint ptr %16 to i64
+  %25 = sub i64 %24, %23
+  %26 = load ptr, ptr %13, align 8
+  %27 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %25, ptr noundef %26)
+  %28 = load i32, ptr %14, align 8
+  %29 = trunc i64 %27 to i32
+  %30 = add i32 %28, %29
+  %.not.i.i = icmp eq i64 %27, %25
+  %spec.select.i = select i1 %.not.i.i, i32 %30, i32 -1
+  br label %pg_vfprintf.exit
+
+pg_vfprintf.exit:                                 ; preds = %7, %.flushbuffer.exit_crit_edge.i, %22
+  %.0.i = phi i32 [ -1, %7 ], [ %21, %.flushbuffer.exit_crit_edge.i ], [ %spec.select.i, %22 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
   ret i32 %.0.i
@@ -1802,32 +1790,28 @@ define i32 @pg_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
   %19 = trunc nuw i8 %18 to i1
   %20 = icmp eq ptr %16, %17
   %or.cond.not.i.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.not.i.i, label %.flushbuffer.exit_crit_edge.i, label %21
+  br i1 %or.cond.not.i.i, label %.flushbuffer.exit_crit_edge.i, label %22
 
 .flushbuffer.exit_crit_edge.i:                    ; preds = %9
   %.pre.i = load i32, ptr %14, align 8
-  br label %flushbuffer.exit.i
-
-21:                                               ; preds = %9
-  %22 = ptrtoint ptr %17 to i64
-  %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %23, %22
-  %25 = load ptr, ptr %13, align 8
-  %26 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %24, ptr noundef %25)
-  %27 = load i32, ptr %14, align 8
-  %28 = trunc i64 %26 to i32
-  %29 = add i32 %27, %28
-  %.not.i.i = icmp ne i64 %26, %24
-  br label %flushbuffer.exit.i
-
-flushbuffer.exit.i:                               ; preds = %21, %.flushbuffer.exit_crit_edge.i
-  %30 = phi i32 [ %.pre.i, %.flushbuffer.exit_crit_edge.i ], [ %29, %21 ]
-  %31 = phi i1 [ %19, %.flushbuffer.exit_crit_edge.i ], [ %.not.i.i, %21 ]
-  %32 = select i1 %31, i32 -1, i32 %30
+  %21 = select i1 %19, i32 -1, i32 %.pre.i
   br label %pg_vfprintf.exit
 
-pg_vfprintf.exit:                                 ; preds = %7, %flushbuffer.exit.i
-  %.0.i = phi i32 [ -1, %7 ], [ %32, %flushbuffer.exit.i ]
+22:                                               ; preds = %9
+  %23 = ptrtoint ptr %17 to i64
+  %24 = ptrtoint ptr %16 to i64
+  %25 = sub i64 %24, %23
+  %26 = load ptr, ptr %13, align 8
+  %27 = call i64 @fwrite(ptr noundef %17, i64 noundef 1, i64 noundef %25, ptr noundef %26)
+  %28 = load i32, ptr %14, align 8
+  %29 = trunc i64 %27 to i32
+  %30 = add i32 %28, %29
+  %.not.i.i = icmp eq i64 %27, %25
+  %spec.select.i = select i1 %.not.i.i, i32 %30, i32 -1
+  br label %pg_vfprintf.exit
+
+pg_vfprintf.exit:                                 ; preds = %7, %.flushbuffer.exit_crit_edge.i, %22
+  %.0.i = phi i32 [ -1, %7 ], [ %21, %.flushbuffer.exit_crit_edge.i ], [ %spec.select.i, %22 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
   call void @llvm.va_end.p0(ptr nonnull %4)

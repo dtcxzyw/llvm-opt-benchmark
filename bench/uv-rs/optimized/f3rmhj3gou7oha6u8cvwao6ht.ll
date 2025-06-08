@@ -27377,7 +27377,7 @@ define void @"_ZN89_$LT$uv_settings..settings..InstallerOptions$u20$as$u20$uv_se
   br label %86
 
 81:                                               ; preds = %79
-  store i64 %.sroa.070.0.copyload, ptr %18, align 8, !alias.scope !2300, !noalias !2301
+  store i64 1, ptr %18, align 8, !alias.scope !2300, !noalias !2301
   %.sroa.572.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.572.0..sroa_idx73, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.572.0..sroa_idx, i64 24, i1 false)
   br label %86
@@ -28034,7 +28034,7 @@ define void @"_ZN88_$LT$uv_settings..settings..ResolverOptions$u20$as$u20$uv_set
   br label %112
 
 101:                                              ; preds = %99
-  store i64 %.sroa.088.0.copyload, ptr %21, align 8, !alias.scope !2400, !noalias !2401
+  store i64 1, ptr %21, align 8, !alias.scope !2400, !noalias !2401
   %.sroa.590.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.590.0..sroa_idx91, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.590.0..sroa_idx, i64 24, i1 false)
   br label %112
@@ -28826,7 +28826,7 @@ define void @"_ZN97_$LT$uv_settings..settings..ResolverInstallerOptions$u20$as$u
   br label %115
 
 104:                                              ; preds = %102
-  store i64 %.sroa.096.0.copyload, ptr %24, align 8, !alias.scope !2518, !noalias !2519
+  store i64 1, ptr %24, align 8, !alias.scope !2518, !noalias !2519
   %.sroa.598.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.598.0..sroa_idx99, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.598.0..sroa_idx, i64 24, i1 false)
   br label %115
@@ -32254,7 +32254,7 @@ define void @"_ZN83_$LT$uv_settings..settings..PipOptions$u20$as$u20$uv_settings
   br label %332
 
 329:                                              ; preds = %327
-  store i64 %.sroa.0215.0.copyload, ptr %25, align 8, !alias.scope !2938, !noalias !2939
+  store i64 1, ptr %25, align 8, !alias.scope !2938, !noalias !2939
   %.sroa.5217.0..sroa_idx218 = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5217.0..sroa_idx218, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5217.0..sroa_idx, i64 24, i1 false)
   br label %332
@@ -36247,7 +36247,7 @@ define void @"_ZN84_$LT$uv_settings..settings..ToolOptions$u20$as$u20$uv_setting
   br label %109
 
 98:                                               ; preds = %96
-  store i64 %.sroa.077.0.copyload, ptr %18, align 8, !alias.scope !3122, !noalias !3123
+  store i64 1, ptr %18, align 8, !alias.scope !3122, !noalias !3123
   %.sroa.579.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.579.0..sroa_idx80, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.579.0..sroa_idx, i64 24, i1 false)
   br label %109

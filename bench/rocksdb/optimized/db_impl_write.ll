@@ -9953,10 +9953,10 @@ define void @_ZN7rocksdb6DBImpl14SwitchMemtableEPNS_16ColumnFamilyDataEPNS0_12Wr
 
 41:                                               ; preds = %39
   %.pre = load i8, ptr %34, align 8, !tbaa !172, !range !45
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 3017
-  %43 = load i8, ptr %42, align 1, !tbaa !755, !range !45, !noundef !46
-  %44 = trunc nuw i8 %.pre to i1
-  br i1 %44, label %45, label %_ZN7rocksdb17InstrumentedMutex6UnlockEv.exit
+  %42 = trunc nuw i8 %.pre to i1
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 3017
+  %44 = load i8, ptr %43, align 1, !tbaa !755, !range !45, !noundef !46
+  br i1 %42, label %45, label %_ZN7rocksdb17InstrumentedMutex6UnlockEv.exit
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 2768
@@ -9969,8 +9969,8 @@ define void @_ZN7rocksdb6DBImpl14SwitchMemtableEPNS_16ColumnFamilyDataEPNS0_12Wr
   br label %763
 
 _ZN7rocksdb17InstrumentedMutex6UnlockEv.exit:     ; preds = %.thread348, %45, %41
-  %49 = phi i8 [ %38, %.thread348 ], [ %43, %45 ], [ %43, %41 ]
-  %50 = phi ptr [ %37, %.thread348 ], [ %42, %45 ], [ %42, %41 ]
+  %49 = phi i8 [ %38, %.thread348 ], [ %44, %45 ], [ %44, %41 ]
+  %50 = phi ptr [ %37, %.thread348 ], [ %43, %45 ], [ %43, %41 ]
   %51 = trunc nuw i8 %49 to i1
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %53 = load i64, ptr %52, align 64

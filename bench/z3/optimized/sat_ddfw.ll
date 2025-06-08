@@ -2788,7 +2788,7 @@ _ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE5eraseERKj.exit21: ; preds = %
   br label %163
 
 161:                                              ; preds = %_ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE5eraseERKj.exit21, %152
-  store i8 %6, ptr %5, align 8, !tbaa !89
+  store i8 0, ptr %5, align 8, !tbaa !89
   br label %162
 
 162:                                              ; preds = %8, %1, %161
@@ -2796,7 +2796,7 @@ _ZN9table2mapI17default_map_entryIjjE6u_hash4u_eqE5eraseERKj.exit21: ; preds = %
 
 163:                                              ; preds = %159, %147, %119, %26
   %.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %120, %119 ], [ %160, %159 ], [ %148, %147 ]
-  store i8 %6, ptr %5, align 8, !tbaa !89
+  store i8 0, ptr %5, align 8, !tbaa !89
   resume { ptr, i32 } %.pn.pn.pn
 }
 

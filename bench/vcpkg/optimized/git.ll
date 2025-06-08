@@ -3087,12 +3087,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 %37, ptr %0, align 8, !tbaa !156, !alias.scope !149
   %.pre = load i8, ptr %10, align 8, !tbaa !152, !range !66
   %.pre15 = load ptr, ptr %4, align 8, !tbaa !17
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %38, align 8, !tbaa !154, !alias.scope !149
-  %39 = trunc nuw i8 %.pre to i1
+  %38 = trunc nuw i8 %.pre to i1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %39, align 8, !tbaa !154, !alias.scope !149
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = icmp eq ptr %.pre15, %40
-  br i1 %39, label %42, label %48
+  br i1 %38, label %42, label %48
 
 42:                                               ; preds = %33
   br i1 %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i7

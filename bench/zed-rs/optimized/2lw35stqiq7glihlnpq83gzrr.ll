@@ -30324,8 +30324,8 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   store i16 %.sroa.61006.0.copyload, ptr %169, align 2
   store i32 %.sroa.71007.0.copyload, ptr %170, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %172, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.15.sroa.5, i64 5, i1 false)
-  store i8 %.sroa.5285.sroa.4.0.copyload, ptr %164, align 1
-  store i8 %.sroa.5285.sroa.5.0.copyload, ptr %166, align 2
+  store i8 0, ptr %164, align 1
+  store i8 0, ptr %166, align 2
   store i8 %.sroa.5285.sroa.6.0.copyload, ptr %165, align 1
   store i8 %.sroa.5285.sroa.7.0.copyload, ptr %167, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15.0..sroa_idx717, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.23, i64 7, i1 false)

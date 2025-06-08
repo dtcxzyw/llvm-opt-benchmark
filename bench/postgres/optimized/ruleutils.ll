@@ -10995,8 +10995,8 @@ add_to_names_hash.exit251.i:                      ; preds = %188, %184, %167
 
 191:                                              ; preds = %add_to_names_hash.exit251.i
   %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0193.i, ptr noundef nonnull dereferenceable(1) %.0192.i) #13
-  %.not235.i = icmp eq i32 %192, 0
-  %spec.select.i = select i1 %.not235.i, i8 %.0264.i, i8 1
+  %.not235.i = icmp ne i32 %192, 0
+  %spec.select.i = zext i1 %.not235.i to i8
   br label %add_to_names_hash.exit.i
 
 add_to_names_hash.exit.i:                         ; preds = %191, %add_to_names_hash.exit251.i, %165, %164, %160
@@ -11539,8 +11539,8 @@ make_colname_unique.exit64:                       ; preds = %344, %.lr.ph98.i118
   %416 = getelementptr inbounds ptr, ptr %415, i64 %411
   %417 = load ptr, ptr %416, align 8
   %418 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %417, ptr noundef nonnull dereferenceable(1) %268) #13
-  %.not234.i = icmp eq i32 %418, 0
-  %spec.select236.i = select i1 %.not234.i, i8 %.3299.i, i8 1
+  %.not234.i = icmp ne i32 %418, 0
+  %spec.select236.i = zext i1 %.not234.i to i8
   br label %423
 
 419:                                              ; preds = %303
@@ -11984,8 +11984,8 @@ make_colname_unique.exit:                         ; preds = %519, %.lr.ph98.i, %
   %591 = getelementptr inbounds ptr, ptr %590, i64 %586
   %592 = load ptr, ptr %591, align 8
   %593 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %592, ptr noundef nonnull dereferenceable(1) %443) #13
-  %.not232.i = icmp eq i32 %593, 0
-  %spec.select237.i = select i1 %.not232.i, i8 %.7319.i, i8 1
+  %.not232.i = icmp ne i32 %593, 0
+  %spec.select237.i = zext i1 %.not232.i to i8
   br label %598
 
 594:                                              ; preds = %478
@@ -15074,8 +15074,8 @@ add_to_names_hash.exit:                           ; preds = %134, %130, %108
 
 145:                                              ; preds = %add_to_names_hash.exit
   %146 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) %106) #13
-  %.not110 = icmp eq i32 %146, 0
-  %spec.select = select i1 %.not110, i8 %.090132, i8 1
+  %.not110 = icmp ne i32 %146, 0
+  %spec.select = zext i1 %.not110 to i8
   br label %147
 
 147:                                              ; preds = %145, %add_to_names_hash.exit, %104

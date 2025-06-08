@@ -195,22 +195,23 @@ atomic_store_p.exit:                              ; preds = %65
 74:                                               ; preds = %73, %71
   %75 = load i8, ptr %6, align 1, !tbaa !11, !range !13, !noundef !14
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %80, label %77
+  br i1 %76, label %.thread108, label %77
 
 77:                                               ; preds = %74
   %78 = tail call zeroext i1 @je_pages_decommit(ptr noundef %70, i64 noundef %3) #6
   %79 = zext i1 %78 to i8
   store i8 %79, ptr %6, align 1, !tbaa !11
-  br label %80
+  %80 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
+  %81 = trunc nuw i8 %80 to i1
+  %82 = select i1 %81, i1 %78, i1 false
+  br i1 %82, label %.thread109, label %.thread89
 
-80:                                               ; preds = %77, %74
-  %81 = phi i1 [ %78, %77 ], [ true, %74 ]
-  %82 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
-  %83 = trunc nuw i8 %82 to i1
-  %or.cond114 = select i1 %83, i1 %81, i1 false
-  br i1 %or.cond114, label %84, label %.thread89
+.thread108:                                       ; preds = %74
+  %83 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %.thread109, label %.thread89
 
-84:                                               ; preds = %80
+.thread109:                                       ; preds = %77, %.thread108
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %85, i8 0, i64 104, i1 false)
@@ -234,11 +235,11 @@ atomic_store_p.exit:                              ; preds = %65
   %95 = call zeroext i1 @je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %86, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
   br i1 %95, label %96, label %97
 
-96:                                               ; preds = %84
+96:                                               ; preds = %.thread109
   call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %3, i1 false)
   br label %97
 
-97:                                               ; preds = %96, %84
+97:                                               ; preds = %96, %.thread109
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #6
   br label %.thread89
 
@@ -255,8 +256,8 @@ atomic_store_b.exit:                              ; preds = %98
   tail call void @je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread89
 
-.thread89:                                        ; preds = %80, %97, %11, %7, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %70, %97 ], [ %70, %80 ]
+.thread89:                                        ; preds = %77, %.thread108, %97, %11, %7, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %70, %97 ], [ %70, %77 ], [ %70, %.thread108 ]
   ret ptr %.0
 }
 

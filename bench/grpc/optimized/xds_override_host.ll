@@ -15821,10 +15821,10 @@ _ZNK9grpc_core12_GLOBAL__N_117XdsOverrideHostLb6Picker18PickOverriddenHostEPNS_2
   %503 = load i8, ptr %502, align 8, !tbaa !274
   switch i8 %503, label %534 [
     i8 0, label %504
-    i8 1, label %.sink.split222
+    i8 1, label %.sink.split184
     i8 2, label %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split
     i8 3, label %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split
-    i8 -1, label %.sink.split222
+    i8 -1, label %.sink.split184
   ]
 
 504:                                              ; preds = %500
@@ -15858,13 +15858,13 @@ _ZNK9grpc_core12_GLOBAL__N_117XdsOverrideHostLb6Picker18PickOverriddenHostEPNS_2
   %520 = getelementptr inbounds nuw i8, ptr %25, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %519, ptr noundef nonnull align 8 dereferenceable(32) %520, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %520, i8 0, i64 32, i1 false), !noalias !556
-  br label %.sink.split222
+  br label %.sink.split184
 
 521:                                              ; preds = %504
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %523 = lshr exact i64 %511, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %511, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge221, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.critedge183, label %.lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %521
   %524 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -15908,22 +15908,22 @@ _ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split: ; 
   %535 = load i64, ptr %25, align 8, !tbaa !43
   store i64 %535, ptr %0, align 8, !tbaa !43
   store i64 55, ptr %25, align 8, !tbaa !43
-  br label %.sink.split222
+  br label %.sink.split184
 
-.critedge221:                                     ; preds = %521
+.critedge183:                                     ; preds = %521
   store i64 0, ptr %509, align 8, !tbaa !154
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %537 = getelementptr inbounds nuw i8, ptr %25, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %536, ptr noundef nonnull align 8 dereferenceable(32) %537, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %537, i8 0, i64 32, i1 false), !noalias !556
-  br label %.sink.split222
+  br label %.sink.split184
 
-.sink.split222:                                   ; preds = %.critedge, %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split, %500, %500, %.critedge221
-  %.sink223 = phi i8 [ 0, %.critedge221 ], [ 0, %.critedge ], [ %503, %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split ], [ %503, %500 ], [ %503, %500 ]
-  store i8 %.sink223, ptr %501, align 8, !tbaa !274
+.sink.split184:                                   ; preds = %.critedge, %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split, %500, %500, %.critedge183
+  %.sink185 = phi i8 [ 0, %.critedge183 ], [ 0, %.critedge ], [ %503, %_ZN9grpc_core19LoadBalancingPolicy10PickResultC2EOS1_.exit.thread.sink.split ], [ %503, %500 ], [ %503, %500 ]
+  store i8 %.sink185, ptr %501, align 8, !tbaa !274
   br label %538
 
-538:                                              ; preds = %.sink.split222, %.loopexit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+538:                                              ; preds = %.sink.split184, %.loopexit.loopexit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i8 0, ptr %497, align 8, !tbaa !510
   invoke void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core19LoadBalancingPolicy10PickResult8CompleteENS4_5QueueENS4_4FailENS4_4DropEEE8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(216) %25)
           to label %_ZNSt14_Optional_baseIN9grpc_core19LoadBalancingPolicy10PickResultELb0ELb0EED2Ev.exit unwind label %539

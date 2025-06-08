@@ -68052,7 +68052,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %450, %444
   %550 = load ptr, ptr %93, align 8, !tbaa !611, !noalias !5122
   %551 = load i64, ptr %173, align 8, !tbaa !612, !noalias !5122
   %.sroa.02.0.copyload.i.i = load i64, ptr %92, align 8, !noalias !5122
-  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %96, ptr %550, i64 %551, i64 %.sroa.02.0.copyload.i.i, i8 %547), !noalias !5119
+  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %96, ptr %550, i64 %551, i64 %.sroa.02.0.copyload.i.i, i8 1), !noalias !5119
   %552 = load ptr, ptr %96, align 8, !tbaa !611, !noalias !5122
   %553 = load i64, ptr %176, align 8, !tbaa !612, !noalias !5122
   %554 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %159, ptr noundef %552, i64 noundef %553) #27, !noalias !5119

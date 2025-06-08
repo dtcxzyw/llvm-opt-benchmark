@@ -1922,7 +1922,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #11
   %22 = call i32 @__sigsetjmp(ptr noundef nonnull %9, i32 noundef 0) #14
   %.not726 = icmp eq i32 %22, 0
-  br i1 %.not726, label %23, label %429
+  br i1 %.not726, label %23, label %431
 
 23:                                               ; preds = %18
   store ptr %9, ptr @PG_exception_stack, align 8
@@ -1934,7 +1934,7 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %24, %23
   %26 = load i32, ptr %14, align 4
-  switch i32 %26, label %423 [
+  switch i32 %26, label %425 [
     i32 145, label %27
     i32 159, label %33
     i32 172, label %33
@@ -1942,65 +1942,65 @@ define internal fastcc void @ProcessUtilitySlow(ptr noundef %0, ptr noundef %1, 
     i32 150, label %112
     i32 190, label %157
     i32 203, label %223
-    i32 247, label %287
-    i32 165, label %288
-    i32 166, label %290
-    i32 167, label %292
-    i32 168, label %294
-    i32 169, label %296
-    i32 170, label %298
-    i32 171, label %300
-    i32 173, label %302
-    i32 174, label %304
-    i32 175, label %306
-    i32 176, label %308
-    i32 225, label %309
-    i32 226, label %315
-    i32 227, label %317
-    i32 228, label %319
-    i32 229, label %321
-    i32 207, label %327
-    i32 209, label %329
-    i32 220, label %331
-    i32 188, label %333
-    i32 189, label %335
-    i32 241, label %337
-    i32 242, label %339
-    i32 180, label %346
-    i32 183, label %348
-    i32 191, label %350
-    i32 248, label %352
-    i32 249, label %354
-    i32 192, label %356
-    i32 194, label %358
-    i32 250, label %360
-    i32 195, label %362
-    i32 256, label %364
-    i32 257, label %366
-    i32 164, label %368
-    i32 196, label %370
-    i32 214, label %371
-    i32 215, label %373
-    i32 216, label %375
-    i32 217, label %377
-    i32 218, label %379
-    i32 219, label %381
-    i32 198, label %383
-    i32 151, label %385
-    i32 254, label %386
-    i32 155, label %387
-    i32 177, label %388
-    i32 178, label %390
-    i32 199, label %392
-    i32 179, label %394
-    i32 260, label %396
-    i32 261, label %398
-    i32 262, label %399
-    i32 263, label %401
-    i32 264, label %403
-    i32 204, label %404
-    i32 206, label %419
-    i32 149, label %421
+    i32 247, label %289
+    i32 165, label %290
+    i32 166, label %292
+    i32 167, label %294
+    i32 168, label %296
+    i32 169, label %298
+    i32 170, label %300
+    i32 171, label %302
+    i32 173, label %304
+    i32 174, label %306
+    i32 175, label %308
+    i32 176, label %310
+    i32 225, label %311
+    i32 226, label %317
+    i32 227, label %319
+    i32 228, label %321
+    i32 229, label %323
+    i32 207, label %329
+    i32 209, label %331
+    i32 220, label %333
+    i32 188, label %335
+    i32 189, label %337
+    i32 241, label %339
+    i32 242, label %341
+    i32 180, label %348
+    i32 183, label %350
+    i32 191, label %352
+    i32 248, label %354
+    i32 249, label %356
+    i32 192, label %358
+    i32 194, label %360
+    i32 250, label %362
+    i32 195, label %364
+    i32 256, label %366
+    i32 257, label %368
+    i32 164, label %370
+    i32 196, label %372
+    i32 214, label %373
+    i32 215, label %375
+    i32 216, label %377
+    i32 217, label %379
+    i32 218, label %381
+    i32 219, label %383
+    i32 198, label %385
+    i32 151, label %387
+    i32 254, label %388
+    i32 155, label %389
+    i32 177, label %390
+    i32 178, label %392
+    i32 199, label %394
+    i32 179, label %396
+    i32 260, label %398
+    i32 261, label %400
+    i32 262, label %401
+    i32 263, label %403
+    i32 264, label %405
+    i32 204, label %406
+    i32 206, label %421
+    i32 149, label %423
   ]
 
 27:                                               ; preds = %25
@@ -2219,19 +2219,19 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = call { i64, i32 } @AlterDomainDefault(ptr noundef %117, ptr noundef %119) #11
-  br label %427
+  br label %429
 
 121:                                              ; preds = %112
   %122 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = call { i64, i32 } @AlterDomainNotNull(ptr noundef %123, i1 noundef zeroext false) #11
-  br label %427
+  br label %429
 
 125:                                              ; preds = %112
   %126 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = call { i64, i32 } @AlterDomainNotNull(ptr noundef %127, i1 noundef zeroext true) #11
-  br label %427
+  br label %429
 
 129:                                              ; preds = %112
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2239,7 +2239,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %132 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %133 = load ptr, ptr %132, align 8
   %134 = call { i64, i32 } @AlterDomainAddConstraint(ptr noundef %131, ptr noundef %133, ptr noundef nonnull %8) #11
-  br label %427
+  br label %429
 
 135:                                              ; preds = %112
   %136 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2252,7 +2252,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %143 = load i8, ptr %142, align 4, !range !4, !noundef !5
   %144 = trunc nuw i8 %143 to i1
   %145 = call { i64, i32 } @AlterDomainDropConstraint(ptr noundef %137, ptr noundef %139, i32 noundef %141, i1 noundef zeroext %144) #11
-  br label %427
+  br label %429
 
 146:                                              ; preds = %112
   %147 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2260,7 +2260,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %150 = load ptr, ptr %149, align 8
   %151 = call { i64, i32 } @AlterDomainValidateConstraint(ptr noundef %148, ptr noundef %150) #11
-  br label %427
+  br label %429
 
 152:                                              ; preds = %112
   %153 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2299,7 +2299,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %171 = load i8, ptr %170, align 1, !range !4, !noundef !5
   %172 = trunc nuw i8 %171 to i1
   %173 = call { i64, i32 } @DefineAggregate(ptr noundef %0, ptr noundef %162, ptr noundef %164, i1 noundef zeroext %167, ptr noundef %169, i1 noundef zeroext %172) #11
-  br label %427
+  br label %429
 
 174:                                              ; preds = %157
   %175 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2307,7 +2307,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %177 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %178 = load ptr, ptr %177, align 8
   %179 = call { i64, i32 } @DefineOperator(ptr noundef %176, ptr noundef %178) #11
-  br label %427
+  br label %429
 
 180:                                              ; preds = %157
   %181 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2315,7 +2315,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %183 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %184 = load ptr, ptr %183, align 8
   %185 = call { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %182, ptr noundef %184) #11
-  br label %427
+  br label %429
 
 186:                                              ; preds = %157
   %187 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2323,7 +2323,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %189 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %190 = load ptr, ptr %189, align 8
   %191 = call { i64, i32 } @DefineTSParser(ptr noundef %188, ptr noundef %190) #11
-  br label %427
+  br label %429
 
 192:                                              ; preds = %157
   %193 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2331,7 +2331,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %195 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %196 = load ptr, ptr %195, align 8
   %197 = call { i64, i32 } @DefineTSDictionary(ptr noundef %194, ptr noundef %196) #11
-  br label %427
+  br label %429
 
 198:                                              ; preds = %157
   %199 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2339,7 +2339,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %201 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %202 = load ptr, ptr %201, align 8
   %203 = call { i64, i32 } @DefineTSTemplate(ptr noundef %200, ptr noundef %202) #11
-  br label %427
+  br label %429
 
 204:                                              ; preds = %157
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2347,7 +2347,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %207 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %208 = load ptr, ptr %207, align 8
   %209 = call { i64, i32 } @DefineTSConfiguration(ptr noundef %206, ptr noundef %208, ptr noundef nonnull %8) #11
-  br label %427
+  br label %429
 
 210:                                              ; preds = %157
   %211 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2358,7 +2358,7 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %216 = load i8, ptr %215, align 8, !range !4, !noundef !5
   %217 = trunc nuw i8 %216 to i1
   %218 = call { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %212, ptr noundef %214, i1 noundef zeroext %217) #11
-  br label %427
+  br label %429
 
 219:                                              ; preds = %157
   %220 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -2372,121 +2372,121 @@ ProcessUtility.exit:                              ; preds = %69, %68, %50, %54, 
   %224 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %225 = load i8, ptr %224, align 8, !range !4, !noundef !5
   %226 = trunc nuw i8 %225 to i1
-  br i1 %226, label %227, label %229
+  br i1 %226, label %227, label %230
 
 227:                                              ; preds = %223
   call void @PreventInTransactionBlock(i1 noundef zeroext %15, ptr noundef nonnull @.str.40) #11
   %.pre = load i8, ptr %224, align 8, !range !4
-  %.pre48 = trunc nuw i8 %.pre to i1
-  %228 = select i1 %.pre48, i32 4, i32 5
-  br label %229
+  %228 = trunc nuw i8 %.pre to i1
+  %229 = select i1 %228, i32 4, i32 5
+  br label %230
 
-229:                                              ; preds = %227, %223
-  %.pre-phi = phi i32 [ %228, %227 ], [ 5, %223 ]
-  %230 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %231 = load ptr, ptr %230, align 8
-  %232 = call i32 @RangeVarGetRelidExtended(ptr noundef %231, i32 noundef %.pre-phi, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackOwnsRelation, ptr noundef null) #11
-  %233 = load ptr, ptr %230, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
-  %235 = load i8, ptr %234, align 8, !range !4, !noundef !5
-  %236 = trunc nuw i8 %235 to i1
-  br i1 %236, label %237, label %281
+230:                                              ; preds = %227, %223
+  %231 = phi i32 [ %229, %227 ], [ 5, %223 ]
+  %232 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %233 = load ptr, ptr %232, align 8
+  %234 = call i32 @RangeVarGetRelidExtended(ptr noundef %233, i32 noundef %231, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackOwnsRelation, ptr noundef null) #11
+  %235 = load ptr, ptr %232, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 32
+  %237 = load i8, ptr %236, align 8, !range !4, !noundef !5
+  %238 = trunc nuw i8 %237 to i1
+  br i1 %238, label %239, label %283
 
-237:                                              ; preds = %229
-  %238 = call signext i8 @get_rel_relkind(i32 noundef %232) #11
-  %239 = icmp eq i8 %238, 112
-  br i1 %239, label %240, label %281
+239:                                              ; preds = %230
+  %240 = call signext i8 @get_rel_relkind(i32 noundef %234) #11
+  %241 = icmp eq i8 %240, 112
+  br i1 %241, label %242, label %283
 
-240:                                              ; preds = %237
-  %241 = call ptr @find_all_inheritors(i32 noundef %232, i32 noundef %.pre-phi, ptr noundef null) #11
-  %.not716 = icmp eq ptr %241, null
+242:                                              ; preds = %239
+  %243 = call ptr @find_all_inheritors(i32 noundef %234, i32 noundef %231, ptr noundef null) #11
+  %.not716 = icmp eq ptr %243, null
   br i1 %.not716, label %list_length.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %240
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  %243 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  %244 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %245 = getelementptr inbounds nuw i8, ptr %14, i64 106
-  %246 = load i32, ptr %242, align 4
-  %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %.lr.ph29, label %.split
+.lr.ph:                                           ; preds = %242
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %247 = getelementptr inbounds nuw i8, ptr %14, i64 106
+  %248 = load i32, ptr %244, align 4
+  %249 = icmp sgt i32 %248, 0
+  br i1 %249, label %.lr.ph29, label %.split
 
-.split:                                           ; preds = %277, %.lr.ph
-  %248 = phi i32 [ %246, %.lr.ph ], [ %278, %277 ]
-  %249 = add i32 %248, -1
+.split:                                           ; preds = %279, %.lr.ph
+  %250 = phi i32 [ %248, %.lr.ph ], [ %280, %279 ]
+  %251 = add i32 %250, -1
   br label %list_length.exit
 
-list_length.exit:                                 ; preds = %240, %.split
-  %250 = phi i32 [ %249, %.split ], [ -1, %240 ]
-  call void @list_free(ptr noundef %241) #11
-  br label %281
+list_length.exit:                                 ; preds = %242, %.split
+  %252 = phi i32 [ %251, %.split ], [ -1, %242 ]
+  call void @list_free(ptr noundef %243) #11
+  br label %283
 
-.lr.ph29:                                         ; preds = %.lr.ph, %277
-  %indvars.iv = phi i64 [ %indvars.iv.next, %277 ], [ 0, %.lr.ph ]
-  %251 = load ptr, ptr %243, align 8
-  %252 = getelementptr inbounds nuw %union.ListCell, ptr %251, i64 %indvars.iv
-  %253 = load i32, ptr %252, align 8
-  %254 = call signext i8 @get_rel_relkind(i32 noundef %253) #11
-  switch i8 %254, label %.split25 [
-    i8 102, label %261
-    i8 109, label %277
-    i8 112, label %277
-    i8 114, label %277
+.lr.ph29:                                         ; preds = %.lr.ph, %279
+  %indvars.iv = phi i64 [ %indvars.iv.next, %279 ], [ 0, %.lr.ph ]
+  %253 = load ptr, ptr %245, align 8
+  %254 = getelementptr inbounds nuw %union.ListCell, ptr %253, i64 %indvars.iv
+  %255 = load i32, ptr %254, align 8
+  %256 = call signext i8 @get_rel_relkind(i32 noundef %255) #11
+  switch i8 %256, label %.split25 [
+    i8 102, label %263
+    i8 109, label %279
+    i8 112, label %279
+    i8 114, label %279
   ]
 
 .split25:                                         ; preds = %.lr.ph29
-  %255 = sext i8 %254 to i32
-  %256 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %256)
-  %257 = load ptr, ptr %230, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
-  %259 = load ptr, ptr %258, align 8
-  %260 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %255, ptr noundef %259) #11
+  %257 = sext i8 %256 to i32
+  %258 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %258)
+  %259 = load ptr, ptr %232, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 24
+  %261 = load ptr, ptr %260, align 8
+  %262 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %257, ptr noundef %261) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1512, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-261:                                              ; preds = %.lr.ph29
-  %262 = load i8, ptr %244, align 8, !range !4, !noundef !5
-  %263 = trunc nuw i8 %262 to i1
-  br i1 %263, label %.split27, label %264
+263:                                              ; preds = %.lr.ph29
+  %264 = load i8, ptr %246, align 8, !range !4, !noundef !5
+  %265 = trunc nuw i8 %264 to i1
+  br i1 %265, label %.split27, label %266
 
-264:                                              ; preds = %261
-  %265 = load i8, ptr %245, align 2, !range !4, !noundef !5
-  %266 = trunc nuw i8 %265 to i1
-  br i1 %266, label %.split27, label %277
+266:                                              ; preds = %263
+  %267 = load i8, ptr %247, align 2, !range !4, !noundef !5
+  %268 = trunc nuw i8 %267 to i1
+  br i1 %268, label %.split27, label %279
 
-.split27:                                         ; preds = %261, %264
-  %267 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %267)
-  %268 = call i32 @errcode(i32 noundef 151027844) #11
-  %269 = load ptr, ptr %230, align 8
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
-  %271 = load ptr, ptr %270, align 8
-  %272 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef %271) #11
-  %273 = load ptr, ptr %230, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
-  %275 = load ptr, ptr %274, align 8
-  %276 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.43, ptr noundef %275) #11
+.split27:                                         ; preds = %263, %266
+  %269 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %269)
+  %270 = call i32 @errcode(i32 noundef 151027844) #11
+  %271 = load ptr, ptr %232, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 24
+  %273 = load ptr, ptr %272, align 8
+  %274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef %273) #11
+  %275 = load ptr, ptr %232, align 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
+  %277 = load ptr, ptr %276, align 8
+  %278 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.43, ptr noundef %277) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1521, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-277:                                              ; preds = %.lr.ph29, %.lr.ph29, %.lr.ph29, %264
+279:                                              ; preds = %.lr.ph29, %.lr.ph29, %.lr.ph29, %266
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %278 = load i32, ptr %242, align 4
-  %279 = sext i32 %278 to i64
-  %280 = icmp slt i64 %indvars.iv.next, %279
-  br i1 %280, label %.lr.ph29, label %.split
+  %280 = load i32, ptr %244, align 4
+  %281 = sext i32 %280 to i64
+  %282 = icmp slt i64 %indvars.iv.next, %281
+  br i1 %282, label %.lr.ph29, label %.split
 
-281:                                              ; preds = %list_length.exit, %237, %229
-  %.0707 = phi i32 [ %250, %list_length.exit ], [ -1, %237 ], [ -1, %229 ]
-  %282 = getelementptr inbounds nuw i8, ptr %14, i64 111
-  %283 = load i8, ptr %282, align 1, !range !4, !noundef !5
-  %284 = trunc nuw i8 %283 to i1
-  %285 = call ptr @transformIndexStmt(i32 noundef %232, ptr noundef nonnull %14, ptr noundef %2) #11
+283:                                              ; preds = %list_length.exit, %239, %230
+  %.0707 = phi i32 [ %252, %list_length.exit ], [ -1, %239 ], [ -1, %230 ]
+  %284 = getelementptr inbounds nuw i8, ptr %14, i64 111
+  %285 = load i8, ptr %284, align 1, !range !4, !noundef !5
+  %286 = trunc nuw i8 %285 to i1
+  %287 = call ptr @transformIndexStmt(i32 noundef %234, ptr noundef nonnull %14, ptr noundef %2) #11
   call void @EventTriggerAlterTableStart(ptr noundef nonnull %14) #11
-  %286 = call { i64, i32 } @DefineIndex(i32 noundef %232, ptr noundef %285, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.0707, i1 noundef zeroext %284, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #11
-  %.fca.0.extract314 = extractvalue { i64, i32 } %286, 0
-  %.fca.1.extract315 = extractvalue { i64, i32 } %286, 1
+  %288 = call { i64, i32 } @DefineIndex(i32 noundef %234, ptr noundef %287, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.0707, i1 noundef zeroext %286, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #11
+  %.fca.0.extract314 = extractvalue { i64, i32 } %288, 0
+  %.fca.1.extract315 = extractvalue { i64, i32 } %288, 1
   %.sroa.0310.0.copyload = load i64, ptr %8, align 8
   %.sroa.2311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2311.0.copyload = load i32, ptr %.sroa.2311.0..sroa_idx, align 8
@@ -2494,83 +2494,83 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @EventTriggerAlterTableEnd() #11
   br label %.loopexit
 
-287:                                              ; preds = %25
+289:                                              ; preds = %25
   call void @ExecReindex(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
   br label %.loopexit
 
-288:                                              ; preds = %25
-  %289 = call { i64, i32 } @CreateExtension(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
-
 290:                                              ; preds = %25
-  %291 = call { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %291 = call { i64, i32 } @CreateExtension(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 292:                                              ; preds = %25
-  %293 = call { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
-  br label %427
+  %293 = call { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 294:                                              ; preds = %25
-  %295 = call { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %295 = call { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
+  br label %429
 
 296:                                              ; preds = %25
-  %297 = call { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %297 = call { i64, i32 } @CreateForeignDataWrapper(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 298:                                              ; preds = %25
-  %299 = call { i64, i32 } @CreateForeignServer(ptr noundef nonnull %14) #11
-  br label %427
+  %299 = call { i64, i32 } @AlterForeignDataWrapper(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 300:                                              ; preds = %25
-  %301 = call { i64, i32 } @AlterForeignServer(ptr noundef nonnull %14) #11
-  br label %427
+  %301 = call { i64, i32 } @CreateForeignServer(ptr noundef nonnull %14) #11
+  br label %429
 
 302:                                              ; preds = %25
-  %303 = call { i64, i32 } @CreateUserMapping(ptr noundef nonnull %14) #11
-  br label %427
+  %303 = call { i64, i32 } @AlterForeignServer(ptr noundef nonnull %14) #11
+  br label %429
 
 304:                                              ; preds = %25
-  %305 = call { i64, i32 } @AlterUserMapping(ptr noundef nonnull %14) #11
-  br label %427
+  %305 = call { i64, i32 } @CreateUserMapping(ptr noundef nonnull %14) #11
+  br label %429
 
 306:                                              ; preds = %25
-  %307 = call i32 @RemoveUserMapping(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  %307 = call { i64, i32 } @AlterUserMapping(ptr noundef nonnull %14) #11
+  br label %429
 
 308:                                              ; preds = %25
+  %309 = call i32 @RemoveUserMapping(ptr noundef nonnull %14) #11
+  br label %.loopexit
+
+310:                                              ; preds = %25
   call void @ImportForeignSchema(ptr noundef nonnull %14) #11
   br label %.loopexit
 
-309:                                              ; preds = %25
-  %310 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %14, i64 16
+311:                                              ; preds = %25
+  %312 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %313 = load ptr, ptr %312, align 8
-  %314 = call { i64, i32 } @DefineCompositeType(ptr noundef %311, ptr noundef %313) #11
-  br label %427
-
-315:                                              ; preds = %25
-  %316 = call { i64, i32 } @DefineEnum(ptr noundef nonnull %14) #11
-  br label %427
+  %314 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %315 = load ptr, ptr %314, align 8
+  %316 = call { i64, i32 } @DefineCompositeType(ptr noundef %313, ptr noundef %315) #11
+  br label %429
 
 317:                                              ; preds = %25
-  %318 = call { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %318 = call { i64, i32 } @DefineEnum(ptr noundef nonnull %14) #11
+  br label %429
 
 319:                                              ; preds = %25
-  %320 = call { i64, i32 } @AlterEnum(ptr noundef nonnull %14) #11
-  br label %427
+  %320 = call { i64, i32 } @DefineRange(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 321:                                              ; preds = %25
+  %322 = call { i64, i32 } @AlterEnum(ptr noundef nonnull %14) #11
+  br label %429
+
+323:                                              ; preds = %25
   call void @EventTriggerAlterTableStart(ptr noundef nonnull %14) #11
-  %322 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %323 = load i32, ptr %322, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %325 = load i32, ptr %324, align 4
-  %326 = call { i64, i32 } @DefineView(ptr noundef nonnull %14, ptr noundef %2, i32 noundef %323, i32 noundef %325) #11
-  %.fca.0.extract224 = extractvalue { i64, i32 } %326, 0
-  %.fca.1.extract225 = extractvalue { i64, i32 } %326, 1
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %325 = load i32, ptr %324, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %327 = load i32, ptr %326, align 4
+  %328 = call { i64, i32 } @DefineView(ptr noundef nonnull %14, ptr noundef %2, i32 noundef %325, i32 noundef %327) #11
+  %.fca.0.extract224 = extractvalue { i64, i32 } %328, 0
+  %.fca.1.extract225 = extractvalue { i64, i32 } %328, 1
   %.sroa.0220.0.copyload = load i64, ptr %8, align 8
   %.sroa.2221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2221.0.copyload = load i32, ptr %.sroa.2221.0..sroa_idx, align 8
@@ -2578,228 +2578,228 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @EventTriggerAlterTableEnd() #11
   br label %.loopexit
 
-327:                                              ; preds = %25
-  %328 = call { i64, i32 } @CreateFunction(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
-
 329:                                              ; preds = %25
-  %330 = call { i64, i32 } @AlterFunction(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %330 = call { i64, i32 } @CreateFunction(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 331:                                              ; preds = %25
-  %332 = call { i64, i32 } @DefineRule(ptr noundef nonnull %14, ptr noundef %2) #11
-  br label %427
+  %332 = call { i64, i32 } @AlterFunction(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 333:                                              ; preds = %25
-  %334 = call { i64, i32 } @DefineSequence(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %334 = call { i64, i32 } @DefineRule(ptr noundef nonnull %14, ptr noundef %2) #11
+  br label %429
 
 335:                                              ; preds = %25
-  %336 = call { i64, i32 } @AlterSequence(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %336 = call { i64, i32 } @DefineSequence(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 337:                                              ; preds = %25
-  %338 = call { i64, i32 } @ExecCreateTableAs(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %4, ptr noundef %5, ptr noundef %6) #11
-  br label %427
+  %338 = call { i64, i32 } @AlterSequence(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 339:                                              ; preds = %25
-  call void @EventTriggerInhibitCommandCollection() #11
-  %340 = load ptr, ptr @PG_exception_stack, align 8
-  %341 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12) #11
-  %342 = call i32 @__sigsetjmp(ptr noundef nonnull %12, i32 noundef 0) #14
-  %.not715 = icmp eq i32 %342, 0
-  br i1 %.not715, label %344, label %343
+  %340 = call { i64, i32 } @ExecCreateTableAs(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %4, ptr noundef %5, ptr noundef %6) #11
+  br label %429
 
-343:                                              ; preds = %339
-  store ptr %340, ptr @PG_exception_stack, align 8
-  store ptr %341, ptr @error_context_stack, align 8
+341:                                              ; preds = %25
+  call void @EventTriggerInhibitCommandCollection() #11
+  %342 = load ptr, ptr @PG_exception_stack, align 8
+  %343 = load ptr, ptr @error_context_stack, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12) #11
+  %344 = call i32 @__sigsetjmp(ptr noundef nonnull %12, i32 noundef 0) #14
+  %.not715 = icmp eq i32 %344, 0
+  br i1 %.not715, label %346, label %345
+
+345:                                              ; preds = %341
+  store ptr %342, ptr @PG_exception_stack, align 8
+  store ptr %343, ptr @error_context_stack, align 8
   call void @EventTriggerUndoInhibitCommandCollection() #11
   call void @pg_re_throw() #15
   unreachable
 
-344:                                              ; preds = %339
+346:                                              ; preds = %341
   store ptr %12, ptr @PG_exception_stack, align 8
-  %345 = call { i64, i32 } @ExecRefreshMatView(ptr noundef nonnull %14, ptr noundef %2, ptr noundef %6) #11
-  store ptr %340, ptr @PG_exception_stack, align 8
-  store ptr %341, ptr @error_context_stack, align 8
+  %347 = call { i64, i32 } @ExecRefreshMatView(ptr noundef nonnull %14, ptr noundef %2, ptr noundef %6) #11
+  store ptr %342, ptr @PG_exception_stack, align 8
+  store ptr %343, ptr @error_context_stack, align 8
   call void @EventTriggerUndoInhibitCommandCollection() #11
-  store ptr %340, ptr @PG_exception_stack, align 8
-  store ptr %341, ptr @error_context_stack, align 8
+  store ptr %342, ptr @PG_exception_stack, align 8
+  store ptr %343, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12) #11
-  br label %427
-
-346:                                              ; preds = %25
-  %347 = call { i64, i32 } @CreateTrigger(ptr noundef nonnull %14, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #11
-  br label %427
+  br label %429
 
 348:                                              ; preds = %25
-  %349 = call { i64, i32 } @CreateProceduralLanguage(ptr noundef nonnull %14) #11
-  br label %427
+  %349 = call { i64, i32 } @CreateTrigger(ptr noundef nonnull %14, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #11
+  br label %429
 
 350:                                              ; preds = %25
-  %351 = call { i64, i32 } @DefineDomain(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %351 = call { i64, i32 } @CreateProceduralLanguage(ptr noundef nonnull %14) #11
+  br label %429
 
 352:                                              ; preds = %25
-  %353 = call { i64, i32 } @CreateConversionCommand(ptr noundef nonnull %14) #11
-  br label %427
+  %353 = call { i64, i32 } @DefineDomain(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
 
 354:                                              ; preds = %25
-  %355 = call { i64, i32 } @CreateCast(ptr noundef nonnull %14) #11
-  br label %427
+  %355 = call { i64, i32 } @CreateConversionCommand(ptr noundef nonnull %14) #11
+  br label %429
 
 356:                                              ; preds = %25
-  %357 = call { i64, i32 } @DefineOpClass(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  %357 = call { i64, i32 } @CreateCast(ptr noundef nonnull %14) #11
+  br label %429
 
 358:                                              ; preds = %25
-  %359 = call { i64, i32 } @DefineOpFamily(ptr noundef nonnull %14) #11
+  %359 = call { i64, i32 } @DefineOpClass(ptr noundef nonnull %14) #11
   br label %.loopexit
 
 360:                                              ; preds = %25
-  %361 = call { i64, i32 } @CreateTransform(ptr noundef nonnull %14) #11
-  br label %427
+  %361 = call { i64, i32 } @DefineOpFamily(ptr noundef nonnull %14) #11
+  br label %.loopexit
 
 362:                                              ; preds = %25
-  %363 = call i32 @AlterOpFamily(ptr noundef nonnull %14) #11
-  br label %.loopexit
+  %363 = call { i64, i32 } @CreateTransform(ptr noundef nonnull %14) #11
+  br label %429
 
 364:                                              ; preds = %25
-  %365 = call { i64, i32 } @AlterTSDictionary(ptr noundef nonnull %14) #11
-  br label %427
-
-366:                                              ; preds = %25
-  %367 = call { i64, i32 } @AlterTSConfiguration(ptr noundef nonnull %14) #11
+  %365 = call i32 @AlterOpFamily(ptr noundef nonnull %14) #11
   br label %.loopexit
 
+366:                                              ; preds = %25
+  %367 = call { i64, i32 } @AlterTSDictionary(ptr noundef nonnull %14) #11
+  br label %429
+
 368:                                              ; preds = %25
-  %369 = call i32 @AlterTableMoveAll(ptr noundef nonnull %14) #11
+  %369 = call { i64, i32 } @AlterTSConfiguration(ptr noundef nonnull %14) #11
   br label %.loopexit
 
 370:                                              ; preds = %25
+  %371 = call i32 @AlterTableMoveAll(ptr noundef nonnull %14) #11
+  br label %.loopexit
+
+372:                                              ; preds = %25
   call fastcc void @ExecDropStmt(ptr noundef nonnull %14, i1 noundef zeroext %15)
   br label %.loopexit
 
-371:                                              ; preds = %25
-  %372 = call { i64, i32 } @ExecRenameStmt(ptr noundef nonnull %14) #11
-  br label %427
-
 373:                                              ; preds = %25
-  %374 = call { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
-  br label %427
+  %374 = call { i64, i32 } @ExecRenameStmt(ptr noundef nonnull %14) #11
+  br label %429
 
 375:                                              ; preds = %25
-  %376 = call { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
-  br label %427
+  %376 = call { i64, i32 } @ExecAlterObjectDependsStmt(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
+  br label %429
 
 377:                                              ; preds = %25
-  %378 = call { i64, i32 } @ExecAlterOwnerStmt(ptr noundef nonnull %14) #11
-  br label %427
+  %378 = call { i64, i32 } @ExecAlterObjectSchemaStmt(ptr noundef nonnull %14, ptr noundef nonnull %8) #11
+  br label %429
 
 379:                                              ; preds = %25
-  %380 = call { i64, i32 } @AlterOperator(ptr noundef nonnull %14) #11
-  br label %427
+  %380 = call { i64, i32 } @ExecAlterOwnerStmt(ptr noundef nonnull %14) #11
+  br label %429
 
 381:                                              ; preds = %25
-  %382 = call { i64, i32 } @AlterType(ptr noundef nonnull %14) #11
-  br label %427
+  %382 = call { i64, i32 } @AlterOperator(ptr noundef nonnull %14) #11
+  br label %429
 
 383:                                              ; preds = %25
-  %384 = call { i64, i32 } @CommentObject(ptr noundef nonnull %14) #11
-  br label %427
+  %384 = call { i64, i32 } @AlterType(ptr noundef nonnull %14) #11
+  br label %429
 
 385:                                              ; preds = %25
+  %386 = call { i64, i32 } @CommentObject(ptr noundef nonnull %14) #11
+  br label %429
+
+387:                                              ; preds = %25
   call void @ExecuteGrantStmt(ptr noundef nonnull %14) #11
   br label %.loopexit
 
-386:                                              ; preds = %25
+388:                                              ; preds = %25
   call void @DropOwnedObjects(ptr noundef nonnull %14) #11
   br label %.loopexit
 
-387:                                              ; preds = %25
+389:                                              ; preds = %25
   call void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr noundef nonnull %14) #11
   call void @EventTriggerCollectAlterDefPrivs(ptr noundef nonnull %14) #11
   br label %.loopexit
 
-388:                                              ; preds = %25
-  %389 = call { i64, i32 } @CreatePolicy(ptr noundef nonnull %14) #11
-  br label %427
-
 390:                                              ; preds = %25
-  %391 = call { i64, i32 } @AlterPolicy(ptr noundef nonnull %14) #11
-  br label %427
+  %391 = call { i64, i32 } @CreatePolicy(ptr noundef nonnull %14) #11
+  br label %429
 
 392:                                              ; preds = %25
-  %393 = call { i64, i32 } @ExecSecLabelStmt(ptr noundef nonnull %14) #11
-  br label %427
+  %393 = call { i64, i32 } @AlterPolicy(ptr noundef nonnull %14) #11
+  br label %429
 
 394:                                              ; preds = %25
-  %395 = call { i64, i32 } @CreateAccessMethod(ptr noundef nonnull %14) #11
-  br label %427
+  %395 = call { i64, i32 } @ExecSecLabelStmt(ptr noundef nonnull %14) #11
+  br label %429
 
 396:                                              ; preds = %25
-  %397 = call { i64, i32 } @CreatePublication(ptr noundef %0, ptr noundef nonnull %14) #11
-  br label %427
+  %397 = call { i64, i32 } @CreateAccessMethod(ptr noundef nonnull %14) #11
+  br label %429
 
 398:                                              ; preds = %25
+  %399 = call { i64, i32 } @CreatePublication(ptr noundef %0, ptr noundef nonnull %14) #11
+  br label %429
+
+400:                                              ; preds = %25
   call void @AlterPublication(ptr noundef %0, ptr noundef nonnull %14) #11
   br label %.loopexit
 
-399:                                              ; preds = %25
-  %400 = call { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
-  br label %427
-
 401:                                              ; preds = %25
-  %402 = call { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
-  br label %427
+  %402 = call { i64, i32 } @CreateSubscription(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
+  br label %429
 
 403:                                              ; preds = %25
+  %404 = call { i64, i32 } @AlterSubscription(ptr noundef %0, ptr noundef nonnull %14, i1 noundef zeroext %15) #11
+  br label %429
+
+405:                                              ; preds = %25
   call void @DropSubscription(ptr noundef nonnull %14, i1 noundef zeroext %15) #11
   br label %.loopexit
 
-404:                                              ; preds = %25
-  %405 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %406 = load ptr, ptr %405, align 8
-  %407 = getelementptr i8, ptr %406, i64 16
-  %.val = load ptr, ptr %407, align 8
-  %408 = load ptr, ptr %.val, align 8
-  %409 = load i32, ptr %408, align 4
-  %410 = icmp eq i32 %409, 3
-  br i1 %410, label %415, label %411
+406:                                              ; preds = %25
+  %407 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %408 = load ptr, ptr %407, align 8
+  %409 = getelementptr i8, ptr %408, i64 16
+  %.val = load ptr, ptr %409, align 8
+  %410 = load ptr, ptr %.val, align 8
+  %411 = load i32, ptr %410, align 4
+  %412 = icmp eq i32 %411, 3
+  br i1 %412, label %417, label %413
 
-411:                                              ; preds = %404
-  %412 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %412)
-  %413 = call i32 @errcode(i32 noundef 1088) #11
-  %414 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #11
+413:                                              ; preds = %406
+  %414 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %414)
+  %415 = call i32 @errcode(i32 noundef 1088) #11
+  %416 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1886, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-415:                                              ; preds = %404
-  %416 = call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %408, i32 noundef 4, i32 noundef 0, ptr noundef null, ptr noundef null) #11
-  %417 = call ptr @transformStatsStmt(i32 noundef %416, ptr noundef nonnull %14, ptr noundef %2) #11
-  %418 = call { i64, i32 } @CreateStatistics(ptr noundef %417) #11
-  br label %427
-
-419:                                              ; preds = %25
-  %420 = call { i64, i32 } @AlterStatistics(ptr noundef nonnull %14) #11
-  br label %427
+417:                                              ; preds = %406
+  %418 = call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %410, i32 noundef 4, i32 noundef 0, ptr noundef null, ptr noundef null) #11
+  %419 = call ptr @transformStatsStmt(i32 noundef %418, ptr noundef nonnull %14, ptr noundef %2) #11
+  %420 = call { i64, i32 } @CreateStatistics(ptr noundef %419) #11
+  br label %429
 
 421:                                              ; preds = %25
-  %422 = call { i64, i32 } @AlterCollation(ptr noundef nonnull %14) #11
-  br label %427
+  %422 = call { i64, i32 } @AlterStatistics(ptr noundef nonnull %14) #11
+  br label %429
 
 423:                                              ; preds = %25
-  %424 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %424)
-  %425 = load i32, ptr %14, align 4
-  %426 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %425) #11
+  %424 = call { i64, i32 } @AlterCollation(ptr noundef nonnull %14) #11
+  br label %429
+
+425:                                              ; preds = %25
+  %426 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %426)
+  %427 = load i32, ptr %14, align 4
+  %428 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %427) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1918, ptr noundef nonnull @__func__.ProcessUtilitySlow) #11
   unreachable
 
-427:                                              ; preds = %160, %174, %180, %186, %192, %198, %204, %210, %115, %121, %125, %129, %135, %146, %288, %290, %292, %294, %296, %298, %300, %302, %304, %309, %315, %317, %319, %327, %329, %331, %333, %335, %337, %344, %346, %348, %350, %352, %354, %360, %364, %371, %373, %375, %377, %379, %381, %383, %388, %390, %392, %394, %396, %399, %401, %415, %419, %421
-  %.pn20 = phi { i64, i32 } [ %422, %421 ], [ %420, %419 ], [ %418, %415 ], [ %402, %401 ], [ %400, %399 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %391, %390 ], [ %389, %388 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %372, %371 ], [ %365, %364 ], [ %361, %360 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %345, %344 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %320, %319 ], [ %318, %317 ], [ %316, %315 ], [ %314, %309 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %289, %288 ], [ %120, %115 ], [ %124, %121 ], [ %128, %125 ], [ %134, %129 ], [ %145, %135 ], [ %151, %146 ], [ %173, %160 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %197, %192 ], [ %203, %198 ], [ %209, %204 ], [ %218, %210 ]
+429:                                              ; preds = %160, %174, %180, %186, %192, %198, %204, %210, %115, %121, %125, %129, %135, %146, %290, %292, %294, %296, %298, %300, %302, %304, %306, %311, %317, %319, %321, %329, %331, %333, %335, %337, %339, %346, %348, %350, %352, %354, %356, %362, %366, %373, %375, %377, %379, %381, %383, %385, %390, %392, %394, %396, %398, %401, %403, %417, %421, %423
+  %.pn20 = phi { i64, i32 } [ %424, %423 ], [ %422, %421 ], [ %420, %417 ], [ %404, %403 ], [ %402, %401 ], [ %399, %398 ], [ %397, %396 ], [ %395, %394 ], [ %393, %392 ], [ %391, %390 ], [ %386, %385 ], [ %384, %383 ], [ %382, %381 ], [ %380, %379 ], [ %378, %377 ], [ %376, %375 ], [ %374, %373 ], [ %367, %366 ], [ %363, %362 ], [ %357, %356 ], [ %355, %354 ], [ %353, %352 ], [ %351, %350 ], [ %349, %348 ], [ %347, %346 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %322, %321 ], [ %320, %319 ], [ %318, %317 ], [ %316, %311 ], [ %307, %306 ], [ %305, %304 ], [ %303, %302 ], [ %301, %300 ], [ %299, %298 ], [ %297, %296 ], [ %295, %294 ], [ %293, %292 ], [ %291, %290 ], [ %120, %115 ], [ %124, %121 ], [ %128, %125 ], [ %134, %129 ], [ %145, %135 ], [ %151, %146 ], [ %173, %160 ], [ %179, %174 ], [ %185, %180 ], [ %191, %186 ], [ %197, %192 ], [ %203, %198 ], [ %209, %204 ], [ %218, %210 ]
   %.sroa.72.0.ph = extractvalue { i64, i32 } %.pn20, 1
   %.sroa.0552.0.ph = extractvalue { i64, i32 } %.pn20, 0
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
@@ -2808,31 +2808,31 @@ list_length.exit:                                 ; preds = %240, %.split
   call void @EventTriggerCollectSimpleCommand(i64 %.sroa.0552.0.ph, i32 %.sroa.72.0.ph, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef nonnull %14) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ProcessUtility.exit, %33, %27, %281, %287, %306, %308, %321, %356, %358, %362, %366, %368, %370, %385, %386, %387, %398, %403, %104, %106, %99, %427
-  br i1 %.not, label %429, label %428
+.loopexit:                                        ; preds = %ProcessUtility.exit, %33, %27, %283, %289, %308, %310, %323, %358, %360, %364, %368, %370, %372, %387, %388, %389, %400, %405, %104, %106, %99, %429
+  br i1 %.not, label %431, label %430
 
-428:                                              ; preds = %.loopexit
+430:                                              ; preds = %.loopexit
   call void @EventTriggerSQLDrop(ptr noundef %14) #11
   call void @EventTriggerDDLCommandEnd(ptr noundef %14) #11
-  br label %429
-
-429:                                              ; preds = %18, %.loopexit, %428
-  store ptr %20, ptr @PG_exception_stack, align 8
-  store ptr %21, ptr @error_context_stack, align 8
-  br i1 %19, label %430, label %431
-
-430:                                              ; preds = %429
-  call void @EventTriggerEndCompleteQuery() #11
   br label %431
 
-431:                                              ; preds = %430, %429
-  br i1 %.not726, label %433, label %432
+431:                                              ; preds = %18, %.loopexit, %430
+  store ptr %20, ptr @PG_exception_stack, align 8
+  store ptr %21, ptr @error_context_stack, align 8
+  br i1 %19, label %432, label %433
 
 432:                                              ; preds = %431
+  call void @EventTriggerEndCompleteQuery() #11
+  br label %433
+
+433:                                              ; preds = %432, %431
+  br i1 %.not726, label %435, label %434
+
+434:                                              ; preds = %433
   call void @pg_re_throw() #15
   unreachable
 
-433:                                              ; preds = %431
+435:                                              ; preds = %433
   store ptr %20, ptr @PG_exception_stack, align 8
   store ptr %21, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #11

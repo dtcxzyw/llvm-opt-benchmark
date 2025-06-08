@@ -358,7 +358,7 @@ define dso_local void @_ZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTas
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.not65 = icmp eq ptr %1, null
+  %.not61 = icmp eq ptr %1, null
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -389,7 +389,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %33
   store i8 1, ptr %8, align 8, !tbaa !66
   %36 = load i8, ptr %10, align 8, !tbaa !44, !range !67, !noundef !68
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %.lr.ph.i, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
+  br i1 %37, label %.lr.ph.i, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   br i1 %.not.i.i, label %.lr.ph.i.split.us, label %.lr.ph.i.split
@@ -397,263 +397,263 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %33
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us"
   %38 = load ptr, ptr %11, align 8, !tbaa !69
   %39 = load ptr, ptr %12, align 8, !tbaa !69
-  %40 = icmp eq ptr %38, %39
-  br i1 %40, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us", label %._crit_edge
+  %.not62 = icmp eq ptr %38, %39
+  br i1 %.not62, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us", label %._crit_edge
 
 "_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us": ; preds = %.lr.ph.i.split.us
   call void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(9) %6) #22
-  %41 = load i8, ptr %10, align 8, !tbaa !44, !range !67, !noundef !68
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %.lr.ph.i.split.us, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", !llvm.loop !70
+  %40 = load i8, ptr %10, align 8, !tbaa !44, !range !67, !noundef !68
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %.lr.ph.i.split.us, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", !llvm.loop !70
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i"
-  %43 = load ptr, ptr %11, align 8, !tbaa !69
-  %44 = load ptr, ptr %12, align 8, !tbaa !69
-  %45 = icmp eq ptr %43, %44
-  br i1 %45, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.i", label %._crit_edge
+  %42 = load ptr, ptr %11, align 8, !tbaa !69
+  %43 = load ptr, ptr %12, align 8, !tbaa !69
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.i", label %._crit_edge
 
 "_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.i": ; preds = %.lr.ph.i.split
-  %46 = load ptr, ptr %13, align 8, !tbaa !71
-  %47 = load i32, ptr %14, align 8, !tbaa !72
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.loopexit.i13, label %49
+  %45 = load ptr, ptr %13, align 8, !tbaa !71
+  %46 = load i32, ptr %14, align 8, !tbaa !72
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %.loopexit.i13, label %48
 
-49:                                               ; preds = %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.i"
-  %50 = add i32 %47, -1
-  %.01826.i.i.i.i.i = and i32 %50, %19
-  %51 = zext nneg i32 %.01826.i.i.i.i.i to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %46, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !73
-  %54 = icmp eq ptr %1, %53
-  br i1 %54, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i", label %.lr.ph.i.i.i.i.i, !prof !75
+48:                                               ; preds = %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.i"
+  %49 = add i32 %46, -1
+  %.01826.i.i.i.i.i = and i32 %49, %19
+  %50 = zext nneg i32 %.01826.i.i.i.i.i to i64
+  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !73
+  %53 = icmp eq ptr %1, %52
+  br i1 %53, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i", label %.lr.ph.i.i.i.i.i, !prof !75
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49, %56
-  %55 = phi ptr [ %61, %56 ], [ %53, %49 ]
-  %.01828.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %56 ], [ %.01826.i.i.i.i.i, %49 ]
-  %.01627.i.i.i.i.i = phi i32 [ %57, %56 ], [ 1, %49 ]
-  %.not.i.i.i12 = icmp eq ptr %55, inttoptr (i64 -4096 to ptr)
-  br i1 %.not.i.i.i12, label %.loopexit.i13, label %56, !prof !76
+.lr.ph.i.i.i.i.i:                                 ; preds = %48, %55
+  %54 = phi ptr [ %60, %55 ], [ %52, %48 ]
+  %.01828.i.i.i.i.i = phi i32 [ %.018.i.i.i.i.i, %55 ], [ %.01826.i.i.i.i.i, %48 ]
+  %.01627.i.i.i.i.i = phi i32 [ %56, %55 ], [ 1, %48 ]
+  %.not.i.i.i12 = icmp eq ptr %54, inttoptr (i64 -4096 to ptr)
+  br i1 %.not.i.i.i12, label %.loopexit.i13, label %55, !prof !76
 
-56:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %57 = add i32 %.01627.i.i.i.i.i, 1
-  %58 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
-  %.018.i.i.i.i.i = and i32 %58, %50
-  %59 = zext i32 %.018.i.i.i.i.i to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %46, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !73
-  %62 = icmp eq ptr %1, %61
-  br i1 %62, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i", label %.lr.ph.i.i.i.i.i, !prof !77, !llvm.loop !78
+55:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %56 = add i32 %.01627.i.i.i.i.i, 1
+  %57 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
+  %.018.i.i.i.i.i = and i32 %57, %49
+  %58 = zext i32 %.018.i.i.i.i.i to i64
+  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %58
+  %60 = load ptr, ptr %59, align 8, !tbaa !73
+  %61 = icmp eq ptr %1, %60
+  br i1 %61, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i", label %.lr.ph.i.i.i.i.i, !prof !77, !llvm.loop !78
 
 .loopexit.i13:                                    ; preds = %.lr.ph.i.i.i.i.i, %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.i"
-  %63 = load ptr, ptr %20, align 8, !tbaa !18, !noalias !79
-  %64 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !79
-  %65 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !88
-  %66 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !88
-  %67 = ptrtoint ptr %66 to i64
-  %68 = ptrtoint ptr %64 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 3
-  %71 = icmp ne ptr %66, null
-  %.neg.i.i.i.i.i.i.i.i = sext i1 %71 to i64
-  %72 = add nsw i64 %70, %.neg.i.i.i.i.i.i.i.i
-  %73 = mul nsw i64 %72, 12
-  %74 = ptrtoint ptr %43 to i64
-  %75 = ptrtoint ptr %65 to i64
-  %76 = sub i64 %74, %75
-  %77 = sdiv exact i64 %76, 40
-  %78 = ptrtoint ptr %63 to i64
-  %79 = sub i64 %78, %74
-  %80 = sdiv exact i64 %79, 40
-  %81 = add nsw i64 %77, %80
-  %82 = add i64 %73, %81
-  %83 = ashr i64 %82, 2
-  %84 = icmp sgt i64 %83, 0
-  br i1 %84, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
+  %62 = load ptr, ptr %20, align 8, !tbaa !18, !noalias !79
+  %63 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !79
+  %64 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !88
+  %65 = load ptr, ptr %23, align 8, !tbaa !16, !noalias !88
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %63 to i64
+  %68 = sub i64 %66, %67
+  %69 = ashr exact i64 %68, 3
+  %70 = icmp ne ptr %65, null
+  %.neg.i.i.i.i.i.i.i.i = sext i1 %70 to i64
+  %71 = add nsw i64 %69, %.neg.i.i.i.i.i.i.i.i
+  %72 = mul nsw i64 %71, 12
+  %73 = ptrtoint ptr %42 to i64
+  %74 = ptrtoint ptr %64 to i64
+  %75 = sub i64 %73, %74
+  %76 = sdiv exact i64 %75, 40
+  %77 = ptrtoint ptr %62 to i64
+  %78 = sub i64 %77, %73
+  %79 = sdiv exact i64 %78, 40
+  %80 = add nsw i64 %76, %79
+  %81 = add i64 %72, %80
+  %82 = ashr i64 %81, 2
+  %83 = icmp sgt i64 %82, 0
+  br i1 %83, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.loopexit.i13, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i
+  %84 = phi ptr [ %132, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %62, %.loopexit.i13 ]
   %85 = phi ptr [ %133, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %63, %.loopexit.i13 ]
-  %86 = phi ptr [ %134, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %64, %.loopexit.i13 ]
-  %87 = phi ptr [ %135, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %44, %.loopexit.i13 ]
-  %.060.i.i.i.i.i.i.i = phi i64 [ %136, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %83, %.loopexit.i13 ]
-  %88 = getelementptr i8, ptr %87, i64 32
-  %.val2.val.i.i.i.i.i.i.i = load ptr, ptr %88, align 8, !tbaa !97, !noalias !101
-  %89 = icmp eq ptr %.val2.val.i.i.i.i.i.i.i, %1
-  br i1 %89, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %90
+  %86 = phi ptr [ %134, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %43, %.loopexit.i13 ]
+  %.060.i.i.i.i.i.i.i = phi i64 [ %135, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i ], [ %82, %.loopexit.i13 ]
+  %87 = getelementptr i8, ptr %86, i64 32
+  %.val2.val.i.i.i.i.i.i.i = load ptr, ptr %87, align 8, !tbaa !97, !noalias !101
+  %88 = icmp eq ptr %.val2.val.i.i.i.i.i.i.i, %1
+  br i1 %88, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %89
 
-90:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  %92 = icmp eq ptr %91, %85
-  br i1 %92, label %93, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i
+89:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 40
+  %91 = icmp eq ptr %90, %84
+  br i1 %91, label %92, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !15, !noalias !101
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 480
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !15, !noalias !101
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 480
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i
 
-_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i: ; preds = %93, %90
-  %97 = phi ptr [ %96, %93 ], [ %85, %90 ]
-  %98 = phi ptr [ %94, %93 ], [ %86, %90 ]
-  %99 = phi ptr [ %95, %93 ], [ %91, %90 ]
-  %100 = getelementptr i8, ptr %99, i64 32
-  %.val4.val.i.i.i.i.i.i.i = load ptr, ptr %100, align 8, !tbaa !97, !noalias !101
-  %101 = icmp eq ptr %.val4.val.i.i.i.i.i.i.i, %1
-  br i1 %101, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %102
+_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i: ; preds = %92, %89
+  %96 = phi ptr [ %95, %92 ], [ %84, %89 ]
+  %97 = phi ptr [ %93, %92 ], [ %85, %89 ]
+  %98 = phi ptr [ %94, %92 ], [ %90, %89 ]
+  %99 = getelementptr i8, ptr %98, i64 32
+  %.val4.val.i.i.i.i.i.i.i = load ptr, ptr %99, align 8, !tbaa !97, !noalias !101
+  %100 = icmp eq ptr %.val4.val.i.i.i.i.i.i.i, %1
+  br i1 %100, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %101
 
-102:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %104 = icmp eq ptr %103, %97
-  br i1 %104, label %105, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i
+101:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %103 = icmp eq ptr %102, %96
+  br i1 %103, label %104, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !15, !noalias !101
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 480
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !15, !noalias !101
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 480
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i
 
-_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i: ; preds = %105, %102
-  %109 = phi ptr [ %108, %105 ], [ %97, %102 ]
-  %110 = phi ptr [ %106, %105 ], [ %98, %102 ]
-  %111 = phi ptr [ %107, %105 ], [ %103, %102 ]
-  %112 = getelementptr i8, ptr %111, i64 32
-  %.val6.val.i.i.i.i.i.i.i = load ptr, ptr %112, align 8, !tbaa !97, !noalias !101
-  %113 = icmp eq ptr %.val6.val.i.i.i.i.i.i.i, %1
-  br i1 %113, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %114
+_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i: ; preds = %104, %101
+  %108 = phi ptr [ %107, %104 ], [ %96, %101 ]
+  %109 = phi ptr [ %105, %104 ], [ %97, %101 ]
+  %110 = phi ptr [ %106, %104 ], [ %102, %101 ]
+  %111 = getelementptr i8, ptr %110, i64 32
+  %.val6.val.i.i.i.i.i.i.i = load ptr, ptr %111, align 8, !tbaa !97, !noalias !101
+  %112 = icmp eq ptr %.val6.val.i.i.i.i.i.i.i, %1
+  br i1 %112, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %113
 
-114:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %116 = icmp eq ptr %115, %109
-  br i1 %116, label %117, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i
+113:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  %115 = icmp eq ptr %114, %108
+  br i1 %115, label %116, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i
 
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !15, !noalias !101
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 480
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !15, !noalias !101
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 480
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i
 
-_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i: ; preds = %117, %114
-  %121 = phi ptr [ %120, %117 ], [ %109, %114 ]
-  %122 = phi ptr [ %118, %117 ], [ %110, %114 ]
-  %123 = phi ptr [ %119, %117 ], [ %115, %114 ]
-  %124 = getelementptr i8, ptr %123, i64 32
-  %.val8.val.i.i.i.i.i.i.i = load ptr, ptr %124, align 8, !tbaa !97, !noalias !101
-  %125 = icmp eq ptr %.val8.val.i.i.i.i.i.i.i, %1
-  br i1 %125, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %126
+_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i: ; preds = %116, %113
+  %120 = phi ptr [ %119, %116 ], [ %108, %113 ]
+  %121 = phi ptr [ %117, %116 ], [ %109, %113 ]
+  %122 = phi ptr [ %118, %116 ], [ %114, %113 ]
+  %123 = getelementptr i8, ptr %122, i64 32
+  %.val8.val.i.i.i.i.i.i.i = load ptr, ptr %123, align 8, !tbaa !97, !noalias !101
+  %124 = icmp eq ptr %.val8.val.i.i.i.i.i.i.i, %1
+  br i1 %124, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %125
 
-126:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  %128 = icmp eq ptr %127, %121
-  br i1 %128, label %129, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i
+125:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %127 = icmp eq ptr %126, %120
+  br i1 %127, label %128, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %131 = load ptr, ptr %130, align 8, !tbaa !15, !noalias !101
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 480
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %130 = load ptr, ptr %129, align 8, !tbaa !15, !noalias !101
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 480
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i
 
-_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i: ; preds = %129, %126
-  %133 = phi ptr [ %132, %129 ], [ %121, %126 ]
-  %134 = phi ptr [ %130, %129 ], [ %122, %126 ]
-  %135 = phi ptr [ %131, %129 ], [ %127, %126 ]
-  %136 = add nsw i64 %.060.i.i.i.i.i.i.i, -1
-  %137 = icmp sgt i64 %.060.i.i.i.i.i.i.i, 1
-  br i1 %137, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !108
+_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i: ; preds = %128, %125
+  %132 = phi ptr [ %131, %128 ], [ %120, %125 ]
+  %133 = phi ptr [ %129, %128 ], [ %121, %125 ]
+  %134 = phi ptr [ %130, %128 ], [ %126, %125 ]
+  %135 = add nsw i64 %.060.i.i.i.i.i.i.i, -1
+  %136 = icmp sgt i64 %.060.i.i.i.i.i.i.i, 1
+  br i1 %136, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !108
 
 ._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit17.i.i.i.i.i.i.i
-  %.pre77.i.i.i.i.i.i.i = ptrtoint ptr %134 to i64
-  %.pre79.i.i.i.i.i.i.i = sub i64 %67, %.pre77.i.i.i.i.i.i.i
+  %.pre77.i.i.i.i.i.i.i = ptrtoint ptr %133 to i64
+  %.pre79.i.i.i.i.i.i.i = sub i64 %66, %.pre77.i.i.i.i.i.i.i
   %.pre81.i.i.i.i.i.i.i = ashr exact i64 %.pre79.i.i.i.i.i.i.i, 3
-  %.pre91.i.i.i.i.i.i.i = ptrtoint ptr %133 to i64
-  %.pre93.i.i.i.i.i.i.i = ptrtoint ptr %135 to i64
+  %.pre91.i.i.i.i.i.i.i = ptrtoint ptr %132 to i64
+  %.pre93.i.i.i.i.i.i.i = ptrtoint ptr %134 to i64
   %.pre95.i.i.i.i.i.i.i = sub i64 %.pre91.i.i.i.i.i.i.i, %.pre93.i.i.i.i.i.i.i
   %.pre97.i.i.i.i.i.i.i = sdiv exact i64 %.pre95.i.i.i.i.i.i.i, 40
   %.pre.i.i.i.i.i.i = add nsw i64 %.pre81.i.i.i.i.i.i.i, %.neg.i.i.i.i.i.i.i.i
   %.pre120.i.i.i.i.i.i = mul nsw i64 %.pre.i.i.i.i.i.i, 12
-  %.pre122.i.i.i.i.i.i = add nsw i64 %.pre97.i.i.i.i.i.i.i, %77
+  %.pre122.i.i.i.i.i.i = add nsw i64 %.pre97.i.i.i.i.i.i.i, %76
   br label %._crit_edge.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %.loopexit.i13
-  %.pre-phi123.i.i.i.i.i.i = phi i64 [ %.pre122.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %81, %.loopexit.i13 ]
-  %.pre-phi121.i.i.i.i.i.i = phi i64 [ %.pre120.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %73, %.loopexit.i13 ]
-  %138 = phi ptr [ %135, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %44, %.loopexit.i13 ]
+  %.pre-phi123.i.i.i.i.i.i = phi i64 [ %.pre122.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %80, %.loopexit.i13 ]
+  %.pre-phi121.i.i.i.i.i.i = phi i64 [ %.pre120.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %72, %.loopexit.i13 ]
+  %137 = phi ptr [ %134, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %43, %.loopexit.i13 ]
+  %138 = phi ptr [ %132, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %62, %.loopexit.i13 ]
   %139 = phi ptr [ %133, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %63, %.loopexit.i13 ]
-  %140 = phi ptr [ %134, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %64, %.loopexit.i13 ]
-  %141 = add i64 %.pre-phi121.i.i.i.i.i.i, %.pre-phi123.i.i.i.i.i.i
-  switch i64 %141, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit" [
-    i64 3, label %142
+  %140 = add i64 %.pre-phi121.i.i.i.i.i.i, %.pre-phi123.i.i.i.i.i.i
+  switch i64 %140, label %170 [
+    i64 3, label %141
     i64 2, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
     i64 1, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
   ]
 
-142:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %143 = getelementptr i8, ptr %138, i64 32
-  %.val10.val.i.i.i.i.i.i.i = load ptr, ptr %143, align 8, !tbaa !97, !noalias !101
-  %144 = icmp eq ptr %.val10.val.i.i.i.i.i.i.i, %1
-  br i1 %144, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %145
+141:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
+  %142 = getelementptr i8, ptr %137, i64 32
+  %.val10.val.i.i.i.i.i.i.i = load ptr, ptr %142, align 8, !tbaa !97, !noalias !101
+  %143 = icmp eq ptr %.val10.val.i.i.i.i.i.i.i, %1
+  br i1 %143, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %144
 
-145:                                              ; preds = %142
-  %146 = getelementptr inbounds nuw i8, ptr %138, i64 40
-  %147 = icmp eq ptr %146, %139
-  br i1 %147, label %148, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
+144:                                              ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %137, i64 40
+  %146 = icmp eq ptr %145, %138
+  br i1 %146, label %147, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
 
-148:                                              ; preds = %145
-  %149 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !15, !noalias !101
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 480
+147:                                              ; preds = %144
+  %148 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %149 = load ptr, ptr %148, align 8, !tbaa !15, !noalias !101
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 480
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
 
-_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i: ; preds = %148, %145, %._crit_edge.i.i.i.i.i.i.i
-  %152 = phi ptr [ %149, %148 ], [ %140, %145 ], [ %140, %._crit_edge.i.i.i.i.i.i.i ]
-  %153 = phi ptr [ %151, %148 ], [ %139, %145 ], [ %139, %._crit_edge.i.i.i.i.i.i.i ]
-  %154 = phi ptr [ %150, %148 ], [ %146, %145 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ]
-  %155 = getelementptr i8, ptr %154, i64 32
-  %.val12.val.i.i.i.i.i.i.i = load ptr, ptr %155, align 8, !tbaa !97, !noalias !101
-  %156 = icmp eq ptr %.val12.val.i.i.i.i.i.i.i, %1
-  br i1 %156, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %157
+_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i: ; preds = %147, %144, %._crit_edge.i.i.i.i.i.i.i
+  %151 = phi ptr [ %148, %147 ], [ %139, %144 ], [ %139, %._crit_edge.i.i.i.i.i.i.i ]
+  %152 = phi ptr [ %150, %147 ], [ %138, %144 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ]
+  %153 = phi ptr [ %149, %147 ], [ %145, %144 ], [ %137, %._crit_edge.i.i.i.i.i.i.i ]
+  %154 = getelementptr i8, ptr %153, i64 32
+  %.val12.val.i.i.i.i.i.i.i = load ptr, ptr %154, align 8, !tbaa !97, !noalias !101
+  %155 = icmp eq ptr %.val12.val.i.i.i.i.i.i.i, %1
+  br i1 %155, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %156
 
-157:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
-  %158 = getelementptr inbounds nuw i8, ptr %154, i64 40
-  %159 = icmp eq ptr %158, %153
-  br i1 %159, label %160, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
+156:                                              ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 40
+  %158 = icmp eq ptr %157, %152
+  br i1 %158, label %159, label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !15, !noalias !101
+159:                                              ; preds = %156
+  %160 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %161 = load ptr, ptr %160, align 8, !tbaa !15, !noalias !101
   br label %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
 
-_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i: ; preds = %160, %157, %._crit_edge.i.i.i.i.i.i.i
-  %163 = phi ptr [ %162, %160 ], [ %158, %157 ], [ %138, %._crit_edge.i.i.i.i.i.i.i ]
-  %164 = getelementptr i8, ptr %163, i64 32
-  %.val14.val.i.i.i.i.i.i.i = load ptr, ptr %164, align 8, !tbaa !97, !noalias !101
-  %165 = icmp eq ptr %.val14.val.i.i.i.i.i.i.i, %1
-  br i1 %165, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
+_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i: ; preds = %159, %156, %._crit_edge.i.i.i.i.i.i.i
+  %162 = phi ptr [ %161, %159 ], [ %157, %156 ], [ %137, %._crit_edge.i.i.i.i.i.i.i ]
+  %163 = getelementptr i8, ptr %162, i64 32
+  %.val14.val.i.i.i.i.i.i.i = load ptr, ptr %163, align 8, !tbaa !97, !noalias !101
+  %164 = icmp eq ptr %.val14.val.i.i.i.i.i.i.i, %1
+  br i1 %164, label %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, label %170
 
-_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i, %142, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
-  %.lcssa.sink.i.i.i.i.i.i = phi ptr [ %138, %142 ], [ %154, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i ], [ %163, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i ], [ %87, %.lr.ph.i.i.i.i.i.i.i ], [ %99, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i ], [ %111, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i ], [ %123, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i ]
-  %.not7.i = icmp eq ptr %43, %.lcssa.sink.i.i.i.i.i.i
-  br i1 %.not7.i, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i"
+_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i, %141, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
+  %.lcssa.sink.i.i.i.i.i.i = phi ptr [ %137, %141 ], [ %153, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit19.i.i.i.i.i.i.i ], [ %162, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i ], [ %86, %.lr.ph.i.i.i.i.i.i.i ], [ %98, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit.i.i.i.i.i.i.i ], [ %110, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit15.i.i.i.i.i.i.i ], [ %122, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit16.i.i.i.i.i.i.i ]
+  %.not7.i = icmp eq ptr %42, %.lcssa.sink.i.i.i.i.i.i
+  br i1 %.not7.i, label %170, label %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i"
 
-"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i": ; preds = %56, %49, %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit
+"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i": ; preds = %55, %48, %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit
   call void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(9) %6) #22
-  %166 = load i8, ptr %10, align 8, !tbaa !44, !range !67, !noundef !68
-  %167 = trunc nuw i8 %166 to i1
-  br i1 %167, label %.lr.ph.i.split, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", !llvm.loop !70
+  %165 = load i8, ptr %10, align 8, !tbaa !44, !range !67, !noundef !68
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %.lr.ph.i.split, label %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", !llvm.loop !70
 
-"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread": ; preds = %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i", %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %168 = load ptr, ptr %11, align 8, !tbaa !69
-  %169 = load ptr, ptr %12, align 8, !tbaa !69
-  %170 = icmp eq ptr %168, %169
-  br i1 %170, label %210, label %171
+"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i", %"_ZZN4llvm13StdThreadPool12processTasksEPNS_19ThreadPoolTaskGroupEENK3$_0clEv.exit.thread2.i.us", %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
+  %167 = load ptr, ptr %11, align 8, !tbaa !69
+  %168 = load ptr, ptr %12, align 8, !tbaa !69
+  %169 = icmp eq ptr %167, %168
+  br i1 %169, label %210, label %171
 
-"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i, %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit
-  br i1 %.not65, label %._crit_edge, label %210
+170:                                              ; preds = %_ZNK4llvm13StdThreadPool21workCompletedUnlockedEPNS_19ThreadPoolTaskGroupE.exit, %._crit_edge.i.i.i.i.i.i.i, %_ZNSt15_Deque_iteratorISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEERKS7_PS8_EppEv.exit20.i.i.i.i.i.i.i
+  br i1 %.not61, label %._crit_edge, label %210
 
-._crit_edge:                                      ; preds = %.lr.ph.i.split, %.lr.ph.i.split.us, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
+._crit_edge:                                      ; preds = %.lr.ph.i.split, %.lr.ph.i.split.us, %170
   %.pre = load ptr, ptr %12, align 8, !tbaa !69, !noalias !109
   br label %171
 
-171:                                              ; preds = %._crit_edge, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
-  %172 = phi ptr [ %.pre, %._crit_edge ], [ %169, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread" ]
+171:                                              ; preds = %._crit_edge, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
+  %172 = phi ptr [ %.pre, %._crit_edge ], [ %168, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ]
   %173 = load i32, ptr %24, align 8, !tbaa !21
   %174 = add i32 %173, 1
   store i32 %174, ptr %24, align 8, !tbaa !21
@@ -754,8 +754,8 @@ _ZNSt5dequeISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEESaIS7_EE9pop_
   store ptr %storemerge.i, ptr %12, align 8, !tbaa !19
   br label %210
 
-210:                                              ; preds = %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", %_ZNSt5dequeISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEESaIS7_EE9pop_frontEv.exit
-  %cond = phi i1 [ true, %_ZNSt5dequeISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEESaIS7_EE9pop_frontEv.exit ], [ false, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread" ], [ false, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ]
+210:                                              ; preds = %170, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %_ZNSt5dequeISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEESaIS7_EE9pop_frontEv.exit
+  %cond = phi i1 [ true, %_ZNSt5dequeISt4pairISt8functionIFvvEEPN4llvm19ThreadPoolTaskGroupEESaIS7_EE9pop_frontEv.exit ], [ false, %"_ZNSt18condition_variable4waitIZN4llvm13StdThreadPool12processTasksEPNS1_19ThreadPoolTaskGroupEE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ], [ false, %170 ]
   %211 = load i8, ptr %8, align 8, !tbaa !66, !range !67, !noundef !68
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %213, label %_ZNSt11unique_lockISt5mutexED2Ev.exit

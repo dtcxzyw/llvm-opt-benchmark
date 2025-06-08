@@ -1087,20 +1087,20 @@ dissect_sec_rgy_pgo_flags_t.exit:                 ; preds = %56, %59
   %63 = sub i32 %39, %29
   call void @proto_item_set_len(ptr noundef %62, i32 noundef %63)
   %.pre = load i8, ptr %16, align 1, !range !6
+  %64 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
-  %64 = add i32 %39, 4
+  %65 = add i32 %39, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
-  %65 = trunc nuw i8 %.pre to i1
-  br i1 %65, label %dissect_sec_rgy_pname_t.exit, label %66
+  br i1 %64, label %dissect_sec_rgy_pname_t.exit, label %66
 
 66:                                               ; preds = %dissect_sec_rgy_pgo_flags_t.exit
   %67 = load i32, ptr @ett_sec_rgy_pname_t, align 4
-  %68 = call ptr @proto_tree_add_subtree(ptr noundef %.042, ptr noundef %0, i32 noundef %64, i32 noundef -1, i32 noundef %67, ptr noundef nonnull %7, ptr noundef nonnull @.str.63)
+  %68 = call ptr @proto_tree_add_subtree(ptr noundef %.042, ptr noundef %0, i32 noundef %65, i32 noundef -1, i32 noundef %67, ptr noundef nonnull %7, ptr noundef nonnull @.str.63)
   %69 = load i32, ptr @hf_sec_rgy_pname_t_size, align 4
-  %70 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %68, ptr noundef %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %9)
+  %70 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %68, ptr noundef %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %9)
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %9, align 4
@@ -1138,12 +1138,12 @@ dissect_sec_rgy_pgo_flags_t.exit:                 ; preds = %56, %59
 91:                                               ; preds = %89, %86
   %.023.i = phi i32 [ %88, %86 ], [ %70, %89 ]
   %92 = load ptr, ptr %7, align 8
-  %93 = sub i32 %.023.i, %64
+  %93 = sub i32 %.023.i, %65
   call void @proto_item_set_len(ptr noundef %92, i32 noundef %93)
   br label %dissect_sec_rgy_pname_t.exit
 
 dissect_sec_rgy_pname_t.exit:                     ; preds = %dissect_sec_rgy_pgo_flags_t.exit.thread, %dissect_sec_rgy_pgo_flags_t.exit, %91
-  %.0.i44 = phi i32 [ %.023.i, %91 ], [ %64, %dissect_sec_rgy_pgo_flags_t.exit ], [ %32, %dissect_sec_rgy_pgo_flags_t.exit.thread ]
+  %.0.i44 = phi i32 [ %.023.i, %91 ], [ %65, %dissect_sec_rgy_pgo_flags_t.exit ], [ %32, %dissect_sec_rgy_pgo_flags_t.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3

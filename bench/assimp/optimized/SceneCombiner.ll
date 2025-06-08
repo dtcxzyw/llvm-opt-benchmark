@@ -4645,7 +4645,7 @@ _ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachment
   %.not398 = icmp eq i32 %1723, 0
   br label %1730
 
-.preheader:                                       ; preds = %.loopexit.thread1140, %_ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE.exit
+.preheader:                                       ; preds = %.loopexit, %_ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE.exit
   %1724 = load ptr, ptr %96, align 8
   %1725 = load ptr, ptr %9, align 8
   %.not996 = icmp eq ptr %1724, %1725
@@ -4658,21 +4658,21 @@ _ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachment
   %1729 = sdiv exact i64 %1728, 96
   br label %.lr.ph966
 
-1730:                                             ; preds = %.lr.ph964, %.loopexit.thread1140
-  %.sroa.0704.0961 = phi ptr [ %1720, %.lr.ph964 ], [ %1767, %.loopexit.thread1140 ]
+1730:                                             ; preds = %.lr.ph964, %.loopexit
+  %.sroa.0704.0961 = phi ptr [ %1720, %.lr.ph964 ], [ %1767, %.loopexit ]
   %1731 = getelementptr inbounds nuw i8, ptr %.sroa.0704.0961, i64 16
   %1732 = load i8, ptr %1731, align 8, !range !49, !noundef !50
   %1733 = trunc nuw i8 %1732 to i1
-  br i1 %1733, label %.loopexit.thread1140, label %1734
+  br i1 %1733, label %.loopexit, label %1734
 
 1734:                                             ; preds = %1730
-  br i1 %.not398, label %.loopexit.thread, label %.preheader803
+  br i1 %.not398, label %.loopexit1154, label %.preheader803
 
 .preheader803:                                    ; preds = %1734
   %1735 = load ptr, ptr %96, align 8
   %1736 = load ptr, ptr %9, align 8
   %.not995 = icmp eq ptr %1735, %1736
-  br i1 %.not995, label %.loopexit.thread, label %.lr.ph959
+  br i1 %.not995, label %.loopexit1154, label %.lr.ph959
 
 .lr.ph959:                                        ; preds = %.preheader803
   %1737 = getelementptr inbounds nuw i8, ptr %.sroa.0704.0961, i64 24
@@ -4700,7 +4700,7 @@ _ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachment
 _ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE.exit672: ; preds = %1745
   %1750 = load i8, ptr %1731, align 8, !range !49, !noundef !50
   %1751 = trunc nuw i8 %1750 to i1
-  br i1 %1751, label %.loopexit.thread1140, label %1754
+  br i1 %1751, label %.loopexit, label %1754
 
 1752:                                             ; preds = %1745
   %1753 = landingpad { ptr, i32 }
@@ -4711,27 +4711,27 @@ _ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachment
   %1755 = add i32 %.0298958, 1
   %1756 = zext i32 %1755 to i64
   %1757 = icmp ugt i64 %1741, %1756
-  br i1 %1757, label %1742, label %.loopexit.thread, !llvm.loop !51
+  br i1 %1757, label %1742, label %.loopexit1154, !llvm.loop !51
 
-.loopexit.thread:                                 ; preds = %1754, %1734, %.preheader803
+.loopexit1154:                                    ; preds = %1754, %.preheader803, %1734
   %1758 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %1759 unwind label %1765
 
-1759:                                             ; preds = %.loopexit.thread
+1759:                                             ; preds = %.loopexit1154
   %1760 = load ptr, ptr %.sroa.0704.0961, align 8
   %1761 = getelementptr inbounds nuw i8, ptr %1760, i64 4
   %1762 = getelementptr inbounds nuw i8, ptr %.sroa.0704.0961, i64 8
   %1763 = load ptr, ptr %1762, align 8
   %1764 = getelementptr inbounds nuw i8, ptr %1763, i64 4
   invoke void @_ZN6Assimp6Logger5errorIJRA45_KcRA1024_cRA2_S2_S6_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %1758, ptr noundef nonnull align 1 dereferenceable(45) @.str.4, ptr noundef nonnull align 1 dereferenceable(1024) %1761, ptr noundef nonnull align 1 dereferenceable(2) @.str.5, ptr noundef nonnull align 1 dereferenceable(1024) %1764)
-          to label %.loopexit.thread1140 unwind label %1765
+          to label %.loopexit unwind label %1765
 
-1765:                                             ; preds = %1759, %.loopexit.thread
+1765:                                             ; preds = %1759, %.loopexit1154
   %1766 = landingpad { ptr, i32 }
           cleanup
   br label %1843
 
-.loopexit.thread1140:                             ; preds = %_ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE.exit672, %1730, %1759
+.loopexit:                                        ; preds = %_ZN6Assimp13SceneCombiner13AttachToGraphEP7aiSceneRSt6vectorINS_18NodeAttachmentInfoESaIS4_EE.exit672, %1730, %1759
   %1767 = getelementptr inbounds nuw i8, ptr %.sroa.0704.0961, i64 32
   %.not800 = icmp eq ptr %1767, %1722
   br i1 %.not800, label %.preheader, label %1730, !llvm.loop !52
@@ -4949,28 +4949,28 @@ _ZNSt6vectorIN6Assimp18NodeAttachmentInfoESaIS1_EED2Ev.exit681: ; preds = %1843,
   br i1 %.not.i.i.i682, label %_ZNSt6vectorIjSaIjEED2Ev.exit683, label %.thread
 
 .thread:                                          ; preds = %198, %304, %1851
-  %.pn441.pn1153 = phi { ptr, i32 } [ %.pn441.pn, %1851 ], [ %199, %198 ], [ %305, %304 ]
-  %.sroa.0748.078411061151 = phi ptr [ %.sroa.0748.078411051132, %1851 ], [ %113, %198 ], [ %113, %304 ]
-  %.sroa.26.078111111149 = phi ptr [ %.sroa.26.078111101130, %1851 ], [ %115, %198 ], [ %115, %304 ]
-  %.sroa.18.0111711231148 = phi ptr [ %.sroa.18.011171125, %1851 ], [ %154, %198 ], [ %154, %304 ]
-  %.sroa.0731.0111511261147 = phi ptr [ %.sroa.0731.011151128, %1851 ], [ %116, %198 ], [ %116, %304 ]
-  %1852 = ptrtoint ptr %.sroa.18.0111711231148 to i64
-  %1853 = ptrtoint ptr %.sroa.0731.0111511261147 to i64
+  %.pn441.pn1152 = phi { ptr, i32 } [ %.pn441.pn, %1851 ], [ %199, %198 ], [ %305, %304 ]
+  %.sroa.0748.078411061150 = phi ptr [ %.sroa.0748.078411051132, %1851 ], [ %113, %198 ], [ %113, %304 ]
+  %.sroa.26.078111111148 = phi ptr [ %.sroa.26.078111101130, %1851 ], [ %115, %198 ], [ %115, %304 ]
+  %.sroa.18.0111711231147 = phi ptr [ %.sroa.18.011171125, %1851 ], [ %154, %198 ], [ %154, %304 ]
+  %.sroa.0731.0111511261146 = phi ptr [ %.sroa.0731.011151128, %1851 ], [ %116, %198 ], [ %116, %304 ]
+  %1852 = ptrtoint ptr %.sroa.18.0111711231147 to i64
+  %1853 = ptrtoint ptr %.sroa.0731.0111511261146 to i64
   %1854 = sub i64 %1852, %1853
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0731.0111511261147, i64 noundef %1854) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0731.0111511261146, i64 noundef %1854) #24
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit683
 
 _ZNSt6vectorIjSaIjEED2Ev.exit683:                 ; preds = %.thread, %1851
-  %.pn441.pn1154 = phi { ptr, i32 } [ %.pn441.pn1153, %.thread ], [ %.pn441.pn, %1851 ]
-  %.sroa.0748.078411061152 = phi ptr [ %.sroa.0748.078411061151, %.thread ], [ %.sroa.0748.078411051132, %1851 ]
-  %.sroa.26.078111111150 = phi ptr [ %.sroa.26.078111111149, %.thread ], [ %.sroa.26.078111101130, %1851 ]
-  %.not.i.i.i684 = icmp eq ptr %.sroa.0748.078411061152, null
+  %.pn441.pn1153 = phi { ptr, i32 } [ %.pn441.pn1152, %.thread ], [ %.pn441.pn, %1851 ]
+  %.sroa.0748.078411061151 = phi ptr [ %.sroa.0748.078411061150, %.thread ], [ %.sroa.0748.078411051132, %1851 ]
+  %.sroa.26.078111111149 = phi ptr [ %.sroa.26.078111111148, %.thread ], [ %.sroa.26.078111101130, %1851 ]
+  %.not.i.i.i684 = icmp eq ptr %.sroa.0748.078411061151, null
   br i1 %.not.i.i.i684, label %_ZNSt6vectorIjSaIjEED2Ev.exit685, label %1855
 
 1855:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread, %_ZNSt6vectorIjSaIjEED2Ev.exit683
-  %.pn441.pn.pn797 = phi { ptr, i32 } [ %163, %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread ], [ %.pn441.pn1154, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ]
-  %.sroa.26.0780796 = phi ptr [ %115, %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread ], [ %.sroa.26.078111111150, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ]
-  %.sroa.0748.0783795 = phi ptr [ %113, %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread ], [ %.sroa.0748.078411061152, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ]
+  %.pn441.pn.pn797 = phi { ptr, i32 } [ %163, %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread ], [ %.pn441.pn1153, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ]
+  %.sroa.26.0780796 = phi ptr [ %115, %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread ], [ %.sroa.26.078111111149, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ]
+  %.sroa.0748.0783795 = phi ptr [ %113, %_ZNSt6vectorIjSaIjEED2Ev.exit683.thread ], [ %.sroa.0748.078411061151, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ]
   %1856 = ptrtoint ptr %.sroa.26.0780796 to i64
   %1857 = ptrtoint ptr %.sroa.0748.0783795 to i64
   %1858 = sub i64 %1856, %1857
@@ -4978,7 +4978,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit683:                 ; preds = %.thread, %1851
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit685
 
 _ZNSt6vectorIjSaIjEED2Ev.exit685:                 ; preds = %1855, %_ZNSt6vectorIjSaIjEED2Ev.exit683, %161
-  %.pn441.pn.pn.pn = phi { ptr, i32 } [ %162, %161 ], [ %.pn441.pn1154, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ], [ %.pn441.pn.pn797, %1855 ]
+  %.pn441.pn.pn.pn = phi { ptr, i32 } [ %162, %161 ], [ %.pn441.pn1153, %_ZNSt6vectorIjSaIjEED2Ev.exit683 ], [ %.pn441.pn.pn797, %1855 ]
   call void @_ZNSt6vectorIN6Assimp11SceneHelperESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
   br label %1859
 

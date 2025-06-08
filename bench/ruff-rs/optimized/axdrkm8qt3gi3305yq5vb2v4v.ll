@@ -5457,7 +5457,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx100 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx100, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx108 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx108, align 8
+  store i8 0, ptr %.sroa.20107.0..sroa_idx108, align 8
   %.sroa.21.0..sroa_idx122 = getelementptr inbounds nuw i8, ptr %8, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx122, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder20push_leading_comment17hd226135036b672e4E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %.sroa.16.0.copyload, ptr noundef %.sroa.18.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %8)
@@ -5480,7 +5480,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx101, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx110 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx110, align 8
+  store i8 0, ptr %.sroa.20107.0..sroa_idx110, align 8
   %.sroa.21.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %9, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx123, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_dangling_comment17h06f8891569aff969E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %20, ptr noundef %.sroa.10.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %9)
@@ -5503,7 +5503,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx102, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx112 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx112, align 8
+  store i8 0, ptr %.sroa.20107.0..sroa_idx112, align 8
   %.sroa.21.0..sroa_idx124 = getelementptr inbounds nuw i8, ptr %6, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx124, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_trailing_comment17h7f992fb29f7a32cbE(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %.sroa.12.0.copyload, ptr noundef %.sroa.14.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %6)
@@ -5526,7 +5526,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx103, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx114 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx114, align 8
+  store i8 0, ptr %.sroa.20107.0..sroa_idx114, align 8
   %.sroa.21.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %7, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx125, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_trailing_comment17h7f992fb29f7a32cbE(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %.sroa.12.0.copyload, ptr noundef %.sroa.14.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %7)
@@ -5549,7 +5549,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx104 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx104, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx116 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx116, align 8
+  store i8 1, ptr %.sroa.20107.0..sroa_idx116, align 8
   %.sroa.21.0..sroa_idx126 = getelementptr inbounds nuw i8, ptr %3, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx126, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder20push_leading_comment17hd226135036b672e4E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %.sroa.16.0.copyload, ptr noundef %.sroa.18.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %3)
@@ -5576,7 +5576,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx105, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx118, align 8
+  store i8 1, ptr %.sroa.20107.0..sroa_idx118, align 8
   %.sroa.21.0..sroa_idx127 = getelementptr inbounds nuw i8, ptr %4, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx127, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_trailing_comment17h7f992fb29f7a32cbE(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %.sroa.12.0.copyload, ptr noundef %.sroa.14.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %4)
@@ -5599,7 +5599,7 @@ default.unreachable:                              ; preds = %2
   %.sroa.20.0..sroa_idx106 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx106, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.20.0..sroa_idx, i64 24, i1 false)
   %.sroa.20107.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store i8 %.sroa.20107.0.copyload, ptr %.sroa.20107.0..sroa_idx120, align 8
+  store i8 1, ptr %.sroa.20107.0..sroa_idx120, align 8
   %.sroa.21.0..sroa_idx128 = getelementptr inbounds nuw i8, ptr %5, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx128, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.21.0..sroa_idx, i64 7, i1 false)
   call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_dangling_comment17h06f8891569aff969E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %20, ptr noundef %.sroa.10.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5)

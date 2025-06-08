@@ -3961,15 +3961,15 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_po
 12:                                               ; preds = %2
   tail call void @_ZN9grpc_core14ReclaimerQueue6Handle5Sweep13MarkCancelledEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.pre = load i8, ptr %7, align 8, !tbaa !189, !range !162
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i8 0, ptr %14, align 8, !tbaa !189
-  %15 = trunc nuw i8 %.pre to i1
-  br i1 %15, label %16, label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit
+  %13 = trunc nuw i8 %.pre to i1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i8 0, ptr %15, align 8, !tbaa !189
+  br i1 %13, label %16, label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit
 
 16:                                               ; preds = %12, %.thread
-  %17 = phi ptr [ %11, %.thread ], [ %14, %12 ]
-  %18 = phi ptr [ %10, %.thread ], [ %13, %12 ]
+  %17 = phi ptr [ %11, %.thread ], [ %15, %12 ]
+  %18 = phi ptr [ %10, %.thread ], [ %14, %12 ]
   %19 = load ptr, ptr %1, align 8, !tbaa !164
   store ptr %19, ptr %6, align 8, !tbaa !164
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4103,8 +4103,8 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit8.i: ; preds = 
   br label %.body
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit: ; preds = %12, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit8.i
-  %67 = phi ptr [ %18, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit8.i ], [ %13, %12 ]
-  %68 = phi ptr [ %17, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit8.i ], [ %14, %12 ]
+  %67 = phi ptr [ %18, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit8.i ], [ %14, %12 ]
+  %68 = phi ptr [ %17, %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit8.i ], [ %15, %12 ]
   %69 = load ptr, ptr %67, align 8, !tbaa !197
   invoke fastcc void @_ZL21secure_endpoint_unrefPN12_GLOBAL__N_115secure_endpointE(ptr noundef %69)
           to label %"_ZZL20maybe_post_reclaimerPN12_GLOBAL__N_115secure_endpointEENK3$_0clESt8optionalIN9grpc_core16ReclamationSweepEE.exit" unwind label %96

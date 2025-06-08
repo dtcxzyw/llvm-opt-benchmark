@@ -8338,26 +8338,26 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef no
 
 .loopexit34.loopexit:                             ; preds = %30
   %.pre47 = load i8, ptr %5, align 8, !tbaa !167, !range !119
-  %.pre48 = trunc nuw i8 %.pre47 to i1
+  %33 = trunc nuw i8 %.pre47 to i1
   br label %.loopexit34
 
 .loopexit34:                                      ; preds = %.loopexit34.loopexit, %.preheader33
-  %.pre-phi = phi i1 [ %.pre48, %.loopexit34.loopexit ], [ true, %.preheader33 ]
-  %.022 = phi ptr [ %31, %.loopexit34.loopexit ], [ %1, %.preheader33 ]
-  %.021 = phi ptr [ %.2, %.loopexit34.loopexit ], [ %1, %.preheader33 ]
-  %33 = ptrtoint ptr %.022 to i64
-  %34 = ptrtoint ptr %.021 to i64
-  %35 = sub i64 %33, %34
-  %36 = icmp slt i64 %35, 1
-  %or.cond30.not = select i1 %.pre-phi, i1 %36, i1 false
-  br i1 %or.cond30.not, label %37, label %.loopexit34.thread
+  %34 = phi i1 [ true, %.preheader33 ], [ %33, %.loopexit34.loopexit ]
+  %.022 = phi ptr [ %1, %.preheader33 ], [ %31, %.loopexit34.loopexit ]
+  %.021 = phi ptr [ %1, %.preheader33 ], [ %.2, %.loopexit34.loopexit ]
+  %35 = ptrtoint ptr %.022 to i64
+  %36 = ptrtoint ptr %.021 to i64
+  %37 = sub i64 %35, %36
+  %38 = icmp slt i64 %37, 1
+  %or.cond30.not = select i1 %34, i1 %38, i1 false
+  br i1 %or.cond30.not, label %39, label %.loopexit34.thread
 
 .loopexit34.thread:                               ; preds = %3, %.loopexit34
-  %.02153 = phi ptr [ %.021, %.loopexit34 ], [ %1, %3 ]
-  tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153)
-  br label %37
+  %.02151 = phi ptr [ %.021, %.loopexit34 ], [ %1, %3 ]
+  tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151)
+  br label %39
 
-37:                                               ; preds = %.loopexit34, %.loopexit34.thread
+39:                                               ; preds = %.loopexit34, %.loopexit34.thread
   ret void
 }
 
@@ -8657,23 +8657,23 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKci(ptr noundef 
 
 .loopexit34.loopexit.i:                           ; preds = %32
   %.pre47.i = load i8, ptr %7, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %35 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %33, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %35 = ptrtoint ptr %.022.i to i64
-  %36 = ptrtoint ptr %.021.i to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp slt i64 %37, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %38, i1 false
+  %36 = phi i1 [ true, %.preheader33.i ], [ %35, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %4, %.preheader33.i ], [ %33, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %4, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %37 = ptrtoint ptr %.022.i to i64
+  %38 = ptrtoint ptr %.021.i to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp slt i64 %39, 1
+  %or.cond30.not.i = select i1 %36, i1 %40, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -8766,23 +8766,23 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcj(ptr noundef 
 
 .loopexit34.loopexit.i:                           ; preds = %32
   %.pre47.i = load i8, ptr %7, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %35 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %33, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %35 = ptrtoint ptr %.022.i to i64
-  %36 = ptrtoint ptr %.021.i to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp slt i64 %37, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %38, i1 false
+  %36 = phi i1 [ true, %.preheader33.i ], [ %35, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %4, %.preheader33.i ], [ %33, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %4, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %37 = ptrtoint ptr %.022.i to i64
+  %38 = ptrtoint ptr %.021.i to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp slt i64 %39, 1
+  %or.cond30.not.i = select i1 %36, i1 %40, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -8876,23 +8876,23 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcb(ptr noundef 
 
 .loopexit34.loopexit.i:                           ; preds = %33
   %.pre47.i = load i8, ptr %8, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %36 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %34, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %36 = ptrtoint ptr %.022.i to i64
-  %37 = ptrtoint ptr %.021.i to i64
-  %38 = sub i64 %36, %37
-  %39 = icmp slt i64 %38, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %39, i1 false
+  %37 = phi i1 [ true, %.preheader33.i ], [ %36, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %4, %.preheader33.i ], [ %34, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %4, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %38 = ptrtoint ptr %.022.i to i64
+  %39 = ptrtoint ptr %.021.i to i64
+  %40 = sub i64 %38, %39
+  %41 = icmp slt i64 %40, 1
+  %or.cond30.not.i = select i1 %37, i1 %41, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -8985,23 +8985,23 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcd(ptr noundef 
 
 .loopexit34.loopexit.i:                           ; preds = %32
   %.pre47.i = load i8, ptr %7, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %35 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %33, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %4, %.preheader33.i ]
-  %35 = ptrtoint ptr %.022.i to i64
-  %36 = ptrtoint ptr %.021.i to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp slt i64 %37, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %38, i1 false
+  %36 = phi i1 [ true, %.preheader33.i ], [ %35, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %4, %.preheader33.i ], [ %33, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %4, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %37 = ptrtoint ptr %.022.i to i64
+  %38 = ptrtoint ptr %.021.i to i64
+  %39 = sub i64 %37, %38
+  %40 = icmp slt i64 %39, 1
+  %or.cond30.not.i = select i1 %36, i1 %40, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9212,23 +9212,23 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
 
 .loopexit34.loopexit.i:                           ; preds = %39
   %.pre47.i = load i8, ptr %14, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %42 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %40, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %42 = ptrtoint ptr %.022.i to i64
-  %43 = ptrtoint ptr %.021.i to i64
-  %44 = sub i64 %42, %43
-  %45 = icmp slt i64 %44, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %45, i1 false
+  %43 = phi i1 [ true, %.preheader33.i ], [ %42, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %3, %.preheader33.i ], [ %40, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %3, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %44 = ptrtoint ptr %.022.i to i64
+  %45 = ptrtoint ptr %.021.i to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp slt i64 %46, 1
+  %or.cond30.not.i = select i1 %43, i1 %47, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9335,23 +9335,23 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
 
 .loopexit34.loopexit.i:                           ; preds = %39
   %.pre47.i = load i8, ptr %14, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %42 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %40, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %42 = ptrtoint ptr %.022.i to i64
-  %43 = ptrtoint ptr %.021.i to i64
-  %44 = sub i64 %42, %43
-  %45 = icmp slt i64 %44, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %45, i1 false
+  %43 = phi i1 [ true, %.preheader33.i ], [ %42, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %3, %.preheader33.i ], [ %40, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %3, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %44 = ptrtoint ptr %.022.i to i64
+  %45 = ptrtoint ptr %.021.i to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp slt i64 %46, 1
+  %or.cond30.not.i = select i1 %43, i1 %47, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9459,23 +9459,23 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %13
 
 .loopexit34.loopexit.i:                           ; preds = %40
   %.pre47.i = load i8, ptr %15, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %43 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %41, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %43 = ptrtoint ptr %.022.i to i64
-  %44 = ptrtoint ptr %.021.i to i64
-  %45 = sub i64 %43, %44
-  %46 = icmp slt i64 %45, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %46, i1 false
+  %44 = phi i1 [ true, %.preheader33.i ], [ %43, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %3, %.preheader33.i ], [ %41, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %3, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %45 = ptrtoint ptr %.022.i to i64
+  %46 = ptrtoint ptr %.021.i to i64
+  %47 = sub i64 %45, %46
+  %48 = icmp slt i64 %47, 1
+  %or.cond30.not.i = select i1 %44, i1 %48, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9583,23 +9583,23 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %13
 
 .loopexit34.loopexit.i:                           ; preds = %40
   %.pre47.i = load i8, ptr %15, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %43 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %41, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %43 = ptrtoint ptr %.022.i to i64
-  %44 = ptrtoint ptr %.021.i to i64
-  %45 = sub i64 %43, %44
-  %46 = icmp slt i64 %45, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %46, i1 false
+  %44 = phi i1 [ true, %.preheader33.i ], [ %43, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %3, %.preheader33.i ], [ %41, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %3, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %45 = ptrtoint ptr %.022.i to i64
+  %46 = ptrtoint ptr %.021.i to i64
+  %47 = sub i64 %45, %46
+  %48 = icmp slt i64 %47, 1
+  %or.cond30.not.i = select i1 %44, i1 %48, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9706,23 +9706,23 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
 
 .loopexit34.loopexit.i:                           ; preds = %39
   %.pre47.i = load i8, ptr %14, align 8, !tbaa !167, !range !119
-  %.pre48.i = trunc nuw i8 %.pre47.i to i1
+  %42 = trunc nuw i8 %.pre47.i to i1
   br label %.loopexit34.i
 
 .loopexit34.i:                                    ; preds = %.loopexit34.loopexit.i, %.preheader33.i
-  %.pre-phi.i = phi i1 [ %.pre48.i, %.loopexit34.loopexit.i ], [ true, %.preheader33.i ]
-  %.022.i = phi ptr [ %40, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %.021.i = phi ptr [ %.2.i, %.loopexit34.loopexit.i ], [ %3, %.preheader33.i ]
-  %42 = ptrtoint ptr %.022.i to i64
-  %43 = ptrtoint ptr %.021.i to i64
-  %44 = sub i64 %42, %43
-  %45 = icmp slt i64 %44, 1
-  %or.cond30.not.i = select i1 %.pre-phi.i, i1 %45, i1 false
+  %43 = phi i1 [ true, %.preheader33.i ], [ %42, %.loopexit34.loopexit.i ]
+  %.022.i = phi ptr [ %3, %.preheader33.i ], [ %40, %.loopexit34.loopexit.i ]
+  %.021.i = phi ptr [ %3, %.preheader33.i ], [ %.2.i, %.loopexit34.loopexit.i ]
+  %44 = ptrtoint ptr %.022.i to i64
+  %45 = ptrtoint ptr %.021.i to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp slt i64 %46, 1
+  %or.cond30.not.i = select i1 %43, i1 %47, i1 false
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02153.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02153.i)
+  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i

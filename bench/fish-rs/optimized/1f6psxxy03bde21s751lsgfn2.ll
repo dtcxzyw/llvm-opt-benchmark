@@ -37569,7 +37569,7 @@ _ZN4fish6reader10ReaderData20active_edit_line_tag17h384d38d1550c5045E.exit: ; pr
   %621 = extractvalue { i64, i64 } %617, 1
   %622 = tail call fastcc { i1, ptr } @_ZN4fish6reader10ReaderData16active_edit_line17hb5b3ae928391b01eE(ptr noalias noundef readonly align 8 dereferenceable(2064) %.val460)
   %623 = extractvalue { i1, ptr } %622, 0
-  %624 = tail call fastcc noundef zeroext i1 @_ZN4fish6reader10ReaderData15update_buff_pos17h9ae6a2dcb36109b9E(ptr noalias noundef nonnull align 8 dereferenceable(2064) %.val460, i1 noundef zeroext %623, i64 noundef range(i64 0, 2) %618, i64 %621)
+  %624 = tail call fastcc noundef zeroext i1 @_ZN4fish6reader10ReaderData15update_buff_pos17h9ae6a2dcb36109b9E(ptr noalias noundef nonnull align 8 dereferenceable(2064) %.val460, i1 noundef zeroext %623, i64 noundef range(i64 0, 2) 1, i64 %621)
   br label %_ZN4fish13editable_line12EditableLine16begin_edit_group17hcf66ae172321f140E.exit
 
 625:                                              ; preds = %612
@@ -37597,7 +37597,7 @@ _ZN4fish6reader10ReaderData20active_edit_line_tag17h384d38d1550c5045E.exit: ; pr
   %640 = extractvalue { i64, i64 } %135, 1
   %641 = tail call fastcc { i1, ptr } @_ZN4fish6reader10ReaderData16active_edit_line17hb5b3ae928391b01eE(ptr noalias noundef readonly align 8 dereferenceable(2064) %.val470)
   %642 = extractvalue { i1, ptr } %641, 0
-  %643 = tail call fastcc noundef zeroext i1 @_ZN4fish6reader10ReaderData15update_buff_pos17h9ae6a2dcb36109b9E(ptr noalias noundef nonnull align 8 dereferenceable(2064) %.val470, i1 noundef zeroext %642, i64 noundef range(i64 0, 2) %136, i64 %640)
+  %643 = tail call fastcc noundef zeroext i1 @_ZN4fish6reader10ReaderData15update_buff_pos17h9ae6a2dcb36109b9E(ptr noalias noundef nonnull align 8 dereferenceable(2064) %.val470, i1 noundef zeroext %642, i64 noundef range(i64 0, 2) 1, i64 %640)
   br label %_ZN4fish13editable_line12EditableLine16begin_edit_group17hcf66ae172321f140E.exit
 
 644:                                              ; preds = %2

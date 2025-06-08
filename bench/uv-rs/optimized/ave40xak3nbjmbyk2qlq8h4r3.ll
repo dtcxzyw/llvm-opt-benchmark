@@ -2031,8 +2031,8 @@ _ZN9uv_pep44017version_specifier24parse_version_specifiers17h496ff81e6a9c00ebE.e
 
 .loopexit113.i:                                   ; preds = %178, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i", %177, %.preheader.i.i.i
   %.sroa.41.2.i = phi i64 [ %.sroa.41.0168.i, %177 ], [ %.sroa.41.0168.i, %.preheader.i.i.i ], [ %.sroa.06.sroa.13.0.copyload.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i" ], [ %.sroa.5.1.i, %178 ]
+  %.sroa.51.2.i = phi i1 [ true, %177 ], [ true, %.preheader.i.i.i ], [ false, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i" ], [ false, %178 ]
   %.sroa.943.sroa.0.4.i = phi i1 [ true, %177 ], [ %.sroa.943.sroa.0.0170.i, %.preheader.i.i.i ], [ false, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i" ], [ false, %178 ]
-  %.sroa.943.sroa.1060.3.i = phi i1 [ true, %177 ], [ true, %.preheader.i.i.i ], [ false, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i" ], [ false, %178 ]
   %.sroa.5.4.i = phi i64 [ %.sroa.06.sroa.13.0.copyload.i, %177 ], [ %.sroa.5.0174.i, %.preheader.i.i.i ], [ %.sroa.06.sroa.13.0.copyload.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i" ], [ %.sroa.5.1.i, %178 ]
   %.sroa.6.2.pn.i = phi i64 [ %2, %177 ], [ %2, %.preheader.i.i.i ], [ %.sroa.06.sroa.13.0.copyload.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hda97537133335f17E.exit.i.i" ], [ %.sroa.5.1.i, %178 ]
   %.sroa.4.0.i.i = sub nuw i64 %.sroa.6.2.pn.i, %.sroa.41.0168.i
@@ -2129,7 +2129,7 @@ _ZN9uv_pep44017version_specifier24parse_version_specifiers17h496ff81e6a9c00ebE.e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !213
   %222 = add i64 %.sroa.02.0175.i, 1
   %223 = add i64 %222, %.sroa.4.0.i.i
-  br i1 %.sroa.943.sroa.1060.3.i, label %_ZN9uv_pep44017version_specifier24parse_version_specifiers17h496ff81e6a9c00ebE.exit, label %.preheader.i.i.i
+  br i1 %.sroa.51.2.i, label %_ZN9uv_pep44017version_specifier24parse_version_specifiers17h496ff81e6a9c00ebE.exit, label %.preheader.i.i.i
 
 224:                                              ; preds = %216, %.split198.us.i
   %225 = landingpad { ptr, i32 }

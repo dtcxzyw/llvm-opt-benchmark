@@ -41062,7 +41062,7 @@ _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
   %56 = load i64, ptr %54, align 8, !tbaa !47
   store i64 %56, ptr %55, align 8, !tbaa !47
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i8 %48, ptr %57, align 8, !tbaa !95
+  store i8 1, ptr %57, align 8, !tbaa !95
   %.pre = load ptr, ptr %25, align 8, !tbaa !821
   %.pre21 = load ptr, ptr %3, align 8, !tbaa !106
   br label %58
@@ -42504,7 +42504,7 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %89 = load i64, ptr %87, align 8, !tbaa !47
   store i64 %89, ptr %88, align 8, !tbaa !47
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i8 %81, ptr %90, align 8, !tbaa !95
+  store i8 1, ptr %90, align 8, !tbaa !95
   %.pre = load ptr, ptr %25, align 8, !tbaa !821
   %.pre26 = load ptr, ptr %3, align 8, !tbaa !106
   br label %91

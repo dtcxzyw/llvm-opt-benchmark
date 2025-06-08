@@ -1327,13 +1327,13 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10uni
   br i1 %or.cond25, label %21, label %.critedge2
 
 21:                                               ; preds = %.critedge
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %16, align 8, !tbaa !80
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load i64, ptr %26, align 8, !tbaa !51
-  %28 = load i64, ptr %22, align 8, !tbaa !51
+  %28 = load i64, ptr %23, align 8, !tbaa !51
   %29 = icmp eq i64 %27, %28
   br i1 %29, label %30, label %.critedge2
 
@@ -1358,7 +1358,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %36, label %.lr.ph.i, label %.critedge2
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc13
-  invoke void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76) %23)
+  invoke void @_ZN7rocksdb19InstrumentedCondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(76) %22)
           to label %.noexc13 unwind label %.loopexit
 
 .noexc13:                                         ; preds = %.lr.ph.i

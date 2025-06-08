@@ -12186,7 +12186,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i: ; preds = %._crit_
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit.i.i.i.i
 
 _ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i, %171
-  %174 = phi i8 [ %.pre.fr.i.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i ], [ %159, %171 ], [ %159, %.lr.ph.i.i.i.i.i.i ]
+  %174 = phi i8 [ %.pre.fr.i.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i.i ], [ 1, %171 ], [ 1, %.lr.ph.i.i.i.i.i.i ]
   %.07.i.i.add.i.i = add nuw nsw i64 %.07.i.i.idx.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.07.i.i.add.i.i, 16
   br i1 %.not.i.i.i.i, label %_ZN4llvm11SmallPtrSetIPKNS_17MachineBasicBlockELj2EEC2IPKPS1_EET_S9_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !570
@@ -12528,7 +12528,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i86.i: ; preds = %._cri
 
 _ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit.i.i.i89.i: ; preds = %.lr.ph.i.i.i.i.i100.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i86.i, %296
   %299 = phi i8 [ %.pre.fr.i.i.i.i88.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i86.i ], [ %283, %296 ], [ %283, %.lr.ph.i.i.i.i.i100.i ]
-  %300 = phi i8 [ %.pre.fr.i.i.i.i88.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i86.i ], [ %284, %296 ], [ %284, %.lr.ph.i.i.i.i.i100.i ]
+  %300 = phi i8 [ %.pre.fr.i.i.i.i88.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i86.i ], [ 1, %296 ], [ 1, %.lr.ph.i.i.i.i.i100.i ]
   %301 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 8
   %.not.i.i.i90.i = icmp eq ptr %301, %282
   br i1 %.not.i.i.i90.i, label %_ZN4llvm11SmallPtrSetIPKNS_17MachineBasicBlockELj4EEC2IPKPS1_EET_S9_.exit.i.i, label %.lr.ph.i.i.i85.i, !llvm.loop !570
@@ -16917,7 +16917,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit.i.i
 
 _ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %39
-  %42 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %27, %39 ], [ %27, %.lr.ph.i.i.i.i ]
+  %42 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ 1, %39 ], [ 1, %.lr.ph.i.i.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %.not.i.i = icmp eq ptr %43, %21
   br i1 %.not.i.i, label %_ZN4llvm11SmallPtrSetIPKNS_17MachineBasicBlockELj4EEC2IPKPS1_EET_S9_.exit, label %.lr.ph.i.i, !llvm.loop !570

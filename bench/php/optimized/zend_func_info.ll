@@ -667,7 +667,7 @@ define dso_local i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr nou
 zend_get_internal_func_info.exit:                 ; preds = %21, %23
   %.015.i = phi i32 [ %spec.select.i, %23 ], [ %22, %21 ]
   %.not37 = icmp eq i32 %.015.i, 0
-  br i1 %.not37, label %zend_get_internal_func_info.exit.thread, label %58
+  br i1 %.not37, label %zend_get_internal_func_info.exit.thread, label %60
 
 zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_get_internal_func_info.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 51
@@ -675,7 +675,7 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   %30 = trunc nuw i8 %29 to i1
   %31 = xor i1 %30, true
   %32 = tail call i32 @zend_get_return_info_from_signature_only(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %31) #6
-  br label %58
+  br label %60
 
 33:                                               ; preds = %4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 51
@@ -704,31 +704,31 @@ zend_get_internal_func_info.exit.thread:          ; preds = %15, %12, %9, %zend_
   %.lobit = and i8 %50, 1
   store i8 %.lobit, ptr %3, align 1, !tbaa !22
   %.not35 = icmp eq i32 %45, 0
-  br i1 %.not35, label %..thread_crit_edge, label %58
+  br i1 %.not35, label %..thread_crit_edge, label %60
 
 ..thread_crit_edge:                               ; preds = %43
   %.pre = load i8, ptr %34, align 1, !tbaa !23, !range !24
-  %.pre47 = trunc nuw i8 %.pre to i1
-  %51 = xor i1 %.pre47, true
+  %51 = trunc nuw i8 %.pre to i1
+  %52 = xor i1 %51, true
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %37, %33
-  %.pre-phi = phi i1 [ %51, %..thread_crit_edge ], [ true, %37 ], [ false, %33 ]
-  %52 = tail call i32 @zend_get_return_info_from_signature_only(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %.pre-phi) #6
-  %53 = load i8, ptr %34, align 1, !tbaa !23, !range !24, !noundef !25
-  %54 = trunc nuw i8 %53 to i1
-  %55 = and i32 %52, -1025
-  %.not36 = icmp ne i32 %55, 0
-  %or.cond.not = select i1 %54, i1 %.not36, i1 false
-  br i1 %or.cond.not, label %56, label %58
+  %53 = phi i1 [ %52, %..thread_crit_edge ], [ true, %37 ], [ false, %33 ]
+  %54 = tail call i32 @zend_get_return_info_from_signature_only(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %53) #6
+  %55 = load i8, ptr %34, align 1, !tbaa !23, !range !24, !noundef !25
+  %56 = trunc nuw i8 %55 to i1
+  %57 = and i32 %54, -1025
+  %.not36 = icmp ne i32 %57, 0
+  %or.cond.not = select i1 %56, i1 %.not36, i1 false
+  br i1 %or.cond.not, label %58, label %60
 
-56:                                               ; preds = %.thread
-  %57 = or i32 %52, 1024
+58:                                               ; preds = %.thread
+  %59 = or i32 %54, 1024
   store ptr null, ptr %2, align 8, !tbaa !20
-  br label %58
+  br label %60
 
-58:                                               ; preds = %zend_get_internal_func_info.exit.thread, %zend_get_internal_func_info.exit, %.thread, %56, %43
-  %.1 = phi i32 [ %45, %43 ], [ %57, %56 ], [ %52, %.thread ], [ %32, %zend_get_internal_func_info.exit.thread ], [ %.015.i, %zend_get_internal_func_info.exit ]
+60:                                               ; preds = %zend_get_internal_func_info.exit.thread, %zend_get_internal_func_info.exit, %.thread, %58, %43
+  %.1 = phi i32 [ %45, %43 ], [ %59, %58 ], [ %54, %.thread ], [ %32, %zend_get_internal_func_info.exit.thread ], [ %.015.i, %zend_get_internal_func_info.exit ]
   ret i32 %.1
 }
 

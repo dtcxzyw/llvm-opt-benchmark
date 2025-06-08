@@ -29541,12 +29541,12 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit114: ; pred
   %.060.shrunk.ph = phi i1 [ %194, %_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132 ], [ false, %.critedge3.outer.preheader ]
   br label %.critedge3
 
-.critedge3:                                       ; preds = %.critedge3.outer, %228
-  %.sroa.0198.3 = phi ptr [ %.sroa.0.0.i.i.i.i.i119, %228 ], [ %.sroa.0198.3.ph, %.critedge3.outer ]
-  %.061.shrunk = phi i1 [ %197, %228 ], [ %.061.shrunk.ph, %.critedge3.outer ]
-  %.060.shrunk = phi i1 [ %194, %228 ], [ %.060.shrunk.ph, %.critedge3.outer ]
-  %.057 = phi i8 [ %.259, %228 ], [ 0, %.critedge3.outer ]
-  %.056 = phi i8 [ %.2, %228 ], [ 0, %.critedge3.outer ]
+.critedge3:                                       ; preds = %.critedge3.outer, %227
+  %.sroa.0198.3 = phi ptr [ %.sroa.0.0.i.i.i.i.i119, %227 ], [ %.sroa.0198.3.ph, %.critedge3.outer ]
+  %.061.shrunk = phi i1 [ %197, %227 ], [ %.061.shrunk.ph, %.critedge3.outer ]
+  %.060.shrunk = phi i1 [ %194, %227 ], [ %.060.shrunk.ph, %.critedge3.outer ]
+  %.057 = phi i8 [ %.259, %227 ], [ 0, %.critedge3.outer ]
+  %.056 = phi i8 [ %.2, %227 ], [ 0, %.critedge3.outer ]
   %192 = zext i1 %.060.shrunk to i8
   %193 = or i8 %.0231.ph, %192
   %194 = icmp ne i8 %193, 0
@@ -29560,7 +29560,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit114: ; pred
   %200 = load ptr, ptr %20, align 8, !tbaa !152
   %201 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0198.3, i32 %.sroa.0223.1239, ptr noundef %200, i1 noundef zeroext false, i1 noundef zeroext true) #24
   %.not64 = icmp eq i32 %201, -1
-  %spec.select = select i1 %.not64, i8 %.056, i8 0
+  %spec.select = zext i1 %.not64 to i8
   br label %202
 
 202:                                              ; preds = %199, %.critedge3
@@ -29583,7 +29583,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit114: ; pred
   %209 = load ptr, ptr %20, align 8, !tbaa !152
   %210 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0198.3, i32 %.sroa.0217.1238, ptr noundef %209, i1 noundef zeroext false, i1 noundef zeroext true) #24
   %.not67 = icmp eq i32 %210, -1
-  %spec.select73 = select i1 %.not67, i8 %.057, i8 0
+  %spec.select73 = zext i1 %.not67 to i8
   br label %211
 
 211:                                              ; preds = %208, %206
@@ -29628,56 +29628,56 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
 _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEi.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i122, %215, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i120
   %.sroa.0.0.i.i.i.i.i119 = phi ptr [ %217, %215 ], [ %217, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i.i.i120 ], [ %223, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i.i.i122 ]
   %.not277 = icmp eq ptr %.sroa.0.0.i.i.i.i.i119, %46
-  %227 = trunc nuw i8 %.2 to i1
-  br i1 %.not277, label %.critedge, label %228
+  br i1 %.not277, label %.critedge, label %227
 
-228:                                              ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEi.exit
-  %229 = trunc nuw i8 %.259 to i1
-  %or.cond = select i1 %227, i1 true, i1 %229
-  br i1 %or.cond, label %.critedge3, label %230
+227:                                              ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEi.exit
+  %228 = or i8 %.2, %.259
+  %or.cond.not = icmp eq i8 %228, 0
+  br i1 %or.cond.not, label %229, label %.critedge3
 
-230:                                              ; preds = %228
-  %231 = load ptr, ptr %20, align 8, !tbaa !152
-  br i1 %.not62241, label %237, label %232
+229:                                              ; preds = %227
+  %230 = load ptr, ptr %20, align 8, !tbaa !152
+  br i1 %.not62241, label %236, label %231
 
-232:                                              ; preds = %230
-  %233 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0223.1239, ptr noundef %231, i1 noundef zeroext false) #24
-  %.not17.i127 = icmp eq i32 %233, -1
-  br i1 %.not17.i127, label %234, label %236
+231:                                              ; preds = %229
+  %232 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0223.1239, ptr noundef %230, i1 noundef zeroext false) #24
+  %.not17.i127 = icmp eq i32 %232, -1
+  br i1 %.not17.i127, label %233, label %235
 
-234:                                              ; preds = %232
-  %235 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0223.1239, ptr noundef %231, i1 noundef zeroext false, i1 noundef zeroext true) #24
-  %.not18.i131 = icmp eq i32 %235, -1
-  br i1 %.not18.i131, label %237, label %236
+233:                                              ; preds = %231
+  %234 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0223.1239, ptr noundef %230, i1 noundef zeroext false, i1 noundef zeroext true) #24
+  %.not18.i131 = icmp eq i32 %234, -1
+  br i1 %.not18.i131, label %236, label %235
 
-236:                                              ; preds = %234, %232
-  br label %237
+235:                                              ; preds = %233, %231
+  br label %236
 
-237:                                              ; preds = %236, %234, %230
-  %.2233 = phi i8 [ 0, %230 ], [ 0, %234 ], [ 1, %236 ]
-  br i1 %.not19.i, label %_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132, label %238
+236:                                              ; preds = %235, %233, %229
+  %.2233 = phi i8 [ 0, %229 ], [ 0, %233 ], [ 1, %235 ]
+  br i1 %.not19.i, label %_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132, label %237
 
-238:                                              ; preds = %237
-  %239 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0217.1238, ptr noundef %231, i1 noundef zeroext false) #24
-  %.not20.i129 = icmp eq i32 %239, -1
-  br i1 %.not20.i129, label %240, label %242
+237:                                              ; preds = %236
+  %238 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0217.1238, ptr noundef %230, i1 noundef zeroext false) #24
+  %.not20.i129 = icmp eq i32 %238, -1
+  br i1 %.not20.i129, label %239, label %241
 
-240:                                              ; preds = %238
-  %241 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0217.1238, ptr noundef %231, i1 noundef zeroext false, i1 noundef zeroext true) #24
-  %.not21.i130 = icmp eq i32 %241, -1
-  br i1 %.not21.i130, label %_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132, label %242
+239:                                              ; preds = %237
+  %240 = call noundef i32 @_ZNK4llvm12MachineInstr25findRegisterDefOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0.0.i.i.i.i.i119, i32 %.sroa.0217.1238, ptr noundef %230, i1 noundef zeroext false, i1 noundef zeroext true) #24
+  %.not21.i130 = icmp eq i32 %240, -1
+  br i1 %.not21.i130, label %_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132, label %241
 
-242:                                              ; preds = %240, %238
+241:                                              ; preds = %239, %237
   br label %_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132
 
-_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132: ; preds = %237, %240, %242
-  %.2230 = phi i8 [ 0, %237 ], [ 0, %240 ], [ 1, %242 ]
-  %243 = or i8 %.2230, %.2233
-  %.not278 = icmp eq i8 %243, 0
+_ZL12isFPBPAccessRKN4llvm12MachineInstrENS_8RegisterES3_PKNS_18TargetRegisterInfoERbS7_.exit132: ; preds = %236, %239, %241
+  %.2230 = phi i8 [ 0, %236 ], [ 0, %239 ], [ 1, %241 ]
+  %242 = or i8 %.2230, %.2233
+  %.not278 = icmp eq i8 %242, 0
   br i1 %.not278, label %.critedge.thread, label %.critedge3.outer, !llvm.loop !2087
 
 .critedge:                                        ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEi.exit
-  %.not = xor i1 %227, true
+  %243 = trunc nuw i8 %.2 to i1
+  %.not = xor i1 %243, true
   %or.cond5 = select i1 %.not, i1 true, i1 %197
   br i1 %or.cond5, label %.critedge.thread, label %_ZSt4prevIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit.backedge, !llvm.loop !2086
 

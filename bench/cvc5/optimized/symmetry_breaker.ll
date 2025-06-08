@@ -2787,11 +2787,11 @@ define hidden void @_ZN4cvc58internal6theory2uf15SymmetryBreaker26rerunAssertion
 22:                                               ; preds = %.lr.ph
   %23 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !37
+  store i8 0, ptr %3, align 8, !tbaa !37
   resume { ptr, i32 } %23
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit31: ; preds = %19
-  store i8 %4, ptr %3, align 8, !tbaa !37
+  store i8 0, ptr %3, align 8, !tbaa !37
   br label %24
 
 24:                                               ; preds = %1, %6, %12, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit31
@@ -8781,11 +8781,11 @@ common.resume:                                    ; preds = %155, %531, %41
 41:                                               ; preds = %.lr.ph.i
   %42 = landingpad { ptr, i32 }
           cleanup
-  store i8 %23, ptr %22, align 8, !tbaa !37
+  store i8 0, ptr %22, align 8, !tbaa !37
   br label %common.resume
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit31.i: ; preds = %38
-  store i8 %23, ptr %22, align 8, !tbaa !37
+  store i8 0, ptr %22, align 8, !tbaa !37
   br label %43
 
 43:                                               ; preds = %2, %25, %31, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit31.i

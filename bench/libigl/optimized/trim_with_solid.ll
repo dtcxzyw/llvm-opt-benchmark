@@ -1578,7 +1578,7 @@ _ZN5Eigen11IndexedViewINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEESt6vectorIiSaIiEENS_8
   %388 = load i32, ptr %387, align 4, !tbaa !44
   %389 = sext i32 %.124.i.i to i64
   %390 = getelementptr inbounds i8, ptr %370, i64 %389
-  store i8 %384, ptr %390, align 1, !tbaa !45
+  store i8 1, ptr %390, align 1, !tbaa !45
   %391 = getelementptr inbounds i32, ptr %381, i64 %389
   store i32 %388, ptr %391, align 4, !tbaa !44
   %392 = add nsw i32 %.124.i.i, 1
@@ -5475,7 +5475,7 @@ _ZN5Eigen11IndexedViewINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEESt6vectorIiSaIiEENS_8
   %387 = load i32, ptr %386, align 4, !tbaa !44
   %388 = sext i32 %.124.i.i to i64
   %389 = getelementptr inbounds i8, ptr %369, i64 %388
-  store i8 %383, ptr %389, align 1, !tbaa !45
+  store i8 1, ptr %389, align 1, !tbaa !45
   %390 = getelementptr inbounds i32, ptr %380, i64 %388
   store i32 %387, ptr %390, align 4, !tbaa !44
   %391 = add nsw i32 %.124.i.i, 1
@@ -15720,8 +15720,8 @@ _ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16c
   call void @_ZdlPvm(ptr noundef %168, i64 noundef %170) #38
   %.pre = load i8, ptr %32, align 1, !tbaa !129, !range !94
   %.pre61 = load i8, ptr %33, align 2, !range !94
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #24
   %171 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #24
   %172 = trunc nuw i8 %.pre61 to i1
   %or.cond.i.i37 = select i1 %171, i1 true, i1 %172
   br i1 %or.cond.i.i37, label %_ZN5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EED2Ev.exit39, label %173

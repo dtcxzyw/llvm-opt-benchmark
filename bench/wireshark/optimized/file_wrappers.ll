@@ -4550,7 +4550,7 @@ define internal range(i32 -1, 2) i32 @check_for_lz4_compression(ptr noundef %0) 
   br label %31
 
 31:                                               ; preds = %fill_in_buffer.exit, %23
-  %32 = phi i32 [ %64, %fill_in_buffer.exit ], [ %.pre, %23 ]
+  %32 = phi i32 [ %65, %fill_in_buffer.exit ], [ %.pre, %23 ]
   %33 = icmp ult i32 %32, 5
   br i1 %33, label %34, label %67
 
@@ -4610,15 +4610,15 @@ fill_in_buffer.exit.thread84:                     ; preds = %58
 
 fill_in_buffer.exit:                              ; preds = %58
   %.pre80.pre = load i8, ptr %27, align 8, !range !9
-  %60 = load i64, ptr %30, align 8
-  %61 = add i64 %60, %53
-  store i64 %61, ptr %30, align 8
-  %62 = trunc i64 %53 to i32
-  %63 = load i32, ptr %3, align 8
-  %64 = add i32 %63, %62
-  store i32 %64, ptr %3, align 8
-  %65 = trunc nuw i8 %.pre80.pre to i1
-  br i1 %65, label %fill_in_buffer.exit.thread83, label %31, !llvm.loop !43
+  %60 = trunc nuw i8 %.pre80.pre to i1
+  %61 = load i64, ptr %30, align 8
+  %62 = add i64 %61, %53
+  store i64 %62, ptr %30, align 8
+  %63 = trunc i64 %53 to i32
+  %64 = load i32, ptr %3, align 8
+  %65 = add i32 %64, %63
+  store i32 %65, ptr %3, align 8
+  br i1 %60, label %fill_in_buffer.exit.thread83, label %31, !llvm.loop !43
 
 fill_in_buffer.exit.thread83:                     ; preds = %36, %fill_in_buffer.exit, %fill_in_buffer.exit.thread84
   store i32 -12, ptr %26, align 4
@@ -4646,7 +4646,7 @@ fill_in_buffer.exit.thread83:                     ; preds = %36, %fill_in_buffer
   br label %fill_in_buffer.exit.thread
 
 75:                                               ; preds = %.preheader, %fill_in_buffer.exit53
-  %76 = phi i32 [ %.pre78, %.preheader ], [ %108, %fill_in_buffer.exit53 ]
+  %76 = phi i32 [ %.pre78, %.preheader ], [ %109, %fill_in_buffer.exit53 ]
   %77 = zext i32 %76 to i64
   %78 = icmp ugt i64 %70, %77
   br i1 %78, label %79, label %111
@@ -4706,15 +4706,15 @@ fill_in_buffer.exit53.thread86:                   ; preds = %102
 
 fill_in_buffer.exit53:                            ; preds = %102
   %.pre79.pre = load i8, ptr %27, align 8, !range !9
-  %104 = load i64, ptr %30, align 8
-  %105 = add i64 %104, %97
-  store i64 %105, ptr %30, align 8
-  %106 = trunc i64 %97 to i32
-  %107 = load i32, ptr %3, align 8
-  %108 = add i32 %107, %106
-  store i32 %108, ptr %3, align 8
-  %109 = trunc nuw i8 %.pre79.pre to i1
-  br i1 %109, label %fill_in_buffer.exit53.thread, label %75, !llvm.loop !44
+  %104 = trunc nuw i8 %.pre79.pre to i1
+  %105 = load i64, ptr %30, align 8
+  %106 = add i64 %105, %97
+  store i64 %106, ptr %30, align 8
+  %107 = trunc i64 %97 to i32
+  %108 = load i32, ptr %3, align 8
+  %109 = add i32 %108, %107
+  store i32 %109, ptr %3, align 8
+  br i1 %104, label %fill_in_buffer.exit53.thread, label %75, !llvm.loop !44
 
 fill_in_buffer.exit53.thread:                     ; preds = %81, %fill_in_buffer.exit53, %fill_in_buffer.exit53.thread86
   store i32 -12, ptr %26, align 4

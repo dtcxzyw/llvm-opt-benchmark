@@ -643,7 +643,7 @@ default.unreachable2.i.i:                         ; preds = %82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  store i64 %11, ptr %7, align 8
+  store i64 1, ptr %7, align 8
   %.sroa.03.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %14, ptr %.sroa.03.sroa.4.0..sroa_idx, align 8
   %.sroa.03.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16

@@ -17645,7 +17645,7 @@ _ZNSt3setIP6AstVarSt4lessIS1_ESaIS1_EEaSERKS5_.exit.i: ; preds = %378
 
 _ZN9VRestorerISt3setIP6AstVarSt4lessIS2_ESaIS2_EEED2Ev.exit: ; preds = %_ZNSt3setIP6AstVarSt4lessIS1_ESaIS1_EEaSERKS5_.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  store i8 %20, ptr %19, align 4, !tbaa !207
+  store i8 1, ptr %19, align 4, !tbaa !207
   store ptr %54, ptr %53, align 8, !tbaa !469
   store ptr %52, ptr %51, align 8, !tbaa !155
   br label %389
@@ -17682,7 +17682,7 @@ _ZN9VRestorerISt3setIP6AstVarSt4lessIS2_ESaIS2_EEED2Ev.exit: ; preds = %_ZNSt3se
 397:                                              ; preds = %396, %88
   %.pn79.pn.pn.pn = phi { ptr, i32 } [ %.pn79.pn.pn, %396 ], [ %89, %88 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  store i8 %20, ptr %19, align 4, !tbaa !207
+  store i8 1, ptr %19, align 4, !tbaa !207
   store ptr %54, ptr %53, align 8, !tbaa !469
   store ptr %52, ptr %51, align 8, !tbaa !155
   br label %398

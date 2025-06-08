@@ -55701,7 +55701,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17ha1fd76f87440e94aE.exit: ; preds = %"_Z
 
 36:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17ha1fd76f87440e94aE.exit
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !8012
+  store i64 1, ptr %0, align 8, !alias.scope !8012
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hd973414bb4bf15d6E.exit"

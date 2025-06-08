@@ -50828,7 +50828,7 @@ define internal fastcc noundef zeroext i1 @_ZN11ide_assists8handlers17convert_bo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %8 = load i8, ptr %6, align 1, !range !235, !noundef !4
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %13, label %10
+  br i1 %9, label %14, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -50840,13 +50840,13 @@ define internal fastcc noundef zeroext i1 @_ZN11ide_assists8handlers17convert_bo
   call void @_ZN6ide_db14syntax_helpers8node_ext18for_each_tail_expr17h66b3174df7c9e272E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bed1d66be63dd231e8b8b1711bb97b08.348)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.pre = load i8, ptr %6, align 1, !range !235
-  %.pre1 = trunc nuw i8 %.pre to i1
-  br label %13
+  %13 = trunc nuw i8 %.pre to i1
+  br label %14
 
-13:                                               ; preds = %10, %3
-  %.pre-phi = phi i1 [ %.pre1, %10 ], [ true, %3 ]
+14:                                               ; preds = %10, %3
+  %15 = phi i1 [ %13, %10 ], [ true, %3 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  ret i1 %.pre-phi
+  ret i1 %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

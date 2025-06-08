@@ -2597,7 +2597,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i.i127.i: ; preds = %_ZN4llvm12
   br label %_ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.exit128.i
 
 _ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.exit128.i: ; preds = %319, %318, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i.i127.i, %_ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.exit124.i, %309, %308, %301, %300
-  %320 = phi i8 [ %311, %_ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.exit124.i ], [ %.pre231.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i.i127.i ], [ 1, %318 ], [ 1, %319 ], [ 1, %309 ], [ 1, %308 ], [ 1, %301 ], [ 1, %300 ]
+  %320 = phi i8 [ %311, %_ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.exit124.i ], [ %.pre231.i, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.i.i127.i ], [ 1, %318 ], [ 1, %319 ], [ 1, %308 ], [ 1, %309 ], [ 1, %300 ], [ 1, %301 ]
   %321 = trunc nuw i8 %320 to i1
   %.sroa.01.0.copyload.i.i = load i32, ptr %295, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #16
@@ -2605,9 +2605,9 @@ _ZN4llvm12StringSwitchINS_11SectionKindES1_E9CaseLowerENS_13StringLiteralES1_.ex
   %spec.select.i130129.i = icmp eq i32 %322, 2
   %spec.select.i130.i = select i1 %321, i1 %spec.select.i130129.i, i1 false
   %..i = select i1 %spec.select.i130.i, i32 1610612736, i32 -1073741824
-  %.252.i = select i1 %spec.select.i130.i, i32 32, i32 64
+  %.251.i = select i1 %spec.select.i130.i, i32 32, i32 64
   %323 = select i1 %.056.lcssa.i, i32 %..i, i32 0
-  %spec.select77.i = or i32 %.252.i, %.061.lcssa.i
+  %spec.select77.i = or i32 %.251.i, %.061.lcssa.i
   %324 = or i32 %spec.select77.i, %323
   %325 = and i32 %324, 2147483647
   %spec.select78.i = select i1 %.068.lcssa.i, i32 %325, i32 %324

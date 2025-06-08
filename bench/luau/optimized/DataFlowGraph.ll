@@ -1647,11 +1647,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 0, ptr %9, align 8, !tbaa !40
   store i8 1, ptr %37, align 8, !tbaa !22
   %.pre = load i8, ptr %24, align 8, !tbaa !22, !range !41
-  %54 = load i64, ptr %25, align 8, !tbaa !8
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %25, align 8, !tbaa !8
-  %56 = trunc nuw i8 %.pre to i1
-  br i1 %56, label %57, label %_ZN4Luau13RefinementKeyD2Ev.exit
+  %54 = trunc nuw i8 %.pre to i1
+  %55 = load i64, ptr %25, align 8, !tbaa !8
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %25, align 8, !tbaa !8
+  br i1 %54, label %57, label %_ZN4Luau13RefinementKeyD2Ev.exit
 
 57:                                               ; preds = %51
   store i8 0, ptr %24, align 8, !tbaa !22

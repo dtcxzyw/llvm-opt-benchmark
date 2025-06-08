@@ -6335,7 +6335,7 @@ rb_obj_write.exit:                                ; preds = %75, %77, %84, %.lr.
   %89 = phi i64 [ %.pre242, %.critedge177 ], [ %52, %49 ]
   %90 = trunc i64 %89 to i32
   %91 = and i32 %90, 31
-  switch i32 %91, label %245 [
+  switch i32 %91, label %247 [
     i32 4, label %.critedge180
     i32 10, label %.critedge180
     i32 6, label %.critedge180
@@ -6693,7 +6693,7 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
 236:                                              ; preds = %88
   %237 = load i8, ptr %44, align 8, !tbaa !236, !range !98, !noundef !99
   %238 = trunc nuw i8 %237 to i1
-  br i1 %238, label %242, label %239
+  br i1 %238, label %243, label %239
 
 239:                                              ; preds = %236
   %240 = call fastcc i32 @obj_refer_only_shareables_p(i64 noundef %50)
@@ -6702,31 +6702,31 @@ rb_obj_write.exit210:                             ; preds = %217, %219, %224
 
 ._crit_edge:                                      ; preds = %239
   %.pre243 = load i8, ptr %44, align 8, !tbaa !236, !range !98
-  %.pre245 = trunc nuw i8 %.pre243 to i1
-  %241 = select i1 %.pre245, ptr @.str.68, ptr @.str.69
-  br label %242
+  %241 = trunc nuw i8 %.pre243 to i1
+  %242 = select i1 %241, ptr @.str.68, ptr @.str.69
+  br label %243
 
-242:                                              ; preds = %._crit_edge, %236
-  %.pre-phi = phi ptr [ %241, %._crit_edge ], [ @.str.68, %236 ]
-  %243 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
-  %244 = call fastcc i64 @rb_class_of(i64 noundef %50) #38
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %243, ptr noundef nonnull @.str.67, ptr noundef nonnull %.pre-phi, i64 noundef %244) #27
+243:                                              ; preds = %._crit_edge, %236
+  %244 = phi ptr [ %242, %._crit_edge ], [ @.str.68, %236 ]
+  %245 = load i64, ptr @rb_eRactorError, align 8, !tbaa !80
+  %246 = call fastcc i64 @rb_class_of(i64 noundef %50) #38
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %245, ptr noundef nonnull @.str.67, ptr noundef nonnull %244, i64 noundef %246) #27
   unreachable
 
-245:                                              ; preds = %88
+247:                                              ; preds = %88
   call void @rb_obj_info_dump_loc(i64 noundef %50, ptr noundef nonnull @.str, i32 noundef 3514, ptr noundef nonnull @__func__.obj_traverse_replace_i) #19
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.64) #33
   unreachable
 
 .critedge180:                                     ; preds = %rb_obj_write.exit207, %rb_obj_write.exit202, %RSTRUCT_CONST_PTR.exit, %ROBJECT_IVPTR.exit, %228, %230, %235, %205, %207, %212, %166, %239, %95, %88, %88, %88, %88, %88, %88, %.critedge183, %92
-  %246 = phi i64 [ %50, %RSTRUCT_CONST_PTR.exit ], [ %50, %ROBJECT_IVPTR.exit ], [ %50, %228 ], [ %50, %230 ], [ %50, %235 ], [ %50, %205 ], [ %50, %207 ], [ %50, %212 ], [ %50, %166 ], [ %50, %239 ], [ %50, %95 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %.pre244, %.critedge183 ], [ %50, %92 ], [ %50, %rb_obj_write.exit202 ], [ %50, %rb_obj_write.exit207 ]
-  %247 = load i64, ptr %4, align 8, !tbaa !80
-  store i64 %247, ptr %21, align 8, !tbaa !176
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %249 = load ptr, ptr %248, align 8, !tbaa !175
-  %250 = call i32 %249(i64 noundef %246, ptr noundef nonnull %1) #19
-  %251 = icmp eq i32 %250, 2
-  %. = zext i1 %251 to i32
+  %248 = phi i64 [ %50, %RSTRUCT_CONST_PTR.exit ], [ %50, %ROBJECT_IVPTR.exit ], [ %50, %228 ], [ %50, %230 ], [ %50, %235 ], [ %50, %205 ], [ %50, %207 ], [ %50, %212 ], [ %50, %166 ], [ %50, %239 ], [ %50, %95 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %50, %88 ], [ %.pre244, %.critedge183 ], [ %50, %92 ], [ %50, %rb_obj_write.exit202 ], [ %50, %rb_obj_write.exit207 ]
+  %249 = load i64, ptr %4, align 8, !tbaa !80
+  store i64 %249, ptr %21, align 8, !tbaa !176
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %251 = load ptr, ptr %250, align 8, !tbaa !175
+  %252 = call i32 %251(i64 noundef %248, ptr noundef nonnull %1) #19
+  %253 = icmp eq i32 %252, 2
+  %. = zext i1 %253 to i32
   br label %.critedge192
 
 .critedge185:                                     ; preds = %151

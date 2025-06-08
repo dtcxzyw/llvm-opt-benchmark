@@ -11293,15 +11293,15 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZN17grpc_eve
 9:                                                ; preds = %2
   tail call void @_ZN9grpc_core14ReclaimerQueue6Handle5Sweep13MarkCancelledEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.pre = load i8, ptr %4, align 8, !tbaa !464, !range !88
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 0, ptr %11, align 8, !tbaa !464
-  %12 = trunc nuw i8 %.pre to i1
-  br i1 %12, label %13, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit
+  %10 = trunc nuw i8 %.pre to i1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i8 0, ptr %12, align 8, !tbaa !464
+  br i1 %10, label %13, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit
 
 13:                                               ; preds = %9, %.thread
-  %14 = phi ptr [ %8, %.thread ], [ %11, %9 ]
-  %15 = phi ptr [ %7, %.thread ], [ %10, %9 ]
+  %14 = phi ptr [ %8, %.thread ], [ %12, %9 ]
+  %15 = phi ptr [ %7, %.thread ], [ %11, %9 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !154
   store ptr %16, ptr %3, align 8, !tbaa !154
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11325,13 +11325,13 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZN17grpc_eve
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i16 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, ptr %25, align 8
   store i8 1, ptr %14, align 8, !tbaa !464
-  %.val9 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %.val9, i64 16
+  %.val8 = load ptr, ptr %15, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   invoke void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %.noexc unwind label %64
 
 .noexc:                                           ; preds = %13
-  %27 = getelementptr inbounds nuw i8, ptr %.val9, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %.val8, i64 312
   %28 = load ptr, ptr %27, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl18PerformReclamationEv.exit.i, label %29
@@ -11341,7 +11341,7 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZN17grpc_eve
           to label %_ZN17grpc_event_engine12experimental17PosixEndpointImpl18PerformReclamationEv.exit.i unwind label %64
 
 _ZN17grpc_event_engine12experimental17PosixEndpointImpl18PerformReclamationEv.exit.i: ; preds = %29, %.noexc
-  %30 = getelementptr inbounds nuw i8, ptr %.val9, i64 33
+  %30 = getelementptr inbounds nuw i8, ptr %.val8, i64 33
   store i8 0, ptr %30, align 1, !tbaa !134
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
           to label %"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl18MaybePostReclaimerEvENK3$_0clESt8optionalIN9grpc_core16ReclamationSweepEE.exit" unwind label %64
@@ -11357,7 +11357,7 @@ _ZN17grpc_event_engine12experimental17PosixEndpointImpl18PerformReclamationEv.ex
   br label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit: ; preds = %"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl18MaybePostReclaimerEvENK3$_0clESt8optionalIN9grpc_core16ReclamationSweepEE.exit", %32, %9
-  %.val.i.in = phi ptr [ %10, %9 ], [ %15, %32 ], [ %15, %"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl18MaybePostReclaimerEvENK3$_0clESt8optionalIN9grpc_core16ReclamationSweepEE.exit" ]
+  %.val.i.in = phi ptr [ %11, %9 ], [ %15, %32 ], [ %15, %"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl18MaybePostReclaimerEvENK3$_0clESt8optionalIN9grpc_core16ReclamationSweepEE.exit" ]
   %.val.i = load ptr, ptr %.val.i.in, align 8
   %.not.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i, label %"_ZZN17grpc_event_engine12experimental17PosixEndpointImpl18MaybePostReclaimerEvEN3$_0D2Ev.exit.i", label %33

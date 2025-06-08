@@ -1441,8 +1441,8 @@ define internal fastcc ptr @similar_escape_internal(ptr noundef %0, ptr noundef 
   %.8 = phi ptr [ %138, %137 ], [ %.0135185, %135 ]
   %140 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   store i8 %76, ptr %.8, align 1
-  %141 = icmp eq i8 %76, 93
-  %spec.select = select i1 %141, i8 0, i8 %.0143183
+  %141 = icmp ne i8 %76, 93
+  %spec.select = zext i1 %141 to i8
   br label %159
 
 142:                                              ; preds = %133
@@ -2316,7 +2316,7 @@ define dso_local i64 @regexp_match(ptr noundef captures(none) %0) local_unnamed_
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
   %.val = load i32, ptr %2, align 4
-  %32 = tail call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, i32 %.val, i8 %22, i32 noundef 0, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
+  %32 = tail call fastcc ptr @setup_regexp_matches(ptr noundef %6, ptr noundef %10, i32 %.val, i8 0, i32 noundef 0, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0

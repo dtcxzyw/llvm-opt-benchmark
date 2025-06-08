@@ -2278,7 +2278,6 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i429: ; preds = %381
 
 ._crit_edge:                                      ; preds = %425
   %.pre = load i8, ptr %22, align 1, !tbaa !156, !range !67
-  %.pre516 = trunc nuw i8 %.pre to i1
   br label %432
 
 430:                                              ; preds = %425, %420
@@ -2288,8 +2287,8 @@ _Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i429: ; preds = %381
   br label %787
 
 432:                                              ; preds = %._crit_edge, %422
-  %.pre-phi = phi i1 [ %.pre516, %._crit_edge ], [ %424, %422 ]
-  %spec.select397 = select i1 %.pre-phi, i8 0, i8 %.5289.fr
+  %.pre-phi = phi i8 [ %.pre, %._crit_edge ], [ %423, %422 ]
+  %not..pre-phi = xor i8 %.pre-phi, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #24
   br label %454
 
@@ -2343,7 +2342,7 @@ switch.early.test:                                ; preds = %437
   br label %454
 
 454:                                              ; preds = %452, %449, %411, %432
-  %.7 = phi i8 [ %spec.select397, %432 ], [ %.5289.fr, %411 ], [ %453, %452 ], [ 0, %449 ]
+  %.7 = phi i8 [ %not..pre-phi, %432 ], [ %.5289.fr, %411 ], [ %453, %452 ], [ 0, %449 ]
   %455 = trunc nuw i8 %.7 to i1
   %.not398 = xor i1 %455, true
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 48844
@@ -3507,13 +3506,13 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtrDllGetPasswordEv(ptr noundef non
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 100872
   %7 = load i8, ptr %6, align 8, !tbaa !119, !range !67, !noundef !68
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %37, label %9
+  br i1 %8, label %38, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 83440
   %11 = load ptr, ptr %10, align 8, !tbaa !223
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.thread3, label %12
+  br i1 %.not, label %.thread2, label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %2) #24
@@ -3568,14 +3567,14 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtrDllGetPasswordEv(ptr noundef non
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %2) #24
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 100872
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !119, !range !67
-  %.pre2 = trunc nuw i8 %.pre to i1
-  br i1 %.pre2, label %37, label %.thread3
+  %37 = trunc nuw i8 %.pre to i1
+  br i1 %37, label %38, label %.thread2
 
-37:                                               ; preds = %32, %1
-  br label %.thread3
+38:                                               ; preds = %32, %1
+  br label %.thread2
 
-.thread3:                                         ; preds = %9, %32, %37
-  %.0 = phi i1 [ true, %37 ], [ false, %32 ], [ false, %9 ]
+.thread2:                                         ; preds = %9, %32, %38
+  %.0 = phi i1 [ true, %38 ], [ false, %32 ], [ false, %9 ]
   ret i1 %.0
 }
 

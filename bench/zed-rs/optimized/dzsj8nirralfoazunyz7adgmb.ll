@@ -41058,8 +41058,8 @@ default.unreachable345:                           ; preds = %141, %.critedge
   br label %1018
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %141, %141, %144, %153
-  %139 = phi i1 [ true, %153 ], [ false, %..critedge_crit_edge ], [ true, %144 ], [ true, %141 ], [ true, %141 ]
   %.sroa.022.0348 = phi i64 [ %134, %153 ], [ %.sroa.022.0349, %..critedge_crit_edge ], [ %134, %144 ], [ %134, %141 ], [ %134, %141 ]
+  %139 = phi i1 [ true, %153 ], [ false, %..critedge_crit_edge ], [ true, %144 ], [ true, %141 ], [ true, %141 ]
   %140 = phi i8 [ %143, %153 ], [ %.pre344, %..critedge_crit_edge ], [ %143, %144 ], [ %143, %141 ], [ %143, %141 ]
   %.sroa.093.1 = phi i64 [ %157, %153 ], [ %.sroa.093.0350, %..critedge_crit_edge ], [ %136, %144 ], [ %136, %141 ], [ %136, %141 ]
   switch i8 %140, label %default.unreachable345 [

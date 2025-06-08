@@ -8809,33 +8809,33 @@ define internal void @_ZN12_GLOBAL__N_121MandatoryInlineAdvice18recordInliningIm
 13:                                               ; preds = %8
   %14 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %12, i64 1) #19
   %.pre = load i8, ptr %5, align 8, !tbaa !246, !range !48
-  %.pre2 = trunc nuw i8 %.pre to i1
+  %15 = trunc nuw i8 %.pre to i1
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %8, %13
-  %.pre-phi = phi i1 [ true, %8 ], [ %.pre2, %13 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !116
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !117
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !118
+  %16 = phi i1 [ true, %8 ], [ %15, %13 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = load ptr, ptr %17, align 8, !tbaa !116
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !117
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
   store ptr @_ZN4llvm12function_refIFvRNS_18OptimizationRemarkEEE11callback_fnIZN12_GLOBAL__N_121MandatoryInlineAdvice18recordInliningImplEvEUlS2_E_EEvlS2_, ptr %3, align 8, !tbaa !161
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = ptrtoint ptr %4 to i64
-  store i64 %22, ptr %21, align 8, !tbaa !163
-  call void @_ZN4llvm15emitInlinedIntoERNS_25OptimizationRemarkEmitterENS_8DebugLocEPKNS_10BasicBlockERKNS_8FunctionES8_bNS_12function_refIFvRNS_18OptimizationRemarkEEEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %2, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull align 8 dereferenceable(136) %20, i1 noundef zeroext %.pre-phi, ptr noundef nonnull byval(%"class.llvm::function_ref.237") align 8 %3, ptr noundef null)
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = ptrtoint ptr %4 to i64
+  store i64 %24, ptr %23, align 8, !tbaa !163
+  call void @_ZN4llvm15emitInlinedIntoERNS_25OptimizationRemarkEmitterENS_8DebugLocEPKNS_10BasicBlockERKNS_8FunctionES8_bNS_12function_refIFvRNS_18OptimizationRemarkEEEEPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %2, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(136) %20, ptr noundef nonnull align 8 dereferenceable(136) %22, i1 noundef zeroext %16, ptr noundef nonnull byval(%"class.llvm::function_ref.237") align 8 %3, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #19
-  %23 = load ptr, ptr %2, align 8, !tbaa !150
-  %.not.i.i.i.i1 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i1, label %_ZN4llvm8DebugLocD2Ev.exit, label %24
+  %25 = load ptr, ptr %2, align 8, !tbaa !150
+  %.not.i.i.i.i1 = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i1, label %_ZN4llvm8DebugLocD2Ev.exit, label %26
 
-24:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %23) #19
+26:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %25) #19
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %24, %_ZN4llvm8DebugLocC2ERKS0_.exit, %1
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %26, %_ZN4llvm8DebugLocC2ERKS0_.exit, %1
   ret void
 }
 

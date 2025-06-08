@@ -29651,11 +29651,11 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17800258754301373476.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx.i.i.i, i64 24, i1 false), !noalias !4022
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !4073
   %.pre.i = load i64, ptr %131, align 8, !range !30, !alias.scope !4078, !noalias !4022
+  %156 = icmp eq i64 %.pre.i, 0
   store i8 1, ptr %130, align 8, !noalias !4022
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.511.sroa.5.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.511.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.i, i64 24, i1 false), !noalias !4022
   call void @llvm.experimental.noalias.scope.decl(metadata !4078)
-  %156 = icmp eq i64 %.pre.i, 0
   %.pre = load i64, ptr %145, align 8, !range !1502, !alias.scope !4081, !noalias !4022
   br i1 %156, label %157, label %169
 

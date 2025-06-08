@@ -18355,9 +18355,9 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalAliasEE6insertES3_.exit
 
 _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalAliasEE6insertES3_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %450
-  %.fca.1.insert.merged.i11.i = phi i1 [ %454, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %450 ], [ false, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i9.i = phi i1 [ %454, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %450 ], [ false, %.lr.ph.i.i ]
   %.pre485 = load i32, ptr %423, align 8, !tbaa !26, !noalias !1361
-  br i1 %.fca.1.insert.merged.i11.i, label %455, label %470
+  br i1 %.fca.1.insert.merged.i9.i, label %455, label %470
 
 455:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalAliasEE6insertES3_.exit
   %456 = load i32, ptr %424, align 4, !tbaa !27

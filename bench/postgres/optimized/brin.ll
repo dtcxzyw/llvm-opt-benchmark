@@ -1644,10 +1644,10 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %105 = and i32 %104, 1
   %.not192 = icmp eq i32 %105, 0
   %. = select i1 %.not192, ptr %48, ptr %53
-  %.296 = select i1 %.not192, ptr %54, ptr %58
+  %.293 = select i1 %.not192, ptr %54, ptr %58
   %106 = getelementptr inbounds ptr, ptr %., i64 %95
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i32, ptr %.296, i64 %95
+  %108 = getelementptr inbounds i32, ptr %.293, i64 %95
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds ptr, ptr %107, i64 %110
@@ -1810,40 +1810,40 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
 
 .lr.ph236:                                        ; preds = %.preheader
   %193 = ptrtoint ptr %146 to i64
-  br label %206
+  br label %198
+
+194:                                              ; preds = %198
+  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
+  %195 = load i32, ptr %138, align 4
+  %196 = sext i32 %195 to i64
+  %197 = icmp slt i64 %indvars.iv.next271, %196
+  br i1 %197, label %198, label %.loopexit..thread203_crit_edge, !llvm.loop !20
+
+198:                                              ; preds = %.lr.ph236, %194
+  %indvars.iv270 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next271, %194 ]
+  %199 = load ptr, ptr %187, align 8
+  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %indvars.iv270
+  %201 = load ptr, ptr %200, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 12
+  %203 = load i32, ptr %202, align 4
+  %204 = ptrtoint ptr %201 to i64
+  %205 = call i64 @FunctionCall3Coll(ptr noundef %188, i32 noundef %203, i64 noundef %88, i64 noundef %193, i64 noundef %204) #10
+  %.not219 = icmp eq i64 %205, 0
+  br i1 %.not219, label %.thread209.thread, label %194
 
 .loopexit:                                        ; preds = %186
-  %194 = load ptr, ptr %187, align 8
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 12
-  %197 = load i32, ptr %196, align 4
-  %198 = ptrtoint ptr %146 to i64
-  %199 = ptrtoint ptr %194 to i64
-  %200 = sext i32 %139 to i64
-  %201 = call i64 @FunctionCall4Coll(ptr noundef nonnull %188, i32 noundef %197, i64 noundef %88, i64 noundef %198, i64 noundef %199, i64 noundef %200) #10
-  %.not301 = icmp eq i64 %201, 0
-  br i1 %.not301, label %.thread209.thread, label %.loopexit..thread203_crit_edge
+  %206 = load ptr, ptr %187, align 8
+  %207 = load ptr, ptr %206, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 12
+  %209 = load i32, ptr %208, align 4
+  %210 = ptrtoint ptr %146 to i64
+  %211 = ptrtoint ptr %206 to i64
+  %212 = sext i32 %139 to i64
+  %213 = call i64 @FunctionCall4Coll(ptr noundef nonnull %188, i32 noundef %209, i64 noundef %88, i64 noundef %210, i64 noundef %211, i64 noundef %212) #10
+  %.not294 = icmp eq i64 %213, 0
+  br i1 %.not294, label %.thread209.thread, label %.loopexit..thread203_crit_edge
 
-202:                                              ; preds = %206
-  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
-  %203 = load i32, ptr %138, align 4
-  %204 = sext i32 %203 to i64
-  %205 = icmp slt i64 %indvars.iv.next271, %204
-  br i1 %205, label %206, label %.loopexit..thread203_crit_edge, !llvm.loop !20
-
-206:                                              ; preds = %.lr.ph236, %202
-  %indvars.iv270 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next271, %202 ]
-  %207 = load ptr, ptr %187, align 8
-  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %indvars.iv270
-  %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 12
-  %211 = load i32, ptr %210, align 4
-  %212 = ptrtoint ptr %209 to i64
-  %213 = call i64 @FunctionCall3Coll(ptr noundef %188, i32 noundef %211, i64 noundef %88, i64 noundef %193, i64 noundef %212) #10
-  %.not219 = icmp eq i64 %213, 0
-  br i1 %.not219, label %.thread209.thread, label %202
-
-.loopexit..thread203_crit_edge:                   ; preds = %202, %.preheader, %.loopexit
+.loopexit..thread203_crit_edge:                   ; preds = %194, %.preheader, %.loopexit
   %.pre273 = load ptr, ptr %31, align 8
   %.pre274 = load i32, ptr %.pre273, align 8
   br label %.thread203
@@ -1879,10 +1879,10 @@ check_null_keys.exit:                             ; preds = %181, %155, %149
   %.not191 = icmp ugt i32 %220, %223
   br i1 %.not191, label %.thread209.thread, label %.lr.ph249, !llvm.loop !22
 
-.thread209.thread:                                ; preds = %.loopexit, %182, %145, %.lr.ph249, %173, %178, %176, %206, %.preheader224
-  %.1171216 = phi ptr [ %.1171217.ph, %.preheader224 ], [ %127, %206 ], [ %127, %176 ], [ %127, %178 ], [ %127, %173 ], [ %.1171217.ph, %.lr.ph249 ], [ %127, %145 ], [ %127, %182 ], [ %127, %.loopexit ]
-  %.1177195214 = phi ptr [ %.1177195215.ph, %.preheader224 ], [ %125, %206 ], [ %125, %176 ], [ %125, %178 ], [ %125, %173 ], [ %.1177195215.ph, %.lr.ph249 ], [ %125, %145 ], [ %125, %182 ], [ %125, %.loopexit ]
-  %.1 = phi i64 [ %.0168253, %.preheader224 ], [ %.0168253, %206 ], [ %.0168253, %176 ], [ %.0168253, %178 ], [ %.0168253, %173 ], [ %219, %.lr.ph249 ], [ %.0168253, %145 ], [ %.0168253, %182 ], [ %.0168253, %.loopexit ]
+.thread209.thread:                                ; preds = %182, %145, %.loopexit, %.lr.ph249, %173, %178, %176, %198, %.preheader224
+  %.1171216 = phi ptr [ %.1171217.ph, %.preheader224 ], [ %127, %198 ], [ %127, %176 ], [ %127, %178 ], [ %127, %173 ], [ %.1171217.ph, %.lr.ph249 ], [ %127, %.loopexit ], [ %127, %145 ], [ %127, %182 ]
+  %.1177195214 = phi ptr [ %.1177195215.ph, %.preheader224 ], [ %125, %198 ], [ %125, %176 ], [ %125, %178 ], [ %125, %173 ], [ %.1177195215.ph, %.lr.ph249 ], [ %125, %.loopexit ], [ %125, %145 ], [ %125, %182 ]
+  %.1 = phi i64 [ %.0168253, %.preheader224 ], [ %.0168253, %198 ], [ %.0168253, %176 ], [ %.0168253, %178 ], [ %.0168253, %173 ], [ %219, %.lr.ph249 ], [ %.0168253, %.loopexit ], [ %.0168253, %145 ], [ %.0168253, %182 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
   %224 = load i32, ptr %10, align 8

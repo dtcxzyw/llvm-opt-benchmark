@@ -35995,10 +35995,10 @@ define void @_ZN2uv8commands4tool6common19install_executables17hf5eb4f6ec038cd94
   %408 = load i64, ptr %289, align 8, !noundef !6
   %409 = icmp ne i64 %408, 1
   %spec.select = select i1 %409, ptr @anon.fa5457ecfb1cbdc43f235845554de6e0.641, ptr inttoptr (i64 1 to ptr)
-  %spec.select845 = zext i1 %409 to i64
+  %spec.select844 = zext i1 %409 to i64
   store ptr %spec.select, ptr %135, align 8
   %410 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store i64 %spec.select845, ptr %410, align 8
+  store i64 %spec.select844, ptr %410, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %134)
   %switch.i587 = icmp samesign ult i8 %11, 2
   %411 = zext i1 %switch.i587 to i8

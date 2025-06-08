@@ -33890,8 +33890,8 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h2c72c74fdb3fd
   br label %142
 
 142:                                              ; preds = %188, %150, %149, %141
-  %.not.i56 = phi i1 [ %.not.i, %188 ], [ true, %150 ], [ true, %149 ], [ true, %141 ]
-  %.sroa.017.4.i = phi i8 [ 1, %188 ], [ 0, %150 ], [ 0, %149 ], [ 0, %141 ]
+  %.not.i56 = phi i1 [ %.not.i, %188 ], [ true, %141 ], [ true, %149 ], [ true, %150 ]
+  %.sroa.017.4.i = phi i8 [ 1, %188 ], [ 0, %141 ], [ 0, %149 ], [ 0, %150 ]
   %143 = load i64, ptr %20, align 8, !range !1262, !noalias !2272, !noundef !3
   %144 = icmp ne i64 %143, -9223372036854775808
   %or.cond3.i = and i1 %.not.i56, %144
@@ -46177,7 +46177,7 @@ define void @_ZN11polars_pipe9executors5sinks6output3csv7CsvSink3new17hc55a61d78
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load i64, ptr %77, align 8
-  store i64 %74, ptr %26, align 8
+  store i64 1, ptr %26, align 8
   %79 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %78, ptr %79, align 8
   br label %80

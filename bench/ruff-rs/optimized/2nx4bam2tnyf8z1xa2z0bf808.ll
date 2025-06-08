@@ -82579,7 +82579,7 @@ _ZN15ruff_python_ast7visitor9walk_expr17hdc43b72e278df013E.exit.loopexit109: ; p
   %.sroa.9.4.ph.i = phi ptr [ %.sroa.9.1.i, %194 ], [ %188, %187 ], [ %.sroa.9.0.i, %181 ]
   %.sroa.12.2.ph.i = phi ptr [ %195, %194 ], [ %.sroa.12.0.i, %187 ], [ %.sroa.12.0.i, %181 ]
   %.sroa.5.3.ph.i = phi ptr [ %.sroa.5.1.i, %194 ], [ null, %187 ], [ %182, %181 ]
-  %.sroa.0.2.ph.i = phi i64 [ 0, %194 ], [ %.sroa.0.0.i, %187 ], [ %.sroa.0.0.i, %181 ]
+  %.sroa.0.2.ph.i = phi i64 [ 0, %194 ], [ 1, %187 ], [ 1, %181 ]
   %.sroa.0.0.i.ph.i = phi ptr [ %.val.i.i.i, %194 ], [ %.val.i14.i.i.i, %187 ], [ %.val.i.i.i.i, %181 ]
   tail call void @"_ZN118_$LT$ruff_python_parser..semantic_errors..ReboundComprehensionVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h89bf540b0f547a7cE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.0.0.i.ph.i)
   br label %174

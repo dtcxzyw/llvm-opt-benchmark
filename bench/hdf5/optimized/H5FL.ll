@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 4) i32 @H5FL_term_package() local_unnamed_addr #0 {
   %1 = load i8, ptr @H5FL_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %2 = trunc nuw i8 %1 to i1
-  br i1 %2, label %3, label %64, !prof !9
+  br i1 %2, label %3, label %69, !prof !9
 
 3:                                                ; preds = %0
   %4 = tail call i32 @H5FL_garbage_coll()
@@ -113,39 +113,39 @@ thread-pre-split.i:                               ; preds = %3
 ._crit_edge.i.loopexit:                           ; preds = %20
   %.pre.pre = load i8, ptr @H5FL_init_g, align 1, !tbaa !3, !range !7
   %.pre30.pre = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre56 = trunc nuw i8 %.pre.pre to i1
-  %.pre57 = trunc nuw i8 %.pre30.pre to i1
-  %.pre58 = xor i1 %.pre57, true
+  %.pre54 = trunc nuw i8 %.pre30.pre to i1
+  %.pre55 = xor i1 %.pre54, true
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %thread-pre-split.i
-  %.pre42.pre-phi = phi i1 [ %.pre58, %._crit_edge.i.loopexit ], [ %9, %thread-pre-split.i ]
-  %.pre39.pre-phi = phi i1 [ %.pre56, %._crit_edge.i.loopexit ], [ %6, %thread-pre-split.i ]
+  %.pre42.pre-phi = phi i1 [ %.pre55, %._crit_edge.i.loopexit ], [ %9, %thread-pre-split.i ]
+  %.pre = phi i8 [ %.pre.pre, %._crit_edge.i.loopexit ], [ %5, %thread-pre-split.i ]
   %.0.lcssa.i = phi ptr [ %.1.i, %._crit_edge.i.loopexit ], [ null, %thread-pre-split.i ]
   store ptr %.0.lcssa.i, ptr @H5FL_reg_gc_head.1, align 8, !tbaa !10
   br label %H5FL__reg_term.exit
 
 H5FL__reg_term.exit:                              ; preds = %3, %._crit_edge.i
   %.pre-phi43 = phi i1 [ %9, %3 ], [ %.pre42.pre-phi, %._crit_edge.i ]
-  %.pre-phi = phi i1 [ false, %3 ], [ %.pre39.pre-phi, %._crit_edge.i ]
+  %.pre3339 = phi i8 [ 0, %3 ], [ %.pre, %._crit_edge.i ]
   %21 = phi ptr [ %.pre.i, %3 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.not4.i = icmp ne ptr %21, null
   %22 = zext i1 %.not4.i to i32
-  %23 = select i1 %.pre-phi, i1 true, i1 %.pre-phi43
-  %24 = load ptr, ptr @H5FL_fac_gc_head.1, align 8
-  %25 = icmp ne ptr %24, null
-  %or.cond.i = select i1 %23, i1 %25, i1 false
+  %23 = trunc nuw i8 %.pre3339 to i1
+  %24 = select i1 %23, i1 true, i1 %.pre-phi43
+  %25 = load ptr, ptr @H5FL_fac_gc_head.1, align 8
+  %26 = icmp ne ptr %25, null
+  %or.cond.i = select i1 %24, i1 %26, i1 false
   br i1 %or.cond.i, label %.preheader.i, label %H5FL__fac_term_all.exit, !prof !9
 
 .preheader.i:                                     ; preds = %H5FL__reg_term.exit, %.preheader.i
-  %26 = phi ptr [ %28, %.preheader.i ], [ %24, %H5FL__reg_term.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !28
-  %29 = load ptr, ptr %26, align 8, !tbaa !32
-  store i8 0, ptr %29, align 8, !tbaa !33
-  %30 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FL_fac_gc_node_t_reg_free_list, ptr noundef nonnull %26)
-  store ptr %28, ptr @H5FL_fac_gc_head.1, align 8, !tbaa !36
-  %.old1.not.i = icmp eq ptr %28, null
+  %27 = phi ptr [ %29, %.preheader.i ], [ %25, %H5FL__reg_term.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
+  %30 = load ptr, ptr %27, align 8, !tbaa !32
+  store i8 0, ptr %30, align 8, !tbaa !33
+  %31 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FL_fac_gc_node_t_reg_free_list, ptr noundef nonnull %27)
+  store ptr %29, ptr @H5FL_fac_gc_head.1, align 8, !tbaa !36
+  %.old1.not.i = icmp eq ptr %29, null
   br i1 %.old1.not.i, label %H5FL__fac_term_all.exit.loopexit, label %.preheader.i
 
 H5FL__fac_term_all.exit.loopexit:                 ; preds = %.preheader.i
@@ -158,121 +158,126 @@ H5FL__fac_term_all.exit.loopexit:                 ; preds = %.preheader.i
 
 H5FL__fac_term_all.exit:                          ; preds = %H5FL__fac_term_all.exit.loopexit, %H5FL__reg_term.exit
   %.pre-phi49 = phi i1 [ %.pre48, %H5FL__fac_term_all.exit.loopexit ], [ %.pre-phi43, %H5FL__reg_term.exit ]
-  %.pre-phi45 = phi i1 [ %.pre44, %H5FL__fac_term_all.exit.loopexit ], [ %.pre-phi, %H5FL__reg_term.exit ]
-  %31 = select i1 %.pre-phi45, i1 true, i1 %.pre-phi49
+  %.pre-phi45 = phi i1 [ %.pre44, %H5FL__fac_term_all.exit.loopexit ], [ %23, %H5FL__reg_term.exit ]
+  %.pre3338 = phi i8 [ %.pre31, %H5FL__fac_term_all.exit.loopexit ], [ %.pre3339, %H5FL__reg_term.exit ]
+  %32 = select i1 %.pre-phi45, i1 true, i1 %.pre-phi49
   %.pre.i8 = load ptr, ptr @H5FL_arr_gc_head.1, align 8, !tbaa !38
-  br i1 %31, label %thread-pre-split.i10, label %H5FL__arr_term.exit, !prof !15
+  br i1 %32, label %thread-pre-split.i10, label %H5FL__arr_term.exit, !prof !15
 
 thread-pre-split.i10:                             ; preds = %H5FL__fac_term_all.exit
   %.not6.i11 = icmp eq ptr %.pre.i8, null
   br i1 %.not6.i11, label %._crit_edge.i17, label %.lr.ph.i12
 
-.lr.ph.i12:                                       ; preds = %thread-pre-split.i10, %45
-  %.07.i13 = phi ptr [ %.1.i15, %45 ], [ null, %thread-pre-split.i10 ]
-  %32 = phi ptr [ %34, %45 ], [ %.pre.i8, %thread-pre-split.i10 ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !41
-  %35 = load ptr, ptr %32, align 8, !tbaa !44
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !45
-  %.not5.i14 = icmp eq i32 %37, 0
-  br i1 %.not5.i14, label %39, label %38
-
-38:                                               ; preds = %.lr.ph.i12
-  store ptr %.07.i13, ptr %33, align 8, !tbaa !41
-  br label %45
+.lr.ph.i12:                                       ; preds = %thread-pre-split.i10, %46
+  %.07.i13 = phi ptr [ %.1.i15, %46 ], [ null, %thread-pre-split.i10 ]
+  %33 = phi ptr [ %35, %46 ], [ %.pre.i8, %thread-pre-split.i10 ]
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !41
+  %36 = load ptr, ptr %33, align 8, !tbaa !44
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !45
+  %.not5.i14 = icmp eq i32 %38, 0
+  br i1 %.not5.i14, label %40, label %39
 
 39:                                               ; preds = %.lr.ph.i12
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !48
-  %42 = tail call ptr @H5MM_xfree(ptr noundef %41) #10
-  %43 = load ptr, ptr @H5FL_arr_gc_head.1, align 8, !tbaa !38
-  %44 = load ptr, ptr %43, align 8, !tbaa !44
-  store i8 0, ptr %44, align 8, !tbaa !49
-  tail call void @free(ptr noundef %43) #10
-  br label %45
+  store ptr %.07.i13, ptr %34, align 8, !tbaa !41
+  br label %46
 
-45:                                               ; preds = %39, %38
-  %.1.i15 = phi ptr [ %32, %38 ], [ %.07.i13, %39 ]
-  store ptr %34, ptr @H5FL_arr_gc_head.1, align 8, !tbaa !38
-  %.not.i16 = icmp eq ptr %34, null
+40:                                               ; preds = %.lr.ph.i12
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !48
+  %43 = tail call ptr @H5MM_xfree(ptr noundef %42) #10
+  %44 = load ptr, ptr @H5FL_arr_gc_head.1, align 8, !tbaa !38
+  %45 = load ptr, ptr %44, align 8, !tbaa !44
+  store i8 0, ptr %45, align 8, !tbaa !49
+  tail call void @free(ptr noundef %44) #10
+  br label %46
+
+46:                                               ; preds = %40, %39
+  %.1.i15 = phi ptr [ %33, %39 ], [ %.07.i13, %40 ]
+  store ptr %35, ptr @H5FL_arr_gc_head.1, align 8, !tbaa !38
+  %.not.i16 = icmp eq ptr %35, null
   br i1 %.not.i16, label %._crit_edge.i17.loopexit, label %.lr.ph.i12, !llvm.loop !50
 
-._crit_edge.i17.loopexit:                         ; preds = %45
+._crit_edge.i17.loopexit:                         ; preds = %46
   %.pre33.pre = load i8, ptr @H5FL_init_g, align 1, !tbaa !3, !range !7
   %.pre34.pre = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre59 = trunc nuw i8 %.pre33.pre to i1
-  %.pre60 = trunc nuw i8 %.pre34.pre to i1
-  %.pre61 = xor i1 %.pre60, true
+  %.pre56 = trunc nuw i8 %.pre34.pre to i1
+  %.pre57 = xor i1 %.pre56, true
   br label %._crit_edge.i17
 
 ._crit_edge.i17:                                  ; preds = %._crit_edge.i17.loopexit, %thread-pre-split.i10
-  %.pre54.pre-phi = phi i1 [ %.pre61, %._crit_edge.i17.loopexit ], [ %.pre-phi49, %thread-pre-split.i10 ]
-  %.pre50.pre-phi = phi i1 [ %.pre59, %._crit_edge.i17.loopexit ], [ %.pre-phi45, %thread-pre-split.i10 ]
+  %.pre52.pre-phi = phi i1 [ %.pre57, %._crit_edge.i17.loopexit ], [ %.pre-phi49, %thread-pre-split.i10 ]
+  %.pre33 = phi i8 [ %.pre33.pre, %._crit_edge.i17.loopexit ], [ %.pre3338, %thread-pre-split.i10 ]
   %.0.lcssa.i18 = phi ptr [ %.1.i15, %._crit_edge.i17.loopexit ], [ null, %thread-pre-split.i10 ]
   store ptr %.0.lcssa.i18, ptr @H5FL_arr_gc_head.1, align 8, !tbaa !38
-  br label %H5FL__arr_term.exit
+  %47 = trunc nuw i8 %.pre33 to i1
+  %48 = select i1 %47, i1 true, i1 %.pre52.pre-phi
+  %.not4.i958 = icmp ne ptr %.0.lcssa.i18, null
+  %49 = zext i1 %.not4.i958 to i32
+  %50 = add nuw nsw i32 %49, %22
+  %.pre.i1959 = load ptr, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !51
+  br i1 %48, label %thread-pre-split.i21, label %H5FL__blk_term.exit, !prof !15
 
-H5FL__arr_term.exit:                              ; preds = %H5FL__fac_term_all.exit, %._crit_edge.i17
-  %.pre-phi55 = phi i1 [ %.pre-phi49, %H5FL__fac_term_all.exit ], [ %.pre54.pre-phi, %._crit_edge.i17 ]
-  %.pre-phi51 = phi i1 [ %.pre-phi45, %H5FL__fac_term_all.exit ], [ %.pre50.pre-phi, %._crit_edge.i17 ]
-  %46 = phi ptr [ %.pre.i8, %H5FL__fac_term_all.exit ], [ %.0.lcssa.i18, %._crit_edge.i17 ]
-  %.not4.i9 = icmp ne ptr %46, null
-  %47 = zext i1 %.not4.i9 to i32
-  %48 = add nuw nsw i32 %47, %22
-  %49 = select i1 %.pre-phi51, i1 true, i1 %.pre-phi55
+H5FL__arr_term.exit:                              ; preds = %H5FL__fac_term_all.exit
+  %.not4.i9 = icmp ne ptr %.pre.i8, null
+  %51 = zext i1 %.not4.i9 to i32
+  %52 = add nuw nsw i32 %51, %22
   %.pre.i19 = load ptr, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !51
-  br i1 %49, label %thread-pre-split.i21, label %H5FL__blk_term.exit, !prof !15
+  br i1 %.pre-phi49, label %thread-pre-split.i21, label %H5FL__blk_term.exit, !prof !15
 
-thread-pre-split.i21:                             ; preds = %H5FL__arr_term.exit
-  %.not6.i22 = icmp eq ptr %.pre.i19, null
+thread-pre-split.i21:                             ; preds = %._crit_edge.i17, %H5FL__arr_term.exit
+  %.pre.i1960 = phi ptr [ %.pre.i1959, %._crit_edge.i17 ], [ %.pre.i19, %H5FL__arr_term.exit ]
+  %53 = phi i32 [ %50, %._crit_edge.i17 ], [ %52, %H5FL__arr_term.exit ]
+  %.not6.i22 = icmp eq ptr %.pre.i1960, null
   br i1 %.not6.i22, label %._crit_edge.i28, label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %thread-pre-split.i21, %58
-  %.07.i24 = phi ptr [ %.1.i26, %58 ], [ null, %thread-pre-split.i21 ]
-  %50 = phi ptr [ %52, %58 ], [ %.pre.i19, %thread-pre-split.i21 ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !54
-  %53 = load ptr, ptr %50, align 8, !tbaa !57
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = load i32, ptr %54, align 4, !tbaa !58
-  %.not5.i25 = icmp eq i32 %55, 0
-  br i1 %.not5.i25, label %57, label %56
+.lr.ph.i23:                                       ; preds = %thread-pre-split.i21, %62
+  %.07.i24 = phi ptr [ %.1.i26, %62 ], [ null, %thread-pre-split.i21 ]
+  %54 = phi ptr [ %56, %62 ], [ %.pre.i1960, %thread-pre-split.i21 ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !54
+  %57 = load ptr, ptr %54, align 8, !tbaa !57
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !58
+  %.not5.i25 = icmp eq i32 %59, 0
+  br i1 %.not5.i25, label %61, label %60
 
-56:                                               ; preds = %.lr.ph.i23
-  store ptr %.07.i24, ptr %51, align 8, !tbaa !54
-  br label %58
+60:                                               ; preds = %.lr.ph.i23
+  store ptr %.07.i24, ptr %55, align 8, !tbaa !54
+  br label %62
 
-57:                                               ; preds = %.lr.ph.i23
-  store i8 0, ptr %53, align 8, !tbaa !61
-  tail call void @free(ptr noundef nonnull %50) #10
-  br label %58
+61:                                               ; preds = %.lr.ph.i23
+  store i8 0, ptr %57, align 8, !tbaa !61
+  tail call void @free(ptr noundef nonnull %54) #10
+  br label %62
 
-58:                                               ; preds = %57, %56
-  %.1.i26 = phi ptr [ %50, %56 ], [ %.07.i24, %57 ]
-  store ptr %52, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !51
-  %.not.i27 = icmp eq ptr %52, null
+62:                                               ; preds = %61, %60
+  %.1.i26 = phi ptr [ %54, %60 ], [ %.07.i24, %61 ]
+  store ptr %56, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !51
+  %.not.i27 = icmp eq ptr %56, null
   br i1 %.not.i27, label %._crit_edge.i28, label %.lr.ph.i23, !llvm.loop !62
 
-._crit_edge.i28:                                  ; preds = %58, %thread-pre-split.i21
-  %.0.lcssa.i29 = phi ptr [ null, %thread-pre-split.i21 ], [ %.1.i26, %58 ]
+._crit_edge.i28:                                  ; preds = %62, %thread-pre-split.i21
+  %.0.lcssa.i29 = phi ptr [ null, %thread-pre-split.i21 ], [ %.1.i26, %62 ]
   store ptr %.0.lcssa.i29, ptr @H5FL_blk_gc_head.1, align 8, !tbaa !51
   br label %H5FL__blk_term.exit
 
-H5FL__blk_term.exit:                              ; preds = %H5FL__arr_term.exit, %._crit_edge.i28
-  %59 = phi ptr [ %.0.lcssa.i29, %._crit_edge.i28 ], [ %.pre.i19, %H5FL__arr_term.exit ]
-  %.not4.i20 = icmp ne ptr %59, null
-  %60 = zext i1 %.not4.i20 to i32
-  %61 = add nuw nsw i32 %48, %60
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %64
+H5FL__blk_term.exit:                              ; preds = %._crit_edge.i17, %H5FL__arr_term.exit, %._crit_edge.i28
+  %63 = phi i32 [ %53, %._crit_edge.i28 ], [ %52, %H5FL__arr_term.exit ], [ %50, %._crit_edge.i17 ]
+  %64 = phi ptr [ %.0.lcssa.i29, %._crit_edge.i28 ], [ %.pre.i19, %H5FL__arr_term.exit ], [ %.pre.i1959, %._crit_edge.i17 ]
+  %.not4.i20 = icmp ne ptr %64, null
+  %65 = zext i1 %.not4.i20 to i32
+  %66 = add nuw nsw i32 %63, %65
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %69
 
-63:                                               ; preds = %H5FL__blk_term.exit
+68:                                               ; preds = %H5FL__blk_term.exit
   store i8 0, ptr @H5FL_init_g, align 1, !tbaa !3
-  br label %64
+  br label %69
 
-64:                                               ; preds = %63, %H5FL__blk_term.exit, %0
-  %.0 = phi i32 [ 0, %63 ], [ %61, %H5FL__blk_term.exit ], [ 0, %0 ]
+69:                                               ; preds = %68, %H5FL__blk_term.exit, %0
+  %.0 = phi i32 [ 0, %68 ], [ %66, %H5FL__blk_term.exit ], [ 0, %0 ]
   ret i32 %.0
 }
 

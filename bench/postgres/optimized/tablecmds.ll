@@ -13510,26 +13510,25 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 1005:                                             ; preds = %1001
   call void @index_check_primary_key(ptr noundef nonnull %155, ptr noundef nonnull %983, i1 noundef zeroext true, ptr noundef nonnull %965) #15
   %.pre.i210 = load i8, ptr %1002, align 2, !range !6
-  %.pre1.i = trunc nuw i8 %.pre.i210 to i1
-  %1006 = select i1 %.pre1.i, i8 112, i8 117
-  %1007 = or disjoint i8 %.pre.i210, 24
   br label %ATExecAddIndexConstraint.exit
 
 ATExecAddIndexConstraint.exit:                    ; preds = %1001, %1005
-  %.pre-phi.i = phi i8 [ %1006, %1005 ], [ 117, %1001 ]
-  %1008 = phi i8 [ %1007, %1005 ], [ 24, %1001 ]
-  %1009 = getelementptr inbounds nuw i8, ptr %965, i64 110
-  %1010 = load i8, ptr %1009, align 2, !range !6, !noundef !7
-  %1011 = shl nuw nsw i8 %1010, 2
-  %1012 = getelementptr inbounds nuw i8, ptr %965, i64 109
-  %1013 = load i8, ptr %1012, align 1, !range !6, !noundef !7
-  %1014 = shl nuw nsw i8 %1013, 1
-  %1015 = add nuw nsw i8 %1008, %1011
-  %1016 = add nuw nsw i8 %1015, %1014
+  %1006 = phi i8 [ %.pre.i210, %1005 ], [ 0, %1001 ]
+  %1007 = trunc nuw i8 %1006 to i1
+  %..i = select i1 %1007, i8 112, i8 117
+  %1008 = getelementptr inbounds nuw i8, ptr %965, i64 110
+  %1009 = load i8, ptr %1008, align 2, !range !6, !noundef !7
+  %1010 = shl nuw nsw i8 %1009, 2
+  %1011 = getelementptr inbounds nuw i8, ptr %965, i64 109
+  %1012 = load i8, ptr %1011, align 1, !range !6, !noundef !7
+  %1013 = shl nuw nsw i8 %1012, 1
+  %1014 = or disjoint i8 %1010, %1013
+  %1015 = or disjoint i8 %1014, %1006
+  %1016 = or disjoint i8 %1015, 24
   %1017 = zext nneg i8 %1016 to i16
   %1018 = load i8, ptr @allowSystemTableMods, align 1, !range !6, !noundef !7
   %1019 = trunc nuw i8 %1018 to i1
-  %1020 = call { i64, i32 } @index_constraint_create(ptr noundef nonnull %155, i32 noundef %967, i32 noundef 0, ptr noundef nonnull %983, ptr noundef %.0.i209, i8 noundef signext %.pre-phi.i, i16 noundef zeroext %1017, i1 noundef zeroext %1019, i1 noundef zeroext false) #15
+  %1020 = call { i64, i32 } @index_constraint_create(ptr noundef nonnull %155, i32 noundef %967, i32 noundef 0, ptr noundef nonnull %983, ptr noundef %.0.i209, i8 noundef signext %..i, i16 noundef zeroext %1017, i1 noundef zeroext %1019, i1 noundef zeroext false) #15
   call void @index_close(ptr noundef nonnull %978, i32 noundef 0) #15
   %.fca.0.extract70.i = extractvalue { i64, i32 } %1020, 0
   %.fca.1.extract71.i = extractvalue { i64, i32 } %1020, 1

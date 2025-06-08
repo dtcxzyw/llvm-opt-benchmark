@@ -7788,7 +7788,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit134.i:            ; preds = %_ZNKSt7__cxx1112bas
   %indvars.iv.next161.i = add nuw nsw i64 %indvars.iv160.i, 1
   %995 = icmp samesign ult i64 %indvars.iv.next161.i, %992
   %.not87.not.i = select i1 %995, i1 %999, i1 false
-  br i1 %.not87.not.i, label %.lr.ph.i177, label %.loopexit.i182.loopexit, !llvm.loop !180
+  br i1 %.not87.not.i, label %.lr.ph.i177, label %.loopexit.loopexit.i, !llvm.loop !180
 
 996:                                              ; preds = %996, %.lr.ph.i177
   %indvars.iv.i178 = phi i64 [ 0, %.lr.ph.i177 ], [ %indvars.iv.next.i179, %996 ]
@@ -7800,14 +7800,14 @@ _ZN3gmx14LogEntryWriterD2Ev.exit134.i:            ; preds = %_ZNKSt7__cxx1112bas
   %.not89.i = select i1 %1000, i1 true, i1 %999
   br i1 %.not89.i, label %._crit_edge.i180, label %996, !llvm.loop !181
 
-.loopexit.i182.loopexit:                          ; preds = %._crit_edge.i180
-  %not..i181.le = xor i1 %999, true
+.loopexit.loopexit.i:                             ; preds = %._crit_edge.i180
+  %not..i181 = xor i1 %999, true
   br label %.loopexit.i182
 
-.loopexit.i182:                                   ; preds = %.loopexit.i182.loopexit, %981, %972
-  %.174.i = phi i1 [ false, %972 ], [ false, %981 ], [ %not..i181.le, %.loopexit.i182.loopexit ]
-  %.160.i = phi ptr [ %980, %972 ], [ %.059136.i, %981 ], [ %.059136.i, %.loopexit.i182.loopexit ]
-  %.1.i183 = phi i32 [ %971, %972 ], [ %.0137.i, %981 ], [ %.0137.i, %.loopexit.i182.loopexit ]
+.loopexit.i182:                                   ; preds = %.loopexit.loopexit.i, %981, %972
+  %.174.i = phi i1 [ false, %972 ], [ false, %981 ], [ %not..i181, %.loopexit.loopexit.i ]
+  %.160.i = phi ptr [ %980, %972 ], [ %.059136.i, %981 ], [ %.059136.i, %.loopexit.loopexit.i ]
+  %.1.i183 = phi i32 [ %971, %972 ], [ %.0137.i, %981 ], [ %.0137.i, %.loopexit.loopexit.i ]
   %1001 = add nsw i32 %.071134.i, 1
   %1002 = freeze i32 %.1.i183
   br label %1003
@@ -7837,7 +7837,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit134.i:            ; preds = %_ZNKSt7__cxx1112bas
   br i1 %1010, label %.preheader.i175, label %1015
 
 ._crit_edge141.i:                                 ; preds = %.preheader.i175
-  %not.182.i = xor i1 %1013, true
+  %not.176.i = xor i1 %1013, true
   br label %1015
 
 .preheader.i175:                                  ; preds = %.lr.ph146.split.i, %.preheader.i175
@@ -7851,7 +7851,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit134.i:            ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not83.i, label %._crit_edge141.i, label %.preheader.i175, !llvm.loop !183
 
 1015:                                             ; preds = %._crit_edge141.i, %.lr.ph146.split.i
-  %.8.i159 = phi i1 [ %not.182.i, %._crit_edge141.i ], [ false, %.lr.ph146.split.i ]
+  %.8.i159 = phi i1 [ %not.176.i, %._crit_edge141.i ], [ false, %.lr.ph146.split.i ]
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %1016 = icmp samesign ugt i64 %indvars.iv167.i, 2
   %.not81.i = select i1 %1016, i1 true, i1 %.8.i159

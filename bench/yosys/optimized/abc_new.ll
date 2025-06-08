@@ -3912,11 +3912,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit359: ; preds = %_Z
 
 821:                                              ; preds = %778
   %.pre1250 = load i8, ptr %321, align 1, !tbaa !49, !range !50
+  %822 = trunc nuw i8 %.pre1250 to i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #28
   store ptr %517, ptr %39, align 8, !tbaa !18
   store i64 0, ptr %518, align 8, !tbaa !16
   store i8 0, ptr %517, align 8, !tbaa !17
-  %822 = trunc nuw i8 %.pre1250 to i1
   br i1 %822, label %.critedge141.thread, label %823
 
 823:                                              ; preds = %821

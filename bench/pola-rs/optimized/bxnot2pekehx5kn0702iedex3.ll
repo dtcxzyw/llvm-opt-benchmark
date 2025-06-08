@@ -24388,7 +24388,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef readonly align 8 dereferenceable(32) %191)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef %332, i64 %336)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef 1, i64 %336)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   %337 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heca108772e2ad838E.exit" unwind label %338, !noalias !1885
@@ -24428,7 +24428,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, ptr noalias noundef readonly align 8 dereferenceable(32) %203)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef %343, i128 %345)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef 1, i128 %345)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   %349 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6c762a75dbd73576E.exit" unwind label %350, !noalias !1888
@@ -24575,7 +24575,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef readonly align 8 dereferenceable(32) %251)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef %391, i64 %395)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef 1, i64 %395)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   %396 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he0e44769340607c7E.exit" unwind label %397, !noalias !1900
@@ -24615,7 +24615,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef readonly align 8 dereferenceable(32) %263)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef %402, i128 %404)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef 1, i128 %404)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %408 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h29386cc0d54a0145E.exit" unwind label %409, !noalias !1903
@@ -24689,7 +24689,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef readonly align 8 dereferenceable(32) %287)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef %427, double %431)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef 1, double %431)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   %432 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3c9f4fe61777c29E.exit" unwind label %433, !noalias !1909
@@ -25634,7 +25634,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef readonly align 8 dereferenceable(32) %191)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef %332, i64 %336)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef 1, i64 %336)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   %337 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heca108772e2ad838E.exit" unwind label %338, !noalias !1955
@@ -25674,7 +25674,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, ptr noalias noundef readonly align 8 dereferenceable(32) %203)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef %343, i128 %345)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef 1, i128 %345)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   %349 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6c762a75dbd73576E.exit" unwind label %350, !noalias !1958
@@ -25821,7 +25821,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef readonly align 8 dereferenceable(32) %251)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef %391, i64 %395)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef 1, i64 %395)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   %396 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he0e44769340607c7E.exit" unwind label %397, !noalias !1970
@@ -25861,7 +25861,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef readonly align 8 dereferenceable(32) %263)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef %402, i128 %404)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef 1, i128 %404)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %408 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h29386cc0d54a0145E.exit" unwind label %409, !noalias !1973
@@ -25935,7 +25935,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef readonly align 8 dereferenceable(32) %287)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef %427, double %431)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef 1, double %431)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   %432 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3c9f4fe61777c29E.exit" unwind label %433, !noalias !1979
@@ -26880,7 +26880,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef readonly align 8 dereferenceable(32) %191)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef %332, i64 %336)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef 1, i64 %336)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   %337 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heca108772e2ad838E.exit" unwind label %338, !noalias !2025
@@ -26920,7 +26920,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, ptr noalias noundef readonly align 8 dereferenceable(32) %203)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef %343, i128 %345)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef 1, i128 %345)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   %349 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6c762a75dbd73576E.exit" unwind label %350, !noalias !2028
@@ -27067,7 +27067,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef readonly align 8 dereferenceable(32) %251)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef %391, i64 %395)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef 1, i64 %395)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   %396 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he0e44769340607c7E.exit" unwind label %397, !noalias !2040
@@ -27107,7 +27107,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef readonly align 8 dereferenceable(32) %263)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef %402, i128 %404)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef 1, i128 %404)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %408 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h29386cc0d54a0145E.exit" unwind label %409, !noalias !2043
@@ -27181,7 +27181,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef readonly align 8 dereferenceable(32) %287)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef %427, double %431)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef 1, double %431)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   %432 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3c9f4fe61777c29E.exit" unwind label %433, !noalias !2049
@@ -28126,7 +28126,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef readonly align 8 dereferenceable(32) %191)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef %332, i64 %336)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h9beb308b5a0da7adE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %33, ptr noalias noundef align 8 captures(none) dereferenceable(32) %32, i64 noundef 1, i64 %336)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   %337 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17heca108772e2ad838E.exit" unwind label %338, !noalias !2095
@@ -28166,7 +28166,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, ptr noalias noundef readonly align 8 dereferenceable(32) %203)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef %343, i128 %345)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h14e1c140eacc57e4E"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %31, ptr noalias noundef align 8 captures(none) dereferenceable(32) %30, i128 noundef 1, i128 %345)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30)
   %349 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h6c762a75dbd73576E.exit" unwind label %350, !noalias !2098
@@ -28313,7 +28313,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef readonly align 8 dereferenceable(32) %251)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef %391, i64 %395)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h73fb424f738b728cE"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %23, ptr noalias noundef align 8 captures(none) dereferenceable(32) %22, i64 noundef 1, i64 %395)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   %396 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17he0e44769340607c7E.exit" unwind label %397, !noalias !2110
@@ -28353,7 +28353,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef readonly align 8 dereferenceable(32) %263)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef %402, i128 %404)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17hf3713f8ee951a07bE"(ptr noalias noundef align 16 captures(none) dereferenceable(64) %21, ptr noalias noundef align 8 captures(none) dereferenceable(32) %20, i128 noundef 1, i128 %404)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   %408 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 64, i64 noundef 16)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h29386cc0d54a0145E.exit" unwind label %409, !noalias !2113
@@ -28427,7 +28427,7 @@ common.resume:                                    ; preds = %547, %535, %529, %5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u20$as$u20$core..clone..Clone$GT$5clone17hfb1c4170050a3f03E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, ptr noalias noundef readonly align 8 dereferenceable(32) %287)
-  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef %427, double %431)
+  call fastcc void @"_ZN12polars_arrow6scalar9primitive24PrimitiveScalar$LT$T$GT$3new17h2f32c683c31ab9f1E"(ptr noalias noundef align 8 captures(none) dereferenceable(48) %17, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16, i64 noundef 1, double %431)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   %432 = invoke fastcc noundef ptr @_ZN5alloc5alloc15exchange_malloc17h866e78d0446947d7E(i64 noundef 48, i64 noundef 8)
           to label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha3c9f4fe61777c29E.exit" unwind label %433, !noalias !2119

@@ -72593,7 +72593,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit226.i:               ; preds = %715, %_ZNSt7__cxx11
   store ptr %499, ptr %501, align 8, !tbaa !195
   store ptr %499, ptr %502, align 8, !tbaa !473
   store i64 0, ptr %503, align 8, !tbaa !194
-  store i8 %733, ptr %504, align 8, !tbaa !486
+  store i8 1, ptr %504, align 8, !tbaa !486
   invoke fastcc void @_ZN8tinygltfL14SerializeValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ValueERN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNSB_14adl_serializerESE_IhSaIhEEEE(ptr noundef nonnull align 8 dereferenceable(32) %404, ptr noundef nonnull align 8 dereferenceable(145) %405, ptr noundef nonnull align 8 dereferenceable(16) %420)
           to label %735 unwind label %740
 
@@ -77075,10 +77075,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106.i: ; preds = %
 
 _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEC2IRKbbTnNSt9enable_ifIXaantsr6detail13is_basic_jsonIT0_EE5valuesr6detail18is_compatible_typeISC_SH_EE5valueEiE4typeELi0EEEOT_.exit.i: ; preds = %2158
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %338) #55
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = zext nneg i8 %2160 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %334)
   store i8 4, ptr %334, align 8, !tbaa !145
-  store i64 %.sroa.0.0.insert.ext.i.i.i.i.i.i, ptr %2011, align 8, !tbaa !21
+  store i64 1, ptr %2011, align 8, !tbaa !21
   store i8 0, ptr %338, align 8, !tbaa !145
   store ptr null, ptr %2010, align 8, !tbaa !21
   %2162 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEEixIKcEERSC_PT_(ptr noundef nonnull align 8 dereferenceable(16) %428, ptr noundef @.str.312)

@@ -1172,7 +1172,7 @@ _ZNK5clang4ento10APSIntType11getMinValueEv.exit.thread90: ; preds = %_ZN4llvm5AP
   %84 = load i64, ptr %6, align 8, !noalias !59
   store i64 %84, ptr %8, align 8, !alias.scope !59
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 %57, ptr %85, align 4, !tbaa !34, !alias.scope !59
+  store i8 0, ptr %85, align 4, !tbaa !34, !alias.scope !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !53
   %86 = load ptr, ptr %46, align 8, !tbaa !30
   br label %_ZNK4llvm6APSInteqERKS0_.exit
@@ -1197,7 +1197,7 @@ _ZNK5clang4ento10APSIntType11getMinValueEv.exit:  ; preds = %61
   %91 = load i64, ptr %6, align 8, !noalias !59
   store i64 %91, ptr %8, align 8, !alias.scope !59
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 %57, ptr %92, align 4, !tbaa !34, !alias.scope !59
+  store i8 1, ptr %92, align 4, !tbaa !34, !alias.scope !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !53
   %93 = load ptr, ptr %46, align 8, !tbaa !30
   %94 = icmp ult i32 %.pre.i.i, 65
@@ -48282,7 +48282,7 @@ _ZNK5clang4ento10APSIntType11getMinValueEv.exit.thread21: ; preds = %_ZN4llvm5AP
   %111 = load i64, ptr %9, align 8, !noalias !1657
   store i64 %111, ptr %13, align 8, !alias.scope !1657
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i8 %84, ptr %112, align 4, !tbaa !34, !alias.scope !1657
+  store i8 0, ptr %112, align 4, !tbaa !34, !alias.scope !1657
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1651
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -48313,7 +48313,7 @@ _ZNK5clang4ento10APSIntType11getMinValueEv.exit:  ; preds = %88
   %118 = load i64, ptr %9, align 8, !noalias !1657
   store i64 %118, ptr %13, align 8, !alias.scope !1657
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i8 %84, ptr %119, align 4, !tbaa !34, !alias.scope !1657
+  store i8 1, ptr %119, align 4, !tbaa !34, !alias.scope !1657
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !1651
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !1666)

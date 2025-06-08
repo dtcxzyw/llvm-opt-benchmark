@@ -8171,7 +8171,7 @@ _Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit: ; preds = %7, %11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
   %17 = load i8, ptr %4, align 8, !tbaa !100, !range !287, !noundef !288
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %35
+  br i1 %18, label %19, label %36
 
 19:                                               ; preds = %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit
   %20 = load ptr, ptr %1, align 8, !tbaa !120
@@ -8208,12 +8208,12 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %19
 _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit:      ; preds = %25, %27, %34
   store ptr %21, ptr %1, align 8, !tbaa !120
   %.pre = load i8, ptr %4, align 8, !tbaa !100, !range !287
-  %.pre4 = trunc nuw i8 %.pre to i1
-  br label %35
+  %35 = trunc nuw i8 %.pre to i1
+  br label %36
 
-35:                                               ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit
-  %.pre-phi = phi i1 [ %.pre4, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit ]
-  ret i1 %.pre-phi
+36:                                               ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit
+  %37 = phi i1 [ %35, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_Z13for_each_exprIN2qe17lift_foreign_varsEEvRT_P4expr.exit ]
+  ret i1 %37
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

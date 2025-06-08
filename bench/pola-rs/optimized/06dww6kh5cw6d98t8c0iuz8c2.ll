@@ -31007,7 +31007,7 @@ define hidden void @_ZN11polars_lazy13physical_plan9streaming18construct_pipelin
   %357 = icmp ne i64 %355, 17
   call void @llvm.assume(i1 %357)
   %spec.select = select i1 %356, i64 %337, i64 %.sroa.6.0588
-  %spec.select130 = select i1 %356, i64 %336, i64 %.sroa.04.0589
+  %spec.select130 = select i1 %356, i64 1, i64 %.sroa.04.0589
   br label %342
 
 .loopexit352:                                     ; preds = %342

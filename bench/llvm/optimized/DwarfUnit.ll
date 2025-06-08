@@ -14004,7 +14004,7 @@ define dso_local void @_ZN4llvm13DwarfTypeUnit10emitHeaderEb(ptr noundef nonnull
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 3521
   %9 = load i8, ptr %8, align 1, !tbaa !632, !range !44, !noundef !45
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %25, label %11
+  br i1 %10, label %26, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -14029,66 +14029,66 @@ define dso_local void @_ZN4llvm13DwarfTypeUnit10emitHeaderEb(ptr noundef nonnull
   %.pre = load ptr, ptr %6, align 8, !tbaa !219
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 3521
   %.pre1 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !632, !range !44
-  %.pre2 = trunc nuw i8 %.pre1 to i1
-  %24 = select i1 %.pre2, i8 6, i8 2
-  br label %25
+  %24 = trunc nuw i8 %.pre1 to i1
+  %25 = select i1 %24, i8 6, i8 2
+  br label %26
 
-25:                                               ; preds = %11, %2
-  %.pre-phi = phi i8 [ %24, %11 ], [ 6, %2 ]
-  call void @_ZN4llvm9DwarfUnit16emitCommonHeaderEbNS_5dwarf8UnitTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, i1 noundef zeroext %1, i8 noundef zeroext %.pre-phi)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %27 = load ptr, ptr %26, align 8, !tbaa !218
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  %29 = load ptr, ptr %28, align 8, !tbaa !780
+26:                                               ; preds = %11, %2
+  %27 = phi i8 [ %25, %11 ], [ 6, %2 ]
+  call void @_ZN4llvm9DwarfUnit16emitCommonHeaderEbNS_5dwarf8UnitTypeE(ptr noundef nonnull align 8 dereferenceable(328) %0, i1 noundef zeroext %1, i8 noundef zeroext %27)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %29 = load ptr, ptr %28, align 8, !tbaa !218
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %31 = load ptr, ptr %30, align 8, !tbaa !780
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %31, align 1, !tbaa !774
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %33, align 1, !tbaa !774
   store ptr @.str.12, ptr %4, align 8, !tbaa !57
-  store i8 3, ptr %30, align 8, !tbaa !777
-  %32 = load ptr, ptr %29, align 8, !tbaa !28
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 120
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(296) %29, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #21
+  store i8 3, ptr %32, align 8, !tbaa !777
+  %34 = load ptr, ptr %31, align 8, !tbaa !28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
+  %36 = load ptr, ptr %35, align 8
+  call void %36(ptr noundef nonnull align 8 dereferenceable(296) %31, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
-  %35 = load ptr, ptr %26, align 8, !tbaa !218
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
-  %37 = load ptr, ptr %36, align 8, !tbaa !780
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %39 = load i64, ptr %38, align 8, !tbaa !810
-  %40 = load ptr, ptr %37, align 8, !tbaa !28
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 544
-  %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(296) %37, i64 noundef %39, i32 noundef 8) #21
-  %43 = load ptr, ptr %26, align 8, !tbaa !218
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %45 = load ptr, ptr %44, align 8, !tbaa !780
+  %37 = load ptr, ptr %28, align 8, !tbaa !218
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  %39 = load ptr, ptr %38, align 8, !tbaa !780
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %41 = load i64, ptr %40, align 8, !tbaa !810
+  %42 = load ptr, ptr %39, align 8, !tbaa !28
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 544
+  %44 = load ptr, ptr %43, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(296) %39, i64 noundef %41, i32 noundef 8) #21
+  %45 = load ptr, ptr %28, align 8, !tbaa !218
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 80
+  %47 = load ptr, ptr %46, align 8, !tbaa !780
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %47, align 1, !tbaa !774
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %49, align 1, !tbaa !774
   store ptr @.str.13, ptr %5, align 8, !tbaa !57
-  store i8 3, ptr %46, align 8, !tbaa !777
-  %48 = load ptr, ptr %45, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(296) %45, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #21
+  store i8 3, ptr %48, align 8, !tbaa !777
+  %50 = load ptr, ptr %47, align 8, !tbaa !28
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 120
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(296) %47, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
-  %51 = load ptr, ptr %26, align 8, !tbaa !218
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %53 = load ptr, ptr %52, align 8, !tbaa !811
-  %.not = icmp eq ptr %53, null
-  br i1 %.not, label %58, label %54
+  %53 = load ptr, ptr %28, align 8, !tbaa !218
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %55 = load ptr, ptr %54, align 8, !tbaa !811
+  %.not = icmp eq ptr %55, null
+  br i1 %.not, label %60, label %56
 
-54:                                               ; preds = %25
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %56 = load i32, ptr %55, align 8, !tbaa !812
-  %57 = zext i32 %56 to i64
-  br label %58
+56:                                               ; preds = %26
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %58 = load i32, ptr %57, align 8, !tbaa !812
+  %59 = zext i32 %58 to i64
+  br label %60
 
-58:                                               ; preds = %25, %54
-  %59 = phi i64 [ %57, %54 ], [ 0, %25 ]
-  call void @_ZNK4llvm10AsmPrinter23emitDwarfLengthOrOffsetEm(ptr noundef nonnull align 8 dereferenceable(777) %51, i64 noundef %59) #21
+60:                                               ; preds = %26, %56
+  %61 = phi i64 [ %59, %56 ], [ 0, %26 ]
+  call void @_ZNK4llvm10AsmPrinter23emitDwarfLengthOrOffsetEm(ptr noundef nonnull align 8 dereferenceable(777) %53, i64 noundef %61) #21
   ret void
 }
 

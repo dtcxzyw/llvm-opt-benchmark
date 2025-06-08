@@ -3195,7 +3195,7 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %8
-  store i8 %.sroa.01.0.copyload, ptr %6, align 8
+  store i8 1, ptr %6, align 8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h76a4dd69be381f1eE.exit"
 
 14:                                               ; preds = %8
@@ -3248,7 +3248,7 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  store i8 %.sroa.01.0.copyload, ptr %6, align 8
+  store i8 1, ptr %6, align 8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h76a4dd69be381f1eE.exit"
 
 13:                                               ; preds = %8
@@ -3303,7 +3303,7 @@ define hidden { i64, ptr } @_ZN2h25proto9ping_pong8PingPong17send_pending_pong17
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %8
-  store i8 %.sroa.01.0.copyload, ptr %6, align 8
+  store i8 1, ptr %6, align 8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h76a4dd69be381f1eE.exit"
 
 14:                                               ; preds = %8

@@ -61453,7 +61453,7 @@ _ZN5typst6layout5frame5Frame13should_inline17h207d7924d0b32690E.llvm.58573791672
   %.sroa.6762.0..sroa_idx764 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6762.0..sroa_idx764, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6762.0..sroa_idx, i64 16, i1 false)
   %.sroa.6765.0..sroa_idx768 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i8 %.sroa.6765.0.copyload, ptr %.sroa.6765.0..sroa_idx768, align 8, !noalias !13944
+  store i8 0, ptr %.sroa.6765.0..sroa_idx768, align 8, !noalias !13944
   %.sroa.7770.0..sroa_idx772 = getelementptr inbounds nuw i8, ptr %14, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7770.0..sroa_idx772, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7770.0..sroa_idx, i64 7, i1 false)
   invoke void @_ZN5typst6layout5frame5Frame6inline17h1fc74d2d7b5d1b5aE.llvm.5857379167208991996(ptr noalias noundef nonnull align 8 dereferenceable(48) %100, i64 noundef %1314, double noundef %.0.i.i.i475, double noundef %.0.i.i.i2.i487, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
@@ -64023,7 +64023,7 @@ _ZN5typst6layout5frame5Frame13should_inline17h207d7924d0b32690E.llvm.58573791672
   %.sroa.6480.0..sroa_idx482 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6480.0..sroa_idx482, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, i64 16, i1 false)
   %.sroa.6483.0..sroa_idx486 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i8 %.sroa.6483.0.copyload, ptr %.sroa.6483.0..sroa_idx486, align 8, !noalias !14559
+  store i8 0, ptr %.sroa.6483.0..sroa_idx486, align 8, !noalias !14559
   %.sroa.7.0..sroa_idx489 = getelementptr inbounds nuw i8, ptr %13, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx489, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx, i64 7, i1 false)
   invoke void @_ZN5typst6layout5frame5Frame6inline17h1fc74d2d7b5d1b5aE.llvm.5857379167208991996(ptr noalias noundef nonnull align 8 dereferenceable(48) %79, i64 noundef %497, double noundef %462, double noundef 0.000000e+00, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
@@ -64096,7 +64096,7 @@ _ZN5typst6layout5frame5Frame13should_inline17h207d7924d0b32690E.llvm.58573791672
   %.sroa.6496.0..sroa_idx498 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6496.0..sroa_idx498, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.632.0..sroa_idx, i64 16, i1 false)
   %.sroa.6499.0..sroa_idx502 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i8 %.sroa.6499.0.copyload, ptr %.sroa.6499.0..sroa_idx502, align 8, !noalias !14560
+  store i8 0, ptr %.sroa.6499.0..sroa_idx502, align 8, !noalias !14560
   %.sroa.7504.0..sroa_idx506 = getelementptr inbounds nuw i8, ptr %11, i64 41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7504.0..sroa_idx506, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7504.0..sroa_idx, i64 7, i1 false)
   invoke void @_ZN5typst6layout5frame5Frame6inline17h1fc74d2d7b5d1b5aE.llvm.5857379167208991996(ptr noalias noundef nonnull align 8 dereferenceable(48) %79, i64 noundef %508, double noundef %471, double noundef %.0.i.i.i2.i333, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
@@ -66849,7 +66849,7 @@ _ZN5typst6layout5frame5Frame13should_inline17h207d7924d0b32690E.llvm.58573791672
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
   store ptr %.sroa.5415.0.copyload, ptr %.sroa.5415.0..sroa_idx418, align 8, !noalias !15113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6420.0..sroa_idx422, ptr noundef nonnull align 8 dereferenceable(16) %248, i64 16, i1 false)
-  store i8 %.sroa.6423.0.copyload, ptr %.sroa.6423.0..sroa_idx426, align 8, !noalias !15113
+  store i8 0, ptr %.sroa.6423.0..sroa_idx426, align 8, !noalias !15113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7428.0..sroa_idx430, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7428.0..sroa_idx, i64 7, i1 false)
   invoke void @_ZN5typst6layout5frame5Frame6inline17h1fc74d2d7b5d1b5aE.llvm.5857379167208991996(ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i64 noundef %576, double noundef %.0121, double noundef %.0.i.i.i2.i294, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %.noexc299 unwind label %558

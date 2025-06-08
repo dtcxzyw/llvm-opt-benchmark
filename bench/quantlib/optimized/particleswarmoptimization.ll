@@ -5890,7 +5890,7 @@ land.lhs.true:                                    ; preds = %if.then48
   %add.ptr.i56 = getelementptr inbounds nuw i64, ptr %18, i64 %j40.0244
   %23 = load i64, ptr %add.ptr.i56, align 8, !tbaa !43
   %cmp51.not = icmp eq i64 %i33.0257, %23
-  %spec.select = select i1 %cmp51.not, i8 %best.0241, i8 0
+  %spec.select = zext i1 %cmp51.not to i8
   br label %if.end53
 
 if.end53:                                         ; preds = %land.lhs.true, %if.then48
@@ -5902,7 +5902,7 @@ land.lhs.true55:                                  ; preds = %if.end53
   %add.ptr.i57 = getelementptr inbounds nuw i64, ptr %19, i64 %j40.0244
   %24 = load i64, ptr %add.ptr.i57, align 8, !tbaa !43
   %cmp58.not = icmp eq i64 %i33.0257, %24
-  %spec.select42 = select i1 %cmp58.not, i8 %worst.0242, i8 0
+  %spec.select42 = zext i1 %cmp58.not to i8
   br label %if.end60
 
 if.end60:                                         ; preds = %land.lhs.true55, %if.end53

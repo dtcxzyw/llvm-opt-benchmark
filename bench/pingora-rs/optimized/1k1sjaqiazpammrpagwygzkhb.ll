@@ -920,7 +920,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %10, i64 %27
-  store i64 %21, ptr %55, align 8, !noalias !95
+  store i64 0, ptr %55, align 8, !noalias !95
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %23, ptr %56, align 8, !noalias !95
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h88d4fc61349fc06dE.exit.i"
@@ -959,7 +959,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %10, i64 %23, i32 1
-  store i64 %25, ptr %72, align 8, !noalias !95
+  store i64 0, ptr %72, align 8, !noalias !95
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 %27, ptr %73, align 8, !noalias !95
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h88d4fc61349fc06dE.exit.i"
@@ -970,7 +970,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 75:                                               ; preds = %58
   %76 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %10, i64 %23, i32 1
-  store i64 %25, ptr %76, align 8, !noalias !95
+  store i64 1, ptr %76, align 8, !noalias !95
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 %27, ptr %77, align 8, !noalias !95
   %78 = icmp ult i64 %27, %19
@@ -982,7 +982,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %10, i64 %27
-  store i64 %21, ptr %81, align 8, !noalias !95
+  store i64 1, ptr %81, align 8, !noalias !95
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %23, ptr %82, align 8, !noalias !95
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h88d4fc61349fc06dE.exit.i"
@@ -1238,7 +1238,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %10, i64 %27
-  store i64 %21, ptr %55, align 8, !noalias !110
+  store i64 0, ptr %55, align 8, !noalias !110
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %23, ptr %56, align 8, !noalias !110
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h233cc8c205f59b4eE.exit.i"
@@ -1277,7 +1277,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %10, i64 %23, i32 1
-  store i64 %25, ptr %72, align 8, !noalias !110
+  store i64 0, ptr %72, align 8, !noalias !110
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 %27, ptr %73, align 8, !noalias !110
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h233cc8c205f59b4eE.exit.i"
@@ -1288,7 +1288,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 75:                                               ; preds = %58
   %76 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %10, i64 %23, i32 1
-  store i64 %25, ptr %76, align 8, !noalias !110
+  store i64 1, ptr %76, align 8, !noalias !110
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 %27, ptr %77, align 8, !noalias !110
   %78 = icmp ult i64 %27, %19
@@ -1300,7 +1300,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$23remove_all_extra_v
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [1 x i64] }, { { ptr, ptr, i64, { ptr } } } }, ptr %10, i64 %27
-  store i64 %21, ptr %81, align 8, !noalias !110
+  store i64 1, ptr %81, align 8, !noalias !110
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %23, ptr %82, align 8, !noalias !110
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove17h233cc8c205f59b4eE.exit.i"

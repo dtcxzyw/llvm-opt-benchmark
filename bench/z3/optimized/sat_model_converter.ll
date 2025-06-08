@@ -1153,7 +1153,7 @@ _ZNK6vectorIN3sat15model_converter5entryELb1EjE3endEv.exit: ; preds = %2
 
 10:                                               ; preds = %.lr.ph35, %._crit_edge
   %.034 = phi i1 [ true, %.lr.ph35 ], [ %.1.lcssa, %._crit_edge ]
-  %.01933 = phi ptr [ %3, %.lr.ph35 ], [ %33, %._crit_edge ]
+  %.01933 = phi ptr [ %3, %.lr.ph35 ], [ %32, %._crit_edge ]
   %11 = getelementptr inbounds nuw i8, ptr %.01933, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = icmp eq ptr %12, null
@@ -1167,46 +1167,44 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %10
   %.not2428 = icmp eq i32 %15, 0
   br i1 %.not2428, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %31
-  %.131 = phi i1 [ %.3, %31 ], [ %.034, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
-  %.02030 = phi ptr [ %32, %31 ], [ %12, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
-  %.02129 = phi i8 [ %.122, %31 ], [ 0, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+.lr.ph:                                           ; preds = %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit, %30
+  %.131 = phi i1 [ %.3, %30 ], [ %.034, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+  %.02030 = phi ptr [ %31, %30 ], [ %12, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
+  %.02129 = phi i1 [ %.122, %30 ], [ false, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ]
   %18 = load i32, ptr %.02030, align 4, !tbaa !9
   %19 = icmp eq i32 %18, -2
-  %20 = trunc nuw i8 %.02129 to i1
-  br i1 %19, label %21, label %22
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %.lr.ph
+  %spec.select = select i1 %.02129, i1 %.131, i1 false
+  br label %30
 
 21:                                               ; preds = %.lr.ph
-  %spec.select = select i1 %20, i1 %.131, i1 false
-  br label %31
+  br i1 %.02129, label %30, label %22
 
-22:                                               ; preds = %.lr.ph
-  br i1 %20, label %31, label %23
+22:                                               ; preds = %21
+  %23 = lshr i32 %18, 1
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !184
+  %27 = and i32 %18, 1
+  %.not.i = icmp eq i32 %27, 0
+  %28 = sub nsw i32 0, %26
+  %spec.select.i = select i1 %.not.i, i32 %26, i32 %28
+  %29 = icmp eq i32 %spec.select.i, 1
+  br label %30
 
-23:                                               ; preds = %22
-  %24 = lshr i32 %18, 1
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %9, i64 %25
-  %27 = load i32, ptr %26, align 4, !tbaa !184
-  %28 = and i32 %18, 1
-  %.not.i = icmp eq i32 %28, 0
-  %29 = sub nsw i32 0, %27
-  %spec.select.i = select i1 %.not.i, i32 %27, i32 %29
-  %30 = icmp eq i32 %spec.select.i, 1
-  %spec.select25 = select i1 %30, i8 1, i8 %.02129
-  br label %31
-
-31:                                               ; preds = %22, %23, %21
-  %.122 = phi i8 [ 0, %21 ], [ %spec.select25, %23 ], [ 1, %22 ]
-  %.3 = phi i1 [ %spec.select, %21 ], [ %.131, %23 ], [ %.131, %22 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.02030, i64 4
-  %.not24 = icmp eq ptr %32, %17
+30:                                               ; preds = %21, %22, %20
+  %.122 = phi i1 [ false, %20 ], [ %29, %22 ], [ true, %21 ]
+  %.3 = phi i1 [ %spec.select, %20 ], [ %.131, %22 ], [ %.131, %21 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.02030, i64 4
+  %.not24 = icmp eq ptr %31, %17
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !200
 
-._crit_edge:                                      ; preds = %31, %10, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
-  %.1.lcssa = phi i1 [ %.034, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %.034, %10 ], [ %.3, %31 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.01933, i64 32
-  %.not = icmp eq ptr %33, %8
+._crit_edge:                                      ; preds = %30, %10, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit
+  %.1.lcssa = phi i1 [ %.034, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit ], [ %.034, %10 ], [ %.3, %30 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.01933, i64 32
+  %.not = icmp eq ptr %32, %8
   br i1 %.not, label %._crit_edge36, label %10
 }
 

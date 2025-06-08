@@ -82568,7 +82568,7 @@ default.unreachable.i.i.i.i:                      ; preds = %69
   br i1 %74, label %104, label %107
 
 104:                                              ; preds = %103
-  %105 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he36c43e5fbb7953eE"(ptr noalias noundef align 8 dereferenceable(16) %9, i8 %73)
+  %105 = call fastcc noundef align 8 ptr @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he36c43e5fbb7953eE"(ptr noalias noundef align 8 dereferenceable(16) %9, i8 1)
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %"_ZN9lsp_types4lsif1_82_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..lsif..DefinitionTag$GT$9serialize17h35998dc3adc7a2ffE.exit.i.i.i.i.i"
 

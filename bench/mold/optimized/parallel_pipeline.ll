@@ -564,7 +564,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(17) %37, ptr noundef nonnull align 8 dereferenceable(17) %.sroa.09, i64 17, i1 false), !tbaa.struct !23
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 81
-  store i8 %.sroa.6.0.copyload11, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !26
+  store i8 1, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !26
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.7, i64 6, i1 false), !tbaa.struct !37
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2r110stage_taskE, i64 16), ptr %34, align 64, !tbaa !43

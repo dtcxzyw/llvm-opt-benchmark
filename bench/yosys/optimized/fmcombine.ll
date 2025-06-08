@@ -11717,7 +11717,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1152:             ; preds = %_ZSt8_DestroyIPN5Yo
   br label %.lr.ph4423
 
 ._crit_edge4424:                                  ; preds = %.thread2360, %3399
-  %.3226.lcssa = phi i8 [ %.02234428, %3399 ], [ %.4227, %.thread2360 ]
+  %.3226.lcssa = phi i8 [ 0, %3399 ], [ %.4227, %.thread2360 ]
   %3402 = load ptr, ptr %2982, align 8, !tbaa !82
   %.not.i.i.i.i1157 = icmp eq ptr %3402, null
   br i1 %.not.i.i.i.i1157, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i1158, label %3403
@@ -11987,7 +11987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1201: ; preds = %_
 
 .lr.ph4423:                                       ; preds = %.lr.ph4423.preheader, %.thread2360
   %indvars.iv5169 = phi i64 [ 0, %.lr.ph4423.preheader ], [ %indvars.iv.next5170, %.thread2360 ]
-  %.32264421 = phi i8 [ %.02234428, %.lr.ph4423.preheader ], [ %.4227, %.thread2360 ]
+  %.32264421 = phi i8 [ 0, %.lr.ph4423.preheader ], [ %.4227, %.thread2360 ]
   %3501 = load ptr, ptr %2976, align 8, !tbaa !146
   %3502 = load ptr, ptr %2978, align 8, !tbaa !146
   %3503 = icmp eq ptr %3501, %3502

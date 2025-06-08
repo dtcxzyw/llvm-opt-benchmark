@@ -2908,9 +2908,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %25
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %67, %27
   %.pre.pre = load i8, ptr %10, align 8, !tbaa !60, !range !30
+  %69 = trunc nuw i8 %.pre.pre to i1
   %.0.i = trunc i64 %68 to i32
   store i32 %.0.i, ptr %6, align 4, !tbaa !23
-  %69 = trunc nuw i8 %.pre.pre to i1
   br i1 %69, label %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread, label %70
 
 _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
@@ -3107,9 +3107,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit: ; preds = %22
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %64, %24
   %.pre.pre = load i8, ptr %7, align 8, !tbaa !60, !range !30
+  %66 = trunc nuw i8 %.pre.pre to i1
   %.0.i = trunc i64 %65 to i32
   store i32 %.0.i, ptr %2, align 4, !tbaa !23
-  %66 = trunc nuw i8 %.pre.pre to i1
   br i1 %66, label %87, label %67
 
 67:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread39, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit

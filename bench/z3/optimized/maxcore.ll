@@ -2722,7 +2722,7 @@ define linkonce_odr hidden void @_ZN7maxcore17update_assignmentER3refI5modelE(pt
           to label %10 unwind label %11
 
 10:                                               ; preds = %7
-  store i8 %5, ptr %4, align 1, !tbaa !165
+  store i8 1, ptr %4, align 1, !tbaa !165
   br label %_ZN7maxcore13improve_modelER3refI5modelE.exit
 
 common.resume:                                    ; preds = %188, %11
@@ -2732,7 +2732,7 @@ common.resume:                                    ; preds = %188, %11
 11:                                               ; preds = %7
   %12 = landingpad { ptr, i32 }
           cleanup
-  store i8 %5, ptr %4, align 1, !tbaa !165
+  store i8 1, ptr %4, align 1, !tbaa !165
   br label %common.resume
 
 _ZN7maxcore13improve_modelER3refI5modelE.exit:    ; preds = %2, %10
@@ -5855,7 +5855,7 @@ _ZNK6vectorIN3opt13weighted_coreELb1EjE3endEv.exit: ; preds = %2
           to label %22 unwind label %23
 
 22:                                               ; preds = %18
-  store i8 %16, ptr %15, align 1, !tbaa !165
+  store i8 1, ptr %15, align 1, !tbaa !165
   br label %_ZN7maxcore13improve_modelER3refI5modelE.exit
 
 common.resume:                                    ; preds = %55, %23
@@ -5865,7 +5865,7 @@ common.resume:                                    ; preds = %55, %23
 23:                                               ; preds = %18
   %24 = landingpad { ptr, i32 }
           cleanup
-  store i8 %16, ptr %15, align 1, !tbaa !165
+  store i8 1, ptr %15, align 1, !tbaa !165
   br label %common.resume
 
 _ZN7maxcore13improve_modelER3refI5modelE.exit:    ; preds = %._crit_edge, %22

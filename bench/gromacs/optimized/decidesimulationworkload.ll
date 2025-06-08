@@ -512,7 +512,6 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.pre45 = load i8, ptr %.phi.trans.insert44, align 1, !range !16
   %.pre46 = trunc nuw i8 %75 to i1
-  %.pre47 = trunc nuw i8 %.pre45 to i1
   br label %85
 
 76:                                               ; preds = %15
@@ -530,61 +529,62 @@ define void @_ZN3gmx17setupStepWorkloadEiNS_8ArrayRefIKNS_8MtsLevelEEElRKNS_22Do
   br label %85
 
 85:                                               ; preds = %._crit_edge, %76, %82
-  %.pre-phi48 = phi i1 [ %.pre47, %._crit_edge ], [ false, %76 ], [ %80, %82 ]
   %.pre-phi = phi i1 [ %.pre46, %._crit_edge ], [ true, %76 ], [ %77, %82 ]
-  %86 = phi i8 [ 0, %._crit_edge ], [ 1, %76 ], [ %84, %82 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  store i8 %86, ptr %87, align 1, !tbaa !275
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 15
-  %89 = load i8, ptr %88, align 1, !tbaa !33, !range !16, !noundef !132
-  %90 = trunc nuw i8 %89 to i1
-  %91 = select i1 %90, i8 %63, i8 0
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i8 %91, ptr %92, align 1, !tbaa !276
-  %93 = select i1 %90, i8 %73, i8 0
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  store i8 %93, ptr %94, align 1, !tbaa !277
-  %95 = xor i1 %.pre-phi48, true
-  %96 = select i1 %.pre-phi, i1 %95, i1 false
-  %97 = select i1 %96, i8 %17, i8 0
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %97, ptr %98, align 1, !tbaa !278
-  %99 = select i1 %.pre-phi48, i8 %17, i8 0
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 %99, ptr %100, align 1, !tbaa !279
-  br i1 %37, label %101, label %113
+  %86 = phi i8 [ %.pre45, %._crit_edge ], [ 0, %76 ], [ %79, %82 ]
+  %87 = phi i8 [ 0, %._crit_edge ], [ 1, %76 ], [ %84, %82 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  store i8 %87, ptr %88, align 1, !tbaa !275
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  %90 = load i8, ptr %89, align 1, !tbaa !33, !range !16, !noundef !132
+  %91 = trunc nuw i8 %90 to i1
+  %92 = select i1 %91, i8 %63, i8 0
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  store i8 %92, ptr %93, align 1, !tbaa !276
+  %94 = select i1 %91, i8 %73, i8 0
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 15
+  store i8 %94, ptr %95, align 1, !tbaa !277
+  %96 = trunc nuw i8 %86 to i1
+  %97 = xor i1 %96, true
+  %98 = select i1 %.pre-phi, i1 %97, i1 false
+  %99 = select i1 %98, i8 %17, i8 0
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %99, ptr %100, align 1, !tbaa !278
+  %101 = select i1 %96, i8 %17, i8 0
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 %101, ptr %102, align 1, !tbaa !279
+  br i1 %37, label %103, label %115
 
-101:                                              ; preds = %85
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 22
-  %103 = load i8, ptr %102, align 1, !tbaa !133, !range !16, !noundef !132
-  %104 = trunc nuw i8 %103 to i1
-  %105 = trunc i32 %41 to i1
-  %106 = and i1 %105, %104
-  %or.cond8 = and i1 %16, %106
-  br i1 %or.cond8, label %107, label %113
+103:                                              ; preds = %85
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 22
+  %105 = load i8, ptr %104, align 1, !tbaa !133, !range !16, !noundef !132
+  %106 = trunc nuw i8 %105 to i1
+  %107 = trunc i32 %41 to i1
+  %108 = and i1 %107, %106
+  %or.cond8 = and i1 %16, %108
+  br i1 %or.cond8, label %109, label %115
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %109 = load i8, ptr %108, align 1, !range !16
-  %110 = trunc nuw i8 %109 to i1
-  %or.cond39 = select i1 %69, i1 true, i1 %110
-  %111 = xor i8 %97, 1
-  %112 = select i1 %or.cond39, i8 0, i8 %111
-  br label %113
+109:                                              ; preds = %103
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %111 = load i8, ptr %110, align 1, !range !16
+  %112 = trunc nuw i8 %111 to i1
+  %or.cond39 = select i1 %69, i1 true, i1 %112
+  %113 = xor i8 %99, 1
+  %114 = select i1 %or.cond39, i8 0, i8 %113
+  br label %115
 
-113:                                              ; preds = %107, %101, %85
-  %114 = phi i8 [ 0, %101 ], [ 0, %85 ], [ %112, %107 ]
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %114, ptr %115, align 1, !tbaa !280
-  %116 = trunc nuw i8 %93 to i1
-  %.not40 = xor i1 %116, true
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %118 = load i8, ptr %117, align 1, !range !16
-  %119 = trunc nuw i8 %118 to i1
-  %or.cond43 = select i1 %.not40, i1 true, i1 %119
-  %120 = select i1 %or.cond43, i8 0, i8 %63
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  store i8 %120, ptr %121, align 1, !tbaa !281
+115:                                              ; preds = %109, %103, %85
+  %116 = phi i8 [ 0, %103 ], [ 0, %85 ], [ %114, %109 ]
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  store i8 %116, ptr %117, align 1, !tbaa !280
+  %118 = trunc nuw i8 %94 to i1
+  %.not40 = xor i1 %118, true
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %120 = load i8, ptr %119, align 1, !range !16
+  %121 = trunc nuw i8 %120 to i1
+  %or.cond43 = select i1 %.not40, i1 true, i1 %121
+  %122 = select i1 %or.cond43, i8 0, i8 %63
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  store i8 %122, ptr %123, align 1, !tbaa !281
   ret void
 }
 

@@ -30308,7 +30308,7 @@ _ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcE
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !668
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i8 %54, ptr %62, align 8, !tbaa !665
+  store i8 1, ptr %62, align 8, !tbaa !665
   br label %63
 
 63:                                               ; preds = %56, %51
@@ -31689,7 +31689,7 @@ _ZNSt12_Vector_baseISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = %_ZNSt6ve
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %92, ptr %93, align 8, !tbaa !668
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i8 %86, ptr %94, align 8, !tbaa !665
+  store i8 1, ptr %94, align 8, !tbaa !665
   br label %95
 
 95:                                               ; preds = %88, %83

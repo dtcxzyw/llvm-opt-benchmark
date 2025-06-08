@@ -433,8 +433,8 @@ define hidden void @_ZN9benchmark8internal15BenchmarkRunnerC2ERKNS0_17BenchmarkI
   %.val.i = load double, ptr %17, align 8
   %.0.i = select i1 %19, double %spec.select.val.i, double %.val.i
   %.pre = load i8, ptr @_ZN9benchmark23FLAGS_benchmark_dry_runE, align 1, !tbaa !46, !range !47
-  store double %.0.i, ptr %13, align 8, !tbaa !49
   %23 = trunc nuw i8 %.pre to i1
+  store double %.0.i, ptr %13, align 8, !tbaa !49
   %.pre19.pre21 = load ptr, ptr %5, align 8, !tbaa !50
   br i1 %23, label %35, label %24
 

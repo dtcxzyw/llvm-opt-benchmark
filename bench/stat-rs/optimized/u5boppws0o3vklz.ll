@@ -194,8 +194,8 @@ _ZN4core3ops8function6FnOnce9call_once17h219094afbf4db59bE.exit.thread.i9.i.i: ;
 
 63:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17he4abddc36a0580f4E.exit.i.i.i.i"
   %.pre.i.i.pre.pre.i = load i64, ptr %0, align 8, !range !5, !alias.scope !96
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !68
   %64 = trunc nuw i64 %.pre.i.i.pre.pre.i to i1
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !68
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %64, label %.thread-pre-split.i.i_crit_edge, label %72

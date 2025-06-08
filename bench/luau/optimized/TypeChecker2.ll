@@ -16345,7 +16345,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 29:                                               ; preds = %8
   %30 = load i8, ptr %13, align 1, !tbaa !692, !range !83, !noundef !84
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %.thread134
+  br i1 %31, label %32, label %.thread132
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16356,7 +16356,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 35:                                               ; preds = %32
   %.pre = load i8, ptr %13, align 1, !tbaa !692, !range !83
   %36 = trunc nuw i8 %.pre to i1
-  br i1 %36, label %37, label %.thread134
+  br i1 %36, label %37, label %.thread132
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -16377,7 +16377,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 43:                                               ; preds = %40
   %44 = load i8, ptr %13, align 1, !tbaa !692, !range !83, !noundef !84
   %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %39, label %.thread134
+  br i1 %45, label %39, label %.thread132
 
 46:                                               ; preds = %40
   %47 = landingpad { ptr, i32 }
@@ -16393,7 +16393,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 50:                                               ; preds = %.loopexit113
   %.pre118 = load i8, ptr %13, align 1, !tbaa !692, !range !83
   %51 = trunc nuw i8 %.pre118 to i1
-  br i1 %51, label %52, label %.thread134
+  br i1 %51, label %52, label %.thread132
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -16404,7 +16404,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 55:                                               ; preds = %52
   %.pre120 = load i8, ptr %13, align 1, !tbaa !692, !range !83
   %56 = trunc nuw i8 %.pre120 to i1
-  br i1 %56, label %57, label %.thread134
+  br i1 %56, label %57, label %.thread132
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -16415,7 +16415,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 60:                                               ; preds = %57
   %.pre122 = load i8, ptr %13, align 1, !tbaa !692, !range !83
   %61 = trunc nuw i8 %.pre122 to i1
-  br i1 %61, label %62, label %.thread134
+  br i1 %61, label %62, label %.thread132
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -16423,21 +16423,21 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
           to label %65 unwind label %27
 
 65:                                               ; preds = %62
-  br i1 %64, label %.thread134, label %66
+  br i1 %64, label %.thread132, label %66
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %1, align 8, !tbaa !381
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !685
   invoke fastcc void @"_ZZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12ValueContextERKNS_8LocationEPKNS_4TypeERSt6vectorINS_9TypeErrorESaISK_EEENK3$_0clESI_"(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef %69)
-          to label %.thread134 unwind label %27
+          to label %.thread132 unwind label %27
 
-.thread134:                                       ; preds = %43, %35, %29, %50, %55, %66, %65, %60
+.thread132:                                       ; preds = %43, %35, %29, %50, %55, %66, %65, %60
   %70 = load i8, ptr %13, align 1, !tbaa !692, !range !83, !noundef !84
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %.loopexit112.thread
 
-72:                                               ; preds = %.thread134
+72:                                               ; preds = %.thread132
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %74 = load ptr, ptr %73, align 8, !tbaa !721
   invoke fastcc void @"_ZZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12ValueContextERKNS_8LocationEPKNS_4TypeERSt6vectorINS_9TypeErrorESaISK_EEENK3$_0clESI_"(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef %74)
@@ -16475,7 +16475,7 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 87:                                               ; preds = %94
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0115, i64 8
   %.not110 = icmp eq ptr %88, %86
-  br i1 %.not110, label %.loopexit112.thread139, label %.lr.ph
+  br i1 %.not110, label %.loopexit112.thread136, label %.lr.ph
 
 89:                                               ; preds = %82
   %90 = landingpad { ptr, i32 }
@@ -16506,21 +16506,21 @@ define dso_local void @_ZN4Luau12TypeChecker210lookupPropEPKNS_14NormalizedTypeE
 .loopexit112:                                     ; preds = %.preheader
   %.pre127 = load i8, ptr %13, align 1, !tbaa !692, !range !83
   %99 = trunc nuw i8 %.pre127 to i1
-  br i1 %99, label %.loopexit112.thread139, label %.loopexit112.thread
+  br i1 %99, label %.loopexit112.thread136, label %.loopexit112.thread
 
-.loopexit112.thread139:                           ; preds = %87, %.loopexit112
+.loopexit112.thread136:                           ; preds = %87, %.loopexit112
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %101 = load i8, ptr %100, align 8, !tbaa !723, !range !83, !noundef !84
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %107
 
-103:                                              ; preds = %.loopexit112.thread139
+103:                                              ; preds = %.loopexit112.thread136
   %104 = load ptr, ptr %1, align 8, !tbaa !381
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %106 = load ptr, ptr %105, align 8, !tbaa !724
   br label %.invoke
 
-107:                                              ; preds = %.loopexit112.thread139
+107:                                              ; preds = %.loopexit112.thread136
   %108 = invoke noundef zeroext i1 @_ZNK4Luau22NormalizedFunctionType7isNeverEv(ptr noundef nonnull align 8 dereferenceable(80) %100)
           to label %109 unwind label %27
 
@@ -16654,7 +16654,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit70:   ; preds = %_ZN4Luau16Intersect
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #34
   br label %_ZN4Luau16IntersectionTypeD2Ev.exit74
 
-.loopexit112.thread:                              ; preds = %94, %.invoke, %.thread134, %75, %80, %.loopexit112, %109, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
+.loopexit112.thread:                              ; preds = %94, %.invoke, %.thread132, %75, %80, %.loopexit112, %109, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit
   %170 = load i8, ptr %13, align 1, !tbaa !692, !range !83, !noundef !84
   %171 = trunc nuw i8 %170 to i1
   br i1 %171, label %172, label %.loopexit
@@ -17563,7 +17563,7 @@ _ZSteqIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declval
 
 280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  invoke fastcc void @"_ZZN4Luau12TypeChecker25visitEPNS_13AstExprBinaryEPNS_7AstNodeEENK3$_0clEPKNS_9UnionTypeESt8optionalIPKNS_4TypeEE"(ptr nonnull %10, ptr %275, ptr noundef %281, ptr %267, i8 %268)
+  invoke fastcc void @"_ZZN4Luau12TypeChecker25visitEPNS_13AstExprBinaryEPNS_7AstNodeEENK3$_0clEPKNS_9UnionTypeESt8optionalIPKNS_4TypeEE"(ptr nonnull %10, ptr %275, ptr noundef %281, ptr %267, i8 1)
           to label %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread unwind label %290
 
 282:                                              ; preds = %.invoke, %1353, %1350, %1339, %1336, %1327, %1319, %1306, %1299, %1288, %1281, %_ZN4Luau3getINS_11GenericTypeEEEPKT_PKNS_4TypeE.exit.thread
@@ -47544,7 +47544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155: ; preds = %_Z
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %126, ptr %127, align 8
   %.sroa.5190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %123, ptr %.sroa.5190.0..sroa_idx, align 8
+  store i8 1, ptr %.sroa.5190.0..sroa_idx, align 8
   br label %591
 
 .critedge:                                        ; preds = %121

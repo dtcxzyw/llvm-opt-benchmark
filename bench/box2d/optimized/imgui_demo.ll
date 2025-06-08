@@ -24529,7 +24529,7 @@ define internal fastcc void @_ZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDat
 
 44:                                               ; preds = %0, %42
   %45 = tail call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1012)
-  br i1 %45, label %46, label %1025
+  br i1 %45, label %46, label %1024
 
 46:                                               ; preds = %44
   tail call void (ptr, ...) @_ZN5ImGui12TextDisabledEPKcz(ptr noundef nonnull @.str.287)
@@ -24734,7 +24734,7 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
   %123 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_0) #33
-  br label %1026
+  br label %1025
 
 124:                                              ; preds = %116, %124
   %indvars.iv85 = phi i64 [ 0, %116 ], [ %indvars.iv.next86, %124 ]
@@ -24837,7 +24837,7 @@ _ZL10HelpMarkerPKc.exit279:                       ; preds = %72, %74
   %163 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_1) #33
-  br label %1026
+  br label %1025
 
 .loopexit39:                                      ; preds = %167
   %lpad.loopexit41 = landingpad { ptr, i32 }
@@ -24940,7 +24940,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit: ; preds = %159, %156
   %.pn271.pn = phi { ptr, i32 } [ %.pn271, %193 ], [ %lpad.loopexit41, %.loopexit39 ], [ %lpad.loopexit.split-lp42, %.loopexit.split-lp40 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #33
-  br label %1026
+  br label %1025
 
 199:                                              ; preds = %197, %147
   call void @_ZN5ImGui8EndChildEv()
@@ -25016,7 +25016,7 @@ _ZN28ExampleSelectionWithDeletionC2Ev.exit:       ; preds = %218
   %226 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_2) #33
-  br label %1026
+  br label %1025
 
 .preheader36:                                     ; preds = %.preheader36.preheader, %_ZN8ImVectorIjE9push_backERKj.exit
   %227 = phi i32 [ %254, %_ZN8ImVectorIjE9push_backERKj.exit ], [ %.pre, %.preheader36.preheader ]
@@ -25358,7 +25358,7 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   %384 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE3dlb) #33
-  br label %1026
+  br label %1025
 
 .preheader29:                                     ; preds = %378, %_ZN8ImVectorIjE9push_backERKj.exit293
   %385 = phi i32 [ %410, %_ZN8ImVectorIjE9push_backERKj.exit293 ], [ 0, %378 ]
@@ -25497,7 +25497,7 @@ _ZN8ImVectorIjE9push_backERKj.exit293:            ; preds = %._ZN8ImVectorIjE7re
   %440 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_3) #33
-  br label %1026
+  br label %1025
 
 .loopexit24:                                      ; preds = %444
   %lpad.loopexit26 = landingpad { ptr, i32 }
@@ -25625,7 +25625,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
   %.pn267.pn.pn = phi { ptr, i32 } [ %.pn267, %479 ], [ %474, %473 ], [ %lpad.loopexit26, %.loopexit24 ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp25 ]
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #33
-  br label %1026
+  br label %1025
 
 486:                                              ; preds = %484, %426
   call void @_ZN5ImGui7TreePopEv()
@@ -25768,7 +25768,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit294: ; preds = %436, %433
 
 .loopexit21:                                      ; preds = %.preheader20, %535
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE15selections_data) #33
-  br label %1026
+  br label %1025
 
 541:                                              ; preds = %533, %530, %528
   %542 = call noundef zeroext i1 @_ZN5ImGui13CheckboxFlagsEPKcPii(ptr noundef nonnull @.str.1063, ptr noundef nonnull @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5flags_0, i32 noundef 4096)
@@ -25907,7 +25907,7 @@ _ZL10HelpMarkerPKc.exit295:                       ; preds = %579, %581
   %597 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_4) #33
-  br label %1026
+  br label %1025
 
 598:                                              ; preds = %594, %591
   %599 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_4, align 8, !tbaa !397
@@ -25972,7 +25972,7 @@ _ZL10HelpMarkerPKc.exit295:                       ; preds = %579, %581
 
 624:                                              ; preds = %620, %622
   %625 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.1075)
-  br i1 %625, label %626, label %1024
+  br i1 %625, label %626, label %1023
 
 626:                                              ; preds = %624
   %627 = call noundef zeroext i1 @_ZN5ImGui8TreeNodeEPKc(ptr noundef nonnull @.str.333)
@@ -26248,7 +26248,7 @@ _ZN28ExampleSelectionWithDeletionC2Ev.exit302:    ; preds = %731
   store float %747, ptr %748, align 4, !tbaa !44
   %749 = call noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr noundef nonnull @.str.1031, ptr noundef nonnull align 4 dereferenceable(8) %27, i32 noundef 136, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #33
-  br i1 %749, label %750, label %1023
+  br i1 %749, label %750, label %1022
 
 750:                                              ; preds = %740
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #33
@@ -26268,7 +26268,7 @@ _ZN28ExampleSelectionWithDeletionC2Ev.exit302:    ; preds = %731
   %756 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5) #33
-  br label %1026
+  br label %1025
 
 757:                                              ; preds = %754, %750
   %758 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5flags_1, align 4, !tbaa !54
@@ -26383,15 +26383,15 @@ _ZN28ExampleSelectionWithDeletion20ApplyDeletionPreLoopEP18ImGuiMultiSelectIOi.e
   invoke void @_ZN16ImGuiListClipper19IncludeItemsByIndexEii(ptr noundef nonnull align 8 dereferenceable(48) %31, i32 noundef %788, i32 noundef %804)
           to label %_ZN16ImGuiListClipper18IncludeItemByIndexEi.exit312 unwind label %.loopexit.split-lp13
 
-.loopexit12:                                      ; preds = %821
+.loopexit12:                                      ; preds = %.backedge
   %lpad.loopexit14 = landingpad { ptr, i32 }
           cleanup
-  br label %1022
+  br label %1021
 
-.loopexit.split-lp13:                             ; preds = %800, %1011, %1013, %1014, %1016, %1018, %1020, %803, %807
+.loopexit.split-lp13:                             ; preds = %800, %1010, %1012, %1013, %1015, %1017, %1019, %803, %807
   %lpad.loopexit.split-lp15 = landingpad { ptr, i32 }
           cleanup
-  br label %1022
+  br label %1021
 
 _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit312: ; preds = %803, %802
   %805 = getelementptr inbounds nuw i8, ptr %761, i64 16
@@ -26416,588 +26416,579 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   %816 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %817 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %.pre121 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11
+  %818 = trunc nuw i8 %.pre121 to i1
   %sext = sext i32 %788 to i64
-  br label %.backedge
+  br i1 %818, label %.backedge, label %.thread
 
-.backedge:                                        ; preds = %.backedge.backedge, %_ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313
-  %818 = phi i8 [ %.pre121, %_ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313 ], [ %.be, %.backedge.backedge ]
-  %819 = trunc nuw i8 %818 to i1
-  br i1 %819, label %821, label %.thread
+.thread:                                          ; preds = %_ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313
+  %819 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, align 8
+  br label %827
 
-.thread:                                          ; preds = %.backedge
-  %820 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, align 8
-  br label %828
+.backedge:                                        ; preds = %._crit_edge74.loopexit, %._crit_edge74, %_ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313
+  %820 = invoke noundef zeroext i1 @_ZN16ImGuiListClipper4StepEv(ptr noundef nonnull align 8 dereferenceable(48) %31)
+          to label %821 unwind label %.loopexit12
 
 821:                                              ; preds = %.backedge
-  %822 = invoke noundef zeroext i1 @_ZN16ImGuiListClipper4StepEv(ptr noundef nonnull align 8 dereferenceable(48) %31)
-          to label %823 unwind label %.loopexit12
+  br i1 %820, label %.critedge, label %1007
 
-823:                                              ; preds = %821
-  br i1 %822, label %.critedge, label %1008
-
-.critedge:                                        ; preds = %823
+.critedge:                                        ; preds = %821
   %.pre122 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11
   %.pre122.fr = freeze i8 %.pre122
-  %.pre127 = trunc i8 %.pre122.fr to i1
-  %824 = load i32, ptr %810, align 8
-  %825 = load i32, ptr %811, align 4
-  br i1 %.pre127, label %828, label %826
+  %822 = trunc i8 %.pre122.fr to i1
+  %823 = load i32, ptr %810, align 8
+  %824 = load i32, ptr %811, align 4
+  br i1 %822, label %827, label %825
 
-826:                                              ; preds = %.critedge
-  %827 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, align 8
-  br label %828
+825:                                              ; preds = %.critedge
+  %826 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, align 8
+  br label %827
 
-828:                                              ; preds = %826, %.critedge, %.thread
-  %829 = phi i32 [ 0, %.thread ], [ %824, %.critedge ], [ 0, %826 ]
-  %.pre-phi135139 = phi i1 [ false, %.thread ], [ true, %.critedge ], [ false, %826 ]
-  %830 = phi i8 [ 0, %.thread ], [ %.pre122.fr, %.critedge ], [ %.pre122.fr, %826 ]
-  %831 = phi i32 [ %820, %.thread ], [ %825, %.critedge ], [ %827, %826 ]
-  %832 = icmp slt i32 %829, %831
-  br i1 %832, label %.lr.ph73.preheader, label %._crit_edge74
+827:                                              ; preds = %825, %.critedge, %.thread
+  %828 = phi i32 [ 0, %.thread ], [ %823, %.critedge ], [ 0, %825 ]
+  %829 = phi i1 [ false, %.thread ], [ true, %.critedge ], [ false, %825 ]
+  %830 = phi i32 [ %819, %.thread ], [ %824, %.critedge ], [ %826, %825 ]
+  %831 = icmp slt i32 %828, %830
+  br i1 %831, label %.lr.ph73.preheader, label %._crit_edge74
 
-.lr.ph73.preheader:                               ; preds = %828
-  %833 = sext i32 %829 to i64
+.lr.ph73.preheader:                               ; preds = %827
+  %832 = sext i32 %828 to i64
   br label %.lr.ph73
 
-._crit_edge74.loopexit:                           ; preds = %1006
+._crit_edge74.loopexit:                           ; preds = %1005
   %.pre123 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11
-  %.pre128 = trunc nuw i8 %.pre123 to i1
-  br i1 %.pre128, label %.backedge.backedge, label %1008
+  %.pre127 = trunc nuw i8 %.pre123 to i1
+  br i1 %.pre127, label %.backedge, label %1007
 
-._crit_edge74:                                    ; preds = %828
-  br i1 %.pre-phi135139, label %.backedge.backedge, label %1008
+._crit_edge74:                                    ; preds = %827
+  br i1 %829, label %.backedge, label %1007
 
-.backedge.backedge:                               ; preds = %._crit_edge74, %._crit_edge74.loopexit
-  %.be = phi i8 [ %830, %._crit_edge74 ], [ 1, %._crit_edge74.loopexit ]
-  br label %.backedge
+.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %1005
+  %indvars.iv115 = phi i64 [ %832, %.lr.ph73.preheader ], [ %indvars.iv.next116, %1005 ]
+  %833 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13show_in_table, align 1, !tbaa !29, !range !11, !noundef !12
+  %834 = trunc nuw i8 %833 to i1
+  br i1 %834, label %835, label %839
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %1006
-  %indvars.iv115 = phi i64 [ %833, %.lr.ph73.preheader ], [ %indvars.iv.next116, %1006 ]
-  %834 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13show_in_table, align 1, !tbaa !29, !range !11, !noundef !12
-  %835 = trunc nuw i8 %834 to i1
-  br i1 %835, label %836, label %840
+835:                                              ; preds = %.lr.ph73
+  %836 = invoke noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
+          to label %839 unwind label %837
 
-836:                                              ; preds = %.lr.ph73
-  %837 = invoke noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-          to label %840 unwind label %838
-
-838:                                              ; preds = %836
-  %839 = landingpad { ptr, i32 }
+837:                                              ; preds = %835
+  %838 = landingpad { ptr, i32 }
           cleanup
-  br label %1022
+  br label %1021
 
-840:                                              ; preds = %836, %.lr.ph73
-  %841 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, i64 8), align 8, !tbaa !245
-  %842 = getelementptr inbounds i32, ptr %841, i64 %indvars.iv115
-  %843 = load i32, ptr %842, align 4, !tbaa !54
-  %844 = srem i32 %843, 28
-  %845 = sext i32 %844 to i64
-  %846 = getelementptr inbounds [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %845
-  %847 = load ptr, ptr %846, align 8, !tbaa !93
+839:                                              ; preds = %835, %.lr.ph73
+  %840 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, i64 8), align 8, !tbaa !245
+  %841 = getelementptr inbounds i32, ptr %840, i64 %indvars.iv115
+  %842 = load i32, ptr %841, align 4, !tbaa !54
+  %843 = srem i32 %842, 28
+  %844 = sext i32 %843 to i64
+  %845 = getelementptr inbounds [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %844
+  %846 = load ptr, ptr %845, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32) #33
-  %848 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.1032, i32 noundef %843, ptr noundef %847) #33
-  invoke void @_ZN5ImGui6PushIDEi(i32 noundef %843)
-          to label %849 unwind label %868
+  %847 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.1032, i32 noundef %842, ptr noundef %846) #33
+  invoke void @_ZN5ImGui6PushIDEi(i32 noundef %842)
+          to label %848 unwind label %867
 
-849:                                              ; preds = %840
-  %850 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE17show_color_button, align 1, !tbaa !29, !range !11, !noundef !12
-  %851 = trunc nuw i8 %850 to i1
-  %852 = trunc nsw i64 %indvars.iv115 to i32
-  br i1 %851, label %853, label %._crit_edge130
+848:                                              ; preds = %839
+  %849 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE17show_color_button, align 1, !tbaa !29, !range !11, !noundef !12
+  %850 = trunc nuw i8 %849 to i1
+  %851 = trunc nsw i64 %indvars.iv115 to i32
+  br i1 %850, label %852, label %._crit_edge128
 
-853:                                              ; preds = %849
-  %854 = mul i32 %852, 5289803
+852:                                              ; preds = %848
+  %853 = mul i32 %851, 5289803
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #33
-  %855 = and i32 %854, 255
-  %856 = uitofp nneg i32 %855 to float
-  %857 = fmul float %856, 0x3F70101020000000
-  %858 = lshr i32 %854, 8
-  %859 = and i32 %858, 255
-  %860 = uitofp nneg i32 %859 to float
-  %861 = fmul float %860, 0x3F70101020000000
-  %862 = lshr i32 %854, 16
-  %863 = and i32 %862, 255
-  %864 = uitofp nneg i32 %863 to float
-  %865 = fmul float %864, 0x3F70101020000000
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %857, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %861, i64 1
-  %.sroa.6.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %865, i64 0
+  %854 = and i32 %853, 255
+  %855 = uitofp nneg i32 %854 to float
+  %856 = fmul float %855, 0x3F70101020000000
+  %857 = lshr i32 %853, 8
+  %858 = and i32 %857, 255
+  %859 = uitofp nneg i32 %858 to float
+  %860 = fmul float %859, 0x3F70101020000000
+  %861 = lshr i32 %853, 16
+  %862 = and i32 %861, 255
+  %863 = uitofp nneg i32 %862 to float
+  %864 = fmul float %863, 0x3F70101020000000
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %856, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %860, i64 1
+  %.sroa.6.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %864, i64 0
   store <2 x float> %.sroa.0.4.vec.insert, ptr %33, align 8
   store <2 x float> %.sroa.6.12.vec.insert, ptr %812, align 8
-  %866 = invoke noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1093, ptr noundef nonnull align 4 dereferenceable(16) %33, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %28)
-          to label %867 unwind label %870
+  %865 = invoke noundef zeroext i1 @_ZN5ImGui11ColorButtonEPKcRK6ImVec4iRK6ImVec2(ptr noundef nonnull @.str.1093, ptr noundef nonnull align 4 dereferenceable(16) %33, i32 noundef 64, ptr noundef nonnull align 4 dereferenceable(8) %28)
+          to label %866 unwind label %869
 
-867:                                              ; preds = %853
+866:                                              ; preds = %852
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
   invoke void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
-          to label %._crit_edge130 unwind label %872
+          to label %._crit_edge128 unwind label %871
 
-868:                                              ; preds = %840
-  %869 = landingpad { ptr, i32 }
+867:                                              ; preds = %839
+  %868 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-870:                                              ; preds = %853
-  %871 = landingpad { ptr, i32 }
+869:                                              ; preds = %852
+  %870 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
-  br label %1007
+  br label %1006
 
-872:                                              ; preds = %867
-  %873 = landingpad { ptr, i32 }
+871:                                              ; preds = %866
+  %872 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-._crit_edge130:                                   ; preds = %849, %867
-  %874 = invoke noundef zeroext i1 @_ZNK26ImGuiSelectionBasicStorage8ContainsEj(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, i32 noundef %852)
-          to label %875 unwind label %880
+._crit_edge128:                                   ; preds = %848, %866
+  %873 = invoke noundef zeroext i1 @_ZNK26ImGuiSelectionBasicStorage8ContainsEj(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, i32 noundef %851)
+          to label %874 unwind label %879
 
-875:                                              ; preds = %._crit_edge130
+874:                                              ; preds = %._crit_edge128
   invoke void @_ZN5ImGui28SetNextItemSelectionUserDataEx(i64 noundef %indvars.iv115)
-          to label %876 unwind label %882
+          to label %875 unwind label %881
+
+875:                                              ; preds = %874
+  %.b216 = load i1, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11widget_type, align 4
+  br i1 %.b216, label %885, label %876
 
 876:                                              ; preds = %875
-  %.b216 = load i1, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11widget_type, align 4
-  br i1 %.b216, label %886, label %877
-
-877:                                              ; preds = %876
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #33
   store float 0.000000e+00, ptr %34, align 4, !tbaa !42
   store float 0.000000e+00, ptr %813, align 4, !tbaa !44
-  %878 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %32, i1 noundef zeroext %874, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %34)
-          to label %879 unwind label %884
+  %877 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %32, i1 noundef zeroext %873, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %34)
+          to label %878 unwind label %883
 
-879:                                              ; preds = %877
+878:                                              ; preds = %876
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
-  br label %890
+  br label %889
 
-880:                                              ; preds = %._crit_edge130
-  %881 = landingpad { ptr, i32 }
+879:                                              ; preds = %._crit_edge128
+  %880 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-882:                                              ; preds = %1005, %1002, %999, %997, %995, %989, %986, %972, %969, %968, %899, %896, %892, %875
-  %883 = landingpad { ptr, i32 }
+881:                                              ; preds = %1004, %1001, %998, %996, %994, %988, %985, %971, %968, %967, %898, %895, %891, %874
+  %882 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-884:                                              ; preds = %877
-  %885 = landingpad { ptr, i32 }
+883:                                              ; preds = %876
+  %884 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #33
-  br label %1007
+  br label %1006
 
-886:                                              ; preds = %876
-  %spec.select275 = select i1 %874, i32 2241, i32 2240
-  %887 = invoke noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKci(ptr noundef nonnull %32, i32 noundef %spec.select275)
-          to label %890 unwind label %888
+885:                                              ; preds = %875
+  %spec.select275 = select i1 %873, i32 2241, i32 2240
+  %886 = invoke noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKci(ptr noundef nonnull %32, i32 noundef %spec.select275)
+          to label %889 unwind label %887
 
-888:                                              ; preds = %886
-  %889 = landingpad { ptr, i32 }
+887:                                              ; preds = %885
+  %888 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-890:                                              ; preds = %886, %879
-  %.0164 = phi i1 [ false, %879 ], [ %887, %886 ]
-  %891 = icmp eq i64 %indvars.iv115, %sext
-  br i1 %891, label %892, label %893
+889:                                              ; preds = %885, %878
+  %.0164 = phi i1 [ false, %878 ], [ %886, %885 ]
+  %890 = icmp eq i64 %indvars.iv115, %sext
+  br i1 %890, label %891, label %892
 
-892:                                              ; preds = %890
+891:                                              ; preds = %889
   invoke void @_ZN5ImGui20SetKeyboardFocusHereEi(i32 noundef -1)
-          to label %893 unwind label %882
+          to label %892 unwind label %881
 
-893:                                              ; preds = %892, %890
-  %894 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13use_drag_drop, align 1, !tbaa !29, !range !11, !noundef !12
-  %895 = trunc nuw i8 %894 to i1
-  br i1 %895, label %896, label %967
+892:                                              ; preds = %891, %889
+  %893 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13use_drag_drop, align 1, !tbaa !29, !range !11, !noundef !12
+  %894 = trunc nuw i8 %893 to i1
+  br i1 %894, label %895, label %966
 
-896:                                              ; preds = %893
-  %897 = invoke noundef zeroext i1 @_ZN5ImGui19BeginDragDropSourceEi(i32 noundef 0)
-          to label %898 unwind label %882
+895:                                              ; preds = %892
+  %896 = invoke noundef zeroext i1 @_ZN5ImGui19BeginDragDropSourceEi(i32 noundef 0)
+          to label %897 unwind label %881
 
-898:                                              ; preds = %896
-  br i1 %897, label %899, label %967
+897:                                              ; preds = %895
+  br i1 %896, label %898, label %966
 
-899:                                              ; preds = %898
-  %900 = invoke noundef ptr @_ZN5ImGui18GetDragDropPayloadEv()
-          to label %901 unwind label %882
+898:                                              ; preds = %897
+  %899 = invoke noundef ptr @_ZN5ImGui18GetDragDropPayloadEv()
+          to label %900 unwind label %881
 
-901:                                              ; preds = %899
-  %902 = icmp eq ptr %900, null
-  br i1 %902, label %903, label %946
+900:                                              ; preds = %898
+  %901 = icmp eq ptr %899, null
+  br i1 %901, label %902, label %945
 
-903:                                              ; preds = %901
+902:                                              ; preds = %900
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #33
   store ptr null, ptr %36, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #33
   store i32 0, ptr %37, align 4, !tbaa !54
-  br i1 %874, label %.preheader, label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317
+  br i1 %873, label %.preheader, label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317
 
-_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317:     ; preds = %903
-  %904 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 32)
+_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317:     ; preds = %902
+  %903 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef 32)
           to label %_ZN8ImVectorIiE9push_backERKi.exit321 unwind label %.loopexit.split-lp
 
 _ZN8ImVectorIiE9push_backERKi.exit321:            ; preds = %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317
-  store ptr %904, ptr %.phi.trans.insert.i, align 8, !tbaa !245
+  store ptr %903, ptr %.phi.trans.insert.i, align 8, !tbaa !245
   store i32 8, ptr %814, align 4, !tbaa !244
-  store i32 %843, ptr %904, align 4
+  store i32 %842, ptr %903, align 4
   store i32 1, ptr %35, align 8, !tbaa !242
   br label %.loopexit11
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %945
+  br label %944
 
 .loopexit.split-lp:                               ; preds = %.loopexit11, %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i317
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %945
+  br label %944
 
-.preheader:                                       ; preds = %903, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322
-  %905 = phi ptr [ %.pre.i324125, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322 ], [ null, %903 ]
-  %906 = phi i32 [ %926, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322 ], [ 0, %903 ]
-  %907 = phi i32 [ %931, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322 ], [ 0, %903 ]
-  %908 = invoke noundef zeroext i1 @_ZN26ImGuiSelectionBasicStorage19GetNextSelectedItemEPPvPj(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, ptr noundef nonnull %36, ptr noundef nonnull %37)
-          to label %909 unwind label %.loopexit
+.preheader:                                       ; preds = %902, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322
+  %904 = phi ptr [ %.pre.i324125, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322 ], [ null, %902 ]
+  %905 = phi i32 [ %925, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322 ], [ 0, %902 ]
+  %906 = phi i32 [ %930, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322 ], [ 0, %902 ]
+  %907 = invoke noundef zeroext i1 @_ZN26ImGuiSelectionBasicStorage19GetNextSelectedItemEPPvPj(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, ptr noundef nonnull %36, ptr noundef nonnull %37)
+          to label %908 unwind label %.loopexit
 
-909:                                              ; preds = %.preheader
-  br i1 %908, label %910, label %.loopexit11.loopexit
+908:                                              ; preds = %.preheader
+  br i1 %907, label %909, label %.loopexit11.loopexit
 
-910:                                              ; preds = %909
-  %911 = load i32, ptr %37, align 4, !tbaa !54
-  %912 = icmp eq i32 %907, %906
-  br i1 %912, label %913, label %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322
+909:                                              ; preds = %908
+  %910 = load i32, ptr %37, align 4, !tbaa !54
+  %911 = icmp eq i32 %906, %905
+  br i1 %911, label %912, label %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322
 
-913:                                              ; preds = %910
-  %914 = add nsw i32 %906, 1
-  %.not.i.i325 = icmp eq i32 %906, 0
-  br i1 %.not.i.i325, label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326, label %915
+912:                                              ; preds = %909
+  %913 = add nsw i32 %905, 1
+  %.not.i.i325 = icmp eq i32 %905, 0
+  br i1 %.not.i.i325, label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326, label %914
 
-915:                                              ; preds = %913
-  %916 = sdiv i32 %906, 2
-  %917 = add nsw i32 %916, %906
+914:                                              ; preds = %912
+  %915 = sdiv i32 %905, 2
+  %916 = add nsw i32 %915, %905
   br label %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326
 
-_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326:     ; preds = %915, %913
-  %918 = phi i32 [ %917, %915 ], [ 8, %913 ]
-  %919 = call noundef i32 @llvm.smax.i32(i32 %918, i32 %914)
-  %920 = sext i32 %919 to i64
-  %921 = shl nsw i64 %920, 2
-  %922 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %921)
-          to label %.noexc329 unwind label %932
+_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326:     ; preds = %914, %912
+  %917 = phi i32 [ %916, %914 ], [ 8, %912 ]
+  %918 = call noundef i32 @llvm.smax.i32(i32 %917, i32 %913)
+  %919 = sext i32 %918 to i64
+  %920 = shl nsw i64 %919, 2
+  %921 = invoke noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %920)
+          to label %.noexc329 unwind label %931
 
 .noexc329:                                        ; preds = %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326
-  %.not6.i.i327 = icmp eq ptr %905, null
-  br i1 %.not6.i.i327, label %.noexc330, label %923
+  %.not6.i.i327 = icmp eq ptr %904, null
+  br i1 %.not6.i.i327, label %.noexc330, label %922
 
-923:                                              ; preds = %.noexc329
-  %924 = sext i32 %906 to i64
-  %925 = shl nsw i64 %924, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %922, ptr nonnull align 4 %905, i64 %925, i1 false)
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %905)
-          to label %..noexc330_crit_edge unwind label %932
+922:                                              ; preds = %.noexc329
+  %923 = sext i32 %905 to i64
+  %924 = shl nsw i64 %923, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %921, ptr nonnull align 4 %904, i64 %924, i1 false)
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %904)
+          to label %..noexc330_crit_edge unwind label %931
 
-..noexc330_crit_edge:                             ; preds = %923
+..noexc330_crit_edge:                             ; preds = %922
   %.pre3.i328.pre = load i32, ptr %35, align 8, !tbaa !242
   br label %.noexc330
 
 .noexc330:                                        ; preds = %..noexc330_crit_edge, %.noexc329
-  %.pre3.i328 = phi i32 [ %.pre3.i328.pre, %..noexc330_crit_edge ], [ %906, %.noexc329 ]
-  store ptr %922, ptr %.phi.trans.insert.i, align 8, !tbaa !245
-  store i32 %919, ptr %814, align 4, !tbaa !244
+  %.pre3.i328 = phi i32 [ %.pre3.i328.pre, %..noexc330_crit_edge ], [ %905, %.noexc329 ]
+  store ptr %921, ptr %.phi.trans.insert.i, align 8, !tbaa !245
+  store i32 %918, ptr %814, align 4, !tbaa !244
   br label %._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322
 
-._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322:   ; preds = %910, %.noexc330
-  %.pre.i324125 = phi ptr [ %922, %.noexc330 ], [ %905, %910 ]
-  %926 = phi i32 [ %919, %.noexc330 ], [ %906, %910 ]
-  %927 = phi i32 [ %.pre3.i328, %.noexc330 ], [ %907, %910 ]
-  %928 = sext i32 %927 to i64
-  %929 = getelementptr inbounds i32, ptr %.pre.i324125, i64 %928
-  store i32 %911, ptr %929, align 4
-  %930 = load i32, ptr %35, align 8, !tbaa !242
-  %931 = add nsw i32 %930, 1
-  store i32 %931, ptr %35, align 8, !tbaa !242
+._ZN8ImVectorIiE7reserveEi.exit_crit_edge.i322:   ; preds = %909, %.noexc330
+  %.pre.i324125 = phi ptr [ %921, %.noexc330 ], [ %904, %909 ]
+  %925 = phi i32 [ %918, %.noexc330 ], [ %905, %909 ]
+  %926 = phi i32 [ %.pre3.i328, %.noexc330 ], [ %906, %909 ]
+  %927 = sext i32 %926 to i64
+  %928 = getelementptr inbounds i32, ptr %.pre.i324125, i64 %927
+  store i32 %910, ptr %928, align 4
+  %929 = load i32, ptr %35, align 8, !tbaa !242
+  %930 = add nsw i32 %929, 1
+  store i32 %930, ptr %35, align 8, !tbaa !242
   br label %.preheader, !llvm.loop !441
 
-932:                                              ; preds = %923, %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326
-  %933 = landingpad { ptr, i32 }
+931:                                              ; preds = %922, %_ZNK8ImVectorIiE14_grow_capacityEi.exit.i326
+  %932 = landingpad { ptr, i32 }
           cleanup
-  br label %945
+  br label %944
 
-.loopexit11.loopexit:                             ; preds = %909
-  %934 = shl nsw i32 %907, 2
-  %935 = sext i32 %934 to i64
+.loopexit11.loopexit:                             ; preds = %908
+  %933 = shl nsw i32 %906, 2
+  %934 = sext i32 %933 to i64
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %_ZN8ImVectorIiE9push_backERKi.exit321
-  %936 = phi i64 [ %935, %.loopexit11.loopexit ], [ 4, %_ZN8ImVectorIiE9push_backERKi.exit321 ]
-  %937 = phi ptr [ %905, %.loopexit11.loopexit ], [ %904, %_ZN8ImVectorIiE9push_backERKi.exit321 ]
-  %938 = invoke noundef zeroext i1 @_ZN5ImGui18SetDragDropPayloadEPKcPKvmi(ptr noundef nonnull @.str.1094, ptr noundef %937, i64 noundef %936, i32 noundef 0)
-          to label %939 unwind label %.loopexit.split-lp
+  %935 = phi i64 [ %934, %.loopexit11.loopexit ], [ 4, %_ZN8ImVectorIiE9push_backERKi.exit321 ]
+  %936 = phi ptr [ %904, %.loopexit11.loopexit ], [ %903, %_ZN8ImVectorIiE9push_backERKi.exit321 ]
+  %937 = invoke noundef zeroext i1 @_ZN5ImGui18SetDragDropPayloadEPKcPKvmi(ptr noundef nonnull @.str.1094, ptr noundef %936, i64 noundef %935, i32 noundef 0)
+          to label %938 unwind label %.loopexit.split-lp
 
-939:                                              ; preds = %.loopexit11
+938:                                              ; preds = %.loopexit11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
-  %940 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !245
-  %.not.i332 = icmp eq ptr %940, null
-  br i1 %.not.i332, label %_ZN8ImVectorIiED2Ev.exit, label %941
+  %939 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !245
+  %.not.i332 = icmp eq ptr %939, null
+  br i1 %.not.i332, label %_ZN8ImVectorIiED2Ev.exit, label %940
 
-941:                                              ; preds = %939
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %940)
-          to label %_ZN8ImVectorIiED2Ev.exit unwind label %942
+940:                                              ; preds = %938
+  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %939)
+          to label %_ZN8ImVectorIiED2Ev.exit unwind label %941
 
-942:                                              ; preds = %941
-  %943 = landingpad { ptr, i32 }
+941:                                              ; preds = %940
+  %942 = landingpad { ptr, i32 }
           catch ptr null
-  %944 = extractvalue { ptr, i32 } %943, 0
-  call void @__clang_call_terminate(ptr %944) #35
+  %943 = extractvalue { ptr, i32 } %942, 0
+  call void @__clang_call_terminate(ptr %943) #35
   unreachable
 
-_ZN8ImVectorIiED2Ev.exit:                         ; preds = %939, %941
+_ZN8ImVectorIiED2Ev.exit:                         ; preds = %938, %940
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #33
-  br label %946
+  br label %945
 
-945:                                              ; preds = %.loopexit, %.loopexit.split-lp, %932
-  %.pn260 = phi { ptr, i32 } [ %933, %932 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+944:                                              ; preds = %.loopexit, %.loopexit.split-lp, %931
+  %.pn260 = phi { ptr, i32 } [ %932, %931 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #33
   call void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #33
-  br label %1007
+  br label %1006
 
-946:                                              ; preds = %_ZN8ImVectorIiED2Ev.exit, %901
-  %947 = invoke noundef ptr @_ZN5ImGui18GetDragDropPayloadEv()
-          to label %948 unwind label %960
+945:                                              ; preds = %_ZN8ImVectorIiED2Ev.exit, %900
+  %946 = invoke noundef ptr @_ZN5ImGui18GetDragDropPayloadEv()
+          to label %947 unwind label %959
 
-948:                                              ; preds = %946
-  %949 = getelementptr inbounds nuw i8, ptr %947, i64 8
-  %950 = load i32, ptr %949, align 8, !tbaa !442
-  %951 = and i32 %950, -4
-  %952 = icmp eq i32 %951, 4
-  br i1 %952, label %953, label %964
+947:                                              ; preds = %945
+  %948 = getelementptr inbounds nuw i8, ptr %946, i64 8
+  %949 = load i32, ptr %948, align 8, !tbaa !442
+  %950 = and i32 %949, -4
+  %951 = icmp eq i32 %950, 4
+  br i1 %951, label %952, label %963
 
-953:                                              ; preds = %948
-  %954 = load ptr, ptr %947, align 8, !tbaa !253
-  %955 = load i32, ptr %954, align 4, !tbaa !54
-  %956 = srem i32 %955, 28
-  %957 = sext i32 %956 to i64
-  %958 = getelementptr inbounds [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %957
-  %959 = load ptr, ptr %958, align 8, !tbaa !93
-  invoke void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1032, i32 noundef %955, ptr noundef %959)
-          to label %966 unwind label %962
+952:                                              ; preds = %947
+  %953 = load ptr, ptr %946, align 8, !tbaa !253
+  %954 = load i32, ptr %953, align 4, !tbaa !54
+  %955 = srem i32 %954, 28
+  %956 = sext i32 %955 to i64
+  %957 = getelementptr inbounds [28 x ptr], ptr @_ZL12ExampleNames, i64 0, i64 %956
+  %958 = load ptr, ptr %957, align 8, !tbaa !93
+  invoke void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1032, i32 noundef %954, ptr noundef %958)
+          to label %965 unwind label %961
 
-960:                                              ; preds = %946
-  %961 = landingpad { ptr, i32 }
+959:                                              ; preds = %945
+  %960 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-962:                                              ; preds = %966, %964, %953
-  %963 = landingpad { ptr, i32 }
+961:                                              ; preds = %965, %963, %952
+  %962 = landingpad { ptr, i32 }
           cleanup
-  br label %1007
+  br label %1006
 
-964:                                              ; preds = %948
-  %965 = sdiv i32 %950, 4
-  invoke void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1095, i32 noundef %965)
-          to label %966 unwind label %962
+963:                                              ; preds = %947
+  %964 = sdiv i32 %949, 4
+  invoke void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.1095, i32 noundef %964)
+          to label %965 unwind label %961
 
-966:                                              ; preds = %964, %953
+965:                                              ; preds = %963, %952
   invoke void @_ZN5ImGui17EndDragDropSourceEv()
-          to label %967 unwind label %962
+          to label %966 unwind label %961
 
-967:                                              ; preds = %966, %898, %893
+966:                                              ; preds = %965, %897, %892
   %.b215 = load i1, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11widget_type, align 4
   %or.cond5 = and i1 %.0164, %.b215
-  br i1 %or.cond5, label %968, label %969
+  br i1 %or.cond5, label %967, label %968
 
-968:                                              ; preds = %967
+967:                                              ; preds = %966
   invoke void @_ZN5ImGui7TreePopEv()
-          to label %969 unwind label %882
+          to label %968 unwind label %881
 
-969:                                              ; preds = %968, %967
-  %970 = invoke noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr noundef null, i32 noundef 1)
-          to label %971 unwind label %882
+968:                                              ; preds = %967, %966
+  %969 = invoke noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr noundef null, i32 noundef 1)
+          to label %970 unwind label %881
 
-971:                                              ; preds = %969
-  br i1 %970, label %972, label %992
+970:                                              ; preds = %968
+  br i1 %969, label %971, label %991
 
-972:                                              ; preds = %971
-  %973 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE12use_deletion, align 1, !tbaa !29, !range !11, !noundef !12
-  %974 = trunc nuw i8 %973 to i1
-  %975 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, align 8
-  %976 = icmp eq i32 %975, 0
-  %not. = xor i1 %974, true
-  %977 = select i1 %not., i1 true, i1 %976
-  invoke void @_ZN5ImGui13BeginDisabledEb(i1 noundef zeroext %977)
-          to label %978 unwind label %882
+971:                                              ; preds = %970
+  %972 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE12use_deletion, align 1, !tbaa !29, !range !11, !noundef !12
+  %973 = trunc nuw i8 %972 to i1
+  %974 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, align 8
+  %975 = icmp eq i32 %974, 0
+  %not. = xor i1 %973, true
+  %976 = select i1 %not., i1 true, i1 %975
+  invoke void @_ZN5ImGui13BeginDisabledEb(i1 noundef zeroext %976)
+          to label %977 unwind label %881
 
-978:                                              ; preds = %972
-  %979 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, align 8, !tbaa !397
-  %980 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.1096, i32 noundef %979) #33
+977:                                              ; preds = %971
+  %978 = load i32, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, align 8, !tbaa !397
+  %979 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) @.str.1096, i32 noundef %978) #33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #33
   store float 0.000000e+00, ptr %38, align 4, !tbaa !42
   store float 0.000000e+00, ptr %815, align 4, !tbaa !44
-  %981 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %32, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %38)
-          to label %982 unwind label %984
+  %980 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull %32, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %38)
+          to label %981 unwind label %983
 
-982:                                              ; preds = %978
+981:                                              ; preds = %977
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
-  br i1 %981, label %983, label %986
+  br i1 %980, label %982, label %985
 
-983:                                              ; preds = %982
+982:                                              ; preds = %981
   store i1 true, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE26request_deletion_from_menu, align 1
-  br label %986
+  br label %985
 
-984:                                              ; preds = %978
-  %985 = landingpad { ptr, i32 }
+983:                                              ; preds = %977
+  %984 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #33
-  br label %1007
+  br label %1006
 
-986:                                              ; preds = %983, %982
+985:                                              ; preds = %982, %981
   invoke void @_ZN5ImGui11EndDisabledEv()
-          to label %987 unwind label %882
+          to label %986 unwind label %881
 
-987:                                              ; preds = %986
+986:                                              ; preds = %985
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #33
   store float 0.000000e+00, ptr %39, align 4, !tbaa !42
   store float 0.000000e+00, ptr %816, align 4, !tbaa !44
-  %988 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.991, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %39)
-          to label %989 unwind label %990
+  %987 = invoke noundef zeroext i1 @_ZN5ImGui10SelectableEPKcbiRK6ImVec2(ptr noundef nonnull @.str.991, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %39)
+          to label %988 unwind label %989
 
-989:                                              ; preds = %987
+988:                                              ; preds = %986
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
   invoke void @_ZN5ImGui8EndPopupEv()
-          to label %992 unwind label %882
+          to label %991 unwind label %881
 
-990:                                              ; preds = %987
-  %991 = landingpad { ptr, i32 }
+989:                                              ; preds = %986
+  %990 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #33
-  br label %1007
+  br label %1006
 
-992:                                              ; preds = %989, %971
-  %993 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13show_in_table, align 1, !tbaa !29, !range !11, !noundef !12
-  %994 = trunc nuw i8 %993 to i1
-  br i1 %994, label %995, label %1005
+991:                                              ; preds = %988, %970
+  %992 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13show_in_table, align 1, !tbaa !29, !range !11, !noundef !12
+  %993 = trunc nuw i8 %992 to i1
+  br i1 %993, label %994, label %1004
 
-995:                                              ; preds = %992
-  %996 = invoke noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
-          to label %997 unwind label %882
+994:                                              ; preds = %991
+  %995 = invoke noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
+          to label %996 unwind label %881
 
-997:                                              ; preds = %995
+996:                                              ; preds = %994
   invoke void @_ZN5ImGui16SetNextItemWidthEf(float noundef 0xB810000000000000)
-          to label %998 unwind label %882
+          to label %997 unwind label %881
 
-998:                                              ; preds = %997
+997:                                              ; preds = %996
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #33
   store float 0.000000e+00, ptr %40, align 4, !tbaa !42
   store float 0.000000e+00, ptr %817, align 4, !tbaa !44
   invoke void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef 11, ptr noundef nonnull align 4 dereferenceable(8) %40)
-          to label %999 unwind label %1003
+          to label %998 unwind label %1002
 
-999:                                              ; preds = %998
+998:                                              ; preds = %997
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
-  %1000 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %847) #34
-  %1001 = invoke noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.1097, ptr noundef nonnull %847, i64 noundef %1000, i32 noundef 512, ptr noundef null, ptr noundef null)
-          to label %1002 unwind label %882
+  %999 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %846) #34
+  %1000 = invoke noundef zeroext i1 @_ZN5ImGui9InputTextEPKcPcmiPFiP26ImGuiInputTextCallbackDataEPv(ptr noundef nonnull @.str.1097, ptr noundef nonnull %846, i64 noundef %999, i32 noundef 512, ptr noundef null, ptr noundef null)
+          to label %1001 unwind label %881
 
-1002:                                             ; preds = %999
+1001:                                             ; preds = %998
   invoke void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-          to label %1005 unwind label %882
+          to label %1004 unwind label %881
 
-1003:                                             ; preds = %998
-  %1004 = landingpad { ptr, i32 }
+1002:                                             ; preds = %997
+  %1003 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #33
-  br label %1007
+  br label %1006
 
-1005:                                             ; preds = %1002, %992
+1004:                                             ; preds = %1001, %991
   invoke void @_ZN5ImGui5PopIDEv()
-          to label %1006 unwind label %882
+          to label %1005 unwind label %881
 
-1006:                                             ; preds = %1005
+1005:                                             ; preds = %1004
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #33
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next116 to i32
-  %exitcond118.not = icmp eq i32 %831, %lftr.wideiv
+  %exitcond118.not = icmp eq i32 %830, %lftr.wideiv
   br i1 %exitcond118.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !443
 
-1007:                                             ; preds = %880, %960, %962, %1003, %990, %984, %945, %888, %884, %882, %870, %872, %868
-  %.pn260.pn.pn.pn = phi { ptr, i32 } [ %869, %868 ], [ %873, %872 ], [ %871, %870 ], [ %881, %880 ], [ %.pn260, %945 ], [ %883, %882 ], [ %1004, %1003 ], [ %991, %990 ], [ %985, %984 ], [ %885, %884 ], [ %889, %888 ], [ %963, %962 ], [ %961, %960 ]
+1006:                                             ; preds = %879, %959, %961, %1002, %989, %983, %944, %887, %883, %881, %869, %871, %867
+  %.pn260.pn.pn.pn = phi { ptr, i32 } [ %868, %867 ], [ %872, %871 ], [ %870, %869 ], [ %880, %879 ], [ %.pn260, %944 ], [ %882, %881 ], [ %1003, %1002 ], [ %990, %989 ], [ %984, %983 ], [ %884, %883 ], [ %888, %887 ], [ %962, %961 ], [ %960, %959 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32) #33
-  br label %1022
+  br label %1021
 
-1008:                                             ; preds = %._crit_edge74.loopexit, %._crit_edge74, %823
-  %1009 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13show_in_table, align 1, !tbaa !29, !range !11, !noundef !12
-  %1010 = trunc nuw i8 %1009 to i1
-  br i1 %1010, label %1011, label %1014
+1007:                                             ; preds = %._crit_edge74.loopexit, %._crit_edge74, %821
+  %1008 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE13show_in_table, align 1, !tbaa !29, !range !11, !noundef !12
+  %1009 = trunc nuw i8 %1008 to i1
+  br i1 %1009, label %1010, label %1013
 
-1011:                                             ; preds = %1008
+1010:                                             ; preds = %1007
   invoke void @_ZN5ImGui8EndTableEv()
-          to label %1012 unwind label %.loopexit.split-lp13
+          to label %1011 unwind label %.loopexit.split-lp13
+
+1011:                                             ; preds = %1010
+  %.b214 = load i1, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11widget_type, align 4
+  br i1 %.b214, label %1012, label %1013
 
 1012:                                             ; preds = %1011
-  %.b214 = load i1, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11widget_type, align 4
-  br i1 %.b214, label %1013, label %1014
-
-1013:                                             ; preds = %1012
   invoke void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-          to label %1014 unwind label %.loopexit.split-lp13
+          to label %1013 unwind label %.loopexit.split-lp13
 
-1014:                                             ; preds = %1012, %1013, %1008
-  %1015 = invoke noundef ptr @_ZN5ImGui14EndMultiSelectEv()
+1013:                                             ; preds = %1011, %1012, %1007
+  %1014 = invoke noundef ptr @_ZN5ImGui14EndMultiSelectEv()
+          to label %1015 unwind label %.loopexit.split-lp13
+
+1015:                                             ; preds = %1013
+  invoke void @_ZN26ImGuiSelectionBasicStorage13ApplyRequestsEP18ImGuiMultiSelectIO(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, ptr noundef %1014)
           to label %1016 unwind label %.loopexit.split-lp13
 
-1016:                                             ; preds = %1014
-  invoke void @_ZN26ImGuiSelectionBasicStorage13ApplyRequestsEP18ImGuiMultiSelectIO(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, ptr noundef %1015)
-          to label %1017 unwind label %.loopexit.split-lp13
+1016:                                             ; preds = %1015
+  br i1 %spec.select, label %1017, label %1018
 
 1017:                                             ; preds = %1016
-  br i1 %spec.select, label %1018, label %1019
+  invoke void @_ZN28ExampleSelectionWithDeletion21ApplyDeletionPostLoopIiEEvP18ImGuiMultiSelectIOR8ImVectorIT_Ei(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, ptr noundef %1014, ptr noundef nonnull align 8 dereferenceable(16) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, i32 noundef %788)
+          to label %1018 unwind label %.loopexit.split-lp13
 
-1018:                                             ; preds = %1017
-  invoke void @_ZN28ExampleSelectionWithDeletion21ApplyDeletionPostLoopIiEEvP18ImGuiMultiSelectIOR8ImVectorIT_Ei(ptr noundef nonnull align 8 dereferenceable(48) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE9selection_5, ptr noundef %1015, ptr noundef nonnull align 8 dereferenceable(16) @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE5items_1, i32 noundef %788)
-          to label %1019 unwind label %.loopexit.split-lp13
-
-1019:                                             ; preds = %1018, %1017
+1018:                                             ; preds = %1017, %1016
   %.b = load i1, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11widget_type, align 4
-  br i1 %.b, label %1020, label %1021
+  br i1 %.b, label %1019, label %1020
 
-1020:                                             ; preds = %1019
+1019:                                             ; preds = %1018
   invoke void @_ZN5ImGui11PopStyleVarEi(i32 noundef 1)
-          to label %1021 unwind label %.loopexit.split-lp13
+          to label %1020 unwind label %.loopexit.split-lp13
 
-1021:                                             ; preds = %1020, %1019
+1020:                                             ; preds = %1019, %1018
   call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
+  br label %1022
+
+1021:                                             ; preds = %.loopexit12, %.loopexit.split-lp13, %837, %1006
+  %.pn260.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn260.pn.pn.pn, %1006 ], [ %838, %837 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
+  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #33
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
+  br label %1025
+
+1022:                                             ; preds = %1020, %740
+  call void @_ZN5ImGui8EndChildEv()
+  call void @_ZN5ImGui7TreePopEv()
   br label %1023
 
-1022:                                             ; preds = %.loopexit12, %.loopexit.split-lp13, %838, %1007
-  %.pn260.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn260.pn.pn.pn, %1007 ], [ %839, %838 ], [ %lpad.loopexit14, %.loopexit12 ], [ %lpad.loopexit.split-lp15, %.loopexit.split-lp13 ]
-  call void @_ZN16ImGuiListClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %31) #33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #33
-  br label %1026
-
-1023:                                             ; preds = %1021, %740
-  call void @_ZN5ImGui8EndChildEv()
+1023:                                             ; preds = %1022, %624
   call void @_ZN5ImGui7TreePopEv()
   br label %1024
 
-1024:                                             ; preds = %1023, %624
-  call void @_ZN5ImGui7TreePopEv()
-  br label %1025
-
-1025:                                             ; preds = %1024, %44
+1024:                                             ; preds = %1023, %44
   ret void
 
-1026:                                             ; preds = %1022, %755, %596, %.loopexit21, %485, %439, %383, %225, %198, %162, %122
-  %.pn271.pn.pn = phi { ptr, i32 } [ %.pn271.pn, %198 ], [ %.pn267.pn.pn, %485 ], [ %.pn260.pn.pn.pn.pn.pn, %1022 ], [ %756, %755 ], [ %597, %596 ], [ %536, %.loopexit21 ], [ %440, %439 ], [ %384, %383 ], [ %226, %225 ], [ %163, %162 ], [ %123, %122 ]
+1025:                                             ; preds = %1021, %755, %596, %.loopexit21, %485, %439, %383, %225, %198, %162, %122
+  %.pn271.pn.pn = phi { ptr, i32 } [ %.pn271.pn, %198 ], [ %.pn267.pn.pn, %485 ], [ %.pn260.pn.pn.pn.pn.pn, %1021 ], [ %756, %755 ], [ %597, %596 ], [ %536, %.loopexit21 ], [ %440, %439 ], [ %384, %383 ], [ %226, %225 ], [ %163, %162 ], [ %123, %122 ]
   resume { ptr, i32 } %.pn271.pn.pn
 }
 

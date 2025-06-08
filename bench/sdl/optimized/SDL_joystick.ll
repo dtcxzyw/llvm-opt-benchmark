@@ -2211,7 +2211,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit.i.i:            ; preds = %292
 317:                                              ; preds = %315
   %318 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %316, ptr noundef nonnull @.str.48) #13
   %319 = icmp eq i32 %318, 0
-  %spec.select.i.i = select i1 %319, i8 1, i8 %.252.i.i
+  %spec.select.i.i = zext i1 %319 to i8
   br label %320
 
 320:                                              ; preds = %317, %315, %312, %.lr.ph.i31.i
@@ -2232,7 +2232,7 @@ SDL_GetJoystickGUIDInfo_REAL.exit.i.i:            ; preds = %292
 327:                                              ; preds = %325
   %328 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %326, ptr noundef nonnull @.str.49) #13
   %329 = icmp eq i32 %328, 0
-  %spec.select41.i.i = select i1 %329, i8 1, i8 %.23051.i.i
+  %spec.select41.i.i = zext i1 %329 to i8
   br label %330
 
 330:                                              ; preds = %327, %325, %322, %320

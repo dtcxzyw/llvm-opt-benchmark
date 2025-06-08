@@ -933,7 +933,7 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock17hb1154f23612036faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %33, label %7
+  br i1 %6, label %34, label %7
 
 7:                                                ; preds = %2
   store ptr %5, ptr %4, align 8
@@ -947,7 +947,7 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr167drop_in_place$LT$futures_util..lock..bilock..BiLockGuard$LT$tokio_util..udp..frame..UdpFramed$LT$ockam_transport_udp..workers..codec..TransportMessageCodec$GT$$GT$$GT$17h9d3c58d358afdef7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #20
-          to label %36 unwind label %34
+          to label %37 unwind label %35
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -999,8 +999,8 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   %.pre = load ptr, ptr %5, align 8, !noalias !202
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre24 = load i64, ptr %.phi.trans.insert, align 8, !range !130, !noalias !202
-  %trunc.i17 = trunc nuw i64 %.pre24 to i1
-  br i1 %trunc.i17, label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread", label %.invoke
+  %28 = trunc nuw i64 %.pre24 to i1
+  br i1 %28, label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread", label %.invoke
 
 .invoke:                                          ; preds = %7, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread"
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.86854b3818c1e107d967125bc7de3ba7.27.llvm.3380558238963146499, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86854b3818c1e107d967125bc7de3ba7.28.llvm.3380558238963146499) #19
@@ -1010,33 +1010,33 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   unreachable
 
 "_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread": ; preds = %13, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread"
-  %28 = phi ptr [ %.pre, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread" ], [ %8, %13 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = invoke noundef i8 @"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_flush17h42f6abcf668d5450E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %31 unwind label %11, !range !205
+  %29 = phi ptr [ %.pre, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread" ], [ %8, %13 ]
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = invoke noundef i8 @"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_flush17h42f6abcf668d5450E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %30, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+          to label %32 unwind label %11, !range !205
 
-31:                                               ; preds = %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread"
-  %32 = load ptr, ptr %4, align 8, !alias.scope !206, !nonnull !115, !align !116, !noundef !115
+32:                                               ; preds = %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread"
+  %33 = load ptr, ptr %4, align 8, !alias.scope !206, !nonnull !115, !align !116, !noundef !115
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.noexc15, %.noexc16, %31
-  %.sink = phi ptr [ %32, %31 ], [ %5, %.noexc16 ], [ %5, %.noexc15 ]
-  %.2.ph = phi i8 [ %30, %31 ], [ %25, %.noexc16 ], [ %22, %.noexc15 ]
+.sink.split:                                      ; preds = %.noexc15, %.noexc16, %32
+  %.sink = phi ptr [ %33, %32 ], [ %5, %.noexc16 ], [ %5, %.noexc15 ]
+  %.2.ph = phi i8 [ %31, %32 ], [ %25, %.noexc16 ], [ %22, %.noexc15 ]
   tail call void @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sink), !noalias !115
-  br label %33
+  br label %34
 
-33:                                               ; preds = %.sink.split, %2
+34:                                               ; preds = %.sink.split, %2
   %.2 = phi i8 [ 17, %2 ], [ %.2.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i8 %.2
 
-34:                                               ; preds = %11
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %11
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #21
   unreachable
 
-36:                                               ; preds = %11
+37:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 

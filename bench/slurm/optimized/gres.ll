@@ -11688,7 +11688,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   %134 = load ptr, ptr %133, align 8
   %135 = call i32 @xstrcmp(ptr noundef %134, ptr noundef nonnull @.str.9) #28
   %.not284 = icmp eq i32 %135, 0
-  %spec.select = select i1 %.not284, i8 1, i8 %.1196296
+  %spec.select = zext i1 %.not284 to i8
   br label %136
 
 136:                                              ; preds = %132, %129
@@ -11746,7 +11746,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 @xstrcmp(ptr noundef %161, ptr noundef nonnull @.str.9) #28
   %.not282 = icmp eq i32 %162, 0
-  %spec.select285 = select i1 %.not282, i8 1, i8 %.4301
+  %spec.select285 = zext i1 %.not282 to i8
   br label %163
 
 163:                                              ; preds = %159, %156
@@ -11820,7 +11820,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   %198 = load ptr, ptr %197, align 8
   %199 = call i32 @xstrcmp(ptr noundef %198, ptr noundef nonnull @.str.9) #28
   %.not276 = icmp eq i32 %199, 0
-  %spec.select287 = select i1 %.not276, i8 1, i8 %.7307
+  %spec.select287 = zext i1 %.not276 to i8
   br label %200
 
 200:                                              ; preds = %196, %193
@@ -11933,7 +11933,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   %254 = load ptr, ptr %253, align 8
   %255 = call i32 @xstrcmp(ptr noundef %254, ptr noundef nonnull @.str.9) #28
   %.not274 = icmp eq i32 %255, 0
-  %spec.select289 = select i1 %.not274, i8 1, i8 %.10313
+  %spec.select289 = zext i1 %.not274 to i8
   br label %256
 
 256:                                              ; preds = %252, %249

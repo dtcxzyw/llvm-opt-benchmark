@@ -25961,20 +25961,20 @@ define linkonce_odr hidden void @_ZN6google8protobuf10TextFormat7Printer13TextGe
   %8 = trunc nuw i8 %7 to i1
   %9 = icmp eq i64 %2, 0
   %or.cond = or i1 %9, %8
-  br i1 %or.cond, label %93, label %10
+  br i1 %or.cond, label %92, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i8, ptr %11, align 4, !tbaa !58, !range !49, !noundef !50
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread
+  br i1 %13, label %14, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread29
 
 14:                                               ; preds = %10
   store i8 0, ptr %11, align 4, !tbaa !58
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8, !tbaa !61
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread, label %18
+  br i1 %17, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread29, label %18
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %0, align 8, !tbaa !24
@@ -25990,7 +25990,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf10TextFormat7Printer13TextGe
 
 .._crit_edge_crit_edge.i:                         ; preds = %18
   %.pre12.i = load ptr, ptr %27, align 8, !tbaa !56
-  br label %._crit_edge.i
+  br label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit
 
 .lr.ph.i:                                         ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26020,7 +26020,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf10TextFormat7Printer13TextGe
   %42 = xor i1 %41, true
   %43 = zext i1 %42 to i8
   store i8 %43, ptr %6, align 1, !tbaa !59
-  br i1 %41, label %44, label %.critedge.i
+  br i1 %41, label %44, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread
 
 44:                                               ; preds = %35
   %45 = sub nsw i32 %.0610.i, %36
@@ -26029,9 +26029,13 @@ define linkonce_odr hidden void @_ZN6google8protobuf10TextFormat7Printer13TextGe
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
   %47 = load i32, ptr %24, align 8, !tbaa !57
   %48 = icmp sgt i32 %45, %47
-  br i1 %48, label %29, label %._crit_edge.i, !llvm.loop !400
+  br i1 %48, label %29, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit, !llvm.loop !400
 
-._crit_edge.i:                                    ; preds = %44, %.._crit_edge_crit_edge.i
+_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread: ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
+  br label %92
+
+_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit: ; preds = %44, %.._crit_edge_crit_edge.i
   %49 = phi ptr [ %.pre12.i, %.._crit_edge_crit_edge.i ], [ %46, %44 ]
   %.06.lcssa.i = phi i32 [ %23, %.._crit_edge_crit_edge.i ], [ %45, %44 ]
   %50 = sext i32 %.06.lcssa.i to i64
@@ -26044,93 +26048,85 @@ define linkonce_odr hidden void @_ZN6google8protobuf10TextFormat7Printer13TextGe
   store i32 %54, ptr %24, align 8, !tbaa !57
   %.pre = load i8, ptr %6, align 1, !tbaa !59, !range !49
   %55 = trunc nuw i8 %.pre to i1
-  br label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit
+  br i1 %55, label %92, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread29
 
-.critedge.i:                                      ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
-  br label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit
+_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread29: ; preds = %14, %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit, %10
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %57 = load i32, ptr %56, align 8, !tbaa !57
+  %58 = sext i32 %57 to i64
+  %59 = icmp sgt i64 %2, %58
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %59, label %.lr.ph, label %.._crit_edge_crit_edge
 
-_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit: ; preds = %._crit_edge.i, %.critedge.i
-  %56 = phi i1 [ %55, %._crit_edge.i ], [ %42, %.critedge.i ]
-  br i1 %56, label %93, label %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread
-
-_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread: ; preds = %14, %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit, %10
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = load i32, ptr %57, align 8, !tbaa !57
-  %59 = sext i32 %58 to i64
-  %60 = icmp sgt i64 %2, %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %60, label %.lr.ph, label %.._crit_edge_crit_edge
-
-.._crit_edge_crit_edge:                           ; preds = %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread
-  %.pre28 = load ptr, ptr %61, align 8, !tbaa !56
+.._crit_edge_crit_edge:                           ; preds = %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread29
+  %.pre28 = load ptr, ptr %60, align 8, !tbaa !56
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %63
+.lr.ph:                                           ; preds = %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread29
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %62
 
-63:                                               ; preds = %.lr.ph, %81
-  %64 = phi i64 [ %59, %.lr.ph ], [ %84, %81 ]
-  %65 = phi i32 [ %58, %.lr.ph ], [ %83, %81 ]
-  %.01122 = phi i64 [ %2, %.lr.ph ], [ %.1, %81 ]
-  %.01221 = phi ptr [ %1, %.lr.ph ], [ %.113, %81 ]
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %67, label %73
+62:                                               ; preds = %.lr.ph, %80
+  %63 = phi i64 [ %58, %.lr.ph ], [ %83, %80 ]
+  %64 = phi i32 [ %57, %.lr.ph ], [ %82, %80 ]
+  %.01122 = phi i64 [ %2, %.lr.ph ], [ %.1, %80 ]
+  %.01221 = phi ptr [ %1, %.lr.ph ], [ %.113, %80 ]
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %66, label %72
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %61, align 8, !tbaa !56
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 1 %.01221, i64 %64, i1 false)
-  %69 = load i32, ptr %57, align 8, !tbaa !57
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %.01221, i64 %70
-  %72 = sub i64 %.01122, %70
-  br label %73
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %60, align 8, !tbaa !56
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %.01221, i64 %63, i1 false)
+  %68 = load i32, ptr %56, align 8, !tbaa !57
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i8, ptr %.01221, i64 %69
+  %71 = sub i64 %.01122, %69
+  br label %72
 
-73:                                               ; preds = %67, %63
-  %.113 = phi ptr [ %71, %67 ], [ %.01221, %63 ]
-  %.1 = phi i64 [ %72, %67 ], [ %.01122, %63 ]
+72:                                               ; preds = %66, %62
+  %.113 = phi ptr [ %70, %66 ], [ %.01221, %62 ]
+  %.1 = phi i64 [ %71, %66 ], [ %.01122, %62 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
   store ptr null, ptr %5, align 8, !tbaa !196
-  %74 = load ptr, ptr %62, align 8, !tbaa !52
-  %75 = load ptr, ptr %74, align 8, !tbaa !24
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull %5, ptr noundef nonnull %57)
-  %79 = xor i1 %78, true
-  %80 = zext i1 %79 to i8
-  store i8 %80, ptr %6, align 1, !tbaa !59
-  br i1 %78, label %81, label %.thread
+  %73 = load ptr, ptr %61, align 8, !tbaa !52
+  %74 = load ptr, ptr %73, align 8, !tbaa !24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %77 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %5, ptr noundef nonnull %56)
+  %78 = xor i1 %77, true
+  %79 = zext i1 %78 to i8
+  store i8 %79, ptr %6, align 1, !tbaa !59
+  br i1 %77, label %80, label %.thread
 
-.thread:                                          ; preds = %73
+.thread:                                          ; preds = %72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #31
-  br label %93
+  br label %92
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %5, align 8, !tbaa !196
-  store ptr %82, ptr %61, align 8, !tbaa !56
+80:                                               ; preds = %72
+  %81 = load ptr, ptr %5, align 8, !tbaa !196
+  store ptr %81, ptr %60, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #31
-  %83 = load i32, ptr %57, align 8, !tbaa !57
-  %84 = sext i32 %83 to i64
-  %85 = icmp sgt i64 %.1, %84
-  br i1 %85, label %63, label %._crit_edge
+  %82 = load i32, ptr %56, align 8, !tbaa !57
+  %83 = sext i32 %82 to i64
+  %84 = icmp sgt i64 %.1, %83
+  br i1 %84, label %62, label %._crit_edge
 
-._crit_edge:                                      ; preds = %81, %.._crit_edge_crit_edge
-  %86 = phi ptr [ %.pre28, %.._crit_edge_crit_edge ], [ %82, %81 ]
-  %.012.lcssa = phi ptr [ %1, %.._crit_edge_crit_edge ], [ %.113, %81 ]
-  %.011.lcssa = phi i64 [ %2, %.._crit_edge_crit_edge ], [ %.1, %81 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %.012.lcssa, i64 %.011.lcssa, i1 false)
-  %88 = load ptr, ptr %87, align 8, !tbaa !56
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.011.lcssa
-  store ptr %89, ptr %87, align 8, !tbaa !56
-  %90 = load i32, ptr %57, align 8, !tbaa !57
-  %91 = trunc i64 %.011.lcssa to i32
-  %92 = sub i32 %90, %91
-  store i32 %92, ptr %57, align 8, !tbaa !57
-  br label %93
+._crit_edge:                                      ; preds = %80, %.._crit_edge_crit_edge
+  %85 = phi ptr [ %.pre28, %.._crit_edge_crit_edge ], [ %81, %80 ]
+  %.012.lcssa = phi ptr [ %1, %.._crit_edge_crit_edge ], [ %.113, %80 ]
+  %.011.lcssa = phi i64 [ %2, %.._crit_edge_crit_edge ], [ %.1, %80 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr align 1 %.012.lcssa, i64 %.011.lcssa, i1 false)
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.011.lcssa
+  store ptr %88, ptr %86, align 8, !tbaa !56
+  %89 = load i32, ptr %56, align 8, !tbaa !57
+  %90 = trunc i64 %.011.lcssa to i32
+  %91 = sub i32 %89, %90
+  store i32 %91, ptr %56, align 8, !tbaa !57
+  br label %92
 
-93:                                               ; preds = %.thread, %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit, %3, %._crit_edge
+92:                                               ; preds = %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit.thread, %.thread, %_ZN6google8protobuf10TextFormat7Printer13TextGenerator11WriteIndentEv.exit, %3, %._crit_edge
   ret void
 }
 

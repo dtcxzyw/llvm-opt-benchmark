@@ -2675,8 +2675,8 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit914: ; preds = %_ZNK4pbrt15TopOrB
 
 _ZN4pbrt14PowerHeuristicEifif.exit916:            ; preds = %903
   %.pre1322 = load i8, ptr %146, align 4, !tbaa !50, !range !52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #31
   %924 = trunc nuw i8 %.pre1322 to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #31
   br i1 %924, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918, label %925
 
 925:                                              ; preds = %_ZN4pbrt14PowerHeuristicEifif.exit916
@@ -3274,7 +3274,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEC2EOS3_.exit: ; preds = %41, %42
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i8 1, ptr %50, align 4, !tbaa !82
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %25, ptr %51, align 4, !tbaa !50
+  store i8 1, ptr %51, align 4, !tbaa !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(45) %12, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit334
 
@@ -7977,8 +7977,8 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit868: ; preds = %957
 
 _ZN4pbrt14PowerHeuristicEifif.exit870:            ; preds = %953
   %.pre1272 = load i8, ptr %144, align 4, !tbaa !50, !range !52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #31
   %972 = trunc nuw i8 %.pre1272 to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #31
   br i1 %972, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872, label %973
 
 973:                                              ; preds = %_ZN4pbrt14PowerHeuristicEifif.exit870
@@ -8362,7 +8362,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEC2EOS3_.exit: ; preds = %40, %41
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i8 1, ptr %49, align 4, !tbaa !82
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %24, ptr %50, align 4, !tbaa !50
+  store i8 1, ptr %50, align 4, !tbaa !50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(45) %12, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit336
 

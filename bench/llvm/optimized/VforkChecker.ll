@@ -974,13 +974,13 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
   br label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split: ; preds = %59, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
-  %.ph6 = phi i8 [ %48, %59 ], [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ]
+  %.ph6 = phi i8 [ 1, %59 ], [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ]
   %62 = load i32, ptr %29, align 4, !noalias !567
   br label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split
   %63 = phi i32 [ %62, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split ], [ %52, %.lr.ph.i.i.i.i ]
-  %64 = phi i8 [ %.ph6, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split ], [ %48, %.lr.ph.i.i.i.i ]
+  %64 = phi i8 [ %.ph6, %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i.sink.split ], [ 1, %.lr.ph.i.i.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !9
   %.not.i.i = icmp eq ptr %66, null

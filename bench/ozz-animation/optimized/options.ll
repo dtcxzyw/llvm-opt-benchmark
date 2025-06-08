@@ -5636,29 +5636,28 @@ define internal noundef zeroext i1 @_ZN3ozz7options12_GLOBAL__N_112sort_optionsE
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8, !tbaa !12, !range !73
-  br i1 %5, label %8, label %._crit_edge
+  br i1 %5, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = trunc nuw i8 %7 to i1
-  br i1 %9, label %._crit_edge, label %18
+  br i1 %9, label %.thread, label %17
 
-._crit_edge:                                      ; preds = %2, %8
-  %10 = phi i8 [ 1, %8 ], [ %7, %2 ]
-  %.not = icmp eq i8 %4, %10
-  br i1 %.not, label %11, label %18
+10:                                               ; preds = %2
+  %.not = icmp eq i8 %4, %7
+  br i1 %.not, label %.thread, label %17
 
-11:                                               ; preds = %._crit_edge
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !4
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %15) #31
-  %17 = icmp slt i32 %16, 0
-  br label %18
+.thread:                                          ; preds = %8, %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !4
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %14) #31
+  %16 = icmp slt i32 %15, 0
+  br label %17
 
-18:                                               ; preds = %._crit_edge, %11, %8
-  %19 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ %17, %11 ]
-  ret i1 %19
+17:                                               ; preds = %10, %.thread, %8
+  %18 = phi i1 [ true, %8 ], [ false, %10 ], [ %16, %.thread ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

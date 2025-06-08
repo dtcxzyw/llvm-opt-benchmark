@@ -20212,18 +20212,18 @@ _ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.
 _ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.lr.ph: ; preds = %19, %34
   %.sink = phi i32 [ %32, %34 ], [ %17, %19 ]
   %indvars.iv.i.i.i.i.i.i.lcssa.sink = phi i64 [ %indvars.iv.i.i.i.i.i.i, %34 ], [ %indvars.iv.i.i.i.i.i, %19 ]
-  %.lcssa148.sink169 = phi i64 [ %37, %34 ], [ %22, %19 ]
+  %.lcssa147.sink168 = phi i64 [ %37, %34 ], [ %22, %19 ]
   %.sroa.197.2 = phi ptr [ %27, %34 ], [ %10, %19 ]
   %.sroa.75.2 = phi ptr [ %28, %34 ], [ %11, %19 ]
   %.sroa.04.0 = phi ptr [ %25, %34 ], [ %4, %19 ]
   %38 = shl i32 %.sink, 7
   %39 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i.lcssa.sink to i32
   %40 = shl nuw nsw i32 %39, 6
-  %41 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa148.sink169, i1 true)
+  %41 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa147.sink168, i1 true)
   %42 = trunc nuw nsw i64 %41 to i32
   %43 = or disjoint i32 %40, %42
   %44 = or disjoint i32 %43, %38
-  %45 = lshr exact i64 %.lcssa148.sink169, %41
+  %45 = lshr exact i64 %.lcssa147.sink168, %41
   %46 = load ptr, ptr %2, align 8, !tbaa !54
   br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer
 
@@ -20237,7 +20237,7 @@ _ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer: ; preds = %_ZNK4llvm15
   %.sroa.54.285.ph = phi i64 [ %147, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i53.thread ], [ %45, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.lr.ph ]
   %.sroa.197.384.ph = phi ptr [ %129, %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i53.thread ], [ %.sroa.197.2, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.lr.ph ]
   %.val45.val = load ptr, ptr %.sroa.04.188.ph, align 8, !tbaa !290
-  br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194
+  br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193
 
 _ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.thread: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i48, %3, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i.preheader
   %.026.lcssa = phi i32 [ 0, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i.preheader ], [ 0, %3 ], [ %.127, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i48 ], [ 0, %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i ]
@@ -20248,12 +20248,12 @@ _ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.thread: ; preds = %_ZNK4llvm1
   %.not = icmp eq i32 %48, %spec.select
   br i1 %.not, label %149, label %148
 
-_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit: ; preds = %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194
-  %.091 = phi ptr [ %.091.ph195, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194 ], [ %.val45.val, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
-  %.02490 = phi i32 [ %.02490.ph196, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194 ], [ %.2, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
-  %.02689 = phi i32 [ %.02689.ph197, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194 ], [ %.127, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
-  %.sroa.31.286 = phi i32 [ %.sroa.31.286.ph199, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194 ], [ %.sroa.31.286.be, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
-  %.sroa.54.285 = phi i64 [ %.sroa.54.285.ph200, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194 ], [ %.sroa.54.285.be, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
+_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit: ; preds = %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193
+  %.091 = phi ptr [ %.091.ph194, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193 ], [ %.val45.val, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
+  %.02490 = phi i32 [ %.02490.ph195, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193 ], [ %.2, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
+  %.02689 = phi i32 [ %.02689.ph196, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193 ], [ %.127, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
+  %.sroa.31.286 = phi i32 [ %.sroa.31.286.ph198, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193 ], [ %.sroa.31.286.be, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
+  %.sroa.54.285 = phi i64 [ %.sroa.54.285.ph199, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193 ], [ %.sroa.54.285.be, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.backedge ]
   %.not30 = icmp eq ptr %.091, %.val45.val
   %spec.select32 = tail call i32 @llvm.umax.i32(i32 %.02490, i32 %.02689)
   %.127 = select i1 %.not30, i32 %.02689, i32 %spec.select32
@@ -20352,7 +20352,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i: ; preds = %86, %77
   br i1 %90, label %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i, label %114
 
 _ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i, %84, %82
-  %91 = load ptr, ptr %.sroa.25.387.ph198, align 8, !tbaa !281
+  %91 = load ptr, ptr %.sroa.25.387.ph197, align 8, !tbaa !281
   %92 = icmp eq ptr %91, %.sroa.197.384.ph
   br i1 %92, label %_ZNK4llvm15SparseBitVectorILj128EE23SparseBitVectorIteratoreqERKS2_.exit.thread.i.i48, label %93
 
@@ -20386,18 +20386,18 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i: ; preds = %97
   %108 = select i1 %.cmp.i, i32 %.frozen.i, i32 %.urem.i
   %109 = zext nneg i32 %108 to i64
   %110 = lshr i64 %100, %109
-  br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194
+  br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193
 
-_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer194: ; preds = %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i
-  %.091.ph195 = phi ptr [ %.091.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %.val45.val, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
-  %.02490.ph196 = phi i32 [ %.02490.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %.2, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
-  %.02689.ph197 = phi i32 [ %.02689.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %.127, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
-  %.sroa.25.387.ph198 = phi ptr [ %.sroa.25.387.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %91, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
-  %.sroa.31.286.ph199 = phi i32 [ %.sroa.31.286.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %107, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
-  %.sroa.54.285.ph200 = phi i64 [ %.sroa.54.285.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %110, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.25.387.ph198, i64 32
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.25.387.ph198, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.25.387.ph198, i64 24
+_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer193: ; preds = %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i
+  %.091.ph194 = phi ptr [ %.091.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %.val45.val, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
+  %.02490.ph195 = phi i32 [ %.02490.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %.2, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
+  %.02689.ph196 = phi i32 [ %.02689.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %.127, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
+  %.sroa.25.387.ph197 = phi ptr [ %.sroa.25.387.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %91, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
+  %.sroa.31.286.ph198 = phi i32 [ %.sroa.31.286.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %107, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
+  %.sroa.54.285.ph199 = phi i64 [ %.sroa.54.285.ph, %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer ], [ %110, %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.25.387.ph197, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.25.387.ph197, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.25.387.ph197, i64 24
   br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit
 
 114:                                              ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.i

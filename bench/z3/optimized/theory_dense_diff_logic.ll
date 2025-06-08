@@ -3930,7 +3930,7 @@ define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_6mi_extEE25foun
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %13, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i8 %6, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %14 = load ptr, ptr %10, align 8, !tbaa !187
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.noexc6, label %16
@@ -24131,7 +24131,7 @@ define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_5i_extEE25found
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %13, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i8 %6, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %14 = load ptr, ptr %10, align 8, !tbaa !187
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.noexc6, label %16
@@ -38775,7 +38775,7 @@ define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_7smi_extEE25fou
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %13, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i8 %6, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %14 = load ptr, ptr %10, align 8, !tbaa !187
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.noexc6, label %16
@@ -51113,7 +51113,7 @@ define weak_odr hidden void @_ZN3smt23theory_dense_diff_logicINS_6si_extEE25foun
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %13, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i8 %6, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %14 = load ptr, ptr %10, align 8, !tbaa !187
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.noexc6, label %16

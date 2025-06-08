@@ -7835,7 +7835,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %_ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit.i
 
 _ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit.i: ; preds = %.lr.ph.i.i.i1124, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %2394
-  %2397 = phi i8 [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %2382, %2394 ], [ %2382, %.lr.ph.i.i.i1124 ]
+  %2397 = phi i8 [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ 1, %2394 ], [ 1, %.lr.ph.i.i.i1124 ]
   %2398 = getelementptr inbounds nuw i8, ptr %.0175116.i, i64 8
   %.not204.i = icmp eq ptr %2398, %2377
   br i1 %.not204.i, label %._crit_edge119.loopexit.i, label %.lr.ph118.i
@@ -17073,7 +17073,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_14LandingPadInstEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %94, %_ZN4llvm10BasicBlock13getTerminatorEv.exit
   %99 = phi i32 [ %73, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %98, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %94 ], [ %87, %.lr.ph.i.i ]
-  %100 = phi i8 [ %74, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %83, %94 ], [ %83, %.lr.ph.i.i ]
+  %100 = phi i8 [ %74, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %94 ], [ 1, %.lr.ph.i.i ]
   %101 = phi ptr [ %75, %_ZN4llvm10BasicBlock13getTerminatorEv.exit ], [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %96, %94 ], [ %86, %.lr.ph.i.i ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.077.088, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !95

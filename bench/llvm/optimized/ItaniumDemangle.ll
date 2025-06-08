@@ -11143,7 +11143,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24Forw
 
 _ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; preds = %12, %14
   %.0.i = phi i1 [ %13, %12 ], [ %17, %14 ]
-  store i8 %4, ptr %3, align 8, !tbaa !120
+  store i8 0, ptr %3, align 8, !tbaa !120
   br label %18
 
 18:                                               ; preds = %2, %_ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit
@@ -11183,7 +11183,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24Forw
 
 _ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %14, %16
   %.0.i = phi i1 [ %15, %14 ], [ %20, %16 ]
-  store i8 %4, ptr %3, align 8, !tbaa !120
+  store i8 0, ptr %3, align 8, !tbaa !120
   br label %21
 
 21:                                               ; preds = %2, %_ZNK4llvm16itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
@@ -11223,7 +11223,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24Forw
 
 _ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit: ; preds = %14, %16
   %.0.i = phi i1 [ %15, %14 ], [ %20, %16 ]
-  store i8 %4, ptr %3, align 8, !tbaa !120
+  store i8 0, ptr %3, align 8, !tbaa !120
   br label %21
 
 21:                                               ; preds = %2, %_ZNK4llvm16itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
@@ -11246,7 +11246,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm16itanium_demangle24ForwardTemp
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(11) %8, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
-  store i8 %4, ptr %3, align 8, !tbaa !120
+  store i8 0, ptr %3, align 8, !tbaa !120
   br label %13
 
 13:                                               ; preds = %2, %6
@@ -11269,7 +11269,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24ForwardTemplateRef
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(11) %8, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
-  store i8 %4, ptr %3, align 8, !tbaa !120
+  store i8 0, ptr %3, align 8, !tbaa !120
   br label %12
 
 12:                                               ; preds = %2, %6
@@ -11291,7 +11291,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24ForwardTemplateRef
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(11) %8, ptr noundef nonnull align 8 dereferenceable(36) %1) #21
-  store i8 %4, ptr %3, align 8, !tbaa !120
+  store i8 0, ptr %3, align 8, !tbaa !120
   br label %12
 
 12:                                               ; preds = %2, %6
@@ -37873,7 +37873,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i29: ; preds = %._ZN4llvm16
   br label %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit33
 
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit33: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i29, %6
-  store i8 %4, ptr %3, align 4, !tbaa !120
+  store i8 0, ptr %3, align 4, !tbaa !120
   br label %96
 
 96:                                               ; preds = %2, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit33
@@ -37979,7 +37979,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_trait
   br label %49
 
 49:                                               ; preds = %6, %_ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  store i8 %4, ptr %3, align 4, !tbaa !120
+  store i8 0, ptr %3, align 4, !tbaa !120
   br label %50
 
 50:                                               ; preds = %2, %49

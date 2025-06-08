@@ -5559,9 +5559,9 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_
   %308 = getelementptr inbounds nuw i8, ptr %303, i64 184
   %309 = load i64, ptr %308, align 8, !noalias !959, !noundef !19
   %.not.i.i.i50 = icmp ult i64 %307, %309
-  br i1 %.not.i.i.i50, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread
+  br i1 %.not.i.i.i50, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread7.i, label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit.thread
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i: ; preds = %.noexc53
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread7.i: ; preds = %.noexc53
   %310 = atomicrmw add ptr %304, i64 1 seq_cst, align 8, !noalias !959
   store i8 1, ptr %299, align 1, !alias.scope !959
   br label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread.i
@@ -5571,7 +5571,7 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fd
   store ptr null, ptr %10, align 8
   br label %355
 
-_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread8.i, %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit
+_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread.i: ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread7.i, %_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats30end_processing_scheduled_tasks17hef33a816d9ad1a56E.exit
   %311 = load ptr, ptr %298, align 8, !noalias !953, !nonnull !19, !noundef !19
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 96
   %313 = load i64, ptr %312, align 8, !noalias !953, !noundef !19
@@ -5593,8 +5593,8 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17
   %327 = and i64 %313, 4294967295
   %328 = mul nuw i64 %327, %326
   %329 = lshr i64 %328, 32
-  %.not17.i = icmp eq i64 %313, 0
-  br i1 %.not17.i, label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i", label %.lr.ph.i
+  %.not16.i = icmp eq i64 %313, 0
+  br i1 %.not16.i, label %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit._crit_edge.i", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17h46d725ffdff1f57fE.exit.thread.i
   %330 = getelementptr inbounds nuw i8, ptr %297, i64 24
@@ -5612,9 +5612,9 @@ _ZN5tokio7runtime9scheduler12multi_thread6worker4Core23transition_to_searching17
           to label %_ZN5tokio7runtime9scheduler12multi_thread6worker4Core10steal_work17hfc895bda53fdde88E.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.thread
 
 335:                                              ; preds = %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i", %.lr.ph.i
-  %.sroa.01.016.i = phi i64 [ 0, %.lr.ph.i ], [ %336, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i" ]
-  %336 = add nuw i64 %.sroa.01.016.i, 1
-  %337 = add i64 %.sroa.01.016.i, %329
+  %.sroa.01.015.i = phi i64 [ 0, %.lr.ph.i ], [ %336, %"_ZN4core3ptr166drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17ha676625eb83809b2E.llvm.9993772341007493287.exit.backedge.i" ]
+  %336 = add nuw i64 %.sroa.01.015.i, 1
+  %337 = add i64 %.sroa.01.015.i, %329
   %338 = urem i64 %337, %313
   %339 = load i64, ptr %330, align 8, !noalias !953, !noundef !19
   %340 = icmp eq i64 %338, %339

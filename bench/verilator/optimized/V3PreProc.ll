@@ -16107,7 +16107,7 @@ _ZN8V3PreLex10curStreampEv.exit14.thread:         ; preds = %59
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %80, align 8, !tbaa !115
   store i8 0, ptr %79, align 8, !tbaa !27
-  br label %180
+  br label %181
 
 _ZN8V3PreLex10curStreampEv.exit15:                ; preds = %_ZN8V3PreLex10curStreampEv.exit14.thread
   %81 = getelementptr inbounds nuw i8, ptr %75, i64 105
@@ -16164,7 +16164,7 @@ _ZNSt5stackIP10VPreStreamSt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %95, %97
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %106, align 8, !tbaa !115
   store i8 0, ptr %105, align 8, !tbaa !27
-  br label %180
+  br label %181
 
 _ZN8V3PreLex10curStreampEv.exit21:                ; preds = %_ZN8V3PreLex10curStreampEv.exit15.thread
   %107 = getelementptr inbounds nuw i8, ptr %70, i64 100
@@ -16195,7 +16195,7 @@ _ZN8V3PreLex10curStreampEv.exit22:                ; preds = %_ZN8V3PreLex10curSt
   store i64 1, ptr %114, align 8, !tbaa !115
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %115, align 1, !tbaa !27
-  br label %180
+  br label %181
 
 .thread54:                                        ; preds = %_ZN8V3PreLex10curStreampEv.exit21
   %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %68, i64 504
@@ -16211,7 +16211,7 @@ _ZN8V3PreLex10curStreampEv.exit28:                ; preds = %_ZN8V3PreLex10curSt
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %119, align 8, !tbaa !115
   store i8 0, ptr %118, align 8, !tbaa !27
-  br label %180
+  br label %181
 
 120:                                              ; preds = %_ZN8V3PreLex10curStreampEv.exit21
   %121 = getelementptr inbounds i8, ptr %66, i64 -8
@@ -16221,12 +16221,12 @@ _ZN8V3PreLex10curStreampEv.exit28:                ; preds = %_ZN8V3PreLex10curSt
   br label %_ZN8V3PreLex12curFilelinepEv.exit35
 
 _ZN8V3PreLex12curFilelinepEv.exit35:              ; preds = %_ZN8V3PreLex10curStreampEv.exit21.thread, %120
-  %.sink99 = phi ptr [ %124, %120 ], [ %75, %_ZN8V3PreLex10curStreampEv.exit21.thread ]
-  %125 = getelementptr inbounds nuw i8, ptr %.sink99, i64 100
+  %.sink98 = phi ptr [ %124, %120 ], [ %75, %_ZN8V3PreLex10curStreampEv.exit21.thread ]
+  %125 = getelementptr inbounds nuw i8, ptr %.sink98, i64 100
   store i32 3, ptr %125, align 4, !tbaa !815
-  %126 = load ptr, ptr %.sink99, align 8, !tbaa !47
+  %126 = load ptr, ptr %.sink98, align 8, !tbaa !47
   tail call void @_ZNK8FileLine17lineDirectiveStrgB5cxx11Ei(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %126, i32 noundef 0)
-  br label %180
+  br label %181
 
 127:                                              ; preds = %_ZN8V3PreLex10curStreampEv.exit21
   %128 = getelementptr inbounds i8, ptr %66, i64 -8
@@ -16236,19 +16236,19 @@ _ZN8V3PreLex12curFilelinepEv.exit35:              ; preds = %_ZN8V3PreLex10curSt
   br label %_ZN8V3PreLex12curFilelinepEv.exit37
 
 _ZN8V3PreLex12curFilelinepEv.exit37:              ; preds = %_ZN8V3PreLex10curStreampEv.exit21.thread, %127
-  %.sink100 = phi ptr [ %131, %127 ], [ %75, %_ZN8V3PreLex10curStreampEv.exit21.thread ]
-  %132 = getelementptr inbounds nuw i8, ptr %.sink100, i64 100
+  %.sink99 = phi ptr [ %131, %127 ], [ %75, %_ZN8V3PreLex10curStreampEv.exit21.thread ]
+  %132 = getelementptr inbounds nuw i8, ptr %.sink99, i64 100
   store i32 0, ptr %132, align 4, !tbaa !815
-  %133 = load ptr, ptr %.sink100, align 8, !tbaa !47
-  %134 = getelementptr inbounds nuw i8, ptr %.sink100, i64 8
+  %133 = load ptr, ptr %.sink99, align 8, !tbaa !47
+  %134 = getelementptr inbounds nuw i8, ptr %.sink99, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !822
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %137 = load i32, ptr %136, align 8, !tbaa !823
   %138 = add nsw i32 %137, -1
   store i32 %138, ptr %136, align 8, !tbaa !823
-  %139 = getelementptr inbounds nuw i8, ptr %.sink100, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.sink99, i64 16
   tail call void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %139) #45
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink100, i64 noundef 112) #46
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink99, i64 noundef 112) #46
   %.pre70 = load ptr, ptr %60, align 8, !tbaa !803
   %.pre71 = load ptr, ptr %62, align 8, !tbaa !804
   %.not.i.i39 = icmp eq ptr %.pre70, %.pre71
@@ -16319,7 +16319,7 @@ _ZN8V3PreLex10curStreampEv.exit44:                ; preds = %_ZN8V3PreLex10curSt
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 104
   %174 = load i8, ptr %173, align 8, !tbaa !795, !range !105, !noundef !106
   %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %178, label %_ZN8V3PreLex12curFilelinepEv.exit45
+  br i1 %175, label %179, label %_ZN8V3PreLex12curFilelinepEv.exit45
 
 _ZN8V3PreLex10curStreampEv.exit44.thread:         ; preds = %_ZN8V3PreLex10curStreampEv.exit42.thread
   store ptr %133, ptr %159, align 8, !tbaa !47
@@ -16327,24 +16327,24 @@ _ZN8V3PreLex10curStreampEv.exit44.thread:         ; preds = %_ZN8V3PreLex10curSt
   %.pre75 = load ptr, ptr %.phi.trans.insert74, align 8, !tbaa !45
   %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %.pre75, i64 104
   %.pre77 = load i8, ptr %.phi.trans.insert76, align 8, !tbaa !795, !range !105
-  %.pre = trunc nuw i8 %.pre77 to i1
-  %176 = load ptr, ptr %.pre75, align 8, !tbaa !47
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr %176, ptr %177, align 8, !tbaa !758
-  br i1 %.pre, label %178, label %_ZN8V3PreLex12curFilelinepEv.exit45
+  %176 = trunc nuw i8 %.pre77 to i1
+  %177 = load ptr, ptr %.pre75, align 8, !tbaa !47
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store ptr %177, ptr %178, align 8, !tbaa !758
+  br i1 %176, label %179, label %_ZN8V3PreLex12curFilelinepEv.exit45
 
-178:                                              ; preds = %_ZN8V3PreLex10curStreampEv.exit44.thread, %_ZN8V3PreLex10curStreampEv.exit44
+179:                                              ; preds = %_ZN8V3PreLex10curStreampEv.exit44.thread, %_ZN8V3PreLex10curStreampEv.exit44
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #45
-  br label %180
+  br label %181
 
 _ZN8V3PreLex12curFilelinepEv.exit45:              ; preds = %_ZN8V3PreLex10curStreampEv.exit44, %_ZN8V3PreLex10curStreampEv.exit44.thread.thread, %_ZN8V3PreLex10curStreampEv.exit44.thread
-  %179 = phi ptr [ %176, %_ZN8V3PreLex10curStreampEv.exit44.thread ], [ %163, %_ZN8V3PreLex10curStreampEv.exit44.thread.thread ], [ %171, %_ZN8V3PreLex10curStreampEv.exit44 ]
-  tail call void @_ZNK8FileLine17lineDirectiveStrgB5cxx11Ei(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %179, i32 noundef 2)
-  br label %180
+  %180 = phi ptr [ %177, %_ZN8V3PreLex10curStreampEv.exit44.thread ], [ %163, %_ZN8V3PreLex10curStreampEv.exit44.thread.thread ], [ %171, %_ZN8V3PreLex10curStreampEv.exit44 ]
+  tail call void @_ZNK8FileLine17lineDirectiveStrgB5cxx11Ei(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %180, i32 noundef 2)
+  br label %181
 
-180:                                              ; preds = %_ZNSt5stackIP10VPreStreamSt5dequeIS1_SaIS1_EEE3popEv.exit, %_ZN8V3PreLex10curStreampEv.exit22, %_ZN8V3PreLex10curStreampEv.exit28, %_ZN8V3PreLex12curFilelinepEv.exit35, %_ZN8V3PreLex12curFilelinepEv.exit45, %178, %._crit_edge.i.i
+181:                                              ; preds = %_ZNSt5stackIP10VPreStreamSt5dequeIS1_SaIS1_EEE3popEv.exit, %_ZN8V3PreLex10curStreampEv.exit22, %_ZN8V3PreLex10curStreampEv.exit28, %_ZN8V3PreLex12curFilelinepEv.exit35, %_ZN8V3PreLex12curFilelinepEv.exit45, %179, %._crit_edge.i.i
   ret void
 }
 

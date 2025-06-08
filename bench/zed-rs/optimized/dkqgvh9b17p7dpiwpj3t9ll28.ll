@@ -4235,7 +4235,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit: ; preds = %_ZN5prost8en
   %28 = phi i64 [ %.pre.i.i.i.i.i.i, %27 ], [ %24, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i ]
   %29 = load ptr, ptr %20, align 8, !alias.scope !805, !noalias !816, !nonnull !4, !noundef !4
   %30 = getelementptr inbounds i8, ptr %29, i64 %28
-  store i8 %9, ptr %30, align 1, !noalias !804
+  store i8 1, ptr %30, align 1, !noalias !804
   %31 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !805, !noalias !816, !noundef !4
   %32 = add i64 %31, 1
   store i64 %32, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !805, !noalias !816
@@ -4281,7 +4281,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit14: ; preds = %_ZN5prost8
   %49 = phi i64 [ %.pre.i.i.i.i.i.i12, %48 ], [ %45, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i11 ]
   %50 = load ptr, ptr %41, align 8, !alias.scope !844, !noalias !855, !nonnull !4, !noundef !4
   %51 = getelementptr inbounds i8, ptr %50, i64 %49
-  store i8 %13, ptr %51, align 1, !noalias !843
+  store i8 1, ptr %51, align 1, !noalias !843
   %52 = load i64, ptr %.phi.trans.insert.i.i9, align 8, !alias.scope !844, !noalias !855, !noundef !4
   %53 = add i64 %52, 1
   store i64 %53, ptr %.phi.trans.insert.i.i9, align 8, !alias.scope !844, !noalias !855
@@ -5051,7 +5051,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit: ; preds = %_ZN5prost8en
   %22 = phi i64 [ %.pre.i.i.i.i.i.i, %21 ], [ %18, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i ]
   %23 = load ptr, ptr %14, align 8, !alias.scope !995, !noalias !1006, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds i8, ptr %23, i64 %22
-  store i8 %3, ptr %24, align 1, !noalias !994
+  store i8 1, ptr %24, align 1, !noalias !994
   %25 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !995, !noalias !1006, !noundef !4
   %26 = add i64 %25, 1
   store i64 %26, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !995, !noalias !1006
@@ -5097,7 +5097,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit6: ; preds = %_ZN5prost8e
   %44 = phi i64 [ %.pre.i.i.i.i.i.i4, %43 ], [ %40, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i3 ]
   %45 = load ptr, ptr %36, align 8, !alias.scope !1029, !noalias !1040, !nonnull !4, !noundef !4
   %46 = getelementptr inbounds i8, ptr %45, i64 %44
-  store i8 %7, ptr %46, align 1, !noalias !1028
+  store i8 1, ptr %46, align 1, !noalias !1028
   %47 = load i64, ptr %.phi.trans.insert.i.i1, align 8, !alias.scope !1029, !noalias !1040, !noundef !4
   %48 = add i64 %47, 1
   store i64 %48, ptr %.phi.trans.insert.i.i1, align 8, !alias.scope !1029, !noalias !1040
@@ -5143,7 +5143,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit12: ; preds = %_ZN5prost8
   %66 = phi i64 [ %.pre.i.i.i.i.i.i10, %65 ], [ %62, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i9 ]
   %67 = load ptr, ptr %58, align 8, !alias.scope !1063, !noalias !1074, !nonnull !4, !noundef !4
   %68 = getelementptr inbounds i8, ptr %67, i64 %66
-  store i8 %29, ptr %68, align 1, !noalias !1062
+  store i8 1, ptr %68, align 1, !noalias !1062
   %69 = load i64, ptr %.phi.trans.insert.i.i7, align 8, !alias.scope !1063, !noalias !1074, !noundef !4
   %70 = add i64 %69, 1
   store i64 %70, ptr %.phi.trans.insert.i.i7, align 8, !alias.scope !1063, !noalias !1074
@@ -5189,7 +5189,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit18: ; preds = %_ZN5prost8
   %88 = phi i64 [ %.pre.i.i.i.i.i.i16, %87 ], [ %84, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i15 ]
   %89 = load ptr, ptr %80, align 8, !alias.scope !1097, !noalias !1108, !nonnull !4, !noundef !4
   %90 = getelementptr inbounds i8, ptr %89, i64 %88
-  store i8 %51, ptr %90, align 1, !noalias !1096
+  store i8 1, ptr %90, align 1, !noalias !1096
   %91 = load i64, ptr %.phi.trans.insert.i.i13, align 8, !alias.scope !1097, !noalias !1108, !noundef !4
   %92 = add i64 %91, 1
   store i64 %92, ptr %.phi.trans.insert.i.i13, align 8, !alias.scope !1097, !noalias !1108
@@ -5232,7 +5232,7 @@ _ZN5prost8encoding4bool6encode17h72db7f63066f82adE.exit24: ; preds = %_ZN5prost8
   %107 = phi i64 [ %.pre.i.i.i.i.i.i22, %106 ], [ %103, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.8801228890571076355.exit.i21 ]
   %108 = load ptr, ptr %99, align 8, !alias.scope !1131, !noalias !1142, !nonnull !4, !noundef !4
   %109 = getelementptr inbounds i8, ptr %108, i64 %107
-  store i8 %73, ptr %109, align 1, !noalias !1130
+  store i8 1, ptr %109, align 1, !noalias !1130
   %110 = load i64, ptr %.phi.trans.insert.i.i19, align 8, !alias.scope !1131, !noalias !1142, !noundef !4
   %111 = add i64 %110, 1
   store i64 %111, ptr %.phi.trans.insert.i.i19, align 8, !alias.scope !1131, !noalias !1142

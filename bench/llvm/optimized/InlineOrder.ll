@@ -7500,11 +7500,11 @@ _ZN12_GLOBAL__N_119CostBenefitPriorityC2EOS0_.exit.i.i: ; preds = %_ZN4llvm12Den
   store i32 0, ptr %80, align 8, !tbaa !189
   store i8 1, ptr %67, align 8, !tbaa !188
   %.pre.i.i = load i8, ptr %66, align 8, !tbaa !188, !range !56
+  %83 = trunc nuw i8 %.pre.i.i to i1
   %.val.i19.i.i = load i32, ptr %32, align 8, !tbaa !276
-  %83 = add i32 %.val.i19.i.i, 1
-  store i32 %83, ptr %32, align 8, !tbaa !276
-  %84 = trunc nuw i8 %.pre.i.i to i1
-  br i1 %84, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119CostBenefitPriorityD2Ev.exit.i.i
+  %84 = add i32 %.val.i19.i.i, 1
+  store i32 %84, ptr %32, align 8, !tbaa !276
+  br i1 %83, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_119CostBenefitPriorityD2Ev.exit.i.i
 
 _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i.i.i:          ; preds = %_ZN12_GLOBAL__N_119CostBenefitPriorityC2EOS0_.exit.i.i
   store i8 0, ptr %66, align 8, !tbaa !188

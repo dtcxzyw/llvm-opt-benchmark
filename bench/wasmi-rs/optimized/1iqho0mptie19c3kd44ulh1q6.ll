@@ -1991,7 +1991,7 @@ default.unreachable:                              ; preds = %12
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %.sroa.9.0.copyload.i = load i64, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !193, !noalias !195
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 %9, ptr %31, align 8, !alias.scope !190, !noalias !207
+  store i8 0, ptr %31, align 8, !alias.scope !190, !noalias !207
   %.sroa.741.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 %.sroa.7.0.copyload.i, ptr %.sroa.741.0..sroa_idx.i, align 1, !alias.scope !190, !noalias !207
   %.sroa.944.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 10

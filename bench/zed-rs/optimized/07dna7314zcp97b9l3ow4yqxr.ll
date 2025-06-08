@@ -9780,13 +9780,13 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   %50 = add i64 %49, 1
   store i64 %50, ptr %48, align 8
   %.pre = load i32, ptr %28, align 8, !range !417, !alias.scope !1822
-  %51 = or i32 %18, 1
+  %51 = icmp eq i32 %.pre, 0
+  %52 = or i32 %18, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1822)
-  %52 = icmp eq i32 %.pre, 0
-  br i1 %52, label %53, label %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h6a13898e4e19fac5E.exit"
+  br i1 %51, label %53, label %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h6a13898e4e19fac5E.exit"
 
 53:                                               ; preds = %.thread, %46
-  %54 = phi i32 [ %45, %.thread ], [ %51, %46 ]
+  %54 = phi i32 [ %45, %.thread ], [ %52, %46 ]
   %55 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1825)
   %56 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -9882,7 +9882,7 @@ common.resume:                                    ; preds = %100, %"_ZN72_$LT$al
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h6a13898e4e19fac5E.exit": ; preds = %67, %60, %46
-  %99 = phi i32 [ %54, %67 ], [ %54, %60 ], [ %51, %46 ]
+  %99 = phi i32 [ %54, %67 ], [ %54, %60 ], [ %52, %46 ]
   store i32 0, ptr %28, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %99, ptr %.sroa.57.0..sroa_idx8, align 4

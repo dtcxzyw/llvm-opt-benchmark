@@ -203,7 +203,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   %87 = phi i32 [ %63, %.lr.ph ], [ %85, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %63, %80 ], [ %63, %.lr.ph.i.i ]
   %88 = phi i32 [ %64, %.lr.ph ], [ %84, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %80 ], [ %62, %.lr.ph.i.i ]
   %89 = phi ptr [ %65, %.lr.ph ], [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %82, %80 ], [ %65, %.lr.ph.i.i ]
-  %90 = phi i8 [ %66, %.lr.ph ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %66, %80 ], [ %66, %.lr.ph.i.i ]
+  %90 = phi i8 [ %66, %.lr.ph ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %80 ], [ 1, %.lr.ph.i.i ]
   %91 = load ptr, ptr %67, align 8, !tbaa !188
   br label %92
 

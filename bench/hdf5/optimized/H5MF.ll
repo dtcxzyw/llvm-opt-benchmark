@@ -3066,7 +3066,7 @@ H5MF__close_pagefs.exit:                          ; preds = %.thread.i, %137
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %176, ptr %177, align 4, !tbaa !79
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 %165, ptr %178, align 8, !tbaa !82
+  store i8 1, ptr %178, align 8, !tbaa !82
   %179 = getelementptr inbounds nuw i8, ptr %157, i64 1520
   %180 = load i64, ptr %179, align 8, !tbaa !74
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 16

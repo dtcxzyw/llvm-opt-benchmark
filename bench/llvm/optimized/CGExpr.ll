@@ -22029,11 +22029,11 @@ _ZNK5clang10ASTContext22getAsVariableArrayTypeENS_8QualTypeE.exit: ; preds = %28
 302:                                              ; preds = %292, %295
   call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %13, ptr noundef nonnull align 8 dereferenceable(13) %24) #26
   %.pre271.pre = load i8, ptr %289, align 8, !tbaa !2282, !range !48
-  %303 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %304 = load i8, ptr %303, align 4, !tbaa !2280, !range !48, !noundef !49
-  store i8 %304, ptr %97, align 4, !tbaa !2280
-  %305 = trunc nuw i8 %.pre271.pre to i1
-  br i1 %305, label %306, label %.thread289
+  %303 = trunc nuw i8 %.pre271.pre to i1
+  %304 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %305 = load i8, ptr %304, align 4, !tbaa !2280, !range !48, !noundef !49
+  store i8 %305, ptr %97, align 4, !tbaa !2280
+  br i1 %303, label %306, label %.thread289
 
 306:                                              ; preds = %.thread287, %302
   store i8 0, ptr %289, align 8, !tbaa !2282

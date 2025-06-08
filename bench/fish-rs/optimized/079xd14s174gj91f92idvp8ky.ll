@@ -45974,10 +45974,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -48288,10 +48288,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -50602,10 +50602,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -52916,10 +52916,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -55230,10 +55230,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -57544,10 +57544,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -59858,10 +59858,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -62172,10 +62172,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -64486,10 +64486,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -66800,10 +66800,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -69114,10 +69114,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -71428,10 +71428,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -73742,10 +73742,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -76056,10 +76056,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -78370,10 +78370,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -80684,10 +80684,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -82998,10 +82998,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -85312,10 +85312,10 @@ define internal fastcc void @"_ZN66_$LT$fish..ast..Populator$u20$as$u20$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   %.pre = load i8, ptr %91, align 1, !range !184
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 218
-  store i8 1, ptr %139, align 2
-  %140 = trunc nuw i8 %.pre to i1
-  br i1 %140, label %.critedge, label %145
+  %139 = trunc nuw i8 %.pre to i1
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 218
+  store i8 1, ptr %140, align 2
+  br i1 %139, label %.critedge, label %145
 
 141:                                              ; preds = %810, %587, %325, %806, %744, %734, %.body322, %672, %668, %.body305, %.body297, %615, %611, %608, %604, %594, %583, %521, %511, %.body273, %449, %445, %.body256, %404, %397, %321, %242, %232, %.body232, %170, %166, %.body, %124, %112
   %142 = landingpad { ptr, i32 }
@@ -114773,10 +114773,10 @@ common.resume:                                    ; preds = %282, %482, %491, %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false), !noalias !11299
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %100), !noalias !11299
   %.pre.i = load i8, ptr %259, align 1, !range !184, !alias.scope !11287, !noalias !11290
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %309, align 2, !alias.scope !11287, !noalias !11290
-  %310 = trunc nuw i8 %.pre.i to i1
-  br i1 %310, label %.critedge.i, label %315
+  %309 = trunc nuw i8 %.pre.i to i1
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %310, align 2, !alias.scope !11287, !noalias !11290
+  br i1 %309, label %.critedge.i, label %315
 
 311:                                              ; preds = %980, %976, %914, %904, %.body322.i, %842, %838, %.body305.i, %.body297.i, %785, %781, %778, %774, %764, %757, %753, %691, %681, %.body273.i, %619, %615, %.body256.i, %574, %567, %495, %491, %412, %402, %.body232.i, %340, %336, %.body.i10, %294, %282
   %312 = landingpad { ptr, i32 }
@@ -118800,10 +118800,10 @@ default.unreachable:                              ; preds = %1144, %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false), !noalias !11734
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %100), !noalias !11734
   %.pre.i = load i8, ptr %419, align 1, !range !184, !alias.scope !11722, !noalias !11725
-  %469 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %469, align 2, !alias.scope !11722, !noalias !11725
-  %470 = trunc nuw i8 %.pre.i to i1
-  br i1 %470, label %.critedge.i, label %475
+  %469 = trunc nuw i8 %.pre.i to i1
+  %470 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %470, align 2, !alias.scope !11722, !noalias !11725
+  br i1 %469, label %.critedge.i, label %475
 
 471:                                              ; preds = %1140, %1136, %1074, %1064, %.body322.i, %1002, %998, %.body305.i, %.body297.i, %945, %941, %938, %934, %924, %917, %913, %851, %841, %.body273.i, %779, %775, %.body256.i, %734, %727, %655, %651, %572, %562, %.body232.i, %500, %496, %.body.i9, %454, %442
   %472 = landingpad { ptr, i32 }
@@ -131782,10 +131782,10 @@ default.unreachable:                              ; preds = %"_ZN66_$LT$fish..as
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !noalias !13163
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84), !noalias !13163
   %.pre.i = load i8, ptr %317, align 1, !range !184, !alias.scope !13156, !noalias !13161
-  %364 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  store i8 1, ptr %364, align 2, !alias.scope !13156, !noalias !13161
-  %365 = trunc nuw i8 %.pre.i to i1
-  br i1 %365, label %.critedge.i, label %370
+  %364 = trunc nuw i8 %.pre.i to i1
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  store i8 1, ptr %365, align 2, !alias.scope !13156, !noalias !13161
+  br i1 %364, label %.critedge.i, label %370
 
 366:                                              ; preds = %1035, %1031, %969, %959, %.body322.i, %897, %893, %.body305.i, %.body297.i, %840, %836, %833, %829, %819, %812, %808, %746, %736, %.body273.i, %674, %670, %.body256.i, %629, %622, %550, %546, %467, %457, %.body232.i, %395, %391, %.body.i9, %349, %337
   %367 = landingpad { ptr, i32 }

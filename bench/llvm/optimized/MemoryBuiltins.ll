@@ -14070,9 +14070,9 @@ _ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exi
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !94
   %29 = icmp ult i32 %28, 65
-  br i1 %29, label %_ZN4llvm5APIntaSERKS0_.exit.i.thread3, label %_ZN4llvm5APIntaSERKS0_.exit.i
+  br i1 %29, label %_ZN4llvm5APIntaSERKS0_.exit.i.thread2, label %_ZN4llvm5APIntaSERKS0_.exit.i
 
-_ZN4llvm5APIntaSERKS0_.exit.i.thread3:            ; preds = %26
+_ZN4llvm5APIntaSERKS0_.exit.i.thread2:            ; preds = %26
   %30 = load i64, ptr %4, align 8, !tbaa !96
   store i64 %30, ptr %2, align 8, !tbaa !96
   store i32 %28, ptr %23, align 8, !tbaa !94
@@ -14084,7 +14084,7 @@ _ZN4llvm5APIntaSERKS0_.exit.i:                    ; preds = %21, %26
   %31 = trunc nuw i8 %.pre to i1
   br i1 %31, label %32, label %"_ZZN4llvm23ObjectSizeOffsetVisitor11computeImplEPNS_5ValueEENK3$_0clERS1_RNS_5APIntE.exit"
 
-32:                                               ; preds = %_ZN4llvm5APIntaSERKS0_.exit.i.thread3, %_ZN4llvm5APIntaSERKS0_.exit.i
+32:                                               ; preds = %_ZN4llvm5APIntaSERKS0_.exit.i.thread2, %_ZN4llvm5APIntaSERKS0_.exit.i
   store i8 0, ptr %22, align 8, !tbaa !90
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !94
@@ -14545,12 +14545,12 @@ _ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exi
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i: ; preds = %26, %_ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exit.i, %41, %38, %34, %29
-  %spec.select.i3 = phi ptr [ %32, %41 ], [ %32, %38 ], [ %32, %34 ], [ %32, %29 ], [ %1, %_ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exit.i ], [ %1, %26 ]
+  %spec.select.i2 = phi ptr [ %32, %41 ], [ %32, %38 ], [ %32, %34 ], [ %32, %29 ], [ %1, %_ZL31aggregatePossibleConstantValuesPKN4llvm5ValueENS_14ObjectSizeOpts4ModeE.exit.i ], [ %1, %26 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   br label %"_ZZN4llvm23ObjectSizeOffsetVisitor13visitCallBaseERNS_8CallBaseEENK3$_0clEPKNS_5ValueE.exit"
 
 "_ZZN4llvm23ObjectSizeOffsetVisitor13visitCallBaseERNS_8CallBaseEENK3$_0clEPKNS_5ValueE.exit": ; preds = %2, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i
-  %.07.i = phi ptr [ %1, %2 ], [ %spec.select.i3, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i ]
+  %.07.i = phi ptr [ %1, %2 ], [ %spec.select.i2, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit.i ]
   ret ptr %.07.i
 }
 

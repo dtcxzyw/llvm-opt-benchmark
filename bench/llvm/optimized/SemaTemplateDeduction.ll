@@ -32489,7 +32489,7 @@ _ZN4llvm9MapVectorIPKN5clang13CXXRecordDeclEZL19DeduceTemplateBasesRNS1_4SemaES4
   br i1 %or.cond, label %439, label %.critedge.thread
 
 439:                                              ; preds = %433
-  store i8 %436, ptr %7, align 1, !tbaa !1074
+  store i8 1, ptr %7, align 1, !tbaa !1074
   br label %.critedge.thread
 
 .fold.split:                                      ; preds = %.critedge

@@ -7086,9 +7086,9 @@ define dso_local noundef ptr @_ZN5clang12Preprocessor25ReadMacroCallArgumentList
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %47 = load i16, ptr %46, align 8, !tbaa !523
   %.not453477 = icmp eq i16 %47, 23
-  br i1 %.not453477, label %.thread532, label %.lr.ph
+  br i1 %.not453477, label %.thread533, label %.lr.ph
 
-.thread532:                                       ; preds = %4
+.thread533:                                       ; preds = %4
   %48 = load i32, ptr %31, align 8, !tbaa !564
   br label %811
 
@@ -7121,7 +7121,7 @@ define dso_local noundef ptr @_ZN5clang12Preprocessor25ReadMacroCallArgumentList
   %71 = phi i32 [ 0, %.lr.ph ], [ %346, %340 ]
   %72 = phi i16 [ %47, %.lr.ph ], [ %351, %340 ]
   %.0117482 = phi i32 [ %32, %.lr.ph ], [ %spec.select166, %340 ]
-  %.0120481 = phi i8 [ 0, %.lr.ph ], [ %.2122.ph, %340 ]
+  %.0120481 = phi i8 [ 0, %.lr.ph ], [ %.2122.ph516, %340 ]
   %.0124480 = phi i1 [ false, %.lr.ph ], [ %.3127.ph, %340 ]
   %.0128479 = phi i32 [ 0, %.lr.ph ], [ %347, %340 ]
   %.sroa.0408.0478 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0408.3, %340 ]
@@ -7600,22 +7600,22 @@ thread-pre-split:                                 ; preds = %226, %_ZNK5clang5To
 
 260:                                              ; preds = %258
   %261 = load i16, ptr %54, align 8, !tbaa !523
-  %switch.tableidx563 = add i16 %261, -1
-  %262 = icmp ult i16 %switch.tableidx563, 19
-  br i1 %262, label %switch.hole_check564, label %263
+  %switch.tableidx560 = add i16 %261, -1
+  %262 = icmp ult i16 %switch.tableidx560, 19
+  br i1 %262, label %switch.hole_check561, label %263
 
-263:                                              ; preds = %switch.hole_check564, %260
+263:                                              ; preds = %switch.hole_check561, %260
   %264 = load ptr, ptr %55, align 8, !tbaa !524
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit190
 
-switch.hole_check564:                             ; preds = %260
-  %switch.maskindex565 = zext nneg i16 %switch.tableidx563 to i32
-  %switch.shifted566 = lshr i32 524225, %switch.maskindex565
-  %switch.lobit567 = trunc i32 %switch.shifted566 to i1
-  br i1 %switch.lobit567, label %_ZNK5clang5Token17getIdentifierInfoEv.exit190, label %263
+switch.hole_check561:                             ; preds = %260
+  %switch.maskindex562 = zext nneg i16 %switch.tableidx560 to i32
+  %switch.shifted563 = lshr i32 524225, %switch.maskindex562
+  %switch.lobit564 = trunc i32 %switch.shifted563 to i1
+  br i1 %switch.lobit564, label %_ZNK5clang5Token17getIdentifierInfoEv.exit190, label %263
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit190:    ; preds = %switch.hole_check564, %263
-  %.0.i189 = phi ptr [ %264, %263 ], [ null, %switch.hole_check564 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit190:    ; preds = %switch.hole_check561, %263
+  %.0.i189 = phi ptr [ %264, %263 ], [ null, %switch.hole_check561 ]
   %265 = load ptr, ptr %259, align 8, !tbaa !511
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
   %267 = load ptr, ptr %266, align 8
@@ -7666,13 +7666,14 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit: ; pr
   br label %.outer, !llvm.loop !736
 
 .loopexit:                                        ; preds = %222, %208, %_ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit180
+  %.2122.ph516 = phi i8 [ %.2122.ph, %208 ], [ 1, %_ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit180 ], [ %.2122.ph, %222 ]
   %.3127.ph = phi i1 [ %spec.select, %208 ], [ %.0124480, %_ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit180 ], [ %.0124480, %222 ]
   %.pr419 = load i32, ptr %44, align 8, !tbaa !265
   %.not.i191 = icmp eq i32 %.pr419, 0
   %.pre522 = load i16, ptr %46, align 8
   %288 = icmp eq i16 %.pre522, 23
-  %or.cond549 = select i1 %.not.i191, i1 %288, i1 false
-  br i1 %or.cond549, label %.thread430, label %289
+  %or.cond548 = select i1 %.not.i191, i1 %288, i1 false
+  br i1 %or.cond548, label %.thread430, label %289
 
 289:                                              ; preds = %.loopexit
   %290 = icmp eq i32 %.0117482, 0
@@ -7802,7 +7803,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit198:         ; preds = %324, %322, %_ZNSt7_
   %346 = add i32 %345, 1
   store i32 %346, ptr %44, align 8, !tbaa !265
   %347 = add i32 %.0128479, 1
-  %348 = trunc nuw i8 %.2122.ph to i1
+  %348 = trunc nuw i8 %.2122.ph516 to i1
   %349 = icmp ne i32 %.0117482, 0
   %not.455 = xor i1 %348, true
   %or.cond4.not = select i1 %not.455, i1 %349, i1 false
@@ -7814,10 +7815,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit198:         ; preds = %324, %322, %_ZNSt7_
   br i1 %.not453, label %.thread430, label %70
 
 .thread430:                                       ; preds = %.loopexit, %205, %340
+  %.2122.ph514 = phi i8 [ %.2122.ph516, %340 ], [ %.2122.ph, %205 ], [ %.2122.ph516, %.loopexit ]
   %.sroa.0408.0.lcssa.ph = phi i32 [ %.sroa.0408.3, %340 ], [ %.sroa.0408.0478, %205 ], [ %.sroa.0408.0478, %.loopexit ]
   %.0128.lcssa.ph = phi i32 [ %347, %340 ], [ %.0128479, %205 ], [ %.0128479, %.loopexit ]
   %.1125.ph = phi i1 [ %.3127.ph, %340 ], [ %.0124480, %205 ], [ %.3127.ph, %.loopexit ]
-  %352 = trunc nuw i8 %.2122.ph to i1
+  %352 = trunc nuw i8 %.2122.ph514 to i1
   %353 = load i32, ptr %31, align 8, !tbaa !564
   %354 = icmp ule i32 %.0128.lcssa.ph, %353
   %355 = select i1 %36, i1 true, i1 %354
@@ -7888,24 +7890,24 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit211:         ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %16, ptr noundef nonnull align 8 dereferenceable(15248) %383, i32 %.sroa.0.0.copyload.i212, i32 noundef 1264) #22
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %385 = load i16, ptr %384, align 8, !tbaa !523
-  %switch.tableidx568 = add i16 %385, -1
-  %386 = icmp ult i16 %switch.tableidx568, 19
-  br i1 %386, label %switch.hole_check569, label %387
+  %switch.tableidx565 = add i16 %385, -1
+  %386 = icmp ult i16 %switch.tableidx565, 19
+  br i1 %386, label %switch.hole_check566, label %387
 
-387:                                              ; preds = %switch.hole_check569, %_ZN5clang17DiagnosticBuilderD2Ev.exit211
+387:                                              ; preds = %switch.hole_check566, %_ZN5clang17DiagnosticBuilderD2Ev.exit211
   %388 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %389 = load ptr, ptr %388, align 8, !tbaa !524
   %390 = ptrtoint ptr %389 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit214
 
-switch.hole_check569:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit211
-  %switch.maskindex570 = zext nneg i16 %switch.tableidx568 to i32
-  %switch.shifted571 = lshr i32 524225, %switch.maskindex570
-  %switch.lobit572 = trunc i32 %switch.shifted571 to i1
-  br i1 %switch.lobit572, label %_ZNK5clang5Token17getIdentifierInfoEv.exit214, label %387
+switch.hole_check566:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit211
+  %switch.maskindex567 = zext nneg i16 %switch.tableidx565 to i32
+  %switch.shifted568 = lshr i32 524225, %switch.maskindex567
+  %switch.lobit569 = trunc i32 %switch.shifted568 to i1
+  br i1 %switch.lobit569, label %_ZNK5clang5Token17getIdentifierInfoEv.exit214, label %387
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit214:    ; preds = %switch.hole_check569, %387
-  %.0.i213 = phi i64 [ %390, %387 ], [ 0, %switch.hole_check569 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit214:    ; preds = %switch.hole_check566, %387
+  %.0.i213 = phi i64 [ %390, %387 ], [ 0, %switch.hole_check566 ]
   %391 = load ptr, ptr %16, align 8, !tbaa !525
   %.not.i324 = icmp eq ptr %391, null
   br i1 %.not.i324, label %392, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit340
@@ -8868,11 +8870,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit258: ;
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #22
   br label %811
 
-811:                                              ; preds = %.thread532, %._crit_edge503, %780
-  %.1125441448 = phi i1 [ %.1125441449, %._crit_edge503 ], [ %.1125.ph, %780 ], [ false, %.thread532 ]
-  %812 = phi i32 [ %782, %._crit_edge503 ], [ %353, %780 ], [ %48, %.thread532 ]
-  %813 = phi i1 [ true, %._crit_edge503 ], [ false, %780 ], [ false, %.thread532 ]
-  %.5133 = phi i32 [ %.6134.lcssa, %._crit_edge503 ], [ %.3131, %780 ], [ 0, %.thread532 ]
+811:                                              ; preds = %.thread533, %._crit_edge503, %780
+  %.1125441448 = phi i1 [ %.1125441449, %._crit_edge503 ], [ %.1125.ph, %780 ], [ false, %.thread533 ]
+  %812 = phi i32 [ %782, %._crit_edge503 ], [ %353, %780 ], [ %48, %.thread533 ]
+  %813 = phi i1 [ true, %._crit_edge503 ], [ false, %780 ], [ false, %.thread533 ]
+  %.5133 = phi i32 [ %.6134.lcssa, %._crit_edge503 ], [ %.3131, %780 ], [ 0, %.thread533 ]
   %814 = icmp ult i32 %.5133, %812
   br i1 %814, label %815, label %1120
 
@@ -8995,24 +8997,24 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit265:         ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %26, ptr noundef nonnull align 8 dereferenceable(15248) %870, i32 %.sroa.0.0.copyload.i266, i32 noundef 1264) #22
   %871 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %872 = load i16, ptr %871, align 8, !tbaa !523
-  %switch.tableidx573 = add i16 %872, -1
-  %873 = icmp ult i16 %switch.tableidx573, 19
-  br i1 %873, label %switch.hole_check574, label %874
+  %switch.tableidx570 = add i16 %872, -1
+  %873 = icmp ult i16 %switch.tableidx570, 19
+  br i1 %873, label %switch.hole_check571, label %874
 
-874:                                              ; preds = %switch.hole_check574, %_ZN5clang17DiagnosticBuilderD2Ev.exit265
+874:                                              ; preds = %switch.hole_check571, %_ZN5clang17DiagnosticBuilderD2Ev.exit265
   %875 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %876 = load ptr, ptr %875, align 8, !tbaa !524
   %877 = ptrtoint ptr %876 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit268
 
-switch.hole_check574:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit265
-  %switch.maskindex575 = zext nneg i16 %switch.tableidx573 to i32
-  %switch.shifted576 = lshr i32 524225, %switch.maskindex575
-  %switch.lobit577 = trunc i32 %switch.shifted576 to i1
-  br i1 %switch.lobit577, label %_ZNK5clang5Token17getIdentifierInfoEv.exit268, label %874
+switch.hole_check571:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit265
+  %switch.maskindex572 = zext nneg i16 %switch.tableidx570 to i32
+  %switch.shifted573 = lshr i32 524225, %switch.maskindex572
+  %switch.lobit574 = trunc i32 %switch.shifted573 to i1
+  br i1 %switch.lobit574, label %_ZNK5clang5Token17getIdentifierInfoEv.exit268, label %874
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit268:    ; preds = %switch.hole_check574, %874
-  %.0.i267 = phi i64 [ %877, %874 ], [ 0, %switch.hole_check574 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit268:    ; preds = %switch.hole_check571, %874
+  %.0.i267 = phi i64 [ %877, %874 ], [ 0, %switch.hole_check571 ]
   %878 = load ptr, ptr %26, align 8, !tbaa !525
   %.not.i341 = icmp eq ptr %878, null
   br i1 %.not.i341, label %879, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit357
@@ -9255,24 +9257,24 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit282:         ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %28, ptr noundef nonnull align 8 dereferenceable(15248) %986, i32 %.sroa.0.0.copyload.i283, i32 noundef 1264) #22
   %987 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %988 = load i16, ptr %987, align 8, !tbaa !523
-  %switch.tableidx578 = add i16 %988, -1
-  %989 = icmp ult i16 %switch.tableidx578, 19
-  br i1 %989, label %switch.hole_check579, label %990
+  %switch.tableidx575 = add i16 %988, -1
+  %989 = icmp ult i16 %switch.tableidx575, 19
+  br i1 %989, label %switch.hole_check576, label %990
 
-990:                                              ; preds = %switch.hole_check579, %_ZN5clang17DiagnosticBuilderD2Ev.exit282
+990:                                              ; preds = %switch.hole_check576, %_ZN5clang17DiagnosticBuilderD2Ev.exit282
   %991 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %992 = load ptr, ptr %991, align 8, !tbaa !524
   %993 = ptrtoint ptr %992 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit285
 
-switch.hole_check579:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit282
-  %switch.maskindex580 = zext nneg i16 %switch.tableidx578 to i32
-  %switch.shifted581 = lshr i32 524225, %switch.maskindex580
-  %switch.lobit582 = trunc i32 %switch.shifted581 to i1
-  br i1 %switch.lobit582, label %_ZNK5clang5Token17getIdentifierInfoEv.exit285, label %990
+switch.hole_check576:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit282
+  %switch.maskindex577 = zext nneg i16 %switch.tableidx575 to i32
+  %switch.shifted578 = lshr i32 524225, %switch.maskindex577
+  %switch.lobit579 = trunc i32 %switch.shifted578 to i1
+  br i1 %switch.lobit579, label %_ZNK5clang5Token17getIdentifierInfoEv.exit285, label %990
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit285:    ; preds = %switch.hole_check579, %990
-  %.0.i284 = phi i64 [ %993, %990 ], [ 0, %switch.hole_check579 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit285:    ; preds = %switch.hole_check576, %990
+  %.0.i284 = phi i64 [ %993, %990 ], [ 0, %switch.hole_check576 ]
   %994 = load ptr, ptr %28, align 8, !tbaa !525
   %.not.i358 = icmp eq ptr %994, null
   br i1 %.not.i358, label %995, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit374
@@ -9616,24 +9618,24 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit311:         ; preds = %_ZNSt7__cxx1112basi
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %30, ptr noundef nonnull align 8 dereferenceable(15248) %1154, i32 %.sroa.0.0.copyload.i312, i32 noundef 1264) #22
   %1155 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1156 = load i16, ptr %1155, align 8, !tbaa !523
-  %switch.tableidx583 = add i16 %1156, -1
-  %1157 = icmp ult i16 %switch.tableidx583, 19
-  br i1 %1157, label %switch.hole_check584, label %1158
+  %switch.tableidx580 = add i16 %1156, -1
+  %1157 = icmp ult i16 %switch.tableidx580, 19
+  br i1 %1157, label %switch.hole_check581, label %1158
 
-1158:                                             ; preds = %switch.hole_check584, %_ZN5clang17DiagnosticBuilderD2Ev.exit311
+1158:                                             ; preds = %switch.hole_check581, %_ZN5clang17DiagnosticBuilderD2Ev.exit311
   %1159 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1160 = load ptr, ptr %1159, align 8, !tbaa !524
   %1161 = ptrtoint ptr %1160 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit314
 
-switch.hole_check584:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit311
-  %switch.maskindex585 = zext nneg i16 %switch.tableidx583 to i32
-  %switch.shifted586 = lshr i32 524225, %switch.maskindex585
-  %switch.lobit587 = trunc i32 %switch.shifted586 to i1
-  br i1 %switch.lobit587, label %_ZNK5clang5Token17getIdentifierInfoEv.exit314, label %1158
+switch.hole_check581:                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit311
+  %switch.maskindex582 = zext nneg i16 %switch.tableidx580 to i32
+  %switch.shifted583 = lshr i32 524225, %switch.maskindex582
+  %switch.lobit584 = trunc i32 %switch.shifted583 to i1
+  br i1 %switch.lobit584, label %_ZNK5clang5Token17getIdentifierInfoEv.exit314, label %1158
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit314:    ; preds = %switch.hole_check584, %1158
-  %.0.i313 = phi i64 [ %1161, %1158 ], [ 0, %switch.hole_check584 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit314:    ; preds = %switch.hole_check581, %1158
+  %.0.i313 = phi i64 [ %1161, %1158 ], [ 0, %switch.hole_check581 ]
   %1162 = load ptr, ptr %30, align 8, !tbaa !525
   %.not.i375 = icmp eq ptr %1162, null
   br i1 %.not.i375, label %1163, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit391
@@ -13166,7 +13168,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %302, %300, %304, %3
   %.sroa.47.0.ph.be = phi ptr [ %.us-phi71, %211 ], [ %.us-phi71, %209 ], [ %.us-phi71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60 ], [ %.us-phi71, %.split69.us.split.us ], [ %.us-phi79, %_ZN5clang17DiagnosticBuilderD2Ev.exit71 ], [ %.us-phi79, %214 ], [ %.sroa.47.155, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ %.sroa.47.155, %.loopexit ]
   %.sroa.5.0.ph.be = phi i16 [ %.us-phi72, %211 ], [ %.us-phi72, %209 ], [ %.us-phi72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60 ], [ %.us-phi72, %.split69.us.split.us ], [ %.us-phi80, %_ZN5clang17DiagnosticBuilderD2Ev.exit71 ], [ %.us-phi80, %214 ], [ %.sroa.5.148, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ %.sroa.5.148, %.loopexit ]
   %.sroa.09.0.ph.be = phi i32 [ %.us-phi73, %211 ], [ %.us-phi73, %209 ], [ %.us-phi73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60 ], [ %.us-phi73, %.split69.us.split.us ], [ %.us-phi81, %_ZN5clang17DiagnosticBuilderD2Ev.exit71 ], [ %.us-phi81, %214 ], [ %.sroa.09.141, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ %.sroa.09.141, %.loopexit ]
-  %.sroa.511.0.ph.be = phi i8 [ %.us-phi74, %211 ], [ %.us-phi74, %209 ], [ %.us-phi74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60 ], [ %.us-phi74, %.split69.us.split.us ], [ %.us-phi82, %_ZN5clang17DiagnosticBuilderD2Ev.exit71 ], [ 0, %214 ], [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ 1, %.loopexit ]
+  %.sroa.511.0.ph.be = phi i8 [ %.us-phi74, %211 ], [ %.us-phi74, %209 ], [ %.us-phi74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60 ], [ %.us-phi74, %.split69.us.split.us ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit71 ], [ 0, %214 ], [ 1, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ 1, %.loopexit ]
   %.0.ph.be = phi i32 [ %.us-phi, %211 ], [ %.us-phi, %209 ], [ %.us-phi, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i60 ], [ %.us-phi, %.split69.us.split.us ], [ %212, %_ZN5clang17DiagnosticBuilderD2Ev.exit71 ], [ %212, %214 ], [ %.1, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ %.1, %.loopexit ]
   br label %.outer, !llvm.loop !916
 

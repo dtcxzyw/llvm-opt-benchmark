@@ -1230,7 +1230,7 @@ define internal fastcc void @_ZN3gmxL19setupAndRunInstanceERKNS_15BenchmarkSyste
 
 101:                                              ; preds = %3
   %102 = trunc nuw i8 %.val59.i to i1
-  br i1 %102, label %103, label %.thread
+  br i1 %102, label %103, label %.thread.i
 
 103:                                              ; preds = %101
   %104 = tail call noundef double @_Z20gmx_cycles_calibrated(double noundef 1.000000e+00), !noalias !175
@@ -1290,12 +1290,12 @@ define internal fastcc void @_ZN3gmxL19setupAndRunInstanceERKNS_15BenchmarkSyste
   %or.cond.i.i.i = or i1 %122, %.not.i.i.i
   br i1 %or.cond.i.i.i, label %124, label %125
 
-.thread:                                          ; preds = %101
+.thread.i:                                        ; preds = %101
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 0, ptr %123, align 8, !tbaa !179, !alias.scope !175, !noalias !171
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22, !noalias !171
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #22, !noalias !171
-  br label %.thread208
+  br label %.thread119.i
 
 124:                                              ; preds = %120
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL16checkKernelSetupB5cxx11ERKNS_23NbnxmKernelBenchOptionsEENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 106) #23
@@ -1306,7 +1306,7 @@ define internal fastcc void @_ZN3gmxL19setupAndRunInstanceERKNS_15BenchmarkSyste
 
 125:                                              ; preds = %120
   %126 = trunc nuw i8 %.val4.i.pre.i to i1
-  br i1 %126, label %127, label %.thread208
+  br i1 %126, label %127, label %.thread119.i
 
 127:                                              ; preds = %125
   %128 = invoke noundef double @_Z20gmx_cycles_calibrated(double noundef 1.000000e+00)
@@ -1318,7 +1318,7 @@ define internal fastcc void @_ZN3gmxL19setupAndRunInstanceERKNS_15BenchmarkSyste
 
 ._ZN3gmxL16checkKernelSetupB5cxx11ERKNS_23NbnxmKernelBenchOptionsE.exit.thread_crit_edge.i.i: ; preds = %.noexc60.i
   %.val5.pre.i.i = load i32, ptr %97, align 8, !tbaa !184, !noalias !171
-  br label %.thread208
+  br label %.thread119.i
 
 130:                                              ; preds = %.noexc60.i
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1373,10 +1373,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, %137
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #22, !noalias !171
-  br label %.thread.i
+  br label %.thread122.i
 
-.thread208:                                       ; preds = %.thread, %._ZN3gmxL16checkKernelSetupB5cxx11ERKNS_23NbnxmKernelBenchOptionsE.exit.thread_crit_edge.i.i, %125
-  %.val5.i.i = phi i32 [ %.val5.pre.i.i, %._ZN3gmxL16checkKernelSetupB5cxx11ERKNS_23NbnxmKernelBenchOptionsE.exit.thread_crit_edge.i.i ], [ %.val.i.pre.i, %125 ], [ %.val.i, %.thread ]
+.thread119.i:                                     ; preds = %.thread.i, %._ZN3gmxL16checkKernelSetupB5cxx11ERKNS_23NbnxmKernelBenchOptionsE.exit.thread_crit_edge.i.i, %125
+  %.val5.i.i = phi i32 [ %.val5.pre.i.i, %._ZN3gmxL16checkKernelSetupB5cxx11ERKNS_23NbnxmKernelBenchOptionsE.exit.thread_crit_edge.i.i ], [ %.val.i.pre.i, %125 ], [ %.val.i, %.thread.i ]
   %148 = icmp eq i32 %.val5.i.i, 1
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %150 = load i8, ptr %149, align 4, !range !24, !noalias !171
@@ -1392,7 +1392,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   invoke void @_ZN3gmx14PairlistParamsC1ENS_15NbnxmKernelTypeESt8optionalINS_12PairlistTypeEEbfb(ptr noundef nonnull align 4 dereferenceable(36) %12, i32 noundef %.val5.i.i, i64 0, i1 noundef zeroext false, float noundef %153, i1 noundef zeroext false)
           to label %154 unwind label %215
 
-154:                                              ; preds = %.thread208
+154:                                              ; preds = %.thread119.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #22, !noalias !171
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
   %155 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
@@ -1552,9 +1552,9 @@ _ZN3gmxL24convertLJCombinationRuleENS_22NbnxmBenchMarkCombRuleE.exit.i: ; preds 
 213:                                              ; preds = %130, %127, %124
   %214 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread.i
+  br label %.thread122.i
 
-215:                                              ; preds = %.thread208
+215:                                              ; preds = %.thread119.i
   %216 = landingpad { ptr, i32 }
           cleanup
   br label %304
@@ -1800,9 +1800,9 @@ _ZNKSt14default_deleteIN3gmx12PairlistSetsEEclEPS1_.exit.i.i: ; preds = %_ZNKSt1
 304:                                              ; preds = %.body63.i, %215
   %.pn42.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn.pn.i, %.body63.i ], [ %216, %215 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #22, !noalias !171
-  br label %.thread.i
+  br label %.thread122.i
 
-.thread.i:                                        ; preds = %304, %213, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i
+.thread122.i:                                     ; preds = %304, %213, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i
   %.pn42.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn.pn.pn.i, %304 ], [ %214, %213 ], [ %138, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22, !noalias !171
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i
@@ -1833,11 +1833,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i
 
 common.resume:                                    ; preds = %.body, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn51.pn114.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i ], [ %.pn147.pn.pn.pn.pn, %.body ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn51.pn124.i, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i ], [ %.pn147.pn.pn.pn.pn, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i79.i, %305, %.thread.i
-  %.pn51.pn114.i = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn.pn.pn.pn.i, %.thread.i ], [ %.pn51.i, %305 ], [ %.pn51.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i79.i ], [ %.pn51.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i ]
+_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit80.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i79.i, %305, %.thread122.i
+  %.pn51.pn124.i = phi { ptr, i32 } [ %.pn42.pn.pn.pn.pn.pn.pn.pn.i, %.thread122.i ], [ %.pn51.i, %305 ], [ %.pn51.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i79.i ], [ %.pn51.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i78.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #22, !noalias !171
   br label %common.resume
 
@@ -2103,16 +2103,16 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %458 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %459 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %460 = getelementptr inbounds nuw i8, ptr %27, i64 400
-  %.sroa.gep228 = getelementptr inbounds nuw i8, ptr %27, i64 440
-  %.sroa.gep229 = getelementptr inbounds nuw i8, ptr %27, i64 416
+  %.sroa.gep218 = getelementptr inbounds nuw i8, ptr %27, i64 440
+  %.sroa.gep219 = getelementptr inbounds nuw i8, ptr %27, i64 416
   br label %490
 
 ._crit_edge:                                      ; preds = %512, %449
   %461 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.val = load i32, ptr %461, align 8
-  %.val217 = load i32, ptr %462, align 4
-  %463 = select i1 %2, i32 %.val, i32 %.val217
+  %.val207 = load i32, ptr %462, align 4
+  %463 = select i1 %2, i32 %.val, i32 %.val207
   %464 = load ptr, ptr %24, align 8, !tbaa !217
   %465 = load ptr, ptr %464, align 8, !tbaa !189
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 40
@@ -2130,13 +2130,13 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %478 = extractvalue { i32, i32 } %477, 0
   %479 = extractvalue { i32, i32 } %477, 1
   %480 = zext i32 %478 to i64
-  %.neg226 = sub i32 0, %479
-  %.neg226.z = zext i32 %.neg226 to i64
-  %.neg225 = shl nuw i64 %.neg226.z, 32
+  %.neg216 = sub i32 0, %479
+  %.neg216.z = zext i32 %.neg216 to i64
+  %.neg215 = shl nuw i64 %.neg216.z, 32
   %481 = icmp sgt i32 %463, 0
-  br i1 %481, label %.lr.ph223, label %._crit_edge224
+  br i1 %481, label %.lr.ph213, label %._crit_edge214
 
-.lr.ph223:                                        ; preds = %._crit_edge
+.lr.ph213:                                        ; preds = %._crit_edge
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %483 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -2146,11 +2146,11 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %488 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %489 = getelementptr inbounds nuw i8, ptr %27, i64 400
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 440
-  %.sroa.gep227 = getelementptr inbounds nuw i8, ptr %27, i64 416
+  %.sroa.gep217 = getelementptr inbounds nuw i8, ptr %27, i64 416
   br label %526
 
 490:                                              ; preds = %.lr.ph, %512
-  %.0137220 = phi i32 [ 0, %.lr.ph ], [ %513, %512 ]
+  %.0137210 = phi i32 [ 0, %.lr.ph ], [ %513, %512 ]
   %491 = load ptr, ptr %24, align 8, !tbaa !217
   %492 = load ptr, ptr %453, align 8, !tbaa !43
   store ptr %492, ptr %31, align 8, !tbaa !220
@@ -2162,13 +2162,13 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   store ptr %497, ptr %454, align 8, !tbaa !220
   %498 = load i8, ptr %457, align 8, !tbaa !298, !range !24, !noundef !25
   %499 = trunc nuw i8 %498 to i1
-  %.sroa.gep228.val = load ptr, ptr %.sroa.gep228, align 8
-  %.sroa.gep229.val = load ptr, ptr %.sroa.gep229, align 8
-  %500 = select i1 %499, ptr %.sroa.gep228.val, ptr %.sroa.gep229.val
+  %.sroa.gep218.val = load ptr, ptr %.sroa.gep218, align 8
+  %.sroa.gep219.val = load ptr, ptr %.sroa.gep219, align 8
+  %500 = select i1 %499, ptr %.sroa.gep218.val, ptr %.sroa.gep219.val
   store ptr %500, ptr %32, align 8, !tbaa !299
-  %.sroa.sel230.sroa.sel.v.sroa.sel.v = select i1 %499, i64 448, i64 424
-  %.sroa.sel230.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %27, i64 %.sroa.sel230.sroa.sel.v.sroa.sel.v
-  %501 = load ptr, ptr %.sroa.sel230.sroa.sel.v.sroa.sel, align 8, !tbaa !210
+  %.sroa.sel220.sroa.sel.v.sroa.sel.v = select i1 %499, i64 448, i64 424
+  %.sroa.sel220.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %27, i64 %.sroa.sel220.sroa.sel.v.sroa.sel.v
+  %501 = load ptr, ptr %.sroa.sel220.sroa.sel.v.sroa.sel, align 8, !tbaa !210
   %502 = ptrtoint ptr %501 to i64
   %503 = ptrtoint ptr %500 to i64
   %504 = sub i64 %502, %503
@@ -2186,7 +2186,7 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
           to label %512 unwind label %516
 
 512:                                              ; preds = %490
-  %513 = add nuw nsw i32 %.0137220, 1
+  %513 = add nuw nsw i32 %.0137210, 1
   %514 = load i32, ptr %450, align 8, !tbaa !276
   %515 = icmp slt i32 %513, %514
   br i1 %515, label %490, label %._crit_edge, !llvm.loop !301
@@ -2196,20 +2196,20 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
           cleanup
   br label %704
 
-._crit_edge224:                                   ; preds = %548, %._crit_edge
+._crit_edge214:                                   ; preds = %548, %._crit_edge
   %518 = call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !297
   %519 = extractvalue { i32, i32 } %518, 0
   %520 = extractvalue { i32, i32 } %518, 1
   %521 = zext i32 %519 to i64
   %522 = zext i32 %520 to i64
   %523 = shl nuw i64 %522, 32
-  %.neg219 = sub i64 %.neg225, %480
-  %524 = add i64 %.neg219, %521
+  %.neg209 = sub i64 %.neg215, %480
+  %524 = add i64 %.neg209, %521
   %525 = add i64 %524, %523
   br i1 %2, label %644, label %552
 
-526:                                              ; preds = %.lr.ph223, %548
-  %.0131221 = phi i32 [ 0, %.lr.ph223 ], [ %549, %548 ]
+526:                                              ; preds = %.lr.ph213, %548
+  %.0131211 = phi i32 [ 0, %.lr.ph213 ], [ %549, %548 ]
   %527 = load ptr, ptr %24, align 8, !tbaa !217
   %528 = load ptr, ptr %482, align 8, !tbaa !43
   store ptr %528, ptr %34, align 8, !tbaa !220
@@ -2222,8 +2222,8 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %534 = load i8, ptr %486, align 8, !tbaa !298, !range !24, !noundef !25
   %535 = trunc nuw i8 %534 to i1
   %.sroa.gep.val = load ptr, ptr %.sroa.gep, align 8
-  %.sroa.gep227.val = load ptr, ptr %.sroa.gep227, align 8
-  %536 = select i1 %535, ptr %.sroa.gep.val, ptr %.sroa.gep227.val
+  %.sroa.gep217.val = load ptr, ptr %.sroa.gep217, align 8
+  %536 = select i1 %535, ptr %.sroa.gep.val, ptr %.sroa.gep217.val
   store ptr %536, ptr %35, align 8, !tbaa !299
   %.sroa.sel.sroa.sel.v.sroa.sel.v = select i1 %535, i64 448, i64 424
   %.sroa.sel.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %27, i64 %.sroa.sel.sroa.sel.v.sroa.sel.v
@@ -2245,16 +2245,16 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
           to label %548 unwind label %550
 
 548:                                              ; preds = %526
-  %549 = add nuw nsw i32 %.0131221, 1
+  %549 = add nuw nsw i32 %.0131211, 1
   %exitcond.not = icmp eq i32 %549, %463
-  br i1 %exitcond.not, label %._crit_edge224, label %526, !llvm.loop !302
+  br i1 %exitcond.not, label %._crit_edge214, label %526, !llvm.loop !302
 
 550:                                              ; preds = %526
   %551 = landingpad { ptr, i32 }
           cleanup
   br label %704
 
-552:                                              ; preds = %._crit_edge224
+552:                                              ; preds = %._crit_edge214
   %553 = load i8, ptr %98, align 1, !tbaa !49, !range !24, !noundef !25
   %554 = trunc nuw i8 %553 to i1
   br i1 %554, label %555, label %619
@@ -2369,7 +2369,7 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %643 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %624, ptr noundef nonnull @.str.43, double noundef %625, double noundef %629, double noundef %641, double noundef %642) #22
   br label %644
 
-644:                                              ; preds = %636, %640, %581, %575, %604, %598, %._crit_edge224
+644:                                              ; preds = %636, %640, %581, %575, %604, %598, %._crit_edge214
   %645 = getelementptr inbounds nuw i8, ptr %30, i64 96
   br label %646
 

@@ -10151,12 +10151,12 @@ learn_sender_sid.exit.i:                          ; preds = %672, %702, %674, %6
   %709 = call ptr @tvb_get_ptr(ptr noundef %628, i32 noundef 0, i32 noundef %630)
   call fastcc void @learn_operation_sid(ptr noundef %708, i8 noundef zeroext %631, ptr noundef %709)
   %.pre.i = load i8, ptr %617, align 8, !range !10
-  %710 = add i32 %630, %613
-  %711 = trunc nuw i8 %.pre.i to i1
-  br i1 %711, label %712, label %758
+  %710 = trunc nuw i8 %.pre.i to i1
+  %711 = add i32 %630, %613
+  br i1 %710, label %712, label %758
 
 712:                                              ; preds = %707
-  %713 = call zeroext i8 @tvb_get_uint8(ptr noundef %565, i32 noundef %710)
+  %713 = call zeroext i8 @tvb_get_uint8(ptr noundef %565, i32 noundef %711)
   %714 = icmp slt i8 %713, 0
   %715 = and i8 %713, 64
   %716 = icmp eq i8 %715, 0
@@ -10168,7 +10168,7 @@ learn_sender_sid.exit.i:                          ; preds = %672, %702, %674, %6
   br i1 %714, label %.lr.ph.i74.i, label %read_c4.exit.i
 
 .lr.ph.i74.i:                                     ; preds = %712, %.lr.ph.i74.i
-  %.02331.i.in.i = phi i32 [ %.02331.i.i, %.lr.ph.i74.i ], [ %710, %712 ]
+  %.02331.i.in.i = phi i32 [ %.02331.i.i, %.lr.ph.i74.i ], [ %711, %712 ]
   %.030.i.i = phi i32 [ %723, %.lr.ph.i74.i ], [ 1, %712 ]
   %.02229.i.i = phi i32 [ %722, %.lr.ph.i74.i ], [ %718, %712 ]
   %.02331.i.i = add i32 %.02331.i.in.i, 1
@@ -10183,7 +10183,7 @@ learn_sender_sid.exit.i:                          ; preds = %672, %702, %674, %6
 read_c4.exit.i:                                   ; preds = %.lr.ph.i74.i, %712
   %.022.lcssa.i.i = phi i32 [ %718, %712 ], [ %722, %.lr.ph.i74.i ]
   %724 = load i32, ptr @hf_2009_12_dpp_2_1_opcnt, align 4
-  %725 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.069.i, i32 noundef %724, ptr noundef %565, i32 noundef %710, i32 noundef %.021.i.i, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull @.str.716, i32 noundef %.022.lcssa.i.i)
+  %725 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.069.i, i32 noundef %724, ptr noundef %565, i32 noundef %711, i32 noundef %.021.i.i, i32 noundef %.022.lcssa.i.i, ptr noundef nonnull @.str.716, i32 noundef %.022.lcssa.i.i)
   %726 = icmp ult i32 %.022.lcssa.i.i, 128
   %or.cond.i75.i = and i1 %714, %726
   br i1 %or.cond.i75.i, label %727, label %729
@@ -10203,7 +10203,7 @@ read_c4.exit.i:                                   ; preds = %.lr.ph.i74.i, %712
   br label %validate_c4.exit.i
 
 validate_c4.exit.i:                               ; preds = %732, %729
-  %734 = add i32 %.021.i.i, %710
+  %734 = add i32 %.021.i.i, %711
   %735 = getelementptr inbounds nuw i8, ptr %577, i64 136
   store i32 %.022.lcssa.i.i, ptr %735, align 8
   br label %758
@@ -10253,7 +10253,7 @@ read_c2.exit.i570:                                ; preds = %746, %739
   br label %758
 
 758:                                              ; preds = %575, %validate_c2.exit.i, %.thread.i, %707, %validate_c4.exit.i, %751, %755
-  %.pn = phi i32 [ 0, %575 ], [ %613, %validate_c2.exit.i ], [ %734, %validate_c4.exit.i ], [ %710, %707 ], [ %706, %.thread.i ], [ %754, %751 ], [ 0, %755 ]
+  %.pn = phi i32 [ 0, %575 ], [ %613, %validate_c2.exit.i ], [ %734, %validate_c4.exit.i ], [ %711, %707 ], [ %706, %.thread.i ], [ %754, %751 ], [ 0, %755 ]
   %.16 = add i32 %.pn, %.15
   %759 = load ptr, ptr %100, align 8
   call void @col_set_fence(ptr noundef %759, i32 noundef 35)

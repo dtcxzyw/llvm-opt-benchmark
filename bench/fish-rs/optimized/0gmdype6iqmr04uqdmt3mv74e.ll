@@ -30180,7 +30180,7 @@ _ZN4fish3env16environment_impl12EnvStackImpl25resolve_unspecified_scope17h975eb8
   %.sroa.9.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %24, i64 3
   store i8 %.sroa.04.0.i, ptr %.sroa.9.0..sroa_idx165, align 1
   %.sroa.13.0..sroa_idx169 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i8 %.sroa.05.0.i, ptr %.sroa.13.0..sroa_idx169, align 1
+  store i8 1, ptr %.sroa.13.0..sroa_idx169, align 1
   %.sroa.15.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %24, i64 5
   store i8 %68, ptr %.sroa.15.0..sroa_idx171, align 1
   %.sroa.18.0..sroa_idx174 = getelementptr inbounds nuw i8, ptr %24, i64 6

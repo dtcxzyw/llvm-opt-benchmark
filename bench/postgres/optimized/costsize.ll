@@ -5831,104 +5831,103 @@ approx_tuple_count.exit:                          ; preds = %._crit_edge.i, %123
   %136 = icmp eq i32 %135, 294
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 136
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !4
-  br i1 %136, label %approx_tuple_count.exit._crit_edge, label %137
+  %137 = trunc nuw i8 %.pre to i1
+  %brmerge = select i1 %136, i1 true, i1 %137
+  %not. = xor i1 %136, true
+  %.mux = select i1 %not., i1 true, i1 %137
+  br i1 %brmerge, label %approx_tuple_count.exit._crit_edge, label %138
 
-137:                                              ; preds = %approx_tuple_count.exit
-  %138 = trunc nuw i8 %.pre to i1
-  br i1 %138, label %approx_tuple_count.exit._crit_edge, label %139
+138:                                              ; preds = %approx_tuple_count.exit
+  %139 = fsub double %.0.i.i, %.0
+  %140 = fcmp olt double %139, 0.000000e+00
+  br i1 %140, label %141, label %approx_tuple_count.exit._crit_edge
 
-139:                                              ; preds = %137
-  %140 = fsub double %.0.i.i, %.0
-  %141 = fcmp olt double %140, 0.000000e+00
-  br i1 %141, label %142, label %approx_tuple_count.exit._crit_edge
-
-142:                                              ; preds = %139
+141:                                              ; preds = %138
   br label %approx_tuple_count.exit._crit_edge
 
-approx_tuple_count.exit._crit_edge:               ; preds = %approx_tuple_count.exit, %137, %139, %142
-  %143 = phi i8 [ 0, %142 ], [ 0, %139 ], [ 1, %137 ], [ %.pre, %approx_tuple_count.exit ]
-  %.095 = phi double [ 0.000000e+00, %142 ], [ %140, %139 ], [ 0.000000e+00, %137 ], [ 0.000000e+00, %approx_tuple_count.exit ]
-  %144 = fdiv double %.095, %27
-  %145 = fadd double %144, 1.000000e+00
-  %146 = fmul double %23, %145
-  %147 = load double, ptr @cpu_operator_cost, align 8
-  %148 = fmul double %27, %147
-  %149 = call double @llvm.fmuladd.f64(double %148, double %145, double %23)
-  %150 = trunc nuw i8 %143 to i1
-  br i1 %150, label %176, label %151
+approx_tuple_count.exit._crit_edge:               ; preds = %approx_tuple_count.exit, %138, %141
+  %142 = phi i1 [ false, %141 ], [ false, %138 ], [ %.mux, %approx_tuple_count.exit ]
+  %.095 = phi double [ 0.000000e+00, %141 ], [ %139, %138 ], [ 0.000000e+00, %approx_tuple_count.exit ]
+  %143 = fdiv double %.095, %27
+  %144 = fadd double %143, 1.000000e+00
+  %145 = fmul double %23, %144
+  %146 = load double, ptr @cpu_operator_cost, align 8
+  %147 = fmul double %27, %146
+  %148 = call double @llvm.fmuladd.f64(double %147, double %144, double %23)
+  br i1 %142, label %174, label %149
 
-151:                                              ; preds = %approx_tuple_count.exit._crit_edge
-  %152 = load i8, ptr @enable_material, align 1, !range !4, !noundef !5
-  %153 = trunc nuw i8 %152 to i1
-  %154 = fcmp olt double %149, %146
-  %or.cond101 = select i1 %153, i1 %154, i1 false
-  br i1 %or.cond101, label %176, label %155
+149:                                              ; preds = %approx_tuple_count.exit._crit_edge
+  %150 = load i8, ptr @enable_material, align 1, !range !4, !noundef !5
+  %151 = trunc nuw i8 %150 to i1
+  %152 = fcmp olt double %148, %145
+  %or.cond101 = select i1 %151, i1 %152, i1 false
+  br i1 %or.cond101, label %174, label %153
 
-155:                                              ; preds = %151
-  %156 = icmp eq ptr %17, null
-  br i1 %156, label %157, label %159
+153:                                              ; preds = %149
+  %154 = icmp eq ptr %17, null
+  br i1 %154, label %155, label %157
 
-157:                                              ; preds = %155
-  %158 = call zeroext i1 @ExecSupportsMarkRestore(ptr noundef nonnull %11) #17
-  br i1 %158, label %.thread, label %176
+155:                                              ; preds = %153
+  %156 = call zeroext i1 @ExecSupportsMarkRestore(ptr noundef nonnull %11) #17
+  br i1 %156, label %.thread, label %174
 
-159:                                              ; preds = %155
-  br i1 %153, label %160, label %.thread
+157:                                              ; preds = %153
+  br i1 %151, label %158, label %.thread
 
-160:                                              ; preds = %159
-  %161 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 40
-  %164 = load i32, ptr %163, align 8
-  %165 = sext i32 %164 to i64
-  %166 = add nsw i64 %165, 7
-  %167 = and i64 %166, -8
-  %168 = add nsw i64 %167, 24
-  %169 = uitofp i64 %168 to double
-  %170 = fmul double %.0, %169
-  %171 = load i32, ptr @work_mem, align 4
-  %172 = sext i32 %171 to i64
-  %173 = shl nsw i64 %172, 10
-  %174 = uitofp i64 %173 to double
-  %175 = fcmp ogt double %170, %174
-  br i1 %175, label %176, label %.thread
+158:                                              ; preds = %157
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 40
+  %162 = load i32, ptr %161, align 8
+  %163 = sext i32 %162 to i64
+  %164 = add nsw i64 %163, 7
+  %165 = and i64 %164, -8
+  %166 = add nsw i64 %165, 24
+  %167 = uitofp i64 %166 to double
+  %168 = fmul double %.0, %167
+  %169 = load i32, ptr @work_mem, align 4
+  %170 = sext i32 %169 to i64
+  %171 = shl nsw i64 %170, 10
+  %172 = uitofp i64 %171 to double
+  %173 = fcmp ogt double %168, %172
+  br i1 %173, label %174, label %.thread
 
-.thread:                                          ; preds = %157, %160, %159
-  br label %176
+.thread:                                          ; preds = %155, %158, %157
+  br label %174
 
-176:                                              ; preds = %160, %157, %151, %approx_tuple_count.exit._crit_edge, %.thread
-  %.sink131 = phi i8 [ 0, %.thread ], [ 0, %approx_tuple_count.exit._crit_edge ], [ 1, %151 ], [ 1, %157 ], [ 1, %160 ]
-  %. = phi double [ %146, %.thread ], [ %146, %approx_tuple_count.exit._crit_edge ], [ %149, %151 ], [ %149, %157 ], [ %149, %160 ]
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 137
-  store i8 %.sink131, ptr %177, align 1
-  %178 = fsub double %.sroa.6.0.copyload, %.sroa.5.0.copyload
-  %179 = fsub double %.sroa.0.0.copyload, %.sroa.0122.0.copyload
+174:                                              ; preds = %158, %155, %149, %approx_tuple_count.exit._crit_edge, %.thread
+  %.sink131 = phi i8 [ 0, %.thread ], [ 0, %approx_tuple_count.exit._crit_edge ], [ 1, %149 ], [ 1, %155 ], [ 1, %158 ]
+  %. = phi double [ %145, %.thread ], [ %145, %approx_tuple_count.exit._crit_edge ], [ %148, %149 ], [ %148, %155 ], [ %148, %158 ]
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 137
+  store i8 %.sink131, ptr %175, align 1
+  %176 = fsub double %.sroa.6.0.copyload, %.sroa.5.0.copyload
+  %177 = fsub double %.sroa.0.0.copyload, %.sroa.0122.0.copyload
   %.096 = fadd double %21, %.
-  %180 = fadd double %19, %.sroa.0122.0.copyload
-  %181 = call double @llvm.fmuladd.f64(double %31, double %145, double %29)
-  %182 = call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %181, double %180)
-  %183 = fsub double %25, %29
-  %184 = fsub double %27, %31
-  %185 = call double @llvm.fmuladd.f64(double %184, double %145, double %183)
-  %186 = call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %185, double %.096)
-  %187 = fadd double %179, %182
-  %188 = load double, ptr @cpu_tuple_cost, align 8
-  %189 = fadd double %178, %188
-  %190 = call double @llvm.fmuladd.f64(double %189, double %.0.i.i, double %186)
-  %191 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  %194 = load double, ptr %193, align 8
-  %195 = fadd double %187, %194
-  %196 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  %197 = load double, ptr %196, align 8
-  %198 = load double, ptr %42, align 8
-  %199 = call double @llvm.fmuladd.f64(double %197, double %198, double %190)
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store double %195, ptr %200, align 8
-  %201 = fadd double %195, %199
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store double %201, ptr %202, align 8
+  %178 = fadd double %19, %.sroa.0122.0.copyload
+  %179 = call double @llvm.fmuladd.f64(double %31, double %144, double %29)
+  %180 = call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %179, double %178)
+  %181 = fsub double %25, %29
+  %182 = fsub double %27, %31
+  %183 = call double @llvm.fmuladd.f64(double %182, double %144, double %181)
+  %184 = call double @llvm.fmuladd.f64(double %.sroa.5.0.copyload, double %183, double %.096)
+  %185 = fadd double %177, %180
+  %186 = load double, ptr @cpu_tuple_cost, align 8
+  %187 = fadd double %176, %186
+  %188 = call double @llvm.fmuladd.f64(double %187, double %.0.i.i, double %184)
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  %192 = load double, ptr %191, align 8
+  %193 = fadd double %185, %192
+  %194 = getelementptr inbounds nuw i8, ptr %190, i64 32
+  %195 = load double, ptr %194, align 8
+  %196 = load double, ptr %42, align 8
+  %197 = call double @llvm.fmuladd.f64(double %195, double %196, double %188)
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store double %193, ptr %198, align 8
+  %199 = fadd double %193, %197
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store double %199, ptr %200, align 8
   ret void
 }
 

@@ -2386,7 +2386,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
 138:                                              ; preds = %.thread
   %139 = call signext i8 @op_volatile(i32 noundef %1) #7
   %.not106 = icmp eq i8 %139, 105
-  %spec.select107 = select i1 %.not106, i8 %.1, i8 0
+  %spec.select107 = zext i1 %.not106 to i8
   br label %140
 
 140:                                              ; preds = %138, %.thread

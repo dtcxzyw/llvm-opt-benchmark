@@ -5824,7 +5824,7 @@ define hidden void @_ZN6Assimp3IFC26DerivePlaneCoordinateSpaceERKNS0_8TempMeshER
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %54)
   %55 = tail call double @llvm.fabs.f64(double %sqrt.i)
   %56 = fcmp ogt double %55, 0x3E45798EE0000000
-  br i1 %56, label %._crit_edge89.thread110.loopexit, label %31
+  br i1 %56, label %._crit_edge89.thread118, label %31
 
 ._crit_edge:                                      ; preds = %31, %.lr.ph88
   %.not = icmp ult i64 %20, %18
@@ -5834,7 +5834,7 @@ define hidden void @_ZN6Assimp3IFC26DerivePlaneCoordinateSpaceERKNS0_8TempMeshER
   store i8 0, ptr %2, align 1
   br label %107
 
-._crit_edge89.thread110.loopexit:                 ; preds = %33
+._crit_edge89.thread118:                          ; preds = %33
   %57 = fneg double %45
   %58 = fneg double %48
   %59 = fneg double %51
@@ -5844,7 +5844,7 @@ define hidden void @_ZN6Assimp3IFC26DerivePlaneCoordinateSpaceERKNS0_8TempMeshER
   %63 = fcmp oeq double %62, 0.000000e+00
   br i1 %63, label %_ZN10aiVector3tIdE9NormalizeEv.exit, label %_ZN10aiVector3tIdEdVEd.exit.i
 
-_ZN10aiVector3tIdEdVEd.exit.i:                    ; preds = %._crit_edge89.thread110.loopexit
+_ZN10aiVector3tIdEdVEd.exit.i:                    ; preds = %._crit_edge89.thread118
   %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %62)
   %64 = fdiv double 1.000000e+00, %sqrt.i.i
   %65 = fmul double %64, %57
@@ -5852,10 +5852,10 @@ _ZN10aiVector3tIdEdVEd.exit.i:                    ; preds = %._crit_edge89.threa
   %67 = fmul double %64, %59
   br label %_ZN10aiVector3tIdE9NormalizeEv.exit
 
-_ZN10aiVector3tIdE9NormalizeEv.exit:              ; preds = %._crit_edge89.thread110.loopexit, %_ZN10aiVector3tIdEdVEd.exit.i
-  %.sroa.16.3 = phi double [ %59, %._crit_edge89.thread110.loopexit ], [ %67, %_ZN10aiVector3tIdEdVEd.exit.i ]
-  %.sroa.1058.3 = phi double [ %58, %._crit_edge89.thread110.loopexit ], [ %66, %_ZN10aiVector3tIdEdVEd.exit.i ]
-  %.sroa.054.3 = phi double [ %57, %._crit_edge89.thread110.loopexit ], [ %65, %_ZN10aiVector3tIdEdVEd.exit.i ]
+_ZN10aiVector3tIdE9NormalizeEv.exit:              ; preds = %._crit_edge89.thread118, %_ZN10aiVector3tIdEdVEd.exit.i
+  %.sroa.16.3 = phi double [ %59, %._crit_edge89.thread118 ], [ %67, %_ZN10aiVector3tIdEdVEd.exit.i ]
+  %.sroa.1058.3 = phi double [ %58, %._crit_edge89.thread118 ], [ %66, %_ZN10aiVector3tIdEdVEd.exit.i ]
+  %.sroa.054.3 = phi double [ %57, %._crit_edge89.thread118 ], [ %65, %_ZN10aiVector3tIdEdVEd.exit.i ]
   store double %.sroa.054.3, ptr %3, align 8
   %.sroa.1058.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %.sroa.1058.3, ptr %.sroa.1058.0..sroa_idx, align 8

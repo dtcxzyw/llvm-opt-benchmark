@@ -30,17 +30,17 @@ declare ptr @duckdb_je_pages_map(ptr noundef, i64 noundef, i64 noundef, ptr noun
 define zeroext i1 @duckdb_je_extent_dalloc_mmap(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @duckdb_je_opt_retain, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %6, label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
   tail call void @duckdb_je_pages_unmap(ptr noundef %0, i64 noundef %1) #2
   %.pre = load i8, ptr @duckdb_je_opt_retain, align 1, !tbaa !3, !range !7
-  %.pre1 = trunc nuw i8 %.pre to i1
-  br label %6
+  %6 = trunc nuw i8 %.pre to i1
+  br label %7
 
-6:                                                ; preds = %5, %2
-  %.pre-phi = phi i1 [ %.pre1, %5 ], [ true, %2 ]
-  ret i1 %.pre-phi
+7:                                                ; preds = %5, %2
+  %8 = phi i1 [ %6, %5 ], [ true, %2 ]
+  ret i1 %8
 }
 
 declare void @duckdb_je_pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #1

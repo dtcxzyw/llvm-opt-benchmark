@@ -52630,7 +52630,7 @@ _ZN4gpui7element7Element8into_any17h710ed800aface94eE.exit.i.i64: ; preds = %129
 
 "_ZN9collab_ui12collab_panel11CollabPanel25render_participant_screen28_$u7b$$u7b$closure$u7d$$u7d$17h443adefa5567f4f3E.exit.i": ; preds = %1304
   %1310 = getelementptr inbounds nuw i8, ptr %403, i64 32
-  store i32 %.sroa.0244.0.copyload, ptr %1310, align 8, !alias.scope !12867, !noalias !12871
+  store i32 1, ptr %1310, align 8, !alias.scope !12867, !noalias !12871
   %.sroa.5246.0..sroa_idx247 = getelementptr inbounds nuw i8, ptr %403, i64 36
   store i32 %.sroa.5246.0.copyload, ptr %.sroa.5246.0..sroa_idx247, align 4, !alias.scope !12867, !noalias !12871
   %.sroa.6.0..sroa_idx249 = getelementptr inbounds nuw i8, ptr %403, i64 40

@@ -5859,9 +5859,9 @@ define internal fastcc void @_ZN3mbe8expander7matcher16match_loop_inner17h2d18cb
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %95)
   %.pre = load i64, ptr %96, align 8, !range !112
   %.pre1075 = load i8, ptr %111, align 8, !range !1101
-  %276 = icmp eq i64 %.pre, 3
-  %277 = trunc nuw i8 %.pre1075 to i1
-  %or.cond8 = select i1 %276, i1 true, i1 %277
+  %276 = trunc nuw i8 %.pre1075 to i1
+  %277 = icmp eq i64 %.pre, 3
+  %or.cond8 = select i1 %277, i1 true, i1 %276
   br i1 %or.cond8, label %.thread1087, label %334
 
 278:                                              ; preds = %270

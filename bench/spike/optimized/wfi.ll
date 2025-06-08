@@ -122,11 +122,11 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr noundef capture
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -138,7 +138,7 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr noundef capture
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -156,7 +156,7 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr noundef capture
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -185,12 +185,12 @@ define noundef i64 @_Z14fast_rv32i_wfiP11processor_t6insn_tm(ptr noundef capture
   %56 = add i64 %55, 17179869184
   %57 = ashr exact i64 %56, 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !104
   %59 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %59, 0
   %60 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %61 = and i64 %60, %57
-  store i64 %61, ptr %54, align 8, !tbaa !104
+  store i64 %61, ptr %54, align 8, !tbaa !105
   %62 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %62, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -249,11 +249,11 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr noundef capture
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -265,7 +265,7 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr noundef capture
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -283,7 +283,7 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr noundef capture
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -310,12 +310,12 @@ define noundef i64 @_Z14fast_rv64i_wfiP11processor_t6insn_tm(ptr noundef capture
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %55 = add i64 %2, 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !104
   %57 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %57, 0
   %58 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %59 = and i64 %58, %55
-  store i64 %59, ptr %54, align 8, !tbaa !104
+  store i64 %59, ptr %54, align 8, !tbaa !105
   %60 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %60, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -359,11 +359,11 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr noundef captu
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -375,7 +375,7 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr noundef captu
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -393,7 +393,7 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr noundef captu
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -422,12 +422,12 @@ define noundef i64 @_Z16logged_rv32i_wfiP11processor_t6insn_tm(ptr noundef captu
   %56 = add i64 %55, 17179869184
   %57 = ashr exact i64 %56, 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !104
   %59 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %59, 0
   %60 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %61 = and i64 %60, %57
-  store i64 %61, ptr %54, align 8, !tbaa !104
+  store i64 %61, ptr %54, align 8, !tbaa !105
   %62 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %62, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -471,11 +471,11 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr noundef captu
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -487,7 +487,7 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr noundef captu
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -505,7 +505,7 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr noundef captu
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -532,12 +532,12 @@ define noundef i64 @_Z16logged_rv64i_wfiP11processor_t6insn_tm(ptr noundef captu
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %55 = add i64 %2, 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !104
   %57 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %57, 0
   %58 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %59 = and i64 %58, %55
-  store i64 %59, ptr %54, align 8, !tbaa !104
+  store i64 %59, ptr %54, align 8, !tbaa !105
   %60 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %60, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -581,11 +581,11 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr noundef capture
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -597,7 +597,7 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr noundef capture
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -615,7 +615,7 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr noundef capture
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -644,12 +644,12 @@ define noundef i64 @_Z14fast_rv32e_wfiP11processor_t6insn_tm(ptr noundef capture
   %56 = add i64 %55, 17179869184
   %57 = ashr exact i64 %56, 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !104
   %59 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %59, 0
   %60 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %61 = and i64 %60, %57
-  store i64 %61, ptr %54, align 8, !tbaa !104
+  store i64 %61, ptr %54, align 8, !tbaa !105
   %62 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %62, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -693,11 +693,11 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr noundef capture
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -709,7 +709,7 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr noundef capture
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -727,7 +727,7 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr noundef capture
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -754,12 +754,12 @@ define noundef i64 @_Z14fast_rv64e_wfiP11processor_t6insn_tm(ptr noundef capture
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %55 = add i64 %2, 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !104
   %57 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %57, 0
   %58 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %59 = and i64 %58, %55
-  store i64 %59, ptr %54, align 8, !tbaa !104
+  store i64 %59, ptr %54, align 8, !tbaa !105
   %60 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %60, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -803,11 +803,11 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr noundef captu
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -819,7 +819,7 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr noundef captu
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -837,7 +837,7 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr noundef captu
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -866,12 +866,12 @@ define noundef i64 @_Z16logged_rv32e_wfiP11processor_t6insn_tm(ptr noundef captu
   %56 = add i64 %55, 17179869184
   %57 = ashr exact i64 %56, 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %58, align 8, !tbaa !104
   %59 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %59, 0
   %60 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %61 = and i64 %60, %57
-  store i64 %61, ptr %54, align 8, !tbaa !104
+  store i64 %61, ptr %54, align 8, !tbaa !105
   %62 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %62, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -915,11 +915,11 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr noundef captu
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %24 = load i64, ptr %23, align 8, !tbaa !20
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.thread, label %26
+  br i1 %25, label %.thread, label %26, !prof !101
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %28 = load ptr, ptr %27, align 8, !tbaa !101
+  %28 = load ptr, ptr %27, align 8, !tbaa !102
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -931,7 +931,7 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr noundef captu
 34:                                               ; preds = %26
   %.pre = load i8, ptr %19, align 2, !tbaa !98, !range !99
   %35 = trunc nuw i8 %.pre to i1
-  br i1 %35, label %.thread, label %53, !prof !102
+  br i1 %35, label %.thread, label %53, !prof !103
 
 .thread:                                          ; preds = %22, %34
   %36 = tail call ptr @__cxa_allocate_exception(i64 32) #12
@@ -949,7 +949,7 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr noundef captu
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !103
+  %.sink.i.i = load i64, ptr %43, align 8, !tbaa !104
   %44 = and i64 %.sink.i.i, 262144
   %.0.i.i.not = icmp eq i64 %44, 0
   br i1 %.0.i.i.not, label %53, label %45
@@ -976,12 +976,12 @@ define noundef i64 @_Z16logged_rv64e_wfiP11processor_t6insn_tm(ptr noundef captu
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %55 = add i64 %2, 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4312
-  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !103
+  %.sink.i.i24 = load i64, ptr %56, align 8, !tbaa !104
   %57 = and i64 %.sink.i.i24, 68719476736
   %.0.i.not.i = icmp eq i64 %57, 0
   %58 = select i1 %.0.i.not.i, i64 -3, i64 -1
   %59 = and i64 %58, %55
-  store i64 %59, ptr %54, align 8, !tbaa !104
+  store i64 %59, ptr %54, align 8, !tbaa !105
   %60 = tail call ptr @__cxa_allocate_exception(i64 1) #12
   tail call void @__cxa_throw(ptr %60, ptr nonnull @_ZTI20wait_for_interrupt_t, ptr null) #13
   unreachable
@@ -1032,13 +1032,13 @@ define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #14
-  store ptr %3, ptr %0, align 8, !tbaa !105
-  store i64 24, ptr %2, align 8, !tbaa !109
+  store ptr %3, ptr %0, align 8, !tbaa !106
+  store i64 24, ptr %2, align 8, !tbaa !110
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.6, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !110
+  store i64 24, ptr %4, align 8, !tbaa !111
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %5, align 1, !tbaa !109
+  store i8 0, ptr %5, align 1, !tbaa !110
   ret void
 }
 
@@ -1059,13 +1059,13 @@ define linkonce_odr void @_ZN24trap_virtual_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #14
-  store ptr %3, ptr %0, align 8, !tbaa !105
-  store i64 24, ptr %2, align 8, !tbaa !109
+  store ptr %3, ptr %0, align 8, !tbaa !106
+  store i64 24, ptr %2, align 8, !tbaa !110
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.8, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !110
+  store i64 24, ptr %4, align 8, !tbaa !111
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %5, align 1, !tbaa !109
+  store i8 0, ptr %5, align 1, !tbaa !110
   ret void
 }
 
@@ -1203,13 +1203,14 @@ attributes #15 = { builtin nounwind }
 !98 = !{!21, !19, i64 850}
 !99 = !{i8 0, i8 2}
 !100 = !{}
-!101 = !{!36, !37, i64 0}
-!102 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!103 = !{!17, !17, i64 0}
-!104 = !{!21, !17, i64 0}
-!105 = !{!106, !108, i64 0}
-!106 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !107, i64 0, !17, i64 8, !7, i64 16}
-!107 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !108, i64 0}
-!108 = !{!"p1 omnipotent char", !6, i64 0}
-!109 = !{!7, !7, i64 0}
-!110 = !{!106, !17, i64 8}
+!101 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!102 = !{!36, !37, i64 0}
+!103 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!104 = !{!17, !17, i64 0}
+!105 = !{!21, !17, i64 0}
+!106 = !{!107, !109, i64 0}
+!107 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !108, i64 0, !17, i64 8, !7, i64 16}
+!108 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !109, i64 0}
+!109 = !{!"p1 omnipotent char", !6, i64 0}
+!110 = !{!7, !7, i64 0}
+!111 = !{!107, !17, i64 8}

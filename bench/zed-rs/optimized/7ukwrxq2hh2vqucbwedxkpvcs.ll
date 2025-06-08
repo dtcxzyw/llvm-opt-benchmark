@@ -19792,8 +19792,8 @@ _ZN7similar4text14TextDiffConfig10diff_chars17hcae73f4c405afd1fE.llvm.8775224686
   %.sroa.14.0 = phi i64 [ undef, %69 ], [ %.sroa.14.1226, %142 ]
   %.sroa.11.0 = phi i64 [ undef, %69 ], [ %.sroa.11.1227, %142 ]
   %.sroa.0113.0 = phi i64 [ 0, %69 ], [ %.sroa.0113.2, %142 ]
-  %.sroa.06.0 = phi i64 [ 0, %69 ], [ %.sroa.06.1231, %142 ]
-  %.sroa.018.0 = phi i64 [ 0, %69 ], [ %.sroa.018.1232, %142 ]
+  %.sroa.06.0 = phi i64 [ 0, %69 ], [ %.sroa.06.1230, %142 ]
+  %.sroa.018.0 = phi i64 [ 0, %69 ], [ %.sroa.018.1231, %142 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4164)
   call void @llvm.experimental.noalias.scope.decl(metadata !4167)
   call void @llvm.experimental.noalias.scope.decl(metadata !4169)
@@ -20027,22 +20027,22 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h0fc93a23b4dfd986E.exit.thread.
   br label %.thread212
 
 .thread212:                                       ; preds = %135, %133, %138, %137, %126
-  %.sroa.018.1233 = phi i64 [ %.sroa.018.1, %126 ], [ %136, %135 ], [ %.sroa.018.0, %133 ], [ %136, %138 ], [ %.sroa.018.0, %137 ]
-  %.sroa.06.1230 = phi i64 [ %.sroa.06.1, %126 ], [ %.sroa.06.0, %135 ], [ %134, %133 ], [ %.sroa.06.0, %138 ], [ %134, %137 ]
+  %.sroa.018.1232 = phi i64 [ %.sroa.018.1, %126 ], [ %136, %135 ], [ %.sroa.018.0, %133 ], [ %136, %138 ], [ %.sroa.018.0, %137 ]
+  %.sroa.06.1229 = phi i64 [ %.sroa.06.1, %126 ], [ %.sroa.06.0, %135 ], [ %134, %133 ], [ %.sroa.06.0, %138 ], [ %134, %137 ]
   %.sroa.11.1228 = phi i64 [ %.sroa.11.0, %126 ], [ %.sroa.11.0, %135 ], [ %.sroa.11.0, %133 ], [ %.sroa.06.0, %138 ], [ %.sroa.06.0, %137 ]
   %.sroa.14.1225 = phi i64 [ %.sroa.14.0, %126 ], [ %.sroa.14.0, %135 ], [ %134, %133 ], [ %.sroa.06.0, %138 ], [ %134, %137 ]
   %.sroa.19.1223 = phi i64 [ %.sroa.19.0, %126 ], [ %.sroa.19.0, %135 ], [ %.sroa.19.0, %133 ], [ %.sroa.018.0, %138 ], [ %.sroa.018.0, %137 ]
   %.sroa.23.1221 = phi i64 [ %.sroa.23.0, %126 ], [ %136, %135 ], [ %.sroa.23.0, %133 ], [ %136, %138 ], [ %.sroa.018.0, %137 ]
   %139 = phi i1 [ %127, %126 ], [ false, %135 ], [ false, %133 ], [ false, %138 ], [ false, %137 ]
-  %140 = icmp ugt i64 %.sroa.06.1230, %.sroa.14.1225
-  %141 = icmp ugt i64 %.sroa.018.1233, %.sroa.23.1221
+  %140 = icmp ugt i64 %.sroa.06.1229, %.sroa.14.1225
+  %141 = icmp ugt i64 %.sroa.018.1232, %.sroa.23.1221
   %or.cond = select i1 %140, i1 true, i1 %141
   %brmerge = or i1 %139, %or.cond
   br i1 %brmerge, label %143, label %142
 
 142:                                              ; preds = %.thread212, %126, %195
-  %.sroa.018.1232 = phi i64 [ %.sroa.018.1233, %195 ], [ %.sroa.018.1, %126 ], [ %.sroa.018.1233, %.thread212 ]
-  %.sroa.06.1231 = phi i64 [ %.sroa.06.1230, %195 ], [ %.sroa.06.1, %126 ], [ %.sroa.06.1230, %.thread212 ]
+  %.sroa.018.1231 = phi i64 [ %.sroa.018.1232, %195 ], [ %.sroa.018.1, %126 ], [ %.sroa.018.1232, %.thread212 ]
+  %.sroa.06.1230 = phi i64 [ %.sroa.06.1229, %195 ], [ %.sroa.06.1, %126 ], [ %.sroa.06.1229, %.thread212 ]
   %.sroa.11.1227 = phi i64 [ %.sroa.11.1228, %195 ], [ %.sroa.11.0, %126 ], [ %.sroa.11.1228, %.thread212 ]
   %.sroa.14.1226 = phi i64 [ %.sroa.14.1225, %195 ], [ %.sroa.14.0, %126 ], [ %.sroa.14.1225, %.thread212 ]
   %.sroa.19.1224 = phi i64 [ %.sroa.19.1223, %195 ], [ %.sroa.19.0, %126 ], [ %.sroa.19.1223, %.thread212 ]

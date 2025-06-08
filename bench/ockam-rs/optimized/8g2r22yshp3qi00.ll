@@ -18551,16 +18551,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 20:                                               ; preds = %13
   %.not.i.i.i.i = icmp eq i64 %.028.i.i.i.i.i, 6
   %or.cond.i.i.i = select i1 %19, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread49.i.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread48.i.i.i.i
 
 21:                                               ; preds = %13
-  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread49.i.i.i.i
+  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread48.i.i.i.i
 
-.thread49.i.i.i.i:                                ; preds = %21, %20
+.thread48.i.i.i.i:                                ; preds = %21, %20
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i": ; preds = %.thread49.i.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i"
-  %.028.i.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i.i, %.thread49.i.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i": ; preds = %.thread48.i.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i"
+  %.028.i.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i.i, %.thread48.i.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %23 = load i8, ptr %22, align 8, !range !875, !noundef !4
   %24 = trunc nuw i8 %23 to i1
@@ -18578,16 +18578,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 32:                                               ; preds = %25
   %.not.i.i.i = icmp eq i64 %.028.i.i.i.i, 6
   %or.cond.i.i = select i1 %31, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread49.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread48.i.i.i
 
 33:                                               ; preds = %25
-  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread49.i.i.i
+  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread48.i.i.i
 
-.thread49.i.i.i:                                  ; preds = %33, %32
+.thread48.i.i.i:                                  ; preds = %33, %32
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i": ; preds = %.thread49.i.i.i, %33, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
-  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i.i, %.thread49.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i": ; preds = %.thread48.i.i.i, %33, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
+  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i.i, %.thread48.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %35 = load i8, ptr %34, align 8, !range !875, !noundef !4
   %36 = trunc nuw i8 %35 to i1
@@ -18605,16 +18605,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 44:                                               ; preds = %37
   %.not.i.i = icmp eq i64 %.028.i.i.i, 6
   %or.cond.i = select i1 %43, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread49.i.i
+  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread48.i.i
 
 45:                                               ; preds = %37
-  br i1 %43, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread49.i.i
+  br i1 %43, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread48.i.i
 
-.thread49.i.i:                                    ; preds = %45, %44
+.thread48.i.i:                                    ; preds = %45, %44
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", %44, %45, %.thread49.i.i
-  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i.i, %.thread49.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", %44, %45, %.thread48.i.i
+  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i.i, %.thread48.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %47 = load i8, ptr %46, align 8, !range !875, !noundef !4
   %48 = trunc nuw i8 %47 to i1
@@ -18679,16 +18679,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 20:                                               ; preds = %13
   %.not.i.i.i.i = icmp eq i64 %.028.i.i.i.i.i, 6
   %or.cond.i.i.i = select i1 %19, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread49.i.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread48.i.i.i.i
 
 21:                                               ; preds = %13
-  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread49.i.i.i.i
+  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread48.i.i.i.i
 
-.thread49.i.i.i.i:                                ; preds = %21, %20
+.thread48.i.i.i.i:                                ; preds = %21, %20
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i": ; preds = %.thread49.i.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i"
-  %.028.i.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i.i, %.thread49.i.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i": ; preds = %.thread48.i.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i"
+  %.028.i.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i.i, %.thread48.i.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %23 = load i8, ptr %22, align 8, !range !875, !noundef !4
   %24 = trunc nuw i8 %23 to i1
@@ -18706,16 +18706,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 32:                                               ; preds = %25
   %.not.i.i.i = icmp eq i64 %.028.i.i.i.i, 6
   %or.cond.i.i = select i1 %31, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread49.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread48.i.i.i
 
 33:                                               ; preds = %25
-  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread49.i.i.i
+  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread48.i.i.i
 
-.thread49.i.i.i:                                  ; preds = %33, %32
+.thread48.i.i.i:                                  ; preds = %33, %32
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i": ; preds = %.thread49.i.i.i, %33, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
-  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i.i, %.thread49.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i": ; preds = %.thread48.i.i.i, %33, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
+  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i.i, %.thread48.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %35 = load i8, ptr %34, align 8, !range !875, !noundef !4
   %36 = trunc nuw i8 %35 to i1
@@ -18733,16 +18733,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 44:                                               ; preds = %37
   %.not.i.i = icmp eq i64 %.028.i.i.i, 6
   %or.cond.i = select i1 %43, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread49.i.i
+  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread48.i.i
 
 45:                                               ; preds = %37
-  br i1 %43, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread49.i.i
+  br i1 %43, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread48.i.i
 
-.thread49.i.i:                                    ; preds = %45, %44
+.thread48.i.i:                                    ; preds = %45, %44
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", %44, %45, %.thread49.i.i
-  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i.i, %.thread49.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", %44, %45, %.thread48.i.i
+  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i.i, %.thread48.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %47 = load i8, ptr %46, align 8, !range !875, !noundef !4
   %48 = trunc nuw i8 %47 to i1
@@ -18807,16 +18807,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 20:                                               ; preds = %13
   %.not.i.i.i = icmp eq i64 %.028.i.i.i.i, 6
   %or.cond.i.i = select i1 %19, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i", label %.thread49.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i", label %.thread48.i.i.i
 
 21:                                               ; preds = %13
-  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i", label %.thread49.i.i.i
+  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i", label %.thread48.i.i.i
 
-.thread49.i.i.i:                                  ; preds = %21, %20
+.thread48.i.i.i:                                  ; preds = %21, %20
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i": ; preds = %.thread49.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i"
-  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i, %.thread49.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i": ; preds = %.thread48.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i"
+  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i, %.thread48.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %23 = load i8, ptr %22, align 8, !range !875, !noundef !4
   %24 = trunc nuw i8 %23 to i1
@@ -18834,16 +18834,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 32:                                               ; preds = %25
   %.not.i.i = icmp eq i64 %.028.i.i.i, 6
   %or.cond.i = select i1 %31, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit", label %.thread49.i.i
+  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit", label %.thread48.i.i
 
 33:                                               ; preds = %25
-  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit", label %.thread49.i.i
+  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit", label %.thread48.i.i
 
-.thread49.i.i:                                    ; preds = %33, %32
+.thread48.i.i:                                    ; preds = %33, %32
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i", %32, %33, %.thread49.i.i
-  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i, %.thread49.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i", %32, %33, %.thread48.i.i
+  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i, %.thread48.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %35 = load i8, ptr %34, align 8, !range !875, !noundef !4
   %36 = trunc nuw i8 %35 to i1
@@ -18861,16 +18861,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 44:                                               ; preds = %37
   %.not.i = icmp eq i64 %.028.i.i, 6
   %or.cond = select i1 %43, i1 true, i1 %.not.i
-  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit", label %.thread49.i
+  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit", label %.thread48.i
 
 45:                                               ; preds = %37
-  br i1 %43, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit", label %.thread49.i
+  br i1 %43, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit", label %.thread48.i
 
-.thread49.i:                                      ; preds = %44, %45
+.thread48.i:                                      ; preds = %44, %45
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit": ; preds = %.thread49.i, %44, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit", %45
-  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i, %.thread49.i ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h575b7ee3dd95bec6E.exit": ; preds = %.thread48.i, %44, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit", %45
+  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i, %.thread48.i ]
   ret i64 %.028.i
 }
 
@@ -18908,16 +18908,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 20:                                               ; preds = %13
   %.not.i.i = icmp eq i64 %.028.i.i.i, 6
   %or.cond.i = select i1 %19, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit", label %.thread49.i.i
+  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit", label %.thread48.i.i
 
 21:                                               ; preds = %13
-  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit", label %.thread49.i.i
+  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit", label %.thread48.i.i
 
-.thread49.i.i:                                    ; preds = %21, %20
+.thread48.i.i:                                    ; preds = %21, %20
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i", %20, %21, %.thread49.i.i
-  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i, %.thread49.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i", %20, %21, %.thread48.i.i
+  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i, %.thread48.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %23 = load i8, ptr %22, align 8, !range !875, !noundef !4
   %24 = trunc nuw i8 %23 to i1
@@ -18935,16 +18935,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 32:                                               ; preds = %25
   %.not.i = icmp eq i64 %.028.i.i, 6
   %or.cond = select i1 %31, i1 true, i1 %.not.i
-  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit", label %.thread49.i
+  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit", label %.thread48.i
 
 33:                                               ; preds = %25
-  br i1 %31, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit", label %.thread49.i
+  br i1 %31, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit", label %.thread48.i
 
-.thread49.i:                                      ; preds = %32, %33
+.thread48.i:                                      ; preds = %32, %33
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit": ; preds = %.thread49.i, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit", %33
-  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i, %.thread49.i ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5874ac0f24f90b9cE.exit": ; preds = %.thread48.i, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit", %33
+  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i, %.thread48.i ]
   ret i64 %.028.i
 }
 
@@ -18982,16 +18982,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 20:                                               ; preds = %13
   %.not.i.i.i.i = icmp eq i64 %.028.i.i.i.i.i, 6
   %or.cond.i.i.i = select i1 %19, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread49.i.i.i.i
+  br i1 %or.cond.i.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread48.i.i.i.i
 
 21:                                               ; preds = %13
-  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread49.i.i.i.i
+  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i", label %.thread48.i.i.i.i
 
-.thread49.i.i.i.i:                                ; preds = %21, %20
+.thread48.i.i.i.i:                                ; preds = %21, %20
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i": ; preds = %.thread49.i.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i"
-  %.028.i.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i.i, %.thread49.i.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i": ; preds = %.thread48.i.i.i.i, %21, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i"
+  %.028.i.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit.i.i.i" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i.i.i.i, %.thread48.i.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2384
   %23 = load i8, ptr %22, align 8, !range !875, !noundef !4
   %24 = trunc nuw i8 %23 to i1
@@ -19009,16 +19009,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 32:                                               ; preds = %25
   %.not.i.i.i = icmp eq i64 %.028.i.i.i.i, 6
   %or.cond.i.i = select i1 %31, i1 true, i1 %.not.i.i.i
-  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread49.i.i.i
+  br i1 %or.cond.i.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread48.i.i.i
 
 33:                                               ; preds = %25
-  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread49.i.i.i
+  br i1 %31, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", label %.thread48.i.i.i
 
-.thread49.i.i.i:                                  ; preds = %33, %32
+.thread48.i.i.i:                                  ; preds = %33, %32
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i": ; preds = %.thread49.i.i.i, %33, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
-  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i.i, %.thread49.i.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i": ; preds = %.thread48.i.i.i, %33, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i"
+  %.028.i.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17hbbedd4daa7339c9bE.exit.i.i" ], [ 6, %33 ], [ 6, %32 ], [ %.028.i.i.i.i, %.thread48.i.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2408
   %35 = load i8, ptr %34, align 8, !range !875, !noundef !4
   %36 = trunc nuw i8 %35 to i1
@@ -19036,16 +19036,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 44:                                               ; preds = %37
   %.not.i.i = icmp eq i64 %.028.i.i.i, 6
   %or.cond.i = select i1 %43, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread49.i.i
+  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread48.i.i
 
 45:                                               ; preds = %37
-  br i1 %43, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread49.i.i
+  br i1 %43, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit", label %.thread48.i.i
 
-.thread49.i.i:                                    ; preds = %45, %44
+.thread48.i.i:                                    ; preds = %45, %44
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", %44, %45, %.thread49.i.i
-  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i.i, %.thread49.i.i ]
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h24f0b29b589684aeE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i", %44, %45, %.thread48.i.i
+  %.028.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h2e57ece07ad8aef1E.exit.i" ], [ 6, %45 ], [ 6, %44 ], [ %.028.i.i.i, %.thread48.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2464
   %47 = load i8, ptr %46, align 8, !range !875, !noundef !4
   %48 = trunc nuw i8 %47 to i1
@@ -19271,16 +19271,16 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
 20:                                               ; preds = %13
   %.not.i = icmp eq i64 %.028.i.i, 6
   %or.cond = select i1 %19, i1 true, i1 %.not.i
-  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit", label %.thread49.i
+  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit", label %.thread48.i
 
 21:                                               ; preds = %13
-  br i1 %19, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit", label %.thread49.i
+  br i1 %19, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit", label %.thread48.i
 
-.thread49.i:                                      ; preds = %20, %21
+.thread48.i:                                      ; preds = %20, %21
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit": ; preds = %.thread49.i, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit", %21
-  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i, %.thread49.i ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h442bcd1f41164a80E.exit": ; preds = %.thread48.i, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit", %21
+  %.028.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17ha3d04df8923e11f4E.exit" ], [ 6, %21 ], [ 6, %20 ], [ %.028.i.i, %.thread48.i ]
   ret i64 %.028.i
 }
 

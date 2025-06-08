@@ -3704,7 +3704,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h83eeddade5b2862dE
 
 119:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !104
-  store i64 %54, ptr %21, align 8, !noalias !104
+  store i64 1, ptr %21, align 8, !noalias !104
   %120 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %55, ptr %120, align 8, !noalias !104
   %.pre = load i64, ptr %23, align 8, !range !101, !alias.scope !99, !noalias !102

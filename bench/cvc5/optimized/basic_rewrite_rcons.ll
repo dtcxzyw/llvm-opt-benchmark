@@ -2255,7 +2255,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal8rewriter17BasicRewriteRCons9
           to label %18 unwind label %11
 
 18:                                               ; preds = %16
-  %spec.select24 = select i1 %17, i8 1, i8 %.017
+  %spec.select24 = zext i1 %17 to i8
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %18, %13

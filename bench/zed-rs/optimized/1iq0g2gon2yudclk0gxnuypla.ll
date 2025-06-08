@@ -8250,8 +8250,8 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h61cc026a5f1b2622E(ptr 
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit": ; preds = %300
   %.pre = load i8, ptr %154, align 8, !range !10, !alias.scope !2030, !noalias !2033
-  call void @llvm.experimental.noalias.scope.decl(metadata !2030)
   %280 = trunc nuw i8 %.pre to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !2030)
   br i1 %280, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit.thread", label %281
 
 281:                                              ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit"
@@ -8413,8 +8413,8 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h61cc026a5f1b2622E(ptr 
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit114": ; preds = %385
   %.pre943 = load i8, ptr %154, align 8, !range !10, !alias.scope !2066, !noalias !2069
-  call void @llvm.experimental.noalias.scope.decl(metadata !2066)
   %365 = trunc nuw i8 %.pre943 to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !2066)
   br i1 %365, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit114.thread", label %366
 
 366:                                              ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit114"
@@ -10218,8 +10218,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h014156802
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hf37d8e10479dc8e1E.exit": ; preds = %87
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17h72cd0c06b10f83cbE"(ptr noalias noundef nonnull align 8 dereferenceable(688) %14, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.31c3a3a5b06fbfd60fbab8b6beaa8a95.115)
   %.pre = load i8, ptr %49, align 8, !range !10, !alias.scope !2472, !noalias !2473
-  call void @llvm.experimental.noalias.scope.decl(metadata !2472)
   %117 = trunc nuw i8 %.pre to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !2472)
   br i1 %117, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hf37d8e10479dc8e1E.exit.thread", label %91
 
 118:                                              ; preds = %112
@@ -10548,8 +10548,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h621af49d4
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hf37d8e10479dc8e1E.exit": ; preds = %85
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17h72cd0c06b10f83cbE"(ptr noalias noundef nonnull align 8 dereferenceable(688) %13, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.31c3a3a5b06fbfd60fbab8b6beaa8a95.115)
   %.pre = load i8, ptr %47, align 8, !range !10, !alias.scope !2543, !noalias !2544
-  call void @llvm.experimental.noalias.scope.decl(metadata !2543)
   %115 = trunc nuw i8 %.pre to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !2543)
   br i1 %115, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hf37d8e10479dc8e1E.exit.thread", label %89
 
 116:                                              ; preds = %110
@@ -41551,8 +41551,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h12d4cf53f373fde9E.exit163: ; preds = %
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit.i.i": ; preds = %593
   %.pre.i.i168 = load i8, ptr %468, align 8, !range !10, !alias.scope !9653, !noalias !9656
-  call void @llvm.experimental.noalias.scope.decl(metadata !9653)
   %594 = trunc nuw i8 %.pre.i.i168 to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !9653)
   br i1 %594, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit.thread.i.i", label %595
 
 595:                                              ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit.i.i"
@@ -43473,8 +43473,8 @@ _ZN4gpui3app10entity_map9EntityMap4read17h12d4cf53f373fde9E.exit.i: ; preds = %.
 
 .noexc37.i:                                       ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit.i.i.i"
   %.pre.i.i.i = load i8, ptr %169, align 8, !range !10, !alias.scope !10117, !noalias !10120
-  call void @llvm.experimental.noalias.scope.decl(metadata !10117)
   %196 = trunc nuw i8 %.pre.i.i.i to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !10117)
   br i1 %196, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h8f0385970526574aE.exit.thread.i.i.i", label %197
 
 197:                                              ; preds = %.noexc37.i

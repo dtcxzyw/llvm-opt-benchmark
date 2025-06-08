@@ -72325,7 +72325,7 @@ select.unfold.i.i:                                ; preds = %"_ZN4core3str4iter2
   %.lcssa1431.i.i = phi i64 [ %63, %88 ], [ %.lcssa1432.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i.i.i" ]
   %.lcssa1627.i.i = phi ptr [ %59, %88 ], [ %.lcssa1628.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i.i.i" ]
   %.pre.i.i.i24.i.i = phi i64 [ %63, %88 ], [ %.pre.i.i.i25.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i.i.i" ]
-  %89 = phi i8 [ %16, %88 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i.i.i" ]
+  %89 = phi i8 [ 0, %88 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i.i.i" ]
   %.pn34.i.i = phi i64 [ %20, %88 ], [ %.pre2.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i.i.i" ]
   %.sroa.4.0.i.i.i.i = sub nuw i64 %.pn34.i.i, %.pre.i.i.i25.i.i
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 %.pre.i.i.i25.i.i
@@ -77012,7 +77012,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7531f615eaefbb7bE.exit.i.i.i.i
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h7531f615eaefbb7bE.exit.thread.i.i.i.i
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc51add0097e35143E.exit.thread.i.i.i": ; preds = %63
-  store i64 %62, ptr %7, align 8, !alias.scope !11536, !noalias !11537
+  store i64 1, ptr %7, align 8, !alias.scope !11536, !noalias !11537
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i.i.i.i, i64 24, i1 false), !alias.scope !11538, !noalias !11539
   br label %71
 

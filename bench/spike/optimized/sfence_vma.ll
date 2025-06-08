@@ -130,11 +130,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -146,7 +146,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -162,9 +162,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -188,7 +188,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_sfence_vma
   %59 = add i64 %58, 17179869184
   %60 = ashr exact i64 %59, 32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %62 = load ptr, ptr %61, align 8, !tbaa !107
+  %62 = load ptr, ptr %61, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
 }
@@ -262,11 +262,11 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -278,7 +278,7 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -294,9 +294,9 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -318,7 +318,7 @@ define noundef i64 @_Z21fast_rv64i_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 57:                                               ; preds = %45, %31, %39
   %58 = add i64 %2, 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %60 = load ptr, ptr %59, align 8, !tbaa !107
+  %60 = load ptr, ptr %59, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %60)
   ret i64 %58
 }
@@ -375,11 +375,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -391,7 +391,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -407,9 +407,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -433,7 +433,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_sfence_v
   %59 = add i64 %58, 17179869184
   %60 = ashr exact i64 %59, 32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %62 = load ptr, ptr %61, align 8, !tbaa !107
+  %62 = load ptr, ptr %61, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
 }
@@ -490,11 +490,11 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nounde
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -506,7 +506,7 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nounde
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -522,9 +522,9 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nounde
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -546,7 +546,7 @@ define noundef i64 @_Z23logged_rv64i_sfence_vmaP11processor_t6insn_tm(ptr nounde
 57:                                               ; preds = %45, %31, %39
   %58 = add i64 %2, 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %60 = load ptr, ptr %59, align 8, !tbaa !107
+  %60 = load ptr, ptr %59, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %60)
   ret i64 %58
 }
@@ -603,11 +603,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -619,7 +619,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -635,9 +635,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -661,7 +661,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_sfence_vma
   %59 = add i64 %58, 17179869184
   %60 = ashr exact i64 %59, 32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %62 = load ptr, ptr %61, align 8, !tbaa !107
+  %62 = load ptr, ptr %61, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
 }
@@ -718,11 +718,11 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -734,7 +734,7 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -750,9 +750,9 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -774,7 +774,7 @@ define noundef i64 @_Z21fast_rv64e_sfence_vmaP11processor_t6insn_tm(ptr noundef 
 57:                                               ; preds = %45, %31, %39
   %58 = add i64 %2, 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %60 = load ptr, ptr %59, align 8, !tbaa !107
+  %60 = load ptr, ptr %59, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %60)
   ret i64 %58
 }
@@ -831,11 +831,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -847,7 +847,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -863,9 +863,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -889,7 +889,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_sfence_v
   %59 = add i64 %58, 17179869184
   %60 = ashr exact i64 %59, 32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %62 = load ptr, ptr %61, align 8, !tbaa !107
+  %62 = load ptr, ptr %61, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %62)
   ret i64 %60
 }
@@ -946,11 +946,11 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nounde
 
 29:                                               ; preds = %23
   %30 = icmp eq i64 %28, 0
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %.thread, label %31, !prof !98
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2048
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -962,7 +962,7 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nounde
 39:                                               ; preds = %31
   %.pre = load i8, ptr %24, align 2, !tbaa !21, !range !95
   %40 = trunc nuw i8 %.pre to i1
-  br i1 %40, label %.thread, label %57, !prof !99
+  br i1 %40, label %.thread, label %57, !prof !100
 
 .thread:                                          ; preds = %29, %39
   %41 = tail call ptr @__cxa_allocate_exception(i64 32) #11
@@ -978,9 +978,9 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nounde
 
 45:                                               ; preds = %23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %47 = load ptr, ptr %46, align 8, !tbaa !101
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load i64, ptr %48, align 8, !tbaa !101
+  %49 = load i64, ptr %48, align 8, !tbaa !102
   %50 = and i64 %49, 1048576
   %.not = icmp eq i64 %50, 0
   %51 = select i1 %.not, i64 1, i64 3
@@ -1002,7 +1002,7 @@ define noundef i64 @_Z23logged_rv64e_sfence_vmaP11processor_t6insn_tm(ptr nounde
 57:                                               ; preds = %45, %31, %39
   %58 = add i64 %2, 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %60 = load ptr, ptr %59, align 8, !tbaa !107
+  %60 = load ptr, ptr %59, align 8, !tbaa !108
   tail call void @_ZN5mmu_t9flush_tlbEv(ptr noundef nonnull align 8 dereferenceable(43168) %60)
   ret i64 %58
 }
@@ -1052,13 +1052,13 @@ define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #13
-  store ptr %3, ptr %0, align 8, !tbaa !153
-  store i64 24, ptr %2, align 8, !tbaa !154
+  store ptr %3, ptr %0, align 8, !tbaa !154
+  store i64 24, ptr %2, align 8, !tbaa !155
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.6, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !155
+  store i64 24, ptr %4, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %5, align 1, !tbaa !154
+  store i8 0, ptr %5, align 1, !tbaa !155
   ret void
 }
 
@@ -1079,13 +1079,13 @@ define linkonce_odr void @_ZN24trap_virtual_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #13
-  store ptr %3, ptr %0, align 8, !tbaa !153
-  store i64 24, ptr %2, align 8, !tbaa !154
+  store ptr %3, ptr %0, align 8, !tbaa !154
+  store i64 24, ptr %2, align 8, !tbaa !155
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.8, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !155
+  store i64 24, ptr %4, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %5, align 1, !tbaa !154
+  store i8 0, ptr %5, align 1, !tbaa !155
   ret void
 }
 
@@ -1219,61 +1219,62 @@ attributes #14 = { builtin nounwind }
 !95 = !{i8 0, i8 2}
 !96 = !{}
 !97 = !{!22, !4, i64 832}
-!98 = !{!41, !42, i64 0}
-!99 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!100 = !{!38, !39, i64 0}
-!101 = !{!102, !4, i64 56}
-!102 = !{!"_ZTS13mstatus_csr_t", !103, i64 0, !4, i64 56}
-!103 = !{!"_ZTS17base_status_csr_t", !104, i64 0, !12, i64 37, !4, i64 40, !4, i64 48}
-!104 = !{!"_ZTS5csr_t", !105, i64 8, !106, i64 16, !4, i64 24, !20, i64 32, !12, i64 36}
-!105 = !{!"p1 _ZTS11processor_t", !19, i64 0}
-!106 = !{!"p1 _ZTS7state_t", !19, i64 0}
-!107 = !{!108, !124, i64 176}
-!108 = !{!"_ZTS11processor_t", !109, i64 0, !12, i64 8, !110, i64 12, !111, i64 16, !122, i64 160, !123, i64 168, !124, i64 176, !125, i64 184, !127, i64 240, !22, i64 248, !20, i64 3960, !20, i64 3964, !12, i64 3968, !12, i64 3969, !128, i64 3976, !129, i64 3984, !12, i64 4256, !12, i64 4257, !12, i64 4258, !130, i64 4264, !112, i64 4304, !112, i64 4328, !112, i64 4352, !135, i64 4376, !135, i64 4400, !140, i64 4424, !5, i64 4480, !4, i64 266560, !4, i64 266568, !4, i64 266576, !142, i64 266584, !4, i64 266616, !4, i64 266624, !143, i64 266632, !147, i64 266840}
-!109 = !{!"_ZTS17abstract_device_t"}
-!110 = !{!"_ZTSN11processor_tUt_E", !5, i64 0}
-!111 = !{!"_ZTS12isa_parser_t", !20, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !12, i64 32, !12, i64 33, !112, i64 40, !114, i64 64, !117, i64 96}
-!112 = !{!"_ZTSSt6bitsetILm167EE", !113, i64 0}
-!113 = !{!"_ZTSSt12_Base_bitsetILm3EE", !5, i64 0}
-!114 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !115, i64 0, !4, i64 8, !5, i64 16}
-!115 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !116, i64 0}
-!116 = !{!"p1 omnipotent char", !19, i64 0}
-!117 = !{!"_ZTSSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE", !118, i64 0}
-!118 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE", !119, i64 0}
-!119 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE13_Rb_tree_implIS9_Lb1EEE", !120, i64 0, !85, i64 8}
-!120 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !121, i64 0}
-!121 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
-!122 = !{!"p1 _ZTS5cfg_t", !19, i64 0}
-!123 = !{!"p1 _ZTS7simif_t", !19, i64 0}
-!124 = !{!"p1 _ZTS5mmu_t", !19, i64 0}
-!125 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11extension_tSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE", !126, i64 0}
-!126 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11extension_tESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE", !27, i64 0, !4, i64 8, !28, i64 16, !4, i64 24, !30, i64 32, !29, i64 48}
-!127 = !{!"p1 _ZTS14disassembler_t", !19, i64 0}
-!128 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
-!129 = !{!"_ZTSSo"}
-!130 = !{!"_ZTSSt6vectorIbSaIbEE", !131, i64 0}
-!131 = !{!"_ZTSSt13_Bvector_baseISaIbEE", !132, i64 0}
-!132 = !{!"_ZTSNSt13_Bvector_baseISaIbEE13_Bvector_implE", !133, i64 0}
-!133 = !{!"_ZTSNSt13_Bvector_baseISaIbEE18_Bvector_impl_dataE", !134, i64 0, !134, i64 16, !18, i64 32}
-!134 = !{!"_ZTSSt13_Bit_iterator", !17, i64 0}
-!135 = !{!"_ZTSSt6vectorI11insn_desc_tSaIS0_EE", !136, i64 0}
-!136 = !{!"_ZTSSt12_Vector_baseI11insn_desc_tSaIS0_EE", !137, i64 0}
-!137 = !{!"_ZTSNSt12_Vector_baseI11insn_desc_tSaIS0_EE12_Vector_implE", !138, i64 0}
-!138 = !{!"_ZTSNSt12_Vector_baseI11insn_desc_tSaIS0_EE17_Vector_impl_dataE", !139, i64 0, !139, i64 8, !139, i64 16}
-!139 = !{!"p1 _ZTS11insn_desc_t", !19, i64 0}
-!140 = !{!"_ZTSSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE", !141, i64 0}
-!141 = !{!"_ZTSSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE", !27, i64 0, !4, i64 8, !28, i64 16, !4, i64 24, !30, i64 32, !29, i64 48}
-!142 = !{!"_ZTS14entropy_source", !114, i64 0}
-!143 = !{!"_ZTS12vectorUnit_t", !105, i64 0, !19, i64 8, !5, i64 16, !20, i64 48, !4, i64 56, !4, i64 64, !40, i64 72, !144, i64 88, !144, i64 104, !144, i64 120, !144, i64 136, !4, i64 152, !4, i64 160, !4, i64 168, !31, i64 176, !4, i64 184, !4, i64 192, !12, i64 200, !12, i64 201}
-!144 = !{!"_ZTSSt10shared_ptrI12vector_csr_tE", !145, i64 0}
-!145 = !{!"_ZTSSt12__shared_ptrI12vector_csr_tLN9__gnu_cxx12_Lock_policyE2EE", !146, i64 0, !35, i64 8}
-!146 = !{!"p1 _ZTS12vector_csr_t", !19, i64 0}
-!147 = !{!"_ZTSN8triggers8module_tE", !105, i64 0, !148, i64 8}
-!148 = !{!"_ZTSSt6vectorIPN8triggers9trigger_tESaIS2_EE", !149, i64 0}
-!149 = !{!"_ZTSSt12_Vector_baseIPN8triggers9trigger_tESaIS2_EE", !150, i64 0}
-!150 = !{!"_ZTSNSt12_Vector_baseIPN8triggers9trigger_tESaIS2_EE12_Vector_implE", !151, i64 0}
-!151 = !{!"_ZTSNSt12_Vector_baseIPN8triggers9trigger_tESaIS2_EE17_Vector_impl_dataE", !152, i64 0, !152, i64 8, !152, i64 16}
-!152 = !{!"p2 _ZTSN8triggers9trigger_tE", !19, i64 0}
-!153 = !{!114, !116, i64 0}
-!154 = !{!5, !5, i64 0}
-!155 = !{!114, !4, i64 8}
+!98 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!99 = !{!41, !42, i64 0}
+!100 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!101 = !{!38, !39, i64 0}
+!102 = !{!103, !4, i64 56}
+!103 = !{!"_ZTS13mstatus_csr_t", !104, i64 0, !4, i64 56}
+!104 = !{!"_ZTS17base_status_csr_t", !105, i64 0, !12, i64 37, !4, i64 40, !4, i64 48}
+!105 = !{!"_ZTS5csr_t", !106, i64 8, !107, i64 16, !4, i64 24, !20, i64 32, !12, i64 36}
+!106 = !{!"p1 _ZTS11processor_t", !19, i64 0}
+!107 = !{!"p1 _ZTS7state_t", !19, i64 0}
+!108 = !{!109, !125, i64 176}
+!109 = !{!"_ZTS11processor_t", !110, i64 0, !12, i64 8, !111, i64 12, !112, i64 16, !123, i64 160, !124, i64 168, !125, i64 176, !126, i64 184, !128, i64 240, !22, i64 248, !20, i64 3960, !20, i64 3964, !12, i64 3968, !12, i64 3969, !129, i64 3976, !130, i64 3984, !12, i64 4256, !12, i64 4257, !12, i64 4258, !131, i64 4264, !113, i64 4304, !113, i64 4328, !113, i64 4352, !136, i64 4376, !136, i64 4400, !141, i64 4424, !5, i64 4480, !4, i64 266560, !4, i64 266568, !4, i64 266576, !143, i64 266584, !4, i64 266616, !4, i64 266624, !144, i64 266632, !148, i64 266840}
+!110 = !{!"_ZTS17abstract_device_t"}
+!111 = !{!"_ZTSN11processor_tUt_E", !5, i64 0}
+!112 = !{!"_ZTS12isa_parser_t", !20, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !12, i64 32, !12, i64 33, !113, i64 40, !115, i64 64, !118, i64 96}
+!113 = !{!"_ZTSSt6bitsetILm167EE", !114, i64 0}
+!114 = !{!"_ZTSSt12_Base_bitsetILm3EE", !5, i64 0}
+!115 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !116, i64 0, !4, i64 8, !5, i64 16}
+!116 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !117, i64 0}
+!117 = !{!"p1 omnipotent char", !19, i64 0}
+!118 = !{!"_ZTSSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE", !119, i64 0}
+!119 = !{!"_ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE", !120, i64 0}
+!120 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE13_Rb_tree_implIS9_Lb1EEE", !121, i64 0, !85, i64 8}
+!121 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !122, i64 0}
+!122 = !{!"_ZTSSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE"}
+!123 = !{!"p1 _ZTS5cfg_t", !19, i64 0}
+!124 = !{!"p1 _ZTS7simif_t", !19, i64 0}
+!125 = !{!"p1 _ZTS5mmu_t", !19, i64 0}
+!126 = !{!"_ZTSSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP11extension_tSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE", !127, i64 0}
+!127 = !{!"_ZTSSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P11extension_tESaISA_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE", !27, i64 0, !4, i64 8, !28, i64 16, !4, i64 24, !30, i64 32, !29, i64 48}
+!128 = !{!"p1 _ZTS14disassembler_t", !19, i64 0}
+!129 = !{!"p1 _ZTS8_IO_FILE", !19, i64 0}
+!130 = !{!"_ZTSSo"}
+!131 = !{!"_ZTSSt6vectorIbSaIbEE", !132, i64 0}
+!132 = !{!"_ZTSSt13_Bvector_baseISaIbEE", !133, i64 0}
+!133 = !{!"_ZTSNSt13_Bvector_baseISaIbEE13_Bvector_implE", !134, i64 0}
+!134 = !{!"_ZTSNSt13_Bvector_baseISaIbEE18_Bvector_impl_dataE", !135, i64 0, !135, i64 16, !18, i64 32}
+!135 = !{!"_ZTSSt13_Bit_iterator", !17, i64 0}
+!136 = !{!"_ZTSSt6vectorI11insn_desc_tSaIS0_EE", !137, i64 0}
+!137 = !{!"_ZTSSt12_Vector_baseI11insn_desc_tSaIS0_EE", !138, i64 0}
+!138 = !{!"_ZTSNSt12_Vector_baseI11insn_desc_tSaIS0_EE12_Vector_implE", !139, i64 0}
+!139 = !{!"_ZTSNSt12_Vector_baseI11insn_desc_tSaIS0_EE17_Vector_impl_dataE", !140, i64 0, !140, i64 8, !140, i64 16}
+!140 = !{!"p1 _ZTS11insn_desc_t", !19, i64 0}
+!141 = !{!"_ZTSSt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEE", !142, i64 0}
+!142 = !{!"_ZTSSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE", !27, i64 0, !4, i64 8, !28, i64 16, !4, i64 24, !30, i64 32, !29, i64 48}
+!143 = !{!"_ZTS14entropy_source", !115, i64 0}
+!144 = !{!"_ZTS12vectorUnit_t", !106, i64 0, !19, i64 8, !5, i64 16, !20, i64 48, !4, i64 56, !4, i64 64, !40, i64 72, !145, i64 88, !145, i64 104, !145, i64 120, !145, i64 136, !4, i64 152, !4, i64 160, !4, i64 168, !31, i64 176, !4, i64 184, !4, i64 192, !12, i64 200, !12, i64 201}
+!145 = !{!"_ZTSSt10shared_ptrI12vector_csr_tE", !146, i64 0}
+!146 = !{!"_ZTSSt12__shared_ptrI12vector_csr_tLN9__gnu_cxx12_Lock_policyE2EE", !147, i64 0, !35, i64 8}
+!147 = !{!"p1 _ZTS12vector_csr_t", !19, i64 0}
+!148 = !{!"_ZTSN8triggers8module_tE", !106, i64 0, !149, i64 8}
+!149 = !{!"_ZTSSt6vectorIPN8triggers9trigger_tESaIS2_EE", !150, i64 0}
+!150 = !{!"_ZTSSt12_Vector_baseIPN8triggers9trigger_tESaIS2_EE", !151, i64 0}
+!151 = !{!"_ZTSNSt12_Vector_baseIPN8triggers9trigger_tESaIS2_EE12_Vector_implE", !152, i64 0}
+!152 = !{!"_ZTSNSt12_Vector_baseIPN8triggers9trigger_tESaIS2_EE17_Vector_impl_dataE", !153, i64 0, !153, i64 8, !153, i64 16}
+!153 = !{!"p2 _ZTSN8triggers9trigger_tE", !19, i64 0}
+!154 = !{!115, !117, i64 0}
+!155 = !{!5, !5, i64 0}
+!156 = !{!115, !4, i64 8}

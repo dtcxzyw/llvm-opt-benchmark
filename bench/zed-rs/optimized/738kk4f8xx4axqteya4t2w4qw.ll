@@ -112606,7 +112606,7 @@ define void @"_ZN85_$LT$gpui..scene..BatchIterator$u20$as$u20$core..iter..traits
   %18 = icmp eq ptr %16, null
   br i1 %18, label %21, label %19
 
-default.unreachable351:                           ; preds = %134
+default.unreachable353:                           ; preds = %134
   unreachable
 
 19:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hf74f9e1ef6de865dE.exit"
@@ -112956,7 +112956,7 @@ default.unreachable351:                           ; preds = %134
   %137 = load i32, ptr %126, align 4, !range !8883, !noundef !9
   %trunc134 = trunc nuw i32 %137 to i1
   %.150 = select i1 %trunc134, i32 %136, i32 -1
-  switch i8 %135, label %default.unreachable351 [
+  switch i8 %135, label %default.unreachable353 [
     i8 0, label %139
     i8 1, label %143
     i8 2, label %147
@@ -113418,9 +113418,9 @@ split339:                                         ; preds = %244, %247
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %301 = load i64, ptr %300, align 8, !noundef !9
   store i64 0, ptr %74, align 8
-  %.promoted288.pre = load ptr, ptr %75, align 8
   %.phi.trans.insert329 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.pre330 = load ptr, ptr %.phi.trans.insert329, align 8
+  %.promoted288.pre = load ptr, ptr %75, align 8
   %302 = icmp samesign ugt i8 %133, 4
   br label %303
 
@@ -113503,9 +113503,9 @@ split331:                                         ; preds = %303, %306, %310, %"
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %334 = load i64, ptr %333, align 8, !noundef !9
   store i64 0, ptr %91, align 8
-  %.promoted286.pre = load ptr, ptr %92, align 8
   %.phi.trans.insert325 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %.pre326 = load ptr, ptr %.phi.trans.insert325, align 8
+  %.promoted286.pre = load ptr, ptr %92, align 8
   %335 = icmp samesign ugt i8 %133, 5
   br label %336
 

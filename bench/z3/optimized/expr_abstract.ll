@@ -429,7 +429,7 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.sink.split: ; preds = %.loopexit159,
   %.sink.ph = phi ptr [ %125, %155 ], [ %125, %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread ], [ %162, %167 ], [ %162, %.loopexit159 ]
   %.5.ph = phi ptr [ %.3179, %155 ], [ %.3179, %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread ], [ %162, %167 ], [ %162, %.loopexit159 ]
   %.162.ph = phi i1 [ %.061180, %155 ], [ %.061180, %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread ], [ %164, %167 ], [ %164, %.loopexit159 ]
-  %.159.ph = phi i8 [ 0, %155 ], [ 0, %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread ], [ %.058183, %167 ], [ %.058183, %.loopexit159 ]
+  %.159.ph = phi i8 [ 0, %155 ], [ 0, %_ZNK7obj_mapI4exprPS0_E4findES1_RS1_.exit.thread ], [ 1, %167 ], [ 1, %.loopexit159 ]
   call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink251)
   %.pre.i70.sink = load ptr, ptr %.sink251, align 8, !tbaa !14
   %.phi.trans.insert.i71 = getelementptr inbounds i8, ptr %.pre.i70.sink, i64 -4
@@ -442,7 +442,7 @@ _ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit:      ; preds = %_ZN6vectorIP4exprLb
   %.sink = phi ptr [ %125, %155 ], [ %162, %167 ], [ %.sink.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.sink.split ]
   %.5 = phi ptr [ %.3179, %155 ], [ %162, %167 ], [ %.5.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.sink.split ]
   %.162 = phi i1 [ %.061180, %155 ], [ %164, %167 ], [ %.162.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.sink.split ]
-  %.159 = phi i8 [ 0, %155 ], [ %.058183, %167 ], [ %.159.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.sink.split ]
+  %.159 = phi i8 [ 0, %155 ], [ 1, %167 ], [ %.159.ph, %_ZN6vectorIP4exprLb0EjE9push_backEOS1_.exit.sink.split ]
   %173 = getelementptr inbounds i8, ptr %.sink239, i64 -4
   %174 = zext i32 %.sink238 to i64
   %175 = getelementptr inbounds nuw ptr, ptr %.sink239, i64 %174

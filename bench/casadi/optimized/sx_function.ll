@@ -24224,14 +24224,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325: ; preds = %_Z
 197:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i314, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i315
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65) #29
   %.pre = load i8, ptr %92, align 8, !tbaa !78, !range !95
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1416
-  %199 = load ptr, ptr %198, align 8, !tbaa !102
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1440
-  %201 = load ptr, ptr %200, align 8, !tbaa !102
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  %203 = load ptr, ptr %202, align 8, !tbaa !102
-  %204 = trunc nuw i8 %.pre to i1
-  br i1 %204, label %.noexc.i327, label %254
+  %198 = trunc nuw i8 %.pre to i1
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 1416
+  %200 = load ptr, ptr %199, align 8, !tbaa !102
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  %202 = load ptr, ptr %201, align 8, !tbaa !102
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  %204 = load ptr, ptr %203, align 8, !tbaa !102
+  br i1 %198, label %.noexc.i327, label %254
 
 .noexc.i327:                                      ; preds = %197
   %205 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uoutEv()
@@ -24371,9 +24371,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
   br label %common.resume
 
 254:                                              ; preds = %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341, %197
-  %255 = phi ptr [ %100, %.thread ], [ %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %203, %197 ]
-  %256 = phi ptr [ %98, %.thread ], [ %201, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %201, %197 ]
-  %257 = phi ptr [ %96, %.thread ], [ %199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %199, %197 ]
+  %255 = phi ptr [ %100, %.thread ], [ %204, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %204, %197 ]
+  %256 = phi ptr [ %98, %.thread ], [ %202, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %202, %197 ]
+  %257 = phi ptr [ %96, %.thread ], [ %200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341 ], [ %200, %197 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 1360
   %259 = load ptr, ptr %258, align 8, !tbaa !106
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 1368

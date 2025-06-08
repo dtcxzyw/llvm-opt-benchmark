@@ -5937,9 +5937,9 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_
   br label %_ZNK7rocksdb12MergeContext11GetOperandsEv.exit502
 
 _ZNK7rocksdb12MergeContext11GetOperandsEv.exit502: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i481, %1312, %_ZN7rocksdb13PerfStepTimer5StartEv.exit
-  %.pr622.sink = phi ptr [ @_ZN7rocksdbL18empty_operand_listE, %_ZN7rocksdb13PerfStepTimer5StartEv.exit ], [ %.pre.i.i482, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i481 ], [ %1311, %1312 ]
-  %1323 = load ptr, ptr %.pr622.sink, align 8, !tbaa !108
-  %1324 = getelementptr inbounds nuw i8, ptr %.pr622.sink, i64 8
+  %.0.i.i491 = phi ptr [ @_ZN7rocksdbL18empty_operand_listE, %_ZN7rocksdb13PerfStepTimer5StartEv.exit ], [ %.pre.i.i482, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPN7rocksdb5SliceESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit.i.i.i481 ], [ %1311, %1312 ]
+  %1323 = load ptr, ptr %.0.i.i491, align 8, !tbaa !108
+  %1324 = getelementptr inbounds nuw i8, ptr %.0.i.i491, i64 8
   %1325 = load ptr, ptr %1324, align 8, !tbaa !108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %77, i8 0, i64 80, i1 false)
   %1326 = ptrtoint ptr %1325 to i64

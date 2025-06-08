@@ -13103,9 +13103,9 @@ _ZN3vim6motion8matching17h433503f53bebb54aE.exit: ; preds = %865, %989
   %1039 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1040 = load ptr, ptr %1039, align 8, !nonnull !4, !align !90, !noundef !4
   %1041 = load i8, ptr %1040, align 8, !range !565, !noundef !4
-  switch i8 %1041, label %1404 [
-    i8 25, label %1406
-    i8 26, label %1423
+  switch i8 %1041, label %1405 [
+    i8 25, label %1407
+    i8 26, label %1424
   ]
 
 1042:                                             ; preds = %switch.lookup
@@ -13512,7 +13512,7 @@ _ZN3vim6motion13window_bottom17hfda3b682ac4bbd4dE.exit: ; preds = %1259, %1302
   %1314 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1315 = load i64, ptr %1314, align 8, !noundef !4
   %.not = icmp eq i64 %1315, 0
-  br i1 %.not, label %1466, label %1458
+  br i1 %.not, label %1467, label %1459
 
 1316:                                             ; preds = %switch.lookup
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %61)
@@ -13544,7 +13544,7 @@ _ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit: ; preds = %1316, %132
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %61)
   br label %1330
 
-1330:                                             ; preds = %1458, %1442, %1396, %1341, %1339, %1338, %1337, %_ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit, %_ZN3vim6motion13window_bottom17hfda3b682ac4bbd4dE.exit, %_ZN3vim6motion13window_middle17hdeddfb83ecd32991E.exit, %_ZN3vim6motion10window_top17ha90a32eff5ef7c38E.exit, %_ZN3vim6motion12go_to_column17h86413e67a17d16f1E.exit, %1133, %1102, %1072, %1042, %1017, %_ZN3vim6motion8matching17h433503f53bebb54aE.exit, %_ZN3vim6motion15end_of_document17h804b0c97d0ab0508E.exit, %807, %798, %792, %_ZN3vim6motion17sentence_forwards17hbf6acc7bf54695c1E.exit, %_ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit, %542, %_ZN3vim6motion13start_of_line17h687701147029b972E.exit, %512, %503, %_ZN3vim6motion20previous_subword_end17hb22384e0617e0721E.exit, %_ZN3vim6motion22previous_subword_start17h364f7595b9773b3eE.exit, %370, %_ZN3vim6motion18next_subword_start17h69671e40e3f45d8bE.exit, %_ZN3vim6motion17previous_word_end17h9abb405e977c29daE.exit, %_ZN3vim6motion19previous_word_start17h99c597b618c47337E.exit, %190, %_ZN3vim6motion15next_word_start17hafa564a42869954aE.exit, %_ZN3vim6motion5space17h9b55320c0e39d778E.exit, %_ZN3vim6motion5right17h59c9ea8ba0035f4fE.exit, %_ZN3vim6motion9backspace17h2eaf4f01be22b93bE.exit, %_ZN3vim6motion4left17h61914bcc85936b35E.exit
+1330:                                             ; preds = %1459, %1443, %1397, %1341, %1339, %1338, %1337, %_ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit, %_ZN3vim6motion13window_bottom17hfda3b682ac4bbd4dE.exit, %_ZN3vim6motion13window_middle17hdeddfb83ecd32991E.exit, %_ZN3vim6motion10window_top17ha90a32eff5ef7c38E.exit, %_ZN3vim6motion12go_to_column17h86413e67a17d16f1E.exit, %1133, %1102, %1072, %1042, %1017, %_ZN3vim6motion8matching17h433503f53bebb54aE.exit, %_ZN3vim6motion15end_of_document17h804b0c97d0ab0508E.exit, %807, %798, %792, %_ZN3vim6motion17sentence_forwards17hbf6acc7bf54695c1E.exit, %_ZN3vim6motion18sentence_backwards17h96e65c0057d0304dE.exit, %542, %_ZN3vim6motion13start_of_line17h687701147029b972E.exit, %512, %503, %_ZN3vim6motion20previous_subword_end17hb22384e0617e0721E.exit, %_ZN3vim6motion22previous_subword_start17h364f7595b9773b3eE.exit, %370, %_ZN3vim6motion18next_subword_start17h69671e40e3f45d8bE.exit, %_ZN3vim6motion17previous_word_end17h9abb405e977c29daE.exit, %_ZN3vim6motion19previous_word_start17h99c597b618c47337E.exit, %190, %_ZN3vim6motion15next_word_start17hafa564a42869954aE.exit, %_ZN3vim6motion5space17h9b55320c0e39d778E.exit, %_ZN3vim6motion5right17h59c9ea8ba0035f4fE.exit, %_ZN3vim6motion9backspace17h2eaf4f01be22b93bE.exit, %_ZN3vim6motion4left17h61914bcc85936b35E.exit
   %1331 = load i32, ptr %65, align 4, !noundef !4
   %1332 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %1333 = load i32, ptr %1332, align 4, !noundef !4
@@ -13556,7 +13556,7 @@ _ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit: ; preds = %1316, %132
   %.sroa.0147.0 = or i1 %1335, %1336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.388, ptr noundef nonnull align 4 dereferenceable(12) %66, i64 12, i1 false)
   %brmerge = or i1 %.sroa.0147.0, %switch.masked
-  br i1 %brmerge, label %.critedge164, label %1469
+  br i1 %brmerge, label %.critedge164, label %1470
 
 1337:                                             ; preds = %92
   call fastcc void @_ZN3vim6motion19up_down_buffer_rows17h9b33e4ee6d8646baE(ptr noalias noundef align 4 captures(none) dereferenceable(20) %65, ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, ptr noalias noundef align 4 captures(none) dereferenceable(12) %5, i64 noundef %., ptr noalias noundef readonly align 8 dereferenceable(1208) %8)
@@ -13592,9 +13592,9 @@ _ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit: ; preds = %1316, %132
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %64)
   br label %1349
 
-1349:                                             ; preds = %1404, %1455, %1453, %1350, %.thread, %.thread447, %1466, %1347
+1349:                                             ; preds = %1405, %1456, %1454, %1350, %.thread, %.thread447, %1467, %1347
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %65)
-  br label %1468
+  br label %1469
 
 1350:                                             ; preds = %1034
   %1351 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13636,7 +13636,7 @@ _ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit: ; preds = %1316, %132
   %1380 = icmp eq i32 %1378, %3
   %1381 = icmp eq i32 %1379, %4
   %or.cond6 = select i1 %1380, i1 %1381, i1 false
-  br i1 %or.cond6, label %1399, label %1396
+  br i1 %or.cond6, label %1400, label %1397
 
 1382:                                             ; preds = %1352
   %1383 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -13652,161 +13652,161 @@ _ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit: ; preds = %1316, %132
   %1390 = add i64 %., 1
   call fastcc void @_ZN3vim6motion12find_forward17h89358be376c048ceE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %63, ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1355, i32 noundef %1357, i64 noundef %1390, i1 noundef zeroext %1360, i1 noundef zeroext %1363)
   %.pre437 = load i32, ptr %63, align 4, !range !2780
-  %trunc153 = trunc nuw i32 %.pre437 to i1
-  br i1 %trunc153, label %.thread, label %.thread447
+  %1391 = trunc nuw i32 %.pre437 to i1
+  br i1 %1391, label %.thread, label %.thread447
 
 .thread447:                                       ; preds = %1352, %1389
-  %1391 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %1391, align 4
+  %1392 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %1392, align 4
   br label %1349
 
 .thread:                                          ; preds = %1382, %1389
-  %1392 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %1393 = load i32, ptr %1392, align 4, !noundef !4
-  %1394 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %1395 = load i32, ptr %1394, align 4, !noundef !4
-  store i32 %1393, ptr %0, align 4
+  %1393 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %1394 = load i32, ptr %1393, align 4, !noundef !4
+  %1395 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %1396 = load i32, ptr %1395, align 4, !noundef !4
+  store i32 %1394, ptr %0, align 4
   %.sroa.4134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1395, ptr %.sroa.4134.0..sroa_idx, align 4
+  store i32 %1396, ptr %.sroa.4134.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx135, align 4
   br label %1349
 
-1396:                                             ; preds = %1365, %1399
-  %.sroa.059.0 = phi i32 [ %1402, %1399 ], [ %1378, %1365 ]
-  %.sroa.461.0 = phi i32 [ %1403, %1399 ], [ %1379, %1365 ]
+1397:                                             ; preds = %1365, %1400
+  %.sroa.059.0 = phi i32 [ %1403, %1400 ], [ %1378, %1365 ]
+  %.sroa.461.0 = phi i32 [ %1404, %1400 ], [ %1379, %1365 ]
   store i32 %.sroa.059.0, ptr %65, align 4
-  %1397 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 %.sroa.461.0, ptr %1397, align 4
-  %1398 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 0, ptr %1398, align 4
+  %1398 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store i32 %.sroa.461.0, ptr %1398, align 4
+  %1399 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i32 0, ptr %1399, align 4
   br label %1330
 
-1399:                                             ; preds = %1365
-  %1400 = add i64 %., 1
-  %1401 = tail call fastcc { i32, i32 } @_ZN3vim6motion13find_backward17he6e76560d0bacdc3E(ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1368, i32 noundef %1370, i64 noundef %1400, i1 noundef zeroext %1373, i1 noundef zeroext %1376)
-  %1402 = extractvalue { i32, i32 } %1401, 0
-  %1403 = extractvalue { i32, i32 } %1401, 1
-  br label %1396
+1400:                                             ; preds = %1365
+  %1401 = add i64 %., 1
+  %1402 = tail call fastcc { i32, i32 } @_ZN3vim6motion13find_backward17he6e76560d0bacdc3E(ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1368, i32 noundef %1370, i64 noundef %1401, i1 noundef zeroext %1373, i1 noundef zeroext %1376)
+  %1403 = extractvalue { i32, i32 } %1402, 0
+  %1404 = extractvalue { i32, i32 } %1402, 1
+  br label %1397
 
-1404:                                             ; preds = %1038
-  %1405 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %1405, align 4
+1405:                                             ; preds = %1038
+  %1406 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %1406, align 4
   br label %1349
 
-1406:                                             ; preds = %1038
-  %1407 = getelementptr inbounds nuw i8, ptr %1040, i64 1
-  %1408 = load i8, ptr %1407, align 1, !range !89, !noundef !4
-  %1409 = trunc nuw i8 %1408 to i1
-  %1410 = getelementptr inbounds nuw i8, ptr %1040, i64 4
-  %1411 = load i32, ptr %1410, align 4, !range !2779, !noundef !4
-  %1412 = getelementptr inbounds nuw i8, ptr %1040, i64 2
-  %1413 = load i8, ptr %1412, align 2, !range !89, !noundef !4
-  %1414 = trunc nuw i8 %1413 to i1
-  %1415 = getelementptr inbounds nuw i8, ptr %1040, i64 3
-  %1416 = load i8, ptr %1415, align 1, !range !89, !noundef !4
-  %1417 = trunc nuw i8 %1416 to i1
-  %1418 = tail call fastcc { i32, i32 } @_ZN3vim6motion13find_backward17he6e76560d0bacdc3E(ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1409, i32 noundef %1411, i64 noundef %., i1 noundef zeroext %1414, i1 noundef zeroext %1417)
-  %1419 = extractvalue { i32, i32 } %1418, 0
-  %1420 = extractvalue { i32, i32 } %1418, 1
-  %1421 = icmp eq i32 %1419, %3
-  %1422 = icmp eq i32 %1420, %4
-  %or.cond9 = select i1 %1421, i1 %1422, i1 false
-  br i1 %or.cond9, label %1445, label %1442
+1407:                                             ; preds = %1038
+  %1408 = getelementptr inbounds nuw i8, ptr %1040, i64 1
+  %1409 = load i8, ptr %1408, align 1, !range !89, !noundef !4
+  %1410 = trunc nuw i8 %1409 to i1
+  %1411 = getelementptr inbounds nuw i8, ptr %1040, i64 4
+  %1412 = load i32, ptr %1411, align 4, !range !2779, !noundef !4
+  %1413 = getelementptr inbounds nuw i8, ptr %1040, i64 2
+  %1414 = load i8, ptr %1413, align 2, !range !89, !noundef !4
+  %1415 = trunc nuw i8 %1414 to i1
+  %1416 = getelementptr inbounds nuw i8, ptr %1040, i64 3
+  %1417 = load i8, ptr %1416, align 1, !range !89, !noundef !4
+  %1418 = trunc nuw i8 %1417 to i1
+  %1419 = tail call fastcc { i32, i32 } @_ZN3vim6motion13find_backward17he6e76560d0bacdc3E(ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1410, i32 noundef %1412, i64 noundef %., i1 noundef zeroext %1415, i1 noundef zeroext %1418)
+  %1420 = extractvalue { i32, i32 } %1419, 0
+  %1421 = extractvalue { i32, i32 } %1419, 1
+  %1422 = icmp eq i32 %1420, %3
+  %1423 = icmp eq i32 %1421, %4
+  %or.cond9 = select i1 %1422, i1 %1423, i1 false
+  br i1 %or.cond9, label %1446, label %1443
 
-1423:                                             ; preds = %1038
-  %1424 = getelementptr inbounds nuw i8, ptr %1040, i64 1
-  %1425 = load i8, ptr %1424, align 1, !range !89, !noundef !4
-  %1426 = trunc nuw i8 %1425 to i1
-  %1427 = getelementptr inbounds nuw i8, ptr %1040, i64 4
-  %1428 = load i32, ptr %1427, align 4, !range !2779, !noundef !4
-  %1429 = getelementptr inbounds nuw i8, ptr %1040, i64 2
-  %1430 = load i8, ptr %1429, align 2, !range !89, !noundef !4
-  %1431 = trunc nuw i8 %1430 to i1
-  %1432 = getelementptr inbounds nuw i8, ptr %1040, i64 3
-  %1433 = load i8, ptr %1432, align 1, !range !89, !noundef !4
-  %1434 = trunc nuw i8 %1433 to i1
-  call fastcc void @_ZN3vim6motion12find_forward17h89358be376c048ceE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %62, ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1426, i32 noundef %1428, i64 noundef %., i1 noundef zeroext %1431, i1 noundef zeroext %1434)
-  %1435 = load i32, ptr %62, align 4, !range !2780, !noundef !4
-  %trunc = trunc nuw i32 %1435 to i1
-  %1436 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %1437 = load i32, ptr %1436, align 4
-  %1438 = icmp eq i32 %1437, %3
-  %or.cond167 = select i1 %trunc, i1 %1438, i1 false
-  %1439 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %1440 = load i32, ptr %1439, align 4
-  %1441 = icmp eq i32 %1440, %4
-  %or.cond170 = select i1 %or.cond167, i1 %1441, i1 false
-  br i1 %or.cond170, label %1451, label %.critedge
+1424:                                             ; preds = %1038
+  %1425 = getelementptr inbounds nuw i8, ptr %1040, i64 1
+  %1426 = load i8, ptr %1425, align 1, !range !89, !noundef !4
+  %1427 = trunc nuw i8 %1426 to i1
+  %1428 = getelementptr inbounds nuw i8, ptr %1040, i64 4
+  %1429 = load i32, ptr %1428, align 4, !range !2779, !noundef !4
+  %1430 = getelementptr inbounds nuw i8, ptr %1040, i64 2
+  %1431 = load i8, ptr %1430, align 2, !range !89, !noundef !4
+  %1432 = trunc nuw i8 %1431 to i1
+  %1433 = getelementptr inbounds nuw i8, ptr %1040, i64 3
+  %1434 = load i8, ptr %1433, align 1, !range !89, !noundef !4
+  %1435 = trunc nuw i8 %1434 to i1
+  call fastcc void @_ZN3vim6motion12find_forward17h89358be376c048ceE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %62, ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1427, i32 noundef %1429, i64 noundef %., i1 noundef zeroext %1432, i1 noundef zeroext %1435)
+  %1436 = load i32, ptr %62, align 4, !range !2780, !noundef !4
+  %trunc = trunc nuw i32 %1436 to i1
+  %1437 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %1438 = load i32, ptr %1437, align 4
+  %1439 = icmp eq i32 %1438, %3
+  %or.cond167 = select i1 %trunc, i1 %1439, i1 false
+  %1440 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %1441 = load i32, ptr %1440, align 4
+  %1442 = icmp eq i32 %1441, %4
+  %or.cond170 = select i1 %or.cond167, i1 %1442, i1 false
+  br i1 %or.cond170, label %1452, label %.critedge
 
-1442:                                             ; preds = %1406, %1445
-  %.sroa.065.0 = phi i32 [ %1448, %1445 ], [ %1419, %1406 ]
-  %.sroa.467.0 = phi i32 [ %1449, %1445 ], [ %1420, %1406 ]
+1443:                                             ; preds = %1407, %1446
+  %.sroa.065.0 = phi i32 [ %1449, %1446 ], [ %1420, %1407 ]
+  %.sroa.467.0 = phi i32 [ %1450, %1446 ], [ %1421, %1407 ]
   store i32 %.sroa.065.0, ptr %65, align 4
-  %1443 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 %.sroa.467.0, ptr %1443, align 4
-  %1444 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 0, ptr %1444, align 4
+  %1444 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store i32 %.sroa.467.0, ptr %1444, align 4
+  %1445 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i32 0, ptr %1445, align 4
   br label %1330
 
-1445:                                             ; preds = %1406
-  %1446 = add i64 %., 1
-  %1447 = tail call fastcc { i32, i32 } @_ZN3vim6motion13find_backward17he6e76560d0bacdc3E(ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1409, i32 noundef %1411, i64 noundef %1446, i1 noundef zeroext %1414, i1 noundef zeroext %1417)
-  %1448 = extractvalue { i32, i32 } %1447, 0
-  %1449 = extractvalue { i32, i32 } %1447, 1
-  br label %1442
+1446:                                             ; preds = %1407
+  %1447 = add i64 %., 1
+  %1448 = tail call fastcc { i32, i32 } @_ZN3vim6motion13find_backward17he6e76560d0bacdc3E(ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1410, i32 noundef %1412, i64 noundef %1447, i1 noundef zeroext %1415, i1 noundef zeroext %1418)
+  %1449 = extractvalue { i32, i32 } %1448, 0
+  %1450 = extractvalue { i32, i32 } %1448, 1
+  br label %1443
 
-.critedge:                                        ; preds = %1423, %1451
-  %1450 = phi i32 [ %1435, %1423 ], [ %.pre, %1451 ]
-  %trunc151 = trunc nuw i32 %1450 to i1
-  br i1 %trunc151, label %1455, label %1453
+.critedge:                                        ; preds = %1424, %1452
+  %1451 = phi i32 [ %1436, %1424 ], [ %.pre, %1452 ]
+  %trunc151 = trunc nuw i32 %1451 to i1
+  br i1 %trunc151, label %1456, label %1454
 
-1451:                                             ; preds = %1423
-  %1452 = add i64 %., 1
-  call fastcc void @_ZN3vim6motion12find_forward17h89358be376c048ceE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %62, ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1426, i32 noundef %1428, i64 noundef %1452, i1 noundef zeroext %1431, i1 noundef zeroext %1434)
+1452:                                             ; preds = %1424
+  %1453 = add i64 %., 1
+  call fastcc void @_ZN3vim6motion12find_forward17h89358be376c048ceE(ptr noalias noundef align 4 captures(none) dereferenceable(12) %62, ptr noalias noundef readonly align 8 dereferenceable(632) %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %1427, i32 noundef %1429, i64 noundef %1453, i1 noundef zeroext %1432, i1 noundef zeroext %1435)
   %.pre = load i32, ptr %62, align 4, !range !2780
   br label %.critedge
 
-1453:                                             ; preds = %.critedge
-  %1454 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %1454, align 4
+1454:                                             ; preds = %.critedge
+  %1455 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %1455, align 4
   br label %1349
 
-1455:                                             ; preds = %.critedge
-  %1456 = load i32, ptr %1436, align 4, !noundef !4
-  %1457 = load i32, ptr %1439, align 4, !noundef !4
-  store i32 %1456, ptr %0, align 4
+1456:                                             ; preds = %.critedge
+  %1457 = load i32, ptr %1437, align 4, !noundef !4
+  %1458 = load i32, ptr %1440, align 4, !noundef !4
+  store i32 %1457, ptr %0, align 4
   %.sroa.4141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1457, ptr %.sroa.4141.0..sroa_idx, align 4
+  store i32 %1458, ptr %.sroa.4141.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx142, align 4
   br label %1349
 
-1458:                                             ; preds = %1313
-  %1459 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1460 = load ptr, ptr %1459, align 8, !nonnull !4
-  %1461 = tail call { i32, i32 } @"_ZN84_$LT$multi_buffer..anchor..Anchor$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17h448bc2a9fd8276b7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1460, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %2)
-  %1462 = extractvalue { i32, i32 } %1461, 0
-  %1463 = extractvalue { i32, i32 } %1461, 1
-  store i32 %1462, ptr %65, align 4
-  %1464 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 %1463, ptr %1464, align 4
-  %1465 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 0, ptr %1465, align 4
+1459:                                             ; preds = %1313
+  %1460 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1461 = load ptr, ptr %1460, align 8, !nonnull !4
+  %1462 = tail call { i32, i32 } @"_ZN84_$LT$multi_buffer..anchor..Anchor$u20$as$u20$editor..display_map..ToDisplayPoint$GT$16to_display_point17h448bc2a9fd8276b7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1461, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %2)
+  %1463 = extractvalue { i32, i32 } %1462, 0
+  %1464 = extractvalue { i32, i32 } %1462, 1
+  store i32 %1463, ptr %65, align 4
+  %1465 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store i32 %1464, ptr %1465, align 4
+  %1466 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i32 0, ptr %1466, align 4
   br label %1330
 
-1466:                                             ; preds = %1313
-  %1467 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %1467, align 4
+1467:                                             ; preds = %1313
+  %1468 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %1468, align 4
   br label %1349
 
-1468:                                             ; preds = %.critedge164, %1469, %1349
+1469:                                             ; preds = %.critedge164, %1470, %1349
   ret void
 
-1469:                                             ; preds = %1330
-  %1470 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 4, ptr %1470, align 4
-  br label %1468
+1470:                                             ; preds = %1330
+  %1471 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 4, ptr %1471, align 4
+  br label %1469
 
 .critedge164:                                     ; preds = %1330
   store i32 %1331, ptr %0, align 4
@@ -13814,7 +13814,7 @@ _ZN3vim6normal4mark11jump_motion17hc671b6fa095458cfE.exit: ; preds = %1316, %132
   store i32 %1333, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.388.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.388, i64 12, i1 false)
-  br label %1468
+  br label %1469
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -22161,7 +22161,7 @@ define hidden void @_ZN3vim6object19surrounding_markers17h2513321c2cc5b622E.llvm
 .thread294:                                       ; preds = %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit.thread", %35, %55, %.thread301
   %.sroa.627.0299 = phi i64 [ %39, %.thread301 ], [ %39, %55 ], [ undef, %35 ], [ %39, %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit.thread" ]
   %.sroa.7.0298 = phi i64 [ %storemerge, %.thread301 ], [ %storemerge, %55 ], [ undef, %35 ], [ %storemerge, %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit.thread" ]
-  %.sroa.039.0 = phi i64 [ 0, %.thread301 ], [ 1, %55 ], [ 0, %35 ], [ %spec.select385, %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit.thread" ]
+  %.sroa.039.0 = phi i1 [ false, %.thread301 ], [ true, %55 ], [ false, %35 ], [ %109, %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit.thread" ]
   %47 = load i64, ptr %25, align 8, !range !475, !alias.scope !5006, !noundef !4
   %48 = icmp eq i64 %47, 4
   br i1 %48, label %"_ZN4core3ptr442drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..movement..chars_after..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he9770446764b1e10E.exit", label %49
@@ -22186,8 +22186,7 @@ define hidden void @_ZN3vim6object19surrounding_markers17h2513321c2cc5b622E.llvm
 
 "_ZN4core3ptr442drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..movement..chars_after..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he9770446764b1e10E.exit": ; preds = %.thread294, %"_ZN4core3ptr82drop_in_place$LT$sum_tree..cursor..Cursor$LT$multi_buffer..Excerpt$C$usize$GT$$GT$17hb0b30651522d1d05E.exit.i.i.i.i.i.i.i.i172", %54
   call void @llvm.lifetime.end.p0(i64 1216, ptr nonnull %25)
-  %trunc = trunc nuw i64 %.sroa.039.0 to i1
-  br i1 %trunc, label %.thread320, label %116
+  br i1 %.sroa.039.0, label %.thread320, label %116
 
 55:                                               ; preds = %.thread301
   %56 = icmp eq i32 %6, %7
@@ -22384,9 +22383,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h08675c165284d595E.exit.thread.
 
 "_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit.thread": ; preds = %"_ZN69_$LT$$LP$A$C$A$RP$$u20$as$u20$itertools..tuple_impl..TupleCollect$GT$24collect_from_iter_no_buf17hb410bd0e5103c615E.exit.i", %.noexc, %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit", %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit"
   call void @llvm.lifetime.end.p0(i64 960, ptr nonnull %23)
-  %108 = and i32 %.sroa.028.0, 1
-  %109 = xor i32 %108, 1
-  %spec.select385 = zext nneg i32 %109 to i64
+  %108 = trunc i32 %.sroa.028.0 to i1
+  %109 = xor i1 %108, true
   br label %.thread294
 
 110:                                              ; preds = %"_ZN107_$LT$itertools..tuple_impl..TupleWindows$LT$I$C$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9a5854671a88c18E.exit"
@@ -22466,9 +22464,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 .thread312:                                       ; preds = %154, %120, %132
   %.sroa.13.2 = phi i64 [ %.sroa.7.0298, %132 ], [ %.sroa.7.0298, %120 ], [ %.sroa.7104.1, %154 ]
   %.sroa.842.2 = phi i64 [ %.sroa.627.0299, %132 ], [ %.sroa.627.0299, %120 ], [ %.sroa.6103.1, %154 ]
-  %.sroa.039.2 = phi i64 [ %.sroa.039.0, %132 ], [ %.sroa.039.0, %120 ], [ 1, %154 ]
+  %switch.not = phi i1 [ false, %132 ], [ false, %120 ], [ true, %154 ]
+  %.sroa.039.2 = phi i64 [ 0, %132 ], [ 0, %120 ], [ 1, %154 ]
   call void @llvm.lifetime.end.p0(i64 936, ptr nonnull %22)
-  %switch.not = icmp eq i64 %.sroa.039.2, 1
   br i1 %switch.not, label %.thread320, label %158
 
 135:                                              ; preds = %132

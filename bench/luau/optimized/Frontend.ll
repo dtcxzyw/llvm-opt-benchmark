@@ -15648,11 +15648,11 @@ _ZNKSt8functionIFvS_IFvvEEEEclES1_.exit.i:        ; preds = %384
   br label %511
 
 .lr.ph428:                                        ; preds = %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit", %._crit_edge417
-  %.171427 = phi i8 [ %.373, %._crit_edge417 ], [ %.070451, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
+  %.171427 = phi i8 [ 0, %._crit_edge417 ], [ %.070451, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
   %.sroa.0236.1426 = phi ptr [ %.sroa.0236.5.lcssa, %._crit_edge417 ], [ %.sroa.0236.0450, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
   %.sroa.10.1425 = phi ptr [ %.sroa.10.3.lcssa, %._crit_edge417 ], [ %.sroa.0236.0450, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
   %.sroa.16.1424 = phi ptr [ %.sroa.16.5.lcssa, %._crit_edge417 ], [ %.sroa.16.0449, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
-  %.sroa.5234.1423 = phi i8 [ %spec.select281, %._crit_edge417 ], [ %.sroa.5234.0448, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
+  %.sroa.5234.1423 = phi i8 [ 0, %._crit_edge417 ], [ %.sroa.5234.0448, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
   %.sroa.0233.1422 = phi i64 [ %spec.select280, %._crit_edge417 ], [ %.sroa.0233.0447, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
   %.sroa.0230.0421 = phi ptr [ %482, %._crit_edge417 ], [ %422, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ]
   %427 = load i64, ptr %.sroa.0230.0421, align 8, !tbaa !170
@@ -15804,9 +15804,11 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit138:       ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not272, label %.critedge.loopexit, label %.lr.ph428
 
 .critedge.loopexit:                               ; preds = %438, %._crit_edge417
-  %.sroa.16.1.lcssa.ph = phi ptr [ %.sroa.16.5.lcssa, %._crit_edge417 ], [ %.sroa.16.1424, %438 ]
-  %.sroa.10.1.lcssa.ph = phi ptr [ %.sroa.10.3.lcssa, %._crit_edge417 ], [ %.sroa.10.1425, %438 ]
-  %.sroa.0236.1.lcssa.ph = phi ptr [ %.sroa.0236.5.lcssa, %._crit_edge417 ], [ %.sroa.0236.1426, %438 ]
+  %.373.lcssa = phi i8 [ %.373, %438 ], [ 0, %._crit_edge417 ]
+  %spec.select281.lcssa = phi i8 [ %spec.select281, %438 ], [ 0, %._crit_edge417 ]
+  %.sroa.16.1.lcssa.ph = phi ptr [ %.sroa.16.1424, %438 ], [ %.sroa.16.5.lcssa, %._crit_edge417 ]
+  %.sroa.10.1.lcssa.ph = phi ptr [ %.sroa.10.1425, %438 ], [ %.sroa.10.3.lcssa, %._crit_edge417 ]
+  %.sroa.0236.1.lcssa.ph = phi ptr [ %.sroa.0236.1426, %438 ], [ %.sroa.0236.5.lcssa, %._crit_edge417 ]
   %.pre546 = load ptr, ptr %411, align 8, !tbaa !560
   %.pre547 = load ptr, ptr %21, align 8, !tbaa !562
   br label %.critedge
@@ -15818,8 +15820,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit138:       ; preds = %_ZNSt6vectorImSaImE
   %.sroa.10.1.lcssa = phi ptr [ %.sroa.0236.0450, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %.sroa.10.1.lcssa.ph, %.critedge.loopexit ]
   %.sroa.0236.1.lcssa = phi ptr [ %.sroa.0236.0450, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %.sroa.0236.1.lcssa.ph, %.critedge.loopexit ]
   %.sroa.0233.2 = phi i64 [ %.sroa.0233.0447, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %spec.select280, %.critedge.loopexit ]
-  %.sroa.5234.2 = phi i8 [ %.sroa.5234.0448, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %spec.select281, %.critedge.loopexit ]
-  %.272 = phi i8 [ %.070451, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %.373, %.critedge.loopexit ]
+  %.sroa.5234.2 = phi i8 [ %.sroa.5234.0448, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %spec.select281.lcssa, %.critedge.loopexit ]
+  %.272 = phi i8 [ %.070451, %"_ZNSt18condition_variable4waitIZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS1_15FrontendOptionsEESt8functionIFvS6_IFvvEEEES6_IFbmmEEE3$_5EEvRSt11unique_lockISt5mutexET_.exit" ], [ %.373.lcssa, %.critedge.loopexit ]
   %485 = ptrtoint ptr %484 to i64
   %486 = ptrtoint ptr %483 to i64
   %487 = sub i64 %485, %486

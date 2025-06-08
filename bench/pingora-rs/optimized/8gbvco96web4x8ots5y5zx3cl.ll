@@ -9965,7 +9965,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 35:                                               ; preds = %.loopexit.i.i.i.i.i.i.i.i, %31
   %36 = phi i64 [ %20, %.loopexit.i.i.i.i.i.i.i.i ], [ %33, %31 ]
   %37 = phi ptr [ %21, %.loopexit.i.i.i.i.i.i.i.i ], [ %34, %31 ]
-  %38 = phi i8 [ 1, %.loopexit.i.i.i.i.i.i.i.i ], [ %22, %31 ]
+  %38 = phi i8 [ 1, %.loopexit.i.i.i.i.i.i.i.i ], [ 0, %31 ]
   %.sroa.5.0.i.ph.i.i.i.i.i.i.i = phi i64 [ %20, %.loopexit.i.i.i.i.i.i.i.i ], [ %.sroa.02.012.i.i.i.i.i.i.i.i.i, %31 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !1236
   store ptr %21, ptr %10, align 8, !noalias !1247
@@ -10136,7 +10136,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 88:                                               ; preds = %.loopexit.i.i.i.i.i.i.i.i.i.i, %84
   %89 = phi i64 [ %73, %.loopexit.i.i.i.i.i.i.i.i.i.i ], [ %86, %84 ]
   %90 = phi ptr [ %74, %.loopexit.i.i.i.i.i.i.i.i.i.i ], [ %87, %84 ]
-  %91 = phi i8 [ 1, %.loopexit.i.i.i.i.i.i.i.i.i.i ], [ %75, %84 ]
+  %91 = phi i8 [ 1, %.loopexit.i.i.i.i.i.i.i.i.i.i ], [ 0, %84 ]
   %.sroa.5.0.i.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %73, %.loopexit.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.02.012.i.i.i.i.i.i.i.i.i.i.i, %84 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1303
   store ptr %74, ptr %5, align 8, !noalias !1314

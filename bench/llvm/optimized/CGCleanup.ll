@@ -5658,8 +5658,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %28
   %34 = phi ptr [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %17, %28 ], [ %17, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i1 [ %33, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %28 ], [ false, %.lr.ph.i.i ]
-  br i1 %.fca.1.insert.merged.i11.i, label %35, label %51
+  %.fca.1.insert.merged.i9.i = phi i1 [ %33, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %28 ], [ false, %.lr.ph.i.i ]
+  br i1 %.fca.1.insert.merged.i9.i, label %35, label %51
 
 35:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 56

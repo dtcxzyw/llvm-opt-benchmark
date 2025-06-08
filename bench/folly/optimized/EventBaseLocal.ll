@@ -3572,9 +3572,9 @@ define linkonce_odr void @_ZZN5folly3f146detail8F14TableINS1_21VectorContainerPo
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %7, %11, %40, %18
-  %50 = phi i64 [ %43, %40 ], [ %.pre5, %18 ], [ %10, %11 ], [ %10, %7 ]
-  %.09 = phi i64 [ %24, %40 ], [ %24, %18 ], [ %17, %11 ], [ 0, %7 ]
-  %.028 = phi ptr [ %21, %40 ], [ %21, %18 ], [ %14, %11 ], [ null, %7 ]
+  %.09 = phi i64 [ %24, %40 ], [ %24, %18 ], [ 0, %7 ], [ %17, %11 ]
+  %.028 = phi ptr [ %21, %40 ], [ %21, %18 ], [ null, %7 ], [ %14, %11 ]
+  %50 = phi i64 [ %43, %40 ], [ %.pre5, %18 ], [ %10, %7 ], [ %10, %11 ]
   %.not.i = icmp eq ptr %.028, null
   br i1 %.not.i, label %_ZN5folly3f146detail21VectorContainerPolicyImSt10unique_ptrIvPFvPvEEvvvSt17integral_constantIbLb1EEE11afterRehashEPSt4pairIKmS7_EbmmmPhm.exit, label %51
 

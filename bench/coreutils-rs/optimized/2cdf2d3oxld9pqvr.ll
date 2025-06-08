@@ -1273,7 +1273,7 @@ define void @"_ZN98_$LT$uu_csplit..patterns..ExecutePatternIter$u20$as$u20$core.
 15:                                               ; preds = %8
   %16 = add i64 %12, 1
   store i64 %16, ptr %11, align 8
-  store i64 %3, ptr %0, align 8
+  store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

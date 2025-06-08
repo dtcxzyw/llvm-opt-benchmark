@@ -1108,7 +1108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit376: ; preds = %_Z
           to label %205 unwind label %206
 
 205:                                              ; preds = %203
-  %spec.select361 = select i1 %204, i8 1, i8 %.0281489
+  %spec.select361 = zext i1 %204 to i8
   br label %208
 
 206:                                              ; preds = %203, %199

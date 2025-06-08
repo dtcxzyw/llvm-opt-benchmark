@@ -1677,9 +1677,9 @@ define internal fastcc void @SDL_PrivateSendMouseMotion(i64 noundef %0, ptr noun
   br i1 %or.cond11, label %191, label %.thread194
 
 .thread194:                                       ; preds = %90, %100
-  %104 = phi i1 [ %101, %100 ], [ false, %90 ]
   %.0132200 = phi float [ %.0132, %100 ], [ 0.000000e+00, %90 ]
   %.0133199 = phi float [ %.0133, %100 ], [ 0.000000e+00, %90 ]
+  %104 = phi i1 [ %101, %100 ], [ false, %90 ]
   br i1 %35, label %112, label %105
 
 105:                                              ; preds = %.thread194

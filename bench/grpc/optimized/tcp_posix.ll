@@ -10653,15 +10653,15 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL20maybe_po
 10:                                               ; preds = %2
   tail call void @_ZN9grpc_core14ReclaimerQueue6Handle5Sweep13MarkCancelledEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.pre = load i8, ptr %5, align 8, !tbaa !311, !range !122
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i8 0, ptr %12, align 8, !tbaa !311
-  %13 = trunc nuw i8 %.pre to i1
-  br i1 %13, label %14, label %.noexc4
+  %11 = trunc nuw i8 %.pre to i1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i8 0, ptr %13, align 8, !tbaa !311
+  br i1 %11, label %14, label %.noexc4
 
 14:                                               ; preds = %10, %.thread
-  %15 = phi ptr [ %9, %.thread ], [ %12, %10 ]
-  %16 = phi ptr [ %8, %.thread ], [ %11, %10 ]
+  %15 = phi ptr [ %9, %.thread ], [ %13, %10 ]
+  %16 = phi ptr [ %8, %.thread ], [ %12, %10 ]
   %17 = load ptr, ptr %1, align 8, !tbaa !134
   store ptr %17, ptr %4, align 8, !tbaa !134
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10733,8 +10733,8 @@ _ZL19perform_reclamationPN12_GLOBAL__N_18grpc_tcpE.exit.i: ; preds = %34, %.noex
           to label %.noexc4 unwind label %71
 
 .noexc4:                                          ; preds = %10, %_ZL19perform_reclamationPN12_GLOBAL__N_18grpc_tcpE.exit.i
-  %38 = phi ptr [ %16, %_ZL19perform_reclamationPN12_GLOBAL__N_18grpc_tcpE.exit.i ], [ %11, %10 ]
-  %39 = phi ptr [ %15, %_ZL19perform_reclamationPN12_GLOBAL__N_18grpc_tcpE.exit.i ], [ %12, %10 ]
+  %38 = phi ptr [ %16, %_ZL19perform_reclamationPN12_GLOBAL__N_18grpc_tcpE.exit.i ], [ %12, %10 ]
+  %39 = phi ptr [ %15, %_ZL19perform_reclamationPN12_GLOBAL__N_18grpc_tcpE.exit.i ], [ %13, %10 ]
   %40 = load ptr, ptr %38, align 8, !tbaa !319
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = atomicrmw sub ptr %41, i64 1 acq_rel, align 8

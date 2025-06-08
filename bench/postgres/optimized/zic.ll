@@ -1644,7 +1644,7 @@ rule_cmp.exit133.thread186.i.i:                   ; preds = %rule_cmp.exit133.th
   store i64 0, ptr %413, align 8
   store i8 0, ptr %414, align 1
   store i8 0, ptr %415, align 8
-  store i8 %639, ptr %416, align 2
+  store i8 1, ptr %416, align 2
   %642 = getelementptr inbounds nuw i8, ptr %636, i64 80
   %643 = load i64, ptr %642, align 8
   store i64 %643, ptr %417, align 8

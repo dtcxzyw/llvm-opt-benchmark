@@ -49331,18 +49331,17 @@ _ZNK6duckdb11LogicalTypeeqERKS0_.exit:            ; preds = %.lr.ph
   %29 = trunc nuw i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %31 = load i8, ptr %30, align 8, !tbaa !428, !range !118
-  br i1 %29, label %32, label %._crit_edge
+  br i1 %29, label %32, label %34
 
 32:                                               ; preds = %26
   %33 = trunc nuw i8 %31 to i1
-  br i1 %33, label %37, label %._crit_edge
+  br i1 %33, label %37, label %.critedge
 
-._crit_edge:                                      ; preds = %26, %32
-  %34 = phi i8 [ 0, %32 ], [ %31, %26 ]
-  %.not89 = icmp eq i8 %28, %34
+34:                                               ; preds = %26
+  %.not89 = icmp eq i8 %28, %31
   br i1 %.not89, label %35, label %.critedge
 
-35:                                               ; preds = %._crit_edge
+35:                                               ; preds = %34
   %36 = tail call noundef zeroext i1 @_ZNK6duckdb5ValueneERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %22)
   br i1 %36, label %.critedge, label %37
 
@@ -49376,8 +49375,8 @@ _ZN6duckdb12optional_ptrINS_17ExtensionTypeInfoELb1EEptEv.exit64: ; preds = %37,
   %.not88 = icmp eq ptr %.sroa.068.0, null
   br i1 %.not88, label %.critedge, label %.lr.ph96
 
-.critedge:                                        ; preds = %35, %.lr.ph, %._crit_edge, %_ZNK6duckdb11LogicalTypeeqERKS0_.exit, %48, %44, %_ZN6duckdb12optional_ptrINS_17ExtensionTypeInfoELb1EEptEv.exit64, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %_ZN6duckdb12optional_ptrINS_17ExtensionTypeInfoELb1EEptEv.exit64 ], [ true, %48 ], [ false, %44 ], [ false, %_ZNK6duckdb11LogicalTypeeqERKS0_.exit ], [ false, %._crit_edge ], [ false, %.lr.ph ], [ false, %35 ]
+.critedge:                                        ; preds = %32, %35, %.lr.ph, %34, %_ZNK6duckdb11LogicalTypeeqERKS0_.exit, %48, %44, %_ZN6duckdb12optional_ptrINS_17ExtensionTypeInfoELb1EEptEv.exit64, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %_ZN6duckdb12optional_ptrINS_17ExtensionTypeInfoELb1EEptEv.exit64 ], [ true, %48 ], [ false, %44 ], [ false, %_ZNK6duckdb11LogicalTypeeqERKS0_.exit ], [ false, %34 ], [ false, %.lr.ph ], [ false, %35 ], [ false, %32 ]
   ret i1 %.0
 }
 

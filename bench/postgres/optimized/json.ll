@@ -594,10 +594,10 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %102
-  %19 = phi i32 [ %103, %102 ], [ %17, %3 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next.pre-phi, %102 ], [ 0, %3 ]
-  %.03235 = phi i1 [ %.1, %102 ], [ false, %3 ]
+.lr.ph:                                           ; preds = %3, %104
+  %19 = phi i32 [ %105, %104 ], [ %17, %3 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next.pre-phi, %104 ], [ 0, %3 ]
+  %.03235 = phi i1 [ %.1, %104 ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
@@ -608,11 +608,11 @@ define internal fastcc void @composite_to_json(i64 noundef %0, ptr noundef %1, i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 91
   %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %._crit_edge44, label %26
+  br i1 %25, label %._crit_edge42, label %26
 
-._crit_edge44:                                    ; preds = %.lr.ph
-  %.pre45 = add nuw nsw i64 %indvars.iv, 1
-  br label %102
+._crit_edge42:                                    ; preds = %.lr.ph
+  %.pre43 = add nuw nsw i64 %indvars.iv, 1
+  br label %104
 
 26:                                               ; preds = %.lr.ph
   br i1 %.03235, label %27, label %28
@@ -742,7 +742,7 @@ heap_getattr.exit:                                ; preds = %36, %59, %62, %65, 
 95:                                               ; preds = %heap_getattr.exit
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  br label %99
+  br label %100
 
 96:                                               ; preds = %heap_getattr.exit
   %97 = getelementptr inbounds nuw i8, ptr %22, i64 68
@@ -751,41 +751,41 @@ heap_getattr.exit:                                ; preds = %36, %59, %62, %65, 
   %.pre = load i8, ptr %5, align 1, !range !4
   %.pre38 = load i32, ptr %6, align 4
   %.pre39 = load i32, ptr %7, align 4
-  %.pre42 = trunc nuw i8 %.pre to i1
-  br label %99
+  %99 = trunc nuw i8 %.pre to i1
+  br label %100
 
-99:                                               ; preds = %96, %95
-  %.pre-phi43 = phi i1 [ %.pre42, %96 ], [ true, %95 ]
-  %100 = phi i32 [ %.pre39, %96 ], [ 0, %95 ]
-  %101 = phi i32 [ %.pre38, %96 ], [ 0, %95 ]
-  call fastcc void @datum_to_json_internal(i64 noundef %.0.i, i1 noundef zeroext %.pre-phi43, ptr noundef %1, i32 noundef %101, i32 noundef %100, i1 noundef zeroext false)
+100:                                              ; preds = %96, %95
+  %101 = phi i32 [ %.pre39, %96 ], [ 0, %95 ]
+  %102 = phi i32 [ %.pre38, %96 ], [ 0, %95 ]
+  %103 = phi i1 [ %99, %96 ], [ true, %95 ]
+  call fastcc void @datum_to_json_internal(i64 noundef %.0.i, i1 noundef zeroext %103, ptr noundef %1, i32 noundef %102, i32 noundef %101, i1 noundef zeroext false)
   %.pre40 = load i32, ptr %14, align 8
   %.pre41 = sext i32 %.pre40 to i64
-  br label %102
+  br label %104
 
-102:                                              ; preds = %._crit_edge44, %99
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre45, %._crit_edge44 ], [ %30, %99 ]
-  %.pre-phi = phi i64 [ %20, %._crit_edge44 ], [ %.pre41, %99 ]
-  %103 = phi i32 [ %19, %._crit_edge44 ], [ %.pre40, %99 ]
-  %.1 = phi i1 [ %.03235, %._crit_edge44 ], [ true, %99 ]
+104:                                              ; preds = %._crit_edge42, %100
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre43, %._crit_edge42 ], [ %30, %100 ]
+  %.pre-phi = phi i64 [ %20, %._crit_edge42 ], [ %.pre41, %100 ]
+  %105 = phi i32 [ %19, %._crit_edge42 ], [ %.pre40, %100 ]
+  %.1 = phi i1 [ %.03235, %._crit_edge42 ], [ true, %100 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
-  %104 = icmp slt i64 %indvars.iv.next.pre-phi, %.pre-phi
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %106 = icmp slt i64 %indvars.iv.next.pre-phi, %.pre-phi
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %102, %3
+._crit_edge:                                      ; preds = %104, %3
   call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 125) #10
-  %105 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %106 = load i32, ptr %105, align 4
-  %107 = icmp sgt i32 %106, -1
-  br i1 %107, label %108, label %109
+  %107 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp sgt i32 %108, -1
+  br i1 %109, label %110, label %111
 
-108:                                              ; preds = %._crit_edge
+110:                                              ; preds = %._crit_edge
   call void @DecrTupleDescRefCount(ptr noundef nonnull %14) #10
-  br label %109
+  br label %111
 
-109:                                              ; preds = %108, %._crit_edge
+111:                                              ; preds = %110, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
   ret void
 }

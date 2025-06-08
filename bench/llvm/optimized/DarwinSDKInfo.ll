@@ -2881,11 +2881,11 @@ _ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEEC2EOS3_.exit
   store i32 %62, ptr %61, align 4, !tbaa !45
   store i8 1, ptr %43, align 8, !tbaa !41
   %.pre = load i8, ptr %42, align 8, !tbaa !41, !range !53
-  %64 = load i32, ptr %4, align 8, !tbaa !102
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %4, align 8, !tbaa !102
-  %66 = trunc nuw i8 %.pre to i1
-  br i1 %66, label %67, label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit
+  %64 = trunc nuw i8 %.pre to i1
+  %65 = load i32, ptr %4, align 8, !tbaa !102
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %4, align 8, !tbaa !102
+  br i1 %64, label %67, label %_ZNSt14_Optional_baseIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingELb0ELb0EED2Ev.exit
 
 67:                                               ; preds = %_ZNSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEEC2EOS3_.exit
   store i8 0, ptr %42, align 8, !tbaa !41

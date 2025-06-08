@@ -882,7 +882,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit.thread:     ; preds = %127, %124, %_ZNSt7_
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 760
   %144 = load ptr, ptr %143, align 8, !tbaa !770
   %.sroa.0.0.copyload.i73 = load i32, ptr %11, align 4, !tbaa !26
-  %145 = call i64 @_ZN5clang10SemaOpenMP31ActOnOpenMPDeclareReductionTypeENS_14SourceLocationENS_12ActionResultINS_9OpaquePtrINS_8QualTypeEEELb0EEE(ptr noundef nonnull align 8 dereferenceable(528) %144, i32 %.sroa.0.0.copyload.i73, ptr nonnull %.fca.0.extract38, i8 %.fca.1.extract39) #19
+  %145 = call i64 @_ZN5clang10SemaOpenMP31ActOnOpenMPDeclareReductionTypeENS_14SourceLocationENS_12ActionResultINS_9OpaquePtrINS_8QualTypeEEELb0EEE(ptr noundef nonnull align 8 dereferenceable(528) %144, i32 %.sroa.0.0.copyload.i73, ptr nonnull %.fca.0.extract38, i8 0) #19
   %.not.i.i74 = icmp ult i64 %145, 16
   br i1 %.not.i.i74, label %160, label %146
 
@@ -3000,7 +3000,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %49, %49
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 760
   %103 = load ptr, ptr %102, align 8, !tbaa !770
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4, !tbaa !26
-  %104 = call i64 @_ZN5clang10SemaOpenMP28ActOnOpenMPDeclareMapperTypeENS_14SourceLocationENS_12ActionResultINS_9OpaquePtrINS_8QualTypeEEELb0EEE(ptr noundef nonnull align 8 dereferenceable(528) %103, i32 %.sroa.0.0.copyload.i, ptr nonnull %.fca.0.extract, i8 %.fca.1.extract) #19
+  %104 = call i64 @_ZN5clang10SemaOpenMP28ActOnOpenMPDeclareMapperTypeENS_14SourceLocationENS_12ActionResultINS_9OpaquePtrINS_8QualTypeEEELb0EEE(ptr noundef nonnull align 8 dereferenceable(528) %103, i32 %.sroa.0.0.copyload.i, ptr nonnull %.fca.0.extract, i8 0) #19
   %.fr = freeze i64 %104
   %.not.i.i39 = icmp ugt i64 %.fr, 15
   %or.cond = and i1 %.175, %.not.i.i39

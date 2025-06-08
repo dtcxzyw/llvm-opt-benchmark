@@ -1375,7 +1375,7 @@ _ZN5Yosys10TimingInfo7NameBitD2Ev.exit.i:         ; preds = %._ZN5Yosys10TimingI
   unreachable
 
 _ZN5Yosys10TimingInfo6BitBitD2Ev.exit:            ; preds = %._ZN5Yosys10TimingInfo6BitBitD2Ev.exit_crit_edge, %_ZN5Yosys10TimingInfo7NameBitD2Ev.exit.i, %318
-  %329 = phi i8 [ %.pre7677, %._ZN5Yosys10TimingInfo6BitBitD2Ev.exit_crit_edge ], [ %314, %_ZN5Yosys10TimingInfo7NameBitD2Ev.exit.i ], [ %314, %318 ]
+  %329 = phi i8 [ %.pre7677, %._ZN5Yosys10TimingInfo6BitBitD2Ev.exit_crit_edge ], [ %314, %_ZN5Yosys10TimingInfo7NameBitD2Ev.exit.i ], [ 1, %318 ]
   %330 = trunc nuw i8 %329 to i1
   %331 = icmp ne i32 %267, 0
   %or.cond.i.i.i550 = and i1 %331, %330

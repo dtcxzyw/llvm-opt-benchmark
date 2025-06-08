@@ -28237,7 +28237,7 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !792
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i8 %80, ptr %88, align 8, !tbaa !789
+  store i8 1, ptr %88, align 8, !tbaa !789
   br label %89
 
 89:                                               ; preds = %77, %82
@@ -29534,7 +29534,7 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %88, ptr %89, align 8, !tbaa !792
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i8 %82, ptr %90, align 8, !tbaa !789
+  store i8 1, ptr %90, align 8, !tbaa !789
   br label %91
 
 91:                                               ; preds = %79, %84

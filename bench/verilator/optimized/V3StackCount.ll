@@ -558,7 +558,7 @@ _ZN17StackCountVisitor9VisitBaseD2Ev.exit:        ; preds = %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
   store i8 %29, ptr %28, align 2, !tbaa !38
   store i64 %27, ptr %26, align 8, !tbaa !39
-  store i8 %25, ptr %24, align 1, !tbaa !38
+  store i8 0, ptr %24, align 1, !tbaa !38
   %.pre = load i32, ptr %16, align 4, !tbaa !27
   %.pre31 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !37
   %.pre32 = load i64, ptr %20, align 8
@@ -888,7 +888,7 @@ _ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit: ; preds = %2
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit
   %.09.in.lcssa = phi i64 [ 0, %_ZN17StackCountVisitor9VisitBaseC2EPS_P7AstNode.exit ], [ %13, %._crit_edge.loopexit ]
   store i64 %.09.in.lcssa, ptr %9, align 8, !tbaa !8
-  store i8 %5, ptr %4, align 1, !tbaa !38
+  store i8 0, ptr %4, align 1, !tbaa !38
   invoke void @_ZN17StackCountVisitor12endVisitBaseEjP7AstNode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %11, ptr noundef %1)
           to label %_ZN17StackCountVisitor9VisitBaseD2Ev.exit unwind label %14
 
@@ -906,7 +906,7 @@ _ZN17StackCountVisitor9VisitBaseD2Ev.exit:        ; preds = %._crit_edge
 17:                                               ; preds = %.lr.ph
   %18 = landingpad { ptr, i32 }
           cleanup
-  store i8 %5, ptr %4, align 1, !tbaa !38
+  store i8 0, ptr %4, align 1, !tbaa !38
   call void @_ZN17StackCountVisitor9VisitBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
   resume { ptr, i32 } %18

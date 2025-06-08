@@ -9637,7 +9637,7 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq9check_ltsEv(ptr noundef no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %8, ptr %14, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i8 %9, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %15 = load ptr, ptr %11, align 8, !tbaa !757
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.noexc52, label %17

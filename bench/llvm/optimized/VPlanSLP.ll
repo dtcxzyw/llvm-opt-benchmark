@@ -3864,7 +3864,7 @@ _ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit: ; preds = %_ZN4llvm9to_vector
   %57 = getelementptr i8, ptr %.val33.i.i.i.i.i.i.i, i64 64
   %.val33.val.i.i.i.i.i.i.i = load i8, ptr %57, align 8, !tbaa !178
   %.not50.i.i.i.i.i.i.i = icmp eq i8 %47, %.val33.val.i.i.i.i.i.i.i
-  br i1 %.not50.i.i.i.i.i.i.i, label %58, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332"
+  br i1 %.not50.i.i.i.i.i.i.i, label %58, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit330"
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i, i64 24
@@ -3872,7 +3872,7 @@ _ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit: ; preds = %_ZN4llvm9to_vector
   %60 = getelementptr i8, ptr %.val35.i.i.i.i.i.i.i, i64 64
   %.val35.val.i.i.i.i.i.i.i = load i8, ptr %60, align 8, !tbaa !178
   %.not51.i.i.i.i.i.i.i = icmp eq i8 %47, %.val35.val.i.i.i.i.i.i.i
-  br i1 %.not51.i.i.i.i.i.i.i, label %61, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit334"
+  br i1 %.not51.i.i.i.i.i.i.i, label %61, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332"
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i, i64 32
@@ -3932,16 +3932,16 @@ _ZN4llvm11SmallVectorIPNS_7VPValueELj4EED2Ev.exit: ; preds = %_ZN4llvm9to_vector
   %76 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332": ; preds = %55
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit330": ; preds = %55
   %77 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit334": ; preds = %58
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332": ; preds = %58
   %78 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit334", %74, %70, %66
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %66 ], [ %.1.i.i.i.i.i.i.i, %70 ], [ %.2.i.i.i.i.i.i.i, %74 ], [ %76, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %77, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332" ], [ %78, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit334" ], [ %.02962.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit330", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332", %74, %70, %66
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %66 ], [ %.1.i.i.i.i.i.i.i, %70 ], [ %.2.i.i.i.i.i.i.i, %74 ], [ %76, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %77, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit330" ], [ %78, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i.loopexit.split.loop.exit332" ], [ %.02962.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i ]
   %.not.i = icmp eq ptr %48, %.028.i.i.i.i.i.i.i
   br i1 %.not.i, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.thread.i", label %_ZL9getOpcodeN4llvm8ArrayRefIPNS_7VPValueEEE.exit
 
@@ -4082,7 +4082,7 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %127 = getelementptr i8, ptr %.val33.i.i.i.i.i.i.i100, i64 64
   %.val33.val.i.i.i.i.i.i.i101 = load i8, ptr %127, align 8, !tbaa !178
   %.not50.i.i.i.i.i.i.i102 = icmp eq i8 %117, %.val33.val.i.i.i.i.i.i.i101
-  br i1 %.not50.i.i.i.i.i.i.i102, label %128, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340"
+  br i1 %.not50.i.i.i.i.i.i.i102, label %128, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit338"
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i85, i64 24
@@ -4090,7 +4090,7 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %130 = getelementptr i8, ptr %.val35.i.i.i.i.i.i.i104, i64 64
   %.val35.val.i.i.i.i.i.i.i105 = load i8, ptr %130, align 8, !tbaa !178
   %.not51.i.i.i.i.i.i.i106 = icmp eq i8 %117, %.val35.val.i.i.i.i.i.i.i105
-  br i1 %.not51.i.i.i.i.i.i.i106, label %131, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit342"
+  br i1 %.not51.i.i.i.i.i.i.i106, label %131, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340"
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i85, i64 32
@@ -4150,16 +4150,16 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %146 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i85, i64 8
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340": ; preds = %125
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit338": ; preds = %125
   %147 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i85, i64 16
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit342": ; preds = %128
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340": ; preds = %128
   %148 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i85, i64 24
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89": ; preds = %.lr.ph.i.i.i.i.i.i.i83, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit342", %144, %140, %136
-  %.028.i.i.i.i.i.i.i90 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i111, %136 ], [ %.1.i.i.i.i.i.i.i116, %140 ], [ %.2.i.i.i.i.i.i.i112, %144 ], [ %146, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit" ], [ %147, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340" ], [ %148, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit342" ], [ %.02962.i.i.i.i.i.i.i85, %.lr.ph.i.i.i.i.i.i.i83 ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89": ; preds = %.lr.ph.i.i.i.i.i.i.i83, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit338", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340", %144, %140, %136
+  %.028.i.i.i.i.i.i.i90 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i111, %136 ], [ %.1.i.i.i.i.i.i.i116, %140 ], [ %.2.i.i.i.i.i.i.i112, %144 ], [ %146, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit" ], [ %147, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit338" ], [ %148, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i89.loopexit.split.loop.exit340" ], [ %.02962.i.i.i.i.i.i.i85, %.lr.ph.i.i.i.i.i.i.i83 ]
   %.not.i91 = icmp eq ptr %118, %.028.i.i.i.i.i.i.i90
   br i1 %.not.i91, label %149, label %.critedge
 
@@ -4192,7 +4192,7 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %159 = getelementptr i8, ptr %.val33.i.i.i.i.i.i.i146, i64 64
   %.val33.val.i.i.i.i.i.i.i147 = load i8, ptr %159, align 8, !tbaa !178
   %.not50.i.i.i.i.i.i.i148 = icmp eq i8 %152, %.val33.val.i.i.i.i.i.i.i147
-  br i1 %.not50.i.i.i.i.i.i.i148, label %160, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348"
+  br i1 %.not50.i.i.i.i.i.i.i148, label %160, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit346"
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i131, i64 24
@@ -4200,7 +4200,7 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %162 = getelementptr i8, ptr %.val35.i.i.i.i.i.i.i150, i64 64
   %.val35.val.i.i.i.i.i.i.i151 = load i8, ptr %162, align 8, !tbaa !178
   %.not51.i.i.i.i.i.i.i152 = icmp eq i8 %152, %.val35.val.i.i.i.i.i.i.i151
-  br i1 %.not51.i.i.i.i.i.i.i152, label %163, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit350"
+  br i1 %.not51.i.i.i.i.i.i.i152, label %163, label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348"
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i131, i64 32
@@ -4256,24 +4256,24 @@ _ZN4llvm11SmallVectorINS0_IPNS_7VPValueELj4EEELj4EED2Ev.exit: ; preds = %_ZN4llv
   %177 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i131, i64 8
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348": ; preds = %157
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit346": ; preds = %157
   %178 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i131, i64 16
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit350": ; preds = %160
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348": ; preds = %160
   %179 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i131, i64 24
   br label %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135"
 
-"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135": ; preds = %.lr.ph.i.i.i.i.i.i.i129, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit350", %175, %171, %167
-  %.028.i.i.i.i.i.i.i136 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i157, %167 ], [ %.1.i.i.i.i.i.i.i162, %171 ], [ %.2.i.i.i.i.i.i.i158, %175 ], [ %177, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit" ], [ %178, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348" ], [ %179, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit350" ], [ %.02962.i.i.i.i.i.i.i131, %.lr.ph.i.i.i.i.i.i.i129 ]
+"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135": ; preds = %.lr.ph.i.i.i.i.i.i.i129, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit346", %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348", %175, %171, %167
+  %.028.i.i.i.i.i.i.i136 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i157, %167 ], [ %.1.i.i.i.i.i.i.i162, %171 ], [ %.2.i.i.i.i.i.i.i158, %175 ], [ %177, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit" ], [ %178, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit346" ], [ %179, %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135.loopexit.split.loop.exit348" ], [ %.02962.i.i.i.i.i.i.i131, %.lr.ph.i.i.i.i.i.i.i129 ]
   %.not.i137 = icmp eq ptr %48, %.028.i.i.i.i.i.i.i136
   %180 = icmp eq i8 %117, %152
   %or.cond = select i1 %.not.i137, i1 %180, i1 false
   br i1 %or.cond, label %181, label %.critedge
 
 _ZL9getOpcodeN4llvm8ArrayRefIPNS_7VPValueEEE.exit170: ; preds = %._crit_edge.i.i.i.i.i.i.i155, %175
-  %.old356 = icmp eq i8 %117, %152
-  br i1 %.old356, label %181, label %.critedge
+  %.old354 = icmp eq i8 %117, %152
+  br i1 %.old354, label %181, label %.critedge
 
 181:                                              ; preds = %"_ZN4llvm6any_ofIRNS_8ArrayRefIPNS_7VPValueEEEZL9getOpcodeS4_E3$_0EEbOT_T0_.exit.i135", %_ZL9getOpcodeN4llvm8ArrayRefIPNS_7VPValueEEE.exit170
   %182 = call noundef ptr @_ZN4llvm8VPlanSlp10buildGraphENS_8ArrayRefIPNS_7VPValueEEE(ptr noundef nonnull align 8 dereferenceable(289) %0, ptr nonnull %111, i64 %114)

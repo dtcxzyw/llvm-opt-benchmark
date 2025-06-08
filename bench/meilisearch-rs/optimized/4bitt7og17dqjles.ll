@@ -2558,7 +2558,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.2.0..sroa_idx170, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.5135.0..sroa_idx, i64 3, i1 false)
   store ptr %.sroa.0133.0.copyload, ptr %29, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 11
-  store i8 %.sroa.5137.0.copyload, ptr %.sroa.3.0..sroa_idx, align 1
+  store i8 0, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %.sroa.6.0.copyload, ptr %.sroa.4171.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)

@@ -2707,7 +2707,7 @@ define range(i32 0, 2) i32 @pqEndcopy3(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #16
-  br label %57
+  br label %56
 
 5:                                                ; preds = %1
   switch i32 %3, label %23 [
@@ -2718,12 +2718,12 @@ define range(i32 0, 2) i32 @pqEndcopy3(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %5, %5
   %7 = tail call i32 @pqPutMsgStart(i8 noundef signext 99, ptr noundef nonnull %0) #16
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %57, label %9
+  br i1 %8, label %56, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #16
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %57, label %12
+  br i1 %11, label %56, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -2739,90 +2739,89 @@ define range(i32 0, 2) i32 @pqEndcopy3(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %15
   %18 = tail call i32 @pqPutMsgStart(i8 noundef signext 83, ptr noundef nonnull %0) #16
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %57, label %20
+  br i1 %19, label %56, label %20
 
 20:                                               ; preds = %17
   %21 = tail call i32 @pqPutMsgEnd(ptr noundef nonnull %0) #16
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %57, label %23
+  br i1 %22, label %56, label %23
 
 23:                                               ; preds = %5, %12, %15, %20
   %24 = tail call i32 @pqFlush(ptr noundef nonnull %0) #16
   %.not42 = icmp eq i32 %24, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 435
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !3
-  br i1 %.not42, label %27, label %25
+  %25 = trunc nuw i8 %.pre to i1
+  br i1 %.not42, label %27, label %26
 
-25:                                               ; preds = %23
-  %26 = trunc nuw i8 %.pre to i1
-  br i1 %26, label %57, label %.thread
+26:                                               ; preds = %23
+  br i1 %25, label %56, label %.thread
 
-.thread:                                          ; preds = %25
+.thread:                                          ; preds = %26
   store i32 1, ptr %2, align 4
-  br label %31
+  br label %30
 
 27:                                               ; preds = %23
   store i32 1, ptr %2, align 4
-  %28 = trunc nuw i8 %.pre to i1
-  br i1 %28, label %29, label %31
+  br i1 %25, label %28, label %30
 
-29:                                               ; preds = %27
-  %30 = tail call i32 @PQisBusy(ptr noundef nonnull %0) #16
-  %.not43 = icmp eq i32 %30, 0
-  br i1 %.not43, label %31, label %57
+28:                                               ; preds = %27
+  %29 = tail call i32 @PQisBusy(ptr noundef nonnull %0) #16
+  %.not43 = icmp eq i32 %29, 0
+  br i1 %.not43, label %30, label %56
 
-31:                                               ; preds = %.thread, %29, %27
-  %32 = tail call ptr @PQgetResult(ptr noundef nonnull %0) #16
-  %.not44 = icmp eq ptr %32, null
-  br i1 %.not44, label %38, label %33
+30:                                               ; preds = %.thread, %28, %27
+  %31 = tail call ptr @PQgetResult(ptr noundef nonnull %0) #16
+  %.not44 = icmp eq ptr %31, null
+  br i1 %.not44, label %37, label %32
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %38
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %36, label %37
 
-37:                                               ; preds = %33
-  tail call void @PQclear(ptr noundef nonnull %32) #16
-  br label %57
-
-38:                                               ; preds = %33, %31
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %41 = load i64, ptr %40, align 8
-  %.not45 = icmp eq i64 %41, 0
-  br i1 %.not45, label %56, label %42
-
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr i8, ptr %43, i64 %41
-  %45 = getelementptr i8, ptr %44, i64 -1
-  %46 = load i8, ptr %45, align 1
-  %47 = icmp eq i8 %46, 10
-  br i1 %47, label %48, label %49
-
-48:                                               ; preds = %42
-  store i8 0, ptr %45, align 1
-  %.pre46 = load ptr, ptr %39, align 8
-  br label %49
-
-49:                                               ; preds = %48, %42
-  %50 = phi ptr [ %.pre46, %48 ], [ %43, %42 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %51, ptr noundef nonnull @.str.31, ptr noundef %50) #16
-  %52 = load ptr, ptr %39, align 8
-  %53 = load i64, ptr %40, align 8
-  %54 = getelementptr i8, ptr %52, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 -1
-  store i8 %46, ptr %55, align 1
+36:                                               ; preds = %32
+  tail call void @PQclear(ptr noundef nonnull %31) #16
   br label %56
 
-56:                                               ; preds = %49, %38
-  tail call void @PQclear(ptr noundef %32) #16
-  br label %57
+37:                                               ; preds = %32, %30
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %40 = load i64, ptr %39, align 8
+  %.not45 = icmp eq i64 %40, 0
+  br i1 %.not45, label %55, label %41
 
-57:                                               ; preds = %29, %25, %17, %20, %6, %9, %56, %37, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %37 ], [ 1, %56 ], [ 1, %9 ], [ 1, %6 ], [ 1, %20 ], [ 1, %17 ], [ 1, %25 ], [ 1, %29 ]
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %38, align 8
+  %43 = getelementptr i8, ptr %42, i64 %40
+  %44 = getelementptr i8, ptr %43, i64 -1
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 10
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %41
+  store i8 0, ptr %44, align 1
+  %.pre46 = load ptr, ptr %38, align 8
+  br label %48
+
+48:                                               ; preds = %47, %41
+  %49 = phi ptr [ %.pre46, %47 ], [ %42, %41 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  tail call void (ptr, ptr, ...) @pqInternalNotice(ptr noundef nonnull %50, ptr noundef nonnull @.str.31, ptr noundef %49) #16
+  %51 = load ptr, ptr %38, align 8
+  %52 = load i64, ptr %39, align 8
+  %53 = getelementptr i8, ptr %51, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 -1
+  store i8 %45, ptr %54, align 1
+  br label %55
+
+55:                                               ; preds = %48, %37
+  tail call void @PQclear(ptr noundef %31) #16
+  br label %56
+
+56:                                               ; preds = %28, %26, %17, %20, %6, %9, %55, %36, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %36 ], [ 1, %55 ], [ 1, %9 ], [ 1, %6 ], [ 1, %20 ], [ 1, %17 ], [ 1, %26 ], [ 1, %28 ]
   ret i32 %.0
 }
 

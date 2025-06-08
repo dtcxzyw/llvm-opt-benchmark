@@ -26300,8 +26300,8 @@ _ZN11ide_assists5utils17gen_trait_fn_body14gen_partial_eq12gen_eq_chain17h6af87f
 .thread1106:                                      ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..RecordPat$GT$17hd2726a4fb2519904E.exit626", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..RecordPat$GT$17hd2726a4fb2519904E.exit628", %892, %890
   %.pn5051111 = phi { ptr, i32 } [ %.pn503, %890 ], [ %893, %892 ], [ %.pn498.pn1071, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..RecordPat$GT$17hd2726a4fb2519904E.exit628" ], [ %.pn498, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..RecordPat$GT$17hd2726a4fb2519904E.exit626" ]
   %909 = phi i64 [ %880, %890 ], [ %572, %892 ], [ %708, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..RecordPat$GT$17hd2726a4fb2519904E.exit628" ], [ %.lcssa17011724, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..RecordPat$GT$17hd2726a4fb2519904E.exit626" ]
-  %.not2188 = icmp eq i64 %909, 36
-  br i1 %.not2188, label %.thread1106.thread, label %910
+  %.not1934 = icmp eq i64 %909, 36
+  br i1 %.not1934, label %.thread1106.thread, label %910
 
 910:                                              ; preds = %.thread1106
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.18082005449963326646"(ptr noalias noundef nonnull align 8 dereferenceable(16) %107) #36
@@ -27198,8 +27198,8 @@ _ZN11ide_assists5utils17gen_trait_fn_body14gen_partial_eq12gen_eq_chain17h6af87f
 .thread1163:                                      ; preds = %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleStructPat$GT$17h4a74dc3b211d6dcfE.exit694", %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleStructPat$GT$17h4a74dc3b211d6dcfE.exit696", %1057, %1055
   %.pn4811168 = phi { ptr, i32 } [ %.pn479, %1055 ], [ %1058, %1057 ], [ %.pn474.pn1141, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleStructPat$GT$17h4a74dc3b211d6dcfE.exit696" ], [ %.pn474, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleStructPat$GT$17h4a74dc3b211d6dcfE.exit694" ]
   %1199 = phi i64 [ %1045, %1055 ], [ %913, %1057 ], [ %1038, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleStructPat$GT$17h4a74dc3b211d6dcfE.exit696" ], [ %.lcssa16641683, %"_ZN4core3ptr66drop_in_place$LT$syntax..ast..generated..nodes..TupleStructPat$GT$17h4a74dc3b211d6dcfE.exit694" ]
-  %.not2187 = icmp eq i64 %1199, 36
-  br i1 %.not2187, label %.thread1163.thread, label %1200
+  %.not1933 = icmp eq i64 %1199, 36
+  br i1 %.not1933, label %.thread1163.thread, label %1200
 
 1200:                                             ; preds = %.thread1163
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.18082005449963326646"(ptr noalias noundef nonnull align 8 dereferenceable(16) %87) #36
@@ -28309,15 +28309,15 @@ _ZN11ide_assists5utils17gen_trait_fn_body14gen_partial_eq12gen_eq_chain17h6af87f
   br i1 %1528, label %1524, label %1658
 
 "_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878.sink.split": ; preds = %.loopexit.split-lp1331, %.loopexit1330
-  %.lcssa2170.sink = phi i64 [ %1523, %.loopexit1330 ], [ %1696, %.loopexit.split-lp1331 ]
-  %.lcssa2177.sink = phi ptr [ %1522, %.loopexit1330 ], [ %1697, %.loopexit.split-lp1331 ]
+  %.lcssa2172.sink = phi i64 [ %1523, %.loopexit1330 ], [ %1696, %.loopexit.split-lp1331 ]
+  %.lcssa2179.sink = phi ptr [ %1522, %.loopexit1330 ], [ %1697, %.loopexit.split-lp1331 ]
   %.pn439.ph = phi { ptr, i32 } [ %lpad.loopexit1332, %.loopexit1330 ], [ %lpad.loopexit.split-lp1333, %.loopexit.split-lp1331 ]
-  store i64 %.lcssa2170.sink, ptr %45, align 8
-  store ptr %.lcssa2177.sink, ptr %1252, align 8
+  store i64 %.lcssa2172.sink, ptr %45, align 8
+  store ptr %.lcssa2179.sink, ptr %1252, align 8
   br label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878"
 
 "_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878": ; preds = %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878.sink.split", %1647, %1653
-  %1529 = phi i64 [ %1648, %1653 ], [ %1648, %1647 ], [ %.lcssa2170.sink, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878.sink.split" ]
+  %1529 = phi i64 [ %1648, %1653 ], [ %1648, %1647 ], [ %.lcssa2172.sink, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878.sink.split" ]
   %.4339 = phi i1 [ %.6341, %1653 ], [ %.6341, %1647 ], [ true, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878.sink.split" ]
   %.pn439 = phi { ptr, i32 } [ %.pn437, %1653 ], [ %.pn437, %1647 ], [ %.pn439.ph, %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$$LP$usize$C$syntax..ast..generated..nodes..TupleField$RP$$GT$$GT$17h69471b6fd116548eE.exit878.sink.split" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8686)

@@ -45976,7 +45976,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.sroa.8.0..sroa_idx55.i.i = getelementptr inbounds nuw i8, ptr %196, i64 36
   store i32 %176, ptr %.sroa.8.0..sroa_idx55.i.i, align 4, !noalias !2751
   %.sroa.9.0..sroa_idx57.i.i = getelementptr inbounds nuw i8, ptr %196, i64 40
-  store i8 %155, ptr %.sroa.9.0..sroa_idx57.i.i, align 8, !noalias !2751
+  store i8 0, ptr %.sroa.9.0..sroa_idx57.i.i, align 8, !noalias !2751
   %197 = load i64, ptr %.sroa.01.0.i.i.i, align 8, !alias.scope !2772, !noalias !2773, !noundef !4
   %198 = add i64 %197, 1
   store i64 %198, ptr %.sroa.01.0.i.i.i, align 8, !alias.scope !2772, !noalias !2773
@@ -46020,7 +46020,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.sroa.995.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %212, i64 36
   store i32 %153, ptr %.sroa.995.0..sroa_idx.i.i, align 4, !noalias !2751
   %.sroa.1096.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %212, i64 40
-  store i8 %155, ptr %.sroa.1096.0..sroa_idx.i.i, align 8, !noalias !2751
+  store i8 1, ptr %.sroa.1096.0..sroa_idx.i.i, align 8, !noalias !2751
   %213 = add i64 %207, 1
   store i64 %213, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2774, !noalias !2777
   br label %_ZN18ty_python_semantic11suppression19SuppressionsBuilder11add_comment17hf02274c5c803083fE.exit.i
@@ -46184,7 +46184,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.sroa.10104.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %270, i64 36
   store i32 %153, ptr %.sroa.10104.0..sroa_idx.i.i, align 4, !noalias !2751
   %.sroa.11105.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %270, i64 40
-  store i8 %155, ptr %.sroa.11105.0..sroa_idx.i.i, align 8, !noalias !2751
+  store i8 1, ptr %.sroa.11105.0..sroa_idx.i.i, align 8, !noalias !2751
   %271 = add i64 %265, 1
   store i64 %271, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2789, !noalias !2792
   br label %272
@@ -46221,7 +46221,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.sroa.880.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %280, i64 36
   store i32 %153, ptr %.sroa.880.0..sroa_idx.i.i, align 4, !noalias !2751
   %.sroa.983.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %280, i64 40
-  store i8 %155, ptr %.sroa.983.0..sroa_idx.i.i, align 8, !noalias !2751
+  store i8 0, ptr %.sroa.983.0..sroa_idx.i.i, align 8, !noalias !2751
   %281 = add i64 %275, 1
   store i64 %281, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2795, !noalias !2798
   br label %_ZN18ty_python_semantic11suppression19SuppressionsBuilder11add_comment17hf02274c5c803083fE.exit.i
@@ -46269,7 +46269,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.sroa.880.0..sroa_idx81.i.i = getelementptr inbounds nuw i8, ptr %292, i64 36
   store i32 %.sroa.6.0111149153.i.i, ptr %.sroa.880.0..sroa_idx81.i.i, align 4, !noalias !2751
   %.sroa.983.0..sroa_idx84.i.i = getelementptr inbounds nuw i8, ptr %292, i64 40
-  store i8 %155, ptr %.sroa.983.0..sroa_idx84.i.i, align 8, !noalias !2751
+  store i8 0, ptr %.sroa.983.0..sroa_idx84.i.i, align 8, !noalias !2751
   %293 = load i64, ptr %.sroa.01.0.i37.i.i, align 8, !alias.scope !2809, !noalias !2810, !noundef !4
   %294 = add i64 %293, 1
   store i64 %294, ptr %.sroa.01.0.i37.i.i, align 8, !alias.scope !2809, !noalias !2810

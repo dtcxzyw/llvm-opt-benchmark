@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 2) i32 @SDL_EnterAppMainCallbacks_REAL(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @SDL_InitMainCallbacks(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %38
+  br i1 %8, label %9, label %40
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @MainCallbackRateHintChanged, ptr noundef null) #2
@@ -40,52 +40,52 @@ define hidden range(i32 0, 2) i32 @SDL_EnterAppMainCallbacks_REAL(i32 noundef %0
 20:                                               ; preds = %17
   %21 = tail call zeroext i1 @SDL_WaitEvent_REAL(ptr noundef null) #2
   %.pre.i = load i8, ptr @iterate_after_waitevent, align 1, !range !3
-  %.pre1.i = trunc nuw i8 %.pre.i to i1
-  %22 = xor i1 %.pre1.i, true
+  %22 = trunc nuw i8 %.pre.i to i1
+  %23 = xor i1 %22, true
   br label %GenericIterateMainCallbacks.exit
 
 GenericIterateMainCallbacks.exit:                 ; preds = %17, %20
-  %.pre-phi.i = phi i1 [ %22, %20 ], [ true, %17 ]
-  %23 = tail call i32 @SDL_IterateMainCallbacks(i1 noundef zeroext %.pre-phi.i) #2
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %37
+  %24 = phi i1 [ %23, %20 ], [ true, %17 ]
+  %25 = tail call i32 @SDL_IterateMainCallbacks(i1 noundef zeroext %24) #2
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %39
 
-25:                                               ; preds = %GenericIterateMainCallbacks.exit
-  %26 = load i32, ptr @callback_rate_increment, align 4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.backedge, label %28
+27:                                               ; preds = %GenericIterateMainCallbacks.exit
+  %28 = load i32, ptr @callback_rate_increment, align 4
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.backedge, label %30
 
-.backedge:                                        ; preds = %25, %33
-  %.014.be = phi i64 [ %36, %33 ], [ 0, %25 ]
+.backedge:                                        ; preds = %27, %35
+  %.014.be = phi i64 [ %38, %35 ], [ 0, %27 ]
   br label %17, !llvm.loop !5
 
-28:                                               ; preds = %25
-  %29 = tail call i64 @SDL_GetTicksNS_REAL() #2
-  %30 = icmp ugt i64 %.014, %29
-  br i1 %30, label %31, label %33
+30:                                               ; preds = %27
+  %31 = tail call i64 @SDL_GetTicksNS_REAL() #2
+  %32 = icmp ugt i64 %.014, %31
+  br i1 %32, label %33, label %35
 
-31:                                               ; preds = %28
-  %32 = sub nuw i64 %.014, %29
-  tail call void @SDL_DelayPrecise_REAL(i64 noundef %32) #2
-  br label %33
+33:                                               ; preds = %30
+  %34 = sub nuw i64 %.014, %31
+  tail call void @SDL_DelayPrecise_REAL(i64 noundef %34) #2
+  br label %35
 
-33:                                               ; preds = %28, %31
-  %.2 = phi i64 [ %.014, %31 ], [ %29, %28 ]
-  %34 = load i32, ptr @callback_rate_increment, align 4
-  %35 = zext nneg i32 %34 to i64
-  %36 = add i64 %.2, %35
+35:                                               ; preds = %30, %33
+  %.2 = phi i64 [ %.014, %33 ], [ %31, %30 ]
+  %36 = load i32, ptr @callback_rate_increment, align 4
+  %37 = zext nneg i32 %36 to i64
+  %38 = add i64 %.2, %37
   br label %.backedge
 
-37:                                               ; preds = %GenericIterateMainCallbacks.exit
+39:                                               ; preds = %GenericIterateMainCallbacks.exit
   tail call void @SDL_RemoveHintCallback_REAL(ptr noundef nonnull @.str, ptr noundef nonnull @MainCallbackRateHintChanged, ptr noundef null) #2
-  br label %38
+  br label %40
 
-38:                                               ; preds = %37, %6
-  %.0 = phi i32 [ %23, %37 ], [ %7, %6 ]
+40:                                               ; preds = %39, %6
+  %.0 = phi i32 [ %25, %39 ], [ %7, %6 ]
   tail call void @SDL_QuitMainCallbacks(i32 noundef %.0) #2
-  %39 = icmp eq i32 %.0, 2
-  %40 = zext i1 %39 to i32
-  ret i32 %40
+  %41 = icmp eq i32 %.0, 2
+  %42 = zext i1 %41 to i32
+  ret i32 %42
 }
 
 declare i32 @SDL_InitMainCallbacks(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

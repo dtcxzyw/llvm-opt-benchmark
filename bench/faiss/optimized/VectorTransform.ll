@@ -5426,19 +5426,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit231.thread:          ; preds = %171
   %289 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.68, i32 noundef %.0113389, i32 noundef %281, double noundef %287, double noundef %288)
   %.pre428 = load i64, ptr %4, align 8, !tbaa !10
   %.pre429 = load i8, ptr %25, align 8, !tbaa !108, !range !20
+  %290 = trunc nuw i8 %.pre429 to i1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
   store i32 %., ptr %12, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #28
   store i32 %30, ptr %13, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #28
-  %290 = trunc i64 %.pre428 to i32
-  store i32 %290, ptr %14, align 4, !tbaa !38
+  %291 = trunc i64 %.pre428 to i32
+  store i32 %291, ptr %14, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28
   store float 1.000000e+00, ptr %15, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #28
   store float 0.000000e+00, ptr %16, align 4, !tbaa !32
-  %291 = trunc nuw i8 %.pre429 to i1
-  br i1 %291, label %292, label %295
+  br i1 %290, label %292, label %295
 
 292:                                              ; preds = %285
   %puts130 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)

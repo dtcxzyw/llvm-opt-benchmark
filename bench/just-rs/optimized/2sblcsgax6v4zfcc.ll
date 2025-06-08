@@ -11658,14 +11658,14 @@ _ZN4just6recipe17error_from_signal17h7f5b2bc095ba6b37E.exit.i: ; preds = %406
   %.not112.i = icmp eq i8 %436, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %76, i64 319
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !1018, !alias.scope !1794, !noalias !1802
-  %.pre232 = trunc nuw i8 %.pre.i to i1
+  %.pre231 = trunc nuw i8 %.pre.i to i1
   br i1 %.not112.i, label %._crit_edge.i..loopexit122.i_crit_edge, label %437
 
 ._crit_edge.i..loopexit122.i_crit_edge:           ; preds = %._crit_edge.i
-  br i1 %.pre232, label %450, label %.loopexit122.i..loopexit122.thread.i_crit_edge
+  br i1 %.pre231, label %450, label %.loopexit122.i..loopexit122.thread.i_crit_edge
 
 .loopexit122.i:                                   ; preds = %865, %441
-  br i1 %.pre232, label %450, label %.loopexit122.i..loopexit122.thread.i_crit_edge
+  br i1 %.pre231, label %450, label %.loopexit122.i..loopexit122.thread.i_crit_edge
 
 .loopexit122.i..loopexit122.thread.i_crit_edge:   ; preds = %._crit_edge.i..loopexit122.i_crit_edge, %.loopexit122.i
   %.pre228 = load i64, ptr %428, align 8, !noalias !1796
@@ -11675,7 +11675,7 @@ _ZN4just6recipe17error_from_signal17h7f5b2bc095ba6b37E.exit.i: ; preds = %406
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 269
   %439 = load i8, ptr %438, align 1, !range !1018, !alias.scope !1790, !noalias !1800
   %440 = trunc nuw i8 %439 to i1
-  %or.cond.i34 = select i1 %.pre232, i1 true, i1 %440
+  %or.cond.i34 = select i1 %.pre231, i1 true, i1 %440
   br i1 %or.cond.i34, label %441, label %.loopexit122.thread.i
 
 441:                                              ; preds = %437

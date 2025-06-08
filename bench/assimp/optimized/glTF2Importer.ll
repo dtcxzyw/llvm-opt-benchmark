@@ -84361,13 +84361,13 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   %.pre22 = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre22, i64 -8
   %.pre23 = load i8, ptr %.phi.trans.insert, align 8, !range !7
-  %59 = getelementptr inbounds i8, ptr %.pre22, i64 -128
-  %60 = load ptr, ptr %59, align 8
-  %61 = trunc nuw i8 %.pre23 to i1
-  br i1 %61, label %62, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread
+  %59 = trunc nuw i8 %.pre23 to i1
+  %60 = getelementptr inbounds i8, ptr %.pre22, i64 -128
+  %61 = load ptr, ptr %60, align 8
+  br i1 %59, label %62, label %_ZNK9rapidjson8internal6SchemaINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES7_EEE10BeginValueERNS0_23SchemaValidationContextISA_EE.exit.thread
 
 62:                                               ; preds = %49
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 341
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 341
   %64 = load i8, ptr %63, align 1, !range !7, !noundef !8
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %68
@@ -84378,13 +84378,13 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   br label %68
 
 68:                                               ; preds = %66, %62
-  %69 = getelementptr inbounds nuw i8, ptr %60, i64 312
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 312
   %70 = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %71, label %97
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %60, i64 320
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 320
   %73 = load ptr, ptr %72, align 8
   %.not22.i = icmp eq ptr %73, null
   br i1 %.not22.i, label %94, label %74
@@ -84392,7 +84392,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %.pre22, i64 -20
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %60, i64 328
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 328
   %78 = load i32, ptr %77, align 8
   %79 = icmp ult i32 %76, %78
   br i1 %79, label %80, label %84
@@ -84404,24 +84404,24 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   br label %97
 
 84:                                               ; preds = %74
-  %85 = getelementptr inbounds nuw i8, ptr %60, i64 304
+  %85 = getelementptr inbounds nuw i8, ptr %61, i64 304
   %86 = load ptr, ptr %85, align 8
   %.not23.i = icmp eq ptr %86, null
   br i1 %.not23.i, label %87, label %97
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %60, i64 340
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 340
   %89 = load i8, ptr %88, align 4, !range !7, !noundef !8
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %102
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %60, i64 160
+  %92 = getelementptr inbounds nuw i8, ptr %61, i64 160
   %93 = load ptr, ptr %92, align 8
   br label %97
 
 94:                                               ; preds = %71
-  %95 = getelementptr inbounds nuw i8, ptr %60, i64 160
+  %95 = getelementptr inbounds nuw i8, ptr %61, i64 160
   %96 = load ptr, ptr %95, align 8
   br label %97
 
@@ -84442,7 +84442,7 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE7ReserveINS0_23SchemaValidationC
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 112
   %107 = load ptr, ptr %106, align 8
   tail call void %107(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 noundef %76)
-  %108 = getelementptr inbounds nuw i8, ptr %60, i64 160
+  %108 = getelementptr inbounds nuw i8, ptr %61, i64 160
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %.pre22, i64 -112
   store ptr %109, ptr %110, align 8

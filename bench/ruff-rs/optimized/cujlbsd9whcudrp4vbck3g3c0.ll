@@ -1072,7 +1072,7 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %4 = icmp eq i64 %1, -5812475968624336522
   %5 = icmp eq i64 %2, -4499537922616939477
   %or.cond = and i1 %4, %5
-  br i1 %or.cond, label %36, label %6
+  br i1 %or.cond, label %39, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -1126,18 +1126,23 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   %.merged.i = phi { i64, ptr } [ %14, %13 ], [ %20, %18 ], [ %26, %24 ], [ %31, %30 ], [ %29, %27 ]
   %32 = extractvalue { i64, ptr } %.merged.i, 0
   %33 = trunc nuw i64 %32 to i1
-  br i1 %33, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit", label %34
+  br i1 %33, label %34, label %37
 
 34:                                               ; preds = %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h62b46b308cff977cE.exit"
-  %35 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17hb3d2bf2adda0ca6eE(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
+  %35 = extractvalue { i64, ptr } %.merged.i, 1
+  %36 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %35, 1
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit"
 
-36:                                               ; preds = %3
-  %37 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+37:                                               ; preds = %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h62b46b308cff977cE.exit"
+  %38 = tail call { i64, ptr } @_ZN12tracing_core10subscriber10Subscriber12downcast_raw17hb3d2bf2adda0ca6eE(ptr noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit": ; preds = %34, %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h62b46b308cff977cE.exit", %36
-  %.merged = phi { i64, ptr } [ %37, %36 ], [ %35, %34 ], [ %.merged.i, %"_ZN130_$LT$tracing_subscriber..filter..layer_filters..Filtered$LT$L$C$F$C$S$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h62b46b308cff977cE.exit" ]
+39:                                               ; preds = %3
+  %40 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %0, 1
+  br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit"
+
+"_ZN4core6option15Option$LT$T$GT$7or_else17h0277e52153f9e5edE.exit": ; preds = %37, %34, %39
+  %.merged = phi { i64, ptr } [ %40, %39 ], [ %36, %34 ], [ %38, %37 ]
   ret { i64, ptr } %.merged
 }
 

@@ -1259,9 +1259,9 @@ spdy_decompress_header_block.exit.thread.i:       ; preds = %spdy_decompress_hea
   %429 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %426, i32 noundef %428, i32 noundef %428)
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %429, ptr noundef nonnull @.str.156)
   %.pre.i109 = load i8, ptr @spdy_decompress_headers, align 1, !range !6
-  %430 = icmp ne ptr %429, null
-  %431 = trunc nuw i8 %.pre.i109 to i1
-  %or.cond.i110 = select i1 %430, i1 %431, i1 false
+  %430 = trunc nuw i8 %.pre.i109 to i1
+  %431 = icmp ne ptr %429, null
+  %or.cond.i110 = select i1 %431, i1 %430, i1 false
   br i1 %or.cond.i110, label %432, label %dissect_spdy_header_payload.exit
 
 432:                                              ; preds = %424

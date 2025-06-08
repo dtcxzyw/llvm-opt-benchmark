@@ -51581,9 +51581,9 @@ _ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit.thread: ; preds = %29
 _ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit: ; preds = %29
   call void @_ZNK3fmt3v116detail10locale_ref3getISt6localeEET_v(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 dereferenceable(9) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.pre = load i8, ptr %35, align 8, !tbaa !824, !range !41
+  %36 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #31
-  %36 = trunc nuw i8 %.pre to i1
   br i1 %36, label %_ZNK3fmt3v116detail10get_localecvRKSt6localeEv.exit, label %37
 
 37:                                               ; preds = %_ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit.thread, %_ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit
@@ -52226,9 +52226,9 @@ _ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit.thread: ; preds = %27
 _ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit: ; preds = %27
   call void @_ZNK3fmt3v116detail10locale_ref3getISt6localeEET_v(ptr dead_on_unwind nonnull writable sret(%"class.std::locale") align 8 dereferenceable(9) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre = load i8, ptr %33, align 8, !tbaa !824, !range !41
+  %34 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #31
-  %34 = trunc nuw i8 %.pre to i1
   br i1 %34, label %_ZNK3fmt3v116detail10get_localecvRKSt6localeEv.exit, label %35
 
 35:                                               ; preds = %_ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit.thread, %_ZN3fmt3v116detail10get_localeC2EbNS1_10locale_refE.exit

@@ -80628,8 +80628,8 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules32too_many_newlines
 "_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf33217f35e5657f1E.exit": ; preds = %24, %26
   %.sroa.412.1 = phi i32 [ %28, %26 ], [ %.sroa.412.0.ph, %24 ]
   %29 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_parser..token..Token$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h6968fe5e7cf78ab6E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.0.0.i.i.i.i32)
-  %30 = extractvalue { i32, i32 } %29, 1
   store i64 0, ptr %1, align 8
+  %30 = extractvalue { i32, i32 } %29, 1
   %31 = add i32 %.sroa.013.0.ph, 1
   br label %"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf33217f35e5657f1E.exit24.outer"
 

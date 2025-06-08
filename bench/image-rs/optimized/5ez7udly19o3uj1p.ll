@@ -30197,7 +30197,7 @@ define internal fastcc void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_
 
 43:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !3908
-  store i8 %.sroa.06.0.copyload.i, ptr %9, align 8, !noalias !3911
+  store i8 0, ptr %9, align 8, !noalias !3911
   %.sroa.4.0..sroa_idx3.i.i = getelementptr inbounds nuw i8, ptr %9, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx3.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.2.0..sroa_idx.i, i64 7, i1 false), !noalias !3897
   %.sroa.45.0..sroa_idx6.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -30232,7 +30232,7 @@ define internal fastcc void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_
   unreachable
 
 51:                                               ; preds = %43
-  store i8 %.sroa.06.0.copyload.i, ptr %44, align 8, !noalias !3911
+  store i8 0, ptr %44, align 8, !noalias !3911
   %.sroa.4.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %44, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx4.i.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.2.0..sroa_idx.i, i64 7, i1 false), !noalias !3897
   %.sroa.45.0..sroa_idx8.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -30338,7 +30338,7 @@ define internal fastcc void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_
 
 74:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !3947
-  store i8 %69, ptr %7, align 8, !noalias !3950
+  store i8 0, ptr %7, align 8, !noalias !3950
   %.sroa.4.0..sroa_idx3.i.i53 = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx3.i.i53, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.2.0..sroa_idx.i49, i64 7, i1 false), !noalias !3939
   %.sroa.45.0..sroa_idx6.i.i54 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -30373,7 +30373,7 @@ define internal fastcc void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_
   unreachable
 
 82:                                               ; preds = %74
-  store i8 %69, ptr %75, align 8, !noalias !3950
+  store i8 0, ptr %75, align 8, !noalias !3950
   %.sroa.4.0..sroa_idx4.i.i58 = getelementptr inbounds nuw i8, ptr %75, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx4.i.i58, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.2.0..sroa_idx.i49, i64 7, i1 false), !noalias !3939
   %.sroa.45.0..sroa_idx8.i.i59 = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -30464,7 +30464,7 @@ define internal fastcc void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_
 
 98:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !3979
-  store i8 %92, ptr %5, align 8, !noalias !3982
+  store i8 0, ptr %5, align 8, !noalias !3982
   %.sroa.4.0..sroa_idx3.i.i79 = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx3.i.i79, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.2.0..sroa_idx.i75, i64 7, i1 false), !noalias !3968
   %.sroa.45.0..sroa_idx6.i.i80 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -30499,7 +30499,7 @@ define internal fastcc void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_
   unreachable
 
 106:                                              ; preds = %98
-  store i8 %92, ptr %99, align 8, !noalias !3982
+  store i8 0, ptr %99, align 8, !noalias !3982
   %.sroa.4.0..sroa_idx4.i.i84 = getelementptr inbounds nuw i8, ptr %99, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx4.i.i84, ptr noundef nonnull readonly align 1 dereferenceable(7) %.sroa.2.0..sroa_idx.i75, i64 7, i1 false), !noalias !3968
   %.sroa.45.0..sroa_idx8.i.i85 = getelementptr inbounds nuw i8, ptr %99, i64 8

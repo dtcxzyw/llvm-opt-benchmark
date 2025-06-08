@@ -2100,9 +2100,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %1, align 8, !alias.scope !505, !noalias !508, !noundef !30
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %.thread16, label %.lr.ph
+  br i1 %12, label %.thread14, label %.lr.ph
 
-.thread16:                                        ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hbe944097266494ebE.exit", %3
+.thread14:                                        ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hbe944097266494ebE.exit", %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !511, !noalias !518, !noundef !30
   br label %52
@@ -2197,19 +2197,19 @@ default.unreachable:                              ; preds = %28
   %.pre.i.i = load i64, ptr %44, align 8, !alias.scope !526, !noalias !518
   br label %52
 
-52:                                               ; preds = %.thread16, %.noexc5, %43
-  %53 = phi ptr [ %44, %43 ], [ %44, %.noexc5 ], [ %13, %.thread16 ]
-  %.ph1518 = phi i64 [ %17, %43 ], [ %17, %.noexc5 ], [ 0, %.thread16 ]
-  %54 = phi i64 [ %45, %43 ], [ %.pre.i.i, %.noexc5 ], [ %14, %.thread16 ]
+52:                                               ; preds = %.thread14, %.noexc5, %43
+  %53 = phi ptr [ %44, %43 ], [ %44, %.noexc5 ], [ %13, %.thread14 ]
+  %.ph1316 = phi i64 [ %17, %43 ], [ %17, %.noexc5 ], [ 0, %.thread14 ]
+  %54 = phi i64 [ %45, %43 ], [ %.pre.i.i, %.noexc5 ], [ %14, %.thread14 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !526, !noalias !518, !nonnull !30, !noundef !30
   %57 = getelementptr inbounds i8, ptr %56, i64 %54
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull readonly align 1 %7, i64 %.ph1518, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull readonly align 1 %7, i64 %.ph1316, i1 false)
   %58 = load i64, ptr %53, align 8, !alias.scope !526, !noalias !518, !noundef !30
-  %59 = add i64 %58, %.ph1518
+  %59 = add i64 %58, %.ph1316
   store i64 %59, ptr %53, align 8, !alias.scope !526, !noalias !518
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.ph1518, ptr %60, align 8
+  store i64 %.ph1316, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %62, %52
@@ -2243,7 +2243,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !527
   %67 = load i64, ptr %1, align 8, !alias.scope !538, !noalias !508, !noundef !30
   %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread16, label %.lr.ph
+  br i1 %68, label %.thread14, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

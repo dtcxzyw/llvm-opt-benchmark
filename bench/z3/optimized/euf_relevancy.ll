@@ -1746,16 +1746,16 @@ _ZN3euf9relevancy9push_coreEv.exit.i:             ; preds = %26, %20
 
 _ZN3euf9relevancy5flushEv.exit:                   ; preds = %_ZN3euf9relevancy9push_coreEv.exit.i
   %.pre = load i8, ptr %3, align 8, !tbaa !3, !range !40
-  %35 = lshr i32 %1, 1
-  %36 = trunc nuw i8 %.pre to i1
-  br i1 %36, label %37, label %_ZN3euf9relevancy5flushEv.exit._ZNK3euf9relevancy11is_relevantEN3sat7literalE.exit.thread70_crit_edge
+  %35 = trunc nuw i8 %.pre to i1
+  %36 = lshr i32 %1, 1
+  br i1 %35, label %37, label %_ZN3euf9relevancy5flushEv.exit._ZNK3euf9relevancy11is_relevantEN3sat7literalE.exit.thread70_crit_edge
 
 _ZN3euf9relevancy5flushEv.exit._ZNK3euf9relevancy11is_relevantEN3sat7literalE.exit.thread70_crit_edge: ; preds = %_ZN3euf9relevancy5flushEv.exit
-  %.pre124 = zext nneg i32 %35 to i64
+  %.pre124 = zext nneg i32 %36 to i64
   br label %_ZNK3euf9relevancy11is_relevantEN3sat7literalE.exit.thread70
 
 37:                                               ; preds = %_ZN3euf9relevancy5flushEv.exit.thread, %_ZN3euf9relevancy5flushEv.exit
-  %38 = phi i32 [ %9, %_ZN3euf9relevancy5flushEv.exit.thread ], [ %35, %_ZN3euf9relevancy5flushEv.exit ]
+  %38 = phi i32 [ %9, %_ZN3euf9relevancy5flushEv.exit.thread ], [ %36, %_ZN3euf9relevancy5flushEv.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !48
   %41 = icmp eq ptr %40, null

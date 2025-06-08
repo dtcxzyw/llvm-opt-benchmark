@@ -35611,184 +35611,183 @@ _ZL13CalcScopeRectP24ImGuiMultiSelectTempDataP11ImGuiWindow.exit: ; preds = %195
   %.1114 = phi i8 [ %220, %217 ], [ %.0113, %_ZL13CalcScopeRectP24ImGuiMultiSelectTempDataP11ImGuiWindow.exit ], [ %.0113, %187 ]
   %222 = load i8, ptr %97, align 2, !tbaa !238, !range !153, !noundef !154
   %223 = trunc nuw i8 %222 to i1
-  br i1 %223, label %224, label %262
+  br i1 %223, label %224, label %261
 
 224:                                              ; preds = %221
   %225 = and i32 %.2, 512
   %.not128 = icmp eq i32 %225, 0
-  br i1 %.not128, label %258, label %226
+  br i1 %.not128, label %257, label %226
 
 226:                                              ; preds = %224
   %.not129 = icmp eq i32 %1, 0
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 8828
   %228 = load i8, ptr %227, align 4, !tbaa !593, !range !153
-  br i1 %.not129, label %229, label %232
+  %229 = trunc nuw i8 %228 to i1
+  br i1 %.not129, label %230, label %232
 
-229:                                              ; preds = %226
-  %230 = trunc nuw i8 %228 to i1
-  br i1 %230, label %.thread, label %258
+230:                                              ; preds = %226
+  br i1 %229, label %.thread, label %257
 
-.thread:                                          ; preds = %229
+.thread:                                          ; preds = %230
   %231 = getelementptr inbounds nuw i8, ptr %6, i64 8828
-  br label %235
+  br label %234
 
 232:                                              ; preds = %226
   %233 = getelementptr inbounds nuw i8, ptr %6, i64 8828
-  %234 = trunc nuw i8 %228 to i1
-  br i1 %234, label %235, label %238
+  br i1 %229, label %234, label %237
 
-235:                                              ; preds = %.thread, %232
-  %236 = phi ptr [ %231, %.thread ], [ %233, %232 ]
-  %237 = load i32, ptr %188, align 8, !tbaa !588
-  br label %238
+234:                                              ; preds = %.thread, %232
+  %235 = phi ptr [ %231, %.thread ], [ %233, %232 ]
+  %236 = load i32, ptr %188, align 8, !tbaa !588
+  br label %237
 
-238:                                              ; preds = %232, %235
-  %239 = phi ptr [ %236, %235 ], [ %233, %232 ]
-  %240 = phi i32 [ %237, %235 ], [ 0, %232 ]
-  %241 = tail call noundef zeroext i1 @_ZN5ImGui8ShortcutEiij(i32 noundef 526, i32 noundef 0, i32 noundef %240)
-  br i1 %241, label %242, label %258
+237:                                              ; preds = %232, %234
+  %238 = phi ptr [ %235, %234 ], [ %233, %232 ]
+  %239 = phi i32 [ %236, %234 ], [ 0, %232 ]
+  %240 = tail call noundef zeroext i1 @_ZN5ImGui8ShortcutEiij(i32 noundef 526, i32 noundef 0, i32 noundef %239)
+  br i1 %240, label %241, label %257
 
-242:                                              ; preds = %238
-  %243 = load i8, ptr %239, align 4, !tbaa !593, !range !153, !noundef !154
-  %244 = trunc nuw i8 %243 to i1
-  br i1 %244, label %245, label %258
+241:                                              ; preds = %237
+  %242 = load i8, ptr %238, align 4, !tbaa !593, !range !153, !noundef !154
+  %243 = trunc nuw i8 %242 to i1
+  br i1 %243, label %244, label %257
 
-245:                                              ; preds = %242
-  %246 = load ptr, ptr @GImGui, align 8, !tbaa !3
-  %247 = getelementptr inbounds nuw i8, ptr %6, i64 8829
-  store i8 0, ptr %247, align 1, !tbaa !591
-  store i8 0, ptr %239, align 4, !tbaa !593
-  %248 = getelementptr inbounds nuw i8, ptr %246, i64 5132
-  %249 = load i32, ptr %248, align 4, !tbaa !189
-  %250 = load i32, ptr %188, align 8, !tbaa !588
-  %251 = icmp eq i32 %249, %250
-  br i1 %251, label %252, label %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit
+244:                                              ; preds = %241
+  %245 = load ptr, ptr @GImGui, align 8, !tbaa !3
+  %246 = getelementptr inbounds nuw i8, ptr %6, i64 8829
+  store i8 0, ptr %246, align 1, !tbaa !591
+  store i8 0, ptr %238, align 4, !tbaa !593
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 5132
+  %248 = load i32, ptr %247, align 4, !tbaa !189
+  %249 = load i32, ptr %188, align 8, !tbaa !588
+  %250 = icmp eq i32 %248, %249
+  br i1 %250, label %251, label %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit
 
-252:                                              ; preds = %245
-  %253 = getelementptr inbounds nuw i8, ptr %246, i64 9964
-  %254 = load i32, ptr %253, align 4, !tbaa !592
-  %255 = and i32 %254, 64
-  %.not.i146 = icmp eq i32 %255, 0
-  br i1 %.not.i146, label %257, label %256
+251:                                              ; preds = %244
+  %252 = getelementptr inbounds nuw i8, ptr %245, i64 9964
+  %253 = load i32, ptr %252, align 4, !tbaa !592
+  %254 = and i32 %253, 64
+  %.not.i146 = icmp eq i32 %254, 0
+  br i1 %.not.i146, label %256, label %255
 
-256:                                              ; preds = %252
-  tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.153, i32 noundef %249)
-  br label %257
+255:                                              ; preds = %251
+  tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.153, i32 noundef %248)
+  br label %256
 
-257:                                              ; preds = %256, %252
+256:                                              ; preds = %255, %251
   tail call void @_ZN5ImGui13ClearActiveIDEv()
   br label %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit
 
-_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit: ; preds = %245, %257
+_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit: ; preds = %244, %256
   store i32 0, ptr %188, align 8, !tbaa !588
-  br label %258
+  br label %257
 
-258:                                              ; preds = %229, %242, %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit, %238, %224
-  %.3 = phi i8 [ 1, %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit ], [ 1, %242 ], [ %.1114, %238 ], [ %.1114, %229 ], [ %.1114, %224 ]
-  %259 = and i32 %.2, 3
-  %or.cond138 = icmp eq i32 %259, 0
-  br i1 %or.cond138, label %260, label %262
+257:                                              ; preds = %230, %241, %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit, %237, %224
+  %.3 = phi i8 [ 1, %_ZL23BoxSelectDeactivateDragP19ImGuiBoxSelectState.exit ], [ 1, %241 ], [ %.1114, %237 ], [ %.1114, %230 ], [ %.1114, %224 ]
+  %258 = and i32 %.2, 3
+  %or.cond138 = icmp eq i32 %258, 0
+  br i1 %or.cond138, label %259, label %261
 
-260:                                              ; preds = %258
-  %261 = tail call noundef zeroext i1 @_ZN5ImGui8ShortcutEii(i32 noundef 4642, i32 noundef 0)
-  br label %262
+259:                                              ; preds = %257
+  %260 = tail call noundef zeroext i1 @_ZN5ImGui8ShortcutEii(i32 noundef 4642, i32 noundef 0)
+  br label %261
 
-262:                                              ; preds = %260, %258, %221
-  %.2115 = phi i8 [ %.3, %258 ], [ %.1114, %221 ], [ %.3, %260 ]
-  %.0112 = phi i1 [ false, %258 ], [ false, %221 ], [ %261, %260 ]
-  %263 = trunc nuw i8 %.2115 to i1
-  %or.cond = or i1 %.0112, %263
-  br i1 %or.cond, label %264, label %266
+261:                                              ; preds = %259, %257, %221
+  %.2115 = phi i8 [ %.3, %257 ], [ %.1114, %221 ], [ %.3, %259 ]
+  %.0112 = phi i1 [ false, %257 ], [ false, %221 ], [ %260, %259 ]
+  %262 = trunc nuw i8 %.2115 to i1
+  %or.cond = or i1 %.0112, %262
+  br i1 %or.cond, label %263, label %265
 
-264:                                              ; preds = %262
+263:                                              ; preds = %261
   tail call void @_ZN5ImGui20MultiSelectAddSetAllEP24ImGuiMultiSelectTempDatab(ptr noundef nonnull %51, i1 noundef zeroext %.0112)
-  br i1 %.0112, label %266, label %265
+  br i1 %.0112, label %265, label %264
 
-265:                                              ; preds = %264
+264:                                              ; preds = %263
   store i32 0, ptr %135, align 8, !tbaa !263
-  br label %266
+  br label %265
 
-266:                                              ; preds = %264, %265, %262
-  %267 = or i8 %.2115, -2
-  %.neg = add nsw i8 %267, 1
-  %268 = select i1 %.0112, i8 1, i8 %.neg
-  %269 = getelementptr i8, ptr %50, i64 -8
-  store i8 %268, ptr %269, align 8, !tbaa !245
-  %270 = getelementptr i8, ptr %50, i64 -24
-  store i64 -1, ptr %270, align 8, !tbaa !269
-  %271 = getelementptr inbounds nuw i8, ptr %6, i64 9964
-  %272 = load i32, ptr %271, align 4, !tbaa !592
-  %273 = and i32 %272, 64
-  %.not132 = icmp eq i32 %273, 0
-  br i1 %.not132, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %274
+265:                                              ; preds = %263, %264, %261
+  %266 = or i8 %.2115, -2
+  %.neg = add nsw i8 %266, 1
+  %267 = select i1 %.0112, i8 1, i8 %.neg
+  %268 = getelementptr i8, ptr %50, i64 -8
+  store i8 %267, ptr %268, align 8, !tbaa !245
+  %269 = getelementptr i8, ptr %50, i64 -24
+  store i64 -1, ptr %269, align 8, !tbaa !269
+  %270 = getelementptr inbounds nuw i8, ptr %6, i64 9964
+  %271 = load i32, ptr %270, align 4, !tbaa !592
+  %272 = and i32 %271, 64
+  %.not132 = icmp eq i32 %272, 0
+  br i1 %.not132, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %273
 
-274:                                              ; preds = %266
+273:                                              ; preds = %265
   %.val = load i32, ptr %51, align 8, !tbaa !259
-  %275 = getelementptr i8, ptr %50, i64 -88
-  %.val142 = load ptr, ptr %275, align 8, !tbaa !258
-  %276 = sext i32 %.val to i64
-  %277 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %.val142, i64 %276
+  %274 = getelementptr i8, ptr %50, i64 -88
+  %.val142 = load ptr, ptr %274, align 8, !tbaa !258
+  %275 = sext i32 %.val to i64
+  %276 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %.val142, i64 %275
   %.not1.i = icmp eq i32 %.val, 0
   br i1 %.not1.i, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %274
-  %278 = load ptr, ptr @GImGui, align 8, !tbaa !3
-  %279 = getelementptr inbounds nuw i8, ptr %278, i64 9964
-  br label %280
+.lr.ph.i:                                         ; preds = %273
+  %277 = load ptr, ptr @GImGui, align 8, !tbaa !3
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 9964
+  br label %279
 
-280:                                              ; preds = %thread-pre-split.thread.i, %.lr.ph.i
-  %.02.i = phi ptr [ %.val142, %.lr.ph.i ], [ %308, %thread-pre-split.thread.i ]
-  %281 = load i32, ptr %.02.i, align 8, !tbaa !636
-  %282 = icmp eq i32 %281, 1
-  br i1 %282, label %283, label %thread-pre-split.i
+279:                                              ; preds = %thread-pre-split.thread.i, %.lr.ph.i
+  %.02.i = phi ptr [ %.val142, %.lr.ph.i ], [ %307, %thread-pre-split.thread.i ]
+  %280 = load i32, ptr %.02.i, align 8, !tbaa !636
+  %281 = icmp eq i32 %280, 1
+  br i1 %281, label %282, label %thread-pre-split.i
 
-283:                                              ; preds = %280
-  %284 = load i32, ptr %279, align 4, !tbaa !592
-  %285 = and i32 %284, 64
-  %.not21.i = icmp eq i32 %285, 0
-  br i1 %.not21.i, label %thread-pre-split.thread.i, label %286
+282:                                              ; preds = %279
+  %283 = load i32, ptr %278, align 4, !tbaa !592
+  %284 = and i32 %283, 64
+  %.not21.i = icmp eq i32 %284, 0
+  br i1 %.not21.i, label %thread-pre-split.thread.i, label %285
 
-286:                                              ; preds = %283
-  %287 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
-  %288 = load i8, ptr %287, align 4, !tbaa !639, !range !153, !noundef !154
-  %289 = trunc nuw i8 %288 to i1
-  %290 = zext nneg i8 %288 to i32
-  %291 = select i1 %289, ptr @.str.155, ptr @.str.156
-  tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.103, i32 noundef %290, ptr noundef nonnull %291)
+285:                                              ; preds = %282
+  %286 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
+  %287 = load i8, ptr %286, align 4, !tbaa !639, !range !153, !noundef !154
+  %288 = trunc nuw i8 %287 to i1
+  %289 = zext nneg i8 %287 to i32
+  %290 = select i1 %288, ptr @.str.155, ptr @.str.156
+  tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.103, i32 noundef %289, ptr noundef nonnull %290)
   %.pr.pre.i = load i32, ptr %.02.i, align 8, !tbaa !636
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %286, %280
-  %292 = phi i32 [ %281, %280 ], [ %.pr.pre.i, %286 ]
-  %293 = icmp eq i32 %292, 2
-  br i1 %293, label %294, label %thread-pre-split.thread.i
+thread-pre-split.i:                               ; preds = %285, %279
+  %291 = phi i32 [ %280, %279 ], [ %.pr.pre.i, %285 ]
+  %292 = icmp eq i32 %291, 2
+  br i1 %292, label %293, label %thread-pre-split.thread.i
 
-294:                                              ; preds = %thread-pre-split.i
-  %295 = load i32, ptr %279, align 4, !tbaa !592
-  %296 = and i32 %295, 64
-  %.not22.i = icmp eq i32 %296, 0
-  br i1 %.not22.i, label %thread-pre-split.thread.i, label %297
+293:                                              ; preds = %thread-pre-split.i
+  %294 = load i32, ptr %278, align 4, !tbaa !592
+  %295 = and i32 %294, 64
+  %.not22.i = icmp eq i32 %295, 0
+  br i1 %.not22.i, label %thread-pre-split.thread.i, label %296
 
-297:                                              ; preds = %294
-  %298 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
-  %299 = load i64, ptr %298, align 8, !tbaa !640
-  %300 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
-  %301 = load i64, ptr %300, align 8, !tbaa !641
-  %302 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
-  %303 = load i8, ptr %302, align 4, !tbaa !639, !range !153, !noundef !154
-  %304 = zext nneg i8 %303 to i32
-  %305 = getelementptr inbounds nuw i8, ptr %.02.i, i64 5
-  %306 = load i8, ptr %305, align 1, !tbaa !642
-  %307 = sext i8 %306 to i32
-  tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.103, i64 noundef %299, i64 noundef %301, i64 noundef %299, i64 noundef %301, i32 noundef %304, i32 noundef %307)
+296:                                              ; preds = %293
+  %297 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
+  %298 = load i64, ptr %297, align 8, !tbaa !640
+  %299 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
+  %300 = load i64, ptr %299, align 8, !tbaa !641
+  %301 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4
+  %302 = load i8, ptr %301, align 4, !tbaa !639, !range !153, !noundef !154
+  %303 = zext nneg i8 %302 to i32
+  %304 = getelementptr inbounds nuw i8, ptr %.02.i, i64 5
+  %305 = load i8, ptr %304, align 1, !tbaa !642
+  %306 = sext i8 %305 to i32
+  tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.157, ptr noundef nonnull @.str.103, i64 noundef %298, i64 noundef %300, i64 noundef %298, i64 noundef %300, i32 noundef %303, i32 noundef %306)
   br label %thread-pre-split.thread.i
 
-thread-pre-split.thread.i:                        ; preds = %297, %294, %thread-pre-split.i, %283
-  %308 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
-  %.not.i147 = icmp eq ptr %308, %277
-  br i1 %.not.i147, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %280
+thread-pre-split.thread.i:                        ; preds = %296, %293, %thread-pre-split.i, %282
+  %307 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
+  %.not.i147 = icmp eq ptr %307, %276
+  br i1 %.not.i147, label %_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit, label %279
 
-_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit: ; preds = %thread-pre-split.thread.i, %274, %266
+_ZL27DebugLogMultiSelectRequestsPKcPK18ImGuiMultiSelectIO.exit: ; preds = %thread-pre-split.thread.i, %273, %265
   ret ptr %51
 }
 

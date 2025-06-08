@@ -39476,11 +39476,11 @@ define void @_ZN2uv8settings12TreeSettings7resolve17he87c0bc215bcc8cdE(ptr dead_
           to label %.thread73 unwind label %144
 
 .critedge19:                                      ; preds = %69, %.thread73
-  %.pn.pn.pn385764849096 = phi { ptr, i32 } [ %.pn.pn.pn39, %.thread73 ], [ %.pn.pn, %69 ]
-  %.sroa.013.0405566829194 = phi i1 [ %.sroa.013.041, %.thread73 ], [ %.sroa.013.1, %69 ]
+  %.pn.pn.pn385764838995 = phi { ptr, i32 } [ %.pn.pn.pn39, %.thread73 ], [ %.pn.pn, %69 ]
+  %.sroa.013.0405566819093 = phi i1 [ %.sroa.013.041, %.thread73 ], [ %.sroa.013.1, %69 ]
   %159 = load i64, ptr %2, align 8, !range !309
   %160 = icmp ne i64 %159, 2
-  %or.cond.not = select i1 %.sroa.013.0405566829194, i1 %160, i1 false
+  %or.cond.not = select i1 %.sroa.013.0405566819093, i1 %160, i1 false
   br i1 %or.cond.not, label %162, label %"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$uv_settings..FilesystemOptions$GT$$GT$17ha47e4d06b66dd0d8E.exit"
 
 .thread73:                                        ; preds = %158
@@ -39489,7 +39489,7 @@ define void @_ZN2uv8settings12TreeSettings7resolve17he87c0bc215bcc8cdE(ptr dead_
           to label %.critedge19 unwind label %144
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$uv_settings..FilesystemOptions$GT$$GT$17ha47e4d06b66dd0d8E.exit": ; preds = %162, %.critedge19
-  resume { ptr, i32 } %.pn.pn.pn385764849096
+  resume { ptr, i32 } %.pn.pn.pn385764838995
 
 162:                                              ; preds = %.critedge19
   invoke void @"_ZN4core3ptr51drop_in_place$LT$uv_settings..settings..Options$GT$17h32547f5af39d6ee3E"(ptr noalias noundef nonnull align 8 dereferenceable(1576) %2)

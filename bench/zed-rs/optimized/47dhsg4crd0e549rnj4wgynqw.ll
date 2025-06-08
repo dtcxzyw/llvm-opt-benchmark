@@ -944,12 +944,12 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.2840939845381089846.exit.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.3.0..sroa_idx.i.i, i64 48, i1 false), !noalias !62
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5), !noalias !57
   %.pre = load i64, ptr %152, align 8, !range !25, !alias.scope !63
+  %180 = icmp eq i64 %.pre, 0
   store i8 1, ptr %151, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.511.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.511.sroa.5, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.2, i64 48, i1 false)
-  %180 = icmp eq i64 %.pre, 0
   br i1 %180, label %181, label %186
 
 181:                                              ; preds = %.thread176, %179

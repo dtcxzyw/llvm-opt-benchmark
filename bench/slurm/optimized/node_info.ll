@@ -2301,68 +2301,70 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
   %.not22 = icmp eq ptr %6, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %30
-  %7 = phi ptr [ %31, %30 ], [ %6, %2 ]
+.lr.ph:                                           ; preds = %2, %32
+  %7 = phi ptr [ %33, %32 ], [ %6, %2 ]
   %8 = load ptr, ptr @last_model, align 8
   %.not20 = icmp eq ptr %8, %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br i1 %.not20, label %10, label %.thread
 
 .thread:                                          ; preds = %.lr.ph
   store i8 0, ptr %.phi.trans.insert, align 8
-  br label %.thread25
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  br label %.thread24
 
 10:                                               ; preds = %.lr.ph
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !11
   %11 = trunc nuw i8 %.pre to i1
-  br i1 %11, label %12, label %.thread25
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  br i1 %11, label %13, label %.thread24
 
-12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %4, ptr noundef nonnull %13, i32 noundef 21, ptr noundef nonnull %3, i32 noundef -1) #11
-  %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %16 = load ptr, ptr %15, align 8
-  %17 = call i32 @xstrcmp(ptr noundef %14, ptr noundef %16) #11
-  %.not21 = icmp eq i32 %17, 0
-  br i1 %.not21, label %19, label %18
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %4, ptr noundef nonnull %14, i32 noundef 21, ptr noundef nonnull %3, i32 noundef -1) #11
+  %15 = load ptr, ptr %3, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %17 = load ptr, ptr %16, align 8
+  %18 = call i32 @xstrcmp(ptr noundef %15, ptr noundef %17) #11
+  %.not21 = icmp eq i32 %18, 0
+  br i1 %.not21, label %20, label %19
 
-18:                                               ; preds = %12
-  store i8 0, ptr %9, align 8
-  br label %19
+19:                                               ; preds = %13
+  store i8 0, ptr %12, align 8
+  br label %20
 
-19:                                               ; preds = %12, %18
-  %20 = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %20) #11
-  %.pre23 = load i8, ptr %9, align 8, !range !11
-  %21 = trunc nuw i8 %.pre23 to i1
-  br i1 %21, label %22, label %.thread25
+20:                                               ; preds = %13, %19
+  %21 = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %21) #11
+  %.pre23 = load i8, ptr %12, align 8, !range !11
+  %22 = trunc nuw i8 %.pre23 to i1
+  br i1 %22, label %23, label %.thread24
 
-22:                                               ; preds = %19
-  %23 = tail call i64 @gtk_tree_store_get_type() #12
-  %24 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %23) #11
-  call fastcc void @_update_node_record(ptr noundef %7, ptr noundef %24)
-  br label %30
+23:                                               ; preds = %20
+  %24 = tail call i64 @gtk_tree_store_get_type() #12
+  %25 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %24) #11
+  call fastcc void @_update_node_record(ptr noundef %7, ptr noundef %25)
+  br label %32
 
-.thread25:                                        ; preds = %.thread, %10, %19
-  %25 = tail call i64 @gtk_tree_store_get_type() #12
-  %26 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %25) #11
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @gtk_tree_store_append(ptr noundef %26, ptr noundef nonnull %27, ptr noundef null) #11
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %29 = load i32, ptr %28, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %26, ptr noundef nonnull %27, i32 noundef 0, i32 noundef %29, i32 noundef -1) #11
-  call fastcc void @_update_node_record(ptr noundef nonnull %7, ptr noundef %26)
-  store i8 1, ptr %9, align 8
-  br label %30
+.thread24:                                        ; preds = %.thread, %10, %20
+  %26 = phi ptr [ %12, %20 ], [ %9, %.thread ], [ %12, %10 ]
+  %27 = tail call i64 @gtk_tree_store_get_type() #12
+  %28 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %27) #11
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @gtk_tree_store_append(ptr noundef %28, ptr noundef nonnull %29, ptr noundef null) #11
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %31 = load i32, ptr %30, align 8
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %28, ptr noundef nonnull %29, i32 noundef 0, i32 noundef %31, i32 noundef -1) #11
+  call fastcc void @_update_node_record(ptr noundef nonnull %7, ptr noundef %28)
+  store i8 1, ptr %26, align 8
+  br label %32
 
-30:                                               ; preds = %.thread25, %22
-  %31 = call ptr @list_next(ptr noundef %5) #11
-  %.not = icmp eq ptr %31, null
+32:                                               ; preds = %.thread24, %23
+  %33 = call ptr @list_next(ptr noundef %5) #11
+  %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %30, %2
+._crit_edge:                                      ; preds = %32, %2
   call void @list_iterator_destroy(ptr noundef %5) #11
   call void @remove_old(ptr noundef %4, i32 noundef 39) #11
   store ptr %4, ptr @last_model, align 8

@@ -1015,8 +1015,8 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.sroa.6.117 = phi i64 [ %13, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread" ], [ %.sroa.5.sroa.0.0.copyload, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
-  %.not.i.i.i.i = icmp eq i64 %5, %18
-  br i1 %.not.i.i.i.i, label %27, label %20
+  %.not.i.i.i.i.not = icmp eq i64 %5, %18
+  br i1 %.not.i.i.i.i.not, label %27, label %20
 
 "_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit.thread19": ; preds = %9, %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2841f0ea95e2fd6E.exit"
   store i64 2, ptr %1, align 8

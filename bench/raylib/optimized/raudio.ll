@@ -88816,8 +88816,8 @@ jar_xm_post_pattern_change.exit.i:                ; preds = %jar_xm_post_pattern
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 107
   %94 = load i8, ptr %93, align 1
-  %.not60.i = icmp eq i8 %94, 0
-  %spec.select.i = select i1 %.not60.i, i8 %.066.i, i8 1
+  %.not60.i = icmp ne i8 %94, 0
+  %spec.select.i = zext i1 %.not60.i to i8
   br label %95
 
 95:                                               ; preds = %92, %90

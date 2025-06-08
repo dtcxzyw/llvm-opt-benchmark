@@ -26156,7 +26156,7 @@ _ZN11compact_str13CompactString7try_new17h89d480d1ba93390cE.exit.thread: ; preds
   br label %32
 
 45:                                               ; preds = %41
-  store i8 %39, ptr %0, align 8
+  store i8 0, ptr %0, align 8
   %.sroa.6.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.6, i64 23, i1 false)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.6)
@@ -50020,7 +50020,7 @@ define noundef zeroext i1 @"_ZN82_$LT$ty_python_semantic..types..TypeAliasType$u
   br i1 %6, label %9, label %11
 
 9:                                                ; preds = %8
-  store i32 %1, ptr %0, align 4
+  store i32 1, ptr %0, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
   br label %"_ZN18ty_python_semantic5types1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..PEP695TypeAliasType$GT$12maybe_update17heaa8e354b13f1517E.exit"
@@ -50050,7 +50050,7 @@ define noundef zeroext i1 @"_ZN82_$LT$ty_python_semantic..types..TypeAliasType$u
   br label %"_ZN18ty_python_semantic5types1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..PEP695TypeAliasType$GT$12maybe_update17heaa8e354b13f1517E.exit"
 
 19:                                               ; preds = %7
-  store i32 %1, ptr %0, align 4
+  store i32 0, ptr %0, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %20, align 4
   br label %"_ZN18ty_python_semantic5types1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..PEP695TypeAliasType$GT$12maybe_update17heaa8e354b13f1517E.exit"

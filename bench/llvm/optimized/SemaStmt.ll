@@ -12585,7 +12585,8 @@ _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %681, %684
 
 _ZNK4llvm6APSInteqERKS0_.exit:                    ; preds = %717, %721
   %.0.i.i.i = phi i1 [ %720, %717 ], [ %722, %721 ]
-  %spec.select = select i1 %.0.i.i.i, i8 0, i8 %.1232770
+  %not..0.i.i.i = xor i1 %.0.i.i.i, true
+  %spec.select = zext i1 %not..0.i.i.i to i8
   br label %723
 
 723:                                              ; preds = %_ZNK4llvm6APSInteqERKS0_.exit, %709
@@ -13307,8 +13308,8 @@ _ZNK4llvm6APSIntleERKS0_.exit:                    ; preds = %1061, %1063
 
 _ZNK4llvm6APSIntleERKS0_.exit385:                 ; preds = %1069, %1071
   %.in.i384 = phi i32 [ %1070, %1069 ], [ %1072, %1071 ]
-  %1073 = icmp slt i32 %.in.i384, 1
-  %spec.select281 = select i1 %1073, i8 0, i8 %.4235775
+  %1073 = icmp sgt i32 %.in.i384, 0
+  %spec.select281 = zext i1 %1073 to i8
   br label %1074
 
 1074:                                             ; preds = %_ZNK4llvm6APSIntleERKS0_.exit385, %_ZNK4llvm6APSIntleERKS0_.exit, %1058

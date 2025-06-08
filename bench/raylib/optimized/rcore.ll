@@ -32754,7 +32754,7 @@ GetGamepadAxisMovement.exit621.thread.thread906:  ; preds = %GetGamepadAxisMovem
   %997 = fcmp ueq float %996, 0.000000e+00
   %998 = fcmp ult float %996, 2.500000e-01
   %or.cond888 = or i1 %997, %998
-  br i1 %or.cond888, label %GetGamepadAxisMovement.exit676.thread.thread908, label %999
+  br i1 %or.cond888, label %GetGamepadAxisMovement.exit676.thread.thread907, label %999
 
 999:                                              ; preds = %GetGamepadAxisMovement.exit621.thread.thread906
   %1000 = fneg float %20
@@ -32834,16 +32834,16 @@ GetGamepadAxisMovement.exit676.thread:            ; preds = %1018, %1014, %GetCa
   store float %1031, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.pre895 = load i8, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2076), align 4, !range !3
   %1032 = trunc nuw i8 %.pre895 to i1
-  br i1 %1032, label %GetGamepadAxisMovement.exit676.thread.thread908, label %GetGamepadAxisMovement.exit711.thread
+  br i1 %1032, label %GetGamepadAxisMovement.exit676.thread.thread907, label %GetGamepadAxisMovement.exit711.thread
 
-GetGamepadAxisMovement.exit676.thread.thread908:  ; preds = %GetGamepadAxisMovement.exit621.thread.thread906, %GetGamepadAxisMovement.exit676.thread
+GetGamepadAxisMovement.exit676.thread.thread907:  ; preds = %GetGamepadAxisMovement.exit621.thread.thread906, %GetGamepadAxisMovement.exit676.thread
   %1033 = load float, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2848), align 8
   %1034 = fcmp ueq float %1033, 0.000000e+00
   %1035 = fcmp ult float %1033, 2.500000e-01
   %or.cond889 = or i1 %1034, %1035
   br i1 %or.cond889, label %GetGamepadAxisMovement.exit711.thread, label %1036
 
-1036:                                             ; preds = %GetGamepadAxisMovement.exit676.thread.thread908
+1036:                                             ; preds = %GetGamepadAxisMovement.exit676.thread.thread907
   %.sroa.011.0.copyload.i.i.i712 = load <2 x float>, ptr %827, align 4
   %.sroa.212.0.copyload.i.i.i714 = load float, ptr %.sroa.233.0..sroa_idx.i554, align 4
   %.sroa.09.0.copyload.i.i.i715 = load <2 x float>, ptr %0, align 4
@@ -32974,7 +32974,7 @@ CameraMoveRight.exit763:                          ; preds = %GetCameraRight.exit
   store float %1094, ptr %.sroa.233.0..sroa_idx.i554, align 4
   br label %GetGamepadAxisMovement.exit711.thread
 
-GetGamepadAxisMovement.exit711.thread:            ; preds = %GetGamepadAxisMovement.exit583, %GetGamepadAxisMovement.exit586.thread, %GetGamepadAxisMovement.exit621.thread, %GetGamepadAxisMovement.exit676.thread.thread908, %GetGamepadAxisMovement.exit676.thread, %CameraMoveRight.exit763, %810
+GetGamepadAxisMovement.exit711.thread:            ; preds = %GetGamepadAxisMovement.exit583, %GetGamepadAxisMovement.exit586.thread, %GetGamepadAxisMovement.exit621.thread, %GetGamepadAxisMovement.exit676.thread.thread907, %GetGamepadAxisMovement.exit676.thread, %CameraMoveRight.exit763, %810
   br i1 %14, label %1095, label %1144
 
 1095:                                             ; preds = %GetGamepadAxisMovement.exit711.thread

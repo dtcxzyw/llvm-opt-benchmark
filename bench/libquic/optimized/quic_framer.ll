@@ -6391,15 +6391,15 @@ define noundef zeroext i1 @_ZN3net10QuicFramer28ProcessUnauthenticatedHeaderEPNS
 
 26:                                               ; preds = %13
   %.pre = load i8, ptr %7, align 4, !tbaa !170, !range !141
+  %27 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  %27 = load i8, ptr @FLAGS_quic_packet_numbers_largest_received, align 1, !tbaa !174, !range !141, !noundef !142
-  %28 = trunc nuw i8 %27 to i1
-  %.in.v = select i1 %28, i64 240, i64 176
+  %28 = load i8, ptr @FLAGS_quic_packet_numbers_largest_received, align 1, !tbaa !174, !range !141, !noundef !142
+  %29 = trunc nuw i8 %28 to i1
+  %.in.v = select i1 %29, i64 240, i64 176
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %29 = load i64, ptr %.in, align 8, !tbaa !65
-  store i64 %29, ptr %5, align 8, !tbaa !65
-  %30 = trunc nuw i8 %.pre to i1
-  br i1 %30, label %31, label %34
+  %30 = load i64, ptr %.in, align 8, !tbaa !65
+  store i64 %30, ptr %5, align 8, !tbaa !65
+  br i1 %27, label %31, label %34
 
 31:                                               ; preds = %26
   %32 = load i8, ptr %6, align 8, !tbaa !176
@@ -6411,7 +6411,7 @@ define noundef zeroext i1 @_ZN3net10QuicFramer28ProcessUnauthenticatedHeaderEPNS
   br label %34
 
 34:                                               ; preds = %.thread, %._crit_edge13, %26
-  %35 = phi i64 [ %.pre14, %._crit_edge13 ], [ %29, %26 ], [ %12, %.thread ]
+  %35 = phi i64 [ %.pre14, %._crit_edge13 ], [ %30, %26 ], [ %12, %.thread ]
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %37 = load i8, ptr %36, align 1, !tbaa !171
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26

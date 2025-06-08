@@ -27693,11 +27693,11 @@ define void @"_ZN172_$LT$polars_core..chunked_array..logical..Logical$LT$polars_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3762)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3765)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 %.sroa.564.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3767, !noalias !3769
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3767, !noalias !3769
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false), !alias.scope !3771, !noalias !3772
   %.sroa.339.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store i8 %.sroa.564.0.copyload, ptr %.sroa.339.0..sroa_idx41, align 8, !alias.scope !3771, !noalias !3772
+  store i8 0, ptr %.sroa.339.0..sroa_idx41, align 8, !alias.scope !3771, !noalias !3772
   %.sroa.443.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %13, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.443.0..sroa_idx44, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.443, i64 7, i1 false), !alias.scope !3771, !noalias !3772
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -28067,7 +28067,7 @@ _ZN11polars_time7windows8duration8Duration5parse17hff18aa8fd3642b90E.exit: ; pre
   %.sroa.6106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %.sroa.14.0.copyload88, ptr %.sroa.6106.0..sroa_idx, align 8, !alias.scope !3820, !noalias !3822
   %.sroa.7107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i8 %.sroa.17.0.copyload94, ptr %.sroa.7107.0..sroa_idx, align 8, !alias.scope !3820, !noalias !3822
+  store i8 0, ptr %.sroa.7107.0..sroa_idx, align 8, !alias.scope !3820, !noalias !3822
   %110 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i64 %.sroa.065.0.copyload70, ptr %110, align 8, !alias.scope !3824, !noalias !3825
   %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 48
@@ -28077,7 +28077,7 @@ _ZN11polars_time7windows8duration8Duration5parse17hff18aa8fd3642b90E.exit: ; pre
   %.sroa.6112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 64
   store i64 %.sroa.14.0.copyload88, ptr %.sroa.6112.0..sroa_idx, align 8, !alias.scope !3824, !noalias !3825
   %.sroa.7113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 72
-  store i8 %.sroa.17.0.copyload94, ptr %.sroa.7113.0..sroa_idx, align 8, !alias.scope !3824, !noalias !3825
+  store i8 0, ptr %.sroa.7113.0..sroa_idx, align 8, !alias.scope !3824, !noalias !3825
   %111 = call noundef i8 @"_ZN11polars_core13chunked_array8temporal8datetime142_$LT$impl$u20$polars_core..chunked_array..logical..Logical$LT$polars_core..datatypes..DatetimeType$C$polars_core..datatypes..Int64Type$GT$$GT$9time_unit17h3a483f42a6320d5cE"(ptr noundef nonnull align 16 %1)
   switch i8 %111, label %default.unreachable149 [
     i8 0, label %143
@@ -28585,11 +28585,11 @@ _ZN11polars_time7windows8duration8Duration5parse17hff18aa8fd3642b90E.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3855)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3858)
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 %.sroa.3.0.copyload33, ptr %.sroa.446.0..sroa_idx, align 8, !alias.scope !3860, !noalias !3862
+  store i8 0, ptr %.sroa.446.0..sroa_idx, align 8, !alias.scope !3860, !noalias !3862
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.031, i64 32, i1 false), !alias.scope !3864, !noalias !3865
   %.sroa.3.0..sroa_idx34 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store i8 %.sroa.3.0.copyload33, ptr %.sroa.3.0..sroa_idx34, align 8, !alias.scope !3864, !noalias !3865
+  store i8 0, ptr %.sroa.3.0..sroa_idx34, align 8, !alias.scope !3864, !noalias !3865
   %.sroa.436.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %11, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.436.0..sroa_idx38, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.436, i64 7, i1 false), !alias.scope !3864, !noalias !3865
   call void @"_ZN11polars_core13chunked_array3ops5apply67_$LT$impl$u20$polars_core..chunked_array..ChunkedArray$LT$T$GT$$GT$32try_apply_nonnull_values_generic17ha49af1ba6273f20bE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %10, ptr noundef nonnull align 8 %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %11)

@@ -3980,14 +3980,14 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
   br i1 %10, label %12, label %.thread
 
 12:                                               ; preds = %5
-  br i1 %11, label %13, label %290
+  br i1 %11, label %13, label %294
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -21
   %or.cond = icmp ult i32 %16, -3
-  br i1 %or.cond, label %290, label %.thread.thread
+  br i1 %or.cond, label %294, label %.thread.thread
 
 .thread:                                          ; preds = %5
   br i1 %11, label %.thread.thread, label %43
@@ -4003,7 +4003,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 37
   %21 = load i8, ptr %20, align 1, !range !9, !noundef !10
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %290
+  br i1 %22, label %23, label %294
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -4202,9 +4202,9 @@ copy_address.exit:                                ; preds = %73, %90
   %137 = add i32 %136, 1
   store i32 %137, ptr %135, align 8
   %138 = load i32, ptr %3, align 8
-  switch i32 %138, label %261 [
+  switch i32 %138, label %265 [
     i32 1, label %139
-    i32 0, label %234
+    i32 0, label %238
   ]
 
 139:                                              ; preds = %118
@@ -4251,13 +4251,13 @@ copy_address.exit:                                ; preds = %73, %90
   %163 = getelementptr inbounds nuw i8, ptr %3, i64 196
   %164 = tail call noalias ptr @g_strdup(ptr noundef nonnull %163)
   %165 = load i32, ptr %120, align 4
-  switch i32 %165, label %225 [
+  switch i32 %165, label %229 [
     i32 0, label %166
     i32 2, label %183
-    i32 5, label %195
-    i32 7, label %213
-    i32 3, label %213
-    i32 1, label %213
+    i32 5, label %197
+    i32 7, label %215
+    i32 3, label %215
+    i32 1, label %215
   ]
 
 166:                                              ; preds = %162
@@ -4284,214 +4284,214 @@ copy_address.exit:                                ; preds = %73, %90
   %180 = trunc nuw i8 %179 to i1
   %181 = select i1 %180, ptr @.str.69, ptr @.str.70
   %182 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %178, ptr noundef nonnull %181)
-  br label %263
+  br label %267
 
 183:                                              ; preds = %162
   store i32 3, ptr %.1, align 8
   %184 = load i8, ptr %119, align 8, !range !9, !noundef !10
   %185 = trunc nuw i8 %184 to i1
-  br i1 %185, label %186, label %189
+  br i1 %185, label %186, label %190
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %.5, i64 42
   store i8 1, ptr %187, align 2
   %.pre226 = load i8, ptr %119, align 8, !range !9
-  %.pre227 = trunc nuw i8 %.pre226 to i1
-  %188 = select i1 %.pre227, ptr @.str.69, ptr @.str.70
-  br label %189
+  %188 = trunc nuw i8 %.pre226 to i1
+  %189 = select i1 %188, ptr @.str.69, ptr @.str.70
+  br label %190
 
-189:                                              ; preds = %186, %183
-  %.pre-phi = phi ptr [ %188, %186 ], [ @.str.70, %183 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %191 = load i8, ptr %190, align 1, !range !9, !noundef !10
-  %192 = trunc nuw i8 %191 to i1
-  %193 = select i1 %192, ptr @.str.69, ptr @.str.70
-  %194 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %193, ptr noundef nonnull %.pre-phi)
-  br label %263
+190:                                              ; preds = %186, %183
+  %191 = phi ptr [ %189, %186 ], [ @.str.70, %183 ]
+  %192 = getelementptr inbounds nuw i8, ptr %.5, i64 43
+  %193 = load i8, ptr %192, align 1, !range !9, !noundef !10
+  %194 = trunc nuw i8 %193 to i1
+  %195 = select i1 %194, ptr @.str.69, ptr @.str.70
+  %196 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %195, ptr noundef nonnull %191)
+  br label %267
 
-195:                                              ; preds = %162
-  %196 = load i32, ptr %.1, align 8
-  %197 = icmp eq i32 %196, 1
-  br i1 %197, label %198, label %207
+197:                                              ; preds = %162
+  %198 = load i32, ptr %.1, align 8
+  %199 = icmp eq i32 %198, 1
+  br i1 %199, label %200, label %209
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds nuw i8, ptr %.5, i64 16
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %201 = tail call fastcc zeroext i1 @addresses_equal(ptr noundef nonnull %199, ptr noundef nonnull %200)
-  br i1 %201, label %202, label %203
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds nuw i8, ptr %.5, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %203 = tail call fastcc zeroext i1 @addresses_equal(ptr noundef nonnull %201, ptr noundef nonnull %202)
+  br i1 %203, label %204, label %205
 
-202:                                              ; preds = %198
+204:                                              ; preds = %200
   store i32 4, ptr %.1, align 8
-  br label %211
+  br label %213
 
-203:                                              ; preds = %198
+205:                                              ; preds = %200
   store i32 6, ptr %.1, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %205 = load i32, ptr %204, align 8
-  %206 = add i32 %205, 1
-  store i32 %206, ptr %204, align 8
-  br label %211
+  %206 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %207 = load i32, ptr %206, align 8
+  %208 = add i32 %207, 1
+  store i32 %208, ptr %206, align 8
+  br label %213
 
-207:                                              ; preds = %195
+209:                                              ; preds = %197
   store i32 5, ptr %.1, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  %209 = load i32, ptr %208, align 4
-  %210 = add i32 %209, 1
-  store i32 %210, ptr %208, align 4
-  br label %211
+  %210 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  %211 = load i32, ptr %210, align 4
+  %212 = add i32 %211, 1
+  store i32 %212, ptr %210, align 4
+  br label %213
 
-211:                                              ; preds = %202, %203, %207
-  %212 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.73)
-  br label %263
+213:                                              ; preds = %204, %205, %209
+  %214 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.73)
+  br label %267
 
-213:                                              ; preds = %162, %162, %162
-  %214 = load i8, ptr %119, align 8, !range !9, !noundef !10
-  %215 = trunc nuw i8 %214 to i1
-  br i1 %215, label %216, label %219
+215:                                              ; preds = %162, %162, %162
+  %216 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %217 = trunc nuw i8 %216 to i1
+  br i1 %217, label %218, label %222
 
-216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw i8, ptr %.5, i64 42
-  store i8 1, ptr %217, align 2
+218:                                              ; preds = %215
+  %219 = getelementptr inbounds nuw i8, ptr %.5, i64 42
+  store i8 1, ptr %219, align 2
   %.pre225 = load i8, ptr %119, align 8, !range !9
-  %.pre228 = trunc nuw i8 %.pre225 to i1
-  %218 = select i1 %.pre228, ptr @.str.69, ptr @.str.70
-  br label %219
+  %220 = trunc nuw i8 %.pre225 to i1
+  %221 = select i1 %220, ptr @.str.69, ptr @.str.70
+  br label %222
 
-219:                                              ; preds = %216, %213
-  %.pre-phi229 = phi ptr [ %218, %216 ], [ @.str.70, %213 ]
-  %220 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %221 = load i8, ptr %220, align 1, !range !9, !noundef !10
-  %222 = trunc nuw i8 %221 to i1
-  %223 = select i1 %222, ptr @.str.69, ptr @.str.70
-  %224 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %223, ptr noundef nonnull %.pre-phi229)
-  br label %263
+222:                                              ; preds = %218, %215
+  %223 = phi ptr [ %221, %218 ], [ @.str.70, %215 ]
+  %224 = getelementptr inbounds nuw i8, ptr %.5, i64 43
+  %225 = load i8, ptr %224, align 1, !range !9, !noundef !10
+  %226 = trunc nuw i8 %225 to i1
+  %227 = select i1 %226, ptr @.str.69, ptr @.str.70
+  %228 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %227, ptr noundef nonnull %223)
+  br label %267
 
-225:                                              ; preds = %162
-  %226 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %227 = load i8, ptr %226, align 1, !range !9, !noundef !10
-  %228 = trunc nuw i8 %227 to i1
-  %229 = select i1 %228, ptr @.str.69, ptr @.str.70
-  %230 = load i8, ptr %119, align 8, !range !9, !noundef !10
-  %231 = trunc nuw i8 %230 to i1
-  %232 = select i1 %231, ptr @.str.69, ptr @.str.70
-  %233 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %229, ptr noundef nonnull %232)
-  br label %263
+229:                                              ; preds = %162
+  %230 = getelementptr inbounds nuw i8, ptr %.5, i64 43
+  %231 = load i8, ptr %230, align 1, !range !9, !noundef !10
+  %232 = trunc nuw i8 %231 to i1
+  %233 = select i1 %232, ptr @.str.69, ptr @.str.70
+  %234 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %235 = trunc nuw i8 %234 to i1
+  %236 = select i1 %235, ptr @.str.69, ptr @.str.70
+  %237 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %233, ptr noundef nonnull %236)
+  br label %267
 
-234:                                              ; preds = %118
-  %235 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %236 = load i32, ptr %235, align 8
-  switch i32 %236, label %255 [
-    i32 18, label %237
-    i32 19, label %249
+238:                                              ; preds = %118
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %240 = load i32, ptr %239, align 8
+  switch i32 %240, label %259 [
+    i32 18, label %241
+    i32 19, label %253
   ]
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %239 = load i8, ptr %238, align 4, !range !9, !noundef !10
-  %240 = trunc nuw i8 %239 to i1
-  br i1 %240, label %249, label %241
+241:                                              ; preds = %238
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %243 = load i8, ptr %242, align 4, !range !9, !noundef !10
+  %244 = trunc nuw i8 %243 to i1
+  br i1 %244, label %253, label %245
 
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %243 = load ptr, ptr %242, align 8
-  tail call void @g_free(ptr noundef %243)
-  %244 = getelementptr inbounds nuw i8, ptr %3, i64 66
-  %245 = tail call noalias ptr @g_strdup(ptr noundef nonnull %244)
-  store ptr %245, ptr %242, align 8
-  %246 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %247 = load i32, ptr %246, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %.5, i64 52
-  store i32 %247, ptr %248, align 4
-  br label %249
+245:                                              ; preds = %241
+  %246 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %247 = load ptr, ptr %246, align 8
+  tail call void @g_free(ptr noundef %247)
+  %248 = getelementptr inbounds nuw i8, ptr %3, i64 66
+  %249 = tail call noalias ptr @g_strdup(ptr noundef nonnull %248)
+  store ptr %249, ptr %246, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %251 = load i32, ptr %250, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %.5, i64 52
+  store i32 %251, ptr %252, align 4
+  br label %253
 
-249:                                              ; preds = %237, %241, %234
-  %250 = getelementptr inbounds nuw i8, ptr %3, i64 66
-  %char0 = load i8, ptr %250, align 1
+253:                                              ; preds = %241, %245, %238
+  %254 = getelementptr inbounds nuw i8, ptr %3, i64 66
+  %char0 = load i8, ptr %254, align 1
   %.not200 = icmp eq i8 %char0, 0
-  br i1 %.not200, label %253, label %251
+  br i1 %.not200, label %257, label %255
 
-251:                                              ; preds = %249
-  %252 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef nonnull %250)
-  br label %257
+255:                                              ; preds = %253
+  %256 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef nonnull %254)
+  br label %261
 
-253:                                              ; preds = %249
-  %254 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.83)
-  br label %257
+257:                                              ; preds = %253
+  %258 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.83)
+  br label %261
 
-255:                                              ; preds = %234
-  %256 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.83)
-  br label %257
+259:                                              ; preds = %238
+  %260 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.83)
+  br label %261
 
-257:                                              ; preds = %251, %253, %255
-  %.1188 = phi ptr [ %256, %255 ], [ %252, %251 ], [ %254, %253 ]
-  %258 = load i32, ptr %235, align 8
-  %259 = tail call ptr @val_to_str_const(i32 noundef %258, ptr noundef nonnull @h225_RasMessage_vals, ptr noundef nonnull @.str.72)
-  %260 = tail call noalias ptr @g_strdup(ptr noundef %259)
-  br label %263
+261:                                              ; preds = %255, %257, %259
+  %.1188 = phi ptr [ %260, %259 ], [ %256, %255 ], [ %258, %257 ]
+  %262 = load i32, ptr %239, align 8
+  %263 = tail call ptr @val_to_str_const(i32 noundef %262, ptr noundef nonnull @h225_RasMessage_vals, ptr noundef nonnull @.str.72)
+  %264 = tail call noalias ptr @g_strdup(ptr noundef %263)
+  br label %267
 
-261:                                              ; preds = %118
-  %262 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.84)
-  br label %263
+265:                                              ; preds = %118
+  %266 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.84)
+  br label %267
 
-263:                                              ; preds = %257, %261, %174, %189, %211, %219, %225
-  %.0187 = phi ptr [ %233, %225 ], [ %182, %174 ], [ %194, %189 ], [ %212, %211 ], [ %224, %219 ], [ %.1188, %257 ], [ null, %261 ]
-  %.0186 = phi ptr [ %164, %225 ], [ %164, %174 ], [ %164, %189 ], [ %164, %211 ], [ %164, %219 ], [ %260, %257 ], [ %262, %261 ]
-  %264 = load i32, ptr %121, align 4
-  %265 = getelementptr inbounds nuw i8, ptr %3, i64 196
-  %266 = getelementptr i8, ptr %8, i64 88
-  %.val = load ptr, ptr %266, align 8
+267:                                              ; preds = %261, %265, %174, %190, %213, %222, %229
+  %.0187 = phi ptr [ %237, %229 ], [ %182, %174 ], [ %196, %190 ], [ %214, %213 ], [ %228, %222 ], [ %.1188, %261 ], [ null, %265 ]
+  %.0186 = phi ptr [ %164, %229 ], [ %164, %174 ], [ %164, %190 ], [ %164, %213 ], [ %164, %222 ], [ %264, %261 ], [ %266, %265 ]
+  %268 = load i32, ptr %121, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %3, i64 196
+  %270 = getelementptr i8, ptr %8, i64 88
+  %.val = load ptr, ptr %270, align 8
   %.not.i = icmp eq ptr %.val, null
-  br i1 %.not.i, label %282, label %267
+  br i1 %.not.i, label %286, label %271
 
-267:                                              ; preds = %263
-  %268 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %269 = load ptr, ptr %268, align 8
-  %.not21.i = icmp eq ptr %269, null
-  br i1 %.not21.i, label %282, label %270
+271:                                              ; preds = %267
+  %272 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %273 = load ptr, ptr %272, align 8
+  %.not21.i = icmp eq ptr %273, null
+  br i1 %.not21.i, label %286, label %274
 
-270:                                              ; preds = %267
-  %271 = zext i32 %264 to i64
-  %272 = inttoptr i64 %271 to ptr
-  %273 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %269, ptr noundef %272)
-  %.not22.not.i = icmp eq ptr %273, null
-  br i1 %.not22.not.i, label %282, label %274
+274:                                              ; preds = %271
+  %275 = zext i32 %268 to i64
+  %276 = inttoptr i64 %275 to ptr
+  %277 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %273, ptr noundef %276)
+  %.not22.not.i = icmp eq ptr %277, null
+  br i1 %.not22.not.i, label %286, label %278
 
-274:                                              ; preds = %270
-  %275 = getelementptr inbounds nuw i8, ptr %273, i64 88
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %273, i64 72
-  %278 = load ptr, ptr %277, align 8
-  %279 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %278, ptr noundef nonnull %265)
-  store ptr %279, ptr %277, align 8
-  tail call void @g_free(ptr noundef %278)
+278:                                              ; preds = %274
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 88
+  %280 = load ptr, ptr %279, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 72
+  %282 = load ptr, ptr %281, align 8
+  %283 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %282, ptr noundef nonnull %269)
+  store ptr %283, ptr %281, align 8
+  tail call void @g_free(ptr noundef %282)
   %.not24.i = icmp eq ptr %.0187, null
-  br i1 %.not24.i, label %append_to_frame_graph.exit, label %280
+  br i1 %.not24.i, label %append_to_frame_graph.exit, label %284
 
-280:                                              ; preds = %274
-  %281 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %276, ptr noundef nonnull %.0187)
-  store ptr %281, ptr %275, align 8
-  tail call void @g_free(ptr noundef %276)
+284:                                              ; preds = %278
+  %285 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %280, ptr noundef nonnull %.0187)
+  store ptr %285, ptr %279, align 8
+  tail call void @g_free(ptr noundef %280)
   br label %append_to_frame_graph.exit
 
-282:                                              ; preds = %270, %267, %263
-  %283 = load i16, ptr %124, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  tail call fastcc void @add_to_graph(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %.0186, ptr noundef %.0187, i16 noundef zeroext %283, ptr noundef nonnull %284, ptr noundef nonnull %285, i16 noundef zeroext 1)
+286:                                              ; preds = %274, %271, %267
+  %287 = load i16, ptr %124, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  tail call fastcc void @add_to_graph(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %.0186, ptr noundef %.0187, i16 noundef zeroext %287, ptr noundef nonnull %288, ptr noundef nonnull %289, i16 noundef zeroext 1)
   br label %append_to_frame_graph.exit
 
-append_to_frame_graph.exit:                       ; preds = %280, %274, %282
-  %286 = load i32, ptr %121, align 4
-  tail call fastcc void @h245_add_to_graph(ptr noundef %8, i32 noundef %286)
+append_to_frame_graph.exit:                       ; preds = %284, %278, %286
+  %290 = load i32, ptr %121, align 4
+  tail call fastcc void @h245_add_to_graph(ptr noundef %8, i32 noundef %290)
   tail call void @g_free(ptr noundef %.0186)
   tail call void @g_free(ptr noundef %.0187)
-  %287 = getelementptr inbounds nuw i8, ptr %8, i64 232
-  %288 = load i32, ptr %287, align 8
-  %289 = or i32 %288, 2
-  store i32 %289, ptr %287, align 8
-  br label %290
+  %291 = getelementptr inbounds nuw i8, ptr %8, i64 232
+  %292 = load i32, ptr %291, align 8
+  %293 = or i32 %292, 2
+  store i32 %293, ptr %291, align 8
+  br label %294
 
-290:                                              ; preds = %12, %19, %13, %append_to_frame_graph.exit
+294:                                              ; preds = %12, %19, %13, %append_to_frame_graph.exit
   %.0 = phi i32 [ 1, %append_to_frame_graph.exit ], [ 0, %13 ], [ 0, %19 ], [ 0, %12 ]
   ret i32 %.0
 }

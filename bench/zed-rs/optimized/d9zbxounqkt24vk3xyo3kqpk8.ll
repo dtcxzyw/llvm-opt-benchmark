@@ -16827,7 +16827,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
           to label %1532 unwind label %1458, !noalias !5075
 
 "_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i": ; preds = %1527, %1522, %1521, %1517, %1466, %1461, %1460, %1458, %1446
-  %.pn67.i = phi { ptr, i32 } [ %1459, %1458 ], [ %1404, %1446 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186214.i, %1517 ], [ %1404, %1466 ], [ %1404, %1460 ], [ %1404, %1461 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186214.i, %1527 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186214.i, %1521 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186214.i, %1522 ]
+  %.pn67.i = phi { ptr, i32 } [ %1459, %1458 ], [ %1404, %1446 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186212.i, %1517 ], [ %1404, %1466 ], [ %1404, %1460 ], [ %1404, %1461 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186212.i, %1527 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186212.i, %1521 ], [ %.pn55.pn.pn.pn.pn.pn.pn174186212.i, %1522 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %169), !noalias !5075
   store i8 2, ptr %1169, align 1, !noalias !5075
   br label %.body145
@@ -17022,12 +17022,12 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
           to label %1498 unwind label %1418, !noalias !5075
 
 .thread62.sink.split.i:                           ; preds = %1474, %1377
-  %.pn55.pn.pn.ph218.i = phi { ptr, i32 } [ %1360, %1474 ], [ %1378, %1377 ]
+  %.pn55.pn.pn.ph216.i = phi { ptr, i32 } [ %1360, %1474 ], [ %1378, %1377 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.18.i)
   br label %.thread62.i
 
 .thread62.i:                                      ; preds = %.thread62.sink.split.i, %1417, %1412
-  %.pn55.pn.pn.i = phi { ptr, i32 } [ %1413, %1417 ], [ %1413, %1412 ], [ %.pn55.pn.pn.ph218.i, %.thread62.sink.split.i ]
+  %.pn55.pn.pn.i = phi { ptr, i32 } [ %1413, %1417 ], [ %1413, %1412 ], [ %.pn55.pn.pn.ph216.i, %.thread62.sink.split.i ]
   %.sroa.07.4.i = phi i1 [ false, %1417 ], [ false, %1412 ], [ true, %.thread62.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139), !noalias !5075
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %140), !noalias !5075
@@ -17047,11 +17047,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   %1500 = getelementptr inbounds nuw i8, ptr %169, i64 104
   %.val69.i = load ptr, ptr %1500, align 8, !noalias !5075, !nonnull !5, !align !16, !noundef !5
   invoke fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$17h4802d6444b854f9fE"(ptr %.val.i, ptr nonnull %.val69.i) #21
-          to label %.thread210.i unwind label %1418, !noalias !5075
+          to label %.thread208.i unwind label %1418, !noalias !5075
 
-"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.i": ; preds = %1509, %1504, %.thread210.i, %.thread62.i
-  %.sroa.07.0180182216.i = phi i1 [ true, %1504 ], [ true, %.thread210.i ], [ true, %1509 ], [ %.sroa.07.4.i, %.thread62.i ]
-  %.pn55.pn.pn.pn.pn.pn.pn174186214.i = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1504 ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %.thread210.i ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1509 ], [ %.pn55.pn.pn.i, %.thread62.i ]
+"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.i": ; preds = %1509, %1504, %.thread208.i, %.thread62.i
+  %.sroa.07.0180182214.i = phi i1 [ true, %1504 ], [ true, %.thread208.i ], [ true, %1509 ], [ %.sroa.07.4.i, %.thread62.i ]
+  %.pn55.pn.pn.pn.pn.pn.pn174186212.i = phi { ptr, i32 } [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1504 ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %.thread208.i ], [ %.pn55.pn.pn.pn.pn.pn.pn175.i, %1509 ], [ %.pn55.pn.pn.i, %.thread62.i ]
   %1501 = getelementptr inbounds nuw i8, ptr %169, i64 112
   %.val70.i = load ptr, ptr %1501, align 8, !noalias !5075, !noundef !5
   %1502 = getelementptr inbounds nuw i8, ptr %169, i64 120
@@ -17059,7 +17059,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$GT$$GT$17h04539e0a1ce07808E"(ptr %.val70.i, ptr %.val71.i) #21
           to label %1510 unwind label %1418, !noalias !5075
 
-.thread210.i:                                     ; preds = %1498
+.thread208.i:                                     ; preds = %1498
   call void @llvm.experimental.noalias.scope.decl(metadata !5430)
   call void @llvm.experimental.noalias.scope.decl(metadata !5433)
   call void @llvm.experimental.noalias.scope.decl(metadata !5436)
@@ -17068,7 +17068,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   %switch.i.i.i.i136.i = icmp samesign ult i64 %1503, 2
   br i1 %switch.i.i.i.i136.i, label %"_ZN4core3ptr42drop_in_place$LT$zbus..guid..OwnedGuid$GT$17h39e22ea31a97f4bcE.exit138.i", label %1504
 
-1504:                                             ; preds = %.thread210.i
+1504:                                             ; preds = %.thread208.i
   %1505 = getelementptr inbounds nuw i8, ptr %169, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !5443)
   call void @llvm.experimental.noalias.scope.decl(metadata !5446)
@@ -17106,7 +17106,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i110.i: ; preds 
   %1518 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %1519 = load i64, ptr %1518, align 8, !range !106, !noalias !5075, !noundef !5
   %1520 = icmp ne i64 %1519, 3
-  %or.cond5.i = and i1 %.sroa.07.0180182216.i, %1520
+  %or.cond5.i = and i1 %.sroa.07.0180182214.i, %1520
   br i1 %or.cond5.i, label %1521, label %"_ZN4core3ptr61drop_in_place$LT$zbus_names..unique_name..OwnedUniqueName$GT$17hd23684511a24c4b4E.exit128.i"
 
 1521:                                             ; preds = %1517

@@ -27878,7 +27878,7 @@ define hidden void @_ZN9uv_python9discovery14VersionRequest16executable_names17h
   %.sroa.5213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.sroa.5213.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(10) %.sroa.5213, i64 10, i1 false)
   %.sroa.6214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 19
-  store i8 %.sroa.4205.0.copyload, ptr %.sroa.6214.0..sroa_idx, align 1
+  store i8 1, ptr %.sroa.6214.0..sroa_idx, align 1
   %.sroa.7215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i32 %.sroa.5208.0.copyload, ptr %.sroa.7215.0..sroa_idx, align 4
   %64 = add i64 %49, 1

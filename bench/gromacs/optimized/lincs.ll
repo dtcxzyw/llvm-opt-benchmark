@@ -526,7 +526,7 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
   br i1 %exitcond.not.i, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm95EERKNS_11ListOfListsIiEE.exit, label %93, !llvm.loop !104
 
 _ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm95EERKNS_11ListOfListsIiEE.exit: ; preds = %.critedge22.i, %107, %69, %.lr.ph123
-  %.1 = phi i8 [ 1, %.lr.ph123 ], [ 0, %69 ], [ %.0121, %.critedge22.i ], [ 1, %107 ]
+  %.1 = phi i8 [ 1, %.lr.ph123 ], [ 0, %69 ], [ 0, %.critedge22.i ], [ 1, %107 ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0120, i64 56
   %.not111 = icmp eq ptr %119, %42
   br i1 %.not111, label %._crit_edge124.loopexit, label %.lr.ph123

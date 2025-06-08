@@ -1397,8 +1397,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %62
   %68 = phi i32 [ %65, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %62 ], [ %55, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i1 [ %67, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %62 ], [ false, %.lr.ph.i.i ]
-  br i1 %.fca.1.insert.merged.i11.i, label %69, label %thread-pre-split, !llvm.loop !170
+  %.fca.1.insert.merged.i9.i = phi i1 [ %67, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %62 ], [ false, %.lr.ph.i.i ]
+  br i1 %.fca.1.insert.merged.i9.i, label %69, label %thread-pre-split, !llvm.loop !170
 
 69:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
   %70 = load i32, ptr %18, align 8, !tbaa !31
@@ -1915,8 +1915,8 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %95
   %101 = phi i32 [ %98, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %95 ], [ %88, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i1 [ %100, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %95 ], [ false, %.lr.ph.i.i ]
-  br i1 %.fca.1.insert.merged.i11.i, label %102, label %thread-pre-split, !llvm.loop !180
+  %.fca.1.insert.merged.i9.i = phi i1 [ %100, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %95 ], [ false, %.lr.ph.i.i ]
+  br i1 %.fca.1.insert.merged.i9.i, label %102, label %thread-pre-split, !llvm.loop !180
 
 102:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
   %103 = load i32, ptr %25, align 8, !tbaa !31
@@ -5172,7 +5172,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %.lr.ph.i.i
   %51 = phi i32 [ %49, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %45 ], [ %32, %.lr.ph.i.i ]
   %52 = phi i32 [ %50, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %33, %45 ], [ %33, %.lr.ph.i.i ]
   %53 = phi ptr [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %47, %45 ], [ %34, %.lr.ph.i.i ]
-  %54 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %35, %45 ], [ %35, %.lr.ph.i.i ]
+  %54 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %45 ], [ 1, %.lr.ph.i.i ]
   br i1 %11, label %55, label %57
 
 55:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit

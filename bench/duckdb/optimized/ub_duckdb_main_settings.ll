@@ -14138,8 +14138,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %34
 
 .critedge.thread:                                 ; preds = %.critedge
   %.pre = load i8, ptr %8, align 8, !tbaa !349, !range !198
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   %43 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #26
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %.critedge.thread.thread, %.critedge.thread

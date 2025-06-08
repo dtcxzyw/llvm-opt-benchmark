@@ -1719,7 +1719,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i830: ; preds = %._Z
   unreachable
 
 648:                                              ; preds = %._crit_edge6477, %605, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i759
-  %649 = phi i8 [ %.pre6478, %._crit_edge6477 ], [ %601, %605 ], [ %601, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i759 ]
+  %649 = phi i8 [ %.pre6478, %._crit_edge6477 ], [ 1, %605 ], [ %601, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i759 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %650 = load ptr, ptr %548, align 8, !tbaa !103
   %651 = load ptr, ptr %531, align 8, !tbaa !54
@@ -1788,7 +1788,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i467: ; preds = %.
   unreachable
 
 .body763:                                         ; preds = %..body763_crit_edge, %637, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i830
-  %685 = phi i8 [ %.pre6476, %..body763_crit_edge ], [ %633, %637 ], [ %633, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i830 ]
+  %685 = phi i8 [ %.pre6476, %..body763_crit_edge ], [ 1, %637 ], [ %633, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i830 ]
   %686 = trunc nuw i8 %685 to i1
   %687 = icmp ne i32 %565, 0
   %or.cond.i.i.i.i748 = and i1 %687, %686
@@ -6366,7 +6366,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i779: ; preds = %._Z
   unreachable
 
 2490:                                             ; preds = %._crit_edge6468, %2447, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i533
-  %2491 = phi i8 [ %.pre6469, %._crit_edge6468 ], [ %2443, %2447 ], [ %2443, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i533 ]
+  %2491 = phi i8 [ %.pre6469, %._crit_edge6468 ], [ 1, %2447 ], [ %2443, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i533 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %2492 = load ptr, ptr %2390, align 8, !tbaa !103
   %2493 = load ptr, ptr %2373, align 8, !tbaa !54
@@ -6435,7 +6435,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i: ; preds = %._ZN
   unreachable
 
 .body537:                                         ; preds = %..body537_crit_edge, %2479, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i779
-  %2527 = phi i8 [ %.pre6467, %..body537_crit_edge ], [ %2475, %2479 ], [ %2475, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i779 ]
+  %2527 = phi i8 [ %.pre6467, %..body537_crit_edge ], [ 1, %2479 ], [ %2475, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i779 ]
   %2528 = trunc nuw i8 %2527 to i1
   %2529 = icmp ne i32 %2407, 0
   %or.cond.i.i.i.i = and i1 %2529, %2528
@@ -12007,7 +12007,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i627: ; preds = %.
   br label %.body437
 
 1224:                                             ; preds = %._crit_edge1848, %1212, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i627
-  %1225 = phi i8 [ %.pre1849, %._crit_edge1848 ], [ %1208, %1212 ], [ %1208, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i627 ]
+  %1225 = phi i8 [ %.pre1849, %._crit_edge1848 ], [ 1, %1212 ], [ %1208, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i627 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %1226 = load ptr, ptr %1157, align 8, !tbaa !103
   %1227 = load ptr, ptr %1134, align 8, !tbaa !54
@@ -12460,7 +12460,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i857: ; preds = %.
   br label %.body437
 
 1430:                                             ; preds = %._crit_edge1850, %1418, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i857
-  %1431 = phi i8 [ %.pre1851, %._crit_edge1850 ], [ %1414, %1418 ], [ %1414, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i857 ]
+  %1431 = phi i8 [ %.pre1851, %._crit_edge1850 ], [ 1, %1418 ], [ %1414, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i857 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %1432 = load ptr, ptr %1157, align 8, !tbaa !103
   %1433 = load ptr, ptr %1134, align 8, !tbaa !54
@@ -13660,7 +13660,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i684: ; preds = %.
   br label %.body499
 
 1971:                                             ; preds = %._crit_edge1853, %1959, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i684
-  %1972 = phi i8 [ %.pre1854, %._crit_edge1853 ], [ %1955, %1959 ], [ %1955, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i684 ]
+  %1972 = phi i8 [ %.pre1854, %._crit_edge1853 ], [ 1, %1959 ], [ %1955, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i684 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %1973 = load ptr, ptr %1907, align 8, !tbaa !103
   %1974 = load ptr, ptr %1891, align 8, !tbaa !54
@@ -20174,7 +20174,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i: ; preds = %._ZN
   unreachable
 
 55:                                               ; preds = %._crit_edge, %44, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i
-  %56 = phi i8 [ %.pre, %._crit_edge ], [ %41, %44 ], [ %41, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i ]
+  %56 = phi i8 [ %.pre, %._crit_edge ], [ 1, %44 ], [ %41, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i ]
   %57 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !57
   %58 = trunc nuw i8 %56 to i1
   %59 = icmp ne i32 %13, 0
@@ -20651,7 +20651,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i: ; preds = %._ZNSt
   unreachable
 
 _ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit: ; preds = %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit_crit_edge, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i, %93
-  %104 = phi i8 [ %.pre128, %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit_crit_edge ], [ %90, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i ], [ %90, %93 ]
+  %104 = phi i8 [ %.pre128, %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit_crit_edge ], [ %90, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i ], [ 1, %93 ]
   %105 = trunc nuw i8 %104 to i1
   %106 = icmp ne i32 %47, 0
   %or.cond.i.i.i.i28 = and i1 %106, %105

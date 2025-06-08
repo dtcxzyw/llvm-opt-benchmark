@@ -852,10 +852,10 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
 
 33:                                               ; preds = %28
   %.pre350 = load i8, ptr %13, align 8, !range !3
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = trunc nuw i8 %.pre350 to i1
-  br i1 %36, label %37, label %154
+  %34 = trunc nuw i8 %.pre350 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8
+  br i1 %34, label %37, label %154
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1040,7 +1040,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
   store ptr %107, ptr %108, align 8
   %109 = load i64, ptr %39, align 8
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 %109
-  store ptr %110, ptr %34, align 8
+  store ptr %110, ptr %35, align 8
   br label %153
 
 111:                                              ; preds = %._crit_edge328.thread, %.loopexit301
@@ -1092,7 +1092,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %141, ptr %142, align 8
   %143 = load ptr, ptr %118, align 8
-  store ptr %143, ptr %34, align 8
+  store ptr %143, ptr %35, align 8
   %144 = icmp eq i32 %134, 0
   br i1 %144, label %145, label %153
 
@@ -1116,11 +1116,11 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
   br label %.thread292
 
 154:                                              ; preds = %.thread, %37, %33
-  %155 = phi i1 [ false, %.thread ], [ true, %37 ], [ false, %33 ]
-  %156 = phi ptr [ %17, %.thread ], [ %35, %37 ], [ %35, %33 ]
-  %157 = phi ptr [ %16, %.thread ], [ %34, %37 ], [ %34, %33 ]
+  %155 = phi ptr [ %17, %.thread ], [ %36, %37 ], [ %36, %33 ]
+  %156 = phi ptr [ %16, %.thread ], [ %35, %37 ], [ %35, %33 ]
+  %157 = phi i1 [ false, %.thread ], [ true, %37 ], [ false, %33 ]
   %158 = phi ptr [ %10, %.thread ], [ %29, %37 ], [ %29, %33 ]
-  %159 = icmp ult ptr %156, %6
+  %159 = icmp ult ptr %155, %6
   br i1 %159, label %.lr.ph336, label %.thread372
 
 .lr.ph336:                                        ; preds = %154
@@ -1129,7 +1129,7 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
   br label %162
 
 162:                                              ; preds = %.lr.ph336, %169
-  %.0232334 = phi ptr [ %156, %.lr.ph336 ], [ %164, %169 ]
+  %.0232334 = phi ptr [ %155, %.lr.ph336 ], [ %164, %169 ]
   %163 = load i8, ptr %.0232334, align 1
   switch i8 %163, label %171 [
     i8 32, label %.critedge18
@@ -1242,14 +1242,14 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
 
 .critedge20.thread:                               ; preds = %.preheader, %.critedge20
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %156, ptr %196, align 8
+  store ptr %155, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %.0232334, i64 1
-  store ptr %197, ptr %157, align 8
+  store ptr %197, ptr %156, align 8
   br label %.thread292
 
 .critedge20.thread369:                            ; preds = %.critedge22, %.critedge20
   %.0.lcssa371 = phi ptr [ %.0339, %.critedge20 ], [ %193, %.critedge22 ]
-  br i1 %155, label %198, label %212
+  br i1 %157, label %198, label %212
 
 198:                                              ; preds = %.critedge20.thread369
   %199 = getelementptr inbounds nuw i8, ptr %158, i64 1
@@ -1274,8 +1274,8 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
 
 212:                                              ; preds = %202, %198, %.critedge20.thread369
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %156, ptr %213, align 8
-  store ptr %.0.lcssa371, ptr %157, align 8
+  store ptr %155, ptr %213, align 8
+  store ptr %.0.lcssa371, ptr %156, align 8
   %214 = ptrtoint ptr %.0.lcssa371 to i64
   %215 = ptrtoint ptr %.0232334 to i64
   %216 = sub i64 %214, %215
@@ -1302,9 +1302,9 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
 .sink.split:                                      ; preds = %171, %179, %178, %177, %176, %175
   %.sink.ph = phi i32 [ 8, %179 ], [ 7, %178 ], [ 6, %177 ], [ 5, %176 ], [ 4, %175 ], [ 3, %171 ]
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %156, ptr %223, align 8
+  store ptr %155, ptr %223, align 8
   %224 = getelementptr inbounds nuw i8, ptr %.0232334, i64 1
-  store ptr %224, ptr %157, align 8
+  store ptr %224, ptr %156, align 8
   br label %225
 
 225:                                              ; preds = %.sink.split, %221, %219, %217, %185, %182, %180
@@ -1314,12 +1314,12 @@ define range(i32 0, 23) i32 @json_lex(ptr noundef captures(address) %0) local_un
   br label %237
 
 .thread372:                                       ; preds = %169, %154
-  %.0232.lcssa = phi ptr [ %156, %154 ], [ %164, %169 ]
+  %.0232.lcssa = phi ptr [ %155, %154 ], [ %164, %169 ]
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %227, align 8
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %156, ptr %228, align 8
-  store ptr %.0232.lcssa, ptr %157, align 8
+  store ptr %155, ptr %228, align 8
+  store ptr %.0232.lcssa, ptr %156, align 8
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 12, ptr %229, align 4
   %230 = load i8, ptr %13, align 8, !range !3, !noundef !4
@@ -2341,15 +2341,15 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
   %40 = load ptr, ptr %9, align 8
   store i32 %16, ptr %40, align 8
   %.pre = load i8, ptr %2, align 8, !range !3
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %42 = load i32, ptr %41, align 8
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %41, align 8
-  %44 = trunc nuw i8 %.pre to i1
-  br i1 %44, label %45, label %.thread
+  %41 = trunc nuw i8 %.pre to i1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %43 = load i32, ptr %42, align 8
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %42, align 8
+  br i1 %41, label %45, label %.thread
 
 45:                                               ; preds = %.thread36, %37
-  %46 = phi i32 [ %14, %.thread36 ], [ %43, %37 ]
+  %46 = phi i32 [ %14, %.thread36 ], [ %44, %37 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24

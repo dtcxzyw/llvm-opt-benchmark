@@ -4112,7 +4112,7 @@ update_url_from_redirect.exit.thread:             ; preds = %19, %46, %16, %13, 
 strbuf_setlen.exit.us:                            ; preds = %60
   %64 = load ptr, ptr @the_repository, align 8, !tbaa !39
   tail call void @credential_fill(ptr noundef %64, ptr noundef nonnull @http_auth, i32 noundef 1) #23
-  %65 = tail call fastcc i32 @http_request(ptr noundef %.033, ptr noundef %1, i32 noundef %2, ptr noundef %3)
+  %65 = tail call fastcc i32 @http_request(ptr noundef %.033, ptr noundef %1, i32 noundef 1, ptr noundef %3)
   %66 = icmp eq i32 %65, 4
   br i1 %66, label %.lr.ph.split.us, label %.critedge, !llvm.loop !137
 
@@ -4135,7 +4135,7 @@ strbuf_setlen.exit.us:                            ; preds = %60
 strbuf_setlen.exit:                               ; preds = %70, %68
   %71 = load ptr, ptr @the_repository, align 8, !tbaa !39
   tail call void @credential_fill(ptr noundef %71, ptr noundef nonnull @http_auth, i32 noundef 1) #23
-  %72 = tail call fastcc i32 @http_request(ptr noundef %.033, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3)
+  %72 = tail call fastcc i32 @http_request(ptr noundef %.033, ptr noundef nonnull %1, i32 noundef 0, ptr noundef %3)
   %73 = icmp eq i32 %72, 4
   br i1 %73, label %.lr.ph.split, label %.critedge, !llvm.loop !137
 

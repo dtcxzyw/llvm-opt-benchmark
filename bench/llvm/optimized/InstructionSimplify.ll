@@ -16408,8 +16408,8 @@ _ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit: ; preds = %12
 
 _ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit.thread: ; preds = %_ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit
   %.pre = load i8, ptr %13, align 1, !range !23
-  %.not29 = xor i1 %3, true
   %21 = trunc nuw i8 %.pre to i1
+  %.not29 = xor i1 %3, true
   %or.cond = select i1 %.not29, i1 %21, i1 false
   br i1 %or.cond, label %_ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit8, label %_ZNK4llvm13SimplifyQuery12isUndefValueEPNS_5ValueE.exit8.thread
 
@@ -37315,9 +37315,9 @@ define internal fastcc void @_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSet
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %202, %4
-  %.tr242 = phi ptr [ %1, %4 ], [ %209, %202 ]
-  %.tr243 = phi i32 [ %2, %4 ], [ 1, %202 ]
-  %.tr244 = phi i32 [ %3, %4 ], [ 1, %202 ]
+  %.tr238 = phi ptr [ %1, %4 ], [ %209, %202 ]
+  %.tr239 = phi i32 [ %2, %4 ], [ 1, %202 ]
+  %.tr240 = phi i32 [ %3, %4 ], [ 1, %202 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !629, !noundef !24
   %7 = trunc nuw i8 %6 to i1
@@ -37335,7 +37335,7 @@ tailrecurse:                                      ; preds = %202, %4
 .lr.ph.i.i:                                       ; preds = %8, %.critedge.i.i
   %.02937.i.i = phi ptr [ %15, %.critedge.i.i ], [ %9, %8 ]
   %14 = load ptr, ptr %.02937.i.i, align 8, !tbaa !568, !noalias !629
-  %.not17.i.i = icmp eq ptr %14, %.tr242
+  %.not17.i.i = icmp eq ptr %14, %.tr238
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
@@ -37352,419 +37352,419 @@ tailrecurse:                                      ; preds = %202, %4
 19:                                               ; preds = %._crit_edge.i.i
   %20 = add nuw i32 %11, 1
   store i32 %20, ptr %10, align 4, !tbaa !565, !noalias !629
-  store ptr %.tr242, ptr %13, align 8, !tbaa !568, !noalias !629
+  store ptr %.tr238, ptr %13, align 8, !tbaa !568, !noalias !629
   %21 = load ptr, ptr %0, align 8, !tbaa !562, !noalias !629
   %.pre = load i32, ptr %10, align 4, !noalias !629
   br label %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i, %tailrecurse
-  %22 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.tr242) #20, !noalias !629
+  %22 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.tr238) #20, !noalias !629
   %.pre.i = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !629
   %.pre.fr.i = freeze i8 %.pre.i
   %.pre5.i = load ptr, ptr %0, align 8, !noalias !629
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4, !noalias !629
   %25 = extractvalue { ptr, i8 } %22, 1
-  %26 = trunc nuw i8 %25 to i1
+  %26 = trunc nuw i8 %.pre.fr.i to i1
+  %27 = trunc nuw i8 %25 to i1
   br label %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %19
-  %27 = phi i32 [ %24, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %19 ], [ %11, %.lr.ph.i.i ]
-  %28 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %6, %19 ], [ %6, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i1 [ %26, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %19 ], [ false, %.lr.ph.i.i ]
-  %29 = phi ptr [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %21, %19 ], [ %9, %.lr.ph.i.i ]
-  %.not = icmp eq i32 %.tr244, 0
-  %or.cond = and i1 %.not, %.fca.1.insert.merged.i11.i
-  br i1 %or.cond, label %30, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+  %28 = phi i32 [ %24, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %19 ], [ %11, %.lr.ph.i.i ]
+  %29 = phi i1 [ %26, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %19 ], [ true, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i9.i = phi i1 [ %27, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %19 ], [ false, %.lr.ph.i.i ]
+  %30 = phi ptr [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %21, %19 ], [ %9, %.lr.ph.i.i ]
+  %.not = icmp eq i32 %.tr240, 0
+  %or.cond = and i1 %.not, %.fca.1.insert.merged.i9.i
+  br i1 %or.cond, label %31, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-30:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
-  %31 = load i8, ptr %.tr242, align 8, !tbaa !3
-  %32 = icmp ult i8 %31, 29
-  br i1 %32, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %33
+31:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
+  %32 = load i8, ptr %.tr238, align 8, !tbaa !3
+  %33 = icmp ult i8 %32, 29
+  br i1 %33, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %34
 
-33:                                               ; preds = %30
-  %34 = icmp eq i32 %.tr243, 0
-  br i1 %34, label %35, label %100
+34:                                               ; preds = %31
+  %35 = icmp eq i32 %.tr239, 0
+  br i1 %35, label %36, label %101
 
-35:                                               ; preds = %33
-  switch i8 %31, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69 [
-    i8 58, label %36
-    i8 85, label %42
+36:                                               ; preds = %34
+  switch i8 %32, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68 [
+    i8 58, label %37
+    i8 85, label %43
   ]
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %.tr242, i64 -64
-  %38 = load ptr, ptr %37, align 8, !tbaa !33
-  %.not.i.not.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.not.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %39
+37:                                               ; preds = %36
+  %38 = getelementptr inbounds i8, ptr %.tr238, i64 -64
+  %39 = load ptr, ptr %38, align 8, !tbaa !33
+  %.not.i.not.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.not.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %40
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.tr242, i64 -32
-  %41 = load ptr, ptr %40, align 8, !tbaa !33
-  %.not.i6.not.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i6.not.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %.tr238, i64 -32
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %.not.i6.not.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i6.not.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.tr242, i64 -32
-  %44 = load ptr, ptr %43, align 8, !tbaa !33
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %45
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds i8, ptr %.tr238, i64 -32
+  %45 = load ptr, ptr %44, align 8, !tbaa !33
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %46
 
-45:                                               ; preds = %42
-  %46 = load i8, ptr %44, align 8, !tbaa !3
-  %47 = icmp eq i8 %46, 0
-  br i1 %47, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+46:                                               ; preds = %43
+  %47 = load i8, ptr %45, align 8, !tbaa !3
+  %48 = icmp eq i8 %47, 0
+  br i1 %48, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i: ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !249
-  %50 = getelementptr inbounds nuw i8, ptr %.tr242, i64 80
-  %51 = load ptr, ptr %50, align 8, !tbaa !250
-  %52 = icmp eq ptr %49, %51
-  br i1 %52, label %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i: ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !249
+  %51 = getelementptr inbounds nuw i8, ptr %.tr238, i64 80
+  %52 = load ptr, ptr %51, align 8, !tbaa !250
+  %53 = icmp eq ptr %50, %52
+  br i1 %53, label %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
 _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 36
-  %54 = load i32, ptr %53, align 4, !tbaa !168
-  %55 = icmp eq i32 %54, 357
-  br i1 %55, label %56, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 36
+  %55 = load i32, ptr %54, align 4, !tbaa !168
+  %56 = icmp eq i32 %55, 357
+  br i1 %56, label %57, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-56:                                               ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %.tr242, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 134217727
-  %60 = zext nneg i32 %59 to i64
-  %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %"class.llvm::Use", ptr %.tr242, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !33
-  %.not.i.not.i.i.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.not.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %64
+57:                                               ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %.tr238, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = and i32 %59, 134217727
+  %61 = zext nneg i32 %60 to i64
+  %62 = sub nsw i64 0, %61
+  %63 = getelementptr inbounds %"class.llvm::Use", ptr %.tr238, i64 %62
+  %64 = load ptr, ptr %63, align 8, !tbaa !33
+  %.not.i.not.i.i.i.i = icmp eq ptr %64, null
+  br i1 %.not.i.not.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %65
 
-64:                                               ; preds = %56
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !33
-  %.not.i.not.i.i.i33 = icmp eq ptr %66, null
-  br i1 %.not.i.not.i.i.i33, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
+65:                                               ; preds = %57
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !33
+  %.not.i.not.i.i.i33 = icmp eq ptr %67, null
+  br i1 %.not.i.not.i.i.i33, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
 
-_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit: ; preds = %39, %64
-  %.0 = phi ptr [ %38, %39 ], [ %63, %64 ]
-  %storemerge = phi ptr [ %41, %39 ], [ %66, %64 ]
-  %67 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !633, !noundef !24
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit: ; preds = %40, %65
+  %.0 = phi ptr [ %39, %40 ], [ %64, %65 ]
+  %storemerge = phi ptr [ %42, %40 ], [ %67, %65 ]
+  %68 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !633, !noundef !24
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-69:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %71 = zext i32 %27 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %29, i64 %71
-  %.not36.i.i.i = icmp eq i32 %27, 0
+70:                                               ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %72 = zext i32 %28 to i64
+  %73 = getelementptr inbounds nuw ptr, ptr %30, i64 %72
+  %.not36.i.i.i = icmp eq i32 %28, 0
   br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %69, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %74, %.critedge.i.i.i ], [ %29, %69 ]
-  %73 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !568, !noalias !633
-  %.not17.i.i.i = icmp eq ptr %73, %.0
+.lr.ph.i.i.i:                                     ; preds = %70, %.critedge.i.i.i
+  %.02937.i.i.i = phi ptr [ %75, %.critedge.i.i.i ], [ %30, %70 ]
+  %74 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !568, !noalias !633
+  %.not17.i.i.i = icmp eq ptr %74, %.0
   br i1 %.not17.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %74, %72
+  %75 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %75, %73
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !632
 
-._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %69
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load i32, ptr %75, align 8, !tbaa !564, !noalias !633
-  %77 = icmp ult i32 %27, %76
-  br i1 %77, label %78, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
+._crit_edge.i.i.i:                                ; preds = %.critedge.i.i.i, %70
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %77 = load i32, ptr %76, align 8, !tbaa !564, !noalias !633
+  %78 = icmp ult i32 %28, %77
+  br i1 %78, label %79, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
 
-78:                                               ; preds = %._crit_edge.i.i.i
-  %79 = add nuw i32 %27, 1
-  store i32 %79, ptr %70, align 4, !tbaa !565, !noalias !633
-  store ptr %.0, ptr %72, align 8, !tbaa !568, !noalias !633
-  %80 = load ptr, ptr %0, align 8, !tbaa !562, !noalias !633
-  %.pre236 = load i32, ptr %70, align 4, !noalias !633
+79:                                               ; preds = %._crit_edge.i.i.i
+  %80 = add nuw i32 %28, 1
+  store i32 %80, ptr %71, align 4, !tbaa !565, !noalias !633
+  store ptr %.0, ptr %73, align 8, !tbaa !568, !noalias !633
+  %81 = load ptr, ptr %0, align 8, !tbaa !562, !noalias !633
+  %.pre232 = load i32, ptr %71, align 4, !noalias !633
   br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i.i.i, %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_17match_combine_andINS3_INS0_17IntrinsicID_matchENS0_14Argument_matchINS0_7bind_tyINS_5ValueEEEEEEES9_EEEEbPT_RKT0_.exit
-  %81 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull %.0) #20, !noalias !633
+  %82 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull %.0) #20, !noalias !633
   %.pre5.i.i = load ptr, ptr %0, align 8, !noalias !633
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %83 = load i32, ptr %82, align 4, !noalias !633
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %84 = load i32, ptr %83, align 4, !noalias !633
   br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit
 
-_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %78
-  %84 = phi i32 [ %83, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %.pre236, %78 ], [ %27, %.lr.ph.i.i.i ]
-  %85 = phi ptr [ %.pre5.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %80, %78 ], [ %29, %.lr.ph.i.i.i ]
-  %86 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !636, !noundef !24
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37
+_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %79
+  %85 = phi i32 [ %84, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %.pre232, %79 ], [ %28, %.lr.ph.i.i.i ]
+  %86 = phi ptr [ %.pre5.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %81, %79 ], [ %30, %.lr.ph.i.i.i ]
+  %87 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !636, !noundef !24
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37
 
-88:                                               ; preds = %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %90 = zext i32 %84 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %85, i64 %90
-  %.not36.i.i.i58 = icmp eq i32 %84, 0
-  br i1 %.not36.i.i.i58, label %._crit_edge.i.i.i64, label %.lr.ph.i.i.i59
+89:                                               ; preds = %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %91 = zext i32 %85 to i64
+  %92 = getelementptr inbounds nuw ptr, ptr %86, i64 %91
+  %.not36.i.i.i57 = icmp eq i32 %85, 0
+  br i1 %.not36.i.i.i57, label %._crit_edge.i.i.i63, label %.lr.ph.i.i.i58
 
-.lr.ph.i.i.i59:                                   ; preds = %88, %.critedge.i.i.i62
-  %.02937.i.i.i60 = phi ptr [ %93, %.critedge.i.i.i62 ], [ %85, %88 ]
-  %92 = load ptr, ptr %.02937.i.i.i60, align 8, !tbaa !568, !noalias !636
-  %.not17.i.i.i61 = icmp eq ptr %92, %storemerge
-  br i1 %.not17.i.i.i61, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %.critedge.i.i.i62
+.lr.ph.i.i.i58:                                   ; preds = %89, %.critedge.i.i.i61
+  %.02937.i.i.i59 = phi ptr [ %94, %.critedge.i.i.i61 ], [ %86, %89 ]
+  %93 = load ptr, ptr %.02937.i.i.i59, align 8, !tbaa !568, !noalias !636
+  %.not17.i.i.i60 = icmp eq ptr %93, %storemerge
+  br i1 %.not17.i.i.i60, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %.critedge.i.i.i61
 
-.critedge.i.i.i62:                                ; preds = %.lr.ph.i.i.i59
-  %93 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i60, i64 8
-  %.not.i.i.i63 = icmp eq ptr %93, %91
-  br i1 %.not.i.i.i63, label %._crit_edge.i.i.i64, label %.lr.ph.i.i.i59, !llvm.loop !632
+.critedge.i.i.i61:                                ; preds = %.lr.ph.i.i.i58
+  %94 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i59, i64 8
+  %.not.i.i.i62 = icmp eq ptr %94, %92
+  br i1 %.not.i.i.i62, label %._crit_edge.i.i.i63, label %.lr.ph.i.i.i58, !llvm.loop !632
 
-._crit_edge.i.i.i64:                              ; preds = %.critedge.i.i.i62, %88
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load i32, ptr %94, align 8, !tbaa !564, !noalias !636
-  %96 = icmp ult i32 %84, %95
-  br i1 %96, label %97, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37
+._crit_edge.i.i.i63:                              ; preds = %.critedge.i.i.i61, %89
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %96 = load i32, ptr %95, align 8, !tbaa !564, !noalias !636
+  %97 = icmp ult i32 %85, %96
+  br i1 %97, label %98, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37
 
-97:                                               ; preds = %._crit_edge.i.i.i64
-  %98 = add nuw i32 %84, 1
-  store i32 %98, ptr %89, align 4, !tbaa !565, !noalias !636
-  store ptr %storemerge, ptr %91, align 8, !tbaa !568, !noalias !636
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+98:                                               ; preds = %._crit_edge.i.i.i63
+  %99 = add nuw i32 %85, 1
+  store i32 %99, ptr %90, align 4, !tbaa !565, !noalias !636
+  store ptr %storemerge, ptr %92, align 8, !tbaa !568, !noalias !636
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37: ; preds = %._crit_edge.i.i.i64, %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit
-  %99 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull %storemerge) #20, !noalias !636
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37: ; preds = %._crit_edge.i.i.i63, %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit
+  %100 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull %storemerge) #20, !noalias !636
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-100:                                              ; preds = %33
-  switch i8 %31, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69 [
-    i8 57, label %101
-    i8 51, label %161
-    i8 48, label %161
-    i8 55, label %161
+101:                                              ; preds = %34
+  switch i8 %32, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68 [
+    i8 57, label %102
+    i8 51, label %162
+    i8 48, label %162
+    i8 55, label %162
     i8 85, label %188
   ]
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %.tr242, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, 1073741824
-  %.not.i.i70 = icmp eq i32 %104, 0
-  br i1 %.not.i.i70, label %108, label %105
+102:                                              ; preds = %101
+  %103 = getelementptr inbounds nuw i8, ptr %.tr238, i64 4
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %104, 1073741824
+  %.not.i.i69 = icmp eq i32 %105, 0
+  br i1 %.not.i.i69, label %109, label %106
 
-105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %.tr242, i64 -8
-  %107 = load ptr, ptr %106, align 8, !tbaa !48
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds i8, ptr %.tr238, i64 -8
+  %108 = load ptr, ptr %107, align 8, !tbaa !48
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-108:                                              ; preds = %101
-  %109 = and i32 %103, 134217727
-  %110 = zext nneg i32 %109 to i64
-  %111 = sub nsw i64 0, %110
-  %112 = getelementptr inbounds %"class.llvm::Use", ptr %.tr242, i64 %111
+109:                                              ; preds = %102
+  %110 = and i32 %104, 134217727
+  %111 = zext nneg i32 %110 to i64
+  %112 = sub nsw i64 0, %111
+  %113 = getelementptr inbounds %"class.llvm::Use", ptr %.tr238, i64 %112
   br label %_ZNK4llvm4User10getOperandEj.exit
 
-_ZNK4llvm4User10getOperandEj.exit:                ; preds = %105, %108
-  %113 = phi ptr [ %107, %105 ], [ %112, %108 ]
-  %114 = load ptr, ptr %113, align 8, !tbaa !33
-  %115 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !639, !noundef !24
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %117, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i71
+_ZNK4llvm4User10getOperandEj.exit:                ; preds = %106, %109
+  %114 = phi ptr [ %108, %106 ], [ %113, %109 ]
+  %115 = load ptr, ptr %114, align 8, !tbaa !33
+  %116 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !639, !noundef !24
+  %117 = trunc nuw i8 %116 to i1
+  br i1 %117, label %118, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i70
 
-117:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %119 = zext i32 %27 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %29, i64 %119
-  %.not36.i.i.i89 = icmp eq i32 %27, 0
-  br i1 %.not36.i.i.i89, label %._crit_edge.i.i.i95, label %.lr.ph.i.i.i90
+118:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %120 = zext i32 %28 to i64
+  %121 = getelementptr inbounds nuw ptr, ptr %30, i64 %120
+  %.not36.i.i.i87 = icmp eq i32 %28, 0
+  br i1 %.not36.i.i.i87, label %._crit_edge.i.i.i93, label %.lr.ph.i.i.i88
 
-.lr.ph.i.i.i90:                                   ; preds = %117, %.critedge.i.i.i93
-  %.02937.i.i.i91 = phi ptr [ %122, %.critedge.i.i.i93 ], [ %29, %117 ]
-  %121 = load ptr, ptr %.02937.i.i.i91, align 8, !tbaa !568, !noalias !639
-  %.not17.i.i.i92 = icmp eq ptr %121, %114
-  br i1 %.not17.i.i.i92, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit100, label %.critedge.i.i.i93
+.lr.ph.i.i.i88:                                   ; preds = %118, %.critedge.i.i.i91
+  %.02937.i.i.i89 = phi ptr [ %123, %.critedge.i.i.i91 ], [ %30, %118 ]
+  %122 = load ptr, ptr %.02937.i.i.i89, align 8, !tbaa !568, !noalias !639
+  %.not17.i.i.i90 = icmp eq ptr %122, %115
+  br i1 %.not17.i.i.i90, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit98, label %.critedge.i.i.i91
 
-.critedge.i.i.i93:                                ; preds = %.lr.ph.i.i.i90
-  %122 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i91, i64 8
-  %.not.i.i.i94 = icmp eq ptr %122, %120
-  br i1 %.not.i.i.i94, label %._crit_edge.i.i.i95, label %.lr.ph.i.i.i90, !llvm.loop !632
+.critedge.i.i.i91:                                ; preds = %.lr.ph.i.i.i88
+  %123 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i89, i64 8
+  %.not.i.i.i92 = icmp eq ptr %123, %121
+  br i1 %.not.i.i.i92, label %._crit_edge.i.i.i93, label %.lr.ph.i.i.i88, !llvm.loop !632
 
-._crit_edge.i.i.i95:                              ; preds = %.critedge.i.i.i93, %117
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %124 = load i32, ptr %123, align 8, !tbaa !564, !noalias !639
-  %125 = icmp ult i32 %27, %124
-  br i1 %125, label %126, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i71
+._crit_edge.i.i.i93:                              ; preds = %.critedge.i.i.i91, %118
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %125 = load i32, ptr %124, align 8, !tbaa !564, !noalias !639
+  %126 = icmp ult i32 %28, %125
+  br i1 %126, label %127, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i70
 
-126:                                              ; preds = %._crit_edge.i.i.i95
-  %127 = add nuw i32 %27, 1
-  store i32 %127, ptr %118, align 4, !tbaa !565, !noalias !639
-  store ptr %114, ptr %120, align 8, !tbaa !568, !noalias !639
-  %128 = load ptr, ptr %0, align 8, !tbaa !562, !noalias !639
-  %.pre234 = load i32, ptr %118, align 4, !noalias !639
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit100
+127:                                              ; preds = %._crit_edge.i.i.i93
+  %128 = add nuw i32 %28, 1
+  store i32 %128, ptr %119, align 4, !tbaa !565, !noalias !639
+  store ptr %115, ptr %121, align 8, !tbaa !568, !noalias !639
+  %129 = load ptr, ptr %0, align 8, !tbaa !562, !noalias !639
+  %.pre230 = load i32, ptr %119, align 4, !noalias !639
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit98
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i71: ; preds = %._crit_edge.i.i.i95, %_ZNK4llvm4User10getOperandEj.exit
-  %129 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %114) #20, !noalias !639
-  %.pre5.i.i73 = load ptr, ptr %0, align 8, !noalias !639
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %131 = load i32, ptr %130, align 4, !noalias !639
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit100
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i70: ; preds = %._crit_edge.i.i.i93, %_ZNK4llvm4User10getOperandEj.exit
+  %130 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %115) #20, !noalias !639
+  %.pre5.i.i72 = load ptr, ptr %0, align 8, !noalias !639
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %132 = load i32, ptr %131, align 4, !noalias !639
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit98
 
-_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit100: ; preds = %.lr.ph.i.i.i90, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i71, %126
-  %132 = phi i32 [ %131, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i71 ], [ %.pre234, %126 ], [ %27, %.lr.ph.i.i.i90 ]
-  %133 = phi ptr [ %.pre5.i.i73, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i71 ], [ %128, %126 ], [ %29, %.lr.ph.i.i.i90 ]
-  %134 = load i32, ptr %102, align 4
-  %135 = and i32 %134, 1073741824
-  %.not.i.i101 = icmp eq i32 %135, 0
-  br i1 %.not.i.i101, label %139, label %136
+_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit98: ; preds = %.lr.ph.i.i.i88, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i70, %127
+  %133 = phi i32 [ %132, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i70 ], [ %.pre230, %127 ], [ %28, %.lr.ph.i.i.i88 ]
+  %134 = phi ptr [ %.pre5.i.i72, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i70 ], [ %129, %127 ], [ %30, %.lr.ph.i.i.i88 ]
+  %135 = load i32, ptr %103, align 4
+  %136 = and i32 %135, 1073741824
+  %.not.i.i99 = icmp eq i32 %136, 0
+  br i1 %.not.i.i99, label %140, label %137
 
-136:                                              ; preds = %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit100
-  %137 = getelementptr inbounds i8, ptr %.tr242, i64 -8
-  %138 = load ptr, ptr %137, align 8, !tbaa !48
-  br label %_ZNK4llvm4User10getOperandEj.exit102
+137:                                              ; preds = %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit98
+  %138 = getelementptr inbounds i8, ptr %.tr238, i64 -8
+  %139 = load ptr, ptr %138, align 8, !tbaa !48
+  br label %_ZNK4llvm4User10getOperandEj.exit100
 
-139:                                              ; preds = %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit100
-  %140 = and i32 %134, 134217727
-  %141 = zext nneg i32 %140 to i64
-  %142 = sub nsw i64 0, %141
-  %143 = getelementptr inbounds %"class.llvm::Use", ptr %.tr242, i64 %142
-  br label %_ZNK4llvm4User10getOperandEj.exit102
+140:                                              ; preds = %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit98
+  %141 = and i32 %135, 134217727
+  %142 = zext nneg i32 %141 to i64
+  %143 = sub nsw i64 0, %142
+  %144 = getelementptr inbounds %"class.llvm::Use", ptr %.tr238, i64 %143
+  br label %_ZNK4llvm4User10getOperandEj.exit100
 
-_ZNK4llvm4User10getOperandEj.exit102:             ; preds = %136, %139
-  %144 = phi ptr [ %138, %136 ], [ %143, %139 ]
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
-  %146 = load ptr, ptr %145, align 8, !tbaa !33
-  %147 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !642, !noundef !24
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i103
+_ZNK4llvm4User10getOperandEj.exit100:             ; preds = %137, %140
+  %145 = phi ptr [ %139, %137 ], [ %144, %140 ]
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
+  %147 = load ptr, ptr %146, align 8, !tbaa !33
+  %148 = load i8, ptr %5, align 4, !tbaa !567, !range !23, !noalias !642, !noundef !24
+  %149 = trunc nuw i8 %148 to i1
+  br i1 %149, label %150, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i101
 
-149:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit102
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %151 = zext i32 %132 to i64
-  %152 = getelementptr inbounds nuw ptr, ptr %133, i64 %151
-  %.not36.i.i.i121 = icmp eq i32 %132, 0
-  br i1 %.not36.i.i.i121, label %._crit_edge.i.i.i127, label %.lr.ph.i.i.i122
+150:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit100
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %152 = zext i32 %133 to i64
+  %153 = getelementptr inbounds nuw ptr, ptr %134, i64 %152
+  %.not36.i.i.i118 = icmp eq i32 %133, 0
+  br i1 %.not36.i.i.i118, label %._crit_edge.i.i.i124, label %.lr.ph.i.i.i119
 
-.lr.ph.i.i.i122:                                  ; preds = %149, %.critedge.i.i.i125
-  %.02937.i.i.i123 = phi ptr [ %154, %.critedge.i.i.i125 ], [ %133, %149 ]
-  %153 = load ptr, ptr %.02937.i.i.i123, align 8, !tbaa !568, !noalias !642
-  %.not17.i.i.i124 = icmp eq ptr %153, %146
-  br i1 %.not17.i.i.i124, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %.critedge.i.i.i125
+.lr.ph.i.i.i119:                                  ; preds = %150, %.critedge.i.i.i122
+  %.02937.i.i.i120 = phi ptr [ %155, %.critedge.i.i.i122 ], [ %134, %150 ]
+  %154 = load ptr, ptr %.02937.i.i.i120, align 8, !tbaa !568, !noalias !642
+  %.not17.i.i.i121 = icmp eq ptr %154, %147
+  br i1 %.not17.i.i.i121, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %.critedge.i.i.i122
 
-.critedge.i.i.i125:                               ; preds = %.lr.ph.i.i.i122
-  %154 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i123, i64 8
-  %.not.i.i.i126 = icmp eq ptr %154, %152
-  br i1 %.not.i.i.i126, label %._crit_edge.i.i.i127, label %.lr.ph.i.i.i122, !llvm.loop !632
+.critedge.i.i.i122:                               ; preds = %.lr.ph.i.i.i119
+  %155 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i120, i64 8
+  %.not.i.i.i123 = icmp eq ptr %155, %153
+  br i1 %.not.i.i.i123, label %._crit_edge.i.i.i124, label %.lr.ph.i.i.i119, !llvm.loop !632
 
-._crit_edge.i.i.i127:                             ; preds = %.critedge.i.i.i125, %149
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %156 = load i32, ptr %155, align 8, !tbaa !564, !noalias !642
-  %157 = icmp ult i32 %132, %156
-  br i1 %157, label %158, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i103
+._crit_edge.i.i.i124:                             ; preds = %.critedge.i.i.i122, %150
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %157 = load i32, ptr %156, align 8, !tbaa !564, !noalias !642
+  %158 = icmp ult i32 %133, %157
+  br i1 %158, label %159, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i101
 
-158:                                              ; preds = %._crit_edge.i.i.i127
-  %159 = add nuw i32 %132, 1
-  store i32 %159, ptr %150, align 4, !tbaa !565, !noalias !642
-  store ptr %146, ptr %152, align 8, !tbaa !568, !noalias !642
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+159:                                              ; preds = %._crit_edge.i.i.i124
+  %160 = add nuw i32 %133, 1
+  store i32 %160, ptr %151, align 4, !tbaa !565, !noalias !642
+  store ptr %147, ptr %153, align 8, !tbaa !568, !noalias !642
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i103: ; preds = %._crit_edge.i.i.i127, %_ZNK4llvm4User10getOperandEj.exit102
-  %160 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %146) #20, !noalias !642
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i101: ; preds = %._crit_edge.i.i.i124, %_ZNK4llvm4User10getOperandEj.exit100
+  %161 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %147) #20, !noalias !642
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-161:                                              ; preds = %100, %100, %100
-  %162 = getelementptr inbounds nuw i8, ptr %.tr242, i64 4
-  %163 = load i32, ptr %162, align 4
-  %164 = and i32 %163, 1073741824
-  %.not.i.i133 = icmp eq i32 %164, 0
-  br i1 %.not.i.i133, label %168, label %165
+162:                                              ; preds = %101, %101, %101
+  %163 = getelementptr inbounds nuw i8, ptr %.tr238, i64 4
+  %164 = load i32, ptr %163, align 4
+  %165 = and i32 %164, 1073741824
+  %.not.i.i130 = icmp eq i32 %165, 0
+  br i1 %.not.i.i130, label %169, label %166
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds i8, ptr %.tr242, i64 -8
-  %167 = load ptr, ptr %166, align 8, !tbaa !48
-  br label %_ZNK4llvm4User10getOperandEj.exit134
+166:                                              ; preds = %162
+  %167 = getelementptr inbounds i8, ptr %.tr238, i64 -8
+  %168 = load ptr, ptr %167, align 8, !tbaa !48
+  br label %_ZNK4llvm4User10getOperandEj.exit131
 
-168:                                              ; preds = %161
-  %169 = and i32 %163, 134217727
-  %170 = zext nneg i32 %169 to i64
-  %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds %"class.llvm::Use", ptr %.tr242, i64 %171
-  br label %_ZNK4llvm4User10getOperandEj.exit134
+169:                                              ; preds = %162
+  %170 = and i32 %164, 134217727
+  %171 = zext nneg i32 %170 to i64
+  %172 = sub nsw i64 0, %171
+  %173 = getelementptr inbounds %"class.llvm::Use", ptr %.tr238, i64 %172
+  br label %_ZNK4llvm4User10getOperandEj.exit131
 
-_ZNK4llvm4User10getOperandEj.exit134:             ; preds = %165, %168
-  %173 = phi ptr [ %167, %165 ], [ %172, %168 ]
-  %174 = load ptr, ptr %173, align 8, !tbaa !33
-  %175 = trunc nuw i8 %28 to i1
-  br i1 %175, label %176, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i135
+_ZNK4llvm4User10getOperandEj.exit131:             ; preds = %166, %169
+  %174 = phi ptr [ %168, %166 ], [ %173, %169 ]
+  %175 = load ptr, ptr %174, align 8, !tbaa !33
+  br i1 %29, label %176, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i132
 
-176:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit134
+176:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit131
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %178 = zext i32 %27 to i64
-  %179 = getelementptr inbounds nuw ptr, ptr %29, i64 %178
-  %.not36.i.i.i153 = icmp eq i32 %27, 0
-  br i1 %.not36.i.i.i153, label %._crit_edge.i.i.i159, label %.lr.ph.i.i.i154
+  %178 = zext i32 %28 to i64
+  %179 = getelementptr inbounds nuw ptr, ptr %30, i64 %178
+  %.not36.i.i.i149 = icmp eq i32 %28, 0
+  br i1 %.not36.i.i.i149, label %._crit_edge.i.i.i155, label %.lr.ph.i.i.i150
 
-.lr.ph.i.i.i154:                                  ; preds = %176, %.critedge.i.i.i157
-  %.02937.i.i.i155 = phi ptr [ %181, %.critedge.i.i.i157 ], [ %29, %176 ]
-  %180 = load ptr, ptr %.02937.i.i.i155, align 8, !tbaa !568, !noalias !645
-  %.not17.i.i.i156 = icmp eq ptr %180, %174
-  br i1 %.not17.i.i.i156, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %.critedge.i.i.i157
+.lr.ph.i.i.i150:                                  ; preds = %176, %.critedge.i.i.i153
+  %.02937.i.i.i151 = phi ptr [ %181, %.critedge.i.i.i153 ], [ %30, %176 ]
+  %180 = load ptr, ptr %.02937.i.i.i151, align 8, !tbaa !568, !noalias !645
+  %.not17.i.i.i152 = icmp eq ptr %180, %175
+  br i1 %.not17.i.i.i152, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %.critedge.i.i.i153
 
-.critedge.i.i.i157:                               ; preds = %.lr.ph.i.i.i154
-  %181 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i155, i64 8
-  %.not.i.i.i158 = icmp eq ptr %181, %179
-  br i1 %.not.i.i.i158, label %._crit_edge.i.i.i159, label %.lr.ph.i.i.i154, !llvm.loop !632
+.critedge.i.i.i153:                               ; preds = %.lr.ph.i.i.i150
+  %181 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i151, i64 8
+  %.not.i.i.i154 = icmp eq ptr %181, %179
+  br i1 %.not.i.i.i154, label %._crit_edge.i.i.i155, label %.lr.ph.i.i.i150, !llvm.loop !632
 
-._crit_edge.i.i.i159:                             ; preds = %.critedge.i.i.i157, %176
+._crit_edge.i.i.i155:                             ; preds = %.critedge.i.i.i153, %176
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %183 = load i32, ptr %182, align 8, !tbaa !564, !noalias !645
-  %184 = icmp ult i32 %27, %183
-  br i1 %184, label %185, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i135
+  %184 = icmp ult i32 %28, %183
+  br i1 %184, label %185, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i132
 
-185:                                              ; preds = %._crit_edge.i.i.i159
-  %186 = add nuw i32 %27, 1
+185:                                              ; preds = %._crit_edge.i.i.i155
+  %186 = add nuw i32 %28, 1
   store i32 %186, ptr %177, align 4, !tbaa !565, !noalias !645
-  store ptr %174, ptr %179, align 8, !tbaa !568, !noalias !645
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+  store ptr %175, ptr %179, align 8, !tbaa !568, !noalias !645
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i135: ; preds = %._crit_edge.i.i.i159, %_ZNK4llvm4User10getOperandEj.exit134
-  %187 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %174) #20, !noalias !645
-  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i132: ; preds = %._crit_edge.i.i.i155, %_ZNK4llvm4User10getOperandEj.exit131
+  %187 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %175) #20, !noalias !645
+  br label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
-188:                                              ; preds = %100
-  %189 = getelementptr inbounds i8, ptr %.tr242, i64 -32
+188:                                              ; preds = %101
+  %189 = getelementptr inbounds i8, ptr %.tr238, i64 -32
   %190 = load ptr, ptr %189, align 8, !tbaa !33
   %.not.i.i.i.i.i.i = icmp eq ptr %190, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %191
+  br i1 %.not.i.i.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %191
 
 191:                                              ; preds = %188
   %192 = load i8, ptr %190, align 8, !tbaa !3
   %193 = icmp eq i8 %192, 0
-  br i1 %193, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+  br i1 %193, label %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i: ; preds = %191
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !249
-  %196 = getelementptr inbounds nuw i8, ptr %.tr242, i64 80
+  %196 = getelementptr inbounds nuw i8, ptr %.tr238, i64 80
   %197 = load ptr, ptr %196, align 8, !tbaa !250
   %198 = icmp eq ptr %195, %197
-  br i1 %198, label %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+  br i1 %198, label %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
 _ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i
   %199 = getelementptr inbounds nuw i8, ptr %190, i64 36
   %200 = load i32, ptr %199, align 4, !tbaa !168
   %201 = icmp eq i32 %200, 369
-  br i1 %201, label %202, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69
+  br i1 %201, label %202, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68
 
 202:                                              ; preds = %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i
-  %203 = getelementptr inbounds nuw i8, ptr %.tr242, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %.tr238, i64 4
   %204 = load i32, ptr %203, align 4
   %205 = and i32 %204, 134217727
   %206 = zext nneg i32 %205 to i64
   %207 = sub nsw i64 0, %206
-  %208 = getelementptr inbounds %"class.llvm::Use", ptr %.tr242, i64 %207
+  %208 = getelementptr inbounds %"class.llvm::Use", ptr %.tr238, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !33
-  %.not.i.not.i.i.i167 = icmp eq ptr %209, null
-  br i1 %.not.i.not.i.i.i167, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69, label %tailrecurse
+  %.not.i.not.i.i.i163 = icmp eq ptr %209, null
+  br i1 %.not.i.not.i.i.i163, label %_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68, label %tailrecurse
 
-_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit69: ; preds = %.lr.ph.i.i.i154, %.lr.ph.i.i.i122, %.lr.ph.i.i.i59, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i135, %185, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i103, %158, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37, %97, %100, %64, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i, %45, %42, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i, %56, %202, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i, %188, %191, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i, %39, %36, %35, %30, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
+_ZL26getUnsignedMonotonicValuesRN4llvm15SmallPtrSetImplIPNS_5ValueEEES2_13MonotonicTypej.exit68: ; preds = %.lr.ph.i.i.i150, %.lr.ph.i.i.i119, %.lr.ph.i.i.i58, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i132, %185, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i101, %159, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i37, %98, %101, %65, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i.i, %46, %43, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i, %57, %202, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i, %188, %191, %_ZN4llvm12PatternMatch17IntrinsicID_match5matchINS_11InstructionEEEbPT_.exit.i.i, %40, %37, %36, %31, %_ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit
   ret void
 }
 

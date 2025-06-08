@@ -14879,7 +14879,7 @@ select.unfold.preheader:                          ; preds = %59, %select.unfold
   %87 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %88 = load ptr, ptr %87, align 8
   %89 = call zeroext i1 %88(ptr noundef nonnull %4, ptr noundef nonnull %spec.store.select) #19
-  %spec.select129 = select i1 %89, i8 1, i8 %.179147
+  %spec.select129 = zext i1 %89 to i8
   br label %select.unfold
 
 90:                                               ; preds = %74, %78, %82
@@ -14890,7 +14890,7 @@ select.unfold.preheader:                          ; preds = %59, %select.unfold
   br i1 %.not123, label %select.unfold, label %74, !llvm.loop !47
 
 select.unfold:                                    ; preds = %90, %86
-  %.280 = phi i8 [ %spec.select129, %86 ], [ %.179147, %90 ]
+  %.280 = phi i8 [ %spec.select129, %86 ], [ 0, %90 ]
   %93 = getelementptr inbounds nuw i8, ptr %65, i64 1
   br i1 %.not122, label %select.unfold._crit_edge, label %select.unfold.preheader
 

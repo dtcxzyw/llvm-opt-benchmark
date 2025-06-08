@@ -221,8 +221,8 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$core..i
 
 "_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$C$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$RP$$GT$$GT$17h705e6c0ac2bad1ccE.exit": ; preds = %"_ZN94_$LT$version_ranges..RangesIter$LT$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17a24f24310af538E.exit"
   %.pre = load i64, ptr %1, align 8, !range !14, !alias.scope !32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.5)
   %34 = icmp eq i64 %.pre, 0
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.5)
   br i1 %34, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$version_ranges..RangesIter$LT$uv_pep440..version..Version$GT$$GT$$GT$17he8ca3e25892a00beE.exit", label %35
 
 35:                                               ; preds = %"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$C$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$RP$$GT$$GT$17h705e6c0ac2bad1ccE.exit.thread", %"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$C$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$RP$$GT$$GT$17h705e6c0ac2bad1ccE.exit"
@@ -290,8 +290,8 @@ default.unreachable:                              ; preds = %"_ZN102_$LT$core..i
 
 "_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$C$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$RP$$GT$$GT$17h705e6c0ac2bad1ccE.exit19": ; preds = %"_ZN94_$LT$version_ranges..RangesIter$LT$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h17a24f24310af538E.exit18"
   %.pre57 = load i64, ptr %14, align 8, !range !14, !alias.scope !41
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.511)
   %52 = icmp eq i64 %.pre57, 0
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.511)
   br i1 %52, label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$version_ranges..RangesIter$LT$uv_pep440..version..Version$GT$$GT$$GT$17he8ca3e25892a00beE.exit21", label %53
 
 53:                                               ; preds = %"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$C$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$RP$$GT$$GT$17h705e6c0ac2bad1ccE.exit19.thread", %"_ZN4core3ptr176drop_in_place$LT$core..option..Option$LT$$LP$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$C$core..ops..range..Bound$LT$uv_pep440..version..Version$GT$$RP$$GT$$GT$17h705e6c0ac2bad1ccE.exit19"

@@ -1288,7 +1288,7 @@ rb_ulong2num_inline.exit:                         ; preds = %49, %52
   br label %64
 
 64:                                               ; preds = %58, %._crit_edge
-  br i1 %2, label %65, label %82
+  br i1 %2, label %65, label %84
 
 65:                                               ; preds = %64
   %66 = call i64 @rb_ary_new_capa(i64 noundef 2) #9
@@ -1301,32 +1301,32 @@ rb_ulong2num_inline.exit:                         ; preds = %49, %52
   %73 = call i64 @rb_ary_push(i64 noundef %66, i64 noundef %72) #9
   %74 = load i8, ptr %28, align 1, !tbaa !43, !range !44, !noundef !45
   %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %76, label %78
+  br i1 %75, label %76, label %79
 
 76:                                               ; preds = %65
   %77 = call i64 @rb_obj_freeze(i64 noundef %66) #9
   %.pre = load i8, ptr %28, align 1, !tbaa !43, !range !44
-  %.pre36 = trunc nuw i8 %.pre to i1
-  br label %78
+  %78 = trunc nuw i8 %.pre to i1
+  br label %79
 
-78:                                               ; preds = %76, %65
-  %.pre-phi = phi i1 [ %.pre36, %76 ], [ false, %65 ]
-  %79 = load i64, ptr @rb_cPrismParseLexResult, align 8, !tbaa !7
-  %80 = load ptr, ptr %25, align 8, !tbaa !59
-  %81 = call fastcc i64 @parse_result_create(i64 noundef %79, ptr noundef %4, i64 noundef %66, ptr noundef %80, i64 noundef %22, i1 noundef zeroext %.pre-phi)
-  br label %89
+79:                                               ; preds = %76, %65
+  %80 = phi i1 [ %78, %76 ], [ false, %65 ]
+  %81 = load i64, ptr @rb_cPrismParseLexResult, align 8, !tbaa !7
+  %82 = load ptr, ptr %25, align 8, !tbaa !59
+  %83 = call fastcc i64 @parse_result_create(i64 noundef %81, ptr noundef %4, i64 noundef %66, ptr noundef %82, i64 noundef %22, i1 noundef zeroext %80)
+  br label %91
 
-82:                                               ; preds = %64
-  %83 = load i64, ptr @rb_cPrismLexResult, align 8, !tbaa !7
-  %84 = load i64, ptr %23, align 8, !tbaa !58
-  %85 = load ptr, ptr %25, align 8, !tbaa !59
-  %86 = load i8, ptr %28, align 1, !tbaa !43, !range !44, !noundef !45
-  %87 = trunc nuw i8 %86 to i1
-  %88 = call fastcc i64 @parse_result_create(i64 noundef %83, ptr noundef %4, i64 noundef %84, ptr noundef %85, i64 noundef %22, i1 noundef zeroext %87)
-  br label %89
+84:                                               ; preds = %64
+  %85 = load i64, ptr @rb_cPrismLexResult, align 8, !tbaa !7
+  %86 = load i64, ptr %23, align 8, !tbaa !58
+  %87 = load ptr, ptr %25, align 8, !tbaa !59
+  %88 = load i8, ptr %28, align 1, !tbaa !43, !range !44, !noundef !45
+  %89 = trunc nuw i8 %88 to i1
+  %90 = call fastcc i64 @parse_result_create(i64 noundef %85, ptr noundef %4, i64 noundef %86, ptr noundef %87, i64 noundef %22, i1 noundef zeroext %89)
+  br label %91
 
-89:                                               ; preds = %82, %78
-  %.034 = phi i64 [ %81, %78 ], [ %88, %82 ]
+91:                                               ; preds = %84, %79
+  %.034 = phi i64 [ %83, %79 ], [ %90, %84 ]
   call void @pm_node_destroy(ptr noundef nonnull %4, ptr noundef %33) #9
   call void @pm_parser_free(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9

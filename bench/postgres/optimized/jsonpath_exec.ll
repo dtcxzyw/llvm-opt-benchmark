@@ -7825,8 +7825,8 @@ JsonValueListAppend.exit.backedge:                ; preds = %59, %58, %54, %exec
   br label %62
 
 ._crit_edge:                                      ; preds = %5
-  %.not35 = xor i1 %3, true
-  %.mux = select i1 %.not35, i1 %9, i1 false
+  %.not34 = xor i1 %3, true
+  %.mux = select i1 %.not34, i1 %9, i1 false
   %61 = tail call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %.mux)
   br label %62
 

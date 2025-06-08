@@ -722,7 +722,7 @@ print_modules.exit:                               ; preds = %54, %35
   %69 = load i32, ptr %6, align 4, !tbaa !112
   %.not270 = icmp eq i32 %69, 1
   %.0226..str.99 = select i1 %.not270, ptr %.0226, ptr @.str.99
-  %..3222 = select i1 %.not270, i8 1, i8 %.3222
+  %..3222 = zext i1 %.not270 to i8
   br label %.backedge
 
 70:                                               ; preds = %62

@@ -473,11 +473,11 @@ define internal void @vcpu_haddr(i32 noundef %0, i32 noundef %1, i64 noundef %2,
   %5 = alloca i64, align 8
   %6 = tail call ptr @qemu_plugin_get_hwaddr(i32 noundef %1, i64 noundef %2) #7
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %104, label %7
+  br i1 %.not, label %106, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i1 @qemu_plugin_hwaddr_is_io(ptr noundef nonnull %6) #7
-  br i1 %8, label %9, label %104
+  br i1 %8, label %9, label %106
 
 9:                                                ; preds = %7
   %10 = tail call ptr @qemu_plugin_hwaddr_device_name(ptr noundef nonnull %6) #7
@@ -590,72 +590,72 @@ new_count.exit:                                   ; preds = %15, %23
 inc_count.exit:                                   ; preds = %63, %56, %46, %39, %29
   %70 = load i8, ptr @source, align 1, !range !5, !noundef !6
   %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %75
+  br i1 %71, label %72, label %76
 
 72:                                               ; preds = %inc_count.exit
   %73 = load ptr, ptr @source_pc.0, align 8
   %74 = tail call i64 @qemu_plugin_u64_get(ptr %73, i64 0, i32 noundef %0) #7
   store i64 %74, ptr %5, align 8
   %.pre = load i8, ptr @source, align 1, !range !5
-  %.pre37 = trunc nuw i8 %.pre to i1
-  br label %75
+  %75 = trunc nuw i8 %.pre to i1
+  br label %76
 
-75:                                               ; preds = %72, %inc_count.exit
-  %.pre-phi = phi i1 [ %.pre37, %72 ], [ false, %inc_count.exit ]
-  %76 = load i8, ptr @pattern, align 1, !range !5, !noundef !6
-  %77 = trunc nuw i8 %76 to i1
-  %or.cond = select i1 %77, i1 true, i1 %.pre-phi
-  br i1 %or.cond, label %78, label %inc_count.exit36
+76:                                               ; preds = %72, %inc_count.exit
+  %77 = phi i1 [ %75, %72 ], [ false, %inc_count.exit ]
+  %78 = load i8, ptr @pattern, align 1, !range !5, !noundef !6
+  %79 = trunc nuw i8 %78 to i1
+  %or.cond = select i1 %79, i1 true, i1 %77
+  br i1 %or.cond, label %80, label %inc_count.exit36
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %.027, i64 48
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @g_hash_table_lookup(ptr noundef %80, ptr noundef nonnull %5) #7
-  %.not34 = icmp eq ptr %81, null
-  br i1 %.not34, label %82, label %87
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %.027, i64 48
+  %82 = load ptr, ptr %81, align 8
+  %83 = call ptr @g_hash_table_lookup(ptr noundef %82, ptr noundef nonnull %5) #7
+  %.not34 = icmp eq ptr %83, null
+  br i1 %.not34, label %84, label %89
 
-82:                                               ; preds = %78
-  %83 = load ptr, ptr %79, align 8
-  %84 = load i64, ptr %5, align 8
-  %85 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #10
-  store i64 %84, ptr %85, align 8
-  %86 = call i32 @g_hash_table_insert(ptr noundef %83, ptr noundef nonnull %85, ptr noundef nonnull %85) #7
-  br label %87
+84:                                               ; preds = %80
+  %85 = load ptr, ptr %81, align 8
+  %86 = load i64, ptr %5, align 8
+  %87 = call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #10
+  store i64 %86, ptr %87, align 8
+  %88 = call i32 @g_hash_table_insert(ptr noundef %85, ptr noundef nonnull %87, ptr noundef nonnull %87) #7
+  br label %89
 
-87:                                               ; preds = %82, %78
-  %.0 = phi ptr [ %81, %78 ], [ %85, %82 ]
-  %88 = shl nuw i32 1, %0
-  %89 = sext i32 %88 to i64
-  br i1 %12, label %90, label %97
+89:                                               ; preds = %84, %80
+  %.0 = phi ptr [ %83, %80 ], [ %87, %84 ]
+  %90 = shl nuw i32 1, %0
+  %91 = sext i32 %90 to i64
+  br i1 %12, label %92, label %99
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %92 = load i64, ptr %91, align 8
-  %93 = add i64 %92, 1
-  store i64 %93, ptr %91, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %95 = load i64, ptr %94, align 8
-  %96 = or i64 %95, %89
-  store i64 %96, ptr %94, align 8
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %.0, i64 32
+  %94 = load i64, ptr %93, align 8
+  %95 = add i64 %94, 1
+  store i64 %95, ptr %93, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %97 = load i64, ptr %96, align 8
+  %98 = or i64 %97, %91
+  store i64 %98, ptr %96, align 8
   br label %inc_count.exit36
 
-97:                                               ; preds = %87
-  %98 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %99 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %100 = load i64, ptr %99, align 8
-  %101 = add i64 %100, 1
-  store i64 %101, ptr %99, align 8
-  %102 = load i64, ptr %98, align 8
-  %103 = or i64 %102, %89
-  store i64 %103, ptr %98, align 8
+99:                                               ; preds = %89
+  %100 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  %102 = load i64, ptr %101, align 8
+  %103 = add i64 %102, 1
+  store i64 %103, ptr %101, align 8
+  %104 = load i64, ptr %100, align 8
+  %105 = or i64 %104, %91
+  store i64 %105, ptr %100, align 8
   br label %inc_count.exit36
 
-inc_count.exit36:                                 ; preds = %97, %90, %75
+inc_count.exit36:                                 ; preds = %99, %92, %76
   call void @g_mutex_unlock(ptr noundef nonnull @lock) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br label %104
+  br label %106
 
-104:                                              ; preds = %4, %7, %inc_count.exit36
+106:                                              ; preds = %4, %7, %inc_count.exit36
   ret void
 }
 

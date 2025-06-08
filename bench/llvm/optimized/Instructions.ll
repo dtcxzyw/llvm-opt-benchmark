@@ -21914,8 +21914,8 @@ _ZN4llvm11SmallVectorIjLj8EEC2EmRKj.exit:         ; preds = %13
   %27 = shl nuw nsw i64 %20, 2
   call void @llvm.memset.p0.i64(ptr align 4 %26, i8 0, i64 %27, i1 false), !tbaa !108
   %.pre = load i8, ptr %8, align 8, !tbaa !360, !range !48
-  store i32 %19, ptr %22, align 8, !tbaa !26
   %28 = trunc nuw i8 %.pre to i1
+  store i32 %19, ptr %22, align 8, !tbaa !26
   br i1 %28, label %29, label %65
 
 29:                                               ; preds = %_ZN4llvm11SmallVectorIjLj8EEC2EmRKj.exit
@@ -22229,8 +22229,8 @@ _ZN4llvm11SmallVectorIjLj8EEC2EmRKj.exit:         ; preds = %11
   %24 = shl nuw nsw i64 %17, 2
   call void @llvm.memset.p0.i64(ptr align 4 %23, i8 0, i64 %24, i1 false), !tbaa !108
   %.pre = load i8, ptr %8, align 8, !tbaa !360, !range !48
-  store i32 %16, ptr %19, align 8, !tbaa !26
   %25 = trunc nuw i8 %.pre to i1
+  store i32 %16, ptr %19, align 8, !tbaa !26
   br i1 %25, label %26, label %62
 
 26:                                               ; preds = %_ZN4llvm11SmallVectorIjLj8EEC2EmRKj.exit

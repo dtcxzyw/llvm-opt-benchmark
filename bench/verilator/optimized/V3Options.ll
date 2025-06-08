@@ -20242,9 +20242,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit174: ; preds = %_Z
 129:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i169, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #41
   %.pre = load i8, ptr %99, align 2, !tbaa !261, !range !172
+  %130 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %130 = trunc nuw i8 %.pre to i1
   br i1 %130, label %131, label %169
 
 131:                                              ; preds = %.thread736, %129

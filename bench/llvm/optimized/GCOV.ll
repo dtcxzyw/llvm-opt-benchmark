@@ -6721,9 +6721,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pre379 = load ptr, ptr %0, align 8, !tbaa !272
   %.phi.trans.insert380 = getelementptr inbounds nuw i8, ptr %.pre379, i64 11
   %.pre381 = load i8, ptr %.phi.trans.insert380, align 1, !tbaa !305, !range !199
+  %1083 = trunc nuw i8 %.pre381 to i1
   %.sroa.0244.0.copyload = load ptr, ptr %5, align 8, !tbaa !82
   %.sroa.2245.0.copyload = load i64, ptr %.sroa.2245.0..sroa_idx, align 8, !tbaa !83
-  %1083 = trunc nuw i8 %.pre381 to i1
   br i1 %1083, label %1084, label %1086
 
 1084:                                             ; preds = %.thread, %1082

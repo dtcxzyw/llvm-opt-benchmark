@@ -79228,7 +79228,7 @@ define hidden void @_ZN9polars_io6ndjson6buffer20deserialize_datetime17h3f051097
 41:                                               ; preds = %38
   %42 = extractvalue { i64, i64 } %35, 1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %39, ptr %43, align 8
+  store i64 1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %42, ptr %44, align 8
   store i64 17, ptr %0, align 8

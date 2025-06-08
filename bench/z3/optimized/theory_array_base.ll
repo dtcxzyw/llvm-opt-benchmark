@@ -883,7 +883,7 @@ define hidden void @_ZN3smt17theory_array_base20found_unsupported_opEP4expr(ptr 
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %11, ptr %17, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i8 %12, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %18 = load ptr, ptr %14, align 8, !tbaa !559
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.noexc2, label %20

@@ -21414,7 +21414,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN9cancel_ehI8resl
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #27
   call void @_ZN3smt7contextD1Ev(ptr noundef nonnull align 8 dereferenceable(10544) %4) #27
   call void @llvm.lifetime.end.p0(i64 10544, ptr nonnull %4) #27
-  store i8 %8, ptr @_ZZN3smt10theory_lra3imp11validate_eqEPNS_5enodeES3_E12s_validating, align 1, !tbaa !683
+  store i8 0, ptr @_ZZN3smt10theory_lra3imp11validate_eqEPNS_5enodeES3_E12s_validating, align 1, !tbaa !683
   br label %84
 
 79:                                               ; preds = %54, %52
@@ -21442,7 +21442,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN9cancel_ehI8resl
 83:                                               ; preds = %82, %44
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %82 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(i64 10544, ptr nonnull %4) #27
-  store i8 %8, ptr @_ZZN3smt10theory_lra3imp11validate_eqEPNS_5enodeES3_E12s_validating, align 1, !tbaa !683
+  store i8 0, ptr @_ZZN3smt10theory_lra3imp11validate_eqEPNS_5enodeES3_E12s_validating, align 1, !tbaa !683
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 
 84:                                               ; preds = %3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit

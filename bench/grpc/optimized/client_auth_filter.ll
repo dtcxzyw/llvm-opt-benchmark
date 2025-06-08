@@ -6891,8 +6891,8 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_2024072
   store i64 %123, ptr %121, align 8, !tbaa !31
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataIN9grpc_core8CallArgsEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %122) #33
   %.pre = load i8, ptr %12, align 8, !tbaa !293, !range !104, !noalias !355
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #33, !noalias !373
   %138 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #33, !noalias !373
   br i1 %138, label %143, label %206
 
 139:                                              ; preds = %.body13, %35
@@ -8418,8 +8418,8 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_2024072
   store i64 %146, ptr %144, align 8, !tbaa !31, !noalias !468
   call void @_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %145) #33, !noalias !468
   %.pre = load i8, ptr %8, align 8, !tbaa !315, !range !104, !noalias !468
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #33, !noalias !472
   %156 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #33, !noalias !472
   br i1 %156, label %157, label %_ZN9grpc_core3MapINS_12ArenaPromiseIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEZNS_16ClientAuthFilter20GetMetadataFromCredsENS_13RefCountedPtrI21grpc_call_credentialsEES9_EUlSA_E_EclEv.exit.thread448
 
 157:                                              ; preds = %_ZN9grpc_core14promise_detail11PromiseLikeINS_12ArenaPromiseIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEEEvEclEv.exit.i

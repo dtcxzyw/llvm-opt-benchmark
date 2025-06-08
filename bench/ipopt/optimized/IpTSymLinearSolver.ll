@@ -2589,14 +2589,14 @@ _ZN5Ipopt9TimedTask5StartEv.exit46:               ; preds = %266
   %.pre59 = load ptr, ptr %267, align 8, !tbaa !40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre59, i64 1288
   %.pre60 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !63, !range !57
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %287 = load ptr, ptr %286, align 8, !tbaa !38
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 24
-  %289 = load ptr, ptr %288, align 8, !tbaa !98
-  %290 = getelementptr inbounds nuw i8, ptr %287, i64 32
-  %291 = load ptr, ptr %290, align 8, !tbaa !101
-  %292 = trunc nuw i8 %.pre60 to i1
-  br i1 %292, label %293, label %_ZN5Ipopt9TimedTask3EndEv.exit47
+  %286 = trunc nuw i8 %.pre60 to i1
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %288 = load ptr, ptr %287, align 8, !tbaa !38
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
+  %290 = load ptr, ptr %289, align 8, !tbaa !98
+  %291 = getelementptr inbounds nuw i8, ptr %288, i64 32
+  %292 = load ptr, ptr %291, align 8, !tbaa !101
+  br i1 %286, label %293, label %_ZN5Ipopt9TimedTask3EndEv.exit47
 
 293:                                              ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit46
   %294 = getelementptr inbounds nuw i8, ptr %.pre59, i64 1240
@@ -2630,8 +2630,8 @@ _ZN5Ipopt9TimedTask5StartEv.exit46:               ; preds = %266
   br label %_ZN5Ipopt9TimedTask3EndEv.exit47
 
 _ZN5Ipopt9TimedTask3EndEv.exit47:                 ; preds = %_ZN5Ipopt9TimedTask5StartEv.exit46.thread, %_ZN5Ipopt9TimedTask5StartEv.exit46, %293
-  %317 = phi ptr [ %277, %_ZN5Ipopt9TimedTask5StartEv.exit46.thread ], [ %291, %_ZN5Ipopt9TimedTask5StartEv.exit46 ], [ %291, %293 ]
-  %318 = phi ptr [ %275, %_ZN5Ipopt9TimedTask5StartEv.exit46.thread ], [ %289, %_ZN5Ipopt9TimedTask5StartEv.exit46 ], [ %289, %293 ]
+  %317 = phi ptr [ %277, %_ZN5Ipopt9TimedTask5StartEv.exit46.thread ], [ %292, %_ZN5Ipopt9TimedTask5StartEv.exit46 ], [ %292, %293 ]
+  %318 = phi ptr [ %275, %_ZN5Ipopt9TimedTask5StartEv.exit46.thread ], [ %290, %_ZN5Ipopt9TimedTask5StartEv.exit46 ], [ %290, %293 ]
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre61 = load i32, ptr %218, align 8, !tbaa !89
   br label %320

@@ -357,12 +357,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 .critedge.thread:                                 ; preds = %.critedge
   %.pre10 = load i8, ptr %9, align 8, !tbaa !45, !range !140
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1884
-  %35 = load i32, ptr %34, align 4, !tbaa !142
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !142
-  %37 = trunc nuw i8 %.pre10 to i1
-  br i1 %37, label %43, label %38
+  %34 = trunc nuw i8 %.pre10 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1884
+  %36 = load i32, ptr %35, align 4, !tbaa !142
+  %37 = add i32 %36, 1
+  store i32 %37, ptr %35, align 4, !tbaa !142
+  br i1 %34, label %43, label %38
 
 38:                                               ; preds = %.critedge.thread
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 864

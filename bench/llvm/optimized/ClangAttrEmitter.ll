@@ -27256,7 +27256,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36.i295:          ; preds = %1292, %1290
   %1326 = load ptr, ptr %1325, align 8
   call void %1326(ptr noundef nonnull align 8 dereferenceable(90) %.val.i.i) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #25
-  %spec.select.i = select i1 %1323, i8 1, i8 %.02250.i
+  %spec.select.i = zext i1 %1323 to i8
   br label %1327
 
 1327:                                             ; preds = %1317, %1311, %.lr.ph.i285

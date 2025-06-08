@@ -1066,8 +1066,8 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %97 = ptrtoint ptr %55 to i64
   br label %98
 
-98:                                               ; preds = %.lr.ph140, %._crit_edge.thread147
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next144, %._crit_edge.thread147 ]
+98:                                               ; preds = %.lr.ph140, %._crit_edge.thread
+  %indvars.iv143 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next144, %._crit_edge.thread ]
   %99 = load ptr, ptr %91, align 8
   %100 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv143
   %101 = load i64, ptr %100, align 8
@@ -1084,10 +1084,10 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %.0106 = phi i32 [ %.0100, %104 ], [ %93, %98 ]
   %107 = load i32, ptr %96, align 8
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph, label %._crit_edge.thread
+  br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %106, %.thread
-  %109 = phi i32 [ %166, %.thread ], [ %107, %106 ]
+  %109 = phi i32 [ %165, %.thread ], [ %107, %106 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %106 ]
   %110 = load ptr, ptr %4, align 8
   %111 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %110, i64 %indvars.iv, i32 2
@@ -1152,95 +1152,91 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %148 = tail call i32 @llvm.smin.i32(i32 %145, i32 %.0106)
   %149 = sext i32 %148 to i64
   %150 = tail call i32 @memcmp(ptr noundef nonnull %92, ptr noundef nonnull %147, i64 noundef %149) #10
-  switch i16 %.0103, label %158 [
+  switch i16 %.0103, label %156 [
     i16 1, label %151
     i16 2, label %151
-    i16 3, label %153
-    i16 4, label %155
-    i16 5, label %155
-    i16 28, label %157
+    i16 3, label %163
+    i16 4, label %153
+    i16 5, label %153
+    i16 28, label %155
   ]
 
 151:                                              ; preds = %144, %144
   %152 = icmp slt i32 %150, 1
-  br label %165
+  br i1 %152, label %..thread_crit_edge, label %._crit_edge.thread
 
-153:                                              ; preds = %144
-  %154 = icmp sge i32 %145, %.0106
-  %.not121 = icmp eq i32 %150, 0
-  %brmerge.not = and i1 %154, %.not121
-  br label %165
+153:                                              ; preds = %144, %144
+  %154 = icmp sgt i32 %150, -1
+  br i1 %154, label %..thread_crit_edge, label %._crit_edge.thread
 
-155:                                              ; preds = %144, %144
-  %156 = icmp sgt i32 %150, -1
-  br label %165
-
-157:                                              ; preds = %144
+155:                                              ; preds = %144
   %.not120 = icmp eq i32 %150, 0
-  br label %165
+  br i1 %.not120, label %..thread_crit_edge, label %._crit_edge.thread
 
-158:                                              ; preds = %144
-  %159 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %159)
-  %160 = load ptr, ptr %4, align 8
-  %161 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %160, i64 %indvars.iv, i32 2
-  %162 = load i16, ptr %161, align 2
-  %163 = zext i16 %162 to i32
-  %164 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %163) #9
+156:                                              ; preds = %144
+  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %157)
+  %158 = load ptr, ptr %4, align 8
+  %159 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %158, i64 %indvars.iv, i32 2
+  %160 = load i16, ptr %159, align 2
+  %161 = zext i16 %160 to i32
+  %162 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %161) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 551, ptr noundef nonnull @__func__.spg_text_inner_consistent) #9
   unreachable
 
-165:                                              ; preds = %151, %155, %157, %153
-  %.3.in = phi i1 [ %152, %151 ], [ %156, %155 ], [ %.not120, %157 ], [ %brmerge.not, %153 ]
-  br i1 %.3.in, label %..thread_crit_edge, label %._crit_edge.thread147
+163:                                              ; preds = %144
+  %164 = icmp sge i32 %145, %.0106
+  %.not121 = icmp eq i32 %150, 0
+  %brmerge.not = and i1 %164, %.not121
+  br i1 %brmerge.not, label %..thread_crit_edge, label %._crit_edge.thread
 
-..thread_crit_edge:                               ; preds = %165
+..thread_crit_edge:                               ; preds = %155, %153, %151, %163
   %.pre = load i32, ptr %96, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %115
-  %166 = phi i32 [ %.pre, %..thread_crit_edge ], [ %109, %115 ]
+  %165 = phi i32 [ %.pre, %..thread_crit_edge ], [ %109, %115 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %indvars.iv.next, %167
-  br i1 %168, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !12
+  %166 = sext i32 %165 to i64
+  %167 = icmp slt i64 %indvars.iv.next, %166
+  br i1 %167, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
-._crit_edge.thread:                               ; preds = %.thread, %106
-  %169 = load ptr, ptr %78, align 8
-  %170 = load i32, ptr %7, align 8
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds i32, ptr %169, i64 %171
-  %173 = trunc nuw nsw i64 %indvars.iv143 to i32
-  store i32 %173, ptr %172, align 4
-  %174 = load i32, ptr %17, align 8
-  %175 = sub i32 %.0106, %174
-  %176 = load ptr, ptr %83, align 8
-  %177 = load i32, ptr %7, align 8
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i32, ptr %176, i64 %178
-  store i32 %175, ptr %179, align 4
-  %180 = shl i32 %.0106, 2
-  %181 = add i32 %180, 16
-  store i32 %181, ptr %55, align 4
-  %182 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext false, i32 noundef -1) #9
-  %183 = load ptr, ptr %88, align 8
-  %184 = load i32, ptr %7, align 8
-  %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i64, ptr %183, i64 %185
-  store i64 %182, ptr %186, align 8
-  %187 = load i32, ptr %7, align 8
-  %188 = add i32 %187, 1
-  store i32 %188, ptr %7, align 8
-  br label %._crit_edge.thread147
+._crit_edge:                                      ; preds = %.thread, %106
+  %168 = load ptr, ptr %78, align 8
+  %169 = load i32, ptr %7, align 8
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds i32, ptr %168, i64 %170
+  %172 = trunc nuw nsw i64 %indvars.iv143 to i32
+  store i32 %172, ptr %171, align 4
+  %173 = load i32, ptr %17, align 8
+  %174 = sub i32 %.0106, %173
+  %175 = load ptr, ptr %83, align 8
+  %176 = load i32, ptr %7, align 8
+  %177 = sext i32 %176 to i64
+  %178 = getelementptr inbounds i32, ptr %175, i64 %177
+  store i32 %174, ptr %178, align 4
+  %179 = shl i32 %.0106, 2
+  %180 = add i32 %179, 16
+  store i32 %180, ptr %55, align 4
+  %181 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext false, i32 noundef -1) #9
+  %182 = load ptr, ptr %88, align 8
+  %183 = load i32, ptr %7, align 8
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds i64, ptr %182, i64 %184
+  store i64 %181, ptr %185, align 8
+  %186 = load i32, ptr %7, align 8
+  %187 = add i32 %186, 1
+  store i32 %187, ptr %7, align 8
+  br label %._crit_edge.thread
 
-._crit_edge.thread147:                            ; preds = %165, %._crit_edge.thread
+._crit_edge.thread:                               ; preds = %155, %153, %151, %163, %._crit_edge
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %189 = load i32, ptr %73, align 8
-  %190 = sext i32 %189 to i64
-  %191 = icmp slt i64 %indvars.iv.next144, %190
-  br i1 %191, label %98, label %._crit_edge141, !llvm.loop !13
+  %188 = load i32, ptr %73, align 8
+  %189 = sext i32 %188 to i64
+  %190 = icmp slt i64 %indvars.iv.next144, %189
+  br i1 %190, label %98, label %._crit_edge141, !llvm.loop !13
 
-._crit_edge141:                                   ; preds = %._crit_edge.thread147, %72
+._crit_edge141:                                   ; preds = %._crit_edge.thread, %72
   ret i64 0
 }
 
@@ -1524,58 +1520,54 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
 156:                                              ; preds = %155, %148, %142
   %.0116 = phi i16 [ %143, %142 ], [ %105, %148 ], [ %105, %155 ]
   %.0113 = phi i32 [ %147, %142 ], [ %153, %148 ], [ %spec.select154, %155 ]
-  switch i16 %.0116, label %167 [
+  switch i16 %.0116, label %165 [
     i16 1, label %157
     i16 2, label %159
     i16 3, label %161
     i16 4, label %163
-    i16 5, label %165
+    i16 5, label %172
   ]
 
 157:                                              ; preds = %156
   %158 = icmp slt i32 %.0113, 0
-  br label %174
+  br i1 %158, label %.thread166, label %.thread172
 
 159:                                              ; preds = %156
   %160 = icmp slt i32 %.0113, 1
-  br label %174
+  br i1 %160, label %.thread166, label %.thread172
 
 161:                                              ; preds = %156
   %162 = icmp eq i32 %.0113, 0
-  br label %174
+  br i1 %162, label %.thread166, label %.thread172
 
 163:                                              ; preds = %156
   %164 = icmp sgt i32 %.0113, -1
-  br label %174
+  br i1 %164, label %.thread166, label %.thread172
 
 165:                                              ; preds = %156
-  %166 = icmp sgt i32 %.0113, 0
-  br label %174
-
-167:                                              ; preds = %156
-  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %168)
-  %169 = load ptr, ptr %4, align 8
-  %170 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %169, i64 %indvars.iv, i32 2
-  %171 = load i16, ptr %170, align 2
-  %172 = zext i16 %171 to i32
-  %173 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %172) #9
+  %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %166)
+  %167 = load ptr, ptr %4, align 8
+  %168 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %167, i64 %indvars.iv, i32 2
+  %169 = load i16, ptr %168, align 2
+  %170 = zext i16 %169 to i32
+  %171 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %170) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_text_leaf_consistent) #9
   unreachable
 
-174:                                              ; preds = %157, %159, %161, %163, %165
-  %.3 = phi i1 [ %158, %157 ], [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ]
-  br i1 %.3, label %.thread166, label %.thread172
+172:                                              ; preds = %156
+  %173 = icmp sgt i32 %.0113, 0
+  br i1 %173, label %.thread166, label %.thread172
 
-.thread166:                                       ; preds = %135, %134, %174
+.thread166:                                       ; preds = %163, %161, %159, %157, %135, %134, %172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %175 = load i32, ptr %97, align 8
-  %176 = sext i32 %175 to i64
-  %177 = icmp slt i64 %indvars.iv.next, %176
-  br i1 %177, label %101, label %.thread172, !llvm.loop !14
+  %174 = load i32, ptr %97, align 8
+  %175 = sext i32 %174 to i64
+  %176 = icmp slt i64 %indvars.iv.next, %175
+  br i1 %176, label %101, label %.thread172, !llvm.loop !14
 
-.thread172:                                       ; preds = %.thread166, %174, %135, %96
-  %.1 = phi i64 [ 1, %96 ], [ 0, %135 ], [ 0, %174 ], [ 1, %.thread166 ]
+.thread172:                                       ; preds = %.thread166, %172, %135, %157, %159, %161, %163, %96
+  %.1 = phi i64 [ 1, %96 ], [ 0, %163 ], [ 0, %161 ], [ 0, %159 ], [ 0, %157 ], [ 0, %135 ], [ 0, %172 ], [ 1, %.thread166 ]
   ret i64 %.1
 }
 

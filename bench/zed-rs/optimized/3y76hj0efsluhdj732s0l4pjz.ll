@@ -11403,7 +11403,7 @@ _ZN4gpui8executor18BackgroundExecutor14block_internal17h3cd9711e52220f9bE.exit: 
   br label %"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$GT$17h7ce12e4e59de4b8dE.exit"
 
 .body46:                                          ; preds = %252, %248, %279, %192, %283, %.thread79, %278, %.body44
-  %.sroa.015.5 = phi i8 [ %.sroa.010.259, %.body44 ], [ 1, %.thread79 ], [ %.sroa.010.3, %278 ], [ 1, %283 ], [ %.sroa.010.3, %192 ], [ 0, %279 ], [ 1, %248 ], [ 1, %252 ]
+  %.sroa.015.5 = phi i8 [ 1, %.body44 ], [ 1, %.thread79 ], [ %.sroa.010.3, %278 ], [ 1, %283 ], [ %.sroa.010.3, %192 ], [ 0, %279 ], [ 1, %248 ], [ 1, %252 ]
   %.pn = phi { ptr, i32 } [ %229, %.body44 ], [ %.pn23, %.thread79 ], [ %.pn23, %278 ], [ %eh.lpad-body28, %283 ], [ %.pn23, %192 ], [ %.pn23, %279 ], [ %249, %248 ], [ %249, %252 ]
   invoke void @"_ZN4core3ptr174drop_in_place$LT$postage..channels..dispatch..Receiver$LT$$LP$alloc..vec..Vec$LT$command_palette..Command$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatch$GT$$RP$$GT$$GT$17heb165be4785b09b7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #41
           to label %.body41 unwind label %258

@@ -1553,13 +1553,13 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %sext = zext nneg i32 %.sroa.6.0 to i64
   br label %.lr.ph178
 
-.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %193
-  %indvars.iv199 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next200, %193 ]
+.lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.loopexit.thread
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next200, %.loopexit.thread ]
   %137 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::ValueTag", ptr %46, i64 %indvars.iv199
   %138 = load i8, ptr %137, align 1
   %139 = and i8 %138, 48
   %or.cond159 = icmp eq i8 %139, 16
-  br i1 %or.cond159, label %140, label %193
+  br i1 %or.cond159, label %140, label %.loopexit.thread
 
 140:                                              ; preds = %.lr.ph178
   %141 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Vtr::internal::FVarLevel::CreaseEndPair", ptr %85, i64 %indvars.iv199
@@ -1611,7 +1611,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
 
 .critedge.preheader:                              ; preds = %173
   %168 = trunc i8 %179 to i1
-  br i1 %168, label %.loopexit, label %.lr.ph173
+  br i1 %168, label %.loopexit.thread, label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %.preheader165, %.critedge.preheader
   %169 = load ptr, ptr %8, align 8
@@ -1648,69 +1648,69 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit: ; preds =
   %.not110 = select i1 %188, i1 true, i1 %189
   br i1 %.not110, label %.loopexit, label %.critedge, !llvm.loop !35
 
-.loopexit:                                        ; preds = %.critedge, %152, %.critedge.preheader
-  %.1 = phi i8 [ %179, %.critedge.preheader ], [ %158, %152 ], [ %187, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %152
+  %.1 = phi i8 [ %158, %152 ], [ %187, %.critedge ]
   %190 = trunc i8 %.1 to i1
-  br i1 %190, label %193, label %.thread
+  br i1 %190, label %.loopexit.thread, label %.thread
 
 .thread:                                          ; preds = %161, %.loopexit
   %191 = and i8 %138, -57
   %192 = or disjoint i8 %191, 8
   store i8 %192, ptr %137, align 1
-  br label %193
+  br label %.loopexit.thread
 
-193:                                              ; preds = %.lr.ph178, %.thread, %.loopexit
+.loopexit.thread:                                 ; preds = %.critedge.preheader, %.lr.ph178, %.thread, %.loopexit
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
   br i1 %exitcond203.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !36
 
-._crit_edge179:                                   ; preds = %193
-  %194 = icmp eq i16 %38, 2
-  %or.cond = select i1 %194, i1 %7, i1 false
-  br i1 %or.cond, label %195, label %.loopexit167
+._crit_edge179:                                   ; preds = %.loopexit.thread
+  %193 = icmp eq i16 %38, 2
+  %or.cond = select i1 %193, i1 %7, i1 false
+  br i1 %or.cond, label %194, label %.loopexit167
 
-195:                                              ; preds = %._crit_edge179
-  %196 = load i8, ptr %46, align 1
-  %197 = and i8 %196, 32
-  %.not103 = icmp ne i8 %197, 0
+194:                                              ; preds = %._crit_edge179
+  %195 = load i8, ptr %46, align 1
+  %196 = and i8 %195, 32
+  %.not103 = icmp ne i8 %196, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %46, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  %198 = and i8 %.pre, 16
-  %.not104 = icmp eq i8 %198, 0
-  %or.cond219 = select i1 %.not103, i1 %.not104, i1 false
-  br i1 %or.cond219, label %199, label %._crit_edge212
+  %197 = and i8 %.pre, 16
+  %.not104 = icmp eq i8 %197, 0
+  %or.cond220 = select i1 %.not103, i1 %.not104, i1 false
+  br i1 %or.cond220, label %198, label %._crit_edge212
 
-199:                                              ; preds = %195
-  %200 = and i8 %196, -33
-  store i8 %200, ptr %46, align 1
+198:                                              ; preds = %194
+  %199 = and i8 %195, -33
+  store i8 %199, ptr %46, align 1
   br label %.loopexit167
 
-._crit_edge212:                                   ; preds = %195
-  %201 = and i8 %.pre, 32
-  %.not105 = icmp ne i8 %201, 0
-  %202 = and i8 %196, 16
-  %.not106 = icmp eq i8 %202, 0
+._crit_edge212:                                   ; preds = %194
+  %200 = and i8 %.pre, 32
+  %.not105 = icmp ne i8 %200, 0
+  %201 = and i8 %195, 16
+  %.not106 = icmp eq i8 %201, 0
   %or.cond162 = and i1 %.not106, %.not105
-  br i1 %or.cond162, label %203, label %.loopexit167
+  br i1 %or.cond162, label %202, label %.loopexit167
 
-203:                                              ; preds = %._crit_edge212
-  %204 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  %205 = and i8 %.pre, -33
-  store i8 %205, ptr %204, align 1
+202:                                              ; preds = %._crit_edge212
+  %203 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %204 = and i8 %.pre, -33
+  store i8 %204, ptr %203, align 1
   br label %.loopexit167
 
-.loopexit167:                                     ; preds = %81, %136, %.preheader166, %56, %._crit_edge179, %._crit_edge212, %203, %199, %67, %49, %33
+.loopexit167:                                     ; preds = %81, %136, %.preheader166, %56, %._crit_edge179, %._crit_edge212, %202, %198, %67, %49, %33
   %indvars.iv.next210 = add nsw i64 %indvars.iv209, 1
-  %206 = icmp slt i64 %indvars.iv.next210, %32
-  br i1 %206, label %33, label %._crit_edge185.loopexit, !llvm.loop !37
+  %205 = icmp slt i64 %indvars.iv.next210, %32
+  br i1 %205, label %33, label %._crit_edge185.loopexit, !llvm.loop !37
 
 ._crit_edge185.loopexit:                          ; preds = %.loopexit167
   %.pre213 = load ptr, ptr %15, align 8
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit
-  %207 = phi ptr [ %.pre213, %._crit_edge185.loopexit ], [ %21, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
-  call void @_ZdlPv(ptr noundef %207) #17
+  %206 = phi ptr [ %.pre213, %._crit_edge185.loopexit ], [ %21, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj16ELb0EEC2Ej.exit ]
+  call void @_ZdlPv(ptr noundef %206) #17
   ret void
 }
 

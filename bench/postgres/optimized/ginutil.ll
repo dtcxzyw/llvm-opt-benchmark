@@ -636,28 +636,28 @@ define dso_local i64 @gintuple_get_key(ptr noundef readonly captures(none) %0, p
   %.val19.i15 = load i8, ptr %93, align 1
   %94 = and i8 %.val19.i15, 2
   %.not.i20.i16 = icmp eq i8 %94, 0
-  br i1 %.not.i20.i16, label %.index_getattr.exit_crit_edge, label %96
+  br i1 %.not.i20.i16, label %.index_getattr.exit_crit_edge, label %97
 
 .index_getattr.exit_crit_edge:                    ; preds = %92
   %.pre = load i8, ptr %4, align 8, !range !4
-  %.pre22 = trunc nuw i8 %.pre to i1
-  %95 = select i1 %.pre22, i64 0, i64 2
+  %95 = trunc nuw i8 %.pre to i1
+  %96 = select i1 %95, i64 0, i64 2
   br label %index_getattr.exit
 
-96:                                               ; preds = %92
-  %97 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %56) #7
+97:                                               ; preds = %92
+  %98 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %1, i32 noundef 2, ptr noundef %56) #7
   br label %index_getattr.exit.thread
 
 index_getattr.exit:                               ; preds = %.index_getattr.exit_crit_edge, %45
-  %.pre-phi = phi i64 [ %95, %.index_getattr.exit_crit_edge ], [ 0, %45 ]
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %.pre-phi
-  %100 = load i8, ptr %99, align 1
+  %99 = phi i64 [ 0, %45 ], [ %96, %.index_getattr.exit_crit_edge ]
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %99
+  %102 = load i8, ptr %101, align 1
   br label %index_getattr.exit.thread
 
-index_getattr.exit.thread:                        ; preds = %90, %88, %82, %79, %76, %73, %96, %43, %41, %35, %32, %29, %26, %48, %index_getattr.exit
-  %.021 = phi i64 [ 0, %index_getattr.exit ], [ %89, %88 ], [ %83, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %91, %90 ], [ %97, %96 ], [ %42, %41 ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %44, %43 ], [ %49, %48 ]
-  %storemerge = phi i8 [ %100, %index_getattr.exit ], [ 0, %88 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %90 ], [ 0, %96 ], [ 0, %41 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %43 ], [ 0, %48 ]
+index_getattr.exit.thread:                        ; preds = %90, %88, %82, %79, %76, %73, %97, %43, %41, %35, %32, %29, %26, %48, %index_getattr.exit
+  %.021 = phi i64 [ 0, %index_getattr.exit ], [ %89, %88 ], [ %83, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %91, %90 ], [ %98, %97 ], [ %42, %41 ], [ %36, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ %44, %43 ], [ %49, %48 ]
+  %storemerge = phi i8 [ %102, %index_getattr.exit ], [ 0, %88 ], [ 0, %82 ], [ 0, %79 ], [ 0, %76 ], [ 0, %73 ], [ 0, %90 ], [ 0, %97 ], [ 0, %41 ], [ 0, %35 ], [ 0, %32 ], [ 0, %29 ], [ 0, %26 ], [ 0, %43 ], [ 0, %48 ]
   store i8 %storemerge, ptr %2, align 1
   ret i64 %.021
 }

@@ -5449,7 +5449,7 @@ _ZNK3ue28bitfieldILm256EE3anyEv.exit.i.i:         ; preds = %324
   br i1 %.not158187.i.i, label %._crit_edge191.i.i, label %.lr.ph190.i.i
 
 ._crit_edge191.i.i:                               ; preds = %361, %326
-  %329 = trunc nuw i8 %.064194.i.i to i1
+  %329 = trunc i8 %.064194.i.i to i1
   br i1 %329, label %362, label %369
 
 .lr.ph190.i.i:                                    ; preds = %326, %361
@@ -5531,14 +5531,12 @@ _ZN3ue28containsINS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graph
   %364 = getelementptr inbounds nuw [4 x i64], ptr %216, i64 0, i64 %363
   %365 = load i64, ptr %364, align 8
   %366 = and i64 %.065193.i.i, 63
-  %367 = shl nuw i64 1, %366
-  %368 = and i64 %365, %367
-  %.not159.i.i = icmp eq i64 %368, 0
-  %spec.select.i.i = select i1 %.not159.i.i, i8 0, i8 %.064194.i.i
+  %367 = lshr i64 %365, %366
+  %368 = trunc i64 %367 to i8
   br label %369
 
 369:                                              ; preds = %362, %._crit_edge191.i.i
-  %.1.i.i = phi i8 [ 0, %._crit_edge191.i.i ], [ %spec.select.i.i, %362 ]
+  %.1.i.i = phi i8 [ 0, %._crit_edge191.i.i ], [ %368, %362 ]
   %.not.i71.i.i = icmp ult i64 %.065193.i.i, 256
   br i1 %.not.i71.i.i, label %370, label %._crit_edge196.i.i
 
@@ -5746,7 +5744,7 @@ _ZNK3ue28bitfieldILm256EE10find_firstEv.exit89.i.i: ; preds = %442
   %452 = zext i16 %451 to i64
   %453 = getelementptr inbounds nuw %"class.ue2::bitfield", ptr %.sroa.04.0, i64 %452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %453, ptr noundef nonnull readonly align 8 dereferenceable(32) %12, i64 32, i1 false)
-  %454 = trunc nuw i8 %.064.lcssa.i.i to i1
+  %454 = trunc i8 %.064.lcssa.i.i to i1
   br i1 %454, label %508, label %_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE10transitionERKNS_8bitfieldILm256EEEPS5_.exit
 
 .lr.ph217.i.i:                                    ; preds = %.lr.ph217.i.i.preheader, %_ZNK3ue28bitfieldILm256EE9find_nextEm.exit99.i.i
@@ -8158,7 +8156,7 @@ _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit10.i.i.i: ; preds = %_ZNSt16allocator_
   br i1 %.not503522.i.i, label %._crit_edge526.i.i, label %.lr.ph525.i.i
 
 ._crit_edge526.i.i:                               ; preds = %561, %526
-  %529 = trunc nuw i8 %.066529.i.i to i1
+  %529 = trunc i8 %.066529.i.i to i1
   br i1 %529, label %562, label %569
 
 .lr.ph525.i.i:                                    ; preds = %526, %561
@@ -8240,14 +8238,12 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   %564 = getelementptr inbounds nuw i64, ptr %499, i64 %563
   %565 = load i64, ptr %564, align 8
   %566 = and i64 %.067528.i.i, 63
-  %567 = shl nuw i64 1, %566
-  %568 = and i64 %565, %567
-  %.not504.i.i = icmp eq i64 %568, 0
-  %spec.select.i.i = select i1 %.not504.i.i, i8 0, i8 %.066529.i.i
+  %567 = lshr i64 %565, %566
+  %568 = trunc i64 %567 to i8
   br label %569
 
 569:                                              ; preds = %562, %._crit_edge526.i.i
-  %.1.i.i = phi i8 [ 0, %._crit_edge526.i.i ], [ %spec.select.i.i, %562 ]
+  %.1.i.i = phi i8 [ 0, %._crit_edge526.i.i ], [ %568, %562 ]
   %570 = icmp uge i64 %.067528.i.i, %493
   %or.cond.i.i.i = or i1 %494, %570
   br i1 %or.cond.i.i.i, label %_ZNK5boost14dynamic_bitsetImSaImEE10find_firstEv.exit._crit_edge.i.i, label %571
@@ -9298,7 +9294,7 @@ _ZNK3ue29CharReach9find_nextEm.exit.i.i:          ; preds = %924, %917
   %934 = load i64, ptr %328, align 8
   %935 = getelementptr inbounds nuw i8, ptr %827, i64 24
   store i64 %934, ptr %935, align 8
-  %936 = trunc nuw i8 %.066.lcssa.i.i to i1
+  %936 = trunc i8 %.066.lcssa.i.i to i1
   br i1 %936, label %937, label %_ZNK5boost14dynamic_bitsetImSaImEE3anyEv.exit181.thread.i.i
 
 937:                                              ; preds = %933

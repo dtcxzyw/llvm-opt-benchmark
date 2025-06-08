@@ -5150,9 +5150,9 @@ while.endsplit:                                   ; preds = %_ZNSt5dequeIN8proxy
   br label %while.end
 
 while.end:                                        ; preds = %while.endsplit, %land.rhs26.while.end_crit_edge
-  %64 = phi ptr [ %.pre96, %while.endsplit ], [ %14, %land.rhs26.while.end_crit_edge ]
-  %65 = phi ptr [ %63, %while.endsplit ], [ %.pre95, %land.rhs26.while.end_crit_edge ]
-  %66 = phi ptr [ %storemerge.i, %while.endsplit ], [ %13, %land.rhs26.while.end_crit_edge ]
+  %64 = phi ptr [ %14, %land.rhs26.while.end_crit_edge ], [ %.pre96, %while.endsplit ]
+  %65 = phi ptr [ %.pre95, %land.rhs26.while.end_crit_edge ], [ %63, %while.endsplit ]
+  %66 = phi ptr [ %13, %land.rhs26.while.end_crit_edge ], [ %storemerge.i, %while.endsplit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %pendingNodes, i64 16, i1 false)
   %67 = load ptr, ptr %_M_first.i.i29, align 8

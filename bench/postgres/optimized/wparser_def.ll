@@ -460,7 +460,7 @@ p_isxdigit.exit:                                  ; preds = %p_isnotupper.exit
   %164 = tail call i32 @iswxdigit(i32 noundef %163) #16
   br label %p_isnotxdigit.exit
 
-p_isnotxdigit.exit:                               ; preds = %p_isupper.exit, %p_isnotupper.exit, %p_isspace.exit, %p_isnotprint.exit, %p_isnotlower.exit, %p_isnotdigit.exit, %p_isalpha.exit, %p_isnotalpha.exit, %p_isnotalnum.exit, %0, %p_isalnum.exit, %p_isdigit.exit, %p_islower.exit, %p_isprint.exit, %p_isnotpunct.exit, %p_ispunct.exit, %p_isnotspace.exit, %p_isxdigit.exit, %156
+p_isnotxdigit.exit:                               ; preds = %p_isupper.exit, %p_isnotspace.exit, %p_isspace.exit, %p_isnotpunct.exit, %p_isalpha.exit, %p_isnotalnum.exit, %0, %p_isalnum.exit, %p_isnotalpha.exit, %p_isdigit.exit, %p_isnotdigit.exit, %p_islower.exit, %p_isnotlower.exit, %p_isprint.exit, %p_isnotprint.exit, %p_ispunct.exit, %p_isnotupper.exit, %p_isxdigit.exit, %156
   %165 = load ptr, ptr inttoptr (i64 40 to ptr), align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 8

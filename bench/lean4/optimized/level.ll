@@ -8342,9 +8342,9 @@ _ZN4lean8is_paramERKNS_5levelE.exit.i.i.i:        ; preds = %18
   %.pre.i.i.i = load ptr, ptr %1, align 8, !tbaa !3
   %.pre13.i.i.i = load ptr, ptr %0, align 8, !tbaa !147
   %.pre14.i.i.i = load i8, ptr %.pre13.i.i.i, align 8, !tbaa !74, !range !56
-  %36 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
-  %37 = trunc nuw i8 %.pre14.i.i.i to i1
-  br i1 %37, label %38, label %_ZN4lean10object_refD2Ev.exit.i.i.i.i
+  %36 = trunc nuw i8 %.pre14.i.i.i to i1
+  %37 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
+  br i1 %36, label %38, label %_ZN4lean10object_refD2Ev.exit.i.i.i.i
 
 38:                                               ; preds = %.loopexit.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.pre13.i.i.i, i64 8
@@ -8380,7 +8380,7 @@ _ZN4lean8is_paramERKNS_5levelE.exit.i.i.i:        ; preds = %18
   unreachable
 
 _ZN4lean10object_refD2Ev.exit.i.i.i.i:            ; preds = %49, %48, %46, %38, %.loopexit.i.i.i, %24
-  %53 = phi ptr [ %36, %49 ], [ %36, %48 ], [ %36, %46 ], [ %36, %38 ], [ %36, %.loopexit.i.i.i ], [ %28, %24 ]
+  %53 = phi ptr [ %37, %49 ], [ %37, %48 ], [ %37, %46 ], [ %37, %38 ], [ %37, %.loopexit.i.i.i ], [ %28, %24 ]
   %54 = phi ptr [ %.pre13.i.i.i, %49 ], [ %.pre13.i.i.i, %48 ], [ %.pre13.i.i.i, %46 ], [ %.pre13.i.i.i, %38 ], [ %.pre13.i.i.i, %.loopexit.i.i.i ], [ %15, %24 ]
   store i8 1, ptr %54, align 8, !tbaa !74
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8

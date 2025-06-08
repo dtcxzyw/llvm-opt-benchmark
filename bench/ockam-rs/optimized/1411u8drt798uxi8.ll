@@ -9784,7 +9784,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit.i.i: ; p
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.4.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.4.i.i.i.i, i64 3, i1 false), !noalias !1102
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 355
-  store i8 %.sroa.851.0.copyload.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 1, !noalias !1102
+  store i8 0, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 1, !noalias !1102
   %.sroa.653.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 356
   store i32 %.sroa.11.0.copyload.i.i.i.i, ptr %.sroa.653.0..sroa_idx.i.i.i.i, align 4, !noalias !1102
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.4.i.i.i.i)
@@ -96284,7 +96284,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.18141648412879468590.exit: ; preds
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.410.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.410, i64 3, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 11
-  store i8 %.sroa.731.0.copyload, ptr %.sroa.5.0..sroa_idx, align 1
+  store i8 0, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %.sroa.1032.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.410)

@@ -5524,116 +5524,122 @@ _ZN11quinn_proto10connection4mtud19EnabledMtuDiscovery13on_probe_lost17h5deb8894
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN11quinn_proto10connection4mtud12MtuDiscovery17on_non_probe_lost17h3c6ffd4f68fa5a20E(ptr noalias noundef align 8 dereferenceable(152) %0, i64 noundef %1, i16 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.sroa.6.i = alloca [6 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   %4 = load i64, ptr %0, align 8, !range !14, !alias.scope !310, !noundef !3
   %5 = trunc nuw i64 %4 to i1
-  br i1 %5, label %6, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread
+  br i1 %5, label %6, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !310, !noundef !3
   %9 = sub i64 %1, %8
   %.not.i = icmp eq i64 %9, 1
-  br i1 %.not.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread9, label %10
+  %.sroa.46.0..sroa_idx22.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.not.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i, label %15
 
-_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread9: ; preds = %6
-  %.sroa.46.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.46.0.copyload.i13 = load i16, ptr %.sroa.46.0..sroa_idx.i12, align 8, !alias.scope !310
-  %.sroa.0.0.sroa.speculated.i.i.i.i14 = tail call i16 @llvm.umin.i16(i16 %2, i16 %.sroa.46.0.copyload.i13)
-  br label %49
-
-10:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.6.0.copyload.i.i = load i16, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !316
-  store i64 0, ptr %0, align 8, !alias.scope !316
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 58
-  %12 = load i16, ptr %11, align 2, !alias.scope !316, !noundef !3
-  %13 = icmp ult i16 %.sroa.6.0.copyload.i.i, %12
-  br i1 %13, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread, label %14
-
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i64, ptr %15, align 8, !alias.scope !316, !noundef !3
-  %17 = icmp ult i64 %8, %16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load i16, ptr %18, align 8, !alias.scope !316
-  %20 = icmp ult i16 %.sroa.6.0.copyload.i.i, %19
-  %or.cond.i.i = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond.i.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread, label %21
-
-21:                                               ; preds = %14
-  %22 = icmp ugt i64 %8, %16
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %21
-  store i16 %12, ptr %18, align 8, !alias.scope !316
-  br label %24
-
-24:                                               ; preds = %23, %21
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i64, ptr %25, align 8, !alias.scope !316, !noundef !3
-  %27 = icmp ult i64 %26, 4611686018427387904
-  tail call void @llvm.assume(i1 %27)
-  %28 = icmp samesign ult i64 %26, 4
-  br i1 %28, label %39, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i
-
-_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i: ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !alias.scope !316, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %26
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  %33 = load i16, ptr %30, align 2, !alias.scope !317, !noalias !320, !noundef !3
-  %34 = tail call { i16, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d5c0dc83f710655E"(ptr noundef nonnull %32, ptr noundef nonnull %31, i16 noundef %33, ptr noalias noundef nonnull align 2 dereferenceable(2) %30), !noalias !316
-  %35 = extractvalue { i16, ptr } %34, 1
-  %.not.i.i = icmp eq ptr %35, null
-  br i1 %.not.i.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread, label %36
-
-36:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i
-  %37 = load i16, ptr %35, align 2, !alias.scope !323, !noalias !316, !noundef !3
-  %38 = icmp ult i16 %37, %.sroa.6.0.copyload.i.i
-  br i1 %38, label %"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i", label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread
-
-39:                                               ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i64, ptr %40, align 8, !range !118, !alias.scope !326, !noundef !3
-  %42 = icmp eq i64 %26, %41
-  br i1 %42, label %43, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
-
-43:                                               ; preds = %39
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hd461350b042d72e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42c61ef3774b54ef40e69522abedb007.111)
+_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i: ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6.i)
+  %.sroa.46.0.copyload23.i = load i16, ptr %.sroa.46.0..sroa_idx22.i, align 8, !alias.scope !310
+  %.sroa.0.0.sroa.speculated.i.i.i25.i = tail call i16 @llvm.umin.i16(i16 %2, i16 %.sroa.46.0.copyload23.i)
   br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
 
-"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i": ; preds = %36
-  store i16 %.sroa.6.0.copyload.i.i, ptr %35, align 2, !noalias !316
-  br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread
+_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i: ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i", %41, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i, %19, %15, %3
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6.i)
+  %.sroa.46.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
 
-_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread: ; preds = %"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i", %36, %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i, %14, %10, %3
-  %.sroa.46.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %49
-
-_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit: ; preds = %39, %43
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = load ptr, ptr %44, align 8, !alias.scope !326, !nonnull !3, !noundef !3
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %26
-  store i16 %.sroa.6.0.copyload.i.i, ptr %46, align 2
-  %47 = add nuw nsw i64 %26, 1
-  store i64 %47, ptr %25, align 8, !alias.scope !326
+_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i: ; preds = %48, %44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8, !alias.scope !313, !nonnull !3, !noundef !3
+  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %31
+  store i16 %.sroa.6.0.copyload.i.i, ptr %12, align 2
+  %13 = add nuw nsw i64 %31, 1
+  store i64 %13, ptr %30, align 8, !alias.scope !313
   %.sroa.04.0.copyload.pre.i = load i64, ptr %0, align 8, !alias.scope !310
-  %.sroa.04.0.copyload.pre.i.fr = freeze i64 %.sroa.04.0.copyload.pre.i
-  %48 = trunc i64 %.sroa.04.0.copyload.pre.i.fr to i1
-  %.sroa.46.0.copyload.i = load i16, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !310
+  %.sroa.04.0.copyload.pre.fr.i = freeze i64 %.sroa.04.0.copyload.pre.i
+  %14 = trunc i64 %.sroa.04.0.copyload.pre.fr.i to i1
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.6.i)
+  %.sroa.46.0.copyload.i = load i16, ptr %.sroa.46.0..sroa_idx22.i, align 8, !alias.scope !310
   %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i16 @llvm.umin.i16(i16 %2, i16 %.sroa.46.0.copyload.i)
-  %spec.select = select i1 %48, i16 %.sroa.0.0.sroa.speculated.i.i.i.i, i16 %2
-  br label %49
+  %spec.select.i = select i1 %14, i16 %.sroa.0.0.sroa.speculated.i.i.i.i, i16 %2
+  br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit
 
-49:                                               ; preds = %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread9, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread
-  %.sroa.46.0..sroa_idx.i8 = phi ptr [ %.sroa.46.0..sroa_idx.i3, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread ], [ %.sroa.46.0..sroa_idx.i12, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread9 ], [ %.sroa.6.0..sroa_idx.i.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit ]
-  %50 = phi i16 [ %2, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread ], [ %.sroa.0.0.sroa.speculated.i.i.i.i14, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit.thread9 ], [ %spec.select, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit ]
-  %.sroa.4.0..sroa_idx5.i7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+15:                                               ; preds = %6
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
+  %.sroa.6.0.copyload.i.i = load i16, ptr %.sroa.46.0..sroa_idx22.i, align 8, !alias.scope !319
+  store i64 0, ptr %0, align 8, !alias.scope !319
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 58
+  %17 = load i16, ptr %16, align 2, !alias.scope !319, !noundef !3
+  %18 = icmp ult i16 %.sroa.6.0.copyload.i.i, %17
+  br i1 %18, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i, label %19
+
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = load i64, ptr %20, align 8, !alias.scope !319, !noundef !3
+  %22 = icmp ult i64 %8, %21
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = load i16, ptr %23, align 8, !alias.scope !319
+  %25 = icmp ult i16 %.sroa.6.0.copyload.i.i, %24
+  %or.cond.i.i = select i1 %22, i1 %25, i1 false
+  br i1 %or.cond.i.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i, label %26
+
+26:                                               ; preds = %19
+  %27 = icmp ugt i64 %8, %21
+  br i1 %27, label %28, label %29
+
+28:                                               ; preds = %26
+  store i16 %17, ptr %23, align 8, !alias.scope !319
+  br label %29
+
+29:                                               ; preds = %28, %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %31 = load i64, ptr %30, align 8, !alias.scope !319, !noundef !3
+  %32 = icmp ult i64 %31, 4611686018427387904
+  tail call void @llvm.assume(i1 %32)
+  %33 = icmp samesign ult i64 %31, 4
+  br i1 %33, label %44, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i
+
+_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i: ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8, !alias.scope !319, !nonnull !3, !noundef !3
+  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %31
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  %38 = load i16, ptr %35, align 2, !alias.scope !320, !noalias !323, !noundef !3
+  %39 = tail call { i16, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d5c0dc83f710655E"(ptr noundef nonnull %37, ptr noundef nonnull %36, i16 noundef %38, ptr noalias noundef nonnull align 2 dereferenceable(2) %35), !noalias !319
+  %40 = extractvalue { i16, ptr } %39, 1
+  %.not.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i, label %41
+
+41:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h5ead546e717ba0f3E.exit.i.i
+  %42 = load i16, ptr %40, align 2, !alias.scope !326, !noalias !319, !noundef !3
+  %43 = icmp ult i16 %42, %.sroa.6.0.copyload.i.i
+  br i1 %43, label %"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i", label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i
+
+44:                                               ; preds = %29
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = load i64, ptr %45, align 8, !range !118, !alias.scope !313, !noundef !3
+  %47 = icmp eq i64 %31, %46
+  br i1 %47, label %48, label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i
+
+48:                                               ; preds = %44
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hd461350b042d72e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.42c61ef3774b54ef40e69522abedb007.111)
+  br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i
+
+"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE.exit.i.i": ; preds = %41
+  store i16 %.sroa.6.0.copyload.i.i, ptr %40, align 2, !noalias !319
+  br label %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i
+
+_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE.exit: ; preds = %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i
+  %.sroa.46.0..sroa_idx17.i = phi ptr [ %.sroa.46.0..sroa_idx11.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i ], [ %.sroa.46.0..sroa_idx22.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i ], [ %.sroa.46.0..sroa_idx22.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i ]
+  %49 = phi i16 [ %2, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread.i ], [ %.sroa.0.0.sroa.speculated.i.i.i25.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.thread19.i ], [ %spec.select.i, %_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE.exit.i ]
+  %.sroa.4.0..sroa_idx516.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx718.i = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i64 1, ptr %0, align 8, !alias.scope !310
-  store i64 %1, ptr %.sroa.4.0..sroa_idx5.i7, align 8, !alias.scope !310
-  store i16 %50, ptr %.sroa.46.0..sroa_idx.i8, align 8, !alias.scope !310
+  store i64 %1, ptr %.sroa.4.0..sroa_idx516.i, align 8, !alias.scope !310
+  store i16 %49, ptr %.sroa.46.0..sroa_idx17.i, align 8, !alias.scope !310
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx718.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.6.i, i64 6, i1 false)
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.6.i)
   ret void
 }
 
@@ -8480,22 +8486,22 @@ attributes #26 = { cold noreturn nounwind }
 !310 = !{!311}
 !311 = distinct !{!311, !312, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE: argument 0"}
 !312 = distinct !{!312, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector17on_non_probe_lost17hd5af86a6ce9fc5ffE"}
-!313 = !{!314}
-!314 = distinct !{!314, !315, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE: argument 0"}
-!315 = distinct !{!315, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE"}
-!316 = !{!314, !311}
-!317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZN4core4iter6traits8iterator8Iterator10min_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h6422269bf9874b8dE: argument 0"}
-!319 = distinct !{!319, !"_ZN4core4iter6traits8iterator8Iterator10min_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h6422269bf9874b8dE"}
-!320 = !{!321, !314, !311}
-!321 = distinct !{!321, !322, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h306829a0ada512b0E: argument 0"}
-!322 = distinct !{!322, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h306829a0ada512b0E"}
-!323 = !{!324}
-!324 = distinct !{!324, !325, !"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE: argument 0"}
-!325 = distinct !{!325, !"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE"}
-!326 = !{!327, !314, !311}
-!327 = distinct !{!327, !328, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h139ef9fa383b8128E: argument 0"}
-!328 = distinct !{!328, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h139ef9fa383b8128E"}
+!313 = !{!314, !316, !311}
+!314 = distinct !{!314, !315, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h139ef9fa383b8128E: argument 0"}
+!315 = distinct !{!315, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h139ef9fa383b8128E"}
+!316 = distinct !{!316, !317, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE: argument 0"}
+!317 = distinct !{!317, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector17finish_loss_burst17hf44fa2bfe36849baE"}
+!318 = !{!316}
+!319 = !{!316, !311}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZN4core4iter6traits8iterator8Iterator10min_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h6422269bf9874b8dE: argument 0"}
+!322 = distinct !{!322, !"_ZN4core4iter6traits8iterator8Iterator10min_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h6422269bf9874b8dE"}
+!323 = !{!324, !316, !311}
+!324 = distinct !{!324, !325, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h306829a0ada512b0E: argument 0"}
+!325 = distinct !{!325, !"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h306829a0ada512b0E"}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE: argument 0"}
+!328 = distinct !{!328, !"_ZN4core6option15Option$LT$T$GT$6filter17hd39a0f3de432b7daE"}
 !329 = !{!330}
 !330 = distinct !{!330, !331, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector19black_hole_detected17h99a64b5736192b5bE: argument 0"}
 !331 = distinct !{!331, !"_ZN11quinn_proto10connection4mtud17BlackHoleDetector19black_hole_detected17h99a64b5736192b5bE"}

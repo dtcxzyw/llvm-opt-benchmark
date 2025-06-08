@@ -3072,7 +3072,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.ph.i.i108, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %437
-  %440 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %425, %437 ], [ %425, %.lr.ph.i.i108 ]
+  %440 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %437 ], [ 1, %.lr.ph.i.i108 ]
   %441 = getelementptr inbounds nuw i8, ptr %.063165, i64 8
   %.not69 = icmp eq ptr %441, %405
   br i1 %.not69, label %._crit_edge167, label %424

@@ -53892,7 +53892,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEENS0_17aligned_allocatorIS2_EE
   br label %80
 
 80:                                               ; preds = %79, %._crit_edge
-  %.sink = phi i8 [ 0, %79 ], [ %46, %._crit_edge ]
+  %.sink = phi i8 [ 0, %79 ], [ 1, %._crit_edge ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %81, align 8, !tbaa !652
   call void @free(ptr noundef %47) #5

@@ -1484,8 +1484,8 @@ _ZNR4absl12lts_202407228StatusOrISt10unique_ptrIN9grpc_core12experimental3CrlESt
 
 103:                                              ; preds = %102
   %.pre77 = load i8, ptr %28, align 8, !tbaa !59, !range !63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !50
   %104 = trunc nuw i8 %.pre77 to i1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !50
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #36
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #36
   br i1 %104, label %113, label %105

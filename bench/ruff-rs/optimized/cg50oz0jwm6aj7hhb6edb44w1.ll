@@ -118900,7 +118900,7 @@ common.resume:                                    ; preds = %57, %47
           to label %59 unwind label %57
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h181ab4ecbde564b8E.exit": ; preds = %_ZN4core3ops8function5FnMut8call_mut17h670dd0820904a341E.exit.i, %102, %95, %91, %85, %82, %59, %112, %70, %41
-  %.sroa.04.2 = phi i8 [ 1, %41 ], [ %.sroa.04.030, %112 ], [ %.sroa.04.030, %70 ], [ 0, %59 ], [ %.sroa.04.030, %_ZN4core3ops8function5FnMut8call_mut17h670dd0820904a341E.exit.i ], [ %.sroa.04.030, %102 ], [ %.sroa.04.030, %95 ], [ %.sroa.04.030, %91 ], [ %.sroa.04.030, %85 ], [ 1, %82 ]
+  %.sroa.04.2 = phi i8 [ 1, %41 ], [ 0, %112 ], [ 0, %70 ], [ 0, %59 ], [ 0, %_ZN4core3ops8function5FnMut8call_mut17h670dd0820904a341E.exit.i ], [ 0, %102 ], [ 0, %95 ], [ 0, %91 ], [ 0, %85 ], [ 1, %82 ]
   %55 = call noundef zeroext i1 @_ZN20ruff_python_semantic7analyze10visibility17method_visibility17h3e0d1c5befe82393E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.012.031)
   %not. = xor i1 %55, true
   %56 = zext i1 %not. to i32

@@ -1913,7 +1913,7 @@ _ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %12
   br i1 %or.cond, label %.critedge, label %34
 
 33:                                               ; preds = %31
-  br i1 %.old34, label %.critedge.thread65, label %34
+  br i1 %.old34, label %.critedge.thread66, label %34
 
 34:                                               ; preds = %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 56
@@ -1928,9 +1928,9 @@ _ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %12
 
 .critedge:                                        ; preds = %32
   %40 = trunc nuw i8 %.old33 to i1
-  br i1 %40, label %.critedge.thread65, label %.critedge.thread
+  br i1 %40, label %.critedge.thread66, label %.critedge.thread
 
-.critedge.thread65:                               ; preds = %33, %.critedge
+.critedge.thread66:                               ; preds = %33, %.critedge
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %42 = load i32, ptr %41, align 8, !tbaa !98
   %43 = load i32, ptr %14, align 8, !tbaa !98
@@ -1938,7 +1938,7 @@ _ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit: ; preds = %12
   store i32 %44, ptr %41, align 8, !tbaa !98
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %39, %34, %.critedge.thread65, %.critedge
+.critedge.thread:                                 ; preds = %39, %34, %.critedge.thread66, %.critedge
   tail call void @_ZN11V3GraphEdge12unlinkDeleteEv(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.039.056)
   br label %_ZN8GraphAlgI7V3GraphE10followEdgeEP11V3GraphEdge.exit.thread
 

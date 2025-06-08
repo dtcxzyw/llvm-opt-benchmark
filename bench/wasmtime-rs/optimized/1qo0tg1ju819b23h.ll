@@ -1322,7 +1322,7 @@ define hidden void @_ZN14cranelift_wasm15code_translator18translate_operator17h4
   %291 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %.sroa.02.0.copyload.i = load i64, ptr %291, align 8, !noalias !66
   %292 = getelementptr inbounds nuw i8, ptr %283, i64 48
-  store i8 %256, ptr %292, align 8, !noalias !66
+  store i8 0, ptr %292, align 8, !noalias !66
   br i1 %290, label %294, label %_ZN14cranelift_wasm15code_translator30translate_unreachable_operator17h8ffca4091ab08287E.exit.thread
 
 293:                                              ; preds = %280

@@ -18310,7 +18310,7 @@ _ZN3smt9theory_bv9find_wposEi.exit:               ; preds = %107, %117, %._crit_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN3smt9theory_bv21internalize_term_coreEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef zeroext i1 @_ZN3smt9theory_bv16approximate_termEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef %1)
-  br i1 %3, label %62, label %4
+  br i1 %3, label %64, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18355,146 +18355,146 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %4
     i32 49, label %40
     i32 50, label %41
     i32 51, label %42
-    i32 12, label %62
-    i32 13, label %62
-    i32 14, label %62
-    i32 15, label %62
-    i32 16, label %62
+    i32 12, label %64
+    i32 13, label %64
+    i32 14, label %64
+    i32 15, label %64
+    i32 16, label %64
     i32 64, label %43
     i32 65, label %44
-    i32 66, label %53
-    i32 9, label %62
-    i32 10, label %62
-    i32 11, label %62
+    i32 66, label %54
+    i32 9, label %64
+    i32 10, label %64
+    i32 11, label %64
   ]
 
 12:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_numEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 13:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_negEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 14:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_addEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 15:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_subEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 16:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_mulEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 17:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_sdivEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 18:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_udivEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 19:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_sremEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 20:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_uremEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 21:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_smodEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 22:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_andEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 23:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv14internalize_orEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 24:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_notEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 25:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_xorEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 26:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_nandEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 27:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_norEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 28:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_xnorEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 29:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv18internalize_concatEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 30:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv23internalize_sign_extendEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 31:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv23internalize_zero_extendEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 32:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv19internalize_extractEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 33:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv17internalize_redorEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 34:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv18internalize_redandEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 35:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_compEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 36:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv15internalize_shlEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 37:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_lshrEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 38:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_ashrEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 39:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv23internalize_rotate_leftEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 40:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv24internalize_rotate_rightEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 41:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv27internalize_ext_rotate_leftEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 42:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv28internalize_ext_rotate_rightEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 43:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   tail call void @_ZN3smt9theory_bv16internalize_mkbvEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  br label %62
+  br label %64
 
 44:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18504,7 +18504,7 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 436
   %50 = load i8, ptr %49, align 4, !tbaa !752, !range !590, !noundef !591
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %62
+  br i1 %51, label %52, label %64
 
 52:                                               ; preds = %44
   tail call void @_ZN3smt9theory_bv18internalize_int2bvEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
@@ -18513,36 +18513,36 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %4
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !tbaa !120
   %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %.pre43, i64 436
   %.pre45 = load i8, ptr %.phi.trans.insert44, align 4, !tbaa !752, !range !590
-  %.pre46 = trunc nuw i8 %.pre45 to i1
-  br label %62
+  %53 = trunc nuw i8 %.pre45 to i1
+  br label %64
 
-53:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !31
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
-  %57 = load ptr, ptr %56, align 8, !tbaa !120
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 436
-  %59 = load i8, ptr %58, align 4, !tbaa !752, !range !590, !noundef !591
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %62
+54:                                               ; preds = %_ZNK3app13get_decl_kindEv.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !31
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 112
+  %58 = load ptr, ptr %57, align 8, !tbaa !120
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 436
+  %60 = load i8, ptr %59, align 4, !tbaa !752, !range !590, !noundef !591
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %64
 
-61:                                               ; preds = %53
+62:                                               ; preds = %54
   tail call void @_ZN3smt9theory_bv18internalize_bv2intEP3app(ptr noundef nonnull align 8 dereferenceable(1048) %0, ptr noundef nonnull %1)
-  %.pre = load ptr, ptr %54, align 8, !tbaa !31
+  %.pre = load ptr, ptr %55, align 8, !tbaa !31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 112
   %.pre38 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !120
   %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %.pre38, i64 436
   %.pre40 = load i8, ptr %.phi.trans.insert39, align 4, !tbaa !752, !range !590
-  %.pre47 = trunc nuw i8 %.pre40 to i1
-  br label %62
+  %63 = trunc nuw i8 %.pre40 to i1
+  br label %64
 
 _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %4, %_ZNK3app13get_decl_kindEv.exit
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 953, ptr noundef nonnull @.str.7)
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
-  br label %62
+  br label %64
 
-62:                                               ; preds = %53, %61, %44, %52, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %2, %_ZNK3app13get_decl_kindEv.exit.thread, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ false, %2 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ %.pre46, %52 ], [ false, %44 ], [ %.pre47, %61 ], [ false, %53 ]
+64:                                               ; preds = %54, %62, %44, %52, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %_ZNK3app13get_decl_kindEv.exit, %2, %_ZNK3app13get_decl_kindEv.exit.thread, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
+  %.0 = phi i1 [ false, %_ZNK3app13get_decl_kindEv.exit.thread ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ true, %30 ], [ true, %31 ], [ true, %32 ], [ true, %33 ], [ true, %34 ], [ true, %35 ], [ true, %36 ], [ true, %37 ], [ true, %38 ], [ true, %39 ], [ true, %40 ], [ true, %41 ], [ true, %42 ], [ true, %43 ], [ false, %2 ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ false, %_ZNK3app13get_decl_kindEv.exit ], [ %53, %52 ], [ false, %44 ], [ %63, %62 ], [ false, %54 ]
   ret i1 %.0
 }
 
@@ -18624,7 +18624,7 @@ _ZNK7bv_util11get_bv_sizeEPK4expr.exit:           ; preds = %25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %44, ptr %50, align 8
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i8 %45, ptr %.sroa.6.8..sroa_idx, align 8
+  store i8 0, ptr %.sroa.6.8..sroa_idx, align 8
   %51 = load ptr, ptr %47, align 8, !tbaa !45
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.noexc23, label %53

@@ -1032,7 +1032,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   %211 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef -2147483648)
   %212 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
   %213 = trunc nuw i8 %212 to i1
-  br i1 %213, label %214, label %.thread282.i
+  br i1 %213, label %214, label %.thread281.i
 
 214:                                              ; preds = %208
   %215 = add nuw nsw i32 %.tr267.i, 64
@@ -1040,7 +1040,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   %217 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef -2147483648)
   %.pre271.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %218 = trunc nuw i8 %.pre271.i to i1
-  br i1 %218, label %219, label %.thread282.i
+  br i1 %218, label %219, label %.thread281.i
 
 219:                                              ; preds = %214
   %220 = add nuw nsw i32 %.tr267.i, 68
@@ -1048,7 +1048,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   %222 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %221, ptr noundef %0, i32 noundef %220, i32 noundef 4, i32 noundef -2147483648)
   %.pre272.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %223 = trunc nuw i8 %.pre272.i to i1
-  br i1 %223, label %224, label %.thread282.i
+  br i1 %223, label %224, label %.thread281.i
 
 224:                                              ; preds = %219
   %225 = add nuw nsw i32 %.tr267.i, 72
@@ -1056,29 +1056,29 @@ tailrecurse.i:                                    ; preds = %376, %104
   %227 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef -2147483648)
   %.pre273.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %228 = trunc nuw i8 %.pre273.i to i1
-  br i1 %228, label %229, label %.thread282.i
+  br i1 %228, label %229, label %.thread281.i
 
 229:                                              ; preds = %224
   %230 = add nuw nsw i32 %.tr267.i, 76
   %231 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
   %232 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648)
-  br label %.thread282.i
+  br label %.thread281.i
 
-.thread282.i:                                     ; preds = %229, %224, %219, %214, %208
+.thread281.i:                                     ; preds = %229, %224, %219, %214, %208
   %233 = add nuw nsw i32 %.tr267.i, 80
   %234 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
   %235 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef -2147483648)
   %236 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
   %237 = trunc nuw i8 %236 to i1
-  br i1 %237, label %238, label %.thread288.i
+  br i1 %237, label %238, label %.thread286.i
 
-238:                                              ; preds = %.thread282.i
+238:                                              ; preds = %.thread281.i
   %239 = add nuw nsw i32 %.tr267.i, 84
   %240 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
   %241 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %240, ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef -2147483648)
   %.pre274.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %242 = trunc nuw i8 %.pre274.i to i1
-  br i1 %242, label %243, label %.thread288.i
+  br i1 %242, label %243, label %.thread286.i
 
 243:                                              ; preds = %238
   %244 = add nuw nsw i32 %.tr267.i, 88
@@ -1086,7 +1086,7 @@ tailrecurse.i:                                    ; preds = %376, %104
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef -2147483648)
   %.pre275.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %247 = trunc nuw i8 %.pre275.i to i1
-  br i1 %247, label %248, label %.thread288.i
+  br i1 %247, label %248, label %.thread286.i
 
 248:                                              ; preds = %243
   %249 = add nuw nsw i32 %.tr267.i, 92
@@ -1094,37 +1094,37 @@ tailrecurse.i:                                    ; preds = %376, %104
   %251 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648)
   %.pre276.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %252 = trunc nuw i8 %.pre276.i to i1
-  br i1 %252, label %253, label %.thread288.i
+  br i1 %252, label %253, label %.thread286.i
 
 253:                                              ; preds = %248
   %254 = add nuw nsw i32 %.tr267.i, 96
   %255 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
   %256 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef -2147483648)
-  br label %.thread288.i
+  br label %.thread286.i
 
-.thread288.i:                                     ; preds = %253, %248, %243, %238, %.thread282.i
+.thread286.i:                                     ; preds = %253, %248, %243, %238, %.thread281.i
   %257 = add nuw nsw i32 %.tr267.i, 100
   %258 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_power_type, align 4
   %259 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef -2147483648)
   %260 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
   %261 = trunc nuw i8 %260 to i1
-  br i1 %261, label %262, label %.thread289.i
+  br i1 %261, label %262, label %.thread287.i
 
-262:                                              ; preds = %.thread288.i
+262:                                              ; preds = %.thread286.i
   %263 = add nuw nsw i32 %.tr267.i, 104
   %264 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
   %265 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 4, i32 noundef -2147483648)
   %.pre277.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %266 = trunc nuw i8 %.pre277.i to i1
-  br i1 %266, label %267, label %.thread289.i
+  br i1 %266, label %267, label %.thread287.i
 
 267:                                              ; preds = %262
   %268 = add nuw nsw i32 %.tr267.i, 108
   %269 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
   %270 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef -2147483648)
-  br label %.thread289.i
+  br label %.thread287.i
 
-.thread289.i:                                     ; preds = %267, %262, %.thread288.i
+.thread287.i:                                     ; preds = %267, %262, %.thread286.i
   %271 = add nuw nsw i32 %.tr267.i, 112
   br label %374
 
@@ -1226,12 +1226,12 @@ tailrecurse.i:                                    ; preds = %376, %104
   br label %358
 
 358:                                              ; preds = %354, %342
-  %.sink291.i = phi i32 [ %357, %354 ], [ %352, %342 ]
+  %.sink289.i = phi i32 [ %357, %354 ], [ %352, %342 ]
   %359 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
-  %360 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %359, ptr noundef %0, i32 noundef %.sink291.i, i32 noundef 4, i32 noundef -2147483648)
+  %360 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %359, ptr noundef %0, i32 noundef %.sink289.i, i32 noundef 4, i32 noundef -2147483648)
   %361 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
   %362 = trunc nuw i8 %361 to i1
-  br i1 %362, label %363, label %.thread290.i
+  br i1 %362, label %363, label %.thread288.i
 
 363:                                              ; preds = %358
   %.1.i123 = add nuw nsw i32 %.tr267.i, 28
@@ -1239,15 +1239,15 @@ tailrecurse.i:                                    ; preds = %376, %104
   %365 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %364, ptr noundef %0, i32 noundef %.1.i123, i32 noundef 4, i32 noundef -2147483648)
   %.pre.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
   %366 = trunc nuw i8 %.pre.i to i1
-  br i1 %366, label %367, label %.thread290.i
+  br i1 %366, label %367, label %.thread288.i
 
 367:                                              ; preds = %363
   %368 = add nuw nsw i32 %.tr267.i, 32
   %369 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
   %370 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %369, ptr noundef %0, i32 noundef %368, i32 noundef 4, i32 noundef -2147483648)
-  br label %.thread290.i
+  br label %.thread288.i
 
-.thread290.i:                                     ; preds = %367, %363, %358
+.thread288.i:                                     ; preds = %367, %363, %358
   %371 = add nuw nsw i32 %.tr267.i, 36
   br label %374
 
@@ -1256,8 +1256,8 @@ tailrecurse.i:                                    ; preds = %376, %104
   %373 = add nuw nsw i32 %126, %115
   br label %374
 
-374:                                              ; preds = %372, %.thread290.i, %274, %272, %.thread289.i, %141
-  %.0.i = phi i32 [ %373, %372 ], [ %160, %141 ], [ %271, %.thread289.i ], [ %273, %272 ], [ %341, %274 ], [ %371, %.thread290.i ]
+374:                                              ; preds = %372, %.thread288.i, %274, %272, %.thread287.i, %141
+  %.0.i = phi i32 [ %373, %372 ], [ %160, %141 ], [ %271, %.thread287.i ], [ %273, %272 ], [ %341, %274 ], [ %371, %.thread288.i ]
   tail call void @decrement_dissection_depth(ptr noundef %1)
   %375 = icmp samesign ult i32 %.0.i, %28
   br i1 %375, label %376, label %dissect_solaredge_devicedata.exit

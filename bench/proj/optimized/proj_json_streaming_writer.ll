@@ -1175,14 +1175,14 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit: ; preds = %1
   %16 = sub i64 %13, %15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %16, i8 noundef signext 0)
   %.pre = load i8, ptr %7, align 8, !range !29
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = getelementptr inbounds i8, ptr %18, i64 -1
-  %20 = load i8, ptr %19, align 1, !tbaa !33, !range !29, !noundef !30
-  %21 = trunc nuw i8 %20 to i1
-  %.not = xor i1 %21, true
-  %22 = trunc nuw i8 %.pre to i1
-  %or.cond = select i1 %.not, i1 %22, i1 false
+  %17 = trunc nuw i8 %.pre to i1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = getelementptr inbounds i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !tbaa !33, !range !29, !noundef !30
+  %22 = trunc nuw i8 %21 to i1
+  %.not = xor i1 %22, true
+  %or.cond = select i1 %.not, i1 %17, i1 false
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %24 = load i8, ptr %23, align 4, !range !29
   %25 = trunc nuw i8 %24 to i1
@@ -1299,7 +1299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   br label %101
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18, %48, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit
-  %70 = phi ptr [ %10, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18 ], [ %17, %48 ], [ %17, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit ]
+  %70 = phi ptr [ %10, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18 ], [ %18, %48 ], [ %18, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit ]
   %71 = load ptr, ptr %70, align 8, !tbaa !35
   %72 = getelementptr inbounds i8, ptr %71, i64 -2
   store ptr %72, ptr %70, align 8, !tbaa !35
@@ -1603,14 +1603,14 @@ _ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit: ; preds = %1
   %16 = sub i64 %13, %15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %16, i8 noundef signext 0)
   %.pre = load i8, ptr %7, align 8, !range !29
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = getelementptr inbounds i8, ptr %18, i64 -1
-  %20 = load i8, ptr %19, align 1, !tbaa !33, !range !29, !noundef !30
-  %21 = trunc nuw i8 %20 to i1
-  %.not = xor i1 %21, true
-  %22 = trunc nuw i8 %.pre to i1
-  %or.cond = select i1 %.not, i1 %22, i1 false
+  %17 = trunc nuw i8 %.pre to i1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = getelementptr inbounds i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !tbaa !33, !range !29, !noundef !30
+  %22 = trunc nuw i8 %21 to i1
+  %.not = xor i1 %22, true
+  %or.cond = select i1 %.not, i1 %17, i1 false
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %24 = load i8, ptr %23, align 4, !range !29
   %25 = trunc nuw i8 %24 to i1
@@ -1727,7 +1727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   br label %101
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter5PrintERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit19: ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18, %48, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit
-  %70 = phi ptr [ %10, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18 ], [ %17, %48 ], [ %17, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit ]
+  %70 = phi ptr [ %10, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit.thread ], [ %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i18 ], [ %18, %48 ], [ %18, %_ZN5osgeo4proj22CPLJSonStreamingWriter9DecIndentEv.exit ]
   %71 = load ptr, ptr %70, align 8, !tbaa !35
   %72 = getelementptr inbounds i8, ptr %71, i64 -2
   store ptr %72, ptr %70, align 8, !tbaa !35

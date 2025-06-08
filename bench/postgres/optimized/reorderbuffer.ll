@@ -1350,9 +1350,9 @@ define dso_local void @ReorderBufferAssignChild(ptr noundef %0, i32 noundef %1, 
   %17 = call ptr @hash_search(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #19
   %18 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %ReorderBufferTXNByXid.exit.thread25, label %ReorderBufferTXNByXid.exit
+  br i1 %19, label %ReorderBufferTXNByXid.exit.thread24, label %ReorderBufferTXNByXid.exit
 
-ReorderBufferTXNByXid.exit.thread25:              ; preds = %15
+ReorderBufferTXNByXid.exit.thread24:              ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %.pre = load i32, ptr %5, align 4
@@ -1395,144 +1395,144 @@ ReorderBufferTXNByXid.exit:                       ; preds = %15
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store i64 %39, ptr %40, align 8
   %.pre23 = load i8, ptr %6, align 1, !range !6
-  %.pre24 = trunc nuw i8 %.pre23 to i1
+  %41 = trunc nuw i8 %.pre23 to i1
   store i32 %34, ptr %9, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %36, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %36, ptr %42, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br i1 %.pre24, label %42, label %52
+  br i1 %41, label %43, label %53
 
-.sink.split:                                      ; preds = %12, %ReorderBufferTXNByXid.exit.thread25
-  %.0.ph.i21.ph = phi ptr [ %21, %ReorderBufferTXNByXid.exit.thread25 ], [ %14, %12 ]
+.sink.split:                                      ; preds = %12, %ReorderBufferTXNByXid.exit.thread24
+  %.0.ph.i21.ph = phi ptr [ %21, %ReorderBufferTXNByXid.exit.thread24 ], [ %14, %12 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %42
+  br label %43
 
-42:                                               ; preds = %.sink.split, %ReorderBufferTXNByXid.exit
+43:                                               ; preds = %.sink.split, %ReorderBufferTXNByXid.exit
   %.0.ph.i21 = phi ptr [ %36, %ReorderBufferTXNByXid.exit ], [ %.0.ph.i21.ph, %.sink.split ]
-  %43 = load i32, ptr %.0.ph.i21, align 8
-  %44 = and i32 %43, 2
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %45, label %ReorderBufferTransferSnapToParent.exit
+  %44 = load i32, ptr %.0.ph.i21, align 8
+  %45 = and i32 %44, 2
+  %.not = icmp eq i32 %45, 0
+  br i1 %.not, label %46, label %ReorderBufferTransferSnapToParent.exit
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %.0.ph.i21, i64 240
-  %47 = getelementptr inbounds nuw i8, ptr %.0.ph.i21, i64 248
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %48, ptr %50, align 8
-  %51 = load ptr, ptr %46, align 8
-  store ptr %51, ptr %48, align 8
-  br label %52
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %.0.ph.i21, i64 240
+  %48 = getelementptr inbounds nuw i8, ptr %.0.ph.i21, i64 248
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %47, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr %49, ptr %51, align 8
+  %52 = load ptr, ptr %47, align 8
+  store ptr %52, ptr %49, align 8
+  br label %53
 
-52:                                               ; preds = %45, %ReorderBufferTXNByXid.exit
-  %.0.ph.i22 = phi ptr [ %.0.ph.i21, %45 ], [ %36, %ReorderBufferTXNByXid.exit ]
-  %53 = load i32, ptr %.0.ph.i22, align 8
-  %54 = or i32 %53, 2
-  store i32 %54, ptr %.0.ph.i22, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 8
-  store i32 %1, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 48
-  store ptr %8, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  %58 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 240
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %62, label %dlist_push_tail.exit
+53:                                               ; preds = %46, %ReorderBufferTXNByXid.exit
+  %.0.ph.i22 = phi ptr [ %.0.ph.i21, %46 ], [ %36, %ReorderBufferTXNByXid.exit ]
+  %54 = load i32, ptr %.0.ph.i22, align 8
+  %55 = or i32 %54, 2
+  store i32 %55, ptr %.0.ph.i22, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 8
+  store i32 %1, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 48
+  store ptr %8, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 240
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 216
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %dlist_push_tail.exit
 
-62:                                               ; preds = %52
-  store ptr %57, ptr %57, align 8
-  store ptr %57, ptr %59, align 8
+63:                                               ; preds = %53
+  store ptr %58, ptr %58, align 8
+  store ptr %58, ptr %60, align 8
   br label %dlist_push_tail.exit
 
-dlist_push_tail.exit:                             ; preds = %52, %62
-  %63 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 248
-  store ptr %57, ptr %63, align 8
-  %64 = load ptr, ptr %57, align 8
-  store ptr %64, ptr %58, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %58, ptr %65, align 8
-  store ptr %58, ptr %57, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %67 = load i32, ptr %66, align 8
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %66, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 88
-  %70 = load ptr, ptr %69, align 8
-  %.not.i18 = icmp eq ptr %70, null
-  br i1 %.not.i18, label %ReorderBufferTransferSnapToParent.exit, label %71
+dlist_push_tail.exit:                             ; preds = %53, %63
+  %64 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 248
+  store ptr %58, ptr %64, align 8
+  %65 = load ptr, ptr %58, align 8
+  store ptr %65, ptr %59, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr %59, ptr %66, align 8
+  store ptr %59, ptr %58, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 224
+  %68 = load i32, ptr %67, align 8
+  %69 = add i32 %68, 1
+  store i32 %69, ptr %67, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 88
+  %71 = load ptr, ptr %70, align 8
+  %.not.i18 = icmp eq ptr %71, null
+  br i1 %.not.i18, label %ReorderBufferTransferSnapToParent.exit, label %72
 
-71:                                               ; preds = %dlist_push_tail.exit
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread.i, label %75
+72:                                               ; preds = %dlist_push_tail.exit
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.thread.i, label %76
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 96
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %79 = load i64, ptr %78, align 8
-  %80 = icmp ult i64 %77, %79
-  br i1 %80, label %81, label %103
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 96
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp ult i64 %78, %80
+  br i1 %81, label %82, label %104
 
-81:                                               ; preds = %75
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %73) #19
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %82, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %84, ptr %86, align 8
-  %87 = load ptr, ptr %82, align 8
-  store ptr %87, ptr %84, align 8
-  %.pre.i = load ptr, ptr %69, align 8
+82:                                               ; preds = %76
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %74) #19
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %83, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store ptr %85, ptr %87, align 8
+  %88 = load ptr, ptr %83, align 8
+  store ptr %88, ptr %85, align 8
+  %.pre.i = load ptr, ptr %70, align 8
   br label %.thread.i
 
-.thread.i:                                        ; preds = %81, %71
-  %88 = phi ptr [ %70, %71 ], [ %.pre.i, %81 ]
-  store ptr %88, ptr %72, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 96
-  %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i64 %90, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 104
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %94 = load ptr, ptr %92, align 8
+.thread.i:                                        ; preds = %82, %72
+  %89 = phi ptr [ %71, %72 ], [ %.pre.i, %82 ]
+  store ptr %89, ptr %73, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 96
+  %91 = load i64, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  store i64 %91, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 104
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %95 = load ptr, ptr %93, align 8
+  store ptr %95, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  store ptr %93, ptr %96, align 8
   store ptr %94, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store ptr %92, ptr %95, align 8
-  store ptr %93, ptr %92, align 8
-  %96 = load ptr, ptr %93, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %93, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
-  %99 = load ptr, ptr %98, align 8
-  %100 = load ptr, ptr %92, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr %99, ptr %101, align 8
-  %102 = load ptr, ptr %92, align 8
-  store ptr %102, ptr %99, align 8
+  %97 = load ptr, ptr %94, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store ptr %94, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  %100 = load ptr, ptr %99, align 8
+  %101 = load ptr, ptr %93, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store ptr %100, ptr %102, align 8
+  %103 = load ptr, ptr %93, align 8
+  store ptr %103, ptr %100, align 8
   br label %ReorderBufferTransferSnapToParent.exit
 
-103:                                              ; preds = %75
-  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %70) #19
-  %104 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 104
-  %105 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 112
-  %106 = load ptr, ptr %105, align 8
-  %107 = load ptr, ptr %104, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr %106, ptr %108, align 8
-  %109 = load ptr, ptr %104, align 8
-  store ptr %109, ptr %106, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
+104:                                              ; preds = %76
+  call void @SnapBuildSnapDecRefcount(ptr noundef nonnull %71) #19
+  %105 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 104
+  %106 = getelementptr inbounds nuw i8, ptr %.0.ph.i22, i64 112
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr %105, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  store ptr %107, ptr %109, align 8
+  %110 = load ptr, ptr %105, align 8
+  store ptr %110, ptr %107, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   br label %ReorderBufferTransferSnapToParent.exit
 
-ReorderBufferTransferSnapToParent.exit:           ; preds = %103, %.thread.i, %dlist_push_tail.exit, %42
+ReorderBufferTransferSnapToParent.exit:           ; preds = %104, %.thread.i, %dlist_push_tail.exit, %43
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #19
   ret void
 }

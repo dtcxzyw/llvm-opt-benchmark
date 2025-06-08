@@ -1709,7 +1709,7 @@ default.unreachable:                              ; preds = %114
 125:                                              ; preds = %124
   store i64 15, ptr %0, align 8
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.088.0, ptr %.sroa.441.0..sroa_idx, align 8
+  store i64 1, ptr %.sroa.441.0..sroa_idx, align 8
   %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.689.0, ptr %.sroa.542.0..sroa_idx, align 8
   br label %122
@@ -1793,7 +1793,7 @@ default.unreachable:                              ; preds = %114
   store i64 %.sroa.13.0, ptr %157, align 8
   store i64 15, ptr %0, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.088.0, ptr %.sroa.455.0..sroa_idx, align 8
+  store i64 1, ptr %.sroa.455.0..sroa_idx, align 8
   %.sroa.556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.689.0, ptr %.sroa.556.0..sroa_idx, align 8
   br label %122

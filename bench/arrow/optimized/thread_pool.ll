@@ -1774,7 +1774,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 .critedge.thread:                                 ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i64 0, ptr %17, align 8, !tbaa !93
-  br label %150
+  br label %153
 
 .lr.ph58:                                         ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1887,7 +1887,7 @@ _ZNO5arrow8internal6FnOnceIFvvEEclEv.exit:        ; preds = %49
 62:                                               ; preds = %143
   %63 = landingpad { ptr, i32 }
           cleanup
-  br label %154
+  br label %157
 
 .loopexit:                                        ; preds = %31, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2069,13 +2069,13 @@ _ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev.exit:   ; preds = %_ZN5arrow9StopToken
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 136
   %135 = load i8, ptr %134, align 8, !tbaa !17, !range !46, !noundef !47
   %136 = trunc nuw i8 %135 to i1
-  br i1 %136, label %.critedge, label %.lr.ph, !llvm.loop !108
+  br i1 %136, label %"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %.lr.ph, !llvm.loop !108
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFvvEE4ImplESt14default_deleteIS5_EED2Ev.exit4.i, %_ZN5arrow6StatusD2Ev.exit23
   %.pn9 = phi { ptr, i32 } [ %.pn, %_ZN5arrow6StatusD2Ev.exit23 ], [ %55, %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFvvEE4ImplESt14default_deleteIS5_EED2Ev.exit4.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call fastcc void @_ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #33
-  br label %154
+  br label %157
 
 .critedge2:                                       ; preds = %.lr.ph
   %137 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -2106,50 +2106,50 @@ _ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev.exit:   ; preds = %_ZN5arrow9StopToken
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %.lr.ph.i, !llvm.loop !109
 
-"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %.lr.ph.i, %"_ZZN5arrow8internal14SerialExecutor7RunLoopEvENK3$_0clEv.exit.i", %.noexc30
-  %147 = phi ptr [ %.val.val.i, %.noexc30 ], [ %138, %"_ZZN5arrow8internal14SerialExecutor7RunLoopEvENK3$_0clEv.exit.i" ], [ %138, %.lr.ph.i ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %147, i64 136
-  %.pre75 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !17, !range !46
-  %.pre76 = trunc nuw i8 %.pre75 to i1
-  br i1 %.pre76, label %.critedge, label %21
+"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %_ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev.exit, %.lr.ph.i, %"_ZZN5arrow8internal14SerialExecutor7RunLoopEvENK3$_0clEv.exit.i", %.noexc30
+  %147 = phi ptr [ %138, %.lr.ph.i ], [ %138, %"_ZZN5arrow8internal14SerialExecutor7RunLoopEvENK3$_0clEv.exit.i" ], [ %.val.val.i, %.noexc30 ], [ %133, %_ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev.exit ]
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 136
+  %149 = load i8, ptr %148, align 8, !tbaa !17, !range !46, !noundef !47
+  %150 = trunc nuw i8 %149 to i1
+  br i1 %150, label %.critedge, label %21
 
-.critedge:                                        ; preds = %"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %26, %_ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev.exit
-  %.lcssa48.ph = phi ptr [ %133, %_ZN5arrow8internal12_GLOBAL__N_14TaskD2Ev.exit ], [ %147, %"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ], [ %22, %26 ]
+.critedge:                                        ; preds = %26, %"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
+  %.lcssa48.ph = phi ptr [ %22, %26 ], [ %147, %"_ZNSt18condition_variable4waitIZN5arrow8internal14SerialExecutor7RunLoopEvE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ]
   %.pre = load i8, ptr %8, align 8, !tbaa !97, !range !46
-  %148 = trunc nuw i8 %.pre to i1
-  %149 = getelementptr inbounds nuw i8, ptr %.lcssa48.ph, i64 128
-  store i64 0, ptr %149, align 8, !tbaa !93
-  br i1 %148, label %150, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+  %151 = trunc nuw i8 %.pre to i1
+  %152 = getelementptr inbounds nuw i8, ptr %.lcssa48.ph, i64 128
+  store i64 0, ptr %152, align 8, !tbaa !93
+  br i1 %151, label %153, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-150:                                              ; preds = %.critedge.thread, %.critedge
-  %151 = load ptr, ptr %2, align 8, !tbaa !94
-  %.not.i.i31 = icmp eq ptr %151, null
-  br i1 %.not.i.i31, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %152
+153:                                              ; preds = %.critedge.thread, %.critedge
+  %154 = load ptr, ptr %2, align 8, !tbaa !94
+  %.not.i.i31 = icmp eq ptr %154, null
+  br i1 %.not.i.i31, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %155
 
-152:                                              ; preds = %150
-  %153 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %151) #33
+155:                                              ; preds = %153
+  %156 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %154) #33
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.critedge, %150, %152
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.critedge, %153, %155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #33
   ret void
 
-154:                                              ; preds = %.body, %62
+157:                                              ; preds = %.body, %62
   %.pn11 = phi { ptr, i32 } [ %63, %62 ], [ %.pn9, %.body ]
-  %155 = load i8, ptr %8, align 8, !tbaa !97, !range !46, !noundef !47
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %_ZNSt11unique_lockISt5mutexED2Ev.exit33
+  %158 = load i8, ptr %8, align 8, !tbaa !97, !range !46, !noundef !47
+  %159 = trunc nuw i8 %158 to i1
+  br i1 %159, label %160, label %_ZNSt11unique_lockISt5mutexED2Ev.exit33
 
-157:                                              ; preds = %154
-  %158 = load ptr, ptr %2, align 8, !tbaa !94
-  %.not.i.i32 = icmp eq ptr %158, null
-  br i1 %.not.i.i32, label %_ZNSt11unique_lockISt5mutexED2Ev.exit33, label %159
+160:                                              ; preds = %157
+  %161 = load ptr, ptr %2, align 8, !tbaa !94
+  %.not.i.i32 = icmp eq ptr %161, null
+  br i1 %.not.i.i32, label %_ZNSt11unique_lockISt5mutexED2Ev.exit33, label %162
 
-159:                                              ; preds = %157
-  %160 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %158) #33
+162:                                              ; preds = %160
+  %163 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %161) #33
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit33
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit33:          ; preds = %154, %157, %159
+_ZNSt11unique_lockISt5mutexED2Ev.exit33:          ; preds = %157, %160, %162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #33
   resume { ptr, i32 } %.pn11
 }

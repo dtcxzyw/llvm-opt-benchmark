@@ -7650,7 +7650,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRK
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1579
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1579: ; preds = %_ZN4cvc58internal8RationalD2Ev.exit1742, %1823, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i1908, %2263
-  %.5548 = phi i8 [ %.05437601, %2263 ], [ %.05437601, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i1908 ], [ 0, %1823 ], [ 0, %_ZN4cvc58internal8RationalD2Ev.exit1742 ]
+  %.5548 = phi i8 [ 1, %2263 ], [ 1, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i1908 ], [ 0, %1823 ], [ 0, %_ZN4cvc58internal8RationalD2Ev.exit1742 ]
   %2288 = phi i1 [ true, %2263 ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i1908 ], [ false, %1823 ], [ false, %_ZN4cvc58internal8RationalD2Ev.exit1742 ]
   %2289 = load ptr, ptr %256, align 8, !tbaa !21
   %2290 = load i64, ptr %2289, align 8

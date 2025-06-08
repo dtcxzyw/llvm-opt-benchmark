@@ -570,15 +570,15 @@ smtp_parse_address.exit130.i.i.i:                 ; preds = %113
   %.0.i.i.i = load ptr, ptr %206, align 8, !tbaa !97
   %207 = icmp ne ptr %.0.i.i.i, null
   %.not115.not.i.i.i = select i1 %207, i1 %205, i1 false
-  br i1 %.not115.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.i.loopexit.i.i, !llvm.loop !100
+  br i1 %.not115.not.i.i.i, label %.lr.ph.i.i.i, label %.loopexit.loopexit.i.i.i, !llvm.loop !100
 
-.loopexit.i.loopexit.i.i:                         ; preds = %.lr.ph.i.i.i
-  %not..i.le.i.i = xor i1 %205, true
-  %spec.select.i.le.i.i = zext i1 %not..i.le.i.i to i8
+.loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
+  %not..i.i.i = xor i1 %205, true
+  %spec.select.i.i.i = zext i1 %not..i.i.i to i8
   br label %.loopexit.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %.loopexit.i.loopexit.i.i, %200, %195
-  %.6.i.i.i = phi i8 [ %.2.i.i.i, %195 ], [ 0, %200 ], [ %spec.select.i.le.i.i, %.loopexit.i.loopexit.i.i ]
+.loopexit.i.i.i:                                  ; preds = %.loopexit.loopexit.i.i.i, %200, %195
+  %.6.i.i.i = phi i8 [ %.2.i.i.i, %195 ], [ 0, %200 ], [ %spec.select.i.i.i, %.loopexit.loopexit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store ptr null, ptr %4, align 8, !tbaa !102
   %208 = call i32 @Curl_creader_create(ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull @cr_eob, i32 noundef 3) #9

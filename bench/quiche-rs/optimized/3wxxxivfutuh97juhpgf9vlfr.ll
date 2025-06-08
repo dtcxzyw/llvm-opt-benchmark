@@ -8296,7 +8296,7 @@ _ZN6quiche8recovery11gcongestion4bbr213network_model16RoundTripCounter16on_packe
   br i1 %.not17, label %_ZN6quiche8recovery11gcongestion4bbr213network_model12MinRttFilter6update17h4389ddc2ad2fffbaE.exit, label %79
 
 71:                                               ; preds = %64
-  store i64 %59, ptr %5, align 8
+  store i64 1, ptr %5, align 8
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %66, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 88

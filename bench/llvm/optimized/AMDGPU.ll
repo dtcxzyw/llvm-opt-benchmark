@@ -8055,10 +8055,10 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i.i22: ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %44, i64 %46, i1 false)
   %.pre.i.i.i.i25 = load i64, ptr %48, align 8, !tbaa !72
   %.pre.pre = load i8, ptr %40, align 8, !tbaa !154, !range !92
-  %56 = add i64 %.pre.i.i.i.i25, %46
-  store i64 %56, ptr %48, align 8, !tbaa !72
-  %57 = trunc nuw i8 %.pre.pre to i1
-  br i1 %57, label %58, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
+  %56 = trunc nuw i8 %.pre.pre to i1
+  %57 = add i64 %.pre.i.i.i.i25, %46
+  store i64 %57, ptr %48, align 8, !tbaa !72
+  br i1 %56, label %58, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 58:                                               ; preds = %.thread88, %53
   store i8 0, ptr %40, align 8, !tbaa !154

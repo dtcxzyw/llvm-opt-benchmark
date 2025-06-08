@@ -2394,7 +2394,7 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i: ; pred
 
 .preheader:                                       ; preds = %.thread
   %59 = trunc nuw i8 %51 to i1
-  br i1 %59, label %.loopexit, label %.lr.ph
+  br i1 %59, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -2402,13 +2402,13 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i: ; pred
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  br label %.critedge
+  br label %.backedge
 
-.critedge:                                        ; preds = %.critedge.backedge, %.lr.ph
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
   %65 = invoke noundef i32 @_ZNK6icu_7710CharString11lastIndexOfEc(ptr noundef nonnull align 8 dereferenceable(60) %60, i8 noundef signext 45)
           to label %66 unwind label %70
 
-66:                                               ; preds = %.critedge
+66:                                               ; preds = %.backedge
   %67 = icmp sgt i32 %65, 0
   br i1 %67, label %68, label %72
 
@@ -2416,7 +2416,7 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i: ; pred
   %69 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString8truncateEi(ptr noundef nonnull align 8 dereferenceable(60) %60, i32 noundef %65)
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit unwind label %70
 
-70:                                               ; preds = %78, %77, %75, %68, %.critedge
+70:                                               ; preds = %78, %77, %75, %68, %.backedge
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %133
@@ -2449,7 +2449,10 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %78
 83:                                               ; preds = %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit
   %84 = load i32, ptr %0, align 8, !tbaa !43
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph.i49, label %.critedge.backedge
+  br i1 %85, label %.lr.ph.i49, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %83, %.thread5.i56.loopexit
+  br label %.backedge, !llvm.loop !109
 
 .lr.ph.i49:                                       ; preds = %83
   %86 = load ptr, ptr %62, align 8, !tbaa !47
@@ -2499,12 +2502,9 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52: ; pr
 
 .thread5.i56.loopexit:                            ; preds = %_ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52
   %115 = trunc nuw i8 %111 to i1
-  br i1 %115, label %.loopexit, label %.critedge.backedge
+  br i1 %115, label %._crit_edge.thread, label %.backedge.backedge
 
-.critedge.backedge:                               ; preds = %.thread5.i56.loopexit, %83
-  br label %.critedge, !llvm.loop !109
-
-.loopexit:                                        ; preds = %.thread5.i56.loopexit, %.preheader
+._crit_edge.thread:                               ; preds = %.thread5.i56.loopexit, %.preheader
   store i8 0, ptr %10, align 1
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %117 = load ptr, ptr %116, align 8, !tbaa !3
@@ -2512,7 +2512,7 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52: ; pr
   %.not42 = icmp eq i32 %118, 0
   br i1 %.not42, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split, label %119
 
-119:                                              ; preds = %.loopexit
+119:                                              ; preds = %._crit_edge.thread
   %120 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString8truncateEi(ptr noundef nonnull align 8 dereferenceable(60) %116, i32 noundef 0)
           to label %121 unwind label %56
 
@@ -2534,8 +2534,8 @@ _ZNK6icu_775units22UnitPreferenceMetadata9compareToERKS1_PbS4_S4_.exit.i52: ; pr
   %129 = trunc nuw i8 %.pre to i1
   br i1 %129, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62, label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split
 
-_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split: ; preds = %72, %127, %.loopexit, %.thread, %18
-  %.sink = phi i32 [ 1, %18 ], [ 1, %.thread ], [ 2, %.loopexit ], [ 2, %127 ], [ 2, %72 ]
+_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62.sink.split: ; preds = %72, %127, %._crit_edge.thread, %.thread, %18
+  %.sink = phi i32 [ 1, %18 ], [ 1, %.thread ], [ 2, %._crit_edge.thread ], [ 2, %127 ], [ 2, %72 ]
   store i32 %.sink, ptr %6, align 4, !tbaa !13
   br label %_ZN6icu_775units12_GLOBAL__N_112binarySearchEPKNS_16MaybeStackVectorINS0_22UnitPreferenceMetadataELi8EEERKS3_PbS9_S9_R10UErrorCode.exit.thread62
 

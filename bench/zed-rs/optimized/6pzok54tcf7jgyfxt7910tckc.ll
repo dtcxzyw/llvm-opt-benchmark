@@ -24102,7 +24102,7 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity5paint28_$u7b$$u7b$clos
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 2376
-  store i32 %36, ptr %57, align 8, !noalias !5986
+  store i32 1, ptr %57, align 8, !noalias !5986
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 2380
   store float %38, ptr %58, align 4, !noalias !5986
   call void @llvm.lifetime.start.p0(i64 3272, ptr nonnull %5), !noalias !5994

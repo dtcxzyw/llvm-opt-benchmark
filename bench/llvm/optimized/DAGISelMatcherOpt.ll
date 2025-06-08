@@ -1606,7 +1606,7 @@ _ZNKSt14default_deleteIN4llvm7MatcherEEclEPS1_.exit.i.i244: ; preds = %261
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 24
   %274 = load i32, ptr %273, align 8, !tbaa !8
   %275 = icmp eq i32 %274, 12
-  %spec.select = select i1 %275, i8 %.0170404, i8 0
+  %spec.select = zext i1 %275 to i8
   br label %276
 
 276:                                              ; preds = %269, %.preheader
@@ -1654,7 +1654,7 @@ _ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit251.thread: ; preds = %285
   br label %296
 
 296:                                              ; preds = %294, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit251.thread, %276
-  %.2174 = phi i8 [ 0, %276 ], [ 0, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit251.thread ], [ %.0172403, %294 ]
+  %.2174 = phi i8 [ 0, %276 ], [ 0, %_ZL16FindNodeWithKindPN4llvm7MatcherENS0_6KindTyE.exit251.thread ], [ 1, %294 ]
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %.not197 = icmp eq i64 %indvars.iv.next437, %260
   br i1 %.not197, label %266, label %.preheader, !llvm.loop !111

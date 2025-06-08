@@ -56289,7 +56289,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
   %86 = load i64, ptr %84, align 8, !tbaa !11
   store i64 %86, ptr %85, align 8, !tbaa !11
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store i8 %79, ptr %87, align 8, !tbaa !507
+  store i8 1, ptr %87, align 8, !tbaa !507
   br label %88
 
 88:                                               ; preds = %76, %81
@@ -57635,7 +57635,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
   %88 = load i64, ptr %86, align 8, !tbaa !11
   store i64 %88, ptr %87, align 8, !tbaa !11
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i8 %81, ptr %89, align 8, !tbaa !507
+  store i8 1, ptr %89, align 8, !tbaa !507
   br label %90
 
 90:                                               ; preds = %78, %83
@@ -61000,7 +61000,7 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !595
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store i8 %80, ptr %88, align 8, !tbaa !590
+  store i8 1, ptr %88, align 8, !tbaa !590
   br label %89
 
 89:                                               ; preds = %77, %82
@@ -62291,7 +62291,7 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %88, ptr %89, align 8, !tbaa !595
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store i8 %82, ptr %90, align 8, !tbaa !590
+  store i8 1, ptr %90, align 8, !tbaa !590
   br label %91
 
 91:                                               ; preds = %79, %84

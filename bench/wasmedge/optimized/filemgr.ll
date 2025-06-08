@@ -1512,8 +1512,8 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %spec.select53 = zext i1 %.not47 to i8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %108, %116, %123, %80, %.thread96
-  %.4.lcssa = phi i8 [ %.3, %.thread96 ], [ 0, %80 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ], [ %spec.select53, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %108, %116, %123, %80, %._crit_edge.loopexit, %.thread96
+  %.4.lcssa = phi i8 [ %.3, %.thread96 ], [ %spec.select53, %._crit_edge.loopexit ], [ 0, %80 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ]
   %138 = add i32 %84, 1
   %139 = zext i32 %138 to i64
   %140 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19

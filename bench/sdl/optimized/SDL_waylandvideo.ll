@@ -261,11 +261,11 @@ define internal fastcc noundef ptr @Wayland_CreateDevice(i1 noundef zeroext %0) 
 10:                                               ; preds = %8
   %11 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %9, ptr noundef nonnull @.str) #12
   %.not104 = icmp eq i32 %11, 0
-  br i1 %.not104, label %.critedge, label %135
+  br i1 %.not104, label %.critedge, label %136
 
 .critedge:                                        ; preds = %8, %10, %1
   %12 = tail call zeroext i1 @SDL_WAYLAND_LoadSymbols() #12
-  br i1 %12, label %13, label %135
+  br i1 %12, label %13, label %136
 
 13:                                               ; preds = %.critedge
   br i1 %5, label %18, label %14
@@ -278,11 +278,11 @@ define internal fastcc noundef ptr @Wayland_CreateDevice(i1 noundef zeroext %0) 
 
 17:                                               ; preds = %14
   tail call void @SDL_WAYLAND_UnloadSymbols() #12
-  br label %135
+  br label %136
 
 18:                                               ; preds = %14, %13
   %.097 = phi ptr [ %4, %13 ], [ %16, %14 ]
-  br i1 %0, label %19, label %38
+  br i1 %0, label %19, label %39
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
@@ -298,7 +298,7 @@ define internal fastcc noundef ptr @Wayland_CreateDevice(i1 noundef zeroext %0) 
 Wayland_IsPreferred.exit.thread109:               ; preds = %19
   %25 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
-  br label %34
+  br label %35
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr @WAYLAND_wl_proxy_add_listener, align 8
@@ -313,233 +313,233 @@ Wayland_IsPreferred.exit.thread109:               ; preds = %19
 
 Wayland_IsPreferred.exit.thread:                  ; preds = %26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
-  br label %38
+  br label %39
 
 Wayland_IsPreferred.exit:                         ; preds = %26
   call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 5, ptr noundef nonnull @.str.9) #12
   %.pre.i = load i8, ptr %2, align 1, !range !5
-  %.pre7.i = trunc nuw i8 %.pre.i to i1
+  %34 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
-  br i1 %.pre7.i, label %38, label %34
+  br i1 %34, label %39, label %35
 
-34:                                               ; preds = %Wayland_IsPreferred.exit.thread109, %Wayland_IsPreferred.exit
-  br i1 %5, label %37, label %35
+35:                                               ; preds = %Wayland_IsPreferred.exit.thread109, %Wayland_IsPreferred.exit
+  br i1 %5, label %38, label %36
 
-35:                                               ; preds = %34
-  %36 = load ptr, ptr @WAYLAND_wl_display_disconnect, align 8
-  call void %36(ptr noundef nonnull %.097) #12
-  br label %37
+36:                                               ; preds = %35
+  %37 = load ptr, ptr @WAYLAND_wl_display_disconnect, align 8
+  call void %37(ptr noundef nonnull %.097) #12
+  br label %38
 
-37:                                               ; preds = %35, %34
+38:                                               ; preds = %36, %35
   call void @SDL_WAYLAND_UnloadSymbols() #12
-  br label %135
+  br label %136
 
-38:                                               ; preds = %Wayland_IsPreferred.exit.thread, %Wayland_IsPreferred.exit, %18
-  %39 = call noalias dereferenceable_or_null(312) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 312) #13
-  %.not106 = icmp eq ptr %39, null
-  br i1 %.not106, label %40, label %44
+39:                                               ; preds = %Wayland_IsPreferred.exit.thread, %Wayland_IsPreferred.exit, %18
+  %40 = call noalias dereferenceable_or_null(312) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 312) #13
+  %.not106 = icmp eq ptr %40, null
+  br i1 %.not106, label %41, label %45
 
-40:                                               ; preds = %38
-  br i1 %5, label %43, label %41
+41:                                               ; preds = %39
+  br i1 %5, label %44, label %42
 
-41:                                               ; preds = %40
-  %42 = load ptr, ptr @WAYLAND_wl_display_disconnect, align 8
-  call void %42(ptr noundef nonnull %.097) #12
-  br label %43
+42:                                               ; preds = %41
+  %43 = load ptr, ptr @WAYLAND_wl_display_disconnect, align 8
+  call void %43(ptr noundef nonnull %.097) #12
+  br label %44
 
-43:                                               ; preds = %41, %40
+44:                                               ; preds = %42, %41
   call void @SDL_WAYLAND_UnloadSymbols() #12
-  br label %135
+  br label %136
 
-44:                                               ; preds = %38
-  store i8 1, ptr %39, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %.097, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 304
-  store i8 %6, ptr %46, align 8
-  %47 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #12
-  %48 = getelementptr inbounds nuw i8, ptr %39, i64 305
-  %49 = zext i1 %47 to i8
-  store i8 %49, ptr %48, align 1
-  %50 = load ptr, ptr @WAYLAND_wl_list_init, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %39, i64 248
-  call void %50(ptr noundef nonnull %51) #12
-  %52 = load ptr, ptr @WAYLAND_wl_list_init, align 8
-  call void %52(ptr noundef nonnull @external_window_list) #12
-  %53 = call noalias dereferenceable_or_null(1696) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 1696) #13
-  %.not107 = icmp eq ptr %53, null
-  br i1 %.not107, label %54, label %58
+45:                                               ; preds = %39
+  store i8 1, ptr %40, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %.097, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 304
+  store i8 %6, ptr %47, align 8
+  %48 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.7, i1 noundef zeroext false) #12
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 305
+  %50 = zext i1 %48 to i8
+  store i8 %50, ptr %49, align 1
+  %51 = load ptr, ptr @WAYLAND_wl_list_init, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 248
+  call void %51(ptr noundef nonnull %52) #12
+  %53 = load ptr, ptr @WAYLAND_wl_list_init, align 8
+  call void %53(ptr noundef nonnull @external_window_list) #12
+  %54 = call noalias dereferenceable_or_null(1696) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 1696) #13
+  %.not107 = icmp eq ptr %54, null
+  br i1 %.not107, label %55, label %59
 
-54:                                               ; preds = %44
-  call void @SDL_free_REAL(ptr noundef nonnull %39) #12
-  br i1 %5, label %57, label %55
+55:                                               ; preds = %45
+  call void @SDL_free_REAL(ptr noundef nonnull %40) #12
+  br i1 %5, label %58, label %56
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr @WAYLAND_wl_display_disconnect, align 8
-  call void %56(ptr noundef nonnull %.097) #12
-  br label %57
+56:                                               ; preds = %55
+  %57 = load ptr, ptr @WAYLAND_wl_display_disconnect, align 8
+  call void %57(ptr noundef nonnull %.097) #12
+  br label %58
 
-57:                                               ; preds = %55, %54
+58:                                               ; preds = %56, %55
   call void @SDL_WAYLAND_UnloadSymbols() #12
-  br label %135
+  br label %136
 
-58:                                               ; preds = %44
-  br i1 %5, label %62, label %59
+59:                                               ; preds = %45
+  br i1 %5, label %63, label %60
 
-59:                                               ; preds = %58
-  %60 = call i32 @SDL_GetGlobalProperties_REAL() #12
-  %61 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %60, ptr noundef nonnull @.str.4, ptr noundef nonnull %.097) #12
-  br label %62
+60:                                               ; preds = %59
+  %61 = call i32 @SDL_GetGlobalProperties_REAL() #12
+  %62 = call zeroext i1 @SDL_SetPointerProperty_REAL(i32 noundef %61, ptr noundef nonnull @.str.4, ptr noundef nonnull %.097) #12
+  br label %63
 
-62:                                               ; preds = %59, %58
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 1656
-  store ptr %39, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr @Wayland_VideoInit, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store ptr @Wayland_VideoQuit, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr @Wayland_GetDisplayBounds, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %53, i64 584
-  store ptr @Wayland_SuspendScreenSaver, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %53, i64 576
-  store ptr @Wayland_PumpEvents, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %53, i64 560
-  store ptr @Wayland_WaitEventTimeout, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %53, i64 568
-  store ptr @Wayland_SendWakeupEvent, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %53, i64 464
-  store ptr @Wayland_GLES_SwapWindow, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %53, i64 456
-  store ptr @Wayland_GLES_GetSwapInterval, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %53, i64 448
-  store ptr @Wayland_GLES_SetSwapInterval, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %53, i64 432
-  store ptr @Wayland_GLES_MakeCurrent, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %53, i64 424
-  store ptr @Wayland_GLES_CreateContext, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %53, i64 400
-  store ptr @Wayland_GLES_LoadLibrary, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %53, i64 416
-  store ptr @SDL_EGL_UnloadLibrary, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %53, i64 408
-  store ptr @SDL_EGL_GetProcAddressInternal, ptr %78, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %53, i64 472
-  store ptr @Wayland_GLES_DestroyContext, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %53, i64 440
-  store ptr @Wayland_GLES_GetEGLSurface, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  store ptr @Wayland_CreateWindow, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  store ptr @Wayland_ShowWindow, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %53, i64 192
-  store ptr @Wayland_HideWindow, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %53, i64 200
-  store ptr @Wayland_RaiseWindow, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %53, i64 256
-  store ptr @Wayland_SetWindowFullscreen, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %53, i64 208
-  store ptr @Wayland_MaximizeWindow, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %53, i64 216
-  store ptr @Wayland_MinimizeWindow, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %53, i64 280
-  store ptr @Wayland_SetWindowMouseRect, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %53, i64 288
-  store ptr @Wayland_SetWindowMouseGrab, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %53, i64 296
-  store ptr @Wayland_SetWindowKeyboardGrab, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %53, i64 224
-  store ptr @Wayland_RestoreWindow, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %53, i64 232
-  store ptr @Wayland_SetWindowBordered, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %53, i64 240
-  store ptr @Wayland_SetWindowResizable, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %53, i64 96
-  store ptr @Wayland_SetWindowPosition, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  store ptr @Wayland_SetWindowSize, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %53, i64 112
-  store ptr @Wayland_SetWindowMinimumSize, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %53, i64 120
-  store ptr @Wayland_SetWindowMaximumSize, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %53, i64 168
-  store ptr @Wayland_SetWindowParent, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %53, i64 176
-  store ptr @Wayland_SetWindowModal, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %53, i64 160
-  store ptr @Wayland_SetWindowOpacity, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %53, i64 80
-  store ptr @Wayland_SetWindowTitle, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %53, i64 88
-  store ptr @Wayland_SetWindowIcon, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %53, i64 152
-  store ptr @Wayland_GetWindowSizeInPixels, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %53, i64 144
-  store ptr @Wayland_GetWindowContentScale, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %53, i64 264
-  store ptr @Wayland_GetWindowICCProfile, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %53, i64 272
-  store ptr @Wayland_GetDisplayForWindow, ptr %106, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %53, i64 304
-  store ptr @Wayland_DestroyWindow, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %53, i64 752
-  store ptr @Wayland_SetWindowHitTest, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %53, i64 368
-  store ptr @Wayland_FlashWindow, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %53, i64 376
-  store ptr @DBUS_ApplyWindowProgress, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %53, i64 624
-  store ptr @Wayland_HasScreenKeyboardSupport, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %53, i64 768
-  store ptr @Wayland_ShowWindowSystemMenu, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %53, i64 392
-  store ptr @Wayland_SyncWindow, ptr %113, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %53, i64 384
-  store ptr @Wayland_SetWindowFocusable, ptr %114, align 8
-  %115 = call zeroext i1 @SDL_SystemTheme_Init() #12
-  br i1 %115, label %116, label %119
+63:                                               ; preds = %60, %59
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 1656
+  store ptr %40, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store ptr @Wayland_VideoInit, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store ptr @Wayland_VideoQuit, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  store ptr @Wayland_GetDisplayBounds, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 584
+  store ptr @Wayland_SuspendScreenSaver, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %54, i64 576
+  store ptr @Wayland_PumpEvents, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %54, i64 560
+  store ptr @Wayland_WaitEventTimeout, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 568
+  store ptr @Wayland_SendWakeupEvent, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %54, i64 464
+  store ptr @Wayland_GLES_SwapWindow, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 456
+  store ptr @Wayland_GLES_GetSwapInterval, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %54, i64 448
+  store ptr @Wayland_GLES_SetSwapInterval, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %54, i64 432
+  store ptr @Wayland_GLES_MakeCurrent, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %54, i64 424
+  store ptr @Wayland_GLES_CreateContext, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %54, i64 400
+  store ptr @Wayland_GLES_LoadLibrary, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %54, i64 416
+  store ptr @SDL_EGL_UnloadLibrary, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %54, i64 408
+  store ptr @SDL_EGL_GetProcAddressInternal, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %54, i64 472
+  store ptr @Wayland_GLES_DestroyContext, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %54, i64 440
+  store ptr @Wayland_GLES_GetEGLSurface, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  store ptr @Wayland_CreateWindow, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 184
+  store ptr @Wayland_ShowWindow, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %54, i64 192
+  store ptr @Wayland_HideWindow, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %54, i64 200
+  store ptr @Wayland_RaiseWindow, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %54, i64 256
+  store ptr @Wayland_SetWindowFullscreen, ptr %86, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %54, i64 208
+  store ptr @Wayland_MaximizeWindow, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %54, i64 216
+  store ptr @Wayland_MinimizeWindow, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %54, i64 280
+  store ptr @Wayland_SetWindowMouseRect, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 288
+  store ptr @Wayland_SetWindowMouseGrab, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %54, i64 296
+  store ptr @Wayland_SetWindowKeyboardGrab, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %54, i64 224
+  store ptr @Wayland_RestoreWindow, ptr %92, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %54, i64 232
+  store ptr @Wayland_SetWindowBordered, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %54, i64 240
+  store ptr @Wayland_SetWindowResizable, ptr %94, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %54, i64 96
+  store ptr @Wayland_SetWindowPosition, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %54, i64 104
+  store ptr @Wayland_SetWindowSize, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %54, i64 112
+  store ptr @Wayland_SetWindowMinimumSize, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %54, i64 120
+  store ptr @Wayland_SetWindowMaximumSize, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %54, i64 168
+  store ptr @Wayland_SetWindowParent, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %54, i64 176
+  store ptr @Wayland_SetWindowModal, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %54, i64 160
+  store ptr @Wayland_SetWindowOpacity, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %54, i64 80
+  store ptr @Wayland_SetWindowTitle, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %54, i64 88
+  store ptr @Wayland_SetWindowIcon, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %54, i64 152
+  store ptr @Wayland_GetWindowSizeInPixels, ptr %104, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %54, i64 144
+  store ptr @Wayland_GetWindowContentScale, ptr %105, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %54, i64 264
+  store ptr @Wayland_GetWindowICCProfile, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %54, i64 272
+  store ptr @Wayland_GetDisplayForWindow, ptr %107, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %54, i64 304
+  store ptr @Wayland_DestroyWindow, ptr %108, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %54, i64 752
+  store ptr @Wayland_SetWindowHitTest, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %54, i64 368
+  store ptr @Wayland_FlashWindow, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %54, i64 376
+  store ptr @DBUS_ApplyWindowProgress, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %54, i64 624
+  store ptr @Wayland_HasScreenKeyboardSupport, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %54, i64 768
+  store ptr @Wayland_ShowWindowSystemMenu, ptr %113, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %54, i64 392
+  store ptr @Wayland_SyncWindow, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %54, i64 384
+  store ptr @Wayland_SetWindowFocusable, ptr %115, align 8
+  %116 = call zeroext i1 @SDL_SystemTheme_Init() #12
+  br i1 %116, label %117, label %120
 
-116:                                              ; preds = %62
-  %117 = call i32 @SDL_SystemTheme_Get() #12
-  %118 = getelementptr inbounds nuw i8, ptr %53, i64 912
-  store i32 %117, ptr %118, align 8
-  br label %119
+117:                                              ; preds = %63
+  %118 = call i32 @SDL_SystemTheme_Get() #12
+  %119 = getelementptr inbounds nuw i8, ptr %54, i64 912
+  store i32 %118, ptr %119, align 8
+  br label %120
 
-119:                                              ; preds = %116, %62
-  %120 = getelementptr inbounds nuw i8, ptr %53, i64 664
-  store ptr @Wayland_GetTextMimeTypes, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %53, i64 672
-  store ptr @Wayland_SetClipboardData, ptr %121, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %53, i64 680
-  store ptr @Wayland_GetClipboardData, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %53, i64 688
-  store ptr @Wayland_HasClipboardData, ptr %123, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %53, i64 592
-  store ptr @Wayland_StartTextInput, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %53, i64 600
-  store ptr @Wayland_StopTextInput, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %53, i64 608
-  store ptr @Wayland_UpdateTextInputArea, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %53, i64 488
-  store ptr @Wayland_Vulkan_LoadLibrary, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %53, i64 496
-  store ptr @Wayland_Vulkan_UnloadLibrary, ptr %128, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %53, i64 504
-  store ptr @Wayland_Vulkan_GetInstanceExtensions, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %53, i64 512
-  store ptr @Wayland_Vulkan_CreateSurface, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %53, i64 520
-  store ptr @Wayland_Vulkan_DestroySurface, ptr %131, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %53, i64 528
-  store ptr @Wayland_Vulkan_GetPresentationSupport, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %53, i64 1688
-  store ptr @Wayland_DeleteDevice, ptr %133, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %53, i64 908
-  store i32 119, ptr %134, align 4
-  br label %135
+120:                                              ; preds = %117, %63
+  %121 = getelementptr inbounds nuw i8, ptr %54, i64 664
+  store ptr @Wayland_GetTextMimeTypes, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %54, i64 672
+  store ptr @Wayland_SetClipboardData, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %54, i64 680
+  store ptr @Wayland_GetClipboardData, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %54, i64 688
+  store ptr @Wayland_HasClipboardData, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %54, i64 592
+  store ptr @Wayland_StartTextInput, ptr %125, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %54, i64 600
+  store ptr @Wayland_StopTextInput, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %54, i64 608
+  store ptr @Wayland_UpdateTextInputArea, ptr %127, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %54, i64 488
+  store ptr @Wayland_Vulkan_LoadLibrary, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %54, i64 496
+  store ptr @Wayland_Vulkan_UnloadLibrary, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %54, i64 504
+  store ptr @Wayland_Vulkan_GetInstanceExtensions, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %54, i64 512
+  store ptr @Wayland_Vulkan_CreateSurface, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %54, i64 520
+  store ptr @Wayland_Vulkan_DestroySurface, ptr %132, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %54, i64 528
+  store ptr @Wayland_Vulkan_GetPresentationSupport, ptr %133, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %54, i64 1688
+  store ptr @Wayland_DeleteDevice, ptr %134, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %54, i64 908
+  store i32 119, ptr %135, align 4
+  br label %136
 
-135:                                              ; preds = %.critedge, %10, %119, %57, %43, %37, %17
-  %.1 = phi ptr [ %53, %119 ], [ null, %57 ], [ null, %43 ], [ null, %37 ], [ null, %17 ], [ null, %10 ], [ null, %.critedge ]
+136:                                              ; preds = %.critedge, %10, %120, %58, %44, %38, %17
+  %.1 = phi ptr [ %54, %120 ], [ null, %58 ], [ null, %44 ], [ null, %38 ], [ null, %17 ], [ null, %10 ], [ null, %.critedge ]
   ret ptr %.1
 }
 

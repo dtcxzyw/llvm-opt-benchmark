@@ -5067,11 +5067,10 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   %.4244 = phi i32 [ %.0240.lcssa, %178 ], [ %.2242404, %._crit_edge400 ], [ %.2242404, %.lr.ph407 ], [ %.2242404, %.preheader364 ]
   %.5231 = phi i32 [ %.1227.lcssa, %178 ], [ %.3229405, %._crit_edge400 ], [ %.3229405, %.lr.ph407 ], [ %.3229405, %.preheader364 ]
   %.4 = phi i32 [ %.0201.lcssa, %178 ], [ %.2203406, %._crit_edge400 ], [ %.2203406, %.lr.ph407 ], [ %.2203406, %.preheader364 ]
-  %.3 = phi i1 [ false, %178 ], [ %.0192.lcssa, %._crit_edge400 ], [ %.0192.lcssa, %.lr.ph407 ], [ %.0192.lcssa, %.preheader364 ]
   %218 = icmp eq i32 %.2259, 0
   %219 = icmp eq i32 %.4267, 0
   %or.cond3.not294488 = select i1 %218, i1 true, i1 %219
-  %.not291489 = select i1 %or.cond3.not294488, i1 true, i1 %.3
+  %.not291489 = or i1 %or.cond3.not294488, %or.cond320
   br i1 %.not291489, label %.thread337, label %.preheader362.lr.ph
 
 .preheader362.lr.ph:                              ; preds = %.critedge
@@ -5227,8 +5226,8 @@ _get_avail_cpus.exit:                             ; preds = %41, %55
   %278 = icmp slt i32 %.2219, %.5245491
   %.0.i327 = sub i32 %.6232492, %223
   %.not358 = icmp slt i32 %.2223, %.0.i327
-  %or.cond567 = select i1 %278, i1 true, i1 %.not358
-  br i1 %or.cond567, label %.thread337, label %279
+  %or.cond566 = select i1 %278, i1 true, i1 %.not358
+  br i1 %or.cond566, label %.thread337, label %279
 
 279:                                              ; preds = %277, %273
   %.not306 = icmp eq i32 %.2215, -1

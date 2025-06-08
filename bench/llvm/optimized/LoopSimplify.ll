@@ -2345,9 +2345,9 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i: ; preds = %._crit_ed
   br label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i.i.i: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i, %841
-  %.fca.1.insert.merged.i11.i.i.i.i = phi i1 [ %845, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i ], [ true, %841 ]
+  %.fca.1.insert.merged.i9.i.i.i.i = phi i1 [ %845, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i ], [ true, %841 ]
   %846 = icmp ne ptr %828, %543
-  %847 = and i1 %846, %.fca.1.insert.merged.i11.i.i.i.i
+  %847 = and i1 %846, %.fca.1.insert.merged.i9.i.i.i.i
   br i1 %847, label %848, label %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i.thread.i.i
 
 848:                                              ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i.i.i
@@ -3330,7 +3330,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i: ; preds = %
 
 1292:                                             ; preds = %1291
   %.not114.i.i = icmp eq ptr %.0102195.i.i, %1247
-  %spec.select.i244.i = select i1 %.not114.i.i, i8 %.0100196.i.i, i8 0
+  %spec.select.i244.i = zext i1 %.not114.i.i to i8
   br label %1293
 
 1293:                                             ; preds = %1292, %1291, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i, %1239

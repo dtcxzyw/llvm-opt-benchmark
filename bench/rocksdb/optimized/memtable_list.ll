@@ -2233,8 +2233,8 @@ define void @_ZN7rocksdb12MemTableList20PickMemtablesToFlushEmPNS_10autovectorIP
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 544
   %22 = load i64, ptr %21, align 8, !tbaa !218
-  %.not = icmp eq i64 %22, 72057594037927935
-  %spec.select = select i1 %.not, i8 %.01742, i8 1
+  %.not = icmp ne i64 %22, 72057594037927935
+  %spec.select = zext i1 %.not to i8
   br label %24
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPN7rocksdb16ReadOnlyMemTableESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i

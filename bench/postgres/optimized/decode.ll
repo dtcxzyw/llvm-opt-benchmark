@@ -1707,7 +1707,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
   tail call void @ReorderBufferProcessXid(ptr noundef %22, i32 noundef %10, i64 noundef %23) #7
   %24 = tail call i32 @SnapBuildCurrentState(ptr noundef %4) #7
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %74, label %26
+  br i1 %25, label %76, label %26
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %7, align 8
@@ -1719,7 +1719,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load i32, ptr %33, align 8
   %.not38 = icmp eq i32 %30, %34
-  br i1 %.not38, label %35, label %74
+  br i1 %.not38, label %35, label %76
 
 35:                                               ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1729,7 +1729,7 @@ define dso_local void @logicalmsg_decode(ptr noundef %0, ptr noundef readonly ca
 
 FilterByOrigin.exit:                              ; preds = %35
   %39 = tail call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %15) #7
-  br i1 %39, label %74, label %FilterByOrigin.exit.thread
+  br i1 %39, label %76, label %FilterByOrigin.exit.thread
 
 FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin.exit
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -1740,7 +1740,7 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
 43:                                               ; preds = %FilterByOrigin.exit.thread
   %44 = load i64, ptr %1, align 8
   %45 = tail call zeroext i1 @SnapBuildProcessChange(ptr noundef %4, i32 noundef %10, i64 noundef %44) #7
-  br i1 %45, label %46, label %74
+  br i1 %45, label %46, label %76
 
 46:                                               ; preds = %43
   %.pre = load i8, ptr %40, align 4, !range !8
@@ -1750,12 +1750,12 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
 .thread:                                          ; preds = %FilterByOrigin.exit.thread, %46
   %48 = tail call i32 @SnapBuildCurrentState(ptr noundef %4) #7
   %.not39 = icmp eq i32 %48, 2
-  br i1 %.not39, label %49, label %74
+  br i1 %.not39, label %49, label %76
 
 49:                                               ; preds = %.thread
   %50 = load i64, ptr %1, align 8
   %51 = tail call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %4, i64 noundef %50) #7
-  br i1 %51, label %74, label %52
+  br i1 %51, label %76, label %52
 
 52:                                               ; preds = %46, %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1766,38 +1766,38 @@ FilterByOrigin.exit.thread:                       ; preds = %35, %FilterByOrigin
   br i1 %55, label %58, label %61
 
 58:                                               ; preds = %52
-  br i1 %57, label %74, label %59
+  br i1 %57, label %76, label %59
 
 59:                                               ; preds = %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 301
   store i8 1, ptr %60, align 1
-  br label %74
+  br label %76
 
 61:                                               ; preds = %52
-  br i1 %57, label %64, label %62
+  br i1 %57, label %65, label %62
 
 62:                                               ; preds = %61
   %63 = tail call ptr @SnapBuildGetOrBuildSnapshot(ptr noundef %4) #7
   %.pre41 = load i8, ptr %40, align 4, !range !8
-  %.pre42 = trunc nuw i8 %.pre41 to i1
-  br label %64
+  %64 = trunc nuw i8 %.pre41 to i1
+  br label %65
 
-64:                                               ; preds = %62, %61
-  %.pre-phi = phi i1 [ %.pre42, %62 ], [ true, %61 ]
-  %.0 = phi ptr [ %63, %62 ], [ null, %61 ]
-  %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %69 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %29, i64 8
+65:                                               ; preds = %62, %61
+  %66 = phi i1 [ true, %61 ], [ %64, %62 ]
+  %.0 = phi ptr [ null, %61 ], [ %63, %62 ]
+  %67 = load ptr, ptr %21, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %72
-  tail call void @ReorderBufferQueueMessage(ptr noundef %65, i32 noundef %10, ptr noundef %.0, i64 noundef %67, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %68, i64 noundef %70, ptr noundef nonnull %73) #7
-  br label %74
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %74 = load i64, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %74
+  tail call void @ReorderBufferQueueMessage(ptr noundef %67, i32 noundef %10, ptr noundef %.0, i64 noundef %69, i1 noundef zeroext %66, ptr noundef nonnull %70, i64 noundef %72, ptr noundef nonnull %75) #7
+  br label %76
 
-74:                                               ; preds = %58, %59, %.thread, %49, %43, %26, %FilterByOrigin.exit, %20, %64
+76:                                               ; preds = %58, %59, %.thread, %49, %43, %26, %FilterByOrigin.exit, %20, %65
   ret void
 }
 

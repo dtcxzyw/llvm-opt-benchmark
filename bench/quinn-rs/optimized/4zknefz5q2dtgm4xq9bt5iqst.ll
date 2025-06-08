@@ -2026,7 +2026,7 @@ define void @_ZN5quinn11send_stream19send_stream_stopped17h87ad625072e096baE(ptr
 18:                                               ; preds = %16
   store i64 11, ptr %0, align 8
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %9, ptr %.sroa.410.0..sroa_idx, align 8
+  store i64 1, ptr %.sroa.410.0..sroa_idx, align 8
   %.sroa.511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %10, ptr %.sroa.511.0..sroa_idx, align 8
   br label %70

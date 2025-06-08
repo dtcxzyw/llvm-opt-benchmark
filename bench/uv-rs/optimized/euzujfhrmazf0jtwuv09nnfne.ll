@@ -12204,7 +12204,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %22 = load ptr, ptr %21, align 8, !noalias !2331, !nonnull !14, !align !15, !noundef !14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !2331
   store ptr %22, ptr %0, align 8
-  br label %.loopexit33
+  br label %.loopexit31
 
 23:                                               ; preds = %.thread, %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2337)
@@ -12245,7 +12245,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %storemerge.i10 = phi i64 [ %37, %36 ], [ %39, %38 ]
   %.sink.i = phi i32 [ %30, %36 ], [ 1000000001, %38 ]
   store i64 %storemerge.i10, ptr %0, align 8, !alias.scope !2337, !noalias !2355
-  br label %.loopexit33
+  br label %.loopexit31
 
 40:                                               ; preds = %19
   store i8 0, ptr %12, align 8, !alias.scope !2356
@@ -12295,7 +12295,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 58:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2364
   %59 = icmp eq i64 %.sroa.0.01016.i.add, 3
-  br i1 %59, label %.loopexit33, label %43
+  br i1 %59, label %.loopexit31, label %43
 
 60:                                               ; preds = %55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2376)
@@ -12312,9 +12312,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %.sroa.0.1.i = phi ptr [ %54, %50 ], [ %64, %60 ], [ %49, %47 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2364
   store ptr %.sroa.0.1.i, ptr %0, align 8
-  br label %.loopexit33
+  br label %.loopexit31
 
-.loopexit33:                                      ; preds = %58, %.loopexit, %65, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h67bd0a16b220c241E.exit"
+.loopexit31:                                      ; preds = %58, %.loopexit, %65, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h67bd0a16b220c241E.exit"
   %.sink = phi i32 [ 1000000001, %.loopexit ], [ 1000000001, %65 ], [ %.sink.i, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h67bd0a16b220c241E.exit" ], [ 1000000000, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %66, align 8
@@ -12618,7 +12618,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 49:                                               ; preds = %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !2469
   %50 = icmp eq i64 %.sroa.0.01016.i.add, 3
-  br i1 %50, label %.loopexit33, label %34
+  br i1 %50, label %.loopexit31, label %34
 
 51:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2481)
@@ -12637,13 +12637,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %56, %29, %28
-  %.sink31 = phi ptr [ %27, %28 ], [ %27, %29 ], [ %.sroa.0.1.i, %56 ], [ %22, %.loopexit ]
+  %.sink29 = phi ptr [ %27, %28 ], [ %27, %29 ], [ %.sroa.0.1.i, %56 ], [ %22, %.loopexit ]
   %.sink.ph = phi i64 [ %24, %28 ], [ -9223372036854775807, %29 ], [ -9223372036854775807, %56 ], [ -9223372036854775807, %.loopexit ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink31, ptr %57, align 8
-  br label %.loopexit33
+  store ptr %.sink29, ptr %57, align 8
+  br label %.loopexit31
 
-.loopexit33:                                      ; preds = %49, %.sink.split
+.loopexit31:                                      ; preds = %49, %.sink.split
   %.sink = phi i64 [ %.sink.ph, %.sink.split ], [ -9223372036854775808, %49 ]
   store i64 %.sink, ptr %0, align 8
   ret void

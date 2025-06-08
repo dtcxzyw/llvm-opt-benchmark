@@ -3566,14 +3566,14 @@ define hidden void @"_ZN7uv_auth7keyring15KeyringProvider16fetch_subprocess28_$u
   %86 = alloca [144 x i8], align 8
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 809
   %88 = load i8, ptr %87, align 1, !range !37, !noundef !4
-  switch i8 %88, label %default.unreachable416 [
+  switch i8 %88, label %default.unreachable417 [
     i8 0, label %89
     i8 1, label %181
     i8 2, label %182
     i8 3, label %186
   ]
 
-default.unreachable416:                           ; preds = %.noexc203, %186, %3
+default.unreachable417:                           ; preds = %.noexc203, %186, %3
   unreachable
 
 89:                                               ; preds = %3
@@ -3945,7 +3945,7 @@ _ZN5tokio7process7Command6stderr17hb38184cd620d59eaE.exit: ; preds = %123
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.sroa.2.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.754.i)
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  switch i8 %.pre, label %default.unreachable416 [
+  switch i8 %.pre, label %default.unreachable417 [
     i8 0, label %198
     i8 1, label %222
     i8 2, label %223
@@ -5503,7 +5503,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr44drop
 
 .noexc203:                                        ; preds = %647
   %648 = load i64, ptr %12, align 8, !range !39, !noalias !825, !noundef !4
-  switch i64 %648, label %default.unreachable416 [
+  switch i64 %648, label %default.unreachable417 [
     i64 1, label %649
     i64 2, label %.loopexit
     i64 0, label %652

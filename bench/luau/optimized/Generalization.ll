@@ -12506,9 +12506,9 @@ _ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit52: ; preds = %166, %164, %
 
 174:                                              ; preds = %_ZNK4Luau10TypeCacher13isUncacheableEPKNS_4TypeE.exit52
   %175 = load i8, ptr %141, align 8, !tbaa !150, !range !20, !noundef !21
-  %.not116 = icmp eq i8 %172, %175
+  %.not116.not = icmp eq i8 %175, 0
   %.pre131 = load ptr, ptr %170, align 8, !tbaa !93
-  br i1 %.not116, label %_ZStneIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit, label %_ZStneIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit.thread
+  br i1 %.not116.not, label %_ZStneIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit.thread, label %_ZStneIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit
 
 _ZStneIPKN4Luau4TypeES3_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS5_ERKSE_IS8_E.exit: ; preds = %174
   %176 = load ptr, ptr %140, align 8, !tbaa !93

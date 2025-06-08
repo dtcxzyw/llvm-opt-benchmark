@@ -228,8 +228,8 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   br i1 %.not23, label %._crit_edge, label %.outer, !llvm.loop !3
 
 .loopexit.thread:                                 ; preds = %34
-  %.not41 = icmp slt i64 %indvars.iv.next31, %30
-  br i1 %.not41, label %34, label %.critedge, !llvm.loop !3
+  %.not40 = icmp slt i64 %indvars.iv.next31, %30
+  br i1 %.not40, label %34, label %.critedge, !llvm.loop !3
 
 34:                                               ; preds = %.outer, %.loopexit.thread
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.loopexit.thread ], [ %indvars.iv30.ph, %.outer ]

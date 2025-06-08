@@ -6864,10 +6864,10 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit.i.i.i.i: ; preds = %300, %294
   store float %.0163.i.i.i.i, ptr %419, align 4, !tbaa !119
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #24
   %.pre.pre.i.i.i.i = load i8, ptr %165, align 4, !tbaa !393, !range !52
+  %420 = trunc nuw i8 %.pre.pre.i.i.i.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #24
-  %420 = trunc nuw i8 %.pre.pre.i.i.i.i to i1
   br i1 %420, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i319.i.i.i.i, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit320.i.i.i.i
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i319.i.i.i.i: ; preds = %302, %.thread491.i.i.i.i

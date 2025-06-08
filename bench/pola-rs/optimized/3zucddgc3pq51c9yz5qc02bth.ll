@@ -25686,8 +25686,8 @@ define hidden void @_ZN11polars_pipe9executors5sinks8group_by7generic12SpillPayl
           to label %254 unwind label %247
 
 .body19.thread140:                                ; preds = %.body37.thread, %254
-  %.pn.pn.pn.pn126138170 = phi { ptr, i32 } [ %.pn.pn.pn.pn126138.ph, %254 ], [ %246, %.body37.thread ]
-  resume { ptr, i32 } %.pn.pn.pn.pn126138170
+  %.pn.pn.pn.pn126138168 = phi { ptr, i32 } [ %.pn.pn.pn.pn126138.ph, %254 ], [ %246, %.body37.thread ]
+  resume { ptr, i32 } %.pn.pn.pn.pn126138168
 
 254:                                              ; preds = %.body19.thread132, %.body19
   %.pn.pn.pn.pn126138.ph = phi { ptr, i32 } [ %.pn.pn.pn86, %.body19 ], [ %.pn.pn.pn.pn126139, %.body19.thread132 ]

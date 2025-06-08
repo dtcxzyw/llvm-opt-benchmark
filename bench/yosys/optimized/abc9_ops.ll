@@ -90109,12 +90109,12 @@ _ZNK5Yosys7hashlib4dictIiNS_5RTLIL8IdStringENS0_8hash_opsIiEEE7do_hashERKi.exit:
   %.pre28 = load ptr, ptr %16, align 8, !tbaa !271
   %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre30 = load ptr, ptr %.phi.trans.insert29, align 8, !tbaa !268
-  %.pre32 = ptrtoint ptr %.pre28 to i64
-  %.pre34 = ptrtoint ptr %.pre30 to i64
-  %.pre36 = sub i64 %.pre32, %.pre34
-  %.pre38 = sdiv exact i64 %.pre36, 12
-  %.pre40 = trunc i64 %.pre38 to i32
-  %.pre42 = add i32 %.pre40, -1
+  %.pre31 = ptrtoint ptr %.pre28 to i64
+  %.pre32 = ptrtoint ptr %.pre30 to i64
+  %.pre34 = sub i64 %.pre31, %.pre32
+  %.pre36 = sdiv exact i64 %.pre34, 12
+  %.pre38 = trunc i64 %.pre36 to i32
+  %.pre40 = add i32 %.pre38, -1
   br label %105
 
 60:                                               ; preds = %23
@@ -90218,8 +90218,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit21:              ; preds = %88, %_ZNSt6vectorIN
   br label %106
 
 105:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit21, %_ZNK5Yosys7hashlib4dictIiNS_5RTLIL8IdStringENS0_8hash_opsIiEEE7do_hashERKi.exit
-  %.pre-phi43 = phi i32 [ %99, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit21 ], [ %.pre42, %_ZNK5Yosys7hashlib4dictIiNS_5RTLIL8IdStringENS0_8hash_opsIiEEE7do_hashERKi.exit ]
-  ret i32 %.pre-phi43
+  %.pre-phi41 = phi i32 [ %99, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit21 ], [ %.pre40, %_ZNK5Yosys7hashlib4dictIiNS_5RTLIL8IdStringENS0_8hash_opsIiEEE7do_hashERKi.exit ]
+  ret i32 %.pre-phi41
 
 106:                                              ; preds = %103, %60
   %.pn12.pn = phi { ptr, i32 } [ %61, %60 ], [ %104, %103 ]

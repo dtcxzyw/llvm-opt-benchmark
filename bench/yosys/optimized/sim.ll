@@ -52733,17 +52733,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_19SimWorker18write_output_filesEv(p
 
 .lr.ph84.preheader:                               ; preds = %1
   %14 = load i8, ptr %9, align 8, !tbaa !155, !range !132, !noundef !133
+  %15 = trunc nuw i8 %14 to i1
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.loopexit, %.lr.ph84.preheader
-  %.083 = phi i8 [ %14, %.lr.ph84.preheader ], [ %.1, %.loopexit ]
+  %.083 = phi i1 [ %15, %.lr.ph84.preheader ], [ false, %.loopexit ]
   %.sroa.064.082 = phi ptr [ %11, %.lr.ph84.preheader ], [ %94, %.loopexit ]
-  %15 = trunc nuw i8 %.083 to i1
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.064.082, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !105
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.064.082, i64 16
   %.not6878 = icmp eq ptr %17, %18
-  br i1 %15, label %19, label %58
+  br i1 %.083, label %19, label %58
 
 19:                                               ; preds = %.lr.ph84
   br i1 %.not6878, label %.loopexit, label %.lr.ph80
@@ -52949,7 +52949,6 @@ _ZNSt8_Rb_treeIiSt4pairIKibESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2E
   br label %.body
 
 .loopexit:                                        ; preds = %87, %51, %58, %19
-  %.1 = phi i8 [ 0, %19 ], [ 0, %58 ], [ 0, %51 ], [ %.083, %87 ]
   %92 = load i8, ptr %9, align 8, !tbaa !155, !range !132, !noundef !133
   %93 = trunc nuw i8 %92 to i1
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.064.082, i64 56

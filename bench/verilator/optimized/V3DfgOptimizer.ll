@@ -5556,7 +5556,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10
           to label %_ZN9VNVisitor7iterateEP7AstNode.exit unwind label %13
 
 _ZN9VNVisitor7iterateEP7AstNode.exit:             ; preds = %15
-  store i8 %4, ptr %3, align 1, !tbaa !174
+  store i8 0, ptr %3, align 1, !tbaa !174
   ret void
 }
 

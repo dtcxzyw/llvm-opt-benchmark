@@ -8333,7 +8333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %_Z
 
 _ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit211: ; preds = %474, %450, %473
   %479 = phi i64 [ %452, %450 ], [ 0, %473 ], [ %470, %474 ]
-  %480 = phi i8 [ 1, %450 ], [ 1, %473 ], [ %453, %474 ]
+  %480 = phi i8 [ 1, %450 ], [ 1, %473 ], [ 0, %474 ]
   %481 = icmp eq i64 %479, 0
   br i1 %481, label %.lr.ph, label %._crit_edge, !llvm.loop !342
 

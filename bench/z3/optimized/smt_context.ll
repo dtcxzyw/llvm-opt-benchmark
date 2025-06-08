@@ -6199,7 +6199,7 @@ _ZNK17asserted_formulas16get_num_formulasEv.exit32: ; preds = %69, %72
 .thread:                                          ; preds = %_ZNK17asserted_formulas16get_num_formulasEv.exit32, %_ZN3smt7context15get_cancel_flagEv.exit25, %57, %_ZN3smt7context15get_cancel_flagEv.exit25.thread
   call void @_ZN6timeitD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
-  store i8 %15, ptr %14, align 4, !tbaa !807
+  store i8 0, ptr %14, align 4, !tbaa !807
   br label %76
 
 76:                                               ; preds = %_ZN3smt7context15get_cancel_flagEv.exit.thread, %_ZN3smt7context15get_cancel_flagEv.exit, %.thread
@@ -6213,7 +6213,7 @@ _ZNK17asserted_formulas16get_num_formulasEv.exit32: ; preds = %69, %72
 77:                                               ; preds = %.loopexit.split-lp, %38
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %.loopexit.split-lp ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #35
-  store i8 %15, ptr %14, align 4, !tbaa !807
+  store i8 0, ptr %14, align 4, !tbaa !807
   resume { ptr, i32 } %.pn18.pn
 }
 

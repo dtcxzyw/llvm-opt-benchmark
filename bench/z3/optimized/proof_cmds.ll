@@ -4546,8 +4546,8 @@ _ZN3euf17smt_proof_checker10add_clauseERK10ref_vectorI4expr11ast_managerE.exit: 
   store ptr null, ptr %11, align 8, !tbaa !466, !alias.scope !462
   call void @_ZN3sat4drat3addERK7svectorINS_7literalEjENS_6statusE(ptr noundef nonnull align 8 dereferenceable(664) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   %.pre = load i8, ptr %5, align 8, !tbaa !324, !range !253
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %12 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br i1 %12, label %13, label %39
 
 13:                                               ; preds = %_ZN3euf17smt_proof_checker10add_clauseERK10ref_vectorI4expr11ast_managerE.exit

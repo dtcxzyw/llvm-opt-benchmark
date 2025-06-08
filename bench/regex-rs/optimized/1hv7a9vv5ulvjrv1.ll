@@ -10516,7 +10516,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17hd5b75b1e1b588d1aE
   %.0.in.i = icmp eq i64 %.pn2.i, 0
   br i1 %.0.in.i, label %34, label %16
 
-14:                                               ; preds = %110, %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i, %.noexc7, %_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07E.exit.i, %34, %32, %.noexc, %27, %65
+14:                                               ; preds = %111, %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i, %.noexc7, %_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07E.exit.i, %34, %32, %.noexc, %27, %65
   %15 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -10524,7 +10524,7 @@ define internal fastcc void @_ZN12regex_syntax3hir3Hir5class17hd5b75b1e1b588d1aE
 .body:                                            ; preds = %40, %59, %14
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %41, %40 ], [ %60, %59 ]
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..Class$GT$17h67a781c0dd8a1328E"(ptr noalias noundef align 8 dereferenceable(40) %1) #25
-          to label %115 unwind label %113
+          to label %116 unwind label %114
 
 16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
@@ -10759,75 +10759,75 @@ _ZN12regex_syntax3hir5Class7literal17ha1443a4d667cde1bE.exit: ; preds = %.noexc1
 
 85:                                               ; preds = %_ZN12regex_syntax3hir5Class7literal17ha1443a4d667cde1bE.exit
   %.pre = load i64, ptr %1, align 8, !range !28, !alias.scope !2668
+  %86 = trunc nuw i64 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !2673)
-  %trunc.i.i = trunc nuw i64 %.pre to i1
-  br i1 %trunc.i.i, label %93, label %_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07E.exit.i
+  br i1 %86, label %94, label %_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07E.exit.i
 
 _ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07E.exit.i: ; preds = %.thread, %85
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %87 = invoke { i64, i64 } @_ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f79af7367bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %86)
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %88 = invoke { i64, i64 } @_ZN12regex_syntax3hir12ClassUnicode11minimum_len17h5173e3f79af7367bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %87)
           to label %.noexc7 unwind label %14
 
 .noexc7:                                          ; preds = %_ZN12regex_syntax3hir5Class11maximum_len17h7a4b59e0f534ec07E.exit.i
-  %88 = invoke { i64, i64 } @_ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268f8932006E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %86)
+  %89 = invoke { i64, i64 } @_ZN12regex_syntax3hir12ClassUnicode11maximum_len17h5abb1268f8932006E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %87)
           to label %.noexc8 unwind label %14
 
 .noexc8:                                          ; preds = %.noexc7
-  %89 = extractvalue { i64, i64 } %87, 1
-  %90 = extractvalue { i64, i64 } %87, 0
+  %90 = extractvalue { i64, i64 } %88, 1
   %91 = extractvalue { i64, i64 } %88, 0
-  %92 = extractvalue { i64, i64 } %88, 1
+  %92 = extractvalue { i64, i64 } %89, 0
+  %93 = extractvalue { i64, i64 } %89, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2674)
   br label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i
 
-93:                                               ; preds = %85
-  %94 = load i64, ptr %.pn2.in.i, align 8, !alias.scope !2677, !noundef !5
-  %95 = icmp ne i64 %94, 0
-  %..i.i.i = zext i1 %95 to i64
+94:                                               ; preds = %85
+  %95 = load i64, ptr %.pn2.in.i, align 8, !alias.scope !2677, !noundef !5
+  %96 = icmp ne i64 %95, 0
+  %..i.i.i = zext i1 %96 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !2684)
-  %.not.i.i.i = icmp eq i64 %94, 0
-  br i1 %.not.i.i.i, label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i, label %96
+  %.not.i.i.i = icmp eq i64 %95, 0
+  br i1 %.not.i.i.i, label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i, label %97
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %98 = load ptr, ptr %97, align 8, !alias.scope !2687, !nonnull !5, !noundef !5
-  %99 = add i64 %94, -1
-  %100 = getelementptr inbounds [0 x { i8, i8 }], ptr %98, i64 0, i64 %99, i32 1
-  %101 = load i8, ptr %100, align 1, !alias.scope !2690, !noalias !2695, !noundef !5
-  %102 = icmp sgt i8 %101, -1
-  %103 = zext i1 %102 to i8
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %99 = load ptr, ptr %98, align 8, !alias.scope !2687, !nonnull !5, !noundef !5
+  %100 = add i64 %95, -1
+  %101 = getelementptr inbounds [0 x { i8, i8 }], ptr %99, i64 0, i64 %100, i32 1
+  %102 = load i8, ptr %101, align 1, !alias.scope !2690, !noalias !2695, !noundef !5
+  %103 = icmp sgt i8 %102, -1
+  %104 = zext i1 %103 to i8
   br label %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i
 
-_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i: ; preds = %96, %93, %.noexc8
-  %104 = phi i64 [ %92, %.noexc8 ], [ 1, %96 ], [ 1, %93 ]
-  %105 = phi i64 [ %91, %.noexc8 ], [ %..i.i.i, %96 ], [ %..i.i.i, %93 ]
-  %106 = phi i64 [ %90, %.noexc8 ], [ %..i.i.i, %96 ], [ %..i.i.i, %93 ]
-  %107 = phi i64 [ %89, %.noexc8 ], [ 1, %96 ], [ 1, %93 ]
-  %.0.i.i = phi i8 [ 1, %.noexc8 ], [ %103, %96 ], [ 1, %93 ]
-  %108 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.5188572562200175411(ptr noalias noundef nonnull readonly align 1 @anon.e7a22afab2d73454c3fec61b403322c0.6.llvm.5188572562200175411, i64 noundef 8, i64 noundef 80, i1 noundef zeroext false)
+_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i: ; preds = %97, %94, %.noexc8
+  %105 = phi i64 [ %93, %.noexc8 ], [ 1, %97 ], [ 1, %94 ]
+  %106 = phi i64 [ %92, %.noexc8 ], [ %..i.i.i, %97 ], [ %..i.i.i, %94 ]
+  %107 = phi i64 [ %91, %.noexc8 ], [ %..i.i.i, %97 ], [ %..i.i.i, %94 ]
+  %108 = phi i64 [ %90, %.noexc8 ], [ 1, %97 ], [ 1, %94 ]
+  %.0.i.i = phi i8 [ 1, %.noexc8 ], [ %104, %97 ], [ 1, %94 ]
+  %109 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.5188572562200175411(ptr noalias noundef nonnull readonly align 1 @anon.e7a22afab2d73454c3fec61b403322c0.6.llvm.5188572562200175411, i64 noundef 8, i64 noundef 80, i1 noundef zeroext false)
           to label %.noexc9 unwind label %14
 
 .noexc9:                                          ; preds = %_ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i
-  %.fca.0.extract.i.i = extractvalue { ptr, i64 } %108, 0
-  %109 = icmp eq ptr %.fca.0.extract.i.i, null
-  br i1 %109, label %110, label %111
+  %.fca.0.extract.i.i = extractvalue { ptr, i64 } %109, 0
+  %110 = icmp eq ptr %.fca.0.extract.i.i, null
+  br i1 %110, label %111, label %112
 
-110:                                              ; preds = %.noexc9
+111:                                              ; preds = %.noexc9
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 80) #26
           to label %.noexc10 unwind label %14
 
-.noexc10:                                         ; preds = %110
+.noexc10:                                         ; preds = %111
   unreachable
 
-111:                                              ; preds = %.noexc9
-  store i64 %106, ptr %.fca.0.extract.i.i, align 8
+112:                                              ; preds = %.noexc9
+  store i64 %107, ptr %.fca.0.extract.i.i, align 8
   %.sroa.2.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 8
-  store i64 %107, ptr %.sroa.2.0..fca.0.extract.i.sroa_idx.i, align 8
+  store i64 %108, ptr %.sroa.2.0..fca.0.extract.i.sroa_idx.i, align 8
   %.sroa.3.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 16
-  store i64 %105, ptr %.sroa.3.0..fca.0.extract.i.sroa_idx.i, align 8
+  store i64 %106, ptr %.sroa.3.0..fca.0.extract.i.sroa_idx.i, align 8
   %.sroa.4.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 24
-  store i64 %104, ptr %.sroa.4.0..fca.0.extract.i.sroa_idx.i, align 8
+  store i64 %105, ptr %.sroa.4.0..fca.0.extract.i.sroa_idx.i, align 8
   %.sroa.5.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 32
   store i64 1, ptr %.sroa.5.0..fca.0.extract.i.sroa_idx.i, align 8
   %.sroa.6.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 40
@@ -10839,20 +10839,20 @@ _ZN12regex_syntax3hir5Class7is_utf817h03da73b9feb6c499E.exit.i: ; preds = %96, %
   %.sroa.15.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 78
   store i8 0, ptr %.sroa.15.0..fca.0.extract.i.sroa_idx.i, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.fca.0.extract.i.i, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.fca.0.extract.i.i, ptr %113, align 8
   br label %"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..Class$GT$17h67a781c0dd8a1328E.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..Class$GT$17h67a781c0dd8a1328E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$regex_syntax..hir..ClassBytes$GT$17h39cbf5a242c78125E.exit.i", %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..ClassUnicode$GT$17hf1b21b419c386512E.exit.i", %111
+"_ZN4core3ptr45drop_in_place$LT$regex_syntax..hir..Class$GT$17h67a781c0dd8a1328E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$regex_syntax..hir..ClassBytes$GT$17h39cbf5a242c78125E.exit.i", %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..hir..ClassUnicode$GT$17hf1b21b419c386512E.exit.i", %112
   ret void
 
-113:                                              ; preds = %.body
-  %114 = landingpad { ptr, i32 }
+114:                                              ; preds = %.body
+  %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24
   unreachable
 
-115:                                              ; preds = %.body
+116:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

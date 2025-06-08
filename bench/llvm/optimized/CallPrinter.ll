@@ -1872,7 +1872,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %51, %.lr.ph
   %56 = phi i32 [ %31, %.lr.ph ], [ %55, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %51 ], [ %44, %.lr.ph.i.i ]
-  %57 = phi i8 [ %32, %.lr.ph ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %40, %51 ], [ %40, %.lr.ph.i.i ]
+  %57 = phi i8 [ %32, %.lr.ph ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %51 ], [ 1, %.lr.ph.i.i ]
   %58 = phi ptr [ %33, %.lr.ph ], [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %53, %51 ], [ %43, %.lr.ph.i.i ]
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.025.041, i64 8
   %.sroa.025.0 = load ptr, ptr %59, align 8, !tbaa !132
@@ -2289,9 +2289,9 @@ _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %.lr.ph.i.i
   %47 = phi i32 [ %42, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %38 ], [ %23, %.lr.ph.i.i ]
   %48 = phi i32 [ %43, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %24, %38 ], [ %24, %.lr.ph.i.i ]
   %49 = phi ptr [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %40, %38 ], [ %25, %.lr.ph.i.i ]
-  %50 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %26, %38 ], [ %26, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i1 [ %45, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %38 ], [ false, %.lr.ph.i.i ]
-  br i1 %.fca.1.insert.merged.i11.i, label %76, label %51
+  %50 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %38 ], [ 1, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i9.i = phi i1 [ %45, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %38 ], [ false, %.lr.ph.i.i ]
+  br i1 %.fca.1.insert.merged.i9.i, label %76, label %51
 
 51:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.012.024, i64 32

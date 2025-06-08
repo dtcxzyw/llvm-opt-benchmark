@@ -1169,7 +1169,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i: ; preds = %.lr.p
   %242 = phi i32 [ %201, %_ZN4llvm14CastIsPossibleINS_18CoroAllocaFreeInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i ], [ %201, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i51 ], [ %201, %209 ], [ %201, %212 ], [ %201, %.lr.ph.i ], [ %201, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i52 ], [ %240, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %201, %235 ], [ %201, %.lr.ph.i.i.i ]
   %243 = phi i32 [ %202, %_ZN4llvm14CastIsPossibleINS_18CoroAllocaFreeInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i ], [ %202, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i51 ], [ %202, %209 ], [ %202, %212 ], [ %202, %.lr.ph.i ], [ %202, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i52 ], [ %239, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %.pre.i, %235 ], [ %200, %.lr.ph.i.i.i ]
   %244 = phi ptr [ %203, %_ZN4llvm14CastIsPossibleINS_18CoroAllocaFreeInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i ], [ %203, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i51 ], [ %203, %209 ], [ %203, %212 ], [ %203, %.lr.ph.i ], [ %203, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i52 ], [ %.pre5.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %237, %235 ], [ %203, %.lr.ph.i.i.i ]
-  %245 = phi i8 [ %204, %_ZN4llvm14CastIsPossibleINS_18CoroAllocaFreeInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i ], [ %204, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i51 ], [ %204, %209 ], [ %204, %212 ], [ %204, %.lr.ph.i ], [ %204, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i52 ], [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %204, %235 ], [ %204, %.lr.ph.i.i.i ]
+  %245 = phi i8 [ %204, %_ZN4llvm14CastIsPossibleINS_18CoroAllocaFreeInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i.i ], [ %204, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i51 ], [ %204, %209 ], [ %204, %212 ], [ %204, %.lr.ph.i ], [ %204, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i52 ], [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ 1, %235 ], [ 1, %.lr.ph.i.i.i ]
   %246 = getelementptr inbounds nuw i8, ptr %.sroa.09.019.i, i64 8
   %.sroa.09.0.i = load ptr, ptr %246, align 8, !tbaa !44
   %.not.i = icmp eq ptr %.sroa.09.0.i, null
@@ -2129,7 +2129,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE6insertES3_.exit.i.i: ; preds = %.l
   %652 = phi i32 [ %650, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %.pre.i.i90, %646 ], [ %632, %.lr.ph.i.i.i.i89 ]
   %653 = phi i32 [ %651, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %633, %646 ], [ %633, %.lr.ph.i.i.i.i89 ]
   %654 = phi ptr [ %.pre5.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %648, %646 ], [ %634, %.lr.ph.i.i.i.i89 ]
-  %655 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %635, %646 ], [ %635, %.lr.ph.i.i.i.i89 ]
+  %655 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ 1, %646 ], [ 1, %.lr.ph.i.i.i.i89 ]
   %656 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 8
   %.not.i11.i = icmp eq ptr %656, %631
   br i1 %.not.i11.i, label %_ZN4llvm4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorC2ERKNS_10DataLayoutERKNS_13DominatorTreeERKNS0_5ShapeERKNS_19SuspendCrossingInfoEb.exit.loopexit.i, label %.lr.ph.i.i77
@@ -7200,11 +7200,11 @@ _ZNSt8optionalIN4llvm5APIntEEC2EOS2_.exit:        ; preds = %_ZN4llvm12DenseMapB
   store i32 0, ptr %49, align 8, !tbaa !205
   store i8 1, ptr %42, align 8, !tbaa !285
   %.pre = load i8, ptr %41, align 8, !tbaa !285, !range !111
-  %52 = load i32, ptr %4, align 8, !tbaa !281
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %4, align 8, !tbaa !281
-  %54 = trunc nuw i8 %.pre to i1
-  br i1 %54, label %55, label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
+  %52 = trunc nuw i8 %.pre to i1
+  %53 = load i32, ptr %4, align 8, !tbaa !281
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %4, align 8, !tbaa !281
+  br i1 %52, label %55, label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit
 
 55:                                               ; preds = %_ZNSt8optionalIN4llvm5APIntEEC2EOS2_.exit
   store i8 0, ptr %41, align 8, !tbaa !285
@@ -7476,37 +7476,37 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
   %83 = load i32, ptr %82, align 4, !tbaa !126, !noalias !372
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %84
-  %.not36.i.i27 = icmp eq i32 %83, 0
-  br i1 %.not36.i.i27, label %._crit_edge.i.i33, label %.lr.ph.i.i28
+  %.not36.i.i26 = icmp eq i32 %83, 0
+  br i1 %.not36.i.i26, label %._crit_edge.i.i32, label %.lr.ph.i.i27
 
-.lr.ph.i.i28:                                     ; preds = %80, %.critedge.i.i31
-  %.02937.i.i29 = phi ptr [ %87, %.critedge.i.i31 ], [ %81, %80 ]
-  %86 = load ptr, ptr %.02937.i.i29, align 8, !tbaa !129, !noalias !372
-  %.not17.i.i30 = icmp eq ptr %86, %76
-  br i1 %.not17.i.i30, label %_ZN4llvm13PtrUseVisitorINS_4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit, label %.critedge.i.i31
+.lr.ph.i.i27:                                     ; preds = %80, %.critedge.i.i30
+  %.02937.i.i28 = phi ptr [ %87, %.critedge.i.i30 ], [ %81, %80 ]
+  %86 = load ptr, ptr %.02937.i.i28, align 8, !tbaa !129, !noalias !372
+  %.not17.i.i29 = icmp eq ptr %86, %76
+  br i1 %.not17.i.i29, label %_ZN4llvm13PtrUseVisitorINS_4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit, label %.critedge.i.i30
 
-.critedge.i.i31:                                  ; preds = %.lr.ph.i.i28
-  %87 = getelementptr inbounds nuw i8, ptr %.02937.i.i29, i64 8
-  %.not.i.i32 = icmp eq ptr %87, %85
-  br i1 %.not.i.i32, label %._crit_edge.i.i33, label %.lr.ph.i.i28, !llvm.loop !133
+.critedge.i.i30:                                  ; preds = %.lr.ph.i.i27
+  %87 = getelementptr inbounds nuw i8, ptr %.02937.i.i28, i64 8
+  %.not.i.i31 = icmp eq ptr %87, %85
+  br i1 %.not.i.i31, label %._crit_edge.i.i32, label %.lr.ph.i.i27, !llvm.loop !133
 
-._crit_edge.i.i33:                                ; preds = %.critedge.i.i31, %80
+._crit_edge.i.i32:                                ; preds = %.critedge.i.i30, %80
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %89 = load i32, ptr %88, align 8, !tbaa !125, !noalias !372
   %90 = icmp ult i32 %83, %89
   br i1 %90, label %91, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i9
 
-91:                                               ; preds = %._crit_edge.i.i33
+91:                                               ; preds = %._crit_edge.i.i32
   %92 = add nuw i32 %83, 1
   store i32 %92, ptr %82, align 4, !tbaa !126, !noalias !372
   store ptr %76, ptr %85, align 8, !tbaa !129, !noalias !372
   br label %_ZN4llvm13PtrUseVisitorINS_4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i9: ; preds = %._crit_edge.i.i33, %73
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i9: ; preds = %._crit_edge.i.i32, %73
   %93 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %74, ptr noundef %76) #14, !noalias !372
   br label %_ZN4llvm13PtrUseVisitorINS_4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit
 
-_ZN4llvm13PtrUseVisitorINS_4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit: ; preds = %.lr.ph.i.i28, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i9, %91, %34, %33, %24, %23, %16, %16, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit
+_ZN4llvm13PtrUseVisitorINS_4coro12_GLOBAL__N_112_GLOBAL__N_116AllocaUseVisitorEE18visitIntrinsicInstERNS_13IntrinsicInstE.exit: ; preds = %.lr.ph.i.i27, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i9, %91, %34, %33, %24, %23, %16, %16, %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit
   ret void
 }
 

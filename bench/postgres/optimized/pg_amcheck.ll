@@ -1038,10 +1038,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 311:                                              ; preds = %310, %303
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.191) #11
   %.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4, !range !6
-  %312 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4, !range !6, !noundef !7
-  %313 = trunc nuw i8 %312 to i1
-  %314 = trunc nuw i8 %.pre.i to i1
-  %or.cond17.i = select i1 %313, i1 true, i1 %314
+  %312 = trunc nuw i8 %.pre.i to i1
+  %313 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4, !range !6, !noundef !7
+  %314 = trunc nuw i8 %313 to i1
+  %or.cond17.i = select i1 %314, i1 true, i1 %312
   br i1 %or.cond17.i, label %.thread.i, label %315
 
 315:                                              ; preds = %311
@@ -1072,10 +1072,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 324:                                              ; preds = %321
   call void @appendPQExpBufferStr(ptr noundef nonnull %3, ptr noundef nonnull @.str.203) #11
   %.pre111.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 92), align 4, !range !6
-  %325 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4, !range !6, !noundef !7
-  %326 = trunc nuw i8 %325 to i1
-  %327 = trunc nuw i8 %.pre111.i to i1
-  %or.cond19.i = select i1 %326, i1 true, i1 %327
+  %325 = trunc nuw i8 %.pre111.i to i1
+  %326 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 60), align 4, !range !6, !noundef !7
+  %327 = trunc nuw i8 %326 to i1
+  %or.cond19.i = select i1 %327, i1 true, i1 %325
   br i1 %or.cond19.i, label %.thread114.i, label %328
 
 328:                                              ; preds = %324

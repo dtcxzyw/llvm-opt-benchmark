@@ -428,8 +428,8 @@ _ZN13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjE6removeEv.exit4: ; preds =
 define hidden noundef zeroext i1 @_ZN13JfrStringPool10initializeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [28 x i8], align 16
   %3 = alloca [11 x i8], align 1
-  %.b16 = load i1, ptr @_ZZL27initialize_java_string_poolvE11initialized, align 1
-  br i1 %.b16, label %_ZL27initialize_java_string_poolv.exit.thread, label %4
+  %.b14 = load i1, ptr @_ZZL27initialize_java_string_poolvE11initialized, align 1
+  br i1 %.b14, label %_ZL27initialize_java_string_poolv.exit.thread, label %4
 
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -444,7 +444,7 @@ define hidden noundef zeroext i1 @_ZN13JfrStringPool10initializeEv(ptr noundef n
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %13, label %_ZL27initialize_java_string_poolv.exit.thread11
+  br i1 %.not.i.i, label %13, label %_ZL27initialize_java_string_poolv.exit.thread10
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %10, align 8
@@ -453,7 +453,7 @@ define hidden noundef zeroext i1 @_ZN13JfrStringPool10initializeEv(ptr noundef n
   call void %16(ptr noundef nonnull align 8 dereferenceable(196) %10, ptr noundef nonnull %6) #16
   %17 = load ptr, ptr %11, align 8
   %.not15.i.i = icmp eq ptr %17, null
-  br i1 %.not15.i.i, label %18, label %_ZL27initialize_java_string_poolv.exit.thread11
+  br i1 %.not15.i.i, label %18, label %_ZL27initialize_java_string_poolv.exit.thread10
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 112
@@ -470,7 +470,7 @@ _ZNK5Klass11java_mirrorEv.exit.i.i:               ; preds = %22, %18
   %25 = phi ptr [ %24, %22 ], [ null, %18 ]
   %26 = call noundef ptr @_ZN14JfrJavaSupport17global_jni_handleEP7oopDescP10JavaThread(ptr noundef %25, ptr noundef nonnull %6) #16
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %_ZL27initialize_java_string_poolv.exit.thread11, label %28
+  br i1 %27, label %_ZL27initialize_java_string_poolv.exit.thread10, label %28
 
 28:                                               ; preds = %_ZNK5Klass11java_mirrorEv.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3, ptr noundef nonnull align 1 dereferenceable(11) @__const._ZL25setup_string_pool_offsetsP10JavaThread.generation_name, i64 11, i1 false)
@@ -483,9 +483,9 @@ _ZNK5Klass11java_mirrorEv.exit.i.i:               ; preds = %22, %18
 
 34:                                               ; preds = %28
   call void @_ZN14JfrJavaSupport25destroy_global_jni_handleEP8_jobject(ptr noundef nonnull %26) #16
-  br label %_ZL27initialize_java_string_poolv.exit.thread11
+  br label %_ZL27initialize_java_string_poolv.exit.thread10
 
-_ZL27initialize_java_string_poolv.exit.thread11:  ; preds = %34, %4, %13, %_ZNK5Klass11java_mirrorEv.exit.i.i
+_ZL27initialize_java_string_poolv.exit.thread10:  ; preds = %34, %4, %13, %_ZNK5Klass11java_mirrorEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3)
   store i1 false, ptr @_ZZL27initialize_java_string_poolvE11initialized, align 1
@@ -519,7 +519,7 @@ _ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLink
   br label %42
 
 42:                                               ; preds = %_ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES1_EPT_mmmbPT0_.exit, %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit
-  %.0615 = phi i64 [ 0, %_ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES1_EPT_mmmbPT0_.exit ], [ %61, %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit ]
+  %.0613 = phi i64 [ 0, %_ZL13create_mspaceI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EES1_EPT_mmmbPT0_.exit ], [ %61, %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit ]
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i64, ptr %44, align 8
@@ -542,7 +542,7 @@ _ZL21align_allocation_sizemm.exit.i.i:            ; preds = %.preheader.i.i.i
   call void @_ZN19JfrStringPoolBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %49) #16
   call void @_ZN9JfrBuffer10initializeEmm(ptr noundef nonnull align 8 dereferenceable(48) %49, i64 noundef 64, i64 noundef %.0.i.i.i) #16
   %52 = load ptr, ptr %0, align 8
-  %53 = and i64 %.0615, 1
+  %53 = and i64 %.0613, 1
   %54 = icmp eq i64 %53, 0
   %55 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %55, 1
@@ -561,7 +561,7 @@ _ZL21align_allocation_sizemm.exit.i.i:            ; preds = %.preheader.i.i.i
   br i1 %.not.i.i9, label %_ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit, label %58, !llvm.loop !13
 
 _ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES5_Lb1EE16add_to_live_listEPS3_b.exit: ; preds = %58
-  %61 = add nuw nsw i64 %.0615, 1
+  %61 = add nuw nsw i64 %.0613, 1
   %exitcond.not = icmp eq i64 %61, 4
   br i1 %exitcond.not, label %62, label %42, !llvm.loop !14
 
@@ -570,8 +570,8 @@ _ZN14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStri
   %64 = icmp ne ptr %63, null
   br label %_Z15mspace_allocateI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_.exit.thread
 
-_Z15mspace_allocateI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_.exit.thread: ; preds = %_ZL21align_allocation_sizemm.exit.i.i, %_ZL27initialize_java_string_poolv.exit.thread11, %62
-  %.0 = phi i1 [ %64, %62 ], [ false, %_ZL27initialize_java_string_poolv.exit.thread11 ], [ false, %_ZL21align_allocation_sizemm.exit.i.i ]
+_Z15mspace_allocateI14JfrMemorySpaceI13JfrStringPool18JfrMspaceRetrieval13JfrLinkedListI19JfrStringPoolBuffer11JfrCHeapObjES6_Lb1EEENT_7NodePtrEmPS8_.exit.thread: ; preds = %_ZL21align_allocation_sizemm.exit.i.i, %_ZL27initialize_java_string_poolv.exit.thread10, %62
+  %.0 = phi i1 [ %64, %62 ], [ false, %_ZL27initialize_java_string_poolv.exit.thread10 ], [ false, %_ZL21align_allocation_sizemm.exit.i.i ]
   ret i1 %.0
 }
 

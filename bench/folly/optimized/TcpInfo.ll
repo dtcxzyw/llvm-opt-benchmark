@@ -498,8 +498,8 @@ _ZNR5folly8OptionalImE5valueEv.exit.i8.i.i.i.i:   ; preds = %_ZN5folly8OptionalI
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i8 2, ptr %154, align 8, !tbaa !14
   %.pre54 = load i8, ptr %16, align 8, !tbaa !49, !range !44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   %155 = trunc nuw i8 %.pre54 to i1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   br i1 %155, label %156, label %_ZN5folly7TcpInfoD2Ev.exit
 
 156:                                              ; preds = %153

@@ -24589,7 +24589,7 @@ _ZN15tree_sitter_cli5parse18parse_file_at_path12is_utf16_bom17h35646be34c1cf7b1E
   %.1652 = phi i32 [ %862, %861 ], [ %741, %740 ], [ %.0651, %781 ], [ %.0651, %856 ], [ %862, %.preheader ]
   %.1648 = phi i1 [ true, %861 ], [ false, %740 ], [ true, %781 ], [ false, %856 ], [ true, %.preheader ]
   %.1646 = phi i1 [ %658, %861 ], [ false, %740 ], [ %.0645, %781 ], [ false, %856 ], [ %658, %.preheader ]
-  %.3629 = phi i8 [ %.2628, %861 ], [ %.1627, %740 ], [ %.1627, %781 ], [ %.2628, %856 ], [ %.2628, %.preheader ]
+  %.3629 = phi i8 [ %.2628, %861 ], [ %.1627, %740 ], [ %.1627, %781 ], [ %.2628, %856 ], [ 1, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %100)
   br label %656
 

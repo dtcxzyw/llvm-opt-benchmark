@@ -4224,7 +4224,7 @@ define { i64, i64 } @"_ZN116_$LT$tokio_quiche..http3..driver..server..ServerHook
 
 65:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !475
-  store i64 %53, ptr %16, align 8, !noalias !475
+  store i64 1, ptr %16, align 8, !noalias !475
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %54, ptr %66, align 8, !noalias !475
   %.pre.i = load ptr, ptr %14, align 8, !noalias !475

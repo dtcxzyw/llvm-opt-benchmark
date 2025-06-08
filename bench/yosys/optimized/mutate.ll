@@ -30244,9 +30244,9 @@ _ZN12_GLOBAL__N_17xs128_tclEi.exit.i.i:           ; preds = %.loopexit.i.i.i677,
 
 3548:                                             ; preds = %3544
   %.pre.i689 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !59, !range !60
-  %3549 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !63
-  %3550 = trunc nuw i8 %.pre.i689 to i1
-  br i1 %3550, label %._crit_edge3581, label %.thread88.i
+  %3549 = trunc nuw i8 %.pre.i689 to i1
+  %3550 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !63
+  br i1 %3549, label %._crit_edge3581, label %.thread88.i
 
 ._crit_edge3581:                                  ; preds = %3548
   %.pre3582 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !62
@@ -30257,7 +30257,7 @@ _ZN12_GLOBAL__N_17xs128_tclEi.exit.i.i:           ; preds = %.loopexit.i.i.i677,
 3551:                                             ; preds = %._crit_edge3581, %.thread87.i
   %3552 = phi i32 [ %3541, %.thread87.i ], [ %.pre3584, %._crit_edge3581 ]
   %3553 = phi ptr [ %3530, %.thread87.i ], [ %.pre3582, %._crit_edge3581 ]
-  %3554 = phi i32 [ %3543, %.thread87.i ], [ %3549, %._crit_edge3581 ]
+  %3554 = phi i32 [ %3543, %.thread87.i ], [ %3550, %._crit_edge3581 ]
   %3555 = getelementptr inbounds nuw i32, ptr %3553, i64 %3529
   %3556 = add nsw i32 %3552, -1
   store i32 %3556, ptr %3555, align 4, !tbaa !63
@@ -30276,7 +30276,7 @@ _ZN12_GLOBAL__N_17xs128_tclEi.exit.i.i:           ; preds = %.loopexit.i.i.i677,
   unreachable
 
 .thread88.i:                                      ; preds = %3528, %3558, %3551, %3548, %.thread.i.i
-  %3562 = phi i32 [ %3527, %.thread.i.i ], [ %3549, %3548 ], [ %3554, %3551 ], [ %3554, %3558 ], [ %3537, %3528 ]
+  %3562 = phi i32 [ %3527, %.thread.i.i ], [ %3550, %3548 ], [ %3554, %3551 ], [ %3554, %3558 ], [ %3537, %3528 ]
   %3563 = phi i32 [ %3527, %.thread.i.i ], [ %3537, %3548 ], [ %3537, %3551 ], [ %3537, %3558 ], [ %3537, %3528 ]
   %.sroa.3.06.i.i = phi i32 [ %3526, %.thread.i.i ], [ %3535, %3548 ], [ %3535, %3551 ], [ %3535, %3558 ], [ %3535, %3528 ]
   %3564 = mul i32 %3524, 33
@@ -42083,7 +42083,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i: ; preds = %.threa
   unreachable
 
 _ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_EED2Ev.exit: ; preds = %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_EED2Ev.exit_crit_edge, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i, %86
-  %97 = phi i8 [ %.pre101, %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_EED2Ev.exit_crit_edge ], [ %83, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i ], [ %83, %86 ]
+  %97 = phi i8 [ %.pre101, %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_EED2Ev.exit_crit_edge ], [ %83, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i ], [ 1, %86 ]
   %98 = trunc nuw i8 %97 to i1
   %99 = icmp ne i32 %44, 0
   %or.cond.i.i.i.i28 = and i1 %99, %98
@@ -43717,7 +43717,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i: ; preds = %._ZNSt
   unreachable
 
 _ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit: ; preds = %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit_crit_edge, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i, %94
-  %105 = phi i8 [ %.pre128, %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit_crit_edge ], [ %91, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i ], [ %91, %94 ]
+  %105 = phi i8 [ %.pre128, %._ZNSt11_Tuple_implILm0EJN5Yosys5RTLIL8IdStringES2_iEED2Ev.exit_crit_edge ], [ %91, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i ], [ 1, %94 ]
   %106 = trunc nuw i8 %105 to i1
   %107 = icmp ne i32 %48, 0
   %or.cond.i.i.i.i28 = and i1 %107, %106
@@ -44507,7 +44507,7 @@ _ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i: ; preds = %._ZN
   unreachable
 
 55:                                               ; preds = %._crit_edge, %44, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i
-  %56 = phi i8 [ %.pre, %._crit_edge ], [ %41, %44 ], [ %41, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i ]
+  %56 = phi i8 [ %.pre, %._crit_edge ], [ 1, %44 ], [ %41, %_ZNSt10_Head_baseILm0EN5Yosys5RTLIL8IdStringELb0EED2Ev.exit.i.i ]
   %57 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !63
   %58 = trunc nuw i8 %56 to i1
   %59 = icmp ne i32 %13, 0

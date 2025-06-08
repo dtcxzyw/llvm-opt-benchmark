@@ -3458,8 +3458,8 @@ declare ptr @rl_completion_matches(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal ptr @complete_from_list(ptr noundef %0, i32 noundef %1) #0 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %80, %2
-  %.tr18 = phi i32 [ %1, %2 ], [ %81, %80 ]
+tailrecurse:                                      ; preds = %82, %2
+  %.tr18 = phi i32 [ %1, %2 ], [ %83, %82 ]
   %3 = icmp eq i32 %.tr18, 0
   br i1 %3, label %4, label %tailrecurse._crit_edge
 
@@ -3516,133 +3516,135 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br i1 %.not.us, label %._crit_edge, label %18, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %27 = phi i32 [ %72, %.thread ], [ %11, %.lr.ph ]
-  %28 = phi ptr [ %70, %.thread ], [ %10, %.lr.ph ]
-  %29 = phi i8 [ %71, %.thread ], [ 0, %.lr.ph ]
-  %30 = phi ptr [ %75, %.thread ], [ %14, %.lr.ph ]
-  %31 = trunc nuw i8 %29 to i1
-  %32 = load i32, ptr @complete_from_list.string_length, align 4
-  %33 = sext i32 %32 to i64
-  br i1 %31, label %34, label %39
+  %27 = phi i8 [ %70, %.thread ], [ 0, %.lr.ph ]
+  %28 = phi i32 [ %74, %.thread ], [ %11, %.lr.ph ]
+  %29 = phi ptr [ %72, %.thread ], [ %10, %.lr.ph ]
+  %30 = phi i8 [ %73, %.thread ], [ 0, %.lr.ph ]
+  %31 = phi ptr [ %77, %.thread ], [ %14, %.lr.ph ]
+  %32 = trunc nuw i8 %30 to i1
+  %33 = load i32, ptr @complete_from_list.string_length, align 4
+  %34 = sext i32 %33 to i64
+  br i1 %32, label %35, label %40
 
-34:                                               ; preds = %.lr.ph.split
-  %35 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %33) #13
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.split.us, label %.thread
+35:                                               ; preds = %.lr.ph.split
+  %36 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %31, i64 noundef %34) #13
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.split.us, label %.thread
 
-.split.us:                                        ; preds = %34, %18
-  %.us-phi = phi ptr [ %20, %18 ], [ %30, %34 ]
-  %37 = load i32, ptr @complete_from_list.matches, align 4
-  %38 = add i32 %37, 1
-  store i32 %38, ptr @complete_from_list.matches, align 4
+.split.us:                                        ; preds = %35, %18
+  %.us-phi = phi ptr [ %20, %18 ], [ %31, %35 ]
+  %38 = load i32, ptr @complete_from_list.matches, align 4
+  %39 = add i32 %38, 1
+  store i32 %39, ptr @complete_from_list.matches, align 4
   br label %pg_strdup_keyword_case.exit.sink.split
 
-39:                                               ; preds = %.lr.ph.split
-  %40 = tail call i32 @pg_strncasecmp(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %33) #11
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %..thread_crit_edge
+40:                                               ; preds = %.lr.ph.split
+  %41 = tail call i32 @pg_strncasecmp(ptr noundef %0, ptr noundef nonnull %31, i64 noundef %34) #11
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %..thread_crit_edge
 
-..thread_crit_edge:                               ; preds = %39
+..thread_crit_edge:                               ; preds = %40
   %.pre32 = load i8, ptr @complete_from_list.casesensitive, align 1, !range !13
   %.pre34 = load ptr, ptr @completion_charpp, align 8
   %.pre35 = load i32, ptr @complete_from_list.list_index, align 4
   br label %.thread
 
-42:                                               ; preds = %39
+43:                                               ; preds = %40
   %.b17 = load i1, ptr @completion_case_sensitive, align 1
-  br i1 %.b17, label %pg_strdup_keyword_case.exit.sink.split, label %43
+  br i1 %.b17, label %pg_strdup_keyword_case.exit.sink.split, label %44
 
-43:                                               ; preds = %42
+44:                                               ; preds = %43
   %.val = load i8, ptr %0, align 1
-  %44 = tail call ptr @pg_strdup(ptr noundef nonnull %30) #11
-  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 432), align 8
-  %46 = icmp eq i32 %45, 3
-  br i1 %46, label %58, label %47
+  %45 = tail call ptr @pg_strdup(ptr noundef nonnull %31) #11
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 432), align 8
+  %47 = icmp eq i32 %46, 3
+  br i1 %47, label %59, label %48
 
-47:                                               ; preds = %43
-  %or.cond.i = icmp ult i32 %45, 2
-  br i1 %or.cond.i, label %48, label %.thread.i
+48:                                               ; preds = %44
+  %or.cond.i = icmp ult i32 %46, 2
+  br i1 %or.cond.i, label %49, label %.thread.i
 
-48:                                               ; preds = %47
-  %49 = tail call ptr @__ctype_b_loc() #12
-  %50 = load ptr, ptr %49, align 8
-  %51 = zext i8 %.val to i64
-  %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
-  %53 = load i16, ptr %52, align 2
-  %54 = and i16 %53, 512
-  %.not.i = icmp eq i16 %54, 0
-  br i1 %.not.i, label %55, label %58
+49:                                               ; preds = %48
+  %50 = tail call ptr @__ctype_b_loc() #12
+  %51 = load ptr, ptr %50, align 8
+  %52 = zext i8 %.val to i64
+  %53 = getelementptr inbounds nuw i16, ptr %51, i64 %52
+  %54 = load i16, ptr %53, align 2
+  %55 = and i16 %54, 512
+  %.not.i = icmp eq i16 %55, 0
+  br i1 %.not.i, label %56, label %59
 
-55:                                               ; preds = %48
-  %56 = icmp eq i32 %45, 1
-  %57 = and i16 %53, 1024
-  %.not18.i = icmp eq i16 %57, 0
-  %or.cond9.i = and i1 %56, %.not18.i
-  br i1 %or.cond9.i, label %58, label %.thread.i
+56:                                               ; preds = %49
+  %57 = icmp eq i32 %46, 1
+  %58 = and i16 %54, 1024
+  %.not18.i = icmp eq i16 %58, 0
+  %or.cond9.i = and i1 %57, %.not18.i
+  br i1 %or.cond9.i, label %59, label %.thread.i
 
-58:                                               ; preds = %55, %48, %43
-  %59 = load i8, ptr %44, align 1
-  %.not204.i = icmp eq i8 %59, 0
+59:                                               ; preds = %56, %49, %44
+  %60 = load i8, ptr %45, align 1
+  %.not204.i = icmp eq i8 %60, 0
   br i1 %.not204.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i
 
-.lr.ph6.i:                                        ; preds = %58, %.lr.ph6.i
-  %60 = phi i8 [ %63, %.lr.ph6.i ], [ %59, %58 ]
-  %.05.i = phi ptr [ %62, %.lr.ph6.i ], [ %44, %58 ]
-  %61 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %60) #11
-  store i8 %61, ptr %.05.i, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
-  %63 = load i8, ptr %62, align 1
-  %.not20.i = icmp eq i8 %63, 0
+.lr.ph6.i:                                        ; preds = %59, %.lr.ph6.i
+  %61 = phi i8 [ %64, %.lr.ph6.i ], [ %60, %59 ]
+  %.05.i = phi ptr [ %63, %.lr.ph6.i ], [ %45, %59 ]
+  %62 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %61) #11
+  store i8 %62, ptr %.05.i, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %.05.i, i64 1
+  %64 = load i8, ptr %63, align 1
+  %.not20.i = icmp eq i8 %64, 0
   br i1 %.not20.i, label %pg_strdup_keyword_case.exit, label %.lr.ph6.i, !llvm.loop !15
 
-.thread.i:                                        ; preds = %55, %47
-  %64 = load i8, ptr %44, align 1
-  %.not192.i = icmp eq i8 %64, 0
+.thread.i:                                        ; preds = %56, %48
+  %65 = load i8, ptr %45, align 1
+  %.not192.i = icmp eq i8 %65, 0
   br i1 %.not192.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.i
-  %65 = phi i8 [ %68, %.lr.ph.i ], [ %64, %.thread.i ]
-  %.13.i = phi ptr [ %67, %.lr.ph.i ], [ %44, %.thread.i ]
-  %66 = tail call zeroext i8 @pg_toupper(i8 noundef zeroext %65) #11
-  store i8 %66, ptr %.13.i, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
-  %68 = load i8, ptr %67, align 1
-  %.not19.i = icmp eq i8 %68, 0
+  %66 = phi i8 [ %69, %.lr.ph.i ], [ %65, %.thread.i ]
+  %.13.i = phi ptr [ %68, %.lr.ph.i ], [ %45, %.thread.i ]
+  %67 = tail call zeroext i8 @pg_toupper(i8 noundef zeroext %66) #11
+  store i8 %67, ptr %.13.i, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %.13.i, i64 1
+  %69 = load i8, ptr %68, align 1
+  %.not19.i = icmp eq i8 %69, 0
   br i1 %.not19.i, label %pg_strdup_keyword_case.exit, label %.lr.ph.i, !llvm.loop !16
 
-.thread:                                          ; preds = %..thread_crit_edge, %34
-  %69 = phi i32 [ %27, %34 ], [ %.pre35, %..thread_crit_edge ]
-  %70 = phi ptr [ %28, %34 ], [ %.pre34, %..thread_crit_edge ]
-  %71 = phi i8 [ 1, %34 ], [ %.pre32, %..thread_crit_edge ]
-  %72 = add i32 %69, 1
-  store i32 %72, ptr @complete_from_list.list_index, align 4
-  %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds ptr, ptr %70, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %.not = icmp eq ptr %75, null
+.thread:                                          ; preds = %..thread_crit_edge, %35
+  %70 = phi i8 [ %27, %35 ], [ %.pre32, %..thread_crit_edge ]
+  %71 = phi i32 [ %28, %35 ], [ %.pre35, %..thread_crit_edge ]
+  %72 = phi ptr [ %29, %35 ], [ %.pre34, %..thread_crit_edge ]
+  %73 = phi i8 [ 1, %35 ], [ %.pre32, %..thread_crit_edge ]
+  %74 = add i32 %71, 1
+  store i32 %74, ptr @complete_from_list.list_index, align 4
+  %75 = sext i32 %71 to i64
+  %76 = getelementptr inbounds ptr, ptr %72, i64 %75
+  %77 = load ptr, ptr %76, align 8
+  %.not = icmp eq ptr %77, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.thread, %.thread.us, %8
-  %76 = phi i8 [ %.pre33, %8 ], [ %.pre33, %.thread.us ], [ %71, %.thread ]
-  %77 = trunc nuw i8 %76 to i1
-  %78 = load i32, ptr @complete_from_list.matches, align 4
-  %79 = icmp eq i32 %78, 0
-  %or.cond = select i1 %77, i1 %79, i1 false
-  br i1 %or.cond, label %80, label %pg_strdup_keyword_case.exit
+  %78 = phi i8 [ %.pre33, %8 ], [ 1, %.thread.us ], [ %70, %.thread ]
+  %79 = trunc nuw i8 %78 to i1
+  %80 = load i32, ptr @complete_from_list.matches, align 4
+  %81 = icmp eq i32 %80, 0
+  %or.cond = select i1 %79, i1 %81, i1 false
+  br i1 %or.cond, label %82, label %pg_strdup_keyword_case.exit
 
-80:                                               ; preds = %._crit_edge
+82:                                               ; preds = %._crit_edge
   store i8 0, ptr @complete_from_list.casesensitive, align 1
   store i32 0, ptr @complete_from_list.list_index, align 4
-  %81 = add i32 %.tr18, 1
+  %83 = add i32 %.tr18, 1
   br label %tailrecurse
 
-pg_strdup_keyword_case.exit.sink.split:           ; preds = %42, %.split.us
-  %.lcssa.sink = phi ptr [ %.us-phi, %.split.us ], [ %30, %42 ]
-  %82 = tail call ptr @pg_strdup(ptr noundef nonnull %.lcssa.sink) #11
+pg_strdup_keyword_case.exit.sink.split:           ; preds = %43, %.split.us
+  %.lcssa.sink = phi ptr [ %.us-phi, %.split.us ], [ %31, %43 ]
+  %84 = tail call ptr @pg_strdup(ptr noundef nonnull %.lcssa.sink) #11
   br label %pg_strdup_keyword_case.exit
 
-pg_strdup_keyword_case.exit:                      ; preds = %._crit_edge, %.lr.ph.i, %.lr.ph6.i, %pg_strdup_keyword_case.exit.sink.split, %.thread.i, %58
-  %.0 = phi ptr [ %44, %58 ], [ %44, %.thread.i ], [ %82, %pg_strdup_keyword_case.exit.sink.split ], [ %44, %.lr.ph6.i ], [ %44, %.lr.ph.i ], [ null, %._crit_edge ]
+pg_strdup_keyword_case.exit:                      ; preds = %._crit_edge, %.lr.ph.i, %.lr.ph6.i, %pg_strdup_keyword_case.exit.sink.split, %.thread.i, %59
+  %.0 = phi ptr [ %45, %59 ], [ %45, %.thread.i ], [ %84, %pg_strdup_keyword_case.exit.sink.split ], [ %45, %.lr.ph6.i ], [ %45, %.lr.ph.i ], [ null, %._crit_edge ]
   ret ptr %.0
 }
 

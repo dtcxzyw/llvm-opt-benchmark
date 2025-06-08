@@ -6394,7 +6394,7 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %_ZNK6vectorIP3appLb
           to label %71 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %69
-  %spec.select = select i1 %70, i8 1, i8 %.03481.ph
+  %spec.select = zext i1 %70 to i8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %71, %67

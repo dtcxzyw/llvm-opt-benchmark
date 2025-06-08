@@ -2855,13 +2855,13 @@ define internal fastcc { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C
   %60 = add i64 %59, 1
   store i64 %60, ptr %58, align 8
   %.pre = load i32, ptr %38, align 8, !range !72, !alias.scope !521
-  %61 = or i32 %19, 1
+  %61 = icmp eq i32 %.pre, 0
+  %62 = or i32 %19, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !521)
-  %62 = icmp eq i32 %.pre, 0
-  br i1 %62, label %63, label %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17hda00bd405f6b1704E.exit"
+  br i1 %61, label %63, label %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17hda00bd405f6b1704E.exit"
 
 63:                                               ; preds = %.thread, %56
-  %64 = phi i32 [ %55, %.thread ], [ %61, %56 ]
+  %64 = phi i32 [ %55, %.thread ], [ %62, %56 ]
   %65 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !524)
   %66 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -2957,7 +2957,7 @@ common.resume:                                    ; preds = %110, %"_ZN72_$LT$al
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17hda00bd405f6b1704E.exit": ; preds = %77, %70, %56
-  %109 = phi i32 [ %64, %77 ], [ %64, %70 ], [ %61, %56 ]
+  %109 = phi i32 [ %64, %77 ], [ %64, %70 ], [ %62, %56 ]
   store i32 0, ptr %38, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %109, ptr %.sroa.57.0..sroa_idx8, align 4

@@ -17882,7 +17882,7 @@ define dso_local void @_ZNK4pbrt13BilinearPatch6SampleERKNS_18ShapeSampleContext
 
 _ZN4pstd8optionalIN4pbrt11ShapeSampleEEC2EOS3_.exit: ; preds = %126
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %98, ptr %156, align 8, !tbaa !24
+  store i8 1, ptr %156, align 8, !tbaa !24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %5, i64 72, i1 false)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 72

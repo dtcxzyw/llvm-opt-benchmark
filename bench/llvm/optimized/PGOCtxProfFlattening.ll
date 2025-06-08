@@ -1223,7 +1223,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotatorC2ERN4llvm8FunctionERKNS1_15SmallVectorImplIm
   %422 = icmp eq ptr %420, %421
   br i1 %422, label %_ZN12_GLOBAL__N_116ProfileAnnotator22propagateCounterValuesERKN4llvm15SmallVectorImplImEE.exit.i, label %.split.i.i
 
-.loopexit.i.i:                                    ; preds = %.thread29.i.i
+.loopexit.i.i:                                    ; preds = %.thread28.i.i
   %423 = trunc nuw i8 %.3.i.i to i1
   br i1 %423, label %.split.i.i, label %.loopexit.i._ZN12_GLOBAL__N_116ProfileAnnotator22propagateCounterValuesERKN4llvm15SmallVectorImplImEE.exit.loopexit_crit_edge.i, !llvm.loop !231
 
@@ -1239,9 +1239,9 @@ _ZN12_GLOBAL__N_116ProfileAnnotatorC2ERN4llvm8FunctionERKNS1_15SmallVectorImplIm
   %.not14.i.i = icmp eq ptr %.sroa.01.013.i.i, %426
   br i1 %.not14.i.i, label %_ZN12_GLOBAL__N_116ProfileAnnotator22propagateCounterValuesERKN4llvm15SmallVectorImplImEE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.split.i.i, %.thread29.i.i
-  %.sroa.01.016.i.i = phi ptr [ %.sroa.01.0.i.i, %.thread29.i.i ], [ %.sroa.01.013.i.i, %.split.i.i ]
-  %.115.i.i = phi i8 [ %.3.i.i, %.thread29.i.i ], [ 0, %.split.i.i ]
+.lr.ph.i.i:                                       ; preds = %.split.i.i, %.thread28.i.i
+  %.sroa.01.016.i.i = phi ptr [ %.sroa.01.0.i.i, %.thread28.i.i ], [ %.sroa.01.013.i.i, %.split.i.i ]
+  %.115.i.i = phi i8 [ %.3.i.i, %.thread28.i.i ], [ 0, %.split.i.i ]
   %427 = getelementptr inbounds i8, ptr %.sroa.01.016.i.i, i64 -24
   %.val.i.i.i.i.i25 = load ptr, ptr %50, align 8, !tbaa !33
   %.not2.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i25, null
@@ -1333,7 +1333,7 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4ll
   %452 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 192
   %453 = load i64, ptr %452, align 8, !tbaa !219
   %.not.i16.i.i = icmp eq i64 %453, 0
-  br i1 %.not.i16.i.i, label %454, label %.thread29.i.i
+  br i1 %.not.i16.i.i, label %454, label %.thread28.i.i
 
 454:                                              ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i
   %455 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 120
@@ -1343,11 +1343,11 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4ll
   %457 = zext i32 %.val2.i19.i.i to i64
   %458 = getelementptr inbounds nuw ptr, ptr %.val.i18.i.i, i64 %457
   %.not5.i.i.i20.i.i = icmp eq i32 %.val2.i19.i.i, 0
-  br i1 %.not5.i.i.i20.i.i, label %.thread31.i.i, label %.lr.ph.split.us.i.i.i21.i.i
+  br i1 %.not5.i.i.i20.i.i, label %.thread29.i.i, label %.lr.ph.split.us.i.i.i21.i.i
 
-.thread31.i.i:                                    ; preds = %454
+.thread29.i.i:                                    ; preds = %454
   store i8 0, ptr %436, align 8
-  br label %.thread29.i.i
+  br label %.thread28.i.i
 
 .lr.ph.split.us.i.i.i21.i.i:                      ; preds = %454, %464
   %.08.us.i.i.i22.i.i = phi ptr [ %465, %464 ], [ %.val.i18.i.i, %454 ]
@@ -1377,7 +1377,7 @@ _ZNSt8optionalImEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   store i8 %.sroa.4.3.us.i.i.i29.i.i, ptr %436, align 8
   %467 = or i8 %.sroa.4.3.us.i.i.i29.i.i, %.115.i.i
   %468 = trunc nuw i8 %.sroa.4.3.us.i.i.i29.i.i to i1
-  br i1 %468, label %.thread.i.i, label %.thread29.i.i
+  br i1 %468, label %.thread.i.i, label %.thread28.i.i
 
 .thread.i.i:                                      ; preds = %466, %_ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit.i.i
   %.226.i.i = phi i8 [ %467, %466 ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator9getBBInfoERKN4llvm10BasicBlockE.exit.i.i ]
@@ -1566,10 +1566,10 @@ _ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exi
   %546 = or i1 %506, %509
   %547 = zext i1 %546 to i8
   %548 = or i8 %.226.i65.i, %547
-  br label %.thread29.i.i
+  br label %.thread28.i.i
 
-.thread29.i.i:                                    ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i, %466, %.thread31.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i
-  %.3.i.i = phi i8 [ %548, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i ], [ %467, %466 ], [ %.115.i.i, %.thread31.i.i ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i ]
+.thread28.i.i:                                    ; preds = %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i, %466, %.thread29.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i
+  %.3.i.i = phi i8 [ %548, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo30trySetSingleUnknownInEdgeCountEv.exit.i.i ], [ %467, %466 ], [ %.115.i.i, %.thread29.i.i ], [ %.115.i.i, %_ZN12_GLOBAL__N_116ProfileAnnotator6BBInfo29tryTakeCountFromKnownOutEdgesERKN4llvm10BasicBlockE.exit.thread.i.i ]
   %549 = getelementptr inbounds nuw i8, ptr %.sroa.01.016.i.i, i64 8
   %.sroa.01.0.i.i = load ptr, ptr %549, align 8, !tbaa !41
   %.not.i.i31 = icmp eq ptr %.sroa.01.0.i.i, %426

@@ -5899,8 +5899,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   invoke void @_ZN4fish17operation_context14get_bg_context17h7c1434712a696278E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %43, i32 noundef %45)
           to label %47 unwind label %46, !noalias !203
 
-.thread150.i.i:                                   ; preds = %.invoke215.i.i, %.invoke.i.i
-  %.sroa.014.2.ph.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.014.6.i.i, %.invoke215.i.i ]
+.thread150.i.i:                                   ; preds = %.invoke217.i.i, %.invoke.i.i
+  %.sroa.014.2.ph.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.014.6.i.i, %.invoke217.i.i ]
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %37
@@ -6282,8 +6282,8 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   invoke void @"_ZN4core3ptr55drop_in_place$LT$fish..reader..AutosuggestionResult$GT$17h148f4a253288265bE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %23)
           to label %181 unwind label %39, !noalias !203
 
-.sink.split.i.i:                                  ; preds = %.invoke215.i.i, %.invoke.i.i
-  %.sroa.014.7.ph.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.014.6.i.i, %.invoke215.i.i ]
+.sink.split.i.i:                                  ; preds = %.invoke217.i.i, %.invoke.i.i
+  %.sroa.014.7.ph.i.i = phi i8 [ 1, %.invoke.i.i ], [ %.sroa.014.6.i.i, %.invoke217.i.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22), !noalias !201
   %180 = trunc nuw i8 %.sroa.014.7.ph.i.i to i1
   br label %181
@@ -6312,7 +6312,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %100
 
 186:                                              ; preds = %100
-  br i1 %101, label %.invoke215.i.i, label %187
+  br i1 %101, label %.invoke217.i.i, label %187
 
 187:                                              ; preds = %186
   %188 = load i64, ptr %57, align 8, !alias.scope !198, !noalias !203, !noundef !3
@@ -6322,7 +6322,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %191 = icmp eq i64 %188, %189
   br i1 %191, label %205, label %192
 
-.invoke215.i.i:                                   ; preds = %210, %208, %204, %204, %204, %204, %204, %204, %186
+.invoke217.i.i:                                   ; preds = %210, %208, %204, %204, %204, %204, %204, %204, %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %29, ptr noundef nonnull align 8 dereferenceable(96) %23, i64 96, i1 false), !noalias !204
   invoke void @"_ZN4core3ptr62drop_in_place$LT$fish..operation_context..OperationContext$GT$17h97e3c885c795174aE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %22)
           to label %.sink.split.i.i unwind label %.thread150.i.i, !noalias !203
@@ -6350,12 +6350,12 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 204:                                              ; preds = %198
   switch i32 %72, label %206 [
-    i32 32, label %.invoke215.i.i
-    i32 13, label %.invoke215.i.i
-    i32 12, label %.invoke215.i.i
-    i32 11, label %.invoke215.i.i
-    i32 10, label %.invoke215.i.i
-    i32 9, label %.invoke215.i.i
+    i32 32, label %.invoke217.i.i
+    i32 13, label %.invoke217.i.i
+    i32 12, label %.invoke217.i.i
+    i32 11, label %.invoke217.i.i
+    i32 10, label %.invoke217.i.i
+    i32 9, label %.invoke217.i.i
   ]
 
 205:                                              ; preds = %208, %206, %198, %187
@@ -6371,10 +6371,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 208:                                              ; preds = %206
   %209 = call fastcc noundef zeroext i1 @_ZN4core7unicode12unicode_data11white_space6lookup17h3ab17e3c7cffa139E(i32 noundef %72), !noalias !203
-  br i1 %209, label %.invoke215.i.i, label %205
+  br i1 %209, label %.invoke217.i.i, label %205
 
 210:                                              ; preds = %205, %205
-  br i1 %.sroa.012.0.shrunk.i.i, label %.invoke215.i.i, label %211
+  br i1 %.sroa.012.0.shrunk.i.i, label %.invoke217.i.i, label %211
 
 211:                                              ; preds = %210, %205
   %212 = invoke i24 @_ZN4fish8complete24CompletionRequestOptions11autosuggest17h6a12d79d238b83dfE()
@@ -6522,7 +6522,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 
 268:                                              ; preds = %266, %216
   %.sroa.7.0.i.i = phi i64 [ %254, %266 ], [ 0, %216 ]
-  %.sroa.5.0206.i.i = phi ptr [ %263, %266 ], [ inttoptr (i64 4 to ptr), %216 ]
+  %.sroa.5.0208.i.i = phi ptr [ %263, %266 ], [ inttoptr (i64 4 to ptr), %216 ]
   %.sroa.0.0.i.i = phi i64 [ %258, %266 ], [ 0, %216 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9), !noalias !201
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !201
@@ -6530,7 +6530,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !201
   store i64 %.sroa.0.0.i.i, ptr %7, align 8, !noalias !201
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.sroa.5.0206.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !201
+  store ptr %.sroa.5.0208.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !201
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !201
   invoke void @_ZN4fish6reader20AutosuggestionResult3new17h319e0690d9423799E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8, i64 noundef %61, i64 noundef %62, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7, i1 noundef zeroext true, i1 noundef zeroext false)

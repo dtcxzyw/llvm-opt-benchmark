@@ -2295,22 +2295,22 @@ eval_nodes_set_max_tasks.exit.i80:                ; preds = %662, %660, %651, %6
   %755 = ashr exact i64 %sext363.i, 32
   %756 = add i32 %.0181.i, 1
   %757 = tail call ptr @list_next(ptr noundef %753) #8
-  %.not239.i181 = icmp eq ptr %757, null
-  br i1 %.not239.i181, label %.critedge.thread.i108, label %.preheader292.outer.i.preheader
+  %.not239.i175 = icmp eq ptr %757, null
+  br i1 %.not239.i175, label %.critedge.thread.i108, label %.preheader292.outer.i.preheader
 
 .preheader292.outer.i.preheader:                  ; preds = %.lr.ph340.i, %.thread270.i.split
   %758 = phi ptr [ %888, %.thread270.i.split ], [ %757, %.lr.ph340.i ]
-  %.3220333.i185 = phi i64 [ %.4221.ph.i248, %.thread270.i.split ], [ %.2219265.i, %.lr.ph340.i ]
-  %.3206335.i184 = phi i32 [ %.4207.ph.i244, %.thread270.i.split ], [ %.2205267.i, %.lr.ph340.i ]
-  %.4194336.i183 = phi i32 [ %.5195.ph.i240, %.thread270.i.split ], [ %.3193268.i, %.lr.ph340.i ]
-  %.3188337.i182 = phi i32 [ %.4189.ph.i236, %.thread270.i.split ], [ %.2187269.i, %.lr.ph340.i ]
+  %.3220333.i179 = phi i64 [ %.4221.ph.i242, %.thread270.i.split ], [ %.2219265.i, %.lr.ph340.i ]
+  %.3206335.i178 = phi i32 [ %.4207.ph.i238, %.thread270.i.split ], [ %.2205267.i, %.lr.ph340.i ]
+  %.4194336.i177 = phi i32 [ %.5195.ph.i234, %.thread270.i.split ], [ %.3193268.i, %.lr.ph340.i ]
+  %.3188337.i176 = phi i32 [ %.4189.ph.i230, %.thread270.i.split ], [ %.2187269.i, %.lr.ph340.i ]
   br label %.preheader292.outer.i
 
 .preheader292.outer.i:                            ; preds = %.preheader292.outer.i.preheader, %885
-  %.4221.ph.i = phi i64 [ %873, %885 ], [ %.3220333.i185, %.preheader292.outer.i.preheader ]
-  %.4207.ph.i = phi i32 [ %875, %885 ], [ %.3206335.i184, %.preheader292.outer.i.preheader ]
-  %.5195.ph.i = phi i32 [ %874, %885 ], [ %.4194336.i183, %.preheader292.outer.i.preheader ]
-  %.4189.ph.i = phi i32 [ %871, %885 ], [ %.3188337.i182, %.preheader292.outer.i.preheader ]
+  %.4221.ph.i = phi i64 [ %873, %885 ], [ %.3220333.i179, %.preheader292.outer.i.preheader ]
+  %.4207.ph.i = phi i32 [ %875, %885 ], [ %.3206335.i178, %.preheader292.outer.i.preheader ]
+  %.5195.ph.i = phi i32 [ %874, %885 ], [ %.4194336.i177, %.preheader292.outer.i.preheader ]
+  %.4189.ph.i = phi i32 [ %871, %885 ], [ %.3188337.i176, %.preheader292.outer.i.preheader ]
   %.0177.ph.i = phi i32 [ %869, %885 ], [ -1, %.preheader292.outer.i.preheader ]
   %759 = tail call i32 @llvm.smax.i32(i32 %.4207.ph.i, i32 1)
   %760 = add nsw i32 %759, -1
@@ -2560,17 +2560,17 @@ eval_nodes_cpus_to_use.exit.i96:                  ; preds = %816, %771
   br i1 %887, label %.critedge.thread.i108, label %.preheader292.outer.i
 
 .thread270.i.split:                               ; preds = %.preheader292.outer.i, %._crit_edge327.i
-  %.4221.ph.i248 = phi i64 [ %.4221.ph.i, %._crit_edge327.i ], [ %.3220333.i185, %.preheader292.outer.i ]
-  %.4207.ph.i244 = phi i32 [ %.4207.ph.i, %._crit_edge327.i ], [ %.3206335.i184, %.preheader292.outer.i ]
-  %.5195.ph.i240 = phi i32 [ %.5195.ph.i, %._crit_edge327.i ], [ %.4194336.i183, %.preheader292.outer.i ]
-  %.4189.ph.i236 = phi i32 [ %.4189.ph.i, %._crit_edge327.i ], [ %.3188337.i182, %.preheader292.outer.i ]
+  %.4221.ph.i242 = phi i64 [ %.4221.ph.i, %._crit_edge327.i ], [ %.3220333.i179, %.preheader292.outer.i ]
+  %.4207.ph.i238 = phi i32 [ %.4207.ph.i, %._crit_edge327.i ], [ %.3206335.i178, %.preheader292.outer.i ]
+  %.5195.ph.i234 = phi i32 [ %.5195.ph.i, %._crit_edge327.i ], [ %.4194336.i177, %.preheader292.outer.i ]
+  %.4189.ph.i230 = phi i32 [ %.4189.ph.i, %._crit_edge327.i ], [ %.3188337.i176, %.preheader292.outer.i ]
   %888 = tail call ptr @list_next(ptr noundef %753) #8
   %.not239.i = icmp eq ptr %888, null
-  br i1 %.not239.i, label %.critedge.thread.i108, label %.preheader292.outer.i.preheader, !llvm.loop !30
+  br i1 %.not239.i, label %.critedge.thread.i108, label %.preheader292.outer.i.preheader
 
 .critedge.thread.i108:                            ; preds = %.thread270.i.split, %885, %.lr.ph340.i, %749
-  %.3188.lcssa377.i = phi i32 [ %.2187269.i, %749 ], [ %.2187269.i, %.lr.ph340.i ], [ %871, %885 ], [ %.4189.ph.i236, %.thread270.i.split ]
-  %.3206.lcssa376.i = phi i32 [ %.2205267.i, %749 ], [ %.2205267.i, %.lr.ph340.i ], [ %875, %885 ], [ %.4207.ph.i244, %.thread270.i.split ]
+  %.3188.lcssa377.i = phi i32 [ %.2187269.i, %749 ], [ %.2187269.i, %.lr.ph340.i ], [ %871, %885 ], [ %.4189.ph.i230, %.thread270.i.split ]
+  %.3206.lcssa376.i = phi i32 [ %.2205267.i, %749 ], [ %.2205267.i, %.lr.ph340.i ], [ %875, %885 ], [ %.4207.ph.i238, %.thread270.i.split ]
   tail call void @list_iterator_destroy(ptr noundef %753) #8
   %889 = icmp sgt i32 %.3188.lcssa377.i, 0
   %890 = icmp sgt i32 %.3206.lcssa376.i, 0
@@ -2913,7 +2913,7 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
   store i32 %1062, ptr %2, align 4
   %1063 = call ptr @next_node_bitmap(ptr noundef nonnull %924, ptr noundef nonnull %2) #8
   %.not456.i = icmp eq ptr %1063, null
-  br i1 %.not456.i, label %.critedge.i122, label %988, !llvm.loop !31
+  br i1 %.not456.i, label %.critedge.i122, label %988, !llvm.loop !30
 
 .critedge.i122:                                   ; preds = %1048, %988, %982
   %.1427.lcssa.i = phi i32 [ %925, %982 ], [ %.1427616.i, %988 ], [ %1059, %1048 ]
@@ -3016,11 +3016,11 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
   %1114 = load i32, ptr %2, align 4
   %1115 = sext i32 %1114 to i64
   call void @bit_clear(ptr noundef %1113, i64 noundef %1115) #8
-  %.pre.i134 = load i16, ptr %928, align 8
+  %.pre.i133 = load i16, ptr %928, align 8
   br label %1116
 
 1116:                                             ; preds = %1112, %1109
-  %1117 = phi i16 [ %.pre.i134, %1112 ], [ %1110, %1109 ]
+  %1117 = phi i16 [ %.pre.i133, %1112 ], [ %1110, %1109 ]
   %.1352.i = phi ptr [ null, %1112 ], [ %1108, %1109 ]
   %1118 = load i32, ptr %2, align 4
   %1119 = sext i32 %1118 to i64
@@ -3193,7 +3193,7 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
   store i32 %1218, ptr %2, align 4
   %1219 = call ptr @next_node(ptr noundef nonnull %2) #8
   %.not463.i = icmp eq ptr %1219, null
-  br i1 %.not463.i, label %._crit_edge.i124, label %1077, !llvm.loop !32
+  br i1 %.not463.i, label %._crit_edge.i124, label %1077, !llvm.loop !31
 
 ._crit_edge.i124:                                 ; preds = %1216, %1074
   %.1358.lcssa.i = phi i32 [ 50, %1074 ], [ %.2359.i, %1216 ]
@@ -3333,7 +3333,7 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
   %1296 = add nsw i32 %1295, 1
   store i32 %1296, ptr %2, align 4
   %1297 = icmp slt i32 %1296, %.3356.i
-  br i1 %1297, label %.lr.ph640.i, label %.loopexit589.i, !llvm.loop !33
+  br i1 %1297, label %.lr.ph640.i, label %.loopexit589.i, !llvm.loop !32
 
 .loopexit589.i:                                   ; preds = %1294, %1239, %1230
   %1298 = load i32, ptr %952, align 8
@@ -3360,27 +3360,27 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
   %1304 = sext i32 %.3356.i to i64
   %1305 = call i32 @llvm.usub.sat.i32(i32 %927, i32 %925)
   %1306 = load i32, ptr %961, align 8
-  %.not469.i187 = icmp eq i32 %1306, 0
-  br i1 %.not469.i187, label %.critedge3.i, label %.preheader586.i.lr.ph
+  %.not469.i181 = icmp eq i32 %1306, 0
+  br i1 %.not469.i181, label %.critedge3.i, label %.preheader586.i.lr.ph
 
 .preheader586.i.lr.ph:                            ; preds = %.lr.ph772.i
   %1307 = icmp sgt i32 %.3356.i, 0
   br i1 %1307, label %.preheader586.i.us, label %.preheader586.i
 
 .preheader586.i.us:                               ; preds = %.preheader586.i.lr.ph, %1582
-  %.2428765.i193.us = phi i32 [ %.7433.i.us, %1582 ], [ %.0426.i, %.preheader586.i.lr.ph ]
-  %.0405766.i192.us = phi i32 [ %.3408.i.us, %1582 ], [ 0, %.preheader586.i.lr.ph ]
-  %.0397767.i191.us = phi i64 [ %.3400.i.us, %1582 ], [ 0, %.preheader586.i.lr.ph ]
-  %.2389768.i190.us = phi i64 [ %.7394.i.us, %1582 ], [ %.0387.i, %.preheader586.i.lr.ph ]
-  %.3368770.i189.us = phi i32 [ %.9374.i.us, %1582 ], [ %.1366.i, %.preheader586.i.lr.ph ]
-  %.2363771.i188.us = phi i32 [ %.8.i130.us, %1582 ], [ %.0361.i, %.preheader586.i.lr.ph ]
+  %.2428765.i187.us = phi i32 [ %.7433.i.us, %1582 ], [ %.0426.i, %.preheader586.i.lr.ph ]
+  %.0405766.i186.us = phi i32 [ %.3408.i.us, %1582 ], [ 0, %.preheader586.i.lr.ph ]
+  %.0397767.i185.us = phi i64 [ %.3400.i.us, %1582 ], [ 0, %.preheader586.i.lr.ph ]
+  %.2389768.i184.us = phi i64 [ %.7394.i.us, %1582 ], [ %.0387.i, %.preheader586.i.lr.ph ]
+  %.3368770.i183.us = phi i32 [ %.9374.i.us, %1582 ], [ %.1366.i, %.preheader586.i.lr.ph ]
+  %.2363771.i182.us = phi i32 [ %.8.i129.us, %1582 ], [ %.0361.i, %.preheader586.i.lr.ph ]
   store i32 0, ptr %2, align 4
-  %.0.i517.i.us = sub i32 %.3368770.i189.us, %1305
+  %.0.i517.i.us = sub i32 %.3368770.i183.us, %1305
   br label %1308
 
 1308:                                             ; preds = %.loopexit.i.us, %.preheader586.i.us
-  %.1398647.i.us = phi i64 [ %.0397767.i191.us, %.preheader586.i.us ], [ %.3400.i.us, %.loopexit.i.us ]
-  %.1406646.i.us = phi i32 [ %.0405766.i192.us, %.preheader586.i.us ], [ %.3408.i.us, %.loopexit.i.us ]
+  %.1398647.i.us = phi i64 [ %.0397767.i185.us, %.preheader586.i.us ], [ %.3400.i.us, %.loopexit.i.us ]
+  %.1406646.i.us = phi i32 [ %.0405766.i186.us, %.preheader586.i.us ], [ %.3408.i.us, %.loopexit.i.us ]
   %.0410645.i.us = phi i32 [ 0, %.preheader586.i.us ], [ %.2412.i.us, %.loopexit.i.us ]
   %.0414644.i.us = phi i32 [ -1, %.preheader586.i.us ], [ %.2416.i.us, %.loopexit.i.us ]
   %.0418643.i.us = phi i32 [ 0, %.preheader586.i.us ], [ %.1419.i.us, %.loopexit.i.us ]
@@ -3414,7 +3414,7 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
   %1324 = load ptr, ptr %3, align 8
   %1325 = getelementptr inbounds i32, ptr %1324, i64 %1310
   %1326 = load i32, ptr %1325, align 4
-  %.not473.i.us = icmp slt i32 %1326, %.2363771.i188.us
+  %.not473.i.us = icmp slt i32 %1326, %.2363771.i182.us
   %.not578.i.us = icmp slt i32 %1312, %.0.i517.i.us
   %or.cond787.i.us = select i1 %.not473.i.us, i1 true, i1 %.not578.i.us
   br i1 %or.cond787.i.us, label %.thread536.i.us, label %1327
@@ -3470,8 +3470,8 @@ eval_nodes_set_max_tasks.exit.i120:               ; preds = %978, %976, %967, %9
 
 1351:                                             ; preds = %1349
   %1352 = icmp eq i32 %.0410645.i.us, 0
-  %or.cond5.i133.us = select i1 %.0360.in.i.us, i1 %1352, i1 false
-  br i1 %or.cond5.i133.us, label %.thread544.i.us, label %1353
+  %or.cond5.i132.us = select i1 %.0360.in.i.us, i1 %1352, i1 false
+  br i1 %or.cond5.i132.us, label %.thread544.i.us, label %1353
 
 1353:                                             ; preds = %1351
   %1354 = load ptr, ptr %3, align 8
@@ -3549,7 +3549,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1383 = getelementptr inbounds i32, ptr %1379, i64 %indvars.iv.next.i128.us
   %1384 = load i32, ptr %1383, align 4
   %.not477.i.us = icmp eq i32 %1384, -1
-  br i1 %.not477.i.us, label %1381, label %.critedge3.i, !llvm.loop !34
+  br i1 %.not477.i.us, label %1381, label %.critedge3.i, !llvm.loop !33
 
 .loopexit.i.us:                                   ; preds = %1381, %1376, %thread-pre-split.i.us, %1318, %1308
   %1385 = phi i32 [ %storemerge470641.i.us, %1308 ], [ %storemerge470641.i.us, %1318 ], [ %.pre804.i.us, %1376 ], [ %.pre804.i.us, %thread-pre-split.i.us ], [ %.pre804.i.us, %1381 ]
@@ -3562,7 +3562,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1386 = add nsw i32 %1385, 1
   store i32 %1386, ptr %2, align 4
   %1387 = icmp slt i32 %1386, %.3356.i
-  br i1 %1387, label %1308, label %._crit_edge649.i.us, !llvm.loop !35
+  br i1 %1387, label %1308, label %._crit_edge649.i.us, !llvm.loop !34
 
 ._crit_edge649.i.us:                              ; preds = %.loopexit.i.us
   %1388 = icmp eq i32 %.2423.i.us, 0
@@ -3590,10 +3590,10 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
 
 .lr.ph661.i.us:                                   ; preds = %.preheader585.i.us, %1435
   %1398 = phi i32 [ %1437, %1435 ], [ %.2416.i.us, %.preheader585.i.us ]
-  %.4660.i.us = phi i32 [ %.5.i129.us, %1435 ], [ %.2363771.i188.us, %.preheader585.i.us ]
-  %.5370659.i.us = phi i32 [ %.6371.i.us, %1435 ], [ %.3368770.i189.us, %.preheader585.i.us ]
-  %.3390657.i.us = phi i64 [ %.4391.i.us, %1435 ], [ %.2389768.i190.us, %.preheader585.i.us ]
-  %.3429656.i.us = phi i32 [ %.4430.i.us, %1435 ], [ %.2428765.i193.us, %.preheader585.i.us ]
+  %.4660.i.us = phi i32 [ %.5.i.us, %1435 ], [ %.2363771.i182.us, %.preheader585.i.us ]
+  %.5370659.i.us = phi i32 [ %.6371.i.us, %1435 ], [ %.3368770.i183.us, %.preheader585.i.us ]
+  %.3390657.i.us = phi i64 [ %.4391.i.us, %1435 ], [ %.2389768.i184.us, %.preheader585.i.us ]
+  %.3429656.i.us = phi i32 [ %.4430.i.us, %1435 ], [ %.2428765.i187.us, %.preheader585.i.us ]
   %1399 = load i32, ptr %961, align 8
   %1400 = icmp eq i32 %1399, 0
   br i1 %1400, label %._crit_edge662.i.us, label %1401
@@ -3663,20 +3663,20 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %.4430.i.us = phi i32 [ %.3429656.i.us, %1411 ], [ %.3429656.i.us, %1416 ], [ %1427, %1423 ], [ %.3429656.i.us, %1421 ]
   %.4391.i.us = phi i64 [ %.3390657.i.us, %1411 ], [ %.3390657.i.us, %1416 ], [ %1434, %1423 ], [ %.3390657.i.us, %1421 ]
   %.6371.i.us = phi i32 [ %.5370659.i.us, %1411 ], [ %.5370659.i.us, %1416 ], [ %1426, %1423 ], [ %.5370659.i.us, %1421 ]
-  %.5.i129.us = phi i32 [ %.4660.i.us, %1411 ], [ %.4660.i.us, %1416 ], [ %1432, %1423 ], [ %.4660.i.us, %1421 ]
+  %.5.i.us = phi i32 [ %.4660.i.us, %1411 ], [ %.4660.i.us, %1416 ], [ %1432, %1423 ], [ %.4660.i.us, %1421 ]
   %1437 = add nsw i32 %1436, 1
   store i32 %1437, ptr %2, align 4
   %1438 = load ptr, ptr %7, align 8
   %1439 = getelementptr inbounds i32, ptr %1438, i64 %1394
   %1440 = load i32, ptr %1439, align 4
   %.not493.not.i.us = icmp slt i32 %1436, %1440
-  br i1 %.not493.not.i.us, label %.lr.ph661.i.us, label %._crit_edge662.i.us, !llvm.loop !36
+  br i1 %.not493.not.i.us, label %.lr.ph661.i.us, label %._crit_edge662.i.us, !llvm.loop !35
 
 ._crit_edge662.i.us:                              ; preds = %.lr.ph661.i.us, %1404, %1407, %1435, %.preheader585.i.us
-  %.3429.lcssa.i.us = phi i32 [ %.2428765.i193.us, %.preheader585.i.us ], [ %.4430.i.us, %1435 ], [ %.3429656.i.us, %1407 ], [ %.3429656.i.us, %1404 ], [ %.3429656.i.us, %.lr.ph661.i.us ]
-  %.3390.lcssa.i.us = phi i64 [ %.2389768.i190.us, %.preheader585.i.us ], [ %.4391.i.us, %1435 ], [ %.3390657.i.us, %1407 ], [ %.3390657.i.us, %1404 ], [ %.3390657.i.us, %.lr.ph661.i.us ]
-  %.5370.lcssa.i.us = phi i32 [ %.3368770.i189.us, %.preheader585.i.us ], [ %.6371.i.us, %1435 ], [ %.5370659.i.us, %1407 ], [ %.5370659.i.us, %1404 ], [ %.5370659.i.us, %.lr.ph661.i.us ]
-  %.4.lcssa.i.us = phi i32 [ %.2363771.i188.us, %.preheader585.i.us ], [ %.5.i129.us, %1435 ], [ %.4660.i.us, %1407 ], [ %.4660.i.us, %1404 ], [ %.4660.i.us, %.lr.ph661.i.us ]
+  %.3429.lcssa.i.us = phi i32 [ %.2428765.i187.us, %.preheader585.i.us ], [ %.4430.i.us, %1435 ], [ %.3429656.i.us, %1407 ], [ %.3429656.i.us, %1404 ], [ %.3429656.i.us, %.lr.ph661.i.us ]
+  %.3390.lcssa.i.us = phi i64 [ %.2389768.i184.us, %.preheader585.i.us ], [ %.4391.i.us, %1435 ], [ %.3390657.i.us, %1407 ], [ %.3390657.i.us, %1404 ], [ %.3390657.i.us, %.lr.ph661.i.us ]
+  %.5370.lcssa.i.us = phi i32 [ %.3368770.i183.us, %.preheader585.i.us ], [ %.6371.i.us, %1435 ], [ %.5370659.i.us, %1407 ], [ %.5370659.i.us, %1404 ], [ %.5370659.i.us, %.lr.ph661.i.us ]
+  %.4.lcssa.i.us = phi i32 [ %.2363771.i182.us, %.preheader585.i.us ], [ %.5.i.us, %1435 ], [ %.4660.i.us, %1407 ], [ %.4660.i.us, %1404 ], [ %.4660.i.us, %.lr.ph661.i.us ]
   %storemerge495690.i.us = add nsw i32 %.2416.i.us, -1
   store i32 %storemerge495690.i.us, ptr %2, align 4
   %1441 = load ptr, ptr %6, align 8
@@ -3687,7 +3687,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
 
 .lr.ph698.i.us:                                   ; preds = %._crit_edge662.i.us, %1481
   %1444 = phi i32 [ %storemerge495.i.us, %1481 ], [ %storemerge495690.i.us, %._crit_edge662.i.us ]
-  %.6696.i.us = phi i32 [ %.7.i131.us, %1481 ], [ %.4.lcssa.i.us, %._crit_edge662.i.us ]
+  %.6696.i.us = phi i32 [ %.7.i130.us, %1481 ], [ %.4.lcssa.i.us, %._crit_edge662.i.us ]
   %.7372695.i.us = phi i32 [ %.8373.i.us, %1481 ], [ %.5370.lcssa.i.us, %._crit_edge662.i.us ]
   %.5392693.i.us = phi i64 [ %.6393.i.us, %1481 ], [ %.3390.lcssa.i.us, %._crit_edge662.i.us ]
   %.5431692.i.us = phi i32 [ %.6432.i.us, %1481 ], [ %.3429.lcssa.i.us, %._crit_edge662.i.us ]
@@ -3760,14 +3760,14 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %.6432.i.us = phi i32 [ %.5431692.i.us, %1457 ], [ %.5431692.i.us, %1462 ], [ %1478, %1469 ], [ %.5431692.i.us, %1467 ]
   %.6393.i.us = phi i64 [ %.5392693.i.us, %1457 ], [ %.5392693.i.us, %1462 ], [ %1474, %1469 ], [ %.5392693.i.us, %1467 ]
   %.8373.i.us = phi i32 [ %.7372695.i.us, %1457 ], [ %.7372695.i.us, %1462 ], [ %1477, %1469 ], [ %.7372695.i.us, %1467 ]
-  %.7.i131.us = phi i32 [ %.6696.i.us, %1457 ], [ %.6696.i.us, %1462 ], [ %1472, %1469 ], [ %.6696.i.us, %1467 ]
+  %.7.i130.us = phi i32 [ %.6696.i.us, %1457 ], [ %.6696.i.us, %1462 ], [ %1472, %1469 ], [ %.6696.i.us, %1467 ]
   %storemerge495.i.us = add nsw i32 %1482, -1
   store i32 %storemerge495.i.us, ptr %2, align 4
   %1483 = load ptr, ptr %6, align 8
   %1484 = getelementptr inbounds i32, ptr %1483, i64 %1394
   %1485 = load i32, ptr %1484, align 4
   %.not496.not.i.us = icmp sgt i32 %1482, %1485
-  br i1 %.not496.not.i.us, label %.lr.ph698.i.us, label %.loopexit580.i.us, !llvm.loop !37
+  br i1 %.not496.not.i.us, label %.lr.ph698.i.us, label %.loopexit580.i.us, !llvm.loop !36
 
 1486:                                             ; preds = %1393
   %1487 = load ptr, ptr %6, align 8
@@ -3777,7 +3777,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1491 = load ptr, ptr %7, align 8
   %1492 = getelementptr inbounds i32, ptr %1491, i64 %1488
   %1493 = load i32, ptr %1492, align 4
-  %1494 = icmp slt i32 %.3368770.i189.us, 2
+  %1494 = icmp slt i32 %.3368770.i183.us, 2
   br i1 %1494, label %.preheader583.i.us, label %.loopexit582.i.us
 
 .preheader583.i.us:                               ; preds = %1486
@@ -3787,7 +3787,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
 
 .lr.ph726.i.us:                                   ; preds = %.preheader583.i.us, %._crit_edge818.i.us
   %.0335725.i.us = phi i32 [ %.1336.i.us, %._crit_edge818.i.us ], [ 0, %.preheader583.i.us ]
-  %.0337724.i.us = phi i32 [ %.2.i132.us, %._crit_edge818.i.us ], [ -1, %.preheader583.i.us ]
+  %.0337724.i.us = phi i32 [ %.2.i131.us, %._crit_edge818.i.us ], [ -1, %.preheader583.i.us ]
   %storemerge491723.i.us = phi i32 [ %1520, %._crit_edge818.i.us ], [ %1490, %.preheader583.i.us ]
   %1495 = load ptr, ptr %37, align 8
   %1496 = sext i32 %storemerge491723.i.us to i64
@@ -3807,7 +3807,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1503 = getelementptr inbounds i16, ptr %937, i64 %1499
   %1504 = load i16, ptr %1503, align 2
   %1505 = zext i16 %1504 to i32
-  %1506 = icmp sgt i32 %.2363771.i188.us, %1505
+  %1506 = icmp sgt i32 %.2363771.i182.us, %1505
   br i1 %1506, label %._crit_edge818.i.us, label %1507
 
 1507:                                             ; preds = %1502
@@ -3821,38 +3821,38 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1513 = load ptr, ptr %1512, align 8
   %1514 = call zeroext i1 @gres_sched_sufficient(ptr noundef %1511, ptr noundef %1513) #8
   %.pre817.pre.i.us = load i32, ptr %2, align 4
-  br i1 %1514, label %._crit_edge260, label %._crit_edge818.i.us
+  br i1 %1514, label %._crit_edge254, label %._crit_edge818.i.us
 
-._crit_edge260:                                   ; preds = %1510
-  %.pre261 = sext i32 %.pre817.pre.i.us to i64
+._crit_edge254:                                   ; preds = %1510
+  %.pre255 = sext i32 %.pre817.pre.i.us to i64
   br label %1515
 
-1515:                                             ; preds = %._crit_edge260, %1507
-  %.pre835.i.us.pre-phi = phi i64 [ %.pre261, %._crit_edge260 ], [ %1499, %1507 ]
-  %.pre817.i.us = phi i32 [ %.pre817.pre.i.us, %._crit_edge260 ], [ %.pre820.i.us, %1507 ]
+1515:                                             ; preds = %._crit_edge254, %1507
+  %.pre835.i.us.pre-phi = phi i64 [ %.pre255, %._crit_edge254 ], [ %1499, %1507 ]
+  %.pre817.i.us = phi i32 [ %.pre817.pre.i.us, %._crit_edge254 ], [ %.pre820.i.us, %1507 ]
   %1516 = icmp eq i32 %.0337724.i.us, -1
   %.phi.trans.insert = getelementptr inbounds i16, ptr %937, i64 %.pre835.i.us.pre-phi
-  %.pre258 = load i16, ptr %.phi.trans.insert, align 2
-  %.pre259 = zext i16 %.pre258 to i32
-  %1517 = icmp samesign ugt i32 %.0335725.i.us, %.pre259
+  %.pre252 = load i16, ptr %.phi.trans.insert, align 2
+  %.pre253 = zext i16 %.pre252 to i32
+  %1517 = icmp samesign ugt i32 %.0335725.i.us, %.pre253
   %or.cond = select i1 %1516, i1 true, i1 %1517
   br i1 %or.cond, label %._crit_edge834.i.us, label %._crit_edge818.i.us
 
 ._crit_edge834.i.us:                              ; preds = %1515
-  %1518 = icmp eq i32 %.2363771.i188.us, %.pre259
+  %1518 = icmp eq i32 %.2363771.i182.us, %.pre253
   br i1 %1518, label %._crit_edge727.i.us, label %._crit_edge818.i.us
 
 ._crit_edge818.i.us:                              ; preds = %1515, %._crit_edge834.i.us, %1510, %1502, %1498, %.lr.ph726.i.us
   %1519 = phi i32 [ %.pre820.i.us, %.lr.ph726.i.us ], [ %.pre820.i.us, %1502 ], [ %.pre817.i.us, %._crit_edge834.i.us ], [ %.pre820.i.us, %1498 ], [ %.pre817.pre.i.us, %1510 ], [ %.pre817.i.us, %1515 ]
-  %.2.i132.us = phi i32 [ %.0337724.i.us, %.lr.ph726.i.us ], [ %.0337724.i.us, %1502 ], [ %.pre817.i.us, %._crit_edge834.i.us ], [ %.0337724.i.us, %1498 ], [ %.0337724.i.us, %1510 ], [ %.0337724.i.us, %1515 ]
-  %.1336.i.us = phi i32 [ %.0335725.i.us, %.lr.ph726.i.us ], [ %.0335725.i.us, %1502 ], [ %.pre259, %._crit_edge834.i.us ], [ %.0335725.i.us, %1498 ], [ %.0335725.i.us, %1510 ], [ %.0335725.i.us, %1515 ]
+  %.2.i131.us = phi i32 [ %.0337724.i.us, %.lr.ph726.i.us ], [ %.0337724.i.us, %1502 ], [ %.pre817.i.us, %._crit_edge834.i.us ], [ %.0337724.i.us, %1498 ], [ %.0337724.i.us, %1510 ], [ %.0337724.i.us, %1515 ]
+  %.1336.i.us = phi i32 [ %.0335725.i.us, %.lr.ph726.i.us ], [ %.0335725.i.us, %1502 ], [ %.pre253, %._crit_edge834.i.us ], [ %.0335725.i.us, %1498 ], [ %.0335725.i.us, %1510 ], [ %.0335725.i.us, %1515 ]
   %1520 = add nsw i32 %1519, 1
   store i32 %1520, ptr %2, align 4
   %.not481.not.i.us = icmp slt i32 %1519, %1493
-  br i1 %.not481.not.i.us, label %.lr.ph726.i.us, label %._crit_edge727.i.us, !llvm.loop !38
+  br i1 %.not481.not.i.us, label %.lr.ph726.i.us, label %._crit_edge727.i.us, !llvm.loop !37
 
 ._crit_edge727.i.us:                              ; preds = %._crit_edge818.i.us, %._crit_edge834.i.us
-  %.1338.i.us = phi i32 [ %.2.i132.us, %._crit_edge818.i.us ], [ %.pre817.i.us, %._crit_edge834.i.us ]
+  %.1338.i.us = phi i32 [ %.2.i131.us, %._crit_edge818.i.us ], [ %.pre817.i.us, %._crit_edge834.i.us ]
   %.not484.i.us = icmp eq i32 %.1338.i.us, -1
   br i1 %.not484.i.us, label %.loopexit582.i.us, label %.preheader581.i.us
 
@@ -3877,7 +3877,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1527 = add nsw i32 %1526, 1
   store i32 %1527, ptr %2, align 4
   %.not486.not.i.us = icmp slt i32 %1526, %1493
-  br i1 %.not486.not.i.us, label %.lr.ph733.i.us, label %.loopexit582.i.us, !llvm.loop !39
+  br i1 %.not486.not.i.us, label %.lr.ph733.i.us, label %.loopexit582.i.us, !llvm.loop !38
 
 .loopexit582.i.us:                                ; preds = %1525, %._crit_edge727.i.us, %.preheader583.i.us, %1486
   store i32 %1490, ptr %2, align 4
@@ -3886,10 +3886,10 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
 
 .lr.ph741.i.us:                                   ; preds = %.loopexit582.i.us, %1573
   %1528 = phi i32 [ %1575, %1573 ], [ %1490, %.loopexit582.i.us ]
-  %.9739.i.us = phi i32 [ %.10.i.us, %1573 ], [ %.2363771.i188.us, %.loopexit582.i.us ]
-  %.10375738.i.us = phi i32 [ %.11.i.us, %1573 ], [ %.3368770.i189.us, %.loopexit582.i.us ]
-  %.8395736.i.us = phi i64 [ %.9396.i.us, %1573 ], [ %.2389768.i190.us, %.loopexit582.i.us ]
-  %.8434735.i.us = phi i32 [ %.9435.i.us, %1573 ], [ %.2428765.i193.us, %.loopexit582.i.us ]
+  %.9739.i.us = phi i32 [ %.10.i.us, %1573 ], [ %.2363771.i182.us, %.loopexit582.i.us ]
+  %.10375738.i.us = phi i32 [ %.11.i.us, %1573 ], [ %.3368770.i183.us, %.loopexit582.i.us ]
+  %.8395736.i.us = phi i64 [ %.9396.i.us, %1573 ], [ %.2389768.i184.us, %.loopexit582.i.us ]
+  %.8434735.i.us = phi i32 [ %.9435.i.us, %1573 ], [ %.2428765.i187.us, %.loopexit582.i.us ]
   %1529 = load i32, ptr %961, align 8
   %1530 = icmp eq i32 %1529, 0
   br i1 %1530, label %.loopexit580.i.us, label %1531
@@ -3977,15 +3977,15 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1575 = add nsw i32 %1574, 1
   store i32 %1575, ptr %2, align 4
   %.not487.not.i.us = icmp slt i32 %1574, %1493
-  br i1 %.not487.not.i.us, label %.lr.ph741.i.us, label %.loopexit580.i.us, !llvm.loop !40
+  br i1 %.not487.not.i.us, label %.lr.ph741.i.us, label %.loopexit580.i.us, !llvm.loop !39
 
 .loopexit580.i.us:                                ; preds = %.lr.ph698.i.us, %1450, %1453, %1481, %.lr.ph741.i.us, %1534, %1537, %1573, %.loopexit582.i.us, %._crit_edge662.i.us
-  %.7433.i.us = phi i32 [ %.2428765.i193.us, %.loopexit582.i.us ], [ %.3429.lcssa.i.us, %._crit_edge662.i.us ], [ %.9435.i.us, %1573 ], [ %.8434735.i.us, %1537 ], [ %.8434735.i.us, %1534 ], [ %.8434735.i.us, %.lr.ph741.i.us ], [ %.6432.i.us, %1481 ], [ %.5431692.i.us, %1453 ], [ %.5431692.i.us, %1450 ], [ %.5431692.i.us, %.lr.ph698.i.us ]
-  %.7394.i.us = phi i64 [ %.2389768.i190.us, %.loopexit582.i.us ], [ %.3390.lcssa.i.us, %._crit_edge662.i.us ], [ %.9396.i.us, %1573 ], [ %.8395736.i.us, %1537 ], [ %.8395736.i.us, %1534 ], [ %.8395736.i.us, %.lr.ph741.i.us ], [ %.6393.i.us, %1481 ], [ %.5392693.i.us, %1453 ], [ %.5392693.i.us, %1450 ], [ %.5392693.i.us, %.lr.ph698.i.us ]
-  %.9374.i.us = phi i32 [ %.3368770.i189.us, %.loopexit582.i.us ], [ %.5370.lcssa.i.us, %._crit_edge662.i.us ], [ %.11.i.us, %1573 ], [ %.10375738.i.us, %1537 ], [ %.10375738.i.us, %1534 ], [ %.10375738.i.us, %.lr.ph741.i.us ], [ %.8373.i.us, %1481 ], [ %.7372695.i.us, %1453 ], [ %.7372695.i.us, %1450 ], [ %.7372695.i.us, %.lr.ph698.i.us ]
-  %.8.i130.us = phi i32 [ %.2363771.i188.us, %.loopexit582.i.us ], [ %.4.lcssa.i.us, %._crit_edge662.i.us ], [ %.10.i.us, %1573 ], [ %.9739.i.us, %1537 ], [ %.9739.i.us, %1534 ], [ %.9739.i.us, %.lr.ph741.i.us ], [ %.7.i131.us, %1481 ], [ %.6696.i.us, %1453 ], [ %.6696.i.us, %1450 ], [ %.6696.i.us, %.lr.ph698.i.us ]
+  %.7433.i.us = phi i32 [ %.2428765.i187.us, %.loopexit582.i.us ], [ %.3429.lcssa.i.us, %._crit_edge662.i.us ], [ %.9435.i.us, %1573 ], [ %.8434735.i.us, %1537 ], [ %.8434735.i.us, %1534 ], [ %.8434735.i.us, %.lr.ph741.i.us ], [ %.6432.i.us, %1481 ], [ %.5431692.i.us, %1453 ], [ %.5431692.i.us, %1450 ], [ %.5431692.i.us, %.lr.ph698.i.us ]
+  %.7394.i.us = phi i64 [ %.2389768.i184.us, %.loopexit582.i.us ], [ %.3390.lcssa.i.us, %._crit_edge662.i.us ], [ %.9396.i.us, %1573 ], [ %.8395736.i.us, %1537 ], [ %.8395736.i.us, %1534 ], [ %.8395736.i.us, %.lr.ph741.i.us ], [ %.6393.i.us, %1481 ], [ %.5392693.i.us, %1453 ], [ %.5392693.i.us, %1450 ], [ %.5392693.i.us, %.lr.ph698.i.us ]
+  %.9374.i.us = phi i32 [ %.3368770.i183.us, %.loopexit582.i.us ], [ %.5370.lcssa.i.us, %._crit_edge662.i.us ], [ %.11.i.us, %1573 ], [ %.10375738.i.us, %1537 ], [ %.10375738.i.us, %1534 ], [ %.10375738.i.us, %.lr.ph741.i.us ], [ %.8373.i.us, %1481 ], [ %.7372695.i.us, %1453 ], [ %.7372695.i.us, %1450 ], [ %.7372695.i.us, %.lr.ph698.i.us ]
+  %.8.i129.us = phi i32 [ %.2363771.i182.us, %.loopexit582.i.us ], [ %.4.lcssa.i.us, %._crit_edge662.i.us ], [ %.10.i.us, %1573 ], [ %.9739.i.us, %1537 ], [ %.9739.i.us, %1534 ], [ %.9739.i.us, %.lr.ph741.i.us ], [ %.7.i130.us, %1481 ], [ %.6696.i.us, %1453 ], [ %.6696.i.us, %1450 ], [ %.6696.i.us, %.lr.ph698.i.us ]
   %1576 = icmp slt i32 %.9374.i.us, 1
-  %1577 = icmp slt i32 %.8.i130.us, 1
+  %1577 = icmp slt i32 %.8.i129.us, 1
   %or.cond19.i.us = select i1 %1576, i1 %1577, i1 false
   br i1 %or.cond19.i.us, label %1578, label %1582
 
@@ -4021,8 +4021,8 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   br label %.critedge3.i
 
 .critedge3.i:                                     ; preds = %1582, %._crit_edge649.i.us, %1389, %1382, %.lr.ph772.i, %.preheader586.i, %.preheader587.i, %.loopexit589.thread.i
-  %.3368600.i = phi i32 [ %.1366.i, %.preheader587.i ], [ %.1366.i, %.loopexit589.thread.i ], [ %.1366.i, %.preheader586.i ], [ %.1366.i, %.lr.ph772.i ], [ %.3368770.i189.us, %1382 ], [ %.9374.i.us, %1582 ], [ %.3368770.i189.us, %._crit_edge649.i.us ], [ %.3368770.i189.us, %1389 ]
-  %.2363597.i = phi i32 [ %.0361.i, %.preheader587.i ], [ %.0361.i, %.loopexit589.thread.i ], [ %.0361.i, %.preheader586.i ], [ %.0361.i, %.lr.ph772.i ], [ %.2363771.i188.us, %1382 ], [ %.8.i130.us, %1582 ], [ %.2363771.i188.us, %._crit_edge649.i.us ], [ %.2363771.i188.us, %1389 ]
+  %.3368600.i = phi i32 [ %.1366.i, %.preheader587.i ], [ %.1366.i, %.loopexit589.thread.i ], [ %.1366.i, %.preheader586.i ], [ %.1366.i, %.lr.ph772.i ], [ %.3368770.i183.us, %1382 ], [ %.9374.i.us, %1582 ], [ %.3368770.i183.us, %._crit_edge649.i.us ], [ %.3368770.i183.us, %1389 ]
+  %.2363597.i = phi i32 [ %.0361.i, %.preheader587.i ], [ %.0361.i, %.loopexit589.thread.i ], [ %.0361.i, %.preheader586.i ], [ %.0361.i, %.lr.ph772.i ], [ %.2363771.i182.us, %1382 ], [ %.8.i129.us, %1582 ], [ %.2363771.i182.us, %._crit_edge649.i.us ], [ %.2363771.i182.us, %1389 ]
   %1593 = icmp slt i32 %.2363597.i, 1
   br i1 %1593, label %1594, label %.thread564.i
 
@@ -4093,7 +4093,7 @@ thread-pre-split.i.us:                            ; preds = %.thread544.i.us, %1
   %1616 = add nsw i32 %1613, 1
   store i32 %1616, ptr %2, align 4
   %1617 = icmp slt i32 %1616, %.0357567.i
-  br i1 %1617, label %.lr.ph785.i, label %._crit_edge786.i, !llvm.loop !41
+  br i1 %1617, label %.lr.ph785.i, label %._crit_edge786.i, !llvm.loop !40
 
 ._crit_edge786.i:                                 ; preds = %1612, %.preheader.i125
   call void @slurm_xfree(ptr noundef nonnull %4) #8
@@ -4369,7 +4369,7 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %81, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %130, %.preheader236
   %.0176.lcssa = phi i64 [ %.2.i, %.preheader236 ], [ %.1177, %130 ]
@@ -4540,7 +4540,7 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   %.6 = phi i32 [ %.4270, %172 ], [ %.4270, %175 ], [ %182, %196 ], [ %.4270, %169 ], [ %.4270, %167 ], [ %.4270, %164 ]
   %indvars.iv.next336 = add nsw i64 %indvars.iv335, -1
   %.not200.not = icmp sgt i64 %indvars.iv335, %159
-  br i1 %.not200.not, label %.preheader, label %.critedge3, !llvm.loop !43
+  br i1 %.not200.not, label %.preheader, label %.critedge3, !llvm.loop !42
 
 .critedge3:                                       ; preds = %.preheader, %199
   %.5181 = phi i64 [ %.6182, %199 ], [ %.4180266, %.preheader ]
@@ -4549,7 +4549,7 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   %.5 = phi i32 [ %.6, %199 ], [ %.4270, %.preheader ]
   %200 = tail call ptr @list_next(ptr noundef %156) #8
   %.not199 = icmp eq ptr %200, null
-  br i1 %.not199, label %.critedge.thread, label %.preheader.preheader, !llvm.loop !44
+  br i1 %.not199, label %.critedge.thread, label %.preheader.preheader, !llvm.loop !43
 
 .critedge.thread:                                 ; preds = %.critedge3, %196, %.preheader.us, %.lr.ph312.split.preheader, %152
   %.3.lcssa349 = phi i32 [ %.2154226, %152 ], [ %.2154226, %.lr.ph312.split.preheader ], [ %.2154226, %.preheader.us ], [ %182, %196 ], [ %.5, %.critedge3 ]
@@ -5249,7 +5249,7 @@ define internal fastcc ptr @_build_node_weight_list(ptr noundef %0) unnamed_addr
   store i32 %20, ptr %2, align 4
   %21 = call ptr @next_node_bitmap(ptr noundef %0, ptr noundef nonnull %2) #8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 }
 
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5355,7 +5355,7 @@ define internal range(i32 0, 2) i32 @_add_nodes_by_weight_spread(ptr noundef rea
   %65 = load i32, ptr %5, align 4
   %66 = sext i32 %65 to i64
   %.not = icmp slt i64 %indvars.iv, %66
-  br i1 %.not, label %17, label %._crit_edge, !llvm.loop !46
+  br i1 %.not, label %17, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %64, %60, %33, %2
   %.not.lcssa = phi i32 [ 0, %2 ], [ 1, %33 ], [ 1, %60 ], [ 0, %64 ]
@@ -5520,4 +5520,3 @@ attributes #8 = { nounwind }
 !43 = distinct !{!43, !9, !10}
 !44 = distinct !{!44, !9, !10}
 !45 = distinct !{!45, !9, !10}
-!46 = distinct !{!46, !9, !10}

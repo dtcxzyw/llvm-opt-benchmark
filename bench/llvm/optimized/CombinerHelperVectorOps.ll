@@ -413,8 +413,8 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %50
 68:                                               ; preds = %59
   %69 = call noundef zeroext i1 %65(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3) #10
   %.pre.pre = load i8, ptr %47, align 8, !tbaa !44, !range !46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
   %70 = trunc nuw i8 %.pre.pre to i1
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
   br i1 %70, label %.thread, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
 .thread:                                          ; preds = %54, %_ZNK4llvm5APIntneERKS0_.exit, %.thread28, %68

@@ -338,7 +338,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   br label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i, %51
-  %54 = phi i8 [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ %39, %51 ], [ %39, %.lr.ph.i.i.i ]
+  %54 = phi i8 [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i ], [ 1, %51 ], [ 1, %.lr.ph.i.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 8
   %.not3.i3.i.i = icmp eq ptr %55, %32
   br i1 %.not3.i3.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2_EEEEvT_S7_.exit, label %.lr.ph.i4.i.i
@@ -459,10 +459,10 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %95
   %100 = phi i32 [ %98, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre53, %95 ], [ %83, %.lr.ph.i.i ]
-  %101 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %84, %95 ], [ %84, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i8 [ %99, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %95 ], [ 0, %.lr.ph.i.i ]
+  %101 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %95 ], [ 1, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i9.i = phi i8 [ %99, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %95 ], [ 0, %.lr.ph.i.i ]
   %102 = zext i1 %.0.in49 to i8
-  %103 = or i8 %.fca.1.insert.merged.i11.i, %102
+  %103 = or i8 %.fca.1.insert.merged.i9.i, %102
   %104 = icmp ne i8 %103, 0
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.034.048, i64 8
   %.not3.i3.i = icmp eq ptr %105, %77

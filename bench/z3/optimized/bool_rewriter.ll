@@ -2680,9 +2680,9 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120:   ; preds = %167, %169, %176
 211:                                              ; preds = %._crit_edge
   %.phi.trans.insert226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre227 = load i8, ptr %.phi.trans.insert226, align 8, !range !44
-  %212 = icmp eq ptr %.1, %182
-  %213 = trunc nuw i8 %.pre227 to i1
-  %or.cond = select i1 %212, i1 %213, i1 false
+  %212 = trunc nuw i8 %.pre227 to i1
+  %213 = icmp eq ptr %.1, %182
+  %or.cond = select i1 %213, i1 %212, i1 false
   br i1 %or.cond, label %214, label %221
 
 214:                                              ; preds = %211
@@ -2712,7 +2712,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120:   ; preds = %167, %169, %176
 
 221:                                              ; preds = %211
   %222 = icmp eq ptr %.1, %185
-  %or.cond79 = select i1 %222, i1 %213, i1 false
+  %or.cond79 = select i1 %222, i1 %212, i1 false
   br i1 %or.cond79, label %223, label %225
 
 223:                                              ; preds = %221
@@ -2726,7 +2726,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120:   ; preds = %167, %169, %176
 
 225:                                              ; preds = %221
   %226 = icmp eq ptr %.063, %.1
-  %or.cond82 = select i1 %226, i1 %213, i1 false
+  %or.cond82 = select i1 %226, i1 %212, i1 false
   br i1 %or.cond82, label %227, label %229
 
 227:                                              ; preds = %225
@@ -2740,7 +2740,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit120:   ; preds = %167, %169, %176
 
 229:                                              ; preds = %225
   %230 = icmp eq ptr %.063, %.1218
-  %or.cond85 = select i1 %230, i1 %213, i1 false
+  %or.cond85 = select i1 %230, i1 %212, i1 false
   br i1 %or.cond85, label %231, label %.thread236
 
 231:                                              ; preds = %229

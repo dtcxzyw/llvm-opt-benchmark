@@ -69081,7 +69081,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6df301f8714803aeE.exit", label %205
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h6df301f8714803aeE.exit", label %206
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -69363,13 +69363,14 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br label %204
 
 204:                                              ; preds = %.split35.i, %.split35.us.i
+  %205 = phi i128 [ 0, %.split35.i ], [ 1, %.split35.us.i ]
   %.us-phi36.i = phi ptr [ %.sroa.5.026.i, %.split35.i ], [ %.sroa.5.026.us.i, %.split35.us.i ]
   %.us-phi37.i = phi { ptr, i32 } [ %203, %.split35.i ], [ %165, %.split35.us.i ]
   store i32 %.sroa.011.0.copyload.i, ptr %.us-phi36.i, align 16, !alias.scope !12912
   %.sroa.6.0..sroa.5.0.sroa_idx3.i = getelementptr inbounds nuw i8, ptr %.us-phi36.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa.5.0.sroa_idx3.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.i, i64 12, i1 false)
   %.sroa.64.0..sroa.5.0.sroa_idx6.i = getelementptr inbounds nuw i8, ptr %.us-phi36.i, i64 16
-  store i128 %87, ptr %.sroa.64.0..sroa.5.0.sroa_idx6.i, align 16, !alias.scope !12912
+  store i128 %205, ptr %.sroa.64.0..sroa.5.0.sroa_idx6.i, align 16, !alias.scope !12912
   %.sroa.7.0..sroa.5.0.sroa_idx9.i = getelementptr inbounds nuw i8, ptr %.us-phi36.i, i64 32
   store i128 %.sroa.612.0.copyload.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx9.i, align 16, !alias.scope !12912
   resume { ptr, i32 } %.us-phi37.i
@@ -69378,7 +69379,7 @@ _ZN5rayon5slice9quicksort10shift_head17hf83902bf21a1f31eE.exit: ; preds = %"_ZN1
   %exitcond74.not = icmp eq i64 %11, 5
   br i1 %exitcond74.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17ha00f3f92f596066bE.exit.thread.thread", label %10
 
-205:                                              ; preds = %70
+206:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -69520,7 +69521,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h4a00c42c57c00bd2E.exit", label %207
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h4a00c42c57c00bd2E.exit", label %208
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -69816,13 +69817,14 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br label %206
 
 206:                                              ; preds = %.split32.i, %.split32.us.i
+  %207 = phi i32 [ %87, %.split32.i ], [ 1, %.split32.us.i ]
   %.sroa.09.0.copyload4958.i = phi i32 [ %.sroa.09.0.copyload4957.i, %.split32.i ], [ %.sroa.09.0.copyload.i, %.split32.us.i ]
   %.sroa.5.0.copyload5155.i = phi i32 [ %.sroa.5.0.copyload5156.i, %.split32.i ], [ %.sroa.5.0.copyload.i, %.split32.us.i ]
   %.us-phi33.i = phi ptr [ %.sroa.5.023.i, %.split32.i ], [ %.sroa.5.023.us.i, %.split32.us.i ]
   %.us-phi34.i = phi { ptr, i32 } [ %205, %.split32.i ], [ %167, %.split32.us.i ]
   store i32 %.sroa.09.0.copyload4958.i, ptr %.us-phi33.i, align 4, !alias.scope !13011
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.us-phi33.i, i64 4
-  store i32 %87, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !13011
+  store i32 %207, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !13011
   %.sroa.7.0..sroa.5.0.sroa_idx7.i = getelementptr inbounds nuw i8, ptr %.us-phi33.i, i64 8
   store i32 %.sroa.5.0.copyload5155.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx7.i, align 4, !alias.scope !13011
   resume { ptr, i32 } %.us-phi34.i
@@ -69831,7 +69833,7 @@ _ZN5rayon5slice9quicksort10shift_head17h0d487b1ee78a9215E.exit: ; preds = %"_ZN1
   %exitcond66.not = icmp eq i64 %11, 5
   br i1 %exitcond66.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h6f9160bd25ebeb23E.exit.thread.thread", label %10
 
-207:                                              ; preds = %70
+208:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -74820,7 +74822,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3ca902aa556eb79E.exit", label %207
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd3ca902aa556eb79E.exit", label %208
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -75116,13 +75118,14 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br label %206
 
 206:                                              ; preds = %.split32.i, %.split32.us.i
+  %207 = phi i32 [ %87, %.split32.i ], [ 1, %.split32.us.i ]
   %.sroa.09.0.copyload4958.i = phi i32 [ %.sroa.09.0.copyload4957.i, %.split32.i ], [ %.sroa.09.0.copyload.i, %.split32.us.i ]
   %.sroa.5.0.copyload5155.i = phi i32 [ %.sroa.5.0.copyload5156.i, %.split32.i ], [ %.sroa.5.0.copyload.i, %.split32.us.i ]
   %.us-phi33.i = phi ptr [ %.sroa.5.023.i, %.split32.i ], [ %.sroa.5.023.us.i, %.split32.us.i ]
   %.us-phi34.i = phi { ptr, i32 } [ %205, %.split32.i ], [ %167, %.split32.us.i ]
   store i32 %.sroa.09.0.copyload4958.i, ptr %.us-phi33.i, align 4, !alias.scope !13921
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.us-phi33.i, i64 4
-  store i32 %87, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !13921
+  store i32 %207, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !13921
   %.sroa.7.0..sroa.5.0.sroa_idx7.i = getelementptr inbounds nuw i8, ptr %.us-phi33.i, i64 8
   store i32 %.sroa.5.0.copyload5155.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx7.i, align 4, !alias.scope !13921
   resume { ptr, i32 } %.us-phi34.i
@@ -75131,7 +75134,7 @@ _ZN5rayon5slice9quicksort10shift_head17hce5bf019d04ceeeaE.exit: ; preds = %"_ZN1
   %exitcond66.not = icmp eq i64 %11, 5
   br i1 %exitcond66.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hda634240f2bb74abE.exit.thread.thread", label %10
 
-207:                                              ; preds = %70
+208:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -75845,7 +75848,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hde80e93709eb8600E.exit", label %207
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hde80e93709eb8600E.exit", label %208
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -76149,6 +76152,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br label %206
 
 206:                                              ; preds = %.split37.i, %.split37.us.i
+  %207 = phi i64 [ %87, %.split37.i ], [ 1, %.split37.us.i ]
   %.sroa.013.0.copyload5670.i = phi i32 [ %.sroa.013.0.copyload5669.i, %.split37.i ], [ %.sroa.013.0.copyload.i, %.split37.us.i ]
   %.sroa.4.0.copyload5867.i = phi i32 [ %.sroa.4.0.copyload5868.i, %.split37.i ], [ %.sroa.4.0.copyload.i, %.split37.us.i ]
   %.sroa.614.0.copyload6065.i = phi i64 [ %.sroa.614.0.copyload6066.i, %.split37.i ], [ %.sroa.614.0.copyload.i, %.split37.us.i ]
@@ -76158,7 +76162,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.us-phi38.i, i64 4
   store i32 %.sroa.4.0.copyload5867.i, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !14158
   %.sroa.66.0..sroa.5.0.sroa_idx8.i = getelementptr inbounds nuw i8, ptr %.us-phi38.i, i64 8
-  store i64 %87, ptr %.sroa.66.0..sroa.5.0.sroa_idx8.i, align 8, !alias.scope !14158
+  store i64 %207, ptr %.sroa.66.0..sroa.5.0.sroa_idx8.i, align 8, !alias.scope !14158
   %.sroa.7.0..sroa.5.0.sroa_idx11.i = getelementptr inbounds nuw i8, ptr %.us-phi38.i, i64 16
   store i64 %.sroa.614.0.copyload6065.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx11.i, align 8, !alias.scope !14158
   resume { ptr, i32 } %.us-phi39.i
@@ -76167,7 +76171,7 @@ _ZN5rayon5slice9quicksort10shift_head17headea23506083fb7E.exit: ; preds = %"_ZN1
   %exitcond68.not = icmp eq i64 %11, 5
   br i1 %exitcond68.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf8bf02c6a3ed162aE.exit.thread.thread", label %10
 
-207:                                              ; preds = %70
+208:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -79614,7 +79618,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc663023a56135172E.exit", label %207
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc663023a56135172E.exit", label %208
 
 71:                                               ; preds = %67
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %68, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -79918,6 +79922,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   br label %206
 
 206:                                              ; preds = %.split37.i, %.split37.us.i
+  %207 = phi i64 [ %87, %.split37.i ], [ 1, %.split37.us.i ]
   %.sroa.013.0.copyload5670.i = phi i32 [ %.sroa.013.0.copyload5669.i, %.split37.i ], [ %.sroa.013.0.copyload.i, %.split37.us.i ]
   %.sroa.4.0.copyload5867.i = phi i32 [ %.sroa.4.0.copyload5868.i, %.split37.i ], [ %.sroa.4.0.copyload.i, %.split37.us.i ]
   %.sroa.614.0.copyload6065.i = phi i64 [ %.sroa.614.0.copyload6066.i, %.split37.i ], [ %.sroa.614.0.copyload.i, %.split37.us.i ]
@@ -79927,7 +79932,7 @@ define internal fastcc noundef zeroext i1 @_ZN5rayon5slice9quicksort22partial_in
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.us-phi38.i, i64 4
   store i32 %.sroa.4.0.copyload5867.i, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !14664
   %.sroa.66.0..sroa.5.0.sroa_idx8.i = getelementptr inbounds nuw i8, ptr %.us-phi38.i, i64 8
-  store i64 %87, ptr %.sroa.66.0..sroa.5.0.sroa_idx8.i, align 8, !alias.scope !14664
+  store i64 %207, ptr %.sroa.66.0..sroa.5.0.sroa_idx8.i, align 8, !alias.scope !14664
   %.sroa.7.0..sroa.5.0.sroa_idx11.i = getelementptr inbounds nuw i8, ptr %.us-phi38.i, i64 16
   store i64 %.sroa.614.0.copyload6065.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx11.i, align 8, !alias.scope !14664
   resume { ptr, i32 } %.us-phi39.i
@@ -79936,7 +79941,7 @@ _ZN5rayon5slice9quicksort10shift_head17h780661ae7735feefE.exit: ; preds = %"_ZN1
   %exitcond68.not = icmp eq i64 %11, 5
   br i1 %exitcond68.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hd8b9685cfc54fd7aE.exit.thread.thread", label %10
 
-207:                                              ; preds = %70
+208:                                              ; preds = %70
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -81409,7 +81414,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..o
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5798eeddf8c2b6fcE.exit", label %213
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5798eeddf8c2b6fcE.exit", label %214
 
 73:                                               ; preds = %69
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %70, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -81693,13 +81698,14 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..o
   br label %212
 
 212:                                              ; preds = %.split.i, %.split.us.i
+  %213 = phi i64 [ 0, %.split.i ], [ 1, %.split.us.i ]
   %.us-phi36.i = phi ptr [ %.sroa.5.028.i, %.split.i ], [ %.sroa.5.028.us.i, %.split.us.i ]
   %.us-phi37.i = phi { ptr, i32 } [ %211, %.split.i ], [ %173, %.split.us.i ]
   store i32 %.sroa.013.0.copyload.i, ptr %.us-phi36.i, align 8, !alias.scope !15016
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.us-phi36.i, i64 4
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !15016
   %.sroa.66.0..sroa.5.0.sroa_idx8.i = getelementptr inbounds nuw i8, ptr %.us-phi36.i, i64 8
-  store i64 %89, ptr %.sroa.66.0..sroa.5.0.sroa_idx8.i, align 8, !alias.scope !15016
+  store i64 %213, ptr %.sroa.66.0..sroa.5.0.sroa_idx8.i, align 8, !alias.scope !15016
   %.sroa.7.0..sroa.5.0.sroa_idx11.i = getelementptr inbounds nuw i8, ptr %.us-phi36.i, i64 16
   store double %.sroa.614.0.copyload.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx11.i, align 8, !alias.scope !15016
   resume { ptr, i32 } %.us-phi37.i
@@ -81708,7 +81714,7 @@ _ZN5rayon5slice9quicksort10shift_head17he41b6a9660f55c05E.exit: ; preds = %"_ZN1
   %exitcond66.not = icmp eq i64 %11, 5
   br i1 %exitcond66.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17ha10212f9f6ff6dd5E.exit.thread.thread", label %10
 
-213:                                              ; preds = %72
+214:                                              ; preds = %72
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }
@@ -82423,7 +82429,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..o
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %69
-  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha64c5ccbde57d287E.exit", label %215
+  br i1 %12, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha64c5ccbde57d287E.exit", label %216
 
 73:                                               ; preds = %69
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %70, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
@@ -82723,13 +82729,14 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..o
   br label %214
 
 214:                                              ; preds = %.split.i, %.split.us.i
+  %215 = phi i32 [ %89, %.split.i ], [ 1, %.split.us.i ]
   %.sroa.09.0.copyload4756.i = phi i32 [ %.sroa.09.0.copyload4755.i, %.split.i ], [ %.sroa.09.0.copyload.i, %.split.us.i ]
   %.sroa.5.0.copyload4953.i = phi float [ %.sroa.5.0.copyload4954.i, %.split.i ], [ %.sroa.5.0.copyload.i, %.split.us.i ]
   %.us-phi31.i = phi ptr [ %.sroa.5.023.i, %.split.i ], [ %.sroa.5.023.us.i, %.split.us.i ]
   %.us-phi32.i = phi { ptr, i32 } [ %213, %.split.i ], [ %175, %.split.us.i ]
   store i32 %.sroa.09.0.copyload4756.i, ptr %.us-phi31.i, align 4, !alias.scope !15169
   %.sroa.6.0..sroa.5.0.sroa_idx4.i = getelementptr inbounds nuw i8, ptr %.us-phi31.i, i64 4
-  store i32 %89, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !15169
+  store i32 %215, ptr %.sroa.6.0..sroa.5.0.sroa_idx4.i, align 4, !alias.scope !15169
   %.sroa.7.0..sroa.5.0.sroa_idx7.i = getelementptr inbounds nuw i8, ptr %.us-phi31.i, i64 8
   store float %.sroa.5.0.copyload4953.i, ptr %.sroa.7.0..sroa.5.0.sroa_idx7.i, align 4, !alias.scope !15169
   resume { ptr, i32 } %.us-phi32.i
@@ -82738,7 +82745,7 @@ _ZN5rayon5slice9quicksort10shift_head17h5e48512b2536557cE.exit: ; preds = %"_ZN1
   %exitcond54.not = icmp eq i64 %11, 5
   br i1 %exitcond54.not, label %"_ZN5rayon5slice16ParallelSliceMut20par_sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hb0ff6907967e8ab6E.exit.thread.thread", label %10
 
-215:                                              ; preds = %72
+216:                                              ; preds = %72
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %.sroa.01.1.lcssa, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fd3f87f8390af4a587d7eeadce674e5e.180) #37
   unreachable
 }

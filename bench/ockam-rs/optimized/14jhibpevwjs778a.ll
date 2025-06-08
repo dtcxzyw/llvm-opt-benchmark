@@ -1301,11 +1301,11 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
 
 12:                                               ; preds = %13
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %.critedge, label %.thread49
+  br i1 %.not, label %.critedge, label %.thread48
 
-.thread49:                                        ; preds = %12
-  %.not3552 = icmp eq i64 %1, 6
-  br label %21
+.thread48:                                        ; preds = %12
+  %.not3550 = icmp eq i64 %1, 6
+  br label %22
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 558
@@ -1317,48 +1317,48 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
   %or.cond47 = or i1 %18, %19
-  br i1 %or.cond47, label %.critedge, label %32
+  br i1 %or.cond47, label %.critedge, label %33
 
 20:                                               ; preds = %8
   %.not44 = icmp eq i64 %2, 6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 558
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !21
-  %.pre48 = trunc nuw i8 %.pre to i1
+  %21 = trunc nuw i8 %.pre to i1
   %.not35 = icmp eq i64 %1, 6
-  %or.cond36 = and i1 %.not35, %.pre48
-  br i1 %or.cond36, label %.critedge, label %21
+  %or.cond36 = and i1 %.not35, %21
+  br i1 %or.cond36, label %.critedge, label %22
 
-21:                                               ; preds = %.thread49, %20
-  %.not3555 = phi i1 [ %.not3552, %.thread49 ], [ %.not35, %20 ]
-  %.not4654 = phi i1 [ false, %.thread49 ], [ %.not44, %20 ]
+22:                                               ; preds = %.thread48, %20
+  %.not3553 = phi i1 [ %.not3550, %.thread48 ], [ %.not35, %20 ]
+  %.not4652 = phi i1 [ false, %.thread48 ], [ %.not44, %20 ]
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %.critedge, label %22
+  br i1 %or.cond39, label %.critedge, label %23
 
-.critedge:                                        ; preds = %30, %29, %27, %22, %21, %17, %32, %20, %12, %4
-  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
+.critedge:                                        ; preds = %31, %30, %28, %23, %22, %17, %33, %20, %12, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %33 ], [ %1, %22 ], [ %32, %31 ], [ %1, %28 ], [ %2, %30 ], [ %2, %23 ]
   ret i64 %.028
 
-22:                                               ; preds = %21
-  %23 = icmp ne i64 %1, 6
-  %24 = icmp ne i64 %2, 6
-  %25 = xor i1 %23, true
-  %26 = and i1 %24, %25
-  br i1 %26, label %.critedge, label %27
+23:                                               ; preds = %22
+  %24 = icmp ne i64 %1, 6
+  %25 = icmp ne i64 %2, 6
+  %26 = xor i1 %24, true
+  %27 = and i1 %25, %26
+  br i1 %27, label %.critedge, label %28
 
-27:                                               ; preds = %22
-  %28 = xor i1 %23, %24
-  br i1 %28, label %.critedge, label %29
+28:                                               ; preds = %23
+  %29 = xor i1 %24, %25
+  br i1 %29, label %.critedge, label %30
 
-29:                                               ; preds = %27
-  %or.cond.i.i.i41 = or i1 %.not3555, %.not4654
-  br i1 %or.cond.i.i.i41, label %.critedge, label %30
+30:                                               ; preds = %28
+  %or.cond.i.i.i41 = or i1 %.not3553, %.not4652
+  br i1 %or.cond.i.i.i41, label %.critedge, label %31
 
-30:                                               ; preds = %29
-  %31 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
+31:                                               ; preds = %30
+  %32 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
   br label %.critedge
 
-32:                                               ; preds = %17
+33:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
   br label %.critedge
 }
@@ -1378,11 +1378,11 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
 
 12:                                               ; preds = %13
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %.critedge, label %.thread49
+  br i1 %.not, label %.critedge, label %.thread48
 
-.thread49:                                        ; preds = %12
-  %.not3552 = icmp eq i64 %1, 6
-  br label %21
+.thread48:                                        ; preds = %12
+  %.not3550 = icmp eq i64 %1, 6
+  br label %22
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2346
@@ -1394,48 +1394,48 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
   %or.cond47 = or i1 %18, %19
-  br i1 %or.cond47, label %.critedge, label %32
+  br i1 %or.cond47, label %.critedge, label %33
 
 20:                                               ; preds = %8
   %.not44 = icmp eq i64 %2, 6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2346
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !21
-  %.pre48 = trunc nuw i8 %.pre to i1
+  %21 = trunc nuw i8 %.pre to i1
   %.not35 = icmp eq i64 %1, 6
-  %or.cond36 = and i1 %.not35, %.pre48
-  br i1 %or.cond36, label %.critedge, label %21
+  %or.cond36 = and i1 %.not35, %21
+  br i1 %or.cond36, label %.critedge, label %22
 
-21:                                               ; preds = %.thread49, %20
-  %.not3555 = phi i1 [ %.not3552, %.thread49 ], [ %.not35, %20 ]
-  %.not4654 = phi i1 [ false, %.thread49 ], [ %.not44, %20 ]
+22:                                               ; preds = %.thread48, %20
+  %.not3553 = phi i1 [ %.not3550, %.thread48 ], [ %.not35, %20 ]
+  %.not4652 = phi i1 [ false, %.thread48 ], [ %.not44, %20 ]
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %.critedge, label %22
+  br i1 %or.cond39, label %.critedge, label %23
 
-.critedge:                                        ; preds = %30, %29, %27, %22, %21, %17, %32, %20, %12, %4
-  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
+.critedge:                                        ; preds = %31, %30, %28, %23, %22, %17, %33, %20, %12, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %33 ], [ %1, %22 ], [ %32, %31 ], [ %1, %28 ], [ %2, %30 ], [ %2, %23 ]
   ret i64 %.028
 
-22:                                               ; preds = %21
-  %23 = icmp ne i64 %1, 6
-  %24 = icmp ne i64 %2, 6
-  %25 = xor i1 %23, true
-  %26 = and i1 %24, %25
-  br i1 %26, label %.critedge, label %27
+23:                                               ; preds = %22
+  %24 = icmp ne i64 %1, 6
+  %25 = icmp ne i64 %2, 6
+  %26 = xor i1 %24, true
+  %27 = and i1 %25, %26
+  br i1 %27, label %.critedge, label %28
 
-27:                                               ; preds = %22
-  %28 = xor i1 %23, %24
-  br i1 %28, label %.critedge, label %29
+28:                                               ; preds = %23
+  %29 = xor i1 %24, %25
+  br i1 %29, label %.critedge, label %30
 
-29:                                               ; preds = %27
-  %or.cond.i.i.i41 = or i1 %.not3555, %.not4654
-  br i1 %or.cond.i.i.i41, label %.critedge, label %30
+30:                                               ; preds = %28
+  %or.cond.i.i.i41 = or i1 %.not3553, %.not4652
+  br i1 %or.cond.i.i.i41, label %.critedge, label %31
 
-30:                                               ; preds = %29
-  %31 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
+31:                                               ; preds = %30
+  %32 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
   br label %.critedge
 
-32:                                               ; preds = %17
+33:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
   br label %.critedge
 }

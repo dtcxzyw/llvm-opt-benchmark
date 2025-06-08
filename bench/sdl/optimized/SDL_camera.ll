@@ -3065,7 +3065,7 @@ select.unfold.preheader:                          ; preds = %13, %select.unfold
   br label %select.unfold
 
 select.unfold:                                    ; preds = %21, %28, %32
-  %.259 = phi i8 [ 1, %32 ], [ %.158107, %28 ], [ %.158107, %21 ]
+  %.259 = phi i8 [ 1, %32 ], [ 0, %28 ], [ 0, %21 ]
   %.255 = phi i1 [ true, %32 ], [ true, %28 ], [ %.154108, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br i1 %.not80, label %select.unfold..critedge2_crit_edge, label %select.unfold.preheader

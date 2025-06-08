@@ -2110,8 +2110,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h50868233f
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h17a89dd79f6fb3dfE.exit": ; preds = %85
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17h4b8bf4bbb0c290a2E"(ptr noalias noundef nonnull align 8 dereferenceable(688) %13, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ca1a3962f5fa94c3f238bbf50d5b94b.8)
   %.pre = load i8, ptr %47, align 8, !range !4, !alias.scope !402, !noalias !403
-  call void @llvm.experimental.noalias.scope.decl(metadata !402)
   %115 = trunc nuw i8 %.pre to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !402)
   br i1 %115, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h17a89dd79f6fb3dfE.exit.thread", label %89
 
 116:                                              ; preds = %110
@@ -49524,7 +49524,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !8640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   %.sroa.5.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx12, align 8, !noalias !8645
+  store i8 0, ptr %.sroa.5.0..sroa_idx12, align 8, !noalias !8645
   %.sroa.6.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %4, i64 89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx16, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx, i64 7, i1 false)
   invoke void @"_ZN6picker15Picker$LT$D$GT$12uniform_list17hda26e263fa05a041E"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
@@ -49538,7 +49538,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !8640
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   %.sroa.5.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i8 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx14, align 8, !noalias !8645
+  store i8 1, ptr %.sroa.5.0..sroa_idx14, align 8, !noalias !8645
   %.sroa.6.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %5, i64 89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx17, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx, i64 7, i1 false)
   invoke void @"_ZN6picker15Picker$LT$D$GT$4list17h2a4217a27436bc58E"(ptr noalias noundef nonnull sret([208 x i8]) align 8 captures(none) dereferenceable(208) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)

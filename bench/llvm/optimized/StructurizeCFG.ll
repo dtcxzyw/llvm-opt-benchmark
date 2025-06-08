@@ -4705,7 +4705,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_10BasicBlockEE6insertES2_.exit.i59: ; preds = %.lr
   %1170 = phi i32 [ %1168, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57 ], [ %.pre.i111, %1164 ], [ %1152, %.lr.ph.i.i137.i ]
   %1171 = phi i32 [ %1169, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57 ], [ %1153, %1164 ], [ %1153, %.lr.ph.i.i137.i ]
   %1172 = phi ptr [ %.pre5.i.i58, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57 ], [ %1166, %1164 ], [ %1154, %.lr.ph.i.i137.i ]
-  %1173 = phi i8 [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57 ], [ %1155, %1164 ], [ %1155, %.lr.ph.i.i137.i ]
+  %1173 = phi i8 [ %.pre.fr.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i57 ], [ 1, %1164 ], [ 1, %.lr.ph.i.i137.i ]
   %1174 = getelementptr inbounds nuw i8, ptr %.0113719.i, i64 16
   %.not128.i = icmp eq ptr %1174, %985
   br i1 %.not128.i, label %._crit_edge.i60, label %.lr.ph.i56
@@ -16416,7 +16416,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEN12_GLOBAL__N_18PredInfoENS
   %25 = and i64 %.0.copyload.i.i.i.i22, -8
   %26 = inttoptr i64 %25 to ptr
   %27 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %23, ptr noundef %.sroa.0.0.copyload, ptr noundef %26) #26
-  %spec.select = select i1 %27, i8 1, i8 %.0107
+  %spec.select = zext i1 %27 to i8
   br label %28
 
 28:                                               ; preds = %22, %19

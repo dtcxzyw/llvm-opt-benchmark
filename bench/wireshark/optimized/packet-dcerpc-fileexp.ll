@@ -2547,16 +2547,16 @@ dissect_afsNetAddr.exit:                          ; preds = %59, %61
   %64 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %63, i32 noundef %64)
   %.pre = load i8, ptr %14, align 1, !range !6
+  %65 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
-  %65 = add i32 %.1.i, 4
+  %66 = add i32 %.1.i, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  %66 = trunc nuw i8 %.pre to i1
-  br i1 %66, label %dissect_afsNameString_t.exit, label %67
+  br i1 %65, label %dissect_afsNameString_t.exit, label %67
 
 67:                                               ; preds = %dissect_afsNetAddr.exit
   %.not.i25 = icmp eq ptr %.0232732, null
@@ -2564,13 +2564,13 @@ dissect_afsNetAddr.exit:                          ; preds = %59, %61
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @ett_fileexp_afsNameString_t, align 4
-  %70 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0232732, ptr noundef %0, i32 noundef %65, i32 noundef -1, i32 noundef %69, ptr noundef nonnull %7, ptr noundef nonnull @.str.347)
+  %70 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0232732, ptr noundef %0, i32 noundef %66, i32 noundef -1, i32 noundef %69, ptr noundef nonnull %7, ptr noundef nonnull @.str.347)
   br label %.thread36
 
 .thread36:                                        ; preds = %68, %67
   %.024.i = phi ptr [ %70, %68 ], [ null, %67 ]
   %71 = load i32, ptr @hf_fileexp_afsNameString_t_principalName_size, align 4
-  %72 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.024.i, ptr noundef %4, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %8)
+  %72 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef %.024.i, ptr noundef %4, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %8, align 4
@@ -2599,12 +2599,12 @@ dissect_afsNetAddr.exit:                          ; preds = %59, %61
 89:                                               ; preds = %87, %78
   %.025.i = phi i32 [ %84, %78 ], [ %72, %87 ]
   %90 = load ptr, ptr %7, align 8
-  %91 = sub i32 %.025.i, %65
+  %91 = sub i32 %.025.i, %66
   call void @proto_item_set_len(ptr noundef %90, i32 noundef %91)
   br label %dissect_afsNameString_t.exit
 
 dissect_afsNameString_t.exit:                     ; preds = %dissect_afsNetAddr.exit.thread, %dissect_afsNetAddr.exit, %89
-  %.0.i = phi i32 [ %.025.i, %89 ], [ %65, %dissect_afsNetAddr.exit ], [ %23, %dissect_afsNetAddr.exit.thread ]
+  %.0.i = phi i32 [ %.025.i, %89 ], [ %66, %dissect_afsNetAddr.exit ], [ %23, %dissect_afsNetAddr.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4

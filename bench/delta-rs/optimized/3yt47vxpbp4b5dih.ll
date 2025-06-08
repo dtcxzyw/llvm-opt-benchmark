@@ -22227,7 +22227,7 @@ define hidden void @_ZN13deltalake_aws7storage18execute_sdk_future17h8a55ffdda0b
 .thread44:                                        ; preds = %23
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 7160, ptr nonnull %14)
-  store i64 %21, ptr %14, align 8
+  store i64 1, ptr %14, align 8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %25, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 16

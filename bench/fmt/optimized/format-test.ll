@@ -256622,7 +256622,7 @@ _ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i: ; preds = %58, %.n
 
 _ZN3fmt3v116detail15iterator_bufferISt19ostreambuf_iteratorIcSt11char_traitsIcEEcNS1_13buffer_traitsEED2Ev.exit: ; preds = %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i, %.loopexit28.thread, %.thread, %.loopexit28, %59
   %.sroa.0.0.copyload.i.i21.pn = phi ptr [ %.sroa.0.0.copyload.i.i21, %.thread ], [ %.sroa.0.0.copyload.i.i, %.loopexit28 ], [ %.sroa.0.0.copyload.i.i, %59 ], [ %.sroa.0.0.copyload.i.i33, %.loopexit28.thread ], [ %.sroa.0.0.copyload.i.i, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i ]
-  %.sroa.2.0.copyload.i.i22.pn = phi i8 [ %.sroa.2.0.copyload.i.i22, %.thread ], [ %.sroa.2.0.copyload.i.i.pre, %.loopexit28 ], [ %.sroa.2.0.copyload.i.i.pre, %59 ], [ 1, %.loopexit28.thread ], [ %.sroa.2.0.copyload.i.i.pre, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i ]
+  %.sroa.2.0.copyload.i.i22.pn = phi i8 [ %.sroa.2.0.copyload.i.i22, %.thread ], [ %.sroa.2.0.copyload.i.i.pre, %.loopexit28 ], [ 0, %59 ], [ 1, %.loopexit28.thread ], [ 0, %_ZNSt19ostreambuf_iteratorIcSt11char_traitsIcEEaSEc.exit.i.i ]
   %.fca.0.insert.i.i23.pn = insertvalue { ptr, i8 } poison, ptr %.sroa.0.0.copyload.i.i21.pn, 0
   %.fca.1.insert.i.i27 = insertvalue { ptr, i8 } %.fca.0.insert.i.i23.pn, i8 %.sroa.2.0.copyload.i.i22.pn, 1
   call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %6) #38

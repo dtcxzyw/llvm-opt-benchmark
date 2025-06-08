@@ -2535,66 +2535,66 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
 865:                                              ; preds = %861, %858
   %866 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 0, -2147483648) %.0125169178)
   call void @add_new_data_source(ptr noundef %1, ptr noundef %866, ptr noundef nonnull @.str.214)
-  br label %871
+  br label %872
 
 .thread.i124:                                     ; preds = %861, %858, %851
-  %.pre-phi.i = phi i1 [ false, %858 ], [ false, %861 ], [ %.mux.i, %851 ]
-  %867 = getelementptr inbounds nuw i8, ptr %850, i64 4
-  %868 = load i32, ptr %867, align 4
-  %869 = call ptr @fragment_add_check_with_fallback(ptr noundef nonnull @usbll_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %852, ptr noundef null, i32 noundef %868, i32 noundef range(i32 0, -2147483648) %.0125169178, i1 noundef zeroext %.pre-phi.i, i32 noundef %852)
-  %870 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull @.str.214, ptr noundef %869, ptr noundef nonnull @usbll_frag_items, ptr noundef null, ptr noundef %11)
-  br label %871
+  %867 = phi i1 [ false, %858 ], [ false, %861 ], [ %.mux.i, %851 ]
+  %868 = getelementptr inbounds nuw i8, ptr %850, i64 4
+  %869 = load i32, ptr %868, align 4
+  %870 = call ptr @fragment_add_check_with_fallback(ptr noundef nonnull @usbll_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %852, ptr noundef null, i32 noundef %869, i32 noundef range(i32 0, -2147483648) %.0125169178, i1 noundef zeroext %867, i32 noundef %852)
+  %871 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull @.str.214, ptr noundef %870, ptr noundef nonnull @usbll_frag_items, ptr noundef null, ptr noundef %11)
+  br label %872
 
-871:                                              ; preds = %.thread.i124, %865
-  %.0.i122 = phi ptr [ %870, %.thread.i124 ], [ %866, %865 ]
+872:                                              ; preds = %.thread.i124, %865
+  %.0.i122 = phi ptr [ %871, %.thread.i124 ], [ %866, %865 ]
   %.not36.i = icmp eq ptr %.0.i122, null
-  br i1 %.not36.i, label %usbll_construct_urb.exit, label %872
+  br i1 %.not36.i, label %usbll_construct_urb.exit, label %873
 
-872:                                              ; preds = %871
+873:                                              ; preds = %872
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #16
-  %873 = getelementptr inbounds nuw i8, ptr %850, i64 12
-  %874 = load i8, ptr %873, align 4, !range !9, !noundef !10
-  store i8 %874, ptr %5, align 4
-  %875 = getelementptr inbounds nuw i8, ptr %850, i64 8
-  %876 = load i32, ptr %875, align 4
-  %877 = icmp ult i32 %876, 5
-  br i1 %877, label %switch.lookup190, label %878
+  %874 = getelementptr inbounds nuw i8, ptr %850, i64 12
+  %875 = load i8, ptr %874, align 4, !range !9, !noundef !10
+  store i8 %875, ptr %5, align 4
+  %876 = getelementptr inbounds nuw i8, ptr %850, i64 8
+  %877 = load i32, ptr %876, align 4
+  %878 = icmp ult i32 %877, 5
+  br i1 %878, label %switch.lookup190, label %879
 
-878:                                              ; preds = %872
+879:                                              ; preds = %873
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.179, i32 noundef 1784) #15
   unreachable
 
-switch.lookup190:                                 ; preds = %872
-  %879 = shl nuw nsw i32 %876, 3
-  %switch.shiftamt = zext nneg i32 %879 to i40
+switch.lookup190:                                 ; preds = %873
+  %880 = shl nuw nsw i32 %877, 3
+  %switch.shiftamt = zext nneg i32 %880 to i40
   %switch.downshift = lshr i40 16974591, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  %880 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %switch.masked, ptr %880, align 1
-  %881 = getelementptr inbounds nuw i8, ptr %.0128131142154168180, i64 8
-  %882 = load ptr, ptr %881, align 8
-  %883 = getelementptr inbounds nuw i8, ptr %882, i64 5
-  %884 = load i8, ptr %883, align 1
-  %885 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %884, ptr %885, align 2
-  %886 = getelementptr inbounds nuw i8, ptr %882, i64 6
-  %887 = load i8, ptr %886, align 2
-  %888 = xor i8 %874, -1
-  %889 = shl i8 %888, 7
-  %890 = or i8 %887, %889
-  %891 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %890, ptr %891, align 1
-  %892 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i16 0, ptr %892, align 4
-  %893 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef readonly %.0128131142154168180)
-  %894 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %893, ptr %894, align 4
-  %895 = call ptr @proto_tree_get_parent_tree(ptr noundef %11)
-  call void @dissect_usb_common(ptr noundef nonnull %.0.i122, ptr noundef %1, ptr noundef %895, i32 noundef 6, ptr noundef nonnull %5)
+  %881 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %switch.masked, ptr %881, align 1
+  %882 = getelementptr inbounds nuw i8, ptr %.0128131142154168180, i64 8
+  %883 = load ptr, ptr %882, align 8
+  %884 = getelementptr inbounds nuw i8, ptr %883, i64 5
+  %885 = load i8, ptr %884, align 1
+  %886 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i8 %885, ptr %886, align 2
+  %887 = getelementptr inbounds nuw i8, ptr %883, i64 6
+  %888 = load i8, ptr %887, align 2
+  %889 = xor i8 %875, -1
+  %890 = shl i8 %889, 7
+  %891 = or i8 %888, %890
+  %892 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  store i8 %891, ptr %892, align 1
+  %893 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i16 0, ptr %893, align 4
+  %894 = call fastcc i32 @usbll_get_data_transaction_speed(ptr noundef readonly %.0128131142154168180)
+  %895 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %894, ptr %895, align 4
+  %896 = call ptr @proto_tree_get_parent_tree(ptr noundef %11)
+  call void @dissect_usb_common(ptr noundef nonnull %.0.i122, ptr noundef %1, ptr noundef %896, i32 noundef 6, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #16
   br label %usbll_construct_urb.exit
 
-usbll_construct_urb.exit:                         ; preds = %switch.lookup190, %871, %844, %842
+usbll_construct_urb.exit:                         ; preds = %switch.lookup190, %872, %844, %842
   ret i32 %.1
 }
 

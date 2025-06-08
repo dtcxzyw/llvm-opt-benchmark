@@ -3044,7 +3044,7 @@ define hidden noundef zeroext i1 @_ZN3sat4drat7is_drupEjPKNS_7literalE(ptr nound
   br label %.lr.ph.split
 
 .preheader.loopexit:                              ; preds = %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i, %_ZN3sat4drat16assign_propagateENS_7literalEPNS_6clauseE.exit, %49
-  %20 = phi i1 [ true, %49 ], [ false, %_ZN3sat4drat16assign_propagateENS_7literalEPNS_6clauseE.exit ], [ true, %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i ]
+  %20 = phi i1 [ true, %49 ], [ true, %_ZNK6vectorISt4pairIN3sat7literalEPNS1_6clauseEELb0EjE4sizeEv.exit.i ], [ false, %_ZN3sat4drat16assign_propagateENS_7literalEPNS_6clauseE.exit ]
   %.pre = load ptr, ptr %10, align 8, !tbaa !70
   br label %.preheader
 

@@ -1230,10 +1230,10 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54:      ; preds = %_ZSt11upper_boundIP
   %cmp33100 = icmp ult i64 %sub.ptr.div94, %sub.ptr.div32
   %reversionZero_34 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %10 = load i8, ptr %reversionZero_34, align 8, !tbaa !45, !range !26
+  %loadedv35 = trunc nuw i8 %10 to i1
   br i1 %cmp33100, label %for.body.lr.ph, label %for.cond.cleanup
 
 for.body.lr.ph:                                   ; preds = %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
-  %loadedv35 = trunc nuw i8 %10 to i1
   %reversion_55 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %11 = load double, ptr %reversion_55, align 8
   %mul56 = fmul double %11, 2.000000e+00
@@ -1267,12 +1267,10 @@ cond.end50.us:                                    ; preds = %cond.true45.us, %fo
   %17 = tail call double @llvm.fmuladd.f64(double %mul40.us, double %sub53.us, double %v.0101.us)
   %inc.us = add nuw i64 %k.0102.us, 1
   %exitcond106.not = icmp eq i64 %inc.us, %sub.ptr.div32
-  br i1 %exitcond106.not, label %for.cond.cleanup, label %for.body.us, !llvm.loop !71
+  br i1 %exitcond106.not, label %if.then89, label %for.body.us, !llvm.loop !71
 
-for.cond.cleanup:                                 ; preds = %cond.end79, %cond.end50.us, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
-  %v.0.lcssa = phi double [ 0.000000e+00, %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54 ], [ %17, %cond.end50.us ], [ %21, %cond.end79 ]
-  %loadedv88 = trunc nuw i8 %10 to i1
-  br i1 %loadedv88, label %if.then89, label %if.else108
+for.cond.cleanup:                                 ; preds = %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
+  br i1 %loadedv35, label %if.then89, label %if.else108
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end79
   %k.0102 = phi i64 [ %inc, %cond.end79 ], [ %sub.ptr.div94, %for.body.lr.ph ]
@@ -1303,9 +1301,10 @@ cond.end79:                                       ; preds = %for.body, %cond.tru
   %21 = tail call double @llvm.fmuladd.f64(double %mul63, double %sub84, double %v.0101)
   %inc = add nuw i64 %k.0102, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div32
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !71
+  br i1 %exitcond.not, label %if.else108, label %for.body, !llvm.loop !71
 
-if.then89:                                        ; preds = %for.cond.cleanup
+if.then89:                                        ; preds = %cond.end50.us, %for.cond.cleanup
+  %v.0.lcssa110 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %17, %cond.end50.us ]
   %vols_90 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %22 = load ptr, ptr %vols_90, align 8, !tbaa !68
   %23 = load ptr, ptr %22, align 8, !tbaa !3
@@ -1326,10 +1325,11 @@ cond.end103:                                      ; preds = %if.then89, %cond.tr
   %cmp.i68 = fcmp olt double %cond104, %t
   %.sroa.speculated76 = select i1 %cmp.i68, double %t, double %cond104
   %sub106 = fsub double %add2597, %.sroa.speculated76
-  %27 = tail call double @llvm.fmuladd.f64(double %mul94, double %sub106, double %v.0.lcssa)
+  %27 = tail call double @llvm.fmuladd.f64(double %mul94, double %sub106, double %v.0.lcssa110)
   br label %return
 
-if.else108:                                       ; preds = %for.cond.cleanup
+if.else108:                                       ; preds = %cond.end79, %for.cond.cleanup
+  %v.0.lcssa114 = phi double [ 0.000000e+00, %for.cond.cleanup ], [ %21, %cond.end79 ]
   %reversion_109 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %28 = load double, ptr %reversion_109, align 8, !tbaa !30
   %mul110 = fmul double %28, 2.000000e+00
@@ -1359,7 +1359,7 @@ cond.end132:                                      ; preds = %if.else108, %cond.t
   %mul135 = fmul double %mul110, %.sroa.speculated
   %call136 = tail call double @exp(double noundef %mul135) #27, !tbaa !69
   %sub137 = fsub double %call122, %call136
-  %34 = tail call double @llvm.fmuladd.f64(double %mul117, double %sub137, double %v.0.lcssa)
+  %34 = tail call double @llvm.fmuladd.f64(double %mul117, double %sub137, double %v.0.lcssa114)
   br label %return
 
 return:                                           ; preds = %cond.end103, %cond.end132, %cond.false, %if.then3, %entry

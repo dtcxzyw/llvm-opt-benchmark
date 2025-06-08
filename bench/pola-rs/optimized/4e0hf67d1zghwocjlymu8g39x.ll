@@ -45326,7 +45326,7 @@ define void @_ZN13polars_stream5nodes10io_sources6ndjson22line_batch_distributor
 .loopexit.i.i:                                    ; preds = %39, %34, %43
   %47 = phi i64 [ %45, %43 ], [ %30, %34 ], [ %30, %39 ]
   %48 = phi ptr [ %46, %43 ], [ %31, %34 ], [ %31, %39 ]
-  %49 = phi i8 [ %32, %43 ], [ 1, %34 ], [ 1, %39 ]
+  %49 = phi i8 [ 0, %43 ], [ 1, %34 ], [ 1, %39 ]
   %.sroa.5.0.i.ph.i = phi i64 [ %.sroa.02.011.i.i.i, %43 ], [ %30, %34 ], [ %30, %39 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !5869
   store ptr %31, ptr %7, align 8, !noalias !5879
@@ -45415,7 +45415,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hf0f59c4261addfb6E.exit: ; pred
 
 .loopexit:                                        ; preds = %69, %76
   %.lcssa16.i.i = phi i64 [ %74, %76 ], [ %.lcssa17.i.i, %69 ]
-  %80 = phi i8 [ %65, %76 ], [ 1, %69 ]
+  %80 = phi i8 [ 0, %76 ], [ 1, %69 ]
   %.sroa.5.0.i.i.ph.i.i = phi i64 [ %78, %76 ], [ %.lcssa17.i.i, %69 ]
   %.sroa.0.0.i.i.ph.i.i = phi ptr [ %79, %76 ], [ %.pre.i, %69 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !5902

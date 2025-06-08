@@ -6266,7 +6266,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40: ; preds = %_ZN4pstd8optionalI
   store <2 x float> %.fca.0.extract, ptr %74, align 4
   store float %.fca.1.extract, ptr %71, align 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %76, ptr %78, align 4, !tbaa !307
+  store i8 1, ptr %78, align 4, !tbaa !307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(45) %9, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
@@ -24995,7 +24995,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit41: ; preds = %_ZN4pstd8optionalI
   store <2 x float> %.fca.0.extract, ptr %73, align 4
   store float %.fca.1.extract, ptr %70, align 4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %75, ptr %77, align 4, !tbaa !307
+  store i8 1, ptr %77, align 4, !tbaa !307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(45) %9, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
@@ -31488,7 +31488,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_13ConductorBxDFEEEN4pstd8optionalINS_10BSDFSampleEEEN
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %717, align 4, !noalias !1037
   store float %734, ptr %712, align 4, !noalias !1037
   %735 = getelementptr inbounds nuw i8, ptr %43, i64 44
-  store i8 %704, ptr %735, align 4, !tbaa !307, !alias.scope !1037
+  store i8 1, ptr %735, align 4, !tbaa !307, !alias.scope !1037
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %43, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !1037
   %736 = getelementptr inbounds nuw i8, ptr %43, i64 44
@@ -36970,7 +36970,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_13ConductorBxDFEEEN4pstd8optionalINS_10BSDFSampleEEEN
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %717, align 4, !noalias !1140
   store float %734, ptr %712, align 4, !noalias !1140
   %735 = getelementptr inbounds nuw i8, ptr %43, i64 44
-  store i8 %704, ptr %735, align 4, !tbaa !307, !alias.scope !1140
+  store i8 1, ptr %735, align 4, !tbaa !307, !alias.scope !1140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %43, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !1140
   %736 = getelementptr inbounds nuw i8, ptr %43, i64 44
@@ -42690,7 +42690,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40: ; preds = %_ZN4pstd8optionalI
   store <2 x float> %.fca.0.extract, ptr %64, align 4
   store float %.fca.1.extract, ptr %61, align 4
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %66, ptr %68, align 4, !tbaa !307
+  store i8 1, ptr %68, align 4, !tbaa !307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(45) %9, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
@@ -49784,70 +49784,70 @@ _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit:              ; preds = %24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1370)
   %32 = and i32 %7, 1
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, label %33
+  %.not.i.not = icmp eq i32 %32, 0
+  br i1 %.not.i.not, label %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.thread, label %34
 
-33:                                               ; preds = %31
-  %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %5, i64 0
-  %34 = fmul float %.sroa.0.0.vec.extract.i.i.i.i, 2.000000e+00
-  %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %5, i64 1
-  %35 = fmul float %.sroa.0.4.vec.extract.i.i.i.i, 2.000000e+00
-  %36 = fadd float %34, -1.000000e+00
-  %37 = fadd float %35, -1.000000e+00
-  %38 = fcmp oeq float %36, 0.000000e+00
-  %39 = fcmp oeq float %37, 0.000000e+00
-  %or.cond.i.i.i = select i1 %38, i1 %39, i1 false
-  br i1 %or.cond.i.i.i, label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i, label %40
-
-40:                                               ; preds = %33
-  %41 = tail call noundef float @llvm.fabs.f32(float %36)
-  %42 = tail call noundef float @llvm.fabs.f32(float %37)
-  %43 = fcmp ogt float %41, %42
-  br i1 %43, label %44, label %47
-
-44:                                               ; preds = %40
-  %45 = fdiv float %37, %36
-  %46 = fmul float %45, 0x3FE921FB60000000
-  br label %51
-
-47:                                               ; preds = %40
-  %48 = fdiv float %36, %37
-  %49 = fmul float %48, 0x3FE921FB60000000
-  %50 = fsub float 0x3FF921FB60000000, %49
-  br label %51
-
-51:                                               ; preds = %47, %44
-  %.024.i.i.i = phi float [ %46, %44 ], [ %50, %47 ]
-  %.0.i.i.i = phi float [ %36, %44 ], [ %37, %47 ]
-  %52 = tail call noundef float @cosf(float noundef %.024.i.i.i) #24, !tbaa !210, !noalias !1370
-  %53 = tail call noundef float @sinf(float noundef %.024.i.i.i) #24, !tbaa !210, !noalias !1370
-  %54 = fmul float %.0.i.i.i, %52
-  %55 = fmul float %.0.i.i.i, %53
-  %.sroa.0.0.vec.insert.i.i29.i.i.i = insertelement <2 x float> poison, float %54, i64 0
-  %.sroa.0.4.vec.insert.i.i30.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i29.i.i.i, float %55, i64 1
-  br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i
-
-_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i: ; preds = %51, %33
-  %.sroa.035.0.i.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i30.i.i.i, %51 ], [ zeroinitializer, %33 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1370
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !309, !noalias !1370
-  br label %56
-
-56:                                               ; preds = %56, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i
-  %indvars.iv.i.i35 = phi i64 [ 0, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i ], [ %indvars.iv.next.i.i36, %56 ]
-  %57 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i.i35
-  %58 = load float, ptr %57, align 4, !tbaa !199, !noalias !1370
-  %59 = fmul float %58, 0x3FD45F3060000000
-  store float %59, ptr %57, align 4, !tbaa !199, !noalias !1370
-  %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
-  %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, 4
-  br i1 %exitcond.not.i.i37, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit.preheader, label %56, !llvm.loop !311
-
-_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit: ; preds = %31
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 44
+_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.thread: ; preds = %31
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 44
   br label %77
 
-_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit.preheader: ; preds = %56
+34:                                               ; preds = %31
+  %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %5, i64 0
+  %35 = fmul float %.sroa.0.0.vec.extract.i.i.i.i, 2.000000e+00
+  %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %5, i64 1
+  %36 = fmul float %.sroa.0.4.vec.extract.i.i.i.i, 2.000000e+00
+  %37 = fadd float %35, -1.000000e+00
+  %38 = fadd float %36, -1.000000e+00
+  %39 = fcmp oeq float %37, 0.000000e+00
+  %40 = fcmp oeq float %38, 0.000000e+00
+  %or.cond.i.i.i = select i1 %39, i1 %40, i1 false
+  br i1 %or.cond.i.i.i, label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i, label %41
+
+41:                                               ; preds = %34
+  %42 = tail call noundef float @llvm.fabs.f32(float %37)
+  %43 = tail call noundef float @llvm.fabs.f32(float %38)
+  %44 = fcmp ogt float %42, %43
+  br i1 %44, label %45, label %48
+
+45:                                               ; preds = %41
+  %46 = fdiv float %38, %37
+  %47 = fmul float %46, 0x3FE921FB60000000
+  br label %52
+
+48:                                               ; preds = %41
+  %49 = fdiv float %37, %38
+  %50 = fmul float %49, 0x3FE921FB60000000
+  %51 = fsub float 0x3FF921FB60000000, %50
+  br label %52
+
+52:                                               ; preds = %48, %45
+  %.024.i.i.i = phi float [ %47, %45 ], [ %51, %48 ]
+  %.0.i.i.i = phi float [ %37, %45 ], [ %38, %48 ]
+  %53 = tail call noundef float @cosf(float noundef %.024.i.i.i) #24, !tbaa !210, !noalias !1370
+  %54 = tail call noundef float @sinf(float noundef %.024.i.i.i) #24, !tbaa !210, !noalias !1370
+  %55 = fmul float %.0.i.i.i, %53
+  %56 = fmul float %.0.i.i.i, %54
+  %.sroa.0.0.vec.insert.i.i29.i.i.i = insertelement <2 x float> poison, float %55, i64 0
+  %.sroa.0.4.vec.insert.i.i30.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i29.i.i.i, float %56, i64 1
+  br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i
+
+_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i: ; preds = %52, %34
+  %.sroa.035.0.i.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i30.i.i.i, %52 ], [ zeroinitializer, %34 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !1370
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !309, !noalias !1370
+  br label %57
+
+57:                                               ; preds = %57, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i
+  %indvars.iv.i.i35 = phi i64 [ 0, %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit.i ], [ %indvars.iv.next.i.i36, %57 ]
+  %58 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i.i35
+  %59 = load float, ptr %58, align 4, !tbaa !199, !noalias !1370
+  %60 = fmul float %59, 0x3FD45F3060000000
+  store float %60, ptr %58, align 4, !tbaa !199, !noalias !1370
+  %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
+  %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, 4
+  br i1 %exitcond.not.i.i37, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit.preheader, label %57, !llvm.loop !311
+
+_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit.preheader: ; preds = %57
   %61 = fmul <2 x float> %.sroa.035.0.i.i.i, %.sroa.035.0.i.i.i
   %62 = extractelement <2 x float> %61, i64 0
   %63 = fsub float 1.000000e+00, %62
@@ -49897,11 +49897,11 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit:  ; preds = %_ZN4pstd8optionalIN
 _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit
   %or.cond.not = and i1 %75, %71
   %76 = fcmp une float %.sroa.speculated.i.i.i, 0.000000e+00
-  %or.cond.not61 = select i1 %or.cond.not, i1 %76, i1 false
-  br i1 %or.cond.not61, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit43, label %77
+  %or.cond.not60 = select i1 %or.cond.not, i1 %76, i1 false
+  br i1 %or.cond.not60, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit43, label %77
 
-77:                                               ; preds = %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
-  %78 = phi ptr [ %72, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ %60, %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit ]
+77:                                               ; preds = %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.thread, %_ZNK4pbrt15SampledSpectrumcvbEv.exit
+  %78 = phi ptr [ %33, %_ZNK4pbrt11DiffuseBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.thread ], [ %72, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
@@ -56858,7 +56858,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40: ; preds = %_ZN4pstd8optionalI
   store <2 x float> %.fca.0.extract, ptr %64, align 4
   store float %.fca.1.extract, ptr %61, align 4
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %66, ptr %68, align 4, !tbaa !307
+  store i8 1, ptr %68, align 4, !tbaa !307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(45) %9, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
@@ -62319,7 +62319,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_8HairBxDFEEEN4pstd8optionalINS_10BSDFSampleEEENS_7Vec
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %573, align 4, !noalias !1613
   store float %590, ptr %568, align 4, !noalias !1613
   %591 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  store i8 %560, ptr %591, align 4, !tbaa !307, !alias.scope !1613
+  store i8 1, ptr %591, align 4, !tbaa !307, !alias.scope !1613
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %37, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !1613
   %592 = getelementptr inbounds nuw i8, ptr %37, i64 44
@@ -66293,7 +66293,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_8HairBxDFEEEN4pstd8optionalINS_10BSDFSampleEEENS_7Vec
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %573, align 4, !noalias !1668
   store float %590, ptr %568, align 4, !noalias !1668
   %591 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  store i8 %560, ptr %591, align 4, !tbaa !307, !alias.scope !1668
+  store i8 1, ptr %591, align 4, !tbaa !307, !alias.scope !1668
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %37, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !1668
   %592 = getelementptr inbounds nuw i8, ptr %37, i64 44
@@ -69980,7 +69980,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_12MeasuredBxDFEEEN4pstd8optionalINS_10BSDFSampleEEENS
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %710, align 4, !noalias !1758
   store float %727, ptr %705, align 4, !noalias !1758
   %728 = getelementptr inbounds nuw i8, ptr %42, i64 44
-  store i8 %697, ptr %728, align 4, !tbaa !307, !alias.scope !1758
+  store i8 1, ptr %728, align 4, !tbaa !307, !alias.scope !1758
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %42, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !1758
   %729 = getelementptr inbounds nuw i8, ptr %42, i64 44
@@ -73285,7 +73285,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_12MeasuredBxDFEEEN4pstd8optionalINS_10BSDFSampleEEENS
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %710, align 4, !noalias !1806
   store float %727, ptr %705, align 4, !noalias !1806
   %728 = getelementptr inbounds nuw i8, ptr %42, i64 44
-  store i8 %697, ptr %728, align 4, !tbaa !307, !alias.scope !1806
+  store i8 1, ptr %728, align 4, !tbaa !307, !alias.scope !1806
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %42, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !1806
   %729 = getelementptr inbounds nuw i8, ptr %42, i64 44
@@ -83887,7 +83887,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_18ThinDielectricBxDFEEEN4pstd8optionalINS_10BSDFSampl
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %730, align 4, !noalias !2029
   store float %747, ptr %725, align 4, !noalias !2029
   %748 = getelementptr inbounds nuw i8, ptr %44, i64 44
-  store i8 %717, ptr %748, align 4, !tbaa !307, !alias.scope !2029
+  store i8 1, ptr %748, align 4, !tbaa !307, !alias.scope !2029
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %44, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !2029
   %749 = getelementptr inbounds nuw i8, ptr %44, i64 44
@@ -87136,7 +87136,7 @@ _ZNK4pbrt4BSDF8Sample_fINS_18ThinDielectricBxDFEEEN4pstd8optionalINS_10BSDFSampl
   store <2 x float> %.sroa.0.4.vec.insert.i59.i.i, ptr %730, align 4, !noalias !2076
   store float %747, ptr %725, align 4, !noalias !2076
   %748 = getelementptr inbounds nuw i8, ptr %44, i64 44
-  store i8 %717, ptr %748, align 4, !tbaa !307, !alias.scope !2076
+  store i8 1, ptr %748, align 4, !tbaa !307, !alias.scope !2076
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %44, ptr noundef nonnull align 4 dereferenceable(45) %23, i64 44, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23) #24, !noalias !2076
   %749 = getelementptr inbounds nuw i8, ptr %44, i64 44

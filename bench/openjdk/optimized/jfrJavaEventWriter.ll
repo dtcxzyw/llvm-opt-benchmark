@@ -250,8 +250,8 @@ _ZL26setup_event_writer_offsetsP10JavaThread.exit: ; preds = %10, %19
   br label %51
 
 51:                                               ; preds = %_ZL26setup_event_writer_offsetsP10JavaThread.exit, %0
-  %.pre-phi = phi i1 [ %.not.i, %_ZL26setup_event_writer_offsetsP10JavaThread.exit ], [ true, %0 ]
-  ret i1 %.pre-phi
+  %52 = phi i1 [ %.not.i, %_ZL26setup_event_writer_offsetsP10JavaThread.exit ], [ true, %0 ]
+  ret i1 %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

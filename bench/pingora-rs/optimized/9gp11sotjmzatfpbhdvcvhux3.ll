@@ -364,20 +364,20 @@ define hidden { i64, ptr } @_ZN12futures_util6future6future9FutureExt12now_or_ne
 
 "_ZN87_$LT$tokio..io..util..flush..Flush$LT$A$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h976ef8580d0460d2E.exit": ; preds = %1
   %12 = extractvalue { i64, ptr } %7, 0
-  %13 = extractvalue { i64, ptr } %7, 1
-  %14 = trunc nuw i64 %12 to i1
+  %13 = trunc nuw i64 %12 to i1
+  %14 = extractvalue { i64, ptr } %7, 1
+  %.sroa.3.0 = select i1 %13, ptr undef, ptr %14
+  %not. = and i64 %12, 1
+  %.sroa.0.0 = xor i64 %not., 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %.val10 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   %.val11 = load ptr, ptr %4, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   call void %16(ptr noundef %.val11)
-  %. = select i1 %14, ptr undef, ptr %13
-  %not. = and i64 %12, 1
-  %.19 = xor i64 %not., 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %17 = insertvalue { i64, ptr } poison, i64 %.19, 0
-  %18 = insertvalue { i64, ptr } %17, ptr %., 1
+  %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %18 = insertvalue { i64, ptr } %17, ptr %.sroa.3.0, 1
   ret { i64, ptr } %18
 
 19:                                               ; preds = %8

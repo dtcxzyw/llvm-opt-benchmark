@@ -531,11 +531,11 @@ varfunc.exit:                                     ; preds = %139
   br i1 %.not164, label %156, label %.loopexit
 
 156:                                              ; preds = %154, %152
-  store i8 %.0127, ptr %3, align 1, !tbaa !22
+  store i8 1, ptr %3, align 1, !tbaa !22
   br label %.loopexit
 
 157:                                              ; preds = %.thread196
-  store i8 %.0127, ptr %3, align 1, !tbaa !22
+  store i8 0, ptr %3, align 1, !tbaa !22
   call void @curlx_dyn_free(ptr noundef %2) #12
   br label %.loopexit
 

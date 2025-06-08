@@ -8480,7 +8480,7 @@ _ZN4llvm11SmallVectorIPN5clang9api_notes14APINotesReaderELj2EED2Ev.exit1263: ; p
 _ZNK5clang9NamedDecl7getNameEv.exit1270:          ; preds = %3366, %3371
   %.sroa.3.0.i1266 = phi i64 [ %3377, %3371 ], [ 0, %3366 ]
   %.sroa.0.0.i1267 = phi ptr [ %3375, %3371 ], [ @.str, %3366 ]
-  call void @_ZN5clang9api_notes14APINotesReader9lookupTagEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.1125") align 8 %109, ptr noundef nonnull align 8 dereferenceable(8) %3363, ptr nonnull %.sroa.0.0.i1267, i64 %.sroa.3.0.i1266, i64 %.fca.0.extract, i8 %.fca.1.extract) #19
+  call void @_ZN5clang9api_notes14APINotesReader9lookupTagEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.1125") align 8 %109, ptr noundef nonnull align 8 dereferenceable(8) %3363, ptr nonnull %.sroa.0.0.i1267, i64 %.sroa.3.0.i1266, i64 %.fca.0.extract, i8 1) #19
   store ptr %3351, ptr %110, align 8, !tbaa !11
   store i32 0, ptr %3352, align 8, !tbaa !13
   store i32 1, ptr %3353, align 4, !tbaa !24

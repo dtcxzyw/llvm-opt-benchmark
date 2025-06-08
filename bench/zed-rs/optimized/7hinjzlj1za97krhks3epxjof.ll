@@ -20271,8 +20271,8 @@ define hidden void @"_ZN91_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
 
 split:                                            ; preds = %69
   %.pre10 = load i64, ptr %2, align 8, !range !413, !alias.scope !6658
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6658)
   %21 = icmp eq i64 %.pre10, 0
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6658)
   br i1 %21, label %22, label %"_ZN4core3ptr386drop_in_place$LT$core..task..poll..Poll$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h3eca86085cd27b68E.exit"
 
 22:                                               ; preds = %split

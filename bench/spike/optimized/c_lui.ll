@@ -229,14 +229,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
 53:                                               ; preds = %42
   %54 = and i64 %1, 2176
   %55 = icmp eq i64 %54, 128
-  br i1 %55, label %56, label %184
+  br i1 %55, label %56, label %186
 
 56:                                               ; preds = %53
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i77.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %13, label %.thread94 [
     i64 5, label %57
-    i64 1, label %123
+    i64 1, label %124
   ]
 
 57:                                               ; preds = %56
@@ -274,7 +274,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %77 = load i8, ptr %76, align 2, !tbaa !93, !range !94, !noundef !95
   %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %.thread105
+  br i1 %78, label %79, label %.thread102
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -285,198 +285,198 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_c_luiP11pr
   %85 = tail call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(37) %81) #18
   %86 = and i64 %85, 8
   %.not63 = icmp eq i64 %86, 0
-  br i1 %.not63, label %87, label %.thread105
+  br i1 %.not63, label %87, label %.thread102
 
 87:                                               ; preds = %79
   %.pre100 = load i8, ptr %76, align 2, !tbaa !93, !range !94
-  %.pre102 = trunc nuw i8 %.pre100 to i1
-  br i1 %.pre102, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
+  %88 = trunc nuw i8 %.pre100 to i1
+  br i1 %88, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread102
 
-.thread105:                                       ; preds = %75, %87, %79
-  %88 = load i64, ptr %60, align 8, !tbaa !16
-  %89 = icmp eq i64 %88, 0
-  br i1 %89, label %90, label %.thread
+.thread102:                                       ; preds = %75, %87, %79
+  %89 = load i64, ptr %60, align 8, !tbaa !16
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %91, label %.thread
 
-90:                                               ; preds = %.thread105
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %92 = load ptr, ptr %91, align 8, !tbaa !92
-  %93 = load ptr, ptr %92, align 8, !tbaa !14
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef i64 %95(ptr noundef nonnull align 8 dereferenceable(37) %92) #18
-  %97 = and i64 %96, 8
-  %.not64 = icmp eq i64 %97, 0
-  br i1 %.not64, label %98, label %.thread
+91:                                               ; preds = %.thread102
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %93 = load ptr, ptr %92, align 8, !tbaa !92
+  %94 = load ptr, ptr %93, align 8, !tbaa !14
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(37) %93) #18
+  %98 = and i64 %97, 8
+  %.not64 = icmp eq i64 %98, 0
+  br i1 %.not64, label %99, label %.thread
 
-98:                                               ; preds = %90
+99:                                               ; preds = %91
   %.pr = load i64, ptr %60, align 8, !tbaa !16
   %.not65 = icmp eq i64 %.pr, 0
   br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread105, %98, %90
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %100 = load ptr, ptr %99, align 8, !tbaa !96
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %102 = load ptr, ptr %101, align 8, !tbaa !92
-  %103 = load ptr, ptr %102, align 8, !tbaa !14
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %106 = tail call noundef i64 %105(ptr noundef nonnull align 8 dereferenceable(37) %102) #18
-  %107 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %100, i64 noundef %106)
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %110 = load i64, ptr %109, align 8, !tbaa !3
-  %.not66 = icmp eq i64 %110, %108
-  br i1 %.not66, label %116, label %111, !prof !145
+.thread:                                          ; preds = %.thread102, %99, %91
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %101 = load ptr, ptr %100, align 8, !tbaa !96
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %103 = load ptr, ptr %102, align 8, !tbaa !92
+  %104 = load ptr, ptr %103, align 8, !tbaa !14
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(37) %103) #18
+  %108 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %101, i64 noundef %107)
+  %109 = zext i32 %108 to i64
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %111 = load i64, ptr %110, align 8, !tbaa !3
+  %.not66 = icmp eq i64 %111, %109
+  br i1 %.not66, label %117, label %112, !prof !145
 
-111:                                              ; preds = %.thread
-  %112 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store i64 18, ptr %113, align 8, !tbaa !8
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store i8 0, ptr %114, align 8, !tbaa !10
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store i64 3, ptr %115, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %112, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %112, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+112:                                              ; preds = %.thread
+  %113 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store i64 18, ptr %114, align 8, !tbaa !8
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  store i8 0, ptr %115, align 8, !tbaa !10
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  store i64 3, ptr %116, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %113, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %113, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-116:                                              ; preds = %.thread
-  %117 = load ptr, ptr %101, align 8, !tbaa !92
-  %118 = load ptr, ptr %117, align 8, !tbaa !14
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(37) %117) #18
-  %122 = add i64 %121, 4
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %117, i64 noundef %122) #18
+117:                                              ; preds = %.thread
+  %118 = load ptr, ptr %102, align 8, !tbaa !92
+  %119 = load ptr, ptr %118, align 8, !tbaa !14
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call noundef i64 %121(ptr noundef nonnull align 8 dereferenceable(37) %118) #18
+  %123 = add i64 %122, 4
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %118, i64 noundef %123) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-123:                                              ; preds = %56
-  %124 = and i64 %.sink.i77.pre, 8589934592
-  %.0.i72.not = icmp eq i64 %124, 0
-  br i1 %.0.i72.not, label %.thread94, label %125
+124:                                              ; preds = %56
+  %125 = and i64 %.sink.i77.pre, 8589934592
+  %.0.i72.not = icmp eq i64 %125, 0
+  br i1 %.0.i72.not, label %.thread94, label %126
 
-125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %127 = load i64, ptr %126, align 8, !tbaa !16
-  %.not56 = icmp eq i64 %127, 3
-  br i1 %.not56, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %128
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %128 = load i64, ptr %127, align 8, !tbaa !16
+  %.not56 = icmp eq i64 %128, 3
+  br i1 %.not56, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %129
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %130 = load ptr, ptr %129, align 8, !tbaa !92
-  %131 = load ptr, ptr %130, align 8, !tbaa !14
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i64 %133(ptr noundef nonnull align 8 dereferenceable(37) %130) #18
-  %135 = and i64 %134, 8
-  %.not57 = icmp eq i64 %135, 0
-  br i1 %.not57, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %136
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %131 = load ptr, ptr %130, align 8, !tbaa !92
+  %132 = load ptr, ptr %131, align 8, !tbaa !14
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
+  %134 = load ptr, ptr %133, align 8
+  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(37) %131) #18
+  %136 = and i64 %135, 8
+  %.not57 = icmp eq i64 %136, 0
+  br i1 %.not57, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %137
 
-136:                                              ; preds = %128
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
-  %.sink.i.i73 = load i64, ptr %139, align 8, !tbaa !3
-  %140 = and i64 %.sink.i.i73, 262144
-  %.0.i.i74.not = icmp eq i64 %140, 0
-  br i1 %.0.i.i74.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %141
+137:                                              ; preds = %129
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
+  %.sink.i.i73 = load i64, ptr %140, align 8, !tbaa !3
+  %141 = and i64 %.sink.i.i73, 262144
+  %.0.i.i74.not = icmp eq i64 %141, 0
+  br i1 %.0.i.i74.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %142
 
-141:                                              ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %143 = load i8, ptr %142, align 2, !tbaa !93, !range !94, !noundef !95
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %.thread107
+142:                                              ; preds = %137
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %144 = load i8, ptr %143, align 2, !tbaa !93, !range !94, !noundef !95
+  %145 = trunc nuw i8 %144 to i1
+  br i1 %145, label %146, label %.thread103
 
-145:                                              ; preds = %141
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %147 = load ptr, ptr %146, align 8, !tbaa !92
-  %148 = load ptr, ptr %147, align 8, !tbaa !14
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load ptr, ptr %149, align 8
-  %151 = tail call noundef i64 %150(ptr noundef nonnull align 8 dereferenceable(37) %147) #18
-  %152 = and i64 %151, 8
-  %.not58 = icmp eq i64 %152, 0
-  br i1 %.not58, label %153, label %.thread107
+146:                                              ; preds = %142
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %148 = load ptr, ptr %147, align 8, !tbaa !92
+  %149 = load ptr, ptr %148, align 8, !tbaa !14
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = tail call noundef i64 %151(ptr noundef nonnull align 8 dereferenceable(37) %148) #18
+  %153 = and i64 %152, 8
+  %.not58 = icmp eq i64 %153, 0
+  br i1 %.not58, label %154, label %.thread103
 
-153:                                              ; preds = %145
-  %.pre = load i8, ptr %142, align 2, !tbaa !93, !range !94
-  %.pre103 = trunc nuw i8 %.pre to i1
-  br i1 %.pre103, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread107
+154:                                              ; preds = %146
+  %.pre = load i8, ptr %143, align 2, !tbaa !93, !range !94
+  %155 = trunc nuw i8 %.pre to i1
+  br i1 %155, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread103
 
-.thread107:                                       ; preds = %141, %153, %145
-  %154 = load i64, ptr %126, align 8, !tbaa !16
-  %155 = icmp eq i64 %154, 0
-  br i1 %155, label %156, label %.thread97
+.thread103:                                       ; preds = %142, %154, %146
+  %156 = load i64, ptr %127, align 8, !tbaa !16
+  %157 = icmp eq i64 %156, 0
+  br i1 %157, label %158, label %.thread97
 
-156:                                              ; preds = %.thread107
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %158 = load ptr, ptr %157, align 8, !tbaa !92
-  %159 = load ptr, ptr %158, align 8, !tbaa !14
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = tail call noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(37) %158) #18
-  %163 = and i64 %162, 8
-  %.not59 = icmp eq i64 %163, 0
-  br i1 %.not59, label %164, label %.thread97
+158:                                              ; preds = %.thread103
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %160 = load ptr, ptr %159, align 8, !tbaa !92
+  %161 = load ptr, ptr %160, align 8, !tbaa !14
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8
+  %164 = tail call noundef i64 %163(ptr noundef nonnull align 8 dereferenceable(37) %160) #18
+  %165 = and i64 %164, 8
+  %.not59 = icmp eq i64 %165, 0
+  br i1 %.not59, label %166, label %.thread97
 
-164:                                              ; preds = %156
-  %.pr96 = load i64, ptr %126, align 8, !tbaa !16
+166:                                              ; preds = %158
+  %.pr96 = load i64, ptr %127, align 8, !tbaa !16
   %.not60 = icmp eq i64 %.pr96, 0
   br i1 %.not60, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread97
 
-.thread97:                                        ; preds = %.thread107, %164, %156
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %166 = load i64, ptr %165, align 8, !tbaa !3
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %168 = load ptr, ptr %167, align 8, !tbaa !92
-  %169 = load ptr, ptr %168, align 8, !tbaa !14
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %171 = load ptr, ptr %170, align 8
-  %172 = tail call noundef i64 %171(ptr noundef nonnull align 8 dereferenceable(37) %168) #18
-  %173 = add i64 %172, -4
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %175 = load ptr, ptr %174, align 8, !tbaa !96
-  %176 = trunc i64 %166 to i32
-  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %175, i64 noundef %173, i32 noundef %176)
-  %177 = load ptr, ptr %167, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %177, i64 noundef %173) #18
+.thread97:                                        ; preds = %.thread103, %166, %158
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %168 = load i64, ptr %167, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %170 = load ptr, ptr %169, align 8, !tbaa !92
+  %171 = load ptr, ptr %170, align 8, !tbaa !14
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = tail call noundef i64 %173(ptr noundef nonnull align 8 dereferenceable(37) %170) #18
+  %175 = add i64 %174, -4
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %177 = load ptr, ptr %176, align 8, !tbaa !96
+  %178 = trunc i64 %168 to i32
+  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %175, i32 noundef %178)
+  %179 = load ptr, ptr %169, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %179, i64 noundef %175) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread94:                                        ; preds = %56, %57, %123
-  %178 = and i64 %.sink.i77.pre, 536870912
-  %.0.i78.not = icmp eq i64 %178, 0
-  br i1 %.0.i78.not, label %179, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread94:                                        ; preds = %56, %57, %124
+  %180 = and i64 %.sink.i77.pre, 536870912
+  %.0.i78.not = icmp eq i64 %180, 0
+  br i1 %.0.i78.not, label %181, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-179:                                              ; preds = %.thread94
-  %180 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  store i64 2, ptr %181, align 8, !tbaa !8
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store i8 0, ptr %182, align 8, !tbaa !10
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  store i64 %1, ptr %183, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %180, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %180, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+181:                                              ; preds = %.thread94
+  %182 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  store i64 2, ptr %183, align 8, !tbaa !8
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
+  store i8 0, ptr %184, align 8, !tbaa !10
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  store i64 %1, ptr %185, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %182, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %182, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-184:                                              ; preds = %53
-  %185 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store i64 2, ptr %186, align 8, !tbaa !8
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  store i8 0, ptr %187, align 8, !tbaa !10
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  store i64 %1, ptr %188, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %185, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+186:                                              ; preds = %53
+  %187 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store i64 2, ptr %188, align 8, !tbaa !8
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  store i8 0, ptr %189, align 8, !tbaa !10
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  store i64 %1, ptr %190, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %187, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %187, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %49, %48, %116, %98, %87, %70, %62, %59, %.thread94, %125, %128, %136, %153, %164, %.thread97, %36
-  %189 = shl i64 %2, 32
-  %190 = add i64 %189, 8589934592
-  %191 = ashr exact i64 %190, 32
-  ret i64 %191
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %49, %48, %117, %99, %87, %70, %62, %59, %.thread94, %126, %129, %137, %154, %166, %.thread97, %36
+  %191 = shl i64 %2, 32
+  %192 = add i64 %191, 8589934592
+  %193 = ashr exact i64 %192, 32
+  ret i64 %193
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -719,14 +719,14 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
 51:                                               ; preds = %40
   %52 = and i64 %1, 2176
   %53 = icmp eq i64 %52, 128
-  br i1 %53, label %54, label %180
+  br i1 %53, label %54, label %182
 
 54:                                               ; preds = %51
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i77.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %13, label %.thread94 [
     i64 5, label %55
-    i64 1, label %120
+    i64 1, label %121
   ]
 
 55:                                               ; preds = %54
@@ -764,7 +764,7 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %75 = load i8, ptr %74, align 2, !tbaa !93, !range !94, !noundef !95
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %.thread105
+  br i1 %76, label %77, label %.thread102
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -775,194 +775,194 @@ define noundef i64 @_Z16fast_rv64i_c_luiP11processor_t6insn_tm(ptr noundef captu
   %83 = tail call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(37) %79) #18
   %84 = and i64 %83, 8
   %.not63 = icmp eq i64 %84, 0
-  br i1 %.not63, label %85, label %.thread105
+  br i1 %.not63, label %85, label %.thread102
 
 85:                                               ; preds = %77
   %.pre100 = load i8, ptr %74, align 2, !tbaa !93, !range !94
-  %.pre102 = trunc nuw i8 %.pre100 to i1
-  br i1 %.pre102, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
+  %86 = trunc nuw i8 %.pre100 to i1
+  br i1 %86, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread102
 
-.thread105:                                       ; preds = %73, %85, %77
-  %86 = load i64, ptr %58, align 8, !tbaa !16
-  %87 = icmp eq i64 %86, 0
-  br i1 %87, label %88, label %.thread
+.thread102:                                       ; preds = %73, %85, %77
+  %87 = load i64, ptr %58, align 8, !tbaa !16
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %89, label %.thread
 
-88:                                               ; preds = %.thread105
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %90 = load ptr, ptr %89, align 8, !tbaa !92
-  %91 = load ptr, ptr %90, align 8, !tbaa !14
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(37) %90) #18
-  %95 = and i64 %94, 8
-  %.not64 = icmp eq i64 %95, 0
-  br i1 %.not64, label %96, label %.thread
+89:                                               ; preds = %.thread102
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %91 = load ptr, ptr %90, align 8, !tbaa !92
+  %92 = load ptr, ptr %91, align 8, !tbaa !14
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call noundef i64 %94(ptr noundef nonnull align 8 dereferenceable(37) %91) #18
+  %96 = and i64 %95, 8
+  %.not64 = icmp eq i64 %96, 0
+  br i1 %.not64, label %97, label %.thread
 
-96:                                               ; preds = %88
+97:                                               ; preds = %89
   %.pr = load i64, ptr %58, align 8, !tbaa !16
   %.not65 = icmp eq i64 %.pr, 0
   br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread105, %96, %88
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %98 = load ptr, ptr %97, align 8, !tbaa !96
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %100 = load ptr, ptr %99, align 8, !tbaa !92
-  %101 = load ptr, ptr %100, align 8, !tbaa !14
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call noundef i64 %103(ptr noundef nonnull align 8 dereferenceable(37) %100) #18
-  %105 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %98, i64 noundef %104)
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %107 = load i64, ptr %106, align 8, !tbaa !3
-  %.not66 = icmp eq i64 %107, %105
-  br i1 %.not66, label %113, label %108, !prof !145
+.thread:                                          ; preds = %.thread102, %97, %89
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %99 = load ptr, ptr %98, align 8, !tbaa !96
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %101 = load ptr, ptr %100, align 8, !tbaa !92
+  %102 = load ptr, ptr %101, align 8, !tbaa !14
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load ptr, ptr %103, align 8
+  %105 = tail call noundef i64 %104(ptr noundef nonnull align 8 dereferenceable(37) %101) #18
+  %106 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %99, i64 noundef %105)
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %108 = load i64, ptr %107, align 8, !tbaa !3
+  %.not66 = icmp eq i64 %108, %106
+  br i1 %.not66, label %114, label %109, !prof !145
 
-108:                                              ; preds = %.thread
-  %109 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store i64 18, ptr %110, align 8, !tbaa !8
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  store i8 0, ptr %111, align 8, !tbaa !10
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  store i64 3, ptr %112, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %109, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %109, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+109:                                              ; preds = %.thread
+  %110 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  store i64 18, ptr %111, align 8, !tbaa !8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  store i8 0, ptr %112, align 8, !tbaa !10
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  store i64 3, ptr %113, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %110, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-113:                                              ; preds = %.thread
-  %114 = load ptr, ptr %99, align 8, !tbaa !92
-  %115 = load ptr, ptr %114, align 8, !tbaa !14
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %118 = tail call noundef i64 %117(ptr noundef nonnull align 8 dereferenceable(37) %114) #18
-  %119 = add i64 %118, 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %114, i64 noundef %119) #18
+114:                                              ; preds = %.thread
+  %115 = load ptr, ptr %100, align 8, !tbaa !92
+  %116 = load ptr, ptr %115, align 8, !tbaa !14
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call noundef i64 %118(ptr noundef nonnull align 8 dereferenceable(37) %115) #18
+  %120 = add i64 %119, 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %115, i64 noundef %120) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-120:                                              ; preds = %54
-  %121 = and i64 %.sink.i77.pre, 8589934592
-  %.0.i72.not = icmp eq i64 %121, 0
-  br i1 %.0.i72.not, label %.thread94, label %122
+121:                                              ; preds = %54
+  %122 = and i64 %.sink.i77.pre, 8589934592
+  %.0.i72.not = icmp eq i64 %122, 0
+  br i1 %.0.i72.not, label %.thread94, label %123
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %124 = load i64, ptr %123, align 8, !tbaa !16
-  %.not56 = icmp eq i64 %124, 3
-  br i1 %.not56, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %125
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %125 = load i64, ptr %124, align 8, !tbaa !16
+  %.not56 = icmp eq i64 %125, 3
+  br i1 %.not56, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %126
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %127 = load ptr, ptr %126, align 8, !tbaa !92
-  %128 = load ptr, ptr %127, align 8, !tbaa !14
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call noundef i64 %130(ptr noundef nonnull align 8 dereferenceable(37) %127) #18
-  %132 = and i64 %131, 8
-  %.not57 = icmp eq i64 %132, 0
-  br i1 %.not57, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %133
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %128 = load ptr, ptr %127, align 8, !tbaa !92
+  %129 = load ptr, ptr %128, align 8, !tbaa !14
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = tail call noundef i64 %131(ptr noundef nonnull align 8 dereferenceable(37) %128) #18
+  %133 = and i64 %132, 8
+  %.not57 = icmp eq i64 %133, 0
+  br i1 %.not57, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %134
 
-133:                                              ; preds = %125
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
-  %.sink.i.i73 = load i64, ptr %136, align 8, !tbaa !3
-  %137 = and i64 %.sink.i.i73, 262144
-  %.0.i.i74.not = icmp eq i64 %137, 0
-  br i1 %.0.i.i74.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %138
+134:                                              ; preds = %126
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %136 = load ptr, ptr %135, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 40
+  %.sink.i.i73 = load i64, ptr %137, align 8, !tbaa !3
+  %138 = and i64 %.sink.i.i73, 262144
+  %.0.i.i74.not = icmp eq i64 %138, 0
+  br i1 %.0.i.i74.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %139
 
-138:                                              ; preds = %133
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %140 = load i8, ptr %139, align 2, !tbaa !93, !range !94, !noundef !95
-  %141 = trunc nuw i8 %140 to i1
-  br i1 %141, label %142, label %.thread107
+139:                                              ; preds = %134
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %141 = load i8, ptr %140, align 2, !tbaa !93, !range !94, !noundef !95
+  %142 = trunc nuw i8 %141 to i1
+  br i1 %142, label %143, label %.thread103
 
-142:                                              ; preds = %138
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %144 = load ptr, ptr %143, align 8, !tbaa !92
-  %145 = load ptr, ptr %144, align 8, !tbaa !14
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call noundef i64 %147(ptr noundef nonnull align 8 dereferenceable(37) %144) #18
-  %149 = and i64 %148, 8
-  %.not58 = icmp eq i64 %149, 0
-  br i1 %.not58, label %150, label %.thread107
+143:                                              ; preds = %139
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %145 = load ptr, ptr %144, align 8, !tbaa !92
+  %146 = load ptr, ptr %145, align 8, !tbaa !14
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call noundef i64 %148(ptr noundef nonnull align 8 dereferenceable(37) %145) #18
+  %150 = and i64 %149, 8
+  %.not58 = icmp eq i64 %150, 0
+  br i1 %.not58, label %151, label %.thread103
 
-150:                                              ; preds = %142
-  %.pre = load i8, ptr %139, align 2, !tbaa !93, !range !94
-  %.pre103 = trunc nuw i8 %.pre to i1
-  br i1 %.pre103, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread107
+151:                                              ; preds = %143
+  %.pre = load i8, ptr %140, align 2, !tbaa !93, !range !94
+  %152 = trunc nuw i8 %.pre to i1
+  br i1 %152, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread103
 
-.thread107:                                       ; preds = %138, %150, %142
-  %151 = load i64, ptr %123, align 8, !tbaa !16
-  %152 = icmp eq i64 %151, 0
-  br i1 %152, label %153, label %.thread97
+.thread103:                                       ; preds = %139, %151, %143
+  %153 = load i64, ptr %124, align 8, !tbaa !16
+  %154 = icmp eq i64 %153, 0
+  br i1 %154, label %155, label %.thread97
 
-153:                                              ; preds = %.thread107
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %155 = load ptr, ptr %154, align 8, !tbaa !92
-  %156 = load ptr, ptr %155, align 8, !tbaa !14
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %159 = tail call noundef i64 %158(ptr noundef nonnull align 8 dereferenceable(37) %155) #18
-  %160 = and i64 %159, 8
-  %.not59 = icmp eq i64 %160, 0
-  br i1 %.not59, label %161, label %.thread97
+155:                                              ; preds = %.thread103
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %157 = load ptr, ptr %156, align 8, !tbaa !92
+  %158 = load ptr, ptr %157, align 8, !tbaa !14
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
+  %160 = load ptr, ptr %159, align 8
+  %161 = tail call noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(37) %157) #18
+  %162 = and i64 %161, 8
+  %.not59 = icmp eq i64 %162, 0
+  br i1 %.not59, label %163, label %.thread97
 
-161:                                              ; preds = %153
-  %.pr96 = load i64, ptr %123, align 8, !tbaa !16
+163:                                              ; preds = %155
+  %.pr96 = load i64, ptr %124, align 8, !tbaa !16
   %.not60 = icmp eq i64 %.pr96, 0
   br i1 %.not60, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread97
 
-.thread97:                                        ; preds = %.thread107, %161, %153
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %163 = load i64, ptr %162, align 8, !tbaa !3
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %165 = load ptr, ptr %164, align 8, !tbaa !92
-  %166 = load ptr, ptr %165, align 8, !tbaa !14
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef i64 %168(ptr noundef nonnull align 8 dereferenceable(37) %165) #18
-  %170 = add i64 %169, -8
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %172 = load ptr, ptr %171, align 8, !tbaa !96
-  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %172, i64 noundef %170, i64 noundef %163)
-  %173 = load ptr, ptr %164, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %173, i64 noundef %170) #18
+.thread97:                                        ; preds = %.thread103, %163, %155
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %165 = load i64, ptr %164, align 8, !tbaa !3
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %167 = load ptr, ptr %166, align 8, !tbaa !92
+  %168 = load ptr, ptr %167, align 8, !tbaa !14
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load ptr, ptr %169, align 8
+  %171 = tail call noundef i64 %170(ptr noundef nonnull align 8 dereferenceable(37) %167) #18
+  %172 = add i64 %171, -8
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %174 = load ptr, ptr %173, align 8, !tbaa !96
+  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %174, i64 noundef %172, i64 noundef %165)
+  %175 = load ptr, ptr %166, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %175, i64 noundef %172) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread94:                                        ; preds = %54, %55, %120
-  %174 = and i64 %.sink.i77.pre, 536870912
-  %.0.i78.not = icmp eq i64 %174, 0
-  br i1 %.0.i78.not, label %175, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread94:                                        ; preds = %54, %55, %121
+  %176 = and i64 %.sink.i77.pre, 536870912
+  %.0.i78.not = icmp eq i64 %176, 0
+  br i1 %.0.i78.not, label %177, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-175:                                              ; preds = %.thread94
-  %176 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store i64 2, ptr %177, align 8, !tbaa !8
-  %178 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  store i8 0, ptr %178, align 8, !tbaa !10
-  %179 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  store i64 %1, ptr %179, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %176, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %176, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+177:                                              ; preds = %.thread94
+  %178 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store i64 2, ptr %179, align 8, !tbaa !8
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  store i8 0, ptr %180, align 8, !tbaa !10
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
+  store i64 %1, ptr %181, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %178, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %178, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-180:                                              ; preds = %51
-  %181 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  store i64 2, ptr %182, align 8, !tbaa !8
-  %183 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i8 0, ptr %183, align 8, !tbaa !10
-  %184 = getelementptr inbounds nuw i8, ptr %181, i64 24
-  store i64 %1, ptr %184, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %181, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %181, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+182:                                              ; preds = %51
+  %183 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  store i64 2, ptr %184, align 8, !tbaa !8
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  store i8 0, ptr %185, align 8, !tbaa !10
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  store i64 %1, ptr %186, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %183, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %183, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %47, %46, %113, %96, %85, %68, %60, %57, %.thread94, %122, %125, %133, %150, %161, %.thread97, %36
-  %185 = add i64 %2, 2
-  ret i64 %185
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %47, %46, %114, %97, %85, %68, %60, %57, %.thread94, %123, %126, %134, %151, %163, %.thread97, %36
+  %187 = add i64 %2, 2
+  ret i64 %187
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1206,14 +1206,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
 60:                                               ; preds = %46
   %61 = and i64 %1, 2176
   %62 = icmp eq i64 %61, 128
-  br i1 %62, label %63, label %191
+  br i1 %62, label %63, label %193
 
 63:                                               ; preds = %60
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i84.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %15, label %.thread102 [
     i64 5, label %64
-    i64 1, label %130
+    i64 1, label %131
   ]
 
 64:                                               ; preds = %63
@@ -1251,7 +1251,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %84 = load i8, ptr %83, align 2, !tbaa !93, !range !94, !noundef !95
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %.thread113
+  br i1 %85, label %86, label %.thread110
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -1262,198 +1262,198 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_c_luiP11
   %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(37) %88) #18
   %93 = and i64 %92, 8
   %.not70 = icmp eq i64 %93, 0
-  br i1 %.not70, label %94, label %.thread113
+  br i1 %.not70, label %94, label %.thread110
 
 94:                                               ; preds = %86
   %.pre108 = load i8, ptr %83, align 2, !tbaa !93, !range !94
-  %.pre110 = trunc nuw i8 %.pre108 to i1
-  br i1 %.pre110, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread113
+  %95 = trunc nuw i8 %.pre108 to i1
+  br i1 %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread110
 
-.thread113:                                       ; preds = %82, %94, %86
-  %95 = load i64, ptr %67, align 8, !tbaa !16
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %.thread
+.thread110:                                       ; preds = %82, %94, %86
+  %96 = load i64, ptr %67, align 8, !tbaa !16
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %98, label %.thread
 
-97:                                               ; preds = %.thread113
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %99 = load ptr, ptr %98, align 8, !tbaa !92
-  %100 = load ptr, ptr %99, align 8, !tbaa !14
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef i64 %102(ptr noundef nonnull align 8 dereferenceable(37) %99) #18
-  %104 = and i64 %103, 8
-  %.not71 = icmp eq i64 %104, 0
-  br i1 %.not71, label %105, label %.thread
+98:                                               ; preds = %.thread110
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %100 = load ptr, ptr %99, align 8, !tbaa !92
+  %101 = load ptr, ptr %100, align 8, !tbaa !14
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call noundef i64 %103(ptr noundef nonnull align 8 dereferenceable(37) %100) #18
+  %105 = and i64 %104, 8
+  %.not71 = icmp eq i64 %105, 0
+  br i1 %.not71, label %106, label %.thread
 
-105:                                              ; preds = %97
+106:                                              ; preds = %98
   %.pr = load i64, ptr %67, align 8, !tbaa !16
   %.not72 = icmp eq i64 %.pr, 0
   br i1 %.not72, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread113, %105, %97
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %107 = load ptr, ptr %106, align 8, !tbaa !96
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %109 = load ptr, ptr %108, align 8, !tbaa !92
-  %110 = load ptr, ptr %109, align 8, !tbaa !14
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(37) %109) #18
-  %114 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %107, i64 noundef %113)
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %117 = load i64, ptr %116, align 8, !tbaa !3
-  %.not73 = icmp eq i64 %117, %115
-  br i1 %.not73, label %123, label %118, !prof !145
+.thread:                                          ; preds = %.thread110, %106, %98
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %108 = load ptr, ptr %107, align 8, !tbaa !96
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %110 = load ptr, ptr %109, align 8, !tbaa !92
+  %111 = load ptr, ptr %110, align 8, !tbaa !14
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(37) %110) #18
+  %115 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %108, i64 noundef %114)
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %118 = load i64, ptr %117, align 8, !tbaa !3
+  %.not73 = icmp eq i64 %118, %116
+  br i1 %.not73, label %124, label %119, !prof !145
 
-118:                                              ; preds = %.thread
-  %119 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i64 18, ptr %120, align 8, !tbaa !8
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store i8 0, ptr %121, align 8, !tbaa !10
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store i64 3, ptr %122, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %119, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %119, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+119:                                              ; preds = %.thread
+  %120 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store i64 18, ptr %121, align 8, !tbaa !8
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  store i8 0, ptr %122, align 8, !tbaa !10
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  store i64 3, ptr %123, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %120, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-123:                                              ; preds = %.thread
-  %124 = load ptr, ptr %108, align 8, !tbaa !92
-  %125 = load ptr, ptr %124, align 8, !tbaa !14
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = tail call noundef i64 %127(ptr noundef nonnull align 8 dereferenceable(37) %124) #18
-  %129 = add i64 %128, 4
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %124, i64 noundef %129) #18
+124:                                              ; preds = %.thread
+  %125 = load ptr, ptr %109, align 8, !tbaa !92
+  %126 = load ptr, ptr %125, align 8, !tbaa !14
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = tail call noundef i64 %128(ptr noundef nonnull align 8 dereferenceable(37) %125) #18
+  %130 = add i64 %129, 4
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %125, i64 noundef %130) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-130:                                              ; preds = %63
-  %131 = and i64 %.sink.i84.pre, 8589934592
-  %.0.i79.not = icmp eq i64 %131, 0
-  br i1 %.0.i79.not, label %.thread102, label %132
+131:                                              ; preds = %63
+  %132 = and i64 %.sink.i84.pre, 8589934592
+  %.0.i79.not = icmp eq i64 %132, 0
+  br i1 %.0.i79.not, label %.thread102, label %133
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %134 = load i64, ptr %133, align 8, !tbaa !16
-  %.not63 = icmp eq i64 %134, 3
-  br i1 %.not63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %135
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %135 = load i64, ptr %134, align 8, !tbaa !16
+  %.not63 = icmp eq i64 %135, 3
+  br i1 %.not63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %136
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %137 = load ptr, ptr %136, align 8, !tbaa !92
-  %138 = load ptr, ptr %137, align 8, !tbaa !14
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(37) %137) #18
-  %142 = and i64 %141, 8
-  %.not64 = icmp eq i64 %142, 0
-  br i1 %.not64, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %143
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %138 = load ptr, ptr %137, align 8, !tbaa !92
+  %139 = load ptr, ptr %138, align 8, !tbaa !14
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = tail call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(37) %138) #18
+  %143 = and i64 %142, 8
+  %.not64 = icmp eq i64 %143, 0
+  br i1 %.not64, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %144
 
-143:                                              ; preds = %135
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  %.sink.i.i80 = load i64, ptr %146, align 8, !tbaa !3
-  %147 = and i64 %.sink.i.i80, 262144
-  %.0.i.i81.not = icmp eq i64 %147, 0
-  br i1 %.0.i.i81.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %148
+144:                                              ; preds = %136
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
+  %.sink.i.i80 = load i64, ptr %147, align 8, !tbaa !3
+  %148 = and i64 %.sink.i.i80, 262144
+  %.0.i.i81.not = icmp eq i64 %148, 0
+  br i1 %.0.i.i81.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %149
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %150 = load i8, ptr %149, align 2, !tbaa !93, !range !94, !noundef !95
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread115
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %151 = load i8, ptr %150, align 2, !tbaa !93, !range !94, !noundef !95
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %153, label %.thread111
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %154 = load ptr, ptr %153, align 8, !tbaa !92
-  %155 = load ptr, ptr %154, align 8, !tbaa !14
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(37) %154) #18
-  %159 = and i64 %158, 8
-  %.not65 = icmp eq i64 %159, 0
-  br i1 %.not65, label %160, label %.thread115
+153:                                              ; preds = %149
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %155 = load ptr, ptr %154, align 8, !tbaa !92
+  %156 = load ptr, ptr %155, align 8, !tbaa !14
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call noundef i64 %158(ptr noundef nonnull align 8 dereferenceable(37) %155) #18
+  %160 = and i64 %159, 8
+  %.not65 = icmp eq i64 %160, 0
+  br i1 %.not65, label %161, label %.thread111
 
-160:                                              ; preds = %152
-  %.pre = load i8, ptr %149, align 2, !tbaa !93, !range !94
-  %.pre111 = trunc nuw i8 %.pre to i1
-  br i1 %.pre111, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread115
+161:                                              ; preds = %153
+  %.pre = load i8, ptr %150, align 2, !tbaa !93, !range !94
+  %162 = trunc nuw i8 %.pre to i1
+  br i1 %162, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread111
 
-.thread115:                                       ; preds = %148, %160, %152
-  %161 = load i64, ptr %133, align 8, !tbaa !16
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %163, label %.thread105
+.thread111:                                       ; preds = %149, %161, %153
+  %163 = load i64, ptr %134, align 8, !tbaa !16
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %165, label %.thread105
 
-163:                                              ; preds = %.thread115
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %165 = load ptr, ptr %164, align 8, !tbaa !92
-  %166 = load ptr, ptr %165, align 8, !tbaa !14
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef i64 %168(ptr noundef nonnull align 8 dereferenceable(37) %165) #18
-  %170 = and i64 %169, 8
-  %.not66 = icmp eq i64 %170, 0
-  br i1 %.not66, label %171, label %.thread105
+165:                                              ; preds = %.thread111
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %167 = load ptr, ptr %166, align 8, !tbaa !92
+  %168 = load ptr, ptr %167, align 8, !tbaa !14
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load ptr, ptr %169, align 8
+  %171 = tail call noundef i64 %170(ptr noundef nonnull align 8 dereferenceable(37) %167) #18
+  %172 = and i64 %171, 8
+  %.not66 = icmp eq i64 %172, 0
+  br i1 %.not66, label %173, label %.thread105
 
-171:                                              ; preds = %163
-  %.pr104 = load i64, ptr %133, align 8, !tbaa !16
+173:                                              ; preds = %165
+  %.pr104 = load i64, ptr %134, align 8, !tbaa !16
   %.not67 = icmp eq i64 %.pr104, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
 
-.thread105:                                       ; preds = %.thread115, %171, %163
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %173 = load i64, ptr %172, align 8, !tbaa !3
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %175 = load ptr, ptr %174, align 8, !tbaa !92
-  %176 = load ptr, ptr %175, align 8, !tbaa !14
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef i64 %178(ptr noundef nonnull align 8 dereferenceable(37) %175) #18
-  %180 = add i64 %179, -4
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %182 = load ptr, ptr %181, align 8, !tbaa !96
-  %183 = trunc i64 %173 to i32
-  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %180, i32 noundef %183)
-  %184 = load ptr, ptr %174, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %184, i64 noundef %180) #18
+.thread105:                                       ; preds = %.thread111, %173, %165
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %175 = load i64, ptr %174, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %177 = load ptr, ptr %176, align 8, !tbaa !92
+  %178 = load ptr, ptr %177, align 8, !tbaa !14
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %180 = load ptr, ptr %179, align 8
+  %181 = tail call noundef i64 %180(ptr noundef nonnull align 8 dereferenceable(37) %177) #18
+  %182 = add i64 %181, -4
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %184 = load ptr, ptr %183, align 8, !tbaa !96
+  %185 = trunc i64 %175 to i32
+  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %182, i32 noundef %185)
+  %186 = load ptr, ptr %176, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %186, i64 noundef %182) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread102:                                       ; preds = %63, %64, %130
-  %185 = and i64 %.sink.i84.pre, 536870912
-  %.0.i85.not = icmp eq i64 %185, 0
-  br i1 %.0.i85.not, label %186, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread102:                                       ; preds = %63, %64, %131
+  %187 = and i64 %.sink.i84.pre, 536870912
+  %.0.i85.not = icmp eq i64 %187, 0
+  br i1 %.0.i85.not, label %188, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-186:                                              ; preds = %.thread102
-  %187 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store i64 2, ptr %188, align 8, !tbaa !8
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  store i8 0, ptr %189, align 8, !tbaa !10
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  store i64 %1, ptr %190, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %187, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %187, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+188:                                              ; preds = %.thread102
+  %189 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store i64 2, ptr %190, align 8, !tbaa !8
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  store i8 0, ptr %191, align 8, !tbaa !10
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  store i64 %1, ptr %192, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %189, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %189, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-191:                                              ; preds = %60
-  %192 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store i64 2, ptr %193, align 8, !tbaa !8
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  store i8 0, ptr %194, align 8, !tbaa !10
-  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  store i64 %1, ptr %195, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %192, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %192, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+193:                                              ; preds = %60
+  %194 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  store i64 2, ptr %195, align 8, !tbaa !8
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  store i8 0, ptr %196, align 8, !tbaa !10
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  store i64 %1, ptr %197, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %194, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %194, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %57, %52, %123, %105, %94, %77, %69, %66, %.thread102, %132, %135, %143, %160, %171, %.thread105, %38
-  %196 = shl i64 %2, 32
-  %197 = add i64 %196, 8589934592
-  %198 = ashr exact i64 %197, 32
-  ret i64 %198
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %57, %52, %124, %106, %94, %77, %69, %66, %.thread102, %133, %136, %144, %161, %173, %.thread105, %38
+  %198 = shl i64 %2, 32
+  %199 = add i64 %198, 8589934592
+  %200 = ashr exact i64 %199, 32
+  ret i64 %200
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1648,14 +1648,14 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
 58:                                               ; preds = %44
   %59 = and i64 %1, 2176
   %60 = icmp eq i64 %59, 128
-  br i1 %60, label %61, label %187
+  br i1 %60, label %61, label %189
 
 61:                                               ; preds = %58
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i84.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %15, label %.thread102 [
     i64 5, label %62
-    i64 1, label %127
+    i64 1, label %128
   ]
 
 62:                                               ; preds = %61
@@ -1693,7 +1693,7 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %82 = load i8, ptr %81, align 2, !tbaa !93, !range !94, !noundef !95
   %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %.thread113
+  br i1 %83, label %84, label %.thread110
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -1704,194 +1704,194 @@ define noundef i64 @_Z18logged_rv64i_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(37) %86) #18
   %91 = and i64 %90, 8
   %.not70 = icmp eq i64 %91, 0
-  br i1 %.not70, label %92, label %.thread113
+  br i1 %.not70, label %92, label %.thread110
 
 92:                                               ; preds = %84
   %.pre108 = load i8, ptr %81, align 2, !tbaa !93, !range !94
-  %.pre110 = trunc nuw i8 %.pre108 to i1
-  br i1 %.pre110, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread113
+  %93 = trunc nuw i8 %.pre108 to i1
+  br i1 %93, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread110
 
-.thread113:                                       ; preds = %80, %92, %84
-  %93 = load i64, ptr %65, align 8, !tbaa !16
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %.thread
+.thread110:                                       ; preds = %80, %92, %84
+  %94 = load i64, ptr %65, align 8, !tbaa !16
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %96, label %.thread
 
-95:                                               ; preds = %.thread113
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %97 = load ptr, ptr %96, align 8, !tbaa !92
-  %98 = load ptr, ptr %97, align 8, !tbaa !14
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef i64 %100(ptr noundef nonnull align 8 dereferenceable(37) %97) #18
-  %102 = and i64 %101, 8
-  %.not71 = icmp eq i64 %102, 0
-  br i1 %.not71, label %103, label %.thread
+96:                                               ; preds = %.thread110
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %98 = load ptr, ptr %97, align 8, !tbaa !92
+  %99 = load ptr, ptr %98, align 8, !tbaa !14
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call noundef i64 %101(ptr noundef nonnull align 8 dereferenceable(37) %98) #18
+  %103 = and i64 %102, 8
+  %.not71 = icmp eq i64 %103, 0
+  br i1 %.not71, label %104, label %.thread
 
-103:                                              ; preds = %95
+104:                                              ; preds = %96
   %.pr = load i64, ptr %65, align 8, !tbaa !16
   %.not72 = icmp eq i64 %.pr, 0
   br i1 %.not72, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread113, %103, %95
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %105 = load ptr, ptr %104, align 8, !tbaa !96
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %107 = load ptr, ptr %106, align 8, !tbaa !92
-  %108 = load ptr, ptr %107, align 8, !tbaa !14
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef i64 %110(ptr noundef nonnull align 8 dereferenceable(37) %107) #18
-  %112 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %105, i64 noundef %111)
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %114 = load i64, ptr %113, align 8, !tbaa !3
-  %.not73 = icmp eq i64 %114, %112
-  br i1 %.not73, label %120, label %115, !prof !145
+.thread:                                          ; preds = %.thread110, %104, %96
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %106 = load ptr, ptr %105, align 8, !tbaa !96
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %108 = load ptr, ptr %107, align 8, !tbaa !92
+  %109 = load ptr, ptr %108, align 8, !tbaa !14
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = tail call noundef i64 %111(ptr noundef nonnull align 8 dereferenceable(37) %108) #18
+  %113 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %106, i64 noundef %112)
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %115 = load i64, ptr %114, align 8, !tbaa !3
+  %.not73 = icmp eq i64 %115, %113
+  br i1 %.not73, label %121, label %116, !prof !145
 
-115:                                              ; preds = %.thread
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 18, ptr %117, align 8, !tbaa !8
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !10
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 3, ptr %119, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %116, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+116:                                              ; preds = %.thread
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 18, ptr %118, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !10
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 3, ptr %120, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %117, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-120:                                              ; preds = %.thread
-  %121 = load ptr, ptr %106, align 8, !tbaa !92
-  %122 = load ptr, ptr %121, align 8, !tbaa !14
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(37) %121) #18
-  %126 = add i64 %125, 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %121, i64 noundef %126) #18
+121:                                              ; preds = %.thread
+  %122 = load ptr, ptr %107, align 8, !tbaa !92
+  %123 = load ptr, ptr %122, align 8, !tbaa !14
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(37) %122) #18
+  %127 = add i64 %126, 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %122, i64 noundef %127) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-127:                                              ; preds = %61
-  %128 = and i64 %.sink.i84.pre, 8589934592
-  %.0.i79.not = icmp eq i64 %128, 0
-  br i1 %.0.i79.not, label %.thread102, label %129
+128:                                              ; preds = %61
+  %129 = and i64 %.sink.i84.pre, 8589934592
+  %.0.i79.not = icmp eq i64 %129, 0
+  br i1 %.0.i79.not, label %.thread102, label %130
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %131 = load i64, ptr %130, align 8, !tbaa !16
-  %.not63 = icmp eq i64 %131, 3
-  br i1 %.not63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %132
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %132 = load i64, ptr %131, align 8, !tbaa !16
+  %.not63 = icmp eq i64 %132, 3
+  br i1 %.not63, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %133
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %134 = load ptr, ptr %133, align 8, !tbaa !92
-  %135 = load ptr, ptr %134, align 8, !tbaa !14
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = tail call noundef i64 %137(ptr noundef nonnull align 8 dereferenceable(37) %134) #18
-  %139 = and i64 %138, 8
-  %.not64 = icmp eq i64 %139, 0
-  br i1 %.not64, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %140
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %135 = load ptr, ptr %134, align 8, !tbaa !92
+  %136 = load ptr, ptr %135, align 8, !tbaa !14
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = tail call noundef i64 %138(ptr noundef nonnull align 8 dereferenceable(37) %135) #18
+  %140 = and i64 %139, 8
+  %.not64 = icmp eq i64 %140, 0
+  br i1 %.not64, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %141
 
-140:                                              ; preds = %132
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
-  %.sink.i.i80 = load i64, ptr %143, align 8, !tbaa !3
-  %144 = and i64 %.sink.i.i80, 262144
-  %.0.i.i81.not = icmp eq i64 %144, 0
-  br i1 %.0.i.i81.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %145
+141:                                              ; preds = %133
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  %.sink.i.i80 = load i64, ptr %144, align 8, !tbaa !3
+  %145 = and i64 %.sink.i.i80, 262144
+  %.0.i.i81.not = icmp eq i64 %145, 0
+  br i1 %.0.i.i81.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %146
 
-145:                                              ; preds = %140
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %147 = load i8, ptr %146, align 2, !tbaa !93, !range !94, !noundef !95
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %.thread115
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %148 = load i8, ptr %147, align 2, !tbaa !93, !range !94, !noundef !95
+  %149 = trunc nuw i8 %148 to i1
+  br i1 %149, label %150, label %.thread111
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %151 = load ptr, ptr %150, align 8, !tbaa !92
-  %152 = load ptr, ptr %151, align 8, !tbaa !14
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = tail call noundef i64 %154(ptr noundef nonnull align 8 dereferenceable(37) %151) #18
-  %156 = and i64 %155, 8
-  %.not65 = icmp eq i64 %156, 0
-  br i1 %.not65, label %157, label %.thread115
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %152 = load ptr, ptr %151, align 8, !tbaa !92
+  %153 = load ptr, ptr %152, align 8, !tbaa !14
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = tail call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(37) %152) #18
+  %157 = and i64 %156, 8
+  %.not65 = icmp eq i64 %157, 0
+  br i1 %.not65, label %158, label %.thread111
 
-157:                                              ; preds = %149
-  %.pre = load i8, ptr %146, align 2, !tbaa !93, !range !94
-  %.pre111 = trunc nuw i8 %.pre to i1
-  br i1 %.pre111, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread115
+158:                                              ; preds = %150
+  %.pre = load i8, ptr %147, align 2, !tbaa !93, !range !94
+  %159 = trunc nuw i8 %.pre to i1
+  br i1 %159, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread111
 
-.thread115:                                       ; preds = %145, %157, %149
-  %158 = load i64, ptr %130, align 8, !tbaa !16
-  %159 = icmp eq i64 %158, 0
-  br i1 %159, label %160, label %.thread105
+.thread111:                                       ; preds = %146, %158, %150
+  %160 = load i64, ptr %131, align 8, !tbaa !16
+  %161 = icmp eq i64 %160, 0
+  br i1 %161, label %162, label %.thread105
 
-160:                                              ; preds = %.thread115
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %162 = load ptr, ptr %161, align 8, !tbaa !92
-  %163 = load ptr, ptr %162, align 8, !tbaa !14
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = tail call noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(37) %162) #18
-  %167 = and i64 %166, 8
-  %.not66 = icmp eq i64 %167, 0
-  br i1 %.not66, label %168, label %.thread105
+162:                                              ; preds = %.thread111
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %164 = load ptr, ptr %163, align 8, !tbaa !92
+  %165 = load ptr, ptr %164, align 8, !tbaa !14
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = tail call noundef i64 %167(ptr noundef nonnull align 8 dereferenceable(37) %164) #18
+  %169 = and i64 %168, 8
+  %.not66 = icmp eq i64 %169, 0
+  br i1 %.not66, label %170, label %.thread105
 
-168:                                              ; preds = %160
-  %.pr104 = load i64, ptr %130, align 8, !tbaa !16
+170:                                              ; preds = %162
+  %.pr104 = load i64, ptr %131, align 8, !tbaa !16
   %.not67 = icmp eq i64 %.pr104, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread105
 
-.thread105:                                       ; preds = %.thread115, %168, %160
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %170 = load i64, ptr %169, align 8, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %172 = load ptr, ptr %171, align 8, !tbaa !92
-  %173 = load ptr, ptr %172, align 8, !tbaa !14
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef i64 %175(ptr noundef nonnull align 8 dereferenceable(37) %172) #18
-  %177 = add i64 %176, -8
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %179 = load ptr, ptr %178, align 8, !tbaa !96
-  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %177, i64 noundef %170)
-  %180 = load ptr, ptr %171, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef %177) #18
+.thread105:                                       ; preds = %.thread111, %170, %162
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %172 = load i64, ptr %171, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %174 = load ptr, ptr %173, align 8, !tbaa !92
+  %175 = load ptr, ptr %174, align 8, !tbaa !14
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = tail call noundef i64 %177(ptr noundef nonnull align 8 dereferenceable(37) %174) #18
+  %179 = add i64 %178, -8
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %181 = load ptr, ptr %180, align 8, !tbaa !96
+  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %181, i64 noundef %179, i64 noundef %172)
+  %182 = load ptr, ptr %173, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %182, i64 noundef %179) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread102:                                       ; preds = %61, %62, %127
-  %181 = and i64 %.sink.i84.pre, 536870912
-  %.0.i85.not = icmp eq i64 %181, 0
-  br i1 %.0.i85.not, label %182, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread102:                                       ; preds = %61, %62, %128
+  %183 = and i64 %.sink.i84.pre, 536870912
+  %.0.i85.not = icmp eq i64 %183, 0
+  br i1 %.0.i85.not, label %184, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-182:                                              ; preds = %.thread102
-  %183 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  store i64 2, ptr %184, align 8, !tbaa !8
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  store i8 0, ptr %185, align 8, !tbaa !10
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  store i64 %1, ptr %186, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %183, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %183, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+184:                                              ; preds = %.thread102
+  %185 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  store i64 2, ptr %186, align 8, !tbaa !8
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store i8 0, ptr %187, align 8, !tbaa !10
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  store i64 %1, ptr %188, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %185, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-187:                                              ; preds = %58
-  %188 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i64 2, ptr %189, align 8, !tbaa !8
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store i8 0, ptr %190, align 8, !tbaa !10
-  %191 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store i64 %1, ptr %191, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %188, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %188, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+189:                                              ; preds = %58
+  %190 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  store i64 2, ptr %191, align 8, !tbaa !8
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  store i8 0, ptr %192, align 8, !tbaa !10
+  %193 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  store i64 %1, ptr %193, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %190, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %190, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %55, %50, %120, %103, %92, %75, %67, %64, %.thread102, %129, %132, %140, %157, %168, %.thread105, %38
-  %192 = add i64 %2, 2
-  ret i64 %192
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %55, %50, %121, %104, %92, %75, %67, %64, %.thread102, %130, %133, %141, %158, %170, %.thread105, %38
+  %194 = add i64 %2, 2
+  ret i64 %194
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1999,14 +1999,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
 60:                                               ; preds = %42
   %61 = and i64 %1, 2176
   %62 = icmp eq i64 %61, 128
-  br i1 %62, label %63, label %191
+  br i1 %62, label %63, label %193
 
 63:                                               ; preds = %60
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i79.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %13, label %.thread98 [
     i64 5, label %64
-    i64 1, label %130
+    i64 1, label %131
   ]
 
 64:                                               ; preds = %63
@@ -2044,7 +2044,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %84 = load i8, ptr %83, align 2, !tbaa !93, !range !94, !noundef !95
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %.thread109
+  br i1 %85, label %86, label %.thread106
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2055,198 +2055,198 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_c_luiP11pr
   %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(37) %88) #18
   %93 = and i64 %92, 8
   %.not65 = icmp eq i64 %93, 0
-  br i1 %.not65, label %94, label %.thread109
+  br i1 %.not65, label %94, label %.thread106
 
 94:                                               ; preds = %86
   %.pre104 = load i8, ptr %83, align 2, !tbaa !93, !range !94
-  %.pre106 = trunc nuw i8 %.pre104 to i1
-  br i1 %.pre106, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
+  %95 = trunc nuw i8 %.pre104 to i1
+  br i1 %95, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread106
 
-.thread109:                                       ; preds = %82, %94, %86
-  %95 = load i64, ptr %67, align 8, !tbaa !16
-  %96 = icmp eq i64 %95, 0
-  br i1 %96, label %97, label %.thread
+.thread106:                                       ; preds = %82, %94, %86
+  %96 = load i64, ptr %67, align 8, !tbaa !16
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %98, label %.thread
 
-97:                                               ; preds = %.thread109
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %99 = load ptr, ptr %98, align 8, !tbaa !92
-  %100 = load ptr, ptr %99, align 8, !tbaa !14
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call noundef i64 %102(ptr noundef nonnull align 8 dereferenceable(37) %99) #18
-  %104 = and i64 %103, 8
-  %.not66 = icmp eq i64 %104, 0
-  br i1 %.not66, label %105, label %.thread
+98:                                               ; preds = %.thread106
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %100 = load ptr, ptr %99, align 8, !tbaa !92
+  %101 = load ptr, ptr %100, align 8, !tbaa !14
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = tail call noundef i64 %103(ptr noundef nonnull align 8 dereferenceable(37) %100) #18
+  %105 = and i64 %104, 8
+  %.not66 = icmp eq i64 %105, 0
+  br i1 %.not66, label %106, label %.thread
 
-105:                                              ; preds = %97
+106:                                              ; preds = %98
   %.pr = load i64, ptr %67, align 8, !tbaa !16
   %.not67 = icmp eq i64 %.pr, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread109, %105, %97
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %107 = load ptr, ptr %106, align 8, !tbaa !96
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %109 = load ptr, ptr %108, align 8, !tbaa !92
-  %110 = load ptr, ptr %109, align 8, !tbaa !14
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load ptr, ptr %111, align 8
-  %113 = tail call noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(37) %109) #18
-  %114 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %107, i64 noundef %113)
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %117 = load i64, ptr %116, align 8, !tbaa !3
-  %.not68 = icmp eq i64 %117, %115
-  br i1 %.not68, label %123, label %118, !prof !145
+.thread:                                          ; preds = %.thread106, %106, %98
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %108 = load ptr, ptr %107, align 8, !tbaa !96
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %110 = load ptr, ptr %109, align 8, !tbaa !92
+  %111 = load ptr, ptr %110, align 8, !tbaa !14
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = tail call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(37) %110) #18
+  %115 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %108, i64 noundef %114)
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %118 = load i64, ptr %117, align 8, !tbaa !3
+  %.not68 = icmp eq i64 %118, %116
+  br i1 %.not68, label %124, label %119, !prof !145
 
-118:                                              ; preds = %.thread
-  %119 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i64 18, ptr %120, align 8, !tbaa !8
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store i8 0, ptr %121, align 8, !tbaa !10
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  store i64 3, ptr %122, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %119, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %119, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+119:                                              ; preds = %.thread
+  %120 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  store i64 18, ptr %121, align 8, !tbaa !8
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  store i8 0, ptr %122, align 8, !tbaa !10
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  store i64 3, ptr %123, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %120, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %120, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-123:                                              ; preds = %.thread
-  %124 = load ptr, ptr %108, align 8, !tbaa !92
-  %125 = load ptr, ptr %124, align 8, !tbaa !14
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = tail call noundef i64 %127(ptr noundef nonnull align 8 dereferenceable(37) %124) #18
-  %129 = add i64 %128, 4
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %124, i64 noundef %129) #18
+124:                                              ; preds = %.thread
+  %125 = load ptr, ptr %109, align 8, !tbaa !92
+  %126 = load ptr, ptr %125, align 8, !tbaa !14
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = tail call noundef i64 %128(ptr noundef nonnull align 8 dereferenceable(37) %125) #18
+  %130 = add i64 %129, 4
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %125, i64 noundef %130) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-130:                                              ; preds = %63
-  %131 = and i64 %.sink.i79.pre, 8589934592
-  %.0.i74.not = icmp eq i64 %131, 0
-  br i1 %.0.i74.not, label %.thread98, label %132
+131:                                              ; preds = %63
+  %132 = and i64 %.sink.i79.pre, 8589934592
+  %.0.i74.not = icmp eq i64 %132, 0
+  br i1 %.0.i74.not, label %.thread98, label %133
 
-132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %134 = load i64, ptr %133, align 8, !tbaa !16
-  %.not58 = icmp eq i64 %134, 3
-  br i1 %.not58, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %135
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %135 = load i64, ptr %134, align 8, !tbaa !16
+  %.not58 = icmp eq i64 %135, 3
+  br i1 %.not58, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %136
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %137 = load ptr, ptr %136, align 8, !tbaa !92
-  %138 = load ptr, ptr %137, align 8, !tbaa !14
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call noundef i64 %140(ptr noundef nonnull align 8 dereferenceable(37) %137) #18
-  %142 = and i64 %141, 8
-  %.not59 = icmp eq i64 %142, 0
-  br i1 %.not59, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %143
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %138 = load ptr, ptr %137, align 8, !tbaa !92
+  %139 = load ptr, ptr %138, align 8, !tbaa !14
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = tail call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(37) %138) #18
+  %143 = and i64 %142, 8
+  %.not59 = icmp eq i64 %143, 0
+  br i1 %.not59, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %144
 
-143:                                              ; preds = %135
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  %.sink.i.i75 = load i64, ptr %146, align 8, !tbaa !3
-  %147 = and i64 %.sink.i.i75, 262144
-  %.0.i.i76.not = icmp eq i64 %147, 0
-  br i1 %.0.i.i76.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %148
+144:                                              ; preds = %136
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 40
+  %.sink.i.i75 = load i64, ptr %147, align 8, !tbaa !3
+  %148 = and i64 %.sink.i.i75, 262144
+  %.0.i.i76.not = icmp eq i64 %148, 0
+  br i1 %.0.i.i76.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %149
 
-148:                                              ; preds = %143
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %150 = load i8, ptr %149, align 2, !tbaa !93, !range !94, !noundef !95
-  %151 = trunc nuw i8 %150 to i1
-  br i1 %151, label %152, label %.thread111
+149:                                              ; preds = %144
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %151 = load i8, ptr %150, align 2, !tbaa !93, !range !94, !noundef !95
+  %152 = trunc nuw i8 %151 to i1
+  br i1 %152, label %153, label %.thread107
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %154 = load ptr, ptr %153, align 8, !tbaa !92
-  %155 = load ptr, ptr %154, align 8, !tbaa !14
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = tail call noundef i64 %157(ptr noundef nonnull align 8 dereferenceable(37) %154) #18
-  %159 = and i64 %158, 8
-  %.not60 = icmp eq i64 %159, 0
-  br i1 %.not60, label %160, label %.thread111
+153:                                              ; preds = %149
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %155 = load ptr, ptr %154, align 8, !tbaa !92
+  %156 = load ptr, ptr %155, align 8, !tbaa !14
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call noundef i64 %158(ptr noundef nonnull align 8 dereferenceable(37) %155) #18
+  %160 = and i64 %159, 8
+  %.not60 = icmp eq i64 %160, 0
+  br i1 %.not60, label %161, label %.thread107
 
-160:                                              ; preds = %152
-  %.pre = load i8, ptr %149, align 2, !tbaa !93, !range !94
-  %.pre107 = trunc nuw i8 %.pre to i1
-  br i1 %.pre107, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread111
+161:                                              ; preds = %153
+  %.pre = load i8, ptr %150, align 2, !tbaa !93, !range !94
+  %162 = trunc nuw i8 %.pre to i1
+  br i1 %162, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread107
 
-.thread111:                                       ; preds = %148, %160, %152
-  %161 = load i64, ptr %133, align 8, !tbaa !16
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %163, label %.thread101
+.thread107:                                       ; preds = %149, %161, %153
+  %163 = load i64, ptr %134, align 8, !tbaa !16
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %165, label %.thread101
 
-163:                                              ; preds = %.thread111
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %165 = load ptr, ptr %164, align 8, !tbaa !92
-  %166 = load ptr, ptr %165, align 8, !tbaa !14
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = tail call noundef i64 %168(ptr noundef nonnull align 8 dereferenceable(37) %165) #18
-  %170 = and i64 %169, 8
-  %.not61 = icmp eq i64 %170, 0
-  br i1 %.not61, label %171, label %.thread101
+165:                                              ; preds = %.thread107
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %167 = load ptr, ptr %166, align 8, !tbaa !92
+  %168 = load ptr, ptr %167, align 8, !tbaa !14
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load ptr, ptr %169, align 8
+  %171 = tail call noundef i64 %170(ptr noundef nonnull align 8 dereferenceable(37) %167) #18
+  %172 = and i64 %171, 8
+  %.not61 = icmp eq i64 %172, 0
+  br i1 %.not61, label %173, label %.thread101
 
-171:                                              ; preds = %163
-  %.pr100 = load i64, ptr %133, align 8, !tbaa !16
+173:                                              ; preds = %165
+  %.pr100 = load i64, ptr %134, align 8, !tbaa !16
   %.not62 = icmp eq i64 %.pr100, 0
   br i1 %.not62, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread101
 
-.thread101:                                       ; preds = %.thread111, %171, %163
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %173 = load i64, ptr %172, align 8, !tbaa !3
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %175 = load ptr, ptr %174, align 8, !tbaa !92
-  %176 = load ptr, ptr %175, align 8, !tbaa !14
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef i64 %178(ptr noundef nonnull align 8 dereferenceable(37) %175) #18
-  %180 = add i64 %179, -4
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %182 = load ptr, ptr %181, align 8, !tbaa !96
-  %183 = trunc i64 %173 to i32
-  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %182, i64 noundef %180, i32 noundef %183)
-  %184 = load ptr, ptr %174, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %184, i64 noundef %180) #18
+.thread101:                                       ; preds = %.thread107, %173, %165
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %175 = load i64, ptr %174, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %177 = load ptr, ptr %176, align 8, !tbaa !92
+  %178 = load ptr, ptr %177, align 8, !tbaa !14
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %180 = load ptr, ptr %179, align 8
+  %181 = tail call noundef i64 %180(ptr noundef nonnull align 8 dereferenceable(37) %177) #18
+  %182 = add i64 %181, -4
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %184 = load ptr, ptr %183, align 8, !tbaa !96
+  %185 = trunc i64 %175 to i32
+  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %182, i32 noundef %185)
+  %186 = load ptr, ptr %176, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %186, i64 noundef %182) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread98:                                        ; preds = %63, %64, %130
-  %185 = and i64 %.sink.i79.pre, 536870912
-  %.0.i80.not = icmp eq i64 %185, 0
-  br i1 %.0.i80.not, label %186, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread98:                                        ; preds = %63, %64, %131
+  %187 = and i64 %.sink.i79.pre, 536870912
+  %.0.i80.not = icmp eq i64 %187, 0
+  br i1 %.0.i80.not, label %188, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-186:                                              ; preds = %.thread98
-  %187 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store i64 2, ptr %188, align 8, !tbaa !8
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  store i8 0, ptr %189, align 8, !tbaa !10
-  %190 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  store i64 %1, ptr %190, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %187, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %187, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+188:                                              ; preds = %.thread98
+  %189 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  store i64 2, ptr %190, align 8, !tbaa !8
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  store i8 0, ptr %191, align 8, !tbaa !10
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  store i64 %1, ptr %192, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %189, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %189, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-191:                                              ; preds = %60
-  %192 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store i64 2, ptr %193, align 8, !tbaa !8
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  store i8 0, ptr %194, align 8, !tbaa !10
-  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
-  store i64 %1, ptr %195, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %192, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %192, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+193:                                              ; preds = %60
+  %194 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  store i64 2, ptr %195, align 8, !tbaa !8
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  store i8 0, ptr %196, align 8, !tbaa !10
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  store i64 %1, ptr %197, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %194, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %194, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %56, %55, %123, %105, %94, %77, %69, %66, %.thread98, %132, %135, %143, %160, %171, %.thread101, %36
-  %196 = shl i64 %2, 32
-  %197 = add i64 %196, 8589934592
-  %198 = ashr exact i64 %197, 32
-  ret i64 %198
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %56, %55, %124, %106, %94, %77, %69, %66, %.thread98, %133, %136, %144, %161, %173, %.thread101, %36
+  %198 = shl i64 %2, 32
+  %199 = add i64 %198, 8589934592
+  %200 = ashr exact i64 %199, 32
+  ret i64 %200
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2352,14 +2352,14 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
 58:                                               ; preds = %40
   %59 = and i64 %1, 2176
   %60 = icmp eq i64 %59, 128
-  br i1 %60, label %61, label %187
+  br i1 %60, label %61, label %189
 
 61:                                               ; preds = %58
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i79.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %13, label %.thread98 [
     i64 5, label %62
-    i64 1, label %127
+    i64 1, label %128
   ]
 
 62:                                               ; preds = %61
@@ -2397,7 +2397,7 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %82 = load i8, ptr %81, align 2, !tbaa !93, !range !94, !noundef !95
   %83 = trunc nuw i8 %82 to i1
-  br i1 %83, label %84, label %.thread109
+  br i1 %83, label %84, label %.thread106
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2408,194 +2408,194 @@ define noundef i64 @_Z16fast_rv64e_c_luiP11processor_t6insn_tm(ptr noundef captu
   %90 = tail call noundef i64 %89(ptr noundef nonnull align 8 dereferenceable(37) %86) #18
   %91 = and i64 %90, 8
   %.not65 = icmp eq i64 %91, 0
-  br i1 %.not65, label %92, label %.thread109
+  br i1 %.not65, label %92, label %.thread106
 
 92:                                               ; preds = %84
   %.pre104 = load i8, ptr %81, align 2, !tbaa !93, !range !94
-  %.pre106 = trunc nuw i8 %.pre104 to i1
-  br i1 %.pre106, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
+  %93 = trunc nuw i8 %.pre104 to i1
+  br i1 %93, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread106
 
-.thread109:                                       ; preds = %80, %92, %84
-  %93 = load i64, ptr %65, align 8, !tbaa !16
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %.thread
+.thread106:                                       ; preds = %80, %92, %84
+  %94 = load i64, ptr %65, align 8, !tbaa !16
+  %95 = icmp eq i64 %94, 0
+  br i1 %95, label %96, label %.thread
 
-95:                                               ; preds = %.thread109
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %97 = load ptr, ptr %96, align 8, !tbaa !92
-  %98 = load ptr, ptr %97, align 8, !tbaa !14
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef i64 %100(ptr noundef nonnull align 8 dereferenceable(37) %97) #18
-  %102 = and i64 %101, 8
-  %.not66 = icmp eq i64 %102, 0
-  br i1 %.not66, label %103, label %.thread
+96:                                               ; preds = %.thread106
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %98 = load ptr, ptr %97, align 8, !tbaa !92
+  %99 = load ptr, ptr %98, align 8, !tbaa !14
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call noundef i64 %101(ptr noundef nonnull align 8 dereferenceable(37) %98) #18
+  %103 = and i64 %102, 8
+  %.not66 = icmp eq i64 %103, 0
+  br i1 %.not66, label %104, label %.thread
 
-103:                                              ; preds = %95
+104:                                              ; preds = %96
   %.pr = load i64, ptr %65, align 8, !tbaa !16
   %.not67 = icmp eq i64 %.pr, 0
   br i1 %.not67, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread109, %103, %95
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %105 = load ptr, ptr %104, align 8, !tbaa !96
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %107 = load ptr, ptr %106, align 8, !tbaa !92
-  %108 = load ptr, ptr %107, align 8, !tbaa !14
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef i64 %110(ptr noundef nonnull align 8 dereferenceable(37) %107) #18
-  %112 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %105, i64 noundef %111)
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %114 = load i64, ptr %113, align 8, !tbaa !3
-  %.not68 = icmp eq i64 %114, %112
-  br i1 %.not68, label %120, label %115, !prof !145
+.thread:                                          ; preds = %.thread106, %104, %96
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %106 = load ptr, ptr %105, align 8, !tbaa !96
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %108 = load ptr, ptr %107, align 8, !tbaa !92
+  %109 = load ptr, ptr %108, align 8, !tbaa !14
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = tail call noundef i64 %111(ptr noundef nonnull align 8 dereferenceable(37) %108) #18
+  %113 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %106, i64 noundef %112)
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %115 = load i64, ptr %114, align 8, !tbaa !3
+  %.not68 = icmp eq i64 %115, %113
+  br i1 %.not68, label %121, label %116, !prof !145
 
-115:                                              ; preds = %.thread
-  %116 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i64 18, ptr %117, align 8, !tbaa !8
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %118, align 8, !tbaa !10
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store i64 3, ptr %119, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %116, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+116:                                              ; preds = %.thread
+  %117 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  store i64 18, ptr %118, align 8, !tbaa !8
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %119, align 8, !tbaa !10
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  store i64 3, ptr %120, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %117, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-120:                                              ; preds = %.thread
-  %121 = load ptr, ptr %106, align 8, !tbaa !92
-  %122 = load ptr, ptr %121, align 8, !tbaa !14
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call noundef i64 %124(ptr noundef nonnull align 8 dereferenceable(37) %121) #18
-  %126 = add i64 %125, 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %121, i64 noundef %126) #18
+121:                                              ; preds = %.thread
+  %122 = load ptr, ptr %107, align 8, !tbaa !92
+  %123 = load ptr, ptr %122, align 8, !tbaa !14
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %125 = load ptr, ptr %124, align 8
+  %126 = tail call noundef i64 %125(ptr noundef nonnull align 8 dereferenceable(37) %122) #18
+  %127 = add i64 %126, 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %122, i64 noundef %127) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-127:                                              ; preds = %61
-  %128 = and i64 %.sink.i79.pre, 8589934592
-  %.0.i74.not = icmp eq i64 %128, 0
-  br i1 %.0.i74.not, label %.thread98, label %129
+128:                                              ; preds = %61
+  %129 = and i64 %.sink.i79.pre, 8589934592
+  %.0.i74.not = icmp eq i64 %129, 0
+  br i1 %.0.i74.not, label %.thread98, label %130
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %131 = load i64, ptr %130, align 8, !tbaa !16
-  %.not58 = icmp eq i64 %131, 3
-  br i1 %.not58, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %132
+130:                                              ; preds = %128
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %132 = load i64, ptr %131, align 8, !tbaa !16
+  %.not58 = icmp eq i64 %132, 3
+  br i1 %.not58, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %133
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %134 = load ptr, ptr %133, align 8, !tbaa !92
-  %135 = load ptr, ptr %134, align 8, !tbaa !14
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = tail call noundef i64 %137(ptr noundef nonnull align 8 dereferenceable(37) %134) #18
-  %139 = and i64 %138, 8
-  %.not59 = icmp eq i64 %139, 0
-  br i1 %.not59, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %140
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %135 = load ptr, ptr %134, align 8, !tbaa !92
+  %136 = load ptr, ptr %135, align 8, !tbaa !14
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = tail call noundef i64 %138(ptr noundef nonnull align 8 dereferenceable(37) %135) #18
+  %140 = and i64 %139, 8
+  %.not59 = icmp eq i64 %140, 0
+  br i1 %.not59, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %141
 
-140:                                              ; preds = %132
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
-  %.sink.i.i75 = load i64, ptr %143, align 8, !tbaa !3
-  %144 = and i64 %.sink.i.i75, 262144
-  %.0.i.i76.not = icmp eq i64 %144, 0
-  br i1 %.0.i.i76.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %145
+141:                                              ; preds = %133
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  %.sink.i.i75 = load i64, ptr %144, align 8, !tbaa !3
+  %145 = and i64 %.sink.i.i75, 262144
+  %.0.i.i76.not = icmp eq i64 %145, 0
+  br i1 %.0.i.i76.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %146
 
-145:                                              ; preds = %140
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %147 = load i8, ptr %146, align 2, !tbaa !93, !range !94, !noundef !95
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %.thread111
+146:                                              ; preds = %141
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %148 = load i8, ptr %147, align 2, !tbaa !93, !range !94, !noundef !95
+  %149 = trunc nuw i8 %148 to i1
+  br i1 %149, label %150, label %.thread107
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %151 = load ptr, ptr %150, align 8, !tbaa !92
-  %152 = load ptr, ptr %151, align 8, !tbaa !14
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %154 = load ptr, ptr %153, align 8
-  %155 = tail call noundef i64 %154(ptr noundef nonnull align 8 dereferenceable(37) %151) #18
-  %156 = and i64 %155, 8
-  %.not60 = icmp eq i64 %156, 0
-  br i1 %.not60, label %157, label %.thread111
+150:                                              ; preds = %146
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %152 = load ptr, ptr %151, align 8, !tbaa !92
+  %153 = load ptr, ptr %152, align 8, !tbaa !14
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %156 = tail call noundef i64 %155(ptr noundef nonnull align 8 dereferenceable(37) %152) #18
+  %157 = and i64 %156, 8
+  %.not60 = icmp eq i64 %157, 0
+  br i1 %.not60, label %158, label %.thread107
 
-157:                                              ; preds = %149
-  %.pre = load i8, ptr %146, align 2, !tbaa !93, !range !94
-  %.pre107 = trunc nuw i8 %.pre to i1
-  br i1 %.pre107, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread111
+158:                                              ; preds = %150
+  %.pre = load i8, ptr %147, align 2, !tbaa !93, !range !94
+  %159 = trunc nuw i8 %.pre to i1
+  br i1 %159, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread107
 
-.thread111:                                       ; preds = %145, %157, %149
-  %158 = load i64, ptr %130, align 8, !tbaa !16
-  %159 = icmp eq i64 %158, 0
-  br i1 %159, label %160, label %.thread101
+.thread107:                                       ; preds = %146, %158, %150
+  %160 = load i64, ptr %131, align 8, !tbaa !16
+  %161 = icmp eq i64 %160, 0
+  br i1 %161, label %162, label %.thread101
 
-160:                                              ; preds = %.thread111
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %162 = load ptr, ptr %161, align 8, !tbaa !92
-  %163 = load ptr, ptr %162, align 8, !tbaa !14
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = tail call noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(37) %162) #18
-  %167 = and i64 %166, 8
-  %.not61 = icmp eq i64 %167, 0
-  br i1 %.not61, label %168, label %.thread101
+162:                                              ; preds = %.thread107
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %164 = load ptr, ptr %163, align 8, !tbaa !92
+  %165 = load ptr, ptr %164, align 8, !tbaa !14
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = tail call noundef i64 %167(ptr noundef nonnull align 8 dereferenceable(37) %164) #18
+  %169 = and i64 %168, 8
+  %.not61 = icmp eq i64 %169, 0
+  br i1 %.not61, label %170, label %.thread101
 
-168:                                              ; preds = %160
-  %.pr100 = load i64, ptr %130, align 8, !tbaa !16
+170:                                              ; preds = %162
+  %.pr100 = load i64, ptr %131, align 8, !tbaa !16
   %.not62 = icmp eq i64 %.pr100, 0
   br i1 %.not62, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread101
 
-.thread101:                                       ; preds = %.thread111, %168, %160
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %170 = load i64, ptr %169, align 8, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %172 = load ptr, ptr %171, align 8, !tbaa !92
-  %173 = load ptr, ptr %172, align 8, !tbaa !14
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef i64 %175(ptr noundef nonnull align 8 dereferenceable(37) %172) #18
-  %177 = add i64 %176, -8
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %179 = load ptr, ptr %178, align 8, !tbaa !96
-  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %177, i64 noundef %170)
-  %180 = load ptr, ptr %171, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %180, i64 noundef %177) #18
+.thread101:                                       ; preds = %.thread107, %170, %162
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %172 = load i64, ptr %171, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %174 = load ptr, ptr %173, align 8, !tbaa !92
+  %175 = load ptr, ptr %174, align 8, !tbaa !14
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = tail call noundef i64 %177(ptr noundef nonnull align 8 dereferenceable(37) %174) #18
+  %179 = add i64 %178, -8
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %181 = load ptr, ptr %180, align 8, !tbaa !96
+  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %181, i64 noundef %179, i64 noundef %172)
+  %182 = load ptr, ptr %173, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %182, i64 noundef %179) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread98:                                        ; preds = %61, %62, %127
-  %181 = and i64 %.sink.i79.pre, 536870912
-  %.0.i80.not = icmp eq i64 %181, 0
-  br i1 %.0.i80.not, label %182, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread98:                                        ; preds = %61, %62, %128
+  %183 = and i64 %.sink.i79.pre, 536870912
+  %.0.i80.not = icmp eq i64 %183, 0
+  br i1 %.0.i80.not, label %184, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-182:                                              ; preds = %.thread98
-  %183 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  store i64 2, ptr %184, align 8, !tbaa !8
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  store i8 0, ptr %185, align 8, !tbaa !10
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  store i64 %1, ptr %186, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %183, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %183, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+184:                                              ; preds = %.thread98
+  %185 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  store i64 2, ptr %186, align 8, !tbaa !8
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store i8 0, ptr %187, align 8, !tbaa !10
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  store i64 %1, ptr %188, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %185, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %185, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-187:                                              ; preds = %58
-  %188 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i64 2, ptr %189, align 8, !tbaa !8
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store i8 0, ptr %190, align 8, !tbaa !10
-  %191 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store i64 %1, ptr %191, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %188, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %188, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+189:                                              ; preds = %58
+  %190 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
+  store i64 2, ptr %191, align 8, !tbaa !8
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  store i8 0, ptr %192, align 8, !tbaa !10
+  %193 = getelementptr inbounds nuw i8, ptr %190, i64 24
+  store i64 %1, ptr %193, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %190, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %190, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %54, %53, %120, %103, %92, %75, %67, %64, %.thread98, %129, %132, %140, %157, %168, %.thread101, %36
-  %192 = add i64 %2, 2
-  ret i64 %192
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %54, %53, %121, %104, %92, %75, %67, %64, %.thread98, %130, %133, %141, %158, %170, %.thread101, %36
+  %194 = add i64 %2, 2
+  ret i64 %194
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2722,14 +2722,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
 67:                                               ; preds = %46
   %68 = and i64 %1, 2176
   %69 = icmp eq i64 %68, 128
-  br i1 %69, label %70, label %198
+  br i1 %69, label %70, label %200
 
 70:                                               ; preds = %67
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i86.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %15, label %.thread106 [
     i64 5, label %71
-    i64 1, label %137
+    i64 1, label %138
   ]
 
 71:                                               ; preds = %70
@@ -2767,7 +2767,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %91 = load i8, ptr %90, align 2, !tbaa !93, !range !94, !noundef !95
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %.thread117
+  br i1 %92, label %93, label %.thread114
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -2778,198 +2778,198 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_c_luiP11
   %99 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(37) %95) #18
   %100 = and i64 %99, 8
   %.not72 = icmp eq i64 %100, 0
-  br i1 %.not72, label %101, label %.thread117
+  br i1 %.not72, label %101, label %.thread114
 
 101:                                              ; preds = %93
   %.pre112 = load i8, ptr %90, align 2, !tbaa !93, !range !94
-  %.pre114 = trunc nuw i8 %.pre112 to i1
-  br i1 %.pre114, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread117
+  %102 = trunc nuw i8 %.pre112 to i1
+  br i1 %102, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread114
 
-.thread117:                                       ; preds = %89, %101, %93
-  %102 = load i64, ptr %74, align 8, !tbaa !16
-  %103 = icmp eq i64 %102, 0
-  br i1 %103, label %104, label %.thread
+.thread114:                                       ; preds = %89, %101, %93
+  %103 = load i64, ptr %74, align 8, !tbaa !16
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %105, label %.thread
 
-104:                                              ; preds = %.thread117
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %106 = load ptr, ptr %105, align 8, !tbaa !92
-  %107 = load ptr, ptr %106, align 8, !tbaa !14
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = tail call noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(37) %106) #18
-  %111 = and i64 %110, 8
-  %.not73 = icmp eq i64 %111, 0
-  br i1 %.not73, label %112, label %.thread
+105:                                              ; preds = %.thread114
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %107 = load ptr, ptr %106, align 8, !tbaa !92
+  %108 = load ptr, ptr %107, align 8, !tbaa !14
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef i64 %110(ptr noundef nonnull align 8 dereferenceable(37) %107) #18
+  %112 = and i64 %111, 8
+  %.not73 = icmp eq i64 %112, 0
+  br i1 %.not73, label %113, label %.thread
 
-112:                                              ; preds = %104
+113:                                              ; preds = %105
   %.pr = load i64, ptr %74, align 8, !tbaa !16
   %.not74 = icmp eq i64 %.pr, 0
   br i1 %.not74, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread117, %112, %104
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %114 = load ptr, ptr %113, align 8, !tbaa !96
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %116 = load ptr, ptr %115, align 8, !tbaa !92
-  %117 = load ptr, ptr %116, align 8, !tbaa !14
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = tail call noundef i64 %119(ptr noundef nonnull align 8 dereferenceable(37) %116) #18
-  %121 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %114, i64 noundef %120)
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %124 = load i64, ptr %123, align 8, !tbaa !3
-  %.not75 = icmp eq i64 %124, %122
-  br i1 %.not75, label %130, label %125, !prof !145
+.thread:                                          ; preds = %.thread114, %113, %105
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %115 = load ptr, ptr %114, align 8, !tbaa !96
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %117 = load ptr, ptr %116, align 8, !tbaa !92
+  %118 = load ptr, ptr %117, align 8, !tbaa !14
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = tail call noundef i64 %120(ptr noundef nonnull align 8 dereferenceable(37) %117) #18
+  %122 = tail call noundef i32 @_ZN5mmu_t7ss_loadIjEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %115, i64 noundef %121)
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %125 = load i64, ptr %124, align 8, !tbaa !3
+  %.not75 = icmp eq i64 %125, %123
+  br i1 %.not75, label %131, label %126, !prof !145
 
-125:                                              ; preds = %.thread
-  %126 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store i64 18, ptr %127, align 8, !tbaa !8
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store i8 0, ptr %128, align 8, !tbaa !10
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  store i64 3, ptr %129, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %126, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %126, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+126:                                              ; preds = %.thread
+  %127 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  store i64 18, ptr %128, align 8, !tbaa !8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  store i8 0, ptr %129, align 8, !tbaa !10
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  store i64 3, ptr %130, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %127, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %127, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-130:                                              ; preds = %.thread
-  %131 = load ptr, ptr %115, align 8, !tbaa !92
-  %132 = load ptr, ptr %131, align 8, !tbaa !14
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(37) %131) #18
-  %136 = add i64 %135, 4
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %131, i64 noundef %136) #18
+131:                                              ; preds = %.thread
+  %132 = load ptr, ptr %116, align 8, !tbaa !92
+  %133 = load ptr, ptr %132, align 8, !tbaa !14
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %136 = tail call noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(37) %132) #18
+  %137 = add i64 %136, 4
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %132, i64 noundef %137) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-137:                                              ; preds = %70
-  %138 = and i64 %.sink.i86.pre, 8589934592
-  %.0.i81.not = icmp eq i64 %138, 0
-  br i1 %.0.i81.not, label %.thread106, label %139
+138:                                              ; preds = %70
+  %139 = and i64 %.sink.i86.pre, 8589934592
+  %.0.i81.not = icmp eq i64 %139, 0
+  br i1 %.0.i81.not, label %.thread106, label %140
 
-139:                                              ; preds = %137
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %141 = load i64, ptr %140, align 8, !tbaa !16
-  %.not65 = icmp eq i64 %141, 3
-  br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %142
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %142 = load i64, ptr %141, align 8, !tbaa !16
+  %.not65 = icmp eq i64 %142, 3
+  br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %143
 
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %144 = load ptr, ptr %143, align 8, !tbaa !92
-  %145 = load ptr, ptr %144, align 8, !tbaa !14
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = tail call noundef i64 %147(ptr noundef nonnull align 8 dereferenceable(37) %144) #18
-  %149 = and i64 %148, 8
-  %.not66 = icmp eq i64 %149, 0
-  br i1 %.not66, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %150
+143:                                              ; preds = %140
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %145 = load ptr, ptr %144, align 8, !tbaa !92
+  %146 = load ptr, ptr %145, align 8, !tbaa !14
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %148 = load ptr, ptr %147, align 8
+  %149 = tail call noundef i64 %148(ptr noundef nonnull align 8 dereferenceable(37) %145) #18
+  %150 = and i64 %149, 8
+  %.not66 = icmp eq i64 %150, 0
+  br i1 %.not66, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %151
 
-150:                                              ; preds = %142
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
-  %.sink.i.i82 = load i64, ptr %153, align 8, !tbaa !3
-  %154 = and i64 %.sink.i.i82, 262144
-  %.0.i.i83.not = icmp eq i64 %154, 0
-  br i1 %.0.i.i83.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %155
+151:                                              ; preds = %143
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
+  %.sink.i.i82 = load i64, ptr %154, align 8, !tbaa !3
+  %155 = and i64 %.sink.i.i82, 262144
+  %.0.i.i83.not = icmp eq i64 %155, 0
+  br i1 %.0.i.i83.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %156
 
-155:                                              ; preds = %150
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %157 = load i8, ptr %156, align 2, !tbaa !93, !range !94, !noundef !95
-  %158 = trunc nuw i8 %157 to i1
-  br i1 %158, label %159, label %.thread119
+156:                                              ; preds = %151
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %158 = load i8, ptr %157, align 2, !tbaa !93, !range !94, !noundef !95
+  %159 = trunc nuw i8 %158 to i1
+  br i1 %159, label %160, label %.thread115
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %161 = load ptr, ptr %160, align 8, !tbaa !92
-  %162 = load ptr, ptr %161, align 8, !tbaa !14
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %164 = load ptr, ptr %163, align 8
-  %165 = tail call noundef i64 %164(ptr noundef nonnull align 8 dereferenceable(37) %161) #18
-  %166 = and i64 %165, 8
-  %.not67 = icmp eq i64 %166, 0
-  br i1 %.not67, label %167, label %.thread119
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %162 = load ptr, ptr %161, align 8, !tbaa !92
+  %163 = load ptr, ptr %162, align 8, !tbaa !14
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = tail call noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(37) %162) #18
+  %167 = and i64 %166, 8
+  %.not67 = icmp eq i64 %167, 0
+  br i1 %.not67, label %168, label %.thread115
 
-167:                                              ; preds = %159
-  %.pre = load i8, ptr %156, align 2, !tbaa !93, !range !94
-  %.pre115 = trunc nuw i8 %.pre to i1
-  br i1 %.pre115, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread119
+168:                                              ; preds = %160
+  %.pre = load i8, ptr %157, align 2, !tbaa !93, !range !94
+  %169 = trunc nuw i8 %.pre to i1
+  br i1 %169, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread115
 
-.thread119:                                       ; preds = %155, %167, %159
-  %168 = load i64, ptr %140, align 8, !tbaa !16
-  %169 = icmp eq i64 %168, 0
-  br i1 %169, label %170, label %.thread109
+.thread115:                                       ; preds = %156, %168, %160
+  %170 = load i64, ptr %141, align 8, !tbaa !16
+  %171 = icmp eq i64 %170, 0
+  br i1 %171, label %172, label %.thread109
 
-170:                                              ; preds = %.thread119
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %172 = load ptr, ptr %171, align 8, !tbaa !92
-  %173 = load ptr, ptr %172, align 8, !tbaa !14
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = tail call noundef i64 %175(ptr noundef nonnull align 8 dereferenceable(37) %172) #18
-  %177 = and i64 %176, 8
-  %.not68 = icmp eq i64 %177, 0
-  br i1 %.not68, label %178, label %.thread109
+172:                                              ; preds = %.thread115
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %174 = load ptr, ptr %173, align 8, !tbaa !92
+  %175 = load ptr, ptr %174, align 8, !tbaa !14
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = tail call noundef i64 %177(ptr noundef nonnull align 8 dereferenceable(37) %174) #18
+  %179 = and i64 %178, 8
+  %.not68 = icmp eq i64 %179, 0
+  br i1 %.not68, label %180, label %.thread109
 
-178:                                              ; preds = %170
-  %.pr108 = load i64, ptr %140, align 8, !tbaa !16
+180:                                              ; preds = %172
+  %.pr108 = load i64, ptr %141, align 8, !tbaa !16
   %.not69 = icmp eq i64 %.pr108, 0
   br i1 %.not69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
 
-.thread109:                                       ; preds = %.thread119, %178, %170
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %180 = load i64, ptr %179, align 8, !tbaa !3
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %182 = load ptr, ptr %181, align 8, !tbaa !92
-  %183 = load ptr, ptr %182, align 8, !tbaa !14
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = tail call noundef i64 %185(ptr noundef nonnull align 8 dereferenceable(37) %182) #18
-  %187 = add i64 %186, -4
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %189 = load ptr, ptr %188, align 8, !tbaa !96
-  %190 = trunc i64 %180 to i32
-  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %189, i64 noundef %187, i32 noundef %190)
-  %191 = load ptr, ptr %181, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %191, i64 noundef %187) #18
+.thread109:                                       ; preds = %.thread115, %180, %172
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %182 = load i64, ptr %181, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %184 = load ptr, ptr %183, align 8, !tbaa !92
+  %185 = load ptr, ptr %184, align 8, !tbaa !14
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %188 = tail call noundef i64 %187(ptr noundef nonnull align 8 dereferenceable(37) %184) #18
+  %189 = add i64 %188, -4
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %191 = load ptr, ptr %190, align 8, !tbaa !96
+  %192 = trunc i64 %182 to i32
+  tail call void @_ZN5mmu_t8ss_storeIjEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %191, i64 noundef %189, i32 noundef %192)
+  %193 = load ptr, ptr %183, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %193, i64 noundef %189) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread106:                                       ; preds = %70, %71, %137
-  %192 = and i64 %.sink.i86.pre, 536870912
-  %.0.i87.not = icmp eq i64 %192, 0
-  br i1 %.0.i87.not, label %193, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread106:                                       ; preds = %70, %71, %138
+  %194 = and i64 %.sink.i86.pre, 536870912
+  %.0.i87.not = icmp eq i64 %194, 0
+  br i1 %.0.i87.not, label %195, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-193:                                              ; preds = %.thread106
-  %194 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store i64 2, ptr %195, align 8, !tbaa !8
-  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  store i8 0, ptr %196, align 8, !tbaa !10
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  store i64 %1, ptr %197, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %194, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %194, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+195:                                              ; preds = %.thread106
+  %196 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  store i64 2, ptr %197, align 8, !tbaa !8
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 16
+  store i8 0, ptr %198, align 8, !tbaa !10
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 24
+  store i64 %1, ptr %199, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %196, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %196, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-198:                                              ; preds = %67
-  %199 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i64 2, ptr %200, align 8, !tbaa !8
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  store i8 0, ptr %201, align 8, !tbaa !10
-  %202 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  store i64 %1, ptr %202, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %199, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %199, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+200:                                              ; preds = %67
+  %201 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  store i64 2, ptr %202, align 8, !tbaa !8
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  store i8 0, ptr %203, align 8, !tbaa !10
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 24
+  store i64 %1, ptr %204, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %201, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %201, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %64, %59, %130, %112, %101, %84, %76, %73, %.thread106, %139, %142, %150, %167, %178, %.thread109, %38
-  %203 = shl i64 %2, 32
-  %204 = add i64 %203, 8589934592
-  %205 = ashr exact i64 %204, 32
-  ret i64 %205
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %64, %59, %131, %113, %101, %84, %76, %73, %.thread106, %140, %143, %151, %168, %180, %.thread109, %38
+  %205 = shl i64 %2, 32
+  %206 = add i64 %205, 8589934592
+  %207 = ashr exact i64 %206, 32
+  ret i64 %207
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3094,14 +3094,14 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
 65:                                               ; preds = %44
   %66 = and i64 %1, 2176
   %67 = icmp eq i64 %66, 128
-  br i1 %67, label %68, label %194
+  br i1 %67, label %68, label %196
 
 68:                                               ; preds = %65
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4320
   %.sink.i86.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !3
   switch i64 %15, label %.thread106 [
     i64 5, label %69
-    i64 1, label %134
+    i64 1, label %135
   ]
 
 69:                                               ; preds = %68
@@ -3139,7 +3139,7 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1098
   %89 = load i8, ptr %88, align 2, !tbaa !93, !range !94, !noundef !95
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %91, label %.thread117
+  br i1 %90, label %91, label %.thread114
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 3528
@@ -3150,194 +3150,194 @@ define noundef i64 @_Z18logged_rv64e_c_luiP11processor_t6insn_tm(ptr noundef %0,
   %97 = tail call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(37) %93) #18
   %98 = and i64 %97, 8
   %.not72 = icmp eq i64 %98, 0
-  br i1 %.not72, label %99, label %.thread117
+  br i1 %.not72, label %99, label %.thread114
 
 99:                                               ; preds = %91
   %.pre112 = load i8, ptr %88, align 2, !tbaa !93, !range !94
-  %.pre114 = trunc nuw i8 %.pre112 to i1
-  br i1 %.pre114, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread117
+  %100 = trunc nuw i8 %.pre112 to i1
+  br i1 %100, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread114
 
-.thread117:                                       ; preds = %87, %99, %91
-  %100 = load i64, ptr %72, align 8, !tbaa !16
-  %101 = icmp eq i64 %100, 0
-  br i1 %101, label %102, label %.thread
+.thread114:                                       ; preds = %87, %99, %91
+  %101 = load i64, ptr %72, align 8, !tbaa !16
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %103, label %.thread
 
-102:                                              ; preds = %.thread117
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %104 = load ptr, ptr %103, align 8, !tbaa !92
-  %105 = load ptr, ptr %104, align 8, !tbaa !14
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef i64 %107(ptr noundef nonnull align 8 dereferenceable(37) %104) #18
-  %109 = and i64 %108, 8
-  %.not73 = icmp eq i64 %109, 0
-  br i1 %.not73, label %110, label %.thread
+103:                                              ; preds = %.thread114
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %105 = load ptr, ptr %104, align 8, !tbaa !92
+  %106 = load ptr, ptr %105, align 8, !tbaa !14
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = tail call noundef i64 %108(ptr noundef nonnull align 8 dereferenceable(37) %105) #18
+  %110 = and i64 %109, 8
+  %.not73 = icmp eq i64 %110, 0
+  br i1 %.not73, label %111, label %.thread
 
-110:                                              ; preds = %102
+111:                                              ; preds = %103
   %.pr = load i64, ptr %72, align 8, !tbaa !16
   %.not74 = icmp eq i64 %.pr, 0
   br i1 %.not74, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread
 
-.thread:                                          ; preds = %.thread117, %110, %102
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %112 = load ptr, ptr %111, align 8, !tbaa !96
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %114 = load ptr, ptr %113, align 8, !tbaa !92
-  %115 = load ptr, ptr %114, align 8, !tbaa !14
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %118 = tail call noundef i64 %117(ptr noundef nonnull align 8 dereferenceable(37) %114) #18
-  %119 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %112, i64 noundef %118)
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %121 = load i64, ptr %120, align 8, !tbaa !3
-  %.not75 = icmp eq i64 %121, %119
-  br i1 %.not75, label %127, label %122, !prof !145
+.thread:                                          ; preds = %.thread114, %111, %103
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %113 = load ptr, ptr %112, align 8, !tbaa !96
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %115 = load ptr, ptr %114, align 8, !tbaa !92
+  %116 = load ptr, ptr %115, align 8, !tbaa !14
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call noundef i64 %118(ptr noundef nonnull align 8 dereferenceable(37) %115) #18
+  %120 = tail call noundef i64 @_ZN5mmu_t7ss_loadImEET_m(ptr noundef nonnull align 8 dereferenceable(43168) %113, i64 noundef %119)
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %122 = load i64, ptr %121, align 8, !tbaa !3
+  %.not75 = icmp eq i64 %122, %120
+  br i1 %.not75, label %128, label %123, !prof !145
 
-122:                                              ; preds = %.thread
-  %123 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store i64 18, ptr %124, align 8, !tbaa !8
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  store i8 0, ptr %125, align 8, !tbaa !10
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  store i64 3, ptr %126, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %123, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
+123:                                              ; preds = %.thread
+  %124 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store i64 18, ptr %125, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  store i8 0, ptr %126, align 8, !tbaa !10
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  store i64 3, ptr %127, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV19trap_software_check, i64 16), ptr %124, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI19trap_software_check, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-127:                                              ; preds = %.thread
-  %128 = load ptr, ptr %113, align 8, !tbaa !92
-  %129 = load ptr, ptr %128, align 8, !tbaa !14
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call noundef i64 %131(ptr noundef nonnull align 8 dereferenceable(37) %128) #18
-  %133 = add i64 %132, 8
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %128, i64 noundef %133) #18
+128:                                              ; preds = %.thread
+  %129 = load ptr, ptr %114, align 8, !tbaa !92
+  %130 = load ptr, ptr %129, align 8, !tbaa !14
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call noundef i64 %132(ptr noundef nonnull align 8 dereferenceable(37) %129) #18
+  %134 = add i64 %133, 8
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %129, i64 noundef %134) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-134:                                              ; preds = %68
-  %135 = and i64 %.sink.i86.pre, 8589934592
-  %.0.i81.not = icmp eq i64 %135, 0
-  br i1 %.0.i81.not, label %.thread106, label %136
+135:                                              ; preds = %68
+  %136 = and i64 %.sink.i86.pre, 8589934592
+  %.0.i81.not = icmp eq i64 %136, 0
+  br i1 %.0.i81.not, label %.thread106, label %137
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %138 = load i64, ptr %137, align 8, !tbaa !16
-  %.not65 = icmp eq i64 %138, 3
-  br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %139
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %139 = load i64, ptr %138, align 8, !tbaa !16
+  %.not65 = icmp eq i64 %139, 3
+  br i1 %.not65, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %140
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 3496
-  %141 = load ptr, ptr %140, align 8, !tbaa !92
-  %142 = load ptr, ptr %141, align 8, !tbaa !14
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = tail call noundef i64 %144(ptr noundef nonnull align 8 dereferenceable(37) %141) #18
-  %146 = and i64 %145, 8
-  %.not66 = icmp eq i64 %146, 0
-  br i1 %.not66, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %147
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 3496
+  %142 = load ptr, ptr %141, align 8, !tbaa !92
+  %143 = load ptr, ptr %142, align 8, !tbaa !14
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = tail call noundef i64 %145(ptr noundef nonnull align 8 dereferenceable(37) %142) #18
+  %147 = and i64 %146, 8
+  %.not66 = icmp eq i64 %147, 0
+  br i1 %.not66, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %148
 
-147:                                              ; preds = %139
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 40
-  %.sink.i.i82 = load i64, ptr %150, align 8, !tbaa !3
-  %151 = and i64 %.sink.i.i82, 262144
-  %.0.i.i83.not = icmp eq i64 %151, 0
-  br i1 %.0.i.i83.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %152
+148:                                              ; preds = %140
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1104
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %.sink.i.i82 = load i64, ptr %151, align 8, !tbaa !3
+  %152 = and i64 %.sink.i.i82, 262144
+  %.0.i.i83.not = icmp eq i64 %152, 0
+  br i1 %.0.i.i83.not, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %153
 
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1098
-  %154 = load i8, ptr %153, align 2, !tbaa !93, !range !94, !noundef !95
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %.thread119
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 1098
+  %155 = load i8, ptr %154, align 2, !tbaa !93, !range !94, !noundef !95
+  %156 = trunc nuw i8 %155 to i1
+  br i1 %156, label %157, label %.thread115
 
-156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 3528
-  %158 = load ptr, ptr %157, align 8, !tbaa !92
-  %159 = load ptr, ptr %158, align 8, !tbaa !14
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = tail call noundef i64 %161(ptr noundef nonnull align 8 dereferenceable(37) %158) #18
-  %163 = and i64 %162, 8
-  %.not67 = icmp eq i64 %163, 0
-  br i1 %.not67, label %164, label %.thread119
+157:                                              ; preds = %153
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 3528
+  %159 = load ptr, ptr %158, align 8, !tbaa !92
+  %160 = load ptr, ptr %159, align 8, !tbaa !14
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = tail call noundef i64 %162(ptr noundef nonnull align 8 dereferenceable(37) %159) #18
+  %164 = and i64 %163, 8
+  %.not67 = icmp eq i64 %164, 0
+  br i1 %.not67, label %165, label %.thread115
 
-164:                                              ; preds = %156
-  %.pre = load i8, ptr %153, align 2, !tbaa !93, !range !94
-  %.pre115 = trunc nuw i8 %.pre to i1
-  br i1 %.pre115, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread119
+165:                                              ; preds = %157
+  %.pre = load i8, ptr %154, align 2, !tbaa !93, !range !94
+  %166 = trunc nuw i8 %.pre to i1
+  br i1 %166, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread115
 
-.thread119:                                       ; preds = %152, %164, %156
-  %165 = load i64, ptr %137, align 8, !tbaa !16
-  %166 = icmp eq i64 %165, 0
-  br i1 %166, label %167, label %.thread109
+.thread115:                                       ; preds = %153, %165, %157
+  %167 = load i64, ptr %138, align 8, !tbaa !16
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %.thread109
 
-167:                                              ; preds = %.thread119
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 3512
-  %169 = load ptr, ptr %168, align 8, !tbaa !92
-  %170 = load ptr, ptr %169, align 8, !tbaa !14
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %172 = load ptr, ptr %171, align 8
-  %173 = tail call noundef i64 %172(ptr noundef nonnull align 8 dereferenceable(37) %169) #18
-  %174 = and i64 %173, 8
-  %.not68 = icmp eq i64 %174, 0
-  br i1 %.not68, label %175, label %.thread109
+169:                                              ; preds = %.thread115
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 3512
+  %171 = load ptr, ptr %170, align 8, !tbaa !92
+  %172 = load ptr, ptr %171, align 8, !tbaa !14
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8
+  %175 = tail call noundef i64 %174(ptr noundef nonnull align 8 dereferenceable(37) %171) #18
+  %176 = and i64 %175, 8
+  %.not68 = icmp eq i64 %176, 0
+  br i1 %.not68, label %177, label %.thread109
 
-175:                                              ; preds = %167
-  %.pr108 = load i64, ptr %137, align 8, !tbaa !16
+177:                                              ; preds = %169
+  %.pr108 = load i64, ptr %138, align 8, !tbaa !16
   %.not69 = icmp eq i64 %.pr108, 0
   br i1 %.not69, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %.thread109
 
-.thread109:                                       ; preds = %.thread119, %175, %167
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %177 = load i64, ptr %176, align 8, !tbaa !3
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 3816
-  %179 = load ptr, ptr %178, align 8, !tbaa !92
-  %180 = load ptr, ptr %179, align 8, !tbaa !14
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %182 = load ptr, ptr %181, align 8
-  %183 = tail call noundef i64 %182(ptr noundef nonnull align 8 dereferenceable(37) %179) #18
-  %184 = add i64 %183, -8
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %186 = load ptr, ptr %185, align 8, !tbaa !96
-  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %184, i64 noundef %177)
-  %187 = load ptr, ptr %178, align 8, !tbaa !92
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %187, i64 noundef %184) #18
+.thread109:                                       ; preds = %.thread115, %177, %169
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %179 = load i64, ptr %178, align 8, !tbaa !3
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 3816
+  %181 = load ptr, ptr %180, align 8, !tbaa !92
+  %182 = load ptr, ptr %181, align 8, !tbaa !14
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = tail call noundef i64 %184(ptr noundef nonnull align 8 dereferenceable(37) %181) #18
+  %186 = add i64 %185, -8
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %188 = load ptr, ptr %187, align 8, !tbaa !96
+  tail call void @_ZN5mmu_t8ss_storeImEEvmT_(ptr noundef nonnull align 8 dereferenceable(43168) %188, i64 noundef %186, i64 noundef %179)
+  %189 = load ptr, ptr %180, align 8, !tbaa !92
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %189, i64 noundef %186) #18
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
-.thread106:                                       ; preds = %68, %69, %134
-  %188 = and i64 %.sink.i86.pre, 536870912
-  %.0.i87.not = icmp eq i64 %188, 0
-  br i1 %.0.i87.not, label %189, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
+.thread106:                                       ; preds = %68, %69, %135
+  %190 = and i64 %.sink.i86.pre, 536870912
+  %.0.i87.not = icmp eq i64 %190, 0
+  br i1 %.0.i87.not, label %191, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, !prof !7
 
-189:                                              ; preds = %.thread106
-  %190 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  store i64 2, ptr %191, align 8, !tbaa !8
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  store i8 0, ptr %192, align 8, !tbaa !10
-  %193 = getelementptr inbounds nuw i8, ptr %190, i64 24
-  store i64 %1, ptr %193, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %190, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %190, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+191:                                              ; preds = %.thread106
+  %192 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store i64 2, ptr %193, align 8, !tbaa !8
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  store i8 0, ptr %194, align 8, !tbaa !10
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  store i64 %1, ptr %195, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %192, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %192, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-194:                                              ; preds = %65
-  %195 = tail call ptr @__cxa_allocate_exception(i64 32) #18
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store i64 2, ptr %196, align 8, !tbaa !8
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  store i8 0, ptr %197, align 8, !tbaa !10
-  %198 = getelementptr inbounds nuw i8, ptr %195, i64 24
-  store i64 %1, ptr %198, align 8, !tbaa !13
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %195, align 8, !tbaa !14
-  tail call void @__cxa_throw(ptr nonnull %195, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
+196:                                              ; preds = %65
+  %197 = tail call ptr @__cxa_allocate_exception(i64 32) #18
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  store i64 2, ptr %198, align 8, !tbaa !8
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 16
+  store i8 0, ptr %199, align 8, !tbaa !10
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  store i64 %1, ptr %200, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %197, align 8, !tbaa !14
+  tail call void @__cxa_throw(ptr nonnull %197, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #19
   unreachable
 
-_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %62, %57, %127, %110, %99, %82, %74, %71, %.thread106, %136, %139, %147, %164, %175, %.thread109, %38
-  %199 = add i64 %2, 2
-  ret i64 %199
+_ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %62, %57, %128, %111, %99, %82, %74, %71, %.thread106, %137, %140, %148, %165, %177, %.thread109, %38
+  %201 = add i64 %2, 2
+  ret i64 %201
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

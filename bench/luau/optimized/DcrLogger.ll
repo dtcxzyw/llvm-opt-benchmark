@@ -1819,10 +1819,10 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_8LocationE(pt
 
 _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit: ; preds = %.noexc
   %.pre = load i8, ptr %5, align 1, !tbaa !30, !range !35
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !38
-  %13 = trunc nuw i8 %.pre to i1
-  br i1 %13, label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15, label %14
+  %11 = trunc nuw i8 %.pre to i1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = load i32, ptr %12, align 4, !tbaa !38
+  br i1 %11, label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15, label %14
 
 14:                                               ; preds = %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit
   %15 = load ptr, ptr %3, align 8, !tbaa !37
@@ -1831,15 +1831,15 @@ _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit: ; preds = %.noexc
 
 .noexc7:                                          ; preds = %14
   %16 = load ptr, ptr %3, align 8, !tbaa !37
-  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %12)
+  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %13)
           to label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit9 unwind label %30
 
 _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit9: ; preds = %.noexc7
   %.pre16 = load i8, ptr %5, align 1, !tbaa !30, !range !35
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !39
-  %19 = trunc nuw i8 %.pre16 to i1
-  br i1 %19, label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15, label %20
+  %17 = trunc nuw i8 %.pre16 to i1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load i32, ptr %18, align 4, !tbaa !39
+  br i1 %17, label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15, label %20
 
 20:                                               ; preds = %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit9
   %21 = load ptr, ptr %3, align 8, !tbaa !37
@@ -1848,15 +1848,15 @@ _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit9: ; preds = %.noexc7
 
 .noexc10:                                         ; preds = %20
   %22 = load ptr, ptr %3, align 8, !tbaa !37
-  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %18)
+  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %19)
           to label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit12 unwind label %30
 
 _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit12: ; preds = %.noexc10
   %.pre17 = load i8, ptr %5, align 1, !tbaa !30, !range !35
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !40
-  %25 = trunc nuw i8 %.pre17 to i1
-  br i1 %25, label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15, label %26
+  %23 = trunc nuw i8 %.pre17 to i1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %25 = load i32, ptr %24, align 4, !tbaa !40
+  br i1 %23, label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15, label %26
 
 26:                                               ; preds = %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit12
   %27 = load ptr, ptr %3, align 8, !tbaa !37
@@ -1865,7 +1865,7 @@ _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit12: ; preds = %.noexc10
 
 .noexc13:                                         ; preds = %26
   %28 = load ptr, ptr %3, align 8, !tbaa !37
-  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef %24)
+  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef %25)
           to label %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15 unwind label %30
 
 _ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit15: ; preds = %2, %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit, %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit9, %_ZN4Luau4Json12ArrayEmitter10writeValueIjEEvT_.exit12, %.noexc13
@@ -5912,11 +5912,11 @@ define dso_local void @_ZN4Luau4Json5writeERNS0_11JsonEmitterERKNS_12StepSnapsho
 
 _ZN4Luau4Json13ObjectEmitter9writePairIPKNS_10ConstraintEEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit: ; preds = %.noexc10
   %.pre = load i8, ptr %9, align 1, !tbaa !42, !range !35
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !179, !range !35, !noundef !36
-  %19 = trunc nuw i8 %18 to i1
-  %20 = trunc nuw i8 %.pre to i1
-  br i1 %20, label %_ZN4Luau4Json13ObjectEmitter9writePairIbEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit, label %21
+  %17 = trunc nuw i8 %.pre to i1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load i8, ptr %18, align 8, !tbaa !179, !range !35, !noundef !36
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %17, label %_ZN4Luau4Json13ObjectEmitter9writePairIbEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit, label %21
 
 21:                                               ; preds = %_ZN4Luau4Json13ObjectEmitter9writePairIPKNS_10ConstraintEEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit
   %22 = load ptr, ptr %4, align 8, !tbaa !37
@@ -5935,7 +5935,7 @@ _ZN4Luau4Json13ObjectEmitter9writePairIPKNS_10ConstraintEEEvSt17basic_string_vie
 
 .noexc14:                                         ; preds = %.noexc13
   %25 = load ptr, ptr %4, align 8, !tbaa !37
-  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEb(ptr noundef nonnull align 8 dereferenceable(32) %25, i1 noundef zeroext %19)
+  invoke void @_ZN4Luau4Json5writeERNS0_11JsonEmitterEb(ptr noundef nonnull align 8 dereferenceable(32) %25, i1 noundef zeroext %20)
           to label %_ZN4Luau4Json13ObjectEmitter9writePairIbEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN4Luau4Json13ObjectEmitter9writePairIbEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit: ; preds = %2, %_ZN4Luau4Json13ObjectEmitter9writePairIPKNS_10ConstraintEEEvSt17basic_string_viewIcSt11char_traitsIcEET_.exit, %.noexc14

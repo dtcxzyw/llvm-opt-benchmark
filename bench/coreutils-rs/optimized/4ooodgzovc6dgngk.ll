@@ -323,9 +323,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = icmp eq i64 %.promoted, 0
   %.0.sroa.speculated.i.i = tail call range(i64 1, 0) i64 @llvm.umin.i64(i64 %.promoted, i64 range(i64 1, 0) 32)
-  br i1 %11, label %.thread17, label %.lr.ph
+  br i1 %11, label %.thread15, label %.lr.ph
 
-.thread17:                                        ; preds = %3
+.thread15:                                        ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !63, !noalias !70, !noundef !4
   br label %49
@@ -417,19 +417,19 @@ default.unreachable:                              ; preds = %25
   %.pre.i.i = load i64, ptr %41, align 8, !alias.scope !74, !noalias !70
   br label %49
 
-49:                                               ; preds = %.thread17, %.noexc5, %40
-  %50 = phi ptr [ %41, %40 ], [ %41, %.noexc5 ], [ %12, %.thread17 ]
-  %.ph1619 = phi i64 [ %15, %40 ], [ %15, %.noexc5 ], [ 0, %.thread17 ]
-  %51 = phi i64 [ %42, %40 ], [ %.pre.i.i, %.noexc5 ], [ %13, %.thread17 ]
+49:                                               ; preds = %.thread15, %.noexc5, %40
+  %50 = phi ptr [ %41, %40 ], [ %41, %.noexc5 ], [ %12, %.thread15 ]
+  %.ph1417 = phi i64 [ %15, %40 ], [ %15, %.noexc5 ], [ 0, %.thread15 ]
+  %51 = phi i64 [ %42, %40 ], [ %.pre.i.i, %.noexc5 ], [ %13, %.thread15 ]
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !alias.scope !74, !noalias !70, !nonnull !4, !noundef !4
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1619, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1417, i1 false)
   %55 = load i64, ptr %50, align 8, !alias.scope !74, !noalias !70, !noundef !4
-  %56 = add i64 %55, %.ph1619
+  %56 = add i64 %55, %.ph1417
   store i64 %56, ptr %50, align 8, !alias.scope !74, !noalias !70
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.ph1619, ptr %57, align 8
+  store i64 %.ph1417, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %59, %49
@@ -482,9 +482,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = icmp eq i64 %.promoted, 0
   %.0.sroa.speculated.i.i = tail call range(i64 1, 0) i64 @llvm.umin.i64(i64 %.promoted, i64 range(i64 1, 0) 32)
-  br i1 %13, label %.thread17, label %.lr.ph
+  br i1 %13, label %.thread15, label %.lr.ph
 
-.thread17:                                        ; preds = %3
+.thread15:                                        ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !91, !noalias !98, !noundef !4
   br label %63
@@ -622,19 +622,19 @@ default.unreachable:                              ; preds = %39
   %.pre.i.i = load i64, ptr %55, align 8, !alias.scope !134, !noalias !98
   br label %63
 
-63:                                               ; preds = %.thread17, %.noexc5, %54
-  %64 = phi ptr [ %55, %54 ], [ %55, %.noexc5 ], [ %14, %.thread17 ]
-  %.ph1619 = phi i64 [ %30, %54 ], [ %30, %.noexc5 ], [ 0, %.thread17 ]
-  %65 = phi i64 [ %56, %54 ], [ %.pre.i.i, %.noexc5 ], [ %15, %.thread17 ]
+63:                                               ; preds = %.thread15, %.noexc5, %54
+  %64 = phi ptr [ %55, %54 ], [ %55, %.noexc5 ], [ %14, %.thread15 ]
+  %.ph1417 = phi i64 [ %30, %54 ], [ %30, %.noexc5 ], [ 0, %.thread15 ]
+  %65 = phi i64 [ %56, %54 ], [ %.pre.i.i, %.noexc5 ], [ %15, %.thread15 ]
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !134, !noalias !98, !nonnull !4, !noundef !4
   %68 = getelementptr inbounds i8, ptr %67, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull readonly align 1 %7, i64 %.ph1619, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr nonnull readonly align 1 %7, i64 %.ph1417, i1 false)
   %69 = load i64, ptr %64, align 8, !alias.scope !134, !noalias !98, !noundef !4
-  %70 = add i64 %69, %.ph1619
+  %70 = add i64 %69, %.ph1417
   store i64 %70, ptr %64, align 8, !alias.scope !134, !noalias !98
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.ph1619, ptr %71, align 8
+  store i64 %.ph1417, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %73, %63
@@ -2240,7 +2240,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit.us35.i.i: ; pred
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.noexc14, %.noexc, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i", %.noexc11
-  %65 = phi i8 [ 0, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ 1, %.noexc11 ], [ %26, %.noexc ], [ %20, %.noexc14 ]
+  %65 = phi i8 [ 0, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ 1, %.noexc11 ], [ %26, %.noexc ], [ 1, %.noexc14 ]
   %66 = phi ptr [ %19, %"_ZN64_$LT$std..io..Chain$LT$T$C$U$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h5f82533d14731ceeE.exit.thread.i.i" ], [ %.pr.us3347.i.i, %.noexc11 ], [ %.pr.us.i.i, %.noexc ], [ %.pr.us33.i.i, %.noexc14 ]
   %67 = load i64, ptr %15, align 8, !noalias !406, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !406

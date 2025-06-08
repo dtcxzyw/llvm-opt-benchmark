@@ -85620,7 +85620,6 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit323:       ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit393
 
 924:                                              ; preds = %.lr.ph1260, %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit
-  %.11551259 = phi i8 [ %.0154, %.lr.ph1260 ], [ 0, %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit ]
   %925 = load ptr, ptr %17, align 8, !tbaa !948
   %926 = load ptr, ptr %472, align 8, !tbaa !948
   %.not6951248 = icmp eq ptr %925, %926
@@ -86801,7 +86800,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i451: ; preds = 
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit393
 
 .loopexit1710:                                    ; preds = %_ZN5Yosys11permute_lutEmRKSt6vectorIiSaIiEE.exit, %._crit_edge1258
-  %.3157 = phi i8 [ 1, %._crit_edge1258 ], [ %.11551259, %_ZN5Yosys11permute_lutEmRKSt6vectorIiSaIiEE.exit ]
+  %.3157 = phi i8 [ 1, %._crit_edge1258 ], [ 0, %_ZN5Yosys11permute_lutEmRKSt6vectorIiSaIiEE.exit ]
   br i1 %or.cond.i.i454, label %_ZSt16next_permutationIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEbT_S7_.exit.thread, label %1431
 
 1431:                                             ; preds = %.loopexit1710

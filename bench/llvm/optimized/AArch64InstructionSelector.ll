@@ -46108,8 +46108,8 @@ _ZNSt8optionalIN4llvm12ValueAndVRegEEaSEOS2_.exit.i: ; preds = %92, %89, %86, %8
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit73.i
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit73.i: ; preds = %118, %115, %.thread155.i, %102
-  %120 = phi i1 [ true, %115 ], [ true, %118 ], [ false, %102 ], [ true, %.thread155.i ]
   %.sroa.086.1150.i = phi i32 [ %.sroa.086.1151.i, %115 ], [ %.sroa.086.1151.i, %118 ], [ %62, %102 ], [ %.sroa.086.1151.i, %.thread155.i ]
+  %120 = phi i1 [ true, %115 ], [ true, %118 ], [ false, %102 ], [ true, %.thread155.i ]
   %.sroa.094.3109.i = phi i64 [ %.0.i.i, %115 ], [ %.sroa.094.3.ph154159.i, %118 ], [ %.sroa.094.0134.i472, %102 ], [ %.0.i.i.i, %.thread155.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
   br label %142

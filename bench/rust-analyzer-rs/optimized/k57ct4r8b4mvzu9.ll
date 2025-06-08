@@ -12430,7 +12430,7 @@ define void @"_ZN97_$LT$syntax..ast..generated..nodes..MatchArm$u20$as$u20$synta
 
 17:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit.thread"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 %8, ptr %4, align 8
+  store i64 0, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %18, align 8
   invoke void @_ZN5rowan6cursor10SyntaxNode6detach17h42bc4d60d84eb058E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %18)
@@ -12438,7 +12438,7 @@ define void @"_ZN97_$LT$syntax..ast..generated..nodes..MatchArm$u20$as$u20$synta
 
 19:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 %8, ptr %4, align 8
+  store i64 1, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %20, align 8
   invoke void @_ZN5rowan6cursor11SyntaxToken6detach17he3aaca84eae65064E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
@@ -12582,7 +12582,7 @@ common.resume:                                    ; preds = %109, %51, %99, %21,
 
 65:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit43.thread"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i64 %56, ptr %3, align 8
+  store i64 0, ptr %3, align 8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %58, ptr %66, align 8
   invoke void @_ZN5rowan6cursor10SyntaxNode6detach17h42bc4d60d84eb058E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %66)
@@ -12590,7 +12590,7 @@ common.resume:                                    ; preds = %109, %51, %99, %21,
 
 67:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit43"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i64 %56, ptr %3, align 8
+  store i64 1, ptr %3, align 8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %58, ptr %68, align 8
   invoke void @_ZN5rowan6cursor11SyntaxToken6detach17he3aaca84eae65064E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %68)
@@ -13606,7 +13606,7 @@ _ZN6syntax3ted6remove17h7fd5e76df05ace0eE.exit:   ; preds = %"_ZN5rowan3api125_$
 
 50:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit.thread"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 %41, ptr %6, align 8
+  store i64 0, ptr %6, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %43, ptr %51, align 8
   invoke void @_ZN5rowan6cursor10SyntaxNode6detach17h42bc4d60d84eb058E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %51)
@@ -13614,7 +13614,7 @@ _ZN6syntax3ted6remove17h7fd5e76df05ace0eE.exit:   ; preds = %"_ZN5rowan3api125_$
 
 52:                                               ; preds = %"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$4kind17h5a57663d2c9bfb6aE.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 %41, ptr %6, align 8
+  store i64 1, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %43, ptr %53, align 8
   invoke void @_ZN5rowan6cursor11SyntaxToken6detach17he3aaca84eae65064E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53)

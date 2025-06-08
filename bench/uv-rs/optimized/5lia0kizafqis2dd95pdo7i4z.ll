@@ -3372,15 +3372,15 @@ define hidden noundef ptr @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.1, i64 16
   br label %21
 
-21:                                               ; preds = %35, %.lr.ph.i
-  %22 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %24, %35 ]
+21:                                               ; preds = %33, %.lr.ph.i
+  %22 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %24, %33 ]
   %23 = load ptr, ptr %22, align 8, !noalias !853, !nonnull !3, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %19, align 8, !alias.scope !848, !noalias !851
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !853
   store ptr %23, ptr %2, align 8, !noalias !854
   %25 = icmp eq ptr %.sroa.05.1, %23
-  br i1 %25, label %35, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %21
   %27 = load i64, ptr %.sroa.05.1, align 8, !noalias !857, !noundef !3
@@ -3388,29 +3388,29 @@ define hidden noundef ptr @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy
   %29 = load i64, ptr %23, align 8, !noalias !857, !noundef !3
   %30 = lshr i64 %29, 1
   %.not.i.i.i.i.i.i.i = icmp eq i64 %28, %30
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i", label %33
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i", label %34
 
 "_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i": ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %20, ptr nonnull readonly align 1 %31, i64 %28), !alias.scope !861, !noalias !857
   %32 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %32, label %35, label %33
+  br i1 %32, label %33, label %34
 
-33:                                               ; preds = %"_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i", %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !853
-  store i64 1, ptr %0, align 8, !noalias !853
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %34, align 8, !noalias !853
-  br label %.thread
-
-35:                                               ; preds = %"_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i", %21
+33:                                               ; preds = %"_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i", %21
   call void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !854
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !853
   %.not.i = icmp eq ptr %24, %18
   br i1 %.not.i, label %.thread, label %21
 
-.thread:                                          ; preds = %35, %33, %17, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h8e108a147561cc71E.exit", %13
-  %.sroa.0.0 = phi ptr [ null, %13 ], [ null, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h8e108a147561cc71E.exit" ], [ %.sroa.05.1, %17 ], [ %.sroa.05.1, %33 ], [ %.sroa.05.1, %35 ]
+34:                                               ; preds = %"_ZN113_$LT$itertools..adaptors..coalesce..DedupEq$u20$as$u20$itertools..adaptors..coalesce..DedupPredicate$LT$T$GT$$GT$10dedup_pair17h4893495cc76f52b4E.exit.i.i.i", %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !853
+  store i64 1, ptr %0, align 8, !noalias !853
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %35, align 8, !noalias !853
+  br label %.thread
+
+.thread:                                          ; preds = %33, %34, %17, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h8e108a147561cc71E.exit", %13
+  %.sroa.0.0 = phi ptr [ null, %13 ], [ null, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uv_normalize..package_name..PackageName$GT$$GT$$GT$17h8e108a147561cc71E.exit" ], [ %.sroa.05.1, %17 ], [ %.sroa.05.1, %34 ], [ %.sroa.05.1, %33 ]
   ret ptr %.sroa.0.0
 }
 

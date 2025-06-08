@@ -68975,12 +68975,12 @@ define internal fastcc void @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_anal
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %15 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %16 = icmp samesign ult i64 %15, 3
-  br i1 %16, label %17, label %.thread88
+  br i1 %16, label %17, label %.thread87
 
 17:                                               ; preds = %1
   %18 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$15reload_flycheck10__CALLSITE17hafeb78e1f6463dd5E", i64 16) monotonic, align 8
   switch i8 %18, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit [
-    i8 0, label %.thread88
+    i8 0, label %.thread87
     i8 1, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
     i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
   ]
@@ -68988,9 +68988,9 @@ define internal fastcc void @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_anal
 _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ; preds = %17
   %19 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h8dcfce8925f7caa6E(ptr noundef nonnull align 8 @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$15reload_flycheck10__CALLSITE17hafeb78e1f6463dd5E"), !range !20
   %.not = icmp eq i8 %19, 0
-  br i1 %.not, label %.thread88, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
+  br i1 %.not, label %.thread87, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
 
-.thread88:                                        ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %1, %17
+.thread87:                                        ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread, %1, %17
   store i64 2, ptr %12, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %20, align 8
@@ -69000,7 +69000,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.0.i71 = phi i8 [ %19, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit ], [ %18, %17 ], [ %18, %17 ]
   %21 = load ptr, ptr @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$15reload_flycheck10__CALLSITE17hafeb78e1f6463dd5E", align 8, !nonnull !4, !align !32, !noundef !4
   %22 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hc13899c385d0edd3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %21, i8 noundef %.0.i71)
-  br i1 %22, label %23, label %.thread88
+  br i1 %22, label %23, label %.thread87
 
 23:                                               ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
   %24 = load ptr, ptr @"_ZN13rust_analyzer6reload58_$LT$impl$u20$rust_analyzer..global_state..GlobalState$GT$15reload_flycheck10__CALLSITE17hafeb78e1f6463dd5E", align 8, !nonnull !4, !align !32, !noundef !4
@@ -69034,11 +69034,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #44, !noalias !8956
   unreachable
 
-common.resume:                                    ; preds = %.thread92, %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %.pn49, %.thread92 ]
+common.resume:                                    ; preds = %.thread91, %30
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %.pn49, %.thread91 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread88, %23, %29
+_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread87, %23, %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !noalias !4
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %11)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -69047,15 +69047,15 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread88, %2
   invoke void @_ZN13rust_analyzer6config6Config8flycheck17h07998e65e6449b52E(ptr noalias noundef nonnull sret({ [3 x i64], i64, [17 x i64] }) align 8 captures(none) dereferenceable(168) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(4560) %36)
           to label %39 unwind label %37
 
-.thread92:                                        ; preds = %82, %.thread95, %.thread89, %37
-  %.pn49 = phi { ptr, i32 } [ %38, %37 ], [ %.pn4777, %.thread89 ], [ %.pn.ph, %.thread95 ], [ %.pn45, %82 ]
+.thread91:                                        ; preds = %82, %.thread94, %.thread88, %37
+  %.pn49 = phi { ptr, i32 } [ %38, %37 ], [ %.pn4777, %.thread88 ], [ %.pn.ph, %.thread94 ], [ %.pn45, %82 ]
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17h957f252789d25477E"(ptr noalias noundef align 8 dereferenceable(40) %14) #46
           to label %common.resume unwind label %116
 
 37:                                               ; preds = %142, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread92
+  br label %.thread91
 
 39:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -69103,19 +69103,19 @@ default.unreachable:                              ; preds = %136, %39
   %57 = icmp slt i64 %56, 0
   br i1 %57, label %.invoke, label %60
 
-.thread95:                                        ; preds = %.critedge, %97
+.thread94:                                        ; preds = %.critedge, %97
   %.pn.ph = phi { ptr, i32 } [ %98, %97 ], [ %115, %.critedge ]
   call void @__rust_dealloc(ptr noundef nonnull %69, i64 noundef 64, i64 noundef 8) #33
-  br label %.thread92
+  br label %.thread91
 
 58:                                               ; preds = %93
   call void @__rust_dealloc(ptr noundef nonnull %69, i64 noundef 64, i64 noundef 8) #33
-  br label %.thread89
+  br label %.thread88
 
 .thread:                                          ; preds = %.invoke, %138, %139, %140
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread89
+  br label %.thread88
 
 60:                                               ; preds = %53, %48, %43
   %.sroa.4.0.i = phi ptr [ %44, %43 ], [ %49, %48 ], [ %54, %53 ]
@@ -69171,7 +69171,7 @@ default.unreachable:                              ; preds = %136, %39
   %.141 = phi i8 [ %.5, %130 ], [ %.2, %84 ]
   %.pn45 = phi { ptr, i32 } [ %131, %130 ], [ %85, %84 ]
   %83 = trunc nuw i8 %.141 to i1
-  br i1 %83, label %143, label %.thread92
+  br i1 %83, label %143, label %.thread91
 
 84:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9f5b986d385f2776E.exit", %72, %71
   %.2 = phi i8 [ 1, %71 ], [ 1, %72 ], [ %.5, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9f5b986d385f2776E.exit" ]
@@ -69214,7 +69214,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %67
 97:                                               ; preds = %106
   %98 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread95
+  br label %.thread94
 
 99:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit
   store i64 %86, ptr %90, align 8
@@ -69275,7 +69275,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %67
   invoke void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$paths..AbsPathBuf$GT$$GT$17hae1cf3dd833f5e8dE.llvm.3466590722360702098"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #46
           to label %118 unwind label %116
 
-116:                                              ; preds = %.critedge, %.thread89, %143, %118, %114, %.thread92
+116:                                              ; preds = %.critedge, %.thread88, %143, %118, %114, %.thread91
   %117 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #44
@@ -69287,7 +69287,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %67
 
 .critedge:                                        ; preds = %118
   invoke fastcc void @"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$flycheck..Message$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$17h007083b138e1698dE"(ptr nonnull %90, ptr nonnull @anon.1e9305021006caa9226a15de34980b1e.498) #46
-          to label %.thread95 unwind label %116
+          to label %.thread94 unwind label %116
 
 119:                                              ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9f5b986d385f2776E.exit"
   %120 = extractvalue { ptr, i64 } %113, 0
@@ -69361,12 +69361,12 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %67
 
 143:                                              ; preds = %82
   invoke void @"_ZN4core3ptr80drop_in_place$LT$crossbeam_channel..channel..Sender$LT$flycheck..Message$GT$$GT$17hafe96f3c78a24bb2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #46
-          to label %.thread89 unwind label %116
+          to label %.thread88 unwind label %116
 
-.thread89:                                        ; preds = %143, %58, %.thread
+.thread88:                                        ; preds = %143, %58, %.thread
   %.pn4777 = phi { ptr, i32 } [ %59, %.thread ], [ %94, %58 ], [ %.pn45, %143 ]
   invoke fastcc void @"_ZN4core3ptr45drop_in_place$LT$flycheck..FlycheckConfig$GT$17h53d39470a187e62dE"(ptr noalias noundef align 8 dereferenceable(168) %11) #46
-          to label %.thread92 unwind label %116
+          to label %.thread91 unwind label %116
 }
 
 ; Function Attrs: nonlazybind uwtable

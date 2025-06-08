@@ -2090,7 +2090,7 @@ define linkonce_odr hidden noundef i32 @_ZN3sls10smt_solver10solver_ctx13on_save
 22:                                               ; preds = %24, %17, %9
   %23 = landingpad { ptr, i32 }
           cleanup
-  store i8 %3, ptr %2, align 8, !tbaa !205
+  store i8 0, ptr %2, align 8, !tbaa !205
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %19
@@ -2104,7 +2104,7 @@ define linkonce_odr hidden noundef i32 @_ZN3sls10smt_solver10solver_ctx13on_save
 
 27:                                               ; preds = %19, %14
   %.1 = phi i32 [ %18, %19 ], [ %.05, %14 ]
-  store i8 %3, ptr %2, align 8, !tbaa !205
+  store i8 0, ptr %2, align 8, !tbaa !205
   br label %28
 
 28:                                               ; preds = %1, %27

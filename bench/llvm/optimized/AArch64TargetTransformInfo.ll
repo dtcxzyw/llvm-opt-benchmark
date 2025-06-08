@@ -38313,12 +38313,12 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
   %.not.not9.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.not9.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
+  br i1 %.not.not9.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i
 
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i, i64 8
   %.not.not.i.i.i.i.i.i.i.i = icmp eq ptr %18, %16
-  br i1 %.not.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !960
+  br i1 %.not.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !960
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %12, %17
   %.0810.i.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %13, %12 ]
@@ -38329,134 +38329,145 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i": ; preds = %8
   %21 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.029.val.val.i.i.i.i) #30
   %.not99.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread_crit_edge.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
+  br i1 %.not99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread_crit_edge.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i": ; preds = %17, %12
+  %22 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
+  %.val31151.i.i.i.i = load ptr, ptr %22, align 8, !tbaa !959
+  %23 = getelementptr i8, ptr %.val31151.i.i.i.i, i64 -64
+  %.val31.val152.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !83
+  br label %27
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i"
   %.pre.i.i.i.i = load i8, ptr %6, align 4, !tbaa !32, !range !48
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i"
+  %24 = trunc nuw i8 %.pre.i.i.i.i to i1
+  %25 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
+  %.val31.i.i.i.i = load ptr, ptr %25, align 8, !tbaa !959
+  %26 = getelementptr i8, ptr %.val31.i.i.i.i, i64 -64
+  %.val31.val.i.i.i.i = load ptr, ptr %26, align 8, !tbaa !83
+  br i1 %24, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i": ; preds = %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread_crit_edge.i.i.i.i"
-  %22 = phi i8 [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread_crit_edge.i.i.i.i" ], [ %10, %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
-  %.val31.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !959
-  %24 = getelementptr i8, ptr %.val31.i.i.i.i, i64 -64
-  %.val31.val.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !83
-  %25 = trunc nuw i8 %22 to i1
-  br i1 %25, label %26, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i"
-
-26:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i"
   %.pre.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre36.i.i.i = load i32, ptr %7, align 4, !tbaa !30
-  %27 = zext i32 %.pre36.i.i.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %27
-  %.not.not9.i.i.i.i41.i.i.i.i = icmp eq i32 %.pre36.i.i.i, 0
-  br i1 %.not.not9.i.i.i.i41.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i42.i.i.i.i
+  %.pre32.i.i.i = load i32, ptr %7, align 4, !tbaa !30
+  %.pre37.i.i.i = zext i32 %.pre32.i.i.i to i64
+  br label %27
 
-29:                                               ; preds = %.lr.ph.i.i.i.i42.i.i.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i43.i.i.i.i, i64 8
-  %.not.not.i.i.i.i44.i.i.i.i = icmp eq ptr %30, %28
-  br i1 %.not.not.i.i.i.i44.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i42.i.i.i.i, !llvm.loop !960
+27:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i"
+  %.pre-phi.i.i.i = phi i64 [ %.pre37.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %15, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %28 = phi i32 [ %.pre32.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %29 = phi ptr [ %.pre.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %.val31.val153.i.i.i.i = phi ptr [ %.val31.val.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %.val31.val152.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %30 = phi ptr [ %25, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %22, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %.pre-phi.i.i.i
+  %.not.not9.i.i.i.i41.i.i.i.i = icmp eq i32 %28, 0
+  br i1 %.not.not9.i.i.i.i41.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i42.i.i.i.i
 
-.thread.i.i:                                      ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
-  %.val33.i2.i.i.i = load ptr, ptr %31, align 8, !tbaa !959
-  %32 = getelementptr i8, ptr %.val33.i2.i.i.i, i64 -64
-  %.val33.val.i3.i.i.i = load ptr, ptr %32, align 8, !tbaa !83
-  br label %.lr.ph.i.i.i.i48.i.i.preheader.i.i
+32:                                               ; preds = %.lr.ph.i.i.i.i42.i.i.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i43.i.i.i.i, i64 8
+  %.not.not.i.i.i.i44.i.i.i.i = icmp eq ptr %33, %31
+  br i1 %.not.not.i.i.i.i44.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i42.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i42.i.i.i.i:                         ; preds = %26, %29
-  %.0810.i.i.i.i43.i.i.i.i = phi ptr [ %30, %29 ], [ %.pre.i.i.i, %26 ]
-  %33 = load ptr, ptr %.0810.i.i.i.i43.i.i.i.i, align 8, !tbaa !534
-  %34 = icmp eq ptr %33, %.val31.val.i.i.i.i
-  br i1 %34, label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit43", label %29
+.lr.ph.i.i.i.i42.i.i.i.i:                         ; preds = %27, %32
+  %.0810.i.i.i.i43.i.i.i.i = phi ptr [ %33, %32 ], [ %29, %27 ]
+  %34 = load ptr, ptr %.0810.i.i.i.i43.i.i.i.i, align 8, !tbaa !534
+  %35 = icmp eq ptr %34, %.val31.val153.i.i.i.i
+  br i1 %35, label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit", label %32
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.thread.i.i.i.i"
-  %35 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.val31.val.i.i.i.i) #30
-  %.not100.i.i.i.i = icmp eq ptr %35, null
-  br i1 %.not100.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit45.split.loop.exit"
+  %36 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.val31.val.i.i.i.i) #30
+  %.not100.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not100.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i": ; preds = %32, %27
+  %37 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
+  %.val33154.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !959
+  %38 = getelementptr i8, ptr %.val33154.i.i.i.i, i64 -64
+  %.val33.val155.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !83
+  br label %42
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i"
   %.pre146.i.i.i.i = load i8, ptr %6, align 4, !tbaa !32, !range !48
-  %36 = trunc nuw i8 %.pre146.i.i.i.i to i1
-  %37 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
-  %.val33.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !959
-  %38 = getelementptr i8, ptr %.val33.i.i.i.i, i64 -64
-  %.val33.val.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !83
-  br i1 %36, label %39, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i"
+  %39 = trunc nuw i8 %.pre146.i.i.i.i to i1
+  %40 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
+  %.val33.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !959
+  %41 = getelementptr i8, ptr %.val33.i.i.i.i, i64 -64
+  %.val33.val.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !83
+  br i1 %39, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i"
 
-39:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i.i.i.i"
-  %.pre37.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre38.i.i.i = load i32, ptr %7, align 4, !tbaa !30
-  %.pre.i.i = zext i32 %.pre38.i.i.i to i64
-  %40 = icmp eq i32 %.pre38.i.i.i, 0
-  %41 = getelementptr inbounds nuw ptr, ptr %.pre37.i.i.i, i64 %.pre.i.i
-  br i1 %40, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i48.i.i.preheader.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i.i.i.i"
+  %.pre33.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
+  %.pre34.i.i.i = load i32, ptr %7, align 4, !tbaa !30
+  %.pre38.i.i.i = zext i32 %.pre34.i.i.i to i64
+  br label %42
 
-.lr.ph.i.i.i.i48.i.i.preheader.i.i:               ; preds = %39, %.thread.i.i
-  %42 = phi ptr [ %28, %.thread.i.i ], [ %41, %39 ]
-  %43 = phi ptr [ %31, %.thread.i.i ], [ %37, %39 ]
-  %.val33.val156.i.i48.i.i = phi ptr [ %.val33.val.i3.i.i.i, %.thread.i.i ], [ %.val33.val.i.i.i.i, %39 ]
-  %44 = phi ptr [ %.pre.i.i.i, %.thread.i.i ], [ %.pre37.i.i.i, %39 ]
-  %.pre-phi47.i.i = phi i64 [ %27, %.thread.i.i ], [ %.pre.i.i, %39 ]
-  br label %.lr.ph.i.i.i.i48.i.i.i.i
+42:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i"
+  %.pre-phi39.i.i.i = phi i64 [ %.pre38.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %.pre-phi.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %43 = phi i32 [ %.pre34.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %28, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %44 = phi ptr [ %.pre33.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %29, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %.val33.val156.i.i.i.i = phi ptr [ %.val33.val.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %.val33.val155.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %45 = phi ptr [ %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %.pre-phi39.i.i.i
+  %.not.not9.i.i.i.i47.i.i.i.i = icmp eq i32 %43, 0
+  br i1 %.not.not9.i.i.i.i47.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i48.i.i.i.i
 
-45:                                               ; preds = %.lr.ph.i.i.i.i48.i.i.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i49.i.i.i.i, i64 8
-  %.not.not.i.i.i.i50.i.i.i.i = icmp eq ptr %46, %42
-  br i1 %.not.not.i.i.i.i50.i.i.i.i, label %.thread49.i.i, label %.lr.ph.i.i.i.i48.i.i.i.i, !llvm.loop !960
+47:                                               ; preds = %.lr.ph.i.i.i.i48.i.i.i.i
+  %48 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i49.i.i.i.i, i64 8
+  %.not.not.i.i.i.i50.i.i.i.i = icmp eq ptr %48, %46
+  br i1 %.not.not.i.i.i.i50.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i48.i.i.i.i, !llvm.loop !960
 
-.thread49.i.i:                                    ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
-  %.val35.i4.i.i.i = load ptr, ptr %47, align 8, !tbaa !959
-  %48 = getelementptr i8, ptr %.val35.i4.i.i.i, i64 -64
-  %.val35.val.i5.i.i.i = load ptr, ptr %48, align 8, !tbaa !83
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %.pre-phi47.i.i
-  br label %.lr.ph.i.i.i.i54.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i48.i.i.i.i:                         ; preds = %45, %.lr.ph.i.i.i.i48.i.i.preheader.i.i
-  %.0810.i.i.i.i49.i.i.i.i = phi ptr [ %46, %45 ], [ %44, %.lr.ph.i.i.i.i48.i.i.preheader.i.i ]
-  %50 = load ptr, ptr %.0810.i.i.i.i49.i.i.i.i, align 8, !tbaa !534
-  %51 = icmp eq ptr %50, %.val33.val156.i.i48.i.i
-  br i1 %51, label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit", label %45
+.lr.ph.i.i.i.i48.i.i.i.i:                         ; preds = %42, %47
+  %.0810.i.i.i.i49.i.i.i.i = phi ptr [ %48, %47 ], [ %44, %42 ]
+  %49 = load ptr, ptr %.0810.i.i.i.i49.i.i.i.i, align 8, !tbaa !534
+  %50 = icmp eq ptr %49, %.val33.val156.i.i.i.i
+  br i1 %50, label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit", label %47
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.thread.i.i.i.i"
-  %52 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.val33.val.i.i.i.i) #30
-  %.not101.i.i.i.i = icmp eq ptr %52, null
+  %51 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %.val33.val.i.i.i.i) #30
+  %.not101.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not101.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i": ; preds = %47, %42
+  %52 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
+  %.val35157.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !959
+  %53 = getelementptr i8, ptr %.val35157.i.i.i.i, i64 -64
+  %.val35.val158.i.i.i.i = load ptr, ptr %53, align 8, !tbaa !83
+  br label %57
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i"
   %.pre147.i.i.i.i = load i8, ptr %6, align 4, !tbaa !32, !range !48
-  %53 = trunc nuw i8 %.pre147.i.i.i.i to i1
-  %54 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
-  %.val35.i.i.i.i = load ptr, ptr %54, align 8, !tbaa !959
-  %55 = getelementptr i8, ptr %.val35.i.i.i.i, i64 -64
-  %.val35.val.i.i.i.i = load ptr, ptr %55, align 8, !tbaa !83
-  br i1 %53, label %56, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i"
+  %54 = trunc nuw i8 %.pre147.i.i.i.i to i1
+  %55 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
+  %.val35.i.i.i.i = load ptr, ptr %55, align 8, !tbaa !959
+  %56 = getelementptr i8, ptr %.val35.i.i.i.i, i64 -64
+  %.val35.val.i.i.i.i = load ptr, ptr %56, align 8, !tbaa !83
+  br i1 %54, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i"
 
-56:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i.i.i.i"
-  %.pre39.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
-  %.pre40.i.i.i = load i32, ptr %7, align 4, !tbaa !30
-  %.pre42.i.i = zext i32 %.pre40.i.i.i to i64
-  %57 = icmp eq i32 %.pre40.i.i.i, 0
-  %58 = getelementptr inbounds nuw ptr, ptr %.pre39.i.i.i, i64 %.pre42.i.i
-  br i1 %57, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i54.i.i.preheader.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i.i.i.i"
+  %.pre35.i.i.i = load ptr, ptr %0, align 8, !tbaa !28
+  %.pre36.i.i.i = load i32, ptr %7, align 4, !tbaa !30
+  %.pre40.i.i.i = zext i32 %.pre36.i.i.i to i64
+  br label %57
 
-.lr.ph.i.i.i.i54.i.i.preheader.i.i:               ; preds = %56, %.thread49.i.i
-  %59 = phi ptr [ %49, %.thread49.i.i ], [ %58, %56 ]
-  %60 = phi ptr [ %47, %.thread49.i.i ], [ %54, %56 ]
-  %.val35.val159.i.i53.i.i = phi ptr [ %.val35.val.i5.i.i.i, %.thread49.i.i ], [ %.val35.val.i.i.i.i, %56 ]
-  %61 = phi ptr [ %44, %.thread49.i.i ], [ %.pre39.i.i.i, %56 ]
-  br label %.lr.ph.i.i.i.i54.i.i.i.i
+57:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i"
+  %.pre-phi41.i.i.i = phi i64 [ %.pre40.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %.pre-phi39.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %58 = phi i32 [ %.pre36.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %59 = phi ptr [ %.pre35.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %44, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %.val35.val159.i.i.i.i = phi ptr [ %.val35.val.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %.val35.val158.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %60 = phi ptr [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %52, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %.pre-phi41.i.i.i
+  %.not.not9.i.i.i.i53.i.i.i.i = icmp eq i32 %58, 0
+  br i1 %.not.not9.i.i.i.i53.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i54.i.i.i.i
 
 62:                                               ; preds = %.lr.ph.i.i.i.i54.i.i.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i55.i.i.i.i, i64 8
-  %.not.not.i.i.i.i56.i.i.i.i = icmp eq ptr %63, %59
+  %.not.not.i.i.i.i56.i.i.i.i = icmp eq ptr %63, %61
   br i1 %.not.not.i.i.i.i56.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i54.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i54.i.i.i.i:                         ; preds = %62, %.lr.ph.i.i.i.i54.i.i.preheader.i.i
-  %.0810.i.i.i.i55.i.i.i.i = phi ptr [ %63, %62 ], [ %61, %.lr.ph.i.i.i.i54.i.i.preheader.i.i ]
+.lr.ph.i.i.i.i54.i.i.i.i:                         ; preds = %57, %62
+  %.0810.i.i.i.i55.i.i.i.i = phi ptr [ %63, %62 ], [ %59, %57 ]
   %64 = load ptr, ptr %.0810.i.i.i.i55.i.i.i.i, align 8, !tbaa !534
-  %65 = icmp eq ptr %64, %.val35.val159.i.i53.i.i
+  %65 = icmp eq ptr %64, %.val35.val159.i.i.i.i
   br i1 %65, label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit", label %62
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.thread.i.i.i.i"
@@ -38464,7 +38475,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
   %.not102.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not102.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i": ; preds = %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i", %56, %39, %26, %12
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.thread.i.i.i.i": ; preds = %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i", %57
   %67 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 32
   %68 = add nsw i64 %.0133.i.i.i.i, -1
   %69 = icmp sgt i64 %.0133.i.i.i.i, 1
@@ -38600,18 +38611,10 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.thread.i.i.i.i": ; preds = %116, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.i.i.i.i", %110, %._crit_edge.i.i.i.i
   br label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
 
-"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit43": ; preds = %.lr.ph.i.i.i.i42.i.i.i.i
-  %121 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
-  br label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
-
-"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit45.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i"
-  %122 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
-  br label %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit"
-
-"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i.i, %.lr.ph.i.i.i.i54.i.i.i.i, %.lr.ph.i.i.i.i60.i.i.i.i, %.lr.ph.i.i.i.i66.i.i.i.i, %.lr.ph.i.i.i.i72.i.i.i.i, %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit45.split.loop.exit", %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit43", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit63.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit69.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.thread.i.i.i.i"
-  %.028.i.i.i.i = phi ptr [ %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit63.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit69.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.i.i.i.i" ], [ %121, %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit43" ], [ %122, %"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit.loopexit45.split.loop.exit" ], [ %.2.i.i.i.i, %.lr.ph.i.i.i.i72.i.i.i.i ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i66.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %.lr.ph.i.i.i.i60.i.i.i.i ], [ %60, %.lr.ph.i.i.i.i54.i.i.i.i ], [ %43, %.lr.ph.i.i.i.i48.i.i.i.i ], [ %.029132.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.029132.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i" ], [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i" ], [ %54, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i" ]
-  %123 = icmp eq ptr %3, %.028.i.i.i.i
-  ret i1 %123
+"_ZSt7none_ofIPPN4llvm9StoreInstEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_1EbT_SE_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i42.i.i.i.i, %.lr.ph.i.i.i.i48.i.i.i.i, %.lr.ph.i.i.i.i54.i.i.i.i, %.lr.ph.i.i.i.i60.i.i.i.i, %.lr.ph.i.i.i.i66.i.i.i.i, %.lr.ph.i.i.i.i72.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit63.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit69.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.thread.i.i.i.i"
+  %.028.i.i.i.i = phi ptr [ %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit63.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit69.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit75.i.i.i.i" ], [ %.2.i.i.i.i, %.lr.ph.i.i.i.i72.i.i.i.i ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i66.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %.lr.ph.i.i.i.i60.i.i.i.i ], [ %60, %.lr.ph.i.i.i.i54.i.i.i.i ], [ %45, %.lr.ph.i.i.i.i48.i.i.i.i ], [ %30, %.lr.ph.i.i.i.i42.i.i.i.i ], [ %.029132.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.029132.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit.i.i.i.i" ], [ %55, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit57.i.i.i.i" ], [ %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit51.i.i.i.i" ], [ %25, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_1EclIPPNS2_9StoreInstEEEbT_.exit45.i.i.i.i" ]
+  %121 = icmp eq ptr %3, %.028.i.i.i.i
+  ret i1 %121
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -38844,8 +38847,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
   br label %9
 
 9:                                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", %.lr.ph.i.i.i.i
-  %.0133.i.i.i.i = phi i64 [ %5, %.lr.ph.i.i.i.i ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i" ]
-  %.029132.i.i.i.i = phi ptr [ %.0.val, %.lr.ph.i.i.i.i ], [ %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i" ]
+  %.0133.i.i.i.i = phi i64 [ %5, %.lr.ph.i.i.i.i ], [ %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i" ]
+  %.029132.i.i.i.i = phi ptr [ %.0.val, %.lr.ph.i.i.i.i ], [ %61, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i" ]
   %.029.val.i.i.i.i = load ptr, ptr %.029132.i.i.i.i, align 8, !tbaa !469
   %10 = load i8, ptr %7, align 4, !tbaa !32, !range !48, !noundef !49
   %11 = trunc nuw i8 %10 to i1
@@ -38857,12 +38860,12 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
   %.not.not9.i.i.i.i.i.i.i.i.i = icmp eq i32 %14, 0
-  br i1 %.not.not9.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
+  br i1 %.not.not9.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 17:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i, i64 8
   %.not.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, %16
-  br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !960
+  br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !960
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %12, %17
   %.0810.i.i.i.i.i.i.i.i.i = phi ptr [ %18, %17 ], [ %13, %12 ]
@@ -38873,276 +38876,277 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm7none_ofIRNS_11SmallVectorIP
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i": ; preds = %9
   %21 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.029.val.i.i.i.i) #30
   %.not99.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread_crit_edge.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
+  br i1 %.not99.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread_crit_edge.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i": ; preds = %17, %12
+  %22 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
+  %.val31151.i.i.i.i = load ptr, ptr %22, align 8, !tbaa !469
+  br label %25
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i"
   %.pre.i.i.i.i = load i8, ptr %7, align 4, !tbaa !32, !range !48
-  br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i"
+  %23 = trunc nuw i8 %.pre.i.i.i.i to i1
+  %24 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
+  %.val31.i.i.i.i = load ptr, ptr %24, align 8, !tbaa !469
+  br i1 %23, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i": ; preds = %17, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread_crit_edge.i.i.i.i"
-  %22 = phi i8 [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread_crit_edge.i.i.i.i" ], [ %10, %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
-  %.val31.i.i.i.i = load ptr, ptr %23, align 8, !tbaa !469
-  %24 = trunc nuw i8 %22 to i1
-  br i1 %24, label %25, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i"
-
-25:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i"
   %.pre.i.i.i = load ptr, ptr %6, align 8, !tbaa !28
-  %.pre34.i.i.i = load i32, ptr %8, align 4, !tbaa !30
-  %26 = zext i32 %.pre34.i.i.i to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %26
-  %.not.not9.i.i.i.i.i41.i.i.i.i = icmp eq i32 %.pre34.i.i.i, 0
-  br i1 %.not.not9.i.i.i.i.i41.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i42.i.i.i.i
+  %.pre32.i.i.i = load i32, ptr %8, align 4, !tbaa !30
+  %.pre37.i.i.i = zext i32 %.pre32.i.i.i to i64
+  br label %25
 
-28:                                               ; preds = %.lr.ph.i.i.i.i.i42.i.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i43.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i44.i.i.i.i = icmp eq ptr %29, %27
-  br i1 %.not.not.i.i.i.i.i44.i.i.i.i, label %.thread.i.i, label %.lr.ph.i.i.i.i.i42.i.i.i.i, !llvm.loop !960
+25:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i"
+  %.pre-phi.i.i.i = phi i64 [ %.pre37.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %15, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %26 = phi i32 [ %.pre32.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %27 = phi ptr [ %.pre.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %13, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %.val31152.i.i.i.i = phi ptr [ %.val31.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %.val31151.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %28 = phi ptr [ %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i._crit_edge.i.i.i" ], [ %22, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.thread.i.i.i.i" ]
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %.pre-phi.i.i.i
+  %.not.not9.i.i.i.i.i41.i.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.not9.i.i.i.i.i41.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i42.i.i.i.i
 
-.thread.i.i:                                      ; preds = %28
-  %30 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
-  %.val33.i2.i.i.i = load ptr, ptr %30, align 8, !tbaa !469
-  br label %.lr.ph.i.i.i.i.i48.i.i.preheader.i.i
+30:                                               ; preds = %.lr.ph.i.i.i.i.i42.i.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i43.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i44.i.i.i.i = icmp eq ptr %31, %29
+  br i1 %.not.not.i.i.i.i.i44.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i42.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i.i42.i.i.i.i:                       ; preds = %25, %28
-  %.0810.i.i.i.i.i43.i.i.i.i = phi ptr [ %29, %28 ], [ %.pre.i.i.i, %25 ]
-  %31 = load ptr, ptr %.0810.i.i.i.i.i43.i.i.i.i, align 8, !tbaa !534
-  %32 = icmp eq ptr %31, %.val31.i.i.i.i
-  br i1 %32, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit43", label %28
+.lr.ph.i.i.i.i.i42.i.i.i.i:                       ; preds = %25, %30
+  %.0810.i.i.i.i.i43.i.i.i.i = phi ptr [ %31, %30 ], [ %27, %25 ]
+  %32 = load ptr, ptr %.0810.i.i.i.i.i43.i.i.i.i, align 8, !tbaa !534
+  %33 = icmp eq ptr %32, %.val31152.i.i.i.i
+  br i1 %33, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %30
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.thread.i.i.i.i"
-  %33 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.val31.i.i.i.i) #30
-  %.not100.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not100.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit45.split.loop.exit"
+  %34 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.val31.i.i.i.i) #30
+  %.not100.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not100.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i": ; preds = %30, %25
+  %35 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
+  %.val33153.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !469
+  br label %38
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i"
   %.pre146.i.i.i.i = load i8, ptr %7, align 4, !tbaa !32, !range !48
-  %34 = trunc nuw i8 %.pre146.i.i.i.i to i1
-  %35 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
-  %.val33.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !469
-  br i1 %34, label %36, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i"
+  %36 = trunc nuw i8 %.pre146.i.i.i.i to i1
+  %37 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 16
+  %.val33.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !469
+  br i1 %36, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i"
 
-36:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i.i.i.i"
-  %.pre35.i.i.i = load ptr, ptr %6, align 8, !tbaa !28
-  %.pre36.i.i.i = load i32, ptr %8, align 4, !tbaa !30
-  %.pre.i.i = zext i32 %.pre36.i.i.i to i64
-  %37 = icmp eq i32 %.pre36.i.i.i, 0
-  %38 = getelementptr inbounds nuw ptr, ptr %.pre35.i.i.i, i64 %.pre.i.i
-  br i1 %37, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i48.i.i.preheader.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i.i.i.i"
+  %.pre33.i.i.i = load ptr, ptr %6, align 8, !tbaa !28
+  %.pre34.i.i.i = load i32, ptr %8, align 4, !tbaa !30
+  %.pre38.i.i.i = zext i32 %.pre34.i.i.i to i64
+  br label %38
 
-.lr.ph.i.i.i.i.i48.i.i.preheader.i.i:             ; preds = %36, %.thread.i.i
-  %39 = phi ptr [ %27, %.thread.i.i ], [ %38, %36 ]
-  %40 = phi ptr [ %30, %.thread.i.i ], [ %35, %36 ]
-  %.val33154.i.i48.i.i = phi ptr [ %.val33.i2.i.i.i, %.thread.i.i ], [ %.val33.i.i.i.i, %36 ]
-  %41 = phi ptr [ %.pre.i.i.i, %.thread.i.i ], [ %.pre35.i.i.i, %36 ]
-  %.pre-phi47.i.i = phi i64 [ %26, %.thread.i.i ], [ %.pre.i.i, %36 ]
-  br label %.lr.ph.i.i.i.i.i48.i.i.i.i
+38:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i"
+  %.pre-phi39.i.i.i = phi i64 [ %.pre38.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %.pre-phi.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %39 = phi i32 [ %.pre34.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %26, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %40 = phi ptr [ %.pre33.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %27, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %.val33154.i.i.i.i = phi ptr [ %.val33.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %.val33153.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %41 = phi ptr [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i._crit_edge.i.i.i" ], [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.thread.i.i.i.i" ]
+  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %.pre-phi39.i.i.i
+  %.not.not9.i.i.i.i.i47.i.i.i.i = icmp eq i32 %39, 0
+  br i1 %.not.not9.i.i.i.i.i47.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i48.i.i.i.i
 
-42:                                               ; preds = %.lr.ph.i.i.i.i.i48.i.i.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i49.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i50.i.i.i.i = icmp eq ptr %43, %39
-  br i1 %.not.not.i.i.i.i.i50.i.i.i.i, label %.thread49.i.i, label %.lr.ph.i.i.i.i.i48.i.i.i.i, !llvm.loop !960
+43:                                               ; preds = %.lr.ph.i.i.i.i.i48.i.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i49.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i50.i.i.i.i = icmp eq ptr %44, %42
+  br i1 %.not.not.i.i.i.i.i50.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i48.i.i.i.i, !llvm.loop !960
 
-.thread49.i.i:                                    ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
-  %.val35.i3.i.i.i = load ptr, ptr %44, align 8, !tbaa !469
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %.pre-phi47.i.i
-  br label %.lr.ph.i.i.i.i.i54.i.i.preheader.i.i
-
-.lr.ph.i.i.i.i.i48.i.i.i.i:                       ; preds = %42, %.lr.ph.i.i.i.i.i48.i.i.preheader.i.i
-  %.0810.i.i.i.i.i49.i.i.i.i = phi ptr [ %43, %42 ], [ %41, %.lr.ph.i.i.i.i.i48.i.i.preheader.i.i ]
-  %46 = load ptr, ptr %.0810.i.i.i.i.i49.i.i.i.i, align 8, !tbaa !534
-  %47 = icmp eq ptr %46, %.val33154.i.i48.i.i
-  br i1 %47, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %42
+.lr.ph.i.i.i.i.i48.i.i.i.i:                       ; preds = %38, %43
+  %.0810.i.i.i.i.i49.i.i.i.i = phi ptr [ %44, %43 ], [ %40, %38 ]
+  %45 = load ptr, ptr %.0810.i.i.i.i.i49.i.i.i.i, align 8, !tbaa !534
+  %46 = icmp eq ptr %45, %.val33154.i.i.i.i
+  br i1 %46, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %43
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.thread.i.i.i.i"
-  %48 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.val33.i.i.i.i) #30
-  %.not101.i.i.i.i = icmp eq ptr %48, null
+  %47 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.val33.i.i.i.i) #30
+  %.not101.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not101.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
+
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i": ; preds = %43, %38
+  %48 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
+  %.val35155.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !469
+  br label %51
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i"
   %.pre147.i.i.i.i = load i8, ptr %7, align 4, !tbaa !32, !range !48
   %49 = trunc nuw i8 %.pre147.i.i.i.i to i1
   %50 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 24
   %.val35.i.i.i.i = load ptr, ptr %50, align 8, !tbaa !469
-  br i1 %49, label %51, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i"
+  br i1 %49, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i"
 
-51:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i.i.i.i"
-  %.pre37.i.i.i = load ptr, ptr %6, align 8, !tbaa !28
-  %.pre38.i.i.i = load i32, ptr %8, align 4, !tbaa !30
-  %.pre42.i.i = zext i32 %.pre38.i.i.i to i64
-  %52 = icmp eq i32 %.pre38.i.i.i, 0
-  %53 = getelementptr inbounds nuw ptr, ptr %.pre37.i.i.i, i64 %.pre42.i.i
-  br i1 %52, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i54.i.i.preheader.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i.i.i.i"
+  %.pre35.i.i.i = load ptr, ptr %6, align 8, !tbaa !28
+  %.pre36.i.i.i = load i32, ptr %8, align 4, !tbaa !30
+  %.pre40.i.i.i = zext i32 %.pre36.i.i.i to i64
+  br label %51
 
-.lr.ph.i.i.i.i.i54.i.i.preheader.i.i:             ; preds = %51, %.thread49.i.i
-  %54 = phi ptr [ %45, %.thread49.i.i ], [ %53, %51 ]
-  %55 = phi ptr [ %44, %.thread49.i.i ], [ %50, %51 ]
-  %.val35156.i.i53.i.i = phi ptr [ %.val35.i3.i.i.i, %.thread49.i.i ], [ %.val35.i.i.i.i, %51 ]
-  %56 = phi ptr [ %41, %.thread49.i.i ], [ %.pre37.i.i.i, %51 ]
-  br label %.lr.ph.i.i.i.i.i54.i.i.i.i
+51:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i"
+  %.pre-phi41.i.i.i = phi i64 [ %.pre40.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %.pre-phi39.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %52 = phi i32 [ %.pre36.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %53 = phi ptr [ %.pre35.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %40, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %.val35156.i.i.i.i = phi ptr [ %.val35.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %.val35155.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %54 = phi ptr [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i._crit_edge.i.i.i" ], [ %48, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.thread.i.i.i.i" ]
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %.pre-phi41.i.i.i
+  %.not.not9.i.i.i.i.i53.i.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not.not9.i.i.i.i.i53.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i54.i.i.i.i
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i54.i.i.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i55.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i56.i.i.i.i = icmp eq ptr %58, %54
+56:                                               ; preds = %.lr.ph.i.i.i.i.i54.i.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i55.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i56.i.i.i.i = icmp eq ptr %57, %55
   br i1 %.not.not.i.i.i.i.i56.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i54.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i.i54.i.i.i.i:                       ; preds = %57, %.lr.ph.i.i.i.i.i54.i.i.preheader.i.i
-  %.0810.i.i.i.i.i55.i.i.i.i = phi ptr [ %58, %57 ], [ %56, %.lr.ph.i.i.i.i.i54.i.i.preheader.i.i ]
-  %59 = load ptr, ptr %.0810.i.i.i.i.i55.i.i.i.i, align 8, !tbaa !534
-  %60 = icmp eq ptr %59, %.val35156.i.i53.i.i
-  br i1 %60, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %57
+.lr.ph.i.i.i.i.i54.i.i.i.i:                       ; preds = %51, %56
+  %.0810.i.i.i.i.i55.i.i.i.i = phi ptr [ %57, %56 ], [ %53, %51 ]
+  %58 = load ptr, ptr %.0810.i.i.i.i.i55.i.i.i.i, align 8, !tbaa !534
+  %59 = icmp eq ptr %58, %.val35156.i.i.i.i
+  br i1 %59, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %56
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.thread.i.i.i.i"
-  %61 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.val35.i.i.i.i) #30
-  %.not102.i.i.i.i = icmp eq ptr %61, null
+  %60 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef %.val35.i.i.i.i) #30
+  %.not102.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not102.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i": ; preds = %57, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i", %51, %36, %25, %12
-  %62 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 32
-  %63 = add nsw i64 %.0133.i.i.i.i, -1
-  %64 = icmp sgt i64 %.0133.i.i.i.i, 1
-  br i1 %64, label %9, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !965
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i": ; preds = %56, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i", %51
+  %61 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 32
+  %62 = add nsw i64 %.0133.i.i.i.i, -1
+  %63 = icmp sgt i64 %.0133.i.i.i.i, 1
+  br i1 %63, label %9, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !965
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.thread.i.i.i.i"
-  %.pre148.i.i.i.i = ptrtoint ptr %62 to i64
+  %.pre148.i.i.i.i = ptrtoint ptr %61 to i64
   %.pre149.i.i.i.i = sub i64 %4, %.pre148.i.i.i.i
-  %65 = ashr exact i64 %.pre149.i.i.i.i, 3
+  %64 = ashr exact i64 %.pre149.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %1
-  %.pre-phi150.i.i.i.i = phi i64 [ %65, %._crit_edge.loopexit.i.i.i.i ], [ %2, %1 ]
-  %.029.lcssa.i.i.i.i = phi ptr [ %62, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %1 ]
+  %.pre-phi150.i.i.i.i = phi i64 [ %64, %._crit_edge.loopexit.i.i.i.i ], [ %2, %1 ]
+  %.029.lcssa.i.i.i.i = phi ptr [ %61, %._crit_edge.loopexit.i.i.i.i ], [ %.0.val, %1 ]
   switch i64 %.pre-phi150.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i" [
-    i64 3, label %66
-    i64 2, label %83
-    i64 1, label %100
+    i64 3, label %65
+    i64 2, label %82
+    i64 1, label %99
   ]
 
-66:                                               ; preds = %._crit_edge.i.i.i.i
+65:                                               ; preds = %._crit_edge.i.i.i.i
   %.029.val37.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i, align 8, !tbaa !469
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %69 = load i8, ptr %68, align 4, !tbaa !32, !range !48, !noundef !49
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i"
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %68 = load i8, ptr %67, align 4, !tbaa !32, !range !48, !noundef !49
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i"
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %67, align 8, !tbaa !28
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %74 = load i32, ptr %73, align 4, !tbaa !30
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
-  %.not.not9.i.i.i.i.i59.i.i.i.i = icmp eq i32 %74, 0
+70:                                               ; preds = %65
+  %71 = load ptr, ptr %66, align 8, !tbaa !28
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %73 = load i32, ptr %72, align 4, !tbaa !30
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
+  %.not.not9.i.i.i.i.i59.i.i.i.i = icmp eq i32 %73, 0
   br i1 %.not.not9.i.i.i.i.i59.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i60.i.i.i.i
 
-77:                                               ; preds = %.lr.ph.i.i.i.i.i60.i.i.i.i
-  %78 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i61.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i62.i.i.i.i = icmp eq ptr %78, %76
+76:                                               ; preds = %.lr.ph.i.i.i.i.i60.i.i.i.i
+  %77 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i61.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i62.i.i.i.i = icmp eq ptr %77, %75
   br i1 %.not.not.i.i.i.i.i62.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i60.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i.i60.i.i.i.i:                       ; preds = %71, %77
-  %.0810.i.i.i.i.i61.i.i.i.i = phi ptr [ %78, %77 ], [ %72, %71 ]
-  %79 = load ptr, ptr %.0810.i.i.i.i.i61.i.i.i.i, align 8, !tbaa !534
-  %80 = icmp eq ptr %79, %.029.val37.i.i.i.i
-  br i1 %80, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %77
+.lr.ph.i.i.i.i.i60.i.i.i.i:                       ; preds = %70, %76
+  %.0810.i.i.i.i.i61.i.i.i.i = phi ptr [ %77, %76 ], [ %71, %70 ]
+  %78 = load ptr, ptr %.0810.i.i.i.i.i61.i.i.i.i, align 8, !tbaa !534
+  %79 = icmp eq ptr %78, %.029.val37.i.i.i.i
+  br i1 %79, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %76
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i": ; preds = %66
-  %81 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %67, ptr noundef %.029.val37.i.i.i.i) #30
-  %.not.i.i.i.i = icmp eq ptr %81, null
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i": ; preds = %65
+  %80 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %66, ptr noundef %.029.val37.i.i.i.i) #30
+  %.not.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i": ; preds = %77, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i", %71
-  %82 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
-  br label %83
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i": ; preds = %76, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i", %70
+  %81 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
+  br label %82
 
-83:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ %82, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+82:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ %81, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.1.val.i.i.i.i = load ptr, ptr %.1.i.i.i.i, align 8, !tbaa !469
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %86 = load i8, ptr %85, align 4, !tbaa !32, !range !48, !noundef !49
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i"
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %85 = load i8, ptr %84, align 4, !tbaa !32, !range !48, !noundef !49
+  %86 = trunc nuw i8 %85 to i1
+  br i1 %86, label %87, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i"
 
-88:                                               ; preds = %83
-  %89 = load ptr, ptr %84, align 8, !tbaa !28
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %91 = load i32, ptr %90, align 4, !tbaa !30
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %89, i64 %92
-  %.not.not9.i.i.i.i.i65.i.i.i.i = icmp eq i32 %91, 0
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %83, align 8, !tbaa !28
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %90 = load i32, ptr %89, align 4, !tbaa !30
+  %91 = zext i32 %90 to i64
+  %92 = getelementptr inbounds nuw ptr, ptr %88, i64 %91
+  %.not.not9.i.i.i.i.i65.i.i.i.i = icmp eq i32 %90, 0
   br i1 %.not.not9.i.i.i.i.i65.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i66.i.i.i.i
 
-94:                                               ; preds = %.lr.ph.i.i.i.i.i66.i.i.i.i
-  %95 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i67.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i68.i.i.i.i = icmp eq ptr %95, %93
+93:                                               ; preds = %.lr.ph.i.i.i.i.i66.i.i.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i67.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i68.i.i.i.i = icmp eq ptr %94, %92
   br i1 %.not.not.i.i.i.i.i68.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i66.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i.i66.i.i.i.i:                       ; preds = %88, %94
-  %.0810.i.i.i.i.i67.i.i.i.i = phi ptr [ %95, %94 ], [ %89, %88 ]
-  %96 = load ptr, ptr %.0810.i.i.i.i.i67.i.i.i.i, align 8, !tbaa !534
-  %97 = icmp eq ptr %96, %.1.val.i.i.i.i
-  br i1 %97, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %94
+.lr.ph.i.i.i.i.i66.i.i.i.i:                       ; preds = %87, %93
+  %.0810.i.i.i.i.i67.i.i.i.i = phi ptr [ %94, %93 ], [ %88, %87 ]
+  %95 = load ptr, ptr %.0810.i.i.i.i.i67.i.i.i.i, align 8, !tbaa !534
+  %96 = icmp eq ptr %95, %.1.val.i.i.i.i
+  br i1 %96, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %93
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i": ; preds = %83
-  %98 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %84, ptr noundef %.1.val.i.i.i.i) #30
-  %.not97.i.i.i.i = icmp eq ptr %98, null
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i": ; preds = %82
+  %97 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %83, ptr noundef %.1.val.i.i.i.i) #30
+  %.not97.i.i.i.i = icmp eq ptr %97, null
   br i1 %.not97.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i": ; preds = %94, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i", %88
-  %99 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
-  br label %100
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i": ; preds = %93, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i", %87
+  %98 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
+  br label %99
 
-100:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.2.i.i.i.i = phi ptr [ %99, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+99:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.2.i.i.i.i = phi ptr [ %98, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.2.val.i.i.i.i = load ptr, ptr %.2.i.i.i.i, align 8, !tbaa !469
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %103 = load i8, ptr %102, align 4, !tbaa !32, !range !48, !noundef !49
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %105, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i"
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %102 = load i8, ptr %101, align 4, !tbaa !32, !range !48, !noundef !49
+  %103 = trunc nuw i8 %102 to i1
+  br i1 %103, label %104, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i"
 
-105:                                              ; preds = %100
-  %106 = load ptr, ptr %101, align 8, !tbaa !28
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %108 = load i32, ptr %107, align 4, !tbaa !30
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %106, i64 %109
-  %.not.not9.i.i.i.i.i71.i.i.i.i = icmp eq i32 %108, 0
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %100, align 8, !tbaa !28
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %107 = load i32, ptr %106, align 4, !tbaa !30
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
+  %.not.not9.i.i.i.i.i71.i.i.i.i = icmp eq i32 %107, 0
   br i1 %.not.not9.i.i.i.i.i71.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i72.i.i.i.i
 
-111:                                              ; preds = %.lr.ph.i.i.i.i.i72.i.i.i.i
-  %112 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i73.i.i.i.i, i64 8
-  %.not.not.i.i.i.i.i74.i.i.i.i = icmp eq ptr %112, %110
+110:                                              ; preds = %.lr.ph.i.i.i.i.i72.i.i.i.i
+  %111 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i73.i.i.i.i, i64 8
+  %.not.not.i.i.i.i.i74.i.i.i.i = icmp eq ptr %111, %109
   br i1 %.not.not.i.i.i.i.i74.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i", label %.lr.ph.i.i.i.i.i72.i.i.i.i, !llvm.loop !960
 
-.lr.ph.i.i.i.i.i72.i.i.i.i:                       ; preds = %105, %111
-  %.0810.i.i.i.i.i73.i.i.i.i = phi ptr [ %112, %111 ], [ %106, %105 ]
-  %113 = load ptr, ptr %.0810.i.i.i.i.i73.i.i.i.i, align 8, !tbaa !534
-  %114 = icmp eq ptr %113, %.2.val.i.i.i.i
-  br i1 %114, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %111
+.lr.ph.i.i.i.i.i72.i.i.i.i:                       ; preds = %104, %110
+  %.0810.i.i.i.i.i73.i.i.i.i = phi ptr [ %111, %110 ], [ %105, %104 ]
+  %112 = load ptr, ptr %.0810.i.i.i.i.i73.i.i.i.i, align 8, !tbaa !534
+  %113 = icmp eq ptr %112, %.2.val.i.i.i.i
+  br i1 %113, label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit", label %110
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i": ; preds = %100
-  %115 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %101, ptr noundef %.2.val.i.i.i.i) #30
-  %.not98.i.i.i.i = icmp eq ptr %115, null
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i": ; preds = %99
+  %114 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %100, ptr noundef %.2.val.i.i.i.i) #30
+  %.not98.i.i.i.i = icmp eq ptr %114, null
   br i1 %.not98.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i", label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i": ; preds = %111, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i", %105, %._crit_edge.i.i.i.i
+"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i": ; preds = %110, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i", %104, %._crit_edge.i.i.i.i
   br label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
 
-"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit43": ; preds = %.lr.ph.i.i.i.i.i42.i.i.i.i
-  %116 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
-  br label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
-
-"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit45.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i"
-  %117 = getelementptr inbounds nuw i8, ptr %.029132.i.i.i.i, i64 8
-  br label %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit"
-
-"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i48.i.i.i.i, %.lr.ph.i.i.i.i.i54.i.i.i.i, %.lr.ph.i.i.i.i.i60.i.i.i.i, %.lr.ph.i.i.i.i.i66.i.i.i.i, %.lr.ph.i.i.i.i.i72.i.i.i.i, %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit45.split.loop.exit", %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit43", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i"
-  %.028.i.i.i.i = phi ptr [ %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i" ], [ %116, %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit43" ], [ %117, %"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit.loopexit45.split.loop.exit" ], [ %.2.i.i.i.i, %.lr.ph.i.i.i.i.i72.i.i.i.i ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i66.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %.lr.ph.i.i.i.i.i60.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i54.i.i.i.i ], [ %40, %.lr.ph.i.i.i.i.i48.i.i.i.i ], [ %.029132.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.029132.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i" ], [ %35, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i" ], [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i" ]
-  %118 = icmp eq ptr %3, %.028.i.i.i.i
-  ret i1 %118
+"_ZSt7none_ofIPPN4llvm10BasicBlockEZL32getAppleRuntimeUnrollPreferencesPNS0_4LoopERNS0_15ScalarEvolutionERNS0_19TargetTransformInfo20UnrollingPreferencesERNS0_14AArch64TTIImplEE3$_3EbT_SE_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i", %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i42.i.i.i.i, %.lr.ph.i.i.i.i.i48.i.i.i.i, %.lr.ph.i.i.i.i.i54.i.i.i.i, %.lr.ph.i.i.i.i.i60.i.i.i.i, %.lr.ph.i.i.i.i.i66.i.i.i.i, %.lr.ph.i.i.i.i.i72.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i"
+  %.028.i.i.i.i = phi ptr [ %3, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.thread.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit63.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit69.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit75.i.i.i.i" ], [ %.2.i.i.i.i, %.lr.ph.i.i.i.i.i72.i.i.i.i ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i66.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %.lr.ph.i.i.i.i.i60.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i.i54.i.i.i.i ], [ %41, %.lr.ph.i.i.i.i.i48.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i42.i.i.i.i ], [ %.029132.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.029132.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit.i.i.i.i" ], [ %50, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit57.i.i.i.i" ], [ %37, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit51.i.i.i.i" ], [ %24, %"_ZN9__gnu_cxx5__ops10_Iter_predIZL32getAppleRuntimeUnrollPreferencesPN4llvm4LoopERNS2_15ScalarEvolutionERNS2_19TargetTransformInfo20UnrollingPreferencesERNS2_14AArch64TTIImplEE3$_3EclIPPNS2_10BasicBlockEEEbT_.exit45.i.i.i.i" ]
+  %115 = icmp eq ptr %3, %.028.i.i.i.i
+  ret i1 %115
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

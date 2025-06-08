@@ -11951,11 +11951,11 @@ _ZN12_GLOBAL__N_111calc_radiusERKNS_8t_eigvecE.exit: ; preds = %89, %.thread, %8
   %155 = load ptr, ptr %154, align 8, !tbaa !170
   call void @_Z27communicate_group_positionsPK9t_commrecPA3_fPA3_iS5_bPA3_KfiiPKiSA_S3_S8_(ptr noundef nonnull %2, ptr noundef %133, ptr noundef %135, ptr noundef %137, i1 noundef zeroext %145, ptr noundef %3, i32 noundef %147, i32 noundef %149, ptr noundef %151, ptr noundef %153, ptr noundef %155, ptr noundef %6)
   %.pre = load i8, ptr %127, align 8, !tbaa !160, !range !161
-  %156 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  store i8 0, ptr %156, align 8, !tbaa !171
-  %157 = trunc nuw i8 %.pre to i1
+  %156 = trunc nuw i8 %.pre to i1
+  %157 = getelementptr inbounds nuw i8, ptr %101, i64 56
+  store i8 0, ptr %157, align 8, !tbaa !171
   %158 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %spec.select = select i1 %157, ptr %103, ptr %158
+  %spec.select = select i1 %156, ptr %103, ptr %158
   br label %159
 
 159:                                              ; preds = %144, %.thread270

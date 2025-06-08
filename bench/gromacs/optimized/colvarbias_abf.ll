@@ -10291,8 +10291,8 @@ define noundef i32 @_ZN14colvarbias_abf18write_output_filesEv(ptr noundef nonnul
 
 28:                                               ; preds = %18
   %.pre45 = load i8, ptr %7, align 8, !tbaa !197, !range !65
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
   %29 = trunc nuw i8 %.pre45 to i1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #27
   br i1 %29, label %30, label %60
 
 30:                                               ; preds = %28

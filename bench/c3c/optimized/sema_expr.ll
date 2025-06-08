@@ -3542,7 +3542,7 @@ sema_analyse_expr.exit:                           ; preds = %280
 327:                                              ; preds = %273, %325, %319, %252
   %.1509 = phi ptr [ %.0508806, %252 ], [ %.0508806, %319 ], [ %.0508806, %325 ], [ %184, %273 ]
   %.1507 = phi ptr [ %.0506807, %252 ], [ %322, %319 ], [ %.0506807, %325 ], [ %.0506807, %273 ]
-  %.1466 = phi i8 [ 1, %252 ], [ %.0465809, %319 ], [ 0, %325 ], [ 0, %273 ]
+  %.1466 = phi i8 [ 1, %252 ], [ 0, %319 ], [ 0, %325 ], [ 0, %273 ]
   %indvars.iv.next1013 = add nuw nsw i64 %indvars.iv1012, 1
   %exitcond1015.not = icmp eq i64 %indvars.iv.next1013, %wide.trip.count1014
   br i1 %exitcond1015.not, label %.preheader674.loopexit, label %182, !llvm.loop !20

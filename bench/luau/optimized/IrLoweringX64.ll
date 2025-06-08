@@ -263,14 +263,14 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418storeDoubleAsFloatEN
   %.pre40 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
   %.phi.trans.insert42 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %.pre40, i64 %30, i32 14
   %.pre43 = load i8, ptr %.phi.trans.insert42, align 1, !tbaa !68, !range !77
-  %44 = getelementptr inbounds nuw i8, ptr %32, i64 38
-  %.sroa.06.0.copyload.i = load i8, ptr %44, align 2, !tbaa !51
-  %45 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %.pre40, i64 %30
-  %46 = trunc nuw i8 %.pre43 to i1
-  br i1 %46, label %52, label %47
+  %44 = trunc nuw i8 %.pre43 to i1
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 38
+  %.sroa.06.0.copyload.i = load i8, ptr %45, align 2, !tbaa !51
+  %46 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %.pre40, i64 %30
+  br i1 %44, label %52, label %47
 
 47:                                               ; preds = %.thread, %43
-  %48 = phi ptr [ %41, %.thread ], [ %45, %43 ]
+  %48 = phi ptr [ %41, %.thread ], [ %46, %43 ]
   %.sroa.06.0.copyload.i46 = phi i8 [ %.sroa.06.0.copyload.i44, %.thread ], [ %.sroa.06.0.copyload.i, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 42
   %50 = load i8, ptr %49, align 2, !tbaa !79, !range !77, !noundef !78
@@ -278,7 +278,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6413IrLoweringX6418storeDoubleAsFloatEN
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47, %43
-  %53 = phi ptr [ %48, %47 ], [ %45, %43 ]
+  %53 = phi ptr [ %48, %47 ], [ %46, %43 ]
   %.sroa.06.0.copyload.i47 = phi i8 [ %.sroa.06.0.copyload.i46, %47 ], [ %.sroa.06.0.copyload.i, %43 ]
   invoke void @_ZN4Luau7CodeGen3X6413IrRegAllocX647restoreERNS0_6IrInstEb(ptr noundef nonnull align 8 dereferenceable(256) %5, ptr noundef nonnull align 4 dereferenceable(43) %53, i1 noundef zeroext false)
           to label %54 unwind label %21

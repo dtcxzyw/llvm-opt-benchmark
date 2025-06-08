@@ -24470,8 +24470,8 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN96_$LT$sum_tr
 6:                                                ; preds = %1
   tail call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17haea3ac49dc698f88E.llvm.1198603800146016543"(ptr noalias noundef nonnull align 8 dereferenceable(280) %0, ptr noalias nonnull readonly align 1 poison, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.400f2d19503d9b779b36af8c03e392f1.102.llvm.1198603800146016543)
   %.pre = load i8, ptr %3, align 8, !range !34, !alias.scope !4724, !noalias !4727
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !4724)
   %7 = trunc nuw i8 %.pre to i1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !4724)
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %6

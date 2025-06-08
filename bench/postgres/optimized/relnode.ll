@@ -1920,9 +1920,9 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   %221 = getelementptr inbounds nuw %union.ListCell, ptr %220, i64 %indvars.iv265.i
   %222 = load ptr, ptr %221, align 8
   %223 = tail call zeroext i1 @exprs_known_equal(ptr noundef %0, ptr noundef %194, ptr noundef %222, i32 noundef %.3151.i) #7
-  br i1 %223, label %.thread207.thread.i, label %216
+  br i1 %223, label %.thread203.thread276.i, label %216
 
-.thread207.thread.i:                              ; preds = %.lr.ph238.split.i
+.thread203.thread276.i:                           ; preds = %.lr.ph238.split.i
   %224 = tail call i32 @exprCollation(ptr noundef %222) #7
   store i8 1, ptr %165, align 1
   %225 = add i32 %.3130246.i, 1
@@ -1938,10 +1938,10 @@ define internal fastcc void @build_joinrel_partition_info(ptr noundef %0, ptr no
   %231 = icmp slt i64 %indvars.iv.next269.i, %230
   br i1 %231, label %.lr.ph38, label %have_partkey_equi_join.exit.thread
 
-232:                                              ; preds = %.thread207.thread.i, %._crit_edge274.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge274.i ], [ %227, %.thread207.thread.i ]
-  %233 = phi i16 [ %164, %._crit_edge274.i ], [ %226, %.thread207.thread.i ]
-  %.4131.i = phi i32 [ %.3130246.i, %._crit_edge274.i ], [ %225, %.thread207.thread.i ]
+232:                                              ; preds = %.thread203.thread276.i, %._crit_edge274.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge274.i ], [ %227, %.thread203.thread276.i ]
+  %233 = phi i16 [ %164, %._crit_edge274.i ], [ %226, %.thread203.thread276.i ]
+  %.4131.i = phi i32 [ %.3130246.i, %._crit_edge274.i ], [ %225, %.thread203.thread276.i ]
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %234 = sext i32 %.pre-phi.i to i64
   %235 = icmp slt i64 %indvars.iv.next272.i, %234
@@ -1951,7 +1951,7 @@ have_partkey_equi_join.exit.thread:               ; preds = %122, %184, %232, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
   br label %318
 
-.loopexit:                                        ; preds = %147, %.thread207.thread.i
+.loopexit:                                        ; preds = %147, %.thread203.thread276.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
   %236 = load ptr, ptr %11, align 8
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 368

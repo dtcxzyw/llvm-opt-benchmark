@@ -9395,8 +9395,8 @@ _ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i
 427:                                              ; preds = %_ZN11quinn_proto10congestion3bbr3Bbr15get_target_cwnd17h3e491d993b1fa69dE.exit.i25
   %428 = call noundef i64 @_ZN11quinn_proto10congestion3bbr7min_max6MinMax3get17h878cef28d4d0a2e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %13)
   %.pre.i = load i8, ptr %229, align 4, !range !116, !alias.scope !613
-  %.sroa.0.0.i28 = add i64 %428, %.sroa.0.0.i.i26
   %429 = trunc nuw i8 %.pre.i to i1
+  %.sroa.0.0.i28 = add i64 %428, %.sroa.0.0.i.i26
   br i1 %429, label %434, label %430
 
 430:                                              ; preds = %427, %.thread.i27

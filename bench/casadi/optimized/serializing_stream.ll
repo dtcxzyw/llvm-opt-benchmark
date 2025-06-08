@@ -4194,10 +4194,10 @@ _ZN6casadi17SerializingStream8decorateEc.exit:    ; preds = %2
   %12 = load ptr, ptr %9, align 8, !tbaa !110
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %12, i8 noundef signext 104)
   %.pre = load i8, ptr %4, align 8, !tbaa !106, !range !77
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !37
-  %16 = trunc nuw i8 %.pre to i1
-  br i1 %16, label %17, label %_ZN6casadi17SerializingStream8decorateEc.exit.i
+  %14 = trunc nuw i8 %.pre to i1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !37
+  br i1 %14, label %17, label %_ZN6casadi17SerializingStream8decorateEc.exit.i
 
 17:                                               ; preds = %_ZN6casadi17SerializingStream8decorateEc.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4208,7 +4208,7 @@ _ZN6casadi17SerializingStream8decorateEc.exit:    ; preds = %2
   br label %_ZN6casadi17SerializingStream8decorateEc.exit.i
 
 _ZN6casadi17SerializingStream8decorateEc.exit.i:  ; preds = %_ZN6casadi17SerializingStream8decorateEc.exit.thread, %17, %_ZN6casadi17SerializingStream8decorateEc.exit
-  %23 = phi i64 [ %8, %_ZN6casadi17SerializingStream8decorateEc.exit.thread ], [ %15, %17 ], [ %15, %_ZN6casadi17SerializingStream8decorateEc.exit ]
+  %23 = phi i64 [ %8, %_ZN6casadi17SerializingStream8decorateEc.exit.thread ], [ %16, %17 ], [ %16, %_ZN6casadi17SerializingStream8decorateEc.exit ]
   %24 = trunc i64 %23 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #25
   store i32 %24, ptr %3, align 4, !tbaa !131
@@ -15737,9 +15737,9 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream4packIxEEvRKNSt7__
 9:                                                ; preds = %3
   tail call void @_ZN6casadi17SerializingStream4packERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.pre = load i8, ptr %5, align 8, !tbaa !106, !range !77
-  %10 = load i64, ptr %2, align 8, !tbaa !43
-  %11 = trunc nuw i8 %.pre to i1
-  br i1 %11, label %12, label %_ZN6casadi17SerializingStream8decorateEc.exit.i
+  %10 = trunc nuw i8 %.pre to i1
+  %11 = load i64, ptr %2, align 8, !tbaa !43
+  br i1 %10, label %12, label %_ZN6casadi17SerializingStream8decorateEc.exit.i
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15750,7 +15750,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream4packIxEEvRKNSt7__
   br label %_ZN6casadi17SerializingStream8decorateEc.exit.i
 
 _ZN6casadi17SerializingStream8decorateEc.exit.i:  ; preds = %.thread, %12, %9
-  %18 = phi i64 [ %8, %.thread ], [ %10, %12 ], [ %10, %9 ]
+  %18 = phi i64 [ %8, %.thread ], [ %11, %12 ], [ %11, %9 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store i64 %18, ptr %4, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64

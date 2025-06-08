@@ -817,7 +817,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit205:  ; preds = %220, %226
   br label %233
 
 233:                                              ; preds = %209, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit205
-  %.1116 = phi i8 [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit205 ], [ %.0115454, %209 ]
+  %.1116 = phi i8 [ 0, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit205 ], [ 1, %209 ]
   %.3 = phi i1 [ %.0109455, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit205 ], [ %217, %209 ]
   %234 = getelementptr inbounds nuw i8, ptr %.0118453, i64 8
   %.not180 = icmp eq ptr %234, %.ptr495
@@ -1252,7 +1252,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 .sink.split:                                      ; preds = %.noexc254, %.noexc259
   %.pre.i256.sink = phi ptr [ %.pre.i256, %.noexc259 ], [ %.pre.i.i251, %.noexc254 ]
   %.sink.ph = phi ptr [ %421, %.noexc259 ], [ %399, %.noexc254 ]
-  %.2133.ph = phi i8 [ 0, %.noexc259 ], [ %.1132481, %.noexc254 ]
+  %.2133.ph = phi i8 [ 0, %.noexc259 ], [ 1, %.noexc254 ]
   %.phi.trans.insert.i257 = getelementptr inbounds i8, ptr %.pre.i256.sink, i64 -4
   %.pre2.i258 = load i32, ptr %.phi.trans.insert.i257, align 4, !tbaa !13
   br label %431
@@ -1261,7 +1261,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %.sink617 = phi ptr [ %403, %405 ], [ %422, %424 ], [ %.pre.i256.sink, %.sink.split ]
   %.sink616 = phi i32 [ %407, %405 ], [ %426, %424 ], [ %.pre2.i258, %.sink.split ]
   %.sink = phi ptr [ %399, %405 ], [ %421, %424 ], [ %.sink.ph, %.sink.split ]
-  %.2133 = phi i8 [ %.1132481, %405 ], [ 0, %424 ], [ %.2133.ph, %.sink.split ]
+  %.2133 = phi i8 [ 1, %405 ], [ 0, %424 ], [ %.2133.ph, %.sink.split ]
   %432 = getelementptr inbounds i8, ptr %.sink617, i64 -4
   %433 = zext i32 %.sink616 to i64
   %434 = getelementptr inbounds nuw ptr, ptr %.sink617, i64 %433
@@ -1427,7 +1427,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 .sink.split627:                                   ; preds = %.noexc280, %.noexc285
   %.pre.i282.sink = phi ptr [ %.pre.i282, %.noexc285 ], [ %.pre.i.i277, %.noexc280 ]
   %.sink621.ph = phi ptr [ %493, %.noexc285 ], [ %471, %.noexc280 ]
-  %.4135.ph = phi i8 [ 0, %.noexc285 ], [ %.3134487, %.noexc280 ]
+  %.4135.ph = phi i8 [ 0, %.noexc285 ], [ 1, %.noexc280 ]
   %.phi.trans.insert.i283 = getelementptr inbounds i8, ptr %.pre.i282.sink, i64 -4
   %.pre2.i284 = load i32, ptr %.phi.trans.insert.i283, align 4, !tbaa !13
   br label %503
@@ -1436,7 +1436,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %.sink626 = phi ptr [ %475, %477 ], [ %494, %496 ], [ %.pre.i282.sink, %.sink.split627 ]
   %.sink625 = phi i32 [ %479, %477 ], [ %498, %496 ], [ %.pre2.i284, %.sink.split627 ]
   %.sink621 = phi ptr [ %471, %477 ], [ %493, %496 ], [ %.sink621.ph, %.sink.split627 ]
-  %.4135 = phi i8 [ %.3134487, %477 ], [ 0, %496 ], [ %.4135.ph, %.sink.split627 ]
+  %.4135 = phi i8 [ 1, %477 ], [ 0, %496 ], [ %.4135.ph, %.sink.split627 ]
   %504 = getelementptr inbounds i8, ptr %.sink626, i64 -4
   %505 = zext i32 %.sink625 to i64
   %506 = getelementptr inbounds nuw ptr, ptr %.sink626, i64 %505

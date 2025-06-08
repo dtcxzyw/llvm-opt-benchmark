@@ -61508,7 +61508,7 @@ _ZNK5clang11AutoTypeLoc12getRAngleLocEv.exit:     ; preds = %75, %66, %.critedge
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %96, i64 %indvars.iv
   %98 = call noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_19TemplateArgumentLocENS0_30UnexpandedParameterPackContextE(ptr noundef nonnull align 8 dereferenceable(17504) %.val, ptr noundef nonnull byval(%"class.clang::TemplateArgumentLoc") align 8 %97, i32 noundef 21) #24
-  %spec.select104 = select i1 %98, i8 1, i8 %.0168
+  %spec.select104 = zext i1 %98 to i8
   %.pre = load i32, ptr %80, align 8, !tbaa !47
   br label %.critedge
 
@@ -70141,12 +70141,12 @@ _ZN4llvm6APSIntaSERKS0_.exit.thread:              ; preds = %26
 _ZN4llvm6APSIntaSERKS0_.exit:                     ; preds = %22, %26
   call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %2, ptr noundef nonnull align 8 dereferenceable(13) %9) #24
   %.pre = load i8, ptr %19, align 8, !tbaa !1177, !range !18
-  %34 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %35 = load i8, ptr %34, align 4, !tbaa !1130, !range !18, !noundef !19
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 %35, ptr %36, align 4, !tbaa !1130
-  %37 = trunc nuw i8 %.pre to i1
-  br i1 %37, label %38, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
+  %34 = trunc nuw i8 %.pre to i1
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %36 = load i8, ptr %35, align 4, !tbaa !1130, !range !18, !noundef !19
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i8 %36, ptr %37, align 4, !tbaa !1130
+  br i1 %34, label %38, label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit
 
 38:                                               ; preds = %_ZN4llvm6APSIntaSERKS0_.exit.thread, %_ZN4llvm6APSIntaSERKS0_.exit
   store i8 0, ptr %19, align 8, !tbaa !1177

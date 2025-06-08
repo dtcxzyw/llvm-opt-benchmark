@@ -2180,7 +2180,7 @@ _ZN3smt24relevancy_propagator_imp12get_handlersEP4expr.exit: ; preds = %91, %99
   br label %.loopexit.split-lp
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %.loopexit, %5
-  store i8 %3, ptr %2, align 8, !tbaa !603
+  store i8 0, ptr %2, align 8, !tbaa !603
   br label %117
 
 117:                                              ; preds = %1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.thread
@@ -2188,7 +2188,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 
 .loopexit.split-lp:                               ; preds = %.loopexit36, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %115
   %.pn.pn = phi { ptr, i32 } [ %116, %115 ], [ %lpad.loopexit, %.loopexit36 ], [ %lpad.loopexit37, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp38, %.loopexit.split-lp.loopexit.split-lp ]
-  store i8 %3, ptr %2, align 8, !tbaa !603
+  store i8 0, ptr %2, align 8, !tbaa !603
   resume { ptr, i32 } %.pn.pn
 }
 

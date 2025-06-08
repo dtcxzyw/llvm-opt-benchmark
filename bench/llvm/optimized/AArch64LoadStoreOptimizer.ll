@@ -12855,8 +12855,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm12Machine
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1
-  %.not117.i.i.i = icmp eq i32 %6, 0
-  br i1 %.not117.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+  %.not116.i.i.i = icmp eq i32 %6, 0
+  br i1 %.not116.i.i.i, label %7, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 7:                                                ; preds = %3
   %.val3 = load i8, ptr %2, align 1, !tbaa !71, !range !59, !noundef !60
@@ -12874,8 +12874,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm12Machine
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !480
   %17 = and i64 %16, 8
-  %.not118.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not118.i.i.i, label %18, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
+  %.not117.i.i.i = icmp eq i64 %17, 0
+  br i1 %.not117.i.i.i, label %18, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -12884,27 +12884,27 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm12Machine
   %22 = load i24, ptr %21, align 8
   %23 = zext i24 %22 to i64
   %24 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %20, i64 %23
-  %.not50126.i.i.i = icmp eq i24 %22, 0
-  br i1 %.not50126.i.i.i, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %.lr.ph129.i.i.i
+  %.not50125.i.i.i = icmp eq i24 %22, 0
+  br i1 %.not50125.i.i.i, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %.lr.ph128.i.i.i
 
-.lr.ph129.i.i.i:                                  ; preds = %18
+.lr.ph128.i.i.i:                                  ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   br label %28
 
-28:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i, %.lr.ph129.i.i.i
-  %.043127.i.i.i = phi ptr [ %20, %.lr.ph129.i.i.i ], [ %69, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i ]
-  %29 = load i32, ptr %.043127.i.i.i, align 8
+28:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i, %.lr.ph128.i.i.i
+  %.043126.i.i.i = phi ptr [ %20, %.lr.ph128.i.i.i ], [ %69, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i ]
+  %29 = load i32, ptr %.043126.i.i.i, align 8
   %30 = and i32 %29, -2130706177
-  %or.cond113.not.i.i.i = icmp eq i32 %30, 16777216
-  br i1 %or.cond113.not.i.i.i, label %31, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
+  %or.cond112.not.i.i.i = icmp eq i32 %30, 16777216
+  br i1 %or.cond112.not.i.i.i, label %31, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %.043127.i.i.i, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.043126.i.i.i, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !13
   %.not51.i.i.i = icmp eq i32 %33, 0
-  br i1 %.not51.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i, label %34
+  br i1 %.not51.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i, label %34
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %25, align 8, !tbaa !940
@@ -12919,20 +12919,20 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRN4llvm12Machine
   %41 = add i32 %.sroa.017.0.copyload.i.i.i, -1
   %42 = icmp ult i32 %41, 1073741823
   %or.cond.i.i.i.i = and i1 %40, %42
-  br i1 %or.cond.i.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i: ; preds = %39
   %43 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %36, i32 %33, i32 %.sroa.017.0.copyload.i.i.i) #21
-  br i1 %43, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread_crit_edge.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
+  br i1 %43, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread_crit_edge.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread_crit_edge.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i
-  %.pre138.i.i.i = load ptr, ptr %25, align 8, !tbaa !940
-  %.pre139.i.i.i = load ptr, ptr %.pre138.i.i.i, align 8, !tbaa !840
+  %.pre137.i.i.i = load ptr, ptr %25, align 8, !tbaa !940
+  %.pre138.i.i.i = load ptr, ptr %.pre137.i.i.i, align 8, !tbaa !840
   br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread_crit_edge.i.i.i, %34
-  %44 = phi ptr [ %.pre139.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread_crit_edge.i.i.i ], [ %36, %34 ]
-  %45 = tail call fastcc noundef zeroext i1 @_ZL12canRenameMOPRKN4llvm14MachineOperandEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(32) %.043127.i.i.i, ptr noundef %44)
+  %44 = phi ptr [ %.pre138.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread_crit_edge.i.i.i ], [ %36, %34 ]
+  %45 = tail call fastcc noundef zeroext i1 @_ZL12canRenameMOPRKN4llvm14MachineOperandEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(32) %.043126.i.i.i, ptr noundef %44)
   br i1 %45, label %46, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 46:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i
@@ -12959,7 +12959,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i: ;
   %.02937.i.i.i.i.i = phi ptr [ %62, %.critedge.i.i.i.i.i ], [ %56, %55 ]
   %61 = load ptr, ptr %.02937.i.i.i.i.i, align 8, !tbaa !74, !noalias !943
   %.not17.i.i.i.i.i = icmp eq ptr %61, %51
-  br i1 %.not17.i.i.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i, label %.critedge.i.i.i.i.i
+  br i1 %.not17.i.i.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i, label %.critedge.i.i.i.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i, i64 8
@@ -12976,14 +12976,14 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i: ;
   %67 = add nuw i32 %58, 1
   store i32 %67, ptr %57, align 4, !tbaa !37, !noalias !943
   store ptr %51, ptr %60, align 8, !tbaa !74, !noalias !943
-  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
+  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i, %46
   %68 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %47, ptr noundef %51) #21, !noalias !943
-  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
+  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i
 
-_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i, %66, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, %39, %31, %28
-  %69 = getelementptr inbounds nuw i8, ptr %.043127.i.i.i, i64 32
+_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i.i, %66, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, %39, %31, %28
+  %69 = getelementptr inbounds nuw i8, ptr %.043126.i.i.i, i64 32
   %.not50.i.i.i = icmp eq ptr %69, %24
   br i1 %.not50.i.i.i, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %28
 
@@ -12994,8 +12994,8 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
   %74 = load i24, ptr %73, align 8
   %75 = zext i24 %74 to i64
   %76 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %72, i64 %75
-  %.not122.i.i.i = icmp eq i24 %74, 0
-  br i1 %.not122.i.i.i, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %.lr.ph.i.i.i
+  %.not121.i.i.i = icmp eq i24 %74, 0
+  br i1 %.not121.i.i.i, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -13003,18 +13003,18 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
   %79 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   br label %80
 
-80:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i, %.lr.ph.i.i.i
-  %.048123.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i ], [ %121, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i ]
-  %81 = load i32, ptr %.048123.i.i.i, align 8
+80:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i, %.lr.ph.i.i.i
+  %.048122.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i ], [ %121, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i ]
+  %81 = load i32, ptr %.048122.i.i.i, align 8
   %82 = and i32 %81, -2147483393
-  %or.cond115.not.i.i.i = icmp eq i32 %82, 0
-  br i1 %or.cond115.not.i.i.i, label %83, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i
+  %or.cond114.not.i.i.i = icmp eq i32 %82, 0
+  br i1 %or.cond114.not.i.i.i, label %83, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %.048123.i.i.i, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.048122.i.i.i, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !13
   %.not49.i.i.i = icmp eq i32 %85, 0
-  br i1 %.not49.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i, label %86
+  br i1 %.not49.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i, label %86
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %77, align 8, !tbaa !940
@@ -13029,20 +13029,20 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i
   %93 = add i32 %.sroa.03.0.copyload.i.i.i, -1
   %94 = icmp ult i32 %93, 1073741823
   %or.cond.i57.i.i.i = and i1 %92, %94
-  br i1 %or.cond.i57.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i
+  br i1 %or.cond.i57.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.i.i.i: ; preds = %91
   %95 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %88, i32 %85, i32 %.sroa.03.0.copyload.i.i.i) #21
-  br i1 %95, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread_crit_edge.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i
+  br i1 %95, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread_crit_edge.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread_crit_edge.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.i.i.i
   %.pre.i.i.i = load ptr, ptr %77, align 8, !tbaa !940
-  %.pre136.i.i.i = load ptr, ptr %.pre.i.i.i, align 8, !tbaa !840
+  %.pre135.i.i.i = load ptr, ptr %.pre.i.i.i, align 8, !tbaa !840
   br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread_crit_edge.i.i.i, %86
-  %96 = phi ptr [ %.pre136.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread_crit_edge.i.i.i ], [ %88, %86 ]
-  %97 = tail call fastcc noundef zeroext i1 @_ZL12canRenameMOPRKN4llvm14MachineOperandEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(32) %.048123.i.i.i, ptr noundef %96)
+  %96 = phi ptr [ %.pre135.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread_crit_edge.i.i.i ], [ %88, %86 ]
+  %97 = tail call fastcc noundef zeroext i1 @_ZL12canRenameMOPRKN4llvm14MachineOperandEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(32) %.048122.i.i.i, ptr noundef %96)
   br i1 %97, label %98, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
 98:                                               ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i
@@ -13062,43 +13062,43 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i:
   %110 = load i32, ptr %109, align 4, !tbaa !37, !noalias !946
   %111 = zext i32 %110 to i64
   %112 = getelementptr inbounds nuw ptr, ptr %108, i64 %111
-  %.not36.i.i78.i.i.i = icmp eq i32 %110, 0
-  br i1 %.not36.i.i78.i.i.i, label %._crit_edge.i.i84.i.i.i, label %.lr.ph.i.i79.i.i.i
+  %.not36.i.i77.i.i.i = icmp eq i32 %110, 0
+  br i1 %.not36.i.i77.i.i.i, label %._crit_edge.i.i83.i.i.i, label %.lr.ph.i.i78.i.i.i
 
-.lr.ph.i.i79.i.i.i:                               ; preds = %107, %.critedge.i.i82.i.i.i
-  %.02937.i.i80.i.i.i = phi ptr [ %114, %.critedge.i.i82.i.i.i ], [ %108, %107 ]
-  %113 = load ptr, ptr %.02937.i.i80.i.i.i, align 8, !tbaa !74, !noalias !946
-  %.not17.i.i81.i.i.i = icmp eq ptr %113, %103
-  br i1 %.not17.i.i81.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i, label %.critedge.i.i82.i.i.i
+.lr.ph.i.i78.i.i.i:                               ; preds = %107, %.critedge.i.i81.i.i.i
+  %.02937.i.i79.i.i.i = phi ptr [ %114, %.critedge.i.i81.i.i.i ], [ %108, %107 ]
+  %113 = load ptr, ptr %.02937.i.i79.i.i.i, align 8, !tbaa !74, !noalias !946
+  %.not17.i.i80.i.i.i = icmp eq ptr %113, %103
+  br i1 %.not17.i.i80.i.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i, label %.critedge.i.i81.i.i.i
 
-.critedge.i.i82.i.i.i:                            ; preds = %.lr.ph.i.i79.i.i.i
-  %114 = getelementptr inbounds nuw i8, ptr %.02937.i.i80.i.i.i, i64 8
-  %.not.i.i83.i.i.i = icmp eq ptr %114, %112
-  br i1 %.not.i.i83.i.i.i, label %._crit_edge.i.i84.i.i.i, label %.lr.ph.i.i79.i.i.i, !llvm.loop !838
+.critedge.i.i81.i.i.i:                            ; preds = %.lr.ph.i.i78.i.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %.02937.i.i79.i.i.i, i64 8
+  %.not.i.i82.i.i.i = icmp eq ptr %114, %112
+  br i1 %.not.i.i82.i.i.i, label %._crit_edge.i.i83.i.i.i, label %.lr.ph.i.i78.i.i.i, !llvm.loop !838
 
-._crit_edge.i.i84.i.i.i:                          ; preds = %.critedge.i.i82.i.i.i, %107
+._crit_edge.i.i83.i.i.i:                          ; preds = %.critedge.i.i81.i.i.i, %107
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %116 = load i32, ptr %115, align 8, !tbaa !36, !noalias !946
   %117 = icmp ult i32 %110, %116
   br i1 %117, label %118, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i60.i.i.i
 
-118:                                              ; preds = %._crit_edge.i.i84.i.i.i
+118:                                              ; preds = %._crit_edge.i.i83.i.i.i
   %119 = add nuw i32 %110, 1
   store i32 %119, ptr %109, align 4, !tbaa !37, !noalias !946
   store ptr %103, ptr %112, align 8, !tbaa !74, !noalias !946
-  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i
+  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i
 
-_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i60.i.i.i: ; preds = %._crit_edge.i.i84.i.i.i, %98
+_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i60.i.i.i: ; preds = %._crit_edge.i.i83.i.i.i, %98
   %120 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %99, ptr noundef %103) #21, !noalias !946
-  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i
+  br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i
 
-_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i: ; preds = %.lr.ph.i.i79.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i60.i.i.i, %118, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.i.i.i, %91, %83, %80
-  %121 = getelementptr inbounds nuw i8, ptr %.048123.i.i.i, i64 32
+_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i: ; preds = %.lr.ph.i.i78.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i60.i.i.i, %118, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.i.i.i, %91, %83, %80
+  %121 = getelementptr inbounds nuw i8, ptr %.048122.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %121, %76
   br i1 %.not.i.i.i, label %"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit", label %80
 
-"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i, %3, %12, %18, %70
-  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %12 ], [ true, %18 ], [ true, %70 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread105.i.i.i ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread109.i.i.i ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i ]
+"_ZSt10__invoke_rIbRZL16canRenameUpToDefRN4llvm12MachineInstrERNS0_12LiveRegUnitsERNS0_15SmallPtrSetImplIPKNS0_19TargetRegisterClassEEEPKNS0_18TargetRegisterInfoEE3$_0JS2_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit": ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i, %3, %12, %18, %70
+  %.0.i.i.i = phi i1 [ false, %3 ], [ false, %12 ], [ true, %18 ], [ true, %70 ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread104.i.i.i ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.i.i.i ], [ true, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread108.i.i.i ], [ false, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit59.thread.i.i.i ]
   ret i1 %.0.i.i.i
 }
 

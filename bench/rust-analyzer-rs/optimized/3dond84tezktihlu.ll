@@ -6809,14 +6809,14 @@ define void @"_ZN7ide_ssr7parsing73_$LT$impl$u20$core..str..traits..FromStr$u20$
   %44 = sub i64 %39, %42
   store i64 %41, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1543
   %.pre = load i8, ptr %.sroa.747.0..sroa_idx, align 1, !range !724, !alias.scope !1549
+  %45 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1543
-  %45 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hed2fe1d0871c6e5fE"(ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %44)
-  %46 = extractvalue { ptr, i64 } %45, 0
-  %47 = extractvalue { ptr, i64 } %45, 1
+  %46 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hed2fe1d0871c6e5fE"(ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %44)
+  %47 = extractvalue { ptr, i64 } %46, 0
+  %48 = extractvalue { ptr, i64 } %46, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1549)
-  %48 = trunc nuw i8 %.pre to i1
-  br i1 %48, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread", label %49
+  br i1 %45, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread", label %49
 
 49:                                               ; preds = %37
   %.val.i127 = load ptr, ptr %18, align 8, !alias.scope !1549, !nonnull !4, !align !78, !noundef !4
@@ -6881,8 +6881,8 @@ define void @"_ZN7ide_ssr7parsing73_$LT$impl$u20$core..str..traits..FromStr$u20$
   br label %81
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread": ; preds = %.thread225, %37, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread172"
-  %74 = phi i64 [ %47, %37 ], [ %47, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread172" ], [ %35, %.thread225 ]
-  %75 = phi ptr [ %46, %37 ], [ %46, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread172" ], [ %34, %.thread225 ]
+  %74 = phi i64 [ %35, %.thread225 ], [ %48, %37 ], [ %48, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread172" ]
+  %75 = phi ptr [ %34, %.thread225 ], [ %47, %37 ], [ %47, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread172" ]
   %76 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h608d8887e77cbd41E"(i64 noundef 28, i1 noundef zeroext false)
   %77 = extractvalue { i64, ptr } %76, 0
   %78 = extractvalue { i64, ptr } %76, 1
@@ -6893,8 +6893,8 @@ define void @"_ZN7ide_ssr7parsing73_$LT$impl$u20$core..str..traits..FromStr$u20$
   br i1 %80, label %81, label %103
 
 81:                                               ; preds = %.thread, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread"
-  %82 = phi i64 [ %47, %.thread ], [ %74, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]
-  %83 = phi ptr [ %46, %.thread ], [ %75, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]
+  %82 = phi i64 [ %48, %.thread ], [ %74, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]
+  %83 = phi ptr [ %47, %.thread ], [ %75, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]
   %84 = phi i1 [ %.pre223, %.thread ], [ true, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]
   %.sroa.6.0179 = phi ptr [ %.sroa.0.1.i133, %.thread ], [ %78, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]
   %.sroa.8.0178 = phi i64 [ %.sroa.4.1.i132, %.thread ], [ 28, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h944dffd3481ceb83E.exit141.thread" ]

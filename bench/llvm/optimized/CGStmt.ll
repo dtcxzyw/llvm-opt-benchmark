@@ -9617,8 +9617,8 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %884
   %.sroa.0.0.copyload.i447 = load i64, ptr %.sroa.7951.0..sroa_idx952, align 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.8.0..sroa_idx954, align 8, !tbaa !1217
   %897 = and i64 %.0.copyload.i.i.i.i.i, -4
-  %spec.select1871 = select i1 %.not.i446, i64 %897, i64 %.0.copyload.i.i.i.i.i
-  store i64 %spec.select1871, ptr %44, align 8, !tbaa !988
+  %spec.select = select i1 %.not.i446, i64 %897, i64 %.0.copyload.i.i.i.i.i
+  store i64 %spec.select, ptr %44, align 8, !tbaa !988
   store ptr %895, ptr %.sroa.5945.0..sroa_idx, align 8, !tbaa !1290
   store i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.6948.0..sroa_idx949, align 8, !tbaa !295
   store i64 %.sroa.0.0.copyload.i447, ptr %.sroa.7951.0..sroa_idx952, align 8
@@ -9626,7 +9626,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %884
   br label %898
 
 898:                                              ; preds = %._crit_edge1753, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit
-  %.0.copyload.i.i.i.i448 = phi i64 [ %.0.copyload.i.i.i.i448.pre, %._crit_edge1753 ], [ %spec.select1871, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
+  %.0.copyload.i.i.i.i448 = phi i64 [ %.0.copyload.i.i.i.i448.pre, %._crit_edge1753 ], [ %spec.select, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %899 = phi ptr [ %.pre, %._crit_edge1753 ], [ %895, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %900 = and i64 %.0.copyload.i.i.i.i448, -8
   %901 = inttoptr i64 %900 to ptr

@@ -1649,7 +1649,7 @@ list_length.exit.thread.i.i.i:                    ; preds = %list_length.exit.i.
 
 189:                                              ; preds = %187
   %190 = call zeroext i1 @op_hashjoinable(i32 noundef %.084.i.i.i, i32 noundef %153) #7
-  %spec.select.i.i.i = select i1 %190, i8 %.080124.i259.i.i, i8 0
+  %spec.select.i.i.i = zext i1 %190 to i8
   br label %191
 
 191:                                              ; preds = %189, %187

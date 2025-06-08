@@ -7805,8 +7805,8 @@ _ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit: ; preds = %8
   %.pre = load ptr, ptr %0, align 8, !tbaa !47
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 352
   %.pre4 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !419, !range !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %39 = trunc nuw i8 %.pre4 to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   br i1 %39, label %40, label %_ZN3sat14cut_simplifier12track_binaryENS_7literalES1_.exit
 
 40:                                               ; preds = %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit.thread, %_ZNK3sat14cut_simplifier7bin_rel9to_binaryERNS_7literalES3_.exit

@@ -39836,9 +39836,9 @@ _ZN15ruff_python_ast4name20QualifiedNameBuilder13with_capacity17h221b76d6a2a1817
 
 "_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54f028fd48a73914E.exit.thread.i.i": ; preds = %266
   %.pre.pre = load i8, ptr %.sroa.9.0..sroa_idx, align 1, !range !825, !alias.scope !5650, !noalias !5598
+  %154 = trunc nuw i8 %.pre.pre to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5655)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5656)
-  %154 = trunc nuw i8 %.pre.pre to i1
   br i1 %154, label %_ZN15ruff_python_ast4name13SegmentsStack6extend17hcd012a9ff790e3a3E.exit.thread.i, label %"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54f028fd48a73914E.exit.thread.i.i.thread107"
 
 "_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54f028fd48a73914E.exit.thread.i.i.thread107": ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17h3f35dc3f6d7022a0E.exit.i.i", %"_ZN90_$LT$core..str..iter..Split$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h54f028fd48a73914E.exit.thread.i.i"

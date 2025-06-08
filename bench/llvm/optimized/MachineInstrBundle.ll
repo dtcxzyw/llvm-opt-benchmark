@@ -2050,7 +2050,7 @@ _ZNK4llvm14MachineOperand8readsRegEv.exit.thread23: ; preds = %_ZN4llvm23SmallVe
   %104 = and i32 %102, 15728640
   %105 = icmp ne i32 %104, 0
   %or.cond10.i = and i1 %or.cond.i, %105
-  %spec.select14 = select i1 %or.cond10.i, i8 1, i8 %.sroa.4.057
+  %spec.select14 = zext i1 %or.cond10.i to i8
   br label %.critedge
 
 .critedge:                                        ; preds = %53, %89, %87, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread23, %57

@@ -740,11 +740,11 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %.promoted33 = load ptr, ptr %5, align 8
   br label %6
 
-6:                                                ; preds = %23, %2
-  %7 = phi ptr [ %24, %23 ], [ %.promoted33, %2 ]
-  %.sroa.5.sroa.4.0.copyload32 = phi i64 [ %.sroa.9.127, %23 ], [ %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted, %2 ]
-  %8 = phi i64 [ %.sroa.6.126, %23 ], [ %.sroa.5.0..sroa_idx.promoted, %2 ]
-  %storemerge.i.i.i30 = phi i64 [ 1, %23 ], [ %.promoted, %2 ]
+6:                                                ; preds = %22, %2
+  %7 = phi ptr [ %23, %22 ], [ %.promoted33, %2 ]
+  %.sroa.5.sroa.4.0.copyload32 = phi i64 [ %.sroa.9.127, %22 ], [ %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.promoted, %2 ]
+  %8 = phi i64 [ %.sroa.6.126, %22 ], [ %.sroa.5.0..sroa_idx.promoted, %2 ]
+  %storemerge.i.i.i30 = phi i64 [ 1, %22 ], [ %.promoted, %2 ]
   %9 = icmp eq i64 %storemerge.i.i.i30, 2
   br i1 %9, label %10, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit"
 
@@ -768,7 +768,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread": ; preds = %10, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit"
   store i64 2, ptr %1, align 8
-  br label %19
+  br label %18
 
 16:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit", %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread20"
   %17 = phi ptr [ %12, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread20" ], [ %7, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit" ]
@@ -779,42 +779,42 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
-  %18 = icmp eq ptr %17, %4
-  br i1 %18, label %20, label %23
+  %.not = icmp eq ptr %17, %4
+  br i1 %.not, label %19, label %22
 
-19:                                               ; preds = %30, %20, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread"
-  %.sink = phi i64 [ 1, %30 ], [ 1, %20 ], [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread" ]
+18:                                               ; preds = %29, %19, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread"
+  %.sink = phi i64 [ 1, %29 ], [ 1, %19 ], [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce705712568c7fa7E.llvm.6297229166133583683.exit.thread" ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  store i64 %.sroa.6.126, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.127, ptr %22, align 8
-  br label %19
+  store i64 %.sroa.6.126, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.9.127, ptr %21, align 8
+  br label %18
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %24, ptr %5, align 8, !alias.scope !126, !noalias !127
-  %25 = load i64, ptr %17, align 8, !noalias !131, !noundef !9
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %27 = load i64, ptr %26, align 8, !noalias !131, !noundef !9
-  store i64 %25, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !112, !noalias !115
-  store i64 %27, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !alias.scope !112, !noalias !115
-  %28 = icmp ne i64 %.sroa.6.126, %25
-  %29 = icmp ne i64 %.sroa.9.127, %27
-  %.sroa.0.0.i.not.i = select i1 %28, i1 true, i1 %29
-  br i1 %.sroa.0.0.i.not.i, label %30, label %6
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %23, ptr %5, align 8, !alias.scope !126, !noalias !127
+  %24 = load i64, ptr %17, align 8, !noalias !131, !noundef !9
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %26 = load i64, ptr %25, align 8, !noalias !131, !noundef !9
+  store i64 %24, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !112, !noalias !115
+  store i64 %26, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8, !alias.scope !112, !noalias !115
+  %27 = icmp ne i64 %.sroa.6.126, %24
+  %28 = icmp ne i64 %.sroa.9.127, %26
+  %.sroa.0.0.i.not.i = select i1 %27, i1 true, i1 %28
+  br i1 %.sroa.0.0.i.not.i, label %29, label %6
 
-30:                                               ; preds = %23
+29:                                               ; preds = %22
   store i64 1, ptr %1, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.126, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.9.127, ptr %32, align 8
-  br label %19
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.6.126, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.9.127, ptr %31, align 8
+  br label %18
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

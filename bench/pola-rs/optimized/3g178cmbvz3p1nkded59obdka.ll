@@ -27607,7 +27607,7 @@ define hidden void @"_ZN171_$LT$polars_pipe..executors..sinks..group_by..aggrega
   br i1 %17, label %20, label %24
 
 20:                                               ; preds = %19
-  store i32 %13, ptr %0, align 4
+  store i32 1, ptr %0, align 4
   store float %15, ptr %11, align 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 4, !noundef !3
@@ -27659,7 +27659,7 @@ define hidden void @"_ZN171_$LT$polars_pipe..executors..sinks..group_by..aggrega
   br i1 %17, label %20, label %24
 
 20:                                               ; preds = %19
-  store i64 %13, ptr %0, align 8
+  store i64 1, ptr %0, align 8
   store double %15, ptr %11, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8, !noundef !3

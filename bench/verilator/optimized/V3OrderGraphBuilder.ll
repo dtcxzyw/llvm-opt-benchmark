@@ -1721,14 +1721,12 @@ _ZNSt8functionIFbPK11AstVarScopeEEaSIZN17OrderGraphBuilder5visitEP9AstActiveEUlS
           to label %_ZN9VNVisitor15iterateChildrenEP7AstNode.exit unwind label %89
 
 _ZN9VNVisitor15iterateChildrenEP7AstNode.exit:    ; preds = %125
-  store i8 %28, ptr %27, align 8, !tbaa !109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 17, i1 false)
   ret void
 
 126:                                              ; preds = %110, %91, %89
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %111, %110 ], [ %92, %91 ]
-  store i8 %28, ptr %27, align 8, !tbaa !109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %30, i8 0, i64 17, i1 false)
   resume { ptr, i32 } %.pn
 }
 
@@ -1753,7 +1751,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP17AstAlwaysObs
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP13AstAlwaysPost(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %4 = load i8, ptr %3, align 2, !tbaa !110, !range !81, !noundef !82
+  %4 = load i8, ptr %3, align 2, !tbaa !109, !range !81, !noundef !82
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %10, !prof !79
 
@@ -1765,18 +1763,18 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP13AstAlwaysPos
   unreachable
 
 10:                                               ; preds = %2
-  store i8 1, ptr %3, align 2, !tbaa !110
+  store i8 1, ptr %3, align 2, !tbaa !109
   invoke void @_ZN17OrderGraphBuilder12iterateLogicEP7AstNode(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1)
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
-  store i8 %4, ptr %3, align 2, !tbaa !109
+  store i8 0, ptr %3, align 2, !tbaa !110
   ret void
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 2, !tbaa !109
+  store i8 0, ptr %3, align 2, !tbaa !110
   resume { ptr, i32 } %13
 }
 
@@ -1825,7 +1823,7 @@ declare void @_ZN14VNVisitorConst5visitEP14AstAssignForce(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP13AstAssignPost(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %4 = load i8, ptr %3, align 2, !tbaa !110, !range !81, !noundef !82
+  %4 = load i8, ptr %3, align 2, !tbaa !109, !range !81, !noundef !82
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %10, !prof !79
 
@@ -1837,18 +1835,18 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP13AstAssignPos
   unreachable
 
 10:                                               ; preds = %2
-  store i8 1, ptr %3, align 2, !tbaa !110
+  store i8 1, ptr %3, align 2, !tbaa !109
   invoke void @_ZN17OrderGraphBuilder12iterateLogicEP7AstNode(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1)
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
-  store i8 %4, ptr %3, align 2, !tbaa !109
+  store i8 0, ptr %3, align 2, !tbaa !110
   ret void
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 2, !tbaa !109
+  store i8 0, ptr %3, align 2, !tbaa !110
   resume { ptr, i32 } %13
 }
 
@@ -1872,13 +1870,13 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP12AstAssignPre
           to label %11 unwind label %12
 
 11:                                               ; preds = %10
-  store i8 %4, ptr %3, align 1, !tbaa !109
+  store i8 0, ptr %3, align 1, !tbaa !110
   ret void
 
 12:                                               ; preds = %10
   %13 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 1, !tbaa !109
+  store i8 0, ptr %3, align 1, !tbaa !110
   resume { ptr, i32 } %13
 }
 
@@ -2569,7 +2567,7 @@ define linkonce_odr dso_local void @_ZN17OrderGraphBuilder5visitEP13AstNodeVarRe
   store i64 %.sroa.0.0.insert.ext.i, ptr %29, align 8, !tbaa !107
   store i32 %27, ptr %25, align 4, !tbaa !126
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %49 = load i8, ptr %48, align 2, !tbaa !110, !range !81, !noundef !82
+  %49 = load i8, ptr %48, align 2, !tbaa !109, !range !81, !noundef !82
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %152
 
@@ -4299,7 +4297,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8allocateEiRjRb(i32 noun
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %0, ptr %4, align 4, !tbaa !127
-  %8 = load i8, ptr %2, align 1, !tbaa !109, !range !81, !noundef !82
+  %8 = load i8, ptr %2, align 1, !tbaa !110, !range !81, !noundef !82
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %83, !prof !79
 
@@ -4482,7 +4480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
 
 83:                                               ; preds = %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
   %84 = phi i32 [ %0, %3 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14 ]
-  store i8 1, ptr %2, align 1, !tbaa !109
+  store i8 1, ptr %2, align 1, !tbaa !110
   call void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
   ret void
 }
@@ -4704,7 +4702,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 nou
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %0, ptr %4, align 4, !tbaa !127
-  %8 = load i8, ptr %2, align 1, !tbaa !109, !range !81, !noundef !82
+  %8 = load i8, ptr %2, align 1, !tbaa !110, !range !81, !noundef !82
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %83, label %10, !prof !78
 
@@ -5143,7 +5141,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase8checkcntEiRjRKb(i32 nou
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %0, ptr %4, align 4, !tbaa !127
-  %8 = load i8, ptr %2, align 1, !tbaa !109, !range !81, !noundef !82
+  %8 = load i8, ptr %2, align 1, !tbaa !110, !range !81, !noundef !82
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %83, label %10, !prof !78
 
@@ -5368,7 +5366,7 @@ define linkonce_odr dso_local void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %0, ptr %4, align 4, !tbaa !127
-  %8 = load i8, ptr %2, align 1, !tbaa !109, !range !81, !noundef !82
+  %8 = load i8, ptr %2, align 1, !tbaa !110, !range !81, !noundef !82
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %83, label %10, !prof !78
 
@@ -5552,7 +5550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
 83:                                               ; preds = %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14
   %84 = phi i32 [ %0, %3 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14 ]
   call void @_ZN15VNUserInUseBase8clearcntEiRjRKb(i32 noundef %84, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  store i8 0, ptr %2, align 1, !tbaa !109
+  store i8 0, ptr %2, align 1, !tbaa !110
   ret void
 }
 
@@ -9160,8 +9158,8 @@ attributes #27 = { noreturn }
 !106 = !{i64 0, i64 16, !107}
 !107 = !{!19, !19, i64 0}
 !108 = !{!18, !18, i64 0}
-!109 = !{!39, !39, i64 0}
-!110 = !{!8, !39, i64 170}
+!109 = !{!8, !39, i64 170}
+!110 = !{!39, !39, i64 0}
 !111 = !{!8, !39, i64 169}
 !112 = !{!113, !116, i64 160}
 !113 = !{!"_ZTS13AstNodeVarRef", !114, i64 0, !115, i64 152, !116, i64 160, !117, i64 168, !118, i64 176, !120, i64 184}

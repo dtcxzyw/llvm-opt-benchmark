@@ -1407,7 +1407,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit28:   ; preds = %58, %61
   %.0.i27 = phi i32 [ %63, %61 ], [ 0, %58 ]
   store i32 %.0.i27, ptr %3, align 4, !tbaa !3
   %64 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %15) #23
-  store i8 %12, ptr %11, align 8, !tbaa !21
+  store i8 0, ptr %11, align 8, !tbaa !21
   br label %118
 
 65:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit26
@@ -1544,7 +1544,7 @@ _ZNK14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE8containsERKj.exit: ; p
 
 121:                                              ; preds = %119, %44
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %119 ], [ %45, %44 ]
-  store i8 %12, ptr %11, align 8, !tbaa !21
+  store i8 0, ptr %11, align 8, !tbaa !21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -1932,7 +1932,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZStlsISt11char_tra
 
 _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %92, %106
   %107 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %86) #23
-  store i8 %10, ptr %9, align 8, !tbaa !21
+  store i8 0, ptr %9, align 8, !tbaa !21
   br label %108
 
 108:                                              ; preds = %4, %8, %_ZN3sat8parallel11vector_pool14end_add_vectorEv.exit
@@ -1951,7 +1951,7 @@ _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %92, %106
 
 114:                                              ; preds = %109, %111, %52
   %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %112, %111 ], [ %110, %109 ]
-  store i8 %10, ptr %9, align 8, !tbaa !21
+  store i8 0, ptr %9, align 8, !tbaa !21
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -2101,7 +2101,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZStlsISt11char_tra
 
 _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %._crit_edge, %61
   %62 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %50) #23
-  store i8 %18, ptr %17, align 8, !tbaa !21
+  store i8 0, ptr %17, align 8, !tbaa !21
   br label %75
 
 63:                                               ; preds = %52
@@ -2134,7 +2134,7 @@ _ZN3sat8parallel11vector_pool14end_add_vectorEv.exit: ; preds = %._crit_edge, %6
 
 76:                                               ; preds = %63, %65, %39
   %.pn.pn.pn = phi { ptr, i32 } [ %40, %39 ], [ %66, %65 ], [ %64, %63 ]
-  store i8 %18, ptr %17, align 8, !tbaa !21
+  store i8 0, ptr %17, align 8, !tbaa !21
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2180,7 +2180,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
 
 10:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #23
-  store i8 %4, ptr %3, align 8, !tbaa !21
+  store i8 0, ptr %3, align 8, !tbaa !21
   br label %12
 
 12:                                               ; preds = %2, %10
@@ -2199,7 +2199,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %6
 
 18:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  store i8 %4, ptr %3, align 8, !tbaa !21
+  store i8 0, ptr %3, align 8, !tbaa !21
   resume { ptr, i32 } %.pn
 }
 

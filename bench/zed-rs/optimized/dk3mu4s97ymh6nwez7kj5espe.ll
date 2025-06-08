@@ -1315,8 +1315,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17hb8c199501
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hfd8a27ff2aa86adeE.exit": ; preds = %85
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17h8d3f990e42f83640E"(ptr noalias noundef nonnull align 8 dereferenceable(688) %13, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d6355020085e2c7f61d33fd37212f9a.11)
   %.pre = load i8, ptr %47, align 8, !range !9, !alias.scope !235, !noalias !236
-  call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %115 = trunc nuw i8 %.pre to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !235)
   br i1 %115, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hfd8a27ff2aa86adeE.exit.thread", label %89
 
 116:                                              ; preds = %110
@@ -1647,8 +1647,8 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17hbf279bc32
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hfd8a27ff2aa86adeE.exit": ; preds = %87
   call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17h8d3f990e42f83640E"(ptr noalias noundef nonnull align 8 dereferenceable(688) %14, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0d6355020085e2c7f61d33fd37212f9a.11)
   %.pre = load i8, ptr %49, align 8, !range !9, !alias.scope !306, !noalias !307
-  call void @llvm.experimental.noalias.scope.decl(metadata !306)
   %117 = trunc nuw i8 %.pre to i1
+  call void @llvm.experimental.noalias.scope.decl(metadata !306)
   br i1 %117, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hfd8a27ff2aa86adeE.exit.thread", label %91
 
 118:                                              ; preds = %112
@@ -46268,7 +46268,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$15matches_updated17h15f633b47981
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i64, ptr %5, align 8, !alias.scope !11104, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %18
+  br label %19
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -46281,61 +46281,61 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$15matches_updated17h15f633b47981
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !alias.scope !11107, !noundef !5
   tail call void @_ZN4gpui8elements4list9ListState5reset17h117e360ad8b7d26bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, i64 noundef %.sroa.0.0.i)
   %.pre = load i64, ptr %0, align 8, !range !30, !alias.scope !11110
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %15 = load i64, ptr %14, align 8, !alias.scope !11104, !noundef !5
-  %trunc.i6 = trunc nuw i64 %.pre to i1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %trunc.i6, label %18, label %17
+  %13 = trunc nuw i64 %.pre to i1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %16 = load i64, ptr %15, align 8, !alias.scope !11104, !noundef !5
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %13, label %19, label %18
 
-17:                                               ; preds = %8
-  tail call void @_ZN4gpui8elements4list9ListState21scroll_to_reveal_item17h7a15355d606f43b4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, i64 noundef %15)
+18:                                               ; preds = %8
+  tail call void @_ZN4gpui8elements4list9ListState21scroll_to_reveal_item17h7a15355d606f43b4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %17, i64 noundef %16)
   br label %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit"
 
-18:                                               ; preds = %.thread, %8
-  %19 = phi ptr [ %7, %.thread ], [ %16, %8 ]
-  %20 = phi i64 [ %6, %.thread ], [ %15, %8 ]
-  %21 = phi ptr [ %4, %.thread ], [ %13, %8 ]
-  tail call void @_ZN4gpui8elements12uniform_list23UniformListScrollHandle14scroll_to_item17he434049c6ddd4fddE(ptr noalias noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %20)
+19:                                               ; preds = %.thread, %8
+  %20 = phi ptr [ %7, %.thread ], [ %17, %8 ]
+  %21 = phi i64 [ %6, %.thread ], [ %16, %8 ]
+  %22 = phi ptr [ %4, %.thread ], [ %14, %8 ]
+  tail call void @_ZN4gpui8elements12uniform_list23UniformListScrollHandle14scroll_to_item17he434049c6ddd4fddE(ptr noalias noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %21)
   br label %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit"
 
-"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit": ; preds = %17, %18
-  %22 = phi ptr [ %13, %17 ], [ %21, %18 ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %24 = load i64, ptr %23, align 8, !range !523, !alias.scope !11113, !noundef !5
-  %25 = icmp eq i64 %24, 3
-  br i1 %25, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", label %26
+"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit": ; preds = %18, %19
+  %23 = phi ptr [ %14, %18 ], [ %22, %19 ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = load i64, ptr %24, align 8, !range !523, !alias.scope !11113, !noundef !5
+  %26 = icmp eq i64 %25, 3
+  br i1 %26, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", label %27
 
-26:                                               ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit"
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$picker..PendingUpdateMatches$GT$17hdb5c08e2acdda553E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit" unwind label %27
+27:                                               ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit"
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$picker..PendingUpdateMatches$GT$17hdb5c08e2acdda553E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %24)
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit" unwind label %28
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           cleanup
-  store i64 3, ptr %23, align 8
-  resume { ptr, i32 } %28
+  store i64 3, ptr %24, align 8
+  resume { ptr, i32 } %29
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit": ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit", %26
-  store i64 3, ptr %23, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 369
-  %30 = load i8, ptr %29, align 1, !range !4, !noundef !5
-  store i8 2, ptr %29, align 1
-  %31 = icmp eq i8 %30, 2
-  br i1 %31, label %34, label %32
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit": ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h9fd0422da125a92bE.llvm.15892403711533435760.exit", %27
+  store i64 3, ptr %24, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 369
+  %31 = load i8, ptr %30, align 1, !range !4, !noundef !5
+  store i8 2, ptr %30, align 1
+  %32 = icmp eq i8 %31, 2
+  br i1 %32, label %35, label %33
 
-32:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit"
-  %33 = trunc nuw i8 %30 to i1
-  tail call void @"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDelegate$u20$as$u20$picker..PickerDelegate$GT$7confirm17hde505e3f8c57a22dE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %22, i1 noundef zeroext %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %34
+33:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit"
+  %34 = trunc nuw i8 %31 to i1
+  tail call void @"_ZN103_$LT$collab_ui..collab_panel..channel_modal..ChannelModalDelegate$u20$as$u20$picker..PickerDelegate$GT$7confirm17hde505e3f8c57a22dE"(ptr noalias noundef nonnull align 8 dereferenceable(264) %23, i1 noundef zeroext %34, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %35
 
-34:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", %32
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = load ptr, ptr %35, align 8, !nonnull !5, !align !106, !noundef !5
-  %37 = load i32, ptr %36, align 8, !range !8609, !noundef !5
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %39 = load i32, ptr %38, align 4, !noundef !5
-  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %37, i32 noundef %39)
+35:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", %33
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %37 = load ptr, ptr %36, align 8, !nonnull !5, !align !106, !noundef !5
+  %38 = load i32, ptr %37, align 8, !range !8609, !noundef !5
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %40 = load i32, ptr %39, align 4, !noundef !5
+  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %38, i32 noundef %40)
   ret void
 }
 
@@ -46350,7 +46350,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$15matches_updated17he1686bcfe59a
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i64, ptr %5, align 8, !alias.scope !11116, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %17
+  br label %18
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -46358,61 +46358,61 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$15matches_updated17he1686bcfe59a
   %11 = load i64, ptr %10, align 8, !alias.scope !11119, !noundef !5
   tail call void @_ZN4gpui8elements4list9ListState5reset17h117e360ad8b7d26bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, i64 noundef %11)
   %.pre = load i64, ptr %0, align 8, !range !30, !alias.scope !11122
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %14 = load i64, ptr %13, align 8, !alias.scope !11116, !noundef !5
-  %trunc.i = trunc nuw i64 %.pre to i1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %trunc.i, label %17, label %16
+  %12 = trunc nuw i64 %.pre to i1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %15 = load i64, ptr %14, align 8, !alias.scope !11116, !noundef !5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %12, label %18, label %17
 
-16:                                               ; preds = %8
-  tail call void @_ZN4gpui8elements4list9ListState21scroll_to_reveal_item17h7a15355d606f43b4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, i64 noundef %14)
+17:                                               ; preds = %8
+  tail call void @_ZN4gpui8elements4list9ListState21scroll_to_reveal_item17h7a15355d606f43b4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, i64 noundef %15)
   br label %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit"
 
-17:                                               ; preds = %.thread, %8
-  %18 = phi ptr [ %7, %.thread ], [ %15, %8 ]
-  %19 = phi i64 [ %6, %.thread ], [ %14, %8 ]
-  %20 = phi ptr [ %4, %.thread ], [ %12, %8 ]
-  tail call void @_ZN4gpui8elements12uniform_list23UniformListScrollHandle14scroll_to_item17he434049c6ddd4fddE(ptr noalias noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %19)
+18:                                               ; preds = %.thread, %8
+  %19 = phi ptr [ %7, %.thread ], [ %16, %8 ]
+  %20 = phi i64 [ %6, %.thread ], [ %15, %8 ]
+  %21 = phi ptr [ %4, %.thread ], [ %13, %8 ]
+  tail call void @_ZN4gpui8elements12uniform_list23UniformListScrollHandle14scroll_to_item17he434049c6ddd4fddE(ptr noalias noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %20)
   br label %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit"
 
-"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit": ; preds = %16, %17
-  %21 = phi ptr [ %12, %16 ], [ %20, %17 ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load i64, ptr %22, align 8, !range !523, !alias.scope !11125, !noundef !5
-  %24 = icmp eq i64 %23, 3
-  br i1 %24, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", label %25
+"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit": ; preds = %17, %18
+  %22 = phi ptr [ %13, %17 ], [ %21, %18 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = load i64, ptr %23, align 8, !range !523, !alias.scope !11125, !noundef !5
+  %25 = icmp eq i64 %24, 3
+  br i1 %25, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", label %26
 
-25:                                               ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit"
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$picker..PendingUpdateMatches$GT$17hdb5c08e2acdda553E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %22)
-          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit" unwind label %26
+26:                                               ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit"
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$picker..PendingUpdateMatches$GT$17hdb5c08e2acdda553E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23)
+          to label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit" unwind label %27
 
-26:                                               ; preds = %25
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %26
+  %28 = landingpad { ptr, i32 }
           cleanup
-  store i64 3, ptr %22, align 8
-  resume { ptr, i32 } %27
+  store i64 3, ptr %23, align 8
+  resume { ptr, i32 } %28
 
-"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit": ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit", %25
-  store i64 3, ptr %22, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %29 = load i8, ptr %28, align 1, !range !4, !noundef !5
-  store i8 2, ptr %28, align 1
-  %30 = icmp eq i8 %29, 2
-  br i1 %30, label %33, label %31
+"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit": ; preds = %"_ZN6picker15Picker$LT$D$GT$20scroll_to_item_index17h8526dbde886e353aE.llvm.15892403711533435760.exit", %26
+  store i64 3, ptr %23, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %30 = load i8, ptr %29, align 1, !range !4, !noundef !5
+  store i8 2, ptr %29, align 1
+  %31 = icmp eq i8 %30, 2
+  br i1 %31, label %34, label %32
 
-31:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit"
-  %32 = trunc nuw i8 %29 to i1
-  tail call void @"_ZN105_$LT$collab_ui..collab_panel..contact_finder..ContactFinderDelegate$u20$as$u20$picker..PickerDelegate$GT$7confirm17h8589a4ae4c31697bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %21, i1 noundef zeroext %32, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  br label %33
+32:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit"
+  %33 = trunc nuw i8 %30 to i1
+  tail call void @"_ZN105_$LT$collab_ui..collab_panel..contact_finder..ContactFinderDelegate$u20$as$u20$picker..PickerDelegate$GT$7confirm17h8589a4ae4c31697bE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %22, i1 noundef zeroext %33, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  br label %34
 
-33:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", %31
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !nonnull !5, !align !106, !noundef !5
-  %36 = load i32, ptr %35, align 8, !range !8609, !noundef !5
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %38 = load i32, ptr %37, align 4, !noundef !5
-  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %36, i32 noundef %38)
+34:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$picker..PendingUpdateMatches$GT$$GT$17h019ee88f3aba6cd9E.llvm.15892403711533435760.exit", %32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %36 = load ptr, ptr %35, align 8, !nonnull !5, !align !106, !noundef !5
+  %37 = load i32, ptr %36, align 8, !range !8609, !noundef !5
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %39 = load i32, ptr %38, align 4, !noundef !5
+  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %37, i32 noundef %39)
   ret void
 }
 

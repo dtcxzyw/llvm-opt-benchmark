@@ -1913,7 +1913,6 @@ _ZN10serde_json2de12ParserNumber5visit17he559ebf9a20d4e5bE.exit42: ; preds = %15
 
 .thread242:                                       ; preds = %.lr.ph.i15.i, %191
   %.sroa.3.0.i248 = phi i8 [ %187, %191 ], [ %200, %.lr.ph.i15.i ]
-  %.sroa.11.1247 = phi i8 [ 0, %191 ], [ %.sroa.11.0509, %.lr.ph.i15.i ]
   %206 = icmp eq i8 %.sroa.3.0.i248, 93
   br i1 %206, label %207, label %.thread242.thread
 
@@ -1928,7 +1927,6 @@ _ZN10serde_json2de12ParserNumber5visit17he559ebf9a20d4e5bE.exit42: ; preds = %15
   br label %214
 
 .thread242.thread:                                ; preds = %193, %.thread242
-  %.sroa.11.1247255 = phi i8 [ %.sroa.11.1247, %.thread242 ], [ 0, %193 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !326
   invoke fastcc void @"_ZN10serde_json5value2de77_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$serde_json..value..Value$GT$11deserialize17h2166d2a53c25bb71E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
           to label %.noexc99 unwind label %.loopexit459
@@ -1966,7 +1964,7 @@ _ZN10serde_json2de12ParserNumber5visit17he559ebf9a20d4e5bE.exit42: ; preds = %15
           to label %common.resume unwind label %230, !noalias !310
 
 .loopexit622:                                     ; preds = %184, %211
-  %.sroa.11.2 = phi i8 [ %.sroa.11.1247255, %211 ], [ %.sroa.11.0509, %184 ]
+  %.sroa.11.2 = phi i8 [ 0, %211 ], [ %.sroa.11.0509, %184 ]
   %.sroa.0172.1 = phi i8 [ %209, %211 ], [ 6, %184 ]
   %.sroa.16.1 = phi ptr [ %.sroa.5210.0.copyload, %211 ], [ undef, %184 ]
   %.not.i24 = icmp eq i8 %.sroa.0172.1, 6

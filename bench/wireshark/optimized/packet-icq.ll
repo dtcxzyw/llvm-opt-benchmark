@@ -1345,57 +1345,57 @@ define internal fastcc void @icqv5_decode_msgType(ptr noundef %0, ptr noundef %1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit, label %.preheader225, !llvm.loop !13
 
-91:                                               ; preds = %.preheader221, %113
-  %.5.neg238 = phi i32 [ %.5.neg233, %.preheader221 ], [ %.5.neg, %113 ]
-  %.5237 = phi i32 [ %17, %.preheader221 ], [ %115, %113 ]
-  %.5181236 = phi i32 [ %18, %.preheader221 ], [ %114, %113 ]
-  %.0186234 = phi i32 [ 0, %.preheader221 ], [ %.1187, %113 ]
+91:                                               ; preds = %.backedge, %.preheader221
+  %.5.neg238 = phi i32 [ %.5.neg233, %.preheader221 ], [ %.5.neg238.be, %.backedge ]
+  %.5237 = phi i32 [ %17, %.preheader221 ], [ %.5237.be, %.backedge ]
+  %.5181236 = phi i32 [ %18, %.preheader221 ], [ %.5181236.be, %.backedge ]
+  %.0186234 = phi i32 [ 0, %.preheader221 ], [ %.0186234.be, %.backedge ]
   %92 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %.5237, i32 noundef %.5181236, i8 noundef zeroext -2)
   %.not206 = icmp eq i32 %92, -1
   %93 = add i32 %.5.neg238, 1
   %94 = add i32 %93, %92
-  %.0188 = select i1 %.not206, i32 %.5181236, i32 %94
   %95 = icmp eq i32 %.0186234, 0
-  br i1 %95, label %96, label %99
+  br i1 %95, label %96, label %100
 
 96:                                               ; preds = %91
+  %.0188 = select i1 %.not206, i32 %.5181236, i32 %94
   %97 = load i32, ptr @hf_icq_num_uin_pairs, align 4
   %98 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %97, ptr noundef %1, i32 noundef %.5237, i32 noundef %.0188, i32 noundef 0)
-  br label %113
+  %.neg272 = xor i32 %.0188, -1
+  %99 = add i32 %.5181236, %.neg272
+  br i1 %.not206, label %.loopexit, label %.backedge
 
-99:                                               ; preds = %91
-  br i1 %.not206, label %.loopexit, label %100
+100:                                              ; preds = %91
+  br i1 %.not206, label %.loopexit, label %101
 
-100:                                              ; preds = %99
-  %101 = sub i32 %.5181236, %.0188
-  %102 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %92, i32 noundef %101, i8 noundef zeroext -2)
-  %.not207 = icmp eq i32 %102, -1
-  %103 = add i32 %93, %102
-  %.2190 = select i1 %.not207, i32 %101, i32 %103
-  %104 = load ptr, ptr %19, align 8
-  %105 = add i32 %92, 1
-  %106 = tail call ptr @tvb_get_string_enc(ptr noundef %104, ptr noundef %1, i32 noundef %105, i32 noundef %.2190, i32 noundef 0)
-  %107 = load i32, ptr @hf_icq_msg_contact, align 4
-  %108 = add i32 %.2190, %.0188
-  %109 = load ptr, ptr %19, align 8
-  %110 = tail call ptr @tvb_get_string_enc(ptr noundef %109, ptr noundef %1, i32 noundef %.5237, i32 noundef %.0188, i32 noundef 0)
-  %111 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %107, ptr noundef %1, i32 noundef %.5237, i32 noundef %108, ptr noundef %106, ptr noundef nonnull @.str.236, ptr noundef %110, ptr noundef %106)
-  %112 = add i32 %.0186234, 2
-  br label %113
+101:                                              ; preds = %100
+  %102 = sub i32 %.5181236, %94
+  %103 = tail call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %92, i32 noundef %102, i8 noundef zeroext -2)
+  %.not207 = icmp eq i32 %103, -1
+  %104 = add i32 %93, %103
+  %.2190 = select i1 %.not207, i32 %102, i32 %104
+  %105 = load ptr, ptr %19, align 8
+  %106 = add nuw i32 %92, 1
+  %107 = tail call ptr @tvb_get_string_enc(ptr noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef %.2190, i32 noundef 0)
+  %108 = load i32, ptr @hf_icq_msg_contact, align 4
+  %109 = add i32 %.2190, %94
+  %110 = load ptr, ptr %19, align 8
+  %111 = tail call ptr @tvb_get_string_enc(ptr noundef %110, ptr noundef %1, i32 noundef %.5237, i32 noundef %94, i32 noundef 0)
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %10, i32 noundef %108, ptr noundef %1, i32 noundef %.5237, i32 noundef %109, ptr noundef %107, ptr noundef nonnull @.str.236, ptr noundef %111, ptr noundef %107)
+  %113 = add i32 %.0186234, 2
+  %.neg = xor i32 %.2190, -1
+  %114 = add i32 %102, %.neg
+  br i1 %.not207, label %.loopexit, label %.backedge
 
-113:                                              ; preds = %100, %96
-  %.0191 = phi i32 [ %92, %96 ], [ %102, %100 ]
-  %.1189 = phi i32 [ %.0188, %96 ], [ %.2190, %100 ]
-  %.1187 = phi i32 [ 1, %96 ], [ %112, %100 ]
-  %.2184 = phi i1 [ %.not206, %96 ], [ %.not207, %100 ]
-  %.6 = phi i32 [ %.5181236, %96 ], [ %101, %100 ]
-  %.neg = xor i32 %.1189, -1
-  %114 = add i32 %.6, %.neg
-  %115 = add i32 %.0191, 1
-  %.5.neg = xor i32 %.0191, -1
-  br i1 %.2184, label %.loopexit, label %91, !llvm.loop !14
+.backedge:                                        ; preds = %101, %96
+  %.5.neg238.be.in = phi i32 [ %103, %101 ], [ %92, %96 ]
+  %.5181236.be = phi i32 [ %114, %101 ], [ %99, %96 ]
+  %.0186234.be = phi i32 [ %113, %101 ], [ 1, %96 ]
+  %.5237.be = add nuw i32 %.5.neg238.be.in, 1
+  %.5.neg238.be = xor i32 %.5.neg238.be.in, -1
+  br label %91, !llvm.loop !14
 
-.loopexit:                                        ; preds = %88, %74, %99, %113, %51, %37, %.thread, %22, %20, %14
+.loopexit:                                        ; preds = %88, %74, %100, %101, %96, %51, %37, %.thread, %22, %20, %14
   ret void
 }
 

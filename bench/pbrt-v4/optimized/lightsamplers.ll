@@ -2421,13 +2421,13 @@ _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EE9push_backEOS3_.exit: ; preds
   br label %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit35
 
 .thread72:                                        ; preds = %92, %88
-  %.ph = phi i64 [ %90, %88 ], [ %89, %92 ]
+  %.ph71 = phi i64 [ %90, %88 ], [ %89, %92 ]
   %165 = load ptr, ptr %34, align 8, !tbaa !51
-  %166 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %165, i64 %.ph
+  %166 = getelementptr inbounds nuw %"class.pbrt::Light", ptr %165, i64 %.ph71
   store i64 0, ptr %166, align 8, !tbaa !4
   %167 = load i64, ptr %6, align 8, !tbaa !4
   store i64 %167, ptr %166, align 8, !tbaa !4
-  %168 = add i64 %.ph, 1
+  %168 = add i64 %.ph71, 1
   store i64 %168, ptr %73, align 8, !tbaa !47
   br label %_ZN4pstd8optionalIN4pbrt11LightBoundsEED2Ev.exit
 

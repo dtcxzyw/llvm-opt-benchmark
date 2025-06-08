@@ -688,7 +688,6 @@ define hidden { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$8take_all17haf
   br label %16
 
 28:                                               ; preds = %6
-  store i64 %12, ptr %9, align 8
   store i64 %14, ptr %13, align 8
   br label %16
 
@@ -743,7 +742,6 @@ define hidden { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$8take_one17h17
   br i1 %.not, label %28, label %27
 
 26:                                               ; preds = %6
-  store i64 %12, ptr %9, align 8
   store i64 %14, ptr %13, align 8
   br label %16
 

@@ -3684,13 +3684,13 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 36:                                               ; preds = %29
   call void @zend_accel_shared_protect(i1 noundef zeroext false) #26
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37
-  %37 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !216
-  %40 = add i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !216
-  %41 = trunc nuw i8 %.pre to i1
-  br i1 %41, label %42, label %43
+  %37 = trunc nuw i8 %.pre to i1
+  %38 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load i64, ptr %39, align 8, !tbaa !216
+  %41 = add i64 %40, 1
+  store i64 %41, ptr %39, align 8, !tbaa !216
+  br i1 %37, label %42, label %43
 
 42:                                               ; preds = %36
   call void @zend_accel_shared_protect(i1 noundef zeroext true) #26
@@ -3756,13 +3756,13 @@ define internal fastcc noundef ptr @opcache_compile_file(ptr noundef %0, i32 nou
 74:                                               ; preds = %67
   call void @zend_accel_shared_protect(i1 noundef zeroext false) #26
   %.pre88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 54), align 2, !tbaa !45, !range !37
-  %75 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !216
-  %78 = add i64 %77, 1
-  store i64 %78, ptr %76, align 8, !tbaa !216
-  %79 = trunc nuw i8 %.pre88 to i1
-  br i1 %79, label %80, label %.critedge
+  %75 = trunc nuw i8 %.pre88 to i1
+  %76 = load ptr, ptr @accel_shared_globals, align 8, !tbaa !28
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %78 = load i64, ptr %77, align 8, !tbaa !216
+  %79 = add i64 %78, 1
+  store i64 %79, ptr %77, align 8, !tbaa !216
+  br i1 %75, label %80, label %.critedge
 
 80:                                               ; preds = %74
   call void @zend_accel_shared_protect(i1 noundef zeroext true) #26
@@ -5677,8 +5677,8 @@ accel_find_sapi.exit.thread3:                     ; preds = %111
 
 accel_find_sapi.exit:                             ; preds = %accel_move_code_to_huge_pages.exit
   %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 56), align 8, !tbaa !284, !range !37
-  store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   %120 = trunc nuw i8 %.pre to i1
+  store i8 0, ptr @accel_startup_ok, align 1, !tbaa !52
   br i1 %120, label %accel_find_sapi.exit.thread, label %121
 
 121:                                              ; preds = %accel_find_sapi.exit.thread3, %accel_find_sapi.exit

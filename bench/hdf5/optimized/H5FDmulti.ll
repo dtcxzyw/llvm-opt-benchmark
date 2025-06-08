@@ -2184,7 +2184,7 @@ define internal i64 @H5FD_multi_alloc(ptr noundef readonly captures(none) %0, i3
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i8 %11, ptr %18, align 8, !tbaa !54
+  store i8 1, ptr %18, align 8, !tbaa !54
   br label %19
 
 19:                                               ; preds = %14, %17

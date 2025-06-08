@@ -4609,7 +4609,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_
 
 _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEED2Ev.exit33: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #27, !noalias !201
-  store i8 %17, ptr %0, align 8, !tbaa !199
+  store i8 0, ptr %0, align 8, !tbaa !199
   br label %_ZN9grpc_core4PollIN4absl12lts_202407228StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEED2Ev.exit2
 
 _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i38: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i23.thread, %_ZN4absl12lts_202407226StatusD2Ev.exit.i23, %73, %74, %76

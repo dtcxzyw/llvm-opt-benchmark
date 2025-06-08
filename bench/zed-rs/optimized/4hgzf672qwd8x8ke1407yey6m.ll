@@ -10628,7 +10628,7 @@ _ZN5prost8encoding4bool6encode17hc17d239ca25e5bb4E.exit: ; preds = %_ZN5prost8en
   %23 = phi i64 [ %.pre.i.i.i.i.i.i, %22 ], [ %19, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exit.i ]
   %24 = load ptr, ptr %15, align 8, !alias.scope !2317, !noalias !2328, !nonnull !4, !noundef !4
   %25 = getelementptr inbounds i8, ptr %24, i64 %23
-  store i8 %4, ptr %25, align 1, !noalias !2316
+  store i8 1, ptr %25, align 1, !noalias !2316
   %26 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2317, !noalias !2328, !noundef !4
   %27 = add i64 %26, 1
   store i64 %27, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !2317, !noalias !2328
@@ -14725,7 +14725,7 @@ _ZN5prost8encoding4bool6encode17hc17d239ca25e5bb4E.exit: ; preds = %_ZN5prost8en
   %41 = phi i64 [ %.pre.i.i.i.i.i.i, %40 ], [ %37, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exit.i ]
   %42 = load ptr, ptr %33, align 8, !alias.scope !3093, !noalias !3104, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds i8, ptr %42, i64 %41
-  store i8 %20, ptr %43, align 1, !noalias !3092
+  store i8 1, ptr %43, align 1, !noalias !3092
   %44 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !3093, !noalias !3104, !noundef !4
   %45 = add i64 %44, 1
   store i64 %45, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !3093, !noalias !3104
@@ -16409,7 +16409,7 @@ _ZN5prost8encoding4bool6encode17hc17d239ca25e5bb4E.exit: ; preds = %_ZN5prost8en
   %24 = phi i64 [ %.pre.i.i.i.i.i.i, %23 ], [ %20, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.16598411116039850189.exit.i ]
   %25 = load ptr, ptr %16, align 8, !alias.scope !3312, !noalias !3323, !nonnull !4, !noundef !4
   %26 = getelementptr inbounds i8, ptr %25, i64 %24
-  store i8 %6, ptr %26, align 1, !noalias !3311
+  store i8 1, ptr %26, align 1, !noalias !3311
   %27 = load i64, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !3312, !noalias !3323, !noundef !4
   %28 = add i64 %27, 1
   store i64 %28, ptr %.phi.trans.insert.i.i, align 8, !alias.scope !3312, !noalias !3323

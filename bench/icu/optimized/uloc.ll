@@ -7757,12 +7757,12 @@ define noundef nonnull ptr @uloc_getISOCountries_77() local_unnamed_addr #14 {
 define ptr @uloc_toUnicodeLocaleKey_77(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::optional.30", align 8
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %15, label %4
+  br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %0, align 1, !tbaa !20
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %15, label %7
+  br i1 %6, label %16, label %7
 
 7:                                                ; preds = %4
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
@@ -7786,19 +7786,19 @@ _Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.ex
 _Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %12
   %.sroa.6.0.copyload.pre = load i8, ptr %9, align 8
   %.sroa.6.0.copyload.pre.fr = freeze i8 %.sroa.6.0.copyload.pre
-  %.pre = trunc i8 %.sroa.6.0.copyload.pre.fr to i1
+  %15 = trunc i8 %.sroa.6.0.copyload.pre.fr to i1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20, !noalias !138
-  %spec.select = select i1 %.pre, ptr %.sroa.4.0.copyload, ptr null
-  br label %15
+  %spec.select = select i1 %15, ptr %.sroa.4.0.copyload, ptr null
+  br label %16
 
 .sink.split:                                      ; preds = %12, %_Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.exit.thread10
   %.0.ph = phi ptr [ %.sroa.4.0.copyload13, %_Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.exit.thread10 ], [ %0, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20, !noalias !138
-  br label %15
+  br label %16
 
-15:                                               ; preds = %_Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.exit, %.sink.split, %1, %4
+16:                                               ; preds = %_Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.exit, %.sink.split, %1, %4
   %.0 = phi ptr [ null, %4 ], [ null, %1 ], [ %spec.select, %_Z31ulocimp_toBcpKeyWithFallback_77St17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
@@ -7843,19 +7843,19 @@ declare noundef zeroext i1 @_Z27ultag_isUnicodeLocaleKey_77PKci(ptr noundef, i32
 define ptr @uloc_toUnicodeLocaleType_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::optional.30", align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %21, label %5
+  br i1 %4, label %22, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1, !tbaa !20
   %7 = icmp eq i8 %6, 0
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %7
-  br i1 %or.cond, label %21, label %9
+  br i1 %or.cond, label %22, label %9
 
 9:                                                ; preds = %5
   %10 = load i8, ptr %1, align 1, !tbaa !20
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %21, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %9
   %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
@@ -7880,19 +7880,19 @@ _Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2
 _Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2_.exit: ; preds = %18
   %.sroa.6.0.copyload.pre = load i8, ptr %15, align 8
   %.sroa.6.0.copyload.pre.fr = freeze i8 %.sroa.6.0.copyload.pre
-  %.pre = trunc i8 %.sroa.6.0.copyload.pre.fr to i1
+  %21 = trunc i8 %.sroa.6.0.copyload.pre.fr to i1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20, !noalias !145
-  %spec.select = select i1 %.pre, ptr %.sroa.4.0.copyload, ptr null
-  br label %21
+  %spec.select = select i1 %21, ptr %.sroa.4.0.copyload, ptr null
+  br label %22
 
 .sink.split:                                      ; preds = %18, %_Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread17
   %.0.ph = phi ptr [ %.sroa.4.0.copyload20, %_Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2_.exit.thread17 ], [ %1, %18 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20, !noalias !145
-  br label %21
+  br label %22
 
-21:                                               ; preds = %_Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2_.exit, %.sink.split, %2, %5, %9
+22:                                               ; preds = %_Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2_.exit, %.sink.split, %2, %5, %9
   %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ null, %2 ], [ %spec.select, %_Z32ulocimp_toBcpTypeWithFallback_77St17basic_string_viewIcSt11char_traitsIcEES2_.exit ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }

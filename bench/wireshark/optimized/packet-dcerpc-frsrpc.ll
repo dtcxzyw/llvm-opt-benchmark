@@ -1442,9 +1442,9 @@ frsrpc_dissect_element_CommPktChunkGuidName_guid.exit: ; preds = %15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   store i32 %22, ptr %38, align 8
   %.pre = load i8, ptr %16, align 1, !range !6
+  %39 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
-  %39 = trunc nuw i8 %.pre to i1
   br i1 %39, label %frsrpc_dissect_element_CommPktChunkGuidName_name.exit, label %40
 
 40:                                               ; preds = %frsrpc_dissect_element_CommPktChunkGuidName_guid.exit

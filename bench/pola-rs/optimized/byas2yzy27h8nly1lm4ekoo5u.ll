@@ -34284,36 +34284,36 @@ define range(i48 0, -65534) i48 @"_ZN123_$LT$polars_parquet..arrow..write..neste
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3046)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !3046, !noundef !3
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit", label %12
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %24, label %11
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i64, ptr %13, align 8, !alias.scope !3046, !noundef !3
-  %.not.i = icmp eq i64 %14, 0
-  br i1 %.not.i, label %15, label %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit.thread", !prof !102
+11:                                               ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = load i64, ptr %12, align 8, !alias.scope !3046, !noundef !3
+  %.not.i = icmp eq i64 %13, 0
+  br i1 %.not.i, label %14, label %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit", !prof !102
 
-15:                                               ; preds = %12
+14:                                               ; preds = %11
   tail call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.c67a6a2634d0458665f4a31f543faa7f.63, i64 noundef 31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c67a6a2634d0458665f4a31f543faa7f.65) #33, !noalias !3046
   unreachable
 
-"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit.thread": ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8, !alias.scope !3046, !noundef !3
-  %18 = load i64, ptr %8, align 8, !alias.scope !3046, !noundef !3
-  %19 = getelementptr { i16, i16 }, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 2, !noalias !3046
-  %21 = add i64 %14, -1
-  %.not7.i = icmp ugt i64 %21, %18
-  %spec.store.select.i = select i1 %.not7.i, i64 0, i64 %14
-  %22 = add i64 %18, 1
-  %23 = sub i64 %22, %spec.store.select.i
-  store i64 %23, ptr %8, align 8, !alias.scope !3046
-  %24 = add i64 %10, -1
-  store i64 %24, ptr %9, align 8, !alias.scope !3046
+"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit": ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8, !alias.scope !3046, !noundef !3
+  %17 = load i64, ptr %8, align 8, !alias.scope !3046, !noundef !3
+  %18 = getelementptr { i16, i16 }, ptr %16, i64 %17
+  %19 = load i32, ptr %18, align 2, !noalias !3046
+  %20 = add i64 %13, -1
+  %.not7.i = icmp ugt i64 %20, %17
+  %spec.store.select.i = select i1 %.not7.i, i64 0, i64 %13
+  %21 = add i64 %17, 1
+  %22 = sub i64 %21, %spec.store.select.i
+  store i64 %22, ptr %8, align 8, !alias.scope !3046
+  %23 = add i64 %10, -1
+  store i64 %23, ptr %9, align 8, !alias.scope !3046
   br label %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit23"
 
-"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit": ; preds = %1
+24:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3049)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -34322,12 +34322,12 @@ define range(i48 0, -65534) i48 @"_ZN123_$LT$polars_parquet..arrow..write..neste
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread, label %.lr.ph605.i
 
-_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread: ; preds = %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit"
+_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   br label %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit23"
 
-.lr.ph605.i:                                      ; preds = %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit"
+.lr.ph605.i:                                      ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.7205.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -34423,7 +34423,7 @@ _ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f33
   ]
 
 71:                                               ; preds = %58
-  switch i64 %61, label %.unreachabledefault731 [
+  switch i64 %61, label %.unreachabledefault730 [
     i64 0, label %423
     i64 2, label %420
     i64 1, label %508
@@ -34432,7 +34432,7 @@ _ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f33
 .unreachabledefault:                              ; preds = %70
   unreachable
 
-.unreachabledefault731:                           ; preds = %71
+.unreachabledefault730:                           ; preds = %71
   unreachable
 
 default.unreachable:                              ; preds = %508, %75, %233, %133, %336
@@ -35619,9 +35619,9 @@ _ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f33
   store i64 %604, ptr %9, align 8, !alias.scope !3101
   br label %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit23"
 
-"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit23": ; preds = %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread, %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit.thread", %595, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit
-  %.sroa.4.0 = phi i32 [ %600, %595 ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit ], [ %20, %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit.thread" ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread ]
-  %.sroa.0.0 = phi i16 [ 1, %595 ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit ], [ 1, %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit.thread" ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread ]
+"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit23": ; preds = %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread, %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit", %595, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit
+  %.sroa.4.0 = phi i32 [ %19, %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit" ], [ %600, %595 ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread ]
+  %.sroa.0.0 = phi i16 [ 1, %"_ZN12polars_utils15fixedringbuffer24FixedRingBuffer$LT$T$GT$9pop_front17h0ba998c5ed405b83E.exit" ], [ 1, %595 ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit ], [ 0, %_ZN14polars_parquet5arrow5write6nested6dremel18BufferedDremelIter4fill17h81a2f339f2f1eac5E.exit.thread ]
   %.sroa.4.0.insert.ext = zext i32 %.sroa.4.0 to i48
   %.sroa.4.0.insert.shift = shl nuw i48 %.sroa.4.0.insert.ext, 16
   %.sroa.0.0.insert.ext = zext nneg i16 %.sroa.0.0 to i48

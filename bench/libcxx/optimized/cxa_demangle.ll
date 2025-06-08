@@ -19423,13 +19423,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116itanium_demangle24Forwar
 
 _ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit: ; preds = %12, %14
   %.0.i = phi i1 [ %13, %12 ], [ %17, %14 ]
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   br label %20
 
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %2, %_ZNK12_GLOBAL__N_116itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit
@@ -19469,13 +19469,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116itanium_demangle24Forwar
 
 _ZNK12_GLOBAL__N_116itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit: ; preds = %14, %16
   %.0.i = phi i1 [ %15, %14 ], [ %20, %16 ]
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   br label %23
 
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %2, %_ZNK12_GLOBAL__N_116itanium_demangle4Node8hasArrayERNS0_12OutputBufferE.exit
@@ -19515,13 +19515,13 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_116itanium_demangle24Forwar
 
 _ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit: ; preds = %14, %16
   %.0.i = phi i1 [ %15, %14 ], [ %20, %16 ]
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   br label %23
 
 21:                                               ; preds = %16
   %22 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %2, %_ZNK12_GLOBAL__N_116itanium_demangle4Node11hasFunctionERNS0_12OutputBufferE.exit
@@ -19547,13 +19547,13 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_116itanium_demangle24ForwardTempla
           to label %13 unwind label %14
 
 13:                                               ; preds = %6
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   br label %16
 
 14:                                               ; preds = %6
   %15 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2, %13
@@ -19585,7 +19585,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle24ForwardTemplateRefer
           to label %12 unwind label %14
 
 12:                                               ; preds = %6
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   br label %13
 
 13:                                               ; preds = %2, %12
@@ -19594,7 +19594,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle24ForwardTemplateRefer
 14:                                               ; preds = %6
   %15 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   resume { ptr, i32 } %15
 }
 
@@ -19616,7 +19616,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle24ForwardTemplateRefer
           to label %12 unwind label %14
 
 12:                                               ; preds = %6
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   br label %13
 
 13:                                               ; preds = %2, %12
@@ -19625,7 +19625,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle24ForwardTemplateRefer
 14:                                               ; preds = %6
   %15 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 8, !tbaa !231
+  store i8 0, ptr %3, align 8, !tbaa !231
   resume { ptr, i32 } %15
 }
 
@@ -46500,7 +46500,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13ReferenceType9printL
 13:                                               ; preds = %64, %54, %25, %6, %15
   %14 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 4, !tbaa !231
+  store i8 0, ptr %3, align 4, !tbaa !231
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %10
@@ -46711,7 +46711,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i41: ; preds = %._
   br label %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit45
 
 _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit45: ; preds = %_ZN12_GLOBAL__N_116itanium_demangle12OutputBuffer4growEm.exit.i41, %10
-  store i8 %4, ptr %3, align 4, !tbaa !231
+  store i8 0, ptr %3, align 4, !tbaa !231
   br label %111
 
 111:                                              ; preds = %2, %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit45
@@ -46742,7 +46742,7 @@ define internal void @_ZNK12_GLOBAL__N_116itanium_demangle13ReferenceType10print
 12:                                               ; preds = %30, %20, %6, %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit
   %13 = landingpad { ptr, i32 }
           cleanup
-  store i8 %4, ptr %3, align 4, !tbaa !231
+  store i8 0, ptr %3, align 4, !tbaa !231
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %10
@@ -46842,7 +46842,7 @@ _ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIc
           to label %58 unwind label %12
 
 58:                                               ; preds = %_ZN12_GLOBAL__N_116itanium_demangle12OutputBufferpLENSt3__117basic_string_viewIcNS2_11char_traitsIcEEEE.exit, %10
-  store i8 %4, ptr %3, align 4, !tbaa !231
+  store i8 0, ptr %3, align 4, !tbaa !231
   br label %59
 
 59:                                               ; preds = %2, %58

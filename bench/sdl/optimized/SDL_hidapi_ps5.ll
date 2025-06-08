@@ -1831,9 +1831,9 @@ HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit:   ; preds = %37, %.sink.split.i
   tail call void @HIDAPI_UpdateDeviceProperties(ptr noundef %49) #9
   %.pre = load i8, ptr %17, align 1, !range !5
   %50 = trunc nuw i8 %.pre to i1
-  br i1 %50, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread37, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread
+  br i1 %50, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39, label %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit.thread
 
-HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread37: ; preds = %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit
+HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39: ; preds = %HIDAPI_DriverPS5_SetEnhancedModeAvailable.exit
   store i32 1, ptr %22, align 8
   br label %81
 
@@ -1894,15 +1894,15 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %57, %73, 
   call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %5) #9
   %78 = tail call fastcc zeroext i1 @HIDAPI_DriverPS5_UpdateEffects(ptr noundef nonnull %0, i32 noundef 24, i1 noundef zeroext false)
   %.pre35.pre = load i8, ptr %17, align 1, !range !5
-  store i32 1, ptr %22, align 8
   %79 = trunc nuw i8 %.pre35.pre to i1
+  store i32 1, ptr %22, align 8
   br i1 %79, label %81, label %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread
 
 HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %20, %21, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit
   %80 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #9
   br label %122
 
-81:                                               ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread37, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit, %16
+81:                                               ; preds = %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit.thread39, %HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit, %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %6, i8 0, i64 78, i1 false)
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 84

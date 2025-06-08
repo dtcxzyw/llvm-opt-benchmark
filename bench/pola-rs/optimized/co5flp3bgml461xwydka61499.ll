@@ -47439,7 +47439,7 @@ define internal void @"_ZN17polars_mem_engine7planner2lp25create_physical_plan_i
 412:                                              ; preds = %409
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %414 = load i64, ptr %413, align 8
-  store i64 %410, ptr %45, align 8
+  store i64 1, ptr %45, align 8
   %415 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %414, ptr %415, align 8
   br label %416

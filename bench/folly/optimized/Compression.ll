@@ -954,8 +954,8 @@ _ZN5folly8OptionalImEaSEOS1_.exit.thread49:       ; preds = %17
 
 _ZN5folly8OptionalImEaSEOS1_.exit:                ; preds = %_ZN5folly8OptionalImEC2ERKS1_.exit
   %.pre = load i8, ptr %13, align 8, !tbaa !28, !range !30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
   %25 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
   br i1 %25, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i, label %33
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i.i.i:       ; preds = %_ZN5folly8OptionalImEaSEOS1_.exit.thread, %_ZN5folly8OptionalImEaSEOS1_.exit

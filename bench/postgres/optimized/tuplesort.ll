@@ -7349,7 +7349,7 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly capture
   br i1 %19, label %ApplySortComparator.exit.thread51.thread92, label %ApplySortComparator.exit.thread.thread93
 
 ApplySortComparator.exit.thread.thread93:         ; preds = %16
-  br i1 %24, label %130, label %136
+  br i1 %24, label %129, label %134
 
 ApplySortComparator.exit.thread51.thread92:       ; preds = %16
   br i1 %24, label %59, label %65
@@ -7519,111 +7519,115 @@ ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparato
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %120 = load i8, ptr %119, align 8, !range !4, !noundef !5
   %121 = trunc nuw i8 %120 to i1
-  br i1 %116, label %122, label %129
+  br i1 %116, label %122, label %128
 
 122:                                              ; preds = %ApplySortComparator.exit.thread
   br i1 %121, label %ApplySortComparator.exit42.thread74, label %123
 
 123:                                              ; preds = %ApplySortComparator.exit.thread.thread, %122
   %124 = phi i64 [ %110, %ApplySortComparator.exit.thread.thread ], [ %118, %122 ]
-  %125 = phi i8 [ 0, %ApplySortComparator.exit.thread.thread ], [ %120, %122 ]
-  %126 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  %127 = load i8, ptr %126, align 1, !range !4, !noundef !5
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %ApplySortComparator.exit42.thread74, label %ApplySortComparator.exit34.thread58
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %126 = load i8, ptr %125, align 1, !range !4, !noundef !5
+  %127 = trunc nuw i8 %126 to i1
+  br i1 %127, label %ApplySortComparator.exit42.thread74.thread, label %ApplySortComparator.exit34.thread58
 
-129:                                              ; preds = %ApplySortComparator.exit.thread
-  br i1 %121, label %130, label %136
+128:                                              ; preds = %ApplySortComparator.exit.thread
+  br i1 %121, label %129, label %134
 
-130:                                              ; preds = %ApplySortComparator.exit.thread.thread93, %129
-  %131 = phi i64 [ %21, %ApplySortComparator.exit.thread.thread93 ], [ %118, %129 ]
-  %132 = phi i8 [ 1, %ApplySortComparator.exit.thread.thread93 ], [ %120, %129 ]
-  %133 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  %134 = load i8, ptr %133, align 1, !range !4, !noundef !5
-  %135 = trunc nuw i8 %134 to i1
-  br i1 %135, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.thread74
+129:                                              ; preds = %ApplySortComparator.exit.thread.thread93, %128
+  %130 = phi i64 [ %21, %ApplySortComparator.exit.thread.thread93 ], [ %118, %128 ]
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %132 = load i8, ptr %131, align 1, !range !4, !noundef !5
+  %133 = trunc nuw i8 %132 to i1
+  br i1 %133, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.thread74
 
-136:                                              ; preds = %ApplySortComparator.exit.thread.thread93, %129
-  %137 = phi i64 [ %11, %ApplySortComparator.exit.thread.thread93 ], [ %115, %129 ]
-  %138 = phi ptr [ %20, %ApplySortComparator.exit.thread.thread93 ], [ %117, %129 ]
-  %139 = phi i64 [ %21, %ApplySortComparator.exit.thread.thread93 ], [ %118, %129 ]
-  %140 = phi ptr [ %22, %ApplySortComparator.exit.thread.thread93 ], [ %119, %129 ]
-  %141 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %142 = load ptr, ptr %141, align 8
-  %143 = tail call i32 %142(i64 noundef %137, i64 noundef %139, ptr noundef nonnull %3) #13
-  %144 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %145 = load i8, ptr %144, align 4, !range !4, !noundef !5
-  %146 = trunc nuw i8 %145 to i1
-  br i1 %146, label %147, label %ApplySortComparator.exit42
+134:                                              ; preds = %ApplySortComparator.exit.thread.thread93, %128
+  %135 = phi i64 [ %11, %ApplySortComparator.exit.thread.thread93 ], [ %115, %128 ]
+  %136 = phi ptr [ %20, %ApplySortComparator.exit.thread.thread93 ], [ %117, %128 ]
+  %137 = phi i64 [ %21, %ApplySortComparator.exit.thread.thread93 ], [ %118, %128 ]
+  %138 = phi ptr [ %22, %ApplySortComparator.exit.thread.thread93 ], [ %119, %128 ]
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call i32 %140(i64 noundef %135, i64 noundef %137, ptr noundef nonnull %3) #13
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %143 = load i8, ptr %142, align 4, !range !4, !noundef !5
+  %144 = trunc nuw i8 %143 to i1
+  br i1 %144, label %145, label %ApplySortComparator.exit42
 
-147:                                              ; preds = %136
-  %148 = icmp slt i32 %143, 0
-  %149 = sub nsw i32 0, %143
-  br i1 %148, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42
+145:                                              ; preds = %134
+  %146 = icmp slt i32 %141, 0
+  %147 = sub nsw i32 0, %141
+  br i1 %146, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42
 
-ApplySortComparator.exit42:                       ; preds = %147, %136
-  %.0.i39 = phi i32 [ %149, %147 ], [ %143, %136 ]
-  %150 = icmp sgt i32 %.0.i39, 0
-  br i1 %150, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge
+ApplySortComparator.exit42:                       ; preds = %145, %134
+  %.0.i39 = phi i32 [ %147, %145 ], [ %141, %134 ]
+  %148 = icmp sgt i32 %.0.i39, 0
+  br i1 %148, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge
 
 ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge: ; preds = %ApplySortComparator.exit42
-  %.pre90 = load i64, ptr %138, align 8
-  %.pre91 = load i8, ptr %140, align 8, !range !4
+  %.pre90 = load i64, ptr %136, align 8
+  %.pre91 = load i8, ptr %138, align 8, !range !4
+  %149 = trunc nuw i8 %.pre91 to i1
   br label %ApplySortComparator.exit42.thread74
 
-ApplySortComparator.exit42.thread74:              ; preds = %ApplySortComparator.exit.thread.thread, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge, %123, %130, %122
-  %151 = phi i8 [ %.pre91, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge ], [ %125, %123 ], [ %132, %130 ], [ %120, %122 ], [ 1, %ApplySortComparator.exit.thread.thread ]
-  %152 = phi i64 [ %.pre90, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge ], [ %124, %123 ], [ %131, %130 ], [ %118, %122 ], [ %110, %ApplySortComparator.exit.thread.thread ]
-  %153 = load i64, ptr %5, align 8
+ApplySortComparator.exit42.thread74:              ; preds = %ApplySortComparator.exit.thread.thread, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge, %129, %122
+  %150 = phi i1 [ %149, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge ], [ true, %129 ], [ true, %122 ], [ true, %ApplySortComparator.exit.thread.thread ]
+  %151 = phi i64 [ %.pre90, %ApplySortComparator.exit42.ApplySortComparator.exit42.thread74_crit_edge ], [ %130, %129 ], [ %118, %122 ], [ %110, %ApplySortComparator.exit.thread.thread ]
+  %152 = load i8, ptr %7, align 8, !range !4, !noundef !5
+  %153 = trunc nuw i8 %152 to i1
+  br i1 %153, label %156, label %160
+
+ApplySortComparator.exit42.thread74.thread:       ; preds = %123
   %154 = load i8, ptr %7, align 8, !range !4, !noundef !5
   %155 = trunc nuw i8 %154 to i1
-  %156 = trunc nuw i8 %151 to i1
-  br i1 %155, label %157, label %162
+  br i1 %155, label %.thread, label %.thread94
 
-157:                                              ; preds = %ApplySortComparator.exit42.thread74
-  br i1 %156, label %ApplySortComparator.exit34.thread58, label %158
+156:                                              ; preds = %ApplySortComparator.exit42.thread74
+  br i1 %150, label %ApplySortComparator.exit34.thread58, label %.thread
 
-158:                                              ; preds = %157
-  %159 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  %160 = load i8, ptr %159, align 1, !range !4, !noundef !5
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
+.thread:                                          ; preds = %ApplySortComparator.exit42.thread74.thread, %156
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %158 = load i8, ptr %157, align 1, !range !4, !noundef !5
+  %159 = trunc nuw i8 %158 to i1
+  br i1 %159, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
 
-162:                                              ; preds = %ApplySortComparator.exit42.thread74
-  br i1 %156, label %163, label %167
+160:                                              ; preds = %ApplySortComparator.exit42.thread74
+  br i1 %150, label %161, label %.thread94
 
-163:                                              ; preds = %162
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 13
-  %165 = load i8, ptr %164, align 1, !range !4, !noundef !5
-  %166 = trunc nuw i8 %165 to i1
-  br i1 %166, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46.thread83
+161:                                              ; preds = %160
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %163 = load i8, ptr %162, align 1, !range !4, !noundef !5
+  %164 = trunc nuw i8 %163 to i1
+  br i1 %164, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46.thread83
 
-167:                                              ; preds = %162
-  %168 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %169 = load ptr, ptr %168, align 8
-  %170 = tail call i32 %169(i64 noundef %153, i64 noundef %152, ptr noundef nonnull %3) #13
-  %171 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %172 = load i8, ptr %171, align 4, !range !4, !noundef !5
-  %173 = trunc nuw i8 %172 to i1
-  br i1 %173, label %174, label %ApplySortComparator.exit46
+.thread94:                                        ; preds = %ApplySortComparator.exit42.thread74.thread, %160
+  %165 = phi i64 [ %151, %160 ], [ %124, %ApplySortComparator.exit42.thread74.thread ]
+  %166 = load i64, ptr %5, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %168 = load ptr, ptr %167, align 8
+  %169 = tail call i32 %168(i64 noundef %166, i64 noundef %165, ptr noundef nonnull %3) #13
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %171 = load i8, ptr %170, align 4, !range !4, !noundef !5
+  %172 = trunc nuw i8 %171 to i1
+  br i1 %172, label %173, label %ApplySortComparator.exit46
 
-174:                                              ; preds = %167
-  %175 = icmp slt i32 %170, 0
-  %176 = sub nsw i32 0, %170
-  br i1 %175, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46
+173:                                              ; preds = %.thread94
+  %174 = icmp slt i32 %169, 0
+  %175 = sub nsw i32 0, %169
+  br i1 %174, label %ApplySortComparator.exit34.thread58, label %ApplySortComparator.exit46
 
-ApplySortComparator.exit46:                       ; preds = %174, %167
-  %.0.i43 = phi i32 [ %176, %174 ], [ %170, %167 ]
+ApplySortComparator.exit46:                       ; preds = %173, %.thread94
+  %.0.i43 = phi i32 [ %175, %173 ], [ %169, %.thread94 ]
   %.0.i43.fr = freeze i32 %.0.i43
-  %177 = icmp slt i32 %.0.i43.fr, 0
-  br i1 %177, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
+  %176 = icmp slt i32 %.0.i43.fr, 0
+  br i1 %176, label %ApplySortComparator.exit46.thread83, label %ApplySortComparator.exit34.thread58
 
-ApplySortComparator.exit46.thread83:              ; preds = %158, %163, %ApplySortComparator.exit46
+ApplySortComparator.exit46.thread83:              ; preds = %.thread, %161, %ApplySortComparator.exit46
   br label %ApplySortComparator.exit34.thread58
 
-ApplySortComparator.exit34.thread58:              ; preds = %163, %174, %158, %157, %130, %147, %123, %94, %105, %89, %88, %51, %59, %ApplySortComparator.exit46.thread83, %ApplySortComparator.exit46, %ApplySortComparator.exit38.thread66, %ApplySortComparator.exit38, %ApplySortComparator.exit42, %ApplySortComparator.exit34
-  %178 = phi ptr [ %1, %ApplySortComparator.exit34 ], [ %1, %ApplySortComparator.exit42 ], [ %2, %ApplySortComparator.exit38.thread66 ], [ %0, %ApplySortComparator.exit38 ], [ %0, %ApplySortComparator.exit46.thread83 ], [ %2, %ApplySortComparator.exit46 ], [ %1, %59 ], [ %1, %51 ], [ %0, %88 ], [ %0, %89 ], [ %0, %105 ], [ %0, %94 ], [ %1, %123 ], [ %1, %147 ], [ %1, %130 ], [ %2, %157 ], [ %2, %158 ], [ %2, %174 ], [ %2, %163 ]
-  ret ptr %178
+ApplySortComparator.exit34.thread58:              ; preds = %161, %173, %.thread, %156, %129, %145, %123, %94, %105, %89, %88, %51, %59, %ApplySortComparator.exit46.thread83, %ApplySortComparator.exit46, %ApplySortComparator.exit38.thread66, %ApplySortComparator.exit38, %ApplySortComparator.exit42, %ApplySortComparator.exit34
+  %177 = phi ptr [ %1, %ApplySortComparator.exit34 ], [ %1, %ApplySortComparator.exit42 ], [ %2, %ApplySortComparator.exit38.thread66 ], [ %0, %ApplySortComparator.exit38 ], [ %0, %ApplySortComparator.exit46.thread83 ], [ %2, %ApplySortComparator.exit46 ], [ %1, %59 ], [ %1, %51 ], [ %0, %88 ], [ %0, %89 ], [ %0, %105 ], [ %0, %94 ], [ %1, %123 ], [ %1, %145 ], [ %1, %129 ], [ %2, %156 ], [ %2, %.thread ], [ %2, %173 ], [ %2, %161 ]
+  ret ptr %177
 }
 
 ; Function Attrs: noinline nounwind uwtable

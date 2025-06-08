@@ -9854,8 +9854,8 @@ _ZN11AstTraceIncC2EP8FileLineP12AstTraceDecl10VTraceTypej.exit183.us: ; preds = 
   %219 = load i32, ptr %5, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25
   %.pre = load i8, ptr %.sroa.5.0..sroa_idx.us, align 4, !tbaa !269, !range !55
-  %.5.us = add nsw i32 %219, %.4104.us
   %220 = trunc nuw i8 %.pre to i1
+  %.5.us = add nsw i32 %219, %.4104.us
   br i1 %220, label %221, label %_ZNK12AstTraceDecl7codeIncEv.exit.us
 
 221:                                              ; preds = %.thread, %218

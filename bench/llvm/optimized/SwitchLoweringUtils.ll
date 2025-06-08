@@ -1483,13 +1483,13 @@ _ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8option
 _ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit: ; preds = %280
   %293 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(24) %287, ptr noundef nonnull align 4 dereferenceable(8) %289, i64 1) #20
   %.pre188.pre = load i8, ptr %268, align 8, !tbaa !306, !range !308
-  %294 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %295 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %296 = load i32, ptr %295, align 8, !tbaa !321
-  store i32 %296, ptr %294, align 8, !tbaa !321
+  %294 = trunc nuw i8 %.pre188.pre to i1
+  %295 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %296 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %297 = load i32, ptr %296, align 8, !tbaa !321
+  store i32 %297, ptr %295, align 8, !tbaa !321
   store i8 1, ptr %288, align 8, !tbaa !306
-  %297 = trunc nuw i8 %.pre188.pre to i1
-  br i1 %297, label %298, label %_ZNSt14_Optional_baseIN4llvm5SDLocELb0ELb0EED2Ev.exit
+  br i1 %294, label %298, label %_ZNSt14_Optional_baseIN4llvm5SDLocELb0ELb0EED2Ev.exit
 
 298:                                              ; preds = %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit.thread196, %_ZN4llvm8SwitchCG9JumpTableC2ENS_8RegisterEjPNS_17MachineBasicBlockES4_St8optionalINS_5SDLocEE.exit
   store i8 0, ptr %268, align 8, !tbaa !306

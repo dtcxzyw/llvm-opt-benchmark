@@ -63366,7 +63366,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
   br label %_ZN4llvm15SmallPtrSetImplIPKN5clang11ParmVarDeclEE6insertES4_.exit.i.i
 
 _ZN4llvm15SmallPtrSetImplIPKN5clang11ParmVarDeclEE6insertES4_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i, %109
-  %112 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ %97, %109 ], [ %97, %.lr.ph.i.i.i.i ]
+  %112 = phi i8 [ %.pre.fr.i.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i ], [ 1, %109 ], [ 1, %.lr.ph.i.i.i.i ]
   %113 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %.not.i.i34 = icmp eq ptr %113, %95
   br i1 %.not.i.i34, label %_ZN12_GLOBAL__N_125ArgumentDependenceCheckerC2EPKN5clang12FunctionDeclE.exit, label %96, !llvm.loop !1622

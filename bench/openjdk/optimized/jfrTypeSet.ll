@@ -2977,11 +2977,11 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
 9:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %1)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %6, ptr %10, align 1
+  store i8 0, ptr %10, align 1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %6, ptr %11, align 1
+  store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %6, ptr %12, align 1
+  store i8 0, ptr %12, align 1
   %13 = load ptr, ptr @_ZL10_artifacts, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -4786,11 +4786,11 @@ define internal fastcc void @_ZL10do_klassesv() unnamed_addr #0 {
 
 3:                                                ; preds = %0
   tail call void @_ZN20ClassLoaderDataGraph20classes_unloading_doEPFvP5KlassE(ptr noundef nonnull @_ZL18do_unloading_klassP5Klass) #9
-  br label %28
+  br label %30
 
 4:                                                ; preds = %0
   %.b.i = load i1, ptr @_ZL17_initial_type_set, align 1
-  br i1 %.b.i, label %23, label %5
+  br i1 %.b.i, label %24, label %5
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @_ZL7_writer, align 8
@@ -4820,19 +4820,19 @@ define internal fastcc void @_ZL10do_klassesv() unnamed_addr #0 {
   %22 = load ptr, ptr @_ZL7_writer, align 8
   tail call fastcc void @_ZL15write_primitiveP19JfrCheckpointWriterPK5Klass(ptr noundef %22, ptr noundef null)
   %.pre = load i8, ptr @_ZL13_class_unload, align 1
-  %.pre1 = trunc nuw i8 %.pre to i1
-  br label %23
+  %23 = trunc nuw i8 %.pre to i1
+  br label %24
 
-23:                                               ; preds = %5, %4
-  %.pre-phi = phi i1 [ %.pre1, %5 ], [ false, %4 ]
-  %24 = load i8, ptr @_ZL11_flushpoint, align 1
-  %25 = trunc nuw i8 %24 to i1
-  %26 = select i1 %25, i1 true, i1 %.pre-phi
-  %27 = xor i1 %26, true
-  tail call void @_ZN21JfrTraceIdLoadBarrier10do_klassesEPFvP5KlassEb(ptr noundef nonnull @_ZL8do_klassP5Klass, i1 noundef zeroext %27) #9
-  br label %28
+24:                                               ; preds = %5, %4
+  %25 = phi i1 [ %23, %5 ], [ false, %4 ]
+  %26 = load i8, ptr @_ZL11_flushpoint, align 1
+  %27 = trunc nuw i8 %26 to i1
+  %28 = select i1 %27, i1 true, i1 %25
+  %29 = xor i1 %28, true
+  tail call void @_ZN21JfrTraceIdLoadBarrier10do_klassesEPFvP5KlassEb(ptr noundef nonnull @_ZL8do_klassP5Klass, i1 noundef zeroext %29) #9
+  br label %30
 
-28:                                               ; preds = %23, %3
+30:                                               ; preds = %24, %3
   ret void
 }
 

@@ -8888,14 +8888,14 @@ _ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit:          ; preds = %355
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %359, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !628
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #29
   %.pre73 = load i8, ptr %32, align 8, !tbaa !624, !range !175
+  %365 = trunc nuw i8 %.pre73 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #29
-  %365 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %366 = getelementptr inbounds nuw i8, ptr %33, i64 33
-  store i8 1, ptr %366, align 1, !tbaa !643
+  %366 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %367 = getelementptr inbounds nuw i8, ptr %33, i64 33
+  store i8 1, ptr %367, align 1, !tbaa !643
   store ptr @.str.7, ptr %33, align 8, !tbaa !29
-  store i8 3, ptr %365, align 8, !tbaa !637
-  %367 = trunc nuw i8 %.pre73 to i1
-  br i1 %367, label %368, label %_ZN12_GLOBAL__N_111SimpleTimer9setOutputERKN4llvm5TwineE.exit
+  store i8 3, ptr %366, align 8, !tbaa !637
+  br i1 %365, label %368, label %_ZN12_GLOBAL__N_111SimpleTimer9setOutputERKN4llvm5TwineE.exit
 
 368:                                              ; preds = %_ZN12_GLOBAL__N_111SimpleTimerC2Eb.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #29

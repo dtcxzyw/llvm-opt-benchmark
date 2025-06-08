@@ -27916,7 +27916,7 @@ _ZNK6vectorIP3appLb0EjE5emptyEv.exit:             ; preds = %_ZNK6vectorIP3appLb
           to label %73 unwind label %65
 
 73:                                               ; preds = %71
-  %spec.select = select i1 %72, i8 1, i8 %.04280
+  %spec.select = zext i1 %72 to i8
   br label %74
 
 74:                                               ; preds = %73, %69, %.lr.ph

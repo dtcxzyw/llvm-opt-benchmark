@@ -2532,7 +2532,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZeqRK10QByteArrayS
 110:                                              ; preds = %103
   %111 = load i8, ptr %28, align 1
   %112 = icmp eq i8 %111, 0
-  %spec.select51 = select i1 %112, i8 1, i8 %.037
+  %spec.select51 = zext i1 %112 to i8
   br label %113
 
 113:                                              ; preds = %110, %108, %104

@@ -2808,8 +2808,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %notmask = shl nsw i64 -1, %49
   %51 = xor i64 %notmask, -1
   %52 = and i64 %50, %51
-  %53 = icmp eq i64 %52, 0
-  %spec.select = select i1 %53, i8 %.03156, i8 1
+  %53 = icmp ne i64 %52, 0
+  %spec.select = zext i1 %53 to i8
   br label %54
 
 54:                                               ; preds = %41, %39

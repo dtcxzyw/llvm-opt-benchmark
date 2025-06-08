@@ -89,7 +89,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %39, ptr %41, align 8
   store i8 0, ptr %22, align 1
-  br label %90
+  br label %94
 
 42:                                               ; preds = %1
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 68
@@ -100,13 +100,13 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %48 = load i64, ptr %47, align 8
   %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %45, i32 noundef %11, i64 noundef %9, i64 noundef %48) #4
   %50 = icmp ne i64 %49, 0
-  br i1 %50, label %51, label %65
+  br i1 %50, label %51, label %67
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 82
   %53 = load i8, ptr %52, align 2, !range !4, !noundef !5
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %59, label %55
+  br i1 %54, label %60, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %46, align 8
@@ -114,63 +114,63 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %58 = inttoptr i64 %57 to ptr
   tail call void @pfree(ptr noundef %58) #4
   %.pre = load i8, ptr %52, align 2, !range !4
-  %.pre49 = trunc nuw i8 %.pre to i1
-  br label %59
+  %59 = trunc nuw i8 %.pre to i1
+  br label %60
 
-59:                                               ; preds = %55, %51
-  %.pre-phi = phi i1 [ %.pre49, %55 ], [ true, %51 ]
-  %60 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %61 = load i16, ptr %60, align 4
-  %62 = sext i16 %61 to i32
-  %63 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi, i32 noundef %62) #4
-  %64 = load ptr, ptr %46, align 8
-  store i64 %63, ptr %64, align 8
-  br label %65
+60:                                               ; preds = %55, %51
+  %61 = phi i1 [ %59, %55 ], [ true, %51 ]
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %63 = load i16, ptr %62, align 4
+  %64 = sext i16 %63 to i32
+  %65 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %61, i32 noundef %64) #4
+  %66 = load ptr, ptr %46, align 8
+  store i64 %65, ptr %66, align 8
+  br label %67
 
-65:                                               ; preds = %59, %42
-  %66 = load i32, ptr %43, align 4
-  %67 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %66, i16 noundef zeroext 5)
-  %68 = load ptr, ptr %46, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load i64, ptr %69, align 8
-  %71 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %67, i32 noundef %11, i64 noundef %9, i64 noundef %70) #4
-  %.not = icmp eq i64 %71, 0
-  br i1 %.not, label %88, label %72
+67:                                               ; preds = %60, %42
+  %68 = load i32, ptr %43, align 4
+  %69 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %12, i32 noundef %68, i16 noundef zeroext 5)
+  %70 = load ptr, ptr %46, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load i64, ptr %71, align 8
+  %73 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %69, i32 noundef %11, i64 noundef %9, i64 noundef %72) #4
+  %.not = icmp eq i64 %73, 0
+  br i1 %.not, label %92, label %74
 
-72:                                               ; preds = %65
-  %73 = getelementptr inbounds nuw i8, ptr %21, i64 82
-  %74 = load i8, ptr %73, align 2, !range !4, !noundef !5
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %81, label %76
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds nuw i8, ptr %21, i64 82
+  %76 = load i8, ptr %75, align 2, !range !4, !noundef !5
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %84, label %78
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %46, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load i64, ptr %78, align 8
-  %80 = inttoptr i64 %79 to ptr
-  tail call void @pfree(ptr noundef %80) #4
-  %.pre48 = load i8, ptr %73, align 2, !range !4
-  %.pre50 = trunc nuw i8 %.pre48 to i1
-  br label %81
+78:                                               ; preds = %74
+  %79 = load ptr, ptr %46, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load i64, ptr %80, align 8
+  %82 = inttoptr i64 %81 to ptr
+  tail call void @pfree(ptr noundef %82) #4
+  %.pre48 = load i8, ptr %75, align 2, !range !4
+  %83 = trunc nuw i8 %.pre48 to i1
+  br label %84
 
-81:                                               ; preds = %76, %72
-  %.pre-phi51 = phi i1 [ %.pre50, %76 ], [ true, %72 ]
-  %82 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %83 = load i16, ptr %82, align 4
-  %84 = sext i16 %83 to i32
-  %85 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %.pre-phi51, i32 noundef %84) #4
-  %86 = load ptr, ptr %46, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store i64 %85, ptr %87, align 8
-  br label %88
+84:                                               ; preds = %78, %74
+  %85 = phi i1 [ %83, %78 ], [ true, %74 ]
+  %86 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %87 = load i16, ptr %86, align 4
+  %88 = sext i16 %87 to i32
+  %89 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %85, i32 noundef %88) #4
+  %90 = load ptr, ptr %46, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store i64 %89, ptr %91, align 8
+  br label %92
 
-88:                                               ; preds = %81, %65
-  %.1 = phi i1 [ true, %81 ], [ %50, %65 ]
-  %89 = zext i1 %.1 to i64
-  br label %90
+92:                                               ; preds = %84, %67
+  %.1 = phi i1 [ true, %84 ], [ %50, %67 ]
+  %93 = zext i1 %.1 to i64
+  br label %94
 
-90:                                               ; preds = %88, %25
-  %.0 = phi i64 [ 1, %25 ], [ %89, %88 ]
+94:                                               ; preds = %92, %25
+  %.0 = phi i64 [ 1, %25 ], [ %93, %92 ]
   ret i64 %.0
 }
 
@@ -385,13 +385,13 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %12, i64 noundef %28, i64 noundef %31) #4
   %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %49, label %33
+  br i1 %.not, label %51, label %33
 
 33:                                               ; preds = %1
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 82
   %35 = load i8, ptr %34, align 2, !range !4, !noundef !5
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %41, label %37
+  br i1 %36, label %42, label %37
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %29, align 8
@@ -399,65 +399,65 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %40 = inttoptr i64 %39 to ptr
   tail call void @pfree(ptr noundef %40) #4
   %.pre = load i8, ptr %34, align 2, !range !4
-  %.pre37 = trunc nuw i8 %.pre to i1
-  br label %41
+  %41 = trunc nuw i8 %.pre to i1
+  br label %42
 
-41:                                               ; preds = %37, %33
-  %.pre-phi38 = phi i1 [ %.pre37, %37 ], [ true, %33 ]
-  %42 = load ptr, ptr %26, align 8
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  %45 = load i16, ptr %44, align 4
-  %46 = sext i16 %45 to i32
-  %47 = tail call i64 @datumCopy(i64 noundef %43, i1 noundef zeroext %.pre-phi38, i32 noundef %46) #4
-  %48 = load ptr, ptr %29, align 8
-  store i64 %47, ptr %48, align 8
-  br label %49
+42:                                               ; preds = %37, %33
+  %43 = phi i1 [ %41, %37 ], [ true, %33 ]
+  %44 = load ptr, ptr %26, align 8
+  %45 = load i64, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %47 = load i16, ptr %46, align 4
+  %48 = sext i16 %47 to i32
+  %49 = tail call i64 @datumCopy(i64 noundef %45, i1 noundef zeroext %43, i32 noundef %48) #4
+  %50 = load ptr, ptr %29, align 8
+  store i64 %49, ptr %50, align 8
+  br label %51
 
-49:                                               ; preds = %41, %1
-  %50 = load i32, ptr %23, align 4
-  %51 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %13, i32 noundef %50, i16 noundef zeroext 5)
-  %52 = load ptr, ptr %26, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i64, ptr %53, align 8
-  %55 = load ptr, ptr %29, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %51, i32 noundef %12, i64 noundef %54, i64 noundef %57) #4
-  %.not34 = icmp eq i64 %58, 0
-  br i1 %.not34, label %78, label %59
+51:                                               ; preds = %42, %1
+  %52 = load i32, ptr %23, align 4
+  %53 = tail call fastcc ptr @minmax_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %13, i32 noundef %52, i16 noundef zeroext 5)
+  %54 = load ptr, ptr %26, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load i64, ptr %55, align 8
+  %57 = load ptr, ptr %29, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %53, i32 noundef %12, i64 noundef %56, i64 noundef %59) #4
+  %.not34 = icmp eq i64 %60, 0
+  br i1 %.not34, label %82, label %61
 
-59:                                               ; preds = %49
-  %60 = getelementptr inbounds nuw i8, ptr %22, i64 82
-  %61 = load i8, ptr %60, align 2, !range !4, !noundef !5
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %68, label %63
+61:                                               ; preds = %51
+  %62 = getelementptr inbounds nuw i8, ptr %22, i64 82
+  %63 = load i8, ptr %62, align 2, !range !4, !noundef !5
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %71, label %65
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %29, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i64, ptr %65, align 8
-  %67 = inttoptr i64 %66 to ptr
-  tail call void @pfree(ptr noundef %67) #4
-  %.pre35 = load i8, ptr %60, align 2, !range !4
-  %.pre36 = trunc nuw i8 %.pre35 to i1
-  br label %68
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %29, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load i64, ptr %67, align 8
+  %69 = inttoptr i64 %68 to ptr
+  tail call void @pfree(ptr noundef %69) #4
+  %.pre35 = load i8, ptr %62, align 2, !range !4
+  %70 = trunc nuw i8 %.pre35 to i1
+  br label %71
 
-68:                                               ; preds = %63, %59
-  %.pre-phi = phi i1 [ %.pre36, %63 ], [ true, %59 ]
-  %69 = load ptr, ptr %26, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  %73 = load i16, ptr %72, align 4
-  %74 = sext i16 %73 to i32
-  %75 = tail call i64 @datumCopy(i64 noundef %71, i1 noundef zeroext %.pre-phi, i32 noundef %74) #4
-  %76 = load ptr, ptr %29, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 %75, ptr %77, align 8
-  br label %78
+71:                                               ; preds = %65, %61
+  %72 = phi i1 [ %70, %65 ], [ true, %61 ]
+  %73 = load ptr, ptr %26, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %77 = load i16, ptr %76, align 4
+  %78 = sext i16 %77 to i32
+  %79 = tail call i64 @datumCopy(i64 noundef %75, i1 noundef zeroext %72, i32 noundef %78) #4
+  %80 = load ptr, ptr %29, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store i64 %79, ptr %81, align 8
+  br label %82
 
-78:                                               ; preds = %68, %49
+82:                                               ; preds = %71, %51
   ret i64 0
 }
 

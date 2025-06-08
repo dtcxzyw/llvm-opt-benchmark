@@ -72,7 +72,7 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
   %32 = load i8, ptr %4, align 1, !range !4
   %33 = trunc nuw i8 %32 to i1
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %33
-  br i1 %or.cond5, label %59, label %.preheader
+  br i1 %or.cond5, label %60, label %.preheader
 
 .preheader:                                       ; preds = %0
   %34 = load i32, ptr @NBuffers, align 4
@@ -117,23 +117,23 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre.pre = load i8, ptr %2, align 1, !range !4
-  %.pre22 = trunc nuw i8 %.pre.pre to i1
+  %55 = trunc nuw i8 %.pre.pre to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.pre21.pre-phi = phi i1 [ %.pre22, %._crit_edge.loopexit ], [ false, %.preheader ]
-  %.lcssa = phi i32 [ %52, %._crit_edge.loopexit ], [ %34, %.preheader ]
-  %55 = add i32 %.lcssa, -1
-  %56 = load ptr, ptr @BufferDescriptors, align 8
-  %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %56, i64 %57, i32 0, i32 4
-  store i32 -1, ptr %58, align 4
-  br label %59
+  %.pre = phi i1 [ false, %.preheader ], [ %55, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %34, %.preheader ], [ %52, %._crit_edge.loopexit ]
+  %56 = add i32 %.lcssa, -1
+  %57 = load ptr, ptr @BufferDescriptors, align 8
+  %58 = zext i32 %56 to i64
+  %59 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %57, i64 %58, i32 0, i32 4
+  store i32 -1, ptr %59, align 4
+  br label %60
 
-59:                                               ; preds = %0, %._crit_edge
-  %.pre-phi = phi i1 [ %27, %0 ], [ %.pre21.pre-phi, %._crit_edge ]
-  %60 = xor i1 %.pre-phi, true
-  call void @StrategyInitialize(i1 noundef zeroext %60) #3
+60:                                               ; preds = %0, %._crit_edge
+  %.pre-phi = phi i1 [ %27, %0 ], [ %.pre, %._crit_edge ]
+  %61 = xor i1 %.pre-phi, true
+  call void @StrategyInitialize(i1 noundef zeroext %61) #3
   call void @WritebackContextInit(ptr noundef nonnull @BackendWritebackContext, ptr noundef nonnull @backend_flush_after) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #3

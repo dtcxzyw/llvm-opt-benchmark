@@ -21454,7 +21454,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122MemorySanitizerVisitor11paintOri
   %43 = load ptr, ptr %27, align 8, !tbaa !522
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %45 = load ptr, ptr %44, align 8, !tbaa !261
-  %46 = call noundef ptr @_ZN4llvm13IRBuilderBase14CreateTypeSizeEPNS_4TypeENS_8TypeSizeE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %45, i64 %4, i8 %5) #25
+  %46 = call noundef ptr @_ZN4llvm13IRBuilderBase14CreateTypeSizeEPNS_4TypeENS_8TypeSizeE(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %45, i64 %4, i8 1) #25
   %47 = load ptr, ptr %27, align 8, !tbaa !522
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %49 = load ptr, ptr %48, align 8, !tbaa !261

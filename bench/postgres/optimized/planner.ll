@@ -4187,7 +4187,7 @@ list_length.exit.i513:                            ; preds = %830, %827
 
 880:                                              ; preds = %877
   %881 = call zeroext i1 @expression_returns_set(ptr noundef %851) #12
-  %spec.select.i522 = select i1 %881, i8 1, i8 %.074101.i716
+  %spec.select.i522 = zext i1 %881 to i8
   br label %882
 
 882:                                              ; preds = %880, %877, %875, %874, %865, %861

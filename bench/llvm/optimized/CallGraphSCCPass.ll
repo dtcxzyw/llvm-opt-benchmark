@@ -2901,13 +2901,13 @@ _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exi
   %.pre = load ptr, ptr %38, align 8, !tbaa !340
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -16
   %.pre125 = load i8, ptr %.phi.trans.insert, align 8, !tbaa !323, !range !52
-  %70 = getelementptr inbounds i8, ptr %56, i64 -8
-  %71 = load ptr, ptr %70, align 8, !tbaa !315
-  store ptr %71, ptr %44, align 8, !tbaa !315
-  %72 = getelementptr inbounds i8, ptr %.pre, i64 -40
-  store ptr %72, ptr %38, align 8, !tbaa !340
-  %73 = trunc nuw i8 %.pre125 to i1
-  br i1 %73, label %74, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i
+  %70 = trunc nuw i8 %.pre125 to i1
+  %71 = getelementptr inbounds i8, ptr %56, i64 -8
+  %72 = load ptr, ptr %71, align 8, !tbaa !315
+  store ptr %72, ptr %44, align 8, !tbaa !315
+  %73 = getelementptr inbounds i8, ptr %.pre, i64 -40
+  store ptr %73, ptr %38, align 8, !tbaa !340
+  br i1 %70, label %74, label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i
 
 74:                                               ; preds = %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exit
   %75 = getelementptr inbounds i8, ptr %.pre, i64 -16
@@ -2922,7 +2922,7 @@ _ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exi
   ]
 
 78:                                               ; preds = %74
-  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %72) #22
+  call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(40) %73) #22
   br label %_ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i
 
 _ZN4llvm13CallGraphNode14removeCallEdgeEN9__gnu_cxx17__normal_iteratorIPSt4pairISt8optionalINS_14WeakTrackingVHEEPS0_ESt6vectorIS8_SaIS8_EEEE.exit.i: ; preds = %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exit.thread, %78, %74, %74, %74, %_ZNSt22_Optional_payload_baseIN4llvm14WeakTrackingVHEE14_M_copy_assignERKS2_.exit

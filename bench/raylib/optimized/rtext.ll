@@ -1535,8 +1535,8 @@ UnloadFontData.exit.i.thread221.i:                ; preds = %.preheader.i.i.i
 
 UnloadFontData.exit.i.i:                          ; preds = %.lr.ph.i.i.i
   %.pre.pre.i = load i8, ptr @isGpuReady, align 1, !range !3, !noalias !8
-  call void @free(ptr noundef nonnull %167) #44, !noalias !8
   %228 = trunc nuw i8 %.pre.pre.i to i1
+  call void @free(ptr noundef nonnull %167) #44, !noalias !8
   br i1 %228, label %UnloadFontData.exit.i.thread.i, label %229
 
 UnloadFontData.exit.i.thread.i:                   ; preds = %UnloadFontData.exit.i.i, %UnloadFontData.exit.i.thread221.i, %226

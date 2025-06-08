@@ -27087,7 +27087,7 @@ define noundef zeroext i1 @"_ZN89_$LT$ty_python_semantic..symbol..SymbolAndQuali
   br i1 %8, label %11, label %12
 
 11:                                               ; preds = %10
-  store i8 %.sroa.0.0.copyload, ptr %0, align 8
+  store i8 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx3, align 1
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -27106,7 +27106,7 @@ define noundef zeroext i1 @"_ZN89_$LT$ty_python_semantic..symbol..SymbolAndQuali
   br label %"_ZN76_$LT$ty_python_semantic..symbol..Symbol$u20$as$u20$salsa..update..Update$GT$12maybe_update17hcf0eff5939bd98bcE.exit"
 
 20:                                               ; preds = %9
-  store i8 %.sroa.0.0.copyload, ptr %0, align 8
+  store i8 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx5, align 1
   %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -28096,7 +28096,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ty_python_semantic..types..class..ClassTyp
   br i1 %6, label %9, label %11
 
 9:                                                ; preds = %8
-  store i32 %1, ptr %0, align 4
+  store i32 1, ptr %0, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
   br label %"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..ClassLiteral$GT$12maybe_update17h3f7f3947b57bf3baE.exit"
@@ -28126,7 +28126,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ty_python_semantic..types..class..ClassTyp
   br label %"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..ClassLiteral$GT$12maybe_update17h3f7f3947b57bf3baE.exit"
 
 19:                                               ; preds = %7
-  store i32 %1, ptr %0, align 4
+  store i32 0, ptr %0, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %20, align 4
   br label %"_ZN18ty_python_semantic5types5class1_98_$LT$impl$u20$salsa..update..Update$u20$for$u20$ty_python_semantic..types..class..ClassLiteral$GT$12maybe_update17h3f7f3947b57bf3baE.exit"
@@ -28601,7 +28601,7 @@ _ZN18ty_python_semantic5types5class9ClassType8iter_mro17hebb4c1bf3f8ae17bE.exit:
   br i1 %switch.i.i.i.us, label %30, label %.backedge.i.us
 
 30:                                               ; preds = %28
-  %31 = call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_final17hc23b16f40756d044E(i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3), !noalias !3729
+  %31 = call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_final17hc23b16f40756d044E(i32 noundef 1, i32 noundef %5, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3), !noalias !3729
   br i1 %31, label %.backedge.i.us, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9e0594a8bebd1a4aE.exit
 
 .backedge.i.us:                                   ; preds = %18, %30, %28, %24, %20, %.lr.ph.i.us, %.lr.ph.i.us
@@ -28640,7 +28640,7 @@ _ZN18ty_python_semantic5types5class9ClassType8iter_mro17hebb4c1bf3f8ae17bE.exit:
   br i1 %or.cond, label %.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9e0594a8bebd1a4aE.exit
 
 42:                                               ; preds = %37
-  %43 = call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_final17hc23b16f40756d044E(i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3), !noalias !3729
+  %43 = call noundef zeroext i1 @_ZN18ty_python_semantic5types5class9ClassType8is_final17hc23b16f40756d044E(i32 noundef 0, i32 noundef %5, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3), !noalias !3729
   br i1 %43, label %.backedge.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9e0594a8bebd1a4aE.exit
 
 .backedge.i:                                      ; preds = %39, %42, %37, %.lr.ph.i, %.lr.ph.i

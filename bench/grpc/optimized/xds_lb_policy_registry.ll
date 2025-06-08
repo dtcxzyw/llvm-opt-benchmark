@@ -1244,7 +1244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %358
+  br label %357
 
 51:                                               ; preds = %32
   %52 = landingpad { ptr, i32 }
@@ -1270,7 +1270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #25
-  br label %359
+  br label %358
 
 60:                                               ; preds = %6
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1311,7 +1311,7 @@ envoy_config_cluster_v3_LoadBalancingPolicy_policies.exit: ; preds = %60
   br label %86
 
 86:                                               ; preds = %.lr.ph, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153
-  %.080209 = phi i64 [ 0, %.lr.ph ], [ %319, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153 ]
+  %.080209 = phi i64 [ 0, %.lr.ph ], [ %318, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #25
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18) #25
@@ -1382,7 +1382,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  br label %358
+  br label %357
 
 110:                                              ; preds = %86
   %111 = landingpad { ptr, i32 }
@@ -1408,12 +1408,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #25
-  br label %324
+  br label %323
 
 118:                                              ; preds = %105
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %323
+  br label %322
 
 120:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #25
@@ -1442,16 +1442,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123: ; preds = %_Z
 129:                                              ; preds = %120
   %130 = landingpad { ptr, i32 }
           cleanup
-  br label %322
+  br label %321
 
 131:                                              ; preds = %121
   %132 = landingpad { ptr, i32 }
           cleanup
-  br label %321
+  br label %320
 
 133:                                              ; preds = %125
   %134 = load i8, ptr %80, align 8, !tbaa !70
-  switch i8 %134, label %290 [
+  switch i8 %134, label %.thread218 [
     i8 0, label %135
     i8 1, label %186
   ]
@@ -1629,11 +1629,11 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12exper
   %.pn = phi { ptr, i32 } [ %184, %.body ], [ %183, %182 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24) #25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23) #25
-  br label %320
+  br label %319
 
 .critedge:                                        ; preds = %_ZNKSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core19XdsLbPolicyRegistry13ConfigFactoryESt14default_deleteIS9_EEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core19XdsLbPolicyRegistry13ConfigFactoryESt14default_deleteIS7_EESt4lessIS3_ESaISt4pairIKS3_SA_EEE4findERSE_.exit
   %.not184 = icmp eq i8 %134, 1
-  br i1 %.not184, label %186, label %290
+  br i1 %.not184, label %186, label %.thread218
 
 186:                                              ; preds = %133, %.critedge
   %187 = load atomic i64, ptr @_ZN9grpc_core17CoreConfiguration7config_E acquire, align 8
@@ -1654,11 +1654,7 @@ _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %186, %188
           to label %192 unwind label %276
 
 192:                                              ; preds = %_ZN9grpc_core17CoreConfiguration3GetEv.exit
-  br i1 %191, label %193, label %._crit_edge
-
-._crit_edge:                                      ; preds = %192
-  %.pre = load i8, ptr %78, align 8, !tbaa !65, !range !68
-  br label %290
+  br i1 %191, label %193, label %290
 
 193:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25) #25
@@ -1938,7 +1934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
 276:                                              ; preds = %188, %_ZN9grpc_core17CoreConfiguration3GetEv.exit
   %277 = landingpad { ptr, i32 }
           cleanup
-  br label %320
+  br label %319
 
 278:                                              ; preds = %.noexc.i.i.i, %197
   %279 = landingpad { ptr, i32 }
@@ -1983,40 +1979,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %27) #25
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26) #25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25) #25
-  br label %320
+  br label %319
 
-290:                                              ; preds = %133, %._crit_edge, %.critedge
-  %291 = phi i8 [ %.pre, %._crit_edge ], [ %126, %.critedge ], [ %126, %133 ]
-  %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %.thread218, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
+290:                                              ; preds = %192
+  %.pre = load i8, ptr %78, align 8, !tbaa !65, !range !68
+  %291 = trunc nuw i8 %.pre to i1
+  br i1 %291, label %.thread218, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
 
-.thread218:                                       ; preds = %135, %290
+.thread218:                                       ; preds = %133, %135, %.critedge, %290
   store i8 0, ptr %78, align 8, !tbaa !65
-  %293 = load ptr, ptr %83, align 8, !tbaa !92
-  %294 = load ptr, ptr %84, align 8, !tbaa !95
-  %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %293, %294
+  %292 = load ptr, ptr %83, align 8, !tbaa !92
+  %293 = load ptr, ptr %84, align 8, !tbaa !95
+  %.not4.i.i.i.i.i.i.i.i.i = icmp eq ptr %292, %293
   br i1 %.not4.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.thread218, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %300, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %293, %.thread218 ]
-  %295 = load ptr, ptr %.05.i.i.i.i.i.i.i.i.i, align 8, !tbaa !60
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %295, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i, label %296
+  %.05.i.i.i.i.i.i.i.i.i = phi ptr [ %299, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i ], [ %292, %.thread218 ]
+  %294 = load ptr, ptr %.05.i.i.i.i.i.i.i.i.i, align 8, !tbaa !60
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %294, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i, label %295
 
-296:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %295)
-          to label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i unwind label %297
+295:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %294)
+          to label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i unwind label %296
 
-297:                                              ; preds = %296
-  %298 = landingpad { ptr, i32 }
+296:                                              ; preds = %295
+  %297 = landingpad { ptr, i32 }
           catch ptr null
-  %299 = extractvalue { ptr, i32 } %298, 0
-  call void @__clang_call_terminate(ptr %299) #27
+  %298 = extractvalue { ptr, i32 } %297, 0
+  call void @__clang_call_terminate(ptr %298) #27
   unreachable
 
-_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %296, %.lr.ph.i.i.i.i.i.i.i.i.i
-  %300 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %300, %294
+_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %295, %.lr.ph.i.i.i.i.i.i.i.i.i
+  %299 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %299, %293
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !96
 
 _ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i
@@ -2024,213 +2020,213 @@ _ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exi
   br label %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i, %.thread218
-  %301 = phi ptr [ %.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %293, %.thread218 ]
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %301, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i, label %302
+  %300 = phi ptr [ %.pr.i.i.i.i.i.i, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i ], [ %292, %.thread218 ]
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %300, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i, label %301
 
-302:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
-  %303 = load ptr, ptr %85, align 8, !tbaa !97
-  %304 = ptrtoint ptr %303 to i64
-  %305 = ptrtoint ptr %301 to i64
-  %306 = sub i64 %304, %305
-  call void @_ZdlPvm(ptr noundef nonnull %301, i64 noundef %306) #26
+301:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
+  %302 = load ptr, ptr %85, align 8, !tbaa !97
+  %303 = ptrtoint ptr %302 to i64
+  %304 = ptrtoint ptr %300 to i64
+  %305 = sub i64 %303, %304
+  call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef %305) #26
   br label %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i
 
-_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %302, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
-  %307 = load i8, ptr %80, align 8, !tbaa !70
-  switch i8 %307, label %308 [
+_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %301, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
+  %306 = load i8, ptr %80, align 8, !tbaa !70
+  switch i8 %306, label %307 [
     i8 -1, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
     i8 0, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
   ], !prof !98
 
-308:                                              ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i
+307:                                              ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) %79) #25
   br label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit: ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i, %308, %290, %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i
+_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit: ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i, %307, %290, %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %22) #25
-  %309 = load ptr, ptr %21, align 8, !tbaa !60
-  %.not.i150 = icmp eq ptr %309, null
-  br i1 %.not.i150, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151, label %310
+  %308 = load ptr, ptr %21, align 8, !tbaa !60
+  %.not.i150 = icmp eq ptr %308, null
+  br i1 %.not.i150, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151, label %309
 
-310:                                              ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %309)
-          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151 unwind label %311
+309:                                              ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %308)
+          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151 unwind label %310
 
-311:                                              ; preds = %310
-  %312 = landingpad { ptr, i32 }
+310:                                              ; preds = %309
+  %311 = landingpad { ptr, i32 }
           catch ptr null
-  %313 = extractvalue { ptr, i32 } %312, 0
-  call void @__clang_call_terminate(ptr %313) #27
+  %312 = extractvalue { ptr, i32 } %311, 0
+  call void @__clang_call_terminate(ptr %312) #27
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151: ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit, %310
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151: ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit, %309
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  %314 = load ptr, ptr %16, align 8, !tbaa !60
-  %.not.i152 = icmp eq ptr %314, null
-  br i1 %.not.i152, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153, label %315
+  %313 = load ptr, ptr %16, align 8, !tbaa !60
+  %.not.i152 = icmp eq ptr %313, null
+  br i1 %.not.i152, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153, label %314
 
-315:                                              ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %314)
-          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153 unwind label %316
+314:                                              ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %313)
+          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153 unwind label %315
 
-316:                                              ; preds = %315
-  %317 = landingpad { ptr, i32 }
+315:                                              ; preds = %314
+  %316 = landingpad { ptr, i32 }
           catch ptr null
-  %318 = extractvalue { ptr, i32 } %317, 0
-  call void @__clang_call_terminate(ptr %318) #27
+  %317 = extractvalue { ptr, i32 } %316, 0
+  call void @__clang_call_terminate(ptr %317) #27
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153: ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151, %315
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153: ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit151, %314
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  %319 = add nuw i64 %.080209, 1
-  %exitcond.not = icmp eq i64 %319, %67
+  %318 = add nuw i64 %.080209, 1
+  %exitcond.not = icmp eq i64 %318, %67
   br i1 %exitcond.not, label %.critedge109, label %86, !llvm.loop !99
 
-320:                                              ; preds = %185, %276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
+319:                                              ; preds = %185, %276, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
   %.pn92.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149 ], [ %277, %276 ], [ %.pn, %185 ]
   call void @_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %22) #25
-  br label %321
+  br label %320
 
-321:                                              ; preds = %320, %131
-  %.pn92.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn, %320 ], [ %132, %131 ]
+320:                                              ; preds = %319, %131
+  %.pn92.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn, %319 ], [ %132, %131 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %22) #25
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #25
+  br label %321
+
+321:                                              ; preds = %320, %129
+  %.pn92.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn, %320 ], [ %130, %129 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
   br label %322
 
-322:                                              ; preds = %321, %129
-  %.pn92.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn92.pn.pn.pn.pn, %321 ], [ %130, %129 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
+322:                                              ; preds = %321, %118
+  %.pn100 = phi { ptr, i32 } [ %119, %118 ], [ %.pn92.pn.pn.pn.pn.pn.pn, %321 ]
+  call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #25
   br label %323
 
-323:                                              ; preds = %322, %118
-  %.pn100 = phi { ptr, i32 } [ %119, %118 ], [ %.pn92.pn.pn.pn.pn.pn.pn, %322 ]
-  call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #25
-  br label %324
-
-324:                                              ; preds = %323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123
-  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %323 ], [ %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
+323:                                              ; preds = %322, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123
+  %.pn100.pn = phi { ptr, i32 } [ %.pn100, %322 ], [ %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  br label %359
+  br label %358
 
 .critedge111:                                     ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146, %128
-  %325 = load i8, ptr %78, align 8, !tbaa !65, !range !68, !noundef !69
-  %326 = trunc nuw i8 %325 to i1
-  br i1 %326, label %327, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
+  %324 = load i8, ptr %78, align 8, !tbaa !65, !range !68, !noundef !69
+  %325 = trunc nuw i8 %324 to i1
+  br i1 %325, label %326, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
 
-327:                                              ; preds = %.critedge111
+326:                                              ; preds = %.critedge111
   store i8 0, ptr %78, align 8, !tbaa !65
-  %328 = load ptr, ptr %83, align 8, !tbaa !92
-  %329 = load ptr, ptr %84, align 8, !tbaa !95
-  %.not4.i.i.i.i.i.i.i.i.i154 = icmp eq ptr %328, %329
+  %327 = load ptr, ptr %83, align 8, !tbaa !92
+  %328 = load ptr, ptr %84, align 8, !tbaa !95
+  %.not4.i.i.i.i.i.i.i.i.i154 = icmp eq ptr %327, %328
   br i1 %.not4.i.i.i.i.i.i.i.i.i154, label %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162, label %.lr.ph.i.i.i.i.i.i.i.i.i155
 
-.lr.ph.i.i.i.i.i.i.i.i.i155:                      ; preds = %327, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158
-  %.05.i.i.i.i.i.i.i.i.i156 = phi ptr [ %335, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158 ], [ %328, %327 ]
-  %330 = load ptr, ptr %.05.i.i.i.i.i.i.i.i.i156, align 8, !tbaa !60
-  %.not.i.i.i.i.i.i.i.i.i.i.i157 = icmp eq ptr %330, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i157, label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158, label %331
+.lr.ph.i.i.i.i.i.i.i.i.i155:                      ; preds = %326, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158
+  %.05.i.i.i.i.i.i.i.i.i156 = phi ptr [ %334, %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158 ], [ %327, %326 ]
+  %329 = load ptr, ptr %.05.i.i.i.i.i.i.i.i.i156, align 8, !tbaa !60
+  %.not.i.i.i.i.i.i.i.i.i.i.i157 = icmp eq ptr %329, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i157, label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158, label %330
 
-331:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i155
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %330)
-          to label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158 unwind label %332
+330:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i155
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %329)
+          to label %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158 unwind label %331
 
-332:                                              ; preds = %331
-  %333 = landingpad { ptr, i32 }
+331:                                              ; preds = %330
+  %332 = landingpad { ptr, i32 }
           catch ptr null
-  %334 = extractvalue { ptr, i32 } %333, 0
-  call void @__clang_call_terminate(ptr %334) #27
+  %333 = extractvalue { ptr, i32 } %332, 0
+  call void @__clang_call_terminate(ptr %333) #27
   unreachable
 
-_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158: ; preds = %331, %.lr.ph.i.i.i.i.i.i.i.i.i155
-  %335 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i156, i64 8
-  %.not.i.i.i.i.i.i.i.i.i159 = icmp eq ptr %335, %329
+_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158: ; preds = %330, %.lr.ph.i.i.i.i.i.i.i.i.i155
+  %334 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i156, i64 8
+  %.not.i.i.i.i.i.i.i.i.i159 = icmp eq ptr %334, %328
   br i1 %.not.i.i.i.i.i.i.i.i.i159, label %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i160, label %.lr.ph.i.i.i.i.i.i.i.i.i155, !llvm.loop !96
 
 _ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i160: ; preds = %_ZSt8_DestroyIN9grpc_core16ValidationErrors11ScopedFieldEEvPT_.exit.i.i.i.i.i.i.i.i.i158
   %.pr.i.i.i.i.i.i161 = load ptr, ptr %83, align 8, !tbaa !92
   br label %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162
 
-_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162: ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i160, %327
-  %336 = phi ptr [ %.pr.i.i.i.i.i.i161, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i160 ], [ %328, %327 ]
-  %.not.i.i.i.i.i.i.i.i163 = icmp eq ptr %336, null
-  br i1 %.not.i.i.i.i.i.i.i.i163, label %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164, label %337
+_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162: ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i160, %326
+  %335 = phi ptr [ %.pr.i.i.i.i.i.i161, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i160 ], [ %327, %326 ]
+  %.not.i.i.i.i.i.i.i.i163 = icmp eq ptr %335, null
+  br i1 %.not.i.i.i.i.i.i.i.i163, label %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164, label %336
 
-337:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162
-  %338 = load ptr, ptr %85, align 8, !tbaa !97
-  %339 = ptrtoint ptr %338 to i64
-  %340 = ptrtoint ptr %336 to i64
-  %341 = sub i64 %339, %340
-  call void @_ZdlPvm(ptr noundef nonnull %336, i64 noundef %341) #26
+336:                                              ; preds = %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162
+  %337 = load ptr, ptr %85, align 8, !tbaa !97
+  %338 = ptrtoint ptr %337 to i64
+  %339 = ptrtoint ptr %335 to i64
+  %340 = sub i64 %338, %339
+  call void @_ZdlPvm(ptr noundef nonnull %335, i64 noundef %340) #26
   br label %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164
 
-_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164: ; preds = %337, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162
-  %342 = load i8, ptr %80, align 8, !tbaa !70
-  switch i8 %342, label %343 [
+_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164: ; preds = %336, %_ZSt8_DestroyIPN9grpc_core16ValidationErrors11ScopedFieldES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i162
+  %341 = load i8, ptr %80, align 8, !tbaa !70
+  switch i8 %341, label %342 [
     i8 -1, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
     i8 0, label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
   ], !prof !98
 
-343:                                              ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164
+342:                                              ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISC_S5_St4lessISC_ESaISt4pairIKSC_S5_EEESt6vectorIS5_SaIS5_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(57) %79) #25
   br label %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
 
-_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166: ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164, %343, %.critedge111, %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164
+_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166: ; preds = %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164, %342, %.critedge111, %_ZNSt6vectorIN9grpc_core16ValidationErrors11ScopedFieldESaIS2_EED2Ev.exit.i.i.i.i.i164
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %22) #25
-  %344 = load ptr, ptr %21, align 8, !tbaa !60
-  %.not.i167 = icmp eq ptr %344, null
-  br i1 %.not.i167, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168, label %345
+  %343 = load ptr, ptr %21, align 8, !tbaa !60
+  %.not.i167 = icmp eq ptr %343, null
+  br i1 %.not.i167, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168, label %344
 
-345:                                              ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %344)
-          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168 unwind label %346
+344:                                              ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %343)
+          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168 unwind label %345
 
-346:                                              ; preds = %345
-  %347 = landingpad { ptr, i32 }
+345:                                              ; preds = %344
+  %346 = landingpad { ptr, i32 }
           catch ptr null
-  %348 = extractvalue { ptr, i32 } %347, 0
-  call void @__clang_call_terminate(ptr %348) #27
+  %347 = extractvalue { ptr, i32 } %346, 0
+  call void @__clang_call_terminate(ptr %347) #27
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168: ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166, %345
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168: ; preds = %_ZNSt14_Optional_baseIN9grpc_core12XdsExtensionELb0ELb0EED2Ev.exit166, %344
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #25
-  %349 = load ptr, ptr %16, align 8, !tbaa !60
-  %.not.i169 = icmp eq ptr %349, null
-  br i1 %.not.i169, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170, label %350
+  %348 = load ptr, ptr %16, align 8, !tbaa !60
+  %.not.i169 = icmp eq ptr %348, null
+  br i1 %.not.i169, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170, label %349
 
-350:                                              ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %349)
-          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170 unwind label %351
+349:                                              ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %348)
+          to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170 unwind label %350
 
-351:                                              ; preds = %350
-  %352 = landingpad { ptr, i32 }
+350:                                              ; preds = %349
+  %351 = landingpad { ptr, i32 }
           catch ptr null
-  %353 = extractvalue { ptr, i32 } %352, 0
-  call void @__clang_call_terminate(ptr %353) #27
+  %352 = extractvalue { ptr, i32 } %351, 0
+  call void @__clang_call_terminate(ptr %352) #27
   unreachable
 
-_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170: ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168, %350
+_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170: ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit168, %349
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #25
-  br label %358
-
-.critedge109:                                     ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153, %60, %envoy_config_cluster_v3_LoadBalancingPolicy_policies.exit
-  %354 = load i64, ptr %61, align 8, !tbaa !15
-  %355 = icmp eq i64 %62, %354
-  br i1 %355, label %356, label %357
-
-356:                                              ; preds = %.critedge109
-  call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 47, ptr nonnull @.str.5)
   br label %357
 
-357:                                              ; preds = %356, %.critedge109
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %358
+.critedge109:                                     ; preds = %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit153, %60, %envoy_config_cluster_v3_LoadBalancingPolicy_policies.exit
+  %353 = load i64, ptr %61, align 8, !tbaa !15
+  %354 = icmp eq i64 %62, %353
+  br i1 %354, label %355, label %356
 
-358:                                              ; preds = %357, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+355:                                              ; preds = %.critedge109
+  call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 47, ptr nonnull @.str.5)
+  br label %356
+
+356:                                              ; preds = %355, %.critedge109
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  br label %357
+
+357:                                              ; preds = %356, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit170, %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
-359:                                              ; preds = %324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114
-  %.pn104 = phi { ptr, i32 } [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114 ], [ %.pn100.pn, %324 ]
+358:                                              ; preds = %323, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114
+  %.pn104 = phi { ptr, i32 } [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114 ], [ %.pn100.pn, %323 ]
   resume { ptr, i32 } %.pn104
 }
 

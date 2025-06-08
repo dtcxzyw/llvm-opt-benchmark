@@ -8922,13 +8922,13 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6in
   %48 = add i64 %47, 1
   store i64 %48, ptr %46, align 8
   %.pre = load i32, ptr %26, align 8, !range !525, !alias.scope !1501
-  %49 = or i32 %16, 1
+  %49 = icmp eq i32 %.pre, 0
+  %50 = or i32 %16, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1501)
-  %50 = icmp eq i32 %.pre, 0
-  br i1 %50, label %51, label %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h33927f63223523edE.exit"
+  br i1 %49, label %51, label %"_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h33927f63223523edE.exit"
 
 51:                                               ; preds = %.thread, %44
-  %52 = phi i32 [ %43, %.thread ], [ %49, %44 ]
+  %52 = phi i32 [ %43, %.thread ], [ %50, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.val.i = load ptr, ptr %53, align 8, !alias.scope !1501
   %54 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -9024,7 +9024,7 @@ common.resume:                                    ; preds = %98, %"_ZN72_$LT$all
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr100drop_in_place$LT$slotmap..secondary..Slot$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$$GT$17h33927f63223523edE.exit": ; preds = %65, %57, %44
-  %97 = phi i32 [ %52, %65 ], [ %52, %57 ], [ %49, %44 ]
+  %97 = phi i32 [ %52, %65 ], [ %52, %57 ], [ %50, %44 ]
   store i32 0, ptr %26, align 8
   %.sroa.57.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 %97, ptr %.sroa.57.0..sroa_idx8, align 4
@@ -11802,7 +11802,7 @@ _ZN4gpui7element7Element8into_any17hc2ff3c415a972f55E.exit.i: ; preds = %444
   %.sroa.0181.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 238
   store i16 %.sroa.5190.0.copyload, ptr %.sroa.0181.sroa.4.0..sroa_idx, align 2
   %.sroa.3182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 240
-  store i8 %469, ptr %.sroa.3182.0..sroa_idx, align 8
+  store i8 0, ptr %.sroa.3182.0..sroa_idx, align 8
   %.sroa.4185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 241
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4185.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6193, i64 7, i1 false)
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71a5c5c48c19add9E.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx)
@@ -11839,7 +11839,7 @@ _ZN4gpui7element7Element8into_any17hc2ff3c415a972f55E.exit.i: ; preds = %444
   %.sroa.5213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 238
   store i16 %.sroa.5190.0.copyload, ptr %.sroa.5213.0..sroa_idx, align 2, !noalias !1998
   %.sroa.6214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 240
-  store i8 %469, ptr %.sroa.6214.0..sroa_idx, align 8, !noalias !1998
+  store i8 1, ptr %.sroa.6214.0..sroa_idx, align 8, !noalias !1998
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !1992
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5.i)
   %494 = load ptr, ptr %49, align 8, !alias.scope !1997, !noalias !1999, !nonnull !4, !align !5, !noundef !4

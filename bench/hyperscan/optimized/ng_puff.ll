@@ -1229,7 +1229,7 @@ _ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit.thread.
   br i1 %.not.i297.i, label %.loopexit519.i, label %400
 
 .loopexit519.i:                                   ; preds = %.critedge39.i.i, %.critedge.i.i, %.thread474.i, %356
-  %.5176.ph.i = phi i8 [ 1, %.critedge.i.i ], [ %.4175.i, %.thread474.i ], [ %.4175.i, %356 ], [ 1, %.critedge39.i.i ]
+  %.5176.ph.i = phi i8 [ 1, %.critedge.i.i ], [ 0, %.thread474.i ], [ %.4175.i, %356 ], [ 1, %.critedge39.i.i ]
   %439 = load i8, ptr %38, align 4, !range !5, !noundef !6
   %440 = trunc nuw i8 %439 to i1
   %.sroa.0.0.copyload.i311.i = load ptr, ptr %35, align 8

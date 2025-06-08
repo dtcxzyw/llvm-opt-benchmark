@@ -2886,9 +2886,9 @@ _ZN9Node_List4pushEP4Node.exit.i186:              ; preds = %393, %389
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %_ZN9Node_List4pushEP4Node.exit.i186, %_ZN9VectorSet8test_setEj.exit.i183, %_ZN9Node_List4pushEP4Node.exit191
-  %.sink378.in = phi ptr [ %522, %_ZN9Node_List4pushEP4Node.exit191 ], [ %260, %_ZN9VectorSet8test_setEj.exit.i183 ], [ %260, %_ZN9Node_List4pushEP4Node.exit.i186 ]
-  %.sink378 = load ptr, ptr %.sink378.in, align 8
-  %397 = load ptr, ptr %.sink378, align 8
+  %.sink377.in = phi ptr [ %522, %_ZN9Node_List4pushEP4Node.exit191 ], [ %260, %_ZN9VectorSet8test_setEj.exit.i183 ], [ %260, %_ZN9Node_List4pushEP4Node.exit.i186 ]
+  %.sink377 = load ptr, ptr %.sink377.in, align 8
+  %397 = load ptr, ptr %.sink377, align 8
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load ptr, ptr %398, align 8
   %400 = load ptr, ptr %399, align 8
@@ -3448,14 +3448,14 @@ _ZN9VectorSet8test_setEj.exit.i213:               ; preds = %683, %_ZN9Node_List
   br i1 %.not.i.i.i215, label %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split, label %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split
 
 _ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split: ; preds = %692, %648
-  %.sink383 = phi i32 [ %649, %648 ], [ %693, %692 ]
-  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %.sink383) #11
+  %.sink382 = phi i32 [ %649, %648 ], [ %693, %692 ]
+  call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %.sink382) #11
   br label %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split
 
 _ZN16Unique_Node_List4pushEP4Node.exit207.sink.split: ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split, %692, %648
-  %.sink382 = phi i32 [ %649, %648 ], [ %693, %692 ], [ %.sink383, %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split ]
+  %.sink381 = phi i32 [ %649, %648 ], [ %693, %692 ], [ %.sink382, %_ZN16Unique_Node_List4pushEP4Node.exit207.sink.split.sink.split ]
   %696 = load ptr, ptr %42, align 8
-  %697 = zext i32 %.sink382 to i64
+  %697 = zext i32 %.sink381 to i64
   %698 = getelementptr inbounds nuw ptr, ptr %696, i64 %697
   store ptr %620, ptr %698, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit207

@@ -24609,7 +24609,7 @@ _ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286.loopexit: ; preds = %_ZN8Li
   br label %_ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286
 
 _ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286: ; preds = %_ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286.loopexit, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread455, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit264
-  %.396 = phi i8 [ 1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit264 ], [ 1, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread ], [ %spec.select, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread455 ], [ %.093689, %_ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286.loopexit ]
+  %.396 = phi i8 [ 1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit264 ], [ 1, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread ], [ %spec.select, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread455 ], [ 0, %_ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286.loopexit ]
   %.292 = phi i32 [ %.090690, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit264 ], [ %618, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread ], [ %.090690, %_ZN8LightGBM16GetConflictCountERKSt6vectorIbSaIbEEPKiii.exit277.thread455 ], [ %631, %_ZN8LightGBM8MarkUsedEPSt6vectorIbSaIbEEPKii.exit286.loopexit ]
   %632 = getelementptr inbounds nuw i8, ptr %.sroa.0330.0688, i64 4
   %.not460 = icmp eq ptr %632, %.sroa.10.0.lcssa

@@ -12386,7 +12386,7 @@ select.unfold.i.i:                                ; preds = %93, %"_ZN4core3str4
   %96 = phi i64 [ %64, %93 ], [ %92, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i" ]
   %.lcssa.sink.i.i26.i.i = phi ptr [ %.sink18.i.i.i.i.i.i, %93 ], [ %.lcssa.sink.i.i27.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i" ]
   %.pre.i.i.i23.i.i = phi i64 [ %64, %93 ], [ %.pre.i.i.i24.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i" ]
-  %97 = phi i8 [ %17, %93 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i" ]
+  %97 = phi i8 [ 0, %93 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i" ]
   %.pn31.i.i = phi i64 [ %22, %93 ], [ %.pre5.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h925e4035f6d03368E.exit.i.i.i.i" ]
   %.not.i.i.i = icmp eq i64 %.pn31.i.i, %.pre.i.i.i24.i.i
   br i1 %.not.i.i.i, label %13, label %98

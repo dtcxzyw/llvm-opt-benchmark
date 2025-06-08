@@ -1801,8 +1801,8 @@ define hidden zeroext i1 @_extcap_requires_configuration_int(ptr noundef %0, i1 
 .lr.ph.us:                                        ; preds = %.lr.ph55.split.us, %41
   %.03051.us59 = phi ptr [ %43, %41 ], [ %7, %.lr.ph55.split.us ]
   %9 = load ptr, ptr %.03051.us59, align 8
-  %.not40.us60.not = icmp eq ptr %9, null
-  br i1 %.not40.us60.not, label %41, label %10
+  %.not40.us60.not.not = icmp eq ptr %9, null
+  br i1 %.not40.us60.not.not, label %41, label %10
 
 10:                                               ; preds = %.lr.ph.us
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 49

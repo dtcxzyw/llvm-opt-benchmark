@@ -46061,7 +46061,7 @@ define hidden void @_ZN9polars_io5cloud19credential_provider11python_impl24Pytho
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %17, align 8
+  store i64 1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %18, align 8
   store i64 17, ptr %0, align 8

@@ -1079,11 +1079,11 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %60 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0..0..0..0.144)
   %61 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @ei_ber_error_length, ptr noundef %1, i32 noundef %.0..0..0..0.139, i32 noundef %48, ptr noundef nonnull @.str.350, i32 noundef %59, i32 noundef %60)
   %62 = call i32 @tvb_reported_length(ptr noundef %1)
-  br label %312
+  br label %313
 
 63:                                               ; preds = %get_ber_identifier.exit
   %.not248.not = icmp eq i8 %.lobit.i, 0
-  br i1 %.not248.not, label %64, label %279
+  br i1 %.not248.not, label %64, label %280
 
 64:                                               ; preds = %63
   %cond = icmp ult i8 %31, 64
@@ -1581,134 +1581,134 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %258 = load ptr, ptr @g_ascii_table, align 8
   br label %259
 
-259:                                              ; preds = %.preheader, %268
-  %.0242266 = phi i8 [ 1, %.preheader ], [ %.1, %268 ]
-  %.0243265 = phi i32 [ 0, %.preheader ], [ %270, %268 ]
+259:                                              ; preds = %.preheader, %269
+  %.0242266 = phi i8 [ 1, %.preheader ], [ %.1, %269 ]
+  %.0243265 = phi i32 [ 0, %.preheader ], [ %271, %269 ]
   %.0..0..0..0.159 = load volatile i32, ptr %8, align 4
   %260 = add i32 %.0..0..0..0.159, %.0243265
   %261 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %260)
   %262 = trunc nuw i8 %.0242266 to i1
-  br i1 %262, label %263, label %268
+  br i1 %262, label %263, label %269
 
 263:                                              ; preds = %259
   %264 = zext i8 %261 to i64
   %265 = getelementptr i16, ptr %258, i64 %264
   %266 = load i16, ptr %265, align 2
-  %267 = and i16 %266, 64
-  %.not = icmp eq i16 %267, 0
-  %spec.select = select i1 %.not, i8 0, i8 %.0242266
-  br label %268
+  %267 = trunc i16 %266 to i8
+  %268 = lshr i8 %267, 6
+  %spec.select = and i8 %268, 1
+  br label %269
 
-268:                                              ; preds = %263, %259
+269:                                              ; preds = %263, %259
   %.1 = phi i8 [ 0, %259 ], [ %spec.select, %263 ]
-  %269 = zext i8 %261 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.337, i32 noundef %269)
-  %270 = add nuw i32 %.0243265, 1
-  %exitcond.not = icmp eq i32 %270, %255
-  br i1 %exitcond.not, label %271, label %259, !llvm.loop !10
+  %270 = zext i8 %261 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.337, i32 noundef %270)
+  %271 = add nuw i32 %.0243265, 1
+  %exitcond.not = icmp eq i32 %271, %255
+  br i1 %exitcond.not, label %272, label %259, !llvm.loop !10
 
-271:                                              ; preds = %268
-  %272 = trunc nuw i8 %.1 to i1
-  br i1 %272, label %.lr.ph268.preheader, label %277
+272:                                              ; preds = %269
+  %273 = trunc nuw i8 %.1 to i1
+  br i1 %273, label %.lr.ph268.preheader, label %278
 
-.lr.ph268.preheader:                              ; preds = %271
+.lr.ph268.preheader:                              ; preds = %272
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.338)
   br label %.lr.ph268
 
 .lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.lr.ph268
-  %.1244267 = phi i32 [ %276, %.lr.ph268 ], [ 0, %.lr.ph268.preheader ]
+  %.1244267 = phi i32 [ %277, %.lr.ph268 ], [ 0, %.lr.ph268.preheader ]
   %.0..0..0..0.160 = load volatile i32, ptr %8, align 4
-  %273 = add i32 %.0..0..0..0.160, %.1244267
-  %274 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %273)
-  %275 = zext i8 %274 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.339, i32 noundef %275)
-  %276 = add nuw i32 %.1244267, 1
-  %exitcond271.not = icmp eq i32 %276, %255
+  %274 = add i32 %.0..0..0..0.160, %.1244267
+  %275 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %274)
+  %276 = zext i8 %275 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.339, i32 noundef %276)
+  %277 = add nuw i32 %.1244267, 1
+  %exitcond271.not = icmp eq i32 %277, %255
   br i1 %exitcond271.not, label %._crit_edge, label %.lr.ph268, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph268
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.340)
-  br label %277
+  br label %278
 
-277:                                              ; preds = %._crit_edge, %271
+278:                                              ; preds = %._crit_edge, %272
   %.0..0..0..0.161 = load volatile i32, ptr %8, align 4
-  %278 = add i32 %.0..0..0..0.161, %255
-  store volatile i32 %278, ptr %8, align 4
+  %279 = add i32 %.0..0..0..0.161, %255
+  store volatile i32 %279, ptr %8, align 4
   br label %.loopexit
 
-279:                                              ; preds = %63
-  %280 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %281 = trunc nuw i8 %280 to i1
-  br i1 %281, label %282, label %285
+280:                                              ; preds = %63
+  %281 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %282 = trunc nuw i8 %281 to i1
+  br i1 %282, label %283, label %286
 
-282:                                              ; preds = %279
-  %283 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
-  store volatile i32 %283, ptr %8, align 4
-  %.0..0..0..0.162 = load volatile i32, ptr %8, align 4
-  %284 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.162, ptr noundef nonnull %13, ptr noundef null)
+283:                                              ; preds = %280
+  %284 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
   store volatile i32 %284, ptr %8, align 4
+  %.0..0..0..0.162 = load volatile i32, ptr %8, align 4
+  %285 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.162, ptr noundef nonnull %13, ptr noundef null)
+  store volatile i32 %285, ptr %8, align 4
   %.pre = load i8, ptr %9, align 1
-  br label %285
+  br label %286
 
-285:                                              ; preds = %282, %279
-  %286 = phi i8 [ %.pre, %282 ], [ %33, %279 ]
+286:                                              ; preds = %283, %280
+  %287 = phi i8 [ %.pre, %283 ], [ %33, %280 ]
   %.0..0..0..0.163 = load volatile i32, ptr %8, align 4
-  %cond10 = icmp eq i8 %286, 0
+  %cond10 = icmp eq i8 %287, 0
   %.0..0..0..0.164 = load volatile i32, ptr %8, align 4
-  %287 = load i32, ptr %13, align 4
-  %288 = load i32, ptr @ett_ber_SEQUENCE, align 4
-  br i1 %cond10, label %289, label %300
+  %288 = load i32, ptr %13, align 4
+  %289 = load i32, ptr @ett_ber_SEQUENCE, align 4
+  br i1 %cond10, label %290, label %301
 
-289:                                              ; preds = %285
-  %290 = load i32, ptr %12, align 4
-  %291 = call ptr @val_to_str_ext_const(i32 noundef %290, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
-  %292 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %287, i32 noundef %288, ptr noundef null, ptr noundef %291)
-  %293 = load i32, ptr %13, align 4
-  %294 = add i32 %293, %.0..0..0..0.163
+290:                                              ; preds = %286
+  %291 = load i32, ptr %12, align 4
+  %292 = call ptr @val_to_str_ext_const(i32 noundef %291, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
+  %293 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %288, i32 noundef %289, ptr noundef null, ptr noundef %292)
+  %294 = load i32, ptr %13, align 4
+  %295 = add i32 %294, %.0..0..0..0.163
   %.0..0..0..0.165263 = load volatile i32, ptr %8, align 4
-  %295 = icmp slt i32 %.0..0..0..0.165263, %294
-  br i1 %295, label %.lr.ph264, label %.loopexit
+  %296 = icmp slt i32 %.0..0..0..0.165263, %295
+  br i1 %296, label %.lr.ph264, label %.loopexit
 
-.lr.ph264:                                        ; preds = %289
-  %296 = add nsw i32 %4, 1
-  br label %297
+.lr.ph264:                                        ; preds = %290
+  %297 = add nsw i32 %4, 1
+  br label %298
 
-297:                                              ; preds = %.lr.ph264, %297
+298:                                              ; preds = %.lr.ph264, %298
   %.0..0..0..0.166 = load volatile i32, ptr %8, align 4
-  %298 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.166, ptr noundef %292, i32 noundef %296)
-  store volatile i32 %298, ptr %8, align 4
+  %299 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.166, ptr noundef %293, i32 noundef %297)
+  store volatile i32 %299, ptr %8, align 4
   %.0..0..0..0.165 = load volatile i32, ptr %8, align 4
-  %299 = icmp slt i32 %.0..0..0..0.165, %294
-  br i1 %299, label %297, label %.loopexit, !llvm.loop !12
+  %300 = icmp slt i32 %.0..0..0..0.165, %295
+  br i1 %300, label %298, label %.loopexit, !llvm.loop !12
 
-300:                                              ; preds = %285
-  %301 = sext i8 %286 to i32
-  %302 = call ptr @val_to_str_const(i32 noundef %301, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %303 = load i32, ptr %12, align 4
-  %304 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %287, i32 noundef %288, ptr noundef null, ptr noundef nonnull @.str.341, ptr noundef %302, i32 noundef %303)
-  %305 = load i32, ptr %13, align 4
-  %306 = add i32 %305, %.0..0..0..0.163
+301:                                              ; preds = %286
+  %302 = sext i8 %287 to i32
+  %303 = call ptr @val_to_str_const(i32 noundef %302, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %304 = load i32, ptr %12, align 4
+  %305 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %288, i32 noundef %289, ptr noundef null, ptr noundef nonnull @.str.341, ptr noundef %303, i32 noundef %304)
+  %306 = load i32, ptr %13, align 4
+  %307 = add i32 %306, %.0..0..0..0.163
   %.0..0..0..0.168262 = load volatile i32, ptr %8, align 4
-  %307 = icmp slt i32 %.0..0..0..0.168262, %306
-  br i1 %307, label %.lr.ph, label %.loopexit
+  %308 = icmp slt i32 %.0..0..0..0.168262, %307
+  br i1 %308, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %300
-  %308 = add nsw i32 %4, 1
-  br label %309
+.lr.ph:                                           ; preds = %301
+  %309 = add nsw i32 %4, 1
+  br label %310
 
-309:                                              ; preds = %.lr.ph, %309
+310:                                              ; preds = %.lr.ph, %310
   %.0..0..0..0.169 = load volatile i32, ptr %8, align 4
-  %310 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.169, ptr noundef %304, i32 noundef %308)
-  store volatile i32 %310, ptr %8, align 4
+  %311 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.169, ptr noundef %305, i32 noundef %309)
+  store volatile i32 %311, ptr %8, align 4
   %.0..0..0..0.168 = load volatile i32, ptr %8, align 4
-  %311 = icmp slt i32 %.0..0..0..0.168, %306
-  br i1 %311, label %309, label %.loopexit, !llvm.loop !13
+  %312 = icmp slt i32 %.0..0..0..0.168, %307
+  br i1 %312, label %310, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %309, %297, %300, %289, %137, %139, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %78, %75, %72, %69, %66, %65, %277, %254
+.loopexit:                                        ; preds = %310, %298, %301, %290, %137, %139, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %78, %75, %72, %69, %66, %65, %278, %254
   %.0..0..0..0.170 = load volatile i32, ptr %8, align 4
-  br label %312
+  br label %313
 
-312:                                              ; preds = %.loopexit, %58
+313:                                              ; preds = %.loopexit, %58
   %.0 = phi i32 [ %62, %58 ], [ %.0..0..0..0.170, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)

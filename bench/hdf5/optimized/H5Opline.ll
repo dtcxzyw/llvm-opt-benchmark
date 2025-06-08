@@ -248,8 +248,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %101 = ptrtoint ptr %.117420.i to i64
   %102 = sub i64 %93, %101
   %103 = icmp ult i64 %102, 2
-  %or.cond38.i = or i1 %100, %103
-  br i1 %or.cond38.i, label %104, label %108
+  %or.cond35.i = or i1 %100, %103
+  br i1 %or.cond35.i, label %104, label %108
 
 104:                                              ; preds = %98
   %105 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -278,8 +278,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %121 = ptrtoint ptr %116 to i64
   %122 = sub i64 %93, %121
   %123 = icmp ult i64 %122, 2
-  %or.cond41.i = select i1 %120, i1 true, i1 %123
-  br i1 %or.cond41.i, label %124, label %128
+  %or.cond38.i = select i1 %120, i1 true, i1 %123
+  br i1 %or.cond38.i, label %124, label %128
 
 124:                                              ; preds = %119
   %125 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -315,8 +315,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %145 = ptrtoint ptr %.2175.i to i64
   %146 = sub i64 %93, %145
   %147 = icmp ult i64 %146, 2
-  %or.cond44.i = or i1 %144, %147
-  br i1 %or.cond44.i, label %148, label %152
+  %or.cond41.i = or i1 %144, %147
+  br i1 %or.cond41.i, label %148, label %152
 
 148:                                              ; preds = %143
   %149 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -340,8 +340,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %163 = ptrtoint ptr %161 to i64
   %164 = sub i64 %93, %163
   %165 = icmp ult i64 %164, 2
-  %or.cond47.i = or i1 %162, %165
-  br i1 %or.cond47.i, label %166, label %170
+  %or.cond44.i = or i1 %162, %165
+  br i1 %or.cond44.i, label %166, label %170
 
 166:                                              ; preds = %152
   %167 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -461,8 +461,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %234 = ptrtoint ptr %.517816.i to i64
   %235 = sub i64 %93, %234
   %236 = icmp ult i64 %235, 4
-  %or.cond50.i = or i1 %233, %236
-  br i1 %or.cond50.i, label %258, label %237
+  %or.cond47.i = or i1 %233, %236
+  br i1 %or.cond47.i, label %258, label %237
 
 237:                                              ; preds = %232
   %238 = load i8, ptr %.517816.i, align 1, !tbaa !14
@@ -513,8 +513,8 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   %269 = ptrtoint ptr %256 to i64
   %270 = sub i64 %93, %269
   %271 = icmp ult i64 %270, 4
-  %or.cond53.i = select i1 %268, i1 true, i1 %271
-  br i1 %or.cond53.i, label %272, label %276
+  %or.cond50.i = select i1 %268, i1 true, i1 %271
+  br i1 %or.cond50.i, label %272, label %276
 
 272:                                              ; preds = %267
   %273 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -593,19 +593,19 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   store ptr %309, ptr %289, align 8, !tbaa !23
   %.pre.pre.i = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7
   %.pre24.pre.i = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre32.i = trunc nuw i8 %.pre.pre.i to i1
-  %.pre33.i = trunc nuw i8 %.pre24.pre.i to i1
-  %.pre34.i = xor i1 %.pre33.i, true
+  %.pre30.i = trunc nuw i8 %.pre24.pre.i to i1
+  %.pre31.i = xor i1 %.pre30.i, true
+  %.pre = trunc nuw i8 %.pre.pre.i to i1
   br label %310
 
 310:                                              ; preds = %._crit_edge.i.i, %288
-  %.pre30.pre-phi.i = phi i1 [ %.pre34.i, %._crit_edge.i.i ], [ %286, %288 ]
-  %.pre27.pre-phi.i = phi i1 [ %.pre32.i, %._crit_edge.i.i ], [ %283, %288 ]
+  %.pre-phi = phi i1 [ %.pre, %._crit_edge.i.i ], [ %283, %288 ]
+  %.pre28.pre-phi.i = phi i1 [ %.pre31.i, %._crit_edge.i.i ], [ %286, %288 ]
   %311 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %312 = getelementptr inbounds nuw i8, ptr %27, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %311, i8 0, i64 16, i1 false)
   store i32 1, ptr %312, align 8, !tbaa !15
-  %313 = select i1 %.pre27.pre-phi.i, i1 true, i1 %.pre30.pre-phi.i
+  %313 = select i1 %.pre-phi, i1 true, i1 %.pre28.pre-phi.i
   br i1 %313, label %314, label %H5O__pline_decode.exit.thread, !prof !9
 
 314:                                              ; preds = %310

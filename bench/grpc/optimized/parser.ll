@@ -7705,7 +7705,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit108:        ; preds = %.noexc120, %1196
 
 .critedge50.i:                                    ; preds = %.noexc120, %1017, %1199, %1196, %1027, %1024
   %cond1.i = phi i1 [ true, %1199 ], [ false, %1024 ], [ false, %1027 ], [ false, %1196 ], [ false, %1017 ], [ false, %.noexc120 ]
-  %.1.i = phi i8 [ %1200, %1199 ], [ 1, %1024 ], [ 1, %1027 ], [ %.025.i, %1196 ], [ 1, %1017 ], [ 1, %.noexc120 ]
+  %.1.i = phi i8 [ %1200, %1199 ], [ 1, %1024 ], [ 1, %1027 ], [ 1, %1196 ], [ 1, %1017 ], [ 1, %.noexc120 ]
   %1201 = load i64, ptr %18, align 8, !tbaa !60
   %1202 = icmp eq i64 %1201, 1
   br i1 %1202, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i, label %1217
@@ -18385,8 +18385,8 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   store i8 0, ptr %244, align 1, !tbaa !63, !noalias !571
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #30, !noalias !596
   %.pre = load i8, ptr %71, align 8, !tbaa !592, !range !102, !noalias !571
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #30, !noalias !571
   %245 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #30, !noalias !571
   br i1 %245, label %267, label %246
 
 246:                                              ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7emplaceIJSt17basic_string_viewIcS7_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbEDpOSJ_.exit.i.thread, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7emplaceIJSt17basic_string_viewIcS7_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbEDpOSJ_.exit.i
@@ -34177,8 +34177,8 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   store i8 0, ptr %262, align 1, !tbaa !63, !noalias !1339
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #30, !noalias !1358
   %.pre = load i8, ptr %74, align 8, !tbaa !592, !range !102, !noalias !1339
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #30, !noalias !1339
   %263 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #30, !noalias !1339
   br i1 %263, label %.noexc26, label %264
 
 264:                                              ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7emplaceIJSt17basic_string_viewIcS7_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbEDpOSJ_.exit.i.thread, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7emplaceIJSt17basic_string_viewIcS7_EETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSE_8iteratorEbEDpOSJ_.exit.i

@@ -26930,7 +26930,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   br i1 %57, label %207, label %187
 
 187:                                              ; preds = %186
-  store i8 %184, ptr %0, align 8, !tbaa !910
+  store i8 1, ptr %0, align 8, !tbaa !910
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %189 = load ptr, ptr %59, align 8, !tbaa !488
   store ptr %189, ptr %188, align 8, !tbaa !488

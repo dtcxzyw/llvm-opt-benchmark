@@ -48254,12 +48254,13 @@ define noundef zeroext i1 @_ZN3hir5Local8is_param17hf3ee4baaa519e83fE(ptr noalia
 .thread:                                          ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val5.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %.val5.pre, i64 48
+  %.pre = load i32, ptr %.phi.trans.insert23, align 4, !noalias !11
   %63 = getelementptr inbounds nuw i8, ptr %.val5.pre, i64 48
-  %64 = load i32, ptr %63, align 4, !noalias !11, !noundef !11
-  %65 = add i32 %64, -1
-  store i32 %65, ptr %63, align 4, !noalias !11
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E.exit.sink.split.i16", label %"_ZN4core3ptr125drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..IdentPat$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17hb95d4def8373805aE.exit17"
+  %64 = add i32 %.pre, -1
+  store i32 %64, ptr %63, align 4, !noalias !11
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E.exit.sink.split.i16", label %"_ZN4core3ptr125drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..IdentPat$C$syntax..ast..generated..nodes..SelfParam$GT$$GT$17hb95d4def8373805aE.exit17"
 
 "_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..IdentPat$GT$17h8a8990d7fe264993E.exit.sink.split.i16": ; preds = %.thread
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.val5.pre), !noalias !11

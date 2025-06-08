@@ -36239,7 +36239,7 @@ _ZN4entt13basic_storageIN4test13throwing_typeENS_6entityESaIS2_EvE7swap_atEmm.ex
   %19 = getelementptr inbounds nuw %"struct.test::throwing_type", ptr %17, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !443, !range !83, !noundef !84
   store i8 %20, ptr %10, align 1, !tbaa !443
-  store i8 %11, ptr %19, align 1, !tbaa !443
+  store i8 0, ptr %19, align 1, !tbaa !443
   ret void
 }
 

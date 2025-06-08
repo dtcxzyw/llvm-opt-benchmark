@@ -483,9 +483,9 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = icmp eq i64 %.promoted, 0
   %.0.sroa.speculated.i.i = tail call range(i64 1, 0) i64 @llvm.umin.i64(i64 %.promoted, i64 range(i64 1, 0) 32)
-  br i1 %11, label %.thread17, label %.lr.ph
+  br i1 %11, label %.thread15, label %.lr.ph
 
-.thread17:                                        ; preds = %3
+.thread15:                                        ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !42, !noalias !49, !noundef !5
   br label %49
@@ -577,19 +577,19 @@ default.unreachable:                              ; preds = %25
   %.pre.i.i = load i64, ptr %41, align 8, !alias.scope !54, !noalias !49
   br label %49
 
-49:                                               ; preds = %.thread17, %.noexc5, %40
-  %50 = phi ptr [ %41, %40 ], [ %41, %.noexc5 ], [ %12, %.thread17 ]
-  %.ph1619 = phi i64 [ %15, %40 ], [ %15, %.noexc5 ], [ 0, %.thread17 ]
-  %51 = phi i64 [ %42, %40 ], [ %.pre.i.i, %.noexc5 ], [ %13, %.thread17 ]
+49:                                               ; preds = %.thread15, %.noexc5, %40
+  %50 = phi ptr [ %41, %40 ], [ %41, %.noexc5 ], [ %12, %.thread15 ]
+  %.ph1417 = phi i64 [ %15, %40 ], [ %15, %.noexc5 ], [ 0, %.thread15 ]
+  %51 = phi i64 [ %42, %40 ], [ %.pre.i.i, %.noexc5 ], [ %13, %.thread15 ]
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !alias.scope !54, !noalias !49, !nonnull !5, !noundef !5
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1619, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull readonly align 1 %7, i64 %.ph1417, i1 false)
   %55 = load i64, ptr %50, align 8, !alias.scope !54, !noalias !49, !noundef !5
-  %56 = add i64 %55, %.ph1619
+  %56 = add i64 %55, %.ph1417
   store i64 %56, ptr %50, align 8, !alias.scope !54, !noalias !49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.ph1619, ptr %57, align 8
+  store i64 %.ph1417, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %59, %49

@@ -1862,16 +1862,16 @@ startScan.exit:                                   ; preds = %startScanKey.exit.i
   %.sroa.0.0.extract.trunc.i = trunc i48 %.0.copyload to i16
   br label %.lr.ph.i35
 
-.lr.ph.i35thread-pre-split:                       ; preds = %1314
-  %.val.i.pr = load i16, ptr %992, align 4
+.lr.phthread-pre-split.i:                         ; preds = %1314
+  %.val.pr.i = load i16, ptr %992, align 4
   br label %.lr.ph.i35.backedge
 
-.lr.ph.i35.backedge:                              ; preds = %.lr.ph.i35thread-pre-split, %.backedge.i
-  %.val.i.be = phi i16 [ %.val.i.pr, %.lr.ph.i35thread-pre-split ], [ 0, %.backedge.i ]
-  %indvars.iv.i36.be = phi i64 [ %indvars.iv.next.i43, %.lr.ph.i35thread-pre-split ], [ 0, %.backedge.i ]
-  %.sroa.0.141.i.be = phi i16 [ %.sroa.0.3.ph.i, %.lr.ph.i35thread-pre-split ], [ %.sroa.0.0.be.i, %.backedge.i ]
-  %.sroa.6.140.i.be = phi i16 [ %.sroa.6.3.ph.i, %.lr.ph.i35thread-pre-split ], [ %.sroa.6.0.be.i, %.backedge.i ]
-  %.sroa.9.136.i.be = phi i16 [ %.sroa.9.3.ph.i, %.lr.ph.i35thread-pre-split ], [ %.sroa.9.0.be.i, %.backedge.i ]
+.lr.ph.i35.backedge:                              ; preds = %.lr.phthread-pre-split.i, %.backedge.i
+  %.val.i.be = phi i16 [ %.val.pr.i, %.lr.phthread-pre-split.i ], [ 0, %.backedge.i ]
+  %indvars.iv.i36.be = phi i64 [ %indvars.iv.next.i43, %.lr.phthread-pre-split.i ], [ 0, %.backedge.i ]
+  %.sroa.0.141.i.be = phi i16 [ %.sroa.0.3.ph.i, %.lr.phthread-pre-split.i ], [ %.sroa.0.0.be.i, %.backedge.i ]
+  %.sroa.6.140.i.be = phi i16 [ %.sroa.6.3.ph.i, %.lr.phthread-pre-split.i ], [ %.sroa.6.0.be.i, %.backedge.i ]
+  %.sroa.9.136.i.be = phi i16 [ %.sroa.9.3.ph.i, %.lr.phthread-pre-split.i ], [ %.sroa.9.0.be.i, %.backedge.i ]
   br label %.lr.ph.i35, !llvm.loop !28
 
 .lr.ph.i35:                                       ; preds = %.lr.ph.i35.backedge, %.lr.ph.i35.preheader.preheader
@@ -2551,7 +2551,7 @@ keyGetItem.exit.i:                                ; preds = %1255, %1193, %1074,
   %1316 = zext i32 %1315 to i64
   %1317 = icmp samesign ult i64 %indvars.iv.next.i43, %1316
   %1318 = select i1 %1317, i1 %.151.ph.shrunk.i, i1 false
-  br i1 %1318, label %.lr.ph.i35thread-pre-split, label %.loopexit.i44, !llvm.loop !33
+  br i1 %1318, label %.lr.phthread-pre-split.i, label %.loopexit.i44, !llvm.loop !33
 
 .loopexit.i44:                                    ; preds = %1314
   br i1 %.151.ph.shrunk.i, label %.loopexit.thread.i, label %.backedge.i

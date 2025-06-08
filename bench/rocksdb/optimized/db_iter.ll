@@ -2847,14 +2847,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 120:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
   %.pre = load i8, ptr %14, align 8, !tbaa !154, !range !171
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  store i8 0, ptr %121, align 8, !tbaa !299
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %123 = trunc nuw i8 %.pre to i1
-  br i1 %123, label %.lr.ph, label %._crit_edge
+  %121 = trunc nuw i8 %.pre to i1
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i8 0, ptr %122, align 8, !tbaa !299
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br i1 %121, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread76, %120
-  %124 = phi ptr [ %18, %.thread76 ], [ %122, %120 ]
+  %124 = phi ptr [ %18, %.thread76 ], [ %123, %120 ]
   %125 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %127 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -3090,7 +3090,7 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit: ; preds = %_ZT
   br i1 %225, label %.lr.ph.split.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %220, %197, %174, %151, %120
-  %227 = phi ptr [ %122, %120 ], [ %124, %151 ], [ %124, %174 ], [ %124, %197 ], [ %124, %220 ]
+  %227 = phi ptr [ %123, %120 ], [ %124, %151 ], [ %124, %174 ], [ %124, %197 ], [ %124, %220 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #25
   %228 = load ptr, ptr %227, align 8, !tbaa !153, !noalias !308
   %229 = load ptr, ptr %228, align 8, !tbaa !18, !noalias !308

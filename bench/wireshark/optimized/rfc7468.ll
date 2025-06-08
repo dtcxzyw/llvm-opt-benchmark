@@ -252,7 +252,7 @@ define internal fastcc noundef zeroext i1 @rfc7468_read_impl(ptr noundef %0, ptr
 
 45:                                               ; preds = %41
   %46 = icmp eq i32 %.sink.i, 0
-  %spec.select = select i1 %46, i8 1, i8 %.02046
+  %spec.select = zext i1 %46 to i8
   br label %47
 
 47:                                               ; preds = %43, %45

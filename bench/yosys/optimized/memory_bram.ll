@@ -15629,12 +15629,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1078: ; preds = %_
 
 3874:                                             ; preds = %3870
   %.pre7834 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !127, !range !128
-  %3875 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !130
-  %3876 = trunc nuw i8 %.pre7834 to i1
-  br i1 %3876, label %3877, label %3888
+  %3875 = trunc nuw i8 %.pre7834 to i1
+  %3876 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !130
+  br i1 %3875, label %3877, label %3888
 
 3877:                                             ; preds = %.thread7928, %3874
-  %3878 = phi i32 [ %3869, %.thread7928 ], [ %3875, %3874 ]
+  %3878 = phi i32 [ %3869, %.thread7928 ], [ %3876, %3874 ]
   %3879 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8, !tbaa !46
   %3880 = getelementptr inbounds nuw i32, ptr %3879, i64 %3855
   %3881 = load i32, ptr %3880, align 4, !tbaa !130
@@ -15655,7 +15655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1078: ; preds = %_
   unreachable
 
 3888:                                             ; preds = %.thread7929, %3884, %3877, %3874, %.thread.i
-  %3889 = phi i32 [ %3853, %.thread.i ], [ %3875, %3874 ], [ %3878, %3877 ], [ %3878, %3884 ], [ %3865, %.thread7929 ]
+  %3889 = phi i32 [ %3853, %.thread.i ], [ %3876, %3874 ], [ %3878, %3877 ], [ %3878, %3884 ], [ %3865, %.thread7929 ]
   %3890 = phi i32 [ %3853, %.thread.i ], [ %3862, %3874 ], [ %3862, %3877 ], [ %3862, %3884 ], [ %3862, %.thread7929 ]
   %.sroa.3.06.i = phi i32 [ %3840, %.thread.i ], [ %3860, %3874 ], [ %3860, %3877 ], [ %3860, %3884 ], [ %3860, %.thread7929 ]
   %3891 = mul i32 %3838, 33
@@ -36288,15 +36288,15 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit1283:       ; preds = %_ZNSt6vectorIiSaIiE
   br label %696
 
 653:                                              ; preds = %646, %650
-  %654 = phi i1 [ true, %650 ], [ false, %646 ]
-  %655 = phi ptr [ %649, %650 ], [ @.str.161, %646 ]
+  %654 = phi ptr [ %649, %650 ], [ @.str.161, %646 ]
+  %655 = phi i1 [ true, %650 ], [ false, %646 ]
   %656 = phi ptr [ %651, %650 ], [ @.str.180, %646 ]
   %657 = trunc nuw nsw i64 %indvars.iv7482 to i32
-  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.179, i32 noundef %657, ptr noundef nonnull %655, ptr noundef %656)
+  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.179, i32 noundef %657, ptr noundef nonnull %654, ptr noundef %656)
           to label %658 unwind label %694
 
 658:                                              ; preds = %653
-  br i1 %654, label %659, label %.critedge1155
+  br i1 %655, label %659, label %.critedge1155
 
 659:                                              ; preds = %658
   %660 = load ptr, ptr %588, align 8, !tbaa !513
@@ -36387,7 +36387,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1298:             ; preds = %_ZSt8_DestroyIPN5Yo
 694:                                              ; preds = %653
   %695 = landingpad { ptr, i32 }
           cleanup
-  br i1 %654, label %696, label %.loopexit.split-lp4127
+  br i1 %655, label %696, label %.loopexit.split-lp4127
 
 696:                                              ; preds = %.thread, %694
   %697 = phi { ptr, i32 } [ %652, %.thread ], [ %695, %694 ]
@@ -37489,15 +37489,15 @@ _ZN5Yosys7hashlib4dictIibNS0_8hash_opsIiEEE5clearEv.exit: ; preds = %_ZNSt6vecto
   br label %1228
 
 1194:                                             ; preds = %1187, %1191
-  %1195 = phi i1 [ true, %1191 ], [ false, %1187 ]
-  %1196 = phi ptr [ %1190, %1191 ], [ @.str.161, %1187 ]
+  %1195 = phi ptr [ %1190, %1191 ], [ @.str.161, %1187 ]
+  %1196 = phi i1 [ true, %1191 ], [ false, %1187 ]
   %1197 = phi ptr [ %1192, %1191 ], [ @.str.180, %1187 ]
   %1198 = trunc nuw nsw i64 %indvars.iv7491 to i32
-  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.187, i32 noundef %1198, ptr noundef nonnull %1196, ptr noundef %1197)
+  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.187, i32 noundef %1198, ptr noundef nonnull %1195, ptr noundef %1197)
           to label %1199 unwind label %1226
 
 1199:                                             ; preds = %1194
-  br i1 %1195, label %1200, label %.critedge1159
+  br i1 %1196, label %1200, label %.critedge1159
 
 1200:                                             ; preds = %1199
   %1201 = load ptr, ptr %864, align 8, !tbaa !513
@@ -37571,7 +37571,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1371:             ; preds = %_ZSt8_DestroyIPN5Yo
 1226:                                             ; preds = %1194
   %1227 = landingpad { ptr, i32 }
           cleanup
-  br i1 %1195, label %1228, label %.body1383
+  br i1 %1196, label %1228, label %.body1383
 
 1228:                                             ; preds = %.thread3800, %1226
   %1229 = phi { ptr, i32 } [ %1193, %.thread3800 ], [ %1227, %1226 ]

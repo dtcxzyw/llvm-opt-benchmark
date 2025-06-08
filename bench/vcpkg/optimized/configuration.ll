@@ -804,8 +804,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
 
 56:                                               ; preds = %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit
   %.pre = load i8, ptr %1, align 8, !tbaa !4, !range !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %57 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   br i1 %57, label %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit25, label %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit25.thread
 
 _ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit25.thread: ; preds = %.thread, %56
@@ -1716,8 +1716,8 @@ _ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiter
 
 19:                                               ; preds = %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit
   %.pre = load i8, ptr %0, align 8, !tbaa !4, !range !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %20 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   br i1 %20, label %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit1, label %.thread7
 
 .thread7:                                         ; preds = %19, %.thread
@@ -1766,8 +1766,8 @@ _ZNKR5vcpkg8OptionalINS_4PathEE13value_or_exitERKNS_8LineInfoE.exit: ; preds = %
 
 39:                                               ; preds = %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit1
   %.pre5 = load i8, ptr %0, align 8, !tbaa !4, !range !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %40 = trunc nuw i8 %.pre5 to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   br i1 %40, label %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit2, label %.thread8
 
 .thread8:                                         ; preds = %39, %.thread7
@@ -1811,8 +1811,8 @@ _ZNKR5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13valu
 
 55:                                               ; preds = %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit2
   %.pre6 = load i8, ptr %0, align 8, !tbaa !4, !range !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %56 = trunc nuw i8 %.pre6 to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   br i1 %56, label %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit3, label %_ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit3.thread
 
 _ZN5vcpkgeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralEEEDTeqdecldtfp_3getEfp0_ERKNS_8OptionalIT_EERKT0_.exit3.thread: ; preds = %.thread8, %55

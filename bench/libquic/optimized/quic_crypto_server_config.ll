@@ -2206,8 +2206,8 @@ _ZNSt10unique_ptrIN3net15P256KeyExchangeESt14default_deleteIS1_EED2Ev.exit111: ;
   %178 = load ptr, ptr %177, align 8
   call void %178(ptr noundef nonnull align 8 dereferenceable(81) %101) #25
   %.pre = load i8, ptr %56, align 8, !tbaa !69, !range !70
-  store i32 1195787091, ptr %5, align 8, !tbaa !162
   %179 = trunc nuw i8 %.pre to i1
+  store i32 1195787091, ptr %5, align 8, !tbaa !162
   br i1 %179, label %180, label %197
 
 180:                                              ; preds = %175

@@ -3575,8 +3575,8 @@ define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone
   store i64 %200, ptr %198, align 8, !tbaa !59
   store i8 0, ptr %165, align 1, !tbaa !90
   %.pre317 = load i8, ptr %76, align 4, !tbaa !135, !range !7
-  store i64 %3, ptr %22, align 8, !tbaa !73
   %201 = trunc nuw i8 %.pre317 to i1
+  store i64 %3, ptr %22, align 8, !tbaa !73
   br i1 %201, label %.loopexit, label %202
 
 202:                                              ; preds = %.thread323, %180

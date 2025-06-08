@@ -2614,7 +2614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %.sroa.0179.2 = phi ptr [ %277, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %223, %260 ], [ %223, %.thread ]
   %.sroa.0186.2 = phi ptr [ %279, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.sroa.0186.0, %260 ], [ %.sroa.0186.0, %.thread ]
   %.448 = phi i64 [ %266, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.044, %260 ], [ %.044, %.thread ]
-  %.443 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %260 ], [ %.039, %.thread ]
+  %.443 = phi i8 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ 0, %260 ], [ 0, %.thread ]
   %.438 = phi i32 [ %.034, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %231, %260 ], [ %231, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
   br label %282

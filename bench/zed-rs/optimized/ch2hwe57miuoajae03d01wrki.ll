@@ -9487,11 +9487,11 @@ define { ptr, i64 } @_ZN4rope5Lines4next17h4cf5cff4ab13217dE(ptr noalias noundef
 
 thread-pre-split:                                 ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h43ced1d4073c2eaeE.exit", %35
   %.sroa.442.0.copyload = phi ptr [ %.sroa.442.0.copyload.pre, %35 ], [ null, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h43ced1d4073c2eaeE.exit" ]
-  %.sroa.041.0.copyload = phi i1 [ true, %35 ], [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h43ced1d4073c2eaeE.exit" ]
+  %switch = phi i1 [ true, %35 ], [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h43ced1d4073c2eaeE.exit" ]
   %.sroa.543.0.copyload = load i64, ptr %.sroa.543.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.339, i64 16, i1 false)
-  br i1 %.sroa.041.0.copyload, label %37, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h124acada11d8ddd4E.exit"
+  br i1 %switch, label %37, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h124acada11d8ddd4E.exit"
 
 37:                                               ; preds = %thread-pre-split
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1896)
@@ -9712,11 +9712,11 @@ thread-pre-split:                                 ; preds = %"_ZN4core6option15O
 
 thread-pre-split63:                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h107c6424bd83ac6aE.exit", %36
   %.sroa.432.0.copyload = phi ptr [ %.sroa.432.0.copyload.pre, %36 ], [ null, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h107c6424bd83ac6aE.exit" ]
-  %.sroa.031.0.copyload = phi i1 [ true, %36 ], [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h107c6424bd83ac6aE.exit" ]
+  %switch47 = phi i1 [ true, %36 ], [ false, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h107c6424bd83ac6aE.exit" ]
   %.sroa.533.0.copyload = load i64, ptr %.sroa.533.0..sroa_idx, align 8
   store i64 0, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.329.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.329, i64 16, i1 false)
-  br i1 %.sroa.031.0.copyload, label %121, label %125
+  br i1 %switch47, label %121, label %125
 
 121:                                              ; preds = %thread-pre-split63
   %122 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9next_back17h3edc05153cf8edb3E"(ptr noalias noundef align 8 dereferenceable(72) %22)

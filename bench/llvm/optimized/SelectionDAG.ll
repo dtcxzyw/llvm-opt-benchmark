@@ -86105,7 +86105,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 
 _ZN4llvm15SmallPtrSetImplIPNS_6SDNodeEE6insertES2_.exit: ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %88, %_ZN4llvm5SDUse3setERKNS_7SDValueE.exit
   %92 = phi ptr [ %64, %_ZN4llvm5SDUse3setERKNS_7SDValueE.exit ], [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %90, %88 ], [ %64, %.lr.ph.i.i ]
-  %93 = phi i8 [ %65, %_ZN4llvm5SDUse3setERKNS_7SDValueE.exit ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %65, %88 ], [ %65, %.lr.ph.i.i ]
+  %93 = phi i8 [ %65, %_ZN4llvm5SDUse3setERKNS_7SDValueE.exit ], [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %88 ], [ 1, %.lr.ph.i.i ]
   %.not47 = icmp eq ptr %66, %61
   br i1 %.not47, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1486
 

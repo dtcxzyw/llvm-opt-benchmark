@@ -2412,16 +2412,16 @@ _ZN6Assimp3FBX4Node19DumpPropertiesAsciiERSoi.exit: ; preds = %11, %3
 
 _ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit.loopexit: ; preds = %47
   %.pre = load i8, ptr %22, align 8, !range !13
-  %.pre12 = trunc nuw i8 %.pre to i1
   br label %_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit
 
 _ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit: ; preds = %_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit.loopexit, %.preheader, %31, %25
-  %.pre-phi = phi i1 [ %.pre12, %_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit.loopexit ], [ %39, %.preheader ], [ false, %31 ], [ false, %25 ]
   %56 = phi ptr [ %49, %_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit.loopexit ], [ %36, %.preheader ], [ %36, %31 ], [ %27, %25 ]
   %57 = phi ptr [ %50, %_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit.loopexit ], [ %36, %.preheader ], [ %36, %31 ], [ %27, %25 ]
-  %58 = icmp ne ptr %57, %56
-  %59 = or i1 %.pre-phi, %58
-  tail call void @_ZN6Assimp3FBX4Node8EndAsciiERSoib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %59)
+  %58 = phi i8 [ %.pre, %_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi.exit.loopexit ], [ %38, %.preheader ], [ 0, %31 ], [ 0, %25 ]
+  %59 = trunc nuw i8 %58 to i1
+  %60 = icmp ne ptr %57, %56
+  %61 = or i1 %60, %59
+  tail call void @_ZN6Assimp3FBX4Node8EndAsciiERSoib(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %61)
   ret void
 }
 

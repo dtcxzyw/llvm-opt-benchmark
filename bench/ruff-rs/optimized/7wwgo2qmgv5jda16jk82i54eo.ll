@@ -212,7 +212,7 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hfd207fe7e95fb826E.exit": ; preds = %3, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i", %12, %6
-  %.pn = phi { i64, ptr } [ %.pn.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i" ], [ { i64 1, ptr poison }, %12 ], [ %8, %6 ], [ { i64 1, ptr poison }, %3 ]
+  %.pn = phi { i64, ptr } [ %.pn.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i" ], [ { i64 1, ptr poison }, %12 ], [ { i64 1, ptr poison }, %6 ], [ { i64 1, ptr poison }, %3 ]
   %.pn8 = phi ptr [ %.pn3.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$7or_else17hd8e343f1589f6122E.exit.i.i.i" ], [ %0, %12 ], [ %10, %6 ], [ %0, %3 ]
   %.merged = insertvalue { i64, ptr } %.pn, ptr %.pn8, 1
   ret { i64, ptr } %.merged

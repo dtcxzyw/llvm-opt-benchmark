@@ -6975,7 +6975,7 @@ _ZNK5boost6detail18out_edge_predicateINS_8keep_allEN3ue217bad_vertex_filterISt13
 .noexc187:                                        ; preds = %.loopexit.i.i224, %.loopexit.i9.i237, %.critedge24.i.i.i.i220, %.critedge.i.i.i.i226, %.critedge24.i.i.i5.i233, %.critedge.i.i.i11.i239, %487, %468, %465
   %.sroa.8510.2 = phi ptr [ %.sroa.8510.0, %487 ], [ %466, %468 ], [ %466, %465 ], [ %.sroa.8510.0, %.critedge.i.i.i11.i239 ], [ %.sroa.8510.0, %.critedge24.i.i.i5.i233 ], [ %466, %.critedge.i.i.i.i226 ], [ %466, %.critedge24.i.i.i.i220 ], [ %.sroa.8510.0, %.loopexit.i9.i237 ], [ %466, %.loopexit.i.i224 ]
   %.sroa.14514.4 = phi ptr [ %488, %487 ], [ %.sroa.14514.0, %468 ], [ %.sroa.14514.0, %465 ], [ %.sroa.14514.3, %.critedge.i.i.i11.i239 ], [ %.sroa.14514.3, %.critedge24.i.i.i5.i233 ], [ %.sroa.14514.2, %.critedge.i.i.i.i226 ], [ %.sroa.14514.2, %.critedge24.i.i.i.i220 ], [ %506, %.loopexit.i9.i237 ], [ %486, %.loopexit.i.i224 ]
-  %.sroa.23518.2 = phi i8 [ 1, %487 ], [ 1, %468 ], [ 0, %465 ], [ %.sroa.23518.0, %.critedge.i.i.i11.i239 ], [ %.sroa.23518.0, %.critedge24.i.i.i5.i233 ], [ 1, %.critedge.i.i.i.i226 ], [ 1, %.critedge24.i.i.i.i220 ], [ %.sroa.23518.0, %.loopexit.i9.i237 ], [ 1, %.loopexit.i.i224 ]
+  %.sroa.23518.2 = phi i8 [ 1, %487 ], [ 1, %468 ], [ 0, %465 ], [ 1, %.critedge.i.i.i11.i239 ], [ 1, %.critedge24.i.i.i5.i233 ], [ 1, %.critedge.i.i.i.i226 ], [ 1, %.critedge24.i.i.i.i220 ], [ 1, %.loopexit.i9.i237 ], [ 1, %.loopexit.i.i224 ]
   %507 = icmp ne ptr %.sroa.8510.2, %404
   %508 = icmp ne ptr %.sroa.14514.4, %405
   %.not3.i.i = select i1 %507, i1 true, i1 %508

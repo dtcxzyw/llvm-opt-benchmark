@@ -1940,8 +1940,8 @@ netlogon_dissect_USER_FLAGS.exit:                 ; preds = %6
   %53 = zext i32 %52 to i64
   %54 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %3, ptr noundef %0, i32 noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @netlogon_dissect_USER_FLAGS.flags, i64 noundef %53, i32 noundef 1)
   %.val.pre = load i8, ptr %45, align 1, !range !6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   %55 = trunc nuw i8 %.val.pre to i1
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   br i1 %55, label %netlogon_dissect_USER_SESSION_KEY.exit, label %56
 
 56:                                               ; preds = %netlogon_dissect_USER_FLAGS.exit
@@ -5319,10 +5319,10 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %13, %14
   %18 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %17, ptr noundef %0, i32 noundef %9, i32 noundef 16, i32 noundef 0)
   %19 = add i32 %9, 16
   %.pre = load i8, ptr %10, align 1, !range !6
+  %20 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8
-  %20 = trunc nuw i8 %.pre to i1
   br i1 %20, label %netlogon_dissect_NT_OWF_PASSWORD.exit, label %21
 
 21:                                               ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit
@@ -5454,10 +5454,10 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %13, %14
   %18 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %17, ptr noundef %0, i32 noundef %9, i32 noundef 16, i32 noundef 0)
   %19 = add i32 %9, 16
   %.pre = load i8, ptr %10, align 1, !range !6
+  %20 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8
-  %20 = trunc nuw i8 %.pre to i1
   br i1 %20, label %netlogon_dissect_NT_OWF_PASSWORD.exit, label %21
 
 21:                                               ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit
@@ -7515,10 +7515,10 @@ netlogon_dissect_LM_OWF_PASSWORD.exit:            ; preds = %44, %45
   %49 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %48, ptr noundef %0, i32 noundef %40, i32 noundef 16, i32 noundef 0)
   %50 = add i32 %40, 16
   %.pre = load i8, ptr %41, align 1, !range !6
+  %51 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8
-  %51 = trunc nuw i8 %.pre to i1
   br i1 %51, label %netlogon_dissect_NT_OWF_PASSWORD.exit, label %52
 
 52:                                               ; preds = %netlogon_dissect_LM_OWF_PASSWORD.exit

@@ -19782,7 +19782,6 @@ define hidden void @"_ZN4core3ptr277drop_in_place$LT$foundations..telemetry..tra
   br i1 %38, label %42, label %"_ZN4core3ptr321drop_in_place$LT$slab..Entry$LT$alloc..sync..Weak$LT$foundations..telemetry..tracing..live..live_reference_set..LiveReferenceHandle$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6947d224ebc0871cE.exit.i.i.i"
 
 "_ZN4core3ptr321drop_in_place$LT$slab..Entry$LT$alloc..sync..Weak$LT$foundations..telemetry..tracing..live..live_reference_set..LiveReferenceHandle$LT$alloc..sync..Arc$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$cf_rustracing..span..Span$LT$cf_rustracing_jaeger..span..SpanContextState$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h6947d224ebc0871cE.exit.i.i.i": ; preds = %28
-  store i64 %34, ptr %31, align 8, !noalias !3775
   store ptr %36, ptr %35, align 8, !noalias !3775
   br label %39
 

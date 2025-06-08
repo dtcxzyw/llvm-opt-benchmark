@@ -628,12 +628,12 @@ _ZN5vcpkg13XmlSerializer19emit_pending_indentEv.exit: ; preds = %5
   %16 = load i64, ptr %15, align 8, !tbaa !4
   %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(37) %0, i64 noundef %16, i64 noundef 0, i64 noundef %14, i8 noundef signext 32)
   %.pre = load i8, ptr %8, align 4, !tbaa !12, !range !16
+  %18 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %1, ptr %7, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %2, ptr %18, align 8
-  %19 = trunc nuw i8 %.pre to i1
-  br i1 %19, label %20, label %_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE.exit
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %2, ptr %19, align 8
+  br i1 %18, label %20, label %_ZN5vcpkg13XmlSerializer8open_tagENS_13StringLiteralE.exit
 
 20:                                               ; preds = %_ZN5vcpkg13XmlSerializer19emit_pending_indentEv.exit
   store i8 0, ptr %8, align 4, !tbaa !12

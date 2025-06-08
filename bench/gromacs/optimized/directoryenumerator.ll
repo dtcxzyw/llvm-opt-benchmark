@@ -219,9 +219,9 @@ _ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit.thread: ; preds = %14
 _ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit: ; preds = %18
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !12, !range !15
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %20 = trunc nuw i8 %.pre to i1
-  br i1 %20, label %.lr.ph, label %._crit_edge
+  %19 = trunc nuw i8 %.pre to i1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -455,9 +455,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %.lo
 
 94:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
-  %.pre111 = load i8, ptr %19, align 8, !tbaa !12, !range !15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
+  %.pre111 = load i8, ptr %20, align 8, !tbaa !12, !range !15
   %95 = trunc nuw i8 %.pre111 to i1
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
   br i1 %95, label %_ZNRSt8optionalINSt10filesystem7__cxx114pathEE5valueEv.exit, label %96
 
 96:                                               ; preds = %94
@@ -551,7 +551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
   br i1 %113, label %120, label %133
 
 120:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47
-  %121 = load i8, ptr %19, align 8, !tbaa !12, !range !15, !noundef !48
+  %121 = load i8, ptr %20, align 8, !tbaa !12, !range !15, !noundef !48
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %_ZNRSt8optionalINSt10filesystem7__cxx114pathEE5valueEv.exit49, label %123
 
@@ -666,7 +666,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt14_Optional_baseINSt10filesystem7__cxx114pathELb0ELb0EED2Ev.exit: ; preds = %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #23
-  %148 = load i8, ptr %19, align 8, !tbaa !12, !range !15, !noundef !48
+  %148 = load i8, ptr %20, align 8, !tbaa !12, !range !15, !noundef !48
   %149 = trunc nuw i8 %148 to i1
   br i1 %149, label %33, label %._crit_edge, !llvm.loop !54
 
@@ -677,7 +677,7 @@ _ZNSt14_Optional_baseINSt10filesystem7__cxx114pathELb0ELb0EED2Ev.exit: ; preds =
   br label %.loopexit.split-lp
 
 ._crit_edge:                                      ; preds = %_ZNSt14_Optional_baseINSt10filesystem7__cxx114pathELb0ELb0EED2Ev.exit, %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit.thread, %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit
-  %152 = phi ptr [ %17, %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit.thread ], [ %19, %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit ], [ %19, %_ZNSt14_Optional_baseINSt10filesystem7__cxx114pathELb0ELb0EED2Ev.exit ]
+  %152 = phi ptr [ %17, %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit.thread ], [ %20, %_ZN3gmx19DirectoryEnumerator8nextFileB5cxx11Ev.exit ], [ %20, %_ZNSt14_Optional_baseINSt10filesystem7__cxx114pathELb0ELb0EED2Ev.exit ]
   %153 = load ptr, ptr %0, align 8, !tbaa !56
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !56

@@ -3813,7 +3813,7 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %85, !prof !9
+  br i1 %12, label %13, label %86, !prof !9
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -3827,13 +3827,13 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   %20 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %21 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !17
   %22 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1893, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.27) #5
-  br label %85
+  br label %86
 
 23:                                               ; preds = %13
   %24 = load i32, ptr %6, align 4, !tbaa !10
   %25 = and i32 %24, 1
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %85, label %26
+  br i1 %.not, label %86, label %26
 
 26:                                               ; preds = %23
   %27 = icmp ugt i32 %1, 1
@@ -3850,7 +3850,7 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   %32 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %33 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !17
   %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1907, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.3) #5
-  br label %85
+  br label %86
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 288
@@ -3867,7 +3867,7 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   %41 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
   %42 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !17
   %43 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1924, i64 noundef %41, i64 noundef %42, ptr noundef nonnull @.str.5) #5
-  br label %85
+  br label %86
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 280
@@ -3885,68 +3885,68 @@ define range(i32 -1, 1) i32 @H5B2__update_flush_depend(ptr noundef %0, i32 nound
   %52 = trunc nuw i8 %51 to i1
   %53 = xor i1 %52, true
   %54 = select i1 %50, i1 true, i1 %53
-  br i1 %54, label %55, label %66, !prof !9
+  br i1 %54, label %55, label %67, !prof !9
 
 55:                                               ; preds = %48
   %56 = call i32 @H5AC_destroy_flush_dependency(ptr noundef %3, ptr noundef nonnull %.36384) #5
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %59, label %._crit_edge
+  br i1 %57, label %60, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55
   %.pre = load i8, ptr @H5B2_init_g, align 1, !tbaa !3, !range !7
   %.pre98 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre99 = trunc nuw i8 %.pre to i1
-  %.pre100 = trunc nuw i8 %.pre98 to i1
-  %.pre102 = xor i1 %.pre100, true
-  %58 = select i1 %.pre99, i1 true, i1 %.pre102
-  br label %66
-
-59:                                               ; preds = %55
-  %60 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
-  %61 = load i64, ptr @H5E_CANTUNDEPEND_g, align 8, !tbaa !17
-  %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__destroy_flush_depend, i32 noundef 2017, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.28) #5
-  %63 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
-  %64 = load i64, ptr @H5E_CANTUNDEPEND_g, align 8, !tbaa !17
-  %65 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1943, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.28) #5
-  br label %H5B2__create_flush_depend.exit.thread
-
-66:                                               ; preds = %._crit_edge, %48
-  %.pre-phi = phi i1 [ %58, %._crit_edge ], [ %53, %48 ]
+  %.pre99 = trunc nuw i8 %.pre98 to i1
+  %.pre100 = xor i1 %.pre99, true
+  %58 = trunc nuw i8 %.pre to i1
+  %59 = select i1 %58, i1 true, i1 %.pre100
   store ptr %4, ptr %.25286, align 8, !tbaa !88
-  br i1 %.pre-phi, label %67, label %H5B2__create_flush_depend.exit.thread, !prof !9
+  br i1 %59, label %68, label %H5B2__create_flush_depend.exit.thread, !prof !9
 
-67:                                               ; preds = %66
-  %68 = call i32 @H5AC_create_flush_dependency(ptr noundef %4, ptr noundef nonnull %.36384) #5
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %70, label %H5B2__create_flush_depend.exit.thread
-
-70:                                               ; preds = %67
-  %71 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
-  %72 = load i64, ptr @H5E_CANTDEPEND_g, align 8, !tbaa !17
-  %73 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__create_flush_depend, i32 noundef 1858, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.26) #5
-  %74 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
-  %75 = load i64, ptr @H5E_CANTDEPEND_g, align 8, !tbaa !17
-  %76 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1946, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.26) #5
+60:                                               ; preds = %55
+  %61 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
+  %62 = load i64, ptr @H5E_CANTUNDEPEND_g, align 8, !tbaa !17
+  %63 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__destroy_flush_depend, i32 noundef 2017, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.28) #5
+  %64 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
+  %65 = load i64, ptr @H5E_CANTUNDEPEND_g, align 8, !tbaa !17
+  %66 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1943, i64 noundef %64, i64 noundef %65, ptr noundef nonnull @.str.28) #5
   br label %H5B2__create_flush_depend.exit.thread
 
-H5B2__create_flush_depend.exit.thread:            ; preds = %66, %67, %59, %70, %44, %35
-  %.060.ph = phi ptr [ %31, %35 ], [ %40, %44 ], [ %.36384, %70 ], [ %.36384, %59 ], [ %.36384, %67 ], [ %.36384, %66 ]
-  %.156.ph = phi i32 [ 0, %35 ], [ 0, %44 ], [ -1, %70 ], [ -1, %59 ], [ 0, %67 ], [ 0, %66 ]
-  %.042.ph = phi ptr [ @H5AC_BT2_INT, %35 ], [ @H5AC_BT2_LEAF, %44 ], [ %.387, %70 ], [ %.387, %59 ], [ %.387, %67 ], [ %.387, %66 ]
-  %77 = load ptr, ptr %14, align 8, !tbaa !51
-  %78 = load i64, ptr %2, align 8, !tbaa !44
-  %79 = call i32 @H5AC_unprotect(ptr noundef %77, ptr noundef nonnull %.042.ph, i64 noundef %78, ptr noundef nonnull %.060.ph, i32 noundef 0) #5
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %85
+67:                                               ; preds = %48
+  store ptr %4, ptr %.25286, align 8, !tbaa !88
+  br label %H5B2__create_flush_depend.exit.thread
 
-81:                                               ; preds = %H5B2__create_flush_depend.exit.thread
-  %82 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
-  %83 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !17
-  %84 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1954, i64 noundef %82, i64 noundef %83, ptr noundef nonnull @.str.21) #5
-  br label %85
+68:                                               ; preds = %._crit_edge
+  %69 = call i32 @H5AC_create_flush_dependency(ptr noundef %4, ptr noundef nonnull %.36384) #5
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %H5B2__create_flush_depend.exit.thread
 
-85:                                               ; preds = %19, %23, %.thread78, %.thread, %5, %H5B2__create_flush_depend.exit.thread, %81
-  %.0 = phi i32 [ -1, %81 ], [ %.156.ph, %H5B2__create_flush_depend.exit.thread ], [ 0, %5 ], [ -1, %19 ], [ 0, %23 ], [ -1, %.thread ], [ -1, %.thread78 ]
+71:                                               ; preds = %68
+  %72 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
+  %73 = load i64, ptr @H5E_CANTDEPEND_g, align 8, !tbaa !17
+  %74 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__create_flush_depend, i32 noundef 1858, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.26) #5
+  %75 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
+  %76 = load i64, ptr @H5E_CANTDEPEND_g, align 8, !tbaa !17
+  %77 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1946, i64 noundef %75, i64 noundef %76, ptr noundef nonnull @.str.26) #5
+  br label %H5B2__create_flush_depend.exit.thread
+
+H5B2__create_flush_depend.exit.thread:            ; preds = %67, %._crit_edge, %68, %60, %71, %44, %35
+  %.060.ph = phi ptr [ %31, %35 ], [ %40, %44 ], [ %.36384, %71 ], [ %.36384, %60 ], [ %.36384, %68 ], [ %.36384, %67 ], [ %.36384, %._crit_edge ]
+  %.156.ph = phi i32 [ 0, %35 ], [ 0, %44 ], [ -1, %71 ], [ -1, %60 ], [ 0, %68 ], [ 0, %67 ], [ 0, %._crit_edge ]
+  %.042.ph = phi ptr [ @H5AC_BT2_INT, %35 ], [ @H5AC_BT2_LEAF, %44 ], [ %.387, %71 ], [ %.387, %60 ], [ %.387, %68 ], [ %.387, %67 ], [ %.387, %._crit_edge ]
+  %78 = load ptr, ptr %14, align 8, !tbaa !51
+  %79 = load i64, ptr %2, align 8, !tbaa !44
+  %80 = call i32 @H5AC_unprotect(ptr noundef %78, ptr noundef nonnull %.042.ph, i64 noundef %79, ptr noundef nonnull %.060.ph, i32 noundef 0) #5
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %86
+
+82:                                               ; preds = %H5B2__create_flush_depend.exit.thread
+  %83 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !17
+  %84 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !17
+  %85 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5B2__update_flush_depend, i32 noundef 1954, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.21) #5
+  br label %86
+
+86:                                               ; preds = %19, %23, %.thread78, %.thread, %5, %H5B2__create_flush_depend.exit.thread, %82
+  %.0 = phi i32 [ -1, %82 ], [ %.156.ph, %H5B2__create_flush_depend.exit.thread ], [ 0, %5 ], [ -1, %19 ], [ 0, %23 ], [ -1, %.thread ], [ -1, %.thread78 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   ret i32 %.0
 }

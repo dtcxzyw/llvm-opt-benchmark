@@ -100494,7 +100494,7 @@ define void @_ZN11meilisearch6routes16create_all_stats17h0645631c5fc96062E(ptr d
 158:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !18944
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %11, ptr noundef nonnull align 4 dereferenceable(11) %.sroa.0170, i64 11, i1 false)
-  store i8 %.sroa.4171.0.ph262, ptr %.sroa.4159.0..sroa_idx160, align 1, !noalias !18950
+  store i8 0, ptr %.sroa.4159.0..sroa_idx160, align 1, !noalias !18950
   store i32 %.sroa.6174.0.ph263, ptr %.sroa.5162.0..sroa_idx163, align 4, !noalias !18950
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !18951
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %62, i64 16, i1 false), !noalias !18956

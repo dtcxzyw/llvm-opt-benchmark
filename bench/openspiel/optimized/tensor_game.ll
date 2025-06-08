@@ -2011,7 +2011,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %116 = fsub double %133, %.03410.us.us.i
   %117 = call double @llvm.fabs.f64(double %116)
   %118 = fcmp ole double %117, 0x3EB0C6F7A0000000
-  %spec.select.us.us.i = select i1 %118, i8 %.03211.us.us.i, i8 0
+  %spec.select.us.us.i = zext i1 %118 to i8
   br label %119
 
 119:                                              ; preds = %._crit_edge.us.us.i, %115, %113
@@ -2035,7 +2035,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %127, label %.loopexit.us.us.i, label %121
 
 .loopexit.us.us.i:                                ; preds = %122, %121, %119
-  %.1.us.us.i = phi i8 [ 0, %119 ], [ 0, %122 ], [ %.03112.us.us.i, %121 ]
+  %.1.us.us.i = phi i8 [ 0, %119 ], [ 0, %122 ], [ 1, %121 ]
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, %umax77.i
   br i1 %exitcond70.not.i, label %._crit_edge14.i.loopexit, label %.preheader1.us.us.i, !llvm.loop !41
@@ -2072,7 +2072,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %140 = fsub double %143, %.03410.us24.i
   %141 = call double @llvm.fabs.f64(double %140)
   %142 = fcmp ole double %141, 0x3EB0C6F7A0000000
-  %spec.select.us26.i = select i1 %142, i8 %.03211.us23.i, i8 0
+  %spec.select.us26.i = zext i1 %142 to i8
   br label %.preheader.us32.i
 
 .preheader.us32.i:                                ; preds = %._crit_edge.us34.i, %139, %137

@@ -39317,8 +39317,8 @@ define hidden void @"_ZN11ide_assists8handlers16extract_function12FunctionBody7a
   %9 = alloca { i32, [5 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %10 = icmp eq ptr %1, null
-  %.sink36.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sink36.sroa.gep37 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink37.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %.sink37.sroa.gep38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %2
@@ -39390,8 +39390,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %32, %29
-  %.sink36.sroa.phi = phi ptr [ %.sink36.sroa.gep, %29 ], [ %.sink36.sroa.gep37, %32 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sink36.sroa.phi, i64 12, i1 false)
+  %.sink37.sroa.phi = phi ptr [ %.sink37.sroa.gep, %29 ], [ %.sink37.sroa.gep38, %32 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sink37.sroa.phi, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %37 = load ptr, ptr %12, align 8, !nonnull !11, !align !225, !noundef !11
@@ -39436,9 +39436,9 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4), !noalias !9778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !noalias !9779
   %55 = invoke { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hb4fb0fe50d000ae8E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %47, i64 noundef %54, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %4)
-          to label %.thread34 unwind label %69
+          to label %.thread35 unwind label %69
 
-.thread34:                                        ; preds = %.noexc
+.thread35:                                        ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4), !noalias !9778
   br label %78
 
@@ -39490,7 +39490,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr60drop
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #61
   unreachable
 
-78:                                               ; preds = %.thread34, %68
+78:                                               ; preds = %.thread35, %68
   %79 = icmp ne ptr %42, null
   call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 48
@@ -48324,7 +48324,7 @@ define internal noundef zeroext i1 @"_ZN11ide_assists8handlers22promote_local_to
 "_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17hf55ef1de7776a7e3E.exit44": ; preds = %110, %.invoke, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17hf55ef1de7776a7e3E.exit44.sink.split", %121, %116
   %.in = phi i8 [ %21, %110 ], [ %21, %116 ], [ %21, %121 ], [ %113, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..CallExpr$GT$17hf55ef1de7776a7e3E.exit44.sink.split" ], [ %21, %.invoke ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %114 = trunc i8 %.in to i1
+  %114 = trunc nuw i8 %.in to i1
   %115 = xor i1 %114, true
   br label %126
 

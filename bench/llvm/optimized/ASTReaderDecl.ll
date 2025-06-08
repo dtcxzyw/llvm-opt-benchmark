@@ -56666,7 +56666,7 @@ _ZNSt5dequeIPN5clang4DeclESaIS2_EE9pop_frontEv.exit.i33: ; preds = %118, %116
 
 _ZNSt11_Deque_baseIPN5clang4DeclESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i37, %._crit_edge63
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.081101, i64 noundef %.sroa.8.082100) #27
-  store i8 %3, ptr %2, align 4, !tbaa !883
+  store i8 0, ptr %2, align 4, !tbaa !883
   br label %143
 
 .lr.ph62:                                         ; preds = %"_ZZN5clang9ASTReader30PassInterestingDeclsToConsumerEvENK3$_0clEv.exit35", %.lr.ph62

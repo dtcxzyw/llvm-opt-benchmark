@@ -1686,7 +1686,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
   br i1 %143, label %.thread689.thread, label %.thread697
 
 .thread689.thread:                                ; preds = %617, %.thread689
-  %.7467694779 = phi i8 [ %.3463, %.thread689 ], [ 0, %617 ]
+  %.7467694779 = phi i8 [ 1, %.thread689 ], [ 0, %617 ]
   %.2416696777 = phi ptr [ %.0414, %.thread689 ], [ %.1395, %617 ]
   %621 = load i8, ptr %144, align 4
   %622 = trunc i8 %621 to i1
@@ -1727,7 +1727,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
   br label %.thread697
 
 .thread697:                                       ; preds = %615, %.thread689, %.thread689.thread
-  %.7467694778 = phi i8 [ %.7467694779, %.thread689.thread ], [ %.3463, %.thread689 ], [ 0, %615 ]
+  %.7467694778 = phi i8 [ %.7467694779, %.thread689.thread ], [ 1, %.thread689 ], [ 0, %615 ]
   %.2416696776 = phi ptr [ %.2416696777, %.thread689.thread ], [ %.0414, %.thread689 ], [ %.1395, %615 ]
   %.3528 = phi float [ %653, %.thread689.thread ], [ %.0525, %.thread689 ], [ %.0525, %615 ]
   %.sroa.19.3 = phi float [ %652, %.thread689.thread ], [ %472, %.thread689 ], [ %472, %615 ]
@@ -1744,7 +1744,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
 
 657:                                              ; preds = %655, %.thread1228
   %.2416695 = phi ptr [ %.2416696776, %655 ], [ null, %.thread1228 ]
-  %.7467693 = phi i8 [ %.7467694778, %655 ], [ %.3463, %.thread1228 ]
+  %.7467693 = phi i8 [ %.7467694778, %655 ], [ 1, %.thread1228 ]
   %.2527 = phi float [ %.3528, %655 ], [ %.0525, %.thread1228 ]
   %.sroa.19.2 = phi float [ %.sroa.19.3, %655 ], [ %472, %.thread1228 ]
   %.sroa.9.2 = phi float [ %.sroa.9.3, %655 ], [ %475, %.thread1228 ]
@@ -1984,7 +1984,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 ._crit_edge1021.thread:                           ; preds = %662, %747, %._crit_edge1021
   %.5530 = phi float [ %.6531, %747 ], [ %.1526, %._crit_edge1021 ], [ %.1526, %662 ]
   %.7489 = phi i8 [ %.8490706718, %747 ], [ %.1483, %._crit_edge1021 ], [ %.1483, %662 ]
-  %.7478 = phi i8 [ 0, %747 ], [ %.3474, %._crit_edge1021 ], [ 1, %662 ]
+  %.7478 = phi i8 [ 0, %747 ], [ 1, %._crit_edge1021 ], [ 1, %662 ]
   %.2424 = phi ptr [ %.3425707716, %747 ], [ %.0422, %._crit_edge1021 ], [ %.0422, %662 ]
   %.4418 = phi ptr [ %.5419708714, %747 ], [ %.1415, %._crit_edge1021 ], [ %.1415, %662 ]
   %.sroa.19.5 = phi float [ %.sroa.19.6, %747 ], [ %.sroa.19.1, %._crit_edge1021 ], [ %.sroa.19.1, %662 ]

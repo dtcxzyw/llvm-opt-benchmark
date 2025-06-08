@@ -51951,7 +51951,7 @@ _ZNK4pbrt18ShapeSampleContext15OffsetRayOriginENS_6Point3IfEE.exit: ; preds = %1
 
 209:                                              ; preds = %180
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %153, ptr %210, align 8, !tbaa !407
+  store i8 1, ptr %210, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %5, i64 72, i1 false)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %212 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -52483,7 +52483,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt8Cylinder6SampleERKNS_18ShapeSample
 
 63:                                               ; preds = %34
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %7, ptr %64, align 8, !tbaa !407
+  store i8 1, ptr %64, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %5, i64 72, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -52832,7 +52832,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt4Disk6SampleERKNS_18ShapeSampleCont
 
 63:                                               ; preds = %34
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %7, ptr %64, align 8, !tbaa !407
+  store i8 1, ptr %64, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %5, i64 72, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -53181,7 +53181,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt8Triangle6SampleERKNS_18ShapeSample
 
 102:                                              ; preds = %73
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 %46, ptr %103, align 8, !tbaa !407
+  store i8 1, ptr %103, align 8, !tbaa !407
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %5, i64 72, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 72

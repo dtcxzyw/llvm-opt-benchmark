@@ -1368,11 +1368,11 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   store i64 %.sroa.0372.0.copyload.i, ptr %21, align 8, !noalias !129
   store ptr %.sroa.5373.0.copyload.i, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !129
   store i64 %.sroa.6.0.copyload.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !129
-  store i8 %.sroa.7.0.copyload.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !129
-  store i8 %.sroa.8374.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i, align 1, !noalias !129
-  store i8 %.sroa.9375.0.copyload.i, ptr %.sroa.23.0..sroa_idx.i, align 2, !noalias !129
-  store i8 %.sroa.10.0.copyload.i, ptr %.sroa.24.0..sroa_idx.i, align 1, !noalias !129
-  store i8 %.sroa.11.0.copyload.i, ptr %.sroa.25.0..sroa_idx.i, align 4, !noalias !129
+  store i8 1, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !129
+  store i8 0, ptr %.sroa.22.0..sroa_idx.i, align 1, !noalias !129
+  store i8 0, ptr %.sroa.23.0..sroa_idx.i, align 2, !noalias !129
+  store i8 0, ptr %.sroa.24.0..sroa_idx.i, align 1, !noalias !129
+  store i8 1, ptr %.sroa.25.0..sroa_idx.i, align 4, !noalias !129
   store i8 0, ptr %.sroa.26.0..sroa_idx.i, align 1, !noalias !129
   store i8 %.sroa.13.0.copyload.i, ptr %.sroa.28.0..sroa_idx.i, align 2, !noalias !129
   store i8 0, ptr %.sroa.30.0..sroa_idx.i, align 1, !noalias !129
@@ -2637,11 +2637,11 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
   store i64 %.sroa.0372.0.copyload.i, ptr %21, align 8, !noalias !217
   store ptr %.sroa.5373.0.copyload.i, ptr %.sroa.12.0..sroa_idx.i, align 8, !noalias !217
   store i64 %.sroa.6.0.copyload.i, ptr %.sroa.17.0..sroa_idx.i, align 8, !noalias !217
-  store i8 %.sroa.7.0.copyload.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !217
-  store i8 %.sroa.8374.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i, align 1, !noalias !217
-  store i8 %.sroa.9375.0.copyload.i, ptr %.sroa.23.0..sroa_idx.i, align 2, !noalias !217
-  store i8 %.sroa.10.0.copyload.i, ptr %.sroa.24.0..sroa_idx.i, align 1, !noalias !217
-  store i8 %.sroa.11.0.copyload.i, ptr %.sroa.25.0..sroa_idx.i, align 4, !noalias !217
+  store i8 1, ptr %.sroa.20.0..sroa_idx.i, align 8, !noalias !217
+  store i8 0, ptr %.sroa.22.0..sroa_idx.i, align 1, !noalias !217
+  store i8 0, ptr %.sroa.23.0..sroa_idx.i, align 2, !noalias !217
+  store i8 0, ptr %.sroa.24.0..sroa_idx.i, align 1, !noalias !217
+  store i8 1, ptr %.sroa.25.0..sroa_idx.i, align 4, !noalias !217
   store i8 0, ptr %.sroa.26.0..sroa_idx.i, align 1, !noalias !217
   store i8 %.sroa.13.0.copyload.i, ptr %.sroa.28.0..sroa_idx.i, align 2, !noalias !217
   store i8 0, ptr %.sroa.30.0..sroa_idx.i, align 1, !noalias !217

@@ -240,93 +240,85 @@ define internal noundef ptr @slab_rebalance_thread(ptr noundef initializes((120,
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.0.ph52 = phi i32 [ 1, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.pre = load i32, ptr %16, align 8, !tbaa !31
-  br label %43
-
-.critedge:                                        ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  store i32 0, ptr %16, align 8, !tbaa !31
-  store i32 0, ptr %17, align 4, !tbaa !32
   br label %.backedge
 
-43:                                               ; preds = %.backedge, %.lr.ph
-  %44 = phi i32 [ %.pre, %.lr.ph ], [ 0, %.backedge ]
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %45, label %47
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
+  %43 = phi i32 [ %.pre, %.lr.ph ], [ 0, %.backedge.backedge ]
+  %.not = icmp eq i32 %43, 0
+  br i1 %.not, label %44, label %46
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr %17, align 4, !tbaa !32
-  %.not24 = icmp eq i32 %46, 0
-  br i1 %.not24, label %372, label %47
+44:                                               ; preds = %.backedge
+  %45 = load i32, ptr %17, align 4, !tbaa !32
+  %.not24 = icmp eq i32 %45, 0
+  br i1 %.not24, label %372, label %46
 
-47:                                               ; preds = %45, %43
-  %48 = load ptr, ptr %9, align 8, !tbaa !33
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %.loopexit
+46:                                               ; preds = %44, %.backedge
+  %47 = load ptr, ptr %9, align 8, !tbaa !33
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %.loopexit
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #11
-  %51 = load i32, ptr %17, align 4, !tbaa !17
-  %52 = icmp eq i32 %44, %51
-  br i1 %52, label %.critedge, label %53
+  %50 = load i32, ptr %17, align 4, !tbaa !17
+  %51 = icmp eq i32 %43, %50
+  br i1 %51, label %73, label %52
 
-53:                                               ; preds = %50
-  %54 = call i32 @global_page_pool_size(ptr noundef nonnull %7) #11
-  %55 = load i8, ptr %7, align 1, !tbaa !34, !range !29, !noundef !30
-  %56 = trunc nuw i8 %55 to i1
-  %57 = icmp eq i32 %54, 0
-  %or.cond.i = select i1 %56, i1 %57, i1 false
-  br i1 %or.cond.i, label %58, label %59
+52:                                               ; preds = %49
+  %53 = call i32 @global_page_pool_size(ptr noundef nonnull %7) #11
+  %54 = load i8, ptr %7, align 1, !tbaa !34, !range !29, !noundef !30
+  %55 = trunc nuw i8 %54 to i1
+  %56 = icmp eq i32 %53, 0
+  %or.cond.i = select i1 %55, i1 %56, i1 false
+  br i1 %or.cond.i, label %57, label %58
 
-58:                                               ; preds = %53
+57:                                               ; preds = %52
   store i8 1, ptr %18, align 1, !tbaa !18
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %53
-  %60 = load i32, ptr %16, align 8, !tbaa !4
-  %61 = call ptr @slabs_peek_page(i32 noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %62 = load i32, ptr %6, align 4, !tbaa !35
-  %63 = zext i32 %62 to i64
-  %64 = call noalias ptr @calloc(i64 noundef %63, i64 noundef 1) #12
-  store ptr %64, ptr %19, align 8, !tbaa !36
-  %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %._crit_edge, label %66
+58:                                               ; preds = %57, %52
+  %59 = load i32, ptr %16, align 8, !tbaa !4
+  %60 = call ptr @slabs_peek_page(i32 noundef %59, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %61 = load i32, ptr %6, align 4, !tbaa !35
+  %62 = zext i32 %61 to i64
+  %63 = call noalias ptr @calloc(i64 noundef %62, i64 noundef 1) #12
+  store ptr %63, ptr %19, align 8, !tbaa !36
+  %.not.i = icmp eq ptr %63, null
+  br i1 %.not.i, label %._crit_edge, label %65
 
-._crit_edge:                                      ; preds = %59
+._crit_edge:                                      ; preds = %58
   %.pre62 = load i8, ptr %0, align 8, !tbaa !19, !range !29
-  %65 = trunc nuw i8 %.pre62 to i1
+  %64 = trunc nuw i8 %.pre62 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %16, align 8, !tbaa !31
   store i32 0, ptr %17, align 4, !tbaa !32
-  br i1 %65, label %.backedge, label %.outer._crit_edge
+  br i1 %64, label %.backedge.backedge, label %.outer._crit_edge
 
-.backedge:                                        ; preds = %._crit_edge, %.critedge
-  br label %43, !llvm.loop !37
+.backedge.backedge:                               ; preds = %._crit_edge, %73
+  br label %.backedge, !llvm.loop !37
 
-66:                                               ; preds = %59
-  store ptr %61, ptr %20, align 8, !tbaa !39
-  store ptr %61, ptr %9, align 8, !tbaa !40
-  %67 = load i32, ptr %5, align 4, !tbaa !35
-  %68 = mul i32 %67, %62
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 %69
-  store ptr %70, ptr %21, align 8, !tbaa !41
+65:                                               ; preds = %58
+  store ptr %60, ptr %20, align 8, !tbaa !39
+  store ptr %60, ptr %9, align 8, !tbaa !40
+  %66 = load i32, ptr %5, align 4, !tbaa !35
+  %67 = mul i32 %66, %61
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 %68
+  store ptr %69, ptr %21, align 8, !tbaa !41
   store i8 0, ptr %22, align 8, !tbaa !42
-  store i32 %67, ptr %23, align 8, !tbaa !43
-  %71 = load i32, ptr %16, align 8, !tbaa !4
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %slab_rebalance_start.exit
+  store i32 %66, ptr %23, align 8, !tbaa !43
+  %70 = load i32, ptr %16, align 8, !tbaa !4
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %slab_rebalance_start.exit
 
-73:                                               ; preds = %66
+72:                                               ; preds = %65
   store i8 1, ptr %22, align 8, !tbaa !42
   br label %slab_rebalance_start.exit
 
-slab_rebalance_start.exit:                        ; preds = %66, %73
+slab_rebalance_start.exit:                        ; preds = %65, %72
   call void @STATS_LOCK() #11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stats_state, i64 54), align 2, !tbaa !44
   call void @STATS_UNLOCK() #11
@@ -335,7 +327,15 @@ slab_rebalance_start.exit:                        ; preds = %66, %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %47, %slab_rebalance_start.exit
+73:                                               ; preds = %49
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  store i32 0, ptr %16, align 8, !tbaa !31
+  store i32 0, ptr %17, align 4, !tbaa !32
+  br label %.backedge.backedge
+
+.loopexit:                                        ; preds = %46, %slab_rebalance_start.exit
   %74 = load i8, ptr %22, align 8, !tbaa !47
   %.not25 = icmp eq i8 %74, 0
   br i1 %.not25, label %104, label %75
@@ -910,7 +910,7 @@ slab_rebalance_move.exit:                         ; preds = %350, %357, %365
   %spec.select = shl i32 %371, 1
   br label %.outer
 
-372:                                              ; preds = %45
+372:                                              ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
   %373 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11

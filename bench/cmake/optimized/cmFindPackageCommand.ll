@@ -29687,7 +29687,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 141:                                              ; preds = %137
   %142 = load i8, ptr %75, align 8, !tbaa !373, !range !148, !noundef !149
-  %143 = icmp eq i8 %135, %142
+  %143 = icmp ne i8 %142, 0
   %144 = load i64, ptr %78, align 8
   %145 = icmp eq i64 %139, %144
   %or.cond116 = select i1 %143, i1 %145, i1 false

@@ -577,7 +577,7 @@ define dso_local noundef zeroext i1 @_ZN5clang9api_notes15compileAPINotesEN4llvm
   %.not11 = icmp eq i32 %14, 0
   call void @_ZN4llvm4yaml5InputD1Ev(ptr noundef nonnull align 8 dereferenceable(682) %8) #15
   call void @llvm.lifetime.end.p0(i64 688, ptr nonnull %8) #15
-  br i1 %.not11, label %15, label %32
+  br i1 %.not11, label %15, label %34
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
@@ -626,53 +626,53 @@ define dso_local noundef zeroext i1 @_ZN5clang9api_notes15compileAPINotesEN4llvm
   %31 = load ptr, ptr %17, align 8, !tbaa !41
   call void @_ZN5clang9api_notes14APINotesWriter13writeToStreamERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(48) %31) #15
   %.pre.i.i = load i8, ptr %20, align 8, !tbaa !35, !range !38
-  %.pre21.i.i = trunc nuw i8 %.pre.i.i to i1
+  %32 = trunc nuw i8 %.pre.i.i to i1
   br label %_ZL7compileRKN12_GLOBAL__N_16ModuleEPKN5clang9FileEntryERN4llvm11raw_ostreamEPFvRKNS7_12SMDiagnosticEPvESD_.exit
 
 _ZL7compileRKN12_GLOBAL__N_16ModuleEPKN5clang9FileEntryERN4llvm11raw_ostreamEPFvRKNS7_12SMDiagnosticEPvESD_.exit: ; preds = %._crit_edge.i.i, %30
-  %.pre-phi.i.i = phi i1 [ %.pre21.i.i, %30 ], [ true, %._crit_edge.i.i ]
+  %33 = phi i1 [ %32, %30 ], [ true, %._crit_edge.i.i ]
   call void @_ZN5clang9api_notes14APINotesWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
-  br label %32
+  br label %34
 
-32:                                               ; preds = %6, %_ZL7compileRKN12_GLOBAL__N_16ModuleEPKN5clang9FileEntryERN4llvm11raw_ostreamEPFvRKNS7_12SMDiagnosticEPvESD_.exit
-  %.0 = phi i1 [ %.pre-phi.i.i, %_ZL7compileRKN12_GLOBAL__N_16ModuleEPKN5clang9FileEntryERN4llvm11raw_ostreamEPFvRKNS7_12SMDiagnosticEPvESD_.exit ], [ true, %6 ]
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 232
-  %34 = load ptr, ptr %33, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 240
-  %36 = load ptr, ptr %35, align 8, !tbaa !12
-  %.not4.i.i.i.i.i = icmp eq ptr %34, %36
+34:                                               ; preds = %6, %_ZL7compileRKN12_GLOBAL__N_16ModuleEPKN5clang9FileEntryERN4llvm11raw_ostreamEPFvRKNS7_12SMDiagnosticEPvESD_.exit
+  %.0 = phi i1 [ %33, %_ZL7compileRKN12_GLOBAL__N_16ModuleEPKN5clang9FileEntryERN4llvm11raw_ostreamEPFvRKNS7_12SMDiagnosticEPvESD_.exit ], [ true, %6 ]
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 232
+  %36 = load ptr, ptr %35, align 8, !tbaa !8
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 240
+  %38 = load ptr, ptr %37, align 8, !tbaa !12
+  %.not4.i.i.i.i.i = icmp eq ptr %36, %38
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %32, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %34, %32 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  call fastcc void @_ZN12_GLOBAL__N_113TopLevelItemsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %37) #15
-  %38 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 208
-  %.not.i.i.i.i.i = icmp eq ptr %38, %36
+.lr.ph.i.i.i.i.i:                                 ; preds = %34, %.lr.ph.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i ], [ %36, %34 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
+  call fastcc void @_ZN12_GLOBAL__N_113TopLevelItemsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %39) #15
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 208
+  %.not.i.i.i.i.i = icmp eq ptr %40, %38
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.val.pr.i.i = load ptr, ptr %33, align 8, !tbaa !8
+  %.val.pr.i.i = load ptr, ptr %35, align 8, !tbaa !8
   br label %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %32
-  %.val.i.i10 = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %34, %32 ]
+_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %34
+  %.val.i.i10 = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %36, %34 ]
   %.not.i.i.i.i = icmp eq ptr %.val.i.i10, null
-  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_16ModuleD2Ev.exit, label %39
+  br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_16ModuleD2Ev.exit, label %41
 
-39:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 248
-  %.val1.i.i = load ptr, ptr %40, align 8, !tbaa !15
-  %41 = ptrtoint ptr %.val1.i.i to i64
-  %42 = ptrtoint ptr %.val.i.i10 to i64
-  %43 = sub i64 %41, %42
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i10, i64 noundef %43) #16
+41:                                               ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 248
+  %.val1.i.i = load ptr, ptr %42, align 8, !tbaa !15
+  %43 = ptrtoint ptr %.val1.i.i to i64
+  %44 = ptrtoint ptr %.val.i.i10 to i64
+  %45 = sub i64 %43, %44
+  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i10, i64 noundef %45) #16
   br label %_ZN12_GLOBAL__N_16ModuleD2Ev.exit
 
-_ZN12_GLOBAL__N_16ModuleD2Ev.exit:                ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i, %39
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  call fastcc void @_ZN12_GLOBAL__N_113TopLevelItemsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %44) #15
+_ZN12_GLOBAL__N_16ModuleD2Ev.exit:                ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_19VersionedES1_EvT_S3_RSaIT0_E.exit.i.i, %41
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  call fastcc void @_ZN12_GLOBAL__N_113TopLevelItemsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(192) %46) #15
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #15
   ret i1 %.0
 }

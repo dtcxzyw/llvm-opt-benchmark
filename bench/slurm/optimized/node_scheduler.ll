@@ -8689,8 +8689,8 @@ _sync_node_weight.exit:                           ; preds = %177, %160
 280:                                              ; preds = %277
   %281 = load ptr, ptr %259, align 8
   %282 = call i32 @bit_set_count(ptr noundef %281) #14
-  %.not441 = icmp eq i32 %.1300, %282
-  %spec.select481 = select i1 %.not441, i8 %.6327, i8 1
+  %.not441 = icmp ne i32 %.1300, %282
+  %spec.select481 = zext i1 %.not441 to i8
   br label %283
 
 283:                                              ; preds = %280, %277
@@ -9124,8 +9124,8 @@ _bit_or_cond.exit:                                ; preds = %335, %340, %345, %3
 462:                                              ; preds = %460
   %463 = load ptr, ptr %16, align 8
   %464 = call i32 @bit_set_count(ptr noundef %463) #14
-  %.not465 = icmp ugt i32 %464, %6
-  %spec.select492 = select i1 %.not465, i8 %.0336629, i8 1
+  %.not465 = icmp ule i32 %464, %6
+  %spec.select492 = zext i1 %.not465 to i8
   %465 = load ptr, ptr %19, align 8
   %.not466 = icmp eq ptr %465, null
   br i1 %.not466, label %.thread544, label %466

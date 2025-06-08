@@ -16940,10 +16940,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9pu
   store i8 1, ptr %28, align 8, !tbaa !661
   %.pre4.i = load i32, ptr %16, align 8, !tbaa !658
   %.pre = load i8, ptr %24, align 8, !tbaa !661, !range !663
-  %45 = add i32 %.pre4.i, 1
-  store i32 %45, ptr %16, align 8, !tbaa !658
-  %46 = trunc nuw i8 %.pre to i1
-  br i1 %46, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
+  %45 = trunc nuw i8 %.pre to i1
+  %46 = add i32 %.pre4.i, 1
+  store i32 %46, ptr %16, align 8, !tbaa !658
+  br i1 %45, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
 
 47:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9push_backEOS4_.exit
   store i8 0, ptr %24, align 8, !tbaa !661
@@ -39860,10 +39860,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9pu
   store i8 1, ptr %28, align 8, !tbaa !661
   %.pre4.i = load i32, ptr %16, align 8, !tbaa !658
   %.pre = load i8, ptr %24, align 8, !tbaa !661, !range !663
-  %45 = add i32 %.pre4.i, 1
-  store i32 %45, ptr %16, align 8, !tbaa !658
-  %46 = trunc nuw i8 %.pre to i1
-  br i1 %46, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
+  %45 = trunc nuw i8 %.pre to i1
+  %46 = add i32 %.pre4.i, 1
+  store i32 %46, ptr %16, align 8, !tbaa !658
+  br i1 %45, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
 
 47:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9push_backEOS4_.exit
   store i8 0, ptr %24, align 8, !tbaa !661
@@ -62700,10 +62700,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9pu
   store i8 1, ptr %28, align 8, !tbaa !661
   %.pre4.i = load i32, ptr %16, align 8, !tbaa !658
   %.pre = load i8, ptr %24, align 8, !tbaa !661, !range !663
-  %45 = add i32 %.pre4.i, 1
-  store i32 %45, ptr %16, align 8, !tbaa !658
-  %46 = trunc nuw i8 %.pre to i1
-  br i1 %46, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
+  %45 = trunc nuw i8 %.pre to i1
+  %46 = add i32 %.pre4.i, 1
+  store i32 %46, ptr %16, align 8, !tbaa !658
+  br i1 %45, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
 
 47:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9push_backEOS4_.exit
   store i8 0, ptr %24, align 8, !tbaa !661
@@ -86495,10 +86495,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9pu
   store i8 1, ptr %28, align 8, !tbaa !661
   %.pre4.i = load i32, ptr %16, align 8, !tbaa !658
   %.pre = load i8, ptr %24, align 8, !tbaa !661, !range !663
-  %45 = add i32 %.pre4.i, 1
-  store i32 %45, ptr %16, align 8, !tbaa !658
-  %46 = trunc nuw i8 %.pre to i1
-  br i1 %46, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
+  %45 = trunc nuw i8 %.pre to i1
+  %46 = add i32 %.pre4.i, 1
+  store i32 %46, ptr %16, align 8, !tbaa !658
+  br i1 %45, label %47, label %_ZNSt14_Optional_baseIN4llvm6object12VersionEntryELb0ELb0EED2Ev.exit
 
 47:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt8optionalINS_6object12VersionEntryEELb0EE9push_backEOS4_.exit
   store i8 0, ptr %24, align 8, !tbaa !661

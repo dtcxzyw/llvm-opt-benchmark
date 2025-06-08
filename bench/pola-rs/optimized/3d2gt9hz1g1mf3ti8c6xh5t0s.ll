@@ -9005,7 +9005,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf227bc109893e91cE"
   %.sroa.0.010.us.i = phi ptr [ %23, %.lr.ph.split.us.i ], [ %19, %.lr.ph.i ]
   %.sroa.03.09.us.i = phi i64 [ %22, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i ]
   %22 = add nuw i64 %.sroa.03.09.us.i, 1
-  store i128 %.sroa.0.0.copyload, ptr %.sroa.0.010.us.i, align 16, !noalias !1309
+  store i128 1, ptr %.sroa.0.010.us.i, align 16, !noalias !1309
   %.sroa.4.0..sroa.0.0.sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.sroa.0.010.us.i, i64 16
   store i128 %.sroa.5.0.copyload, ptr %.sroa.4.0..sroa.0.0.sroa_idx.us.i, align 16, !noalias !1309
   %.sroa.5.0..sroa.0.0.sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.sroa.0.010.us.i, i64 32
@@ -9028,7 +9028,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17hf227bc109893e91cE"
   %.sroa.0.010.i = phi ptr [ %29, %.lr.ph.split.i ], [ %19, %.lr.ph.i ]
   %.sroa.03.09.i = phi i64 [ %28, %.lr.ph.split.i ], [ 1, %.lr.ph.i ]
   %28 = add nuw i64 %.sroa.03.09.i, 1
-  store i128 %.sroa.0.0.copyload, ptr %.sroa.0.010.i, align 16, !noalias !1309
+  store i128 0, ptr %.sroa.0.010.i, align 16, !noalias !1309
   %.sroa.5.0..sroa.0.0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 32
   store i64 %.sroa.6.0.copyload, ptr %.sroa.5.0..sroa.0.0.sroa_idx.i, align 16, !noalias !1309
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 48

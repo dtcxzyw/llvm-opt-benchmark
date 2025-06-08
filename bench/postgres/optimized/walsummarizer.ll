@@ -1443,7 +1443,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 ._crit_edge6.i:                                   ; preds = %216, %205
   call void @llvm.lifetime.end.p0(i64 328, ptr nonnull %6) #11
-  br label %SummarizeDbaseRecord.exit
+  br label %.preheader
 
 220:                                              ; preds = %200, %200
   %221 = getelementptr inbounds nuw i8, ptr %117, i64 72
@@ -1483,14 +1483,14 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 ._crit_edge.i122:                                 ; preds = %231, %220
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %7) #11
-  br label %SummarizeDbaseRecord.exit
+  br label %.preheader
 
-SummarizeDbaseRecord.exit:                        ; preds = %137, %121, %._crit_edge.i122, %._crit_edge6.i
-  %.4 = phi i8 [ %.0103157, %._crit_edge6.i ], [ %.0103157, %._crit_edge.i122 ], [ %.0103157, %121 ], [ %139, %137 ]
+SummarizeDbaseRecord.exit:                        ; preds = %137, %121
+  %.4 = phi i8 [ %.0103157, %121 ], [ %139, %137 ]
   %235 = trunc nuw i8 %.4 to i1
   br i1 %235, label %SummarizeDbaseRecord.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %200, %197, %194, %184, %179, %175, %._crit_edge.i, %155, %149, %145, %144, %SummarizeDbaseRecord.exit
+.preheader:                                       ; preds = %._crit_edge.i122, %._crit_edge6.i, %200, %197, %194, %184, %179, %175, %._crit_edge.i, %155, %149, %145, %144, %SummarizeDbaseRecord.exit
   %236 = load ptr, ptr %69, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 84
   %238 = load i32, ptr %237, align 4

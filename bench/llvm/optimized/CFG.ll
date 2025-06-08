@@ -2465,9 +2465,9 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit: ; preds = %.lr.p
   %36 = phi i32 [ %32, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %.pre, %28 ], [ %15, %.lr.ph.i.i ]
   %37 = phi i32 [ %33, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %16, %28 ], [ %16, %.lr.ph.i.i ]
   %38 = phi ptr [ %.pre5.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %30, %28 ], [ %17, %.lr.ph.i.i ]
-  %39 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ %18, %28 ], [ %18, %.lr.ph.i.i ]
-  %.fca.1.insert.merged.i11.i = phi i1 [ %35, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %28 ], [ false, %.lr.ph.i.i ]
-  br i1 %.fca.1.insert.merged.i11.i, label %40, label %.thread39
+  %39 = phi i8 [ %.pre.fr.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ 1, %28 ], [ 1, %.lr.ph.i.i ]
+  %.fca.1.insert.merged.i9.i = phi i1 [ %35, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i ], [ true, %28 ], [ false, %.lr.ph.i.i ]
+  br i1 %.fca.1.insert.merged.i9.i, label %40, label %.thread39
 
 40:                                               ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE6insertES4_.exit
   %41 = getelementptr inbounds nuw i8, ptr %.019, i64 80
@@ -25606,8 +25606,8 @@ _ZN4llvm5APIntC2ERKS0_.exit50.i:                  ; preds = %439
   br i1 %444, label %_ZN4llvmorENS_5APIntERKS0_.exit.thread.i, label %_ZN4llvmorENS_5APIntERKS0_.exit.i
 
 _ZN4llvmorENS_5APIntERKS0_.exit.thread.i:         ; preds = %_ZN4llvm5APIntC2ERKS0_.exit50.i, %439
-  %.sink105.i = phi ptr [ %8, %439 ], [ %13, %_ZN4llvm5APIntC2ERKS0_.exit50.i ]
-  %.pre80.i = load i64, ptr %.sink105.i, align 8, !tbaa !51
+  %.sink104.i = phi ptr [ %8, %439 ], [ %13, %_ZN4llvm5APIntC2ERKS0_.exit50.i ]
+  %.pre80.i = load i64, ptr %.sink104.i, align 8, !tbaa !51
   %445 = load i64, ptr %6, align 8, !tbaa !51, !noalias !1113
   %446 = or i64 %445, %.pre80.i
   store i64 %446, ptr %13, align 8, !tbaa !51, !noalias !1113
@@ -25657,12 +25657,12 @@ _ZN4llvm5APIntD2Ev.exit.i59:                      ; preds = %453
   br label %.critedge40.i
 
 .critedge40.i:                                    ; preds = %460, %457, %_ZN4llvm5APIntD2Ev.exit.i59, %453, %.critedge.i
-  %.0.i.i5396100.i = phi i1 [ %454, %460 ], [ %454, %457 ], [ %454, %_ZN4llvm5APIntD2Ev.exit.i59 ], [ %454, %453 ], [ %452, %.critedge.i ]
+  %.0.i.i539699.i = phi i1 [ %454, %460 ], [ %454, %457 ], [ %454, %_ZN4llvm5APIntD2Ev.exit.i59 ], [ %454, %453 ], [ %452, %.critedge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #26
   br i1 %414, label %.critedge40.i..critedge42.i_crit_edge, label %.critedge43.i
 
 .critedge40.i..critedge42.i_crit_edge:            ; preds = %.critedge40.i
-  %461 = xor i1 %.0.i.i5396100.i, true
+  %461 = xor i1 %.0.i.i539699.i, true
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !184
   br label %.critedge42.i
@@ -25708,7 +25708,7 @@ _ZN4llvm5APIntD2Ev.exit57.i:                      ; preds = %476, %473, %_ZN4llv
   br i1 %469, label %477, label %.critedge43.thread.i
 
 .critedge43.i:                                    ; preds = %.critedge40.i
-  br i1 %.0.i.i5396100.i, label %.critedge43.thread.i, label %477
+  br i1 %.0.i.i539699.i, label %.critedge43.thread.i, label %477
 
 477:                                              ; preds = %.critedge43.i, %_ZN4llvm5APIntD2Ev.exit57.i
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -25819,12 +25819,12 @@ _ZNK4llvm5APInteqEm.exit63.thread.i:              ; preds = %_ZNK4llvm5APInt13ge
   br label %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit64.i
 
 _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit64.i: ; preds = %527, %524, %520, %.critedge45.i, %.critedge45.thread.i
-  %.sroa.0.1102.i = phi i32 [ -1, %.critedge45.thread.i ], [ %518, %.critedge45.i ], [ %518, %520 ], [ %518, %524 ], [ %518, %527 ]
+  %.sroa.0.1101.i = phi i32 [ -1, %.critedge45.thread.i ], [ %518, %.critedge45.i ], [ %518, %520 ], [ %518, %524 ], [ %518, %527 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #26
   br label %528
 
 528:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit64.i, %_ZNK4llvm5APInteqEm.exit63.thread.i, %_ZNK4llvm5APInteqEm.exit63.i, %_ZNK4llvm5APInteqEm.exit.thread71.i, %_ZNK4llvm5APInteqEm.exit.i, %498, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit58.i, %.thread90.i
-  %.sroa.0.0.i = phi i32 [ %514, %_ZNK4llvm5APInteqEm.exit63.thread.i ], [ %.sroa.0.1102.i, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit64.i ], [ -1, %_ZNK4llvm5APInteqEm.exit.thread71.i ], [ -1, %_ZNK4llvm5APInteqEm.exit63.i ], [ -1, %_ZNK4llvm5APInteqEm.exit.i ], [ -1, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit58.i ], [ -1, %498 ], [ -1, %.thread90.i ]
+  %.sroa.0.0.i = phi i32 [ %514, %_ZNK4llvm5APInteqEm.exit63.thread.i ], [ %.sroa.0.1101.i, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit64.i ], [ -1, %_ZNK4llvm5APInteqEm.exit.thread71.i ], [ -1, %_ZNK4llvm5APInteqEm.exit63.i ], [ -1, %_ZNK4llvm5APInteqEm.exit.i ], [ -1, %_ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit58.i ], [ -1, %498 ], [ -1, %.thread90.i ]
   %529 = load i8, ptr %330, align 8, !tbaa !1108, !range !129, !noundef !130
   %530 = trunc nuw i8 %529 to i1
   br i1 %530, label %531, label %_ZN12_GLOBAL__N_110CFGBuilder30checkIncorrectEqualityOperatorEPKN5clang14BinaryOperatorE.exit

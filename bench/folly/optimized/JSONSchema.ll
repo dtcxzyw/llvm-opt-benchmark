@@ -21780,7 +21780,7 @@ _ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit.i: ; pr
   br label %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit6
 
 _ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit6: ; preds = %16, %3, %19, %22
-  %23 = phi i1 [ true, %19 ], [ true, %22 ], [ false, %3 ], [ false, %16 ]
+  %.val1013 = phi i1 [ true, %19 ], [ true, %22 ], [ false, %3 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #23
   %.val.i.i.i.i = load ptr, ptr %10, align 8, !tbaa !967
   %.not1.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
@@ -21794,54 +21794,54 @@ _ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit6: ; pre
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableISt4pairIPKN5folly10jsonschema12_GLOBAL__N_110IValidatorEPKNS1_7dynamicEESA_SaISA_ENSt8__detail9_IdentityESt8equal_toISA_ESt4hashISA_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !968
 
 _ZNSt10_HashtableISt4pairIPKN5folly10jsonschema12_GLOBAL__N_110IValidatorEPKNS1_7dynamicEESA_SaISA_ENSt8__detail9_IdentityESt8equal_toISA_ESt4hashISA_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit6
-  %24 = load ptr, ptr %5, align 8, !tbaa !961
-  %25 = load i64, ptr %9, align 8, !tbaa !963
-  %26 = shl i64 %25, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %24, i8 0, i64 %26, i1 false)
+  %23 = load ptr, ptr %5, align 8, !tbaa !961
+  %24 = load i64, ptr %9, align 8, !tbaa !963
+  %25 = shl i64 %24, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %23, i8 0, i64 %25, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %27 = load ptr, ptr %5, align 8, !tbaa !961
-  %28 = icmp eq ptr %27, %8
-  br i1 %28, label %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit, label %29
+  %26 = load ptr, ptr %5, align 8, !tbaa !961
+  %27 = icmp eq ptr %26, %8
+  br i1 %27, label %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit, label %28
 
-29:                                               ; preds = %_ZNSt10_HashtableISt4pairIPKN5folly10jsonschema12_GLOBAL__N_110IValidatorEPKNS1_7dynamicEESA_SaISA_ENSt8__detail9_IdentityESt8equal_toISA_ESt4hashISA_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i
-  %30 = load i64, ptr %9, align 8, !tbaa !963
-  %31 = shl i64 %30, 3
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %31) #47
+28:                                               ; preds = %_ZNSt10_HashtableISt4pairIPKN5folly10jsonschema12_GLOBAL__N_110IValidatorEPKNS1_7dynamicEESA_SaISA_ENSt8__detail9_IdentityESt8equal_toISA_ESt4hashISA_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i
+  %29 = load i64, ptr %9, align 8, !tbaa !963
+  %30 = shl i64 %29, 3
+  call void @_ZdlPvm(ptr noundef %26, i64 noundef %30) #47
   br label %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit
 
-_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit: ; preds = %_ZNSt10_HashtableISt4pairIPKN5folly10jsonschema12_GLOBAL__N_110IValidatorEPKNS1_7dynamicEESA_SaISA_ENSt8__detail9_IdentityESt8equal_toISA_ESt4hashISA_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, %29
+_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit: ; preds = %_ZNSt10_HashtableISt4pairIPKN5folly10jsonschema12_GLOBAL__N_110IValidatorEPKNS1_7dynamicEESA_SaISA_ENSt8__detail9_IdentityESt8equal_toISA_ESt4hashISA_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, %28
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #23
-  br i1 %23, label %36, label %35
+  br i1 %.val1013, label %35, label %34
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZN5folly8OptionalINS_10jsonschema12_GLOBAL__N_111SchemaErrorEED2Ev.exit.i
-  %32 = landingpad { ptr, i32 }
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %.04 = extractvalue { ptr, i32 } %32, 0
+  %.04 = extractvalue { ptr, i32 } %31, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #23
   call fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #23
-  %33 = call ptr @__cxa_begin_catch(ptr %.04) #23
+  %32 = call ptr @__cxa_begin_catch(ptr %.04) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #23
   call void @_ZN5folly17current_exceptionEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %7) #23
   call void @llvm.experimental.noalias.scope.decl(metadata !978)
-  %34 = load i64, ptr %7, align 8, !noalias !978
-  store i64 %34, ptr %0, align 8, !alias.scope !978
+  %33 = load i64, ptr %7, align 8, !noalias !978
+  store i64 %33, ptr %0, align 8, !alias.scope !978
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
   invoke void @__cxa_end_catch()
-          to label %36 unwind label %37
+          to label %35 unwind label %36
 
-35:                                               ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit
+34:                                               ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit
   store ptr null, ptr %0, align 8, !tbaa !981
-  br label %36
+  br label %35
 
-36:                                               ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %35
+35:                                               ; preds = %_ZN5folly10jsonschema12_GLOBAL__N_117ValidationContextD2Ev.exit, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %34
   ret void
 
-37:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #45
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #45
   unreachable
 }
 
@@ -53280,12 +53280,12 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108: ; preds = %_ZNK5boost16cpp
   %238 = load ptr, ptr %237, align 8
   %239 = call noundef signext i8 %238(ptr noundef nonnull align 8 dereferenceable(570) %235, i8 noundef signext %216)
   %.pre362 = load i8, ptr %194, align 8, !tbaa !1671, !range !159
-  %240 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0346, i64 2
-  %241 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0346, i64 3
-  %242 = load i8, ptr %240, align 1, !tbaa !16
+  %240 = trunc nuw i8 %.pre362 to i1
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0346, i64 2
+  %242 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0346, i64 3
   %243 = load i8, ptr %241, align 1, !tbaa !16
-  %244 = trunc nuw i8 %.pre362 to i1
-  br i1 %244, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit110
+  %244 = load i8, ptr %242, align 1, !tbaa !16
+  br i1 %240, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit110
 
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109: ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108
   %245 = load ptr, ptr %193, align 8, !tbaa !1695
@@ -53295,7 +53295,7 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109: ; preds = %_ZNK5boost16cpp
   %249 = load ptr, ptr %248, align 8, !tbaa !28
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %251 = load ptr, ptr %250, align 8
-  %252 = call noundef signext i8 %251(ptr noundef nonnull align 8 dereferenceable(570) %248, i8 noundef signext %242)
+  %252 = call noundef signext i8 %251(ptr noundef nonnull align 8 dereferenceable(570) %248, i8 noundef signext %243)
   %.pre363 = load i8, ptr %194, align 8, !tbaa !1671, !range !159
   %253 = trunc nuw i8 %.pre363 to i1
   br i1 %253, label %254, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit110
@@ -53308,14 +53308,14 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109: ; preds = %_ZNK5boost16cpp
   %259 = load ptr, ptr %258, align 8, !tbaa !28
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 32
   %261 = load ptr, ptr %260, align 8
-  %262 = call noundef signext i8 %261(ptr noundef nonnull align 8 dereferenceable(570) %258, i8 noundef signext %243)
+  %262 = call noundef signext i8 %261(ptr noundef nonnull align 8 dereferenceable(570) %258, i8 noundef signext %244)
   br label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit110
 
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit110: ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109, %254
-  %263 = phi i8 [ %252, %254 ], [ %252, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109 ], [ %230, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread ], [ %242, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108 ]
+  %263 = phi i8 [ %252, %254 ], [ %252, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109 ], [ %230, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread ], [ %243, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108 ]
   %264 = phi i8 [ %226, %254 ], [ %226, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109 ], [ %.ph, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread ], [ %226, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108 ]
   %265 = phi i8 [ %239, %254 ], [ %239, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109 ], [ %216, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread ], [ %239, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108 ]
-  %266 = phi i8 [ %262, %254 ], [ %243, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109 ], [ %231, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread ], [ %243, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108 ]
+  %266 = phi i8 [ %262, %254 ], [ %244, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit109 ], [ %231, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108.thread ], [ %244, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit108 ]
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.0271.0346, i64 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   store ptr %195, ptr %4, align 8, !tbaa !44
@@ -54680,9 +54680,9 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %60
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef signext i8 %71(ptr noundef nonnull align 8 dereferenceable(570) %68, i8 noundef signext %61)
   %.pre = load i8, ptr %56, align 8, !tbaa !1671, !range !159
-  %73 = load i8, ptr %57, align 1, !tbaa !2013
-  %74 = trunc nuw i8 %.pre to i1
-  br i1 %74, label %75, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit104
+  %73 = trunc nuw i8 %.pre to i1
+  %74 = load i8, ptr %57, align 1, !tbaa !2013
+  br i1 %73, label %75, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit104
 
 75:                                               ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit
   %76 = load ptr, ptr %55, align 8, !tbaa !1695
@@ -54692,12 +54692,12 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %60
   %80 = load ptr, ptr %79, align 8, !tbaa !28
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call noundef signext i8 %82(ptr noundef nonnull align 8 dereferenceable(570) %79, i8 noundef signext %73)
+  %83 = tail call noundef signext i8 %82(ptr noundef nonnull align 8 dereferenceable(570) %79, i8 noundef signext %74)
   br label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit104
 
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit104: ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit, %75
   %84 = phi i8 [ %72, %75 ], [ %72, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ], [ %61, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread ]
-  %85 = phi i8 [ %83, %75 ], [ %73, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ], [ %64, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread ]
+  %85 = phi i8 [ %83, %75 ], [ %74, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ], [ %64, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread ]
   %86 = icmp eq i8 %84, %85
   br i1 %86, label %87, label %89
 
@@ -54753,10 +54753,10 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105: ; preds = %103
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef signext i8 %115(ptr noundef nonnull align 8 dereferenceable(570) %112, i8 noundef signext %104)
   %.pre268 = load i8, ptr %95, align 8, !tbaa !1671, !range !159
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0230, i64 2
-  %118 = load i8, ptr %117, align 1, !tbaa !2013
-  %119 = trunc nuw i8 %.pre268 to i1
-  br i1 %119, label %120, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit106
+  %117 = trunc nuw i8 %.pre268 to i1
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0230, i64 2
+  %119 = load i8, ptr %118, align 1, !tbaa !2013
+  br i1 %117, label %120, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit106
 
 120:                                              ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105
   %121 = load ptr, ptr %94, align 8, !tbaa !1695
@@ -54766,12 +54766,12 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105: ; preds = %103
   %125 = load ptr, ptr %124, align 8, !tbaa !28
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = call noundef signext i8 %127(ptr noundef nonnull align 8 dereferenceable(570) %124, i8 noundef signext %118)
+  %128 = call noundef signext i8 %127(ptr noundef nonnull align 8 dereferenceable(570) %124, i8 noundef signext %119)
   br label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit106
 
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit106: ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105.thread, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105, %120
   %129 = phi i8 [ %116, %120 ], [ %116, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105 ], [ %104, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105.thread ]
-  %130 = phi i8 [ %128, %120 ], [ %118, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105 ], [ %108, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105.thread ]
+  %130 = phi i8 [ %128, %120 ], [ %119, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105 ], [ %108, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit105.thread ]
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.0186.0230, i64 4
   %132 = load ptr, ptr %0, align 8, !tbaa !1669
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
@@ -71155,9 +71155,9 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %165
   %176 = load ptr, ptr %175, align 8
   %177 = tail call noundef signext i8 %176(ptr noundef nonnull align 8 dereferenceable(570) %173, i8 noundef signext %166)
   %.pre62 = load i8, ptr %160, align 8, !tbaa !2191, !range !159
-  %178 = load i8, ptr %.sroa.033.050, align 1, !tbaa !16
-  %179 = trunc nuw i8 %.pre62 to i1
-  br i1 %179, label %180, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit32
+  %178 = trunc nuw i8 %.pre62 to i1
+  %179 = load i8, ptr %.sroa.033.050, align 1, !tbaa !16
+  br i1 %178, label %180, label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit32
 
 180:                                              ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit
   %181 = load ptr, ptr %159, align 8, !tbaa !2221
@@ -71167,12 +71167,12 @@ _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit: ; preds = %165
   %185 = load ptr, ptr %184, align 8, !tbaa !28
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %187 = load ptr, ptr %186, align 8
-  %188 = tail call noundef signext i8 %187(ptr noundef nonnull align 8 dereferenceable(570) %184, i8 noundef signext %178)
+  %188 = tail call noundef signext i8 %187(ptr noundef nonnull align 8 dereferenceable(570) %184, i8 noundef signext %179)
   br label %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit32
 
 _ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit32: ; preds = %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit, %180
   %189 = phi i8 [ %177, %180 ], [ %177, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ], [ %166, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread ]
-  %190 = phi i8 [ %188, %180 ], [ %178, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ], [ %169, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread ]
+  %190 = phi i8 [ %188, %180 ], [ %179, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit ], [ %169, %_ZNK5boost16cpp_regex_traitsIcE9translateEcb.exit.thread ]
   %.not10 = icmp eq i8 %189, %190
   br i1 %.not10, label %191, label %.loopexit
 
@@ -71840,15 +71840,15 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost16re_detail_10740012perl_matche
   %.pre = load ptr, ptr %2, align 8, !tbaa !2212
   %.pre4 = load ptr, ptr %3, align 8, !tbaa !574
   %.pre5 = load i8, ptr %9, align 8, !range !159
-  %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
-  store ptr %23, ptr %2, align 8, !tbaa !2212
-  %.not = icmp ne ptr %23, %.pre4
-  %24 = trunc nuw i8 %.pre5 to i1
-  %or.cond = select i1 %.not, i1 %24, i1 false
+  %23 = trunc nuw i8 %.pre5 to i1
+  %24 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
+  store ptr %24, ptr %2, align 8, !tbaa !2212
+  %.not = icmp ne ptr %24, %.pre4
+  %or.cond = select i1 %.not, i1 %23, i1 false
   br i1 %or.cond, label %25, label %.critedge
 
 25:                                               ; preds = %13
-  %26 = load i8, ptr %23, align 1, !tbaa !16
+  %26 = load i8, ptr %24, align 1, !tbaa !16
   %27 = load ptr, ptr %8, align 8, !tbaa !2221
   %28 = load ptr, ptr %27, align 8, !tbaa !1568
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8

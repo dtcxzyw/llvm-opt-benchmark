@@ -1921,14 +1921,14 @@ define void @_ZN12test_fixture13ChangeFixture22parse_with_proc_macros17h8a53b08c
   %274 = alloca { i64, [5 x i64] }, align 8
   %275 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %270)
-  %.sink2393.sroa.gep = getelementptr inbounds nuw i8, ptr %244, i64 8
-  %.sink2393.sroa.gep2476 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %.sink2393.sroa.gep2478 = getelementptr inbounds nuw i8, ptr %244, i64 32
-  %.sink2393.sroa.gep2479 = getelementptr inbounds nuw i8, ptr %245, i64 32
-  %.sink2393.sroa.gep2481 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  %.sink2393.sroa.gep2482 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %.sink2393.sroa.gep2484 = getelementptr inbounds nuw i8, ptr %244, i64 24
-  %.sink2393.sroa.gep2485 = getelementptr inbounds nuw i8, ptr %245, i64 24
+  %.sink2388.sroa.gep = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %.sink2388.sroa.gep2461 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %.sink2388.sroa.gep2463 = getelementptr inbounds nuw i8, ptr %244, i64 32
+  %.sink2388.sroa.gep2464 = getelementptr inbounds nuw i8, ptr %245, i64 32
+  %.sink2388.sroa.gep2466 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  %.sink2388.sroa.gep2467 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %.sink2388.sroa.gep2469 = getelementptr inbounds nuw i8, ptr %244, i64 24
+  %.sink2388.sroa.gep2470 = getelementptr inbounds nuw i8, ptr %245, i64 24
   invoke void @_ZN10test_utils7fixture22FixtureWithProjectMeta5parse17h94dd3673206ca50bE(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, { i64, [2 x i64] } }) align 8 captures(none) dereferenceable(144) %270, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %281 unwind label %.thread
 
@@ -7469,17 +7469,17 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i73.i.i: ; preds 
   br label %.invoke
 
 .invoke:                                          ; preds = %1862, %1856
-  %.sink2393.sroa.phi = phi ptr [ %.sink2393.sroa.gep, %1862 ], [ %.sink2393.sroa.gep2476, %1856 ]
-  %.sink2393.sroa.phi2477 = phi ptr [ %.sink2393.sroa.gep2478, %1862 ], [ %.sink2393.sroa.gep2479, %1856 ]
-  %.sink2393.sroa.phi2480 = phi ptr [ %.sink2393.sroa.gep2481, %1862 ], [ %.sink2393.sroa.gep2482, %1856 ]
-  %.sink2393.sroa.phi2483 = phi ptr [ %.sink2393.sroa.gep2484, %1862 ], [ %.sink2393.sroa.gep2485, %1856 ]
-  %.sink2393 = phi ptr [ %244, %1862 ], [ %245, %1856 ]
+  %.sink2388.sroa.phi = phi ptr [ %.sink2388.sroa.gep, %1862 ], [ %.sink2388.sroa.gep2461, %1856 ]
+  %.sink2388.sroa.phi2462 = phi ptr [ %.sink2388.sroa.gep2463, %1862 ], [ %.sink2388.sroa.gep2464, %1856 ]
+  %.sink2388.sroa.phi2465 = phi ptr [ %.sink2388.sroa.gep2466, %1862 ], [ %.sink2388.sroa.gep2467, %1856 ]
+  %.sink2388.sroa.phi2468 = phi ptr [ %.sink2388.sroa.gep2469, %1862 ], [ %.sink2388.sroa.gep2470, %1856 ]
+  %.sink2388 = phi ptr [ %244, %1862 ], [ %245, %1856 ]
   %1857 = phi ptr [ @anon.38ff912484b26ccb3bd88228a718f88f.96, %1862 ], [ @anon.38ff912484b26ccb3bd88228a718f88f.108, %1856 ]
-  store i64 1, ptr %.sink2393.sroa.phi, align 8
-  store ptr null, ptr %.sink2393.sroa.phi2477, align 8
-  store ptr @anon.38ff912484b26ccb3bd88228a718f88f.3, ptr %.sink2393.sroa.phi2480, align 8
-  store i64 0, ptr %.sink2393.sroa.phi2483, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink2393, ptr noalias noundef readonly align 8 dereferenceable(24) %1857) #19
+  store i64 1, ptr %.sink2388.sroa.phi, align 8
+  store ptr null, ptr %.sink2388.sroa.phi2462, align 8
+  store ptr @anon.38ff912484b26ccb3bd88228a718f88f.3, ptr %.sink2388.sroa.phi2465, align 8
+  store i64 0, ptr %.sink2388.sroa.phi2468, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink2388, ptr noalias noundef readonly align 8 dereferenceable(24) %1857) #19
           to label %.cont unwind label %.thread1430.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -8401,6 +8401,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i73.i.i: ; preds 
   br label %2095
 
 "_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbdd9b01880ef91b8E.exit": ; preds = %2095, %2098, %2106
+  %.64242324 = phi i8 [ %.6424, %2106 ], [ 1, %2098 ], [ 1, %2095 ]
   %.pn1559 = phi { ptr, i32 } [ %2107, %2106 ], [ %.pn1557, %2098 ], [ %.pn1557, %2095 ]
   %2105 = trunc nuw i8 %.7441 to i1
   br i1 %2105, label %2122, label %2114
@@ -8432,8 +8433,9 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i73.i.i: ; preds 
           to label %"_ZN4core3ptr36drop_in_place$LT$cfg..CfgOptions$GT$17hbcb66064e3e14767E.exit870" unwind label %2116
 
 2114:                                             ; preds = %2122, %2116, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbdd9b01880ef91b8E.exit"
+  %.64242323 = phi i8 [ %.6424, %2116 ], [ %.64242324, %2122 ], [ %.64242324, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbdd9b01880ef91b8E.exit" ]
   %.pn1561 = phi { ptr, i32 } [ %2117, %2116 ], [ %.pn1559, %2122 ], [ %.pn1559, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$17hbdd9b01880ef91b8E.exit" ]
-  %2115 = trunc nuw i8 %.6424 to i1
+  %2115 = trunc nuw i8 %.64242323 to i1
   br i1 %2115, label %2123, label %.thread1390
 
 2116:                                             ; preds = %.noexc868, %2113

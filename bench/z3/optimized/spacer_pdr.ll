@@ -2450,14 +2450,14 @@ _ZN12scoped_watchC2ER9stopwatchb.exit:            ; preds = %1, %6
 
 .preheader.i.i.i:                                 ; preds = %29, %_ZN12scoped_watchC2ER9stopwatchb.exit
   %.not2737.i.i.i = icmp eq i32 %17, 0
-  br i1 %.not2737.i.i.i, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread, label %.lr.ph39.i.i.i
+  br i1 %.not2737.i.i.i, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread, label %.lr.ph39.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN12scoped_watchC2ER9stopwatchb.exit, %29
   %.036.i.i.i = phi ptr [ %30, %29 ], [ %20, %_ZN12scoped_watchC2ER9stopwatchb.exit ]
   %23 = load ptr, ptr %.036.i.i.i, align 8, !tbaa !108
   %magicptr30.i.i.i = ptrtoint ptr %23 to i64
   switch i64 %magicptr30.i.i.i, label %24 [
-    i64 0, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread
+    i64 0, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread
     i64 1, label %29
   ]
 
@@ -2479,7 +2479,7 @@ _ZN12scoped_watchC2ER9stopwatchb.exit:            ; preds = %1, %6
   %31 = load ptr, ptr %.138.i.i.i, align 8, !tbaa !108
   %magicptr32.i.i.i = ptrtoint ptr %31 to i64
   switch i64 %magicptr32.i.i.i, label %32 [
-    i64 0, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread
+    i64 0, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread
     i64 1, label %37
   ]
 
@@ -2494,7 +2494,7 @@ _ZN12scoped_watchC2ER9stopwatchb.exit:            ; preds = %1, %6
 37:                                               ; preds = %32, %.lr.ph39.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.138.i.i.i, i64 16
   %.not27.i.i.i = icmp eq ptr %38, %20
-  br i1 %.not27.i.i.i, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread, label %.lr.ph39.i.i.i, !llvm.loop !112
+  br i1 %.not27.i.i.i, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread, label %.lr.ph39.i.i.i, !llvm.loop !112
 
 .loopexit26:                                      ; preds = %24, %32
   %.026.i.i.i = phi ptr [ %.138.i.i.i, %32 ], [ %.036.i.i.i, %24 ]
@@ -2569,7 +2569,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19: ; preds = %_ZNSo
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   %64 = load i8, ptr %3, align 8, !tbaa !96, !range !45, !noundef !46
   %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %101, label %_ZN12scoped_watchD2Ev.exit24
+  br i1 %65, label %99, label %_ZN12scoped_watchD2Ev.exit24
 
 66:                                               ; preds = %54
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
@@ -2633,7 +2633,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
 85:                                               ; preds = %.loopexit
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @_ZN6vectorI7obj_mapI4expr10ptr_vectorIN6spacer10model_nodeEEELb1EjE7destroyEv(ptr noundef nonnull align 8 dereferenceable(8) %86)
-          to label %_ZN6spacer12model_searchD2Ev.exit unwind label %87
+          to label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread unwind label %87
 
 87:                                               ; preds = %85
   %88 = landingpad { ptr, i32 }
@@ -2649,43 +2649,40 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZNSo
   call void @__clang_call_terminate(ptr %92) #23
   unreachable
 
-_ZN6spacer12model_searchD2Ev.exit:                ; preds = %85
+_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread: ; preds = %85
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
   %.pre = load i8, ptr %3, align 8, !tbaa !96, !range !45
   %93 = trunc nuw i8 %.pre to i1
-  br label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread
+  br i1 %93, label %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread, label %_ZN12scoped_watchD2Ev.exit
 
-_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread: ; preds = %.lr.ph.i.i.i, %37, %.lr.ph39.i.i.i, %.preheader.i.i.i, %_ZN6spacer12model_searchD2Ev.exit
-  %94 = phi i1 [ %93, %_ZN6spacer12model_searchD2Ev.exit ], [ true, %.preheader.i.i.i ], [ true, %.lr.ph39.i.i.i ], [ true, %37 ], [ true, %.lr.ph.i.i.i ]
-  %.0 = phi i32 [ %.1, %_ZN6spacer12model_searchD2Ev.exit ], [ -1, %.preheader.i.i.i ], [ -1, %.lr.ph39.i.i.i ], [ -1, %37 ], [ -1, %.lr.ph.i.i.i ]
-  br i1 %94, label %95, label %_ZN12scoped_watchD2Ev.exit
-
-95:                                               ; preds = %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread
-  %96 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
+_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread: ; preds = %.lr.ph.i.i.i, %37, %.lr.ph39.i.i.i, %.preheader.i.i.i, %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread
+  %.042 = phi i32 [ %.1, %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread ], [ -1, %.preheader.i.i.i ], [ -1, %.lr.ph39.i.i.i ], [ -1, %37 ], [ -1, %.lr.ph.i.i.i ]
+  %94 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
   %.sroa.0.0.copyload.i2.i.i.i = load i64, ptr %0, align 8, !tbaa !100
-  %97 = sub i64 %96, %.sroa.0.0.copyload.i2.i.i.i
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !339
-  %100 = add nsw i64 %97, %99
-  store i64 %100, ptr %98, align 8, !tbaa !339
+  %95 = sub i64 %94, %.sroa.0.0.copyload.i2.i.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %97 = load i64, ptr %96, align 8, !tbaa !339
+  %98 = add nsw i64 %95, %97
+  store i64 %98, ptr %96, align 8, !tbaa !339
   store i8 0, ptr %3, align 8, !tbaa !96
   br label %_ZN12scoped_watchD2Ev.exit
 
-_ZN12scoped_watchD2Ev.exit:                       ; preds = %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread, %95
-  ret i32 %.0
+_ZN12scoped_watchD2Ev.exit:                       ; preds = %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread, %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread
+  %.041 = phi i32 [ %.1, %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread ], [ %.042, %_ZNK7obj_mapI9func_declPN6spacer16pred_transformerEE4findEPS0_RS3_.exit.thread.thread ]
+  ret i32 %.041
 
-101:                                              ; preds = %62
-  %102 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
+99:                                               ; preds = %62
+  %100 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
   %.sroa.0.0.copyload.i2.i.i.i23 = load i64, ptr %0, align 8, !tbaa !100
-  %103 = sub i64 %102, %.sroa.0.0.copyload.i2.i.i.i23
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !339
-  %106 = add nsw i64 %103, %105
-  store i64 %106, ptr %104, align 8, !tbaa !339
+  %101 = sub i64 %100, %.sroa.0.0.copyload.i2.i.i.i23
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %103 = load i64, ptr %102, align 8, !tbaa !339
+  %104 = add nsw i64 %101, %103
+  store i64 %104, ptr %102, align 8, !tbaa !339
   store i8 0, ptr %3, align 8, !tbaa !96
   br label %_ZN12scoped_watchD2Ev.exit24
 
-_ZN12scoped_watchD2Ev.exit24:                     ; preds = %62, %101
+_ZN12scoped_watchD2Ev.exit24:                     ; preds = %62, %99
   resume { ptr, i32 } %63
 }
 

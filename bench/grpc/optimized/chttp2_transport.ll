@@ -33631,19 +33631,19 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL21post_ben
 11:                                               ; preds = %2
   tail call void @_ZN9grpc_core14ReclaimerQueue6Handle5Sweep13MarkCancelledEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.pre = load i8, ptr %6, align 8, !tbaa !1330, !range !89
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 0, ptr %13, align 8, !tbaa !1330
-  %14 = trunc nuw i8 %.pre to i1
-  br i1 %14, label %15, label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit
+  %12 = trunc nuw i8 %.pre to i1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i8 0, ptr %14, align 8, !tbaa !1330
+  br i1 %12, label %15, label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit: ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   br label %76
 
 15:                                               ; preds = %11, %.thread
-  %16 = phi ptr [ %10, %.thread ], [ %13, %11 ]
-  %17 = phi ptr [ %9, %.thread ], [ %12, %11 ]
+  %16 = phi ptr [ %10, %.thread ], [ %14, %11 ]
+  %17 = phi ptr [ %9, %.thread ], [ %13, %11 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !637
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !25
@@ -33773,8 +33773,8 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit8.i: ; preds = %52
   br i1 %75, label %113, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit3
 
 76:                                               ; preds = %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit, %68, %65
-  %77 = phi ptr [ %17, %68 ], [ %17, %65 ], [ %12, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
-  %78 = phi ptr [ %16, %68 ], [ %16, %65 ], [ %13, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
+  %77 = phi ptr [ %17, %68 ], [ %17, %65 ], [ %13, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
+  %78 = phi ptr [ %16, %68 ], [ %16, %65 ], [ %14, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %79 = load i8, ptr %78, align 8, !tbaa !1330, !range !89, !noundef !90
   %80 = trunc nuw i8 %79 to i1
@@ -34260,19 +34260,19 @@ define internal void @"_ZN9grpc_core14ReclaimerQueue6Handle7SweepFnIZL26post_des
 11:                                               ; preds = %2
   tail call void @_ZN9grpc_core14ReclaimerQueue6Handle5Sweep13MarkCancelledEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.pre = load i8, ptr %6, align 8, !tbaa !1330, !range !89
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 0, ptr %13, align 8, !tbaa !1330
-  %14 = trunc nuw i8 %.pre to i1
-  br i1 %14, label %15, label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit
+  %12 = trunc nuw i8 %.pre to i1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i8 0, ptr %14, align 8, !tbaa !1330
+  br i1 %12, label %15, label %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit
 
 _ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit: ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   br label %76
 
 15:                                               ; preds = %11, %.thread
-  %16 = phi ptr [ %10, %.thread ], [ %13, %11 ]
-  %17 = phi ptr [ %9, %.thread ], [ %12, %11 ]
+  %16 = phi ptr [ %10, %.thread ], [ %14, %11 ]
+  %17 = phi ptr [ %9, %.thread ], [ %13, %11 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !637
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !25
@@ -34402,8 +34402,8 @@ _ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit8.i: ; preds = %52
   br i1 %75, label %113, label %_ZNSt14_Optional_baseIN9grpc_core16ReclamationSweepELb0ELb0EED2Ev.exit3
 
 76:                                               ; preds = %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit, %68, %65
-  %77 = phi ptr [ %17, %68 ], [ %17, %65 ], [ %12, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
-  %78 = phi ptr [ %16, %68 ], [ %16, %65 ], [ %13, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
+  %77 = phi ptr [ %17, %68 ], [ %17, %65 ], [ %13, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
+  %78 = phi ptr [ %16, %68 ], [ %16, %65 ], [ %14, %_ZNSt8optionalIN9grpc_core16ReclamationSweepEEC2EOS2_.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %79 = load i8, ptr %78, align 8, !tbaa !1330, !range !89, !noundef !90
   %80 = trunc nuw i8 %79 to i1

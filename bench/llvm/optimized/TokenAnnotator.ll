@@ -33434,15 +33434,15 @@ _ZZN5clang6format12_GLOBAL__N_116AnnotatingParser14rParenEndsCastERKNS0_11Format
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %30, %48
-  %.2102217 = phi ptr [ %.2102, %48 ], [ %.0.i, %30 ]
+  %.2102216 = phi ptr [ %.2102, %48 ], [ %.0.i, %30 ]
   %50 = phi i16 [ %49, %48 ], [ 23, %30 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.2102217, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.2102216, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !257
   %.not123 = icmp eq ptr %52, null
   br i1 %.not123, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %53
 
 53:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %54 = getelementptr inbounds nuw i8, ptr %.2102217, i64 208
+  %54 = getelementptr inbounds nuw i8, ptr %.2102216, i64 208
   %55 = load ptr, ptr %54, align 8, !tbaa !251
   %.not124 = icmp eq ptr %55, null
   br i1 %.not124, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %56
@@ -33454,7 +33454,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %30, %48
   br i1 %59, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %48, %56, %53, %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  %.2102218 = phi ptr [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102217, %56 ], [ %.2102217, %53 ], [ %.2102217, %_ZNK5clang5Token17getIdentifierInfoEv.exit ]
+  %.2102217 = phi ptr [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102, %48 ], [ %.2102216, %56 ], [ %.2102216, %53 ], [ %.2102216, %_ZNK5clang5Token17getIdentifierInfoEv.exit ]
   %60 = phi i16 [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %49, %48 ], [ %50, %56 ], [ %50, %53 ], [ %50, %_ZNK5clang5Token17getIdentifierInfoEv.exit ]
   switch i16 %60, label %_ZNK5clang5Token17getIdentifierInfoEv.exit140 [
     i16 13, label %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread
@@ -33474,7 +33474,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %48, %48, %48, %48,
   ]
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit140:    ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread
-  %61 = getelementptr inbounds nuw i8, ptr %.2102218, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.2102217, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !257
   %.not125 = icmp eq ptr %62, null
   br i1 %.not125, label %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, label %63
@@ -33511,7 +33511,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit140.thread: ; preds = %_ZNK5clang6form
   ]
 
 71:                                               ; preds = %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread
-  %72 = getelementptr inbounds nuw i8, ptr %.2102218, i64 67
+  %72 = getelementptr inbounds nuw i8, ptr %.2102217, i64 67
   %73 = load i8, ptr %72, align 1, !tbaa !244
   %74 = icmp eq i8 %73, 97
   br i1 %74, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit
@@ -33597,8 +33597,8 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread: ; preds = 
   %112 = icmp eq i8 %111, 3
   %113 = load i16, ptr %78, align 8, !tbaa !61
   %114 = icmp eq i16 %113, 22
-  %or.cond234 = select i1 %112, i1 %114, i1 false
-  br i1 %or.cond234, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %thread-pre-split
+  %or.cond232 = select i1 %112, i1 %114, i1 false
+  br i1 %or.cond232, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %107
   switch i16 %113, label %115 [
@@ -33783,72 +33783,72 @@ switch.early.test173:                             ; preds = %164
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 64
   %180 = load i8, ptr %179, align 8, !tbaa !553, !range !203, !noundef !204
   %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %.thread220
+  br i1 %181, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %.thread219
 
 182:                                              ; preds = %174
   %.phi.trans.insert209 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %.pre210 = load ptr, ptr %.phi.trans.insert209, align 8, !tbaa !254
   %.phi.trans.insert211 = getelementptr inbounds nuw i8, ptr %.pre210, i64 64
   %.pre212 = load i8, ptr %.phi.trans.insert211, align 8, !tbaa !553, !range !203
-  %.pre213 = trunc nuw i8 %.pre212 to i1
-  %183 = icmp eq i16 %167, 36
-  %or.cond175 = and i1 %183, %.pre213
-  br i1 %or.cond175, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %.thread220
+  %183 = trunc nuw i8 %.pre212 to i1
+  %184 = icmp eq i16 %167, 36
+  %or.cond175 = and i1 %184, %183
+  br i1 %or.cond175, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %.thread219
 
-.thread220:                                       ; preds = %176, %182
-  %184 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %185 = load i16, ptr %184, align 8, !tbaa !61
-  %186 = icmp eq i16 %185, 23
-  br i1 %186, label %187, label %.lr.ph
+.thread219:                                       ; preds = %176, %182
+  %185 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %186 = load i16, ptr %185, align 8, !tbaa !61
+  %187 = icmp eq i16 %186, 23
+  br i1 %187, label %188, label %.lr.ph
 
-187:                                              ; preds = %.thread220
-  %188 = load i8, ptr %116, align 1, !tbaa !244
-  %189 = icmp eq i8 %188, 15
-  br i1 %189, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %190
+188:                                              ; preds = %.thread219
+  %189 = load i8, ptr %116, align 1, !tbaa !244
+  %190 = icmp eq i8 %189, 15
+  br i1 %190, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %191
 
-190:                                              ; preds = %187
-  %191 = load ptr, ptr %117, align 8, !tbaa !245
-  %.not130 = icmp eq ptr %191, null
-  br i1 %.not130, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %192
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %117, align 8, !tbaa !245
+  %.not130 = icmp eq ptr %192, null
+  br i1 %.not130, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %193
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 208
-  %194 = load ptr, ptr %193, align 8, !tbaa !251
-  %.not131 = icmp eq ptr %194, null
-  br i1 %.not131, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %195
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 208
+  %195 = load ptr, ptr %194, align 8, !tbaa !251
+  %.not131 = icmp eq ptr %195, null
+  br i1 %.not131, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %196
 
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  %197 = load i16, ptr %196, align 8, !tbaa !61
-  %.not180 = icmp eq i16 %197, 23
-  br i1 %.not180, label %198, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  %198 = load i16, ptr %197, align 8, !tbaa !61
+  %.not180 = icmp eq i16 %198, 23
+  br i1 %.not180, label %199, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 200
-  %200 = load ptr, ptr %199, align 8, !tbaa !245
-  %.not132 = icmp eq ptr %200, null
-  br i1 %.not132, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %201
+199:                                              ; preds = %196
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 200
+  %201 = load ptr, ptr %200, align 8, !tbaa !245
+  %.not132 = icmp eq ptr %201, null
+  br i1 %.not132, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %202
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds nuw i8, ptr %200, i64 67
-  %203 = load i8, ptr %202, align 1, !tbaa !244
-  %204 = icmp eq i8 %203, 53
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 67
+  %204 = load i8, ptr %203, align 1, !tbaa !244
+  %205 = icmp eq i8 %204, 53
   br label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread
 
-.lr.ph:                                           ; preds = %.thread220, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
-  %.0194 = phi ptr [ %208, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %7, %.thread220 ]
-  %205 = getelementptr inbounds nuw i8, ptr %.0194, i64 16
-  %206 = load i16, ptr %205, align 8, !tbaa !61
-  switch i16 %206, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread [
+.lr.ph:                                           ; preds = %.thread219, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
+  %.0194 = phi ptr [ %209, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ %7, %.thread219 ]
+  %206 = getelementptr inbounds nuw i8, ptr %.0194, i64 16
+  %207 = load i16, ptr %206, align 8, !tbaa !61
+  switch i16 %207, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread [
     i16 80, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
     i16 72, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
     i16 5, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread
   ]
 
 _ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread: ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %207 = getelementptr inbounds nuw i8, ptr %.0194, i64 208
-  %208 = load ptr, ptr %207, align 8, !tbaa !251
-  %.not129 = icmp eq ptr %208, %4
+  %208 = getelementptr inbounds nuw i8, ptr %.0194, i64 208
+  %209 = load ptr, ptr %208, align 8, !tbaa !251
+  %.not129 = icmp eq ptr %209, %4
   br i1 %.not129, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %.lr.ph, !llvm.loop !634
 
 switch.hole_check:                                ; preds = %68
@@ -33857,8 +33857,8 @@ switch.hole_check:                                ; preds = %68
   %switch.lobit = trunc i32 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.i
 
-_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread: ; preds = %137, %153, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %.lr.ph, %switch.hole_check, %107, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %12, %182, %169, %switch.early.test173, %.critedge, %.critedge, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, %71, %.critedge134, %159, %187, %190, %195, %192, %201, %198, %175, %176, %166, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit, %18, %23, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %103, %93, %80, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit, %56, %33, %36, %2, %5
-  %.094 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %18 ], [ false, %23 ], [ false, %36 ], [ false, %33 ], [ false, %56 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit ], [ false, %80 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ false, %93 ], [ false, %103 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %thread-pre-split ], [ %or.cond4.not, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit ], [ true, %.critedge ], [ false, %.critedge134 ], [ true, %159 ], [ false, %switch.early.test173 ], [ false, %169 ], [ false, %166 ], [ false, %176 ], [ false, %175 ], [ false, %187 ], [ false, %190 ], [ false, %195 ], [ false, %192 ], [ false, %198 ], [ %204, %201 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ false, %71 ], [ false, %12 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %.critedge ], [ false, %182 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %107 ], [ false, %switch.hole_check ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ false, %.lr.ph ], [ true, %153 ], [ false, %137 ]
+_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit.thread: ; preds = %137, %153, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, %.lr.ph, %switch.hole_check, %107, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %thread-pre-split, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i, %12, %182, %169, %switch.early.test173, %.critedge, %.critedge, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread, %71, %.critedge134, %159, %188, %191, %196, %193, %202, %199, %175, %176, %166, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit, %18, %23, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread, %103, %93, %80, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit, %56, %33, %36, %2, %5
+  %.094 = phi i1 [ false, %5 ], [ false, %2 ], [ false, %18 ], [ false, %23 ], [ false, %36 ], [ false, %33 ], [ false, %56 ], [ false, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JNS0_9TokenTypeES5_S4_EEEbT_T0_DpT1_.exit ], [ false, %80 ], [ false, %_ZNK5clang6format11FormatToken21getPreviousNonCommentEv.exit.thread ], [ false, %93 ], [ false, %103 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread ], [ true, %thread-pre-split ], [ %or.cond4.not, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_S4_EEEbT_T0_DpT1_.exit ], [ true, %.critedge ], [ false, %.critedge134 ], [ true, %159 ], [ false, %switch.early.test173 ], [ false, %169 ], [ false, %166 ], [ false, %176 ], [ false, %175 ], [ false, %188 ], [ false, %191 ], [ false, %196 ], [ false, %193 ], [ false, %199 ], [ %205, %202 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ false, %71 ], [ false, %12 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit140.thread ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %.critedge ], [ false, %182 ], [ false, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit.thread.i ], [ true, %thread-pre-split ], [ true, %thread-pre-split ], [ true, %107 ], [ false, %switch.hole_check ], [ true, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread ], [ false, %.lr.ph ], [ true, %153 ], [ false, %137 ]
   ret i1 %.094
 }
 
@@ -34483,56 +34483,56 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPN5clang6format11Form
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
-  %.02937.i.lcssa.sink = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
-  %.sink16 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
+  %.sink15 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
+  %.sink14 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
   %.ph = phi ptr [ %20, %18 ], [ %8, %.lr.ph.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
-  br label %30
+  br label %31
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %3, %._crit_edge.i
   %24 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %1, ptr noundef %2) #20
   %.pre = load i8, ptr %4, align 4, !tbaa !228, !range !203
   %.pre5 = load ptr, ptr %1, align 8
   %.pre.fr = freeze i8 %.pre
-  %.pre6 = trunc i8 %.pre.fr to i1
+  %25 = trunc i8 %.pre.fr to i1
   %.fca.0.extract = extractvalue { ptr, i8 } %24, 0
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8
-  %spec.select = select i1 %.pre6, i32 %26, i32 %28
-  %29 = extractvalue { ptr, i8 } %24, 1
-  br label %30
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load i32, ptr %28, align 8
+  %spec.select = select i1 %25, i32 %27, i32 %29
+  %30 = extractvalue { ptr, i8 } %24, 1
+  br label %31
 
-30:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
-  %.fca.0.extract13 = phi ptr [ %.02937.i.lcssa.sink, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.fca.1.insert.merged.i11 = phi i8 [ %.sink16, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %29, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %31 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %32 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
-  %.v.i5.i = zext i32 %32 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %.v.i5.i
-  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract13, %33
+31:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
+  %.fca.0.extract11 = phi ptr [ %.sink15, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.fca.1.insert.merged.i9 = phi i8 [ %.sink14, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %30, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %32 = phi ptr [ %.ph, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %.pre5, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %33 = phi i32 [ %23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread ], [ %spec.select, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ]
+  %.v.i5.i = zext i32 %33 to i64
+  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.v.i5.i
+  %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract11, %34
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
-.lr.ph.i5.i.i7.i:                                 ; preds = %30, %.critedge2.i7.i.i9.i
-  %.sroa.0.3.i = phi ptr [ %35, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract13, %30 ]
-  %34 = load ptr, ptr %.sroa.0.3.i, align 8, !tbaa !627
-  %switch.i6.i.i8.i = icmp ugt ptr %34, inttoptr (i64 -3 to ptr)
+.lr.ph.i5.i.i7.i:                                 ; preds = %31, %.critedge2.i7.i.i9.i
+  %.sroa.0.3.i = phi ptr [ %36, %.critedge2.i7.i.i9.i ], [ %.fca.0.extract11, %31 ]
+  %35 = load ptr, ptr %.sroa.0.3.i, align 8, !tbaa !627
+  %switch.i6.i.i8.i = icmp ugt ptr %35, inttoptr (i64 -3 to ptr)
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE12makeIteratorEPKPKv.exit
 
 .critedge2.i7.i.i9.i:                             ; preds = %.lr.ph.i5.i.i7.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 8
-  %.not.i8.i.i10.i = icmp eq ptr %35, %33
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 8
+  %.not.i8.i.i10.i = icmp eq ptr %36, %34
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !659
 
-_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE12makeIteratorEPKPKv.exit: ; preds = %.lr.ph.i5.i.i7.i, %.critedge2.i7.i.i9.i, %30
-  %.sroa.0.4.i = phi ptr [ %.fca.0.extract13, %30 ], [ %35, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
+_ZNK4llvm15SmallPtrSetImplIPN5clang6format11FormatTokenEE12makeIteratorEPKPKv.exit: ; preds = %.lr.ph.i5.i.i7.i, %.critedge2.i7.i.i9.i, %31
+  %.sroa.0.4.i = phi ptr [ %.fca.0.extract11, %31 ], [ %36, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   store ptr %.sroa.0.4.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %33, ptr %.sroa.4.0..sroa_idx, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.fca.1.insert.merged.i11, ptr %36, align 8, !tbaa !660, !alias.scope !664
+  store ptr %34, ptr %.sroa.4.0..sroa_idx, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.fca.1.insert.merged.i9, ptr %37, align 8, !tbaa !660, !alias.scope !664
   ret void
 }
 

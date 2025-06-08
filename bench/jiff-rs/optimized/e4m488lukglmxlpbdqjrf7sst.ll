@@ -5328,8 +5328,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   %357 = ashr i32 %356, 24
   %spec.select.i = select i1 %.sroa.7.095109.i, i32 %357, i32 1
   %.pre = load i8, ptr %304, align 8, !range !187, !noalias !282
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !273
   %358 = trunc nuw i8 %.pre to i1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !273
   br i1 %358, label %360, label %359, !prof !285
 
 359:                                              ; preds = %.thread.thread126.i

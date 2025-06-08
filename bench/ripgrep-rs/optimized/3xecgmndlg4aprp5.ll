@@ -475,7 +475,7 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit24.i: ; pred
   %224 = getelementptr i8, ptr %.sroa.0.051.i, i64 8
   %.val15.i = load i64, ptr %224, align 8, !alias.scope !8, !noalias !5, !noundef !4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20), !noalias !20
-  store i8 %62, ptr %20, align 1, !noalias !24
+  store i8 0, ptr %20, align 1, !noalias !24
   store i8 %212, ptr %216, align 1, !noalias !24
   %225 = getelementptr inbounds i8, ptr %.val.i, i64 %.val15.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !24

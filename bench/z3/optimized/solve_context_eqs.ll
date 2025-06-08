@@ -1075,7 +1075,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %94
   %122 = phi ptr [ %.pre.i63, %.noexc66 ], [ %110, %113 ]
   %123 = zext i32 %121 to i64
   %124 = getelementptr inbounds nuw %"struct.std::pair", ptr %122, i64 %123
-  store i8 %.sroa.090.0.copyload, ptr %124, align 8
+  store i8 1, ptr %124, align 8
   %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.587.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.587, i64 7, i1 false)
   %.sroa.588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -1162,7 +1162,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %133
   %161 = phi ptr [ %.pre.i69, %.noexc72 ], [ %149, %152 ]
   %162 = zext i32 %160 to i64
   %163 = getelementptr inbounds nuw %"struct.std::pair", ptr %161, i64 %162
-  store i8 %.sroa.090.0.copyload, ptr %163, align 8
+  store i8 0, ptr %163, align 8
   %.sroa.584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.584.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.584, i64 7, i1 false)
   %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -2407,7 +2407,7 @@ _ZNK11ast_manager6is_andEPK4expr.exit:            ; preds = %62
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i32 %78, ptr %99, align 8, !tbaa !41
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 20
-  store i8 %.sroa.24.0.copyload, ptr %100, align 4, !tbaa !131
+  store i8 1, ptr %100, align 4, !tbaa !131
   %101 = add i32 %93, 1
   store i32 %101, ptr %94, align 4, !tbaa !41
   %102 = getelementptr inbounds nuw i8, ptr %.092258, i64 8
@@ -2494,7 +2494,7 @@ _ZNK11ast_manager5is_orEPK4expr.exit:             ; preds = %106
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store i32 %122, ptr %143, align 8, !tbaa !41
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 20
-  store i8 %.sroa.24.0.copyload, ptr %144, align 4, !tbaa !131
+  store i8 0, ptr %144, align 4, !tbaa !131
   %145 = add i32 %137, 1
   store i32 %145, ptr %138, align 4, !tbaa !41
   %146 = getelementptr inbounds nuw i8, ptr %.094256, i64 8

@@ -9370,7 +9370,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit484:                 ; preds = %751, %753
   br label %760
 
 758:                                              ; preds = %73
-  store i8 %17, ptr %16, align 8, !tbaa !27
+  store i8 0, ptr %16, align 8, !tbaa !27
   br label %759
 
 759:                                              ; preds = %1, %758
@@ -9378,7 +9378,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit484:                 ; preds = %751, %753
 
 760:                                              ; preds = %.loopexit705, %.loopexit.split-lp706, %252, %254, %256, %258, %_ZNSt6vectorIjSaIjEED2Ev.exit484, %100
   %.pn136.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %259, %258 ], [ %257, %256 ], [ %255, %254 ], [ %.pn132.pn.pn, %_ZNSt6vectorIjSaIjEED2Ev.exit484 ], [ %253, %252 ], [ %lpad.loopexit707, %.loopexit705 ], [ %lpad.loopexit.split-lp708, %.loopexit.split-lp706 ]
-  store i8 %17, ptr %16, align 8, !tbaa !27
+  store i8 0, ptr %16, align 8, !tbaa !27
   resume { ptr, i32 } %.pn136.pn.pn.pn
 }
 
@@ -15013,7 +15013,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine33p
   br label %41
 
 41:                                               ; preds = %.lr.ph158, %.critedge2
-  %.sroa.0124.0157 = phi ptr [ %19, %.lr.ph158 ], [ %281, %.critedge2 ]
+  %.sroa.0124.0157 = phi ptr [ %19, %.lr.ph158 ], [ %282, %.critedge2 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0157, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !621
   %44 = load ptr, ptr %15, align 8, !tbaa !156
@@ -15049,7 +15049,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2eq14EqualityEngine33p
   br i1 %.not33, label %.critedge2.thread, label %.preheader
 
 .preheader:                                       ; preds = %41
-  br i1 %68, label %.critedge2.thread183, label %.lr.ph
+  br i1 %68, label %.critedge2.thread181, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %46, i64 4
@@ -15541,23 +15541,23 @@ _ZN4cvc57context3CDOIbEaSERKb.exit:               ; preds = %269, %277
 278:                                              ; preds = %259, %264, %_ZN4cvc57context3CDOIbEaSERKb.exit, %_ZNK4cvc58internal6theory2eq14EqualityEngine24hasPropagatedDisequalityENS1_8TheoryIdEjj.exit
   %279 = load i8, ptr %23, align 8, !tbaa !27, !range !174, !noundef !161
   %280 = trunc nuw i8 %279 to i1
-  br i1 %280, label %.critedge2.thread183, label %70, !llvm.loop !646
+  br i1 %280, label %.critedge2.thread181, label %70, !llvm.loop !646
 
-.critedge2.thread183:                             ; preds = %.preheader, %278
+.critedge2.thread181:                             ; preds = %.preheader, %278
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
   br label %.critedge
 
 .critedge2:                                       ; preds = %70
   %.pre176.pre = load i8, ptr %23, align 8, !tbaa !27, !range !174
-  %.pre179 = trunc nuw i8 %.pre176.pre to i1
+  %281 = trunc nuw i8 %.pre176.pre to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #33
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0157, i64 12
-  %282 = icmp eq ptr %281, %21
-  %or.cond.not = select i1 %.pre179, i1 true, i1 %282
+  %282 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0157, i64 12
+  %283 = icmp eq ptr %282, %21
+  %or.cond.not = select i1 %281, i1 true, i1 %283
   br i1 %or.cond.not, label %.critedge, label %41, !llvm.loop !647
 
-.critedge:                                        ; preds = %.critedge2, %14, %.critedge2.thread183, %.critedge2.thread, %10
-  %.0.in = phi i1 [ %13, %10 ], [ %68, %.critedge2.thread ], [ %25, %14 ], [ true, %.critedge2.thread183 ], [ %.pre179, %.critedge2 ]
+.critedge:                                        ; preds = %.critedge2, %14, %.critedge2.thread181, %.critedge2.thread, %10
+  %.0.in = phi i1 [ %13, %10 ], [ %68, %.critedge2.thread ], [ %25, %14 ], [ true, %.critedge2.thread181 ], [ %281, %.critedge2 ]
   %.0 = xor i1 %.0.in, true
   ret i1 %.0
 }

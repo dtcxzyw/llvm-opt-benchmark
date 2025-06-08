@@ -44552,7 +44552,7 @@ define noundef i64 @_ZN4fish4proc16proc_get_jiffies17h3d832d140b08698eE(i32 noun
   %.sroa.20.4 = phi i8 [ %.sroa.20.3, %71 ], [ 1, %62 ], [ 1, %67 ]
   %75 = phi i64 [ %73, %71 ], [ 0, %62 ], [ %58, %67 ]
   %76 = phi ptr [ %74, %71 ], [ %60, %62 ], [ %60, %67 ]
-  %77 = phi i8 [ %59, %71 ], [ 1, %62 ], [ 1, %67 ]
+  %77 = phi i8 [ 0, %71 ], [ 1, %62 ], [ 1, %67 ]
   %78 = add nuw nsw i64 %.sroa.01.014.i, 1
   %exitcond.not.i = icmp eq i64 %78, %.sroa.037.081
   br i1 %exitcond.not.i, label %80, label %.preheader
@@ -44560,7 +44560,7 @@ define noundef i64 @_ZN4fish4proc16proc_get_jiffies17h3d832d140b08698eE(i32 noun
 "_ZN96_$LT$core..slice..iter..Split$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f482f41fb640a52E.exit": ; preds = %87, %50, %91, %82, %54, %45
   %.sroa.638.1 = phi ptr [ %.sroa.638.082, %45 ], [ %57, %54 ], [ %.sroa.638.4, %82 ], [ %95, %91 ], [ %.sroa.638.082, %50 ], [ %.sroa.638.4, %87 ]
   %.sroa.13.1 = phi i64 [ 0, %45 ], [ %56, %54 ], [ 0, %82 ], [ %94, %91 ], [ %.sroa.13.083, %50 ], [ %.sroa.13.4, %87 ]
-  %.sroa.20.1 = phi i8 [ 1, %45 ], [ %.sroa.20.084, %54 ], [ 1, %82 ], [ %.sroa.20.4, %91 ], [ 1, %50 ], [ 1, %87 ]
+  %.sroa.20.1 = phi i8 [ 1, %45 ], [ 0, %54 ], [ 1, %82 ], [ 0, %91 ], [ 1, %50 ], [ 1, %87 ]
   %.sroa.0.0.i.pn = phi ptr [ %.sroa.638.082, %45 ], [ %.sroa.638.082, %54 ], [ %.sroa.638.4, %82 ], [ %.sroa.638.4, %91 ], [ %.sroa.638.082, %50 ], [ %.sroa.638.4, %87 ]
   %.sroa.5.0.i.pn = phi i64 [ 0, %45 ], [ %.sroa.02.011.i.i, %54 ], [ 0, %82 ], [ %.sroa.02.011.i.i27, %91 ], [ %.sroa.13.083, %50 ], [ %.sroa.13.4, %87 ]
   %.not16 = icmp eq ptr %.sroa.0.0.i.pn, null

@@ -2886,7 +2886,7 @@ define void @_ZN10open_spiel11matrix_game16CreateMatrixGameERKNSt7__cxx1112basic
   %33 = fsub double %32, %.0263.i
   %34 = tail call double @llvm.fabs.f64(double %33)
   %35 = fcmp ole double %34, 0x3EB0C6F7A0000000
-  %spec.select.i = select i1 %35, i8 %.0244.i, i8 0
+  %spec.select.i = zext i1 %35 to i8
   br label %36
 
 36:                                               ; preds = %27, %25, %21
@@ -3871,7 +3871,7 @@ define { i8, double } @_ZNK10open_spiel11matrix_game10MatrixGame10UtilitySumEv(p
   %22 = fsub double %21, %.0173.i
   %23 = tail call double @llvm.fabs.f64(double %22)
   %24 = fcmp ole double %23, 0x3EB0C6F7A0000000
-  %spec.select.i = select i1 %24, i8 %.0164.i, i8 0
+  %spec.select.i = zext i1 %24 to i8
   br label %25
 
 25:                                               ; preds = %16, %14, %10

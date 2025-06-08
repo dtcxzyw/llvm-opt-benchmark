@@ -253,8 +253,8 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
 129:                                              ; preds = %125
   %130 = fcmp uno float %.sroa.04.0.copyload, 0.000000e+00
   %131 = fcmp uno float %.sroa.0.0.copyload, 0.000000e+00
-  %or.cond74 = and i1 %130, %131
-  br i1 %or.cond74, label %.lr.ph, label %._crit_edge
+  %or.cond69 = and i1 %130, %131
+  br i1 %or.cond69, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %129, %125
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24

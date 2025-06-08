@@ -285,7 +285,7 @@ define void @_ZN10raft_proto10confchange17parse_conf_change17he894210fdd0eef47E(
 52:                                               ; preds = %.loopexit.i.i, %48
   %53 = phi i64 [ %37, %.loopexit.i.i ], [ %50, %48 ]
   %54 = phi ptr [ %38, %.loopexit.i.i ], [ %51, %48 ]
-  %55 = phi i8 [ 1, %.loopexit.i.i ], [ %39, %48 ]
+  %55 = phi i8 [ 1, %.loopexit.i.i ], [ 0, %48 ]
   %.sroa.5.0.i.ph.i = phi i64 [ %37, %.loopexit.i.i ], [ %.sroa.02.012.i.i.i, %48 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !10
   store ptr %38, ptr %7, align 8, !noalias !20

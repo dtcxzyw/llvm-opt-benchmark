@@ -8729,8 +8729,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14macro_replacer18macro_replac
 
 12:                                               ; preds = %7, %15
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %15 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph, label %15
+  %exitcond.not.not = icmp eq i64 %indvars.iv, %wide.trip.count
+  br i1 %exitcond.not.not, label %.lr.ph, label %15
 
 .lr.ph:                                           ; preds = %12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 76

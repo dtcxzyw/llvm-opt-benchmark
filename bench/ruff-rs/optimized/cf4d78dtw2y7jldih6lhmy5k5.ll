@@ -8231,7 +8231,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %.lcssa1431 = phi i64 [ %63, %88 ], [ %.lcssa1432, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i" ]
   %.lcssa1627 = phi ptr [ %59, %88 ], [ %.lcssa1628, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i" ]
   %.pre.i.i.i24 = phi i64 [ %63, %88 ], [ %.pre.i.i.i25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i" ]
-  %89 = phi i8 [ %16, %88 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i" ]
+  %89 = phi i8 [ 0, %88 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i" ]
   %.pn34 = phi i64 [ %20, %88 ], [ %.pre2.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h1ed025173f7214ffE.exit.i.i" ]
   %.sroa.4.0.i.i = sub nuw i64 %.pn34, %.pre.i.i.i25
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.pre.i.i.i25
@@ -59537,7 +59537,6 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules6indent6indent17h9b3
   %9 = alloca [24 x i8], align 8
   %10 = alloca [40 x i8], align 8
   %.sroa.13 = alloca [16 x i8], align 8
-  %.sroa.451.sroa.4 = alloca [16 x i8], align 8
   %11 = alloca [24 x i8], align 8
   %.sroa.445.sroa.4 = alloca [16 x i8], align 8
   %12 = alloca [4 x i8], align 4
@@ -60041,19 +60040,6 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules6indent6indent17h9b3
   %or.cond255 = and i1 %.not.not.i, %184
   br i1 %or.cond255, label %185, label %.outer
 
-.outer:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd55e2ffbf75597eE.exit.i", %183, %158
-  %.sroa.5.1 = phi i64 [ %.sroa.5.0.ph319, %158 ], [ undef, %183 ], [ %.sroa.0.0.sroa.speculated.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd55e2ffbf75597eE.exit.i" ]
-  %.sroa.015.1 = phi i64 [ %.sroa.015.0.ph320, %158 ], [ 0, %183 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd55e2ffbf75597eE.exit.i" ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.451.sroa.4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.451.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.447.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, i64 16, i1 false)
-  store i64 0, ptr %38, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.451.sroa.4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.451.sroa.4)
-  %.not309 = icmp eq ptr %113, null
-  br i1 %.not309, label %.outer._crit_edge, label %.lr.ph
-
 185:                                              ; preds = %183
   %186 = sub nuw i64 %storemerge93, %storemerge
   %187 = load ptr, ptr %35, align 8, !noalias !4578, !nonnull !4, !align !37, !noundef !4
@@ -60080,6 +60066,16 @@ define hidden void @_ZN11ruff_linter5rules10pydocstyle5rules6indent6indent17h9b3
   store i64 %196, ptr %81, align 8, !alias.scope !4581, !noalias !4584
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %186, i64 %.sroa.5.0.ph319)
   br label %.outer
+
+.outer:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd55e2ffbf75597eE.exit.i", %183, %158
+  %.sroa.5.1 = phi i64 [ %.sroa.5.0.ph319, %158 ], [ undef, %183 ], [ %.sroa.0.0.sroa.speculated.i.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd55e2ffbf75597eE.exit.i" ]
+  %.sroa.015.1 = phi i64 [ %.sroa.015.0.ph320, %158 ], [ 0, %183 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbd55e2ffbf75597eE.exit.i" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.447.sroa.4.0..sroa.6.0..sroa_idx.sroa_idx, i64 16, i1 false)
+  store i64 0, ptr %38, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
+  %.not309 = icmp eq ptr %113, null
+  br i1 %.not309, label %.outer._crit_edge, label %.lr.ph
 
 .loopexit259:                                     ; preds = %165
   %lpad.loopexit261 = landingpad { ptr, i32 }
@@ -62305,10 +62301,10 @@ _ZN16ruff_source_file8newlines4Line8full_end17ha6e9eebdca761dd3E.exit.i: ; preds
 split.i:                                          ; preds = %479
   %.sroa.057.0.copyload.pre.i = load i64, ptr %122, align 8, !noalias !4876
   %.sroa.458.sroa.0.0.copyload.pre.i = load ptr, ptr %.sroa.6.0..sroa_idx.i93, align 8, !noalias !4876
+  %496 = trunc nuw i64 %.sroa.057.0.copyload.pre.i to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.458.sroa.4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.458.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.gep.i, i64 16, i1 false), !noalias !4876
   store i64 0, ptr %122, align 8, !noalias !4876
-  %496 = trunc nuw i64 %.sroa.057.0.copyload.pre.i to i1
   br i1 %496, label %497, label %498
 
 497:                                              ; preds = %split.i, %split.thread.i
@@ -62968,10 +62964,10 @@ _ZN16ruff_source_file8newlines4Line8full_end17ha6e9eebdca761dd3E.exit172.i: ; pr
 
 split451.i:                                       ; preds = %687
   %.pre452.i = load i64, ptr %122, align 8, !range !3, !alias.scope !5037, !noalias !5040
+  %704 = trunc nuw i64 %.pre452.i to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !5037)
   call void @llvm.experimental.noalias.scope.decl(metadata !5042)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  %704 = trunc nuw i64 %.pre452.i to i1
   br i1 %704, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hdf7ffff9dc46eb52E.exit178.i", label %705
 
 705:                                              ; preds = %split451.i
