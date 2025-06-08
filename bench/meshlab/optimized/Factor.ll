@@ -18,7 +18,7 @@ define noundef range(i32 0, 2) i32 @_Z6FactorddPA2_dd(double noundef %0, double 
   br label %11
 
 11:                                               ; preds = %4, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %4 ]
+  %.0 = zext i1 %6 to i32
   ret i32 %.0
 }
 
@@ -44,6 +44,10 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   store double 0.000000e+00, ptr %14, align 8
   br label %_Z6FactorddPA2_dd.exit
 
+_Z6FactorddPA2_dd.exit:                           ; preds = %8, %11
+  %.0.i = zext i1 %10 to i32
+  br label %41
+
 15:                                               ; preds = %5
   %16 = fmul double %2, 4.000000e+00
   %17 = fneg double %0
@@ -67,7 +71,7 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   store double %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %26, ptr %31, align 8
-  br label %_Z6FactorddPA2_dd.exit
+  br label %41
 
 32:                                               ; preds = %15
   %33 = tail call double @sqrt(double noundef %19) #14
@@ -82,10 +86,10 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   store double %39, ptr %3, align 8
   %40 = fsub double %34, %21
   store double %40, ptr %35, align 8
-  br label %_Z6FactorddPA2_dd.exit
+  br label %41
 
-_Z6FactorddPA2_dd.exit:                           ; preds = %11, %8, %23, %32
-  %.0 = phi i32 [ 2, %32 ], [ 2, %23 ], [ 1, %11 ], [ 0, %8 ]
+41:                                               ; preds = %23, %32, %_Z6FactorddPA2_dd.exit
+  %.0 = phi i32 [ %.0.i, %_Z6FactorddPA2_dd.exit ], [ 2, %32 ], [ 2, %23 ]
   ret i32 %.0
 }
 
@@ -109,7 +113,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
 12:                                               ; preds = %9
   %13 = tail call double @llvm.fabs.f64(double %2)
   %14 = fcmp ugt double %13, %5
-  br i1 %14, label %15, label %_Z6FactordddPA2_dd.exit
+  br i1 %14, label %15, label %_Z6FactorddPA2_dd.exit.i
 
 15:                                               ; preds = %12
   %16 = fneg double %3
@@ -117,6 +121,10 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   store double %17, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %18, align 8
+  br label %_Z6FactorddPA2_dd.exit.i
+
+_Z6FactorddPA2_dd.exit.i:                         ; preds = %15, %12
+  %.0.i.i = zext i1 %14 to i32
   br label %_Z6FactordddPA2_dd.exit
 
 19:                                               ; preds = %9
@@ -274,8 +282,8 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   store double %128, ptr %127, align 8
   br label %_Z6FactordddPA2_dd.exit
 
-_Z6FactordddPA2_dd.exit:                          ; preds = %36, %27, %15, %12, %119
-  %.0 = phi i32 [ 3, %119 ], [ 2, %36 ], [ 2, %27 ], [ 1, %15 ], [ 0, %12 ]
+_Z6FactordddPA2_dd.exit:                          ; preds = %36, %27, %_Z6FactorddPA2_dd.exit.i, %119
+  %.0 = phi i32 [ 3, %119 ], [ %.0.i.i, %_Z6FactorddPA2_dd.exit.i ], [ 2, %36 ], [ 2, %27 ]
   ret i32 %.0
 }
 

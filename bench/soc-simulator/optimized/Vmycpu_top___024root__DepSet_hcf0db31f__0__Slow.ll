@@ -195,22 +195,22 @@ define dso_local void @_Z34Vmycpu_top___024root___eval_settleP20Vmycpu_top___024
   store i8 1, ptr %2, align 1
   br label %3
 
-3:                                                ; preds = %1, %select.unfold
-  %.067 = phi i32 [ 0, %1 ], [ %6, %select.unfold ]
+3:                                                ; preds = %1, %6
+  %.067 = phi i32 [ 0, %1 ], [ %7, %6 ]
   %4 = icmp ugt i32 %.067, 100
-  br i1 %4, label %5, label %select.unfold
+  br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
   tail call void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef nonnull @.str, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2)
-  br label %select.unfold
+  br label %6
 
-select.unfold:                                    ; preds = %5, %3
-  %6 = add i32 %.067, 1
-  %7 = tail call noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #12
+6:                                                ; preds = %5, %3
+  %7 = add i32 %.067, 1
+  %8 = tail call noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #12
   store i8 0, ptr %2, align 1
-  br i1 %7, label %3, label %8
+  br i1 %8, label %3, label %9, !llvm.loop !10
 
-8:                                                ; preds = %select.unfold
+9:                                                ; preds = %6
   ret void
 }
 
@@ -231,7 +231,7 @@ define dso_local noundef zeroext i1 @_Z38Vmycpu_top___024root___eval_phase__stlP
   %6 = getelementptr inbounds nuw [1 x i64], ptr %2, i64 0, i64 %.0.i
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %3, label %8, !llvm.loop !10
+  br i1 %.not.i, label %3, label %8, !llvm.loop !11
 
 8:                                                ; preds = %5
   tail call void @_Z31Vmycpu_top___024root___eval_stlP20Vmycpu_top___024root(ptr noundef nonnull %0) #12
@@ -5656,7 +5656,7 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
 78:                                               ; preds = %73
   %79 = add nsw i32 %storemerge562725, -1
   %80 = icmp eq i32 %storemerge562725, 0
-  br i1 %80, label %.loopexit719, label %73, !llvm.loop !11
+  br i1 %80, label %.loopexit719, label %73, !llvm.loop !12
 
 81:                                               ; preds = %66
   br i1 %.not558, label %322, label %82
@@ -5684,7 +5684,7 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
 91:                                               ; preds = %86
   %92 = add nsw i32 %storemerge727, -1
   %93 = icmp eq i32 %storemerge727, 0
-  br i1 %93, label %.loopexit718, label %86, !llvm.loop !12
+  br i1 %93, label %.loopexit718, label %86, !llvm.loop !13
 
 94:                                               ; preds = %31
   %95 = and i32 %20, 2097152
@@ -6276,7 +6276,7 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
 382:                                              ; preds = %377
   %383 = add nsw i32 %storemerge649729, -1
   %384 = icmp eq i32 %storemerge649729, 0
-  br i1 %384, label %.loopexit717, label %377, !llvm.loop !13
+  br i1 %384, label %.loopexit717, label %377, !llvm.loop !14
 
 385:                                              ; preds = %370
   br i1 %.not644, label %626, label %386
@@ -6302,7 +6302,7 @@ define dso_local void @_Z39Vmycpu_top___024root___stl_comb__TOP__0P20Vmycpu_top_
 395:                                              ; preds = %390
   %396 = add nsw i32 %storemerge645731, -1
   %397 = icmp eq i32 %storemerge645731, 0
-  br i1 %397, label %.loopexit, label %390, !llvm.loop !14
+  br i1 %397, label %.loopexit, label %390, !llvm.loop !15
 
 398:                                              ; preds = %337
   br i1 %.not583, label %436, label %399
@@ -7817,7 +7817,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %613 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %612)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %614, label %611, !llvm.loop !15
+  br i1 %exitcond.not, label %614, label %611, !llvm.loop !16
 
 614:                                              ; preds = %611
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -7862,7 +7862,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %641, ptr %642, align 4
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next573, 32
-  br i1 %exitcond575.not, label %.preheader540, label %640, !llvm.loop !16
+  br i1 %exitcond575.not, label %.preheader540, label %640, !llvm.loop !17
 
 .preheader539:                                    ; preds = %644
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 1296
@@ -7876,7 +7876,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %646, ptr %647, align 1
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond579.not = icmp eq i64 %indvars.iv.next577, 16
-  br i1 %exitcond579.not, label %.preheader539, label %644, !llvm.loop !17
+  br i1 %exitcond579.not, label %.preheader539, label %644, !llvm.loop !18
 
 648:                                              ; preds = %.preheader539, %648
   %indvars.iv580 = phi i64 [ 0, %.preheader539 ], [ %indvars.iv.next581, %648 ]
@@ -7886,7 +7886,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %650, ptr %651, align 1
   %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
   %exitcond583.not = icmp eq i64 %indvars.iv.next581, 64
-  br i1 %exitcond583.not, label %652, label %648, !llvm.loop !18
+  br i1 %exitcond583.not, label %652, label %648, !llvm.loop !19
 
 652:                                              ; preds = %648
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -8085,7 +8085,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %785 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 74, ptr noundef nonnull %784)
   %indvars.iv.next585 = add nuw nsw i64 %indvars.iv584, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next585, 8
-  br i1 %exitcond587.not, label %.preheader538, label %783, !llvm.loop !19
+  br i1 %exitcond587.not, label %.preheader538, label %783, !llvm.loop !20
 
 .preheader537:                                    ; preds = %787
   %786 = getelementptr inbounds nuw i8, ptr %0, i64 1460
@@ -8099,7 +8099,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %789, ptr %790, align 1
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
   %exitcond591.not = icmp eq i64 %indvars.iv.next589, 3
-  br i1 %exitcond591.not, label %.preheader537, label %787, !llvm.loop !20
+  br i1 %exitcond591.not, label %.preheader537, label %787, !llvm.loop !21
 
 .preheader536:                                    ; preds = %792
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 1472
@@ -8112,7 +8112,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %793, ptr %794, align 4
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %exitcond595.not = icmp eq i64 %indvars.iv.next593, 3
-  br i1 %exitcond595.not, label %.preheader536, label %792, !llvm.loop !21
+  br i1 %exitcond595.not, label %.preheader536, label %792, !llvm.loop !22
 
 795:                                              ; preds = %.preheader536, %795
   %indvars.iv596 = phi i64 [ 0, %.preheader536 ], [ %indvars.iv.next597, %795 ]
@@ -8122,7 +8122,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %797, ptr %798, align 1
   %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next597, 3
-  br i1 %exitcond599.not, label %799, label %795, !llvm.loop !22
+  br i1 %exitcond599.not, label %799, label %795, !llvm.loop !23
 
 799:                                              ; preds = %795
   %800 = getelementptr inbounds nuw i8, ptr %0, i64 708
@@ -8138,7 +8138,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %804, ptr %805, align 1
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond603.not = icmp eq i64 %indvars.iv.next601, 64
-  br i1 %exitcond603.not, label %.preheader535.critedge, label %802, !llvm.loop !23
+  br i1 %exitcond603.not, label %.preheader535.critedge, label %802, !llvm.loop !24
 
 .preheader535.critedge:                           ; preds = %802
   %806 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 42)
@@ -8273,7 +8273,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i64 %894, ptr %895, align 8
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next614, 512
-  br i1 %exitcond616.not, label %.preheader533, label %893, !llvm.loop !24
+  br i1 %exitcond616.not, label %.preheader533, label %893, !llvm.loop !25
 
 .preheader532:                                    ; preds = %897
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 5920
@@ -8286,7 +8286,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %898, ptr %899, align 4
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %exitcond620.not = icmp eq i64 %indvars.iv.next618, 64
-  br i1 %exitcond620.not, label %.preheader532, label %897, !llvm.loop !25
+  br i1 %exitcond620.not, label %.preheader532, label %897, !llvm.loop !26
 
 .preheader531:                                    ; preds = %901
   %900 = getelementptr inbounds nuw i8, ptr %0, i64 10016
@@ -8299,7 +8299,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i64 %902, ptr %903, align 8
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond624.not = icmp eq i64 %indvars.iv.next622, 512
-  br i1 %exitcond624.not, label %.preheader531, label %901, !llvm.loop !26
+  br i1 %exitcond624.not, label %.preheader531, label %901, !llvm.loop !27
 
 904:                                              ; preds = %.preheader531, %904
   %indvars.iv625 = phi i64 [ 0, %.preheader531 ], [ %indvars.iv.next626, %904 ]
@@ -8308,7 +8308,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %905, ptr %906, align 4
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond628.not = icmp eq i64 %indvars.iv.next626, 64
-  br i1 %exitcond628.not, label %907, label %904, !llvm.loop !27
+  br i1 %exitcond628.not, label %907, label %904, !llvm.loop !28
 
 907:                                              ; preds = %904
   %908 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 43)
@@ -8346,7 +8346,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %926, ptr %927, align 1
   %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next630, 64
-  br i1 %exitcond632.not, label %.preheader530, label %924, !llvm.loop !28
+  br i1 %exitcond632.not, label %.preheader530, label %924, !llvm.loop !29
 
 928:                                              ; preds = %.preheader530, %928
   %indvars.iv633 = phi i64 [ 0, %.preheader530 ], [ %indvars.iv.next634, %928 ]
@@ -8354,7 +8354,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   %930 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 70, ptr noundef nonnull %929)
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond636.not = icmp eq i64 %indvars.iv.next634, 4
-  br i1 %exitcond636.not, label %931, label %928, !llvm.loop !29
+  br i1 %exitcond636.not, label %931, label %928, !llvm.loop !30
 
 931:                                              ; preds = %928
   %932 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
@@ -8399,7 +8399,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %958, ptr %959, align 4
   %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
   %exitcond640.not = icmp eq i64 %indvars.iv.next638, 16
-  br i1 %exitcond640.not, label %.preheader529.critedge, label %957, !llvm.loop !30
+  br i1 %exitcond640.not, label %.preheader529.critedge, label %957, !llvm.loop !31
 
 .preheader529.critedge:                           ; preds = %957
   %960 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8564,7 +8564,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %1070, ptr %1071, align 4
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond665.not = icmp eq i64 %indvars.iv.next663, 1024
-  br i1 %exitcond665.not, label %.preheader526, label %1069, !llvm.loop !31
+  br i1 %exitcond665.not, label %.preheader526, label %1069, !llvm.loop !32
 
 .preheader525:                                    ; preds = %1073
   %1072 = getelementptr inbounds nuw i8, ptr %0, i64 14840
@@ -8577,7 +8577,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %1074, ptr %1075, align 4
   %indvars.iv.next667 = add nuw nsw i64 %indvars.iv666, 1
   %exitcond669.not = icmp eq i64 %indvars.iv.next667, 64
-  br i1 %exitcond669.not, label %.preheader525, label %1073, !llvm.loop !32
+  br i1 %exitcond669.not, label %.preheader525, label %1073, !llvm.loop !33
 
 .preheader:                                       ; preds = %1077
   %1076 = getelementptr inbounds nuw i8, ptr %0, i64 18936
@@ -8590,7 +8590,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %1078, ptr %1079, align 4
   %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
   %exitcond673.not = icmp eq i64 %indvars.iv.next671, 1024
-  br i1 %exitcond673.not, label %.preheader, label %1077, !llvm.loop !33
+  br i1 %exitcond673.not, label %.preheader, label %1077, !llvm.loop !34
 
 1080:                                             ; preds = %.preheader, %1080
   %indvars.iv674 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next675, %1080 ]
@@ -8599,7 +8599,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i32 %1081, ptr %1082, align 4
   %indvars.iv.next675 = add nuw nsw i64 %indvars.iv674, 1
   %exitcond677.not = icmp eq i64 %indvars.iv.next675, 64
-  br i1 %exitcond677.not, label %1083, label %1080, !llvm.loop !34
+  br i1 %exitcond677.not, label %1083, label %1080, !llvm.loop !35
 
 1083:                                             ; preds = %1080
   %1084 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
@@ -8733,3 +8733,4 @@ attributes #12 = { cold }
 !32 = distinct !{!32, !6}
 !33 = distinct !{!33, !6}
 !34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}

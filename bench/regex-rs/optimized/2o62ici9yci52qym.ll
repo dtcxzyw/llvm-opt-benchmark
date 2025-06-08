@@ -65,8 +65,8 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %19 = tail call noundef i64 @_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %18, i32 noundef %7)
-  %.not.i.not = icmp ult i64 %2, %19
-  br i1 %.not.i.not, label %20, label %46
+  %.not.i = icmp ult i64 %2, %19
+  br i1 %.not.i, label %20, label %46
 
 20:                                               ; preds = %16
   %21 = icmp eq i64 %2, 0
@@ -577,13 +577,13 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !51
   call void @"_ZN112_$LT$regex_automata..util..captures..GroupInfoPatternNames$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h275f92c4cb50a20aE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %7), !noalias !55
   %23 = load i64, ptr %3, align 8, !range !46, !noalias !51, !noundef !5
-  %trunc.i27 = trunc nuw i64 %23 to i1
+  %trunc.i25 = trunc nuw i64 %23 to i1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8, !noalias !51, !align !42
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i64, ptr %26, align 8, !noalias !51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !51
-  br i1 %trunc.i27, label %.lr.ph, label %._crit_edge
+  br i1 %trunc.i25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -943,23 +943,28 @@ define void @"_ZN66_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$regex..regex..bytes..Replace
   %7 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !107
   %8 = tail call { i64, ptr } %7(i8 noundef 36, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %6), !noalias !114
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %8, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %9, label %10
+  %9 = trunc i64 %.fca.0.extract.i.i.i.i to i1
+  br i1 %9, label %10, label %_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE.exit.i
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
+  %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %8, 1
+  %11 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull readonly align 1 %3), !noalias !115
+  br label %_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE.exit.i
+
+_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE.exit.i: ; preds = %10, %2
+  %.sroa.0.0.i.i.i.i = and i64 %.fca.0.extract.i.i.i.i, 1
+  %switch.not.not.i = icmp eq i64 %.sroa.0.0.i.i.i.i, 0
+  br i1 %switch.not.not.i, label %12, label %_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit
+
+12:                                               ; preds = %_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE.exit.i
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !99, !noalias !102
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !99, !noalias !102
   br label %_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit
 
-10:                                               ; preds = %2
-  %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %8, 1
-  %11 = tail call noundef i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17habd1359cc593a97cE"(ptr noundef %.fca.1.extract.i.i.i.i, ptr noundef nonnull readonly align 1 %3), !noalias !115
-  br label %_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit
-
-_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit: ; preds = %9, %10
-  %.sink.i = phi i64 [ -9223372036854775808, %9 ], [ -9223372036854775807, %10 ]
+_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE.exit: ; preds = %_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE.exit.i, %12
+  %.sink.i = phi i64 [ -9223372036854775808, %12 ], [ -9223372036854775807, %_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE.exit.i ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !99, !noalias !102
   ret void
 }

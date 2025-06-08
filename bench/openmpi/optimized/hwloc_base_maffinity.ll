@@ -110,13 +110,14 @@ define i32 @prte_hwloc_base_memory_set(ptr noundef readonly captures(none) %0, i
   br label %.thread41
 
 .thread41:                                        ; preds = %6, %20
-  %.0182846 = phi i32 [ -1, %20 ], [ -2, %6 ]
   %.0172945 = phi ptr [ @.str.3, %20 ], [ @.str.2, %6 ]
-  %21 = tail call i32 @prte_hwloc_base_report_bind_failure(ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull %.0172945, i32 noundef %.0182846) #5
+  %21 = zext i1 %8 to i32
+  %.0182846 = xor i32 %21, -1
+  %22 = tail call i32 @prte_hwloc_base_report_bind_failure(ptr noundef nonnull @.str.1, i32 noundef 112, ptr noundef nonnull %.0172945, i32 noundef %.0182846) #5
   br label %.thread37
 
 .thread37:                                        ; preds = %.thread47, %.thread41, %4
-  %.019 = phi i32 [ %5, %4 ], [ %21, %.thread41 ], [ 0, %.thread47 ]
+  %.019 = phi i32 [ %5, %4 ], [ %22, %.thread41 ], [ 0, %.thread47 ]
   ret i32 %.019
 }
 
@@ -178,13 +179,14 @@ define i32 @prte_hwloc_base_membind(ptr noundef readonly captures(none) %0, i64 
   br label %.thread42
 
 .thread42:                                        ; preds = %7, %20
-  %.0182947 = phi i32 [ -1, %20 ], [ -2, %7 ]
   %.03046 = phi ptr [ @.str.3, %20 ], [ @.str.2, %7 ]
-  %21 = tail call i32 @prte_hwloc_base_report_bind_failure(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull %.03046, i32 noundef %.0182947) #5
+  %21 = zext i1 %9 to i32
+  %.0182947 = xor i32 %21, -1
+  %22 = tail call i32 @prte_hwloc_base_report_bind_failure(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull %.03046, i32 noundef %.0182947) #5
   br label %.thread38
 
 .thread38:                                        ; preds = %.thread48, %.thread42, %5
-  %.020 = phi i32 [ %6, %5 ], [ %21, %.thread42 ], [ 0, %.thread48 ]
+  %.020 = phi i32 [ %6, %5 ], [ %22, %.thread42 ], [ 0, %.thread48 ]
   ret i32 %.020
 }
 

@@ -3600,14 +3600,14 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   %node_list = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %node_list monotonic, align 8
   %atomic-temp.i.0.i = inttoptr i64 %9 to ptr
-  %tobool56 = icmp ne i64 %9, 0
-  %cmp57 = icmp ne ptr %0, %atomic-temp.i.0.i
-  %10 = select i1 %tobool56, i1 %cmp57, i1 false
+  %tobool59 = icmp ne i64 %9, 0
+  %cmp60 = icmp ne ptr %0, %atomic-temp.i.0.i
+  %10 = select i1 %tobool59, i1 %cmp60, i1 false
   br i1 %10, label %while.body, label %while.end.thread
 
 while.body:                                       ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit, %while.body
-  %curr.058 = phi ptr [ %11, %while.body ], [ %atomic-temp.i.0.i, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
-  %11 = load ptr, ptr %curr.058, align 8
+  %curr.061 = phi ptr [ %11, %while.body ], [ %atomic-temp.i.0.i, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit ]
+  %11 = load ptr, ptr %curr.061, align 8
   %tobool = icmp ne ptr %11, null
   %cmp = icmp ne ptr %11, %0
   %12 = select i1 %tobool, i1 %cmp, i1 false
@@ -3618,8 +3618,8 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp4, label %if.then, label %if.else
 
 while.end.thread:                                 ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorC2EPSG_mb.exit
-  %cmp463 = icmp eq i64 %9, 0
-  br i1 %cmp463, label %if.then, label %if.then10
+  %cmp469 = icmp eq i64 %9, 0
+  br i1 %cmp469, label %if.then, label %if.then10
 
 if.then:                                          ; preds = %while.end.thread, %while.end
   %13 = load atomic i64, ptr %my_mask acquire, align 8
@@ -3693,7 +3693,7 @@ if.then10:                                        ; preds = %while.end.thread
 
 if.else:                                          ; preds = %while.end
   %26 = load ptr, ptr %11, align 8
-  store ptr %26, ptr %curr.058, align 8
+  store ptr %26, ptr %curr.061, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else, %if.then10
@@ -3722,7 +3722,7 @@ if.else.i.i.i32:                                  ; preds = %if.then.i.i29
   br label %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35
 
 _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35: ; preds = %cleanup, %if.then.i.i.i34, %if.else.i.i.i32
-  switch i32 %cleanup.dest.slot.0, label %default.unreachable60 [
+  switch i32 %cleanup.dest.slot.0, label %default.unreachable66 [
     i32 3, label %do.body
     i32 1, label %return
     i32 2, label %do.end
@@ -3768,10 +3768,11 @@ _ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d11
   br label %return
 
 return:                                           ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE14const_accessor7releaseEv.exit48
-  %retval.2 = phi i1 [ true, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE14const_accessor7releaseEv.exit48 ], [ false, %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35 ]
+  %39 = trunc i32 %cleanup.dest.slot.0 to i1
+  %retval.2 = xor i1 %39, true
   ret i1 %retval.2
 
-default.unreachable60:                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35
+default.unreachable66:                            ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIjN7openvdb5v11_02io5Queue6StatusENS0_2d116tbb_hash_compareIjEENS8_13tbb_allocatorISt4pairIKjS7_EEEE15bucket_accessorD2Ev.exit35
   unreachable
 }
 

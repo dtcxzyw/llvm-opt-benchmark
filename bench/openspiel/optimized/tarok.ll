@@ -5885,18 +5885,23 @@ _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7: ; preds = %.lr.ph
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %8, align 8
   %31 = icmp eq i32 %29, %30
-  br i1 %31, label %._crit_edge, label %32
+  br i1 %31, label %._crit_edge.loopexit, label %32
 
 32:                                               ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7
   %33 = icmp eq i32 %29, 4
   %spec.select = select i1 %33, i8 1, i8 %.019
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 8
   %.not = icmp eq ptr %34, %24
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %32, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit
-  %.0.lcssa.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ], [ %spec.select, %32 ]
-  %.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ 1, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ], [ 0, %32 ]
+._crit_edge.loopexit:                             ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7, %32
+  %.0.lcssa.sink.ph = phi i8 [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ], [ %spec.select, %32 ]
+  %.sink.ph = zext i1 %31 to i8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit
+  %.0.lcssa.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ %.0.lcssa.sink.ph, %._crit_edge.loopexit ]
+  %.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ %.sink.ph, %._crit_edge.loopexit ]
   store i8 %.0.lcssa.sink, ptr %0, align 1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sink, ptr %35, align 1
@@ -6820,12 +6825,12 @@ _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit: ; preds = %.lr.ph
   br i1 %14, label %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge, label %7
 
 _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge.thr_comm: ; preds = %7, %2
-  %.not57 = icmp eq i32 %1, 4
-  br i1 %.not57, label %.loopexit, label %15
+  %.not59 = icmp eq i32 %1, 4
+  br i1 %.not59, label %.loopexit, label %15
 
 _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge: ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit
-  %.not56 = icmp eq i32 %1, 4
-  br i1 %.not56, label %15, label %.loopexit
+  %.not58 = icmp eq i32 %1, 4
+  br i1 %.not58, label %15, label %.loopexit
 
 15:                                               ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge.thr_comm, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge
   %16 = load i64, ptr %4, align 8
@@ -6878,9 +6883,9 @@ _ZNKSt6vectorIlSaIlEE2atEm.exit24:                ; preds = %31, %_ZNK10open_spi
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph40, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIlSaIlEE2atEm.exit24, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge.thr_comm, %15, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge
-  %.sroa.029.0 = phi i8 [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge ], [ 1, %15 ], [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge.thr_comm ], [ 1, %_ZNKSt6vectorIlSaIlEE2atEm.exit24 ]
+  %or.cond2050 = phi i8 [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge ], [ 1, %15 ], [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge.thr_comm ], [ 1, %_ZNKSt6vectorIlSaIlEE2atEm.exit24 ]
   %.sroa.3.0 = phi i64 [ undef, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge ], [ %16, %15 ], [ undef, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit._crit_edge.thr_comm ], [ %.1, %_ZNKSt6vectorIlSaIlEE2atEm.exit24 ]
-  %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.029.0, 0
+  %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %or.cond2050, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i8, i64 } %.fca.1.insert
 }

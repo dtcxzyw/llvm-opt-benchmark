@@ -11783,7 +11783,6 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERK
 
 12:                                               ; preds = %9, %7
   %.sroa.034.0 = phi ptr [ %11, %9 ], [ undef, %7 ]
-  %.sroa.535.0 = phi i8 [ 1, %9 ], [ 0, %7 ]
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 168
   %.sroa.423.0.copyload = load i8, ptr %.sroa.423.0..sroa_idx, align 8
   %13 = trunc nuw i8 %.sroa.423.0.copyload to i1
@@ -11797,8 +11796,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERK
 
 17:                                               ; preds = %14, %12
   %.sroa.025.0 = phi ptr [ %16, %14 ], [ undef, %12 ]
-  %.sroa.526.0 = phi i8 [ 1, %14 ], [ 0, %12 ]
-  tail call void @_ZN4Luau8Property6createESt8optionalIPKNS_4TypeEES5_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::Property") align 8 %0, ptr %.sroa.034.0, i8 %.sroa.535.0, ptr %.sroa.025.0, i8 %.sroa.526.0)
+  tail call void @_ZN4Luau8Property6createESt8optionalIPKNS_4TypeEES5_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::Property") align 8 %0, ptr %.sroa.034.0, i8 %.sroa.432.0.copyload, ptr %.sroa.025.0, i8 %.sroa.423.0.copyload)
   %18 = load i8, ptr %2, align 8, !tbaa !311, !range !14, !noundef !15
   store i8 %18, ptr %0, align 8, !tbaa !311
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8

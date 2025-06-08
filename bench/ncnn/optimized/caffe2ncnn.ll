@@ -387,7 +387,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   %72 = load ptr, ptr @stderr, align 8, !tbaa !4
   %73 = load ptr, ptr %1, align 8, !tbaa !9
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str, ptr noundef %73) #23
-  br label %3130
+  br label %3132
 
 75:                                               ; preds = %2, %2
   %76 = icmp eq i32 %0, 5
@@ -516,12 +516,12 @@ _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit.i: ; preds = %100, %.noe
 131:                                              ; preds = %117
   %132 = load ptr, ptr @stderr, align 8, !tbaa !4
   %133 = call i64 @fwrite(ptr nonnull @.str.3, i64 28, i64 1, ptr %132) #26
-  br label %3128
+  br label %3130
 
 134:                                              ; preds = %86
   %135 = landingpad { ptr, i32 }
           cleanup
-  br label %3129
+  br label %3131
 
 136:                                              ; preds = %_ZN5caffe12NetParameterC2Ev.exit
   %137 = landingpad { ptr, i32 }
@@ -7285,28 +7285,33 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44) #24
   br label %.body
 
-3128:                                             ; preds = %192, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, %131
-  %.1 = phi i32 [ -1, %131 ], [ 0, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ], [ -1, %192 ]
+3128:                                             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, %192
+  %3129 = xor i1 %.0.i1289, true
+  %.2 = sext i1 %3129 to i32
+  br label %3130
+
+3130:                                             ; preds = %3128, %131
+  %.1 = phi i32 [ %.2, %3128 ], [ -1, %131 ]
   call void @_ZN5caffe12NetParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %43) #24
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %43) #24
   call void @_ZN5caffe12NetParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %42) #24
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %42) #24
-  br label %3130
+  br label %3132
 
 .body:                                            ; preds = %195, %183, %136, %116, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit1891
   %.pn1272.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1272.pn.pn.pn.pn, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit1891 ], [ %137, %136 ], [ %.pn.i, %116 ], [ %196, %195 ], [ %.pn.pn.pn.i, %183 ]
   call void @_ZN5caffe12NetParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %43) #24
-  br label %3129
+  br label %3131
 
-3129:                                             ; preds = %.body, %134
+3131:                                             ; preds = %.body, %134
   %.pn1272.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn1272.pn.pn.pn.pn.pn.pn.pn, %.body ], [ %135, %134 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %43) #24
   call void @_ZN5caffe12NetParameterD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %42) #24
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %42) #24
   resume { ptr, i32 } %.pn1272.pn.pn.pn.pn.pn.pn.pn.pn
 
-3130:                                             ; preds = %3128, %71
-  %.0925 = phi i32 [ %.1, %3128 ], [ -1, %71 ]
+3132:                                             ; preds = %3130, %71
+  %.0925 = phi i32 [ %.1, %3130 ], [ -1, %71 ]
   ret i32 %.0925
 }
 

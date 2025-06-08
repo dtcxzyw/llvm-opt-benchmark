@@ -515,17 +515,21 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit27.thread.i27:     ; preds = %.lr.ph.i18, %_ZNK8u
 .critedge.i42:                                    ; preds = %82, %.critedge.preheader.split.i38
   %indvars.iv44.i43 = phi i64 [ %indvars.iv.next45.i46, %82 ], [ %.pre-phi, %.critedge.preheader.split.i38 ]
   %exitcond48.not.i44 = icmp eq i64 %indvars.iv44.i43, %wide.trip.count47.i41
-  br i1 %exitcond48.not.i44, label %_ZNK8uint_seteqERKS_.exit.thread, label %82
+  br i1 %exitcond48.not.i44, label %_ZNK8uint_seteqERKS_.exit.thread.loopexit, label %82
 
 82:                                               ; preds = %.critedge.i42
   %83 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv44.i43
   %84 = load i32, ptr %83, align 4, !tbaa !17
   %.not24.i45 = icmp eq i32 %84, 0
   %indvars.iv.next45.i46 = add nuw nsw i64 %indvars.iv44.i43, 1
-  br i1 %.not24.i45, label %.critedge.i42, label %_ZNK8uint_seteqERKS_.exit.thread, !llvm.loop !23
+  br i1 %.not24.i45, label %.critedge.i42, label %_ZNK8uint_seteqERKS_.exit.thread.loopexit, !llvm.loop !23
 
-_ZNK8uint_seteqERKS_.exit.thread:                 ; preds = %.critedge39.i, %.critedge.i25, %.lr.ph.i32, %82, %.critedge.i42, %_ZNK8uint_set9subset_ofERKS_.exit, %_ZNK8uint_seteqERKS_.exit, %.critedge.preheader.thread81.i, %.critedge39.preheader.i
-  %85 = phi i32 [ 2, %.critedge39.preheader.i ], [ 2, %.critedge.preheader.thread81.i ], [ 1, %_ZNK8uint_seteqERKS_.exit ], [ -1, %_ZNK8uint_set9subset_ofERKS_.exit ], [ -1, %.critedge.i42 ], [ 0, %82 ], [ 0, %.lr.ph.i32 ], [ 1, %.critedge.i25 ], [ 2, %.critedge39.i ]
+_ZNK8uint_seteqERKS_.exit.thread.loopexit:        ; preds = %.critedge.i42, %82
+  %.ph = sext i1 %exitcond48.not.i44 to i32
+  br label %_ZNK8uint_seteqERKS_.exit.thread
+
+_ZNK8uint_seteqERKS_.exit.thread:                 ; preds = %.critedge39.i, %.critedge.i25, %.lr.ph.i32, %_ZNK8uint_seteqERKS_.exit.thread.loopexit, %_ZNK8uint_set9subset_ofERKS_.exit, %_ZNK8uint_seteqERKS_.exit, %.critedge.preheader.thread81.i, %.critedge39.preheader.i
+  %85 = phi i32 [ 2, %.critedge39.preheader.i ], [ 2, %.critedge.preheader.thread81.i ], [ 1, %_ZNK8uint_seteqERKS_.exit ], [ -1, %_ZNK8uint_set9subset_ofERKS_.exit ], [ %.ph, %_ZNK8uint_seteqERKS_.exit.thread.loopexit ], [ 0, %.lr.ph.i32 ], [ 1, %.critedge.i25 ], [ 2, %.critedge39.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   br label %86
@@ -5674,8 +5678,8 @@ define hidden noundef zeroext i1 @_ZN20demodulator_rewriter25check_fwd_idx_consi
 
 _ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %1
   %.sroa.0.1.i.i = phi ptr [ %3, %1 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ]
-  %.not48 = icmp eq ptr %.sroa.0.1.i.i, %7
-  br i1 %.not48, label %.loopexit, label %.lr.ph51
+  %.not.not48 = icmp eq ptr %.sroa.0.1.i.i, %7
+  br i1 %.not.not48, label %.loopexit, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -5813,12 +5817,12 @@ _ZN14core_hashtableI14obj_hash_entryI10quantifierE12obj_ptr_hashIS1_E6ptr_eqIS1_
 
 _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i23, %57, %.thread
   %.sroa.031.2 = phi ptr [ %55, %.thread ], [ %.sroa.031.1, %.lr.ph.i.i23 ], [ %58, %57 ]
-  %.not = icmp eq ptr %.sroa.031.2, %7
-  br i1 %.not, label %.loopexit, label %18
+  %.not.not = icmp eq ptr %.sroa.031.2, %7
+  br i1 %.not.not, label %.loopexit, label %18
 
 .loopexit:                                        ; preds = %9, %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit, %.preheader.i.i.i, %.lr.ph.i.i.i20, %.lr.ph39.i.i.i, %49, %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit
-  %.not45 = phi i1 [ true, %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit ], [ false, %49 ], [ false, %.lr.ph39.i.i.i ], [ false, %.lr.ph.i.i.i20 ], [ false, %.preheader.i.i.i ], [ true, %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit ], [ true, %9 ]
-  ret i1 %.not45
+  %.not.not45 = phi i1 [ true, %_ZNK7obj_mapI9func_declP13obj_hashtableI10quantifierEE5beginEv.exit ], [ false, %49 ], [ false, %.lr.ph39.i.i.i ], [ false, %.lr.ph.i.i.i20 ], [ false, %.preheader.i.i.i ], [ true, %_ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableI10quantifierEE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit ], [ true, %9 ]
+  ret i1 %.not.not45
 }
 
 ; Function Attrs: mustprogress uwtable

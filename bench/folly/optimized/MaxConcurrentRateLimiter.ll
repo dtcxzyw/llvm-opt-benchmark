@@ -1608,13 +1608,13 @@ _ZN5folly13hazptr_domainISt6atomicE14list_match_tagEmPNS_10hazptr_objIS1_EERNS_1
   br label %66
 
 66:                                               ; preds = %65, %63
-  %.012.i = phi i64 [ 1, %63 ], [ 0, %65 ]
   %cond.i = icmp eq ptr %.sroa.5.2, null
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.5.2, i64 8
   br i1 %cond.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %66
-  %invariant.op = add nsw i64 %.012.i, -1
+  %not. = xor i1 %62, true
+  %invariant.op = sext i1 %not. to i64
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us, %.split.us
@@ -1625,7 +1625,8 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
   br i1 %70, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us
 
 .split:                                           ; preds = %66
-  %71 = add i64 %.012.i, %.sroa.013.3
+  %.012.i = zext i1 %62 to i64
+  %71 = add i64 %.sroa.013.3, %.012.i
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i, %.split
@@ -2977,8 +2978,8 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7
 56:                                               ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %58 = load i32, ptr %57, align 8, !tbaa !112
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %60, label %62
+  %59 = icmp slt i32 %58, 1
+  br i1 %59, label %62, label %60
 
 60:                                               ; preds = %56
   %61 = add nsw i32 %58, -1
@@ -2990,15 +2991,15 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7
   br label %63
 
 63:                                               ; preds = %62, %60
-  %.012.i = phi i64 [ 0, %60 ], [ -1, %62 ]
+  %64 = sext i1 %59 to i64
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i: ; preds = %63, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
-  %64 = load atomic i64, ptr %16 acquire, align 8
-  %65 = add i64 %.012.i, %64
-  %66 = cmpxchg weak ptr %16, i64 %64, i64 %65 acq_rel acquire, align 8
-  %67 = extractvalue { i64, i1 } %66, 1
-  br i1 %67, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
+  %65 = load atomic i64, ptr %16 acquire, align 8
+  %66 = add i64 %65, %64
+  %67 = cmpxchg weak ptr %16, i64 %65, i64 %66 acq_rel acquire, align 8
+  %68 = extractvalue { i64, i1 } %67, 1
+  br i1 %68, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit, %19
   %.3 = phi i1 [ %.228, %19 ], [ false, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit ], [ %.228, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i ]
@@ -3185,13 +3186,13 @@ _ZN5folly17hazptr_obj_cohortISt6atomicE13push_safe_objEPNS_10hazptr_objIS1_EE.ex
   br label %86
 
 86:                                               ; preds = %84, %82
-  %.012.i19 = phi i64 [ 1, %82 ], [ 0, %84 ]
   %cond.i = icmp eq ptr %.sroa.524.3, null
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.524.3, i64 8
   br i1 %cond.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %86
-  %invariant.op = add nsw i64 %.012.i19, -1
+  %not. = xor i1 %81, true
+  %invariant.op = sext i1 %not. to i64
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us, %.split.us
@@ -3202,8 +3203,9 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
   br i1 %90, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i.us
 
 .split:                                           ; preds = %86
+  %.012.i19 = zext i1 %81 to i64
   %91 = ptrtoint ptr %.sroa.023.4 to i64
-  %92 = add i64 %.012.i19, %91
+  %92 = add i64 %91, %.012.i19
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i
 
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i: ; preds = %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8cas_headERmm.exit.i, %.split

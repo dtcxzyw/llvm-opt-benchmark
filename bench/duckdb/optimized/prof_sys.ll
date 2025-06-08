@@ -129,11 +129,14 @@ define internal i64 @malloc_write_fd(i32 noundef %0, ptr noundef %1, i64 noundef
 
 4:                                                ; preds = %9, %3
   %.014 = phi i64 [ 0, %3 ], [ %10, %9 ]
+  %.013 = phi i64 [ undef, %3 ], [ %.1, %9 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.014
   %6 = sub i64 %2, %.014
   %7 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef %0, ptr noundef %5, i64 noundef %6) #12
-  %8 = icmp sgt i64 %7, -1
-  br i1 %8, label %9, label %12
+  %8 = icmp slt i64 %7, 0
+  %.1 = select i1 %8, i64 %7, i64 %.013
+  %cond = icmp sgt i64 %7, -1
+  br i1 %cond, label %9, label %12
 
 9:                                                ; preds = %4
   %10 = add i64 %7, %.014
@@ -141,7 +144,7 @@ define internal i64 @malloc_write_fd(i32 noundef %0, ptr noundef %1, i64 noundef
   br i1 %11, label %4, label %12
 
 12:                                               ; preds = %9, %4
-  %.2 = phi i64 [ %7, %4 ], [ %10, %9 ]
+  %.2 = phi i64 [ %.1, %4 ], [ %10, %9 ]
   ret i64 %.2
 }
 

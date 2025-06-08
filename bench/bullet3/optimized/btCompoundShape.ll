@@ -1398,46 +1398,40 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %21 = fcmp ogt float %20, %18
   %.0104 = select i1 %21, i64 1, i64 2
   %.0102 = select i1 %21, float %20, float %18
-  %.099 = select i1 %21, i64 2, i64 1
   %22 = load float, ptr %13, align 4, !tbaa !22
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
   %24 = fcmp ogt float %23, %.0102
-  br i1 %24, label %25, label %26
+  %.1105 = select i1 %24, i64 0, i64 %.0104
+  %.1103 = select i1 %24, float %23, float %.0102
+  %25 = or i1 %21, %24
+  %.1100 = select i1 %25, i64 2, i64 1
+  %26 = load float, ptr %0, align 4, !tbaa !22
+  %27 = tail call noundef float @llvm.fabs.f32(float %26)
+  %28 = load float, ptr %14, align 4, !tbaa !22
+  %29 = tail call noundef float @llvm.fabs.f32(float %28)
+  %30 = fadd float %27, %29
+  %31 = load float, ptr %15, align 4, !tbaa !22
+  %32 = tail call noundef float @llvm.fabs.f32(float %31)
+  %33 = fadd float %30, %32
+  %34 = fmul float %2, %33
+  %35 = fcmp ugt float %.1103, %34
+  br i1 %35, label %39, label %36
 
-25:                                               ; preds = %16
-  br label %26
+36:                                               ; preds = %16
+  %37 = fmul float %34, 0x3E80000000000000
+  %38 = fcmp ugt float %.1103, %37
+  br i1 %38, label %39, label %._crit_edge
 
-26:                                               ; preds = %25, %16
-  %.1105 = phi i64 [ 0, %25 ], [ %.0104, %16 ]
-  %.1103 = phi float [ %23, %25 ], [ %.0102, %16 ]
-  %.1100 = phi i64 [ 2, %25 ], [ %.099, %16 ]
-  %.098 = phi i64 [ 1, %25 ], [ 0, %16 ]
-  %27 = load float, ptr %0, align 4, !tbaa !22
-  %28 = tail call noundef float @llvm.fabs.f32(float %27)
-  %29 = load float, ptr %14, align 4, !tbaa !22
-  %30 = tail call noundef float @llvm.fabs.f32(float %29)
-  %31 = fadd float %28, %30
-  %32 = load float, ptr %15, align 4, !tbaa !22
-  %33 = tail call noundef float @llvm.fabs.f32(float %32)
-  %34 = fadd float %31, %33
-  %35 = fmul float %2, %34
-  %36 = fcmp ugt float %.1103, %35
-  br i1 %36, label %40, label %37
-
-37:                                               ; preds = %26
-  %38 = fmul float %35, 0x3E80000000000000
-  %39 = fcmp ugt float %.1103, %38
-  br i1 %39, label %40, label %._crit_edge
-
-40:                                               ; preds = %37, %26
-  %.1 = phi i32 [ %.0118, %26 ], [ 1, %37 ]
-  %41 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.098
+39:                                               ; preds = %36, %16
+  %.1 = phi i32 [ %.0118, %16 ], [ 1, %36 ]
+  %40 = zext i1 %24 to i64
+  %41 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %40
   %42 = getelementptr inbounds nuw float, ptr %41, i64 %.1100
   %43 = load float, ptr %42, align 4, !tbaa !22
   %44 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.1100
   %45 = getelementptr inbounds nuw float, ptr %44, i64 %.1100
   %46 = load float, ptr %45, align 4, !tbaa !22
-  %47 = getelementptr inbounds nuw float, ptr %41, i64 %.098
+  %47 = getelementptr inbounds nuw float, ptr %41, i64 %40
   %48 = load float, ptr %47, align 4, !tbaa !22
   %49 = fsub float %46, %48
   %50 = fmul float %43, 2.000000e+00
@@ -1447,7 +1441,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %54 = fcmp olt float %53, 0x4194000000000000
   br i1 %54, label %55, label %63
 
-55:                                               ; preds = %40
+55:                                               ; preds = %39
   %56 = fcmp ult float %51, 0.000000e+00
   %57 = fadd float %52, 1.000000e+00
   %sqrt115 = tail call float @llvm.sqrt.f32(float %57)
@@ -1461,7 +1455,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %62 = fmul float %59, %61
   br label %71
 
-63:                                               ; preds = %40
+63:                                               ; preds = %39
   %64 = fdiv float 5.000000e-01, %52
   %65 = fadd float %64, 2.000000e+00
   %66 = fmul float %51, %65
@@ -1475,7 +1469,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %.0101 = phi float [ %59, %55 ], [ %67, %63 ]
   %.096 = phi float [ %61, %55 ], [ %69, %63 ]
   %.095 = phi float [ %62, %55 ], [ %70, %63 ]
-  %72 = getelementptr inbounds nuw float, ptr %44, i64 %.098
+  %72 = getelementptr inbounds nuw float, ptr %44, i64 %40
   store float 0.000000e+00, ptr %72, align 4, !tbaa !22
   store float 0.000000e+00, ptr %42, align 4, !tbaa !22
   %73 = load float, ptr %47, align 4, !tbaa !22
@@ -1486,7 +1480,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %77 = tail call float @llvm.fmuladd.f32(float %.0101, float %43, float %76)
   store float %77, ptr %45, align 4, !tbaa !22
   %78 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %0, i64 0, i64 %.1105
-  %79 = getelementptr inbounds nuw float, ptr %78, i64 %.098
+  %79 = getelementptr inbounds nuw float, ptr %78, i64 %40
   %80 = load float, ptr %79, align 4, !tbaa !22
   %81 = getelementptr inbounds nuw float, ptr %78, i64 %.1100
   %82 = load float, ptr %81, align 4, !tbaa !22
@@ -1506,7 +1500,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 90:                                               ; preds = %71, %90
   %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %90 ]
   %91 = getelementptr inbounds nuw [3 x %class.btVector3], ptr %1, i64 0, i64 %indvars.iv
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %.098
+  %92 = getelementptr inbounds nuw float, ptr %91, i64 %40
   %93 = load float, ptr %92, align 4, !tbaa !22
   %94 = getelementptr inbounds nuw float, ptr %91, i64 %.1100
   %95 = load float, ptr %94, align 4, !tbaa !22
@@ -1526,7 +1520,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %103 = icmp sgt i32 %.1, 1
   br i1 %103, label %16, label %._crit_edge, !llvm.loop !56
 
-._crit_edge:                                      ; preds = %101, %37, %4
+._crit_edge:                                      ; preds = %101, %36, %4
   ret void
 }
 

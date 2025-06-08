@@ -850,25 +850,25 @@ define hidden { ptr, i8 } @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new28_$u7b$$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h3ea73a88c0cfb50fE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 4 %3) unnamed_addr #4 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17hc7545f8239ace084E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 4 %3) unnamed_addr #4 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -3155,8 +3155,8 @@ define hidden { ptr, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h6f611a
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h03d2dd1540f54d08E.llvm.5542961546488995764"(i64 noundef %0, i64 %1) unnamed_addr #3 {
-  %switch = icmp ne i64 %0, 0
-  ret i1 %switch
+  %3 = trunc i64 %0 to i1
+  ret i1 %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -3698,34 +3698,34 @@ _ZN3std4sync4once4Once9call_once17h577dd9554f35c9e8E.llvm.5542961546488995764.ex
 define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E(ptr noalias noundef readonly align 1 dereferenceable(12) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 1, !noundef !5
   %3 = and i32 %2, 3
-  %.09.not = icmp ne i32 %3, 0
+  %.09 = icmp ne i32 %3, 0
   %4 = lshr i32 %2, 1
   %5 = and i32 %4, 2
-  %6 = zext i1 %.09.not to i32
-  %.114 = or disjoint i32 %5, %6
-  %.1 = zext nneg i32 %.114 to i64
+  %6 = zext i1 %.09 to i32
+  %spec.select16 = or disjoint i32 %5, %6
+  %spec.select = zext nneg i32 %spec.select16 to i64
   %7 = and i32 %2, 16
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %.thread
 
 .thread:                                          ; preds = %1
-  %9 = or disjoint i64 %.1, 4
-  br label %.thread12
+  %9 = or disjoint i64 %spec.select, 4
+  br label %.thread13
 
 10:                                               ; preds = %1
   %11 = and i32 %2, 1
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.thread12, label %12
+  br i1 %.not, label %.thread13, label %12
 
 12:                                               ; preds = %10
   %13 = lshr i32 %2, 11
   %14 = and i32 %13, 4
-  %spec.select16 = or disjoint i32 %.114, %14
-  %spec.select = zext nneg i32 %spec.select16 to i64
-  br label %.thread12
+  %spec.select1518 = or disjoint i32 %spec.select16, %14
+  %spec.select15 = zext nneg i32 %spec.select1518 to i64
+  br label %.thread13
 
-.thread12:                                        ; preds = %12, %10, %.thread
-  %15 = phi i64 [ %9, %.thread ], [ %.1, %10 ], [ %spec.select, %12 ]
+.thread13:                                        ; preds = %12, %10, %.thread
+  %15 = phi i64 [ %9, %.thread ], [ %spec.select, %10 ], [ %spec.select15, %12 ]
   %16 = tail call noundef zeroext i1 @_ZN3mio5event5event5Event15is_write_closed17ha817df7712a2e5e0E(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %0)
   %17 = or i64 %15, 8
   %.3 = select i1 %16, i64 %17, i64 %15
@@ -3733,8 +3733,8 @@ define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17h
   %19 = and i32 %18, 32
   %20 = shl i32 %2, 3
   %21 = and i32 %20, 16
-  %.417 = or disjoint i32 %21, %19
-  %.4 = zext nneg i32 %.417 to i64
+  %.419 = or disjoint i32 %21, %19
+  %.4 = zext nneg i32 %.419 to i64
   %.5 = or i64 %.3, %.4
   ret i64 %.5
 }
@@ -6494,8 +6494,7 @@ define hidden { i64, ptr } @"_ZN72_$LT$tokio..runtime..scheduler..Handle$u20$as$
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8414ab62449d27f8E.llvm.5542961546488995764.exit": ; preds = %9, %4
   %.sroa.3.0 = phi ptr [ %5, %4 ], [ %10, %9 ]
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ 1, %9 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, ptr } poison, i64 %2, 0
   %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
   ret { i64, ptr } %15
 }
@@ -6643,7 +6642,7 @@ define hidden { i64, i64 } @_ZN5tokio7runtime4time5entry9StateCell12mark_pending
   br i1 %.sroa.18.0.in.i, label %16, label %5
 
 16:                                               ; preds = %14, %12
-  %.sroa.0.0 = phi i64 [ 1, %12 ], [ 0, %14 ]
+  %.sroa.0.0 = zext i1 %13 to i64
   %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, i64 } %17, i64 %.0, 1
   ret { i64, i64 } %18
@@ -6898,8 +6897,7 @@ _ZN5tokio7runtime6driver6Handle4time17h85722b047daee337E.exit: ; preds = %5
   unreachable
 
 19:                                               ; preds = %17, %15
-  %.sroa.0.0.i = phi i64 [ 0, %15 ], [ 1, %17 ]
-  store i64 %.sroa.0.0.i, ptr %0, align 8
+  store i64 %6, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8936,16 +8934,19 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio4sync5watch13maybe_changed17h8
 7:                                                ; preds = %2
   %8 = and i64 %4, 1
   %.not3 = icmp eq i64 %8, 0
-  %spec.select = select i1 %.not3, i8 2, i8 1
-  br label %10
+  br i1 %.not3, label %10, label %11
 
 9:                                                ; preds = %2
   store i64 %5, ptr %1, align 8
-  br label %10
+  br label %11
 
-10:                                               ; preds = %7, %9
-  %.1 = phi i8 [ 0, %9 ], [ %spec.select, %7 ]
+10:                                               ; preds = %7, %11
+  %.1 = phi i8 [ %.0, %11 ], [ 2, %7 ]
   ret i8 %.1
+
+11:                                               ; preds = %7, %9
+  %.0 = zext i1 %.not to i8
+  br label %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -9184,15 +9185,18 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync5watch17Receiver$LT$T$GT
 8:                                                ; preds = %1
   %9 = and i64 %5, 1
   %.not3.i = icmp eq i64 %9, 0
-  %spec.select.i = select i1 %.not3.i, i8 2, i8 1
-  br label %_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit
+  br i1 %.not3.i, label %_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit, label %11
 
 10:                                               ; preds = %1
   store i64 %6, ptr %3, align 8, !alias.scope !801
+  br label %11
+
+11:                                               ; preds = %10, %8
+  %.0.i = zext i1 %.not.i to i8
   br label %_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit
 
-_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit: ; preds = %8, %10
-  %.1.i = phi i8 [ 0, %10 ], [ %spec.select.i, %8 ]
+_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit: ; preds = %8, %11
+  %.1.i = phi i8 [ %.0.i, %11 ], [ 2, %8 ]
   ret i8 %.1.i
 }
 

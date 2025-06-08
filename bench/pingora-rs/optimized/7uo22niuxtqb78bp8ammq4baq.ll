@@ -891,7 +891,6 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$10value_iter17hce444
   br label %20
 
 20:                                               ; preds = %13, %19
-  %.sroa.08.0 = phi i64 [ 1, %19 ], [ 0, %13 ]
   %.sroa.3.0 = phi i64 [ %.sroa.53.0.copyload, %19 ], [ undef, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %21, align 8
@@ -899,7 +898,7 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$10value_iter17hce444
   store i64 %3, ptr %22, align 8
   store i64 0, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.08.0, ptr %23, align 8
+  store i64 %.sroa.02.0.copyload, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %20, %10
@@ -3000,17 +2999,19 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$7get_all17h014f91b51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !367
   call void @_ZN4http6header4name7HdrName10from_bytes17h0f3843904b93ab46E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %1), !noalias !371
   %5 = load i64, ptr %4, align 8, !range !97, !noalias !367, !noundef !35
+  %6 = icmp eq i64 %5, 2
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.54.0.copyload = load i64, ptr %.sroa.54.0..sroa_idx, align 8
-  %6 = and i64 %5, 1
-  %.sroa.03.0.not = icmp eq i64 %6, 0
+  %.sroa.03.0 = select i1 %6, i64 0, i64 %5
+  %.sroa.54.0 = select i1 %6, i64 undef, i64 %.sroa.54.0.copyload
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !367
-  %.sroa.5.0 = select i1 %.sroa.03.0.not, i64 undef, i64 %.sroa.54.0.copyload
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %7, align 8
-  store i64 %6, ptr %0, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.0, ptr %8, align 8
+  %7 = trunc nuw i64 %.sroa.03.0 to i1
+  %.sroa.5.0 = select i1 %7, i64 %.sroa.54.0, i64 undef
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %8, align 8
+  store i64 %.sroa.03.0, ptr %0, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.0, ptr %9, align 8
   ret void
 }
 

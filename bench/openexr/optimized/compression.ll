@@ -95,18 +95,20 @@ define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(ad
   %25 = call i64 @libdeflate_zlib_compress(ptr noundef nonnull %23, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #6
   call void @libdeflate_free_compressor(ptr noundef nonnull %23) #6
   %.not21 = icmp eq i64 %25, 0
-  br i1 %.not21, label %28, label %26
+  %.not22 = icmp eq ptr %6, null
+  %or.cond = or i1 %.not22, %.not21
+  br i1 %or.cond, label %27, label %26
 
 26:                                               ; preds = %24
-  %.not22 = icmp eq ptr %6, null
-  br i1 %.not22, label %28, label %27
-
-27:                                               ; preds = %26
   store i64 %25, ptr %6, align 8, !tbaa !24
+  br label %27
+
+27:                                               ; preds = %24, %26
+  %.0 = zext i1 %.not21 to i32
   br label %28
 
-28:                                               ; preds = %21, %27, %26, %24
-  %.1 = phi i32 [ 0, %27 ], [ 0, %26 ], [ 1, %24 ], [ 1, %21 ]
+28:                                               ; preds = %21, %27
+  %.1 = phi i32 [ %.0, %27 ], [ 1, %21 ]
   ret i32 %.1
 }
 

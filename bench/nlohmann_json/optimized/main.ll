@@ -4442,8 +4442,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_110matchesAny
 
 _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.039.us, i64 24
-  %.not10.us.not = icmp eq ptr %13, %.8.val
-  br i1 %.not10.us.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.preheader.i.us
+  %.not10.not.us.not = icmp eq ptr %13, %.8.val
+  br i1 %.not10.not.us.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.preheader.i.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.i.us, label %.lr.ph.i
@@ -4541,8 +4541,8 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
 
 _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.preheader.i.us45
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.039.us43, i64 24
-  %.not10.us49.not = icmp eq ptr %44, %.8.val
-  br i1 %.not10.us49.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph.i.us
+  %.not10.not.us49.not = icmp eq ptr %44, %.8.val
+  br i1 %.not10.not.us49.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph.i.us
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread
   %.sroa.01.039 = phi ptr [ %84, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ], [ %.0.val, %.lr.ph.split ]
@@ -4645,8 +4645,8 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
 
 _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread: ; preds = %51, %.preheader.i
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.039, i64 24
-  %.not10.not = icmp eq ptr %84, %.8.val
-  br i1 %.not10.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph.i
+  %.not10.not.not = icmp eq ptr %84, %.8.val
+  br i1 %.not10.not.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph.i
 
 _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7: ; preds = %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread, %63, %.preheader.i, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48, %35, %.preheader.i.us45, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us, %10, %3
   %.0 = phi i1 [ %or.cond, %3 ], [ true, %10 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ true, %.preheader.i.us45 ], [ true, %35 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48 ], [ true, %.preheader.i ], [ true, %63 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ]
@@ -12019,8 +12019,8 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   br i1 %.not1114.i.i, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %24
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %24 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds nuw [4 x [5 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 0, i64 %indvars.iv70
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %24 ], [ 0, %.preheader ]
+  %19 = getelementptr inbounds nuw [4 x [5 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 0, i64 %indvars.iv71
   %20 = load i8, ptr %19, align 1, !tbaa !38
   %21 = sext i8 %20 to i32
   %22 = call i32 @tolower(i32 noundef %21) #52
@@ -12028,12 +12028,12 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   br i1 %23, label %.split.us, label %25
 
 24:                                               ; preds = %25
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond73 = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73, label %.critedge, label %.preheader.split.us, !llvm.loop !356
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond74 = icmp eq i64 %indvars.iv.next72, 4
+  br i1 %exitcond74, label %.critedge, label %.preheader.split.us, !llvm.loop !356
 
 25:                                               ; preds = %.preheader.split.us
-  %26 = getelementptr inbounds nuw [4 x [6 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 0, i64 %indvars.iv70
+  %26 = getelementptr inbounds nuw [4 x [6 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 0, i64 %indvars.iv71
   %27 = load i8, ptr %26, align 2, !tbaa !38
   %28 = sext i8 %27 to i32
   %29 = call i32 @tolower(i32 noundef %28) #52
@@ -12117,8 +12117,9 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   br i1 %62, label %.split.us, label %35
 
 .split.us:                                        ; preds = %.loopexit58, %.loopexit, %.preheader.split.us, %25
-  %.us-phi = phi i32 [ 1, %.preheader.split.us ], [ 0, %25 ], [ 1, %.loopexit58 ], [ 0, %.loopexit ]
-  store i32 %.us-phi, ptr %4, align 4, !tbaa !12
+  %.us-phi.in.in.in = phi i1 [ %23, %25 ], [ %23, %.preheader.split.us ], [ %48, %.loopexit ], [ %48, %.loopexit58 ]
+  %.us-phi.in.in = zext i1 %.us-phi.in.in.in to i32
+  store i32 %.us-phi.in.in, ptr %4, align 4, !tbaa !12
   br label %.critedge
 
 .critedge:                                        ; preds = %35, %24, %_ZN7doctest6StringD2Ev.exit..critedge_crit_edge, %31, %.split.us, %34

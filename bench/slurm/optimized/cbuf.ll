@@ -501,8 +501,8 @@ define internal fastcc i32 @cbuf_find_replay_line(ptr noundef readonly captures(
   %38 = phi i32 [ %.pre86, %33 ], [ %16, %35 ]
   %39 = phi i32 [ %.pre, %33 ], [ %14, %35 ]
   %.168 = phi i32 [ %34, %33 ], [ %.067, %35 ]
-  %.054 = phi i32 [ 0, %33 ], [ -1, %35 ]
   %.0 = phi i32 [ %5, %33 ], [ %spec.select, %35 ]
+  %.054 = sext i1 %.not75 to i32
   br label %40
 
 40:                                               ; preds = %41, %37
@@ -621,7 +621,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
 5:                                                ; preds = %3
   %6 = tail call ptr @__errno_location() #14
   store i32 22, ptr %6, align 4
-  br label %22
+  br label %23
 
 7:                                                ; preds = %3
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
@@ -635,8 +635,8 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
   unreachable
 
 11:                                               ; preds = %7
-  %12 = icmp eq i32 %1, 0
-  br i1 %12, label %13, label %16
+  %12 = icmp ne i32 %1, 0
+  br i1 %12, label %16, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -650,7 +650,6 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
   br label %18
 
 18:                                               ; preds = %13, %16
-  %.011 = phi i32 [ 0, %13 ], [ -1, %16 ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not15 = icmp eq i32 %19, 0
   br i1 %.not15, label %22, label %20
@@ -661,8 +660,12 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.cbuf_opt_get) #16
   unreachable
 
-22:                                               ; preds = %18, %5
-  %.0 = phi i32 [ -1, %5 ], [ %.011, %18 ]
+22:                                               ; preds = %18
+  %.011 = sext i1 %12 to i32
+  br label %23
+
+23:                                               ; preds = %22, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.011, %22 ]
   ret i32 %.0
 }
 

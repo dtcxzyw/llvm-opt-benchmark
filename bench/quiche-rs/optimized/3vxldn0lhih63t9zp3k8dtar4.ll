@@ -183,8 +183,7 @@ define hidden { i64, i64 } @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$
 
 18:                                               ; preds = %2, %16
   %.sroa.3.0 = phi i64 [ %7, %16 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ 1, %16 ], [ 0, %2 ]
-  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, i64 } poison, i64 %3, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.3.0, 1
   ret { i64, i64 } %20
 }
@@ -1012,8 +1011,8 @@ default.unreachable20:                            ; preds = %37, %24, %3
 
 82:                                               ; preds = %86, %79
   %83 = phi ptr [ %87, %86 ], [ %61, %79 ]
-  %.sroa.3.0.i = phi ptr [ undef, %86 ], [ %81, %79 ]
   %.sroa.06.0.i = phi i64 [ 1, %86 ], [ 0, %79 ]
+  %.sroa.3.0.i = phi ptr [ undef, %86 ], [ %81, %79 ]
   store i8 1, ptr %83, align 8, !noalias !62
   %84 = insertvalue { i64, ptr } poison, i64 %.sroa.06.0.i, 0
   %85 = insertvalue { i64, ptr } %84, ptr %.sroa.3.0.i, 1
@@ -1399,8 +1398,8 @@ default.unreachable21:                            ; preds = %37, %24, %3
 
 82:                                               ; preds = %86, %79
   %83 = phi ptr [ %87, %86 ], [ %61, %79 ]
-  %.sroa.3.0.i = phi ptr [ undef, %86 ], [ %81, %79 ]
   %.sroa.06.0.i = phi i64 [ 1, %86 ], [ 0, %79 ]
+  %.sroa.3.0.i = phi ptr [ undef, %86 ], [ %81, %79 ]
   store i8 1, ptr %83, align 8, !noalias !74
   %84 = insertvalue { i64, ptr } poison, i64 %.sroa.06.0.i, 0
   %85 = insertvalue { i64, ptr } %84, ptr %.sroa.3.0.i, 1
@@ -1648,7 +1647,7 @@ common.resume:                                    ; preds = %101, %109, %29
   store i64 0, ptr %54, align 8, !noalias !93
   br label %113
 
-.loopexit.split.loop.exit24.i:                    ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i"
+.loopexit.split.loop.exit22.i:                    ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i"
   %55 = extractvalue { i64, i64 } %61, 1
   br label %113
 
@@ -1658,7 +1657,7 @@ common.resume:                                    ; preds = %101, %109, %29
   br i1 %.not.i, label %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i", label %57
 
 "_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i": ; preds = %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit.i"
-  %.pre33.i = load i64, ptr %39, align 8, !alias.scope !82, !noalias !92
+  %.pre31.i = load i64, ptr %39, align 8, !alias.scope !82, !noalias !92
   br label %59
 
 57:                                               ; preds = %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit.i"
@@ -1666,7 +1665,7 @@ common.resume:                                    ; preds = %101, %109, %29
   br i1 %58, label %76, label %74
 
 59:                                               ; preds = %92, %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i"
-  %60 = phi i64 [ %.pre33.i, %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i" ], [ %94, %92 ]
+  %60 = phi i64 [ %.pre31.i, %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i" ], [ %94, %92 ]
   %61 = tail call { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6e107f556fbb6530E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %60, ptr noalias noundef nonnull align 8 dereferenceable(104) %33)
   %62 = extractvalue { i64, i64 } %61, 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
@@ -1778,14 +1777,14 @@ common.resume:                                    ; preds = %101, %109, %29
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i": ; preds = %108, %105
   store ptr %.sroa.03.0.i, ptr %36, align 8, !alias.scope !82, !noalias !92
   %111 = trunc nuw i64 %62 to i1
-  br i1 %111, label %.loopexit.split.loop.exit24.i, label %112
+  br i1 %111, label %.loopexit.split.loop.exit22.i, label %112
 
 112:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i"
   %.not12.i = icmp eq ptr %.sroa.03.0.i, null
   br i1 %.not12.i, label %.loopexit, label %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit.i"
 
-113:                                              ; preds = %.loopexit.split.loop.exit24.i, %53
-  %.sroa.5.0.i.ph.ph = phi i64 [ %44, %53 ], [ %55, %.loopexit.split.loop.exit24.i ]
+113:                                              ; preds = %.loopexit.split.loop.exit22.i, %53
+  %.sroa.5.0.i.ph.ph = phi i64 [ %44, %53 ], [ %55, %.loopexit.split.loop.exit22.i ]
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.val18 = load i64, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -4686,9 +4685,9 @@ define void @_ZN12tokio_quiche4quic2io3gso7PktInfo16from_socket_addr17he0177f0bc
 
 11:                                               ; preds = %8, %5
   %.sink6 = phi i64 [ 12, %8 ], [ 20, %5 ]
-  %.sink = phi i32 [ 0, %8 ], [ 1, %5 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sink = zext nneg i16 %3 to i32
   store i32 %.sink, ptr %0, align 4
   ret void
 }

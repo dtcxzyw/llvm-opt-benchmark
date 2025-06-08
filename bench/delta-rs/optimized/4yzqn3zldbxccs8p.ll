@@ -3471,10 +3471,10 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
-  %.not.i = icmp eq i64 %.sroa.0106.0.copyload, -9223372036854775808
-  br i1 %.not.i, label %38, label %.noexc.i
+  %29 = icmp eq i64 %.sroa.0106.0.copyload, -9223372036854775808
+  br i1 %29, label %.critedge.i, label %.noexc.i
 
-29:                                               ; preds = %36, %32, %.noexc
+30:                                               ; preds = %37, %33, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !511
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h8ec8f4f21ffaddc8E.exit"
 
@@ -3485,23 +3485,23 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
           to label %.noexc unwind label %133
 
 .noexc:                                           ; preds = %.noexc.i
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %31 = load i64, ptr %30, align 8, !range !474, !noalias !511, !noundef !7
-  %.not.i.i.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i.i.i.i.i, label %29, label %32
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %32 = load i64, ptr %31, align 8, !range !474, !noalias !511, !noundef !7
+  %.not.i.i.i.i.i.i = icmp eq i64 %32, 0
+  br i1 %.not.i.i.i.i.i.i, label %30, label %33
 
-32:                                               ; preds = %.noexc
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !511, !noundef !7
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %29, label %36
+33:                                               ; preds = %.noexc
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !511, !noundef !7
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %30, label %37
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %22, align 8, !noalias !511, !nonnull !7, !noundef !7
-  call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %34, i64 noundef %31) #24, !noalias !523
-  br label %29
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %22, align 8, !noalias !511, !nonnull !7, !noundef !7
+  call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %35, i64 noundef %32) #24, !noalias !523
+  br label %30
 
-38:                                               ; preds = %27
+.critedge.i:                                      ; preds = %27
   %.sroa.0110.0.copyload111 = load i64, ptr %25, align 8, !alias.scope !524, !noalias !525
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
@@ -3939,8 +3939,8 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %167, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %150
 
-"_ZN4core6option15Option$LT$T$GT$7or_else17h8ec8f4f21ffaddc8E.exit": ; preds = %38, %29
-  %.sroa.0110.0 = phi i64 [ %.sroa.0110.0.copyload111, %38 ], [ %.sroa.0106.0.copyload, %29 ]
+"_ZN4core6option15Option$LT$T$GT$7or_else17h8ec8f4f21ffaddc8E.exit": ; preds = %.critedge.i, %30
+  %.sroa.0110.0 = phi i64 [ %.sroa.0110.0.copyload111, %.critedge.i ], [ %.sroa.0106.0.copyload, %30 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   store i64 %.sroa.0110.0, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5108.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5112, i64 16, i1 false)
@@ -8008,85 +8008,85 @@ define hidden { ptr, i1 } @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new28_$u7b$$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h03b02fc03bd98af7E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h1b91a06717ba2604E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h34b95a110d8d250eE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17h606623da4c490a25E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17hc154a286830ba745E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17hd38d242153fa7e3dE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i1 noundef zeroext %1, i8 noundef %2, ptr noundef nonnull align 8 %3) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = and i8 %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %6, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN3std4sync6poison10map_result17hf9ea976dd7a64521E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 %2) unnamed_addr #7 {
-  %spec.select = zext i1 %1 to i64
   %.sink = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %5, align 8
-  store i64 %spec.select, ptr %0, align 8
+  %storemerge = zext i1 %1 to i64
+  store i64 %storemerge, ptr %0, align 8
   ret void
 }
 
@@ -8185,22 +8185,27 @@ _ZN4core3ops8function6FnOnce9call_once17hd3d8d66d4f259da8E.exit.i: ; preds = %32
   %.not.i.i.i = icmp eq i64 %.sroa.54.sroa.4.0.copyload.i, 0
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
+._crit_edge.loopexit.i.i.i:                       ; preds = %44, %.lr.ph.i.i.i
+  %.0.lcssa.ph.i.i.i = phi i64 [ %.sroa.54.sroa.4.0.copyload.i, %44 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.lcssa.ph.i.i.i = zext i1 %43 to i64
+  br label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i
+
 .lr.ph.i.i.i:                                     ; preds = %40, %44
   %.05.i.i.i = phi i64 [ %45, %44 ], [ 0, %40 ]
   %41 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.54.sroa.0.0.copyload.i, i64 0, i64 %.05.i.i.i
   %42 = load i8, ptr %41, align 1, !alias.scope !1337, !noalias !1325, !noundef !7
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %44
+  br i1 %43, label %._crit_edge.loopexit.i.i.i, label %44
 
 44:                                               ; preds = %.lr.ph.i.i.i
   %45 = add nuw nsw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %45, %.sroa.54.sroa.4.0.copyload.i
-  br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i
 
-_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %44, %.lr.ph.i.i.i, %40
-  %.0.lcssa.i.i.i = phi i64 [ 0, %40 ], [ %.sroa.54.sroa.4.0.copyload.i, %44 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %40 ], [ 0, %44 ], [ 1, %.lr.ph.i.i.i ]
-  %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i.i.i, 0
+_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %40
+  %.0.lcssa.i.i.i = phi i64 [ 0, %40 ], [ %.0.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ]
+  %.lcssa.i.i.i = phi i64 [ 0, %40 ], [ %.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ]
+  %46 = insertvalue { i64, i64 } poison, i64 %.lcssa.i.i.i, 0
   %47 = insertvalue { i64, i64 } %46, i64 %.0.lcssa.i.i.i, 1
   br label %48
 
@@ -21141,8 +21146,8 @@ _ZN4core4sync6atomic11atomic_load17he73266ac59cdd700E.llvm.8209374114036670355.e
   br i1 %switch, label %_ZN4core3ops8function5FnMut8call_mut17hc493f05c83805b28E.exit, label %_ZN4core4sync6atomic11atomic_load17he73266ac59cdd700E.llvm.8209374114036670355.exit
 
 _ZN4core3ops8function5FnMut8call_mut17hc493f05c83805b28E.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17he73266ac59cdd700E.llvm.8209374114036670355.exit, %27
-  %.sroa.3.0 = phi i64 [ %31, %27 ], [ 0, %_ZN4core4sync6atomic11atomic_load17he73266ac59cdd700E.llvm.8209374114036670355.exit ]
-  %.sroa.0.0 = phi i64 [ 0, %27 ], [ 1, %_ZN4core4sync6atomic11atomic_load17he73266ac59cdd700E.llvm.8209374114036670355.exit ]
+  %.sroa.3.0 = phi i64 [ 0, %_ZN4core4sync6atomic11atomic_load17he73266ac59cdd700E.llvm.8209374114036670355.exit ], [ %31, %27 ]
+  %.sroa.0.0 = zext i1 %23 to i64
   %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %33 = insertvalue { i64, i64 } %32, i64 %.sroa.3.0, 1
   ret { i64, i64 } %33

@@ -3207,7 +3207,8 @@ _ZNK7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default
   br i1 %exitcond.i, label %.preheader.i21, label %.preheader25.i, !llvm.loop !103
 
 65:                                               ; preds = %73, %.preheader.i21
-  %66 = phi i32 [ %.promoted.i, %.preheader.i21 ], [ %68, %73 ]
+  %66 = phi i32 [ %68, %73 ], [ %.promoted.i, %.preheader.i21 ]
+  %.3.i = phi i32 [ %..3.i, %73 ], [ undef, %.preheader.i21 ]
   %67 = and i32 %66, %22
   %68 = add i32 %67, 1
   %69 = zext i32 %68 to i64
@@ -3222,11 +3223,13 @@ _ZNK7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %.pre, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !62
-  %79 = icmp sgt i32 %78, -1
-  br i1 %79, label %65, label %.thread.loopexit.i, !llvm.loop !104
+  %79 = icmp slt i32 %78, 0
+  %..3.i = select i1 %79, i32 %75, i32 %.3.i
+  %cond1.i = icmp sgt i32 %78, -1
+  br i1 %cond1.i, label %65, label %.thread.loopexit.i, !llvm.loop !104
 
 .thread.loopexit.i:                               ; preds = %73, %65
-  %.0.ph.i = phi i32 [ %68, %65 ], [ %75, %73 ]
+  %.0.ph.i = phi i32 [ %68, %65 ], [ %..3.i, %73 ]
   store i32 %68, ptr %47, align 4, !tbaa !99
   br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit
 
@@ -3308,7 +3311,8 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceSt10
   br i1 %exitcond.i, label %.preheader.i, label %25, !llvm.loop !103
 
 41:                                               ; preds = %49, %.preheader.i
-  %42 = phi i32 [ %.promoted.i, %.preheader.i ], [ %44, %49 ]
+  %42 = phi i32 [ %44, %49 ], [ %.promoted.i, %.preheader.i ]
+  %.3.i = phi i32 [ %..3.i, %49 ], [ undef, %.preheader.i ]
   %43 = and i32 %42, %20
   %44 = add i32 %43, 1
   %45 = zext i32 %44 to i64
@@ -3323,11 +3327,13 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceSt10
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %4, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !62
-  %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %41, label %.thread.loopexit.i, !llvm.loop !104
+  %55 = icmp slt i32 %54, 0
+  %..3.i = select i1 %55, i32 %51, i32 %.3.i
+  %cond1.i = icmp sgt i32 %54, -1
+  br i1 %cond1.i, label %41, label %.thread.loopexit.i, !llvm.loop !104
 
 .thread.loopexit.i:                               ; preds = %49, %41
-  %.0.ph.i = phi i32 [ %44, %41 ], [ %51, %49 ]
+  %.0.ph.i = phi i32 [ %44, %41 ], [ %..3.i, %49 ]
   store i32 %44, ptr %22, align 4, !tbaa !99
   br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit
 
@@ -3588,7 +3594,8 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
   br i1 %exitcond.i.i, label %.preheader.i.i, label %.preheader25.i.i, !llvm.loop !103
 
 74:                                               ; preds = %82, %.preheader.i.i
-  %75 = phi i32 [ %.promoted.i.i, %.preheader.i.i ], [ %77, %82 ]
+  %75 = phi i32 [ %77, %82 ], [ %.promoted.i.i, %.preheader.i.i ]
+  %.3.i.i = phi i32 [ %..3.i.i, %82 ], [ undef, %.preheader.i.i ]
   %76 = and i32 %75, %38
   %77 = add i32 %76, 1
   %78 = zext i32 %77 to i64
@@ -3603,11 +3610,13 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %41, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !62
-  %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %74, label %.thread.loopexit.i.i, !llvm.loop !104
+  %88 = icmp slt i32 %87, 0
+  %..3.i.i = select i1 %88, i32 %84, i32 %.3.i.i
+  %cond1.i.i = icmp sgt i32 %87, -1
+  br i1 %cond1.i.i, label %74, label %.thread.loopexit.i.i, !llvm.loop !104
 
 .thread.loopexit.i.i:                             ; preds = %82, %74
-  %.0.ph.i.i = phi i32 [ %77, %74 ], [ %84, %82 ]
+  %.0.ph.i.i = phi i32 [ %77, %74 ], [ %..3.i.i, %82 ]
   store i32 %77, ptr %56, align 4, !tbaa !99
   br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i
 
@@ -3706,7 +3715,8 @@ _ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_
   br i1 %exitcond.i, label %.preheader.i, label %.preheader25.i, !llvm.loop !103
 
 142:                                              ; preds = %150, %.preheader.i
-  %143 = phi i32 [ %.promoted.i, %.preheader.i ], [ %145, %150 ]
+  %143 = phi i32 [ %145, %150 ], [ %.promoted.i, %.preheader.i ]
+  %.3.i = phi i32 [ %..3.i, %150 ], [ undef, %.preheader.i ]
   %144 = and i32 %143, %38
   %145 = add i32 %144, 1
   %146 = zext i32 %145 to i64
@@ -3721,11 +3731,13 @@ _ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_
   %153 = zext i32 %152 to i64
   %154 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !62
-  %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %142, label %.thread.loopexit.i, !llvm.loop !104
+  %156 = icmp slt i32 %155, 0
+  %..3.i = select i1 %156, i32 %152, i32 %.3.i
+  %cond1.i = icmp sgt i32 %155, -1
+  br i1 %cond1.i, label %142, label %.thread.loopexit.i, !llvm.loop !104
 
 .thread.loopexit.i:                               ; preds = %150, %142
-  %.0.ph.i = phi i32 [ %145, %142 ], [ %152, %150 ]
+  %.0.ph.i = phi i32 [ %145, %142 ], [ %..3.i, %150 ]
   store i32 %145, ptr %124, align 4, !tbaa !99
   br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit
 
@@ -3773,7 +3785,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %165, %_ZNKSt
   %181 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !62
   %183 = icmp slt i32 %182, 0
-  br i1 %183, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %184
+  br i1 %183, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64, label %184
 
 184:                                              ; preds = %177
   %185 = add i32 %.038, 2
@@ -3781,7 +3793,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %165, %_ZNKSt
   %187 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !62
   %189 = icmp slt i32 %188, 0
-  br i1 %189, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %.preheader25.i52
+  br i1 %189, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64, label %.preheader25.i52
 
 .preheader.i56:                                   ; preds = %206
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3800,7 +3812,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %165, %_ZNKSt
   %197 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !62
   %199 = icmp slt i32 %198, 0
-  br i1 %199, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %200
+  br i1 %199, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64, label %200
 
 200:                                              ; preds = %.preheader25.i52
   %201 = add i32 %195, 1
@@ -3808,7 +3820,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %165, %_ZNKSt
   %203 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !62
   %205 = icmp slt i32 %204, 0
-  br i1 %205, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %206
+  br i1 %205, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64, label %206
 
 206:                                              ; preds = %200
   %207 = add nuw nsw i32 %.01829.i53, 1
@@ -3817,14 +3829,15 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %165, %_ZNKSt
   br i1 %exitcond.i55, label %.preheader.i56, label %.preheader25.i52, !llvm.loop !103
 
 209:                                              ; preds = %217, %.preheader.i56
-  %210 = phi i32 [ %.promoted.i57, %.preheader.i56 ], [ %212, %217 ]
+  %210 = phi i32 [ %212, %217 ], [ %.promoted.i57, %.preheader.i56 ]
+  %.3.i58 = phi i32 [ %..3.i59, %217 ], [ undef, %.preheader.i56 ]
   %211 = and i32 %210, %38
   %212 = add i32 %211, 1
   %213 = zext i32 %212 to i64
   %214 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %213
   %215 = load i32, ptr %214, align 4, !tbaa !62
   %216 = icmp slt i32 %215, 0
-  br i1 %216, label %.thread.loopexit.i58, label %217
+  br i1 %216, label %.thread.loopexit.i61, label %217
 
 217:                                              ; preds = %209
   %218 = add i32 %212, %193
@@ -3832,24 +3845,26 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %165, %_ZNKSt
   %220 = zext i32 %219 to i64
   %221 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %105, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !62
-  %223 = icmp sgt i32 %222, -1
-  br i1 %223, label %209, label %.thread.loopexit.i58, !llvm.loop !104
+  %223 = icmp slt i32 %222, 0
+  %..3.i59 = select i1 %223, i32 %219, i32 %.3.i58
+  %cond1.i60 = icmp sgt i32 %222, -1
+  br i1 %cond1.i60, label %209, label %.thread.loopexit.i61, !llvm.loop !104
 
-.thread.loopexit.i58:                             ; preds = %217, %209
-  %.0.ph.i59 = phi i32 [ %212, %209 ], [ %219, %217 ]
+.thread.loopexit.i61:                             ; preds = %217, %209
+  %.0.ph.i62 = phi i32 [ %212, %209 ], [ %..3.i59, %217 ]
   store i32 %212, ptr %191, align 4, !tbaa !99
-  br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61
+  br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64
 
-_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61: ; preds = %.preheader25.i52, %200, %177, %184, %.thread.loopexit.i58
-  %.0.i60 = phi i32 [ %179, %177 ], [ %185, %184 ], [ %.0.ph.i59, %.thread.loopexit.i58 ], [ %201, %200 ], [ %195, %.preheader25.i52 ]
-  %224 = zext i32 %.0.i60 to i64
+_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64: ; preds = %.preheader25.i52, %200, %177, %184, %.thread.loopexit.i61
+  %.0.i63 = phi i32 [ %179, %177 ], [ %185, %184 ], [ %.0.ph.i62, %.thread.loopexit.i61 ], [ %201, %200 ], [ %195, %.preheader25.i52 ]
+  %224 = zext i32 %.0.i63 to i64
   %225 = getelementptr inbounds nuw %"struct.std::pair", ptr %109, i64 %224
   tail call void @llvm.prefetch.p0(ptr %225, i32 0, i32 3, i32 1)
-  store i32 %.0.i60, ptr %178, align 4, !tbaa !62
+  store i32 %.0.i63, ptr %178, align 4, !tbaa !62
   br label %.thread
 
-.thread:                                          ; preds = %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE14kickout_bucketEjj.exit, %3
-  %.0 = phi i32 [ %7, %3 ], [ %7, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit ], [ %7, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE14kickout_bucketEjj.exit ], [ %.0.i, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit ], [ %.0.i60, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61 ], [ %.038, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51 ]
+.thread:                                          ; preds = %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE14kickout_bucketEjj.exit, %3
+  %.0 = phi i32 [ %7, %3 ], [ %7, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit ], [ %7, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE14kickout_bucketEjj.exit ], [ %.0.i, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit ], [ %.0.i63, %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit64 ], [ %.038, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51 ]
   ret i32 %.0
 }
 

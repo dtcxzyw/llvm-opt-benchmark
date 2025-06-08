@@ -1967,24 +1967,22 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !126
   %14 = icmp eq ptr %13, @_Py_TrueStruct
-  br i1 %14, label %17, label %15
+  %15 = icmp eq ptr %13, @_Py_FalseStruct
+  %or.cond = or i1 %14, %15
+  br i1 %or.cond, label %16, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
-15:                                               ; preds = %11
-  %16 = icmp eq ptr %13, @_Py_FalseStruct
-  br i1 %16, label %17, label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
-
-17:                                               ; preds = %11, %15
-  %.sink.i = phi i8 [ 1, %11 ], [ 0, %15 ]
+16:                                               ; preds = %11
+  %.sink.i = zext i1 %14 to i8
   store i8 %.sink.i, ptr %6, align 8, !tbaa !162
-  %18 = load ptr, ptr %7, align 8, !tbaa !164
-  call void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %18) #17
-  %19 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !70
-  %20 = add nsw i64 %19, 1
-  store i64 %20, ptr @_Py_NoneStruct, align 8, !tbaa !70
+  %17 = load ptr, ptr %7, align 8, !tbaa !164
+  call void @_ZN8nanobind6detail27raise_next_overload_if_nullEPv(ptr noundef %17) #17
+  %18 = load i64, ptr @_Py_NoneStruct, align 8, !tbaa !70
+  %19 = add nsw i64 %18, 1
+  store i64 %19, ptr @_Py_NoneStruct, align 8, !tbaa !70
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
-"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit": ; preds = %15, %5, %17
-  %.0.i = phi ptr [ @_Py_NoneStruct, %17 ], [ inttoptr (i64 1 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %15 ]
+"_ZZN8nanobind6detail11func_createILb0ELb1EZL29nanobind_init_test_typing_extRNS_7module_EE3$_4vJRZL29nanobind_init_test_typing_extS3_E15CustomSignaturebEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit": ; preds = %11, %5, %16
+  %.0.i = phi ptr [ @_Py_NoneStruct, %16 ], [ inttoptr (i64 1 to ptr), %5 ], [ inttoptr (i64 1 to ptr), %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   ret ptr %.0.i
 }

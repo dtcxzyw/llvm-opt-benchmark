@@ -253,13 +253,13 @@ BufferGetPage.exit:                               ; preds = %16, %22
   br label %70
 
 70:                                               ; preds = %61, %47
-  %.sink215 = phi i8 [ 1, %47 ], [ 0, %61 ]
   %71 = phi ptr [ %60, %47 ], [ %69, %61 ]
   %72 = phi ptr [ %58, %47 ], [ %67, %61 ]
   %73 = phi ptr [ %57, %47 ], [ %66, %61 ]
   %74 = phi ptr [ %56, %47 ], [ %65, %61 ]
   %75 = phi ptr [ %55, %47 ], [ %64, %61 ]
   %76 = phi ptr [ %54, %47 ], [ %63, %61 ]
+  %.sink215 = and i8 %34, 1
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 7680
   store i8 %.sink215, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 7681
@@ -675,12 +675,12 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %239, %235, %225, %2
   br label %284
 
 284:                                              ; preds = %283, %279
-  %.074.i = phi i32 [ 1, %283 ], [ 0, %279 ]
-  %285 = icmp slt i32 %.074.i, %.18197.i
+  %.074.i = zext i1 %282 to i32
+  %285 = icmp sgt i32 %.18197.i, %.074.i
   br i1 %285, label %.lr.ph136.preheader.i, label %heap_prune_chain.exit
 
 .lr.ph136.preheader.i:                            ; preds = %284
-  %286 = zext nneg i32 %.074.i to i64
+  %286 = zext i1 %282 to i64
   %wide.trip.count153.i = zext nneg i32 %.18197.i to i64
   br label %.lr.ph136.i
 
@@ -1291,8 +1291,9 @@ heap_page_prune_execute.exit:                     ; preds = %528, %.preheader.i1
 
 602:                                              ; preds = %582
   %603 = load i8, ptr %78, align 1, !range !4, !noundef !5
+  %.sink217 = zext i1 %597 to i8
   %604 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 1, ptr %604, align 4
+  store i8 %.sink217, ptr %604, align 4
   %605 = getelementptr inbounds nuw i8, ptr %5, i64 21
   store i8 %603, ptr %605, align 1
   %606 = load i8, ptr %73, align 4, !range !4, !noundef !5

@@ -12,37 +12,35 @@ define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 n
   %6 = and i32 %5, 4095
   %7 = add i32 %1, 4095
   %8 = add i32 %7, %6
-  %9 = sdiv i32 %8, 4096
-  %10 = icmp ugt ptr %0, inttoptr (i64 4294967295 to ptr)
-  br i1 %10, label %.loopexit, label %11
-
-11:                                               ; preds = %3
+  %9 = icmp ugt ptr %0, inttoptr (i64 4294967295 to ptr)
   %.off = add i32 %8, 4095
   %.not = icmp ult i32 %.off, 8191
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  %or.cond = or i1 %9, %.not
+  br i1 %or.cond, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11
-  %12 = and i64 %4, -4096
-  %13 = sext i32 %2 to i64
-  %umax = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
-  br label %14
+.lr.ph:                                           ; preds = %3
+  %10 = sdiv i32 %8, 4096
+  %11 = and i64 %4, -4096
+  %12 = sext i32 %2 to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
+  br label %13
 
-14:                                               ; preds = %.lr.ph, %14
-  %.019 = phi i32 [ 0, %.lr.ph ], [ %21, %14 ]
-  %.01518 = phi i64 [ %12, %.lr.ph ], [ %20, %14 ]
-  %15 = lshr exact i64 %.01518, 12
-  %16 = and i64 %15, 134217727
-  %17 = or i64 %.01518, %13
-  %18 = load ptr, ptr @g_pt, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %16
-  store volatile i64 %17, ptr %19, align 8
-  %20 = add i64 %.01518, 4096
-  %21 = add nuw i32 %.019, 1
-  %exitcond.not = icmp eq i32 %21, %umax
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !6
+13:                                               ; preds = %.lr.ph, %13
+  %.019 = phi i32 [ 0, %.lr.ph ], [ %20, %13 ]
+  %.01518 = phi i64 [ %11, %.lr.ph ], [ %19, %13 ]
+  %14 = lshr exact i64 %.01518, 12
+  %15 = and i64 %14, 134217727
+  %16 = or i64 %.01518, %12
+  %17 = load ptr, ptr @g_pt, align 8
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %15
+  store volatile i64 %16, ptr %18, align 8
+  %19 = add i64 %.01518, 4096
+  %20 = add nuw i32 %.019, 1
+  %exitcond.not = icmp eq i32 %20, %umax
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !6
 
-.loopexit:                                        ; preds = %14, %11, %3
-  %.016 = phi i32 [ -1, %3 ], [ 0, %11 ], [ 0, %14 ]
+.loopexit:                                        ; preds = %13, %3
+  %.016 = sext i1 %9 to i32
   ret i32 %.016
 }
 

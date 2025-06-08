@@ -848,9 +848,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i152: ; preds = %294, 
 
 _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit154: ; preds = %275, %282, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i152, %297
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23
+  %cond6 = icmp ne i8 %221, 0
   %298 = getelementptr inbounds nuw i8, ptr %.sroa.0288.0400, i64 16
   %.not291 = icmp eq ptr %298, %35
-  %or.cond = select i1 %222, i1 true, i1 %.not291
+  %or.cond = select i1 %cond6, i1 true, i1 %.not291
   br i1 %or.cond, label %.critedge126, label %.backedge.backedge
 
 299:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %253
