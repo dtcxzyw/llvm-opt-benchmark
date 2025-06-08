@@ -425,7 +425,7 @@ define internal void @"_ZN121_$LT$tonic..transport..service..connector..Connecto
     i8 3, label %17
   ]
 
-default.unreachable8:                             ; preds = %3
+default.unreachable9:                             ; preds = %3
   unreachable
 
 9:                                                ; preds = %3

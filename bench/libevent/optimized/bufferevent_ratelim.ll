@@ -2798,8 +2798,8 @@ define hidden range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr noundef captur
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @evbuffer_set_max_read(ptr noundef %6, i64 noundef 16384) #10
   %.not = icmp ne i32 %7, 0
-  %.0 = sext i1 %.not to i32
-  ret i32 %.0
+  %. = sext i1 %.not to i32
+  ret i32 %.
 }
 
 declare i32 @evutil_weakrand_range_(ptr noundef, i32 noundef) local_unnamed_addr #4

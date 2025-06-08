@@ -1647,7 +1647,7 @@ common.resume:                                    ; preds = %101, %109, %29
   store i64 0, ptr %54, align 8, !noalias !93
   br label %113
 
-.loopexit.split.loop.exit22.i:                    ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i"
+.loopexit.split.loop.exit24.i:                    ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i"
   %55 = extractvalue { i64, i64 } %61, 1
   br label %113
 
@@ -1657,7 +1657,7 @@ common.resume:                                    ; preds = %101, %109, %29
   br i1 %.not.i, label %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i", label %57
 
 "_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i": ; preds = %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit.i"
-  %.pre31.i = load i64, ptr %39, align 8, !alias.scope !82, !noalias !92
+  %.pre33.i = load i64, ptr %39, align 8, !alias.scope !82, !noalias !92
   br label %59
 
 57:                                               ; preds = %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit.i"
@@ -1665,7 +1665,7 @@ common.resume:                                    ; preds = %101, %109, %29
   br i1 %58, label %76, label %74
 
 59:                                               ; preds = %92, %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i"
-  %60 = phi i64 [ %.pre31.i, %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i" ], [ %94, %92 ]
+  %60 = phi i64 [ %.pre33.i, %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit._crit_edge.i" ], [ %94, %92 ]
   %61 = tail call { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6e107f556fbb6530E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %60, ptr noalias noundef nonnull align 8 dereferenceable(104) %33)
   %62 = extractvalue { i64, i64 } %61, 0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
@@ -1777,13 +1777,13 @@ common.resume:                                    ; preds = %101, %109, %29
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i": ; preds = %108, %105
   store ptr %.sroa.03.0.i, ptr %36, align 8, !alias.scope !82, !noalias !92
   %111 = trunc nuw i64 %62 to i1
-  br i1 %111, label %.loopexit.split.loop.exit22.i, label %112
+  br i1 %111, label %.loopexit.split.loop.exit24.i, label %112
 
 112:                                              ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17he425d74f3b7a48a2E.exit.i"
   %.not12.i = icmp eq ptr %.sroa.03.0.i, null
   br i1 %.not12.i, label %.loopexit, label %"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E.exit.i"
 
-113:                                              ; preds = %.loopexit.split.loop.exit22.i, %53
+113:                                              ; preds = %.loopexit.split.loop.exit24.i, %53
   %.sroa.5.0.i.ph.ph = phi i64 [ %44, %53 ], [ %55, %.loopexit.split.loop.exit22.i ]
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.val18 = load i64, ptr %114, align 8

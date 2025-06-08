@@ -2656,7 +2656,7 @@ define dso_local void @_ZN7ImGuiIO19AddMouseButtonEventEib(ptr noundef nonnull a
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2921
   %10 = load i8, ptr %9, align 1, !tbaa !84, !range !91, !noundef !220
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread42
+  br i1 %11, label %12, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 81
@@ -2721,13 +2721,13 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit: ; preds = %
   %.in.in = select i1 %.not, ptr %39, ptr %36
   %.in = load i8, ptr %.in.in, align 1, !tbaa !205, !range !91, !noundef !220
   %40 = icmp eq i8 %.in, %6
-  br i1 %40, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread42, label %41
+  br i1 %40, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit, label %41
 
 41:                                               ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit
   %42 = icmp eq i32 %.0, 0
   %or.cond3 = and i1 %42, %15
   %or.cond5 = and i1 %2, %or.cond3
-  br i1 %or.cond5, label %43, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread
+  br i1 %or.cond5, label %43, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.critedge.i
 
 43:                                               ; preds = %41
   br i1 %25, label %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit39, label %.lr.ph.i36
@@ -2765,7 +2765,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit39: ; preds =
   %.in33.in = select i1 %.not32, ptr %55, ptr %54
   %.in33 = load i8, ptr %.in33.in, align 1, !tbaa !205, !range !91, !noundef !220
   %56 = trunc nuw i8 %.in33 to i1
-  br i1 %56, label %57, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread
+  br i1 %56, label %57, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.critedge.i
 
 57:                                               ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit39
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 9852
@@ -2777,16 +2777,16 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit39: ; preds =
 61:                                               ; preds = %57
   tail call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.2)
   %.pre = load ptr, ptr %7, align 8, !tbaa !92
-  %.pre45 = load i8, ptr %9, align 1, !tbaa !84, !range !91
+  %.pre41 = load i8, ptr %9, align 1, !tbaa !84, !range !91
   br label %62
 
 62:                                               ; preds = %61, %57
-  %63 = phi i8 [ %.pre45, %61 ], [ %10, %57 ]
+  %63 = phi i8 [ %.pre41, %61 ], [ %10, %57 ]
   %64 = phi ptr [ %.pre, %61 ], [ %8, %57 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 2854
   store i8 1, ptr %65, align 2, !tbaa !237
   %66 = trunc nuw i8 %63 to i1
-  br i1 %66, label %67, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread42
+  br i1 %66, label %67, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 4792
@@ -2826,10 +2826,10 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i: ; preds =
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 233
   %.in.in.i = select i1 %.not.i, ptr %82, ptr %81
   %.in.i = load i8, ptr %.in.in.i, align 1, !tbaa !205, !range !91, !noundef !220
-  %.not44 = icmp eq i8 %.in.i, 0
-  br i1 %.not44, label %.thread, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit
+  %.not40 = icmp eq i8 %.in.i, 0
+  br i1 %.not40, label %.critedge.i, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit
 
-.thread:                                          ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i
+.critedge.i:                                      ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #45
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, i8 0, i64 12, i1 false)
@@ -2854,7 +2854,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #45
   br label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit
 
-_ZN7ImGuiIO19AddMouseButtonEventEib.exit:         ; preds = %.thread, %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i
+.critedge:                                        ; preds = %.thread, %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit.i
   %cond = icmp eq i8 %.in33, 0
   br i1 %cond, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread, label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread42
 
@@ -2881,9 +2881,9 @@ _ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread:  ; preds = %_ZL20FindLatestInpu
   store i32 %103, ptr %104, align 4, !tbaa !205
   call void @_ZN8ImVectorI15ImGuiInputEventE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(25) %5)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #45
-  br label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread42
+  br label %_ZN7ImGuiIO19AddMouseButtonEventEib.exit
 
-_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread42: ; preds = %62, %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.thread, %_ZN7ImGuiIO19AddMouseButtonEventEib.exit, %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit, %3
+.critedge:; preds = %62, %_ZN7ImGuiIO19AddMouseButtonEventEib.exit.critedge.i, %.critedge, %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit, %3
   ret void
 }
 

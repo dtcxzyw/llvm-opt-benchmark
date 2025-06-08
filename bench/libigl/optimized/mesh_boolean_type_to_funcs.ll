@@ -444,11 +444,11 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6Ma
   %or.cond.i.i.i = select i1 %9, i1 true, i1 %exitcond.not.i.i.i
   br i1 %or.cond.i.i.i, label %._crit_edge.loopexit.i.i.i, label %6, !llvm.loop !19
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %6
+7:                                                ; preds = %6
   %.not.lcssa.ph.i.i.i = zext i1 %9 to i32
   br label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit
 
-_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %2, %._crit_edge.loopexit.i.i.i
+_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %2, %7
   %.not.lcssa.i.i.i = phi i32 [ 0, %2 ], [ %.not.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ]
   ret i32 %.not.lcssa.i.i.i
 }

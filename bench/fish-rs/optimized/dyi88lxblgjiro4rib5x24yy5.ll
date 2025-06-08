@@ -301,12 +301,12 @@ _ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit: ; preds = %6, %3
   %15 = icmp ult i32 %14, -1112064
   br i1 %15, label %18, label %16
 
-16:                                               ; preds = %11
+16:; preds = %11
   %17 = icmp samesign ult i64 %.sroa.819.0, 1114112
   tail call void @llvm.assume(i1 %17)
   br label %18
 
-18:                                               ; preds = %11, %16
+18:; preds = %11, %16
   %19 = shl nuw i64 %.sroa.819.0, 32
   %20 = zext i1 %15 to i64
   br label %21

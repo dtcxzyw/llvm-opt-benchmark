@@ -2825,8 +2825,8 @@ cpool_get_instance.exit:                          ; preds = %18, %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
   call void @Curl_hash_start_iterate(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %2) #8
   %46 = call ptr @Curl_hash_next_element(ptr noundef nonnull %2) #8
-  %.not24.not.i29 = icmp eq ptr %46, null
-  br i1 %.not24.not.i29, label %.loopexit, label %.lr.ph.i
+  %.not24.not.i30 = icmp eq ptr %46, null
+  br i1 %.not24.not.i30, label %.loopexit, label %.lr.ph.i
 
 .critedge.loopexit.i:                             ; preds = %cpool_reap_dead_cb.exit
   %.not.not.i = icmp eq ptr %49, null
@@ -3101,7 +3101,7 @@ define hidden ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_is_
   %.not24.not.i = icmp eq ptr %38, null
   br i1 %.not24.not.i, label %cpool_foreach.exit, label %.lr.ph.i
 
-.critedge.loopexit.i:                             ; preds = %cpool_find_conn.exit
+.critedge.loopexit.i:                             ; preds = %43
   %.not.not.i = icmp eq ptr %41, null
   br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
 
@@ -3111,22 +3111,22 @@ define hidden ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_is_
   %40 = load ptr, ptr %39, align 8, !tbaa !93
   %41 = call ptr @Curl_hash_next_element(ptr noundef nonnull %3) #8
   %42 = call ptr @Curl_llist_head(ptr noundef %40) #8
-  br label %cpool_find_conn.exit
+  br label %43
 
-cpool_find_conn.exit:                             ; preds = %43, %.lr.ph.i
+43:                                               ; preds = %cpool_find_conn.exit, %.lr.ph.i
   %.016.i = phi ptr [ %42, %.lr.ph.i ], [ %45, %43 ]
   %.not20.i = icmp eq ptr %.016.i, null
   br i1 %.not20.i, label %.critedge.loopexit.i, label %43
 
-43:                                               ; preds = %cpool_find_conn.exit
+cpool_find_conn.exit:                             ; preds = %43
   %44 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i) #8
-  %45 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i) #8
+  %44 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i) #8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %47 = load i64, ptr %46, align 8, !tbaa !137
   %48 = icmp eq i64 %47, %1
-  br i1 %48, label %cpool_foreach.exit, label %cpool_find_conn.exit, !llvm.loop !163
+  br i1 %48, label %cpool_foreach.exit, label %43, !llvm.loop !163
 
-cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %43, %33
+cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %cpool_find_conn.exit, %33
   %.sroa.4.2 = phi ptr [ null, %33 ], [ %44, %43 ], [ null, %.critedge.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #8
   %49 = load i8, ptr %34, align 8

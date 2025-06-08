@@ -1417,7 +1417,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %35 = fcmp ugt float %.1103, %34
   br i1 %35, label %39, label %36
 
-36:                                               ; preds = %16
+36:; preds = %16
   %37 = fmul float %34, 0x3E80000000000000
   %38 = fcmp ugt float %.1103, %37
   br i1 %38, label %39, label %._crit_edge

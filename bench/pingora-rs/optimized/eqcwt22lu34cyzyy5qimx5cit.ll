@@ -406,7 +406,7 @@ define void @_ZN13pingora_proxy11proxy_cache12range_filter19range_header_filter1
   %.sroa.14.0.i.i = phi i64 [ %80, %89 ], [ %.sroa.14.0.i.i.ph, %.preheader44.i.i.preheader ]
   %.sroa.01.0.i.i = phi ptr [ %79, %89 ], [ %.sroa.01.0.i.i.ph, %.preheader44.i.i.preheader ]
   %.not.i.not.i = icmp eq i64 %.sroa.14.0.i.i, 0
-  br i1 %.not.i.not.i, label %.loopexit68, label %78
+  br i1 %.not.i.not.i, label %.loopexit69, label %78
 
 76:                                               ; preds = %71
   %77 = icmp ult i64 %67, 17
@@ -451,13 +451,13 @@ define void @_ZN13pingora_proxy11proxy_cache12range_filter19range_header_filter1
   %102 = zext nneg i32 %96 to i64
   %103 = add i64 %99, %102
   %.not42.i.i = icmp eq i64 %100, 0
-  br i1 %.not42.i.i, label %.loopexit68, label %.lr.ph.i.i
+  br i1 %.not42.i.i, label %.loopexit69, label %.lr.ph.i.i
 
 104:                                              ; preds = %53
   store i64 0, ptr %0, align 8
   br label %463
 
-.loopexit68:                                      ; preds = %.preheader44.i.i, %98
+.loopexit69:                                      ; preds = %.preheader44.i.i, %98
   %.sroa.4.0.i = phi i64 [ %103, %98 ], [ %.sroa.013.0.i.i, %.preheader44.i.i ]
   store i64 %.sroa.4.0.i, ptr %37, align 8
   %105 = tail call noundef nonnull align 8 ptr @"_ZN71_$LT$pingora_http..RequestHeader$u20$as$u20$core..ops..deref..Deref$GT$5deref17h98d190f3eba268cfE"(ptr noundef nonnull align 8 %1)
@@ -473,13 +473,13 @@ define void @_ZN13pingora_proxy11proxy_cache12range_filter19range_header_filter1
   store i64 0, ptr %0, align 8
   br label %463
 
-107:                                              ; preds = %.loopexit68
+107:                                              ; preds = %.loopexit69
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %109 = load i64, ptr %108, align 8, !noundef !4
   %110 = icmp ugt i64 %109, 1
   br i1 %110, label %447, label %444
 
-111:                                              ; preds = %461, %458, %.loopexit68
+111:                                              ; preds = %461, %458, %.loopexit69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
   %112 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %113 = load ptr, ptr %112, align 8, !noundef !4
@@ -1093,7 +1093,7 @@ common.resume:                                    ; preds = %520, %507, %499, %4
 
 .loopexit78.i:                                    ; preds = %344, %342, %333, %.preheader44.i.i.i, %353, %.lr.ph.i.i.i, %359, %324, %324, %321
   %.sroa.6.0.i = phi i64 [ undef, %359 ], [ undef, %324 ], [ undef, %324 ], [ undef, %321 ], [ undef, %.lr.ph.i.i.i ], [ %358, %353 ], [ undef, %333 ], [ undef, %342 ], [ undef, %344 ], [ %.sroa.013.0.i.i.i, %.preheader44.i.i.i ]
-  %.sroa.0.0.i51 = phi i1 [ false, %359 ], [ false, %324 ], [ false, %324 ], [ false, %321 ], [ %352, %.lr.ph.i.i.i ], [ %352, %353 ], [ %.not.i3.not.i.i, %.preheader44.i.i.i ], [ %.not.i3.not.i.i, %333 ], [ %.not.i3.not.i.i, %342 ], [ %.not.i3.not.i.i, %344 ]
+  %.sroa.0.0.i52 = phi i1 [ false, %359 ], [ false, %324 ], [ false, %324 ], [ false, %321 ], [ %352, %.lr.ph.i.i.i ], [ %352, %353 ], [ %.not.i3.not.i.i, %.preheader44.i.i.i ], [ %.not.i3.not.i.i, %333 ], [ %.not.i3.not.i.i, %342 ], [ %.not.i3.not.i.i, %344 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !56
   invoke void @_ZN14regex_automata4util8captures8Captures17get_group_by_name17he6d69db3f3786e70E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.8.0..sroa_idx.i, ptr noalias noundef nonnull readonly align 1 @anon.a917942bd3acd054fb2ddfbeece15c73.45, i64 noundef 3)
           to label %360 unwind label %291, !noalias !53
@@ -1252,7 +1252,7 @@ common.resume:                                    ; preds = %520, %507, %499, %4
 430:                                              ; preds = %360
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !56
   %.not44.i = icmp ult i64 %.sroa.6.0.i, %116
-  %or.cond.i = select i1 %.sroa.0.0.i51, i1 %.not44.i, i1 false
+  %or.cond.i = select i1 %.sroa.0.0.i52, i1 %.not44.i, i1 false
   br i1 %or.cond.i, label %431, label %496
 
 431:                                              ; preds = %430
@@ -1262,7 +1262,7 @@ common.resume:                                    ; preds = %520, %507, %499, %4
 .loopexit.i:                                      ; preds = %411, %409, %400, %.preheader44.i.i62.i, %420, %.lr.ph.i.i55.i, %391, %391, %388
   %not..sink.i.i51.i = phi i1 [ false, %391 ], [ false, %391 ], [ false, %388 ], [ %419, %.lr.ph.i.i55.i ], [ %419, %420 ], [ %.not.i3.not.i68.i, %.preheader44.i.i62.i ], [ %.not.i3.not.i68.i, %400 ], [ %.not.i3.not.i68.i, %409 ], [ %.not.i3.not.i68.i, %411 ]
   %433 = phi i64 [ undef, %391 ], [ undef, %391 ], [ undef, %388 ], [ %425, %420 ], [ undef, %.lr.ph.i.i55.i ], [ undef, %411 ], [ undef, %409 ], [ undef, %400 ], [ %.sroa.013.0.i.i65.i, %.preheader44.i.i62.i ]
-  br i1 %.sroa.0.0.i51, label %434, label %435
+  br i1 %.sroa.0.0.i52, label %434, label %435
 
 434:                                              ; preds = %.loopexit.i
   %.not46.i = icmp ult i64 %.sroa.6.0.i, %116
@@ -1565,14 +1565,14 @@ common.resume:                                    ; preds = %520, %507, %499, %4
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.429.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !162
   store ptr @anon.a917942bd3acd054fb2ddfbeece15c73.71, ptr %4, align 8, !noalias !169
-  %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %.sroa.453.0..sroa_idx, align 8, !noalias !169
-  %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %29, ptr %.sroa.554.0..sroa_idx, align 8, !noalias !169
-  %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %.sroa.655.0..sroa_idx, align 8, !noalias !169
-  %.sroa.756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %.sroa.756.0..sroa_idx, align 8, !noalias !169
+  %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %.sroa.454.0..sroa_idx, align 8, !noalias !169
+  %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %29, ptr %.sroa.555.0..sroa_idx, align 8, !noalias !169
+  %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %.sroa.656.0..sroa_idx, align 8, !noalias !169
+  %.sroa.757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %.sroa.757.0..sroa_idx, align 8, !noalias !169
   call void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !170
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)

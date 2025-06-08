@@ -18,14 +18,14 @@ define range(i32 -1, 1) i32 @up_map_region(ptr noundef %0, i32 noundef %1, i32 n
   %or.cond = or i1 %9, %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3
+.lr.ph:; preds = %3
   %10 = sdiv i32 %8, 4096
   %11 = and i64 %4, -4096
   %12 = sext i32 %2 to i64
   %umax = tail call i32 @llvm.umax.i32(i32 %10, i32 1)
   br label %13
 
-13:                                               ; preds = %.lr.ph, %13
+13: ; preds = %.lr.ph, %13
   %.019 = phi i32 [ 0, %.lr.ph ], [ %20, %13 ]
   %.01518 = phi i64 [ %11, %.lr.ph ], [ %19, %13 ]
   %14 = lshr exact i64 %.01518, 12

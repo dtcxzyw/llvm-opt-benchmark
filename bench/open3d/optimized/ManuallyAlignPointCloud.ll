@@ -4604,7 +4604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit552: ; preds = %_Z
   br label %1470
 
 1393:                                             ; preds = %402, %1388, %1167, %731
-  %.1.shrunk = phi i1 [ false, %1388 ], [ %742, %1167 ], [ %553, %731 ], [ true, %402 ]
+  %.1 = phi i1 [ false, %1388 ], [ %742, %1167 ], [ %553, %731 ], [ true, %402 ]
   %.1 = zext i1 %.1.shrunk to i32
   %1394 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %1395 = load ptr, ptr %1394, align 8, !tbaa !71
@@ -34930,10 +34930,10 @@ _ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit176: ; preds = %276, %280
   %.0245.in = phi i64 [ %314, %310 ], [ %307, %303 ]
   %.0.i = phi i32 [ 2, %310 ], [ 1, %303 ]
   %319 = icmp samesign ugt i32 %.0228, %.0.i
-  br i1 %319, label %.lr.ph.i, label %.thread302
+  br i1 %319, label %.lr.ph.i, label %.thread303
 
-.thread302:                                       ; preds = %318
-  %.1246299 = trunc nuw nsw i64 %.0245.in to i32
+.thread303:                                       ; preds = %318
+  %.1246300 = trunc nuw nsw i64 %.0245.in to i32
   br label %332
 
 .lr.ph.i:                                         ; preds = %318
@@ -34965,10 +34965,10 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %.not141 = icmp eq i32 %.0228, 9
   br i1 %.not141, label %346, label %332
 
-332:                                              ; preds = %.thread302, %331
-  %.2251300307 = phi i64 [ %.0249, %.thread302 ], [ %323, %331 ]
-  %.1246301306 = phi i32 [ %.1246299, %.thread302 ], [ %.1246, %331 ]
-  %333 = trunc i64 %.2251300307 to i32
+332:                                              ; preds = %.thread303, %331
+  %.2251301308 = phi i64 [ %.0249, %.thread302 ], [ %323, %331 ]
+  %.1246302307 = phi i32 [ %.1246300, %.thread302 ], [ %.1246, %331 ]
+  %333 = trunc i64 %.2251301308 to i32
   %334 = sub nsw i32 8, %299
   %335 = sext i32 %334 to i64
   %336 = getelementptr inbounds [9 x i32], ptr @.str.96, i64 0, i64 %335
@@ -34981,7 +34981,7 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %340 = or i64 %298, %251
   %341 = icmp ne i64 %340, 0
   %342 = zext i1 %341 to i32
-  %343 = or i32 %.1246301306, %342
+  %343 = or i32 %.1246302307, %342
   %344 = and i32 %343, %339
   %345 = trunc nuw i32 %344 to i1
   br i1 %345, label %.critedge149, label %.critedge151
@@ -35124,8 +35124,8 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %428 = load i8, ptr %427, align 1, !tbaa !27
   %429 = add i8 %428, 1
   store i8 %429, ptr %427, align 1, !tbaa !27
-  %.not284 = icmp eq i32 %.0228, 1
-  br i1 %.not284, label %.critedge, label %.lr.ph.preheader
+  %.not285 = icmp eq i32 %.0228, 1
+  br i1 %.not285, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.critedge149.thread, %.critedge149
   %430 = phi i64 [ %419, %.critedge149.thread ], [ %425, %.critedge149 ]
@@ -35238,9 +35238,9 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
   %.sroa.0.0 = phi i128 [ %storemerge.i188, %481 ], [ %storemerge.i, %468 ]
   %.sroa.6.0 = phi i32 [ %.0.i189, %481 ], [ %.0.i187, %468 ]
   %489 = phi i1 [ %487, %481 ], [ %480, %468 ]
-  %.0117 = zext i1 %489 to i32
-  %490 = or disjoint i32 %.0117, 4
-  %.1118 = select i1 %10, i32 %490, i32 %.0117
+  %spec.select = zext i1 %489 to i32
+  %490 = or disjoint i32 %spec.select, 4
+  %.1118 = select i1 %10, i32 %490, i32 %spec.select
   %491 = tail call i32 @llvm.umin.i32(i32 %.0228, i32 767)
   store i128 %.sroa.0.0, ptr %8, align 16, !tbaa !496
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -35257,19 +35257,19 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
 493:                                              ; preds = %.thread
   %494 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %495 = load i64, ptr %494, align 8, !tbaa !242
-  %.not146279 = icmp eq i64 %495, 0
-  br i1 %.not146279, label %.critedge3.thread, label %.lr.ph281
+  %.not146280 = icmp eq i64 %495, 0
+  br i1 %.not146280, label %.critedge3.thread, label %.lr.ph282
 
-.lr.ph281:                                        ; preds = %493
+.lr.ph282:                                        ; preds = %493
   %.promoted = load i32, ptr %7, align 4
   %496 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %497 = load ptr, ptr %496, align 8, !tbaa !236
   br label %498
 
-498:                                              ; preds = %.lr.ph281, %504
-  %.0280 = phi i64 [ %495, %.lr.ph281 ], [ %500, %504 ]
+498:                                              ; preds = %.lr.ph282, %504
+  %.0281 = phi i64 [ %495, %.lr.ph281 ], [ %500, %504 ]
   %499 = phi i32 [ %.promoted, %.lr.ph281 ], [ %505, %504 ]
-  %500 = add i64 %.0280, -1
+  %500 = add i64 %.0281, -1
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 %500
   %502 = load i8, ptr %501, align 1, !tbaa !27
   %503 = icmp eq i8 %502, 48
@@ -35289,20 +35289,20 @@ _ZZN3fmt3v106detail12format_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEEENKUl
 .critedge3:                                       ; preds = %498
   %508 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %509 = load i64, ptr %508, align 8, !tbaa !238
-  %510 = icmp ugt i64 %.0280, %509
+  %510 = icmp ugt i64 %.0281, %509
   br i1 %510, label %511, label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit192
 
 511:                                              ; preds = %.critedge3
   %512 = load ptr, ptr %3, align 8, !tbaa !46
   %513 = load ptr, ptr %512, align 8
-  call void %513(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.0280)
+  call void %513(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.0281)
   %.pre.i191 = load i64, ptr %508, align 8, !tbaa !238
   br label %_ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit192
 
 _ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit192: ; preds = %.critedge3.thread, %.critedge3, %511
-  %.0.lcssa310 = phi i64 [ %.0280, %.critedge3 ], [ %.0280, %511 ], [ 0, %.critedge3.thread ]
+  %.0.lcssa311 = phi i64 [ %.0281, %.critedge3 ], [ %.0281, %511 ], [ 0, %.critedge3.thread ]
   %514 = phi i64 [ %509, %.critedge3 ], [ %.pre.i191, %511 ], [ %507, %.critedge3.thread ]
-  %..i190 = call i64 @llvm.umin.i64(i64 %.0.lcssa310, i64 %514)
+  %..i190 = call i64 @llvm.umin.i64(i64 %.0.lcssa311, i64 %514)
   store i64 %..i190, ptr %494, align 8, !tbaa !242
   br label %515
 

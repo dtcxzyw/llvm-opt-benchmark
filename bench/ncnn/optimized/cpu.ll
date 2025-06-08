@@ -2097,9 +2097,9 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %4, i32 %spec.select.i)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %0)
   %18 = load i32, ptr %2, align 4, !tbaa !10
-  %.not1018 = icmp sgt i32 %18, 0
+  %.not1016 = icmp sgt i32 %18, 0
   %.pr.pre = load ptr, ptr %3, align 8, !tbaa !35
-  br i1 %.not1018, label %.lr.ph, label %.critedge
+  br i1 %.not1016, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit
   %wide.trip.count = zext nneg i32 %18 to i64
@@ -2115,15 +2115,15 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.critedge.thread.loopexit, label %19, !llvm.loop !40
 
-.critedge:                                        ; preds = %.loopexit
+._crit_edge:                                      ; preds = %.loopexit
   %.not.i.i.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.critedge.thread
 
-.critedge.thread.loopexit:                        ; preds = %19
+.thread:                                          ; preds = %19
   %.not1017.ph = sext i1 %.not to i32
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.critedge
+.critedge.thread:; preds = %.critedge.thread.loopexit, %.critedge
   %.not1017 = phi i32 [ 0, %.critedge ], [ %.not1017.ph, %.critedge.thread.loopexit ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !38
@@ -2133,11 +2133,11 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   call void @_ZdlPvm(ptr noundef nonnull %.pr.pre, i64 noundef %26) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge, %.critedge.thread
-  %.115 = phi i32 [ 0, %.critedge ], [ %.not1017, %.critedge.thread ]
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %.critedge.thread
+  %spec.select15 = phi i32 [ 0, %.critedge ], [ %.not1017, %.critedge.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #18
-  ret i32 %.115
+  ret i32 %spec.select15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

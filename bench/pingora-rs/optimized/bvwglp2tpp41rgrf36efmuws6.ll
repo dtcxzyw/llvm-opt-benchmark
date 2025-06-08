@@ -8620,7 +8620,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$yaml_rust..yaml..Yaml$u20$
   ]
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbff71113cc9e9ba0E.exit": ; preds = %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17hbdb885d1fcc3a9c6E.exit.i", %70, %65, %40, %.preheader.split, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7fcdebca1981e85aE.exit.i, %45, %31, %6, %2, %77, %25, %19, %13, %7
-  %.sroa.0.0.shrunk = phi i1 [ %12, %7 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %82, %77 ], [ false, %2 ], [ true, %6 ], [ false, %31 ], [ false, %45 ], [ %.not5.i.not.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7fcdebca1981e85aE.exit.i ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %40 ], [ false, %65 ], [ false, %70 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17hbdb885d1fcc3a9c6E.exit.i" ]
+  %.sroa.0.0.shrunk = phi i1 [ %12, %7 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %82, %77 ], [ false, %2 ], [ true, %6 ], [ false, %31 ], [ false, %45 ], [ %.not5.i.not.not.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7fcdebca1981e85aE.exit.i ], [ %exitcond.not, %.preheader.split ], [ %exitcond.not, %40 ], [ false, %65 ], [ false, %70 ], [ false, %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17hbdb885d1fcc3a9c6E.exit.i" ]
   ret i1 %.sroa.0.0.shrunk
 
 7:                                                ; preds = %6
@@ -8754,7 +8754,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$yaml_rust..yaml..Yaml$u20$
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h7fcdebca1981e85aE.exit.i: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h53ab55c11314fc6eE.exit.i"
   %76 = icmp eq ptr %.sroa.0.024.i, %.val7.i
   %.not5.i52.i = icmp eq ptr %.sroa.0.024.i, null
-  %.not5.i.not.i = or i1 %76, %.not5.i52.i
+  %.not5.i.not.not.i = or i1 %76, %.not5.i52.i
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbff71113cc9e9ba0E.exit"
 
 77:                                               ; preds = %6
@@ -9556,21 +9556,21 @@ common.resume:                                    ; preds = %20, %50, %61
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h610c70ecf9f9476eE.exit.preheader.i": ; preds = %15, %3
-  %.sink55 = phi i64 [ %8, %3 ], [ %1, %15 ]
-  %29 = icmp ult i64 %.sink55, 72057594037927936
+  %.sink52 = phi i64 [ %8, %3 ], [ %1, %15 ]
+  %29 = icmp ult i64 %.sink52, 72057594037927936
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !974)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !977)
-  %.not.i = icmp eq i64 %.sink55, 0
+  %.not.i = icmp eq i64 %.sink52, 0
   br i1 %.not.i, label %"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h49109d3970c83a48E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h610c70ecf9f9476eE.exit.preheader.i", %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hc9b966545783046fE.exit.i"
-  %.sroa.0.013.i = phi i64 [ %32, %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hc9b966545783046fE.exit.i" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h610c70ecf9f9476eE.exit.preheader.i" ]
-  %32 = add nuw nsw i64 %.sroa.0.013.i, 1
-  %33 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %31, i64 %.sroa.0.013.i
-  %34 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %0, i64 %.sroa.0.013.i
+  %.sroa.0.012.i = phi i64 [ %32, %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hc9b966545783046fE.exit.i" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h610c70ecf9f9476eE.exit.preheader.i" ]
+  %32 = add nuw nsw i64 %.sroa.0.012.i, 1
+  %33 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %31, i64 %.sroa.0.012.i
+  %34 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %0, i64 %.sroa.0.012.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !982)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
@@ -9693,11 +9693,11 @@ common.resume:                                    ; preds = %20, %50, %61
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8.i.i.i)
-  %exitcond.not.i = icmp eq i64 %32, %.sink55
+  %exitcond.not.i = icmp eq i64 %32, %.sink52
   br i1 %exitcond.not.i, label %"_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h49109d3970c83a48E.exit", label %.lr.ph.i
 
 "_ZN67_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..CloneFromSpec$LT$T$GT$$GT$15spec_clone_from17h49109d3970c83a48E.exit": ; preds = %"_ZN68_$LT$indexmap..Bucket$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17hc9b966545783046fE.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h610c70ecf9f9476eE.exit.preheader.i"
-  %63 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %0, i64 %.sink55
+  %63 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %0, i64 %.sink52
   %64 = getelementptr inbounds nuw { { { i64, [2 x i64] }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i64, i8, i8, [6 x i8] }, i64, i64 }, ptr %0, i64 %1
   tail call void @"_ZN101_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$I$GT$$GT$11spec_extend17h5b9fceec0173175bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %63, ptr noundef nonnull %64, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6faecb1efa1c25b07169dfca49265c5b.139)
   ret void

@@ -8912,9 +8912,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10ArResolver11BindContextERKNS_17ArResolver
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.039.042 = load ptr, ptr %29, align 8
   %.not4043 = icmp eq ptr %.sroa.039.042, null
-  br i1 %.not4043, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not4043, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10ArResolver11BindContextERKNS_17ArResolverContextEPNS_7VtValueE.exit
+.lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10ArResolver11BindContextERKNS_17ArResolverContextEPNS_7VtValueE.exit
   %.mask = and i8 %19, 1
   %.018 = zext nneg i8 %.mask to i64
   br label %.lr.ph
@@ -9255,14 +9255,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__10ArResolver13UnbindContextERKNS_17ArResolv
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.050.054 = load ptr, ptr %73, align 8
   %.not5355 = icmp eq ptr %.sroa.050.054, null
-  br i1 %.not5355, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not5355, label %._crit_edge, label %.lr.ph
 
 .lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10ArResolver13UnbindContextERKNS_17ArResolverContextEPNS_7VtValueE.exit
   %.mask = and i8 %65, 1
   %.021 = zext nneg i8 %.mask to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %87
+.lr.ph:                                           ; preds = %.lr.ph, %87
   %.sroa.050.057 = phi ptr [ %.sroa.050.0, %87 ], [ %.sroa.050.054, %.lr.ph.preheader ]
   %.156 = phi i64 [ %.2, %87 ], [ %.021, %.lr.ph.preheader ]
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.050.057, i64 40

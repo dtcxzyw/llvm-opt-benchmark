@@ -334,8 +334,8 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_name_is_legal(ptr n
   br i1 %or.cond5, label %._crit_edge, label %2
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2, %1
-  %.not.lcssa = phi i32 [ 1, %1 ], [ 1, %2 ], [ 0, %.lr.ph ]
-  ret i32 %.not.lcssa
+  %.012 = phi i32 [ 1, %1 ], [ 1, %2 ], [ 0, %.lr.ph ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
@@ -347,14 +347,14 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr 
   %.019 = phi ptr [ %8, %5 ], [ %0, %2 ]
   %4 = load i8, ptr %.019, align 1, !tbaa !22
   %.not31 = icmp eq i8 %4, 0
-  br i1 %.not31, label %.loopexit.loopexit, label %5
+  br i1 %.not31, label %.loopexit, label %5
 
 5:                                                ; preds = %.preheader
   %6 = tail call fastcc i32 @utf8len_(ptr noundef nonnull %.019)
   %.not35 = icmp eq i32 %6, 0
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %.019, i64 %7
-  br i1 %.not35, label %.loopexit.loopexit, label %.preheader
+  br i1 %.not35, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %2
   %10 = zext i32 %1 to i64
@@ -380,7 +380,7 @@ define range(i32 0, 2) i32 @FLAC__format_vorbiscomment_entry_value_is_legal(ptr 
 .thread:                                          ; preds = %14, %18
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %5, %.preheader
+.loopexit:                                        ; preds = %5, %.preheader
   %.2.ph = zext i1 %.not31 to i32
   br label %.loopexit
 

@@ -292,8 +292,8 @@ agxbclear.exit:                                   ; preds = %48, %47, %44
 64:                                               ; preds = %60
   call fastcc void @agxbmore(i64 noundef %61)
   %.pre.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
-  %.pre8.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @last, i64 8), align 8
-  %.pre10.i = zext i8 %.pre.i to i64
+  %.pre7.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @last, i64 8), align 8
+  %.pre9.i = zext i8 %.pre.i to i64
   br label %66
 
 65:                                               ; preds = %60
@@ -302,8 +302,8 @@ agxbclear.exit:                                   ; preds = %48, %47, %44
   br label %73
 
 66:                                               ; preds = %64, %52
-  %.pre-phi.i = phi i64 [ %56, %52 ], [ %.pre10.i, %64 ]
-  %67 = phi i64 [ %57, %52 ], [ %.pre8.i, %64 ]
+  %.pre-phi.i = phi i64 [ %56, %52 ], [ %.pre9.i, %64 ]
+  %67 = phi i64 [ %57, %52 ], [ %.pre7.i, %64 ]
   %68 = phi i8 [ %54, %52 ], [ %.pre.i, %64 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -316,7 +316,7 @@ agxbclear.exit:                                   ; preds = %48, %47, %44
   br label %73
 
 73:                                               ; preds = %66, %65
-  %.0367.i = phi i1 [ false, %66 ], [ true, %65 ]
+  %.0366.i = phi i1 [ false, %66 ], [ true, %65 ]
   %74 = phi ptr [ %72, %66 ], [ %5, %65 ]
   %75 = call i32 @vsnprintf(ptr noundef %74, i64 noundef %53, ptr noundef readonly %1, ptr noundef nonnull %2) #19
   %76 = icmp sgt i32 %75, 0
@@ -328,18 +328,18 @@ agxbclear.exit:                                   ; preds = %48, %47, %44
   br i1 %.not.i14, label %88, label %79
 
 79:                                               ; preds = %77
-  br i1 %.0367.i, label %80, label %84
+  br i1 %.0366.i, label %80, label %84
 
 80:                                               ; preds = %79
   %81 = zext i8 %78 to i64
   %82 = getelementptr inbounds nuw [31 x i8], ptr @last, i64 0, i64 %81
   %83 = zext nneg i32 %75 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 16 %5, i64 %83, i1 false)
-  %.pre9.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
+  %.pre8.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
   br label %84
 
 84:                                               ; preds = %80, %79
-  %85 = phi i8 [ %.pre9.i, %80 ], [ %78, %79 ]
+  %85 = phi i8 [ %.pre8.i, %80 ], [ %78, %79 ]
   %86 = trunc i32 %75 to i8
   %87 = add i8 %85, %86
   store i8 %87, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
@@ -510,12 +510,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @default_usererrf(ptr noundef readonly captures(none) %0) unnamed_addr #17 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
-  %.not.not23 = icmp eq i8 %2, 0
-  br i1 %.not.not23, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq i8 %2, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %13
   %3 = phi i8 [ %15, %13 ], [ %2, %1 ]
-  %.025 = phi i32 [ %.3, %13 ], [ undef, %1 ]
+  %.01525 = phi i32 [ %.3, %13 ], [ undef, %1 ]
   %.01524 = phi ptr [ %14, %13 ], [ %0, %1 ]
   %4 = sext i8 %3 to i32
   %or.cond.i = icmp ult i8 %3, 32
@@ -548,11 +548,11 @@ gv_isspace.exit.thread:                           ; preds = %6, %6, %6, %6, %6, 
   br i1 %cond, label %13, label %._crit_edge
 
 13:                                               ; preds = %gv_isspace.exit.thread, %gv_isspace.exit
-  %.3 = phi i32 [ %..0, %gv_isspace.exit.thread ], [ %.025, %gv_isspace.exit ]
+  %.3 = phi i32 [ %..0, %gv_isspace.exit.thread ], [ %.01525, %gv_isspace.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %.01524, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !9
-  %.not.not = icmp eq i8 %15, 0
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  %.not = icmp eq i8 %15, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %gv_isspace.exit.thread, %gv_isspace.exit, %13, %1
   %spec.select = phi i32 [ 0, %1 ], [ 0, %13 ], [ %8, %gv_isspace.exit ], [ %..0, %gv_isspace.exit.thread ]

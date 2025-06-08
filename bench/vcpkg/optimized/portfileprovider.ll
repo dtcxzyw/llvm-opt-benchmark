@@ -19509,13 +19509,13 @@ define internal noundef ptr @_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_
   %8 = load ptr, ptr %5, align 8, !tbaa !192
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !192
-  %.not19.not20.i = icmp eq ptr %8, %10
-  br i1 %.not19.not20.i, label %.loopexit, label %.lr.ph.i
+  %.not1920.i = icmp eq ptr %8, %10
+  br i1 %.not1920.i, label %.loopexit, label %.lr.ph.i
 
 11:                                               ; preds = %.lr.ph.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.021.i, i64 88
-  %.not19.not.i = icmp eq ptr %12, %10
-  br i1 %.not19.not.i, label %.loopexit, label %.lr.ph.i
+  %.not19.i = icmp eq ptr %12, %10
+  br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %11
   %.sroa.016.021.i = phi ptr [ %12, %11 ], [ %8, %3 ]
@@ -20179,13 +20179,13 @@ define internal noundef ptr @_ZNK5vcpkg12_GLOBAL__N_120ManifestProviderImpl16get
   %17 = load ptr, ptr %14, align 8, !tbaa !192
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !192
-  %.not19.not20.i.i = icmp eq ptr %17, %19
-  br i1 %.not19.not20.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
+  %.not1920.i.i = icmp eq ptr %17, %19
+  br i1 %.not1920.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.016.021.i.i, i64 88
-  %.not19.not.i.i = icmp eq ptr %21, %19
-  br i1 %.not19.not.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
+  %.not19.i.i = icmp eq ptr %21, %19
+  br i1 %.not19.i.i, label %_ZNK5vcpkg12_GLOBAL__N_119OverlayProviderImpl16get_control_fileENS_10StringViewE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %13, %20
   %.sroa.016.021.i.i = phi ptr [ %21, %20 ], [ %17, %13 ]

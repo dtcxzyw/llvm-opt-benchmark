@@ -7695,25 +7695,25 @@ rb_vm_lock_enter.exit:                            ; preds = %rb_check_frozen_inl
   br i1 %66, label %general_ivar_set.exit, label %general_ivar_set.exit.sink.split
 
 general_ivar_set.exit.sink.split:                 ; preds = %58, %48
-  %.sroa.4.1.shrunk.i.ph = phi i1 [ %25, %48 ], [ %62, %58 ]
+  %.sroa.4.1.i.ph = phi i1 [ %25, %48 ], [ %62, %58 ]
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %2) #27
   br label %general_ivar_set.exit
 
 general_ivar_set.exit:                            ; preds = %general_ivar_set.exit.sink.split, %48, %58
-  %.sroa.4.1.shrunk.i = phi i1 [ %62, %58 ], [ %25, %48 ], [ %.sroa.4.1.shrunk.i.ph, %general_ivar_set.exit.sink.split ]
+  %.sroa.4.1.i = phi i1 [ %62, %58 ], [ %25, %48 ], [ %.sroa.4.1.i.ph, %general_ivar_set.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %67 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
-  %.not.i.i7 = icmp eq ptr %67, null
-  br i1 %.not.i.i7, label %68, label %rb_vm_lock_leave.exit
+  %68 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
+  %.not.i.i7 = icmp eq ptr %68, null
+  br i1 %.not.i.i7, label %69, label %rb_vm_lock_leave.exit
 
-68:                                               ; preds = %general_ivar_set.exit
+69:                                               ; preds = %general_ivar_set.exit
   call void @rb_vm_lock_leave_body(ptr noundef nonnull %5) #27
   br label %rb_vm_lock_leave.exit
 
-rb_vm_lock_leave.exit:                            ; preds = %general_ivar_set.exit, %68
+rb_vm_lock_leave.exit:                            ; preds = %general_ivar_set.exit, %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
-  %69 = zext i1 %.sroa.4.1.shrunk.i to i32
-  ret i32 %69
+  %71 = zext i1 %.sroa.4.1.i to i32
+  ret i32 %71
 }
 
 declare void @rb_class_foreach_subclass(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

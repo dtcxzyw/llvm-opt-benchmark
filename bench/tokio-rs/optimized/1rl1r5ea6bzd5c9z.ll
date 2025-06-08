@@ -3698,34 +3698,34 @@ _ZN3std4sync4once4Once9call_once17h577dd9554f35c9e8E.llvm.5542961546488995764.ex
 define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E(ptr noalias noundef readonly align 1 dereferenceable(12) %0) unnamed_addr #1 {
   %2 = load i32, ptr %0, align 1, !noundef !5
   %3 = and i32 %2, 3
-  %.09 = icmp ne i32 %3, 0
+  %.09.not = icmp ne i32 %3, 0
   %4 = lshr i32 %2, 1
   %5 = and i32 %4, 2
-  %6 = zext i1 %.09 to i32
-  %spec.select16 = or disjoint i32 %5, %6
-  %spec.select = zext nneg i32 %spec.select16 to i64
+  %6 = zext i1 %.09.not to i32
+  %.114 = or disjoint i32 %5, %6
+  %.1 = zext nneg i32 %.114 to i64
   %7 = and i32 %2, 16
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %.thread
 
 .thread:                                          ; preds = %1
-  %9 = or disjoint i64 %spec.select, 4
-  br label %.thread13
+  %9 = or disjoint i64 %.1, 4
+  br label %.thread12
 
 10:                                               ; preds = %1
   %11 = and i32 %2, 1
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.thread13, label %12
+  br i1 %.not, label %.thread12, label %12
 
 12:                                               ; preds = %10
   %13 = lshr i32 %2, 11
   %14 = and i32 %13, 4
-  %spec.select1518 = or disjoint i32 %spec.select16, %14
-  %spec.select15 = zext nneg i32 %spec.select1518 to i64
-  br label %.thread13
+  %spec.select16 = or disjoint i32 %.114, %14
+  %spec.select = zext nneg i32 %spec.select16 to i64
+  br label %.thread12
 
-.thread13:                                        ; preds = %12, %10, %.thread
-  %15 = phi i64 [ %9, %.thread ], [ %spec.select, %10 ], [ %spec.select15, %12 ]
+.thread12:                                        ; preds = %12, %10, %.thread
+  %15 = phi i64 [ %9, %.thread ], [ %.1, %10 ], [ %spec.select, %12 ]
   %16 = tail call noundef zeroext i1 @_ZN3mio5event5event5Event15is_write_closed17ha817df7712a2e5e0E(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %0)
   %17 = or i64 %15, 8
   %.3 = select i1 %16, i64 %17, i64 %15
@@ -3733,8 +3733,8 @@ define hidden noundef range(i64 0, 64) i64 @_ZN5tokio2io5ready5Ready8from_mio17h
   %19 = and i32 %18, 32
   %20 = shl i32 %2, 3
   %21 = and i32 %20, 16
-  %.419 = or disjoint i32 %21, %19
-  %.4 = zext nneg i32 %.419 to i64
+  %.417 = or disjoint i32 %21, %19
+  %.4 = zext nneg i32 %.417 to i64
   %.5 = or i64 %.3, %.4
   ret i64 %.5
 }

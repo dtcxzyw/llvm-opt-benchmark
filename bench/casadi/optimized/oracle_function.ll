@@ -17514,7 +17514,7 @@ _ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit: ; preds 
   %.not.i = icmp ne i32 %150, 0
   %.not9.i = icmp eq ptr %149, null
   %or.cond.i = or i1 %.not9.i, %.not.i
-  br i1 %or.cond.i, label %.critedge.loopexit, label %151
+  br i1 %or.cond.i, label %_ZNK6casadi14OracleFunction14local_init_memEPv.exit, label %151
 
 151:                                              ; preds = %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit
   %152 = load ptr, ptr %15, align 8, !tbaa !29
@@ -17534,9 +17534,9 @@ _ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit: ; preds 
   %155 = load i32, ptr %23, align 4, !tbaa !107
   %156 = sext i32 %155 to i64
   %.not47 = icmp slt i64 %indvars.iv.next, %156
-  br i1 %.not47, label %118, label %.critedge.loopexit, !llvm.loop !385
+  br i1 %.not47, label %118, label %_ZNK6casadi14OracleFunction14local_init_memEPv.exit, !llvm.loop !385
 
-.critedge.loopexit:                               ; preds = %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit, %.loopexit
+_ZNK6casadi14OracleFunction14local_init_memEPv.exit: ; preds = %_ZNSt6vectorIPN6casadi17LocalOracleMemoryESaIS2_EE9push_backEOS2_.exit, %.loopexit
   %.not47.lcssa.ph = zext i1 %or.cond.i to i32
   br label %.critedge
 

@@ -16453,8 +16453,8 @@ lean_obj_tag.exit22:                              ; preds = %lean_dec.exit13
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %lean_obj_tag.exit22.thread, %lean_obj_tag.exit22, %41, %43, %44
-  %45 = phi i1 [ %35, %lean_obj_tag.exit22.thread ], [ %37, %lean_obj_tag.exit22 ], [ %37, %41 ], [ %37, %43 ], [ %37, %44 ]
-  %.1 = zext i1 %45 to i8
+  %.0.shrunk = phi i1 [ %35, %lean_obj_tag.exit22.thread ], [ %37, %lean_obj_tag.exit22 ], [ %37, %41 ], [ %37, %43 ], [ %37, %44 ]
+  %.0 = zext i1 %.0.shrunk to i8
   br label %46
 
 46:                                               ; preds = %lean_obj_tag.exit, %lean_dec.exit
