@@ -4414,10 +4414,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %80 = sub nsw i32 %.sroa.speculated211, %.sroa.speculated233
   %81 = sub nsw i32 %.sroa.speculated, %.sroa.speculated222
   %82 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
-  %83 = add nuw i32 %82, 1
-  %84 = tail call i32 @llvm.smin.i32(i32 %75, i32 %83)
+  %83 = add nuw nsw i32 %82, 1
+  %.not266 = icmp sgt i32 %75, %82
+  %84 = select i1 %.not266, i32 %83, i32 %75
   %85 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
-  %86 = add nuw i32 %85, 1
+  %86 = add nuw nsw i32 %85, 1
   %87 = tail call i32 @llvm.smin.i32(i32 %78, i32 %86)
   %88 = fsub double 1.000000e+00, %6
   %89 = mul nsw i32 %87, %84
@@ -4478,8 +4479,8 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %73
   store ptr %112, ptr %108, align 8, !tbaa !67
   %114 = load ptr, ptr %53, align 8, !tbaa !67
   %115 = load ptr, ptr %1, align 8, !tbaa !29
-  %.not266 = icmp eq ptr %114, %115
-  br i1 %.not266, label %._crit_edge, label %.lr.ph
+  %.not267 = icmp eq ptr %114, %115
+  br i1 %.not267, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %16, i64 16

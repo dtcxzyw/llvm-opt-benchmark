@@ -14931,11 +14931,13 @@ _ZN6casadi10Integrator8all_zeroEPKdx.exit519.thread: ; preds = %801, %.loopexit8
   %.not.not24.i = icmp sgt i64 %.fr.i564, 0
   %smin.i = call i64 @llvm.smin.i64(i64 %901, i64 0)
   %912 = add i64 %smin.i, -1
-  %913 = icmp sgt i64 %901, 0
-  %or.cond1646 = and i1 %.not.not24.i, %913
-  br i1 %or.cond1646, label %.lr.ph.us.i571.preheader, label %_ZNK6casadi10Integrator10next_stopBExPKd.exit
+  br i1 %.not.not24.i, label %.preheader.split.us.preheader.i569, label %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread
 
-.lr.ph.us.i571.preheader:                         ; preds = %.preheader.i566
+.preheader.split.us.preheader.i569:               ; preds = %.preheader.i566
+  %913 = icmp sgt i64 %901, 0
+  br i1 %913, label %.lr.ph.us.i571.preheader, label %_ZNK6casadi10Integrator10next_stopBExPKd.exit
+
+.lr.ph.us.i571.preheader:                         ; preds = %.preheader.split.us.preheader.i569
   %.pre1578 = load double, ptr %784, align 8, !tbaa !342
   br label %.lr.ph.us.i571
 
@@ -14967,8 +14969,8 @@ _ZN6casadi10Integrator8all_zeroEPKdx.exit519.thread: ; preds = %801, %.loopexit8
   %927 = add nuw i64 %920, 1
   br i1 %926, label %_ZNK6casadi10Integrator10next_stopBExPKd.exit, label %.lr.ph34.i, !llvm.loop !397
 
-_ZNK6casadi10Integrator10next_stopBExPKd.exit:    ; preds = %.preheader.split.us.i570.loopexit, %921, %.preheader.i566, %_ZN6casadi10Integrator8all_zeroEPKdx.exit519.thread
-  %.3208 = phi i64 [ %.22071491, %_ZN6casadi10Integrator8all_zeroEPKdx.exit519.thread ], [ %912, %.preheader.i566 ], [ %916, %921 ], [ %912, %.preheader.split.us.i570.loopexit ]
+_ZNK6casadi10Integrator10next_stopBExPKd.exit:    ; preds = %.preheader.split.us.i570.loopexit, %921, %.preheader.split.us.preheader.i569, %_ZN6casadi10Integrator8all_zeroEPKdx.exit519.thread
+  %.3208 = phi i64 [ %.22071491, %_ZN6casadi10Integrator8all_zeroEPKdx.exit519.thread ], [ %912, %.preheader.split.us.preheader.i569 ], [ %916, %921 ], [ %912, %.preheader.split.us.i570.loopexit ]
   %928 = icmp slt i64 %.3208, 0
   br i1 %928, label %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread, label %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848
 
@@ -14978,9 +14980,9 @@ _ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848: ; preds = %.lr.ph.us.i5
   %930 = getelementptr inbounds nuw double, ptr %929, i64 %.3208850
   br label %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread
 
-_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread: ; preds = %907, %_ZNK6casadi10Integrator10next_stopBExPKd.exit, %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848
-  %.3208847 = phi i64 [ %.3208850, %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848 ], [ %.3208, %_ZNK6casadi10Integrator10next_stopBExPKd.exit ], [ -1, %907 ]
-  %.in260 = phi ptr [ %930, %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848 ], [ %114, %_ZNK6casadi10Integrator10next_stopBExPKd.exit ], [ %114, %907 ]
+_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread: ; preds = %.preheader.i566, %907, %_ZNK6casadi10Integrator10next_stopBExPKd.exit, %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848
+  %.3208847 = phi i64 [ %.3208850, %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848 ], [ %.3208, %_ZNK6casadi10Integrator10next_stopBExPKd.exit ], [ -1, %907 ], [ %912, %.preheader.i566 ]
+  %.in260 = phi ptr [ %930, %_ZNK6casadi10Integrator10next_stopBExPKd.exit.thread848 ], [ %114, %_ZNK6casadi10Integrator10next_stopBExPKd.exit ], [ %114, %907 ], [ %114, %.preheader.i566 ]
   %931 = load double, ptr %.in260, align 8, !tbaa !342
   store double %931, ptr %723, align 8, !tbaa !360
   %932 = load i8, ptr %713, align 8, !tbaa !366, !range !364, !noundef !365

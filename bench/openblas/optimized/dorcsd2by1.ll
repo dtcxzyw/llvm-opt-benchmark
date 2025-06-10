@@ -144,7 +144,7 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 91:                                               ; preds = %81
   %92 = tail call i32 @llvm.smax.i32(i32 %88, i32 2)
-  %93 = add nuw i32 %92, 1
+  %93 = add nuw nsw i32 %92, 1
   %94 = tail call i32 @llvm.smax.i32(i32 %88, i32 1)
   %95 = add nuw nsw i32 %93, %94
   %96 = tail call i32 @llvm.smax.i32(i32 %88, i32 2)
@@ -161,9 +161,9 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 1, ptr %22, align 4, !tbaa !3
   store i32 %84, ptr %23, align 4, !tbaa !3
   %106 = tail call i32 @llvm.smax.i32(i32 %84, i32 1)
-  %107 = add nsw i32 %105, %106
+  %107 = add nuw nsw i32 %105, %106
   %108 = tail call i32 @llvm.smax.i32(i32 %86, i32 1)
-  %109 = add nsw i32 %107, %108
+  %109 = add nuw nsw i32 %107, %108
   %110 = icmp eq i32 %88, %86
   br i1 %110, label %111, label %149
 
@@ -550,9 +550,9 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %295 = add i32 %104, -1
   %296 = add i32 %295, %287
   %297 = call i32 @llvm.smax.i32(i32 %294, i32 %296)
-  %298 = add i32 %289, %.2
+  %298 = add nuw i32 %289, %.2
   %299 = call i32 @llvm.smax.i32(i32 %290, i32 %298)
-  %300 = add i32 %289, %.11147
+  %300 = add nuw i32 %289, %.11147
   %301 = call i32 @llvm.smax.i32(i32 %299, i32 %300)
   store i32 %301, ptr %22, align 4, !tbaa !3
   store i32 %296, ptr %23, align 4, !tbaa !3
@@ -596,14 +596,14 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 318:                                              ; preds = %312
   %319 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %320 = sext i32 %93 to i64
-  %321 = getelementptr inbounds double, ptr %48, i64 %320
-  %322 = sext i32 %105 to i64
-  %323 = getelementptr inbounds double, ptr %48, i64 %322
-  %324 = sext i32 %107 to i64
-  %325 = getelementptr inbounds double, ptr %48, i64 %324
-  %326 = sext i32 %109 to i64
-  %327 = getelementptr inbounds double, ptr %48, i64 %326
+  %320 = zext nneg i32 %93 to i64
+  %321 = getelementptr inbounds nuw double, ptr %48, i64 %320
+  %322 = zext nneg i32 %105 to i64
+  %323 = getelementptr inbounds nuw double, ptr %48, i64 %322
+  %324 = zext nneg i32 %107 to i64
+  %325 = getelementptr inbounds nuw double, ptr %48, i64 %324
+  %326 = zext nneg i32 %109 to i64
+  %327 = getelementptr inbounds nuw double, ptr %48, i64 %326
   call void @dorbdb1_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %319, ptr noundef nonnull %321, ptr noundef nonnull %323, ptr noundef nonnull %325, ptr noundef nonnull %327, ptr noundef nonnull %28, ptr noundef nonnull %26) #4
   %.not1275 = icmp eq i32 %50, 0
   br i1 %.not1275, label %332, label %328
@@ -695,8 +695,8 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %362
 
 362:                                              ; preds = %._crit_edge1358, %344, %343
-  %363 = sext i32 %95 to i64
-  %364 = getelementptr inbounds double, ptr %48, i64 %363
+  %363 = zext nneg i32 %95 to i64
+  %364 = getelementptr inbounds nuw double, ptr %48, i64 %363
   %365 = sext i32 %98 to i64
   %366 = getelementptr inbounds double, ptr %48, i64 %365
   %367 = sext i32 %99 to i64
@@ -781,14 +781,14 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 405:                                              ; preds = %402
   %406 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %407 = sext i32 %93 to i64
-  %408 = getelementptr inbounds double, ptr %48, i64 %407
-  %409 = sext i32 %105 to i64
-  %410 = getelementptr inbounds double, ptr %48, i64 %409
-  %411 = sext i32 %107 to i64
-  %412 = getelementptr inbounds double, ptr %48, i64 %411
-  %413 = sext i32 %109 to i64
-  %414 = getelementptr inbounds double, ptr %48, i64 %413
+  %407 = zext nneg i32 %93 to i64
+  %408 = getelementptr inbounds nuw double, ptr %48, i64 %407
+  %409 = zext nneg i32 %105 to i64
+  %410 = getelementptr inbounds nuw double, ptr %48, i64 %409
+  %411 = zext nneg i32 %107 to i64
+  %412 = getelementptr inbounds nuw double, ptr %48, i64 %411
+  %413 = zext nneg i32 %109 to i64
+  %414 = getelementptr inbounds nuw double, ptr %48, i64 %413
   call void @dorbdb2_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %406, ptr noundef nonnull %408, ptr noundef nonnull %410, ptr noundef nonnull %412, ptr noundef nonnull %414, ptr noundef nonnull %28, ptr noundef nonnull %26) #4
   %.not1269 = icmp eq i32 %50, 0
   br i1 %.not1269, label %432, label %415
@@ -879,8 +879,8 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %448
 
 448:                                              ; preds = %447, %444, %443
-  %449 = sext i32 %95 to i64
-  %450 = getelementptr inbounds double, ptr %48, i64 %449
+  %449 = zext nneg i32 %95 to i64
+  %450 = getelementptr inbounds nuw double, ptr %48, i64 %449
   %451 = sext i32 %98 to i64
   %452 = getelementptr inbounds double, ptr %48, i64 %451
   %453 = sext i32 %99 to i64
@@ -966,14 +966,14 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 492:                                              ; preds = %488
   %493 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %494 = sext i32 %93 to i64
-  %495 = getelementptr inbounds double, ptr %48, i64 %494
-  %496 = sext i32 %105 to i64
-  %497 = getelementptr inbounds double, ptr %48, i64 %496
-  %498 = sext i32 %107 to i64
-  %499 = getelementptr inbounds double, ptr %48, i64 %498
-  %500 = sext i32 %109 to i64
-  %501 = getelementptr inbounds double, ptr %48, i64 %500
+  %494 = zext nneg i32 %93 to i64
+  %495 = getelementptr inbounds nuw double, ptr %48, i64 %494
+  %496 = zext nneg i32 %105 to i64
+  %497 = getelementptr inbounds nuw double, ptr %48, i64 %496
+  %498 = zext nneg i32 %107 to i64
+  %499 = getelementptr inbounds nuw double, ptr %48, i64 %498
+  %500 = zext nneg i32 %109 to i64
+  %501 = getelementptr inbounds nuw double, ptr %48, i64 %500
   call void @dorbdb3_(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %493, ptr noundef nonnull %495, ptr noundef nonnull %497, ptr noundef nonnull %499, ptr noundef nonnull %501, ptr noundef nonnull %28, ptr noundef nonnull %26) #4
   %.not1263 = icmp eq i32 %50, 0
   br i1 %.not1263, label %506, label %502
@@ -1072,8 +1072,8 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %540 = load i32, ptr %4, align 4, !tbaa !3
   %541 = sub nsw i32 %538, %540
   store i32 %541, ptr %23, align 4, !tbaa !3
-  %542 = sext i32 %95 to i64
-  %543 = getelementptr inbounds double, ptr %48, i64 %542
+  %542 = zext nneg i32 %95 to i64
+  %543 = getelementptr inbounds nuw double, ptr %48, i64 %542
   %544 = sext i32 %98 to i64
   %545 = getelementptr inbounds double, ptr %48, i64 %544
   %546 = sext i32 %99 to i64
@@ -1158,14 +1158,14 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %578 = sub nsw i32 %288, %489
   store i32 %578, ptr %22, align 4, !tbaa !3
   %579 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %580 = sext i32 %93 to i64
-  %581 = getelementptr inbounds double, ptr %48, i64 %580
-  %582 = sext i32 %105 to i64
-  %583 = getelementptr inbounds double, ptr %48, i64 %582
-  %584 = sext i32 %107 to i64
-  %585 = getelementptr inbounds double, ptr %48, i64 %584
-  %586 = sext i32 %109 to i64
-  %587 = getelementptr inbounds double, ptr %48, i64 %586
+  %580 = zext nneg i32 %93 to i64
+  %581 = getelementptr inbounds nuw double, ptr %48, i64 %580
+  %582 = zext nneg i32 %105 to i64
+  %583 = getelementptr inbounds nuw double, ptr %48, i64 %582
+  %584 = zext nneg i32 %107 to i64
+  %585 = getelementptr inbounds nuw double, ptr %48, i64 %584
+  %586 = zext nneg i32 %109 to i64
+  %587 = getelementptr inbounds nuw double, ptr %48, i64 %586
   %588 = add nsw i32 %489, %109
   %589 = sext i32 %588 to i64
   %590 = getelementptr inbounds double, ptr %48, i64 %589
@@ -1350,8 +1350,8 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %685, ptr %22, align 4, !tbaa !3
   %686 = sub nsw i32 %683, %682
   store i32 %686, ptr %23, align 4, !tbaa !3
-  %687 = sext i32 %95 to i64
-  %688 = getelementptr inbounds double, ptr %48, i64 %687
+  %687 = zext nneg i32 %95 to i64
+  %688 = getelementptr inbounds nuw double, ptr %48, i64 %687
   %689 = sext i32 %98 to i64
   %690 = getelementptr inbounds double, ptr %48, i64 %689
   %691 = sext i32 %99 to i64

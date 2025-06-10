@@ -39832,8 +39832,8 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i: ; preds 
 
 for.end.i.i.i.i.i.i.i:                            ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i.i, %if.end.i23.i.i.i.i.i.i
   %188 = call i32 @llvm.smax.i32(i32 %161, i32 1)
-  %cond.i.i.i.i.i.i.i = add nuw i32 %188, 1
-  %conv11.i24.i.i.i.i.i.i = sext i32 %cond.i.i.i.i.i.i.i to i64
+  %cond.i.i.i.i.i.i.i = add nuw nsw i32 %188, 1
+  %conv11.i24.i.i.i.i.i.i = zext nneg i32 %cond.i.i.i.i.i.i.i to i64
   %189 = load ptr, ptr %agg.tmp17.i.sroa.4.0.agg.tmp17.i22.sroa_idx, align 8
   %190 = load i64, ptr %189, align 8
   %add12.i.i.i.i.i.i.i = add i64 %190, %conv11.i24.i.i.i.i.i.i
@@ -40113,8 +40113,8 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i: ; preds = 
 
 for.end.i.i.i.i.i.i:                              ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %239 = call i32 @llvm.smax.i32(i32 %212, i32 1)
-  %cond.i36.i.i.i.i.i = add nuw i32 %239, 1
-  %conv8.i.i.i.i.i.i = sext i32 %cond.i36.i.i.i.i.i to i64
+  %cond.i36.i.i.i.i.i = add nuw nsw i32 %239, 1
+  %conv8.i.i.i.i.i.i = zext nneg i32 %cond.i36.i.i.i.i.i to i64
   %240 = load ptr, ptr %agg.tmp17.i.sroa.4.0.agg.tmp17.i22.sroa_idx, align 8
   %241 = load i64, ptr %240, align 8
   %add9.i37.i.i.i.i.i = add i64 %241, %conv8.i.i.i.i.i.i
@@ -53752,8 +53752,8 @@ _ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit: ; preds = %if.then4.i.
 
 for.end:                                          ; preds = %_ZNK8facebook5velox12_GLOBAL__N_16AsJson8lengthAtEi.exit, %if.end
   %35 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
-  %cond = add nuw i32 %35, 1
-  %conv8 = sext i32 %cond to i64
+  %cond = add nuw nsw i32 %35, 1
+  %conv8 = zext nneg i32 %cond to i64
   %36 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %37, align 8

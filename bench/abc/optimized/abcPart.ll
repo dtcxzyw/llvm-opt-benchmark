@@ -4615,7 +4615,7 @@ define ptr @Abc_NtkPartStartHop(ptr noundef %0) local_unnamed_addr #4 {
   %.val55.val = load i32, ptr %4, align 4, !tbaa !12
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
   %6 = tail call i32 @llvm.umax.i32(i32 %.val55.val, i32 7)
-  %spec.store.select.i = add i32 %6, 1
+  %spec.store.select.i = add nsw i32 %6, 1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %spec.store.select.i, ptr %5, align 8, !tbaa !14
   %.not.i = icmp eq i32 %spec.store.select.i, 0

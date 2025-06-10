@@ -4360,12 +4360,12 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_111MixedBlocks6extendIjEEvPK
   %6 = load i32, ptr %5, align 8, !tbaa !62
   %7 = sub nsw i32 %2, %6
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 -1)
-  %.0 = add i32 %8, 1
   %9 = sub nsw i32 %3, %6
-  %.not25 = icmp sgt i32 %.0, %9
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not25.not = icmp slt i32 %8, %9
+  br i1 %.not25.not, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
+  %.0 = add nsw i32 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load ptr, ptr %0, align 8, !tbaa !58
