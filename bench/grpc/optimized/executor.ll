@@ -2275,16 +2275,16 @@ define void @_ZN9grpc_core8Executor3RunEP12grpc_closureN4absl12lts_202407226Stat
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %13, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
-13:                                               ; preds = %4
+13:; preds = %4
   %14 = inttoptr i64 %11 to ptr
   %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4
   br label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %4, %13
   invoke void %10(ptr noundef %0, ptr noundef nonnull %5)
-          to label %16 unwind label %24
+          to label %16 unwind label %23
 
-16:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+20:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %17 = load i64, ptr %5, align 8, !tbaa !56
   %18 = and i64 %17, 1
   %.not.i.i4 = icmp eq i64 %18, 0
@@ -2298,18 +2298,18 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %4, %13
 21:                                               ; preds = %19
   %22 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #29
+  %22 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %22) #29
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %16, %19
   ret void
 
-24:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -55,12 +55,12 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
   %16 = load i32, ptr %15, align 8, !tbaa !24
   %17 = and i32 %16, 5
   %.not35 = icmp eq i32 %17, 0
-  br i1 %.not35, label %20, label %96
+  br i1 %.not35, label %20, label %94
 
 18:                                               ; preds = %2
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %98
 
 20:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -68,10 +68,10 @@ define void @_ZN4YAML6StreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(1
   br label %21
 
 21:                                               ; preds = %20, %.loopexit
-  %22 = phi i64 [ 0, %20 ], [ %60, %.loopexit ]
+  %22 = phi i64 [ 0, %20 ], [ %58, %.loopexit ]
   %.02644 = phi i32 [ 0, %20 ], [ %.127, %.loopexit ]
   %23 = invoke noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %24 unwind label %54
+          to label %24 unwind label %52
 
 24:                                               ; preds = %21
   %25 = add i32 %.02644, 1
@@ -123,91 +123,91 @@ _ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %24, %28, %29, %30, 
   %41 = icmp sgt i8 %40, 0
   br i1 %41, label %42, label %.loopexit
 
-42:                                               ; preds = %_ZN4YAML15IntroCharTypeOfEi.exit
+42:; preds = %_ZN4YAML15IntroCharTypeOfEi.exit
   %43 = load ptr, ptr %1, align 8, !tbaa !22
   %44 = getelementptr i8, ptr %43, i64 -24
-  %45 = load i64, ptr %44, align 8
+  %45 = load i62, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %1, i64 %45
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %46, i32 noundef 0)
           to label %.preheader.preheader unwind label %.loopexit.split-lp
 
 .preheader.preheader:                             ; preds = %42
-  %47 = zext nneg i8 %40 to i32
-  %48 = sext i32 %25 to i64
+  %45 = zext nneg i8 %40 to i32
+  %46 = sext i32 %25 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %56
-  %indvars.iv = phi i64 [ %48, %.preheader.preheader ], [ %indvars.iv.next, %56 ]
-  %.043 = phi i32 [ %47, %.preheader.preheader ], [ %57, %56 ]
+.preheader:                                       ; preds = %.preheader.preheader, %54
+  %indvars.iv = phi i64 [ %46, %.preheader.preheader ], [ %indvars.iv.next, %56 ]
+  %.043 = phi i32 [ %45, %.preheader.preheader ], [ %55, %56 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %49 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %indvars.iv.next
-  %50 = load i32, ptr %49, align 4, !tbaa !33
-  %.not = icmp eq i32 %50, -1
-  br i1 %.not, label %56, label %51
+  %47 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %indvars.iv.next
+  %48 = load i32, ptr %47, align 4, !tbaa !33
+  %.not = icmp eq i32 %48, -1
+  br i1 %.not, label %54, label %49
 
-51:                                               ; preds = %.preheader
-  %52 = trunc i32 %50 to i8
-  %53 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef signext %52)
+49:                                               ; preds = %.preheader
+  %50 = trunc i32 %48 to i8
+  %51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7putbackEc(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 noundef signext %50)
           to label %56 unwind label %.loopexit37
 
-54:                                               ; preds = %21
-  %55 = landingpad { ptr, i32 }
+52:                                               ; preds = %21
+  %53 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
-.loopexit37:                                      ; preds = %51
+.loopexit37:                                      ; preds = %49
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
 .loopexit.split-lp:                               ; preds = %42
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
-56:                                               ; preds = %.preheader, %51
-  %57 = add nsw i32 %.043, -1
-  %58 = icmp sgt i32 %.043, 1
-  br i1 %58, label %.preheader, label %.loopexit.loopexit, !llvm.loop !37
+54:                                               ; preds = %.preheader, %49
+  %55 = add nsw i32 %.043, -1
+  %56 = icmp sgt i32 %.043, 1
+  br i1 %56, label %.preheader, label %.loopexit.loopexit, !llvm.loop !37
 
-.loopexit.loopexit:                               ; preds = %56
-  %59 = trunc nsw i64 %indvars.iv.next to i32
+.loopexit.loopexit:                               ; preds = %54
+  %57 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN4YAML15IntroCharTypeOfEi.exit
-  %.127 = phi i32 [ %25, %_ZN4YAML15IntroCharTypeOfEi.exit ], [ %59, %.loopexit.loopexit ]
-  %60 = zext i32 %37 to i64
-  %61 = getelementptr inbounds nuw [19 x i8], ptr @_ZN4YAMLL17s_introFinalStateE, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !39, !range !41, !noundef !42
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %21, !llvm.loop !43
+  %.127 = phi i32 [ %25, %_ZN4YAML15IntroCharTypeOfEi.exit ], [ %57, %.loopexit.loopexit ]
+  %58 = zext i32 %37 to i64
+  %59 = getelementptr inbounds nuw [19 x i8], ptr @_ZN4YAMLL17s_introFinalStateE, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1, !tbaa !39, !range !41, !noundef !42
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %21, !llvm.loop !43
 
-64:                                               ; preds = %.loopexit
+62:                                               ; preds = %.loopexit
   %switch.tableidx = add i32 %37, -4
-  %65 = icmp ult i32 %switch.tableidx, 8
-  br i1 %65, label %switch.lookup, label %67
+  %63 = icmp ult i32 %switch.tableidx, 8
+  br i1 %63, label %switch.lookup, label %65
 
-switch.lookup:                                    ; preds = %64
-  %66 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4YAML6StreamC2ERSi, i64 0, i64 %66
+switch.lookup:                                    ; preds = %62
+  %64 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN4YAML6StreamC2ERSi, i64 0, i64 %64
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %67
+  br label %65
 
-67:                                               ; preds = %64, %switch.lookup
+65:                                               ; preds = %62, %switch.lookup
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 0, %64 ]
   store i32 %.sink, ptr %5, align 4, !tbaa !44
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %71 = load ptr, ptr %70, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = load ptr, ptr %72, align 8, !tbaa !45
-  %74 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %71 to i62
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 3
   %78 = icmp ne ptr %71, null
-  %.neg.i.i.i = sext i1 %78 to i64
+  %.neg.i.i.i = sext i1 %78 to i62
   %79 = add nsw i64 %77, %.neg.i.i.i
   %80 = shl nsw i64 %79, 9
   %81 = load ptr, ptr %68, align 8, !tbaa !46
@@ -218,36 +218,36 @@ switch.lookup:                                    ; preds = %64
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %87 = load ptr, ptr %86, align 8, !tbaa !48
   %88 = load ptr, ptr %69, align 8, !tbaa !46
-  %89 = ptrtoint ptr %87 to i64
-  %90 = ptrtoint ptr %88 to i64
+  %89 = ptrtoint ptr %87 to i62
+  %90 = ptrtoint ptr %88 to i62
   %91 = sub i64 %84, %85
   %92 = add i64 %91, %89
   %93 = add i64 %92, %80
   %.not36 = icmp eq i64 %93, %90
   br i1 %.not36, label %94, label %_ZNK4YAML6Stream11ReadAheadToEm.exit
 
-94:                                               ; preds = %67
+94:; preds = %65
   %95 = invoke noundef zeroext i1 @_ZNK4YAML6Stream12_ReadAheadToEm(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef 0)
           to label %_ZNK4YAML6Stream11ReadAheadToEm.exit unwind label %97
 
 _ZNK4YAML6Stream11ReadAheadToEm.exit:             ; preds = %67, %94
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  br label %96
+  br label %94
 
-96:                                               ; preds = %8, %_ZNK4YAML6Stream11ReadAheadToEm.exit
+94:                                               ; preds = %8, %_ZNK4YAML6Stream11ReadAheadToEm.exit
   ret void
 
-97:                                               ; preds = %94
-  %98 = landingpad { ptr, i32 }
+95:                                               ; preds = %94
+  %96 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
-99:                                               ; preds = %.loopexit37, %.loopexit.split-lp, %54, %97
-  %.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %55, %54 ], [ %lpad.loopexit, %.loopexit37 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+97:                                               ; preds = %.loopexit37, %.loopexit.split-lp, %52, %95
+  %.pn.pn = phi { ptr, i32 } [ %96, %97 ], [ %53, %54 ], [ %lpad.loopexit, %.loopexit37 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  br label %100
+  br label %98
 
-100:                                              ; preds = %99, %18
+98:                                               ; preds = %97, %18
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %99 ], [ %19, %18 ]
   tail call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #16
   resume { ptr, i32 } %.pn.pn.pn

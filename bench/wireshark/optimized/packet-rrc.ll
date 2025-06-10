@@ -89147,7 +89147,7 @@ define internal i32 @dissect_rrc_RB_ActivationTimeInfo(ptr noundef %0, i32 nound
   %17 = icmp eq ptr %10, null
   %18 = icmp eq ptr %14, null
   %or.cond = select i1 %17, i1 true, i1 %18
-  br i1 %or.cond, label %59, label %19
+  br i1 %or.cond, label %58, label %19
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -89168,7 +89168,7 @@ private_data_get_ciphering_info.exit:             ; preds = %19, %23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %59, label %32
+  br i1 %31, label %58, label %32
 
 32:                                               ; preds = %private_data_get_ciphering_info.exit
   %33 = icmp eq ptr %28, null
@@ -89213,7 +89213,7 @@ private_data_get_rlc_ciphering_sqn.exit:          ; preds = %private_data_get_rb
   store i32 %51, ptr %58, align 4
   br label %59
 
-59:                                               ; preds = %private_data_get_ciphering_info.exit, %5, %private_data_get_rlc_ciphering_sqn.exit
+58:                                               ; preds = %private_data_get_ciphering_info.exit, %5, %private_data_get_rlc_ciphering_sqn.exit
   ret i32 %16
 }
 

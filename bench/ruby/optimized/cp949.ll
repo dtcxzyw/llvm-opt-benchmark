@@ -60,7 +60,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @cp949_mbc_enc_len(ptr n
   %27 = select i1 %26, i32 2, i32 -1
   br label %28
 
-28:                                               ; preds = %20, %16, %11
+28:; preds = %20, %16, %11
   %.0 = phi i32 [ %13, %11 ], [ %19, %16 ], [ %27, %20 ]
   ret i32 %.0
 }

@@ -5099,7 +5099,7 @@ endpoint_class.exit:                              ; preds = %1, %12
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %endpoint_class.exit13, label %26
 
-26:                                               ; preds = %endpoint_class.exit
+26: ; preds = %endpoint_class.exit
   %27 = getelementptr inbounds nuw i8, ptr %.val10, i64 234
   %28 = load i8, ptr %27, align 2, !tbaa !201
   %29 = icmp slt i8 %28, 2
@@ -5108,24 +5108,24 @@ endpoint_class.exit:                              ; preds = %1, %12
 
 endpoint_class.exit13:                            ; preds = %endpoint_class.exit, %26
   %.0.i12 = phi i64 [ 2, %endpoint_class.exit ], [ %30, %26 ]
-  %31 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %.0.i12
-  %32 = load i32, ptr %31, align 4, !tbaa !67
-  %33 = sdiv i32 2147483647, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 212
-  %37 = load i32, ptr %36, align 4, !tbaa !202
-  %38 = icmp slt i32 %33, %37
-  br i1 %38, label %39, label %40
+  %30 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %.0.i12
+  %31 = load i32, ptr %30, align 4, !tbaa !67
+  %32 = sdiv i32 2147483647, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 212
+  %36 = load i32, ptr %35, align 4, !tbaa !202
+  %37 = icmp slt i32 %32, %36
+  br i1 %37, label %38, label %39
 
-39:                                               ; preds = %endpoint_class.exit13
+38:                                               ; preds = %endpoint_class.exit13
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.9) #23
   tail call fastcc void @graphviz_exit() #26
   unreachable
 
-40:                                               ; preds = %endpoint_class.exit13
-  %41 = mul nsw i32 %37, %32
-  store i32 %41, ptr %36, align 4, !tbaa !202
+39:                                               ; preds = %endpoint_class.exit13
+  %40 = mul nsw i32 %36, %31
+  store i32 %40, ptr %35, align 4, !tbaa !202
   ret void
 }
 

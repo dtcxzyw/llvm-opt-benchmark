@@ -40,29 +40,29 @@ define void @_ZN5arrow4util21ConvertTimestampValueERKSt10shared_ptrINS_8DataType
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   switch i32 %.sroa.0.0.copyload.i, label %21 [
-    i32 0, label %15
-    i32 1, label %18
+    i32 0, label %14
+    i32 1, label %17
   ]
 
-15:                                               ; preds = %4
-  %16 = mul nsw i64 %.sroa.22.0.copyload.i, %3
+14:                                               ; preds = %4
+  %15 = mul nsw i64 %.sroa.22.0.copyload.i, %3
   store ptr null, ptr %0, align 8, !tbaa !35
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !38
-  br label %22
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %15, ptr %16, align 8, !tbaa !38
+  br label %21
 
-18:                                               ; preds = %4
-  %19 = sdiv i64 %3, %.sroa.22.0.copyload.i
+17:                                               ; preds = %4
+  %18 = sdiv i64 %3, %.sroa.22.0.copyload.i
   store ptr null, ptr %0, align 8, !tbaa !35
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !38
-  br label %22
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %18, ptr %19, align 8, !tbaa !38
+  br label %21
 
-21:                                               ; preds = %4
+20:                                               ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %18, %15
+21:                                               ; preds = %20, %17, %14
   ret void
 }
 

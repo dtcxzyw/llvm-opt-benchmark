@@ -290,7 +290,7 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 128
   br i1 %exitcond87.not, label %.preheader67, label %.preheader68
 
-.preheader:                                       ; preds = %.preheader67, %71
+.preheader:                                       ; preds = %.preheader67, %70
   %indvars.iv92 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next93, %71 ]
   %63 = getelementptr inbounds nuw [25 x [16 x %struct.CPpmd_See]], ptr %49, i64 0, i64 %indvars.iv92
   %64 = trunc i64 %indvars.iv92 to i16
@@ -298,7 +298,7 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
   %66 = add nuw nsw i16 %65, 80
   br label %67
 
-67:                                               ; preds = %.preheader, %67
+67: ; preds = %.preheader, %67
   %indvars.iv88 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next89, %67 ]
   %68 = getelementptr inbounds nuw [16 x %struct.CPpmd_See], ptr %63, i64 0, i64 %indvars.iv88
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
@@ -308,14 +308,14 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
   store i8 4, ptr %70, align 1, !tbaa !48
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 16
-  br i1 %exitcond91.not, label %71, label %67
+  br i1 %exitcond91.not, label %70, label %67
 
-71:                                               ; preds = %67
+70:                                               ; preds = %67
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 25
-  br i1 %exitcond95.not, label %72, label %.preheader
+  br i1 %exitcond95.not, label %71, label %.preheader
 
-72:                                               ; preds = %71
+71:                                               ; preds = %70
   ret void
 }
 

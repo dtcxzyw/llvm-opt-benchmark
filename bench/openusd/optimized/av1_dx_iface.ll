@@ -3044,7 +3044,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %35 = load i32, ptr %26, align 32
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %36
-  %38 = load i32, ptr %30, align 4
+  %36 = load i32, ptr %30, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %37, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 16

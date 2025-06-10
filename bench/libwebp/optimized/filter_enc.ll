@@ -267,7 +267,7 @@ GetMBSSIM.exit51:                                 ; preds = %108
   store double %115, ptr %113, align 8, !tbaa !16
   br label %116
 
-116:                                              ; preds = %54, %GetMBSSIM.exit51
+116:; preds = %54, %GetMBSSIM.exit51
   %117 = add nsw i32 %.057, %18
   %.not34 = icmp sgt i32 %117, %15
   br i1 %.not34, label %.loopexit, label %54, !llvm.loop !50
@@ -333,10 +333,10 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %27 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26
   br label %28
 
-28:                                               ; preds = %.preheader, %46
-  %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %46 ]
+28: ; preds = %.preheader, %46
+  %.03850 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %46 ]
   %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %46 ]
-  %29 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
+  %29 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %.03850
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
   %31 = load i32, ptr %30, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 226
@@ -354,23 +354,23 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %44 = icmp slt i32 %43, %41
   br i1 %44, label %45, label %46
 
-45:                                               ; preds = %28
+45:; preds = %28
   store i32 %41, ptr %42, align 4, !tbaa !20
   br label %46
 
-46:                                               ; preds = %45, %28
+46:; preds = %45, %28
   %47 = phi i32 [ %41, %45 ], [ %43, %28 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %47)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %48, label %28, !llvm.loop !58
+  br i1 %exitcond60.not, label %47, label %28, !llvm.loop !58
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %spec.select, ptr %49, align 4, !tbaa !59
+47:                                               ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 %spec.select, ptr %48, align 4, !tbaa !59
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %18, %48
+.loopexit:                                        ; preds = %16, %18, %47
   ret void
 }
 

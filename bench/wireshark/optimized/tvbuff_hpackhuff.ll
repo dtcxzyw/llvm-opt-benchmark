@@ -33,13 +33,13 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   %.not22.i = icmp sgt i16 %19, -1
   br i1 %.not22.i, label %23, label %20
 
-20:                                               ; preds = %.lr.ph.i
+20: ; preds = %.lr.ph.i
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %22 = load i8, ptr %21, align 2
   tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %22)
   br label %23
 
-23:                                               ; preds = %20, %.lr.ph.i
+23:; preds = %20, %.lr.ph.i
   %24 = and i16 %19, 511
   %25 = zext nneg i16 %24 to i64
   %26 = getelementptr [0 x [16 x %struct.nghttp2_huff_decode]], ptr @huff_decode_table, i64 0, i64 %25
@@ -50,21 +50,21 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   %.not23.i = icmp sgt i16 %30, -1
   br i1 %.not23.i, label %34, label %31
 
-31:                                               ; preds = %23
+31:; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %33 = load i8, ptr %32, align 2
   tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %33)
   br label %34
 
-34:                                               ; preds = %31, %23
+34:; preds = %31, %23
   %35 = add i64 %.02025.i, -1
   %.not.i = icmp eq i64 %35, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %34
-  %36 = and i16 %30, 16384
-  %37 = icmp eq i16 %36, 0
-  br i1 %37, label %._crit_edge.thread.i, label %get_hpack_huffman_strbuf.exit
+  %34 = and i16 %30, 16384
+  %35 = icmp eq i16 %34, 0
+  br i1 %35, label %._crit_edge.thread.i, label %get_hpack_huffman_strbuf.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %4
   tail call void @wmem_strbuf_destroy(ptr noundef %8)

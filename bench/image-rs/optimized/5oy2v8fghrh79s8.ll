@@ -6282,44 +6282,44 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$$u5b$ima
   %.07.i.i = phi i64 [ %7, %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i" ], [ 0, %1 ]
   %9 = getelementptr inbounds [0 x [5 x { { { i64, ptr }, i64 }, i64, i64 }]], ptr %3, i64 0, i64 %.07.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1443)
-  br label %10
+  br label %9
 
-10:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i", %.lr.ph.i.i
-  %.07.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %12, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i" ]
-  %11 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %9, i64 0, i64 %.07.i.i.i
-  %12 = add nuw nsw i64 %.07.i.i.i, 1
+9:                                                ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i", %.lr.ph.i.i
+  %.07.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %11, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i" ]
+  %10 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %9, i64 0, i64 %.07.i.i.i
+  %11 = add nuw nsw i64 %.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1446)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1449)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1452)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1455)
-  %13 = load i64, ptr %11, align 8, !alias.scope !1458, !noalias !1461, !noundef !4
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i", label %15
+  %12 = load i64, ptr %10, align 8, !alias.scope !1458, !noalias !1461, !noundef !4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i", label %14
 
-15:                                               ; preds = %10
-  %16 = shl nuw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !1458, !noalias !1461, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %16, i64 noundef 8) #45, !noalias !1463
+14:                                               ; preds = %9
+  %15 = shl nuw i64 %12, 4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !1458, !noalias !1461, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %15, i64 noundef 8) #45, !noalias !1463
   br label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i"
 
-"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i": ; preds = %15, %10
-  %19 = icmp eq i64 %12, 5
-  br i1 %19, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i", label %10
+"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i": ; preds = %14, %9
+  %18 = icmp eq i64 %11, 5
+  br i1 %18, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i", label %9
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1464)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1467)
-  %20 = load i64, ptr %0, align 8, !alias.scope !1470, !noalias !1473, !noundef !4
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h6a0d0489a94ac6dfE.llvm.9832446184049035033.exit1", label %22
+  %19 = load i64, ptr %0, align 8, !alias.scope !1470, !noalias !1473, !noundef !4
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h6a0d0489a94ac6dfE.llvm.9832446184049035033.exit1", label %21
 
-22:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit"
-  %23 = mul nuw i64 %20, 200
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %23, i64 noundef 8) #45, !noalias !1475
+21:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit"
+  %22 = mul nuw i64 %19, 200
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %22, i64 noundef 8) #45, !noalias !1475
   br label %"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h6a0d0489a94ac6dfE.llvm.9832446184049035033.exit1"
 
-"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h6a0d0489a94ac6dfE.llvm.9832446184049035033.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit", %22
+"_ZN4core3ptr113drop_in_place$LT$alloc..raw_vec..RawVec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h6a0d0489a94ac6dfE.llvm.9832446184049035033.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit", %21
   ret void
 }
 
@@ -29270,44 +29270,44 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$image..codecs..webp..lossles
   %.07.i.i.i = phi i64 [ %23, %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i.i" ], [ 0, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h88c6982753044a7aE.exit2" ]
   %25 = getelementptr inbounds [0 x [5 x { { { i64, ptr }, i64 }, i64, i64 }]], ptr %19, i64 0, i64 %.07.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13988)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i", %.lr.ph.i.i.i
-  %.07.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %28, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i" ]
-  %27 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %25, i64 0, i64 %.07.i.i.i.i
-  %28 = add nuw nsw i64 %.07.i.i.i.i, 1
+25:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i", %.lr.ph.i.i.i
+  %.07.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %27, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i" ]
+  %26 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %25, i64 0, i64 %.07.i.i.i.i
+  %27 = add nuw nsw i64 %.07.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13991)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13994)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13997)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14000)
-  %29 = load i64, ptr %27, align 8, !alias.scope !14003, !noalias !14006, !noundef !4
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i", label %31
+  %28 = load i64, ptr %26, align 8, !alias.scope !14003, !noalias !14006, !noundef !4
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i", label %30
 
-31:                                               ; preds = %26
-  %32 = shl nuw i64 %29, 4
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %34 = load ptr, ptr %33, align 8, !alias.scope !14003, !noalias !14006, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %32, i64 noundef 8) #45, !noalias !14008
+30:                                               ; preds = %25
+  %31 = shl nuw i64 %28, 4
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %33 = load ptr, ptr %32, align 8, !alias.scope !14003, !noalias !14006, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %31, i64 noundef 8) #45, !noalias !14008
   br label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i"
 
-"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i": ; preds = %31, %26
-  %35 = icmp eq i64 %28, 5
-  br i1 %35, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i.i", label %26
+"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i.i.i": ; preds = %30, %25
+  %34 = icmp eq i64 %27, 5
+  br i1 %34, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i.i", label %25
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit.i": ; preds = %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i.i.i", %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h88c6982753044a7aE.exit2"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14009)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14012)
-  %36 = load i64, ptr %17, align 8, !alias.scope !14015, !noalias !14018, !noundef !4
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h689b00c24962fdafE.exit", label %38
+  %35 = load i64, ptr %17, align 8, !alias.scope !14015, !noalias !14018, !noundef !4
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h689b00c24962fdafE.exit", label %37
 
-38:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit.i"
-  %39 = mul nuw i64 %36, 200
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %39, i64 noundef 8) #45, !noalias !14020
+37:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit.i"
+  %38 = mul nuw i64 %35, 200
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %38, i64 noundef 8) #45, !noalias !14020
   br label %"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h689b00c24962fdafE.exit"
 
-"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h689b00c24962fdafE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit.i", %38
+"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$$GT$17h689b00c24962fdafE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h60b25e4120bd9585E.llvm.9832446184049035033.exit.i", %37
   ret void
 }
 
@@ -34465,30 +34465,30 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$$u5b$$u5b$image..codecs..web
   %.07 = phi i64 [ %4, %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit" ], [ 0, %2 ]
   %6 = getelementptr inbounds [0 x [5 x { { { i64, ptr }, i64 }, i64, i64 }]], ptr %0, i64 0, i64 %.07
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16579)
-  br label %7
+  br label %6
 
-7:                                                ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i", %.lr.ph
-  %.07.i = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i" ]
-  %8 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %6, i64 0, i64 %.07.i
-  %9 = add nuw nsw i64 %.07.i, 1
+6:                                                ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i", %.lr.ph
+  %.07.i = phi i64 [ 0, %.lr.ph ], [ %8, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i" ]
+  %7 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %6, i64 0, i64 %.07.i
+  %8 = add nuw nsw i64 %.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16585)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16588)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16591)
-  %10 = load i64, ptr %8, align 8, !alias.scope !16594, !noalias !16597, !noundef !4
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i", label %12
+  %9 = load i64, ptr %7, align 8, !alias.scope !16594, !noalias !16597, !noundef !4
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i", label %11
 
-12:                                               ; preds = %7
-  %13 = shl nuw i64 %10, 4
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8, !alias.scope !16594, !noalias !16597, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %13, i64 noundef 8) #45, !noalias !16599
+11:                                               ; preds = %6
+  %12 = shl nuw i64 %9, 4
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %14 = load ptr, ptr %13, align 8, !alias.scope !16594, !noalias !16597, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %14, i64 noundef %12, i64 noundef 8) #45, !noalias !16599
   br label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i"
 
-"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i": ; preds = %12, %7
-  %16 = icmp eq i64 %9, 5
-  br i1 %16, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit", label %7
+"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i": ; preds = %11, %6
+  %15 = icmp eq i64 %8, 5
+  br i1 %15, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit", label %6
 
 "_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit._crit_edge": ; preds = %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit", %2
   ret void
@@ -41950,30 +41950,30 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %.07.i = phi i64 [ %7, %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i" ], [ 0, %1 ]
   %9 = getelementptr inbounds [0 x [5 x { { { i64, ptr }, i64 }, i64, i64 }]], ptr %3, i64 0, i64 %.07.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18141)
-  br label %10
+  br label %9
 
-10:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i", %.lr.ph.i
-  %.07.i.i = phi i64 [ 0, %.lr.ph.i ], [ %12, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i" ]
-  %11 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %9, i64 0, i64 %.07.i.i
-  %12 = add nuw nsw i64 %.07.i.i, 1
+9:                                                ; preds = %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i", %.lr.ph.i
+  %.07.i.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i" ]
+  %10 = getelementptr inbounds nuw [5 x { { { i64, ptr }, i64 }, i64, i64 }], ptr %9, i64 0, i64 %.07.i.i
+  %11 = add nuw nsw i64 %.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18150)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18153)
-  %13 = load i64, ptr %11, align 8, !alias.scope !18156, !noalias !18159, !noundef !4
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i", label %15
+  %12 = load i64, ptr %10, align 8, !alias.scope !18156, !noalias !18159, !noundef !4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i", label %14
 
-15:                                               ; preds = %10
-  %16 = shl nuw i64 %13, 4
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !18156, !noalias !18159, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %16, i64 noundef 8) #45, !noalias !18161
+14:                                               ; preds = %9
+  %15 = shl nuw i64 %12, 4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !18156, !noalias !18159, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %15, i64 noundef 8) #45, !noalias !18161
   br label %"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i"
 
-"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i": ; preds = %15, %10
-  %19 = icmp eq i64 %12, 5
-  br i1 %19, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i", label %10
+"_ZN4core3ptr62drop_in_place$LT$image..codecs..webp..huffman..HuffmanTree$GT$17hb4744e559710e361E.exit.i.i": ; preds = %14, %9
+  %18 = icmp eq i64 %11, 5
+  br i1 %18, label %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i", label %9
 
 "_ZN4core3ptr93drop_in_place$LT$$u5b$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$u5d$$GT$17hacc92d200b6ca886E.llvm.9832446184049035033.exit": ; preds = %"_ZN4core3ptr83drop_in_place$LT$$u5b$image..codecs..webp..huffman..HuffmanTree$u3b$$u20$5$u5d$$GT$17h858c5e22d8df22a2E.llvm.9832446184049035033.exit.loopexit.i", %1
   ret void

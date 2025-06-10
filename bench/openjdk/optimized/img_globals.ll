@@ -51,12 +51,12 @@ define void @make_uns_ordered_dither_array(ptr noundef captures(none) initialize
   %20 = icmp samesign ult i32 %.055, 4
   br i1 %20, label %.preheader52, label %.preheader, !llvm.loop !9
 
-.preheader:                                       ; preds = %18, %29
+.preheader:                                       ; preds = %18, %28
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %29 ], [ 0, %18 ]
   %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv68
   br label %22
 
-22:                                               ; preds = %.preheader, %22
+22: ; preds = %.preheader, %22
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %22 ]
   %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 0, i64 %indvars.iv64
   %24 = load i8, ptr %23, align 1
@@ -67,14 +67,14 @@ define void @make_uns_ordered_dither_array(ptr noundef captures(none) initialize
   store i8 %28, ptr %23, align 1
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 8
-  br i1 %exitcond67.not, label %29, label %22, !llvm.loop !10
+  br i1 %exitcond67.not, label %28, label %22, !llvm.loop !10
 
-29:                                               ; preds = %22
+28:                                               ; preds = %22
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 8
-  br i1 %exitcond71.not, label %30, label %.preheader, !llvm.loop !11
+  br i1 %exitcond71.not, label %29, label %.preheader, !llvm.loop !11
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   ret void
 }
 

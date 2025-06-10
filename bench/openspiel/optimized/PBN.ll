@@ -64,7 +64,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
   %.074 = phi i32 [ 1, %10 ], [ 2, %11 ], [ 3, %12 ], [ 0, %9 ], [ 0, %9 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %46 ]
   %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %46 ]
   %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %46 ]
@@ -137,28 +137,28 @@ default.unreachable:                              ; preds = %17
   store i32 %40, ptr %38, align 4
   br label %46
 
-41:                                               ; preds = %15
+41:; preds = %15
   switch i8 %14, label %46 [
     i8 46, label %42
     i8 32, label %44
   ]
 
-42:                                               ; preds = %41
-  %43 = add nsw i32 %.07196, 1
-  br label %46
+41:                                               ; preds = %41
+  %42 = add nsw i32 %.07196, 1
+  br label %45
 
-44:                                               ; preds = %41
-  %45 = add nsw i32 %.07295, 1
-  br label %46
+43:                                               ; preds = %41
+  %44 = add nsw i32 %.07295, 1
+  br label %45
 
-46:                                               ; preds = %41, %42, %44, %29
-  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %42 ], [ %45, %44 ], [ %.07295, %41 ]
-  %.1 = phi i32 [ %.07196, %29 ], [ %43, %42 ], [ 0, %44 ], [ %.07196, %41 ]
+45:                                               ; preds = %41, %41, %43, %29
+  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %42 ], [ %44, %44 ], [ %.07295, %41 ]
+  %.1 = phi i32 [ %.07196, %29 ], [ %42, %42 ], [ 0, %44 ], [ %.07196, %41 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 80
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !6
 
-.critedge2:                                       ; preds = %46, %.lr.ph, %.critedge
+.critedge2:                                       ; preds = %45, %.lr.ph, %.critedge
   %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %46 ]
   ret i32 %.070
 }

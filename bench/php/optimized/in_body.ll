@@ -1149,11 +1149,11 @@ lxb_html_tag_is_category.exit.backedge:           ; preds = %36, %lxb_html_tree_
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %.loopexit, label %10
 
-41:                                               ; preds = %36
+40:                                               ; preds = %36
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 1) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %lxb_html_tag_is_category.exit.backedge, %2, %41, %32
+.loopexit:                                        ; preds = %lxb_html_tag_is_category.exit.backedge, %2, %40, %32
   ret void
 }
 
@@ -1605,9 +1605,9 @@ lxb_html_tree_node_is.exit31.thread:              ; preds = %lxb_html_tree_curre
   br label %lxb_html_tree_node_is.exit35.thread
 
 lxb_html_tree_node_is.exit.thread:                ; preds = %.lr.ph.preheader, %.lr.ph.backedge
-  %33 = phi i64 [ %53, %.lr.ph.backedge ], [ %16, %.lr.ph.preheader ]
-  %34 = phi i64 [ %50, %.lr.ph.backedge ], [ %13, %.lr.ph.preheader ]
-  %35 = phi i64 [ %46, %.lr.ph.backedge ], [ %9, %.lr.ph.preheader ]
+  %33 = phi i64 [ %52, %.lr.ph.backedge ], [ %16, %.lr.ph.preheader ]
+  %34 = phi i64 [ %49, %.lr.ph.backedge ], [ %13, %.lr.ph.preheader ]
+  %35 = phi i64 [ %45, %.lr.ph.backedge ], [ %9, %.lr.ph.preheader ]
   %36 = icmp ult i64 %34, 196
   %37 = icmp ult i64 %33, 8
   %or.cond.i = and i1 %36, %37
@@ -1630,21 +1630,21 @@ lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_
   ]
 
 lxb_html_tree_node_is.exit33:                     ; preds = %42
-  %43 = icmp ne i64 %33, 2
+  %42 = icmp ne i64 %33, 2
   %.not.old.old = icmp eq i64 %35, 0
-  %or.cond44 = or i1 %43, %.not.old.old
+  %or.cond44 = or i1 %42, %.not.old.old
   br i1 %or.cond44, label %lxb_html_tree_node_is.exit35.thread, label %.lr.ph.backedge
 
 lxb_html_tree_node_is.exit34:                     ; preds = %42
-  %44 = icmp ne i64 %33, 2
+  %43 = icmp ne i64 %33, 2
   %.not.old = icmp eq i64 %35, 0
-  %or.cond43 = or i1 %44, %.not.old
+  %or.cond43 = or i1 %43, %.not.old
   br i1 %or.cond43, label %lxb_html_tree_node_is.exit35.thread, label %.lr.ph.backedge
 
 lxb_html_tree_node_is.exit35:                     ; preds = %42
-  %45 = icmp ne i64 %33, 2
+  %44 = icmp ne i64 %33, 2
   %.not = icmp eq i64 %35, 0
-  %or.cond = or i1 %45, %.not
+  %or.cond = or i1 %44, %.not
   br i1 %or.cond, label %lxb_html_tree_node_is.exit35.thread, label %.lr.ph.backedge
 
 lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_is.exit.thread, %lxb_html_tag_is_category.exit
@@ -1652,40 +1652,40 @@ lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_
   br i1 %.not.old.old.old, label %lxb_html_tree_node_is.exit35.thread, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit35, %lxb_html_tree_node_is.exit34, %lxb_html_tree_node_is.exit33
-  %46 = add i64 %35, -1
-  %47 = getelementptr inbounds nuw ptr, ptr %5, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !37
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !38
-  %51 = icmp eq i64 %50, 113
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %53 = load i64, ptr %52, align 8, !tbaa !42
-  %54 = icmp eq i64 %53, 2
-  %or.cond45 = select i1 %51, i1 %54, i1 false
+  %45 = add i64 %35, -1
+  %46 = getelementptr inbounds nuw ptr, ptr %5, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !37
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !38
+  %50 = icmp eq i64 %49, 113
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %52 = load i64, ptr %51, align 8, !tbaa !42
+  %53 = icmp eq i64 %52, 2
+  %or.cond45 = select i1 %50, i1 %53, i1 false
   br i1 %or.cond45, label %.lr.ph._crit_edge, label %lxb_html_tree_node_is.exit.thread
 
 lxb_html_tree_node_is.exit35.thread:              ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit35, %lxb_html_tree_node_is.exit33, %lxb_html_tree_node_is.exit34, %42, %2, %32
-  %55 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
-  %.not30 = icmp eq ptr %55, null
-  br i1 %.not30, label %57, label %56
+  %54 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
+  %.not30 = icmp eq ptr %54, null
+  br i1 %.not30, label %56, label %55
 
-56:                                               ; preds = %lxb_html_tree_node_is.exit35.thread
+55:                                               ; preds = %lxb_html_tree_node_is.exit35.thread
   tail call void @lxb_html_tree_close_p_element(ptr noundef %0, ptr noundef %1) #6
-  br label %57
+  br label %56
 
-57:                                               ; preds = %56, %lxb_html_tree_node_is.exit35.thread
-  %58 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2) #6
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %63
+56:                                               ; preds = %55, %lxb_html_tree_node_is.exit35.thread
+  %57 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2) #6
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %62
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 2, ptr %61, align 8, !tbaa !22
-  %62 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #6
-  br label %63
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 2, ptr %60, align 8, !tbaa !22
+  %61 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #6
+  br label %62
 
-63:                                               ; preds = %57, %60
-  %.029 = phi i1 [ %62, %60 ], [ true, %57 ]
+62:                                               ; preds = %56, %59
+  %.029 = phi i1 [ %61, %59 ], [ true, %57 ]
   ret i1 %.029
 }
 
@@ -1801,22 +1801,22 @@ lxb_html_tag_is_category.exit:                    ; preds = %lxb_html_tree_node_
     i8 -111, label %lxb_html_tree_node_is.exit47
   ]
 
-lxb_html_tree_node_is.exit45:                     ; preds = %52
-  %53 = icmp ne i64 %.pre, 2
+lxb_html_tree_node_is.exit45:                     ; preds = %51
+  %52 = icmp ne i64 %.pre, 2
   %.not.old.old = icmp eq i64 %9, 0
-  %or.cond57 = or i1 %53, %.not.old.old
+  %or.cond57 = or i1 %52, %.not.old.old
   br i1 %or.cond57, label %lxb_html_tree_node_is.exit47.thread, label %.lr.ph.backedge
 
-lxb_html_tree_node_is.exit46:                     ; preds = %52
-  %54 = icmp ne i64 %.pre, 2
+lxb_html_tree_node_is.exit46:                     ; preds = %51
+  %53 = icmp ne i64 %.pre, 2
   %.not.old = icmp eq i64 %9, 0
-  %or.cond56 = or i1 %54, %.not.old
+  %or.cond56 = or i1 %53, %.not.old
   br i1 %or.cond56, label %lxb_html_tree_node_is.exit47.thread, label %.lr.ph.backedge
 
-lxb_html_tree_node_is.exit47:                     ; preds = %52
-  %55 = icmp ne i64 %.pre, 2
+lxb_html_tree_node_is.exit47:                     ; preds = %51
+  %54 = icmp ne i64 %.pre, 2
   %.not = icmp eq i64 %9, 0
-  %or.cond = or i1 %55, %.not
+  %or.cond = or i1 %54, %.not
   br i1 %or.cond, label %lxb_html_tree_node_is.exit47.thread, label %.lr.ph.backedge
 
 lxb_html_tag_is_category.exit.thread:             ; preds = %lxb_html_tree_node_is.exit40.thread, %lxb_html_tag_is_category.exit
@@ -1835,28 +1835,28 @@ lxb_html_tree_node_is.exit47.thread.sink.split:   ; preds = %lxb_html_tree_node_
   tail call void @lxb_html_tree_open_elements_pop_until_tag_id(ptr noundef nonnull %0, i64 noundef %.sink, i64 noundef 2, i1 noundef zeroext true) #6
   br label %lxb_html_tree_node_is.exit47.thread
 
-lxb_html_tree_node_is.exit47.thread:              ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit47, %lxb_html_tree_node_is.exit45, %lxb_html_tree_node_is.exit46, %52, %lxb_html_tree_node_is.exit47.thread.sink.split, %2
-  %56 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
-  %.not37 = icmp eq ptr %56, null
-  br i1 %.not37, label %58, label %57
+lxb_html_tree_node_is.exit47.thread:              ; preds = %lxb_html_tag_is_category.exit.thread, %lxb_html_tree_node_is.exit47, %lxb_html_tree_node_is.exit45, %lxb_html_tree_node_is.exit46, %51, %lxb_html_tree_node_is.exit47.thread.sink.split, %2
+  %55 = tail call ptr @lxb_html_tree_element_in_scope(ptr noundef %0, i64 noundef 145, i64 noundef 2, i32 noundef 32) #6
+  %.not37 = icmp eq ptr %55, null
+  br i1 %.not37, label %57, label %56
 
-57:                                               ; preds = %lxb_html_tree_node_is.exit47.thread
+56:                                               ; preds = %lxb_html_tree_node_is.exit47.thread
   tail call void @lxb_html_tree_close_p_element(ptr noundef %0, ptr noundef %1) #6
-  br label %58
+  br label %57
 
-58:                                               ; preds = %57, %lxb_html_tree_node_is.exit47.thread
-  %59 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2) #6
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %64
+57:                                               ; preds = %56, %lxb_html_tree_node_is.exit47.thread
+  %58 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef %0, ptr noundef %1, i64 noundef 2) #6
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %63
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 2, ptr %62, align 8, !tbaa !22
-  %63 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #6
-  br label %64
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 2, ptr %61, align 8, !tbaa !22
+  %62 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #6
+  br label %63
 
-64:                                               ; preds = %58, %61
-  %.036 = phi i1 [ %63, %61 ], [ true, %58 ]
+63:                                               ; preds = %57, %60
+  %.036 = phi i1 [ %62, %60 ], [ true, %57 ]
   ret i1 %.036
 }
 

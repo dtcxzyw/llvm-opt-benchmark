@@ -622,13 +622,13 @@ _ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit: ; preds = %._crit_edge.us.i, 
   %361 = getelementptr inbounds nuw [3 x [3 x double]], ptr %3, i64 %indvars.iv.next543
   br label %362
 
-362:                                              ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %358
+362:; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i, %358
   %.05.i = phi i64 [ 0, %358 ], [ %371, %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i ]
   %363 = getelementptr inbounds nuw [3 x [3 x double]], ptr %360, i64 0, i64 %.05.i
   %364 = getelementptr inbounds nuw [3 x [3 x double]], ptr %361, i64 0, i64 %.05.i
   br label %365
 
-365:                                              ; preds = %365, %362
+365:   ; preds = %365, %362
   %.05.i.i = phi i64 [ 0, %362 ], [ %370, %365 ]
   %366 = getelementptr inbounds nuw [3 x double], ptr %363, i64 0, i64 %.05.i.i
   %367 = getelementptr inbounds nuw [3 x double], ptr %364, i64 0, i64 %.05.i.i
@@ -642,8 +642,8 @@ _ZN12_GLOBAL__N_118polishQuarticRootsEPKdPdi.exit: ; preds = %._crit_edge.us.i, 
 
 _ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i: ; preds = %365
   %371 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i237 = icmp eq i64 %371, 3
-  br i1 %exitcond.not.i237, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %362, !llvm.loop !40
+  %372 = icmp eq i64 %371, 3
+  br i1 %372, label %_ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit, label %362, !llvm.loop !40
 
 _ZSt4swapIA3_dLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S2_S6_.exit: ; preds = %_ZSt4swapIdLm3EENSt9enable_ifIXsr14__is_swappableIT_EE5valueEvE4typeERAT0__S1_S5_.exit.i
   %372 = getelementptr inbounds nuw [3 x double], ptr %4, i64 %indvars.iv542

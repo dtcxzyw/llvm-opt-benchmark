@@ -8241,13 +8241,13 @@ define internal fastcc void @nv_gear_backoff_reseed(ptr %.3120.val) unnamed_addr
   %52 = load i32, ptr %4, align 4
   %53 = zext i32 %52 to i64
   %54 = add nsw i64 %51, -1
-  %.split = getelementptr [8 x [15 x i32]], ptr @main_seedset, i64 0, i64 %53
+  %55 = getelementptr [8 x [15 x i32]], ptr @main_seedset, i64 0, i64 %53
   %55 = getelementptr [15 x i32], ptr %.split, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1023
   %58 = trunc i64 %51 to i32
   %59 = shl i32 %58, 24
-  %.split1 = getelementptr [8 x [15 x i32]], ptr @gear_seedset, i64 0, i64 %53
+  %60 = getelementptr [8 x [15 x i32]], ptr @gear_seedset, i64 0, i64 %53
   %60 = getelementptr [15 x i32], ptr %.split1, i64 0, i64 %54
   %61 = load i32, ptr %60, align 4
   %62 = shl i32 %61, 12

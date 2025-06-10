@@ -137,7 +137,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
 24:                                               ; preds = %15
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %170
+  br label %169
 
 .preheader146:                                    ; preds = %15, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit ], [ 0, %15 ]
@@ -311,238 +311,238 @@ _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatER
           cleanup
   br label %.body
 
-.preheader143:                                    ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118, %110
+.preheader143:                                    ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118, %109
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %110 ], [ 0, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit118 ]
   %100 = getelementptr inbounds nuw [4 x i32], ptr @__const.formatters_cache.styles, i64 0, i64 %indvars.iv167
   %101 = load i32, ptr %100, align 4, !tbaa !16
   %102 = getelementptr inbounds nuw [4 x [4 x %"class.icu_70::UnicodeString"]], ptr %.ptr69, i64 0, i64 %indvars.iv167
   br label %111
 
-103:                                              ; preds = %110
+102:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #18
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %105 = load i16, ptr %104, align 8, !tbaa !13, !noalias !21
-  %106 = icmp ugt i16 %105, 31
-  br i1 %106, label %108, label %107
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %104 = load i16, ptr %103, align 8, !tbaa !13, !noalias !21
+  %105 = icmp ugt i16 %104, 31
+  br i1 %105, label %107, label %106
 
-107:                                              ; preds = %103
+106:                                              ; preds = %102
   invoke void @_ZN6icu_7013UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull @.str)
-          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit" unwind label %164
+          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit" unwind label %163
 
-108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  invoke void @_ZN6icu_7013UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %109)
-          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit" unwind label %164
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  invoke void @_ZN6icu_7013UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %108)
+          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit" unwind label %163
 
-110:                                              ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
+109:                                              ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 4
-  br i1 %exitcond170.not, label %103, label %.preheader143, !llvm.loop !24
+  br i1 %exitcond170.not, label %102, label %.preheader143, !llvm.loop !24
 
-111:                                              ; preds = %.preheader143, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
+110:                                              ; preds = %.preheader143, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
   %indvars.iv163 = phi i64 [ 0, %.preheader143 ], [ %indvars.iv.next164, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134 ]
-  %112 = getelementptr inbounds nuw [4 x i32], ptr @__const.formatters_cache.styles, i64 0, i64 %indvars.iv163
-  %113 = load i32, ptr %112, align 4, !tbaa !16
-  %114 = invoke noundef ptr @_ZN6icu_7010DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %101, i32 noundef %113, ptr noundef nonnull align 8 dereferenceable(217) %1)
-          to label %115 unwind label %147
+  %111 = getelementptr inbounds nuw [4 x i32], ptr @__const.formatters_cache.styles, i64 0, i64 %indvars.iv163
+  %112 = load i32, ptr %111, align 4, !tbaa !16
+  %113 = invoke noundef ptr @_ZN6icu_7010DateFormat22createDateTimeInstanceENS0_6EStyleES1_RKNS_6LocaleE(i32 noundef %101, i32 noundef %112, ptr noundef nonnull align 8 dereferenceable(217) %1)
+          to label %115 unwind label %146
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %102, i64 0, i64 %indvars.iv163
-  %117 = icmp eq ptr %114, null
-  br i1 %117, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129, label %122
+114:                                              ; preds = %110
+  %115 = getelementptr inbounds nuw [4 x %"class.icu_70::UnicodeString"], ptr %102, i64 0, i64 %indvars.iv163
+  %116 = icmp eq ptr %113, null
+  br i1 %116, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129, label %121
 
-_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129: ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %119 = load i16, ptr %118, align 8, !tbaa !13
-  %120 = and i16 %119, 1
-  %.not.i.i10.i130 = icmp eq i16 %120, 0
-  %121 = and i16 %119, 30
-  %storemerge.i.i11.i131 = select i1 %.not.i.i10.i130, i16 %121, i16 2
-  store i16 %storemerge.i.i11.i131, ptr %118, align 8, !tbaa !13
+_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129: ; preds = %114
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %118 = load i16, ptr %117, align 8, !tbaa !13
+  %119 = and i16 %118, 1
+  %.not.i.i10.i130 = icmp eq i16 %119, 0
+  %120 = and i16 %118, 30
+  %storemerge.i.i11.i131 = select i1 %.not.i.i10.i130, i16 %120, i16 2
+  store i16 %storemerge.i.i11.i131, ptr %117, align 8, !tbaa !13
   br label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
 
-122:                                              ; preds = %115
-  %123 = tail call ptr @__dynamic_cast(ptr nonnull %114, ptr nonnull @_ZTIN6icu_7010DateFormatE, ptr nonnull @_ZTIN6icu_7016SimpleDateFormatE, i64 0) #18
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120
+121:                                              ; preds = %114
+  %122 = tail call ptr @__dynamic_cast(ptr nonnull %113, ptr nonnull @_ZTIN6icu_7010DateFormatE, ptr nonnull @_ZTIN6icu_7016SimpleDateFormatE, i64 0) #18
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %114, align 8, !tbaa !8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  %128 = load ptr, ptr %127, align 8
-  %129 = invoke noundef ptr %128(ptr noundef nonnull align 8 dereferenceable(8) %114)
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %113, align 8, !tbaa !8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %127 = load ptr, ptr %126, align 8
+  %128 = invoke noundef ptr %128(ptr noundef nonnull align 8 dereferenceable(8) %113)
           to label %.noexc.i124 unwind label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122
 
-.noexc.i124:                                      ; preds = %125
-  %130 = invoke noundef ptr @_ZN6icu_7016SimpleDateFormat16getStaticClassIDEv()
+.noexc.i124:                                      ; preds = %124
+  %129 = invoke noundef ptr @_ZN6icu_7016SimpleDateFormat16getStaticClassIDEv()
           to label %.noexc3.i125 unwind label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122
 
 .noexc3.i125:                                     ; preds = %.noexc.i124
-  %131 = icmp eq ptr %129, %130
-  br i1 %131, label %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.i126
+  %130 = icmp eq ptr %128, %129
+  br i1 %130, label %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120, label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.i126
 
-_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120: ; preds = %.noexc3.i125, %122
-  %.0.i.i.i121 = phi ptr [ %123, %122 ], [ %114, %.noexc3.i125 ]
-  %132 = load ptr, ptr %.0.i.i.i121, align 8, !tbaa !8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 240
-  %134 = load ptr, ptr %133, align 8
-  %135 = invoke noundef nonnull align 8 dereferenceable(64) ptr %134(ptr noundef nonnull align 8 dereferenceable(864) %.0.i.i.i121, ptr noundef nonnull align 8 dereferenceable(64) %116)
+_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120: ; preds = %.noexc3.i125, %121
+  %.0.i.i.i121 = phi ptr [ %122, %122 ], [ %113, %.noexc3.i125 ]
+  %131 = load ptr, ptr %.0.i.i.i121, align 8, !tbaa !8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 240
+  %133 = load ptr, ptr %132, align 8
+  %134 = invoke noundef nonnull align 8 dereferenceable(64) ptr %134(ptr noundef nonnull align 8 dereferenceable(864) %.0.i.i.i121, ptr noundef nonnull align 8 dereferenceable(64) %115)
           to label %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i123 unwind label %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122
 
 _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.i126: ; preds = %.noexc3.i125
-  %136 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %137 = load i16, ptr %136, align 8, !tbaa !13
-  %138 = and i16 %137, 1
-  %.not.i.i.i127 = icmp eq i16 %138, 0
-  %139 = and i16 %137, 30
-  %storemerge.i.i.i128 = select i1 %.not.i.i.i127, i16 %139, i16 2
-  store i16 %storemerge.i.i.i128, ptr %136, align 8, !tbaa !13
+  %135 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %136 = load i16, ptr %135, align 8, !tbaa !13
+  %137 = and i16 %136, 1
+  %.not.i.i.i127 = icmp eq i16 %137, 0
+  %138 = and i16 %136, 30
+  %storemerge.i.i.i128 = select i1 %.not.i.i.i127, i16 %138, i16 2
+  store i16 %storemerge.i.i.i128, ptr %135, align 8, !tbaa !13
   br label %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i123
 
 _ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i123: ; preds = %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.i126, %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120
-  %140 = load ptr, ptr %114, align 8, !tbaa !8
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %142 = load ptr, ptr %141, align 8
-  tail call void %142(ptr noundef nonnull align 8 dereferenceable(352) %114) #18
+  %139 = load ptr, ptr %113, align 8, !tbaa !8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8
+  tail call void %142(ptr noundef nonnull align 8 dereferenceable(352) %113) #18
   br label %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134
 
-_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122: ; preds = %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120, %.noexc.i124, %125
-  %143 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122: ; preds = %_ZN5boost6locale8impl_icu8icu_castIN6icu_7016SimpleDateFormatENS3_10DateFormatEEEPT_PT0_.exit.i.i120, %.noexc.i124, %124
+  %142 = landingpad { ptr, i32 }
           cleanup
-  %144 = load ptr, ptr %114, align 8, !tbaa !8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  tail call void %146(ptr noundef nonnull align 8 dereferenceable(352) %114) #18
+  %143 = load ptr, ptr %113, align 8, !tbaa !8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  tail call void %146(ptr noundef nonnull align 8 dereferenceable(352) %113) #18
   br label %.body
 
 _ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternEPN6icu_7010DateFormatERNS3_13UnicodeStringE.exit134: ; preds = %_ZNKSt14default_deleteIN6icu_7010DateFormatEEclEPS1_.exit.i.i123, %_ZN5boost6locale8impl_icu12_GLOBAL__N_115get_icu_patternESt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS5_EERNS4_13UnicodeStringE.exit.thread9.i129
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next164, 4
-  br i1 %exitcond166.not, label %110, label %111, !llvm.loop !25
+  br i1 %exitcond166.not, label %109, label %110, !llvm.loop !25
 
-147:                                              ; preds = %111
-  %148 = landingpad { ptr, i32 }
+146:                                              ; preds = %110
+  %147 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit": ; preds = %107, %108
-  %149 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %3) #18
+"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit": ; preds = %106, %107
+  %148 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %3) #18
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #18
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %151 = load i16, ptr %150, align 8, !tbaa !13, !noalias !26
-  %152 = icmp ugt i16 %151, 31
-  br i1 %152, label %154, label %153
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %150 = load i16, ptr %149, align 8, !tbaa !13, !noalias !26
+  %151 = icmp ugt i16 %150, 31
+  br i1 %151, label %153, label %152
+
+152:                                              ; preds = %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit"
+  invoke void @_ZN6icu_7013UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull @.str.2)
+          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137" unwind label %165
 
 153:                                              ; preds = %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit"
-  invoke void @_ZN6icu_7013UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull @.str.2)
-          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137" unwind label %166
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  invoke void @_ZN6icu_7013UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %154)
+          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137" unwind label %165
 
-154:                                              ; preds = %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit"
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  invoke void @_ZN6icu_7013UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %155)
-          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137" unwind label %166
-
-"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137": ; preds = %153, %154
-  %156 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %4) #18
+"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137": ; preds = %152, %153
+  %155 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %4) #18
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #18
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  %158 = load i16, ptr %157, align 8, !tbaa !13, !noalias !29
-  %159 = icmp ugt i16 %158, 31
-  br i1 %159, label %161, label %160
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 1552
+  %157 = load i16, ptr %156, align 8, !tbaa !13, !noalias !29
+  %158 = icmp ugt i16 %157, 31
+  br i1 %158, label %160, label %159
+
+159:                                              ; preds = %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137"
+  invoke void @_ZN6icu_7013UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @.str.3)
+          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit140" unwind label %167
 
 160:                                              ; preds = %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137"
-  invoke void @_ZN6icu_7013UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @.str.3)
-          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit140" unwind label %168
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  invoke void @_ZN6icu_7013UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %161)
+          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit140" unwind label %167
 
-161:                                              ; preds = %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit137"
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1544
-  invoke void @_ZN6icu_7013UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %162)
-          to label %"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit140" unwind label %168
-
-"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit140": ; preds = %160, %161
-  %163 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %5) #18
+"_ZZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleEENK3$_0clERKNS3_13UnicodeStringEPKc.exit140": ; preds = %159, %160
+  %162 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7013UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %5) #18
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
   ret void
 
-164:                                              ; preds = %108, %107
-  %165 = landingpad { ptr, i32 }
+163:                                              ; preds = %107, %106
+  %164 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #18
   br label %.body
 
-166:                                              ; preds = %154, %153
-  %167 = landingpad { ptr, i32 }
+165:                                              ; preds = %153, %152
+  %166 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #18
   br label %.body
 
-168:                                              ; preds = %161, %160
-  %169 = landingpad { ptr, i32 }
+167:                                              ; preds = %160, %159
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #18
   br label %.body
 
-.body:                                            ; preds = %164, %166, %168, %147, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122, %98, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i106, %61, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i
-  %.pn75 = phi { ptr, i32 } [ %62, %61 ], [ %57, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i ], [ %99, %98 ], [ %94, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i106 ], [ %148, %147 ], [ %143, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ]
+.body:                                            ; preds = %163, %165, %167, %146, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122, %98, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i106, %61, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i
+  %.pn75 = phi { ptr, i32 } [ %62, %61 ], [ %57, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i ], [ %99, %98 ], [ %94, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i106 ], [ %147, %147 ], [ %142, %_ZNSt10unique_ptrIN6icu_7010DateFormatESt14default_deleteIS1_EED2Ev.exit7.i122 ], [ %168, %168 ], [ %167, %166 ], [ %165, %164 ]
   call void @_ZN6icu_706LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %23) #18
-  br label %170
+  br label %169
 
-170:                                              ; preds = %.body, %24
+169:                                              ; preds = %.body, %24
   %.pn75.pn = phi { ptr, i32 } [ %.pn75, %.body ], [ %25, %24 ]
   call void @_ZN5boost19thread_specific_ptrIN6icu_7016SimpleDateFormatEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #18
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #18
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %18) #18
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #18
-  br label %171
+  br label %170
 
-171:                                              ; preds = %171, %170
+170:                                              ; preds = %170, %169
   %.idx81 = phi i64 [ 1608, %170 ], [ %.add82, %171 ]
   %.add82 = add nsw i64 %.idx81, -64
   %.ptr84 = getelementptr inbounds i8, ptr %0, i64 %.add82
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr84) #18
-  %172 = icmp eq i64 %.add82, 584
-  br i1 %172, label %.preheader142, label %171
+  %171 = icmp eq i64 %.add82, 584
+  br i1 %171, label %.preheader142, label %170
 
-.preheader142:                                    ; preds = %171, %.preheader142
+.preheader142:                                    ; preds = %170, %.preheader142
   %.idx87 = phi i64 [ %.add88, %.preheader142 ], [ 584, %171 ]
   %.add88 = add nsw i64 %.idx87, -64
   %.ptr90 = getelementptr inbounds i8, ptr %0, i64 %.add88
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr90) #18
-  %173 = icmp eq i64 %.add88, 328
-  br i1 %173, label %.preheader141, label %.preheader142
+  %172 = icmp eq i64 %.add88, 328
+  br i1 %172, label %.preheader141, label %.preheader142
 
 .preheader141:                                    ; preds = %.preheader142, %.preheader141
   %.idx93 = phi i64 [ %.add94, %.preheader141 ], [ 328, %.preheader142 ]
   %.add94 = add nsw i64 %.idx93, -64
   %.ptr96 = getelementptr inbounds i8, ptr %0, i64 %.add94
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr96) #18
-  %174 = icmp eq i64 %.add94, 72
-  br i1 %174, label %.preheader, label %.preheader141
+  %173 = icmp eq i64 %.add94, 72
+  br i1 %173, label %.preheader, label %.preheader141
 
 .preheader:                                       ; preds = %.preheader141, %_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit
   %.idx99 = phi i64 [ %.add100, %_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit ], [ 72, %.preheader141 ]
   %.add100 = add nsw i64 %.idx99, -8
   %.ptr102 = getelementptr inbounds i8, ptr %0, i64 %.add100
   invoke void @_ZN5boost6detail12set_tss_dataEPKvPFvPFvPvES3_ES5_S3_b(ptr noundef nonnull align 8 dereferenceable(8) %.ptr102, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-          to label %_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit unwind label %175
+          to label %_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit unwind label %174
 
-175:                                              ; preds = %.preheader
-  %176 = landingpad { ptr, i32 }
+174:                                              ; preds = %.preheader
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #19
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #19
   unreachable
 
 _ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit: ; preds = %.preheader
-  %178 = icmp eq i64 %.add100, 16
-  br i1 %178, label %179, label %.preheader
+  %177 = icmp eq i64 %.add100, 16
+  br i1 %177, label %178, label %.preheader
 
-179:                                              ; preds = %_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit
+178:                                              ; preds = %_ZN5boost19thread_specific_ptrIN6icu_7012NumberFormatEED2Ev.exit
   call void @_ZNSt6locale5facetD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
   resume { ptr, i32 } %.pn75.pn
 }

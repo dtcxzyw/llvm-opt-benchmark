@@ -640,7 +640,7 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 672
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %59, label %.preheader
+  br i1 %.not, label %58, label %.preheader
 
 .preheader:                                       ; preds = %trace_ahci_reset_port.exit, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %trace_ahci_reset_port.exit ]
@@ -654,13 +654,13 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %50
 
-44:                                               ; preds = %.preheader
+44: ; preds = %.preheader
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not41 = icmp eq ptr %46, null
   br i1 %.not41, label %.thread, label %47
 
-47:                                               ; preds = %44
+49:                                               ; preds = %44
   tail call void @blk_aio_cancel(ptr noundef nonnull %46) #14
   store ptr null, ptr %45, align 8
   %.pre = load i8, ptr %41, align 1, !range !9
@@ -676,26 +676,26 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 50:                                               ; preds = %47, %.preheader, %.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %51, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %50, label %.preheader, !llvm.loop !13
 
-51:                                               ; preds = %50
-  %52 = load ptr, ptr %0, align 16
-  %53 = getelementptr inbounds %struct.AHCIDevice, ptr %52, i64 %5, i32 3
-  store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 1
-  %. = select i1 %56, i32 -351010559, i32 257
-  %.45 = select i1 %56, i8 112, i8 48
+50:                                               ; preds = %50
+  %51 = load ptr, ptr %0, align 16
+  %52 = getelementptr inbounds %struct.AHCIDevice, ptr %51, i64 %5, i32 3
+  store i32 0, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 1
+  %. = select i1 %55, i32 -351010559, i32 257
+  %.45 = select i1 %55, i8 112, i8 48
   tail call fastcc void @ahci_set_signature(ptr noundef %6, i32 noundef %.)
-  %57 = getelementptr inbounds nuw i8, ptr %34, i64 665
-  store i8 %.45, ptr %57, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %34, i64 649
-  store i8 1, ptr %58, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %34, i64 665
+  store i8 %.45, ptr %56, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %34, i64 649
+  store i8 1, ptr %57, align 1
   tail call fastcc void @ahci_init_d2h(ptr noundef %6)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %trace_ahci_reset_port.exit, %51
+58:                                               ; preds = %trace_ahci_reset_port.exit, %50
   ret void
 }
 

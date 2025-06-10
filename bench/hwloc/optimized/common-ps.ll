@@ -37,7 +37,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %10 = trunc i64 %9 to i32
   %11 = tail call noalias ptr @hwloc_bitmap_alloc() #15
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %193, label %12
+  br i1 %.not, label %192, label %12
 
 12:                                               ; preds = %4
   %13 = tail call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #16
@@ -300,7 +300,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   store i8 0, ptr %144, align 1, !tbaa !12
   br label %145
 
-145:                                              ; preds = %139, %141, %136
+145:; preds = %139, %141, %136
   %146 = load ptr, ptr %109, align 8, !tbaa !18
   %147 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %146, i64 %123, i32 3, i64 15
   store i8 0, ptr %147, align 1, !tbaa !12
@@ -311,15 +311,15 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %.not183 = icmp eq ptr %150, null
   br i1 %.not183, label %152, label %151
 
-151:                                              ; preds = %145
+151:  ; preds = %145
   store i8 0, ptr %150, align 1, !tbaa !12
   br label %152
 
 152:                                              ; preds = %145, %151, %126
   call void @free(ptr noundef nonnull %125) #15
-  br label %153
+  br label %154
 
-153:                                              ; preds = %152, %121
+154:                                              ; preds = %152, %121
   %154 = trunc i64 %118 to i32
   br i1 %.not184, label %157, label %155
 
@@ -333,14 +333,14 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %.not185 = icmp eq i32 %158, 0
   br i1 %.not185, label %159, label %171
 
-159:                                              ; preds = %157, %155
+159: ; preds = %157, %155
   %160 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
   %161 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
   %.not187 = icmp eq i32 %161, 0
   br i1 %.not187, label %162, label %171
 
-162:                                              ; preds = %159
-  %163 = call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %11) #15
+162:; preds = %159
+  %165 = call noalias ptr @hwloc_bitmap_dup(ptr noundef nonnull %11) #17
   %164 = load ptr, ptr %109, align 8, !tbaa !18
   %165 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %164, i64 %123, i32 1
   store ptr %163, ptr %165, align 8, !tbaa !22
@@ -348,7 +348,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %.not188 = icmp eq i32 %166, 0
   br i1 %.not188, label %167, label %171
 
-167:                                              ; preds = %162
+167:; preds = %162
   %168 = getelementptr inbounds nuw %struct.hwloc_ps_thread, ptr %164, i64 %123, i32 2
   store i32 1, ptr %168, align 8, !tbaa !23
   %169 = load i32, ptr %112, align 8, !tbaa !24
@@ -356,7 +356,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   store i32 %170, ptr %112, align 8, !tbaa !24
   br label %171
 
-171:                                              ; preds = %162, %167, %159, %157, %155
+171:; preds = %162, %167, %159, %157, %155
   %172 = add i32 %.0145.ph, 1
   %173 = load i32, ptr %113, align 4, !tbaa !25
   %174 = add i32 %173, 1
@@ -388,13 +388,13 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
   %.not190 = icmp eq i32 %183, 0
   br i1 %.not190, label %184, label %192
 
-184:                                              ; preds = %182, %180
+184: ; preds = %182, %180
   %185 = call i32 @hwloc_bitmap_and(ptr noundef nonnull %11, ptr noundef nonnull %11, ptr noundef %1) #15
   %186 = call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %11) #17
   %.not192 = icmp eq i32 %186, 0
-  br i1 %.not192, label %187, label %192
+  br i1 %.not191, label %187, label %192
 
-187:                                              ; preds = %184
+187: ; preds = %184
   %188 = call i32 @hwloc_bitmap_isequal(ptr noundef nonnull %11, ptr noundef %1) #17
   %.not193 = icmp eq i32 %188, 0
   %189 = zext i1 %.not193 to i32
@@ -406,13 +406,13 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 .sink.split:                                      ; preds = %18, %12
   tail call void @free(ptr noundef nonnull %13) #15
+  br label %191
+
+191:                                              ; preds = %.sink.split, %184, %182, %180
+  call void @hwloc_bitmap_free(ptr noundef nonnull %11) #15
   br label %192
 
-192:                                              ; preds = %.sink.split, %184, %182, %180
-  call void @hwloc_bitmap_free(ptr noundef nonnull %11) #15
-  br label %193
-
-193:                                              ; preds = %4, %192, %187
+192:                                              ; preds = %4, %191, %187
   %.0 = phi i32 [ -1, %192 ], [ 0, %187 ], [ -1, %4 ]
   ret i32 %.0
 }

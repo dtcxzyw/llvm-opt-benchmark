@@ -942,11 +942,11 @@ bytestream2_get_le16.exit171:                     ; preds = %192
   %.not158229 = icmp eq i8 %245, 0
   br i1 %.not158229, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %235, %copy_color_mask.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %copy_color_mask.exit ], [ 0, %235 ]
-  %246 = phi i8 [ %356, %copy_color_mask.exit ], [ %245, %235 ]
-  %.3141232 = phi i8 [ %.4142, %copy_color_mask.exit ], [ %.1139238, %235 ]
-  %.3186231 = phi ptr [ %.4, %copy_color_mask.exit ], [ %.1237, %235 ]
+.lr.ph:; preds = %235, %copy_color_mask.exit
+  %246 = phi i64 [ %indvars.iv.next, %copy_color_mask.exit ], [ 0, %235 ]
+  %.3141232 = phi i8 [ %356, %copy_color_mask.exit ], [ %245, %235 ]
+  %.3186231 = phi i8 [ %.4142, %copy_color_mask.exit ], [ %.1139238, %235 ]
+  %.3190230 = phi ptr [ %.4, %copy_color_mask.exit ], [ %.1237, %235 ]
   %.3190230 = phi ptr [ %.4191, %copy_color_mask.exit ], [ %.1188236, %235 ]
   %247 = load i32, ptr %127, align 8, !tbaa !28
   %248 = shl nsw i32 %247, 1

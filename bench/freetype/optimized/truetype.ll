@@ -21579,7 +21579,7 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
   br i1 %exitcond75.not.i, label %tt_check_trickyness_family.exit.sink.split, label %.preheader.split.us.i, !llvm.loop !807
 
 63:                                               ; preds = %.loopexit51.i, %.lr.ph.i
-  %64 = phi i16 [ %54, %.lr.ph.i ], [ %134, %.loopexit51.i ]
+  %64 = phi i16 [ %54, %.lr.ph.i ], [ %135, %.loopexit51.i ]
   %indvars.iv70.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next71.i, %.loopexit51.i ]
   %.03859.i = phi i8 [ 0, %.lr.ph.i ], [ %.240.i, %.loopexit51.i ]
   %65 = load ptr, ptr %55, align 8, !tbaa !808
@@ -21603,166 +21603,166 @@ tt_check_trickyness_family.exit.thread:           ; preds = %49, %3
   %invariant.gep.i = getelementptr inbounds nuw [3 x %struct.tt_sfnt_id_rec_], ptr @tt_check_trickyness_sfnt_ids.sfnt_id, i64 0, i64 %.0.i9
   br label %71
 
-71:                                               ; preds = %133, %70
+71:                                               ; preds = %134, %70
   %indvars.iv.i10 = phi i64 [ 0, %70 ], [ %indvars.iv.next.i11, %133 ]
   %.04157.i = phi i64 [ 0, %70 ], [ %.243.i, %133 ]
   %72 = load ptr, ptr %55, align 8, !tbaa !808
   %73 = getelementptr inbounds nuw %struct.TT_TableRec_, ptr %72, i64 %indvars.iv70.i, i32 3
   %74 = load i64, ptr %73, align 8, !tbaa !811
-  %gep.i = getelementptr inbounds nuw [31 x [3 x %struct.tt_sfnt_id_rec_]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i10
-  %75 = getelementptr inbounds nuw i8, ptr %gep.i, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !812
-  %77 = icmp eq i64 %74, %76
-  br i1 %77, label %78, label %133
+  %75 = getelementptr inbounds nuw [31 x [3 x %struct.tt_sfnt_id_rec_]], ptr %invariant.gep.i, i64 0, i64 %indvars.iv.i10
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !812
+  %78 = icmp eq i64 %74, %77
+  br i1 %78, label %79, label %134
 
-78:                                               ; preds = %71
+79:                                               ; preds = %71
   %.not50.i = icmp eq i64 %.04157.i, 0
-  br i1 %.not50.i, label %79, label %tt_get_sfnt_checksum.exit.i
+  br i1 %.not50.i, label %80, label %tt_get_sfnt_checksum.exit.i
 
-79:                                               ; preds = %78
-  %80 = load ptr, ptr %56, align 8, !tbaa !453
-  %.not.i.i13 = icmp eq ptr %80, null
-  br i1 %.not.i.i13, label %tt_get_sfnt_checksum.exit.i, label %81
+80:                                               ; preds = %79
+  %81 = load ptr, ptr %56, align 8, !tbaa !453
+  %.not.i.i13 = icmp eq ptr %81, null
+  br i1 %.not.i.i13, label %tt_get_sfnt_checksum.exit.i, label %82
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw %struct.TT_TableRec_, ptr %72, i64 %indvars.iv70.i
-  %83 = load i64, ptr %82, align 8, !tbaa !809
-  %84 = load ptr, ptr %57, align 8, !tbaa !44
-  %85 = tail call i32 %80(ptr noundef nonnull %0, i64 noundef %83, ptr noundef %84, ptr noundef null) #22
-  %.not10.i.i = icmp eq i32 %85, 0
-  br i1 %.not10.i.i, label %86, label %tt_get_sfnt_checksum.exit.i
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw %struct.TT_TableRec_, ptr %72, i64 %indvars.iv70.i
+  %84 = load i64, ptr %83, align 8, !tbaa !809
+  %85 = load ptr, ptr %57, align 8, !tbaa !44
+  %86 = tail call i32 %80(ptr noundef nonnull %0, i64 noundef %84, ptr noundef %85, ptr noundef null) #22
+  %.not10.i.i = icmp eq i32 %86, 0
+  br i1 %.not10.i.i, label %87, label %tt_get_sfnt_checksum.exit.i
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %57, align 8, !tbaa !44
-  %88 = load ptr, ptr %55, align 8, !tbaa !808
-  %89 = getelementptr inbounds nuw %struct.TT_TableRec_, ptr %88, i64 %indvars.iv70.i, i32 3
-  %90 = load i64, ptr %89, align 8, !tbaa !811
-  %91 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %87, i64 noundef %90) #22
-  %.not.i.i.i = icmp eq i32 %91, 0
-  br i1 %.not.i.i.i, label %92, label %tt_get_sfnt_checksum.exit.i
+87:                                               ; preds = %82
+  %88 = load ptr, ptr %57, align 8, !tbaa !44
+  %89 = load ptr, ptr %55, align 8, !tbaa !808
+  %90 = getelementptr inbounds nuw %struct.TT_TableRec_, ptr %89, i64 %indvars.iv70.i, i32 3
+  %91 = load i64, ptr %90, align 8, !tbaa !811
+  %92 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %88, i64 noundef %91) #22
+  %.not.i.i.i = icmp eq i32 %92, 0
+  br i1 %.not.i.i.i, label %93, label %tt_get_sfnt_checksum.exit.i
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds nuw i8, ptr %87, i64 64
-  %94 = load ptr, ptr %93, align 8, !tbaa !596
-  %95 = icmp ugt i64 %90, 3
-  br i1 %95, label %.lr.ph.i.i.i, label %.preheader.i.i.i
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %95 = load ptr, ptr %94, align 8, !tbaa !596
+  %96 = icmp ugt i64 %91, 3
+  br i1 %96, label %.lr.ph.i.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %92
-  %.023.lcssa.i.i.i = phi i64 [ %90, %92 ], [ %115, %.lr.ph.i.i.i ]
-  %.020.lcssa.i.i.i = phi i32 [ 0, %92 ], [ %114, %.lr.ph.i.i.i ]
-  %.019.lcssa.i.i.i = phi ptr [ %94, %92 ], [ %96, %.lr.ph.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %93
+  %.023.lcssa.i.i.i = phi i64 [ %91, %92 ], [ %116, %.lr.ph.i.i.i ]
+  %.020.lcssa.i.i.i = phi i32 [ 0, %92 ], [ %115, %.lr.ph.i.i.i ]
+  %.019.lcssa.i.i.i = phi ptr [ %95, %92 ], [ %97, %.lr.ph.i.i.i ]
   %.not2531.i.i.i = icmp eq i64 %.023.lcssa.i.i.i, 0
   br i1 %.not2531.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph36.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %92, %.lr.ph.i.i.i
-  %.01928.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i ], [ %94, %92 ]
-  %.02027.i.i.i = phi i32 [ %114, %.lr.ph.i.i.i ], [ 0, %92 ]
-  %.02326.i.i.i = phi i64 [ %115, %.lr.ph.i.i.i ], [ %90, %92 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 4
-  %97 = load i8, ptr %.01928.i.i.i, align 1, !tbaa !224
-  %98 = zext i8 %97 to i32
-  %99 = shl nuw i32 %98, 24
-  %100 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 1
-  %101 = load i8, ptr %100, align 1, !tbaa !224
-  %102 = zext i8 %101 to i32
-  %103 = shl nuw nsw i32 %102, 16
-  %104 = or disjoint i32 %103, %99
-  %105 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 2
-  %106 = load i8, ptr %105, align 1, !tbaa !224
-  %107 = zext i8 %106 to i32
-  %108 = shl nuw nsw i32 %107, 8
-  %109 = or disjoint i32 %104, %108
-  %110 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 3
-  %111 = load i8, ptr %110, align 1, !tbaa !224
-  %112 = zext i8 %111 to i32
-  %113 = or disjoint i32 %109, %112
-  %114 = add i32 %113, %.02027.i.i.i
-  %115 = add i64 %.02326.i.i.i, -4
-  %116 = icmp ugt i64 %115, 3
-  br i1 %116, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !814
+.lr.ph.i.i.i:                                     ; preds = %93, %.lr.ph.i.i.i
+  %.01928.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i ], [ %95, %92 ]
+  %.02027.i.i.i = phi i32 [ %115, %.lr.ph.i.i.i ], [ 0, %92 ]
+  %.02326.i.i.i = phi i64 [ %116, %.lr.ph.i.i.i ], [ %91, %92 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 4
+  %98 = load i8, ptr %.01928.i.i.i, align 1, !tbaa !224
+  %99 = zext i8 %98 to i32
+  %100 = shl nuw i32 %99, 24
+  %101 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 1
+  %102 = load i8, ptr %101, align 1, !tbaa !224
+  %103 = zext i8 %102 to i32
+  %104 = shl nuw nsw i32 %103, 16
+  %105 = or disjoint i32 %104, %100
+  %106 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 2
+  %107 = load i8, ptr %106, align 1, !tbaa !224
+  %108 = zext i8 %107 to i32
+  %109 = shl nuw nsw i32 %108, 8
+  %110 = or disjoint i32 %105, %109
+  %111 = getelementptr inbounds nuw i8, ptr %.01928.i.i.i, i64 3
+  %112 = load i8, ptr %111, align 1, !tbaa !224
+  %113 = zext i8 %112 to i32
+  %114 = or disjoint i32 %110, %113
+  %115 = add i32 %114, %.02027.i.i.i
+  %116 = add i64 %.02326.i.i.i, -4
+  %117 = icmp ugt i64 %116, 3
+  br i1 %117, label %.lr.ph.i.i.i, label %.preheader.i.i.i, !llvm.loop !814
 
 .lr.ph36.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph36.i.i.i
-  %.035.i.i.i = phi i32 [ %123, %.lr.ph36.i.i.i ], [ 24, %.preheader.i.i.i ]
-  %.134.i.i.i = phi ptr [ %117, %.lr.ph36.i.i.i ], [ %.019.lcssa.i.i.i, %.preheader.i.i.i ]
-  %.12133.i.i.i = phi i32 [ %121, %.lr.ph36.i.i.i ], [ %.020.lcssa.i.i.i, %.preheader.i.i.i ]
-  %.12432.i.i.i = phi i64 [ %122, %.lr.ph36.i.i.i ], [ %.023.lcssa.i.i.i, %.preheader.i.i.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %.134.i.i.i, i64 1
-  %118 = load i8, ptr %.134.i.i.i, align 1, !tbaa !224
-  %119 = zext i8 %118 to i32
-  %120 = shl i32 %119, %.035.i.i.i
-  %121 = add i32 %120, %.12133.i.i.i
-  %122 = add nsw i64 %.12432.i.i.i, -1
-  %123 = add nsw i32 %.035.i.i.i, -8
-  %.not25.i.i.i = icmp eq i64 %122, 0
+  %.035.i.i.i = phi i32 [ %124, %.lr.ph36.i.i.i ], [ 24, %.preheader.i.i.i ]
+  %.134.i.i.i = phi ptr [ %118, %.lr.ph36.i.i.i ], [ %.019.lcssa.i.i.i, %.preheader.i.i.i ]
+  %.12133.i.i.i = phi i32 [ %122, %.lr.ph36.i.i.i ], [ %.020.lcssa.i.i.i, %.preheader.i.i.i ]
+  %.12432.i.i.i = phi i64 [ %123, %.lr.ph36.i.i.i ], [ %.023.lcssa.i.i.i, %.preheader.i.i.i ]
+  %118 = getelementptr inbounds nuw i8, ptr %.134.i.i.i, i64 1
+  %119 = load i8, ptr %.134.i.i.i, align 1, !tbaa !224
+  %120 = zext i8 %119 to i32
+  %121 = shl i32 %120, %.035.i.i.i
+  %122 = add i32 %121, %.12133.i.i.i
+  %123 = add nsw i64 %.12432.i.i.i, -1
+  %124 = add nsw i32 %.035.i.i.i, -8
+  %.not25.i.i.i = icmp eq i64 %123, 0
   br i1 %.not25.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph36.i.i.i, !llvm.loop !815
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph36.i.i.i, %.preheader.i.i.i
-  %.121.lcssa.i.i.i = phi i32 [ %.020.lcssa.i.i.i, %.preheader.i.i.i ], [ %121, %.lr.ph36.i.i.i ]
-  tail call void @FT_Stream_ExitFrame(ptr noundef nonnull %87) #22
-  %124 = zext i32 %.121.lcssa.i.i.i to i64
+  %.121.lcssa.i.i.i = phi i32 [ %.020.lcssa.i.i.i, %.preheader.i.i.i ], [ %122, %.lr.ph36.i.i.i ]
+  tail call void @FT_Stream_ExitFrame(ptr noundef nonnull %88) #22
+  %125 = zext i32 %.121.lcssa.i.i.i to i64
   br label %tt_get_sfnt_checksum.exit.i
 
-tt_get_sfnt_checksum.exit.i:                      ; preds = %._crit_edge.i.i.i, %86, %81, %79, %78
-  %.142.i = phi i64 [ %.04157.i, %78 ], [ 0, %79 ], [ 0, %81 ], [ %124, %._crit_edge.i.i.i ], [ 0, %86 ]
-  %125 = load i64, ptr %gep.i, align 16, !tbaa !816
-  %126 = icmp eq i64 %125, %.142.i
-  %127 = getelementptr inbounds nuw [31 x i32], ptr %2, i64 0, i64 %indvars.iv.i10
-  %128 = load i32, ptr %127, align 4, !tbaa !204
-  br i1 %126, label %129, label %tt_get_sfnt_checksum.exit._crit_edge.i
+tt_get_sfnt_checksum.exit.i:                      ; preds = %._crit_edge.i.i.i, %87, %82, %80, %79
+  %.142.i = phi i64 [ %.04157.i, %78 ], [ 0, %79 ], [ 0, %81 ], [ %125, %._crit_edge.i.i.i ], [ 0, %86 ]
+  %126 = load i64, ptr %75, align 16, !tbaa !816
+  %127 = icmp eq i64 %126, %.142.i
+  %128 = getelementptr inbounds nuw [31 x i32], ptr %2, i64 0, i64 %indvars.iv.i10
+  %129 = load i32, ptr %128, align 4, !tbaa !204
+  br i1 %127, label %130, label %tt_get_sfnt_checksum.exit._crit_edge.i
 
-129:                                              ; preds = %tt_get_sfnt_checksum.exit.i
-  %130 = add nsw i32 %128, 1
-  store i32 %130, ptr %127, align 4, !tbaa !204
+130:                                              ; preds = %tt_get_sfnt_checksum.exit.i
+  %131 = add nsw i32 %129, 1
+  store i32 %131, ptr %128, align 4, !tbaa !204
   br label %tt_get_sfnt_checksum.exit._crit_edge.i
 
-tt_get_sfnt_checksum.exit._crit_edge.i:           ; preds = %129, %tt_get_sfnt_checksum.exit.i
-  %131 = phi i32 [ %130, %129 ], [ %128, %tt_get_sfnt_checksum.exit.i ]
-  %132 = icmp eq i32 %131, 3
-  br i1 %132, label %tt_check_trickyness_family.exit.sink.split, label %133
+tt_get_sfnt_checksum.exit._crit_edge.i:           ; preds = %130, %tt_get_sfnt_checksum.exit.i
+  %132 = phi i32 [ %131, %129 ], [ %129, %tt_get_sfnt_checksum.exit.i ]
+  %133 = icmp eq i32 %132, 3
+  br i1 %133, label %tt_check_trickyness_family.exit.sink.split, label %134
 
-133:                                              ; preds = %tt_get_sfnt_checksum.exit._crit_edge.i, %71
+134:                                              ; preds = %tt_get_sfnt_checksum.exit._crit_edge.i, %71
   %.243.i = phi i64 [ %.142.i, %tt_get_sfnt_checksum.exit._crit_edge.i ], [ %.04157.i, %71 ]
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, 31
   br i1 %exitcond.not.i12, label %.loopexit51.loopexit.i, label %71, !llvm.loop !817
 
-.loopexit51.loopexit.i:                           ; preds = %133
+.loopexit51.loopexit.i:                           ; preds = %134
   %.pre80.i = load i16, ptr %53, align 8, !tbaa !806
   br label %.loopexit51.i
 
 .loopexit51.i:                                    ; preds = %.loopexit51.loopexit.i, %63
-  %134 = phi i16 [ %64, %63 ], [ %.pre80.i, %.loopexit51.loopexit.i ]
+  %135 = phi i16 [ %64, %63 ], [ %.pre80.i, %.loopexit51.loopexit.i ]
   %.240.i = phi i8 [ %.03859.i, %63 ], [ %.139.i, %.loopexit51.loopexit.i ]
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %135 = zext i16 %134 to i64
-  %136 = icmp samesign ult i64 %indvars.iv.next71.i, %135
-  br i1 %136, label %63, label %.preheader.i, !llvm.loop !818
+  %136 = zext i16 %135 to i64
+  %137 = icmp samesign ult i64 %indvars.iv.next71.i, %136
+  br i1 %137, label %63, label %.preheader.i, !llvm.loop !818
 
-137:                                              ; preds = %.preheader.split._crit_edge.i
+138:                                              ; preds = %.preheader.split._crit_edge.i
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 31
   br i1 %exitcond79.not.i, label %tt_check_trickyness_family.exit.sink.split, label %.preheader.split.i, !llvm.loop !807
 
-.preheader.split.i:                               ; preds = %.preheader.split.i.preheader, %137
+.preheader.split.i:                               ; preds = %.preheader.split.i.preheader, %138
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %137 ], [ 0, %.preheader.split.i.preheader ]
-  %138 = trunc i64 %indvars.iv76.i to i32
-  %139 = add i32 %138, -16
-  %.not45.i = icmp ult i32 %139, 12
-  %140 = getelementptr inbounds nuw [31 x i32], ptr %2, i64 0, i64 %indvars.iv76.i
-  %141 = load i32, ptr %140, align 4, !tbaa !204
-  br i1 %.not45.i, label %142, label %.preheader.split._crit_edge.i
+  %139 = trunc i64 %indvars.iv76.i to i32
+  %140 = add i32 %139, -16
+  %.not45.i = icmp ult i32 %140, 12
+  %141 = getelementptr inbounds nuw [31 x i32], ptr %2, i64 0, i64 %indvars.iv76.i
+  %142 = load i32, ptr %141, align 4, !tbaa !204
+  br i1 %.not45.i, label %143, label %.preheader.split._crit_edge.i
 
-142:                                              ; preds = %.preheader.split.i
-  %143 = add nsw i32 %141, 1
-  store i32 %143, ptr %140, align 4, !tbaa !204
+143:                                              ; preds = %.preheader.split.i
+  %144 = add nsw i32 %142, 1
+  store i32 %144, ptr %141, align 4, !tbaa !204
   br label %.preheader.split._crit_edge.i
 
-.preheader.split._crit_edge.i:                    ; preds = %142, %.preheader.split.i
-  %144 = phi i32 [ %143, %142 ], [ %141, %.preheader.split.i ]
-  %145 = icmp eq i32 %144, 3
-  br i1 %145, label %tt_check_trickyness_family.exit.sink.split, label %137
+.preheader.split._crit_edge.i:                    ; preds = %143, %.preheader.split.i
+  %145 = phi i32 [ %144, %142 ], [ %142, %.preheader.split.i ]
+  %146 = icmp eq i32 %145, 3
+  br i1 %146, label %tt_check_trickyness_family.exit.sink.split, label %138
 
-tt_check_trickyness_family.exit.sink.split:       ; preds = %tt_get_sfnt_checksum.exit._crit_edge.i, %62, %.preheader.split.us.i, %137, %.preheader.split._crit_edge.i
+tt_check_trickyness_family.exit.sink.split:       ; preds = %tt_get_sfnt_checksum.exit._crit_edge.i, %62, %.preheader.split.us.i, %138, %.preheader.split._crit_edge.i
   %.0.ph = phi i8 [ 1, %.preheader.split._crit_edge.i ], [ 0, %137 ], [ 1, %.preheader.split.us.i ], [ 0, %62 ], [ 1, %tt_get_sfnt_checksum.exit._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 124, ptr nonnull %2) #22
   br label %tt_check_trickyness_family.exit

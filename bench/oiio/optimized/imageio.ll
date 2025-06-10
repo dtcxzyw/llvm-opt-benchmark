@@ -9793,21 +9793,21 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit:
   br i1 %brmerge, label %._crit_edge76, label %.preheader58.us.us.us
 
 .preheader58.us.us.us:                            ; preds = %.preheader58.lr.ph, %._crit_edge.split.us.split.us.us.us.us
-  %.073.us.us.us = phi ptr [ %106, %._crit_edge.split.us.split.us.us.us.us ], [ %4, %.preheader58.lr.ph ]
-  %.04072.us.us.us = phi i32 [ %105, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader58.lr.ph ]
+  %.073.us.us.us = phi ptr [ %105, %._crit_edge.split.us.split.us.us.us.us ], [ %4, %.preheader58.lr.ph ]
+  %.04072.us.us.us = phi i32 [ %104, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader58.lr.ph ]
   %30 = add nsw i32 %.04072.us.us.us, %15
   %31 = or i32 %30, %11
   br label %.preheader57.us.us.us.us.us
 
 .preheader57.us.us.us.us.us:                      ; preds = %._crit_edge63.split.us.us.us.us.us.us, %.preheader58.us.us.us
-  %.04566.us.us.us.us.us = phi i32 [ 0, %.preheader58.us.us.us ], [ %103, %._crit_edge63.split.us.us.us.us.us.us ]
-  %.04664.us.us.us.us.us = phi ptr [ %.073.us.us.us, %.preheader58.us.us.us ], [ %104, %._crit_edge63.split.us.us.us.us.us.us ]
+  %.04566.us.us.us.us.us = phi i32 [ 0, %.preheader58.us.us.us ], [ %102, %._crit_edge63.split.us.us.us.us.us.us ]
+  %.04664.us.us.us.us.us = phi ptr [ %.073.us.us.us, %.preheader58.us.us.us ], [ %103, %._crit_edge63.split.us.us.us.us.us.us ]
   %32 = add nsw i32 %.04566.us.us.us.us.us, %14
   br label %.preheader.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us:                     ; preds = %._crit_edge.us.us.us.us.us.us, %.preheader57.us.us.us.us.us
-  %.04362.us.us.us.us.us.us = phi i32 [ 0, %.preheader57.us.us.us.us.us ], [ %101, %._crit_edge.us.us.us.us.us.us ]
-  %.04461.us.us.us.us.us.us = phi ptr [ %.04664.us.us.us.us.us, %.preheader57.us.us.us.us.us ], [ %102, %._crit_edge.us.us.us.us.us.us ]
+  %.04362.us.us.us.us.us.us = phi i32 [ 0, %.preheader57.us.us.us.us.us ], [ %100, %._crit_edge.us.us.us.us.us.us ]
+  %.04461.us.us.us.us.us.us = phi ptr [ %.04664.us.us.us.us.us, %.preheader57.us.us.us.us.us ], [ %101, %._crit_edge.us.us.us.us.us.us ]
   %33 = add nsw i32 %.04362.us.us.us.us.us.us, %13
   br label %34
 
@@ -9891,28 +9891,28 @@ _ZN11OpenImageIO6v3_1_03pvt19bluenoise_4chan_ptrEiiiii.exit.us.us.us.us.us.us: ;
   store float %97, ptr %.04259.us.us.us.us.us.us, align 4, !tbaa !63
   br label %98
 
-98:                                               ; preds = %_ZN11OpenImageIO6v3_1_03pvt19bluenoise_4chan_ptrEiiiii.exit.us.us.us.us.us.us, %34
+98:; preds = %_ZN11OpenImageIO6v3_1_03pvt19bluenoise_4chan_ptrEiiiii.exit.us.us.us.us.us.us, %34
   %99 = add nuw nsw i32 %.04160.us.us.us.us.us.us, 1
   %100 = getelementptr inbounds nuw i8, ptr %.04259.us.us.us.us.us.us, i64 4
   %exitcond.not = icmp eq i32 %99, %0
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %34, !llvm.loop !223
 
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %98
-  %101 = add nuw nsw i32 %.04362.us.us.us.us.us.us, 1
-  %102 = getelementptr inbounds i8, ptr %.04461.us.us.us.us.us.us, i64 %.055
-  %exitcond90.not = icmp eq i32 %101, %1
+  %100 = add nuw nsw i32 %.04362.us.us.us.us.us.us, 1
+  %101 = getelementptr inbounds i8, ptr %.04461.us.us.us.us.us.us, i64 %.055
+  %exitcond90.not = icmp eq i32 %100, %1
   br i1 %exitcond90.not, label %._crit_edge63.split.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us, !llvm.loop !224
 
 ._crit_edge63.split.us.us.us.us.us.us:            ; preds = %._crit_edge.us.us.us.us.us.us
-  %103 = add nuw nsw i32 %.04566.us.us.us.us.us, 1
-  %104 = getelementptr inbounds i8, ptr %.04664.us.us.us.us.us, i64 %.054
-  %exitcond91.not = icmp eq i32 %103, %2
+  %102 = add nuw nsw i32 %.04566.us.us.us.us.us, 1
+  %103 = getelementptr inbounds i8, ptr %.04664.us.us.us.us.us, i64 %.054
+  %exitcond91.not = icmp eq i32 %102, %2
   br i1 %exitcond91.not, label %._crit_edge.split.us.split.us.us.us.us, label %.preheader57.us.us.us.us.us, !llvm.loop !225
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge63.split.us.us.us.us.us.us
-  %105 = add nuw nsw i32 %.04072.us.us.us, 1
-  %106 = getelementptr inbounds i8, ptr %.073.us.us.us, i64 %.053
-  %exitcond92.not = icmp eq i32 %105, %3
+  %104 = add nuw nsw i32 %.04072.us.us.us, 1
+  %105 = getelementptr inbounds i8, ptr %.073.us.us.us, i64 %.053
+  %exitcond92.not = icmp eq i32 %104, %3
   br i1 %exitcond92.not, label %._crit_edge76, label %.preheader58.us.us.us, !llvm.loop !226
 
 ._crit_edge76:                                    ; preds = %._crit_edge.split.us.split.us.us.us.us, %.preheader58.lr.ph, %_ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit

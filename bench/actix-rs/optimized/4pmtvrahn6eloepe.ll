@@ -9089,7 +9089,7 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   store i64 0, ptr %.sroa.5, align 8
   br label %13
 
-.loopexit:                                        ; preds = %35
+.loopexit:                                        ; preds = %36
   %12 = add nuw nsw i64 %.sroa.0.037, 1
   %exitcond.not = icmp eq i64 %12, 16
   br i1 %exitcond.not, label %14, label %13
@@ -9145,24 +9145,24 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
   ret void
 
-30:                                               ; preds = %13, %35
+30:                                               ; preds = %13, %36
   %31 = phi i1 [ true, %13 ], [ false, %35 ]
   %.sroa.04.036.sroa.phi = phi ptr [ %.sroa.0, %13 ], [ %.sroa.5, %35 ]
   %.sroa.04.036.sroa.phi39 = phi ptr [ %.sroa.042, %13 ], [ %.sroa.3, %35 ]
   %.sroa.04.036 = phi i64 [ 0, %13 ], [ 1, %35 ]
-  %gep = getelementptr inbounds nuw [2 x [16 x float]], ptr %invariant.gep, i64 0, i64 %.sroa.04.036
-  %32 = load float, ptr %gep, align 4, !noundef !13
-  %33 = load float, ptr %.sroa.04.036.sroa.phi39, align 4, !noundef !13
-  %34 = fcmp olt float %32, %33
-  br i1 %34, label %36, label %35
+  %32 = getelementptr inbounds nuw [2 x [16 x float]], ptr %invariant.gep, i64 0, i64 %.sroa.04.036
+  %33 = load float, ptr %32, align 4, !noundef !13
+  %34 = load float, ptr %.sroa.04.036.sroa.phi39, align 4, !noundef !13
+  %35 = fcmp olt float %33, %34
+  br i1 %35, label %37, label %36
 
-35:                                               ; preds = %30, %36
+36:                                               ; preds = %30, %37
   br i1 %31, label %30, label %.loopexit
 
-36:                                               ; preds = %30
+37:                                               ; preds = %30
   store i64 %.sroa.0.037, ptr %.sroa.04.036.sroa.phi, align 8
-  store float %32, ptr %.sroa.04.036.sroa.phi39, align 4
-  br label %35
+  store float %33, ptr %.sroa.04.036.sroa.phi39, align 4
+  br label %36
 }
 
 ; Function Attrs: nonlazybind uwtable

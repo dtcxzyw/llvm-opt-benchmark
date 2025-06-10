@@ -3339,7 +3339,7 @@ define void @Dtt_PrintMulti(ptr noundef readonly captures(none) %0) local_unname
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %53
+.preheader:                                       ; preds = %1, %52
   %indvars.iv50 = phi i64 [ 0, %1 ], [ %indvars.iv.next51, %53 ]
   %6 = load i32, ptr %3, align 8, !tbaa !81
   %7 = icmp sgt i32 %6, 0
@@ -3412,33 +3412,33 @@ define void @Dtt_PrintMulti(ptr noundef readonly captures(none) %0) local_unname
   %44 = getelementptr inbounds nuw [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv50
   br label %45
 
-45:                                               ; preds = %36, %52
+45: ; preds = %36, %51
   %indvars.iv46 = phi i64 [ 0, %36 ], [ %indvars.iv.next47, %52 ]
   %46 = getelementptr inbounds nuw [15 x i32], ptr %44, i64 0, i64 %indvars.iv46
   %47 = load i32, ptr %46, align 4, !tbaa !40
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %50, label %48
 
-48:                                               ; preds = %45
+48:; preds = %45
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %47)
   br label %52
 
-50:                                               ; preds = %45
-  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull @.str.29)
-  br label %52
+49:                                               ; preds = %45
+  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull @.str.29)
+  br label %51
 
-52:                                               ; preds = %48, %50
+51:                                               ; preds = %48, %49
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 15
-  br i1 %exitcond49.not, label %53, label %45, !llvm.loop !103
+  br i1 %exitcond49.not, label %52, label %45, !llvm.loop !103
 
-53:                                               ; preds = %52
+52:                                               ; preds = %51
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 13
   br i1 %exitcond53.not, label %._crit_edge.thread, label %.preheader, !llvm.loop !104
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %53
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %52
   call void @llvm.lifetime.end.p0(i64 780, ptr nonnull %2) #30
   ret void
 }

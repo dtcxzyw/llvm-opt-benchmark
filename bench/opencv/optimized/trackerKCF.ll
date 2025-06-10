@@ -7760,7 +7760,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %38 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %35, %.preheader ]
-  %39 = phi i32 [ %75, %._crit_edge.loopexit ], [ %36, %.preheader ]
+  %39 = phi i32 [ %74, %._crit_edge.loopexit ], [ %36, %.preheader ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %40 = sext i32 %38 to i64
   %41 = icmp slt i64 %indvars.iv.next33, %40
@@ -7805,20 +7805,20 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
 
 74:                                               ; preds = %78
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %75 = load i32, ptr %28, align 4, !tbaa !124
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next30, %76
-  br i1 %77, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !188
+  %74 = load i32, ptr %28, align 4, !tbaa !124
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next30, %75
+  br i1 %76, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !188
 
-78:                                               ; preds = %.lr.ph, %78
+77:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %79 = getelementptr inbounds nuw [10 x float], ptr %67, i64 0, i64 %indvars.iv
-  %80 = load float, ptr %79, align 4, !tbaa !7
-  %81 = getelementptr inbounds nuw [10 x float], ptr %73, i64 0, i64 %indvars.iv
-  store float %80, ptr %81, align 4, !tbaa !7
+  %78 = getelementptr inbounds nuw [10 x float], ptr %67, i64 0, i64 %indvars.iv
+  %79 = load float, ptr %78, align 4, !tbaa !7
+  %80 = getelementptr inbounds nuw [10 x float], ptr %73, i64 0, i64 %indvars.iv
+  store float %79, ptr %80, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %74, label %78, !llvm.loop !189
+  br i1 %exitcond.not, label %74, label %77, !llvm.loop !189
 }
 
 declare void @_ZNK2cv3Mat3mulERKNS_11_InputArrayEd(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), double noundef) local_unnamed_addr #0
