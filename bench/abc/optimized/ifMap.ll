@@ -298,34 +298,35 @@ define float @If_CutDelaySpecial(ptr noundef readonly captures(none) %0, ptr nou
   %10 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %10, align 8, !tbaa !11
   %11 = sext i32 %2 to i64
+  %12 = getelementptr inbounds [2 x [3 x float]], ptr @If_CutDelaySpecial.Pin2Pin, i64 0, i64 %11
   %wide.trip.count = and i64 %8, 255
-  br label %12
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %.01518 = phi float [ 0xC415AF1D80000000, %.lr.ph ], [ %.015., %18 ]
-  %13 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4, !tbaa !34
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %.val.val, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !12
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.critedge, label %18
+13:                                               ; preds = %.lr.ph, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
+  %.01518 = phi float [ 0xC415AF1D80000000, %.lr.ph ], [ %.015., %19 ]
+  %14 = getelementptr inbounds nuw [0 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %15 = load i32, ptr %14, align 4, !tbaa !34
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds ptr, ptr %.val.val, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !12
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.critedge, label %19
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 92
-  %20 = load float, ptr %19, align 4, !tbaa !36
-  %21 = getelementptr inbounds [2 x [3 x float]], ptr @If_CutDelaySpecial.Pin2Pin, i64 0, i64 %11, i64 %indvars.iv
-  %22 = load float, ptr %21, align 4, !tbaa !40
-  %23 = fadd float %20, %22
-  %24 = fcmp ogt float %.01518, %23
-  %.015. = select i1 %24, float %.01518, float %23
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 92
+  %21 = load float, ptr %20, align 4, !tbaa !36
+  %22 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv
+  %23 = load float, ptr %22, align 4, !tbaa !40
+  %24 = fadd float %21, %23
+  %25 = fcmp ogt float %.01518, %24
+  %.015. = select i1 %25, float %.01518, float %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !41
+  br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !41
 
-.critedge:                                        ; preds = %12, %18, %3
-  %.015.lcssa = phi float [ 0xC415AF1D80000000, %3 ], [ %.015., %18 ], [ %.01518, %12 ]
+.critedge:                                        ; preds = %13, %19, %3
+  %.015.lcssa = phi float [ 0xC415AF1D80000000, %3 ], [ %.015., %19 ], [ %.01518, %13 ]
   ret float %.015.lcssa
 }
 

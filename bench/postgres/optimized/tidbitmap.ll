@@ -2546,14 +2546,14 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef captures(ret: address, prov
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %17 = load i32, ptr %16, align 4
+  %invariant.gep = getelementptr i8, ptr %5, i64 16
   %.promoted = load i32, ptr %15, align 4
   %18 = icmp slt i32 %.promoted, %17
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %invariant.gep = getelementptr i8, ptr %5, i64 16
-  %.promoted91 = load i32, ptr %19, align 8
+  %.promoted89 = load i32, ptr %19, align 8
   %20 = sext i32 %.promoted to i64
   %wide.trip.count = sext i32 %17 to i64
   br label %21
@@ -2561,13 +2561,13 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef captures(ret: address, prov
 21:                                               ; preds = %.lr.ph, %tbm_advance_schunkbit.exit.thread
   %22 = phi i32 [ %.promoted, %.lr.ph ], [ %39, %tbm_advance_schunkbit.exit.thread ]
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %tbm_advance_schunkbit.exit.thread ]
-  %23 = phi i32 [ %.promoted91, %.lr.ph ], [ 0, %tbm_advance_schunkbit.exit.thread ]
+  %23 = phi i32 [ %.promoted89, %.lr.ph ], [ 0, %tbm_advance_schunkbit.exit.thread ]
   %24 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %23, i32 256)
   %.idx = mul nsw i64 %26, 48
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %23, i32 256)
   br label %27
 
 27:                                               ; preds = %28, %21
@@ -2579,8 +2579,7 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef captures(ret: address, prov
   %29 = sdiv i32 %.010.i, 64
   %30 = srem i32 %.010.i, 64
   %31 = sext i32 %29 to i64
-  %.idx84 = shl nsw i64 %31, 3
-  %32 = getelementptr i8, ptr %gep, i64 %.idx84
+  %32 = getelementptr inbounds [5 x i64], ptr %gep, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = zext nneg i32 %30 to i64
   %35 = shl nuw i64 1, %34
@@ -2613,8 +2612,8 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %27, %tbm_advance_sc
 ..thread81_crit_edge:                             ; preds = %.loopexit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert94 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre95 = load i32, ptr %.phi.trans.insert94, align 8
+  %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.pre93 = load i32, ptr %.phi.trans.insert92, align 8
   br label %.thread81
 
 42:                                               ; preds = %.loopexit
@@ -2656,7 +2655,7 @@ tbm_advance_schunkbit.exit.thread:                ; preds = %27, %tbm_advance_sc
   br label %103
 
 .thread81:                                        ; preds = %..thread81_crit_edge, %56
-  %69 = phi i32 [ %.pre95, %..thread81_crit_edge ], [ %55, %56 ]
+  %69 = phi i32 [ %.pre93, %..thread81_crit_edge ], [ %55, %56 ]
   %70 = phi i32 [ %.pre, %..thread81_crit_edge ], [ %53, %56 ]
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %72 = icmp slt i32 %70, %69

@@ -8491,13 +8491,14 @@ define dso_local noundef i32 @_ZNK4llvm12X86InstrInfo30getFMA3OpcodeToCommuteOpe
   %or.cond15.i = and i1 %30, %33
   %34 = select i1 %or.cond15.i, i64 1, i64 2
   %35 = select i1 %or.cond.i, i64 0, i64 %34
-  %36 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @_ZZNK4llvm12X86InstrInfo30getFMA3OpcodeToCommuteOperandsERKNS_12MachineInstrEjjRKNS_17X86InstrFMA3GroupEE11FormMapping, i64 0, i64 %35, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !85
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !85
+  %36 = getelementptr inbounds nuw [3 x [3 x i32]], ptr @_ZZNK4llvm12X86InstrInfo30getFMA3OpcodeToCommuteOperandsERKNS_12MachineInstrEjjRKNS_17X86InstrFMA3GroupEE11FormMapping, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw [3 x i32], ptr %36, i64 0, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4, !tbaa !85
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #32
-  ret i32 %40
+  ret i32 %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

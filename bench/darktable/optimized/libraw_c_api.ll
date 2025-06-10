@@ -972,22 +972,23 @@ define float @libraw_get_pre_mul(ptr noundef readonly captures(address_is_null) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @libraw_get_rgb_cam(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %14, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 153296
   %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 2)
   %8 = zext nneg i32 %7 to i64
-  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 3)
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw [3 x [4 x float]], ptr %5, i64 0, i64 %8, i64 %11
-  %13 = load float, ptr %12, align 4, !tbaa !88
-  br label %14
+  %9 = getelementptr inbounds nuw [3 x [4 x float]], ptr %5, i64 0, i64 %8
+  %10 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 3)
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %12
+  %14 = load float, ptr %13, align 4, !tbaa !88
+  br label %15
 
-14:                                               ; preds = %3, %4
-  %.0 = phi nsz float [ %13, %4 ], [ 2.200000e+01, %3 ]
+15:                                               ; preds = %3, %4
+  %.0 = phi nsz float [ %14, %4 ], [ 2.200000e+01, %3 ]
   ret float %.0
 }
 

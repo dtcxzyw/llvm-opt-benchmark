@@ -937,20 +937,17 @@ bytestream2_get_le16.exit171:                     ; preds = %192
   %.3132 = add nuw nsw i32 %.1130240, %242
   %.0114.in = select i1 %.not157, i8 %241, i8 %240
   %243 = zext nneg i8 %.0114.in to i64
-  %.not158229 = icmp eq i8 %.0114.in, 0
-  br i1 %.not158229, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %235
-  %244 = getelementptr inbounds nuw [16 x [8 x i8]], ptr @block_sequences, i64 0, i64 %243, i64 0
+  %244 = getelementptr inbounds nuw [16 x [8 x i8]], ptr @block_sequences, i64 0, i64 %243
   %245 = load i8, ptr %244, align 8, !tbaa !47
-  br label %.lr.ph
+  %.not158229 = icmp eq i8 %245, 0
+  br i1 %.not158229, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %copy_color_mask.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %copy_color_mask.exit ]
-  %246 = phi i8 [ %245, %.lr.ph.preheader ], [ %356, %copy_color_mask.exit ]
-  %.3141232 = phi i8 [ %.1139238, %.lr.ph.preheader ], [ %.4142, %copy_color_mask.exit ]
-  %.3186231 = phi ptr [ %.1237, %.lr.ph.preheader ], [ %.4, %copy_color_mask.exit ]
-  %.3190230 = phi ptr [ %.1188236, %.lr.ph.preheader ], [ %.4191, %copy_color_mask.exit ]
+.lr.ph:                                           ; preds = %235, %copy_color_mask.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %copy_color_mask.exit ], [ 0, %235 ]
+  %246 = phi i8 [ %356, %copy_color_mask.exit ], [ %245, %235 ]
+  %.3141232 = phi i8 [ %.4142, %copy_color_mask.exit ], [ %.1139238, %235 ]
+  %.3186231 = phi ptr [ %.4, %copy_color_mask.exit ], [ %.1237, %235 ]
+  %.3190230 = phi ptr [ %.4191, %copy_color_mask.exit ], [ %.1188236, %235 ]
   %247 = load i32, ptr %127, align 8, !tbaa !28
   %248 = shl nsw i32 %247, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1171,7 +1168,7 @@ copy_color_mask.exit:                             ; preds = %354, %285, %.lr.ph
   %.4191 = phi ptr [ %.3190230, %.lr.ph ], [ %.3190230, %285 ], [ %.5192, %354 ]
   %.4 = phi ptr [ %.3186231, %.lr.ph ], [ %.3186231, %285 ], [ %.5, %354 ]
   %.4142 = phi i8 [ %.3141232, %.lr.ph ], [ %.5143, %285 ], [ %.3141232, %354 ]
-  %355 = getelementptr inbounds nuw [16 x [8 x i8]], ptr @block_sequences, i64 0, i64 %243, i64 %indvars.iv.next
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 0, i64 %indvars.iv.next
   %356 = load i8, ptr %355, align 1, !tbaa !47
   %.not158 = icmp eq i8 %356, 0
   br i1 %.not158, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !69

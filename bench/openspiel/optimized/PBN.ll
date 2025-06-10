@@ -64,10 +64,10 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
   %.074 = phi i32 [ 1, %10 ], [ 2, %11 ], [ 3, %12 ], [ 0, %9 ], [ 0, %9 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %45 ]
-  %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %45 ]
-  %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %45 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
+  %indvars.iv103 = phi i64 [ %indvars.iv101, %.lr.ph.preheader ], [ %indvars.iv.next104, %46 ]
+  %.07196 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %46 ]
+  %.07295 = phi i32 [ 0, %.lr.ph.preheader ], [ %.173, %46 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv103
   %14 = load i8, ptr %13, align 1
   %.not89 = icmp eq i8 %14, 0
@@ -76,7 +76,7 @@ define noundef range(i32 0, 2) i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef reado
 15:                                               ; preds = %.lr.ph
   %16 = tail call noundef i32 @_Z6IsCardc(i8 noundef signext %14)
   %.not90 = icmp eq i32 %16, 0
-  br i1 %.not90, label %40, label %17
+  br i1 %.not90, label %41, label %17
 
 17:                                               ; preds = %15
   switch i32 %.074, label %default.unreachable [
@@ -129,36 +129,37 @@ default.unreachable:                              ; preds = %17
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 2
   %35 = sext i32 %.0 to i64
-  %36 = sext i32 %.07196 to i64
-  %37 = getelementptr inbounds [4 x i32], ptr %1, i64 %35, i64 %36
-  %38 = load i32, ptr %37, align 4
-  %39 = or i32 %34, %38
-  store i32 %39, ptr %37, align 4
-  br label %45
+  %36 = getelementptr inbounds [4 x i32], ptr %1, i64 %35
+  %37 = sext i32 %.07196 to i64
+  %38 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = or i32 %34, %39
+  store i32 %40, ptr %38, align 4
+  br label %46
 
-40:                                               ; preds = %15
-  switch i8 %14, label %45 [
-    i8 46, label %41
-    i8 32, label %43
+41:                                               ; preds = %15
+  switch i8 %14, label %46 [
+    i8 46, label %42
+    i8 32, label %44
   ]
 
-41:                                               ; preds = %40
-  %42 = add nsw i32 %.07196, 1
-  br label %45
+42:                                               ; preds = %41
+  %43 = add nsw i32 %.07196, 1
+  br label %46
 
-43:                                               ; preds = %40
-  %44 = add nsw i32 %.07295, 1
-  br label %45
+44:                                               ; preds = %41
+  %45 = add nsw i32 %.07295, 1
+  br label %46
 
-45:                                               ; preds = %40, %41, %43, %29
-  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %41 ], [ %44, %43 ], [ %.07295, %40 ]
-  %.1 = phi i32 [ %.07196, %29 ], [ %42, %41 ], [ 0, %43 ], [ %.07196, %40 ]
+46:                                               ; preds = %41, %42, %44, %29
+  %.173 = phi i32 [ %.07295, %29 ], [ %.07295, %42 ], [ %45, %44 ], [ %.07295, %41 ]
+  %.1 = phi i32 [ %.07196, %29 ], [ %43, %42 ], [ 0, %44 ], [ %.07196, %41 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 80
   br i1 %exitcond.not, label %.critedge2, label %.lr.ph, !llvm.loop !6
 
-.critedge2:                                       ; preds = %45, %.lr.ph, %.critedge
-  %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %45 ]
+.critedge2:                                       ; preds = %46, %.lr.ph, %.critedge
+  %.070 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ], [ 1, %46 ]
   ret i32 %.070
 }
 

@@ -980,7 +980,7 @@ define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibii
   %8 = and i64 %7, 134217728
   %9 = icmp ne i64 %8, 0
   %or.cond = and i1 %1, %9
-  br i1 %or.cond, label %10, label %37
+  br i1 %or.cond, label %10, label %38
 
 10:                                               ; preds = %6
   switch i32 %3, label %switch.lookup [
@@ -1027,34 +1027,35 @@ define hidden noundef zeroext i1 @_ZN9Assembler26query_compressed_disp_byteEibii
 switch.lookup:                                    ; preds = %20, %10, %13, %16, %22, %18
   %.028 = phi i32 [ 0, %10 ], [ %15, %13 ], [ %.lobit32, %16 ], [ %.lobit, %18 ], [ %24, %22 ], [ %spec.select34, %20 ]
   %or.cond3 = icmp ult i32 %2, 3
-  br i1 %or.cond3, label %25, label %37
+  br i1 %or.cond3, label %25, label %38
 
 25:                                               ; preds = %switch.lookup
   %26 = add nsw i32 %.028, %3
   %27 = sext i32 %26 to i64
-  %28 = zext nneg i32 %2 to i64
-  %29 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %27, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i32
-  %32 = srem i32 %0, %31
-  %33 = sdiv i32 %0, %31
-  %34 = icmp eq i32 %32, 0
-  br i1 %34, label %35, label %40
+  %28 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %27
+  %29 = zext nneg i32 %2 to i64
+  %30 = getelementptr inbounds nuw [3 x i8], ptr %28, i64 0, i64 %29
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = srem i32 %0, %32
+  %34 = sdiv i32 %0, %32
+  %35 = icmp eq i32 %33, 0
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %25
-  %36 = add i32 %33, 128
-  %or.cond5 = icmp ult i32 %36, 256
-  %spec.select = select i1 %or.cond5, i32 %33, i32 %0
-  br label %37
+36:                                               ; preds = %25
+  %37 = add i32 %34, 128
+  %or.cond5 = icmp ult i32 %37, 256
+  %spec.select = select i1 %or.cond5, i32 %34, i32 %0
+  br label %38
 
-37:                                               ; preds = %35, %switch.lookup, %6
-  %.027 = phi i32 [ %0, %switch.lookup ], [ %0, %6 ], [ %spec.select, %35 ]
-  %38 = add i32 %.027, 128
-  %39 = icmp ult i32 %38, 256
-  br label %40
+38:                                               ; preds = %36, %switch.lookup, %6
+  %.027 = phi i32 [ %0, %switch.lookup ], [ %0, %6 ], [ %spec.select, %36 ]
+  %39 = add i32 %.027, 128
+  %40 = icmp ult i32 %39, 256
+  br label %41
 
-40:                                               ; preds = %25, %37
-  %.0 = phi i1 [ %39, %37 ], [ false, %25 ]
+41:                                               ; preds = %25, %38
+  %.0 = phi i1 [ %40, %38 ], [ false, %25 ]
   ret i1 %.0
 }
 
@@ -1063,19 +1064,19 @@ define hidden noundef zeroext i1 @_ZN9Assembler25emit_compressed_disp_byteERi(pt
   %3 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   %4 = and i64 %3, 134217728
   %.not28 = icmp eq i64 %4, 0
-  br i1 %.not28, label %52, label %5
+  br i1 %.not28, label %53, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %52, label %8
+  br i1 %.not, label %53, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %12, label %52
+  br i1 %11, label %12, label %53
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
@@ -1132,38 +1133,39 @@ switch.lookup:                                    ; preds = %26, %12, %19, %22, 
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i32, ptr %35, align 8
   %or.cond = icmp ult i32 %36, 3
-  br i1 %or.cond, label %37, label %52
+  br i1 %or.cond, label %37, label %53
 
 37:                                               ; preds = %switch.lookup
   %38 = add nsw i32 %.020, %16
   %39 = sext i32 %38 to i64
-  %40 = zext nneg i32 %36 to i64
-  %41 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %39, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = load i32, ptr %1, align 4
-  %45 = srem i32 %44, %43
-  %46 = sdiv i32 %44, %43
-  %47 = icmp eq i32 %45, 0
-  br i1 %47, label %48, label %56
+  %40 = getelementptr inbounds [25 x [3 x i8]], ptr @_ZL11tuple_table, i64 0, i64 %39
+  %41 = zext nneg i32 %36 to i64
+  %42 = getelementptr inbounds nuw [3 x i8], ptr %40, i64 0, i64 %41
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i32
+  %45 = load i32, ptr %1, align 4
+  %46 = srem i32 %45, %44
+  %47 = sdiv i32 %45, %44
+  %48 = icmp eq i32 %46, 0
+  br i1 %48, label %49, label %57
 
-48:                                               ; preds = %37
-  %49 = add i32 %46, 128
-  %50 = icmp ult i32 %49, 256
-  br i1 %50, label %51, label %52
+49:                                               ; preds = %37
+  %50 = add i32 %47, 128
+  %51 = icmp ult i32 %50, 256
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %48
-  store i32 %46, ptr %1, align 4
-  br label %52
+52:                                               ; preds = %49
+  store i32 %47, ptr %1, align 4
+  br label %53
 
-52:                                               ; preds = %switch.lookup, %48, %51, %8, %5, %2
-  %53 = load i32, ptr %1, align 4
-  %54 = add i32 %53, 128
-  %55 = icmp ult i32 %54, 256
-  br label %56
+53:                                               ; preds = %switch.lookup, %49, %52, %8, %5, %2
+  %54 = load i32, ptr %1, align 4
+  %55 = add i32 %54, 128
+  %56 = icmp ult i32 %55, 256
+  br label %57
 
-56:                                               ; preds = %37, %52
-  %.0 = phi i1 [ %55, %52 ], [ false, %37 ]
+57:                                               ; preds = %37, %53
+  %.0 = phi i1 [ %56, %53 ], [ false, %37 ]
   ret i1 %.0
 }
 

@@ -98,9 +98,10 @@ define hidden void @av1_set_segdata(ptr noundef writeonly captures(none) %0, i32
   %5 = trunc i32 %3 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
-  %8 = zext i8 %2 to i64
-  %9 = getelementptr inbounds [8 x [8 x i16]], ptr %6, i64 0, i64 %7, i64 %8
-  store i16 %5, ptr %9, align 2
+  %8 = getelementptr inbounds [8 x [8 x i16]], ptr %6, i64 0, i64 %7
+  %9 = zext i8 %2 to i64
+  %10 = getelementptr inbounds nuw [8 x i16], ptr %8, i64 0, i64 %9
+  store i16 %5, ptr %10, align 2
   ret void
 }
 

@@ -2243,10 +2243,9 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
 
 ._crit_edge.i.i:                                  ; preds = %25
   %31 = zext i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 5
-  %scevgep.i.i = getelementptr i8, ptr @sdl_channel_maps, i64 %32
+  %32 = getelementptr inbounds nuw [9 x [8 x i32]], ptr @sdl_channel_maps, i64 0, i64 %31
   %33 = shl nuw nsw i64 %31, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 16 %scevgep.i.i, i64 %33, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 16 %32, i64 %33, i1 false)
   %34 = load ptr, ptr %.03857.i.i, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = icmp eq i32 %28, 6
@@ -2338,12 +2337,12 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 
 .loopexit.i:                                      ; preds = %62
   %.pre.i = load ptr, ptr %11, align 8
-  %.pre23.i = load ptr, ptr %.pre.i, align 8
-  %.not72.i.i = icmp eq ptr %.pre23.i, null
+  %.pre22.i = load ptr, ptr %.pre.i, align 8
+  %.not72.i.i = icmp eq ptr %.pre22.i, null
   br i1 %.not72.i.i, label %.thread48, label %.lr.ph75.i.i
 
 .lr.ph75.i.i:                                     ; preds = %.loopexit.i, %111
-  %66 = phi ptr [ %113, %111 ], [ %.pre23.i, %.loopexit.i ]
+  %66 = phi ptr [ %113, %111 ], [ %.pre22.i, %.loopexit.i ]
   %.04573.i.i = phi ptr [ %112, %111 ], [ %.pre.i, %.loopexit.i ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
@@ -2368,14 +2367,13 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 .thread82.i.i:                                    ; preds = %72
   %76 = load ptr, ptr %.04573.i.i, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  br label %alsa_chmap_has_duplicate_position.exit.i16.i
+  br label %alsa_chmap_has_duplicate_position.exit.i15.i
 
 ._crit_edge.i5.i:                                 ; preds = %72
   %78 = zext i32 %75 to i64
-  %79 = shl nuw nsw i64 %78, 5
-  %scevgep.i6.i = getelementptr i8, ptr @sdl_channel_maps, i64 %79
+  %79 = getelementptr inbounds nuw [9 x [8 x i32]], ptr @sdl_channel_maps, i64 0, i64 %78
   %80 = shl nuw nsw i64 %78, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr align 16 %scevgep.i6.i, i64 %80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 16 %79, i64 %80, i1 false)
   %81 = load ptr, ptr %.04573.i.i, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = icmp eq i32 %75, 6
@@ -2383,53 +2381,53 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 
 84:                                               ; preds = %._crit_edge.i5.i
   call fastcc void @sdl_6chans_set_rear_or_side_channels_from_alsa_6chans(ptr noundef %17, ptr noundef nonnull %82)
-  %.pre.i19.i = load i32, ptr %16, align 4
+  %.pre.i18.i = load i32, ptr %16, align 4
   br label %85
 
 85:                                               ; preds = %84, %._crit_edge.i5.i
-  %86 = phi i32 [ %.pre.i19.i, %84 ], [ %75, %._crit_edge.i5.i ]
+  %86 = phi i32 [ %.pre.i18.i, %84 ], [ %75, %._crit_edge.i5.i ]
   %87 = icmp ult i32 %86, 2
-  br i1 %87, label %alsa_chmap_has_duplicate_position.exit.i16.i, label %.lr.ph.i.preheader.i7.i
+  br i1 %87, label %alsa_chmap_has_duplicate_position.exit.i15.i, label %.lr.ph.i.preheader.i6.i
 
-.lr.ph.i.preheader.i7.i:                          ; preds = %85
-  %zext.i8.i = zext i32 %86 to i64
-  br label %.lr.ph.i.i9.i
+.lr.ph.i.preheader.i6.i:                          ; preds = %85
+  %zext.i7.i = zext i32 %86 to i64
+  br label %.lr.ph.i.i8.i
 
-.lr.ph.i.i9.i:                                    ; preds = %._crit_edge.i.i14.i, %.lr.ph.i.preheader.i7.i
-  %indvars.iv.i.i10.i = phi i64 [ %indvars.iv.next.i.i15.i, %._crit_edge.i.i14.i ], [ 1, %.lr.ph.i.preheader.i7.i ]
-  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i.i10.i
+.lr.ph.i.i8.i:                                    ; preds = %._crit_edge.i.i13.i, %.lr.ph.i.preheader.i6.i
+  %indvars.iv.i.i9.i = phi i64 [ %indvars.iv.next.i.i14.i, %._crit_edge.i.i13.i ], [ 1, %.lr.ph.i.preheader.i6.i ]
+  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i.i9.i
   %89 = load i32, ptr %88, align 4
   br label %91
 
 90:                                               ; preds = %91
-  %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
-  %.not17.i.i13.i = icmp eq i64 %indvars.iv.i.i10.i, %indvars.iv.next.i12.i
-  br i1 %.not17.i.i13.i, label %._crit_edge.i.i14.i, label %91, !llvm.loop !18
+  %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i10.i, 1
+  %.not17.i.i12.i = icmp eq i64 %indvars.iv.i.i9.i, %indvars.iv.next.i11.i
+  br i1 %.not17.i.i12.i, label %._crit_edge.i.i13.i, label %91, !llvm.loop !18
 
-91:                                               ; preds = %90, %.lr.ph.i.i9.i
-  %indvars.iv.i11.i = phi i64 [ %indvars.iv.next.i12.i, %90 ], [ 0, %.lr.ph.i.i9.i ]
-  %92 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i11.i
+91:                                               ; preds = %90, %.lr.ph.i.i8.i
+  %indvars.iv.i10.i = phi i64 [ %indvars.iv.next.i11.i, %90 ], [ 0, %.lr.ph.i.i8.i ]
+  %92 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i10.i
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, %89
-  br i1 %94, label %alsa_chmap_has_duplicate_position.exit.thread.i18.i, label %90
+  br i1 %94, label %alsa_chmap_has_duplicate_position.exit.thread.i17.i, label %90
 
-alsa_chmap_has_duplicate_position.exit.thread.i18.i: ; preds = %91
+alsa_chmap_has_duplicate_position.exit.thread.i17.i: ; preds = %91
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.108) #8
-  br label %.thread.i17.i
+  br label %.thread.i16.i
 
-._crit_edge.i.i14.i:                              ; preds = %90
-  %indvars.iv.next.i.i15.i = add nuw nsw i64 %indvars.iv.i.i10.i, 1
-  %95 = icmp eq i64 %indvars.iv.next.i.i15.i, %zext.i8.i
-  br i1 %95, label %alsa_chmap_has_duplicate_position.exit.i16.i, label %.lr.ph.i.i9.i, !llvm.loop !19
+._crit_edge.i.i13.i:                              ; preds = %90
+  %indvars.iv.next.i.i14.i = add nuw nsw i64 %indvars.iv.i.i9.i, 1
+  %95 = icmp eq i64 %indvars.iv.next.i.i14.i, %zext.i7.i
+  br i1 %95, label %alsa_chmap_has_duplicate_position.exit.i15.i, label %.lr.ph.i.i8.i, !llvm.loop !19
 
-alsa_chmap_has_duplicate_position.exit.i16.i:     ; preds = %._crit_edge.i.i14.i, %85, %.thread82.i.i
-  %96 = phi ptr [ %77, %.thread82.i.i ], [ %82, %85 ], [ %82, %._crit_edge.i.i14.i ]
+alsa_chmap_has_duplicate_position.exit.i15.i:     ; preds = %._crit_edge.i.i13.i, %85, %.thread82.i.i
+  %96 = phi ptr [ %77, %.thread82.i.i ], [ %82, %85 ], [ %82, %._crit_edge.i.i13.i ]
   call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 4, ptr noundef nonnull @.str.107) #8
   %97 = load i32, ptr %16, align 4
   %.not5264.i.i = icmp eq i32 %97, 0
   br i1 %.not5264.i.i, label %._crit_edge68.split.i.i, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %alsa_chmap_has_duplicate_position.exit.i16.i
+.preheader.preheader.i.i:                         ; preds = %alsa_chmap_has_duplicate_position.exit.i15.i
   %98 = zext i32 %97 to i64
   br label %.preheader.i.i
 
@@ -2440,10 +2438,10 @@ alsa_chmap_has_duplicate_position.exit.i16.i:     ; preds = %._crit_edge.i.i14.i
   %100 = load i32, ptr %99, align 4
   br label %103
 
-._crit_edge68.split.i.i:                          ; preds = %..loopexit_crit_edge.i.i, %alsa_chmap_has_duplicate_position.exit.i16.i
-  %.038.lcssa.i.i = phi i32 [ 0, %alsa_chmap_has_duplicate_position.exit.i16.i ], [ %.1.i.i, %..loopexit_crit_edge.i.i ]
+._crit_edge68.split.i.i:                          ; preds = %..loopexit_crit_edge.i.i, %alsa_chmap_has_duplicate_position.exit.i15.i
+  %.038.lcssa.i.i = phi i32 [ 0, %alsa_chmap_has_duplicate_position.exit.i15.i ], [ %.1.i.i, %..loopexit_crit_edge.i.i ]
   %101 = icmp eq i32 %.038.lcssa.i.i, %97
-  br i1 %101, label %109, label %.thread.i17.i
+  br i1 %101, label %109, label %.thread.i16.i
 
 102:                                              ; preds = %103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2467,7 +2465,7 @@ alsa_chmap_has_duplicate_position.exit.i16.i:     ; preds = %._crit_edge.i.i14.i
   %.not52.i.i = icmp eq i64 %indvars.iv.next80.i.i, %98
   br i1 %.not52.i.i, label %._crit_edge68.split.i.i, label %.preheader.i.i, !llvm.loop !23
 
-.thread.i17.i:                                    ; preds = %._crit_edge68.split.i.i, %alsa_chmap_has_duplicate_position.exit.thread.i18.i
+.thread.i16.i:                                    ; preds = %._crit_edge68.split.i.i, %alsa_chmap_has_duplicate_position.exit.thread.i17.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
   br label %111
 
@@ -2476,7 +2474,7 @@ alsa_chmap_has_duplicate_position.exit.i16.i:     ; preds = %._crit_edge.i.i14.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
   br label %alsa_chmap_cfg_ordered.exit
 
-111:                                              ; preds = %.thread.i17.i, %70, %.lr.ph75.i.i
+111:                                              ; preds = %.thread.i16.i, %70, %.lr.ph75.i.i
   %112 = getelementptr inbounds nuw i8, ptr %.04573.i.i, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i3.i = icmp eq ptr %113, null
@@ -2534,10 +2532,9 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %111
 
 ._crit_edge.i:                                    ; preds = %125
   %131 = zext i32 %128 to i64
-  %132 = shl nuw nsw i64 %131, 5
-  %scevgep.i = getelementptr i8, ptr @sdl_channel_maps, i64 %132
+  %132 = getelementptr inbounds nuw [9 x [8 x i32]], ptr @sdl_channel_maps, i64 0, i64 %131
   %133 = shl nuw nsw i64 %131, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr align 16 %scevgep.i, i64 %133, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %117, ptr nonnull align 16 %132, i64 %133, i1 false)
   %134 = load ptr, ptr %.04677.i, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = icmp eq i32 %128, 6

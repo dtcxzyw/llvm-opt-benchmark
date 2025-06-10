@@ -2560,6 +2560,7 @@ if.end345:                                        ; preds = %if.then344, %land.l
 if.end349:                                        ; preds = %cond.end300, %if.end345
   %u.0 = phi double [ %167, %if.end345 ], [ %cond301, %cond.end300 ]
   %n.0 = phi i64 [ %n.1, %if.end345 ], [ 0, %cond.end300 ]
+  %arrayidx = getelementptr inbounds nuw [147 x [129 x double]], ptr @_ZN8QuantLib12_GLOBAL__N_17values4E, i64 0, i64 %n.0
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont359
@@ -2572,10 +2573,10 @@ for.body:                                         ; preds = %if.end349, %invoke.
   %i.0452 = phi i64 [ 0, %if.end349 ], [ %add351, %invoke.cont359 ]
   %s.0451 = phi double [ 0.000000e+00, %if.end349 ], [ %170, %invoke.cont359 ]
   %add351 = add nuw nsw i64 %i.0452, 1
-  %arrayidx352 = getelementptr inbounds nuw [147 x [129 x double]], ptr @_ZN8QuantLib12_GLOBAL__N_17values4E, i64 0, i64 %n.0, i64 %add351
+  %arrayidx352 = getelementptr inbounds nuw [129 x double], ptr %arrayidx, i64 0, i64 %add351
   %168 = load double, ptr %arrayidx352, align 8, !tbaa !77
   %add354 = add nuw nsw i64 %i.0452, 65
-  %arrayidx355 = getelementptr inbounds nuw [147 x [129 x double]], ptr @_ZN8QuantLib12_GLOBAL__N_17values4E, i64 0, i64 %n.0, i64 %add354
+  %arrayidx355 = getelementptr inbounds nuw [129 x double], ptr %arrayidx, i64 0, i64 %add354
   %169 = load double, ptr %arrayidx355, align 8, !tbaa !77
   %mul357 = fmul double %u.0, %168
   %call360 = invoke noundef double @_ZNK8QuantLib20AnalyticHestonEngine9AP_HelperclEd(ptr noundef nonnull align 8 dereferenceable(112) %helper, double noundef %mul357)

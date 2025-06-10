@@ -2177,10 +2177,10 @@ define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i, i64 0
-  %14 = load float, ptr %13, align 4, !tbaa !173
-  %15 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %14, ptr %15, align 4, !tbaa !173
+  %gep.i = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i
+  %13 = load float, ptr %gep.i, align 4, !tbaa !173
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  store float %13, ptr %14, align 4, !tbaa !173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !192
@@ -2202,15 +2202,16 @@ define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 
 .lr.ph.i:                                         ; preds = %4
   %11 = load ptr, ptr %1, align 8, !tbaa !191
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i, i64 1
-  %14 = load float, ptr %13, align 4, !tbaa !173
-  %15 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %14, ptr %15, align 4, !tbaa !173
+  %gep.i = getelementptr inbounds nuw [3 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
+  %13 = load float, ptr %gep.i, align 4, !tbaa !173
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  store float %13, ptr %14, align 4, !tbaa !173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !192
@@ -2232,15 +2233,16 @@ define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 
 .lr.ph.i:                                         ; preds = %4
   %11 = load ptr, ptr %1, align 8, !tbaa !191
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i, i64 2
-  %14 = load float, ptr %13, align 4, !tbaa !173
-  %15 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  store float %14, ptr %15, align 4, !tbaa !173
+  %gep.i = getelementptr inbounds nuw [3 x float], ptr %invariant.gep.i, i64 %indvars.iv.i
+  %13 = load float, ptr %gep.i, align 4, !tbaa !173
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  store float %13, ptr %14, align 4, !tbaa !173
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit, label %12, !llvm.loop !192

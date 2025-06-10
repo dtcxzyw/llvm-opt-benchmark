@@ -1521,19 +1521,19 @@ define void @cli_icongroupset_add(ptr noundef %0, ptr noundef captures(none) %1,
   %5 = icmp ult i32 %2, 2
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %46
+  br i1 %or.cond, label %7, label %47
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %46, label %10
+  br i1 %.not, label %47, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %12 = load ptr, ptr %11, align 8, !tbaa !80
   %.not40 = icmp eq ptr %12, null
-  br i1 %.not40, label %46, label %13
+  br i1 %.not40, label %47, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1541,7 +1541,7 @@ define void @cli_icongroupset_add(ptr noundef %0, ptr noundef captures(none) %1,
   %16 = getelementptr inbounds nuw [2 x i32], ptr %14, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !60
   %.not41 = icmp eq i32 %17, 0
-  br i1 %.not41, label %46, label %18
+  br i1 %.not41, label %47, label %18
 
 18:                                               ; preds = %13
   %19 = load i8, ptr %0, align 1, !tbaa !73
@@ -1557,7 +1557,7 @@ define void @cli_icongroupset_add(ptr noundef %0, ptr noundef captures(none) %1,
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw [2 x [4 x i64]], ptr %1, i64 0, i64 %15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 -1, i64 32, i1 false)
-  br label %46
+  br label %47
 
 26:                                               ; preds = %21, %18
   %27 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %15
@@ -1589,21 +1589,22 @@ define void @cli_icongroupset_add(ptr noundef %0, ptr noundef captures(none) %1,
 
 36:                                               ; preds = %.split.loop.exit46
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull %0) #13
-  br label %46
+  br label %47
 
 37:                                               ; preds = %.split.loop.exit46
   %38 = and i32 %.0.lcssa, 63
   %39 = lshr i32 %.0.lcssa, 6
   %40 = zext nneg i32 %38 to i64
   %41 = shl nuw i64 1, %40
-  %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw [2 x [4 x i64]], ptr %1, i64 0, i64 %15, i64 %42
-  %44 = load i64, ptr %43, align 8, !tbaa !88
-  %45 = or i64 %44, %41
-  store i64 %45, ptr %43, align 8, !tbaa !88
-  br label %46
+  %42 = getelementptr inbounds nuw [2 x [4 x i64]], ptr %1, i64 0, i64 %15
+  %43 = zext nneg i32 %39 to i64
+  %44 = getelementptr inbounds nuw [4 x i64], ptr %42, i64 0, i64 %43
+  %45 = load i64, ptr %44, align 8, !tbaa !88
+  %46 = or i64 %45, %41
+  store i64 %46, ptr %44, align 8, !tbaa !88
+  br label %47
 
-46:                                               ; preds = %36, %37, %4, %7, %10, %13, %24
+47:                                               ; preds = %36, %37, %4, %7, %10, %13, %24
   ret void
 }
 

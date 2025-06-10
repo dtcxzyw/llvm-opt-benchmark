@@ -111,10 +111,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
+  %.01618.sroa.gep20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %11
 
 11:                                               ; preds = %2, %.critedge2
   %12 = phi i1 [ true, %2 ], [ false, %.critedge2 ]
+  %.01618.sroa.phi = phi ptr [ %3, %2 ], [ %.01618.sroa.gep20, %.critedge2 ]
   %.01618 = phi i64 [ 0, %2 ], [ 1, %.critedge2 ]
   %exitcond19.not = icmp eq i64 %.01618, %10
   br i1 %exitcond19.not, label %.critedge, label %.preheader
@@ -139,7 +141,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw double, ptr %16, i64 %.017
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %.01618, i64 %.017
+  %26 = getelementptr inbounds nuw [2 x double], ptr %.01618.sroa.phi, i64 0, i64 %.017
   store double %25, ptr %26, align 8
   br i1 %22, label %21, label %.critedge2, !llvm.loop !4
 
@@ -178,10 +180,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 24
+  %.01618.sroa.gep20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %11
 
 11:                                               ; preds = %2, %.critedge2
   %12 = phi i1 [ true, %2 ], [ false, %.critedge2 ]
+  %.01618.sroa.phi = phi ptr [ %3, %2 ], [ %.01618.sroa.gep20, %.critedge2 ]
   %.01618 = phi i64 [ 0, %2 ], [ 1, %.critedge2 ]
   %exitcond19.not = icmp eq i64 %.01618, %10
   br i1 %exitcond19.not, label %.critedge, label %.preheader
@@ -207,7 +211,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   %24 = getelementptr inbounds nuw float, ptr %16, i64 %.017
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
-  %27 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %.01618, i64 %.017
+  %27 = getelementptr inbounds nuw [2 x double], ptr %.01618.sroa.phi, i64 0, i64 %.017
   store double %26, ptr %27, align 8
   br i1 %22, label %21, label %.critedge2, !llvm.loop !7
 

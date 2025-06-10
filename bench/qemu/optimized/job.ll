@@ -237,61 +237,62 @@ define dso_local range(i32 -1, 1) i32 @job_apply_verb_locked(ptr noundef %0, i32
   %10 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %6) #15
   %11 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobVerb_lookup, i32 noundef %1) #15
   %12 = zext nneg i32 %1 to i64
-  %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw [8 x [11 x i8]], ptr @JobVerbTable, i64 0, i64 %12, i64 %13
-  %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
-  %16 = trunc nuw i8 %15 to i1
-  %17 = select i1 %16, ptr @.str.2, ptr @.str.3
-  %18 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i = icmp eq i32 %18, 0
-  br i1 %.not.i.i, label %trace_job_apply_verb.exit, label %19, !prof !6
+  %13 = getelementptr inbounds nuw [8 x [11 x i8]], ptr @JobVerbTable, i64 0, i64 %12
+  %14 = zext i32 %6 to i64
+  %15 = getelementptr inbounds nuw [11 x i8], ptr %13, i64 0, i64 %14
+  %16 = load i8, ptr %15, align 1, !range !4, !noundef !5
+  %17 = trunc nuw i8 %16 to i1
+  %18 = select i1 %17, ptr @.str.2, ptr @.str.3
+  %19 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %19, 0
+  br i1 %.not.i.i, label %trace_job_apply_verb.exit, label %20, !prof !6
 
-19:                                               ; preds = %9
-  %20 = load i16, ptr @_TRACE_JOB_APPLY_VERB_DSTATE, align 2
-  %.not8.i.i = icmp eq i16 %20, 0
-  br i1 %.not8.i.i, label %trace_job_apply_verb.exit, label %21
+20:                                               ; preds = %9
+  %21 = load i16, ptr @_TRACE_JOB_APPLY_VERB_DSTATE, align 2
+  %.not8.i.i = icmp eq i16 %21, 0
+  br i1 %.not8.i.i, label %trace_job_apply_verb.exit, label %22
 
-21:                                               ; preds = %19
-  %22 = load i32, ptr @qemu_loglevel, align 4
-  %23 = and i32 %22, 32768
-  %.not9.i.i = icmp eq i32 %23, 0
-  br i1 %.not9.i.i, label %trace_job_apply_verb.exit, label %24
+22:                                               ; preds = %20
+  %23 = load i32, ptr @qemu_loglevel, align 4
+  %24 = and i32 %23, 32768
+  %.not9.i.i = icmp eq i32 %24, 0
+  br i1 %.not9.i.i, label %trace_job_apply_verb.exit, label %25
 
-24:                                               ; preds = %21
-  %25 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
-  %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %33
+25:                                               ; preds = %22
+  %26 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
-  %28 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #15
-  %29 = tail call i32 @qemu_get_thread_id() #15
-  %30 = load i64, ptr %4, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %32 = load i64, ptr %31, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %29, i64 noundef %30, i64 noundef %32, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %17) #15
+  %29 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #15
+  %30 = tail call i32 @qemu_get_thread_id() #15
+  %31 = load i64, ptr %4, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %33 = load i64, ptr %32, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %30, i64 noundef %31, i64 noundef %33, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %18) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   br label %trace_job_apply_verb.exit
 
-33:                                               ; preds = %24
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %17) #15
+34:                                               ; preds = %25
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %18) #15
   br label %trace_job_apply_verb.exit
 
-trace_job_apply_verb.exit:                        ; preds = %9, %19, %21, %27, %33
-  %34 = load i8, ptr %14, align 1, !range !4, !noundef !5
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %40, label %36
+trace_job_apply_verb.exit:                        ; preds = %9, %20, %22, %28, %34
+  %35 = load i8, ptr %15, align 1, !range !4, !noundef !5
+  %36 = trunc nuw i8 %35 to i1
+  br i1 %36, label %41, label %37
 
-36:                                               ; preds = %trace_job_apply_verb.exit
-  %37 = load ptr, ptr %0, align 8
-  %38 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %6) #15
-  %39 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobVerb_lookup, i32 noundef %1) #15
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.job_apply_verb_locked, ptr noundef nonnull @.str.4, ptr noundef %37, ptr noundef %38, ptr noundef %39) #15
-  br label %40
+37:                                               ; preds = %trace_job_apply_verb.exit
+  %38 = load ptr, ptr %0, align 8
+  %39 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %6) #15
+  %40 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobVerb_lookup, i32 noundef %1) #15
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @__func__.job_apply_verb_locked, ptr noundef nonnull @.str.4, ptr noundef %38, ptr noundef %39, ptr noundef %40) #15
+  br label %41
 
-40:                                               ; preds = %trace_job_apply_verb.exit, %36
-  %.0 = phi i32 [ -1, %36 ], [ 0, %trace_job_apply_verb.exit ]
+41:                                               ; preds = %trace_job_apply_verb.exit, %37
+  %.0 = phi i32 [ -1, %37 ], [ 0, %trace_job_apply_verb.exit ]
   ret i32 %.0
 }
 
@@ -758,71 +759,72 @@ define internal fastcc void @job_state_transition_locked(ptr noundef %0, i32 nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %5 to i64
-  %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw [11 x [11 x i8]], ptr @JobSTT, i64 0, i64 %11, i64 %12
-  %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
-  %15 = trunc nuw i8 %14 to i1
-  %16 = select i1 %15, ptr @.str.2, ptr @.str.33
-  %17 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %5) #15
-  %18 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %1) #15
-  %19 = load i32, ptr @trace_events_enabled_count, align 4
-  %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %trace_job_state_transition.exit, label %20, !prof !6
+  %12 = getelementptr inbounds nuw [11 x [11 x i8]], ptr @JobSTT, i64 0, i64 %11
+  %13 = zext nneg i32 %1 to i64
+  %14 = getelementptr inbounds nuw [11 x i8], ptr %12, i64 0, i64 %13
+  %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %16 = trunc nuw i8 %15 to i1
+  %17 = select i1 %16, ptr @.str.2, ptr @.str.33
+  %18 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %5) #15
+  %19 = tail call ptr @qapi_enum_lookup(ptr noundef nonnull @JobStatus_lookup, i32 noundef %1) #15
+  %20 = load i32, ptr @trace_events_enabled_count, align 4
+  %.not.i.i = icmp eq i32 %20, 0
+  br i1 %.not.i.i, label %trace_job_state_transition.exit, label %21, !prof !6
 
-20:                                               ; preds = %8
-  %21 = load i16, ptr @_TRACE_JOB_STATE_TRANSITION_DSTATE, align 2
-  %.not9.i.i = icmp eq i16 %21, 0
-  br i1 %.not9.i.i, label %trace_job_state_transition.exit, label %22
+21:                                               ; preds = %8
+  %22 = load i16, ptr @_TRACE_JOB_STATE_TRANSITION_DSTATE, align 2
+  %.not9.i.i = icmp eq i16 %22, 0
+  br i1 %.not9.i.i, label %trace_job_state_transition.exit, label %23
 
-22:                                               ; preds = %20
-  %23 = load i32, ptr @qemu_loglevel, align 4
-  %24 = and i32 %23, 32768
-  %.not10.i.i = icmp eq i32 %24, 0
-  br i1 %.not10.i.i, label %trace_job_state_transition.exit, label %25
+23:                                               ; preds = %21
+  %24 = load i32, ptr @qemu_loglevel, align 4
+  %25 = and i32 %24, 32768
+  %.not10.i.i = icmp eq i32 %25, 0
+  br i1 %.not10.i.i, label %trace_job_state_transition.exit, label %26
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %34
+26:                                               ; preds = %23
+  %27 = load i8, ptr @message_with_timestamp, align 1, !range !4, !noundef !5
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %35
 
-28:                                               ; preds = %25
+29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
-  %29 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #15
-  %30 = tail call i32 @qemu_get_thread_id() #15
-  %31 = load i64, ptr %3, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = load i64, ptr %32, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %30, i64 noundef %31, i64 noundef %33, ptr noundef nonnull %0, i32 noundef %10, ptr noundef nonnull %16, ptr noundef %17, ptr noundef %18) #15
+  %30 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #15
+  %31 = tail call i32 @qemu_get_thread_id() #15
+  %32 = load i64, ptr %3, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %34 = load i64, ptr %33, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %31, i64 noundef %32, i64 noundef %34, ptr noundef nonnull %0, i32 noundef %10, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %19) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   br label %trace_job_state_transition.exit
 
-34:                                               ; preds = %25
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef nonnull %0, i32 noundef %10, ptr noundef nonnull %16, ptr noundef %17, ptr noundef %18) #15
+35:                                               ; preds = %26
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, ptr noundef nonnull %0, i32 noundef %10, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %19) #15
   br label %trace_job_state_transition.exit
 
-trace_job_state_transition.exit:                  ; preds = %8, %20, %22, %28, %34
-  %35 = load i8, ptr %13, align 1, !range !4, !noundef !5
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %38, label %37
+trace_job_state_transition.exit:                  ; preds = %8, %21, %23, %29, %35
+  %36 = load i8, ptr %14, align 1, !range !4, !noundef !5
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %39, label %38
 
-37:                                               ; preds = %trace_job_state_transition.exit
+38:                                               ; preds = %trace_job_state_transition.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str, i32 noundef 215, ptr noundef nonnull @__PRETTY_FUNCTION__.job_state_transition_locked) #17
   unreachable
 
-38:                                               ; preds = %trace_job_state_transition.exit
+39:                                               ; preds = %trace_job_state_transition.exit
   store i32 %1, ptr %4, align 4
-  %39 = load ptr, ptr %0, align 8
-  %40 = icmp eq ptr %39, null
+  %40 = load ptr, ptr %0, align 8
+  %41 = icmp eq ptr %40, null
   %.not = icmp eq i32 %1, %5
-  %or.cond = select i1 %40, i1 true, i1 %.not
-  br i1 %or.cond, label %42, label %41
+  %or.cond = select i1 %41, i1 true, i1 %.not
+  br i1 %or.cond, label %43, label %42
 
-41:                                               ; preds = %38
-  tail call void @qapi_event_send_job_status_change(ptr noundef nonnull %39, i32 noundef %1) #15
-  br label %42
+42:                                               ; preds = %39
+  tail call void @qapi_event_send_job_status_change(ptr noundef nonnull %40, i32 noundef %1) #15
+  br label %43
 
-42:                                               ; preds = %41, %38
+43:                                               ; preds = %42, %39
   ret void
 }
 

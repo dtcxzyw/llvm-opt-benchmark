@@ -3718,9 +3718,9 @@ define hidden { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i", %.lr.ph.preheader.i.i
-  %.020.i.i = phi i64 [ %26, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" ], [ 0, %.lr.ph.preheader.i.i ]
+  %.020.i.i = phi i64 [ %27, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" ], [ 0, %.lr.ph.preheader.i.i ]
   %8 = phi ptr [ %10, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" ], [ %3, %.lr.ph.preheader.i.i ]
-  %9 = phi i8 [ %23, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" ], [ %.promoted19.i.i, %.lr.ph.preheader.i.i ]
+  %9 = phi i8 [ %24, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" ], [ %.promoted19.i.i, %.lr.ph.preheader.i.i ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.val14.i.i = load i8, ptr %8, align 1, !noalias !876, !noundef !10
   %11 = zext i8 %.val14.i.i to i64
@@ -3731,34 +3731,35 @@ define hidden { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd
 
 15:                                               ; preds = %.lr.ph.i.i
   %16 = zext nneg i8 %9 to i64
-  %17 = getelementptr inbounds nuw [16 x [256 x i8]], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %16, i64 %11
-  %18 = load i8, ptr %17, align 1, !noalias !876, !noundef !10
+  %17 = getelementptr inbounds nuw [16 x [256 x i8]], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %16
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %11
+  %19 = load i8, ptr %18, align 1, !noalias !876, !noundef !10
   br label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
 
 _ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i: ; preds = %15, %.lr.ph.i.i
-  %.0.i.i.i.i.i.i = phi i8 [ %18, %15 ], [ %13, %.lr.ph.i.i ]
-  %19 = and i8 %.0.i.i.i.i.i.i, 15
-  %20 = lshr i8 %.0.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i = icmp eq i8 %19, 0
-  br i1 %.not.i.i.i.i.i, label %22, label %21
+  %.0.i.i.i.i.i.i = phi i8 [ %19, %15 ], [ %13, %.lr.ph.i.i ]
+  %20 = and i8 %.0.i.i.i.i.i.i, 15
+  %21 = lshr i8 %.0.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i.i.i.i, label %23, label %22
 
-21:                                               ; preds = %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
-  store i8 %19, ptr %1, align 1, !alias.scope !872, !noalias !873
-  br label %22
+22:                                               ; preds = %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
+  store i8 %20, ptr %1, align 1, !alias.scope !872, !noalias !873
+  br label %23
 
-22:                                               ; preds = %21, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
-  %23 = phi i8 [ %19, %21 ], [ %9, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i ]
-  switch i8 %20, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" [
-    i8 12, label %24
+23:                                               ; preds = %22, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i
+  %24 = phi i8 [ %20, %22 ], [ %9, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i ]
+  switch i8 %21, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" [
+    i8 12, label %25
     i8 15, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
-    i8 5, label %25
+    i8 5, label %26
   ]
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   %.not.i.i.i.i.i.i = icmp eq i8 %.val14.i.i, 127
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i", label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   switch i8 %.val14.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i" [
     i8 9, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
     i8 10, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
@@ -3767,64 +3768,64 @@ _ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i: ; pre
     i8 32, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
   ]
 
-"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i": ; preds = %25, %24, %22
-  %26 = add nuw i64 %.020.i.i, 1
-  %27 = icmp eq ptr %10, %6
-  br i1 %27, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread.thread", label %.lr.ph.i.i
+"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i": ; preds = %26, %25, %23
+  %27 = add nuw i64 %.020.i.i, 1
+  %28 = icmp eq ptr %10, %6
+  br i1 %28, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread.thread", label %.lr.ph.i.i
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread.thread": ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf0b581171e25815cE.exit.i.i"
-  %28 = getelementptr inbounds i8, ptr %3, i64 %5
+  %29 = getelementptr inbounds i8, ptr %3, i64 %5
   store i8 12, ptr %1, align 1
   br label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread"
 
-"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit": ; preds = %22, %24, %25, %25, %25, %25, %25
+"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit": ; preds = %23, %25, %26, %26, %26, %26, %26
   %.not = icmp ugt i64 %.020.i.i, %5
-  br i1 %.not, label %29, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread"
+  br i1 %.not, label %30, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread"
 
-29:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
+30:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8a15c8b2664a73ecad88cbf6a449d693.56, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a15c8b2664a73ecad88cbf6a449d693.58) #40
   unreachable
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread": ; preds = %2, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit"
   %switch54 = phi i64 [ %.020.i.i, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit" ], [ 0, %2 ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 %switch54
-  %31 = sub nuw i64 %5, %switch54
-  store ptr %30, ptr %0, align 8
-  store i64 %31, ptr %4, align 8
+  %31 = getelementptr inbounds i8, ptr %3, i64 %switch54
+  %32 = sub nuw i64 %5, %switch54
+  store ptr %31, ptr %0, align 8
+  store i64 %32, ptr %4, align 8
   store i8 12, ptr %1, align 1
-  %32 = icmp eq i64 %switch54, %5
-  br i1 %32, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread", label %.lr.ph.i
+  %33 = icmp eq i64 %switch54, %5
+  br i1 %33, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread", %.backedge.i.i
   %.0.i1.i = phi i64 [ %.0.be.i.i, %.backedge.i.i ], [ 0, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread" ]
-  %33 = phi ptr [ %34, %.backedge.i.i ], [ %30, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread" ]
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %.val.i.i = load i8, ptr %33, align 1, !noalias !877, !noundef !10
-  %35 = zext i8 %.val.i.i to i64
-  %36 = getelementptr inbounds nuw [256 x i8], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !noalias !877, !noundef !10
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
+  %34 = phi ptr [ %35, %.backedge.i.i ], [ %31, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread" ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %.val.i.i = load i8, ptr %34, align 1, !noalias !877, !noundef !10
+  %36 = zext i8 %.val.i.i to i64
+  %37 = getelementptr inbounds nuw [256 x i8], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 %36
+  %38 = load i8, ptr %37, align 1, !noalias !877, !noundef !10
+  %39 = icmp eq i8 %38, 0
+  br i1 %39, label %40, label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw [16 x [256 x i8]], ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 0, i64 12, i64 %35
-  %41 = load i8, ptr %40, align 1, !noalias !877, !noundef !10
+40:                                               ; preds = %.lr.ph.i
+  %41 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @anon.8a15c8b2664a73ecad88cbf6a449d693.0, i64 3072), i64 0, i64 %36
+  %42 = load i8, ptr %41, align 1, !noalias !877, !noundef !10
   br label %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
 
-_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46: ; preds = %39, %.lr.ph.i
-  %.0.i.i.i.i.i.i47 = phi i8 [ %41, %39 ], [ %37, %.lr.ph.i ]
-  %42 = lshr i8 %.0.i.i.i.i.i.i47, 4
-  switch i8 %42, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" [
-    i8 12, label %43
+_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46: ; preds = %40, %.lr.ph.i
+  %.0.i.i.i.i.i.i47 = phi i8 [ %42, %40 ], [ %38, %.lr.ph.i ]
+  %43 = lshr i8 %.0.i.i.i.i.i.i47, 4
+  switch i8 %43, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" [
+    i8 12, label %44
     i8 15, label %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i"
-    i8 5, label %44
+    i8 5, label %45
   ]
 
-43:                                               ; preds = %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
+44:                                               ; preds = %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
   %.not.i.i.i.i.i.i49 = icmp eq i8 %.val.i.i, 127
   br i1 %.not.i.i.i.i.i.i49, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit", label %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i"
 
-44:                                               ; preds = %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
+45:                                               ; preds = %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
   switch i8 %.val.i.i, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" [
     i8 9, label %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i"
     i8 10, label %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i"
@@ -3833,53 +3834,53 @@ _ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46: ; p
     i8 32, label %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i"
   ]
 
-"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i": ; preds = %44, %44, %44, %44, %44, %43, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
-  %45 = add i64 %.0.i1.i, 1
+"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i": ; preds = %45, %45, %45, %45, %45, %44, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
+  %46 = add i64 %.0.i1.i, 1
   br label %.backedge.i.i
 
-"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i": ; preds = %44, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
+"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i": ; preds = %45, %_ZN13anstyle_parse5state12state_change17h79664e659a8016d1E.exit.i.i.i.i.i46
   %spec.select.i.i.i.i.i = icmp slt i8 %.val.i.i, -64
-  %46 = zext i1 %spec.select.i.i.i.i.i to i64
-  %spec.select.i.i.i.i = add i64 %.0.i1.i, %46
+  %47 = zext i1 %spec.select.i.i.i.i.i to i64
+  %spec.select.i.i.i.i = add i64 %.0.i1.i, %47
   br i1 %spec.select.i.i.i.i.i, label %.backedge.i.i, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit"
 
 .backedge.i.i:                                    ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i", %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i"
-  %.0.be.i.i = phi i64 [ %spec.select.i.i.i.i, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" ], [ %45, %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i" ]
-  %47 = icmp eq ptr %34, %6
-  br i1 %47, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread", label %.lr.ph.i
+  %.0.be.i.i = phi i64 [ %spec.select.i.i.i.i, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" ], [ %46, %"_ZN8anstream7adapter5strip8next_str28_$u7b$$u7b$closure$u7d$$u7d$17h07ae25c33373a35bE.exit.thread.i.i.i.i" ]
+  %48 = icmp eq ptr %35, %6
+  br i1 %48, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread", label %.lr.ph.i
 
-"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit": ; preds = %43, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i"
-  %switch39 = phi i64 [ %.0.i1.i, %43 ], [ %spec.select.i.i.i.i, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" ]
-  %.not38 = icmp ugt i64 %switch39, %31
-  br i1 %.not38, label %48, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread"
+"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit": ; preds = %44, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i"
+  %switch39 = phi i64 [ %.0.i1.i, %44 ], [ %spec.select.i.i.i.i, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe978da3047f1113E.exit.i.i" ]
+  %.not38 = icmp ugt i64 %switch39, %32
+  br i1 %.not38, label %49, label %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread"
 
-48:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit"
+49:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8a15c8b2664a73ecad88cbf6a449d693.56, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a15c8b2664a73ecad88cbf6a449d693.59) #40
   unreachable
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread": ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread.thread", %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread"
-  %.ph59 = phi ptr [ %30, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread" ], [ %28, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread.thread" ]
+  %.ph59 = phi ptr [ %31, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread" ], [ %29, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2a010e15f52daa72E.exit.thread.thread" ]
   store ptr %.ph59, ptr %0, align 8
   store i64 0, ptr %4, align 8
-  br label %52
+  br label %53
 
 "_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread": ; preds = %.backedge.i.i, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit"
-  %switch3957 = phi i64 [ %switch39, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit" ], [ %31, %.backedge.i.i ]
+  %switch3957 = phi i64 [ %switch39, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit" ], [ %32, %.backedge.i.i ]
   %switch3957.fr = freeze i64 %switch3957
-  %49 = getelementptr inbounds i8, ptr %30, i64 %switch3957.fr
-  %50 = sub nuw i64 %31, %switch3957.fr
-  store ptr %49, ptr %0, align 8
-  store i64 %50, ptr %4, align 8
-  %51 = icmp eq i64 %switch3957.fr, 0
-  %spec.select = select i1 %51, ptr null, ptr %30
-  br label %52
+  %50 = getelementptr inbounds i8, ptr %31, i64 %switch3957.fr
+  %51 = sub nuw i64 %32, %switch3957.fr
+  store ptr %50, ptr %0, align 8
+  store i64 %51, ptr %4, align 8
+  %52 = icmp eq i64 %switch3957.fr, 0
+  %spec.select = select i1 %52, ptr null, ptr %31
+  br label %53
 
-52:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread", %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread"
+53:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread", %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread"
   %switch395762 = phi i64 [ 0, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread" ], [ %switch3957.fr, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread" ]
-  %53 = phi ptr [ null, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread" ], [ %spec.select, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread" ]
-  %54 = insertvalue { ptr, i64 } poison, ptr %53, 0
-  %55 = insertvalue { ptr, i64 } %54, i64 %switch395762, 1
-  ret { ptr, i64 } %55
+  %54 = phi ptr [ null, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread.thread" ], [ %spec.select, %"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3be62512fddc7e1dE.exit.thread" ]
+  %55 = insertvalue { ptr, i64 } poison, ptr %54, 0
+  %56 = insertvalue { ptr, i64 } %55, i64 %switch395762, 1
+  ret { ptr, i64 } %56
 }
 
 ; Function Attrs: inlinehint nofree norecurse nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

@@ -14166,17 +14166,18 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc28.i
 
 "_ZZN4pkpy6Mat3x39_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_9clES2_S4_S4_.exit": ; preds = %24, %_ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = getelementptr inbounds [3 x [3 x float]], ptr %38, i64 0, i64 %27, i64 %31
+  %39 = getelementptr inbounds [3 x [3 x float]], ptr %38, i64 0, i64 %27
+  %40 = getelementptr inbounds [3 x float], ptr %39, i64 0, i64 %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %40 = load float, ptr %39, align 4
-  %41 = fpext float %40 to double
-  store double %41, ptr %4, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %42, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %41 = load float, ptr %40, align 4
+  %42 = fpext float %41 to double
+  store double %42, ptr %4, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %43, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  ret ptr %43
+  ret ptr %44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14270,8 +14271,9 @@ _ZN4pkpy2VM10IndexErrorERKNS_3StrE.exit.i:        ; preds = %.noexc29.i
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef nonnull %0, ptr noundef %3)
   %40 = fptrunc double %39 to float
-  %41 = getelementptr inbounds [3 x [3 x float]], ptr %38, i64 0, i64 %27, i64 %31
-  store float %40, ptr %41, align 4
+  %41 = getelementptr inbounds [3 x [3 x float]], ptr %38, i64 0, i64 %27
+  %42 = getelementptr inbounds [3 x float], ptr %41, i64 0, i64 %31
+  store float %40, ptr %42, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void

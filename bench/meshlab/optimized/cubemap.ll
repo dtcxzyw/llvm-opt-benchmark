@@ -146,37 +146,38 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %17
 
-17:                                               ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, %29
-  %indvars.iv14 = phi i64 [ 0, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit ], [ %indvars.iv.next15, %29 ]
+17:                                               ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, %30
+  %indvars.iv14 = phi i64 [ 0, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit ], [ %indvars.iv.next15, %30 ]
   %18 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %indvars.iv14
   %19 = load i32, ptr %18, align 4
   call void @glBindTexture(i32 noundef 3553, i32 noundef %19)
   call void @glBegin(i32 noundef 7)
-  br label %20
+  %20 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv14
+  br label %21
 
-20:                                               ; preds = %17, %20
-  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw [4 x [2 x float]], ptr @_ZL8tex_vert, i64 0, i64 %indvars.iv
-  %22 = load float, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = load float, ptr %23, align 4
-  call void @glTexCoord2f(float noundef %22, float noundef %24)
-  %25 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv14, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %27
-  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %28)
+21:                                               ; preds = %17, %21
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %21 ]
+  %22 = getelementptr inbounds nuw [4 x [2 x float]], ptr @_ZL8tex_vert, i64 0, i64 %indvars.iv
+  %23 = load float, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %25 = load float, ptr %24, align 4
+  call void @glTexCoord2f(float noundef %23, float noundef %25)
+  %26 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %28
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %29, label %20, !llvm.loop !11
+  br i1 %exitcond.not, label %30, label %21, !llvm.loop !11
 
-29:                                               ; preds = %20
+30:                                               ; preds = %21
   call void @glEnd()
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 6
-  br i1 %exitcond17.not, label %30, label %17, !llvm.loop !12
+  br i1 %exitcond17.not, label %31, label %17, !llvm.loop !12
 
-30:                                               ; preds = %29
+31:                                               ; preds = %30
   call void @glDepthMask(i8 noundef zeroext 1)
   call void @glPopMatrix()
   call void @glPopAttrib()
@@ -254,42 +255,43 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %18
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %19
 
-19:                                               ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %32
-  %indvars.iv15 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i ], [ %indvars.iv.next16, %32 ]
+19:                                               ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %33
+  %indvars.iv15 = phi i64 [ 0, %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i ], [ %indvars.iv.next16, %33 ]
   call void @glBegin(i32 noundef 7)
+  %20 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv15
   br label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
 
 _ZN3vcg8glNormalERKNS_6Point3IfEE.exit:           ; preds = %19, %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit ]
-  %20 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv15, i64 %indvars.iv
-  %21 = load i32, ptr %20, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %22
-  %24 = load float, ptr %23, align 4
-  %25 = fneg float %24
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %27 = load float, ptr %26, align 4
-  %28 = fneg float %27
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %30 = load float, ptr %29, align 4
-  %31 = fneg float %30
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %25, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %28, i64 1
+  %21 = getelementptr inbounds nuw [4 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %23
+  %25 = load float, ptr %24, align 4
+  %26 = fneg float %25
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %28 = load float, ptr %27, align 4
+  %29 = fneg float %28
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %31 = load float, ptr %30, align 4
+  %32 = fneg float %31
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %26, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %29, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %5, align 8
-  store float %31, ptr %.sroa.2.0..sroa_idx, align 8
+  store float %32, ptr %.sroa.2.0..sroa_idx, align 8
   call void @glNormal3fv(ptr noundef nonnull align 4 dereferenceable(12) %5)
-  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %23)
+  call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %32, label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit, !llvm.loop !16
+  br i1 %exitcond.not, label %33, label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit, !llvm.loop !16
 
-32:                                               ; preds = %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
+33:                                               ; preds = %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
   call void @glEnd()
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 6
-  br i1 %exitcond18.not, label %33, label %19, !llvm.loop !17
+  br i1 %exitcond18.not, label %34, label %19, !llvm.loop !17
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   call void @glMatrixMode(i32 noundef 5890)
   call void @glPopMatrix()
   call void @glMatrixMode(i32 noundef 5888)

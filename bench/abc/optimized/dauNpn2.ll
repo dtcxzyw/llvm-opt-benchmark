@@ -3339,8 +3339,8 @@ define void @Dtt_PrintMulti(ptr noundef readonly captures(none) %0) local_unname
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   br label %.preheader
 
-.preheader:                                       ; preds = %1, %52
-  %indvars.iv50 = phi i64 [ 0, %1 ], [ %indvars.iv.next51, %52 ]
+.preheader:                                       ; preds = %1, %53
+  %indvars.iv50 = phi i64 [ 0, %1 ], [ %indvars.iv.next51, %53 ]
   %6 = load i32, ptr %3, align 8, !tbaa !81
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
@@ -3379,7 +3379,7 @@ define void @Dtt_PrintMulti(ptr noundef readonly captures(none) %0) local_unname
   %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %26 = sub nuw nsw i32 32, %25
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv50, i64 %27
+  %28 = getelementptr inbounds nuw [15 x i32], ptr %9, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !40
@@ -3409,35 +3409,36 @@ define void @Dtt_PrintMulti(ptr noundef readonly captures(none) %0) local_unname
   %41 = sitofp i32 %.1 to double
   %42 = fdiv double %37, %41
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, double noundef %42)
-  br label %44
+  %44 = getelementptr inbounds nuw [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv50
+  br label %45
 
-44:                                               ; preds = %36, %51
-  %indvars.iv46 = phi i64 [ 0, %36 ], [ %indvars.iv.next47, %51 ]
-  %45 = getelementptr inbounds nuw [13 x [15 x i32]], ptr %2, i64 0, i64 %indvars.iv50, i64 %indvars.iv46
-  %46 = load i32, ptr %45, align 4, !tbaa !40
-  %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %49, label %47
+45:                                               ; preds = %36, %52
+  %indvars.iv46 = phi i64 [ 0, %36 ], [ %indvars.iv.next47, %52 ]
+  %46 = getelementptr inbounds nuw [15 x i32], ptr %44, i64 0, i64 %indvars.iv46
+  %47 = load i32, ptr %46, align 4, !tbaa !40
+  %.not = icmp eq i32 %47, 0
+  br i1 %.not, label %50, label %48
 
-47:                                               ; preds = %44
-  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %46)
-  br label %51
+48:                                               ; preds = %45
+  %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %47)
+  br label %52
 
-49:                                               ; preds = %44
-  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull @.str.29)
-  br label %51
+50:                                               ; preds = %45
+  %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull @.str.29)
+  br label %52
 
-51:                                               ; preds = %47, %49
+52:                                               ; preds = %48, %50
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 15
-  br i1 %exitcond49.not, label %52, label %44, !llvm.loop !103
+  br i1 %exitcond49.not, label %53, label %45, !llvm.loop !103
 
-52:                                               ; preds = %51
+53:                                               ; preds = %52
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 13
   br i1 %exitcond53.not, label %._crit_edge.thread, label %.preheader, !llvm.loop !104
 
-._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %52
+._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %53
   call void @llvm.lifetime.end.p0(i64 780, ptr nonnull %2) #30
   ret void
 }

@@ -968,38 +968,39 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %80, %79, %78, %77, 
   %85 = fsub double %.sroa.3.0.i, %.0.i.i
   br label %86
 
-86:                                               ; preds = %94, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
-  %87 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %94 ]
-  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.052.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.453.i, %94 ]
-  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %94 ]
-  br label %88
+86:                                               ; preds = %95, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+  %87 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %95 ]
+  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.052.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.453.i, %95 ]
+  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %95 ]
+  %88 = getelementptr inbounds nuw [2 x double], ptr %83, i64 %indvars.iv18.i.i
+  br label %89
 
-88:                                               ; preds = %88, %86
-  %89 = phi i1 [ true, %86 ], [ false, %88 ]
-  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %84, %86 ], [ %85, %88 ]
-  %indvars.iv.i27.i = phi i64 [ 0, %86 ], [ 1, %88 ]
-  %90 = phi double [ 0.000000e+00, %86 ], [ %93, %88 ]
-  %91 = getelementptr inbounds nuw [2 x double], ptr %83, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
-  %92 = load double, ptr %91, align 8, !tbaa !56
-  %93 = tail call double @llvm.fmuladd.f64(double %92, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %90)
-  br i1 %89, label %88, label %94, !llvm.loop !63
+89:                                               ; preds = %89, %86
+  %90 = phi i1 [ true, %86 ], [ false, %89 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %84, %86 ], [ %85, %89 ]
+  %indvars.iv.i27.i = phi i64 [ 0, %86 ], [ 1, %89 ]
+  %91 = phi double [ 0.000000e+00, %86 ], [ %94, %89 ]
+  %92 = getelementptr inbounds nuw [2 x double], ptr %88, i64 0, i64 %indvars.iv.i27.i
+  %93 = load double, ptr %92, align 8, !tbaa !56
+  %94 = tail call double @llvm.fmuladd.f64(double %93, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %91)
+  br i1 %90, label %89, label %95, !llvm.loop !63
 
-94:                                               ; preds = %88
-  store double %93, ptr %indvars.iv18.i.sroa.phi.i, align 8, !tbaa !56
+95:                                               ; preds = %89
+  store double %94, ptr %indvars.iv18.i.sroa.phi.i, align 8, !tbaa !56
   br i1 %87, label %86, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !64
 
-_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %94
-  %95 = sitofp i32 %81 to double
-  %96 = tail call double @llvm.fmuladd.f64(double %95, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %95
+  %96 = sitofp i32 %81 to double
+  %97 = tail call double @llvm.fmuladd.f64(double %96, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %.sroa.052.i.0..sroa.052.i.0..sroa.052.i.0..sroa.052.0..i = load double, ptr %.sroa.052.i, align 16, !tbaa !56
-  %97 = fadd double %96, %.sroa.052.i.0..sroa.052.i.0..sroa.052.i.0..sroa.052.0..i
+  %98 = fadd double %97, %.sroa.052.i.0..sroa.052.i.0..sroa.052.i.0..sroa.052.0..i
   %.sroa.453.i.0..sroa.453.i.0..sroa.453.i.0..sroa.453.0..i = load double, ptr %.sroa.453.i, align 8, !tbaa !56
-  %98 = fadd double %82, %.sroa.453.i.0..sroa.453.i.0..sroa.453.i.0..sroa.453.0..i
+  %99 = fadd double %82, %.sroa.453.i.0..sroa.453.i.0..sroa.453.i.0..sroa.453.0..i
   br label %_ZL12combine_capsddiii.exit
 
 _ZL12combine_capsddiii.exit:                      ; preds = %54, %_ZL11dot_productPA2_KdPS_Pd.exit.i
-  %.sroa.0.0.i = phi double [ %97, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %54 ]
-  %.sroa.3.0.i11 = phi double [ %98, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %54 ]
+  %.sroa.0.0.i = phi double [ %98, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %54 ]
+  %.sroa.3.0.i11 = phi double [ %99, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.052.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.453.i)
   %.fca.0.insert.i12 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
@@ -1235,38 +1236,39 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %62, %61, %60, %59, 
   %67 = fsub double %.sroa.3.0.i, %.0.i.i
   br label %68
 
-68:                                               ; preds = %76, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
-  %69 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %76 ]
-  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.052.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.453.i, %76 ]
-  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %76 ]
-  br label %70
+68:                                               ; preds = %77, %_ZL10vector_subPKdS0_Pd.exit.critedge.i
+  %69 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ false, %77 ]
+  %indvars.iv18.i.sroa.phi.i = phi ptr [ %.sroa.052.i, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ %.sroa.453.i, %77 ]
+  %indvars.iv18.i.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge.i ], [ 1, %77 ]
+  %70 = getelementptr inbounds nuw [2 x double], ptr %65, i64 %indvars.iv18.i.i
+  br label %71
 
-70:                                               ; preds = %70, %68
-  %71 = phi i1 [ true, %68 ], [ false, %70 ]
-  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %66, %68 ], [ %67, %70 ]
-  %indvars.iv.i27.i = phi i64 [ 0, %68 ], [ 1, %70 ]
-  %72 = phi double [ 0.000000e+00, %68 ], [ %75, %70 ]
-  %73 = getelementptr inbounds nuw [2 x double], ptr %65, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
-  %74 = load double, ptr %73, align 8, !tbaa !56
-  %75 = tail call double @llvm.fmuladd.f64(double %74, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %72)
-  br i1 %71, label %70, label %76, !llvm.loop !63
+71:                                               ; preds = %71, %68
+  %72 = phi i1 [ true, %68 ], [ false, %71 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %66, %68 ], [ %67, %71 ]
+  %indvars.iv.i27.i = phi i64 [ 0, %68 ], [ 1, %71 ]
+  %73 = phi double [ 0.000000e+00, %68 ], [ %76, %71 ]
+  %74 = getelementptr inbounds nuw [2 x double], ptr %70, i64 0, i64 %indvars.iv.i27.i
+  %75 = load double, ptr %74, align 8, !tbaa !56
+  %76 = tail call double @llvm.fmuladd.f64(double %75, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %73)
+  br i1 %72, label %71, label %77, !llvm.loop !63
 
-76:                                               ; preds = %70
-  store double %75, ptr %indvars.iv18.i.sroa.phi.i, align 8, !tbaa !56
+77:                                               ; preds = %71
+  store double %76, ptr %indvars.iv18.i.sroa.phi.i, align 8, !tbaa !56
   br i1 %69, label %68, label %_ZL11dot_productPA2_KdPS_Pd.exit.i, !llvm.loop !64
 
-_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %76
-  %77 = sitofp i32 %63 to double
-  %78 = tail call double @llvm.fmuladd.f64(double %77, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+_ZL11dot_productPA2_KdPS_Pd.exit.i:               ; preds = %77
+  %78 = sitofp i32 %63 to double
+  %79 = tail call double @llvm.fmuladd.f64(double %78, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %.sroa.052.i.0..sroa.052.i.0..sroa.052.i.0..sroa.052.0..i = load double, ptr %.sroa.052.i, align 16, !tbaa !56
-  %79 = fadd double %78, %.sroa.052.i.0..sroa.052.i.0..sroa.052.i.0..sroa.052.0..i
+  %80 = fadd double %79, %.sroa.052.i.0..sroa.052.i.0..sroa.052.i.0..sroa.052.0..i
   %.sroa.453.i.0..sroa.453.i.0..sroa.453.i.0..sroa.453.0..i = load double, ptr %.sroa.453.i, align 8, !tbaa !56
-  %80 = fadd double %64, %.sroa.453.i.0..sroa.453.i.0..sroa.453.i.0..sroa.453.0..i
+  %81 = fadd double %64, %.sroa.453.i.0..sroa.453.i.0..sroa.453.i.0..sroa.453.0..i
   br label %_ZL12combine_capsddiii.exit
 
 _ZL12combine_capsddiii.exit:                      ; preds = %36, %_ZL11dot_productPA2_KdPS_Pd.exit.i
-  %.sroa.0.0.i = phi double [ %79, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %36 ]
-  %.sroa.3.0.i8 = phi double [ %80, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %36 ]
+  %.sroa.0.0.i = phi double [ %80, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.014.0.i, %36 ]
+  %.sroa.3.0.i8 = phi double [ %81, %_ZL11dot_productPA2_KdPS_Pd.exit.i ], [ %.sroa.3.0.i, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.052.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.453.i)
   %.fca.0.insert.i9 = insertvalue { double, double } poison, double %.sroa.0.0.i, 0
@@ -1883,38 +1885,39 @@ _ZL10vector_subPKdS0_Pd.exit.critedge:            ; preds = %121, %120, %119, %1
   %126 = fsub double %1, %.sroa.30.0.ph78
   br label %127
 
-127:                                              ; preds = %135, %_ZL10vector_subPKdS0_Pd.exit.critedge
-  %128 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge ], [ false, %135 ]
-  %indvars.iv18.i.sroa.phi = phi ptr [ %.sroa.052, %_ZL10vector_subPKdS0_Pd.exit.critedge ], [ %.sroa.453, %135 ]
-  %indvars.iv18.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge ], [ 1, %135 ]
-  br label %129
+127:                                              ; preds = %136, %_ZL10vector_subPKdS0_Pd.exit.critedge
+  %128 = phi i1 [ true, %_ZL10vector_subPKdS0_Pd.exit.critedge ], [ false, %136 ]
+  %indvars.iv18.i.sroa.phi = phi ptr [ %.sroa.052, %_ZL10vector_subPKdS0_Pd.exit.critedge ], [ %.sroa.453, %136 ]
+  %indvars.iv18.i = phi i64 [ 0, %_ZL10vector_subPKdS0_Pd.exit.critedge ], [ 1, %136 ]
+  %129 = getelementptr inbounds nuw [2 x double], ptr %124, i64 %indvars.iv18.i
+  br label %130
 
-129:                                              ; preds = %129, %127
-  %130 = phi i1 [ true, %127 ], [ false, %129 ]
-  %indvars.iv.i27.sroa.phi.sroa.speculated = phi double [ %125, %127 ], [ %126, %129 ]
-  %indvars.iv.i27 = phi i64 [ 0, %127 ], [ 1, %129 ]
-  %131 = phi double [ 0.000000e+00, %127 ], [ %134, %129 ]
-  %132 = getelementptr inbounds nuw [2 x double], ptr %124, i64 %indvars.iv18.i, i64 %indvars.iv.i27
-  %133 = load double, ptr %132, align 8, !tbaa !56
-  %134 = tail call double @llvm.fmuladd.f64(double %133, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %131)
-  br i1 %130, label %129, label %135, !llvm.loop !63
+130:                                              ; preds = %130, %127
+  %131 = phi i1 [ true, %127 ], [ false, %130 ]
+  %indvars.iv.i27.sroa.phi.sroa.speculated = phi double [ %125, %127 ], [ %126, %130 ]
+  %indvars.iv.i27 = phi i64 [ 0, %127 ], [ 1, %130 ]
+  %132 = phi double [ 0.000000e+00, %127 ], [ %135, %130 ]
+  %133 = getelementptr inbounds nuw [2 x double], ptr %129, i64 0, i64 %indvars.iv.i27
+  %134 = load double, ptr %133, align 8, !tbaa !56
+  %135 = tail call double @llvm.fmuladd.f64(double %134, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %132)
+  br i1 %131, label %130, label %136, !llvm.loop !63
 
-135:                                              ; preds = %129
-  store double %134, ptr %indvars.iv18.i.sroa.phi, align 8, !tbaa !56
+136:                                              ; preds = %130
+  store double %135, ptr %indvars.iv18.i.sroa.phi, align 8, !tbaa !56
   br i1 %128, label %127, label %_ZL11dot_productPA2_KdPS_Pd.exit, !llvm.loop !64
 
-_ZL11dot_productPA2_KdPS_Pd.exit:                 ; preds = %135
-  %136 = sitofp i32 %122 to double
-  %137 = tail call double @llvm.fmuladd.f64(double %136, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+_ZL11dot_productPA2_KdPS_Pd.exit:                 ; preds = %136
+  %137 = sitofp i32 %122 to double
+  %138 = tail call double @llvm.fmuladd.f64(double %137, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %.sroa.052.0..sroa.052.0. = load double, ptr %.sroa.052, align 16, !tbaa !56
-  %138 = fadd double %137, %.sroa.052.0..sroa.052.0.
+  %139 = fadd double %138, %.sroa.052.0..sroa.052.0.
   %.sroa.453.0..sroa.453.0. = load double, ptr %.sroa.453, align 8, !tbaa !56
-  %139 = fadd double %123, %.sroa.453.0..sroa.453.0.
+  %140 = fadd double %123, %.sroa.453.0..sroa.453.0.
   br label %_ZL7get_capddiii.exit
 
 _ZL7get_capddiii.exit:                            ; preds = %21, %9, %_ZL11dot_productPA2_KdPS_Pd.exit
-  %.sroa.0.0 = phi double [ %138, %_ZL11dot_productPA2_KdPS_Pd.exit ], [ %0, %9 ], [ %0, %21 ]
-  %.sroa.3.0 = phi double [ %139, %_ZL11dot_productPA2_KdPS_Pd.exit ], [ %1, %9 ], [ %1, %21 ]
+  %.sroa.0.0 = phi double [ %139, %_ZL11dot_productPA2_KdPS_Pd.exit ], [ %0, %9 ], [ %0, %21 ]
+  %.sroa.3.0 = phi double [ %140, %_ZL11dot_productPA2_KdPS_Pd.exit ], [ %1, %9 ], [ %1, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.052)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.453)
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0, 0
