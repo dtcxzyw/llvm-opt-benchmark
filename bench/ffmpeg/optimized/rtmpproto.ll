@@ -5016,100 +5016,92 @@ update_offset.exit:                               ; preds = %26, %28
   unreachable
 
 39:                                               ; preds = %34
-  %40 = icmp ugt i32 %36, %.0.i38
-  br i1 %40, label %41, label %bytestream2_put_be32.exit
+  %40 = zext nneg i32 %36 to i64
+  %41 = icmp ugt i32 %36, %.0.i38
+  br i1 %41, label %42, label %bytestream2_put_be32.exit
 
-41:                                               ; preds = %39
-  %42 = zext nneg i32 %36 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 %42
-  %44 = zext nneg i32 %.0.i38 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 %44
-  %46 = load i32, ptr %13, align 4, !tbaa !71
-  %47 = trunc i32 %46 to i8
-  store i8 %47, ptr %45, align 1, !tbaa !24
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %49 = ptrtoint ptr %43 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = icmp sgt i64 %51, 2
-  br i1 %52, label %53, label %bytestream2_put_be32.exit
+42:                                               ; preds = %39
+  %43 = zext nneg i32 %.0.i38 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 %43
+  %45 = load i32, ptr %13, align 4, !tbaa !71
+  %46 = trunc i32 %45 to i8
+  store i8 %46, ptr %44, align 1, !tbaa !24
+  %47 = sub nsw i64 %43, %40
+  %48 = icmp slt i64 %47, -3
+  br i1 %48, label %49, label %bytestream2_put_be32.exit
 
-53:                                               ; preds = %41
-  %54 = trunc i32 %10 to i8
-  %55 = getelementptr inbounds nuw i8, ptr %45, i64 3
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %51 = trunc i32 %10 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 3
+  store i8 %51, ptr %52, align 1, !tbaa !24
+  %53 = lshr i32 %10, 8
+  %54 = trunc i32 %53 to i8
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 2
   store i8 %54, ptr %55, align 1, !tbaa !24
-  %56 = lshr i32 %10, 8
+  %56 = lshr i32 %10, 16
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  store i8 %57, ptr %58, align 1, !tbaa !24
-  %59 = lshr i32 %10, 16
-  %60 = trunc i32 %59 to i8
-  store i8 %60, ptr %48, align 1, !tbaa !24
-  %61 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %49, %62
-  %64 = icmp sgt i64 %63, 2
-  br i1 %64, label %65, label %bytestream2_put_be32.exit
+  store i8 %57, ptr %50, align 1, !tbaa !24
+  %reass.sub = sub nsw i64 %40, %43
+  %58 = icmp sgt i64 %reass.sub, 6
+  br i1 %58, label %59, label %bytestream2_put_be32.exit
 
-65:                                               ; preds = %53
-  %66 = trunc i32 %12 to i8
-  %67 = getelementptr inbounds nuw i8, ptr %45, i64 6
-  store i8 %66, ptr %67, align 1, !tbaa !24
-  %68 = lshr i32 %12, 8
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %45, i64 5
-  store i8 %69, ptr %70, align 1, !tbaa !24
-  %71 = lshr i32 %12, 16
-  %72 = trunc i32 %71 to i8
-  store i8 %72, ptr %61, align 1, !tbaa !24
-  %73 = getelementptr inbounds nuw i8, ptr %45, i64 7
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %49, %74
-  %76 = icmp sgt i64 %75, 0
-  br i1 %76, label %77, label %bytestream2_put_be32.exit
+59:                                               ; preds = %49
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %61 = trunc i32 %12 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %44, i64 6
+  store i8 %61, ptr %62, align 1, !tbaa !24
+  %63 = lshr i32 %12, 8
+  %64 = trunc i32 %63 to i8
+  %65 = getelementptr inbounds nuw i8, ptr %44, i64 5
+  store i8 %64, ptr %65, align 1, !tbaa !24
+  %66 = lshr i32 %12, 16
+  %67 = trunc i32 %66 to i8
+  store i8 %67, ptr %60, align 1, !tbaa !24
+  %68 = add nuw nsw i64 %43, 7
+  %69 = icmp samesign ult i64 %68, %40
+  br i1 %69, label %70, label %bytestream2_put_be32.exit
 
-77:                                               ; preds = %65
-  %78 = lshr i32 %12, 24
-  %79 = trunc nuw i32 %78 to i8
-  store i8 %79, ptr %73, align 1, !tbaa !24
-  %80 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = sub i64 %49, %81
-  %83 = icmp sgt i64 %82, 2
-  br i1 %83, label %84, label %bytestream2_put_be32.exit
+70:                                               ; preds = %59
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 7
+  %72 = lshr i32 %12, 24
+  %73 = trunc nuw i32 %72 to i8
+  store i8 %73, ptr %71, align 1, !tbaa !24
+  %74 = icmp samesign ugt i64 %reass.sub, 10
+  br i1 %74, label %75, label %bytestream2_put_be32.exit
 
-84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw i8, ptr %45, i64 10
-  store i8 0, ptr %85, align 1, !tbaa !24
-  %86 = getelementptr inbounds nuw i8, ptr %45, i64 9
-  store i8 0, ptr %86, align 1, !tbaa !24
-  store i8 0, ptr %80, align 1, !tbaa !24
-  %87 = getelementptr inbounds nuw i8, ptr %45, i64 11
-  %88 = ptrtoint ptr %87 to i64
-  %89 = sub i64 %49, %88
-  %90 = zext i32 %10 to i64
-  %91 = tail call i64 @llvm.smin.i64(i64 %89, i64 %90)
-  %92 = trunc i64 %91 to i32
-  %.not18.i = icmp eq i32 %10, %92
-  %93 = and i64 %91, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %7, i64 %93, i1 false)
-  br i1 %.not18.i, label %94, label %bytestream2_put_be32.exit
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %44, i64 10
+  store i8 0, ptr %77, align 1, !tbaa !24
+  %78 = getelementptr inbounds nuw i8, ptr %44, i64 9
+  store i8 0, ptr %78, align 1, !tbaa !24
+  store i8 0, ptr %76, align 1, !tbaa !24
+  %79 = getelementptr inbounds nuw i8, ptr %44, i64 11
+  %gepdiff105 = add nsw i64 %reass.sub, -11
+  %80 = zext i32 %10 to i64
+  %81 = tail call i64 @llvm.umin.i64(i64 %gepdiff105, i64 %80)
+  %82 = trunc nuw nsw i64 %81 to i32
+  %.not18.i = icmp eq i32 %10, %82
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %7, i64 %81, i1 false)
+  br i1 %.not18.i, label %83, label %bytestream2_put_be32.exit
 
-94:                                               ; preds = %84
-  %95 = getelementptr inbounds nuw i8, ptr %87, i64 %93
-  %96 = ptrtoint ptr %95 to i64
-  %97 = sub i64 %49, %96
-  %98 = icmp sgt i64 %97, 3
-  br i1 %98, label %99, label %bytestream2_put_be32.exit
+83:                                               ; preds = %75
+  %84 = add nsw i64 %40, -11
+  %85 = add nuw nsw i64 %81, %43
+  %gepdiff106 = sub nsw i64 %84, %85
+  %86 = icmp sgt i64 %gepdiff106, 3
+  br i1 %86, label %87, label %bytestream2_put_be32.exit
 
-99:                                               ; preds = %94
-  %100 = add nsw i32 %10, 11
-  %101 = tail call i32 @llvm.bswap.i32(i32 %100)
-  store i32 %101, ptr %95, align 1, !tbaa !24
+87:                                               ; preds = %83
+  %88 = getelementptr inbounds nuw i8, ptr %79, i64 %81
+  %89 = add nuw nsw i32 %10, 11
+  %90 = tail call i32 @llvm.bswap.i32(i32 %89)
+  store i32 %90, ptr %88, align 1, !tbaa !24
   br label %bytestream2_put_be32.exit
 
-bytestream2_put_be32.exit:                        ; preds = %84, %39, %77, %65, %53, %41, %99, %94, %33
-  %.0 = phi i32 [ %31, %33 ], [ 0, %94 ], [ 0, %99 ], [ 0, %41 ], [ 0, %53 ], [ 0, %65 ], [ 0, %77 ], [ 0, %39 ], [ 0, %84 ]
+bytestream2_put_be32.exit:                        ; preds = %75, %39, %70, %59, %49, %42, %87, %83, %33
+  %.0 = phi i32 [ %31, %33 ], [ 0, %83 ], [ 0, %87 ], [ 0, %42 ], [ 0, %49 ], [ 0, %59 ], [ 0, %70 ], [ 0, %39 ], [ 0, %75 ]
   ret i32 %.0
 }
 

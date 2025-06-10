@@ -2548,9 +2548,7 @@ entry:
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -20
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr2.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %aref.coerce0 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.sub.i.i = add nsw i64 %idx.ext.i, -20
   call void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr nonnull sret(%"struct.std::array") align 1 %actual.i, ptr %aref.coerce0, i64 %sub.ptr.sub.i.i) #19
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %actual.i, ptr noundef nonnull dereferenceable(20) %add.ptr2.i, i64 20)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -2568,9 +2566,7 @@ entry:
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -20
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr2.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %aref.coerce0 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.sub.i.i = add nsw i64 %idx.ext.i, -20
   call void @_ZN4llvh4SHA14hashENS_8ArrayRefIhEE(ptr nonnull sret(%"struct.std::array") align 1 %actual.i, ptr %aref.coerce0, i64 %sub.ptr.sub.i.i) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %add.ptr2.i, ptr noundef nonnull align 1 dereferenceable(20) %actual.i, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %actual.i)

@@ -47534,7 +47534,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN4entt6entityESaIS2_EE14_M_fill_i
 _ZSt22__uninitialized_move_aIPPN4entt6entityES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds ptr, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !360
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %2
@@ -49927,7 +49927,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPiSaIS0_EE14_M_fill_insertEN9__
 _ZSt22__uninitialized_move_aIPPiS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds ptr, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !402
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %2
@@ -54036,7 +54036,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPcSaIS0_EE14_M_fill_insertEN9__
 _ZSt22__uninitialized_move_aIPPcS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds ptr, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !493
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %2
@@ -56024,7 +56024,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPdSaIS0_EE14_M_fill_insertEN9__
 _ZSt22__uninitialized_move_aIPPdS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds ptr, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !524
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %2

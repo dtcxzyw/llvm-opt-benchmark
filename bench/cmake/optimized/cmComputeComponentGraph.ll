@@ -1695,7 +1695,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN23cmComputeComponentGraph11Tar
 _ZSt22__uninitialized_move_aIPN23cmComputeComponentGraph11TarjanEntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %14
   %19 = sub i64 0, %2
   %20 = getelementptr inbounds %"struct.cmComputeComponentGraph::TarjanEntry", ptr %9, i64 %19
-  %.idx.neg = shl i64 %2, 4
+  %.idx.neg = shl nsw i64 %2, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %20, i64 %.idx.neg, i1 false)
   %21 = load ptr, ptr %8, align 8, !tbaa !77
   %22 = getelementptr inbounds nuw %"struct.cmComputeComponentGraph::TarjanEntry", ptr %21, i64 %2
@@ -1882,7 +1882,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds i64, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !78
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %2

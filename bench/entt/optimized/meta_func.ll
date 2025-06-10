@@ -89894,7 +89894,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN4entt6entityESaIS2_EE14_M_fill_i
 _ZSt22__uninitialized_move_aIPPN4entt6entityES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds ptr, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !1430
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %2
@@ -107047,7 +107047,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIP8functionSaIS1_EE14_M_fill_insert
 _ZSt22__uninitialized_move_aIPP8functionS2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds ptr, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 3
+  %.idx.neg = shl nsw i64 %2, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !2144
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %2

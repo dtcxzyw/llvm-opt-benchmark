@@ -4415,9 +4415,9 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reser
   br i1 %.not.i.i.i.i55.i, label %_ZN4llvm12append_rangeINS_15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEEERNS_11SmallVectorIS4_Lj3EEEEEvRT_OT0_.exit.i, label %246
 
 246:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEE7reserveEm.exit.i.i.i.i
-  %.val45.pre76.i.i.i = load ptr, ptr %20, align 8, !tbaa !25
+  %.val45.pre81.i.i.i = load ptr, ptr %20, align 8, !tbaa !25
   %247 = zext i32 %.pre10.i.i.i.i to i64
-  %248 = getelementptr inbounds nuw %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val45.pre76.i.i.i, i64 %247
+  %248 = getelementptr inbounds nuw %"class.(anonymous namespace)::GuardWideningImpl::RangeCheck", ptr %.val45.pre81.i.i.i, i64 %247
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %248, ptr readonly align 8 %.val42.i, i64 %.idx.i.i, i1 false)
   %.pre.i.i.i.i = load i32, ptr %142, align 8, !tbaa !26
   br label %_ZN4llvm12append_rangeINS_15SmallVectorImplIN12_GLOBAL__N_117GuardWideningImpl10RangeCheckEEERNS_11SmallVectorIS4_Lj3EEEEEvRT_OT0_.exit.i

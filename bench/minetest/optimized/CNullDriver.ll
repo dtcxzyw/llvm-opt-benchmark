@@ -12255,7 +12255,8 @@ while.body:                                       ; preds = %cleanup, %while.bod
   %__len.0133 = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph ], [ %__len.2, %cleanup ]
   %__first.sroa.0.0132 = phi ptr [ %__first.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1, %cleanup ]
   %shr = lshr i64 %__len.0133, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.sroa.0.0132, i64 %shr
+  %add.ptr.i.i.i.idx = shl nuw nsw i64 %shr, 3
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0132, i64 %add.ptr.i.i.i.idx
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !158
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !138
@@ -12358,12 +12359,11 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNul
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS5_SaIS5_EEEES5_NS0_5__ops14_Iter_less_valEET_SD_SD_RKT0_T1_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i, %if.else15
   %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.0132, %if.else15 ], [ %__first.sroa.0.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr5video11CNullDriver8SSurfaceESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.i ]
-  %add.ptr.i.i.i61 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SSurface", ptr %__first.sroa.0.0132, i64 %__len.0133
+  %add.ptr.i.i.i61.idx = shl nuw nsw i64 %__len.0133, 3
   %incdec.ptr.i66 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
-  %sub.ptr.lhs.cast.i.i.i.i67 = ptrtoint ptr %add.ptr.i.i.i61 to i64
-  %sub.ptr.rhs.cast.i.i.i.i68 = ptrtoint ptr %incdec.ptr.i66 to i64
-  %sub.ptr.sub.i.i.i.i69 = sub i64 %sub.ptr.lhs.cast.i.i.i.i67, %sub.ptr.rhs.cast.i.i.i.i68
-  %sub.ptr.div.i.i.i.i70 = ashr exact i64 %sub.ptr.sub.i.i.i.i69, 3
+  %.neg = add nsw i64 %add.ptr.i.i.i61.idx, -8
+  %gepdiff = sub i64 %.neg, %add.ptr.i.i.i.idx
+  %sub.ptr.div.i.i.i.i70 = ashr exact i64 %gepdiff, 3
   %cmp16.i71 = icmp sgt i64 %sub.ptr.div.i.i.i.i70, 0
   br i1 %cmp16.i71, label %while.body.i76, label %cleanup33
 

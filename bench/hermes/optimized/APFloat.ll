@@ -21306,11 +21306,8 @@ if.then36:                                        ; preds = %if.else33
   br i1 %tobool.not.i.i.i.i.i39, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i40
 
 if.then.i.i.i.i.i40:                              ; preds = %if.then36
-  %sub.ptr.lhs.cast.i.i.i.i.i41 = ptrtoint ptr %add.ptr39 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i42 = ptrtoint ptr %__p.0 to i64
-  %sub.ptr.sub.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i41, %sub.ptr.rhs.cast.i.i.i.i.i42
-  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i43
-  %add.ptr.i.i.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.neg.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i43 = add i64 %__n.0, -1
+  %add.ptr.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__p.0, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i44, ptr nonnull align 1 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i43, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 

@@ -231,13 +231,13 @@ ewah_serialize_to.exit:                           ; preds = %._crit_edge.i, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 12, 5) i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %2, 4
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #5
-  br label %98
+  br label %95
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %1, align 1, !tbaa !23
@@ -265,7 +265,7 @@ define dso_local i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef 
 
 28:                                               ; preds = %7
   %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #5
-  br label %98
+  br label %95
 
 st_mult.exit:                                     ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -311,7 +311,7 @@ st_mult.exit50:                                   ; preds = %st_mult.exit
 58:                                               ; preds = %st_mult.exit50
   %59 = sub nuw i64 %56, %50
   %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i64 noundef %59) #5
-  br label %98
+  br label %95
 
 61:                                               ; preds = %st_mult.exit50
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -343,7 +343,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
 
 74:                                               ; preds = %._crit_edge
   %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #5
-  br label %98
+  br label %95
 
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr %0, align 8, !tbaa !15
@@ -367,14 +367,11 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %92 = getelementptr inbounds nuw i64, ptr %91, i64 %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %92, ptr %93, align 8, !tbaa !22
-  %94 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %1 to i64
-  %97 = sub i64 %95, %96
-  br label %98
+  %94 = add i64 %56, 12
+  br label %95
 
-98:                                               ; preds = %76, %74, %58, %28, %5
-  %.042 = phi i64 [ -1, %5 ], [ -1, %28 ], [ -1, %58 ], [ -1, %74 ], [ %97, %76 ]
+95:                                               ; preds = %76, %74, %58, %28, %5
+  %.042 = phi i64 [ -1, %5 ], [ -1, %28 ], [ -1, %58 ], [ -1, %74 ], [ %94, %76 ]
   ret i64 %.042
 }
 

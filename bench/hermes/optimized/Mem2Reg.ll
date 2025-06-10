@@ -4359,14 +4359,14 @@ if.then.i.i41.i:                                  ; preds = %while.body.i345
   %__value.sroa.2.0.copyload.i = load i32, ptr %__value.sroa.2.0..sroa_idx.i, align 8
   store ptr %rootPair.sroa.0.0.copyload.i, ptr %incdec.ptr.i.i.i347, align 8
   store i32 %rootPair.sroa.2.0.copyload.i, ptr %__value.sroa.2.0..sroa_idx.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %incdec.ptr.i.i.i347 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %477 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %sub.i.i1105 = add nsw i64 %sub.ptr.div.i, -1
-  %div.i.i = sdiv i64 %sub.i.i1105, 2
+  %add.ptr.i.i43.i.idx = shl nuw nsw i64 %conv.i.i42.i, 4
+  %sub.ptr.sub.i = add nsw i64 %add.ptr.i.i43.i.idx, -16
+  %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
+  %div.i.i1912.lhs.trunc = add nuw nsw i64 %sub.ptr.div.i, 4294967295
+  %div.i.i191219132067 = lshr i64 %div.i.i1912.lhs.trunc, 1
+  %div.i.i1912.zext = and i64 %div.i.i191219132067, 2147483647
   %invariant.gep.i.i = getelementptr i8, ptr %477, i64 24
-  %cmp25.i.i = icmp sgt i64 %sub.ptr.div.i, 2
+  %cmp25.i.i = icmp ugt i64 %sub.ptr.sub.i, 32
   br i1 %cmp25.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i.i41.i, %while.body.i.i
@@ -4388,7 +4388,7 @@ while.body.i.i:                                   ; preds = %if.then.i.i41.i, %w
   %481 = load i32, ptr %second.i.i.i, align 4
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr4.i.i, i64 8
   store i32 %481, ptr %second3.i.i.i, align 8
-  %cmp.i.i1116 = icmp slt i64 %spec.select.i.i, %div.i.i
+  %cmp.i.i1116 = icmp slt i64 %spec.select.i.i, %div.i.i1912.zext
   br i1 %cmp.i.i1116, label %while.body.i.i, label %while.end.i.i, !llvm.loop !31
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.then.i.i41.i

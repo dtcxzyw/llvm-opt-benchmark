@@ -12355,7 +12355,7 @@ define linkonce_odr void @_ZNSt6vectorISt5arrayImLm2EESaIS1_EE14_M_fill_insertEN
 _ZSt22__uninitialized_move_aIPSt5arrayImLm2EES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %14
   %19 = sub i64 0, %2
   %20 = getelementptr inbounds %"struct.std::array.184", ptr %9, i64 %19
-  %.idx.neg = shl i64 %2, 4
+  %.idx.neg = shl nsw i64 %2, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %20, i64 %.idx.neg, i1 false)
   %21 = load ptr, ptr %8, align 8, !tbaa !294
   %22 = getelementptr inbounds nuw %"struct.std::array.184", ptr %21, i64 %2
@@ -14176,7 +14176,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds i32, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 2
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !196
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %2

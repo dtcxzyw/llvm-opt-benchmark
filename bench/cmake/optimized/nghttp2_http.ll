@@ -1227,19 +1227,20 @@ define dso_local void @nghttp2_http_record_request_method(ptr noundef captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @nghttp2_sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define dso_local i64 @nghttp2_sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc i64 @sf_parse_item(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 {
+define internal fastcc i64 @sf_parse_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 {
   %4 = tail call fastcc i64 @sf_parse_bare_item(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %5 = icmp slt i64 %4, 0
-  br i1 %5, label %sf_parse_params.exit.thread, label %6
+  %.fr23 = freeze i64 %4
+  %5 = icmp slt i64 %.fr23, 0
+  br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %4
+  %7 = getelementptr i8, ptr %1, i64 %.fr23
   %.not40.i = icmp eq ptr %7, %2
   br i1 %.not40.i, label %sf_parse_params.exit, label %.lr.ph.i
 
@@ -1333,15 +1334,14 @@ sf_parse_params.exit:                             ; preds = %9, %40, %6
   %42 = ptrtoint ptr %7 to i64
   %43 = sub i64 %41, %42
   %44 = icmp slt i64 %43, 0
-  br i1 %44, label %sf_parse_params.exit.thread, label %45
+  %45 = add nuw i64 %43, %.fr23
+  br i1 %44, label %sf_parse_params.exit.thread, label %46
 
-45:                                               ; preds = %sf_parse_params.exit
-  %46 = ptrtoint ptr %1 to i64
-  %47 = sub i64 %41, %46
-  br label %sf_parse_params.exit.thread
+sf_parse_params.exit.thread:                      ; preds = %15, %35, %32, %sf_parse_key.exit.i, %.preheader.i, %sf_parse_params.exit
+  br label %46
 
-sf_parse_params.exit.thread:                      ; preds = %15, %35, %32, %sf_parse_key.exit.i, %.preheader.i, %sf_parse_params.exit, %3, %45
-  %.0 = phi i64 [ %47, %45 ], [ -1, %3 ], [ -1, %sf_parse_params.exit ], [ -1, %.preheader.i ], [ -1, %sf_parse_key.exit.i ], [ -1, %32 ], [ -1, %35 ], [ -1, %15 ]
+46:                                               ; preds = %sf_parse_params.exit.thread, %sf_parse_params.exit, %3
+  %.0 = phi i64 [ -1, %3 ], [ -1, %sf_parse_params.exit.thread ], [ %45, %sf_parse_params.exit ]
   ret i64 %.0
 }
 

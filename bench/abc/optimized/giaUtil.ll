@@ -5371,8 +5371,7 @@ define void @Gia_ManCreateRefs(ptr noundef captures(none) initializes((144, 152)
   %7 = getelementptr i8, ptr %0, i64 32
   %.val24 = load ptr, ptr %7, align 8, !tbaa !43
   %.not = icmp eq ptr %.val24, null
-  %8 = ptrtoint ptr %.val24 to i64
-  %9 = getelementptr i8, ptr %0, i64 40
+  %8 = getelementptr i8, ptr %0, i64 40
   br i1 %.not, label %.critedge, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -5381,99 +5380,87 @@ define void @Gia_ManCreateRefs(ptr noundef captures(none) initializes((144, 152)
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %Gia_ObjIsMuxId.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %Gia_ObjIsMuxId.exit.thread ]
-  %10 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val24, i64 %indvars.iv
-  %.val25 = load i64, ptr %10, align 4
-  %11 = and i64 %.val25, 2147483648
-  %.not.i = icmp eq i64 %11, 0
-  %12 = and i64 %.val25, 536870911
-  %13 = icmp ne i64 %12, 536870911
-  %narrow.i = and i1 %.not.i, %13
-  br i1 %narrow.i, label %14, label %49
+  %9 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val24, i64 %indvars.iv
+  %.val25 = load i64, ptr %9, align 4
+  %10 = and i64 %.val25, 2147483648
+  %.not.i = icmp eq i64 %10, 0
+  %11 = and i64 %.val25, 536870911
+  %12 = icmp ne i64 %11, 536870911
+  %narrow.i = and i1 %.not.i, %12
+  br i1 %narrow.i, label %13, label %38
 
-14:                                               ; preds = %.lr.ph.split
-  %15 = sub nsw i64 0, %12
-  %16 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %10, i64 %15
-  %17 = ptrtoint ptr %16 to i64
-  %18 = sub i64 %17, %8
-  %19 = sdiv exact i64 %18, 12
-  %sext.i.i = shl i64 %19, 32
-  %20 = ashr exact i64 %sext.i.i, 30
-  %21 = getelementptr inbounds i8, ptr %4, i64 %20
-  %22 = load i32, ptr %21, align 4, !tbaa !3
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %21, align 4, !tbaa !3
-  %.val28 = load i64, ptr %10, align 4
-  %24 = trunc i64 %.val28 to i32
-  %25 = and i32 %24, 536870911
-  %26 = lshr i64 %.val28, 32
-  %27 = trunc nuw i64 %26 to i32
-  %28 = and i32 %27, 536870911
-  %29 = icmp ne i32 %25, %28
-  %.not.i35 = icmp eq i32 %25, 536870911
-  %or.cond.not.i.not45 = or i1 %.not.i35, %29
-  %30 = and i64 %.val28, 2147483648
-  %.not4.i = icmp ne i64 %30, 0
-  %narrow.i36.not = or i1 %.not4.i, %or.cond.not.i.not45
-  br i1 %narrow.i36.not, label %31, label %42
+13:                                               ; preds = %.lr.ph.split
+  %reass.add55 = sub nsw i64 %indvars.iv, %11
+  %sext.i.i = shl i64 %reass.add55, 32
+  %14 = ashr exact i64 %sext.i.i, 30
+  %15 = getelementptr inbounds i8, ptr %4, i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !3
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %15, align 4, !tbaa !3
+  %.val28 = load i64, ptr %9, align 4
+  %18 = trunc i64 %.val28 to i32
+  %19 = and i32 %18, 536870911
+  %20 = lshr i64 %.val28, 32
+  %21 = trunc nuw i64 %20 to i32
+  %22 = and i32 %21, 536870911
+  %23 = icmp ne i32 %19, %22
+  %.not.i35 = icmp eq i32 %19, 536870911
+  %or.cond.not.i.not46 = or i1 %.not.i35, %23
+  %24 = and i64 %.val28, 2147483648
+  %.not4.i = icmp ne i64 %24, 0
+  %narrow.i36.not = or i1 %.not4.i, %or.cond.not.i.not46
+  br i1 %narrow.i36.not, label %25, label %31
 
-31:                                               ; preds = %14
-  %32 = and i64 %26, 536870911
-  %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %10, i64 %33
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %35, %8
-  %37 = sdiv exact i64 %36, 12
-  %sext.i.i37 = shl i64 %37, 32
-  %38 = ashr exact i64 %sext.i.i37, 30
-  %39 = getelementptr inbounds i8, ptr %4, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !3
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %39, align 4, !tbaa !3
-  br label %42
+25:                                               ; preds = %13
+  %26 = and i64 %20, 536870911
+  %reass.add58 = sub nsw i64 %indvars.iv, %26
+  %sext.i.i37 = shl i64 %reass.add58, 32
+  %27 = ashr exact i64 %sext.i.i37, 30
+  %28 = getelementptr inbounds i8, ptr %4, i64 %27
+  %29 = load i32, ptr %28, align 4, !tbaa !3
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %28, align 4, !tbaa !3
+  br label %31
 
-42:                                               ; preds = %31, %14
-  %.val26 = load ptr, ptr %9, align 8, !tbaa !53
+31:                                               ; preds = %25, %13
+  %.val26 = load ptr, ptr %8, align 8, !tbaa !53
   %.not.i38 = icmp eq ptr %.val26, null
   br i1 %.not.i38, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjIsMuxId.exit
 
-Gia_ObjIsMuxId.exit:                              ; preds = %42
-  %43 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
-  %44 = load i32, ptr %43, align 4, !tbaa !3
-  %.not46 = icmp eq i32 %44, 0
-  br i1 %.not46, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjRefFanin2Inc.exit
+Gia_ObjIsMuxId.exit:                              ; preds = %31
+  %32 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
+  %33 = load i32, ptr %32, align 4, !tbaa !3
+  %.not49 = icmp eq i32 %33, 0
+  br i1 %.not49, label %Gia_ObjIsMuxId.exit.thread, label %Gia_ObjRefFanin2Inc.exit
 
 Gia_ObjRefFanin2Inc.exit:                         ; preds = %Gia_ObjIsMuxId.exit
   %sext.i.i39 = shl nuw nsw i64 %indvars.iv, 2
-  %45 = getelementptr inbounds nuw i8, ptr %.val26, i64 %sext.i.i39
-  %46 = load i32, ptr %45, align 4, !tbaa !3
-  %47 = ashr i32 %46, 1
-  %48 = zext i32 %47 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %.val26, i64 %sext.i.i39
+  %35 = load i32, ptr %34, align 4, !tbaa !3
+  %36 = ashr i32 %35, 1
+  %37 = zext i32 %36 to i64
   br label %Gia_ObjIsMuxId.exit.thread.sink.split
 
-49:                                               ; preds = %.lr.ph.split
-  %.not.i40 = icmp ne i64 %11, 0
-  %narrow.i41 = and i1 %.not.i40, %13
-  br i1 %narrow.i41, label %50, label %Gia_ObjIsMuxId.exit.thread
+38:                                               ; preds = %.lr.ph.split
+  %.not.i40 = icmp ne i64 %10, 0
+  %narrow.i41 = and i1 %.not.i40, %12
+  br i1 %narrow.i41, label %39, label %Gia_ObjIsMuxId.exit.thread
 
-50:                                               ; preds = %49
-  %51 = sub nsw i64 0, %12
-  %52 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %10, i64 %51
-  %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %53, %8
-  %55 = sdiv exact i64 %54, 12
+39:                                               ; preds = %38
+  %reass.add = sub nsw i64 %indvars.iv, %11
   br label %Gia_ObjIsMuxId.exit.thread.sink.split
 
-Gia_ObjIsMuxId.exit.thread.sink.split:            ; preds = %50, %Gia_ObjRefFanin2Inc.exit
-  %.sink = phi i64 [ %48, %Gia_ObjRefFanin2Inc.exit ], [ %55, %50 ]
+Gia_ObjIsMuxId.exit.thread.sink.split:            ; preds = %39, %Gia_ObjRefFanin2Inc.exit
+  %.sink = phi i64 [ %37, %Gia_ObjRefFanin2Inc.exit ], [ %reass.add, %39 ]
   %sext.i4.i = shl i64 %.sink, 32
-  %56 = ashr exact i64 %sext.i4.i, 30
-  %57 = getelementptr inbounds i8, ptr %4, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !3
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %57, align 4, !tbaa !3
+  %40 = ashr exact i64 %sext.i4.i, 30
+  %41 = getelementptr inbounds i8, ptr %4, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !3
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %41, align 4, !tbaa !3
   br label %Gia_ObjIsMuxId.exit.thread
 
-Gia_ObjIsMuxId.exit.thread:                       ; preds = %Gia_ObjIsMuxId.exit.thread.sink.split, %42, %Gia_ObjIsMuxId.exit, %49
+Gia_ObjIsMuxId.exit.thread:                       ; preds = %Gia_ObjIsMuxId.exit.thread.sink.split, %31, %Gia_ObjIsMuxId.exit, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !81

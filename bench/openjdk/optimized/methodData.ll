@@ -5603,46 +5603,41 @@ _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10ne
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN10MethodData36exception_handler_bci_to_data_helperEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZN10MethodData36exception_handler_bci_to_data_helperEi(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(312) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %8 = load i32, ptr %7, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %6 = load i32, ptr %5, align 4
+  %.neg1.i.i = add i32 %4, -304
+  %gepdiff.i.i = sub i32 %.neg1.i.i, %6
+  %7 = icmp sgt i32 %gepdiff.i.i, 7
+  br i1 %7, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %2
+  %8 = lshr i32 %gepdiff.i.i, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %9, i64 %10
-  %12 = ptrtoint ptr %6 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = trunc i64 %14 to i32
-  %16 = icmp sgt i32 %15, 7
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %2
-  %17 = lshr i64 %14, 3
-  %wide.trip.count = and i64 %17, 268435455
+  %10 = sext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %8 to i64
   %invariant.gep = getelementptr i8, ptr %9, i64 %10
-  br label %.lr.ph
+  br label %12
 
-18:                                               ; preds = %.lr.ph
+11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !31
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = shl nsw i64 %indvars.iv, 3
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %19
-  %20 = getelementptr inbounds nuw i8, ptr %gep, i64 2
-  %21 = load i16, ptr %20, align 2
-  %22 = zext i16 %21 to i32
-  %23 = icmp eq i32 %1, %22
-  br i1 %23, label %._crit_edge, label %18
+12:                                               ; preds = %.lr.ph, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %13 = shl nsw i64 %indvars.iv, 3
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %gep, i64 2
+  %15 = load i16, ptr %14, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp eq i32 %1, %16
+  br i1 %17, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %.lr.ph, %18, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %18 ], [ %gep, %.lr.ph ]
+._crit_edge:                                      ; preds = %12, %11, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %11 ], [ %gep, %12 ]
   ret ptr %.0
 }
 
@@ -5650,98 +5645,90 @@ define hidden noundef ptr @_ZN10MethodData36exception_handler_bci_to_data_helper
 define hidden noundef ptr @_ZN10MethodData37exception_handler_bci_to_data_or_nullEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %8 = load i32, ptr %7, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %6 = load i32, ptr %5, align 4
+  %.neg1.i.i.i = add i32 %4, -304
+  %gepdiff.i.i.i = sub i32 %.neg1.i.i.i, %6
+  %7 = icmp sgt i32 %gepdiff.i.i.i, 7
+  br i1 %7, label %.lr.ph.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread
+
+.lr.ph.i:                                         ; preds = %2
+  %8 = lshr i32 %gepdiff.i.i.i, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %9, i64 %10
-  %12 = ptrtoint ptr %6 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = trunc i64 %14 to i32
-  %16 = icmp sgt i32 %15, 7
-  br i1 %16, label %.lr.ph.preheader.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread
+  %10 = sext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %8 to i64
+  %invariant.gep.i = getelementptr i8, ptr %9, i64 %10
+  br label %12
 
-.lr.ph.preheader.i:                               ; preds = %2
-  %17 = lshr i64 %14, 3
-  %wide.trip.count.i = and i64 %17, 268435455
-  br label %.lr.ph.i
-
-18:                                               ; preds = %.lr.ph.i
+11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread, label %12, !llvm.loop !31
 
-.lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = shl nsw i64 %indvars.iv.i, 3
-  %gep.i = getelementptr i8, ptr %11, i64 %19
-  %20 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
-  %21 = load i16, ptr %20, align 2
-  %22 = zext i16 %21 to i32
-  %23 = icmp eq i32 %1, %22
-  br i1 %23, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %18
+12:                                               ; preds = %11, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
+  %13 = shl nsw i64 %indvars.iv.i, 3
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
+  %15 = load i16, ptr %14, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp eq i32 %1, %16
+  br i1 %17, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %11
 
-_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %.lr.ph.i
+_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %12
   %.not = icmp eq ptr %gep.i, null
-  br i1 %.not, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread, label %24
+  br i1 %.not, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread, label %18
 
-24:                                               ; preds = %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit
-  %25 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %gep.i, ptr %26, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %25, align 8
+18:                                               ; preds = %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit
+  %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store ptr %gep.i, ptr %20, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %19, align 8
   br label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread
 
-_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread: ; preds = %18, %2, %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, %24
-  %27 = phi ptr [ %25, %24 ], [ null, %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit ], [ null, %2 ], [ null, %18 ]
-  ret ptr %27
+_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit.thread: ; preds = %11, %2, %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, %18
+  %21 = phi ptr [ %19, %18 ], [ null, %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit ], [ null, %2 ], [ null, %11 ]
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN10MethodData29exception_handler_bci_to_dataEi(ptr dead_on_unwind noalias writable writeonly sret(%class.BitData) align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(312) %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %9 = load i32, ptr %8, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 300
+  %7 = load i32, ptr %6, align 4
+  %.neg1.i.i.i = add i32 %5, -304
+  %gepdiff.i.i.i = sub i32 %.neg1.i.i.i, %7
+  %8 = icmp sgt i32 %gepdiff.i.i.i, 7
+  br i1 %8, label %.lr.ph.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit
+
+.lr.ph.i:                                         ; preds = %3
+  %9 = lshr i32 %gepdiff.i.i.i, 3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
-  %13 = ptrtoint ptr %7 to i64
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %13, %14
-  %16 = trunc i64 %15 to i32
-  %17 = icmp sgt i32 %16, 7
-  br i1 %17, label %.lr.ph.preheader.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit
+  %11 = sext i32 %7 to i64
+  %wide.trip.count.i = zext nneg i32 %9 to i64
+  %invariant.gep.i = getelementptr i8, ptr %10, i64 %11
+  br label %13
 
-.lr.ph.preheader.i:                               ; preds = %3
-  %18 = lshr i64 %15, 3
-  %wide.trip.count.i = and i64 %18, 268435455
-  br label %.lr.ph.i
-
-19:                                               ; preds = %.lr.ph.i
+12:                                               ; preds = %13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %13, !llvm.loop !31
 
-.lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %20 = shl nsw i64 %indvars.iv.i, 3
-  %gep.i = getelementptr i8, ptr %12, i64 %20
-  %21 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
-  %22 = load i16, ptr %21, align 2
-  %23 = zext i16 %22 to i32
-  %24 = icmp eq i32 %2, %23
-  br i1 %24, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %19
+13:                                               ; preds = %12, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
+  %14 = shl nsw i64 %indvars.iv.i, 3
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = zext i16 %16 to i32
+  %18 = icmp eq i32 %2, %17
+  br i1 %18, label %_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit, label %12
 
-_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %19, %.lr.ph.i, %3
-  %.0.i = phi ptr [ null, %3 ], [ %gep.i, %.lr.ph.i ], [ null, %19 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i, ptr %25, align 8
+_ZN10MethodData36exception_handler_bci_to_data_helperEi.exit: ; preds = %12, %13, %3
+  %.0.i = phi ptr [ null, %3 ], [ %gep.i, %13 ], [ null, %12 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.i, ptr %19, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %0, align 8
   ret void
 }

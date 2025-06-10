@@ -78714,7 +78714,7 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEEC2ERKS3_RKS
 ._ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE8iteratorC2EPNS5_4cellES8_.exit.loopexit_crit_edge.i: ; preds = %.lr.ph.i
   br label %._crit_edge, !llvm.loop !590
 
-._crit_edge.loopexit:                             ; preds = %96, %102
+._crit_edge.loopexit:                             ; preds = %92, %98
   %.pre = load ptr, ptr %19, align 8, !tbaa !361
   %.pre23 = load ptr, ptr %4, align 8, !tbaa !361
   %.pre24 = load i32, ptr %8, align 8, !tbaa !14
@@ -78800,8 +78800,8 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEED2Ev.exit: 
   %.sroa.013.020.ph48 = phi ptr [ %.sroa.013.020.ph, %.lr.ph.preheader ], [ %.sroa.013.2, %.lr.ph.i.i ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.outer, %93
-  %.sroa.10.021 = phi ptr [ %94, %93 ], [ %.sroa.013.020.ph48, %.lr.ph.outer ]
+.lr.ph:                                           ; preds = %.lr.ph.outer, %89
+  %.sroa.10.021 = phi ptr [ %90, %89 ], [ %.sroa.013.020.ph48, %.lr.ph.outer ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.10.021, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !124
@@ -78814,86 +78814,82 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEED2Ev.exit: 
 .lr.ph.i10:                                       ; preds = %.lr.ph
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 20
   %wide.trip.count.i = zext i32 %71 to i64
-  br label %85
+  br label %81
 
-._crit_edge.i:                                    ; preds = %85
+._crit_edge.i:                                    ; preds = %81
   %.idx.i.i = shl nuw nsw i64 %wide.trip.count.i, 3
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i
   %.ptr1.i.i = getelementptr inbounds nuw i8, ptr %73, i64 20
-  %74 = ptrtoint ptr %.ptr1.i.i to i64
-  %75 = ptrtoint ptr %72 to i64
-  %76 = sub i64 %74, %75
-  %77 = ashr exact i64 %76, 3
-  %78 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %77, i1 true)
-  %79 = shl nuw nsw i64 %78, 1
-  %80 = xor i64 %79, 126
-  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef nonnull %72, ptr noundef nonnull %.ptr1.i.i, i64 noundef %80)
-          to label %.noexc unwind label %104
+  %74 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %wide.trip.count.i, i1 true)
+  %75 = shl nuw nsw i64 %74, 1
+  %76 = xor i64 %75, 126
+  invoke void @_ZSt16__introsort_loopIPN10polynomial5powerElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_T1_(ptr noundef nonnull %72, ptr noundef nonnull %.ptr1.i.i, i64 noundef %76)
+          to label %.noexc unwind label %100
 
 .noexc:                                           ; preds = %._crit_edge.i
   invoke void @_ZSt22__final_insertion_sortIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_T0_(ptr noundef nonnull %72, ptr noundef nonnull %.ptr1.i.i)
-          to label %.noexc11 unwind label %104
+          to label %.noexc11 unwind label %100
 
 .noexc11:                                         ; preds = %.noexc
   %.pre.i = load i32, ptr %70, align 4, !tbaa !22
-  %81 = shl i32 %.pre.i, 3
+  %77 = shl i32 %.pre.i, 3
   br label %_ZN10polynomial8monomial4sortEv.exit.i
 
 _ZN10polynomial8monomial4sortEv.exit.i:           ; preds = %.noexc11, %.lr.ph
-  %82 = phi i32 [ %81, %.noexc11 ], [ 0, %.lr.ph ]
-  %83 = getelementptr inbounds nuw i8, ptr %69, i64 20
-  %84 = invoke noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %83, i32 noundef %82, i32 noundef 11)
-          to label %91 unwind label %104
+  %78 = phi i32 [ %77, %.noexc11 ], [ 0, %.lr.ph ]
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 20
+  %80 = invoke noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %79, i32 noundef %78, i32 noundef 11)
+          to label %87 unwind label %100
 
-85:                                               ; preds = %85, %.lr.ph.i10
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i, %85 ]
-  %86 = getelementptr inbounds nuw [0 x %"class.polynomial::power"], ptr %72, i64 0, i64 %indvars.iv.i
-  %87 = load i32, ptr %86, align 4, !tbaa !17
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %2, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !14
-  store i32 %90, ptr %86, align 4, !tbaa !17
+81:                                               ; preds = %81, %.lr.ph.i10
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i, %81 ]
+  %82 = getelementptr inbounds nuw [0 x %"class.polynomial::power"], ptr %72, i64 0, i64 %indvars.iv.i
+  %83 = load i32, ptr %82, align 4, !tbaa !17
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw i32, ptr %2, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !14
+  store i32 %86, ptr %82, align 4, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %85, !llvm.loop !591
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %81, !llvm.loop !591
 
-91:                                               ; preds = %_ZN10polynomial8monomial4sortEv.exit.i
-  %92 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i32 %84, ptr %92, align 4, !tbaa !139
+87:                                               ; preds = %_ZN10polynomial8monomial4sortEv.exit.i
+  %88 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store i32 %80, ptr %88, align 4, !tbaa !139
   invoke void @_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE6insertERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %93 unwind label %104
+          to label %89 unwind label %100
 
-93:                                               ; preds = %91
+89:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  %94 = load ptr, ptr %.sroa.10.021, align 8, !tbaa !333
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %.lr.ph
+  %90 = load ptr, ptr %.sroa.10.021, align 8, !tbaa !333
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %.lr.ph
 
-96:                                               ; preds = %93
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.013.020.ph48, i64 16
-  %.not2.i.i = icmp eq ptr %97, %24
+92:                                               ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.013.020.ph48, i64 16
+  %.not2.i.i = icmp eq ptr %93, %24
   br i1 %.not2.i.i, label %._crit_edge.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %96, %102
-  %.sroa.013.2 = phi ptr [ %103, %102 ], [ %97, %96 ]
-  %98 = load ptr, ptr %.sroa.013.2, align 8, !tbaa !333
-  %99 = ptrtoint ptr %98 to i64
-  %100 = and i64 %99, 7
-  %101 = icmp eq i64 %100, 1
-  br i1 %101, label %102, label %.lr.ph.outer
+.lr.ph.i.i:                                       ; preds = %92, %98
+  %.sroa.013.2 = phi ptr [ %99, %98 ], [ %93, %92 ]
+  %94 = load ptr, ptr %.sroa.013.2, align 8, !tbaa !333
+  %95 = ptrtoint ptr %94 to i64
+  %96 = and i64 %95, 7
+  %97 = icmp eq i64 %96, 1
+  br i1 %97, label %98, label %.lr.ph.outer
 
-102:                                              ; preds = %.lr.ph.i.i
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.013.2, i64 16
-  %.not.i.i = icmp eq ptr %103, %24
+98:                                               ; preds = %.lr.ph.i.i
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.013.2, i64 16
+  %.not.i.i = icmp eq ptr %99, %24
   br i1 %.not.i.i, label %._crit_edge.loopexit, label %.lr.ph.i.i, !llvm.loop !590
 
-104:                                              ; preds = %_ZN10polynomial8monomial4sortEv.exit.i, %.noexc, %._crit_edge.i, %91
-  %105 = landingpad { ptr, i32 }
+100:                                              ; preds = %_ZN10polynomial8monomial4sortEv.exit.i, %.noexc, %._crit_edge.i, %87
+  %101 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
   call void @_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #33
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #33
-  resume { ptr, i32 } %105
+  resume { ptr, i32 } %101
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -4589,10 +4589,9 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6re
   %61 = getelementptr inbounds { { i8, [31 x i8] }, { { { i64, ptr }, i64, i64 }, { i64, [17 x i64] }, { i16, i16 }, [2 x i16] } }, ptr %12, i64 %.pre-phi.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
-  %.idx.neg.i.i = mul i64 %.pre-phi.i.i.i, -216
-  %62 = sdiv exact i64 %.idx.neg.i.i, 216
+  %62 = sub nsw i64 0, %.pre-phi.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  %63 = add nsw i64 %62, -16
+  %63 = sub i64 -16, %.pre-phi.i.i.i
   %64 = and i64 %63, %11
   %65 = getelementptr inbounds i8, ptr %12, i64 %64
   %.0.copyload.i19.i.i.i.i.i = load <16 x i8>, ptr %65, align 1, !noalias !659

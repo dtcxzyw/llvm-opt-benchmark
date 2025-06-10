@@ -55627,15 +55627,15 @@ define internal fastcc void @pm_named_capture_escape(ptr noundef %0, ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 520
   br label %15
 
-._crit_edge:                                      ; preds = %143, %5
+._crit_edge:                                      ; preds = %139, %5
   tail call void @pm_buffer_append_byte(ptr noundef nonnull %1, i8 noundef zeroext 92) #31
-  br label %148
+  br label %144
 
-15:                                               ; preds = %.lr.ph, %143
-  %16 = phi ptr [ %10, %.lr.ph ], [ %146, %143 ]
-  %.054 = phi ptr [ %4, %.lr.ph ], [ %141, %143 ]
+15:                                               ; preds = %.lr.ph, %139
+  %16 = phi ptr [ %10, %.lr.ph ], [ %142, %139 ]
+  %.054 = phi ptr [ %4, %.lr.ph ], [ %137, %139 ]
   %17 = load i8, ptr %16, align 1, !tbaa !65
-  switch i8 %17, label %135 [
+  switch i8 %17, label %131 [
     i8 120, label %18
     i8 48, label %48
     i8 49, label %48
@@ -55747,7 +55747,7 @@ pm_named_capture_escape_octal.exit:               ; preds = %48, %52, %55, %62, 
 74:                                               ; preds = %71
   %75 = load i8, ptr %72, align 1, !tbaa !65
   %.not48.i = icmp eq i8 %75, 123
-  br i1 %.not48.i, label %104, label %76
+  br i1 %.not48.i, label %100, label %76
 
 76:                                               ; preds = %74
   %77 = ptrtoint ptr %72 to i64
@@ -55789,117 +55789,114 @@ pm_named_capture_escape_octal.exit:               ; preds = %48, %52, %55, %62, 
 escape_unicode.exit.i:                            ; preds = %93, %._crit_edge.i.i, %76
   %.017.i.i = phi i32 [ 65533, %93 ], [ %91, %._crit_edge.i.i ], [ 0, %76 ]
   %96 = tail call zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef nonnull %1, i32 noundef %.017.i.i) #31
-  br i1 %96, label %102, label %97
+  br i1 %96, label %98, label %97
 
 97:                                               ; preds = %escape_unicode.exit.i
-  %98 = getelementptr i8, ptr %72, i64 %80
-  %99 = ptrtoint ptr %98 to i64
-  %100 = ptrtoint ptr %.054 to i64
-  %101 = sub i64 %99, %100
-  tail call void @pm_buffer_append_string(ptr noundef nonnull %1, ptr noundef nonnull %.054, i64 noundef %101) #31
-  br label %102
+  %gepdiff.i = add i64 %80, 2
+  tail call void @pm_buffer_append_string(ptr noundef nonnull %1, ptr noundef nonnull %.054, i64 noundef %gepdiff.i) #31
+  br label %98
 
-102:                                              ; preds = %97, %escape_unicode.exit.i
-  %103 = getelementptr i8, ptr %72, i64 %80
+98:                                               ; preds = %97, %escape_unicode.exit.i
+  %99 = getelementptr i8, ptr %72, i64 %80
   br label %pm_named_capture_escape_hex.exit
 
-104:                                              ; preds = %74
-  %105 = getelementptr i8, ptr %.054, i64 3
-  %106 = icmp ult ptr %105, %6
-  br i1 %106, label %.lr.ph.i, label %pm_named_capture_escape_hex.exit
+100:                                              ; preds = %74
+  %101 = getelementptr i8, ptr %.054, i64 3
+  %102 = icmp ult ptr %101, %6
+  br i1 %102, label %.lr.ph.i, label %pm_named_capture_escape_hex.exit
 
-.lr.ph.i:                                         ; preds = %104, %.lr.ph.i.backedge
-  %.163.i = phi ptr [ %.163.i.be, %.lr.ph.i.backedge ], [ %105, %104 ]
-  %107 = load i8, ptr %.163.i, align 1, !tbaa !65
-  switch i8 %107, label %113 [
-    i8 32, label %108
-    i8 125, label %111
+.lr.ph.i:                                         ; preds = %100, %.lr.ph.i.backedge
+  %.163.i = phi ptr [ %.163.i.be, %.lr.ph.i.backedge ], [ %101, %100 ]
+  %103 = load i8, ptr %.163.i, align 1, !tbaa !65
+  switch i8 %103, label %109 [
+    i8 32, label %104
+    i8 125, label %107
   ]
 
-108:                                              ; preds = %.lr.ph.i
-  %109 = getelementptr i8, ptr %.163.i, i64 1
-  %110 = icmp ult ptr %109, %6
-  br i1 %110, label %.lr.ph.i.backedge, label %pm_named_capture_escape_hex.exit
+104:                                              ; preds = %.lr.ph.i
+  %105 = getelementptr i8, ptr %.163.i, i64 1
+  %106 = icmp ult ptr %105, %6
+  br i1 %106, label %.lr.ph.i.backedge, label %pm_named_capture_escape_hex.exit
 
-.lr.ph.i.backedge:                                ; preds = %108, %escape_unicode.exit60.i
-  %.163.i.be = phi ptr [ %109, %108 ], [ %133, %escape_unicode.exit60.i ]
+.lr.ph.i.backedge:                                ; preds = %104, %escape_unicode.exit60.i
+  %.163.i.be = phi ptr [ %105, %104 ], [ %129, %escape_unicode.exit60.i ]
   br label %.lr.ph.i, !llvm.loop !685
 
-111:                                              ; preds = %.lr.ph.i
-  %112 = getelementptr i8, ptr %.163.i, i64 1
+107:                                              ; preds = %.lr.ph.i
+  %108 = getelementptr i8, ptr %.163.i, i64 1
   br label %pm_named_capture_escape_hex.exit
 
-113:                                              ; preds = %.lr.ph.i
-  %114 = ptrtoint ptr %.163.i to i64
-  %115 = sub i64 %11, %114
-  %116 = tail call i64 @pm_strspn_hexadecimal_digit(ptr noundef nonnull %.163.i, i64 noundef %115) #31
-  %.not21.i50.i = icmp eq i64 %116, 0
+109:                                              ; preds = %.lr.ph.i
+  %110 = ptrtoint ptr %.163.i to i64
+  %111 = sub i64 %11, %110
+  %112 = tail call i64 @pm_strspn_hexadecimal_digit(ptr noundef nonnull %.163.i, i64 noundef %111) #31
+  %.not21.i50.i = icmp eq i64 %112, 0
   br i1 %.not21.i50.i, label %escape_unicode.exit60.i, label %.lr.ph.i51.i
 
 ._crit_edge.i57.i:                                ; preds = %.lr.ph.i51.i
-  %117 = and i32 %spec.select.i55.i, -2048
-  %or.cond.i58.i = icmp eq i32 %117, 55296
-  br i1 %or.cond.i58.i, label %129, label %escape_unicode.exit60.i
+  %113 = and i32 %spec.select.i55.i, -2048
+  %or.cond.i58.i = icmp eq i32 %113, 55296
+  br i1 %or.cond.i58.i, label %125, label %escape_unicode.exit60.i
 
-.lr.ph.i51.i:                                     ; preds = %113, %.lr.ph.i51.i
-  %.020.i52.i = phi i64 [ %128, %.lr.ph.i51.i ], [ 0, %113 ]
-  %.01619.i53.i = phi i32 [ %127, %.lr.ph.i51.i ], [ 0, %113 ]
+.lr.ph.i51.i:                                     ; preds = %109, %.lr.ph.i51.i
+  %.020.i52.i = phi i64 [ %124, %.lr.ph.i51.i ], [ 0, %109 ]
+  %.01619.i53.i = phi i32 [ %123, %.lr.ph.i51.i ], [ 0, %109 ]
   %.not.i54.i = icmp eq i64 %.020.i52.i, 0
-  %118 = shl i32 %.01619.i53.i, 4
-  %spec.select.i55.i = select i1 %.not.i54.i, i32 %.01619.i53.i, i32 %118
-  %119 = getelementptr i8, ptr %.163.i, i64 %.020.i52.i
-  %120 = load i8, ptr %119, align 1, !tbaa !65
-  %121 = icmp ult i8 %120, 58
-  %122 = add nsw i8 %120, -48
-  %123 = and i8 %120, 7
-  %124 = add nuw nsw i8 %123, 9
-  %125 = select i1 %121, i8 %122, i8 %124
-  %126 = zext i8 %125 to i32
-  %127 = or i32 %spec.select.i55.i, %126
-  %128 = add nuw i64 %.020.i52.i, 1
-  %exitcond.not.i56.i = icmp eq i64 %128, %116
+  %114 = shl i32 %.01619.i53.i, 4
+  %spec.select.i55.i = select i1 %.not.i54.i, i32 %.01619.i53.i, i32 %114
+  %115 = getelementptr i8, ptr %.163.i, i64 %.020.i52.i
+  %116 = load i8, ptr %115, align 1, !tbaa !65
+  %117 = icmp ult i8 %116, 58
+  %118 = add nsw i8 %116, -48
+  %119 = and i8 %116, 7
+  %120 = add nuw nsw i8 %119, 9
+  %121 = select i1 %117, i8 %118, i8 %120
+  %122 = zext i8 %121 to i32
+  %123 = or i32 %spec.select.i55.i, %122
+  %124 = add nuw i64 %.020.i52.i, 1
+  %exitcond.not.i56.i = icmp eq i64 %124, %112
   br i1 %exitcond.not.i56.i, label %._crit_edge.i57.i, label %.lr.ph.i51.i, !llvm.loop !274
 
-129:                                              ; preds = %._crit_edge.i57.i
-  %130 = getelementptr i8, ptr %.163.i, i64 %116
-  %131 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %12, ptr noundef nonnull %.163.i, ptr noundef %130, i32 noundef 79) #31
+125:                                              ; preds = %._crit_edge.i57.i
+  %126 = getelementptr i8, ptr %.163.i, i64 %112
+  %127 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %12, ptr noundef nonnull %.163.i, ptr noundef %126, i32 noundef 79) #31
   br label %escape_unicode.exit60.i
 
-escape_unicode.exit60.i:                          ; preds = %129, %._crit_edge.i57.i, %113
-  %.017.i59.i = phi i32 [ 65533, %129 ], [ %127, %._crit_edge.i57.i ], [ 0, %113 ]
-  %132 = tail call zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef nonnull %1, i32 noundef %.017.i59.i) #31
-  %133 = getelementptr i8, ptr %.163.i, i64 %116
-  %134 = icmp ult ptr %133, %6
-  br i1 %134, label %.lr.ph.i.backedge, label %pm_named_capture_escape_hex.exit
+escape_unicode.exit60.i:                          ; preds = %125, %._crit_edge.i57.i, %109
+  %.017.i59.i = phi i32 [ 65533, %125 ], [ %123, %._crit_edge.i57.i ], [ 0, %109 ]
+  %128 = tail call zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef nonnull %1, i32 noundef %.017.i59.i) #31
+  %129 = getelementptr i8, ptr %.163.i, i64 %112
+  %130 = icmp ult ptr %129, %6
+  br i1 %130, label %.lr.ph.i.backedge, label %pm_named_capture_escape_hex.exit
 
-135:                                              ; preds = %15
+131:                                              ; preds = %15
   tail call void @pm_buffer_append_byte(ptr noundef nonnull %1, i8 noundef zeroext 92) #31
   br label %pm_named_capture_escape_hex.exit
 
-pm_named_capture_escape_hex.exit:                 ; preds = %escape_unicode.exit60.i, %108, %111, %104, %102, %73, %47, %46, %135, %pm_named_capture_escape_octal.exit
-  %.1 = phi ptr [ %16, %135 ], [ %.016.i, %pm_named_capture_escape_octal.exit ], [ %.015.i, %46 ], [ %19, %47 ], [ %72, %73 ], [ %103, %102 ], [ %112, %111 ], [ %105, %104 ], [ %133, %escape_unicode.exit60.i ], [ %109, %108 ]
-  %136 = ptrtoint ptr %.1 to i64
-  %137 = sub i64 %11, %136
-  %138 = load i8, ptr %13, align 1, !tbaa !42, !range !44, !noundef !45
-  %139 = trunc nuw i8 %138 to i1
-  %140 = load ptr, ptr %14, align 8, !tbaa !40
-  %141 = tail call ptr @pm_memchr(ptr noundef %.1, i32 noundef 92, i64 noundef %137, i1 noundef zeroext %139, ptr noundef %140) #31
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %147, label %143
+pm_named_capture_escape_hex.exit:                 ; preds = %escape_unicode.exit60.i, %104, %107, %100, %98, %73, %47, %46, %131, %pm_named_capture_escape_octal.exit
+  %.1 = phi ptr [ %16, %131 ], [ %.016.i, %pm_named_capture_escape_octal.exit ], [ %.015.i, %46 ], [ %19, %47 ], [ %72, %73 ], [ %99, %98 ], [ %108, %107 ], [ %101, %100 ], [ %129, %escape_unicode.exit60.i ], [ %105, %104 ]
+  %132 = ptrtoint ptr %.1 to i64
+  %133 = sub i64 %11, %132
+  %134 = load i8, ptr %13, align 1, !tbaa !42, !range !44, !noundef !45
+  %135 = trunc nuw i8 %134 to i1
+  %136 = load ptr, ptr %14, align 8, !tbaa !40
+  %137 = tail call ptr @pm_memchr(ptr noundef %.1, i32 noundef 92, i64 noundef %133, i1 noundef zeroext %135, ptr noundef %136) #31
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %143, label %139
 
-143:                                              ; preds = %pm_named_capture_escape_hex.exit
-  %144 = ptrtoint ptr %141 to i64
-  %145 = sub i64 %144, %136
-  tail call void @pm_buffer_append_string(ptr noundef nonnull %1, ptr noundef %.1, i64 noundef %145) #31
-  %146 = getelementptr i8, ptr %141, i64 1
-  %.not = icmp ult ptr %146, %6
+139:                                              ; preds = %pm_named_capture_escape_hex.exit
+  %140 = ptrtoint ptr %137 to i64
+  %141 = sub i64 %140, %132
+  tail call void @pm_buffer_append_string(ptr noundef nonnull %1, ptr noundef %.1, i64 noundef %141) #31
+  %142 = getelementptr i8, ptr %137, i64 1
+  %.not = icmp ult ptr %142, %6
   br i1 %.not, label %15, label %._crit_edge
 
-147:                                              ; preds = %pm_named_capture_escape_hex.exit
-  tail call void @pm_buffer_append_string(ptr noundef nonnull %1, ptr noundef %.1, i64 noundef %137) #31
-  br label %148
+143:                                              ; preds = %pm_named_capture_escape_hex.exit
+  tail call void @pm_buffer_append_string(ptr noundef nonnull %1, ptr noundef %.1, i64 noundef %133) #31
+  br label %144
 
-148:                                              ; preds = %147, %._crit_edge
+144:                                              ; preds = %143, %._crit_edge
   ret void
 }
 

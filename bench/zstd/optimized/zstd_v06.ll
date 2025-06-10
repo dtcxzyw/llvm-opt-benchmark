@@ -7357,9 +7357,9 @@ ZSTDv06_wildcopy.exit.i.i:                        ; preds = %.preheader123.i.i
   br label %ZSTDv06_execSequence.exit.i
 
 823:                                              ; preds = %818
-  %diff.neg.i.i = sub i64 0, %.neg.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %791, ptr readonly align 1 %820, i64 %diff.neg.i.i, i1 false)
-  %824 = getelementptr inbounds nuw i8, ptr %791, i64 %diff.neg.i.i
+  %gepdiff.i.i = sub nsw i64 0, %.neg.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %791, ptr readonly align 1 %820, i64 %gepdiff.i.i, i1 false)
+  %824 = getelementptr inbounds nuw i8, ptr %791, i64 %gepdiff.i.i
   %825 = add i64 %.neg.i.i, %707
   %826 = icmp ule ptr %824, %608
   %827 = icmp ugt i64 %825, 2

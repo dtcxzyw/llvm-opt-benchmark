@@ -6335,88 +6335,84 @@ _ZN5nlsat6solver3imp14mk_clause_coreEjPKN3sat7literalEbPN18dependency_managerINS
   br i1 %.not.i.i13, label %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit, label %50
 
 50:                                               ; preds = %_ZN5nlsat6solver3imp14mk_clause_coreEjPKN3sat7literalEbPN18dependency_managerINS1_7dconfigEE10dependencyE.exit
-  %51 = ptrtoint ptr %.ptr23 to i64
-  %52 = ptrtoint ptr %.ptr to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 2
-  %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %54, i1 true)
-  %56 = shl nuw nsw i64 %55, 1
-  %57 = xor i64 %56, 126
-  tail call void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr23, i64 noundef %57, ptr nonnull %0)
-  %58 = icmp sgt i64 %53, 64
-  br i1 %58, label %59, label %61
+  %51 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %48, i1 true)
+  %52 = shl nuw nsw i64 %51, 1
+  %53 = xor i64 %52, 126
+  tail call void @_ZSt16__introsort_loopIPN3sat7literalElN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr23, i64 noundef %53, ptr nonnull %0)
+  %54 = icmp ugt i32 %47, 16
+  br i1 %54, label %55, label %57
 
-59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  tail call void @_ZSt16__insertion_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_(ptr noundef nonnull %.ptr, ptr noundef nonnull %60, ptr nonnull %0)
-  tail call void @_ZSt26__unguarded_insertion_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_(ptr noundef nonnull %60, ptr noundef nonnull %.ptr23, ptr nonnull %0)
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  tail call void @_ZSt16__insertion_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_(ptr noundef nonnull %.ptr, ptr noundef nonnull %56, ptr nonnull %0)
+  tail call void @_ZSt26__unguarded_insertion_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_(ptr noundef nonnull %56, ptr noundef nonnull %.ptr23, ptr nonnull %0)
   br label %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit
 
-61:                                               ; preds = %50
+57:                                               ; preds = %50
   tail call void @_ZSt16__insertion_sortIPN3sat7literalEN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat6solver3imp6lit_ltEEEEvT_SB_T0_(ptr noundef nonnull %.ptr, ptr noundef nonnull %.ptr23, ptr nonnull %0)
   br label %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit
 
-_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit: ; preds = %_ZN5nlsat6solver3imp14mk_clause_coreEjPKN3sat7literalEbPN18dependency_managerINS1_7dconfigEE10dependencyE.exit, %59, %61
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 613
-  %63 = load i8, ptr %62, align 1, !range !43
-  %64 = trunc nuw i8 %63 to i1
-  %or.cond = select i1 %3, i1 %64, i1 false
-  br i1 %or.cond, label %65, label %68
+_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit: ; preds = %_ZN5nlsat6solver3imp14mk_clause_coreEjPKN3sat7literalEbPN18dependency_managerINS1_7dconfigEE10dependencyE.exit, %55, %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 613
+  %59 = load i8, ptr %58, align 1, !range !43
+  %60 = trunc nuw i8 %59 to i1
+  %or.cond = select i1 %3, i1 %60, i1 false
+  br i1 %or.cond, label %61, label %64
 
-65:                                               ; preds = %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit
-  %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
-  %67 = load i32, ptr %46, align 4, !tbaa !184
-  tail call void @_ZN5nlsat6solver3imp9log_lemmaERSojPKN3sat7literalEb(ptr noundef nonnull align 8 dereferenceable(809) %0, ptr noundef nonnull align 8 dereferenceable(8) %66, i32 noundef %67, ptr noundef nonnull %.ptr, i1 noundef zeroext false)
-  br label %68
+61:                                               ; preds = %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit
+  %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_Z14verbose_streamv()
+  %63 = load i32, ptr %46, align 4, !tbaa !184
+  tail call void @_ZN5nlsat6solver3imp9log_lemmaERSojPKN3sat7literalEb(ptr noundef nonnull align 8 dereferenceable(809) %0, ptr noundef nonnull align 8 dereferenceable(8) %62, i32 noundef %63, ptr noundef nonnull %.ptr, i1 noundef zeroext false)
+  br label %64
 
-68:                                               ; preds = %65, %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit
-  br i1 %3, label %69, label %79
+64:                                               ; preds = %61, %_ZSt4sortIPN3sat7literalEN5nlsat6solver3imp6lit_ltEEvT_S7_T0_.exit
+  br i1 %3, label %65, label %75
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %71 = load ptr, ptr %70, align 8, !tbaa !183
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %73
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %67 = load ptr, ptr %66, align 8, !tbaa !183
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %69
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %71, i64 -4
-  %75 = load i32, ptr %74, align 4, !tbaa !180
-  %76 = getelementptr inbounds i8, ptr %71, i64 -8
-  %77 = load i32, ptr %76, align 4, !tbaa !180
-  %78 = icmp eq i32 %75, %77
-  br i1 %78, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %67, i64 -4
+  %71 = load i32, ptr %70, align 4, !tbaa !180
+  %72 = getelementptr inbounds i8, ptr %67, i64 -8
+  %73 = load i32, ptr %72, align 4, !tbaa !180
+  %74 = icmp eq i32 %71, %73
+  br i1 %74, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit
 
-79:                                               ; preds = %68
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %81 = load ptr, ptr %80, align 8, !tbaa !183
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %83
+75:                                               ; preds = %64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %77 = load ptr, ptr %76, align 8, !tbaa !183
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %79
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %81, i64 -4
-  %85 = load i32, ptr %84, align 4, !tbaa !180
-  %86 = getelementptr inbounds i8, ptr %81, i64 -8
-  %87 = load i32, ptr %86, align 4, !tbaa !180
-  %88 = icmp eq i32 %85, %87
-  br i1 %88, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %77, i64 -4
+  %81 = load i32, ptr %80, align 4, !tbaa !180
+  %82 = getelementptr inbounds i8, ptr %77, i64 -8
+  %83 = load i32, ptr %82, align 4, !tbaa !180
+  %84 = icmp eq i32 %81, %83
+  br i1 %84, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit
 
-_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split: ; preds = %79, %83, %69, %73
-  %.sink29 = phi ptr [ %70, %73 ], [ %70, %69 ], [ %80, %83 ], [ %80, %79 ]
+_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split: ; preds = %75, %79, %65, %69
+  %.sink29 = phi ptr [ %66, %69 ], [ %66, %65 ], [ %76, %79 ], [ %76, %75 ]
   tail call void @_ZN6vectorIPN5nlsat6clauseELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %.sink29)
   %.pre.i14.sink = load ptr, ptr %.sink29, align 8, !tbaa !183
   %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %.pre.i14.sink, i64 -4
   %.pre2.i16 = load i32, ptr %.phi.trans.insert.i15, align 4, !tbaa !180
   br label %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit
 
-_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit: ; preds = %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, %83, %73
-  %.sink28 = phi ptr [ %71, %73 ], [ %81, %83 ], [ %.pre.i14.sink, %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split ]
-  %.sink = phi i32 [ %75, %73 ], [ %85, %83 ], [ %.pre2.i16, %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split ]
-  %89 = getelementptr inbounds i8, ptr %.sink28, i64 -4
-  %90 = zext i32 %.sink to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %.sink28, i64 %90
-  store ptr %25, ptr %91, align 8, !tbaa !3
-  %92 = add i32 %.sink, 1
-  store i32 %92, ptr %89, align 4, !tbaa !180
+_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit: ; preds = %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split, %79, %69
+  %.sink28 = phi ptr [ %67, %69 ], [ %77, %79 ], [ %.pre.i14.sink, %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split ]
+  %.sink = phi i32 [ %71, %69 ], [ %81, %79 ], [ %.pre2.i16, %_ZN6vectorIPN5nlsat6clauseELb0EjE9push_backERKS2_.exit.sink.split ]
+  %85 = getelementptr inbounds i8, ptr %.sink28, i64 -4
+  %86 = zext i32 %.sink to i64
+  %87 = getelementptr inbounds nuw ptr, ptr %.sink28, i64 %86
+  store ptr %25, ptr %87, align 8, !tbaa !3
+  %88 = add i32 %.sink, 1
+  store i32 %88, ptr %85, align 4, !tbaa !180
   tail call void @_ZN5nlsat6solver3imp13attach_clauseERNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(809) %0, ptr noundef nonnull align 8 dereferenceable(32) %25)
   ret ptr %25
 }

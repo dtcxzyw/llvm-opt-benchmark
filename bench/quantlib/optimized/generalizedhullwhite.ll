@@ -11790,9 +11790,8 @@ invoke.cont12:                                    ; preds = %entry, %if.then.i3.
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont12
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %storemerge.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
+  %add.ptr.i.i.i.idx = shl nsw i64 %div.i.i.i, 3
+  %sub.ptr.sub.i.i.i = add nsw i64 %storemerge.idx.i.i.i, %add.ptr.i.i.i.idx
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 -1, i64 %sub.ptr.sub.i.i.i, i1 false)
   %cmp9.not.i.i.i = icmp eq i32 %conv4.i.i.i, 0
   br i1 %cmp9.not.i.i.i, label %invoke.cont17, label %_ZSt14__fill_bvectorPmjjb.exit22.i.i.i

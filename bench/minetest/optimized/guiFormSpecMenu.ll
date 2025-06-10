@@ -96541,9 +96541,8 @@ if.then64:                                        ; preds = %if.else61
   br i1 %tobool.not.i.i.i.i.i156, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i157
 
 if.then.i.i.i.i.i157:                             ; preds = %if.then64
-  %sub.ptr.lhs.cast.i.i.i.i.i153 = ptrtoint ptr %add.ptr.i149 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i154 = ptrtoint ptr %__p.sroa.0.0 to i64
-  %sub.ptr.sub.i.i.i.i.i155 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i153, %sub.ptr.rhs.cast.i.i.i.i.i154
+  %add.ptr.i148.idx = shl i64 %__n.0, 3
+  %sub.ptr.sub.i.i.i.i.i155 = add i64 %add.ptr.i148.idx, -8
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i155, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i158 = getelementptr inbounds ptr, ptr %add.ptr.i148, i64 %.pre.i.i.i.i.i

@@ -52,101 +52,103 @@ bytestream2_get_be16.exit31:                      ; preds = %13
   br i1 %18, label %bytestream2_get_be16.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %bytestream2_get_be16.exit31
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %20 = ptrtoint ptr %19 to i64
-  %21 = sub i64 %10, %20
-  %22 = trunc i64 %21 to i32
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %.loopexit
+  %19 = add nuw nsw i64 %14, 2
+  %gepdiff66 = sub nsw i64 %8, %19
+  %20 = icmp sgt i64 %gepdiff66, 0
+  br i1 %20, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %54
-  %24 = phi i64 [ %60, %54 ], [ %21, %.preheader ]
-  %.02765 = phi i32 [ %.3, %54 ], [ 15, %.preheader ]
-  %.sroa.0.064 = phi ptr [ %58, %54 ], [ %19, %.preheader ]
-  %25 = icmp slt i64 %24, 1
-  br i1 %25, label %bytestream2_get_byte.exit, label %26
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  br label %.lr.ph
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.064, i64 1
-  %28 = load i8, ptr %.sroa.0.064, align 1, !tbaa !12
-  %29 = zext i8 %28 to i32
-  %.pre = ptrtoint ptr %27 to i64
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %52
+  %22 = phi i64 [ %58, %52 ], [ %gepdiff66, %.lr.ph.preheader ]
+  %.02765 = phi i32 [ %.3, %52 ], [ 15, %.lr.ph.preheader ]
+  %.sroa.0.064 = phi ptr [ %56, %52 ], [ %21, %.lr.ph.preheader ]
+  %23 = icmp slt i64 %22, 1
+  br i1 %23, label %bytestream2_get_byte.exit, label %24
+
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.064, i64 1
+  %26 = load i8, ptr %.sroa.0.064, align 1, !tbaa !12
+  %27 = zext i8 %26 to i32
+  %.pre = ptrtoint ptr %25 to i64
   br label %bytestream2_get_byte.exit
 
-bytestream2_get_byte.exit:                        ; preds = %.lr.ph, %26
-  %.pre-phi = phi i64 [ %10, %.lr.ph ], [ %.pre, %26 ]
-  %.sroa.0.4 = phi ptr [ %9, %.lr.ph ], [ %27, %26 ]
-  %.0.i33 = phi i32 [ 0, %.lr.ph ], [ %29, %26 ]
-  %30 = sub i64 %10, %.pre-phi
-  %31 = icmp slt i64 %30, 1
-  br i1 %31, label %bytestream2_get_byte.exit35, label %32
+bytestream2_get_byte.exit:                        ; preds = %.lr.ph, %24
+  %.pre-phi = phi i64 [ %10, %.lr.ph ], [ %.pre, %24 ]
+  %.sroa.0.4 = phi ptr [ %9, %.lr.ph ], [ %25, %24 ]
+  %.0.i33 = phi i32 [ 0, %.lr.ph ], [ %27, %24 ]
+  %28 = sub i64 %10, %.pre-phi
+  %29 = icmp slt i64 %28, 1
+  br i1 %29, label %bytestream2_get_byte.exit35, label %30
 
-32:                                               ; preds = %bytestream2_get_byte.exit
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.4, i64 1
-  %34 = load i8, ptr %.sroa.0.4, align 1, !tbaa !12
-  %35 = zext i8 %34 to i32
+30:                                               ; preds = %bytestream2_get_byte.exit
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.4, i64 1
+  %32 = load i8, ptr %.sroa.0.4, align 1, !tbaa !12
+  %33 = zext i8 %32 to i32
   br label %bytestream2_get_byte.exit35
 
-bytestream2_get_byte.exit35:                      ; preds = %bytestream2_get_byte.exit, %32
-  %.sroa.0.5 = phi ptr [ %33, %32 ], [ %9, %bytestream2_get_byte.exit ]
-  %.0.i34 = phi i32 [ %35, %32 ], [ 0, %bytestream2_get_byte.exit ]
-  %36 = icmp eq i32 %.0.i33, 0
-  br i1 %36, label %.thread, label %40
+bytestream2_get_byte.exit35:                      ; preds = %bytestream2_get_byte.exit, %30
+  %.sroa.0.5 = phi ptr [ %31, %30 ], [ %9, %bytestream2_get_byte.exit ]
+  %.0.i34 = phi i32 [ %33, %30 ], [ 0, %bytestream2_get_byte.exit ]
+  %34 = icmp eq i32 %.0.i33, 0
+  br i1 %34, label %.thread, label %38
 
 .thread:                                          ; preds = %bytestream2_get_byte.exit35
-  %37 = icmp eq i32 %.0.i34, 0
-  %38 = select i1 %37, i32 5, i32 0
-  %39 = add nsw i32 %38, %.02765
+  %35 = icmp eq i32 %.0.i34, 0
+  %36 = select i1 %35, i32 5, i32 0
+  %37 = add nsw i32 %36, %.02765
   br label %.loopexit
 
-40:                                               ; preds = %bytestream2_get_byte.exit35
-  %41 = icmp eq i32 %.0.i33, 1
-  %42 = icmp eq i32 %.0.i34, 12
-  %or.cond = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond, label %52, label %43
+38:                                               ; preds = %bytestream2_get_byte.exit35
+  %39 = icmp eq i32 %.0.i33, 1
+  %40 = icmp eq i32 %.0.i34, 12
+  %or.cond = select i1 %39, i1 %40, i1 false
+  br i1 %or.cond, label %50, label %41
 
-43:                                               ; preds = %40
-  %44 = icmp eq i32 %.0.i33, 2
-  %45 = icmp eq i32 %.0.i34, 6
-  %or.cond3 = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond3, label %52, label %46
+41:                                               ; preds = %38
+  %42 = icmp eq i32 %.0.i33, 2
+  %43 = icmp eq i32 %.0.i34, 6
+  %or.cond3 = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond3, label %50, label %44
 
-46:                                               ; preds = %43
-  %47 = icmp eq i32 %.0.i33, 3
-  %48 = icmp eq i32 %.0.i34, 13
-  %or.cond5 = select i1 %47, i1 %48, i1 false
-  br i1 %or.cond5, label %52, label %49
+44:                                               ; preds = %41
+  %45 = icmp eq i32 %.0.i33, 3
+  %46 = icmp eq i32 %.0.i34, 13
+  %or.cond5 = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond5, label %50, label %47
 
-49:                                               ; preds = %46
-  %50 = icmp eq i32 %.0.i33, 4
-  %51 = icmp eq i32 %.0.i34, 2
-  %or.cond7 = select i1 %50, i1 %51, i1 false
-  br i1 %or.cond7, label %52, label %54
+47:                                               ; preds = %44
+  %48 = icmp eq i32 %.0.i33, 4
+  %49 = icmp eq i32 %.0.i34, 2
+  %or.cond7 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond7, label %50, label %52
 
-52:                                               ; preds = %49, %46, %43, %40
-  %53 = add nsw i32 %.02765, 20
-  br label %54
+50:                                               ; preds = %47, %44, %41, %38
+  %51 = add nsw i32 %.02765, 20
+  br label %52
 
-54:                                               ; preds = %49, %52
-  %.3 = phi i32 [ %53, %52 ], [ %.02765, %49 ]
-  %55 = ptrtoint ptr %.sroa.0.5 to i64
-  %56 = sub i64 %10, %55
-  %57 = zext nneg i32 %.0.i34 to i64
-  %..i32 = tail call i64 @llvm.smin.i64(i64 %56, i64 %57)
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.5, i64 %..i32
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %10, %59
-  %61 = trunc i64 %60 to i32
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph, label %.loopexit
+52:                                               ; preds = %47, %50
+  %.3 = phi i32 [ %51, %50 ], [ %.02765, %47 ]
+  %53 = ptrtoint ptr %.sroa.0.5 to i64
+  %54 = sub i64 %10, %53
+  %55 = zext nneg i32 %.0.i34 to i64
+  %..i32 = tail call i64 @llvm.smin.i64(i64 %54, i64 %55)
+  %56 = getelementptr inbounds i8, ptr %.sroa.0.5, i64 %..i32
+  %57 = ptrtoint ptr %56 to i64
+  %58 = sub i64 %10, %57
+  %59 = trunc i64 %58 to i32
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %54, %.preheader, %.thread
-  %.1 = phi i32 [ %39, %.thread ], [ 15, %.preheader ], [ %.3, %54 ]
-  %63 = tail call i32 @llvm.smin.i32(i32 %.1, i32 100)
+.loopexit:                                        ; preds = %52, %.preheader, %.thread
+  %.1 = phi i32 [ %37, %.thread ], [ 15, %.preheader ], [ %.3, %52 ]
+  %61 = tail call i32 @llvm.smin.i32(i32 %.1, i32 100)
   br label %bytestream2_get_be16.exit.thread
 
 bytestream2_get_be16.exit.thread:                 ; preds = %13, %bytestream2_init.exit, %bytestream2_get_be16.exit31, %bytestream2_get_be16.exit, %.loopexit
-  %.0 = phi i32 [ %63, %.loopexit ], [ 0, %bytestream2_get_be16.exit ], [ 0, %bytestream2_get_be16.exit31 ], [ 0, %bytestream2_init.exit ], [ 0, %13 ]
+  %.0 = phi i32 [ %61, %.loopexit ], [ 0, %bytestream2_get_be16.exit ], [ 0, %bytestream2_get_be16.exit31 ], [ 0, %bytestream2_init.exit ], [ 0, %13 ]
   ret i32 %.0
 }
 

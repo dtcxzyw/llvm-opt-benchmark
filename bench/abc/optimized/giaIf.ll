@@ -14499,116 +14499,110 @@ Gia_ObjIsAndNotBuf.exit:                          ; preds = %19
   br i1 %.not66, label %Gia_ObjIsAndNotBuf.exit.thread, label %29
 
 29:                                               ; preds = %Gia_ObjIsAndNotBuf.exit
-  %30 = ptrtoint ptr %22 to i64
-  %31 = ptrtoint ptr %.val48 to i64
-  %32 = sub i64 %30, %31
-  %33 = sdiv exact i64 %32, 12
+  %reass.add = sub nsw i64 %indvars.iv, %20
   %.val46 = load ptr, ptr %8, align 8, !tbaa !46
-  %34 = getelementptr i8, ptr %.val46, i64 8
-  %.val46.val = load ptr, ptr %34, align 8, !tbaa !47
-  %sext = shl i64 %33, 32
-  %35 = ashr exact i64 %sext, 30
-  %36 = getelementptr inbounds i8, ptr %.val46.val, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !48
-  %.not67 = icmp eq i32 %37, 0
-  br i1 %.not67, label %38, label %40
+  %30 = getelementptr i8, ptr %.val46, i64 8
+  %.val46.val = load ptr, ptr %30, align 8, !tbaa !47
+  %sext = shl i64 %reass.add, 32
+  %31 = ashr exact i64 %sext, 30
+  %32 = getelementptr inbounds i8, ptr %.val46.val, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !48
+  %.not68 = icmp eq i32 %33, 0
+  br i1 %.not68, label %34, label %36
 
-38:                                               ; preds = %29
-  %39 = trunc i64 %33 to i32
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.45, i32 noundef %39)
+34:                                               ; preds = %29
+  %35 = trunc i64 %reass.add to i32
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.45, i32 noundef %35)
   br label %Gia_ObjIsAndNotBuf.exit.thread
 
-40:                                               ; preds = %29
-  %41 = tail call i32 @Gia_ManMappingVerify_rec(ptr noundef nonnull %0, ptr noundef nonnull %22)
+36:                                               ; preds = %29
+  %37 = tail call i32 @Gia_ManMappingVerify_rec(ptr noundef nonnull %0, ptr noundef nonnull %22)
   br label %Gia_ObjIsAndNotBuf.exit.thread
 
-Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %40, %11, %Gia_ObjIsAndNotBuf.exit, %38
+Gia_ObjIsAndNotBuf.exit.thread:                   ; preds = %19, %36, %11, %Gia_ObjIsAndNotBuf.exit, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = load i32, ptr %6, align 8, !tbaa !27
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %9, label %.critedge, !llvm.loop !280
+  %38 = load i32, ptr %6, align 8, !tbaa !27
+  %39 = sext i32 %38 to i64
+  %40 = icmp slt i64 %indvars.iv.next, %39
+  br i1 %40, label %9, label %.critedge, !llvm.loop !280
 
 .critedge:                                        ; preds = %9, %Gia_ObjIsAndNotBuf.exit.thread, %.thread, %4
-  %45 = phi ptr [ %3, %.thread ], [ %5, %4 ], [ %5, %Gia_ObjIsAndNotBuf.exit.thread ], [ %5, %9 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %47 = load ptr, ptr %46, align 8, !tbaa !53
-  %48 = getelementptr i8, ptr %47, i64 4
-  %.val4775 = load i32, ptr %48, align 4, !tbaa !54
-  %49 = icmp sgt i32 %.val4775, 0
-  br i1 %49, label %.lr.ph78, label %.critedge2
+  %41 = phi ptr [ %3, %.thread ], [ %5, %4 ], [ %5, %Gia_ObjIsAndNotBuf.exit.thread ], [ %5, %9 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %43 = load ptr, ptr %42, align 8, !tbaa !53
+  %44 = getelementptr i8, ptr %43, i64 4
+  %.val4781 = load i32, ptr %44, align 4, !tbaa !54
+  %45 = icmp sgt i32 %.val4781, 0
+  br i1 %45, label %.lr.ph84, label %.critedge2
 
-.lr.ph78:                                         ; preds = %.critedge
-  %50 = getelementptr i8, ptr %0, i64 264
-  br label %51
+.lr.ph84:                                         ; preds = %.critedge
+  %46 = getelementptr i8, ptr %0, i64 264
+  br label %47
 
-51:                                               ; preds = %.lr.ph78, %Gia_ObjIsAndNotBuf.exit61.thread
-  %indvars.iv81 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next82, %Gia_ObjIsAndNotBuf.exit61.thread ]
-  %52 = phi ptr [ %47, %.lr.ph78 ], [ %82, %Gia_ObjIsAndNotBuf.exit61.thread ]
-  %.val49 = load ptr, ptr %45, align 8, !tbaa !55
+47:                                               ; preds = %.lr.ph84, %Gia_ObjIsAndNotBuf.exit61.thread
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next88, %Gia_ObjIsAndNotBuf.exit61.thread ]
+  %48 = phi ptr [ %43, %.lr.ph84 ], [ %74, %Gia_ObjIsAndNotBuf.exit61.thread ]
+  %.val49 = load ptr, ptr %41, align 8, !tbaa !55
   %.not40 = icmp eq ptr %.val49, null
-  br i1 %.not40, label %.critedge2, label %53
+  br i1 %.not40, label %.critedge2, label %49
 
-53:                                               ; preds = %51
-  %54 = getelementptr i8, ptr %52, i64 8
-  %.val50.val = load ptr, ptr %54, align 8, !tbaa !47
-  %55 = getelementptr inbounds nuw i32, ptr %.val50.val, i64 %indvars.iv81
-  %56 = load i32, ptr %55, align 4, !tbaa !48
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val49, i64 %57
-  %59 = load i64, ptr %58, align 4
-  %60 = and i64 %59, 536870911
-  %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %58, i64 %61
-  %.val55 = load i64, ptr %62, align 4
-  %63 = and i64 %.val55, 2147483648
-  %.not.i.i59 = icmp ne i64 %63, 0
-  %64 = and i64 %.val55, 536870911
-  %65 = icmp eq i64 %64, 536870911
-  %narrow.i.not.i60 = or i1 %.not.i.i59, %65
+49:                                               ; preds = %47
+  %50 = getelementptr i8, ptr %48, i64 8
+  %.val50.val = load ptr, ptr %50, align 8, !tbaa !47
+  %51 = getelementptr inbounds nuw i32, ptr %.val50.val, i64 %indvars.iv87
+  %52 = load i32, ptr %51, align 4, !tbaa !48
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val49, i64 %53
+  %55 = load i64, ptr %54, align 4
+  %56 = and i64 %55, 536870911
+  %57 = sub nsw i64 0, %56
+  %58 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %54, i64 %57
+  %.val55 = load i64, ptr %58, align 4
+  %59 = and i64 %.val55, 2147483648
+  %.not.i.i59 = icmp ne i64 %59, 0
+  %60 = and i64 %.val55, 536870911
+  %61 = icmp eq i64 %60, 536870911
+  %narrow.i.not.i60 = or i1 %.not.i.i59, %61
   br i1 %narrow.i.not.i60, label %Gia_ObjIsAndNotBuf.exit61.thread, label %Gia_ObjIsAndNotBuf.exit61
 
-Gia_ObjIsAndNotBuf.exit61:                        ; preds = %53
-  %66 = lshr i64 %.val55, 32
-  %67 = xor i64 %66, %.val55
-  %68 = and i64 %67, 536870911
-  %.not68 = icmp eq i64 %68, 0
-  br i1 %.not68, label %Gia_ObjIsAndNotBuf.exit61.thread, label %69
+Gia_ObjIsAndNotBuf.exit61:                        ; preds = %49
+  %62 = lshr i64 %.val55, 32
+  %63 = xor i64 %62, %.val55
+  %64 = and i64 %63, 536870911
+  %.not69 = icmp eq i64 %64, 0
+  br i1 %.not69, label %Gia_ObjIsAndNotBuf.exit61.thread, label %65
 
-69:                                               ; preds = %Gia_ObjIsAndNotBuf.exit61
-  %70 = ptrtoint ptr %62 to i64
-  %71 = ptrtoint ptr %.val49 to i64
-  %72 = sub i64 %70, %71
-  %73 = sdiv exact i64 %72, 12
-  %.val = load ptr, ptr %50, align 8, !tbaa !46
-  %74 = getelementptr i8, ptr %.val, i64 8
-  %.val.val = load ptr, ptr %74, align 8, !tbaa !47
-  %sext69 = shl i64 %73, 32
-  %75 = ashr exact i64 %sext69, 30
-  %76 = getelementptr inbounds i8, ptr %.val.val, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !48
-  %.not70 = icmp eq i32 %77, 0
-  br i1 %.not70, label %78, label %80
+65:                                               ; preds = %Gia_ObjIsAndNotBuf.exit61
+  %reass.add75 = sub nsw i64 %53, %56
+  %.val = load ptr, ptr %46, align 8, !tbaa !46
+  %66 = getelementptr i8, ptr %.val, i64 8
+  %.val.val = load ptr, ptr %66, align 8, !tbaa !47
+  %sext72 = shl i64 %reass.add75, 32
+  %67 = ashr exact i64 %sext72, 30
+  %68 = getelementptr inbounds i8, ptr %.val.val, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !48
+  %.not73 = icmp eq i32 %69, 0
+  br i1 %.not73, label %70, label %72
 
-78:                                               ; preds = %69
-  %79 = trunc i64 %73 to i32
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.46, i32 noundef %79)
+70:                                               ; preds = %65
+  %71 = trunc i64 %reass.add75 to i32
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.46, i32 noundef %71)
   br label %Gia_ObjIsAndNotBuf.exit61.thread
 
-80:                                               ; preds = %69
-  %81 = tail call i32 @Gia_ManMappingVerify_rec(ptr noundef nonnull %0, ptr noundef nonnull %62)
+72:                                               ; preds = %65
+  %73 = tail call i32 @Gia_ManMappingVerify_rec(ptr noundef nonnull %0, ptr noundef nonnull %58)
   br label %Gia_ObjIsAndNotBuf.exit61.thread
 
-Gia_ObjIsAndNotBuf.exit61.thread:                 ; preds = %53, %Gia_ObjIsAndNotBuf.exit61, %80, %78
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %82 = load ptr, ptr %46, align 8, !tbaa !53
-  %83 = getelementptr i8, ptr %82, i64 4
-  %.val47 = load i32, ptr %83, align 4, !tbaa !54
-  %84 = sext i32 %.val47 to i64
-  %85 = icmp slt i64 %indvars.iv.next82, %84
-  br i1 %85, label %51, label %.critedge2, !llvm.loop !281
+Gia_ObjIsAndNotBuf.exit61.thread:                 ; preds = %49, %Gia_ObjIsAndNotBuf.exit61, %72, %70
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %74 = load ptr, ptr %42, align 8, !tbaa !53
+  %75 = getelementptr i8, ptr %74, i64 4
+  %.val47 = load i32, ptr %75, align 4, !tbaa !54
+  %76 = sext i32 %.val47 to i64
+  %77 = icmp slt i64 %indvars.iv.next88, %76
+  br i1 %77, label %47, label %.critedge2, !llvm.loop !281
 
-.critedge2:                                       ; preds = %51, %Gia_ObjIsAndNotBuf.exit61.thread, %.critedge
+.critedge2:                                       ; preds = %47, %Gia_ObjIsAndNotBuf.exit61.thread, %.critedge
   ret void
 }
 

@@ -173,7 +173,7 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %112, label %.preheader
+  br i1 %5, label %104, label %.preheader
 
 .preheader:                                       ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -202,12 +202,12 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   br i1 %exitcond.not, label %.critedge.thread, label %11, !llvm.loop !9
 
 .critedge:                                        ; preds = %11, %.preheader
-  %.lcssa41.promoted = phi i64 [ %.promoted, %.preheader ], [ %12, %11 ]
-  %18 = icmp eq i64 %.lcssa41.promoted, %7
+  %.lcssa43.promoted = phi i64 [ %.promoted, %.preheader ], [ %12, %11 ]
+  %18 = icmp eq i64 %.lcssa43.promoted, %7
   br i1 %18, label %.critedge.thread, label %29
 
 .critedge.thread:                                 ; preds = %16, %.critedge
-  %.lcssa41.promoted82 = phi i64 [ %.lcssa41.promoted, %.critedge ], [ %7, %16 ]
+  %.lcssa43.promoted85 = phi i64 [ %.lcssa43.promoted, %.critedge ], [ %7, %16 ]
   %19 = getelementptr inbounds i8, ptr %.pre.pre, i64 %7
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -224,27 +224,27 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   store ptr %19, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %28, align 8
-  br label %112
+  br label %104
 
 29:                                               ; preds = %.critedge.thread, %.critedge
-  %.lcssa41.promoted81 = phi i64 [ %.lcssa41.promoted82, %.critedge.thread ], [ %.lcssa41.promoted, %.critedge ]
-  %30 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa41.promoted81
+  %.lcssa43.promoted84 = phi i64 [ %.lcssa43.promoted85, %.critedge.thread ], [ %.lcssa43.promoted, %.critedge ]
+  %30 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted84
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %30, ptr %31, align 8
-  %.not49 = icmp ugt i64 %.lcssa41.promoted81, %7
-  br i1 %.not49, label %.critedge2.thread, label %.lr.ph50
+  %.not51 = icmp ugt i64 %.lcssa43.promoted84, %7
+  br i1 %.not51, label %.critedge2.thread, label %.lr.ph52
 
-.lr.ph50:                                         ; preds = %29
+.lr.ph52:                                         ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre77 = load i8, ptr %32, align 8
+  %.pre79 = load i8, ptr %32, align 8
   br label %33
 
-33:                                               ; preds = %.lr.ph50, %54
-  %.lcssa41.promoted52 = phi i64 [ %.lcssa41.promoted81, %.lr.ph50 ], [ %55, %54 ]
-  %34 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa41.promoted52
+33:                                               ; preds = %.lr.ph52, %54
+  %.lcssa43.promoted54 = phi i64 [ %.lcssa43.promoted84, %.lr.ph52 ], [ %55, %54 ]
+  %34 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted54
   %35 = load i8, ptr %34, align 1
   %.not24 = icmp eq i8 %35, 61
-  %.not25 = icmp eq i8 %35, %.pre77
+  %.not25 = icmp eq i8 %35, %.pre79
   %or.cond = select i1 %.not24, i1 true, i1 %.not25
   br i1 %or.cond, label %.critedge2.thread, label %36
 
@@ -255,15 +255,15 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   ]
 
 37:                                               ; preds = %36, %36
-  %38 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa41.promoted52
+  %38 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted54
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %39, ptr %31, align 8
   %40 = load i8, ptr %38, align 1
-  %41 = icmp ult i64 %.lcssa41.promoted52, %7
-  br i1 %41, label %.lr.ph53, label %._crit_edge.thread
+  %41 = icmp ult i64 %.lcssa43.promoted54, %7
+  br i1 %41, label %.lr.ph55, label %._crit_edge.thread
 
-.lr.ph53:                                         ; preds = %37, %.lr.ph53.backedge
-  %42 = phi i64 [ %43, %.lr.ph53.backedge ], [ %.lcssa41.promoted52, %37 ]
+.lr.ph55:                                         ; preds = %37, %.lr.ph55.backedge
+  %42 = phi i64 [ %43, %.lr.ph55.backedge ], [ %.lcssa43.promoted54, %37 ]
   %43 = add nuw i64 %42, 1
   store i64 %43, ptr %6, align 8
   %44 = getelementptr inbounds i8, ptr %.pre.pre, i64 %43
@@ -271,20 +271,20 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
   %46 = icmp eq i8 %45, %40
   br i1 %46, label %47, label %51
 
-47:                                               ; preds = %.lr.ph53
+47:                                               ; preds = %.lr.ph55
   %48 = getelementptr inbounds i8, ptr %.pre.pre, i64 %42
   %49 = load i8, ptr %48, align 1
   %.not26 = icmp eq i8 %49, 92
   %50 = icmp ult i64 %43, %7
-  %or.cond68 = and i1 %.not26, %50
-  br i1 %or.cond68, label %.lr.ph53.backedge, label %._crit_edge
+  %or.cond70 = and i1 %.not26, %50
+  br i1 %or.cond70, label %.lr.ph55.backedge, label %._crit_edge
 
-51:                                               ; preds = %.lr.ph53
+51:                                               ; preds = %.lr.ph55
   %.old = icmp ult i64 %43, %7
-  br i1 %.old, label %.lr.ph53.backedge, label %._crit_edge
+  br i1 %.old, label %.lr.ph55.backedge, label %._crit_edge
 
-.lr.ph53.backedge:                                ; preds = %51, %47
-  br label %.lr.ph53, !llvm.loop !10
+.lr.ph55.backedge:                                ; preds = %51, %47
+  br label %.lr.ph55, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %51, %47
   %.not27 = icmp eq i8 %45, %40
@@ -293,149 +293,145 @@ define hidden noundef zeroext i1 @_ZN11DCmdArgIter4nextEP10JavaThread(ptr nounde
 52:                                               ; preds = %._crit_edge
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
   tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 98, ptr noundef %53, ptr noundef nonnull @.str.4) #19
-  br label %112
+  br label %104
 
 54:                                               ; preds = %36
-  %55 = add i64 %.lcssa41.promoted52, 1
+  %55 = add i64 %.lcssa43.promoted54, 1
   store i64 %55, ptr %6, align 8
   %.not = icmp ugt i64 %55, %7
   br i1 %.not, label %.critedge2.thread, label %33, !llvm.loop !11
 
 .critedge2.thread:                                ; preds = %54, %33, %29
-  %56 = phi i64 [ %.lcssa41.promoted81, %29 ], [ %55, %54 ], [ %.lcssa41.promoted52, %33 ]
-  %gepdiff79 = sub nsw i64 %56, %.lcssa41.promoted81
+  %56 = phi i64 [ %.lcssa43.promoted84, %29 ], [ %55, %54 ], [ %.lcssa43.promoted54, %33 ]
+  %gepdiff82 = sub nsw i64 %56, %.lcssa43.promoted84
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %gepdiff79, ptr %57, align 8
-  br label %65
+  store i64 %gepdiff82, ptr %57, align 8
+  br label %61
 
 ._crit_edge.thread:                               ; preds = %37, %._crit_edge
-  %58 = phi i64 [ %43, %._crit_edge ], [ %.lcssa41.promoted52, %37 ]
-  %59 = getelementptr inbounds i8, ptr %.pre.pre, i64 %58
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %39 to i64
-  %62 = sub i64 %60, %61
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %62, ptr %63, align 8
-  %64 = add i64 %58, 1
-  store i64 %64, ptr %6, align 8
-  br label %65
+  %58 = phi i64 [ %43, %._crit_edge ], [ %.lcssa43.promoted54, %37 ]
+  %.neg = xor i64 %.lcssa43.promoted84, -1
+  %gepdiff81 = add i64 %58, %.neg
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %gepdiff81, ptr %59, align 8
+  %60 = add i64 %58, 1
+  store i64 %60, ptr %6, align 8
+  br label %61
 
-65:                                               ; preds = %.critedge2.thread, %._crit_edge.thread
-  %66 = phi i64 [ %56, %.critedge2.thread ], [ %64, %._crit_edge.thread ]
-  %67 = phi i64 [ %gepdiff79, %.critedge2.thread ], [ %62, %._crit_edge.thread ]
-  %.not28 = icmp ugt i64 %66, %7
-  br i1 %.not28, label %108, label %68
+61:                                               ; preds = %.critedge2.thread, %._crit_edge.thread
+  %62 = phi i64 [ %56, %.critedge2.thread ], [ %60, %._crit_edge.thread ]
+  %63 = phi i64 [ %gepdiff82, %.critedge2.thread ], [ %gepdiff81, %._crit_edge.thread ]
+  %.not28 = icmp ugt i64 %62, %7
+  br i1 %.not28, label %100, label %64
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.pre.pre, i64 %66
-  %70 = load i8, ptr %69, align 1
-  %71 = icmp eq i8 %70, 61
-  br i1 %71, label %72, label %108
+64:                                               ; preds = %61
+  %65 = getelementptr inbounds i8, ptr %.pre.pre, i64 %62
+  %66 = load i8, ptr %65, align 1
+  %67 = icmp eq i8 %66, 61
+  br i1 %67, label %68, label %100
 
-72:                                               ; preds = %68
-  %73 = add i64 %66, 1
-  store i64 %73, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %.pre.pre, i64 %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %74, ptr %75, align 8
-  %.not2957 = icmp ugt i64 %73, %7
-  br i1 %.not2957, label %.critedge4, label %.lr.ph59
+68:                                               ; preds = %64
+  %69 = add i64 %62, 1
+  store i64 %69, ptr %6, align 8
+  %70 = getelementptr inbounds i8, ptr %.pre.pre, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %70, ptr %71, align 8
+  %.not2959 = icmp ugt i64 %69, %7
+  br i1 %.not2959, label %.critedge4, label %.lr.ph61
 
-.lr.ph59:                                         ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre78 = load i8, ptr %76, align 8
-  br label %77
+.lr.ph61:                                         ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.pre80 = load i8, ptr %72, align 8
+  br label %73
 
-77:                                               ; preds = %.lr.ph59, %98
-  %.lcssa41.promoted63 = phi i64 [ %73, %.lr.ph59 ], [ %99, %98 ]
-  %78 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa41.promoted63
-  %79 = load i8, ptr %78, align 1
-  %.not30 = icmp eq i8 %79, %.pre78
-  br i1 %.not30, label %.critedge4, label %80
+73:                                               ; preds = %.lr.ph61, %94
+  %.lcssa43.promoted65 = phi i64 [ %69, %.lr.ph61 ], [ %95, %94 ]
+  %74 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted65
+  %75 = load i8, ptr %74, align 1
+  %.not30 = icmp eq i8 %75, %.pre80
+  br i1 %.not30, label %.critedge4, label %76
 
-80:                                               ; preds = %77
-  switch i8 %79, label %98 [
-    i8 34, label %81
-    i8 39, label %81
+76:                                               ; preds = %73
+  switch i8 %75, label %94 [
+    i8 34, label %77
+    i8 39, label %77
   ]
 
-81:                                               ; preds = %80, %80
-  %82 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa41.promoted63
-  %83 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  store ptr %83, ptr %75, align 8
-  %84 = load i8, ptr %82, align 1
-  %85 = icmp ult i64 %.lcssa41.promoted63, %7
-  br i1 %85, label %.lr.ph65, label %.critedge34
+77:                                               ; preds = %76, %76
+  %78 = getelementptr inbounds i8, ptr %.pre.pre, i64 %.lcssa43.promoted65
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  store ptr %79, ptr %71, align 8
+  %80 = load i8, ptr %78, align 1
+  %81 = icmp ult i64 %.lcssa43.promoted65, %7
+  br i1 %81, label %.lr.ph67, label %.critedge34
 
-.lr.ph65:                                         ; preds = %81, %.lr.ph65.backedge
-  %86 = phi i64 [ %87, %.lr.ph65.backedge ], [ %.lcssa41.promoted63, %81 ]
-  %87 = add nuw i64 %86, 1
-  store i64 %87, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %.pre.pre, i64 %87
+.lr.ph67:                                         ; preds = %77, %.lr.ph67.backedge
+  %82 = phi i64 [ %83, %.lr.ph67.backedge ], [ %.lcssa43.promoted65, %77 ]
+  %83 = add nuw i64 %82, 1
+  store i64 %83, ptr %6, align 8
+  %84 = getelementptr inbounds i8, ptr %.pre.pre, i64 %83
+  %85 = load i8, ptr %84, align 1
+  %86 = icmp eq i8 %85, %80
+  br i1 %86, label %87, label %91
+
+87:                                               ; preds = %.lr.ph67
+  %88 = getelementptr inbounds i8, ptr %.pre.pre, i64 %82
   %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i8 %89, %84
-  br i1 %90, label %91, label %95
+  %.not31 = icmp eq i8 %89, 92
+  %90 = icmp ult i64 %83, %7
+  %or.cond72 = and i1 %.not31, %90
+  br i1 %or.cond72, label %.lr.ph67.backedge, label %._crit_edge68
 
-91:                                               ; preds = %.lr.ph65
-  %92 = getelementptr inbounds i8, ptr %.pre.pre, i64 %86
-  %93 = load i8, ptr %92, align 1
-  %.not31 = icmp eq i8 %93, 92
-  %94 = icmp ult i64 %87, %7
-  %or.cond70 = and i1 %.not31, %94
-  br i1 %or.cond70, label %.lr.ph65.backedge, label %._crit_edge66
+91:                                               ; preds = %.lr.ph67
+  %.old71 = icmp ult i64 %83, %7
+  br i1 %.old71, label %.lr.ph67.backedge, label %._crit_edge68
 
-95:                                               ; preds = %.lr.ph65
-  %.old69 = icmp ult i64 %87, %7
-  br i1 %.old69, label %.lr.ph65.backedge, label %._crit_edge66
+.lr.ph67.backedge:                                ; preds = %91, %87
+  br label %.lr.ph67, !llvm.loop !12
 
-.lr.ph65.backedge:                                ; preds = %95, %91
-  br label %.lr.ph65, !llvm.loop !12
+._crit_edge68:                                    ; preds = %91, %87
+  %.not32 = icmp eq i8 %85, %80
+  br i1 %.not32, label %.critedge34, label %92
 
-._crit_edge66:                                    ; preds = %95, %91
-  %.not32 = icmp eq i8 %89, %84
-  br i1 %.not32, label %.critedge34, label %96
+92:                                               ; preds = %._crit_edge68
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef %93, ptr noundef nonnull @.str.4) #19
+  br label %104
 
-96:                                               ; preds = %._crit_edge66
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  tail call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 129, ptr noundef %97, ptr noundef nonnull @.str.4) #19
-  br label %112
+94:                                               ; preds = %76
+  %95 = add i64 %.lcssa43.promoted65, 1
+  store i64 %95, ptr %6, align 8
+  %.not29 = icmp ugt i64 %95, %7
+  br i1 %.not29, label %.critedge4, label %73, !llvm.loop !13
 
-98:                                               ; preds = %80
-  %99 = add i64 %.lcssa41.promoted63, 1
+.critedge4:                                       ; preds = %73, %94, %68
+  %.lcssa = phi i64 [ %69, %68 ], [ %95, %94 ], [ %.lcssa43.promoted65, %73 ]
+  %gepdiff36 = sub nsw i64 %.lcssa, %69
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %gepdiff36, ptr %96, align 8
+  br label %102
+
+.critedge34:                                      ; preds = %77, %._crit_edge68
+  %97 = phi i64 [ %83, %._crit_edge68 ], [ %.lcssa43.promoted65, %77 ]
+  %reass.sub = sub i64 %97, %62
+  %gepdiff = add i64 %reass.sub, -2
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %gepdiff, ptr %98, align 8
+  %99 = add i64 %97, 1
   store i64 %99, ptr %6, align 8
-  %.not29 = icmp ugt i64 %99, %7
-  br i1 %.not29, label %.critedge4, label %77, !llvm.loop !13
+  br label %102
 
-.critedge4:                                       ; preds = %77, %98, %72
-  %.lcssa = phi i64 [ %73, %72 ], [ %99, %98 ], [ %.lcssa41.promoted63, %77 ]
-  %gepdiff = sub nsw i64 %.lcssa, %73
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %gepdiff, ptr %100, align 8
-  br label %110
+100:                                              ; preds = %64, %61
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
+  br label %102
 
-.critedge34:                                      ; preds = %81, %._crit_edge66
-  %101 = phi i64 [ %87, %._crit_edge66 ], [ %.lcssa41.promoted63, %81 ]
-  %102 = getelementptr inbounds i8, ptr %.pre.pre, i64 %101
-  %103 = ptrtoint ptr %102 to i64
-  %104 = ptrtoint ptr %83 to i64
-  %105 = sub i64 %103, %104
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %105, ptr %106, align 8
-  %107 = add i64 %101, 1
-  store i64 %107, ptr %6, align 8
-  br label %110
+102:                                              ; preds = %.critedge4, %.critedge34, %100
+  %103 = icmp ne i64 %63, 0
+  br label %104
 
-108:                                              ; preds = %68, %65
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
-  br label %110
-
-110:                                              ; preds = %.critedge4, %.critedge34, %108
-  %111 = icmp ne i64 %67, 0
-  br label %112
-
-112:                                              ; preds = %2, %110, %96, %52, %24
-  %.0 = phi i1 [ false, %24 ], [ false, %52 ], [ false, %96 ], [ %111, %110 ], [ false, %2 ]
+104:                                              ; preds = %2, %102, %92, %52, %24
+  %.0 = phi i1 [ false, %24 ], [ false, %52 ], [ false, %92 ], [ %103, %102 ], [ false, %2 ]
   ret i1 %.0
 }
 

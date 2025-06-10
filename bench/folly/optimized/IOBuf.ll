@@ -869,22 +869,20 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly5IOBuf17go
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.0.i.i
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   call void @_ZN5folly5IOBuf10SharedInfoC1EPFvPvS2_ES2_NS1_11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(31) %27, ptr noundef null, ptr noundef null, i8 noundef zeroext 3)
-  %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %24 to i64
-  %30 = sub i64 %28, %29
-  store i64 %30, ptr %3, align 8, !tbaa !60
+  %28 = add i64 %.0.i.i, -32
+  store i64 %28, ptr %3, align 8, !tbaa !60
   store ptr %27, ptr %2, align 8, !tbaa !67
-  %31 = inttoptr i64 %.0.i.i to ptr
-  %32 = getelementptr inbounds i8, ptr %26, i64 -24
-  store ptr %31, ptr %32, align 8, !tbaa !19
+  %29 = inttoptr i64 %.0.i.i to ptr
+  %30 = getelementptr inbounds i8, ptr %26, i64 -24
+  store ptr %29, ptr %30, align 8, !tbaa !19
   %.not = icmp eq ptr @_Z15io_buf_alloc_cbPvm, null
-  br i1 %.not, label %34, label %33
+  br i1 %.not, label %32, label %31
 
-33:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
+31:                                               ; preds = %_ZN5folly13checkedMallocEm.exit
   call void @_Z15io_buf_alloc_cbPvm(ptr noundef nonnull %24, i64 noundef %.0.i.i) #39
-  br label %34
+  br label %32
 
-34:                                               ; preds = %33, %_ZN5folly13checkedMallocEm.exit
+32:                                               ; preds = %31, %_ZN5folly13checkedMallocEm.exit
   store ptr %24, ptr %1, align 8, !tbaa !70
   ret void
 }
@@ -3877,7 +3875,7 @@ _ZN5folly11checked_addImvEEbPT_S1_S1_.exit:       ; preds = %10, %3
 33:                                               ; preds = %16
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %18, i64 %7, i1 false)
-  br label %149
+  br label %147
 
 35:                                               ; preds = %16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4098,51 +4096,49 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly5IOBuf17go
   %131 = getelementptr inbounds nuw i8, ptr %.4, i64 %.1
   %132 = getelementptr inbounds i8, ptr %131, i64 -32
   call void @_ZN5folly5IOBuf10SharedInfoC1EPFvPvS2_ES2_NS1_11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(31) %132, ptr noundef null, ptr noundef null, i8 noundef zeroext 3)
-  %133 = ptrtoint ptr %132 to i64
-  %134 = ptrtoint ptr %.4 to i64
-  %135 = sub i64 %133, %134
+  %133 = add i64 %.1, -32
   %.not67 = icmp eq i8 %130, 0
-  br i1 %.not67, label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, label %136
+  br i1 %.not67, label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, label %134
 
-136:                                              ; preds = %.thread97
-  %137 = load ptr, ptr %36, align 8, !tbaa !66
+134:                                              ; preds = %.thread97
+  %135 = load ptr, ptr %36, align 8, !tbaa !66
   switch i8 %130, label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit [
-    i8 2, label %141
-    i8 1, label %138
+    i8 2, label %139
+    i8 1, label %136
   ]
 
+136:                                              ; preds = %134
+  %137 = icmp eq ptr %135, null
+  br i1 %137, label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, label %138
+
 138:                                              ; preds = %136
-  %139 = icmp eq ptr %137, null
-  br i1 %139, label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, label %140
-
-140:                                              ; preds = %138
-  call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef 32) #41
+  call void @_ZdlPvm(ptr noundef nonnull %135, i64 noundef 32) #41
   br label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit
 
-141:                                              ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %137, i64 -56
-  %143 = icmp eq ptr %142, %0
-  br i1 %143, label %144, label %146
+139:                                              ; preds = %134
+  %140 = getelementptr inbounds i8, ptr %135, i64 -56
+  %141 = icmp eq ptr %140, %0
+  br i1 %141, label %142, label %144
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %137, i64 -62
-  store atomic i8 1, ptr %145 monotonic, align 1
+142:                                              ; preds = %139
+  %143 = getelementptr inbounds i8, ptr %135, i64 -62
+  store atomic i8 1, ptr %143 monotonic, align 1
   br label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit
 
-146:                                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %137, i64 -64
-  call void @_ZN5folly5IOBuf24decrementStorageRefcountEPNS0_11HeapStorageE(ptr noundef nonnull %147) #39
+144:                                              ; preds = %139
+  %145 = getelementptr inbounds i8, ptr %135, i64 -64
+  call void @_ZN5folly5IOBuf24decrementStorageRefcountEPNS0_11HeapStorageE(ptr noundef nonnull %145) #39
   br label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit
 
-_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit: ; preds = %146, %144, %140, %138, %136, %.thread97
+_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit: ; preds = %144, %142, %138, %136, %134, %.thread97
   store ptr %132, ptr %36, align 8, !tbaa !66
-  store i64 %135, ptr %24, align 8, !tbaa !94
+  store i64 %133, ptr %24, align 8, !tbaa !94
   store ptr %.4, ptr %19, align 8, !tbaa !68
-  %148 = getelementptr inbounds nuw i8, ptr %.4, i64 %.447
-  br label %149
+  %146 = getelementptr inbounds nuw i8, ptr %.4, i64 %.447
+  br label %147
 
-149:                                              ; preds = %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, %33
-  %storemerge = phi ptr [ %34, %33 ], [ %148, %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit ]
+147:                                              ; preds = %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, %33
+  %storemerge = phi ptr [ %34, %33 ], [ %146, %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit ]
   store ptr %storemerge, ptr %17, align 8, !tbaa !69
   ret void
 }
@@ -4155,10 +4151,8 @@ define void @_ZN5folly5IOBuf13initExtBufferEPhmPPNS0_10SharedInfoEPm(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %6 = getelementptr inbounds i8, ptr %5, i64 -32
   tail call void @_ZN5folly5IOBuf10SharedInfoC1EPFvPvS2_ES2_NS1_11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(31) %6, ptr noundef null, ptr noundef null, i8 noundef zeroext 3)
-  %7 = ptrtoint ptr %6 to i64
-  %8 = ptrtoint ptr %0 to i64
-  %9 = sub i64 %7, %8
-  store i64 %9, ptr %3, align 8, !tbaa !60
+  %7 = add i64 %1, -32
+  store i64 %7, ptr %3, align 8, !tbaa !60
   store ptr %6, ptr %2, align 8, !tbaa !67
   ret void
 }

@@ -145936,157 +145936,156 @@ define linkonce_odr hidden noundef double @_ZN5boost12lexical_castIdNSt7__cxx111
   %or.cond.i.i = or i1 %13, %14
   %.037.idx.i.i = zext i1 %or.cond.i.i to i64
   %.037.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.037.idx.i.i
-  %15 = ptrtoint ptr %8 to i64
   %gepdiff = sub nuw nsw i64 %7, %.037.idx.i.i
-  %16 = icmp slt i64 %gepdiff, 3
-  br i1 %16, label %.loopexit, label %.lr.ph.i.i.i
+  %15 = icmp slt i64 %gepdiff, 3
+  br i1 %15, label %.loopexit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %11, %24
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %24 ], [ 0, %11 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 %indvars.iv.i.i.i
-  %18 = load i8, ptr %17, align 1, !tbaa !24
-  %19 = getelementptr inbounds nuw i8, ptr @.str.792, i64 %indvars.iv.i.i.i
-  %20 = load i8, ptr %19, align 1, !tbaa !24
-  %.not.i.i.i = icmp eq i8 %18, %20
-  br i1 %.not.i.i.i, label %24, label %21
+.lr.ph.i.i.i:                                     ; preds = %11, %23
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %23 ], [ 0, %11 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 %indvars.iv.i.i.i
+  %17 = load i8, ptr %16, align 1, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr @.str.792, i64 %indvars.iv.i.i.i
+  %19 = load i8, ptr %18, align 1, !tbaa !24
+  %.not.i.i.i = icmp eq i8 %17, %19
+  br i1 %.not.i.i.i, label %23, label %20
 
-21:                                               ; preds = %.lr.ph.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr @.str.791, i64 %indvars.iv.i.i.i
-  %23 = load i8, ptr %22, align 1, !tbaa !24
-  %.not15.i.i.i = icmp eq i8 %18, %23
-  br i1 %.not15.i.i.i, label %24, label %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i
+20:                                               ; preds = %.lr.ph.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr @.str.791, i64 %indvars.iv.i.i.i
+  %22 = load i8, ptr %21, align 1, !tbaa !24
+  %.not15.i.i.i = icmp eq i8 %17, %22
+  br i1 %.not15.i.i.i, label %23, label %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i
 
-24:                                               ; preds = %21, %.lr.ph.i.i.i
+23:                                               ; preds = %20, %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %25, label %.lr.ph.i.i.i, !llvm.loop !2419
+  br i1 %exitcond.not.i.i.i, label %24, label %.lr.ph.i.i.i, !llvm.loop !2419
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 3
-  %.not.i.i = icmp eq ptr %8, %26
-  br i1 %.not.i.i, label %36, label %27
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 3
+  %.not.i.i = icmp eq ptr %8, %25
+  br i1 %.not.i.i, label %33, label %26
 
-27:                                               ; preds = %25
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %15, %28
-  %30 = icmp slt i64 %29, 2
-  br i1 %30, label %.loopexit, label %31
+26:                                               ; preds = %24
+  %.neg = select i1 %or.cond.i.i, i64 -4, i64 -3
+  %gepdiff6 = add i64 %.neg, %7
+  %27 = icmp slt i64 %gepdiff6, 2
+  br i1 %27, label %.loopexit, label %28
 
-31:                                               ; preds = %27
-  %32 = load i8, ptr %26, align 1, !tbaa !24
-  %.not43.i.i = icmp eq i8 %32, 40
-  br i1 %.not43.i.i, label %33, label %.loopexit
+28:                                               ; preds = %26
+  %29 = load i8, ptr %25, align 1, !tbaa !24
+  %.not43.i.i = icmp eq i8 %29, 40
+  br i1 %.not43.i.i, label %30, label %.loopexit
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %8, i64 -1
-  %35 = load i8, ptr %34, align 1, !tbaa !24
-  %.not44.i.i = icmp eq i8 %35, 41
-  br i1 %.not44.i.i, label %36, label %.loopexit
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %8, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !24
+  %.not44.i.i = icmp eq i8 %32, 41
+  br i1 %.not44.i.i, label %33, label %.loopexit
 
-36:                                               ; preds = %33, %25
+33:                                               ; preds = %30, %24
   %storemerge45.i.i = select i1 %13, double 0xFFF8000000000000, double 0x7FF8000000000000
   br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i: ; preds = %21
+_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i: ; preds = %20
   switch i64 %gepdiff, label %.loopexit [
     i64 3, label %.lr.ph.i46.i.i
     i64 8, label %.lr.ph.i54.i.i
   ]
 
-.lr.ph.i46.i.i:                                   ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i, %44
-  %indvars.iv.i47.i.i = phi i64 [ %indvars.iv.next.i51.i.i, %44 ], [ 0, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 %indvars.iv.i47.i.i
-  %38 = load i8, ptr %37, align 1, !tbaa !24
-  %39 = getelementptr inbounds nuw i8, ptr @.str.794, i64 %indvars.iv.i47.i.i
+.lr.ph.i46.i.i:                                   ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i, %41
+  %indvars.iv.i47.i.i = phi i64 [ %indvars.iv.next.i51.i.i, %41 ], [ 0, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 %indvars.iv.i47.i.i
+  %35 = load i8, ptr %34, align 1, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr @.str.794, i64 %indvars.iv.i47.i.i
+  %37 = load i8, ptr %36, align 1, !tbaa !24
+  %.not.i48.i.i = icmp eq i8 %35, %37
+  br i1 %.not.i48.i.i, label %41, label %38
+
+38:                                               ; preds = %.lr.ph.i46.i.i
+  %39 = getelementptr inbounds nuw i8, ptr @.str.793, i64 %indvars.iv.i47.i.i
   %40 = load i8, ptr %39, align 1, !tbaa !24
-  %.not.i48.i.i = icmp eq i8 %38, %40
-  br i1 %.not.i48.i.i, label %44, label %41
+  %.not15.i49.i.i = icmp eq i8 %35, %40
+  br i1 %.not15.i49.i.i, label %41, label %.loopexit
 
-41:                                               ; preds = %.lr.ph.i46.i.i
-  %42 = getelementptr inbounds nuw i8, ptr @.str.793, i64 %indvars.iv.i47.i.i
-  %43 = load i8, ptr %42, align 1, !tbaa !24
-  %.not15.i49.i.i = icmp eq i8 %38, %43
-  br i1 %.not15.i49.i.i, label %44, label %.loopexit
-
-44:                                               ; preds = %41, %.lr.ph.i46.i.i
+41:                                               ; preds = %38, %.lr.ph.i46.i.i
   %indvars.iv.next.i51.i.i = add nuw nsw i64 %indvars.iv.i47.i.i, 1
   %exitcond.not.i52.i.i = icmp eq i64 %indvars.iv.next.i51.i.i, 3
   br i1 %exitcond.not.i52.i.i, label %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i, label %.lr.ph.i46.i.i, !llvm.loop !2419
 
-.lr.ph.i54.i.i:                                   ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i, %52
-  %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i59.i.i, %52 ], [ 0, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 %indvars.iv.i55.i.i
-  %46 = load i8, ptr %45, align 1, !tbaa !24
-  %47 = getelementptr inbounds nuw i8, ptr @.str.794, i64 %indvars.iv.i55.i.i
+.lr.ph.i54.i.i:                                   ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i, %49
+  %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i59.i.i, %49 ], [ 0, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.037.i.i, i64 %indvars.iv.i55.i.i
+  %43 = load i8, ptr %42, align 1, !tbaa !24
+  %44 = getelementptr inbounds nuw i8, ptr @.str.794, i64 %indvars.iv.i55.i.i
+  %45 = load i8, ptr %44, align 1, !tbaa !24
+  %.not.i56.i.i = icmp eq i8 %43, %45
+  br i1 %.not.i56.i.i, label %49, label %46
+
+46:                                               ; preds = %.lr.ph.i54.i.i
+  %47 = getelementptr inbounds nuw i8, ptr @.str.793, i64 %indvars.iv.i55.i.i
   %48 = load i8, ptr %47, align 1, !tbaa !24
-  %.not.i56.i.i = icmp eq i8 %46, %48
-  br i1 %.not.i56.i.i, label %52, label %49
+  %.not15.i57.i.i = icmp eq i8 %43, %48
+  br i1 %.not15.i57.i.i, label %49, label %.loopexit
 
-49:                                               ; preds = %.lr.ph.i54.i.i
-  %50 = getelementptr inbounds nuw i8, ptr @.str.793, i64 %indvars.iv.i55.i.i
-  %51 = load i8, ptr %50, align 1, !tbaa !24
-  %.not15.i57.i.i = icmp eq i8 %46, %51
-  br i1 %.not15.i57.i.i, label %52, label %.loopexit
-
-52:                                               ; preds = %49, %.lr.ph.i54.i.i
+49:                                               ; preds = %46, %.lr.ph.i54.i.i
   %indvars.iv.next.i59.i.i = add nuw nsw i64 %indvars.iv.i55.i.i, 1
   %exitcond.not.i60.i.i = icmp eq i64 %indvars.iv.next.i59.i.i, 8
   br i1 %exitcond.not.i60.i.i, label %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i, label %.lr.ph.i54.i.i, !llvm.loop !2419
 
-_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i: ; preds = %52, %44
+_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i: ; preds = %49, %41
   %storemerge.i.i = select i1 %13, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i, %36
-  %storemerge45.sink.i.i = phi double [ %storemerge45.i.i, %36 ], [ %storemerge.i.i, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i ]
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread: ; preds = %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i, %33
+  %storemerge45.sink.i.i = phi double [ %storemerge45.i.i, %33 ], [ %storemerge.i.i, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit53.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #56
-  br label %63
+  br label %60
 
-.loopexit:                                        ; preds = %49, %41, %1, %11, %27, %33, %31, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i
-  %53 = call noundef zeroext i1 @_ZN5boost6detail5lcast16to_target_streamIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %53, label %54, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
+.loopexit:                                        ; preds = %46, %38, %1, %11, %26, %30, %28, %_ZN5boost6detail9lc_iequalIcEEbPKT_S4_S4_j.exit.i.i
+  %50 = call noundef zeroext i1 @_ZN5boost6detail5lcast16to_target_streamIcSt11char_traitsIcEE20shr_using_base_classIdEEbRT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %50, label %51, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
 
-54:                                               ; preds = %.loopexit
-  %55 = load ptr, ptr %9, align 8, !tbaa !2418
-  %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %57 = load i8, ptr %56, align 1, !tbaa !24
-  switch i8 %57, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 [
+51:                                               ; preds = %.loopexit
+  %52 = load ptr, ptr %9, align 8, !tbaa !2418
+  %53 = getelementptr inbounds i8, ptr %52, i64 -1
+  %54 = load i8, ptr %53, align 1, !tbaa !24
+  switch i8 %54, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 [
     i8 101, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
     i8 69, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
     i8 45, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
     i8 43, label %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
   ]
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5: ; preds = %54
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5: ; preds = %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #56
   %.pre = load double, ptr %4, align 8, !tbaa !2330
-  br label %63
+  br label %60
 
-_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3: ; preds = %.loopexit, %54, %54, %54, %54
+_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3: ; preds = %.loopexit, %51, %51, %51, %51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #56
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost16bad_lexical_castE, i64 16), ptr %2, align 8, !tbaa !25
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %58, align 8, !tbaa !2420
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @_ZTId, ptr %59, align 8, !tbaa !2424
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr %55, align 8, !tbaa !2420
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr @_ZTId, ptr %56, align 8, !tbaa !2424
   invoke void @_ZN5boost15throw_exceptionINS_16bad_lexical_castEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %2) #55
-          to label %60 unwind label %61
+          to label %57 unwind label %58
 
-60:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
+57:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
   unreachable
 
-61:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
-  %62 = landingpad { ptr, i32 }
+58:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread3
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #56
-  resume { ptr, i32 } %62
+  resume { ptr, i32 } %59
 
-63:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
-  %64 = phi double [ %.pre, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 ], [ %storemerge45.sink.i.i, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread ]
+60:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread
+  %61 = phi double [ %.pre, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread5 ], [ %storemerge45.sink.i.i, %_ZN5boost10conversion6detail19try_lexical_convertIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #56
-  ret double %64
+  ret double %61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -147189,14 +147188,14 @@ define linkonce_odr hidden ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iterato
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.018)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.0, i64 16, i1 false), !tbaa.struct !1700
-  %.idx = shl nsw i64 %.0, 4
-  %28 = getelementptr inbounds i8, ptr %.sroa.044.0, i64 %.idx
+  %.idx89 = shl nsw i64 %.0, 4
+  %28 = getelementptr inbounds i8, ptr %.sroa.044.0, i64 %.idx89
   %.not.i.i.i.i.i = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 16
-  %gepdiff = add nsw i64 %.idx, -16
+  %gepdiff = add nsw i64 %.idx89, -16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sroa.044.0, ptr nonnull align 8 %30, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
 
@@ -147208,40 +147207,40 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
 
 32:                                               ; preds = %25
   %33 = icmp sgt i64 %23, 0
-  br i1 %33, label %.lr.ph101.preheader, label %._crit_edge102
+  br i1 %33, label %.lr.ph102.preheader, label %._crit_edge103
 
-.lr.ph101.preheader:                              ; preds = %32
+.lr.ph102.preheader:                              ; preds = %32
   %34 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %.sroa.044.0, i64 %.087
-  br label %.lr.ph101
+  br label %.lr.ph102
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %32
-  %.sroa.044.1.lcssa = phi ptr [ %.sroa.044.0, %32 ], [ %36, %.lr.ph101 ]
+._crit_edge103:                                   ; preds = %.lr.ph102, %32
+  %.sroa.044.1.lcssa = phi ptr [ %.sroa.044.0, %32 ], [ %36, %.lr.ph102 ]
   %35 = srem i64 %.0, %.087
   %.not32 = icmp eq i64 %35, 0
   br i1 %.not32, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, label %39
 
-.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
-  %.02999 = phi i64 [ %38, %.lr.ph101 ], [ 0, %.lr.ph101.preheader ]
-  %.sroa.044.198 = phi ptr [ %36, %.lr.ph101 ], [ %.sroa.044.0, %.lr.ph101.preheader ]
-  %.sroa.041.097 = phi ptr [ %37, %.lr.ph101 ], [ %34, %.lr.ph101.preheader ]
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+  %.029100 = phi i64 [ %38, %.lr.ph102 ], [ 0, %.lr.ph102.preheader ]
+  %.sroa.044.199 = phi ptr [ %36, %.lr.ph102 ], [ %.sroa.044.0, %.lr.ph102.preheader ]
+  %.sroa.041.098 = phi ptr [ %37, %.lr.ph102 ], [ %34, %.lr.ph102.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.198, i64 16, i1 false), !tbaa.struct !1700
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.198, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.097, i64 16, i1 false), !tbaa.struct !1700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.097, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.199, i64 16, i1 false), !tbaa.struct !1700
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.098, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.098, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.044.198, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.097, i64 16
-  %38 = add nuw nsw i64 %.02999, 1
-  %exitcond110.not = icmp eq i64 %38, %23
-  br i1 %exitcond110.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !2461
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.044.199, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.098, i64 16
+  %38 = add nuw nsw i64 %.029100, 1
+  %exitcond111.not = icmp eq i64 %38, %23
+  br i1 %exitcond111.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !2461
 
-39:                                               ; preds = %._crit_edge102
+39:                                               ; preds = %._crit_edge103
   %40 = sub nsw i64 %.087, %35
   br label %.backedge
 
 41:                                               ; preds = %22
   %42 = icmp eq i64 %23, 1
-  br i1 %42, label %43, label %53
+  br i1 %42, label %43, label %51
 
 43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.09)
@@ -147252,13 +147251,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
   br i1 %.not.i.i.i.i.i35, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %.sroa.044.0 to i64
-  %49 = sub i64 %47, %48
-  %50 = ashr exact i64 %49, 4
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %44, i64 %51
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr nonnull align 8 %.sroa.044.0, i64 %49, i1 false)
+  %.idx = shl nsw i64 %.0, 4
+  %47 = add i64 %.idx, -16
+  %48 = ashr exact i64 %47, 4
+  %49 = sub nsw i64 0, %48
+  %50 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %44, i64 %49
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %50, ptr nonnull align 8 %.sroa.044.0, i64 %47, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %43, %46
@@ -147266,42 +147264,42 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5point
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.09)
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit
 
-53:                                               ; preds = %41
-  %54 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %.sroa.044.0, i64 %.0
-  %55 = sub i64 0, %23
-  %56 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %54, i64 %55
-  %57 = icmp sgt i64 %.087, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+51:                                               ; preds = %41
+  %52 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %.sroa.044.0, i64 %.0
+  %53 = sub i64 0, %23
+  %54 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %52, i64 %53
+  %55 = icmp sgt i64 %.087, 0
+  br i1 %55, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.sroa.044.3.lcssa = phi ptr [ %56, %53 ], [ %.sroa.044.0, %.lr.ph ]
-  %58 = srem i64 %.0, %23
-  %.not = icmp eq i64 %58, 0
+._crit_edge:                                      ; preds = %.lr.ph, %51
+  %.sroa.044.3.lcssa = phi ptr [ %54, %51 ], [ %.sroa.044.0, %.lr.ph ]
+  %56 = srem i64 %.0, %23
+  %.not = icmp eq i64 %56, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %39
   %.sroa.044.0.be = phi ptr [ %.sroa.044.1.lcssa, %39 ], [ %.sroa.044.3.lcssa, %._crit_edge ]
-  %.087.be = phi i64 [ %40, %39 ], [ %58, %._crit_edge ]
+  %.087.be = phi i64 [ %40, %39 ], [ %56, %._crit_edge ]
   %.0.be = phi i64 [ %.087, %39 ], [ %23, %._crit_edge ]
   br label %22, !llvm.loop !2462
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %.02896 = phi i64 [ %61, %.lr.ph ], [ 0, %53 ]
-  %.sroa.0.095 = phi ptr [ %60, %.lr.ph ], [ %54, %53 ]
-  %.sroa.044.394 = phi ptr [ %59, %.lr.ph ], [ %56, %53 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.044.394, i64 -16
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.095, i64 -16
+.lr.ph:                                           ; preds = %51, %.lr.ph
+  %.02897 = phi i64 [ %59, %.lr.ph ], [ 0, %51 ]
+  %.sroa.0.096 = phi ptr [ %58, %.lr.ph ], [ %52, %51 ]
+  %.sroa.044.395 = phi ptr [ %57, %.lr.ph ], [ %54, %51 ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.044.395, i64 -16
+  %58 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i36)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !1700
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !1700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !1700
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, i64 16, i1 false), !tbaa.struct !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i36)
-  %61 = add nuw nsw i64 %.02896, 1
-  %exitcond.not = icmp eq i64 %61, %.087
+  %59 = add nuw nsw i64 %.02897, 1
+  %exitcond.not = icmp eq i64 %59, %.087
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2463
 
-_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge102 ], [ %21, %._crit_edge ]
+_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit: ; preds = %._crit_edge, %._crit_edge103, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit, %5, %3
+  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs9cartesianEEESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -150664,14 +150662,14 @@ define linkonce_odr hidden ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iterato
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.018)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.0, i64 16, i1 false), !tbaa.struct !1700
-  %.idx = shl nsw i64 %.0, 4
-  %28 = getelementptr inbounds i8, ptr %.sroa.044.0, i64 %.idx
+  %.idx89 = shl nsw i64 %.0, 4
+  %28 = getelementptr inbounds i8, ptr %.sroa.044.0, i64 %.idx89
   %.not.i.i.i.i.i = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 16
-  %gepdiff = add nsw i64 %.idx, -16
+  %gepdiff = add nsw i64 %.idx89, -16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sroa.044.0, ptr nonnull align 8 %30, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit
 
@@ -150683,40 +150681,40 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
 
 32:                                               ; preds = %25
   %33 = icmp sgt i64 %23, 0
-  br i1 %33, label %.lr.ph101.preheader, label %._crit_edge102
+  br i1 %33, label %.lr.ph102.preheader, label %._crit_edge103
 
-.lr.ph101.preheader:                              ; preds = %32
+.lr.ph102.preheader:                              ; preds = %32
   %34 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %.sroa.044.0, i64 %.087
-  br label %.lr.ph101
+  br label %.lr.ph102
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %32
-  %.sroa.044.1.lcssa = phi ptr [ %.sroa.044.0, %32 ], [ %36, %.lr.ph101 ]
+._crit_edge103:                                   ; preds = %.lr.ph102, %32
+  %.sroa.044.1.lcssa = phi ptr [ %.sroa.044.0, %32 ], [ %36, %.lr.ph102 ]
   %35 = srem i64 %.0, %.087
   %.not32 = icmp eq i64 %35, 0
   br i1 %.not32, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %39
 
-.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
-  %.02999 = phi i64 [ %38, %.lr.ph101 ], [ 0, %.lr.ph101.preheader ]
-  %.sroa.044.198 = phi ptr [ %36, %.lr.ph101 ], [ %.sroa.044.0, %.lr.ph101.preheader ]
-  %.sroa.041.097 = phi ptr [ %37, %.lr.ph101 ], [ %34, %.lr.ph101.preheader ]
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+  %.029100 = phi i64 [ %38, %.lr.ph102 ], [ 0, %.lr.ph102.preheader ]
+  %.sroa.044.199 = phi ptr [ %36, %.lr.ph102 ], [ %.sroa.044.0, %.lr.ph102.preheader ]
+  %.sroa.041.098 = phi ptr [ %37, %.lr.ph102 ], [ %34, %.lr.ph102.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.198, i64 16, i1 false), !tbaa.struct !1700
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.198, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.097, i64 16, i1 false), !tbaa.struct !1700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.097, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.199, i64 16, i1 false), !tbaa.struct !1700
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.098, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.098, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.044.198, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.097, i64 16
-  %38 = add nuw nsw i64 %.02999, 1
-  %exitcond110.not = icmp eq i64 %38, %23
-  br i1 %exitcond110.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !2533
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.044.199, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.098, i64 16
+  %38 = add nuw nsw i64 %.029100, 1
+  %exitcond111.not = icmp eq i64 %38, %23
+  br i1 %exitcond111.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !2533
 
-39:                                               ; preds = %._crit_edge102
+39:                                               ; preds = %._crit_edge103
   %40 = sub nsw i64 %.087, %35
   br label %.backedge
 
 41:                                               ; preds = %22
   %42 = icmp eq i64 %23, 1
-  br i1 %42, label %43, label %53
+  br i1 %42, label %43, label %51
 
 43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.09)
@@ -150727,13 +150725,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
   br i1 %.not.i.i.i.i.i35, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %.sroa.044.0 to i64
-  %49 = sub i64 %47, %48
-  %50 = ashr exact i64 %49, 4
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %44, i64 %51
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr nonnull align 8 %.sroa.044.0, i64 %49, i1 false)
+  %.idx = shl nsw i64 %.0, 4
+  %47 = add i64 %.idx, -16
+  %48 = ashr exact i64 %47, 4
+  %49 = sub nsw i64 0, %48
+  %50 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %44, i64 %49
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %50, ptr nonnull align 8 %.sroa.044.0, i64 %47, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %43, %46
@@ -150741,42 +150738,42 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5point
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.09)
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit
 
-53:                                               ; preds = %41
-  %54 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %.sroa.044.0, i64 %.0
-  %55 = sub i64 0, %23
-  %56 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %54, i64 %55
-  %57 = icmp sgt i64 %.087, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+51:                                               ; preds = %41
+  %52 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %.sroa.044.0, i64 %.0
+  %53 = sub i64 0, %23
+  %54 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %52, i64 %53
+  %55 = icmp sgt i64 %.087, 0
+  br i1 %55, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.sroa.044.3.lcssa = phi ptr [ %56, %53 ], [ %.sroa.044.0, %.lr.ph ]
-  %58 = srem i64 %.0, %23
-  %.not = icmp eq i64 %58, 0
+._crit_edge:                                      ; preds = %.lr.ph, %51
+  %.sroa.044.3.lcssa = phi ptr [ %54, %51 ], [ %.sroa.044.0, %.lr.ph ]
+  %56 = srem i64 %.0, %23
+  %.not = icmp eq i64 %56, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %39
   %.sroa.044.0.be = phi ptr [ %.sroa.044.1.lcssa, %39 ], [ %.sroa.044.3.lcssa, %._crit_edge ]
-  %.087.be = phi i64 [ %40, %39 ], [ %58, %._crit_edge ]
+  %.087.be = phi i64 [ %40, %39 ], [ %56, %._crit_edge ]
   %.0.be = phi i64 [ %.087, %39 ], [ %23, %._crit_edge ]
   br label %22, !llvm.loop !2534
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %.02896 = phi i64 [ %61, %.lr.ph ], [ 0, %53 ]
-  %.sroa.0.095 = phi ptr [ %60, %.lr.ph ], [ %54, %53 ]
-  %.sroa.044.394 = phi ptr [ %59, %.lr.ph ], [ %56, %53 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.044.394, i64 -16
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.095, i64 -16
+.lr.ph:                                           ; preds = %51, %.lr.ph
+  %.02897 = phi i64 [ %59, %.lr.ph ], [ 0, %51 ]
+  %.sroa.0.096 = phi ptr [ %58, %.lr.ph ], [ %52, %51 ]
+  %.sroa.044.395 = phi ptr [ %57, %.lr.ph ], [ %54, %51 ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.044.395, i64 -16
+  %58 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i36)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !1700
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !1700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !1700
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, i64 16, i1 false), !tbaa.struct !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i36)
-  %61 = add nuw nsw i64 %.02896, 1
-  %exitcond.not = icmp eq i64 %61, %.087
+  %59 = add nuw nsw i64 %.02897, 1
+  %exitcond.not = icmp eq i64 %59, %.087
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2535
 
-_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge102 ], [ %21, %._crit_edge ]
+_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %._crit_edge, %._crit_edge103, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %5, %3
+  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 
@@ -155214,14 +155211,14 @@ define linkonce_odr hidden ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iterato
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.018)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.018, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.0, i64 16, i1 false), !tbaa.struct !1700
-  %.idx = shl nsw i64 %.0, 4
-  %28 = getelementptr inbounds i8, ptr %.sroa.044.0, i64 %.idx
+  %.idx89 = shl nsw i64 %.0, 4
+  %28 = getelementptr inbounds i8, ptr %.sroa.044.0, i64 %.idx89
   %.not.i.i.i.i.i = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.044.0, i64 16
-  %gepdiff = add nsw i64 %.idx, -16
+  %gepdiff = add nsw i64 %.idx89, -16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sroa.044.0, ptr nonnull align 8 %30, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit
 
@@ -155233,40 +155230,40 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
 
 32:                                               ; preds = %25
   %33 = icmp sgt i64 %23, 0
-  br i1 %33, label %.lr.ph101.preheader, label %._crit_edge102
+  br i1 %33, label %.lr.ph102.preheader, label %._crit_edge103
 
-.lr.ph101.preheader:                              ; preds = %32
+.lr.ph102.preheader:                              ; preds = %32
   %34 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %.sroa.044.0, i64 %.087
-  br label %.lr.ph101
+  br label %.lr.ph102
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %32
-  %.sroa.044.1.lcssa = phi ptr [ %.sroa.044.0, %32 ], [ %36, %.lr.ph101 ]
+._crit_edge103:                                   ; preds = %.lr.ph102, %32
+  %.sroa.044.1.lcssa = phi ptr [ %.sroa.044.0, %32 ], [ %36, %.lr.ph102 ]
   %35 = srem i64 %.0, %.087
   %.not32 = icmp eq i64 %35, 0
   br i1 %.not32, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %39
 
-.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
-  %.02999 = phi i64 [ %38, %.lr.ph101 ], [ 0, %.lr.ph101.preheader ]
-  %.sroa.044.198 = phi ptr [ %36, %.lr.ph101 ], [ %.sroa.044.0, %.lr.ph101.preheader ]
-  %.sroa.041.097 = phi ptr [ %37, %.lr.ph101 ], [ %34, %.lr.ph101.preheader ]
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+  %.029100 = phi i64 [ %38, %.lr.ph102 ], [ 0, %.lr.ph102.preheader ]
+  %.sroa.044.199 = phi ptr [ %36, %.lr.ph102 ], [ %.sroa.044.0, %.lr.ph102.preheader ]
+  %.sroa.041.098 = phi ptr [ %37, %.lr.ph102 ], [ %34, %.lr.ph102.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.198, i64 16, i1 false), !tbaa.struct !1700
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.198, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.097, i64 16, i1 false), !tbaa.struct !1700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.097, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.199, i64 16, i1 false), !tbaa.struct !1700
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.098, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.098, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false), !tbaa.struct !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.044.198, i64 16
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.097, i64 16
-  %38 = add nuw nsw i64 %.02999, 1
-  %exitcond110.not = icmp eq i64 %38, %23
-  br i1 %exitcond110.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !2627
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.044.199, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.041.098, i64 16
+  %38 = add nuw nsw i64 %.029100, 1
+  %exitcond111.not = icmp eq i64 %38, %23
+  br i1 %exitcond111.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !2627
 
-39:                                               ; preds = %._crit_edge102
+39:                                               ; preds = %._crit_edge103
   %40 = sub nsw i64 %.087, %35
   br label %.backedge
 
 41:                                               ; preds = %22
   %42 = icmp eq i64 %23, 1
-  br i1 %42, label %43, label %53
+  br i1 %42, label %43, label %51
 
 43:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.09)
@@ -155277,13 +155274,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
   br i1 %.not.i.i.i.i.i35, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %.sroa.044.0 to i64
-  %49 = sub i64 %47, %48
-  %50 = ashr exact i64 %49, 4
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %44, i64 %51
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %52, ptr nonnull align 8 %.sroa.044.0, i64 %49, i1 false)
+  %.idx = shl nsw i64 %.0, 4
+  %47 = add i64 %.idx, -16
+  %48 = ashr exact i64 %47, 4
+  %49 = sub nsw i64 0, %48
+  %50 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %44, i64 %49
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %50, ptr nonnull align 8 %.sroa.044.0, i64 %47, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %43, %46
@@ -155291,42 +155287,42 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5point
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.09)
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit
 
-53:                                               ; preds = %41
-  %54 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %.sroa.044.0, i64 %.0
-  %55 = sub i64 0, %23
-  %56 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %54, i64 %55
-  %57 = icmp sgt i64 %.087, 0
-  br i1 %57, label %.lr.ph, label %._crit_edge
+51:                                               ; preds = %41
+  %52 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %.sroa.044.0, i64 %.0
+  %53 = sub i64 0, %23
+  %54 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %52, i64 %53
+  %55 = icmp sgt i64 %.087, 0
+  br i1 %55, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %53
-  %.sroa.044.3.lcssa = phi ptr [ %56, %53 ], [ %.sroa.044.0, %.lr.ph ]
-  %58 = srem i64 %.0, %23
-  %.not = icmp eq i64 %58, 0
+._crit_edge:                                      ; preds = %.lr.ph, %51
+  %.sroa.044.3.lcssa = phi ptr [ %54, %51 ], [ %.sroa.044.0, %.lr.ph ]
+  %56 = srem i64 %.0, %23
+  %.not = icmp eq i64 %56, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %39
   %.sroa.044.0.be = phi ptr [ %.sroa.044.1.lcssa, %39 ], [ %.sroa.044.3.lcssa, %._crit_edge ]
-  %.087.be = phi i64 [ %40, %39 ], [ %58, %._crit_edge ]
+  %.087.be = phi i64 [ %40, %39 ], [ %56, %._crit_edge ]
   %.0.be = phi i64 [ %.087, %39 ], [ %23, %._crit_edge ]
   br label %22, !llvm.loop !2628
 
-.lr.ph:                                           ; preds = %53, %.lr.ph
-  %.02896 = phi i64 [ %61, %.lr.ph ], [ 0, %53 ]
-  %.sroa.0.095 = phi ptr [ %60, %.lr.ph ], [ %54, %53 ]
-  %.sroa.044.394 = phi ptr [ %59, %.lr.ph ], [ %56, %53 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.044.394, i64 -16
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.095, i64 -16
+.lr.ph:                                           ; preds = %51, %.lr.ph
+  %.02897 = phi i64 [ %59, %.lr.ph ], [ 0, %51 ]
+  %.sroa.0.096 = phi ptr [ %58, %.lr.ph ], [ %52, %51 ]
+  %.sroa.044.395 = phi ptr [ %57, %.lr.ph ], [ %54, %51 ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.044.395, i64 -16
+  %58 = getelementptr inbounds i8, ptr %.sroa.0.096, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i36)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !1700
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !1700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !1700
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !1700
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i36, i64 16, i1 false), !tbaa.struct !1700
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i36)
-  %61 = add nuw nsw i64 %.02896, 1
-  %exitcond.not = icmp eq i64 %61, %.087
+  %59 = add nuw nsw i64 %.02897, 1
+  %exitcond.not = icmp eq i64 %59, %.087
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2629
 
-_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %5, %3
-  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge102 ], [ %21, %._crit_edge ]
+_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit: ; preds = %._crit_edge, %._crit_edge103, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit, %5, %3
+  %.sroa.025.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %21, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %21, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_2cs10geographicINS3_6degreeEEEEESt6vectorISA_SaISA_EEEESF_ET0_T_SH_SG_.exit ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge103 ], [ %21, %._crit_edge ]
   ret ptr %.sroa.025.0
 }
 

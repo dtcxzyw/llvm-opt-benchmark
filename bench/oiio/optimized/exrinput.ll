@@ -3375,103 +3375,99 @@ define hidden void @_ZN11OpenImageIO6v3_1_03pvt10split_nameENS0_17basic_string_v
   %5 = load i64, ptr %4, align 8, !tbaa !89
   %6 = load ptr, ptr %0, align 8, !tbaa !91, !noalias !92
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %5
-  %8 = ptrtoint ptr %7 to i64
-  %9 = ptrtoint ptr %6 to i64
-  %10 = ashr i64 %5, 2
-  %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.i.preheader.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ashr i64 %5, 2
+  %10 = icmp sgt i64 %9, 0
+  br i1 %10, label %.lr.ph.i.preheader.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %3
-  %12 = mul nsw i64 %10, -4
-  %scevgep.i.i.i.i = getelementptr i8, ptr %7, i64 %12
+  %11 = mul nsw i64 %9, -4
+  %scevgep.i.i.i.i = getelementptr i8, ptr %7, i64 %11
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %29, %.lr.ph.i.preheader.i.i.i.i
-  %13 = phi ptr [ %26, %29 ], [ %7, %.lr.ph.i.preheader.i.i.i.i ]
-  %.027.i.i.i.i.i = phi i64 [ %30, %29 ], [ %10, %.lr.ph.i.preheader.i.i.i.i ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 -1
-  %15 = load i8, ptr %14, align 1, !tbaa !13, !noalias !95
-  %16 = icmp eq i8 %15, 46
-  br i1 %16, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %17
+.lr.ph.i.i.i.i.i:                                 ; preds = %28, %.lr.ph.i.preheader.i.i.i.i
+  %12 = phi ptr [ %25, %28 ], [ %7, %.lr.ph.i.preheader.i.i.i.i ]
+  %.027.i.i.i.i.i = phi i64 [ %29, %28 ], [ %9, %.lr.ph.i.preheader.i.i.i.i ]
+  %13 = getelementptr inbounds i8, ptr %12, i64 -1
+  %14 = load i8, ptr %13, align 1, !tbaa !13, !noalias !95
+  %15 = icmp eq i8 %14, 46
+  br i1 %15, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %16
 
-17:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %13, i64 -2
-  %19 = load i8, ptr %18, align 1, !tbaa !13, !noalias !95
-  %20 = icmp eq i8 %19, 46
-  br i1 %20, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, label %21
+16:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %17 = getelementptr inbounds i8, ptr %12, i64 -2
+  %18 = load i8, ptr %17, align 1, !tbaa !13, !noalias !95
+  %19 = icmp eq i8 %18, 46
+  br i1 %19, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, label %20
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 -3
-  %23 = load i8, ptr %22, align 1, !tbaa !13, !noalias !95
-  %24 = icmp eq i8 %23, 46
-  br i1 %24, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21, label %25
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds i8, ptr %12, i64 -3
+  %22 = load i8, ptr %21, align 1, !tbaa !13, !noalias !95
+  %23 = icmp eq i8 %22, 46
+  br i1 %23, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21, label %24
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %13, i64 -4
-  %27 = load i8, ptr %26, align 1, !tbaa !13, !noalias !95
-  %28 = icmp eq i8 %27, 46
-  br i1 %28, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23, label %29
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %12, i64 -4
+  %26 = load i8, ptr %25, align 1, !tbaa !13, !noalias !95
+  %27 = icmp eq i8 %26, 46
+  br i1 %27, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23, label %28
 
-29:                                               ; preds = %25
-  %30 = add nsw i64 %.027.i.i.i.i.i, -1
-  %31 = icmp sgt i64 %.027.i.i.i.i.i, 1
-  br i1 %31, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !102
+28:                                               ; preds = %24
+  %29 = add nsw i64 %.027.i.i.i.i.i, -1
+  %30 = icmp sgt i64 %.027.i.i.i.i.i, 1
+  br i1 %30, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !102
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %29
-  %.pre45.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  br label %._crit_edge.i.i.i.i.i
-
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %3
-  %.pre-phi.i.i.i.i.i = phi i64 [ %.pre45.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %8, %3 ]
-  %32 = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %7, %3 ]
-  %33 = sub i64 %.pre-phi.i.i.i.i.i, %9
-  switch i64 %33, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread [
-    i64 3, label %34
-    i64 2, label %38
-    i64 1, label %43
+._crit_edge.i.i.i.i.i:                            ; preds = %28, %3
+  %31 = phi ptr [ %7, %3 ], [ %scevgep.i.i.i.i, %28 ]
+  %.pre-phi.i.i.i.i.i = ptrtoint ptr %31 to i64
+  %32 = sub i64 %.pre-phi.i.i.i.i.i, %8
+  switch i64 %32, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread [
+    i64 3, label %33
+    i64 2, label %37
+    i64 1, label %42
   ]
 
-34:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %35 = getelementptr inbounds i8, ptr %32, i64 -1
-  %36 = load i8, ptr %35, align 1, !tbaa !13, !noalias !95
-  %37 = icmp eq i8 %36, 46
-  br i1 %37, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %38
+33:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %34 = getelementptr inbounds i8, ptr %31, i64 -1
+  %35 = load i8, ptr %34, align 1, !tbaa !13, !noalias !95
+  %36 = icmp eq i8 %35, 46
+  br i1 %36, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %37
 
-38:                                               ; preds = %34, %._crit_edge.i.i.i.i.i
-  %39 = phi ptr [ %32, %._crit_edge.i.i.i.i.i ], [ %35, %34 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 -1
-  %41 = load i8, ptr %40, align 1, !tbaa !13, !noalias !95
-  %42 = icmp eq i8 %41, 46
-  br i1 %42, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %43
+37:                                               ; preds = %33, %._crit_edge.i.i.i.i.i
+  %38 = phi ptr [ %31, %._crit_edge.i.i.i.i.i ], [ %34, %33 ]
+  %39 = getelementptr inbounds i8, ptr %38, i64 -1
+  %40 = load i8, ptr %39, align 1, !tbaa !13, !noalias !95
+  %41 = icmp eq i8 %40, 46
+  br i1 %41, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %42
 
-43:                                               ; preds = %38, %._crit_edge.i.i.i.i.i
-  %44 = phi ptr [ %32, %._crit_edge.i.i.i.i.i ], [ %40, %38 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 -1
-  %46 = load i8, ptr %45, align 1, !tbaa !13, !noalias !95
-  %47 = icmp eq i8 %46, 46
-  %spec.select.i.i.i.i = select i1 %47, ptr %44, ptr %6
+42:                                               ; preds = %37, %._crit_edge.i.i.i.i.i
+  %43 = phi ptr [ %31, %._crit_edge.i.i.i.i.i ], [ %39, %37 ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 -1
+  %45 = load i8, ptr %44, align 1, !tbaa !13, !noalias !95
+  %46 = icmp eq i8 %45, 46
+  %spec.select.i.i.i.i = select i1 %46, ptr %43, ptr %6
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %17
-  %48 = getelementptr inbounds i8, ptr %13, i64 -1
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %16
+  %47 = getelementptr inbounds i8, ptr %12, i64 -1
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21: ; preds = %21
-  %49 = getelementptr inbounds i8, ptr %13, i64 -2
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21: ; preds = %20
+  %48 = getelementptr inbounds i8, ptr %12, i64 -2
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23: ; preds = %25
-  %50 = getelementptr inbounds i8, ptr %13, i64 -3
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23: ; preds = %24
+  %49 = getelementptr inbounds i8, ptr %12, i64 -3
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23, %43, %38, %34
-  %.sink.i.i.i.i.i = phi ptr [ %32, %34 ], [ %39, %38 ], [ %spec.select.i.i.i.i, %43 ], [ %48, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit ], [ %49, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21 ], [ %50, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23 ], [ %13, %.lr.ph.i.i.i.i.i ]
-  %51 = icmp eq ptr %.sink.i.i.i.i.i, %6
-  br i1 %51, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23, %42, %37, %33
+  %.sink.i.i.i.i.i = phi ptr [ %31, %33 ], [ %38, %37 ], [ %spec.select.i.i.i.i, %42 ], [ %47, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit ], [ %48, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit21 ], [ %49, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit23 ], [ %12, %.lr.ph.i.i.i.i.i ]
+  %50 = icmp eq ptr %.sink.i.i.i.i.i, %6
+  br i1 %50, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit
 
 _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit: ; preds = %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
+  %51 = ptrtoint ptr %7 to i64
   %52 = ptrtoint ptr %.sink.i.i.i.i.i to i64
-  %53 = xor i64 %8, -1
+  %53 = xor i64 %51, -1
   %54 = add i64 %5, %53
   %55 = add i64 %54, %52
   %56 = icmp eq i64 %55, -1
@@ -44176,103 +44172,99 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO
   %24 = load i32, ptr %23, align 4, !tbaa !852
   store i32 %24, ptr %22, align 8, !tbaa !316
   %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %5
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %.0.val to i64
-  %28 = ashr i64 %5, 2
-  %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %.lr.ph.i.preheader.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
+  %26 = ptrtoint ptr %.0.val to i64
+  %27 = ashr i64 %5, 2
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %.lr.ph.i.preheader.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO_v3_1_0_Imf__3_2_49PixelTypeE.exit.i.i
-  %30 = mul nsw i64 %28, -4
-  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %25, i64 %30
+  %29 = mul nsw i64 %27, -4
+  %scevgep.i.i.i.i.i.i.i = getelementptr i8, ptr %25, i64 %29
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %47, %.lr.ph.i.preheader.i.i.i.i.i.i.i
-  %31 = phi ptr [ %44, %47 ], [ %25, %.lr.ph.i.preheader.i.i.i.i.i.i.i ]
-  %.027.i.i.i.i.i.i.i.i = phi i64 [ %48, %47 ], [ %28, %.lr.ph.i.preheader.i.i.i.i.i.i.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !13, !noalias !853
-  %34 = icmp eq i8 %33, 46
-  br i1 %34, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i, label %35
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %46, %.lr.ph.i.preheader.i.i.i.i.i.i.i
+  %30 = phi ptr [ %43, %46 ], [ %25, %.lr.ph.i.preheader.i.i.i.i.i.i.i ]
+  %.027.i.i.i.i.i.i.i.i = phi i64 [ %47, %46 ], [ %27, %.lr.ph.i.preheader.i.i.i.i.i.i.i ]
+  %31 = getelementptr inbounds i8, ptr %30, i64 -1
+  %32 = load i8, ptr %31, align 1, !tbaa !13, !noalias !853
+  %33 = icmp eq i8 %32, 46
+  br i1 %33, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i, label %34
 
-35:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %36 = getelementptr inbounds i8, ptr %31, i64 -2
-  %37 = load i8, ptr %36, align 1, !tbaa !13, !noalias !853
-  %38 = icmp eq i8 %37, 46
-  br i1 %38, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit, label %39
+34:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds i8, ptr %30, i64 -2
+  %36 = load i8, ptr %35, align 1, !tbaa !13, !noalias !853
+  %37 = icmp eq i8 %36, 46
+  br i1 %37, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit, label %38
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %31, i64 -3
-  %41 = load i8, ptr %40, align 1, !tbaa !13, !noalias !853
-  %42 = icmp eq i8 %41, 46
-  br i1 %42, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15, label %43
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds i8, ptr %30, i64 -3
+  %40 = load i8, ptr %39, align 1, !tbaa !13, !noalias !853
+  %41 = icmp eq i8 %40, 46
+  br i1 %41, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15, label %42
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %31, i64 -4
-  %45 = load i8, ptr %44, align 1, !tbaa !13, !noalias !853
-  %46 = icmp eq i8 %45, 46
-  br i1 %46, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17, label %47
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %30, i64 -4
+  %44 = load i8, ptr %43, align 1, !tbaa !13, !noalias !853
+  %45 = icmp eq i8 %44, 46
+  br i1 %45, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17, label %46
 
-47:                                               ; preds = %43
-  %48 = add nsw i64 %.027.i.i.i.i.i.i.i.i, -1
-  %49 = icmp sgt i64 %.027.i.i.i.i.i.i.i.i, 1
-  br i1 %49, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !102
+46:                                               ; preds = %42
+  %47 = add nsw i64 %.027.i.i.i.i.i.i.i.i, -1
+  %48 = icmp sgt i64 %.027.i.i.i.i.i.i.i.i, 1
+  br i1 %48, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !102
 
-._crit_edge.loopexit.i.i.i.i.i.i.i.i:             ; preds = %47
-  %.pre45.i.i.i.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i.i.i.i to i64
-  br label %._crit_edge.i.i.i.i.i.i.i.i
-
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO_v3_1_0_Imf__3_2_49PixelTypeE.exit.i.i
-  %.pre-phi.i.i.i.i.i.i.i.i = phi i64 [ %.pre45.i.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i.i ], [ %26, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO_v3_1_0_Imf__3_2_49PixelTypeE.exit.i.i ]
-  %50 = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i.i ], [ %25, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO_v3_1_0_Imf__3_2_49PixelTypeE.exit.i.i ]
-  %51 = sub i64 %.pre-phi.i.i.i.i.i.i.i.i, %27
-  switch i64 %51, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread.i.i.i [
-    i64 3, label %52
-    i64 2, label %56
-    i64 1, label %61
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %46, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO_v3_1_0_Imf__3_2_49PixelTypeE.exit.i.i
+  %49 = phi ptr [ %25, %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_126TypeDesc_from_ImfPixelTypeEN29OpenImageIO_v3_1_0_Imf__3_2_49PixelTypeE.exit.i.i ], [ %scevgep.i.i.i.i.i.i.i, %46 ]
+  %.pre-phi.i.i.i.i.i.i.i.i = ptrtoint ptr %49 to i64
+  %50 = sub i64 %.pre-phi.i.i.i.i.i.i.i.i, %26
+  switch i64 %50, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread.i.i.i [
+    i64 3, label %51
+    i64 2, label %55
+    i64 1, label %60
   ]
 
-52:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  %53 = getelementptr inbounds i8, ptr %50, i64 -1
-  %54 = load i8, ptr %53, align 1, !tbaa !13, !noalias !853
-  %55 = icmp eq i8 %54, 46
-  br i1 %55, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i, label %56
+51:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i.i
+  %52 = getelementptr inbounds i8, ptr %49, i64 -1
+  %53 = load i8, ptr %52, align 1, !tbaa !13, !noalias !853
+  %54 = icmp eq i8 %53, 46
+  br i1 %54, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i, label %55
 
-56:                                               ; preds = %52, %._crit_edge.i.i.i.i.i.i.i.i
-  %57 = phi ptr [ %50, %._crit_edge.i.i.i.i.i.i.i.i ], [ %53, %52 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 -1
-  %59 = load i8, ptr %58, align 1, !tbaa !13, !noalias !853
-  %60 = icmp eq i8 %59, 46
-  br i1 %60, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i, label %61
+55:                                               ; preds = %51, %._crit_edge.i.i.i.i.i.i.i.i
+  %56 = phi ptr [ %49, %._crit_edge.i.i.i.i.i.i.i.i ], [ %52, %51 ]
+  %57 = getelementptr inbounds i8, ptr %56, i64 -1
+  %58 = load i8, ptr %57, align 1, !tbaa !13, !noalias !853
+  %59 = icmp eq i8 %58, 46
+  br i1 %59, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i, label %60
 
-61:                                               ; preds = %56, %._crit_edge.i.i.i.i.i.i.i.i
-  %62 = phi ptr [ %50, %._crit_edge.i.i.i.i.i.i.i.i ], [ %58, %56 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 -1
-  %64 = load i8, ptr %63, align 1, !tbaa !13, !noalias !853
-  %65 = icmp eq i8 %64, 46
-  %spec.select.i.i.i.i.i.i.i = select i1 %65, ptr %62, ptr %.0.val
+60:                                               ; preds = %55, %._crit_edge.i.i.i.i.i.i.i.i
+  %61 = phi ptr [ %49, %._crit_edge.i.i.i.i.i.i.i.i ], [ %57, %55 ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 -1
+  %63 = load i8, ptr %62, align 1, !tbaa !13, !noalias !853
+  %64 = icmp eq i8 %63, 46
+  %spec.select.i.i.i.i.i.i.i = select i1 %64, ptr %61, ptr %.0.val
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit: ; preds = %35
-  %66 = getelementptr inbounds i8, ptr %31, i64 -1
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit: ; preds = %34
+  %65 = getelementptr inbounds i8, ptr %30, i64 -1
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15: ; preds = %39
-  %67 = getelementptr inbounds i8, ptr %31, i64 -2
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15: ; preds = %38
+  %66 = getelementptr inbounds i8, ptr %30, i64 -2
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17: ; preds = %43
-  %68 = getelementptr inbounds i8, ptr %31, i64 -3
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17: ; preds = %42
+  %67 = getelementptr inbounds i8, ptr %30, i64 -3
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17, %61, %56, %52
-  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %50, %52 ], [ %57, %56 ], [ %spec.select.i.i.i.i.i.i.i, %61 ], [ %66, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit ], [ %67, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15 ], [ %68, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17 ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %69 = icmp eq ptr %.sink.i.i.i.i.i.i.i.i, %.0.val
-  br i1 %69, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread.i.i.i, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.i.i.i
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17, %60, %55, %51
+  %.sink.i.i.i.i.i.i.i.i = phi ptr [ %49, %51 ], [ %56, %55 ], [ %spec.select.i.i.i.i.i.i.i, %60 ], [ %65, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit ], [ %66, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit15 ], [ %67, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit17 ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %68 = icmp eq ptr %.sink.i.i.i.i.i.i.i.i, %.0.val
+  br i1 %68, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.thread.i.i.i, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.i.i.i
 
 _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit.i.i.i: ; preds = %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.i.i.i
+  %69 = ptrtoint ptr %25 to i64
   %70 = ptrtoint ptr %.sink.i.i.i.i.i.i.i.i to i64
-  %71 = xor i64 %26, -1
+  %71 = xor i64 %69, -1
   %72 = add i64 %5, %71
   %73 = add i64 %72, %70
   %74 = icmp eq i64 %73, -1
@@ -47442,7 +47434,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__no
 _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds float, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 2
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !138
   %23 = getelementptr inbounds nuw float, ptr %22, i64 %2

@@ -2043,11 +2043,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12S
 
 _ZSt20uninitialized_fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i
   %.pre6.i = load i32, ptr %9, align 8, !tbaa !362
-  %.pre67 = load ptr, ptr %0, align 8, !tbaa !361
+  %.pre71 = load ptr, ptr %0, align 8, !tbaa !361
   br label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit
 
 _ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit.i, %_ZSt20uninitialized_fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit.loopexit.i
-  %36 = phi ptr [ %.pre67, %_ZSt20uninitialized_fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit.loopexit.i ], [ %30, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit.i ]
+  %36 = phi ptr [ %.pre71, %_ZSt20uninitialized_fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit.loopexit.i ], [ %30, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit.i ]
   %37 = phi i32 [ %.pre6.i, %_ZSt20uninitialized_fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit.loopexit.i ], [ %31, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit.i ]
   %38 = trunc i64 %2 to i32
   %39 = add i32 %37, %38
@@ -2087,51 +2087,47 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12S
   %56 = zext i32 %55 to i64
   %.idx = mul nuw nsw i64 %56, 24
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.idx
-  %58 = ptrtoint ptr %54 to i64
   %gepdiff = sub nsw i64 %.idx, %8
-  %59 = sdiv exact i64 %gepdiff, 24
-  %.not = icmp ult i64 %59, %2
-  br i1 %.not, label %95, label %60
+  %58 = sdiv exact i64 %gepdiff, 24
+  %.not = icmp ult i64 %58, %2
+  br i1 %.not, label %90, label %59
 
-60:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit
-  %61 = ptrtoint ptr %57 to i64
-  %62 = sub i64 0, %2
-  %63 = getelementptr inbounds %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %57, i64 %62
-  %64 = ptrtoint ptr %63 to i64
-  %65 = sub i64 %61, %64
-  %66 = sdiv exact i64 %65, 24
-  %67 = add nsw i64 %66, %56
-  %68 = load i32, ptr %15, align 4, !tbaa !363
-  %69 = zext i32 %68 to i64
-  %70 = icmp ugt i64 %67, %69
-  br i1 %70, label %71, label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i
+59:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit
+  %.idx67 = mul i64 %2, -24
+  %60 = getelementptr inbounds i8, ptr %57, i64 %.idx67
+  %.idx64.neg = mul i64 %2, 24
+  %61 = sdiv exact i64 %.idx64.neg, 24
+  %62 = add nsw i64 %61, %56
+  %63 = load i32, ptr %15, align 4, !tbaa !363
+  %64 = zext i32 %63 to i64
+  %65 = icmp ugt i64 %62, %64
+  br i1 %65, label %66, label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i
 
-71:                                               ; preds = %60
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %72, i64 noundef %67, i64 noundef 24) #15
+66:                                               ; preds = %59
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %67, i64 noundef %62, i64 noundef 24) #15
   %.pre.i52 = load i32, ptr %9, align 8, !tbaa !362
   %.pre10.i = zext i32 %.pre.i52 to i64
   br label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i
 
-_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i: ; preds = %71, %60
-  %.pre-phi.i = phi i64 [ %56, %60 ], [ %.pre10.i, %71 ]
-  %73 = phi i32 [ %55, %60 ], [ %.pre.i52, %71 ]
-  %.idx64 = mul i64 %2, -24
-  %.not7.i.i.i.i.i = icmp eq i64 %.idx64, 0
+_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i: ; preds = %66, %59
+  %.pre-phi.i = phi i64 [ %56, %59 ], [ %.pre10.i, %66 ]
+  %68 = phi i32 [ %55, %59 ], [ %.pre.i52, %66 ]
+  %.not7.i.i.i.i.i = icmp eq i64 %.idx67, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i
-  %74 = load ptr, ptr %0, align 8, !tbaa !361
-  %75 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %74, i64 %.pre-phi.i
+  %69 = load ptr, ptr %0, align 8, !tbaa !361
+  %70 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %69, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.09.i.i.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i.i.i ], [ %75, %.lr.ph.i.i.i.i.preheader.i ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %76, %.lr.ph.i.i.i.i.i ], [ %63, %.lr.ph.i.i.i.i.preheader.i ]
+  %.09.i.i.i.i.i = phi ptr [ %72, %.lr.ph.i.i.i.i.i ], [ %70, %.lr.ph.i.i.i.i.preheader.i ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %71, %.lr.ph.i.i.i.i.i ], [ %60, %.lr.ph.i.i.i.i.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04.08.i.i.i.i.i, i64 24, i1 false), !tbaa.struct !802
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
-  %77 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %76, %57
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %71, %57
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_copyISt13move_iteratorIPS5_ES9_EEvT_SB_T0_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !804
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_copyISt13move_iteratorIPS5_ES9_EEvT_SB_T0_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -2139,106 +2135,107 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12S
   br label %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit
 
 _ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_copyISt13move_iteratorIPS5_ES9_EEvT_SB_T0_.exit.loopexit.i
-  %78 = phi i32 [ %.pre9.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_copyISt13move_iteratorIPS5_ES9_EEvT_SB_T0_.exit.loopexit.i ], [ %73, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i ]
-  %79 = trunc i64 %66 to i32
-  %80 = add i32 %78, %79
-  store i32 %80, ptr %9, align 8, !tbaa !362
-  %.not.i.i.i.i.i53 = icmp eq ptr %63, %54
-  br i1 %.not.i.i.i.i.i53, label %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit, label %81
+  %73 = phi i32 [ %.pre9.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_copyISt13move_iteratorIPS5_ES9_EEvT_SB_T0_.exit.loopexit.i ], [ %68, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE7reserveEm.exit.i ]
+  %74 = trunc i64 %61 to i32
+  %75 = add i32 %73, %74
+  store i32 %75, ptr %9, align 8, !tbaa !362
+  %.not.i.i.i.i.i53 = icmp eq ptr %60, %54
+  br i1 %.not.i.i.i.i.i53, label %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit, label %76
 
-81:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit
-  %82 = sub i64 %64, %58
-  %.neg.i.i.i.i.i = sdiv exact i64 %82, -24
-  %83 = getelementptr inbounds %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %57, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr align 8 %54, i64 %82, i1 false)
+76:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit
+  %77 = sub i64 %.idx67, %8
+  %gepdiff68 = add i64 %77, %.idx
+  %.neg.i.i.i.i.i = sdiv exact i64 %gepdiff68, -24
+  %78 = getelementptr inbounds %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %57, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %78, ptr align 8 %54, i64 %gepdiff68, i1 false)
   br label %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit
 
-_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit, %81
+_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendISt13move_iteratorIPS5_EvEEvT_SB_.exit, %76
   %.not50 = icmp ugt ptr %54, %.016.i.i
-  br i1 %.not50, label %90, label %84
+  br i1 %.not50, label %85, label %79
 
-84:                                               ; preds = %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit
-  %85 = load ptr, ptr %0, align 8, !tbaa !361
-  %86 = load i32, ptr %9, align 8, !tbaa !362
-  %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %85, i64 %87
-  %89 = icmp ult ptr %.016.i.i, %88
-  %spec.select.idx = select i1 %89, i64 %2, i64 0
+79:                                               ; preds = %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit
+  %80 = load ptr, ptr %0, align 8, !tbaa !361
+  %81 = load i32, ptr %9, align 8, !tbaa !362
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %80, i64 %82
+  %84 = icmp ult ptr %.016.i.i, %83
+  %spec.select.idx = select i1 %84, i64 %2, i64 0
   %spec.select = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %.016.i.i, i64 %spec.select.idx
-  br label %90
+  br label %85
 
-90:                                               ; preds = %84, %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit
-  %.044 = phi ptr [ %.016.i.i, %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit ], [ %spec.select, %84 ]
-  %91 = icmp eq i64 %2, 0
-  br i1 %91, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %92
+85:                                               ; preds = %79, %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit
+  %.044 = phi ptr [ %.016.i.i, %_ZSt13move_backwardIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryES5_ET0_T_S7_S6_.exit ], [ %spec.select, %79 ]
+  %86 = icmp eq i64 %2, 0
+  br i1 %86, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %87
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %54, i64 %2
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %54, i64 %2
   br label %.lr.ph.i.i.i.i54
 
-.lr.ph.i.i.i.i54:                                 ; preds = %.lr.ph.i.i.i.i54, %92
-  %.06.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i54 ], [ %54, %92 ]
+.lr.ph.i.i.i.i54:                                 ; preds = %.lr.ph.i.i.i.i54, %87
+  %.06.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i54 ], [ %54, %87 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.044, i64 24, i1 false), !tbaa.struct !802
-  %94 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
-  %.not.i.i.i.i55 = icmp eq ptr %94, %93
+  %89 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
+  %.not.i.i.i.i55 = icmp eq ptr %89, %88
   br i1 %.not.i.i.i.i55, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %.lr.ph.i.i.i.i54, !llvm.loop !805
 
-95:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit
-  %96 = trunc i64 %2 to i32
-  %97 = add i32 %55, %96
-  store i32 %97, ptr %9, align 8, !tbaa !362
+90:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE28reserveForParamAndGetAddressERKS5_m.exit
+  %91 = trunc i64 %2 to i32
+  %92 = add i32 %55, %91
+  store i32 %92, ptr %9, align 8, !tbaa !362
   %.not.i.i56 = icmp eq i64 %8, %.idx
-  br i1 %.not.i.i56, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit, label %98
+  br i1 %.not.i.i56, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit, label %93
 
-98:                                               ; preds = %95
-  %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %53, i64 %99
-  %101 = sub nsw i64 0, %59
-  %102 = getelementptr inbounds %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %100, i64 %101
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 8 %54, i64 %gepdiff, i1 false)
+93:                                               ; preds = %90
+  %94 = zext i32 %92 to i64
+  %95 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %53, i64 %94
+  %96 = sub nsw i64 0, %58
+  %97 = getelementptr inbounds %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %95, i64 %96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %97, ptr align 8 %54, i64 %gepdiff, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit: ; preds = %95, %98
+_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit: ; preds = %90, %93
   %.not49 = icmp ugt ptr %54, %.016.i.i
-  br i1 %.not49, label %109, label %103
+  br i1 %.not49, label %104, label %98
 
-103:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
-  %104 = load ptr, ptr %0, align 8, !tbaa !361
-  %105 = load i32, ptr %9, align 8, !tbaa !362
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %104, i64 %106
-  %108 = icmp ult ptr %.016.i.i, %107
-  %spec.select51.idx = select i1 %108, i64 %2, i64 0
+98:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
+  %99 = load ptr, ptr %0, align 8, !tbaa !361
+  %100 = load i32, ptr %9, align 8, !tbaa !362
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %99, i64 %101
+  %103 = icmp ult ptr %.016.i.i, %102
+  %spec.select51.idx = select i1 %103, i64 %2, i64 0
   %spec.select51 = getelementptr inbounds nuw %"struct.clang::CodeGen::swiftcall::SwiftAggLowering::StorageEntry", ptr %.016.i.i, i64 %spec.select51.idx
-  br label %109
+  br label %104
 
-109:                                              ; preds = %103, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
-  %.145 = phi ptr [ %.016.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit ], [ %spec.select51, %103 ]
+104:                                              ; preds = %98, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit
+  %.145 = phi ptr [ %.016.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELb1EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit ], [ %spec.select51, %98 ]
   br i1 %.not.i.i56, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61, label %.lr.ph.i.i.i.i57
 
-.lr.ph.i.i.i.i57:                                 ; preds = %109, %.lr.ph.i.i.i.i57
-  %.06.i.i.i.i58 = phi ptr [ %110, %.lr.ph.i.i.i.i57 ], [ %54, %109 ]
+.lr.ph.i.i.i.i57:                                 ; preds = %104, %.lr.ph.i.i.i.i57
+  %.06.i.i.i.i58 = phi ptr [ %105, %.lr.ph.i.i.i.i57 ], [ %54, %104 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i58, ptr noundef nonnull align 8 dereferenceable(24) %.145, i64 24, i1 false), !tbaa.struct !802
-  %110 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i58, i64 24
-  %.not.i.i.i.i59 = icmp eq ptr %110, %57
+  %105 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i58, i64 24
+  %.not.i.i.i.i59 = icmp eq ptr %105, %57
   br i1 %.not.i.i.i.i59, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61, label %.lr.ph.i.i.i.i57, !llvm.loop !805
 
-_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61: ; preds = %.lr.ph.i.i.i.i57, %109
-  %111 = sub i64 %2, %59
-  %.not7.i.i.i = icmp eq i64 %111, 0
+_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61: ; preds = %.lr.ph.i.i.i.i57, %104
+  %106 = sub i64 %2, %58
+  %.not7.i.i.i = icmp eq i64 %106, 0
   br i1 %.not7.i.i.i, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i ], [ %57, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61 ]
-  %.068.i.i.i = phi i64 [ %112, %.lr.ph.i.i.i ], [ %111, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61 ]
+  %.09.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i ], [ %57, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61 ]
+  %.068.i.i.i = phi i64 [ %107, %.lr.ph.i.i.i ], [ %106, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.145, i64 24, i1 false), !tbaa.struct !802
-  %112 = add i64 %.068.i.i.i, -1
-  %113 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
-  %.not.i.i.i62 = icmp eq i64 %112, 0
+  %107 = add i64 %.068.i.i.i, -1
+  %108 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
+  %.not.i.i.i62 = icmp eq i64 %107, 0
   br i1 %.not.i.i.i62, label %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !803
 
-_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61, %90, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit
-  %.0 = phi ptr [ %40, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit ], [ %54, %90 ], [ %54, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61 ], [ %54, %.lr.ph.i.i.i ], [ %54, %.lr.ph.i.i.i.i54 ]
+_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i54, %.lr.ph.i.i.i, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61, %85, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit
+  %.0 = phi ptr [ %40, %_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEE6appendEmRKS5_.exit ], [ %54, %85 ], [ %54, %_ZSt6fill_nIPN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEmS4_ET_S6_T0_RKT1_.exit61 ], [ %54, %.lr.ph.i.i.i ], [ %54, %.lr.ph.i.i.i.i54 ]
   ret ptr %.0
 }
 

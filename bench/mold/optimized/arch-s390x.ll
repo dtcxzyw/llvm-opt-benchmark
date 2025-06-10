@@ -4029,11 +4029,12 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4mold12InputSectionINS_5S390XEE12
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 696
-  %37 = ptrtoint ptr %22 to i64
-  %38 = ptrtoint ptr %18 to i64
-  %39 = sub i64 %37, %38
+  %37 = add nuw nsw i64 %.idx, %.idx29
+  %38 = add nuw nsw i64 %37, %.idx30
+  %.idx31 = mul nuw nsw i64 %17, 24
+  %39 = add nuw nsw i64 %38, %.idx31
   %40 = load ptr, ptr %36, align 8, !tbaa !390
-  %41 = sdiv exact i64 %39, 6
+  %41 = udiv exact i64 %39, 6
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !258
   %44 = zext i8 %43 to i64

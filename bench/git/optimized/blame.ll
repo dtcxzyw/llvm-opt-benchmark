@@ -6694,85 +6694,86 @@ find_line_starts.exit.i:                          ; preds = %62, %st_mult.exit.i
   %81 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !23
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %77, i64 %83
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %85 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.next.i.i
-  %86 = load i32, ptr %85, align 4, !tbaa !23
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %77, i64 %87
-  %89 = getelementptr inbounds nuw %struct.fingerprint, ptr %76, i64 %indvars.iv.i.i
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 1
-  %91 = ptrtoint ptr %90 to i64
-  %92 = ptrtoint ptr %84 to i64
-  %93 = sub i64 %91, %92
-  %sext.i.i.i = shl i64 %93, 32
-  %94 = ashr exact i64 %sext.i.i.i, 32
-  %95 = call ptr @xcalloc(i64 noundef %94, i64 noundef 24) #21
-  call void @hashmap_init(ptr noundef %89, ptr noundef null, ptr noundef null, i64 noundef %94) #21
-  %96 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  store ptr %95, ptr %96, align 8, !tbaa !131
-  %.not37.i.i.i = icmp sgt i32 %82, %86
-  br i1 %.not37.i.i.i, label %get_fingerprint.exit.i.i, label %.lr.ph.i.i.i
+  %84 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.next.i.i
+  %85 = load i32, ptr %84, align 4, !tbaa !23
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i8, ptr %77, i64 %86
+  %88 = getelementptr inbounds nuw %struct.fingerprint, ptr %76, i64 %indvars.iv.i.i
+  %reass.sub.i.i = sub nsw i64 %86, %83
+  %gepdiff.i.i = shl i64 %reass.sub.i.i, 32
+  %sext.i.i.i = add i64 %gepdiff.i.i, 4294967296
+  %89 = ashr exact i64 %sext.i.i.i, 32
+  %90 = call ptr @xcalloc(i64 noundef %89, i64 noundef 24) #21
+  call void @hashmap_init(ptr noundef %88, ptr noundef null, ptr noundef null, i64 noundef %89) #21
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  store ptr %90, ptr %91, align 8, !tbaa !131
+  %.not37.i.i.i = icmp sgt i32 %82, %85
+  br i1 %.not37.i.i.i, label %get_fingerprint.exit.i.i, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i9.i, %121
-  %.040.i.i.i = phi i32 [ %.029.i.i.i, %121 ], [ 0, %.lr.ph.i9.i ]
-  %.02839.i.i.i = phi ptr [ %.1.i.i.i, %121 ], [ %95, %.lr.ph.i9.i ]
-  %.03038.i.i.i = phi ptr [ %122, %121 ], [ %84, %.lr.ph.i9.i ]
-  %97 = icmp eq ptr %.03038.i.i.i, %88
-  br i1 %97, label %107, label %98
+.lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph.i9.i
+  %92 = getelementptr inbounds i8, ptr %77, i64 %83
+  br label %.lr.ph.i.i.i
 
-98:                                               ; preds = %.lr.ph.i.i.i
-  %99 = load i8, ptr %.03038.i.i.i, align 1, !tbaa !61
-  %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 1, !tbaa !61
-  %103 = and i8 %102, 1
-  %.not34.i.i.i = icmp eq i8 %103, 0
-  br i1 %.not34.i.i.i, label %104, label %107
+.lr.ph.i.i.i:                                     ; preds = %117, %.lr.ph.i.preheader.i.i
+  %.040.i.i.i = phi i32 [ %.029.i.i.i, %117 ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.02839.i.i.i = phi ptr [ %.1.i.i.i, %117 ], [ %90, %.lr.ph.i.preheader.i.i ]
+  %.03038.i.i.i = phi ptr [ %118, %117 ], [ %92, %.lr.ph.i.preheader.i.i ]
+  %93 = icmp eq ptr %.03038.i.i.i, %87
+  br i1 %93, label %103, label %94
 
-104:                                              ; preds = %98
-  %105 = shl i8 %102, 3
-  %106 = and i8 %105, 32
-  %spec.select.i36.i.i.i = or i8 %106, %99
+94:                                               ; preds = %.lr.ph.i.i.i
+  %95 = load i8, ptr %.03038.i.i.i, align 1, !tbaa !61
+  %96 = zext i8 %95 to i64
+  %97 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !61
+  %99 = and i8 %98, 1
+  %.not34.i.i.i = icmp eq i8 %99, 0
+  br i1 %.not34.i.i.i, label %100, label %103
+
+100:                                              ; preds = %94
+  %101 = shl i8 %98, 3
+  %102 = and i8 %101, 32
+  %spec.select.i36.i.i.i = or i8 %102, %95
   %spec.select.i.i.i.i = zext i8 %spec.select.i36.i.i.i to i32
-  br label %107
+  br label %103
 
-107:                                              ; preds = %104, %98, %.lr.ph.i.i.i
-  %.029.i.i.i = phi i32 [ %spec.select.i.i.i.i, %104 ], [ 0, %98 ], [ 0, %.lr.ph.i.i.i ]
-  %108 = shl nuw nsw i32 %.029.i.i.i, 8
-  %109 = or i32 %108, %.040.i.i.i
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %121, label %111
+103:                                              ; preds = %100, %94, %.lr.ph.i.i.i
+  %.029.i.i.i = phi i32 [ %spec.select.i.i.i.i, %100 ], [ 0, %94 ], [ 0, %.lr.ph.i.i.i ]
+  %104 = shl nuw nsw i32 %.029.i.i.i, 8
+  %105 = or i32 %104, %.040.i.i.i
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %117, label %107
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %.02839.i.i.i, i64 8
-  store i32 %109, ptr %112, align 8, !tbaa !313
+107:                                              ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %.02839.i.i.i, i64 8
+  store i32 %105, ptr %108, align 8, !tbaa !313
   store ptr null, ptr %.02839.i.i.i, align 8, !tbaa !316
-  %113 = call ptr @hashmap_get(ptr noundef %89, ptr noundef nonnull %.02839.i.i.i, ptr noundef null) #21
-  %.not35.i.i.i = icmp eq ptr %113, null
-  br i1 %.not35.i.i.i, label %118, label %114
+  %109 = call ptr @hashmap_get(ptr noundef %88, ptr noundef nonnull %.02839.i.i.i, ptr noundef null) #21
+  %.not35.i.i.i = icmp eq ptr %109, null
+  br i1 %.not35.i.i.i, label %114, label %110
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %116 = load i32, ptr %115, align 8, !tbaa !317
-  %117 = add nsw i32 %116, 1
-  store i32 %117, ptr %115, align 8, !tbaa !317
-  br label %121
+110:                                              ; preds = %107
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %112 = load i32, ptr %111, align 8, !tbaa !317
+  %113 = add nsw i32 %112, 1
+  store i32 %113, ptr %111, align 8, !tbaa !317
+  br label %117
 
-118:                                              ; preds = %111
-  %119 = getelementptr inbounds nuw i8, ptr %.02839.i.i.i, i64 16
-  store i32 1, ptr %119, align 8, !tbaa !317
-  call void @hashmap_add(ptr noundef %89, ptr noundef nonnull %.02839.i.i.i) #21
-  %120 = getelementptr inbounds nuw i8, ptr %.02839.i.i.i, i64 24
-  br label %121
+114:                                              ; preds = %107
+  %115 = getelementptr inbounds nuw i8, ptr %.02839.i.i.i, i64 16
+  store i32 1, ptr %115, align 8, !tbaa !317
+  call void @hashmap_add(ptr noundef %88, ptr noundef nonnull %.02839.i.i.i) #21
+  %116 = getelementptr inbounds nuw i8, ptr %.02839.i.i.i, i64 24
+  br label %117
 
-121:                                              ; preds = %118, %114, %107
-  %.1.i.i.i = phi ptr [ %.02839.i.i.i, %107 ], [ %.02839.i.i.i, %114 ], [ %120, %118 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.03038.i.i.i, i64 1
-  %.not.i.i10.i = icmp ugt ptr %122, %88
+117:                                              ; preds = %114, %110, %103
+  %.1.i.i.i = phi ptr [ %.02839.i.i.i, %103 ], [ %.02839.i.i.i, %110 ], [ %116, %114 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.03038.i.i.i, i64 1
+  %.not.i.i10.i = icmp ugt ptr %118, %87
   br i1 %.not.i.i10.i, label %get_fingerprint.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !319
 
-get_fingerprint.exit.i.i:                         ; preds = %121, %.lr.ph.i9.i
+get_fingerprint.exit.i.i:                         ; preds = %117, %.lr.ph.i9.i
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %79
   br i1 %exitcond.not.i.i, label %get_line_fingerprints.exit.i, label %.lr.ph.i9.i, !llvm.loop !320
 

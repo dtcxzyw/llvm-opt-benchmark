@@ -1169,11 +1169,11 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i: ; preds = 
 
 _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i._ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i_crit_edge: ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !66
-  %.pre62 = load i32, ptr %29, align 4, !tbaa !67
+  %.pre61 = load i32, ptr %29, align 4, !tbaa !67
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i
 
 _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i: ; preds = %292, %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i._ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i_crit_edge
-  %298 = phi i32 [ %.pre62, %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i._ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i_crit_edge ], [ %289, %292 ]
+  %298 = phi i32 [ %.pre61, %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i._ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i_crit_edge ], [ %289, %292 ]
   %299 = phi ptr [ %.pre, %_ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.i._ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE5countEPKS1_.exit129.thread.thread.i_crit_edge ], [ %288, %292 ]
   %300 = zext i32 %298 to i64
   %301 = getelementptr inbounds nuw ptr, ptr %299, i64 %300
@@ -1919,11 +1919,13 @@ _ZN4llvm5APIntD2Ev.exit.i68.i:                    ; preds = %628, %625, %622
 639:                                              ; preds = %637
   %640 = getelementptr inbounds i8, ptr %.sroa.023.050, i64 -20
   %641 = load i32, ptr %640, align 4
-  %642 = shl i32 %641, 5
-  %643 = zext i32 %642 to i64
-  %.add33 = sub nsw i64 8, %643
-  %gepdiff = add nsw i64 %643, -32
-  %644 = ashr i64 %gepdiff, 7
+  %642 = and i32 %641, 134217727
+  %643 = zext nneg i32 %642 to i64
+  %.neg = mul nsw i64 %643, -32
+  %.add33 = or disjoint i64 %.neg, 8
+  %.idx.neg.i = shl nuw nsw i64 %643, 5
+  %gepdiff.i = add nsw i64 %.idx.neg.i, -32
+  %644 = ashr i64 %gepdiff.i, 7
   %645 = icmp sgt i64 %644, 0
   br i1 %645, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
@@ -2087,11 +2089,11 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i44.i.i.i.i.i.i:      ; preds = %694, %691, %687
   br i1 %703, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !101
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %701
-  %gepdiff54 = sub nsw i64 -152, %.02962.i.i.i.i.i.i.idx
+  %gepdiff = sub nsw i64 -152, %.02962.i.i.i.i.i.i.idx
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %639
-  %.pre-phi69.i.i.i.i.i.i = phi i64 [ %gepdiff54, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %gepdiff, %639 ]
+  %.pre-phi69.i.i.i.i.i.i = phi i64 [ %gepdiff, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %gepdiff.i, %639 ]
   %.029.lcssa.i.i.i.i.i.i.idx = phi i64 [ %.02962.i.i.i.i.i.i.add34, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.add33, %639 ]
   %704 = ashr exact i64 %.pre-phi69.i.i.i.i.i.i, 5
   switch i64 %704, label %_ZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionE.exit.thread29 [

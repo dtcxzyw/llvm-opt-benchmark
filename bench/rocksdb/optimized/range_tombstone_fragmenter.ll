@@ -8478,7 +8478,7 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE15_M_range_insertIN7rocksdb10autov
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %19
   %24 = sub i64 0, %10
   %25 = getelementptr inbounds i64, ptr %14, i64 %24
-  %.idx.neg = shl i64 %10, 3
+  %.idx.neg = shl nsw i64 %10, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %25, i64 %.idx.neg, i1 false)
   %26 = load ptr, ptr %13, align 8, !tbaa !159
   %27 = getelementptr inbounds nuw i64, ptr %26, i64 %10

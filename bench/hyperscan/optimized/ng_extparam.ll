@@ -1144,7 +1144,7 @@ _ZN5boost9iteratorsneIN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS
   %.sroa.05.0.copyload.val53.i = load i64, ptr %77, align 8, !noalias !87
   %78 = getelementptr inbounds nuw i32, ptr %.sroa.05.0.copyload.val.i, i64 %.sroa.05.0.copyload.val53.i
   %79 = ptrtoint ptr %78 to i64
-  %.idx.neg.i.i.i = mul i64 %.sroa.05.0.copyload.val53.i, -4
+  %.idx.neg.i.i.i = mul nsw i64 %.sroa.05.0.copyload.val53.i, -4
   %80 = ashr exact i64 %.idx.neg.i.i.i, 2
   %81 = sub nsw i64 0, %80
   %82 = ashr i64 %81, 2
@@ -1385,7 +1385,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   %.sroa.0.0.copyload.val56.i = load i64, ptr %159, align 8, !noalias !114
   %160 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.val.i, i64 %.sroa.0.0.copyload.val56.i
   %161 = ptrtoint ptr %160 to i64
-  %.idx.neg.i.i68.i = mul i64 %.sroa.0.0.copyload.val56.i, -4
+  %.idx.neg.i.i68.i = mul nsw i64 %.sroa.0.0.copyload.val56.i, -4
   %162 = ashr exact i64 %.idx.neg.i.i68.i, 2
   %163 = sub nsw i64 0, %162
   %164 = ashr i64 %163, 2

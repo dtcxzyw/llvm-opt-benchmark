@@ -2317,7 +2317,7 @@ define internal fastcc void @Cbs2_QuePush(ptr noundef captures(none) %0, i32 nou
 define i32 @Cbs2_ManSolve1_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i32 @Cbs2_ManPropagate(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %154
+  br i1 %.not, label %4, label %143
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2325,7 +2325,7 @@ define i32 @Cbs2_ManSolve1_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %6 = getelementptr i8, ptr %0, i64 84
   %.val65 = load i32, ptr %6, align 4, !tbaa !68
   %.not79 = icmp eq i32 %.val64, %.val65
-  br i1 %.not79, label %154, label %7
+  br i1 %.not79, label %143, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2351,7 +2351,7 @@ define i32 @Cbs2_ManSolve1_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %26 = add nsw i32 %25, %23
   store i32 %26, ptr %24, align 4, !tbaa !60
   %27 = select i1 %14, i1 true, i1 %22
-  br i1 %27, label %154, label %28
+  br i1 %27, label %143, label %28
 
 28:                                               ; preds = %7
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2442,148 +2442,139 @@ Cbs2_ManDecideHighest.exit:                       ; preds = %57, %60, %Cbs2_QueS
   %67 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %66
   %68 = load i64, ptr %67, align 4
   %69 = and i64 %68, 536870911
-  %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %67, i64 %70
-  %72 = getelementptr i8, ptr %64, i64 144
-  %.val67 = load ptr, ptr %72, align 8, !tbaa !89
-  %73 = ptrtoint ptr %71 to i64
-  %74 = ptrtoint ptr %.val to i64
-  %75 = sub i64 %73, %74
-  %76 = sdiv exact i64 %75, 12
-  %sext.i = shl i64 %76, 32
-  %77 = ashr exact i64 %sext.i, 30
-  %78 = getelementptr inbounds i8, ptr %.val67, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !60
-  %80 = lshr i64 %68, 32
-  %81 = and i64 %80, 536870911
-  %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %67, i64 %82
-  %84 = ptrtoint ptr %83 to i64
-  %85 = sub i64 %84, %74
-  %86 = sdiv exact i64 %85, 12
-  %sext.i73 = shl i64 %86, 32
-  %87 = ashr exact i64 %sext.i73, 30
-  %88 = getelementptr inbounds i8, ptr %.val67, i64 %87
-  %89 = load i32, ptr %88, align 4, !tbaa !60
-  %90 = icmp sgt i32 %79, %89
-  %91 = trunc nuw i64 %80 to i32
-  %92 = lshr i64 %68, 61
-  %93 = trunc nuw nsw i64 %92 to i32
-  %94 = trunc i64 %68 to i32
-  %95 = lshr i32 %94, 29
-  %.sink = select i1 %90, i32 %95, i32 %93
-  %.pn.in = select i1 %90, i32 %94, i32 %91
+  %70 = getelementptr i8, ptr %64, i64 144
+  %.val67 = load ptr, ptr %70, align 8, !tbaa !89
+  %reass.add = sub nsw i64 %66, %69
+  %sext.i = shl i64 %reass.add, 32
+  %71 = ashr exact i64 %sext.i, 30
+  %72 = getelementptr inbounds i8, ptr %.val67, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !60
+  %74 = lshr i64 %68, 32
+  %75 = and i64 %74, 536870911
+  %reass.add85 = sub nsw i64 %66, %75
+  %sext.i73 = shl i64 %reass.add85, 32
+  %76 = ashr exact i64 %sext.i73, 30
+  %77 = getelementptr inbounds i8, ptr %.val67, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !60
+  %79 = icmp sgt i32 %73, %78
+  %80 = trunc nuw i64 %74 to i32
+  %81 = lshr i64 %68, 61
+  %82 = trunc nuw nsw i64 %81 to i32
+  %83 = trunc i64 %68 to i32
+  %84 = lshr i32 %83, 29
+  %.sink = select i1 %79, i32 %84, i32 %82
+  %.pn.in = select i1 %79, i32 %83, i32 %80
   %.pn = and i32 %.pn.in, 536870911
-  %.sink82 = sub nsw i32 %.0.lcssa.i, %.pn
-  %96 = and i32 %.sink, 1
-  %97 = shl nsw i32 %.sink82, 1
-  %98 = or disjoint i32 %97, %96
-  %.0 = xor i32 %98, 1
-  %99 = add nsw i32 %1, 1
-  %100 = getelementptr i8, ptr %0, i64 152
-  %.val.i = load ptr, ptr %100, align 8, !tbaa !55
-  %101 = trunc i32 %.0 to i8
-  %102 = and i8 %101, 1
-  %103 = xor i8 %102, 1
-  %104 = sext i32 %.sink82 to i64
-  %105 = getelementptr inbounds i8, ptr %.val.i, i64 %104
-  store i8 %103, ptr %105, align 1, !tbaa !57
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %107 = load i32, ptr %106, align 4, !tbaa !68
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %109 = load i32, ptr %108, align 8, !tbaa !69
-  %110 = icmp eq i32 %107, %109
-  br i1 %110, label %111, label %._crit_edge.i.i
+  %.sink88 = sub nsw i32 %.0.lcssa.i, %.pn
+  %85 = and i32 %.sink, 1
+  %86 = shl nsw i32 %.sink88, 1
+  %87 = or disjoint i32 %86, %85
+  %.0 = xor i32 %87, 1
+  %88 = add nsw i32 %1, 1
+  %89 = getelementptr i8, ptr %0, i64 152
+  %.val.i = load ptr, ptr %89, align 8, !tbaa !55
+  %90 = trunc i32 %.0 to i8
+  %91 = and i8 %90, 1
+  %92 = xor i8 %91, 1
+  %93 = sext i32 %.sink88 to i64
+  %94 = getelementptr inbounds i8, ptr %.val.i, i64 %93
+  store i8 %92, ptr %94, align 1, !tbaa !57
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %96 = load i32, ptr %95, align 4, !tbaa !68
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %98 = load i32, ptr %97, align 8, !tbaa !69
+  %99 = icmp eq i32 %96, %98
+  br i1 %99, label %100, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %Cbs2_ManDecideHighest.exit
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !70
   br label %Cbs2_ManAssign.exit
 
-111:                                              ; preds = %Cbs2_ManDecideHighest.exit
-  %112 = shl nsw i32 %107, 1
-  store i32 %112, ptr %108, align 8, !tbaa !69
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %114 = load ptr, ptr %113, align 8, !tbaa !70
-  %.not.i.i = icmp eq ptr %114, null
-  %115 = sext i32 %112 to i64
-  %116 = shl nsw i64 %115, 2
-  br i1 %.not.i.i, label %119, label %117
+100:                                              ; preds = %Cbs2_ManDecideHighest.exit
+  %101 = shl nsw i32 %96, 1
+  store i32 %101, ptr %97, align 8, !tbaa !69
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %103 = load ptr, ptr %102, align 8, !tbaa !70
+  %.not.i.i = icmp eq ptr %103, null
+  %104 = sext i32 %101 to i64
+  %105 = shl nsw i64 %104, 2
+  br i1 %.not.i.i, label %108, label %106
 
-117:                                              ; preds = %111
-  %118 = tail call ptr @realloc(ptr noundef nonnull %114, i64 noundef %116) #27
-  %.pre11.pre.i.i75 = load i32, ptr %106, align 4, !tbaa !68
-  br label %121
+106:                                              ; preds = %100
+  %107 = tail call ptr @realloc(ptr noundef nonnull %103, i64 noundef %105) #27
+  %.pre11.pre.i.i75 = load i32, ptr %95, align 4, !tbaa !68
+  br label %110
 
-119:                                              ; preds = %111
-  %120 = tail call noalias ptr @malloc(i64 noundef %116) #26
-  br label %121
+108:                                              ; preds = %100
+  %109 = tail call noalias ptr @malloc(i64 noundef %105) #26
+  br label %110
 
-121:                                              ; preds = %119, %117
-  %.pre11.i.i = phi i32 [ %.pre11.pre.i.i75, %117 ], [ %107, %119 ]
-  %122 = phi ptr [ %118, %117 ], [ %120, %119 ]
-  store ptr %122, ptr %113, align 8, !tbaa !70
+110:                                              ; preds = %108, %106
+  %.pre11.i.i = phi i32 [ %.pre11.pre.i.i75, %106 ], [ %96, %108 ]
+  %111 = phi ptr [ %107, %106 ], [ %109, %108 ]
+  store ptr %111, ptr %102, align 8, !tbaa !70
   br label %Cbs2_ManAssign.exit
 
-Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %121
-  %123 = phi i32 [ %107, %._crit_edge.i.i ], [ %.pre11.i.i, %121 ]
-  %124 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %122, %121 ]
-  %125 = add nsw i32 %123, 1
-  store i32 %125, ptr %106, align 4, !tbaa !68
-  %126 = sext i32 %123 to i64
-  %127 = getelementptr inbounds i32, ptr %124, i64 %126
-  store i32 %.0, ptr %127, align 4, !tbaa !60
-  %128 = mul nsw i32 %.sink82, 3
-  %129 = getelementptr i8, ptr %0, i64 184
-  %.val14.i = load ptr, ptr %129, align 8, !tbaa !35
-  %130 = sext i32 %128 to i64
-  %131 = getelementptr i32, ptr %.val14.i, i64 %130
-  store i32 %99, ptr %131, align 4, !tbaa !60
-  %132 = getelementptr i8, ptr %131, i64 4
-  store i32 0, ptr %132, align 4, !tbaa !60
-  %133 = getelementptr i8, ptr %131, i64 8
-  store i32 0, ptr %133, align 4, !tbaa !60
-  %134 = tail call i32 @Cbs2_ManSolve1_rec(ptr noundef nonnull %0, i32 noundef %99)
-  %.not58 = icmp eq i32 %134, 0
-  br i1 %.not58, label %154, label %135
+Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %110
+  %112 = phi i32 [ %96, %._crit_edge.i.i ], [ %.pre11.i.i, %110 ]
+  %113 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %111, %110 ]
+  %114 = add nsw i32 %112, 1
+  store i32 %114, ptr %95, align 4, !tbaa !68
+  %115 = sext i32 %112 to i64
+  %116 = getelementptr inbounds i32, ptr %113, i64 %115
+  store i32 %.0, ptr %116, align 4, !tbaa !60
+  %117 = mul nsw i32 %.sink88, 3
+  %118 = getelementptr i8, ptr %0, i64 184
+  %.val14.i = load ptr, ptr %118, align 8, !tbaa !35
+  %119 = sext i32 %117 to i64
+  %120 = getelementptr i32, ptr %.val14.i, i64 %119
+  store i32 %88, ptr %120, align 4, !tbaa !60
+  %121 = getelementptr i8, ptr %120, i64 4
+  store i32 0, ptr %121, align 4, !tbaa !60
+  %122 = getelementptr i8, ptr %120, i64 8
+  store i32 0, ptr %122, align 4, !tbaa !60
+  %123 = tail call i32 @Cbs2_ManSolve1_rec(ptr noundef nonnull %0, i32 noundef %88)
+  %.not58 = icmp eq i32 %123, 0
+  br i1 %.not58, label %143, label %124
 
-135:                                              ; preds = %Cbs2_ManAssign.exit
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %137 = load ptr, ptr %136, align 8, !tbaa !70
-  %138 = sext i32 %134 to i64
-  %139 = getelementptr i32, ptr %137, i64 %138
-  %140 = getelementptr i8, ptr %139, i64 4
-  %141 = load i32, ptr %140, align 4, !tbaa !60
-  %.not59 = icmp eq i32 %141, %.sink82
-  br i1 %.not59, label %142, label %154
+124:                                              ; preds = %Cbs2_ManAssign.exit
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %126 = load ptr, ptr %125, align 8, !tbaa !70
+  %127 = sext i32 %123 to i64
+  %128 = getelementptr i32, ptr %126, i64 %127
+  %129 = getelementptr i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4, !tbaa !60
+  %.not59 = icmp eq i32 %130, %.sink88
+  br i1 %.not59, label %131, label %143
 
-142:                                              ; preds = %135
+131:                                              ; preds = %124
   tail call fastcc void @Cbs2_ManCancelUntil(ptr noundef nonnull %0, i32 noundef %30)
   store i32 %.val64, ptr %5, align 8, !tbaa !83
   store i32 %.val65, ptr %6, align 4, !tbaa !68
-  tail call fastcc void @Cbs2_ManAssign(ptr noundef nonnull %0, i32 noundef %98, i32 noundef %99, i32 noundef 0, i32 noundef 0)
-  %143 = tail call i32 @Cbs2_ManSolve1_rec(ptr noundef nonnull %0, i32 noundef %99)
-  %.not60 = icmp eq i32 %143, 0
-  br i1 %.not60, label %154, label %144
+  tail call fastcc void @Cbs2_ManAssign(ptr noundef nonnull %0, i32 noundef %87, i32 noundef %88, i32 noundef 0, i32 noundef 0)
+  %132 = tail call i32 @Cbs2_ManSolve1_rec(ptr noundef nonnull %0, i32 noundef %88)
+  %.not60 = icmp eq i32 %132, 0
+  br i1 %.not60, label %143, label %133
 
-144:                                              ; preds = %142
-  %145 = load ptr, ptr %136, align 8, !tbaa !70
-  %146 = sext i32 %143 to i64
-  %147 = getelementptr i32, ptr %145, i64 %146
-  %148 = getelementptr i8, ptr %147, i64 4
-  %149 = load i32, ptr %148, align 4, !tbaa !60
-  %.not61 = icmp eq i32 %149, %.sink82
-  br i1 %.not61, label %150, label %154
+133:                                              ; preds = %131
+  %134 = load ptr, ptr %125, align 8, !tbaa !70
+  %135 = sext i32 %132 to i64
+  %136 = getelementptr i32, ptr %134, i64 %135
+  %137 = getelementptr i8, ptr %136, i64 4
+  %138 = load i32, ptr %137, align 4, !tbaa !60
+  %.not61 = icmp eq i32 %138, %.sink88
+  br i1 %.not61, label %139, label %143
 
-150:                                              ; preds = %144
-  %151 = tail call fastcc i32 @Cbs2_ManResolve(ptr noundef nonnull %0, i32 noundef %134, i32 noundef %143)
-  %152 = load i32, ptr %19, align 8, !tbaa !86
-  %153 = add nsw i32 %152, 1
-  store i32 %153, ptr %19, align 8, !tbaa !86
-  br label %154
+139:                                              ; preds = %133
+  %140 = tail call fastcc i32 @Cbs2_ManResolve(ptr noundef nonnull %0, i32 noundef %123, i32 noundef %132)
+  %141 = load i32, ptr %19, align 8, !tbaa !86
+  %142 = add nsw i32 %141, 1
+  store i32 %142, ptr %19, align 8, !tbaa !86
+  br label %143
 
-154:                                              ; preds = %144, %142, %135, %Cbs2_ManAssign.exit, %7, %4, %2, %150
-  %.052 = phi i32 [ %151, %150 ], [ %3, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %Cbs2_ManAssign.exit ], [ %134, %135 ], [ 0, %142 ], [ %143, %144 ]
+143:                                              ; preds = %133, %131, %124, %Cbs2_ManAssign.exit, %7, %4, %2, %139
+  %.052 = phi i32 [ %140, %139 ], [ %3, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %Cbs2_ManAssign.exit ], [ %123, %124 ], [ 0, %131 ], [ %132, %133 ]
   ret i32 %.052
 }
 
@@ -3002,12 +2993,12 @@ define i32 @Cbs2_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %5 = load i32, ptr %4, align 8, !tbaa !61
   %6 = tail call i32 @Cbs2_ManPropagate2(ptr noundef %0, i32 noundef %1)
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %137
+  br i1 %.not, label %7, label %126
 
 7:                                                ; preds = %2
   %8 = call i32 @Cbs2_ManUpdateFrontier(ptr noundef nonnull %0, i32 noundef %5, ptr noundef nonnull %3)
   %.not61 = icmp eq i32 %8, 0
-  br i1 %.not61, label %9, label %137
+  br i1 %.not61, label %9, label %126
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3037,7 +3028,7 @@ define i32 @Cbs2_ManSolve2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %32 = add nsw i32 %31, %29
   store i32 %32, ptr %30, align 4, !tbaa !60
   %33 = select i1 %20, i1 true, i1 %28
-  br i1 %33, label %137, label %34
+  br i1 %33, label %126, label %34
 
 34:                                               ; preds = %9
   %35 = load i32, ptr %4, align 8, !tbaa !61
@@ -3077,148 +3068,139 @@ Cbs2_ManDecideHighest.exit:                       ; preds = %40, %43, %34
   %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %49
   %51 = load i64, ptr %50, align 4
   %52 = and i64 %51, 536870911
-  %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %50, i64 %53
-  %55 = getelementptr i8, ptr %47, i64 144
-  %.val72 = load ptr, ptr %55, align 8, !tbaa !89
-  %56 = ptrtoint ptr %54 to i64
-  %57 = ptrtoint ptr %.val to i64
-  %58 = sub i64 %56, %57
-  %59 = sdiv exact i64 %58, 12
-  %sext.i = shl i64 %59, 32
-  %60 = ashr exact i64 %sext.i, 30
-  %61 = getelementptr inbounds i8, ptr %.val72, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !60
-  %63 = lshr i64 %51, 32
-  %64 = and i64 %63, 536870911
-  %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %50, i64 %65
-  %67 = ptrtoint ptr %66 to i64
-  %68 = sub i64 %67, %57
-  %69 = sdiv exact i64 %68, 12
-  %sext.i73 = shl i64 %69, 32
-  %70 = ashr exact i64 %sext.i73, 30
-  %71 = getelementptr inbounds i8, ptr %.val72, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !60
-  %73 = icmp sgt i32 %62, %72
-  %74 = trunc nuw i64 %63 to i32
-  %75 = lshr i64 %51, 61
-  %76 = trunc nuw nsw i64 %75 to i32
-  %77 = trunc i64 %51 to i32
-  %78 = lshr i32 %77, 29
-  %.sink = select i1 %73, i32 %78, i32 %76
-  %.pn.in = select i1 %73, i32 %77, i32 %74
+  %53 = getelementptr i8, ptr %47, i64 144
+  %.val72 = load ptr, ptr %53, align 8, !tbaa !89
+  %reass.add = sub nsw i64 %49, %52
+  %sext.i = shl i64 %reass.add, 32
+  %54 = ashr exact i64 %sext.i, 30
+  %55 = getelementptr inbounds i8, ptr %.val72, i64 %54
+  %56 = load i32, ptr %55, align 4, !tbaa !60
+  %57 = lshr i64 %51, 32
+  %58 = and i64 %57, 536870911
+  %reass.add79 = sub nsw i64 %49, %58
+  %sext.i73 = shl i64 %reass.add79, 32
+  %59 = ashr exact i64 %sext.i73, 30
+  %60 = getelementptr inbounds i8, ptr %.val72, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !60
+  %62 = icmp sgt i32 %56, %61
+  %63 = trunc nuw i64 %57 to i32
+  %64 = lshr i64 %51, 61
+  %65 = trunc nuw nsw i64 %64 to i32
+  %66 = trunc i64 %51 to i32
+  %67 = lshr i32 %66, 29
+  %.sink = select i1 %62, i32 %67, i32 %65
+  %.pn.in = select i1 %62, i32 %66, i32 %63
   %.pn = and i32 %.pn.in, 536870911
-  %.sink76 = sub nsw i32 %.0.lcssa.i, %.pn
-  %79 = and i32 %.sink, 1
-  %80 = shl nsw i32 %.sink76, 1
-  %81 = or disjoint i32 %80, %79
-  %.057 = xor i32 %81, 1
-  %82 = add nsw i32 %1, 1
-  %83 = getelementptr i8, ptr %0, i64 152
-  %.val.i = load ptr, ptr %83, align 8, !tbaa !55
-  %84 = trunc i32 %.057 to i8
-  %85 = and i8 %84, 1
-  %86 = xor i8 %85, 1
-  %87 = sext i32 %.sink76 to i64
-  %88 = getelementptr inbounds i8, ptr %.val.i, i64 %87
-  store i8 %86, ptr %88, align 1, !tbaa !57
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %90 = load i32, ptr %89, align 4, !tbaa !68
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %92 = load i32, ptr %91, align 8, !tbaa !69
-  %93 = icmp eq i32 %90, %92
-  br i1 %93, label %94, label %._crit_edge.i.i
+  %.sink82 = sub nsw i32 %.0.lcssa.i, %.pn
+  %68 = and i32 %.sink, 1
+  %69 = shl nsw i32 %.sink82, 1
+  %70 = or disjoint i32 %69, %68
+  %.057 = xor i32 %70, 1
+  %71 = add nsw i32 %1, 1
+  %72 = getelementptr i8, ptr %0, i64 152
+  %.val.i = load ptr, ptr %72, align 8, !tbaa !55
+  %73 = trunc i32 %.057 to i8
+  %74 = and i8 %73, 1
+  %75 = xor i8 %74, 1
+  %76 = sext i32 %.sink82 to i64
+  %77 = getelementptr inbounds i8, ptr %.val.i, i64 %76
+  store i8 %75, ptr %77, align 1, !tbaa !57
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %79 = load i32, ptr %78, align 4, !tbaa !68
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %81 = load i32, ptr %80, align 8, !tbaa !69
+  %82 = icmp eq i32 %79, %81
+  br i1 %82, label %83, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %Cbs2_ManDecideHighest.exit
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !70
   br label %Cbs2_ManAssign.exit
 
-94:                                               ; preds = %Cbs2_ManDecideHighest.exit
-  %95 = shl nsw i32 %90, 1
-  store i32 %95, ptr %91, align 8, !tbaa !69
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %97 = load ptr, ptr %96, align 8, !tbaa !70
-  %.not.i.i = icmp eq ptr %97, null
-  %98 = sext i32 %95 to i64
-  %99 = shl nsw i64 %98, 2
-  br i1 %.not.i.i, label %102, label %100
+83:                                               ; preds = %Cbs2_ManDecideHighest.exit
+  %84 = shl nsw i32 %79, 1
+  store i32 %84, ptr %80, align 8, !tbaa !69
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %86 = load ptr, ptr %85, align 8, !tbaa !70
+  %.not.i.i = icmp eq ptr %86, null
+  %87 = sext i32 %84 to i64
+  %88 = shl nsw i64 %87, 2
+  br i1 %.not.i.i, label %91, label %89
 
-100:                                              ; preds = %94
-  %101 = tail call ptr @realloc(ptr noundef nonnull %97, i64 noundef %99) #27
-  %.pre11.pre.i.i = load i32, ptr %89, align 4, !tbaa !68
-  br label %104
+89:                                               ; preds = %83
+  %90 = tail call ptr @realloc(ptr noundef nonnull %86, i64 noundef %88) #27
+  %.pre11.pre.i.i = load i32, ptr %78, align 4, !tbaa !68
+  br label %93
 
-102:                                              ; preds = %94
-  %103 = tail call noalias ptr @malloc(i64 noundef %99) #26
-  br label %104
+91:                                               ; preds = %83
+  %92 = tail call noalias ptr @malloc(i64 noundef %88) #26
+  br label %93
 
-104:                                              ; preds = %102, %100
-  %.pre11.i.i = phi i32 [ %.pre11.pre.i.i, %100 ], [ %90, %102 ]
-  %105 = phi ptr [ %101, %100 ], [ %103, %102 ]
-  store ptr %105, ptr %96, align 8, !tbaa !70
+93:                                               ; preds = %91, %89
+  %.pre11.i.i = phi i32 [ %.pre11.pre.i.i, %89 ], [ %79, %91 ]
+  %94 = phi ptr [ %90, %89 ], [ %92, %91 ]
+  store ptr %94, ptr %85, align 8, !tbaa !70
   br label %Cbs2_ManAssign.exit
 
-Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %104
-  %106 = phi i32 [ %90, %._crit_edge.i.i ], [ %.pre11.i.i, %104 ]
-  %107 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %105, %104 ]
-  %108 = add nsw i32 %106, 1
-  store i32 %108, ptr %89, align 4, !tbaa !68
-  %109 = sext i32 %106 to i64
-  %110 = getelementptr inbounds i32, ptr %107, i64 %109
-  store i32 %.057, ptr %110, align 4, !tbaa !60
-  %111 = mul nsw i32 %.sink76, 3
-  %112 = getelementptr i8, ptr %0, i64 184
-  %.val14.i = load ptr, ptr %112, align 8, !tbaa !35
-  %113 = sext i32 %111 to i64
-  %114 = getelementptr i32, ptr %.val14.i, i64 %113
-  store i32 %82, ptr %114, align 4, !tbaa !60
-  %115 = getelementptr i8, ptr %114, i64 4
-  store i32 0, ptr %115, align 4, !tbaa !60
-  %116 = getelementptr i8, ptr %114, i64 8
-  store i32 0, ptr %116, align 4, !tbaa !60
-  %117 = tail call i32 @Cbs2_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %82)
-  %.not63 = icmp eq i32 %117, 0
-  br i1 %.not63, label %137, label %118
+Cbs2_ManAssign.exit:                              ; preds = %._crit_edge.i.i, %93
+  %95 = phi i32 [ %79, %._crit_edge.i.i ], [ %.pre11.i.i, %93 ]
+  %96 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %94, %93 ]
+  %97 = add nsw i32 %95, 1
+  store i32 %97, ptr %78, align 4, !tbaa !68
+  %98 = sext i32 %95 to i64
+  %99 = getelementptr inbounds i32, ptr %96, i64 %98
+  store i32 %.057, ptr %99, align 4, !tbaa !60
+  %100 = mul nsw i32 %.sink82, 3
+  %101 = getelementptr i8, ptr %0, i64 184
+  %.val14.i = load ptr, ptr %101, align 8, !tbaa !35
+  %102 = sext i32 %100 to i64
+  %103 = getelementptr i32, ptr %.val14.i, i64 %102
+  store i32 %71, ptr %103, align 4, !tbaa !60
+  %104 = getelementptr i8, ptr %103, i64 4
+  store i32 0, ptr %104, align 4, !tbaa !60
+  %105 = getelementptr i8, ptr %103, i64 8
+  store i32 0, ptr %105, align 4, !tbaa !60
+  %106 = tail call i32 @Cbs2_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %71)
+  %.not63 = icmp eq i32 %106, 0
+  br i1 %.not63, label %126, label %107
 
-118:                                              ; preds = %Cbs2_ManAssign.exit
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %120 = load ptr, ptr %119, align 8, !tbaa !70
-  %121 = sext i32 %117 to i64
-  %122 = getelementptr i32, ptr %120, i64 %121
-  %123 = getelementptr i8, ptr %122, i64 4
-  %124 = load i32, ptr %123, align 4, !tbaa !60
-  %.not64 = icmp eq i32 %124, %.sink76
-  br i1 %.not64, label %125, label %137
+107:                                              ; preds = %Cbs2_ManAssign.exit
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %109 = load ptr, ptr %108, align 8, !tbaa !70
+  %110 = sext i32 %106 to i64
+  %111 = getelementptr i32, ptr %109, i64 %110
+  %112 = getelementptr i8, ptr %111, i64 4
+  %113 = load i32, ptr %112, align 4, !tbaa !60
+  %.not64 = icmp eq i32 %113, %.sink82
+  br i1 %.not64, label %114, label %126
 
-125:                                              ; preds = %118
+114:                                              ; preds = %107
   tail call fastcc void @Cbs2_ManCancelUntil(ptr noundef nonnull %0, i32 noundef %35)
   store i32 %15, ptr %12, align 8, !tbaa !83
   store i32 %14, ptr %13, align 4, !tbaa !68
-  tail call fastcc void @Cbs2_ManAssign(ptr noundef nonnull %0, i32 noundef %81, i32 noundef %82, i32 noundef 0, i32 noundef 0)
-  %126 = tail call i32 @Cbs2_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %82)
-  %.not65 = icmp eq i32 %126, 0
-  br i1 %.not65, label %137, label %127
+  tail call fastcc void @Cbs2_ManAssign(ptr noundef nonnull %0, i32 noundef %70, i32 noundef %71, i32 noundef 0, i32 noundef 0)
+  %115 = tail call i32 @Cbs2_ManSolve2_rec(ptr noundef nonnull %0, i32 noundef %71)
+  %.not65 = icmp eq i32 %115, 0
+  br i1 %.not65, label %126, label %116
 
-127:                                              ; preds = %125
-  %128 = load ptr, ptr %119, align 8, !tbaa !70
-  %129 = sext i32 %126 to i64
-  %130 = getelementptr i32, ptr %128, i64 %129
-  %131 = getelementptr i8, ptr %130, i64 4
-  %132 = load i32, ptr %131, align 4, !tbaa !60
-  %.not66 = icmp eq i32 %132, %.sink76
-  br i1 %.not66, label %133, label %137
+116:                                              ; preds = %114
+  %117 = load ptr, ptr %108, align 8, !tbaa !70
+  %118 = sext i32 %115 to i64
+  %119 = getelementptr i32, ptr %117, i64 %118
+  %120 = getelementptr i8, ptr %119, i64 4
+  %121 = load i32, ptr %120, align 4, !tbaa !60
+  %.not66 = icmp eq i32 %121, %.sink82
+  br i1 %.not66, label %122, label %126
 
-133:                                              ; preds = %127
-  %134 = tail call fastcc i32 @Cbs2_ManResolve(ptr noundef nonnull %0, i32 noundef %117, i32 noundef %126)
-  %135 = load i32, ptr %25, align 8, !tbaa !86
-  %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %25, align 8, !tbaa !86
-  br label %137
+122:                                              ; preds = %116
+  %123 = tail call fastcc i32 @Cbs2_ManResolve(ptr noundef nonnull %0, i32 noundef %106, i32 noundef %115)
+  %124 = load i32, ptr %25, align 8, !tbaa !86
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %25, align 8, !tbaa !86
+  br label %126
 
-137:                                              ; preds = %127, %125, %118, %Cbs2_ManAssign.exit, %9, %7, %2, %133
-  %.0 = phi i32 [ %134, %133 ], [ %6, %2 ], [ 0, %7 ], [ 0, %9 ], [ 0, %Cbs2_ManAssign.exit ], [ %117, %118 ], [ 0, %125 ], [ %126, %127 ]
+126:                                              ; preds = %116, %114, %107, %Cbs2_ManAssign.exit, %9, %7, %2, %122
+  %.0 = phi i32 [ %123, %122 ], [ %6, %2 ], [ 0, %7 ], [ 0, %9 ], [ 0, %Cbs2_ManAssign.exit ], [ %106, %107 ], [ 0, %114 ], [ %115, %116 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
   ret i32 %.0
 }

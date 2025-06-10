@@ -6804,18 +6804,18 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EE9push_backES3_.exit: ; pr
 63:                                               ; preds = %48
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %10, i64 noundef %59, i64 noundef 8) #26
   %.pre9.pre.i.i = load i32, ptr %11, align 8, !tbaa !742
-  %.pre58.pre.i = load ptr, ptr %2, align 8, !tbaa !741
+  %.pre63.pre.i = load ptr, ptr %2, align 8, !tbaa !741
   br label %_ZN4llvm15SmallVectorImplIPN5clang6ModuleEE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIPN5clang6ModuleEE7reserveEm.exit.i.i: ; preds = %63, %48
-  %.pre58.i = phi ptr [ %39, %48 ], [ %.pre58.pre.i, %63 ]
+  %.pre63.i = phi ptr [ %39, %48 ], [ %.pre63.pre.i, %63 ]
   %.pre9.i.i = phi i32 [ %44, %48 ], [ %.pre9.pre.i.i, %63 ]
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %53, %51
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPN5clang6ModuleEE6appendIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEvEEvT_SD_.exit.i, label %64
 
 64:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang6ModuleEE7reserveEm.exit.i.i
   %65 = zext i32 %.pre9.i.i to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %.pre58.i, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %.pre63.i, i64 %65
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %66, ptr align 8 %51, i64 %57, i1 false)
   %.pre.i.i = load i32, ptr %11, align 8, !tbaa !742
   br label %_ZN4llvm15SmallVectorImplIPN5clang6ModuleEE6appendIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEvEEvT_SD_.exit.i

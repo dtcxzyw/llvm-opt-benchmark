@@ -3389,43 +3389,38 @@ define hidden noundef zeroext i1 @_ZN17ArchiveHeapWriter27is_marked_as_native_po
 _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit: ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = load ptr, ptr @_ZN17ArchiveHeapWriter17_requested_bottomE, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %24
-  %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %25 to i64
-  %31 = sub i64 %29, %30
-  %32 = ashr exact i64 %31, 3
-  %33 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 768
+  %25 = sext i32 %2 to i64
+  %26 = add i64 %24, %25
+  %27 = ashr exact i64 %26, 3
+  %28 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 768
+  %32 = load i64, ptr %31, align 8
+  %33 = icmp ult i64 %27, %32
+  br i1 %33, label %49, label %34
+
+34:                                               ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit
+  %35 = sub nuw i64 %27, %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i64, ptr %36, align 8
-  %38 = icmp ult i64 %32, %37
-  br i1 %38, label %54, label %39
+  %38 = icmp ult i64 %35, %37
+  br i1 %38, label %39, label %49
 
-39:                                               ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit
-  %40 = sub nuw i64 %32, %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %42 = load i64, ptr %41, align 8
-  %43 = icmp ult i64 %40, %42
-  br i1 %43, label %44, label %54
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = lshr i64 %35, 6
+  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %35, 63
+  %46 = shl nuw i64 1, %45
+  %47 = and i64 %44, %46
+  %48 = icmp ne i64 %47, 0
+  br label %49
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = lshr i64 %40, 6
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
-  %49 = load i64, ptr %48, align 8
-  %50 = and i64 %40, 63
-  %51 = shl nuw i64 1, %50
-  %52 = and i64 %49, %51
-  %53 = icmp ne i64 %52, 0
-  br label %54
-
-54:                                               ; preds = %39, %44, %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit
-  %.0 = phi i1 [ false, %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit ], [ false, %39 ], [ %53, %44 ]
+49:                                               ; preds = %34, %39, %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit
+  %.0 = phi i1 [ false, %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit ], [ false, %34 ], [ %48, %39 ]
   ret i1 %.0
 }
 

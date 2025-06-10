@@ -835,30 +835,28 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   %73 = getelementptr inbounds i8, ptr %68, i64 -8
   store i64 %spec.store.select56, ptr %73, align 8, !tbaa !62
   store ptr %69, ptr %23, align 8, !tbaa !53
-  %74 = ptrtoint ptr %69 to i64
-  %75 = ptrtoint ptr %67 to i64
-  %76 = sub i64 %74, %75
-  %77 = icmp ugt i64 %1, %76
-  br i1 %77, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %78
+  %74 = add i64 %.035, -32
+  %75 = icmp ugt i64 %1, %74
+  br i1 %75, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %76
 
-78:                                               ; preds = %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit"
-  %79 = sub i64 0, %1
-  %80 = getelementptr inbounds i8, ptr %69, i64 %79
-  %81 = ptrtoint ptr %80 to i64
-  %82 = sub i64 0, %spec.store.select56
-  %83 = and i64 %81, %82
-  %84 = inttoptr i64 %83 to ptr
-  %85 = sub i64 0, %76
-  %86 = getelementptr inbounds i8, ptr %69, i64 %85
-  %87 = icmp ugt ptr %86, %84
-  br i1 %87, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %88
+76:                                               ; preds = %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit"
+  %77 = sub i64 0, %1
+  %78 = getelementptr inbounds i8, ptr %69, i64 %77
+  %79 = ptrtoint ptr %78 to i64
+  %80 = sub i64 0, %spec.store.select56
+  %81 = and i64 %79, %80
+  %82 = inttoptr i64 %81 to ptr
+  %83 = sub i64 32, %.035
+  %84 = getelementptr inbounds i8, ptr %69, i64 %83
+  %85 = icmp ugt ptr %84, %82
+  br i1 %85, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %86
 
-88:                                               ; preds = %78
-  store ptr %84, ptr %72, align 8, !tbaa !56
+86:                                               ; preds = %76
+  store ptr %82, ptr %72, align 8, !tbaa !56
   br label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48
 
-_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48: ; preds = %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit, %88, %78, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit", %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
-  %.1 = phi ptr [ %40, %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit ], [ %19, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit ], [ %84, %88 ], [ null, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit" ], [ null, %78 ]
+_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48: ; preds = %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit, %86, %76, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit", %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit
+  %.1 = phi ptr [ %40, %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit ], [ %19, %_ZNSt3__13pmr25__try_allocate_from_chunkILb1ENS0_25monotonic_buffer_resource20__initial_descriptorEEEPvRT0_mm.exit ], [ %82, %86 ], [ null, %"_ZZNSt3__13pmr25monotonic_buffer_resource11do_allocateEmmENK3$_0clEv.exit" ], [ null, %76 ]
   ret ptr %.1
 }
 

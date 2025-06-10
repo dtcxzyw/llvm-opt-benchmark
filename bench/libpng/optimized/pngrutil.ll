@@ -5460,7 +5460,7 @@ define internal range(i32 0, 4) i32 @png_handle_sPLT(ptr noalias noundef %0, ptr
 
 7:                                                ; preds = %3
   %8 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
-  br label %136
+  br label %135
 
 9:                                                ; preds = %3
   %10 = add i32 %6, -1
@@ -5471,7 +5471,7 @@ define internal range(i32 0, 4) i32 @png_handle_sPLT(ptr noalias noundef %0, ptr
 12:                                               ; preds = %9
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #12
   %13 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
-  br label %136
+  br label %135
 
 14:                                               ; preds = %3, %9
   %15 = add i32 %2, 1
@@ -5513,7 +5513,7 @@ define internal range(i32 0, 4) i32 @png_handle_sPLT(ptr noalias noundef %0, ptr
 32:                                               ; preds = %14, %28
   %33 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #12
-  br label %136
+  br label %135
 
 png_crc_read.exit:                                ; preds = %30, %23
   %.021.i = phi ptr [ %29, %30 ], [ %18, %23 ]
@@ -5522,7 +5522,7 @@ png_crc_read.exit:                                ; preds = %30, %23
   tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %34) #12
   %35 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
   %.not87 = icmp eq i32 %35, 0
-  br i1 %.not87, label %36, label %136
+  br i1 %.not87, label %36, label %135
 
 36:                                               ; preds = %png_crc_read.exit
   %37 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %34
@@ -5540,7 +5540,7 @@ png_crc_read.exit:                                ; preds = %30, %23
 
 44:                                               ; preds = %36
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.50) #12
-  br label %136
+  br label %135
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %scevgep, i64 2
@@ -5549,33 +5549,31 @@ png_crc_read.exit:                                ; preds = %30, %23
   store i8 %47, ptr %48, align 8, !tbaa !206
   %49 = icmp eq i8 %47, 8
   %50 = select i1 %49, i32 6, i32 10
-  %51 = ptrtoint ptr %46 to i64
-  %52 = ptrtoint ptr %.021.i to i64
-  %.neg = sub i64 %52, %51
-  %.neg89 = trunc i64 %.neg to i32
-  %53 = add i32 %2, %.neg89
-  %54 = urem i32 %53, %50
-  %55 = udiv i32 %53, %50
-  %.not90 = icmp eq i32 %54, 0
-  br i1 %.not90, label %57, label %56
+  %51 = trunc i64 %strlen to i32
+  %reass.sub = sub i32 %2, %51
+  %52 = add i32 %reass.sub, -2
+  %53 = urem i32 %52, %50
+  %54 = udiv i32 %52, %50
+  %.not90 = icmp eq i32 %53, 0
+  br i1 %.not90, label %56, label %55
+
+55:                                               ; preds = %45
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.51) #12
+  br label %135
 
 56:                                               ; preds = %45
-  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.51) #12
-  br label %136
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 %54, ptr %57, align 8, !tbaa !209
+  %58 = zext nneg i32 %54 to i64
+  %59 = mul nuw nsw i64 %58, 10
+  %60 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %59) #12
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %60, ptr %61, align 8, !tbaa !210
+  %62 = icmp eq ptr %60, null
+  br i1 %62, label %88, label %.preheader
 
-57:                                               ; preds = %45
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %55, ptr %58, align 8, !tbaa !209
-  %59 = zext nneg i32 %55 to i64
-  %60 = mul nuw nsw i64 %59, 10
-  %61 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %60) #12
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %61, ptr %62, align 8, !tbaa !210
-  %63 = icmp eq ptr %61, null
-  br i1 %63, label %89, label %.preheader
-
-.preheader:                                       ; preds = %57
-  %.not = icmp ugt i32 %50, %53
+.preheader:                                       ; preds = %56
+  %.not = icmp ugt i32 %50, %52
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -5583,111 +5581,111 @@ png_crc_read.exit:                                ; preds = %30, %23
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.196.us = phi ptr [ %88, %.lr.ph.split.us ], [ %46, %.lr.ph ]
-  %64 = getelementptr inbounds nuw %struct.png_sPLT_entry_struct, ptr %61, i64 %indvars.iv99
-  %65 = getelementptr inbounds nuw i8, ptr %.196.us, i64 1
-  %66 = load i8, ptr %.196.us, align 1, !tbaa !3
-  %67 = zext i8 %66 to i16
-  store i16 %67, ptr %64, align 2, !tbaa !211
-  %68 = getelementptr inbounds nuw i8, ptr %.196.us, i64 2
-  %69 = load i8, ptr %65, align 1, !tbaa !3
-  %70 = zext i8 %69 to i16
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 2
-  store i16 %70, ptr %71, align 2, !tbaa !213
-  %72 = getelementptr inbounds nuw i8, ptr %.196.us, i64 3
-  %73 = load i8, ptr %68, align 1, !tbaa !3
-  %74 = zext i8 %73 to i16
-  %75 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i16 %74, ptr %75, align 2, !tbaa !214
-  %76 = getelementptr inbounds nuw i8, ptr %.196.us, i64 4
-  %77 = load i8, ptr %72, align 1, !tbaa !3
-  %78 = zext i8 %77 to i16
-  %79 = getelementptr inbounds nuw i8, ptr %64, i64 6
-  store i16 %78, ptr %79, align 2, !tbaa !215
-  %80 = load i8, ptr %76, align 1, !tbaa !3
-  %81 = zext i8 %80 to i16
-  %82 = shl nuw i16 %81, 8
-  %83 = getelementptr inbounds nuw i8, ptr %.196.us, i64 5
-  %84 = load i8, ptr %83, align 1, !tbaa !3
-  %85 = zext i8 %84 to i16
-  %86 = or disjoint i16 %82, %85
-  %87 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i16 %86, ptr %87, align 2, !tbaa !216
-  %88 = getelementptr inbounds nuw i8, ptr %.196.us, i64 6
+  %.196.us = phi ptr [ %87, %.lr.ph.split.us ], [ %46, %.lr.ph ]
+  %63 = getelementptr inbounds nuw %struct.png_sPLT_entry_struct, ptr %60, i64 %indvars.iv99
+  %64 = getelementptr inbounds nuw i8, ptr %.196.us, i64 1
+  %65 = load i8, ptr %.196.us, align 1, !tbaa !3
+  %66 = zext i8 %65 to i16
+  store i16 %66, ptr %63, align 2, !tbaa !211
+  %67 = getelementptr inbounds nuw i8, ptr %.196.us, i64 2
+  %68 = load i8, ptr %64, align 1, !tbaa !3
+  %69 = zext i8 %68 to i16
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  store i16 %69, ptr %70, align 2, !tbaa !213
+  %71 = getelementptr inbounds nuw i8, ptr %.196.us, i64 3
+  %72 = load i8, ptr %67, align 1, !tbaa !3
+  %73 = zext i8 %72 to i16
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store i16 %73, ptr %74, align 2, !tbaa !214
+  %75 = getelementptr inbounds nuw i8, ptr %.196.us, i64 4
+  %76 = load i8, ptr %71, align 1, !tbaa !3
+  %77 = zext i8 %76 to i16
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 6
+  store i16 %77, ptr %78, align 2, !tbaa !215
+  %79 = load i8, ptr %75, align 1, !tbaa !3
+  %80 = zext i8 %79 to i16
+  %81 = shl nuw i16 %80, 8
+  %82 = getelementptr inbounds nuw i8, ptr %.196.us, i64 5
+  %83 = load i8, ptr %82, align 1, !tbaa !3
+  %84 = zext i8 %83 to i16
+  %85 = or disjoint i16 %81, %84
+  %86 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i16 %85, ptr %86, align 2, !tbaa !216
+  %87 = getelementptr inbounds nuw i8, ptr %.196.us, i64 6
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %59
+  %exitcond103.not = icmp eq i64 %indvars.iv.next100, %58
   br i1 %exitcond103.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !217
 
-89:                                               ; preds = %57
+88:                                               ; preds = %56
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.53) #12
-  br label %136
+  br label %135
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.196 = phi ptr [ %134, %.lr.ph.split ], [ %46, %.lr.ph ]
-  %90 = getelementptr inbounds nuw %struct.png_sPLT_entry_struct, ptr %61, i64 %indvars.iv
-  %91 = load i8, ptr %.196, align 1, !tbaa !3
-  %92 = zext i8 %91 to i16
-  %93 = shl nuw i16 %92, 8
-  %94 = getelementptr inbounds nuw i8, ptr %.196, i64 1
-  %95 = load i8, ptr %94, align 1, !tbaa !3
-  %96 = zext i8 %95 to i16
-  %97 = or disjoint i16 %93, %96
-  store i16 %97, ptr %90, align 2, !tbaa !211
-  %98 = getelementptr inbounds nuw i8, ptr %.196, i64 2
-  %99 = load i8, ptr %98, align 1, !tbaa !3
-  %100 = zext i8 %99 to i16
-  %101 = shl nuw i16 %100, 8
-  %102 = getelementptr inbounds nuw i8, ptr %.196, i64 3
-  %103 = load i8, ptr %102, align 1, !tbaa !3
-  %104 = zext i8 %103 to i16
-  %105 = or disjoint i16 %101, %104
-  %106 = getelementptr inbounds nuw i8, ptr %90, i64 2
-  store i16 %105, ptr %106, align 2, !tbaa !213
-  %107 = getelementptr inbounds nuw i8, ptr %.196, i64 4
-  %108 = load i8, ptr %107, align 1, !tbaa !3
-  %109 = zext i8 %108 to i16
-  %110 = shl nuw i16 %109, 8
-  %111 = getelementptr inbounds nuw i8, ptr %.196, i64 5
-  %112 = load i8, ptr %111, align 1, !tbaa !3
-  %113 = zext i8 %112 to i16
-  %114 = or disjoint i16 %110, %113
-  %115 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store i16 %114, ptr %115, align 2, !tbaa !214
-  %116 = getelementptr inbounds nuw i8, ptr %.196, i64 6
-  %117 = load i8, ptr %116, align 1, !tbaa !3
-  %118 = zext i8 %117 to i16
-  %119 = shl nuw i16 %118, 8
-  %120 = getelementptr inbounds nuw i8, ptr %.196, i64 7
-  %121 = load i8, ptr %120, align 1, !tbaa !3
-  %122 = zext i8 %121 to i16
-  %123 = or disjoint i16 %119, %122
-  %124 = getelementptr inbounds nuw i8, ptr %90, i64 6
-  store i16 %123, ptr %124, align 2, !tbaa !215
-  %125 = getelementptr inbounds nuw i8, ptr %.196, i64 8
-  %126 = load i8, ptr %125, align 1, !tbaa !3
-  %127 = zext i8 %126 to i16
-  %128 = shl nuw i16 %127, 8
-  %129 = getelementptr inbounds nuw i8, ptr %.196, i64 9
-  %130 = load i8, ptr %129, align 1, !tbaa !3
-  %131 = zext i8 %130 to i16
-  %132 = or disjoint i16 %128, %131
-  %133 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store i16 %132, ptr %133, align 2, !tbaa !216
-  %134 = getelementptr inbounds nuw i8, ptr %.196, i64 10
+  %.196 = phi ptr [ %133, %.lr.ph.split ], [ %46, %.lr.ph ]
+  %89 = getelementptr inbounds nuw %struct.png_sPLT_entry_struct, ptr %60, i64 %indvars.iv
+  %90 = load i8, ptr %.196, align 1, !tbaa !3
+  %91 = zext i8 %90 to i16
+  %92 = shl nuw i16 %91, 8
+  %93 = getelementptr inbounds nuw i8, ptr %.196, i64 1
+  %94 = load i8, ptr %93, align 1, !tbaa !3
+  %95 = zext i8 %94 to i16
+  %96 = or disjoint i16 %92, %95
+  store i16 %96, ptr %89, align 2, !tbaa !211
+  %97 = getelementptr inbounds nuw i8, ptr %.196, i64 2
+  %98 = load i8, ptr %97, align 1, !tbaa !3
+  %99 = zext i8 %98 to i16
+  %100 = shl nuw i16 %99, 8
+  %101 = getelementptr inbounds nuw i8, ptr %.196, i64 3
+  %102 = load i8, ptr %101, align 1, !tbaa !3
+  %103 = zext i8 %102 to i16
+  %104 = or disjoint i16 %100, %103
+  %105 = getelementptr inbounds nuw i8, ptr %89, i64 2
+  store i16 %104, ptr %105, align 2, !tbaa !213
+  %106 = getelementptr inbounds nuw i8, ptr %.196, i64 4
+  %107 = load i8, ptr %106, align 1, !tbaa !3
+  %108 = zext i8 %107 to i16
+  %109 = shl nuw i16 %108, 8
+  %110 = getelementptr inbounds nuw i8, ptr %.196, i64 5
+  %111 = load i8, ptr %110, align 1, !tbaa !3
+  %112 = zext i8 %111 to i16
+  %113 = or disjoint i16 %109, %112
+  %114 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  store i16 %113, ptr %114, align 2, !tbaa !214
+  %115 = getelementptr inbounds nuw i8, ptr %.196, i64 6
+  %116 = load i8, ptr %115, align 1, !tbaa !3
+  %117 = zext i8 %116 to i16
+  %118 = shl nuw i16 %117, 8
+  %119 = getelementptr inbounds nuw i8, ptr %.196, i64 7
+  %120 = load i8, ptr %119, align 1, !tbaa !3
+  %121 = zext i8 %120 to i16
+  %122 = or disjoint i16 %118, %121
+  %123 = getelementptr inbounds nuw i8, ptr %89, i64 6
+  store i16 %122, ptr %123, align 2, !tbaa !215
+  %124 = getelementptr inbounds nuw i8, ptr %.196, i64 8
+  %125 = load i8, ptr %124, align 1, !tbaa !3
+  %126 = zext i8 %125 to i16
+  %127 = shl nuw i16 %126, 8
+  %128 = getelementptr inbounds nuw i8, ptr %.196, i64 9
+  %129 = load i8, ptr %128, align 1, !tbaa !3
+  %130 = zext i8 %129 to i16
+  %131 = or disjoint i16 %127, %130
+  %132 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store i16 %131, ptr %132, align 2, !tbaa !216
+  %133 = getelementptr inbounds nuw i8, ptr %.196, i64 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %59
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %58
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
   store ptr %.021.i, ptr %4, align 8, !tbaa !218
   call void @png_set_sPLT(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #12
-  %135 = load ptr, ptr %62, align 8, !tbaa !210
-  call void @png_free(ptr noundef nonnull %0, ptr noundef %135) #12
-  br label %136
+  %134 = load ptr, ptr %61, align 8, !tbaa !210
+  call void @png_free(ptr noundef nonnull %0, ptr noundef %134) #12
+  br label %135
 
-136:                                              ; preds = %png_crc_read.exit, %._crit_edge, %89, %56, %44, %32, %12, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 0, %32 ], [ 0, %44 ], [ 0, %56 ], [ 0, %89 ], [ 3, %._crit_edge ], [ 0, %png_crc_read.exit ]
+135:                                              ; preds = %png_crc_read.exit, %._crit_edge, %88, %55, %44, %32, %12, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 0, %32 ], [ 0, %44 ], [ 0, %55 ], [ 0, %88 ], [ 3, %._crit_edge ], [ 0, %png_crc_read.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
   ret i32 %.0
 }

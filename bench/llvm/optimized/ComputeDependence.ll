@@ -3007,39 +3007,36 @@ declare noundef ptr @_ZNK5clang18DesignatedInitExpr16getArrayRangeEndERKNS0_10De
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenceEPNS_16PseudoObjectExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2 = load ptr, ptr %.ptr, align 8, !tbaa !434
-  %3 = load i24, ptr %2, align 8
-  %4 = lshr i24 %3, 14
-  %5 = trunc i24 %4 to i8
-  %6 = and i8 %5, 31
-  %7 = load i64, ptr %0, align 8
-  %8 = lshr i64 %7, 29
-  %.idx = and i64 %8, 524280
-  %.add = add nuw nsw i64 %.idx, 16
-  %.ptr15 = getelementptr inbounds nuw i8, ptr %0, i64 %.add
-  %.not12 = icmp eq i64 %.add, 24
-  br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.lr.ph
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !434
+  %4 = load i24, ptr %3, align 8
+  %5 = lshr i24 %4, 14
+  %6 = trunc i24 %5 to i8
+  %7 = and i8 %6, 31
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load i64, ptr %0, align 8
+  %10 = lshr i64 %9, 29
+  %.idx.i = and i64 %10, 524280
+  %11 = getelementptr i8, ptr %8, i64 %.idx.i
+  %12 = getelementptr i8, ptr %11, i64 -8
+  %.not12 = icmp eq ptr %8, %12
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.011.lcssa = phi i8 [ %6, %1 ], [ %15, %.lr.ph ]
+  %.011.lcssa = phi i8 [ %7, %1 ], [ %18, %.lr.ph ]
   ret i8 %.011.lcssa
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.014 = phi ptr [ %16, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.01113 = phi i8 [ %15, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %10 = load ptr, ptr %.014, align 8, !tbaa !434
-  %11 = load i24, ptr %10, align 8
-  %12 = lshr i24 %11, 14
-  %13 = trunc i24 %12 to i8
-  %14 = and i8 %13, 31
-  %15 = or i8 %14, %.01113
-  %16 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %.not = icmp eq ptr %16, %.ptr15
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.014 = phi ptr [ %19, %.lr.ph ], [ %8, %1 ]
+  %.01113 = phi i8 [ %18, %.lr.ph ], [ %7, %1 ]
+  %13 = load ptr, ptr %.014, align 8, !tbaa !434
+  %14 = load i24, ptr %13, align 8
+  %15 = lshr i24 %14, 14
+  %16 = trunc i24 %15 to i8
+  %17 = and i8 %16, 31
+  %18 = or i8 %17, %.01113
+  %19 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %.not = icmp eq ptr %19, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 

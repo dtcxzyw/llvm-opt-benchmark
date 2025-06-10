@@ -34420,8 +34420,8 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCall
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEE6insertIN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEvEESD_SD_T_SI_.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE8CallInfoEE7reserveEm.exit.i.i.i
-  %.val43.pre87.i.i = load ptr, ptr %567, align 8, !tbaa !25
-  %583 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::ModuleCallsiteContextGraph, llvm::Function, llvm::Instruction *>::CallInfo", ptr %.val43.pre87.i.i, i64 %.pre-phi.i.i.i
+  %.val43.pre92.i.i = load ptr, ptr %567, align 8, !tbaa !25
+  %583 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::ModuleCallsiteContextGraph, llvm::Function, llvm::Instruction *>::CallInfo", ptr %.val43.pre92.i.i, i64 %.pre-phi.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i108
 
 .lr.ph.i.i.i.i.i.i.i108:                          ; preds = %.lr.ph.i.i.i.i.i.i.i108, %.lr.ph.i.i.i.i.preheader.i.i.i
@@ -59132,8 +59132,8 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCalls
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEE8CallInfoEE6insertIN9__gnu_cxx17__normal_iteratorIPS7_St6vectorIS7_SaIS7_EEEEvEESC_SC_T_SH_.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEE8CallInfoEE7reserveEm.exit.i.i.i
-  %.val43.pre85.i.i = load ptr, ptr %544, align 8, !tbaa !25
-  %560 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::IndexCallsiteContextGraph, llvm::FunctionSummary, (anonymous namespace)::IndexCall>::CallInfo", ptr %.val43.pre85.i.i, i64 %.pre-phi.i.i.i
+  %.val43.pre90.i.i = load ptr, ptr %544, align 8, !tbaa !25
+  %560 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CallsiteContextGraph<(anonymous namespace)::IndexCallsiteContextGraph, llvm::FunctionSummary, (anonymous namespace)::IndexCall>::CallInfo", ptr %.val43.pre90.i.i, i64 %.pre-phi.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i114
 
 .lr.ph.i.i.i.i.i.i.i114:                          ; preds = %.lr.ph.i.i.i.i.i.i.i114, %.lr.ph.i.i.i.i.preheader.i.i.i

@@ -11519,14 +11519,14 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIP18In
 32:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.0, i64 16, i1 false), !tbaa.struct !598
-  %.idx = shl nsw i64 %.0, 4
-  %33 = getelementptr inbounds i8, ptr %.sroa.041.0, i64 %.idx
+  %.idx86 = shl nsw i64 %.0, 4
+  %33 = getelementptr inbounds i8, ptr %.sroa.041.0, i64 %.idx86
   %.not.i.i.i.i.i = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.041.0, i64 16
-  %gepdiff = add nsw i64 %.idx, -16
+  %gepdiff = add nsw i64 %.idx86, -16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.sroa.041.0, ptr nonnull align 8 %35, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
@@ -11538,40 +11538,40 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2
 
 37:                                               ; preds = %30
   %38 = icmp sgt i64 %28, 0
-  br i1 %38, label %.lr.ph98.preheader, label %._crit_edge99
+  br i1 %38, label %.lr.ph99.preheader, label %._crit_edge100
 
-.lr.ph98.preheader:                               ; preds = %37
+.lr.ph99.preheader:                               ; preds = %37
   %39 = getelementptr inbounds %struct.InstrProfValueData, ptr %.sroa.041.0, i64 %.084
-  br label %.lr.ph98
+  br label %.lr.ph99
 
-._crit_edge99:                                    ; preds = %.lr.ph98, %37
-  %.sroa.041.1.lcssa = phi ptr [ %.sroa.041.0, %37 ], [ %41, %.lr.ph98 ]
+._crit_edge100:                                   ; preds = %.lr.ph99, %37
+  %.sroa.041.1.lcssa = phi ptr [ %.sroa.041.0, %37 ], [ %41, %.lr.ph99 ]
   %40 = srem i64 %.0, %.084
   %.not30 = icmp eq i64 %40, 0
   br i1 %.not30, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %44
 
-.lr.ph98:                                         ; preds = %.lr.ph98.preheader, %.lr.ph98
-  %.02796 = phi i64 [ %43, %.lr.ph98 ], [ 0, %.lr.ph98.preheader ]
-  %.sroa.041.195 = phi ptr [ %41, %.lr.ph98 ], [ %.sroa.041.0, %.lr.ph98.preheader ]
-  %.sroa.038.094 = phi ptr [ %42, %.lr.ph98 ], [ %39, %.lr.ph98.preheader ]
+.lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
+  %.02797 = phi i64 [ %43, %.lr.ph99 ], [ 0, %.lr.ph99.preheader ]
+  %.sroa.041.196 = phi ptr [ %41, %.lr.ph99 ], [ %.sroa.041.0, %.lr.ph99.preheader ]
+  %.sroa.038.095 = phi ptr [ %42, %.lr.ph99 ], [ %39, %.lr.ph99.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.195, i64 16, i1 false), !tbaa.struct !598
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.195, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.038.094, i64 16, i1 false), !tbaa.struct !598
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.038.094, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !598
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.196, i64 16, i1 false), !tbaa.struct !598
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.041.196, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.038.095, i64 16, i1 false), !tbaa.struct !598
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.038.095, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !598
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.041.195, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.038.094, i64 16
-  %43 = add nuw nsw i64 %.02796, 1
-  %exitcond107.not = icmp eq i64 %43, %28
-  br i1 %exitcond107.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !604
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.041.196, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.038.095, i64 16
+  %43 = add nuw nsw i64 %.02797, 1
+  %exitcond108.not = icmp eq i64 %43, %28
+  br i1 %exitcond108.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !604
 
-44:                                               ; preds = %._crit_edge99
+44:                                               ; preds = %._crit_edge100
   %45 = sub nsw i64 %.084, %40
   br label %.backedge
 
 46:                                               ; preds = %27
   %47 = icmp eq i64 %28, 1
-  br i1 %47, label %48, label %58
+  br i1 %47, label %48, label %56
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
@@ -11582,13 +11582,12 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2
   br i1 %.not.i.i.i.i.i33, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %51
 
 51:                                               ; preds = %48
-  %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %.sroa.041.0 to i64
-  %54 = sub i64 %52, %53
-  %55 = ashr exact i64 %54, 4
-  %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %struct.InstrProfValueData, ptr %49, i64 %56
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %.sroa.041.0, i64 %54, i1 false)
+  %.idx = shl nsw i64 %.0, 4
+  %52 = add i64 %.idx, -16
+  %53 = ashr exact i64 %52, 4
+  %54 = sub nsw i64 0, %53
+  %55 = getelementptr inbounds %struct.InstrProfValueData, ptr %49, i64 %54
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr nonnull align 8 %.sroa.041.0, i64 %52, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %48, %51
@@ -11596,42 +11595,42 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vecto
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit
 
-58:                                               ; preds = %46
-  %59 = getelementptr inbounds %struct.InstrProfValueData, ptr %.sroa.041.0, i64 %.0
-  %60 = sub i64 0, %28
-  %61 = getelementptr inbounds %struct.InstrProfValueData, ptr %59, i64 %60
-  %62 = icmp sgt i64 %.084, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+56:                                               ; preds = %46
+  %57 = getelementptr inbounds %struct.InstrProfValueData, ptr %.sroa.041.0, i64 %.0
+  %58 = sub i64 0, %28
+  %59 = getelementptr inbounds %struct.InstrProfValueData, ptr %57, i64 %58
+  %60 = icmp sgt i64 %.084, 0
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %58
-  %.sroa.041.3.lcssa = phi ptr [ %61, %58 ], [ %.sroa.041.0, %.lr.ph ]
-  %63 = srem i64 %.0, %28
-  %.not = icmp eq i64 %63, 0
+._crit_edge:                                      ; preds = %.lr.ph, %56
+  %.sroa.041.3.lcssa = phi ptr [ %59, %56 ], [ %.sroa.041.0, %.lr.ph ]
+  %61 = srem i64 %.0, %28
+  %.not = icmp eq i64 %61, 0
   br i1 %.not, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %44
   %.sroa.041.0.be = phi ptr [ %.sroa.041.1.lcssa, %44 ], [ %.sroa.041.3.lcssa, %._crit_edge ]
-  %.084.be = phi i64 [ %45, %44 ], [ %63, %._crit_edge ]
+  %.084.be = phi i64 [ %45, %44 ], [ %61, %._crit_edge ]
   %.0.be = phi i64 [ %.084, %44 ], [ %28, %._crit_edge ]
   br label %27, !llvm.loop !605
 
-.lr.ph:                                           ; preds = %58, %.lr.ph
-  %.02693 = phi i64 [ %66, %.lr.ph ], [ 0, %58 ]
-  %.sroa.0.092 = phi ptr [ %65, %.lr.ph ], [ %59, %58 ]
-  %.sroa.041.391 = phi ptr [ %64, %.lr.ph ], [ %61, %58 ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.041.391, i64 -16
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.092, i64 -16
+.lr.ph:                                           ; preds = %56, %.lr.ph
+  %.02694 = phi i64 [ %64, %.lr.ph ], [ 0, %56 ]
+  %.sroa.0.093 = phi ptr [ %63, %.lr.ph ], [ %57, %56 ]
+  %.sroa.041.392 = phi ptr [ %62, %.lr.ph ], [ %59, %56 ]
+  %62 = getelementptr inbounds i8, ptr %.sroa.041.392, i64 -16
+  %63 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !598
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !598
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !598
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !598
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !598
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !598
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %66 = add nuw nsw i64 %.02693, 1
-  %exitcond.not = icmp eq i64 %66, %.084
+  %64 = add nuw nsw i64 %.02694, 1
+  %exitcond.not = icmp eq i64 %64, %.084
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !606
 
-_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %._crit_edge, %._crit_edge99, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %10, %3
-  %.sroa.023.0 = phi ptr [ %2, %3 ], [ %0, %10 ], [ %26, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit ], [ %26, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge99 ], [ %26, %._crit_edge ]
+_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit: ; preds = %._crit_edge, %._crit_edge100, %.lr.ph.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit, %10, %3
+  %.sroa.023.0 = phi ptr [ %2, %3 ], [ %0, %10 ], [ %26, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit ], [ %26, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2_EEEES7_ET0_T_S9_S8_.exit ], [ %1, %.lr.ph.i ], [ %26, %._crit_edge100 ], [ %26, %._crit_edge ]
   ret ptr %.sroa.023.0
 }
 

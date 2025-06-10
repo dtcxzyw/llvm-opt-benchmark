@@ -330,8 +330,8 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %13
   call void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %21 = load ptr, ptr %5, align 8, !tbaa !14
   %22 = icmp eq ptr %21, %16
-  %diff.neg = sub i64 0, %2
-  %23 = getelementptr inbounds i8, ptr %21, i64 %diff.neg
+  %gepdiff = sub nsw i64 0, %2
+  %23 = getelementptr inbounds i8, ptr %21, i64 %gepdiff
   %.0.i.i = select i1 %22, ptr %19, ptr %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)

@@ -2866,11 +2866,11 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   br i1 %or.cond3.i.i, label %713, label %.lr.ph.i.i.preheader
 
 713:                                              ; preds = %709
-  %714 = ptrtoint ptr %710 to i64
-  %715 = sub i64 %714, %696
+  %714 = add nsw i64 %694, -32
+  %715 = getelementptr inbounds i8, ptr %.2209.i685.i, i64 %714
   %716 = load <2 x i64>, ptr %683, align 1, !tbaa !7
   store <2 x i64> %716, ptr %.2209.i685.i, align 1, !tbaa !7
-  %717 = icmp slt i64 %715, 17
+  %717 = icmp samesign ult i64 %694, 49
   br i1 %717, label %.thread.i238.i, label %718
 
 718:                                              ; preds = %713
@@ -2888,11 +2888,11 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %724 = load <2 x i64>, ptr %723, align 1, !tbaa !7
   store <2 x i64> %724, ptr %722, align 1, !tbaa !7
   %725 = getelementptr inbounds nuw i8, ptr %.130.i.i.i, i64 32
-  %726 = icmp ult ptr %725, %710
+  %726 = icmp ult ptr %725, %715
   br i1 %726, label %720, label %.thread.i238.i, !llvm.loop !107
 
 .thread.i238.i:                                   ; preds = %720, %713
-  %727 = getelementptr inbounds i8, ptr %683, i64 %715
+  %727 = getelementptr inbounds i8, ptr %683, i64 %714
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.thread.i238.i, %709
@@ -3005,9 +3005,9 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.thread
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i
 
 771:                                              ; preds = %765
-  %diff.neg.i.i = sub i64 0, %767
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %734, ptr align 1 %768, i64 %diff.neg.i.i, i1 false)
-  %772 = getelementptr inbounds nuw i8, ptr %734, i64 %diff.neg.i.i
+  %gepdiff.i.i = sub nsw i64 0, %767
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %734, ptr align 1 %768, i64 %gepdiff.i.i, i1 false)
+  %772 = getelementptr inbounds nuw i8, ptr %734, i64 %gepdiff.i.i
   %773 = add i64 %767, %.sroa.4308.0.copyload.i
   br label %774
 
@@ -3234,9 +3234,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit95.i: ; preds = 
   br label %_ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S2_S2_.exit.i
 
 890:                                              ; preds = %884
-  %diff.neg.i38.i = sub i64 0, %886
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %852, ptr align 1 %887, i64 %diff.neg.i38.i, i1 false)
-  %891 = getelementptr inbounds nuw i8, ptr %852, i64 %diff.neg.i38.i
+  %gepdiff.i38.i = sub nsw i64 0, %886
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %852, ptr align 1 %887, i64 %gepdiff.i38.i, i1 false)
+  %891 = getelementptr inbounds nuw i8, ptr %852, i64 %gepdiff.i38.i
   %892 = add i64 %886, %.sroa.4471.0.copyload.i
   br label %893
 
@@ -3451,9 +3451,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit158.i: ; preds =
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22.i
 
 1003:                                             ; preds = %997
-  %diff.neg.i20.i = sub i64 0, %999
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %963, ptr align 1 %1000, i64 %diff.neg.i20.i, i1 false)
-  %1004 = getelementptr inbounds nuw i8, ptr %963, i64 %diff.neg.i20.i
+  %gepdiff.i20.i = sub nsw i64 0, %999
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %963, ptr align 1 %1000, i64 %gepdiff.i20.i, i1 false)
+  %1004 = getelementptr inbounds nuw i8, ptr %963, i64 %gepdiff.i20.i
   %1005 = add i64 %999, %.sroa.4348.0.copyload.i
   br label %1006
 
@@ -3721,11 +3721,11 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22.i: ;
   br i1 %or.cond3.i240.i, label %1134, label %.lr.ph.i244.i.preheader
 
 1134:                                             ; preds = %1130
-  %1135 = ptrtoint ptr %1131 to i64
-  %1136 = sub i64 %1135, %1117
+  %1135 = add nsw i64 %1115, -32
+  %1136 = getelementptr inbounds i8, ptr %.9216.i696.i, i64 %1135
   %1137 = load <2 x i64>, ptr %1107, align 1, !tbaa !7
   store <2 x i64> %1137, ptr %.9216.i696.i, align 1, !tbaa !7
-  %1138 = icmp slt i64 %1136, 17
+  %1138 = icmp samesign ult i64 %1115, 49
   br i1 %1138, label %.thread.i250.i, label %1139
 
 1139:                                             ; preds = %1134
@@ -3743,11 +3743,11 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22.i: ;
   %1145 = load <2 x i64>, ptr %1144, align 1, !tbaa !7
   store <2 x i64> %1145, ptr %1143, align 1, !tbaa !7
   %1146 = getelementptr inbounds nuw i8, ptr %.130.i.i247.i, i64 32
-  %1147 = icmp ult ptr %1146, %1131
+  %1147 = icmp ult ptr %1146, %1136
   br i1 %1147, label %1141, label %.thread.i250.i, !llvm.loop !107
 
 .thread.i250.i:                                   ; preds = %1141, %1134
-  %1148 = getelementptr inbounds i8, ptr %1107, i64 %1136
+  %1148 = getelementptr inbounds i8, ptr %1107, i64 %1135
   br label %.lr.ph.i244.i.preheader
 
 .lr.ph.i244.i.preheader:                          ; preds = %.thread.i250.i, %1130
@@ -3860,9 +3860,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit137.i: ; preds =
   br label %.loopexit.i
 
 1192:                                             ; preds = %1186
-  %diff.neg.i26.i = sub i64 0, %1188
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1189, i64 %diff.neg.i26.i, i1 false)
-  %1193 = getelementptr inbounds nuw i8, ptr %1155, i64 %diff.neg.i26.i
+  %gepdiff.i26.i = sub nsw i64 0, %1188
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1189, i64 %gepdiff.i26.i, i1 false)
+  %1193 = getelementptr inbounds nuw i8, ptr %1155, i64 %gepdiff.i26.i
   %1194 = add i64 %1188, %.sroa.4389.0.copyload.i
   br label %1195
 
@@ -4074,9 +4074,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit.i: ; preds = %1
   br label %_ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S2_S2_.exit45.i
 
 1303:                                             ; preds = %1297
-  %diff.neg.i43.i = sub i64 0, %1299
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1265, ptr align 1 %1300, i64 %diff.neg.i43.i, i1 false)
-  %1304 = getelementptr inbounds nuw i8, ptr %1265, i64 %diff.neg.i43.i
+  %gepdiff.i43.i = sub nsw i64 0, %1299
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1265, ptr align 1 %1300, i64 %gepdiff.i43.i, i1 false)
+  %1304 = getelementptr inbounds nuw i8, ptr %1265, i64 %gepdiff.i43.i
   %1305 = add i64 %1299, %.sroa.4512.0.copyload.i
   br label %1306
 
@@ -4288,9 +4288,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit116.i: ; preds =
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit34.i
 
 1413:                                             ; preds = %1407
-  %diff.neg.i32.i = sub i64 0, %1409
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1373, ptr align 1 %1410, i64 %diff.neg.i32.i, i1 false)
-  %1414 = getelementptr inbounds nuw i8, ptr %1373, i64 %diff.neg.i32.i
+  %gepdiff.i32.i = sub nsw i64 0, %1409
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1373, ptr align 1 %1410, i64 %gepdiff.i32.i, i1 false)
+  %1414 = getelementptr inbounds nuw i8, ptr %1373, i64 %gepdiff.i32.i
   %1415 = add i64 %1409, %.sroa.4430.0.copyload.i
   br label %1416
 
@@ -5341,9 +5341,9 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   br label %_ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S2_S2_.exit.i.i
 
 497:                                              ; preds = %491
-  %diff.neg.i210.i.i = sub i64 0, %493
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %459, ptr align 1 %494, i64 %diff.neg.i210.i.i, i1 false)
-  %498 = getelementptr inbounds nuw i8, ptr %459, i64 %diff.neg.i210.i.i
+  %gepdiff.i210.i.i = sub nsw i64 0, %493
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %459, ptr align 1 %494, i64 %gepdiff.i210.i.i, i1 false)
+  %498 = getelementptr inbounds nuw i8, ptr %459, i64 %gepdiff.i210.i.i
   %499 = add i64 %493, %.sroa.659.0.i
   br label %500
 
@@ -5528,11 +5528,11 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   br i1 %or.cond3.i.i, label %596, label %.lr.ph.i.i.preheader
 
 596:                                              ; preds = %592
-  %597 = ptrtoint ptr %593 to i64
-  %598 = sub i64 %597, %579
+  %597 = add nsw i64 %576, -32
+  %598 = getelementptr inbounds i8, ptr %.2144.i271.i, i64 %597
   %599 = load <2 x i64>, ptr %572, align 1, !tbaa !7
   store <2 x i64> %599, ptr %.2144.i271.i, align 1, !tbaa !7
-  %600 = icmp slt i64 %598, 17
+  %600 = icmp samesign ult i64 %576, 49
   br i1 %600, label %.thread.i39.i, label %601
 
 601:                                              ; preds = %596
@@ -5550,11 +5550,11 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %607 = load <2 x i64>, ptr %606, align 1, !tbaa !7
   store <2 x i64> %607, ptr %605, align 1, !tbaa !7
   %608 = getelementptr inbounds nuw i8, ptr %.130.i.i36.i, i64 32
-  %609 = icmp ult ptr %608, %593
+  %609 = icmp ult ptr %608, %598
   br i1 %609, label %603, label %.thread.i39.i, !llvm.loop !107
 
 .thread.i39.i:                                    ; preds = %603, %596
-  %610 = getelementptr inbounds i8, ptr %572, i64 %598
+  %610 = getelementptr inbounds i8, ptr %572, i64 %597
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.thread.i39.i, %592
@@ -5669,9 +5669,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit261.i.i: ; preds
   br label %.loopexit.i
 
 659:                                              ; preds = %653
-  %diff.neg.i204.i.i = sub i64 0, %655
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %619, ptr align 1 %656, i64 %diff.neg.i204.i.i, i1 false)
-  %660 = getelementptr inbounds nuw i8, ptr %619, i64 %diff.neg.i204.i.i
+  %gepdiff.i204.i.i = sub nsw i64 0, %655
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %619, ptr align 1 %656, i64 %gepdiff.i204.i.i, i1 false)
+  %660 = getelementptr inbounds nuw i8, ptr %619, i64 %gepdiff.i204.i.i
   %661 = add i64 %655, %.sroa.659.0.i
   br label %662
 
@@ -6219,9 +6219,9 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i.thre
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i.i
 
 980:                                              ; preds = %974
-  %diff.neg.i.i.i = sub i64 0, %976
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %940, ptr align 1 %977, i64 %diff.neg.i.i.i, i1 false)
-  %981 = getelementptr inbounds nuw i8, ptr %940, i64 %diff.neg.i.i.i
+  %gepdiff.i.i.i = sub nsw i64 0, %976
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %940, ptr align 1 %977, i64 %gepdiff.i.i.i, i1 false)
+  %981 = getelementptr inbounds nuw i8, ptr %940, i64 %gepdiff.i.i.i
   %982 = add i64 %976, %.sroa.6.0.i
   br label %983
 
@@ -7280,9 +7280,9 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i.thre
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i.i
 
 496:                                              ; preds = %490
-  %diff.neg.i.i.i = sub i64 0, %492
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %456, ptr align 1 %493, i64 %diff.neg.i.i.i, i1 false)
-  %497 = getelementptr inbounds nuw i8, ptr %456, i64 %diff.neg.i.i.i
+  %gepdiff.i.i.i = sub nsw i64 0, %492
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %456, ptr align 1 %493, i64 %gepdiff.i.i.i, i1 false)
+  %497 = getelementptr inbounds nuw i8, ptr %456, i64 %gepdiff.i.i.i
   %498 = add i64 %492, %.sroa.6.0.i
   br label %499
 
@@ -8767,11 +8767,11 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   br i1 %or.cond3.i, label %709, label %.lr.ph.i.preheader
 
 709:                                              ; preds = %705
-  %710 = ptrtoint ptr %706 to i64
-  %711 = sub i64 %710, %692
+  %710 = add nsw i64 %690, -32
+  %711 = getelementptr inbounds i8, ptr %.2209.i685, i64 %710
   %712 = load <2 x i64>, ptr %679, align 1, !tbaa !7
   store <2 x i64> %712, ptr %.2209.i685, align 1, !tbaa !7
-  %713 = icmp slt i64 %711, 17
+  %713 = icmp samesign ult i64 %690, 49
   br i1 %713, label %.thread.i238, label %714
 
 714:                                              ; preds = %709
@@ -8789,11 +8789,11 @@ _ZN11duckdb_zstdL19ZSTD_decodeSequenceEPNS_10seqState_tENS_17ZSTD_longOffset_eEi
   %720 = load <2 x i64>, ptr %719, align 1, !tbaa !7
   store <2 x i64> %720, ptr %718, align 1, !tbaa !7
   %721 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 32
-  %722 = icmp ult ptr %721, %706
+  %722 = icmp ult ptr %721, %711
   br i1 %722, label %716, label %.thread.i238, !llvm.loop !107
 
 .thread.i238:                                     ; preds = %716, %709
-  %723 = getelementptr inbounds i8, ptr %679, i64 %711
+  %723 = getelementptr inbounds i8, ptr %679, i64 %710
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %705, %.thread.i238
@@ -8906,9 +8906,9 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.thread
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit
 
 767:                                              ; preds = %761
-  %diff.neg.i = sub i64 0, %763
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %730, ptr align 1 %764, i64 %diff.neg.i, i1 false)
-  %768 = getelementptr inbounds nuw i8, ptr %730, i64 %diff.neg.i
+  %gepdiff.i = sub nsw i64 0, %763
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %730, ptr align 1 %764, i64 %gepdiff.i, i1 false)
+  %768 = getelementptr inbounds nuw i8, ptr %730, i64 %gepdiff.i
   %769 = add i64 %763, %.sroa.4308.0.copyload
   br label %770
 
@@ -9135,9 +9135,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit95: ; preds = %8
   br label %_ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S2_S2_.exit
 
 886:                                              ; preds = %880
-  %diff.neg.i38 = sub i64 0, %882
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %848, ptr align 1 %883, i64 %diff.neg.i38, i1 false)
-  %887 = getelementptr inbounds nuw i8, ptr %848, i64 %diff.neg.i38
+  %gepdiff.i38 = sub nsw i64 0, %882
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %848, ptr align 1 %883, i64 %gepdiff.i38, i1 false)
+  %887 = getelementptr inbounds nuw i8, ptr %848, i64 %gepdiff.i38
   %888 = add i64 %882, %.sroa.4471.0.copyload
   br label %889
 
@@ -9352,9 +9352,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit158: ; preds = %
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22
 
 999:                                              ; preds = %993
-  %diff.neg.i20 = sub i64 0, %995
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %959, ptr align 1 %996, i64 %diff.neg.i20, i1 false)
-  %1000 = getelementptr inbounds nuw i8, ptr %959, i64 %diff.neg.i20
+  %gepdiff.i20 = sub nsw i64 0, %995
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %959, ptr align 1 %996, i64 %gepdiff.i20, i1 false)
+  %1000 = getelementptr inbounds nuw i8, ptr %959, i64 %gepdiff.i20
   %1001 = add i64 %995, %.sroa.4348.0.copyload
   br label %1002
 
@@ -9623,11 +9623,11 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22: ; p
   br i1 %or.cond3.i240, label %1130, label %.lr.ph.i244.preheader
 
 1130:                                             ; preds = %1126
-  %1131 = ptrtoint ptr %1127 to i64
-  %1132 = sub i64 %1131, %1113
+  %1131 = add nsw i64 %1111, -32
+  %1132 = getelementptr inbounds i8, ptr %.9216.i696, i64 %1131
   %1133 = load <2 x i64>, ptr %1103, align 1, !tbaa !7
   store <2 x i64> %1133, ptr %.9216.i696, align 1, !tbaa !7
-  %1134 = icmp slt i64 %1132, 17
+  %1134 = icmp samesign ult i64 %1111, 49
   br i1 %1134, label %.thread.i250, label %1135
 
 1135:                                             ; preds = %1130
@@ -9645,11 +9645,11 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit22: ; p
   %1141 = load <2 x i64>, ptr %1140, align 1, !tbaa !7
   store <2 x i64> %1141, ptr %1139, align 1, !tbaa !7
   %1142 = getelementptr inbounds nuw i8, ptr %.130.i.i247, i64 32
-  %1143 = icmp ult ptr %1142, %1127
+  %1143 = icmp ult ptr %1142, %1132
   br i1 %1143, label %1137, label %.thread.i250, !llvm.loop !107
 
 .thread.i250:                                     ; preds = %1137, %1130
-  %1144 = getelementptr inbounds i8, ptr %1103, i64 %1132
+  %1144 = getelementptr inbounds i8, ptr %1103, i64 %1131
   br label %.lr.ph.i244.preheader
 
 .lr.ph.i244.preheader:                            ; preds = %1126, %.thread.i250
@@ -9762,9 +9762,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit137: ; preds = %
   br label %.loopexit
 
 1188:                                             ; preds = %1182
-  %diff.neg.i26 = sub i64 0, %1184
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1151, ptr align 1 %1185, i64 %diff.neg.i26, i1 false)
-  %1189 = getelementptr inbounds nuw i8, ptr %1151, i64 %diff.neg.i26
+  %gepdiff.i26 = sub nsw i64 0, %1184
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1151, ptr align 1 %1185, i64 %gepdiff.i26, i1 false)
+  %1189 = getelementptr inbounds nuw i8, ptr %1151, i64 %gepdiff.i26
   %1190 = add i64 %1184, %.sroa.4389.0.copyload
   br label %1191
 
@@ -9976,9 +9976,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit: ; preds = %128
   br label %_ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S2_S2_.exit45
 
 1299:                                             ; preds = %1293
-  %diff.neg.i43 = sub i64 0, %1295
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1261, ptr align 1 %1296, i64 %diff.neg.i43, i1 false)
-  %1300 = getelementptr inbounds nuw i8, ptr %1261, i64 %diff.neg.i43
+  %gepdiff.i43 = sub nsw i64 0, %1295
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1261, ptr align 1 %1296, i64 %gepdiff.i43, i1 false)
+  %1300 = getelementptr inbounds nuw i8, ptr %1261, i64 %gepdiff.i43
   %1301 = add i64 %1295, %.sroa.4512.0.copyload
   br label %1302
 
@@ -10190,9 +10190,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit116: ; preds = %
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit34
 
 1409:                                             ; preds = %1403
-  %diff.neg.i32 = sub i64 0, %1405
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1369, ptr align 1 %1406, i64 %diff.neg.i32, i1 false)
-  %1410 = getelementptr inbounds nuw i8, ptr %1369, i64 %diff.neg.i32
+  %gepdiff.i32 = sub nsw i64 0, %1405
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1369, ptr align 1 %1406, i64 %gepdiff.i32, i1 false)
+  %1410 = getelementptr inbounds nuw i8, ptr %1369, i64 %gepdiff.i32
   %1411 = add i64 %1405, %.sroa.4430.0.copyload
   br label %1412
 
@@ -10580,9 +10580,9 @@ _ZN11duckdb_zstdL13ZSTD_safecopyEPhPKhS2_lNS_14ZSTD_overlap_eE.exit: ; preds = %
   br label %91
 
 86:                                               ; preds = %81
-  %diff.neg = sub i64 0, %.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %83, i64 %diff.neg, i1 false)
-  %87 = getelementptr inbounds nuw i8, ptr %10, i64 %diff.neg
+  %gepdiff = sub nsw i64 0, %.neg
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %83, i64 %gepdiff, i1 false)
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 %gepdiff
   %88 = add i64 %.neg, %12
   br label %89
 
@@ -10856,11 +10856,11 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL34ZSTD_execSequenceEndSplit
   br i1 %or.cond3.i, label %46, label %.lr.ph.i.preheader
 
 46:                                               ; preds = %42
-  %47 = ptrtoint ptr %43 to i64
-  %48 = sub i64 %47, %22
+  %47 = add nsw i64 %10, -32
+  %48 = getelementptr inbounds i8, ptr %0, i64 %47
   %49 = load <2 x i64>, ptr %15, align 1, !tbaa !7
   store <2 x i64> %49, ptr %0, align 1, !tbaa !7
-  %50 = icmp slt i64 %48, 17
+  %50 = icmp samesign ult i64 %10, 49
   br i1 %50, label %.thread.i, label %51
 
 51:                                               ; preds = %46
@@ -10878,11 +10878,11 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL34ZSTD_execSequenceEndSplit
   %57 = load <2 x i64>, ptr %56, align 1, !tbaa !7
   store <2 x i64> %57, ptr %55, align 1, !tbaa !7
   %58 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 32
-  %59 = icmp ult ptr %58, %43
+  %59 = icmp ult ptr %58, %48
   br i1 %59, label %53, label %.thread.i, !llvm.loop !107
 
 .thread.i:                                        ; preds = %53, %46
-  %60 = getelementptr inbounds i8, ptr %15, i64 %48
+  %60 = getelementptr inbounds i8, ptr %15, i64 %47
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %42, %.thread.i
@@ -10927,9 +10927,9 @@ _ZN11duckdb_zstdL25ZSTD_safecopyDstBeforeSrcEPhPKhl.exit: ; preds = %.lr.ph.i, %
   br label %83
 
 78:                                               ; preds = %73
-  %diff.neg = sub i64 0, %.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %11, ptr align 1 %75, i64 %diff.neg, i1 false)
-  %79 = getelementptr inbounds nuw i8, ptr %11, i64 %diff.neg
+  %gepdiff = sub nsw i64 0, %.neg
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %11, ptr align 1 %75, i64 %gepdiff, i1 false)
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 %gepdiff
   %80 = add i64 %.neg, %13
   br label %81
 
@@ -11745,9 +11745,9 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   br label %_ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S2_S2_.exit.i
 
 493:                                              ; preds = %487
-  %diff.neg.i210.i = sub i64 0, %489
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %455, ptr align 1 %490, i64 %diff.neg.i210.i, i1 false)
-  %494 = getelementptr inbounds nuw i8, ptr %455, i64 %diff.neg.i210.i
+  %gepdiff.i210.i = sub nsw i64 0, %489
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %455, ptr align 1 %490, i64 %gepdiff.i210.i, i1 false)
+  %494 = getelementptr inbounds nuw i8, ptr %455, i64 %gepdiff.i210.i
   %495 = add i64 %489, %.sroa.659.0
   br label %496
 
@@ -11932,11 +11932,11 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   br i1 %or.cond3.i, label %592, label %.lr.ph.i.preheader
 
 592:                                              ; preds = %588
-  %593 = ptrtoint ptr %589 to i64
-  %594 = sub i64 %593, %575
+  %593 = add nsw i64 %572, -32
+  %594 = getelementptr inbounds i8, ptr %.2144.i271, i64 %593
   %595 = load <2 x i64>, ptr %568, align 1, !tbaa !7
   store <2 x i64> %595, ptr %.2144.i271, align 1, !tbaa !7
-  %596 = icmp slt i64 %594, 17
+  %596 = icmp samesign ult i64 %572, 49
   br i1 %596, label %.thread.i39, label %597
 
 597:                                              ; preds = %592
@@ -11954,11 +11954,11 @@ _ZN11duckdb_zstdL31ZSTD_execSequenceSplitLitBufferEPhS0_PKhNS_5seq_tEPS2_S2_S2_S
   %603 = load <2 x i64>, ptr %602, align 1, !tbaa !7
   store <2 x i64> %603, ptr %601, align 1, !tbaa !7
   %604 = getelementptr inbounds nuw i8, ptr %.130.i.i36, i64 32
-  %605 = icmp ult ptr %604, %589
+  %605 = icmp ult ptr %604, %594
   br i1 %605, label %599, label %.thread.i39, !llvm.loop !107
 
 .thread.i39:                                      ; preds = %599, %592
-  %606 = getelementptr inbounds i8, ptr %568, i64 %594
+  %606 = getelementptr inbounds i8, ptr %568, i64 %593
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %588, %.thread.i39
@@ -12073,9 +12073,9 @@ _ZN11duckdb_zstdL13ZSTD_wildcopyEPvPKvlNS_14ZSTD_overlap_eE.exit261.i: ; preds =
   br label %.loopexit
 
 655:                                              ; preds = %649
-  %diff.neg.i204.i = sub i64 0, %651
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %615, ptr align 1 %652, i64 %diff.neg.i204.i, i1 false)
-  %656 = getelementptr inbounds nuw i8, ptr %615, i64 %diff.neg.i204.i
+  %gepdiff.i204.i = sub nsw i64 0, %651
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %615, ptr align 1 %652, i64 %gepdiff.i204.i, i1 false)
+  %656 = getelementptr inbounds nuw i8, ptr %615, i64 %gepdiff.i204.i
   %657 = add i64 %651, %.sroa.659.0
   br label %658
 
@@ -12623,9 +12623,9 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i.thre
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i
 
 976:                                              ; preds = %970
-  %diff.neg.i.i = sub i64 0, %972
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %936, ptr align 1 %973, i64 %diff.neg.i.i, i1 false)
-  %977 = getelementptr inbounds nuw i8, ptr %936, i64 %diff.neg.i.i
+  %gepdiff.i.i = sub nsw i64 0, %972
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %936, ptr align 1 %973, i64 %gepdiff.i.i, i1 false)
+  %977 = getelementptr inbounds nuw i8, ptr %936, i64 %gepdiff.i.i
   %978 = add i64 %972, %.sroa.6.0
   br label %979
 
@@ -13670,9 +13670,9 @@ _ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i.thre
   br label %_ZN11duckdb_zstdL17ZSTD_execSequenceEPhS0_NS_5seq_tEPPKhS3_S3_S3_S3_.exit.i
 
 492:                                              ; preds = %486
-  %diff.neg.i.i = sub i64 0, %488
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %452, ptr align 1 %489, i64 %diff.neg.i.i, i1 false)
-  %493 = getelementptr inbounds nuw i8, ptr %452, i64 %diff.neg.i.i
+  %gepdiff.i.i = sub nsw i64 0, %488
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %452, ptr align 1 %489, i64 %gepdiff.i.i, i1 false)
+  %493 = getelementptr inbounds nuw i8, ptr %452, i64 %gepdiff.i.i
   %494 = add i64 %488, %.sroa.6.0
   br label %495
 

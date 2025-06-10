@@ -118,7 +118,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %25 = or i32 %8, 2
   %spec.select = select i1 %24, i32 %8, i32 %25
   %.not85 = icmp ugt i32 %18, %1
-  br i1 %.not85, label %26, label %277
+  br i1 %.not85, label %26, label %276
 
 26:                                               ; preds = %21
   %.not24 = icmp eq ptr %6, null
@@ -130,9 +130,9 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
 
 29:                                               ; preds = %27, %26
   %.019 = phi ptr [ %6, %26 ], [ %28, %27 ]
-  switch i32 %7, label %277 [
+  switch i32 %7, label %276 [
     i32 1413830740, label %30
-    i32 1246973774, label %149
+    i32 1246973774, label %148
   ]
 
 30:                                               ; preds = %29
@@ -166,7 +166,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %40 = and i32 %spec.select, 1
   %.not115.i = icmp eq i32 %40, 0
   %41 = ptrtoint ptr %13 to i64
-  %.neg116.i = add i64 %41, 1024
+  %.neg120.i = add i64 %41, 1024
   %42 = and i32 %spec.select, 32
   %.not121.i = icmp eq i32 %42, 0
   %43 = and i32 %spec.select, 16
@@ -183,12 +183,12 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   %50 = zext i32 %48 to i64
   br label %51
 
-51:                                               ; preds = %147, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %49, %.lr.ph.i ], [ %indvars.iv.next.i, %147 ]
-  %.0103180.i = phi i32 [ 0, %.lr.ph.i ], [ %.1104.i, %147 ]
-  %.0105179.i = phi i32 [ 0, %.lr.ph.i ], [ %.1106.i, %147 ]
-  %.0107178.i = phi ptr [ %3, %.lr.ph.i ], [ %137, %147 ]
-  %.0108177.i = phi i32 [ %4, %.lr.ph.i ], [ %138, %147 ]
+51:                                               ; preds = %146, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %49, %.lr.ph.i ], [ %indvars.iv.next.i, %146 ]
+  %.0103179.i = phi i32 [ 0, %.lr.ph.i ], [ %.1104.i, %146 ]
+  %.0105178.i = phi i32 [ 0, %.lr.ph.i ], [ %.1106.i, %146 ]
+  %.0107177.i = phi ptr [ %3, %.lr.ph.i ], [ %136, %146 ]
+  %.0108176.i = phi i32 [ %4, %.lr.ph.i ], [ %137, %146 ]
   %.not113.i = icmp eq i64 %indvars.iv.i, 0
   %..i = select i1 %.not113.i, i8 91, i8 124
   store i8 %..i, ptr %13, align 16
@@ -210,458 +210,457 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
 59:                                               ; preds = %56, %54
   %.pn.i = phi i64 [ %58, %56 ], [ %55, %54 ]
   %.1.i = getelementptr inbounds i8, ptr %38, i64 %.pn.i
-  br i1 %.not115.i, label %60, label %68
+  br i1 %.not115.i, label %60, label %67
 
 60:                                               ; preds = %59
-  %61 = ptrtoint ptr %.1.i to i64
-  %62 = sub i64 %.neg116.i, %61
-  %63 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i, i32 2
-  %64 = load i32, ptr %63, align 4
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1.i, i64 noundef %62, ptr noundef nonnull @.str.3, i32 noundef %64) #11
-  %.sroa.speculated162.i = call i32 @llvm.smax.i32(i32 %65, i32 0)
-  %66 = zext nneg i32 %.sroa.speculated162.i to i64
-  %67 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %66
-  br label %68
+  %61 = sub i64 1023, %.pn.i
+  %62 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i, i32 2
+  %63 = load i32, ptr %62, align 4
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.1.i, i64 noundef %61, ptr noundef nonnull @.str.3, i32 noundef %63) #11
+  %.sroa.speculated162.i = call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %65 = zext nneg i32 %.sroa.speculated162.i to i64
+  %66 = getelementptr inbounds nuw i8, ptr %.1.i, i64 %65
+  br label %67
 
-68:                                               ; preds = %60, %59
-  %.2.i = phi ptr [ %.1.i, %59 ], [ %67, %60 ]
-  br i1 %.not.i25, label %69, label %101
+67:                                               ; preds = %60, %59
+  %.2.i = phi ptr [ %.1.i, %59 ], [ %66, %60 ]
+  br i1 %.not.i25, label %68, label %100
 
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %36, i64 %indvars.iv.i
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load i32, ptr %71, align 4
-  %73 = sub i32 0, %72
-  %.not118.i = icmp eq i32 %.0105179.i, %73
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  %75 = load i32, ptr %74, align 4
-  %76 = sub i32 0, %75
-  %.not119.i = icmp eq i32 %.0103180.i, %76
-  %or.cond188.i = select i1 %.not118.i, i1 %.not119.i, i1 false
-  br i1 %or.cond188.i, label %84, label %._crit_edge185.i
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %36, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = load i32, ptr %70, align 4
+  %72 = sub i32 0, %71
+  %.not118.i = icmp eq i32 %.0105178.i, %72
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 12
+  %74 = load i32, ptr %73, align 4
+  %75 = sub i32 0, %74
+  %.not119.i = icmp eq i32 %.0103179.i, %75
+  %or.cond187.i = select i1 %.not118.i, i1 %.not119.i, i1 false
+  br i1 %or.cond187.i, label %83, label %._crit_edge184.i
 
-._crit_edge185.i:                                 ; preds = %69
-  %77 = ptrtoint ptr %.2.i to i64
-  %78 = sub i64 %.neg116.i, %77
-  %79 = add nsw i32 %72, %.0105179.i
-  %80 = add nsw i32 %75, %.0103180.i
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.2.i, i64 noundef %78, ptr noundef nonnull @.str.4, i32 noundef %79, i32 noundef %80) #11
-  %.sroa.speculated157.i = call i32 @llvm.smax.i32(i32 %81, i32 0)
-  %82 = zext nneg i32 %.sroa.speculated157.i to i64
-  %83 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %82
-  br label %84
+._crit_edge184.i:                                 ; preds = %68
+  %76 = ptrtoint ptr %.2.i to i64
+  %77 = sub i64 %.neg120.i, %76
+  %78 = add nsw i32 %71, %.0105178.i
+  %79 = add nsw i32 %74, %.0103179.i
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.2.i, i64 noundef %77, ptr noundef nonnull @.str.4, i32 noundef %78, i32 noundef %79) #11
+  %.sroa.speculated157.i = call i32 @llvm.smax.i32(i32 %80, i32 0)
+  %81 = zext nneg i32 %.sroa.speculated157.i to i64
+  %82 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %81
+  br label %83
 
-84:                                               ; preds = %._crit_edge185.i, %69
-  %.4.i = phi ptr [ %83, %._crit_edge185.i ], [ %.2.i, %69 ]
-  br i1 %.not121.i, label %85, label %101
+83:                                               ; preds = %._crit_edge184.i, %68
+  %.4.i = phi ptr [ %82, %._crit_edge184.i ], [ %.2.i, %68 ]
+  br i1 %.not121.i, label %84, label %100
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
+84:                                               ; preds = %83
+  %85 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   store i8 43, ptr %.4.i, align 1
-  %87 = ptrtoint ptr %86 to i64
-  %88 = sub i64 %.neg116.i, %87
-  %89 = load i32, ptr %70, align 4
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %86, i64 noundef %88, ptr noundef nonnull @.str.5, i32 noundef %89) #11
-  %.sroa.speculated152.i = call i32 @llvm.smax.i32(i32 %90, i32 0)
-  %91 = zext nneg i32 %.sroa.speculated152.i to i64
-  %92 = getelementptr inbounds nuw i8, ptr %86, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %94 = load i32, ptr %93, align 4
-  %.not123.i = icmp eq i32 %94, 0
-  br i1 %.not123.i, label %101, label %95
+  %86 = ptrtoint ptr %85 to i64
+  %87 = sub i64 %.neg120.i, %86
+  %88 = load i32, ptr %69, align 4
+  %89 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %85, i64 noundef %87, ptr noundef nonnull @.str.5, i32 noundef %88) #11
+  %.sroa.speculated152.i = call i32 @llvm.smax.i32(i32 %89, i32 0)
+  %90 = zext nneg i32 %.sroa.speculated152.i to i64
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %93 = load i32, ptr %92, align 4
+  %.not123.i = icmp eq i32 %93, 0
+  br i1 %.not123.i, label %100, label %94
 
-95:                                               ; preds = %85
-  %96 = ptrtoint ptr %92 to i64
-  %97 = sub i64 %.neg116.i, %96
-  %98 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %92, i64 noundef %97, ptr noundef nonnull @.str.6, i32 noundef %94) #11
-  %.sroa.speculated147.i = call i32 @llvm.smax.i32(i32 %98, i32 0)
-  %99 = zext nneg i32 %.sroa.speculated147.i to i64
-  %100 = getelementptr inbounds nuw i8, ptr %92, i64 %99
-  br label %101
+94:                                               ; preds = %84
+  %95 = ptrtoint ptr %91 to i64
+  %96 = sub i64 %.neg120.i, %95
+  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %91, i64 noundef %96, ptr noundef nonnull @.str.6, i32 noundef %93) #11
+  %.sroa.speculated147.i = call i32 @llvm.smax.i32(i32 %97, i32 0)
+  %98 = zext nneg i32 %.sroa.speculated147.i to i64
+  %99 = getelementptr inbounds nuw i8, ptr %91, i64 %98
+  br label %100
 
-101:                                              ; preds = %95, %85, %84, %68
-  %.3.i = phi ptr [ %.2.i, %68 ], [ %.4.i, %84 ], [ %100, %95 ], [ %92, %85 ]
-  br i1 %.not125.i, label %112, label %102
+100:                                              ; preds = %94, %84, %83, %67
+  %.3.i = phi ptr [ %.2.i, %67 ], [ %.4.i, %83 ], [ %99, %94 ], [ %91, %84 ]
+  br i1 %.not125.i, label %111, label %101
 
-102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i, i32 1
-  %104 = load i32, ptr %103, align 4
-  %105 = and i32 %104, 7
-  %.not126.i = icmp eq i32 %105, 0
-  br i1 %.not126.i, label %112, label %106
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %indvars.iv.i, i32 1
+  %103 = load i32, ptr %102, align 4
+  %104 = and i32 %103, 7
+  %.not126.i = icmp eq i32 %104, 0
+  br i1 %.not126.i, label %111, label %105
 
-106:                                              ; preds = %102
-  %107 = ptrtoint ptr %.3.i to i64
-  %108 = sub i64 %.neg116.i, %107
-  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.3.i, i64 noundef %108, ptr noundef nonnull @.str.7, i32 noundef %105) #11
-  %.sroa.speculated142.i = call i32 @llvm.smax.i32(i32 %109, i32 0)
-  %110 = zext nneg i32 %.sroa.speculated142.i to i64
-  %111 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %110
-  br label %112
+105:                                              ; preds = %101
+  %106 = ptrtoint ptr %.3.i to i64
+  %107 = sub i64 %.neg120.i, %106
+  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.3.i, i64 noundef %107, ptr noundef nonnull @.str.7, i32 noundef %104) #11
+  %.sroa.speculated142.i = call i32 @llvm.smax.i32(i32 %108, i32 0)
+  %109 = zext nneg i32 %.sroa.speculated142.i to i64
+  %110 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %109
+  br label %111
 
-112:                                              ; preds = %106, %102, %101
-  %.5.i = phi ptr [ %111, %106 ], [ %.3.i, %102 ], [ %.3.i, %101 ]
-  br i1 %.not128.i, label %125, label %113
+111:                                              ; preds = %105, %101, %100
+  %.5.i = phi ptr [ %110, %105 ], [ %.3.i, %101 ], [ %.3.i, %100 ]
+  br i1 %.not128.i, label %124, label %112
 
-113:                                              ; preds = %112
-  %114 = load i32, ptr %52, align 4
-  %115 = call i32 @hb_font_get_glyph_extents(ptr noundef %.019, i32 noundef %114, ptr noundef nonnull %14)
-  %116 = ptrtoint ptr %.5.i to i64
-  %117 = sub i64 %.neg116.i, %116
-  %118 = load i32, ptr %14, align 4
-  %119 = load i32, ptr %45, align 4
-  %120 = load i32, ptr %46, align 4
-  %121 = load i32, ptr %47, align 4
-  %122 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5.i, i64 noundef %117, ptr noundef nonnull @.str.8, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121) #11
-  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %122, i32 0)
-  %123 = zext nneg i32 %.sroa.speculated.i to i64
-  %124 = getelementptr inbounds nuw i8, ptr %.5.i, i64 %123
-  br label %125
+112:                                              ; preds = %111
+  %113 = load i32, ptr %52, align 4
+  %114 = call i32 @hb_font_get_glyph_extents(ptr noundef %.019, i32 noundef %113, ptr noundef nonnull %14)
+  %115 = ptrtoint ptr %.5.i to i64
+  %116 = sub i64 %.neg120.i, %115
+  %117 = load i32, ptr %14, align 4
+  %118 = load i32, ptr %45, align 4
+  %119 = load i32, ptr %46, align 4
+  %120 = load i32, ptr %47, align 4
+  %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5.i, i64 noundef %116, ptr noundef nonnull @.str.8, i32 noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %120) #11
+  %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %121, i32 0)
+  %122 = zext nneg i32 %.sroa.speculated.i to i64
+  %123 = getelementptr inbounds nuw i8, ptr %.5.i, i64 %122
+  br label %124
 
-125:                                              ; preds = %113, %112
-  %.6.i = phi ptr [ %124, %113 ], [ %.5.i, %112 ]
-  %126 = icmp eq i64 %indvars.iv.i, %50
-  br i1 %126, label %127, label %129
+124:                                              ; preds = %112, %111
+  %.6.i = phi ptr [ %123, %112 ], [ %.5.i, %111 ]
+  %125 = icmp eq i64 %indvars.iv.i, %50
+  br i1 %125, label %126, label %128
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
   store i8 93, ptr %.6.i, align 1
-  br label %129
+  br label %128
 
-129:                                              ; preds = %127, %125
-  %.7.i = phi ptr [ %128, %127 ], [ %.6.i, %125 ]
-  %130 = ptrtoint ptr %.7.i to i64
-  %131 = sub i64 %130, %41
-  %132 = trunc i64 %131 to i32
-  %133 = icmp ugt i32 %.0108177.i, %132
-  br i1 %133, label %134, label %._crit_edge.loopexit.split.loop.exit186.i
+128:                                              ; preds = %126, %124
+  %.7.i = phi ptr [ %127, %126 ], [ %.6.i, %124 ]
+  %129 = ptrtoint ptr %.7.i to i64
+  %130 = sub i64 %129, %41
+  %131 = trunc i64 %130 to i32
+  %132 = icmp ugt i32 %.0108176.i, %131
+  br i1 %132, label %133, label %._crit_edge.loopexit.split.loop.exit185.i
 
-134:                                              ; preds = %129
-  %135 = and i64 %131, 4294967295
-  %.not.i138.i = icmp eq i64 %135, 0
-  br i1 %.not.i138.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %136
+133:                                              ; preds = %128
+  %134 = and i64 %130, 4294967295
+  %.not.i138.i = icmp eq i64 %134, 0
+  br i1 %.not.i138.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %135
 
-136:                                              ; preds = %134
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107178.i, ptr nonnull readonly align 16 %13, i64 range(i64 0, 4294967296) %135, i1 false), !alias.scope !6
+135:                                              ; preds = %133
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107177.i, ptr nonnull readonly align 16 %13, i64 range(i64 0, 4294967296) %134, i1 false), !alias.scope !6
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
-_ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %136, %134
-  %137 = getelementptr inbounds nuw i8, ptr %.0107178.i, i64 %135
-  %138 = sub nuw i32 %.0108177.i, %132
+_ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %135, %133
+  %136 = getelementptr inbounds nuw i8, ptr %.0107177.i, i64 %134
+  %137 = sub nuw i32 %.0108176.i, %131
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i.cont, label %_ZL9hb_memcpyPvPKvm.exit.i.else
 
 _ZL9hb_memcpyPvPKvm.exit.i.else:                  ; preds = %_ZL9hb_memcpyPvPKvm.exit.i
   %.else.val54 = load i32, ptr %5, align 4
-  %139 = add i32 %.else.val54, %132
-  store i32 %139, ptr %5, align 4
+  %138 = add i32 %.else.val54, %131
+  store i32 %138, ptr %5, align 4
   br label %_ZL9hb_memcpyPvPKvm.exit.i.cont
 
 _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm.exit.i, %_ZL9hb_memcpyPvPKvm.exit.i.else
-  store i8 0, ptr %137, align 1
-  br i1 %or.cond.i, label %147, label %140
+  store i8 0, ptr %136, align 1
+  br i1 %or.cond.i, label %146, label %139
 
-140:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont
-  %141 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %36, i64 %indvars.iv.i
-  %142 = load i32, ptr %141, align 4
-  %143 = add nsw i32 %142, %.0105179.i
-  %144 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %145 = load i32, ptr %144, align 4
-  %146 = add nsw i32 %145, %.0103180.i
-  br label %147
+139:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont
+  %140 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %36, i64 %indvars.iv.i
+  %141 = load i32, ptr %140, align 4
+  %142 = add nsw i32 %141, %.0105178.i
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  %144 = load i32, ptr %143, align 4
+  %145 = add nsw i32 %144, %.0103179.i
+  br label %146
 
-147:                                              ; preds = %140, %_ZL9hb_memcpyPvPKvm.exit.i.cont
-  %.1106.i = phi i32 [ %143, %140 ], [ %.0105179.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
-  %.1104.i = phi i32 [ %146, %140 ], [ %.0103180.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
+146:                                              ; preds = %139, %_ZL9hb_memcpyPvPKvm.exit.i.cont
+  %.1106.i = phi i32 [ %142, %139 ], [ %.0105178.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
+  %.1104.i = phi i32 [ %145, %139 ], [ %.0103179.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %18, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %51, !llvm.loop !10
 
-._crit_edge.loopexit.split.loop.exit186.i:        ; preds = %129
-  %148 = trunc nuw i64 %indvars.iv.i to i32
+._crit_edge.loopexit.split.loop.exit185.i:        ; preds = %128
+  %147 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
-_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %147, %.cont55, %._crit_edge.loopexit.split.loop.exit186.i
-  %.0102.pn.i = phi i32 [ %18, %.cont55 ], [ %148, %._crit_edge.loopexit.split.loop.exit186.i ], [ %18, %147 ]
+_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %146, %.cont55, %._crit_edge.loopexit.split.loop.exit185.i
+  %.0102.pn.i = phi i32 [ %18, %.cont55 ], [ %147, %._crit_edge.loopexit.split.loop.exit185.i ], [ %18, %146 ]
   %.0.i = sub i32 %.0102.pn.i, %19
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  br label %277
+  br label %276
 
-149:                                              ; preds = %29
+148:                                              ; preds = %29
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %150 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
-  %151 = and i32 %spec.select, 2
-  %.not.i26 = icmp eq i32 %151, 0
-  br i1 %.not.i26, label %152, label %154
+  %149 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
+  %150 = and i32 %spec.select, 2
+  %.not.i26 = icmp eq i32 %150, 0
+  br i1 %.not.i26, label %151, label %153
 
-152:                                              ; preds = %149
-  %153 = tail call ptr @hb_buffer_get_glyph_positions(ptr noundef nonnull %0, ptr noundef null)
-  br label %154
+151:                                              ; preds = %148
+  %152 = tail call ptr @hb_buffer_get_glyph_positions(ptr noundef nonnull %0, ptr noundef null)
+  br label %153
 
-154:                                              ; preds = %152, %149
-  %155 = phi ptr [ %153, %152 ], [ null, %149 ]
+153:                                              ; preds = %151, %148
+  %154 = phi ptr [ %152, %151 ], [ null, %148 ]
   br i1 %.not, label %.cont, label %.else
 
-.else:                                            ; preds = %154
+.else:                                            ; preds = %153
   store i32 0, ptr %5, align 4
   br label %.cont
 
-.cont:                                            ; preds = %154, %.else
-  %156 = icmp ult i32 %1, %18
-  br i1 %156, label %.lr.ph.i28, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
+.cont:                                            ; preds = %153, %.else
+  %155 = icmp ult i32 %1, %18
+  br i1 %155, label %.lr.ph.i28, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
 .lr.ph.i28:                                       ; preds = %.cont
-  %157 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %158 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %159 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %160 = and i32 %spec.select, 4
-  %.not118.i29 = icmp eq i32 %160, 0
-  %161 = getelementptr inbounds nuw i8, ptr %10, i64 7
-  %162 = and i32 %spec.select, 1
-  %.not120.i = icmp eq i32 %162, 0
-  %163 = ptrtoint ptr %10 to i64
-  %.neg.i = add i64 %163, 1024
-  %164 = and i32 %spec.select, 32
-  %.not123.i30 = icmp eq i32 %164, 0
-  %165 = and i32 %spec.select, 16
-  %.not125.i31 = icmp eq i32 %165, 0
-  %166 = and i32 %spec.select, 8
-  %.not128.i32 = icmp eq i32 %166, 0
-  %167 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %168 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %169 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %170 = add i32 %18, -1
-  %.not131.i = icmp eq ptr %155, null
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %159 = and i32 %spec.select, 4
+  %.not118.i29 = icmp eq i32 %159, 0
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 7
+  %161 = and i32 %spec.select, 1
+  %.not120.i = icmp eq i32 %161, 0
+  %162 = ptrtoint ptr %10 to i64
+  %.neg.i = add i64 %162, 1024
+  %163 = and i32 %spec.select, 32
+  %.not123.i30 = icmp eq i32 %163, 0
+  %164 = and i32 %spec.select, 16
+  %.not125.i31 = icmp eq i32 %164, 0
+  %165 = and i32 %spec.select, 8
+  %.not128.i32 = icmp eq i32 %165, 0
+  %166 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %169 = add i32 %18, -1
+  %.not131.i = icmp eq ptr %154, null
   %or.cond.i33 = or i1 %.not123.i30, %.not131.i
-  %171 = zext i32 %19 to i64
-  %172 = zext i32 %170 to i64
+  %170 = zext i32 %19 to i64
+  %171 = zext i32 %169 to i64
   %wide.trip.count.i = zext i32 %18 to i64
-  br label %173
+  br label %172
 
-173:                                              ; preds = %275, %.lr.ph.i28
-  %indvars.iv.i34 = phi i64 [ %171, %.lr.ph.i28 ], [ %indvars.iv.next.i45, %275 ]
-  %.0105182.i = phi i32 [ 0, %.lr.ph.i28 ], [ %.1106.i44, %275 ]
-  %.0107181.i = phi i32 [ 0, %.lr.ph.i28 ], [ %.1108.i, %275 ]
-  %.0109180.i = phi ptr [ %3, %.lr.ph.i28 ], [ %265, %275 ]
-  %.0110179.i = phi i32 [ %4, %.lr.ph.i28 ], [ %266, %275 ]
+172:                                              ; preds = %274, %.lr.ph.i28
+  %indvars.iv.i34 = phi i64 [ %170, %.lr.ph.i28 ], [ %indvars.iv.next.i45, %274 ]
+  %.0105182.i = phi i32 [ 0, %.lr.ph.i28 ], [ %.1106.i44, %274 ]
+  %.0107181.i = phi i32 [ 0, %.lr.ph.i28 ], [ %.1108.i, %274 ]
+  %.0109180.i = phi ptr [ %3, %.lr.ph.i28 ], [ %264, %274 ]
+  %.0110179.i = phi i32 [ %4, %.lr.ph.i28 ], [ %265, %274 ]
   %.not117.i = icmp eq i64 %indvars.iv.i34, 0
   %..i35 = select i1 %.not117.i, i8 91, i8 44
   store i8 %..i35, ptr %10, align 16
-  store i8 123, ptr %157, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %158, ptr noundef nonnull align 1 dereferenceable(5) @.str.9, i64 5, i1 false) #11
-  %174 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %150, i64 %indvars.iv.i34
-  %175 = load i32, ptr %174, align 4
-  br i1 %.not118.i29, label %176, label %187
+  store i8 123, ptr %156, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %157, ptr noundef nonnull align 1 dereferenceable(5) @.str.9, i64 5, i1 false) #11
+  %173 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %149, i64 %indvars.iv.i34
+  %174 = load i32, ptr %173, align 4
+  br i1 %.not118.i29, label %175, label %186
 
-176:                                              ; preds = %173
-  call void @hb_font_glyph_to_string(ptr noundef %.019, i32 noundef %175, ptr noundef nonnull %11, i32 noundef 128)
-  store i8 34, ptr %159, align 2
-  br label %177
+175:                                              ; preds = %172
+  call void @hb_font_glyph_to_string(ptr noundef %.019, i32 noundef %174, ptr noundef nonnull %11, i32 noundef 128)
+  store i8 34, ptr %158, align 2
+  br label %176
 
-177:                                              ; preds = %181, %176
-  %.1.i47 = phi ptr [ %161, %176 ], [ %183, %181 ]
-  %.0102.i = phi ptr [ %11, %176 ], [ %184, %181 ]
-  %178 = load i8, ptr %.0102.i, align 1
-  switch i8 %178, label %181 [
-    i8 0, label %185
-    i8 34, label %179
-    i8 92, label %179
+176:                                              ; preds = %180, %175
+  %.1.i47 = phi ptr [ %160, %175 ], [ %182, %180 ]
+  %.0102.i = phi ptr [ %11, %175 ], [ %183, %180 ]
+  %177 = load i8, ptr %.0102.i, align 1
+  switch i8 %177, label %180 [
+    i8 0, label %184
+    i8 34, label %178
+    i8 92, label %178
   ]
 
-179:                                              ; preds = %177, %177
-  %180 = getelementptr inbounds nuw i8, ptr %.1.i47, i64 1
+178:                                              ; preds = %176, %176
+  %179 = getelementptr inbounds nuw i8, ptr %.1.i47, i64 1
   store i8 92, ptr %.1.i47, align 1
   %.pre.i = load i8, ptr %.0102.i, align 1
-  br label %181
+  br label %180
 
-181:                                              ; preds = %179, %177
-  %182 = phi i8 [ %.pre.i, %179 ], [ %178, %177 ]
-  %.2.i48 = phi ptr [ %180, %179 ], [ %.1.i47, %177 ]
-  %183 = getelementptr inbounds nuw i8, ptr %.2.i48, i64 1
-  store i8 %182, ptr %.2.i48, align 1
-  %184 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 1
-  br label %177, !llvm.loop !12
+180:                                              ; preds = %178, %176
+  %181 = phi i8 [ %.pre.i, %178 ], [ %177, %176 ]
+  %.2.i48 = phi ptr [ %179, %178 ], [ %.1.i47, %176 ]
+  %182 = getelementptr inbounds nuw i8, ptr %.2.i48, i64 1
+  store i8 %181, ptr %.2.i48, align 1
+  %183 = getelementptr inbounds nuw i8, ptr %.0102.i, i64 1
+  br label %176, !llvm.loop !12
 
-185:                                              ; preds = %177
-  %186 = getelementptr inbounds nuw i8, ptr %.1.i47, i64 1
+184:                                              ; preds = %176
+  %185 = getelementptr inbounds nuw i8, ptr %.1.i47, i64 1
   store i8 34, ptr %.1.i47, align 1
-  br label %191
+  br label %190
 
-187:                                              ; preds = %173
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %159, i64 noundef 1018, ptr noundef nonnull @.str.2, i32 noundef %175) #11
-  %.sroa.speculated168.i = call i32 @llvm.smax.i32(i32 %188, i32 0)
-  %189 = zext nneg i32 %.sroa.speculated168.i to i64
-  %190 = getelementptr inbounds nuw i8, ptr %159, i64 %189
-  br label %191
+186:                                              ; preds = %172
+  %187 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %158, i64 noundef 1018, ptr noundef nonnull @.str.2, i32 noundef %174) #11
+  %.sroa.speculated168.i = call i32 @llvm.smax.i32(i32 %187, i32 0)
+  %188 = zext nneg i32 %.sroa.speculated168.i to i64
+  %189 = getelementptr inbounds nuw i8, ptr %158, i64 %188
+  br label %190
 
-191:                                              ; preds = %187, %185
-  %.3.i36 = phi ptr [ %190, %187 ], [ %186, %185 ]
-  br i1 %.not120.i, label %192, label %200
+190:                                              ; preds = %186, %184
+  %.3.i36 = phi ptr [ %189, %186 ], [ %185, %184 ]
+  br i1 %.not120.i, label %191, label %199
 
-192:                                              ; preds = %191
-  %193 = ptrtoint ptr %.3.i36 to i64
-  %194 = sub i64 %.neg.i, %193
-  %195 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %150, i64 %indvars.iv.i34, i32 2
-  %196 = load i32, ptr %195, align 4
-  %197 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.3.i36, i64 noundef %194, ptr noundef nonnull @.str.10, i32 noundef %196) #11
-  %.sroa.speculated163.i = call i32 @llvm.smax.i32(i32 %197, i32 0)
-  %198 = zext nneg i32 %.sroa.speculated163.i to i64
-  %199 = getelementptr inbounds nuw i8, ptr %.3.i36, i64 %198
-  br label %200
+191:                                              ; preds = %190
+  %192 = ptrtoint ptr %.3.i36 to i64
+  %193 = sub i64 %.neg.i, %192
+  %194 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %149, i64 %indvars.iv.i34, i32 2
+  %195 = load i32, ptr %194, align 4
+  %196 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.3.i36, i64 noundef %193, ptr noundef nonnull @.str.10, i32 noundef %195) #11
+  %.sroa.speculated163.i = call i32 @llvm.smax.i32(i32 %196, i32 0)
+  %197 = zext nneg i32 %.sroa.speculated163.i to i64
+  %198 = getelementptr inbounds nuw i8, ptr %.3.i36, i64 %197
+  br label %199
 
-200:                                              ; preds = %192, %191
-  %.4.i37 = phi ptr [ %.3.i36, %191 ], [ %199, %192 ]
-  br i1 %.not.i26, label %201, label %223
+199:                                              ; preds = %191, %190
+  %.4.i37 = phi ptr [ %.3.i36, %190 ], [ %198, %191 ]
+  br i1 %.not.i26, label %200, label %222
 
-201:                                              ; preds = %200
-  %202 = ptrtoint ptr %.4.i37 to i64
-  %203 = sub i64 %.neg.i, %202
-  %204 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %155, i64 %indvars.iv.i34
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %206 = load i32, ptr %205, align 4
-  %207 = add nsw i32 %206, %.0107181.i
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 12
-  %209 = load i32, ptr %208, align 4
-  %210 = add nsw i32 %209, %.0105182.i
-  %211 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.4.i37, i64 noundef %203, ptr noundef nonnull @.str.11, i32 noundef %207, i32 noundef %210) #11
-  %.sroa.speculated158.i = call i32 @llvm.smax.i32(i32 %211, i32 0)
-  %212 = zext nneg i32 %.sroa.speculated158.i to i64
-  %213 = getelementptr inbounds nuw i8, ptr %.4.i37, i64 %212
-  br i1 %.not123.i30, label %214, label %223
+200:                                              ; preds = %199
+  %201 = ptrtoint ptr %.4.i37 to i64
+  %202 = sub i64 %.neg.i, %201
+  %203 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %154, i64 %indvars.iv.i34
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %205 = load i32, ptr %204, align 4
+  %206 = add nsw i32 %205, %.0107181.i
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 12
+  %208 = load i32, ptr %207, align 4
+  %209 = add nsw i32 %208, %.0105182.i
+  %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.4.i37, i64 noundef %202, ptr noundef nonnull @.str.11, i32 noundef %206, i32 noundef %209) #11
+  %.sroa.speculated158.i = call i32 @llvm.smax.i32(i32 %210, i32 0)
+  %211 = zext nneg i32 %.sroa.speculated158.i to i64
+  %212 = getelementptr inbounds nuw i8, ptr %.4.i37, i64 %211
+  br i1 %.not123.i30, label %213, label %222
 
-214:                                              ; preds = %201
-  %215 = ptrtoint ptr %213 to i64
-  %216 = sub i64 %.neg.i, %215
-  %217 = load i32, ptr %204, align 4
-  %218 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  %219 = load i32, ptr %218, align 4
-  %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %213, i64 noundef %216, ptr noundef nonnull @.str.12, i32 noundef %217, i32 noundef %219) #11
-  %.sroa.speculated153.i = call i32 @llvm.smax.i32(i32 %220, i32 0)
-  %221 = zext nneg i32 %.sroa.speculated153.i to i64
-  %222 = getelementptr inbounds nuw i8, ptr %213, i64 %221
-  br label %223
+213:                                              ; preds = %200
+  %214 = ptrtoint ptr %212 to i64
+  %215 = sub i64 %.neg.i, %214
+  %216 = load i32, ptr %203, align 4
+  %217 = getelementptr inbounds nuw i8, ptr %203, i64 4
+  %218 = load i32, ptr %217, align 4
+  %219 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %212, i64 noundef %215, ptr noundef nonnull @.str.12, i32 noundef %216, i32 noundef %218) #11
+  %.sroa.speculated153.i = call i32 @llvm.smax.i32(i32 %219, i32 0)
+  %220 = zext nneg i32 %.sroa.speculated153.i to i64
+  %221 = getelementptr inbounds nuw i8, ptr %212, i64 %220
+  br label %222
 
-223:                                              ; preds = %214, %201, %200
-  %.5.i38 = phi ptr [ %.4.i37, %200 ], [ %213, %201 ], [ %222, %214 ]
-  br i1 %.not125.i31, label %234, label %224
+222:                                              ; preds = %213, %200, %199
+  %.5.i38 = phi ptr [ %.4.i37, %199 ], [ %212, %200 ], [ %221, %213 ]
+  br i1 %.not125.i31, label %233, label %223
 
-224:                                              ; preds = %223
-  %225 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %150, i64 %indvars.iv.i34, i32 1
-  %226 = load i32, ptr %225, align 4
-  %227 = and i32 %226, 7
-  %.not126.i39 = icmp eq i32 %227, 0
-  br i1 %.not126.i39, label %234, label %228
+223:                                              ; preds = %222
+  %224 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %149, i64 %indvars.iv.i34, i32 1
+  %225 = load i32, ptr %224, align 4
+  %226 = and i32 %225, 7
+  %.not126.i39 = icmp eq i32 %226, 0
+  br i1 %.not126.i39, label %233, label %227
 
-228:                                              ; preds = %224
-  %229 = ptrtoint ptr %.5.i38 to i64
-  %230 = sub i64 %.neg.i, %229
-  %231 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5.i38, i64 noundef %230, ptr noundef nonnull @.str.13, i32 noundef %227) #11
-  %.sroa.speculated148.i = call i32 @llvm.smax.i32(i32 %231, i32 0)
-  %232 = zext nneg i32 %.sroa.speculated148.i to i64
-  %233 = getelementptr inbounds nuw i8, ptr %.5.i38, i64 %232
-  br label %234
+227:                                              ; preds = %223
+  %228 = ptrtoint ptr %.5.i38 to i64
+  %229 = sub i64 %.neg.i, %228
+  %230 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5.i38, i64 noundef %229, ptr noundef nonnull @.str.13, i32 noundef %226) #11
+  %.sroa.speculated148.i = call i32 @llvm.smax.i32(i32 %230, i32 0)
+  %231 = zext nneg i32 %.sroa.speculated148.i to i64
+  %232 = getelementptr inbounds nuw i8, ptr %.5.i38, i64 %231
+  br label %233
 
-234:                                              ; preds = %228, %224, %223
-  %.6.i40 = phi ptr [ %233, %228 ], [ %.5.i38, %224 ], [ %.5.i38, %223 ]
-  br i1 %.not128.i32, label %252, label %235
+233:                                              ; preds = %227, %223, %222
+  %.6.i40 = phi ptr [ %232, %227 ], [ %.5.i38, %223 ], [ %.5.i38, %222 ]
+  br i1 %.not128.i32, label %251, label %234
 
-235:                                              ; preds = %234
-  %236 = load i32, ptr %174, align 4
-  %237 = call i32 @hb_font_get_glyph_extents(ptr noundef %.019, i32 noundef %236, ptr noundef nonnull %12)
-  %238 = ptrtoint ptr %.6.i40 to i64
-  %239 = sub i64 %.neg.i, %238
-  %240 = load i32, ptr %12, align 4
-  %241 = load i32, ptr %167, align 4
-  %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.6.i40, i64 noundef %239, ptr noundef nonnull @.str.14, i32 noundef %240, i32 noundef %241) #11
-  %.sroa.speculated143.i = call i32 @llvm.smax.i32(i32 %242, i32 0)
-  %243 = zext nneg i32 %.sroa.speculated143.i to i64
-  %244 = getelementptr inbounds nuw i8, ptr %.6.i40, i64 %243
-  %245 = ptrtoint ptr %244 to i64
-  %246 = sub i64 %.neg.i, %245
+234:                                              ; preds = %233
+  %235 = load i32, ptr %173, align 4
+  %236 = call i32 @hb_font_get_glyph_extents(ptr noundef %.019, i32 noundef %235, ptr noundef nonnull %12)
+  %237 = ptrtoint ptr %.6.i40 to i64
+  %238 = sub i64 %.neg.i, %237
+  %239 = load i32, ptr %12, align 4
+  %240 = load i32, ptr %166, align 4
+  %241 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.6.i40, i64 noundef %238, ptr noundef nonnull @.str.14, i32 noundef %239, i32 noundef %240) #11
+  %.sroa.speculated143.i = call i32 @llvm.smax.i32(i32 %241, i32 0)
+  %242 = zext nneg i32 %.sroa.speculated143.i to i64
+  %243 = getelementptr inbounds nuw i8, ptr %.6.i40, i64 %242
+  %244 = ptrtoint ptr %243 to i64
+  %245 = sub i64 %.neg.i, %244
+  %246 = load i32, ptr %167, align 4
   %247 = load i32, ptr %168, align 4
-  %248 = load i32, ptr %169, align 4
-  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %244, i64 noundef %246, ptr noundef nonnull @.str.15, i32 noundef %247, i32 noundef %248) #11
-  %.sroa.speculated.i41 = call i32 @llvm.smax.i32(i32 %249, i32 0)
-  %250 = zext nneg i32 %.sroa.speculated.i41 to i64
-  %251 = getelementptr inbounds nuw i8, ptr %244, i64 %250
-  br label %252
+  %248 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %243, i64 noundef %245, ptr noundef nonnull @.str.15, i32 noundef %246, i32 noundef %247) #11
+  %.sroa.speculated.i41 = call i32 @llvm.smax.i32(i32 %248, i32 0)
+  %249 = zext nneg i32 %.sroa.speculated.i41 to i64
+  %250 = getelementptr inbounds nuw i8, ptr %243, i64 %249
+  br label %251
 
-252:                                              ; preds = %235, %234
-  %.7.i42 = phi ptr [ %251, %235 ], [ %.6.i40, %234 ]
-  %253 = getelementptr inbounds nuw i8, ptr %.7.i42, i64 1
+251:                                              ; preds = %234, %233
+  %.7.i42 = phi ptr [ %250, %234 ], [ %.6.i40, %233 ]
+  %252 = getelementptr inbounds nuw i8, ptr %.7.i42, i64 1
   store i8 125, ptr %.7.i42, align 1
-  %254 = icmp eq i64 %indvars.iv.i34, %172
-  br i1 %254, label %255, label %257
+  %253 = icmp eq i64 %indvars.iv.i34, %171
+  br i1 %253, label %254, label %256
 
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw i8, ptr %.7.i42, i64 2
-  store i8 93, ptr %253, align 1
-  br label %257
+254:                                              ; preds = %251
+  %255 = getelementptr inbounds nuw i8, ptr %.7.i42, i64 2
+  store i8 93, ptr %252, align 1
+  br label %256
 
-257:                                              ; preds = %255, %252
-  %.8.i = phi ptr [ %256, %255 ], [ %253, %252 ]
-  %258 = ptrtoint ptr %.8.i to i64
-  %259 = sub i64 %258, %163
-  %260 = trunc i64 %259 to i32
-  %261 = icmp ugt i32 %.0110179.i, %260
-  br i1 %261, label %262, label %._crit_edge.loopexit.split.loop.exit187.i
+256:                                              ; preds = %254, %251
+  %.8.i = phi ptr [ %255, %254 ], [ %252, %251 ]
+  %257 = ptrtoint ptr %.8.i to i64
+  %258 = sub i64 %257, %162
+  %259 = trunc i64 %258 to i32
+  %260 = icmp ugt i32 %.0110179.i, %259
+  br i1 %260, label %261, label %._crit_edge.loopexit.split.loop.exit187.i
 
-262:                                              ; preds = %257
-  %263 = and i64 %259, 4294967295
-  %.not.i139.i = icmp eq i64 %263, 0
-  br i1 %.not.i139.i, label %_ZL9hb_memcpyPvPKvm.exit.i43, label %264
+261:                                              ; preds = %256
+  %262 = and i64 %258, 4294967295
+  %.not.i139.i = icmp eq i64 %262, 0
+  br i1 %.not.i139.i, label %_ZL9hb_memcpyPvPKvm.exit.i43, label %263
 
-264:                                              ; preds = %262
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0109180.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %263, i1 false), !alias.scope !13
+263:                                              ; preds = %261
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0109180.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %262, i1 false), !alias.scope !13
   br label %_ZL9hb_memcpyPvPKvm.exit.i43
 
-_ZL9hb_memcpyPvPKvm.exit.i43:                     ; preds = %264, %262
-  %265 = getelementptr inbounds nuw i8, ptr %.0109180.i, i64 %263
-  %266 = sub nuw i32 %.0110179.i, %260
+_ZL9hb_memcpyPvPKvm.exit.i43:                     ; preds = %263, %261
+  %264 = getelementptr inbounds nuw i8, ptr %.0109180.i, i64 %262
+  %265 = sub nuw i32 %.0110179.i, %259
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i43.cont, label %_ZL9hb_memcpyPvPKvm.exit.i43.else
 
 _ZL9hb_memcpyPvPKvm.exit.i43.else:                ; preds = %_ZL9hb_memcpyPvPKvm.exit.i43
   %.else.val = load i32, ptr %5, align 4
-  %267 = add i32 %.else.val, %260
-  store i32 %267, ptr %5, align 4
+  %266 = add i32 %.else.val, %259
+  store i32 %266, ptr %5, align 4
   br label %_ZL9hb_memcpyPvPKvm.exit.i43.cont
 
 _ZL9hb_memcpyPvPKvm.exit.i43.cont:                ; preds = %_ZL9hb_memcpyPvPKvm.exit.i43, %_ZL9hb_memcpyPvPKvm.exit.i43.else
-  store i8 0, ptr %265, align 1
-  br i1 %or.cond.i33, label %275, label %268
+  store i8 0, ptr %264, align 1
+  br i1 %or.cond.i33, label %274, label %267
 
-268:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i43.cont
-  %269 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %155, i64 %indvars.iv.i34
-  %270 = load i32, ptr %269, align 4
-  %271 = add nsw i32 %270, %.0107181.i
-  %272 = getelementptr inbounds nuw i8, ptr %269, i64 4
-  %273 = load i32, ptr %272, align 4
-  %274 = add nsw i32 %273, %.0105182.i
-  br label %275
+267:                                              ; preds = %_ZL9hb_memcpyPvPKvm.exit.i43.cont
+  %268 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %154, i64 %indvars.iv.i34
+  %269 = load i32, ptr %268, align 4
+  %270 = add nsw i32 %269, %.0107181.i
+  %271 = getelementptr inbounds nuw i8, ptr %268, i64 4
+  %272 = load i32, ptr %271, align 4
+  %273 = add nsw i32 %272, %.0105182.i
+  br label %274
 
-275:                                              ; preds = %268, %_ZL9hb_memcpyPvPKvm.exit.i43.cont
-  %.1108.i = phi i32 [ %271, %268 ], [ %.0107181.i, %_ZL9hb_memcpyPvPKvm.exit.i43.cont ]
-  %.1106.i44 = phi i32 [ %274, %268 ], [ %.0105182.i, %_ZL9hb_memcpyPvPKvm.exit.i43.cont ]
+274:                                              ; preds = %267, %_ZL9hb_memcpyPvPKvm.exit.i43.cont
+  %.1108.i = phi i32 [ %270, %267 ], [ %.0107181.i, %_ZL9hb_memcpyPvPKvm.exit.i43.cont ]
+  %.1106.i44 = phi i32 [ %273, %267 ], [ %.0105182.i, %_ZL9hb_memcpyPvPKvm.exit.i43.cont ]
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
-  br i1 %exitcond.not.i46, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %173, !llvm.loop !17
+  br i1 %exitcond.not.i46, label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, label %172, !llvm.loop !17
 
-._crit_edge.loopexit.split.loop.exit187.i:        ; preds = %257
-  %276 = trunc nuw i64 %indvars.iv.i34 to i32
+._crit_edge.loopexit.split.loop.exit187.i:        ; preds = %256
+  %275 = trunc nuw i64 %indvars.iv.i34 to i32
   br label %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
 
-_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %275, %.cont, %._crit_edge.loopexit.split.loop.exit187.i
-  %.0104.pn.i = phi i32 [ %18, %.cont ], [ %276, %._crit_edge.loopexit.split.loop.exit187.i ], [ %18, %275 ]
+_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit: ; preds = %274, %.cont, %._crit_edge.loopexit.split.loop.exit187.i
+  %.0104.pn.i = phi i32 [ %18, %.cont ], [ %275, %._crit_edge.loopexit.split.loop.exit187.i ], [ %18, %274 ]
   %.0.i27 = sub i32 %.0104.pn.i, %19
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  br label %277
+  br label %276
 
-277:                                              ; preds = %29, %21, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
+276:                                              ; preds = %29, %21, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit
   %.0 = phi i32 [ %.0.i, %_ZL32_hb_buffer_serialize_glyphs_textP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit ], [ %.0.i27, %_ZL32_hb_buffer_serialize_glyphs_jsonP11hb_buffer_tjjPcjPjP9hb_font_t27hb_buffer_serialize_flags_t.exit ], [ 0, %21 ], [ 0, %29 ]
   ret i32 %.0
 }
@@ -695,13 +694,13 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   br label %17
 
 17:                                               ; preds = %16, %.cont57
-  %.not87 = icmp ugt i32 %14, %1
-  br i1 %.not87, label %18, label %135
+  %.not86 = icmp ugt i32 %14, %1
+  br i1 %.not86, label %18, label %133
 
 18:                                               ; preds = %17
-  switch i32 %6, label %135 [
+  switch i32 %6, label %133 [
     i32 1413830740, label %19
-    i32 1246973774, label %75
+    i32 1246973774, label %74
   ]
 
 19:                                               ; preds = %18
@@ -722,315 +721,311 @@ define hidden i32 @hb_buffer_serialize_unicode(ptr noundef %0, i32 noundef %1, i
   %23 = ptrtoint ptr %10 to i64
   %24 = and i32 %7, 1
   %.not46.i = icmp eq i32 %24, 0
-  %.neg47.i = add i64 %23, 1024
   %25 = add i32 %14, -1
   %26 = zext i32 %15 to i64
   %27 = zext i32 %25 to i64
   br i1 %.not46.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont
-  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %26, %.lr.ph.i ]
-  %.04159.us.i = phi ptr [ %51, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %3, %.lr.ph.i ]
-  %.04258.us.i = phi i32 [ %52, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %4, %.lr.ph.i ]
-  %.not.us.i = icmp eq i64 %indvars.iv67.i, 0
+  %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %26, %.lr.ph.i ]
+  %.04158.us.i = phi ptr [ %50, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %3, %.lr.ph.i ]
+  %.04257.us.i = phi i32 [ %51, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %4, %.lr.ph.i ]
+  %.not.us.i = icmp eq i64 %indvars.iv66.i, 0
   %..us.i = select i1 %.not.us.i, i8 60, i8 124
   store i8 %..us.i, ptr %10, align 16
-  %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %20, i64 %indvars.iv67.i
+  %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %20, i64 %indvars.iv66.i
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 1023, ptr noundef nonnull @.str.16, i32 noundef %29) #11
-  %.sroa.speculated53.us.i = call i32 @llvm.smax.i32(i32 %30, i32 0)
-  %31 = zext nneg i32 %.sroa.speculated53.us.i to i64
+  %.sroa.speculated52.us.i = call i32 @llvm.smax.i32(i32 %30, i32 0)
+  %31 = zext nneg i32 %.sroa.speculated52.us.i to i64
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 %31
-  %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %.neg47.i, %33
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %36 = load i32, ptr %35, align 4
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %32, i64 noundef %34, ptr noundef nonnull @.str.3, i32 noundef %36) #11
-  %.sroa.speculated.us.i = call i32 @llvm.smax.i32(i32 %37, i32 0)
-  %38 = zext nneg i32 %.sroa.speculated.us.i to i64
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 %38
-  %40 = icmp eq i64 %indvars.iv67.i, %27
-  br i1 %40, label %41, label %43
+  %33 = sub nsw i64 1023, %31
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %35 = load i32, ptr %34, align 4
+  %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %32, i64 noundef %33, ptr noundef nonnull @.str.3, i32 noundef %35) #11
+  %.sroa.speculated.us.i = call i32 @llvm.smax.i32(i32 %36, i32 0)
+  %37 = zext nneg i32 %.sroa.speculated.us.i to i64
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 %37
+  %39 = icmp eq i64 %indvars.iv66.i, %27
+  br i1 %39, label %40, label %42
 
-41:                                               ; preds = %.lr.ph.split.us.i
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  store i8 62, ptr %39, align 1
-  br label %43
+40:                                               ; preds = %.lr.ph.split.us.i
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store i8 62, ptr %38, align 1
+  br label %42
 
-43:                                               ; preds = %41, %.lr.ph.split.us.i
-  %.2.us.i = phi ptr [ %42, %41 ], [ %39, %.lr.ph.split.us.i ]
-  %44 = ptrtoint ptr %.2.us.i to i64
-  %45 = sub i64 %44, %23
-  %46 = trunc i64 %45 to i32
-  %47 = icmp ugt i32 %.04258.us.i, %46
-  br i1 %47, label %48, label %._crit_edge.loopexit.split.loop.exit76.i
+42:                                               ; preds = %40, %.lr.ph.split.us.i
+  %.2.us.i = phi ptr [ %41, %40 ], [ %38, %.lr.ph.split.us.i ]
+  %43 = ptrtoint ptr %.2.us.i to i64
+  %44 = sub i64 %43, %23
+  %45 = trunc i64 %44 to i32
+  %46 = icmp ugt i32 %.04257.us.i, %45
+  br i1 %46, label %47, label %._crit_edge.loopexit.split.loop.exit75.i
 
-48:                                               ; preds = %43
-  %49 = and i64 %45, 4294967295
-  %.not.i49.us.i = icmp eq i64 %49, 0
-  br i1 %.not.i49.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i, label %50
+47:                                               ; preds = %42
+  %48 = and i64 %44, 4294967295
+  %.not.i48.us.i = icmp eq i64 %48, 0
+  br i1 %.not.i48.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i, label %49
 
-50:                                               ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04159.us.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %49, i1 false), !alias.scope !18
+49:                                               ; preds = %47
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04158.us.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %48, i1 false), !alias.scope !18
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i
 
-_ZL9hb_memcpyPvPKvm.exit.us.i:                    ; preds = %50, %48
-  %51 = getelementptr inbounds nuw i8, ptr %.04159.us.i, i64 %49
-  %52 = sub nuw i32 %.04258.us.i, %46
+_ZL9hb_memcpyPvPKvm.exit.us.i:                    ; preds = %49, %47
+  %50 = getelementptr inbounds nuw i8, ptr %.04158.us.i, i64 %48
+  %51 = sub nuw i32 %.04257.us.i, %45
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, label %_ZL9hb_memcpyPvPKvm.exit.us.i.else
 
 _ZL9hb_memcpyPvPKvm.exit.us.i.else:               ; preds = %_ZL9hb_memcpyPvPKvm.exit.us.i
   %.else.val49 = load i32, ptr %5, align 4
-  %53 = add i32 %.else.val49, %46
-  store i32 %53, ptr %5, align 4
+  %52 = add i32 %.else.val49, %45
+  store i32 %52, ptr %5, align 4
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i.cont
 
 _ZL9hb_memcpyPvPKvm.exit.us.i.cont:               ; preds = %_ZL9hb_memcpyPvPKvm.exit.us.i, %_ZL9hb_memcpyPvPKvm.exit.us.i.else
-  store i8 0, ptr %51, align 1
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %lftr.wideiv70.i = trunc i64 %indvars.iv.next68.i to i32
-  %exitcond71.not.i = icmp eq i32 %14, %lftr.wideiv70.i
-  br i1 %exitcond71.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i, !llvm.loop !22
+  store i8 0, ptr %50, align 1
+  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
+  %lftr.wideiv69.i = trunc i64 %indvars.iv.next67.i to i32
+  %exitcond70.not.i = icmp eq i32 %14, %lftr.wideiv69.i
+  br i1 %exitcond70.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i, !llvm.loop !22
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %26, %.lr.ph.i ]
-  %.04159.i = phi ptr [ %70, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %3, %.lr.ph.i ]
-  %.04258.i = phi i32 [ %71, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %4, %.lr.ph.i ]
+  %.04158.i = phi ptr [ %69, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %3, %.lr.ph.i ]
+  %.04257.i = phi i32 [ %70, %_ZL9hb_memcpyPvPKvm.exit.i.cont ], [ %4, %.lr.ph.i ]
   %.not.i22 = icmp eq i64 %indvars.iv.i, 0
   %..i = select i1 %.not.i22, i8 60, i8 124
   store i8 %..i, ptr %10, align 16
-  %54 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %20, i64 %indvars.iv.i
-  %55 = load i32, ptr %54, align 4
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 1023, ptr noundef nonnull @.str.16, i32 noundef %55) #11
-  %.sroa.speculated53.i = call i32 @llvm.smax.i32(i32 %56, i32 0)
-  %57 = zext nneg i32 %.sroa.speculated53.i to i64
-  %58 = getelementptr inbounds nuw i8, ptr %22, i64 %57
-  %59 = icmp eq i64 %indvars.iv.i, %27
-  br i1 %59, label %60, label %62
+  %53 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %20, i64 %indvars.iv.i
+  %54 = load i32, ptr %53, align 4
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %22, i64 noundef 1023, ptr noundef nonnull @.str.16, i32 noundef %54) #11
+  %.sroa.speculated52.i = call i32 @llvm.smax.i32(i32 %55, i32 0)
+  %56 = zext nneg i32 %.sroa.speculated52.i to i64
+  %57 = getelementptr inbounds nuw i8, ptr %22, i64 %56
+  %58 = icmp eq i64 %indvars.iv.i, %27
+  br i1 %58, label %59, label %61
 
-60:                                               ; preds = %.lr.ph.split.i
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  store i8 62, ptr %58, align 1
-  br label %62
+59:                                               ; preds = %.lr.ph.split.i
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  store i8 62, ptr %57, align 1
+  br label %61
 
-62:                                               ; preds = %60, %.lr.ph.split.i
-  %.2.i = phi ptr [ %61, %60 ], [ %58, %.lr.ph.split.i ]
-  %63 = ptrtoint ptr %.2.i to i64
-  %64 = sub i64 %63, %23
-  %65 = trunc i64 %64 to i32
-  %66 = icmp ugt i32 %.04258.i, %65
-  br i1 %66, label %67, label %._crit_edge.loopexit72.split.loop.exit74.i
+61:                                               ; preds = %59, %.lr.ph.split.i
+  %.2.i = phi ptr [ %60, %59 ], [ %57, %.lr.ph.split.i ]
+  %62 = ptrtoint ptr %.2.i to i64
+  %63 = sub i64 %62, %23
+  %64 = trunc i64 %63 to i32
+  %65 = icmp ugt i32 %.04257.i, %64
+  br i1 %65, label %66, label %._crit_edge.loopexit71.split.loop.exit73.i
 
-67:                                               ; preds = %62
-  %68 = and i64 %64, 4294967295
-  %.not.i49.i = icmp eq i64 %68, 0
-  br i1 %.not.i49.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %69
+66:                                               ; preds = %61
+  %67 = and i64 %63, 4294967295
+  %.not.i48.i = icmp eq i64 %67, 0
+  br i1 %.not.i48.i, label %_ZL9hb_memcpyPvPKvm.exit.i, label %68
 
-69:                                               ; preds = %67
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04159.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %68, i1 false), !alias.scope !18
+68:                                               ; preds = %66
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04158.i, ptr nonnull readonly align 16 %10, i64 range(i64 0, 4294967296) %67, i1 false), !alias.scope !18
   br label %_ZL9hb_memcpyPvPKvm.exit.i
 
-_ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %69, %67
-  %70 = getelementptr inbounds nuw i8, ptr %.04159.i, i64 %68
-  %71 = sub nuw i32 %.04258.i, %65
+_ZL9hb_memcpyPvPKvm.exit.i:                       ; preds = %68, %66
+  %69 = getelementptr inbounds nuw i8, ptr %.04158.i, i64 %67
+  %70 = sub nuw i32 %.04257.i, %64
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i.cont, label %_ZL9hb_memcpyPvPKvm.exit.i.else
 
 _ZL9hb_memcpyPvPKvm.exit.i.else:                  ; preds = %_ZL9hb_memcpyPvPKvm.exit.i
   %.else.val53 = load i32, ptr %5, align 4
-  %72 = add i32 %.else.val53, %65
-  store i32 %72, ptr %5, align 4
+  %71 = add i32 %.else.val53, %64
+  store i32 %71, ptr %5, align 4
   br label %_ZL9hb_memcpyPvPKvm.exit.i.cont
 
 _ZL9hb_memcpyPvPKvm.exit.i.cont:                  ; preds = %_ZL9hb_memcpyPvPKvm.exit.i, %_ZL9hb_memcpyPvPKvm.exit.i.else
-  store i8 0, ptr %70, align 1
+  store i8 0, ptr %69, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %14, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i, !llvm.loop !22
 
-._crit_edge.loopexit.split.loop.exit76.i:         ; preds = %43
-  %73 = trunc nuw i64 %indvars.iv67.i to i32
+._crit_edge.loopexit.split.loop.exit75.i:         ; preds = %42
+  %72 = trunc nuw i64 %indvars.iv66.i to i32
   br label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-._crit_edge.loopexit72.split.loop.exit74.i:       ; preds = %62
-  %74 = trunc nuw i64 %indvars.iv.i to i32
+._crit_edge.loopexit71.split.loop.exit73.i:       ; preds = %61
+  %73 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, %.cont54, %._crit_edge.loopexit.split.loop.exit76.i, %._crit_edge.loopexit72.split.loop.exit74.i
-  %.040.pn.i = phi i32 [ %14, %.cont54 ], [ %73, %._crit_edge.loopexit.split.loop.exit76.i ], [ %74, %._crit_edge.loopexit72.split.loop.exit74.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
+_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont, %.cont54, %._crit_edge.loopexit.split.loop.exit75.i, %._crit_edge.loopexit71.split.loop.exit73.i
+  %.040.pn.i = phi i32 [ %14, %.cont54 ], [ %72, %._crit_edge.loopexit.split.loop.exit75.i ], [ %73, %._crit_edge.loopexit71.split.loop.exit73.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i.cont ]
   %.0.i = sub i32 %.040.pn.i, %15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10)
-  br label %135
+  br label %133
 
-75:                                               ; preds = %18
+74:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9)
-  %76 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
+  %75 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef nonnull %0, ptr noundef null)
   br i1 %.not, label %.cont, label %.else
 
-.else:                                            ; preds = %75
+.else:                                            ; preds = %74
   store i32 0, ptr %5, align 4
   br label %.cont
 
-.cont:                                            ; preds = %75, %.else
-  %77 = icmp ult i32 %1, %14
-  br i1 %77, label %.lr.ph.i24, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
+.cont:                                            ; preds = %74, %.else
+  %76 = icmp ult i32 %1, %14
+  br i1 %76, label %.lr.ph.i24, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
 .lr.ph.i24:                                       ; preds = %.cont
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %79 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  %81 = ptrtoint ptr %9 to i64
-  %82 = and i32 %7, 1
-  %.not50.i = icmp eq i32 %82, 0
-  %.neg.i = add i64 %81, 1024
-  %83 = add i32 %14, -1
-  %84 = zext i32 %15 to i64
-  %85 = zext i32 %83 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %80 = ptrtoint ptr %9 to i64
+  %81 = and i32 %7, 1
+  %.not50.i = icmp eq i32 %81, 0
+  %82 = add i32 %14, -1
+  %83 = zext i32 %15 to i64
+  %84 = zext i32 %82 to i64
   br i1 %.not50.i, label %.lr.ph.split.us.i34, label %.lr.ph.split.i25
 
 .lr.ph.split.us.i34:                              ; preds = %.lr.ph.i24, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont
-  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %84, %.lr.ph.i24 ]
-  %.04563.us.i = phi ptr [ %110, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %3, %.lr.ph.i24 ]
-  %.04662.us.i = phi i32 [ %111, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %4, %.lr.ph.i24 ]
-  %.not.us.i35 = icmp eq i64 %indvars.iv71.i, 0
+  %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %83, %.lr.ph.i24 ]
+  %.04562.us.i = phi ptr [ %108, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %3, %.lr.ph.i24 ]
+  %.04661.us.i = phi i32 [ %109, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %4, %.lr.ph.i24 ]
+  %.not.us.i35 = icmp eq i64 %indvars.iv70.i, 0
   %..us.i36 = select i1 %.not.us.i35, i8 91, i8 44
   store i8 %..us.i36, ptr %9, align 16
-  store i8 123, ptr %78, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %79, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #11
-  %86 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %indvars.iv71.i
-  %87 = load i32, ptr %86, align 4
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %80, i64 noundef 1018, ptr noundef nonnull @.str.2, i32 noundef %87) #11
-  %.sroa.speculated56.us.i = call i32 @llvm.smax.i32(i32 %88, i32 0)
-  %89 = zext nneg i32 %.sroa.speculated56.us.i to i64
-  %90 = getelementptr inbounds nuw i8, ptr %80, i64 %89
-  %91 = ptrtoint ptr %90 to i64
-  %92 = sub i64 %.neg.i, %91
-  %93 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %94 = load i32, ptr %93, align 4
-  %95 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %90, i64 noundef %92, ptr noundef nonnull @.str.10, i32 noundef %94) #11
-  %.sroa.speculated.us.i37 = call i32 @llvm.smax.i32(i32 %95, i32 0)
-  %96 = zext nneg i32 %.sroa.speculated.us.i37 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %90, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  store i8 125, ptr %97, align 1
-  %99 = icmp eq i64 %indvars.iv71.i, %85
-  br i1 %99, label %100, label %102
+  store i8 123, ptr %77, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %78, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #11
+  %85 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %75, i64 %indvars.iv70.i
+  %86 = load i32, ptr %85, align 4
+  %87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %79, i64 noundef 1018, ptr noundef nonnull @.str.2, i32 noundef %86) #11
+  %.sroa.speculated56.us.i = call i32 @llvm.smax.i32(i32 %87, i32 0)
+  %88 = zext nneg i32 %.sroa.speculated56.us.i to i64
+  %89 = getelementptr inbounds nuw i8, ptr %79, i64 %88
+  %90 = sub nsw i64 1018, %88
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %92 = load i32, ptr %91, align 4
+  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %89, i64 noundef %90, ptr noundef nonnull @.str.10, i32 noundef %92) #11
+  %.sroa.speculated.us.i37 = call i32 @llvm.smax.i32(i32 %93, i32 0)
+  %94 = zext nneg i32 %.sroa.speculated.us.i37 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
+  store i8 125, ptr %95, align 1
+  %97 = icmp eq i64 %indvars.iv70.i, %84
+  br i1 %97, label %98, label %100
 
-100:                                              ; preds = %.lr.ph.split.us.i34
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 2
-  store i8 93, ptr %98, align 1
-  br label %102
+98:                                               ; preds = %.lr.ph.split.us.i34
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 2
+  store i8 93, ptr %96, align 1
+  br label %100
 
-102:                                              ; preds = %100, %.lr.ph.split.us.i34
-  %.2.us.i38 = phi ptr [ %101, %100 ], [ %98, %.lr.ph.split.us.i34 ]
-  %103 = ptrtoint ptr %.2.us.i38 to i64
-  %104 = sub i64 %103, %81
-  %105 = trunc i64 %104 to i32
-  %106 = icmp ugt i32 %.04662.us.i, %105
-  br i1 %106, label %107, label %._crit_edge.loopexit.split.loop.exit80.i
+100:                                              ; preds = %98, %.lr.ph.split.us.i34
+  %.2.us.i38 = phi ptr [ %99, %98 ], [ %96, %.lr.ph.split.us.i34 ]
+  %101 = ptrtoint ptr %.2.us.i38 to i64
+  %102 = sub i64 %101, %80
+  %103 = trunc i64 %102 to i32
+  %104 = icmp ugt i32 %.04661.us.i, %103
+  br i1 %104, label %105, label %._crit_edge.loopexit.split.loop.exit79.i
 
-107:                                              ; preds = %102
-  %108 = and i64 %104, 4294967295
-  %.not.i52.us.i = icmp eq i64 %108, 0
-  br i1 %.not.i52.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i39, label %109
+105:                                              ; preds = %100
+  %106 = and i64 %102, 4294967295
+  %.not.i52.us.i = icmp eq i64 %106, 0
+  br i1 %.not.i52.us.i, label %_ZL9hb_memcpyPvPKvm.exit.us.i39, label %107
 
-109:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04563.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %108, i1 false), !alias.scope !23
+107:                                              ; preds = %105
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.us.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %106, i1 false), !alias.scope !23
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i39
 
-_ZL9hb_memcpyPvPKvm.exit.us.i39:                  ; preds = %109, %107
-  %110 = getelementptr inbounds nuw i8, ptr %.04563.us.i, i64 %108
-  %111 = sub nuw i32 %.04662.us.i, %105
+_ZL9hb_memcpyPvPKvm.exit.us.i39:                  ; preds = %107, %105
+  %108 = getelementptr inbounds nuw i8, ptr %.04562.us.i, i64 %106
+  %109 = sub nuw i32 %.04661.us.i, %103
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, label %_ZL9hb_memcpyPvPKvm.exit.us.i39.else
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39.else:             ; preds = %_ZL9hb_memcpyPvPKvm.exit.us.i39
   %.else.val = load i32, ptr %5, align 4
-  %112 = add i32 %.else.val, %105
-  store i32 %112, ptr %5, align 4
+  %110 = add i32 %.else.val, %103
+  store i32 %110, ptr %5, align 4
   br label %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont
 
 _ZL9hb_memcpyPvPKvm.exit.us.i39.cont:             ; preds = %_ZL9hb_memcpyPvPKvm.exit.us.i39, %_ZL9hb_memcpyPvPKvm.exit.us.i39.else
-  store i8 0, ptr %110, align 1
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %lftr.wideiv74.i = trunc i64 %indvars.iv.next72.i to i32
-  %exitcond75.not.i = icmp eq i32 %14, %lftr.wideiv74.i
-  br i1 %exitcond75.not.i, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i34, !llvm.loop !27
+  store i8 0, ptr %108, align 1
+  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
+  %lftr.wideiv73.i = trunc i64 %indvars.iv.next71.i to i32
+  %exitcond74.not.i = icmp eq i32 %14, %lftr.wideiv73.i
+  br i1 %exitcond74.not.i, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.us.i34, !llvm.loop !27
 
 .lr.ph.split.i25:                                 ; preds = %.lr.ph.i24, %_ZL9hb_memcpyPvPKvm.exit.i30.cont
-  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i31, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %84, %.lr.ph.i24 ]
-  %.04563.i = phi ptr [ %130, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %3, %.lr.ph.i24 ]
-  %.04662.i = phi i32 [ %131, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %4, %.lr.ph.i24 ]
+  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i31, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %83, %.lr.ph.i24 ]
+  %.04562.i = phi ptr [ %128, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %3, %.lr.ph.i24 ]
+  %.04661.i = phi i32 [ %129, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ], [ %4, %.lr.ph.i24 ]
   %.not.i27 = icmp eq i64 %indvars.iv.i26, 0
   %..i28 = select i1 %.not.i27, i8 91, i8 44
   store i8 %..i28, ptr %9, align 16
-  store i8 123, ptr %78, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %79, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #11
-  %113 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %indvars.iv.i26
-  %114 = load i32, ptr %113, align 4
-  %115 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %80, i64 noundef 1018, ptr noundef nonnull @.str.2, i32 noundef %114) #11
-  %.sroa.speculated56.i = call i32 @llvm.smax.i32(i32 %115, i32 0)
-  %116 = zext nneg i32 %.sroa.speculated56.i to i64
-  %117 = getelementptr inbounds nuw i8, ptr %80, i64 %116
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
-  store i8 125, ptr %117, align 1
-  %119 = icmp eq i64 %indvars.iv.i26, %85
-  br i1 %119, label %120, label %122
+  store i8 123, ptr %77, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %78, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #11
+  %111 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %75, i64 %indvars.iv.i26
+  %112 = load i32, ptr %111, align 4
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %79, i64 noundef 1018, ptr noundef nonnull @.str.2, i32 noundef %112) #11
+  %.sroa.speculated56.i = call i32 @llvm.smax.i32(i32 %113, i32 0)
+  %114 = zext nneg i32 %.sroa.speculated56.i to i64
+  %115 = getelementptr inbounds nuw i8, ptr %79, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
+  store i8 125, ptr %115, align 1
+  %117 = icmp eq i64 %indvars.iv.i26, %84
+  br i1 %117, label %118, label %120
 
-120:                                              ; preds = %.lr.ph.split.i25
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 2
-  store i8 93, ptr %118, align 1
-  br label %122
+118:                                              ; preds = %.lr.ph.split.i25
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 2
+  store i8 93, ptr %116, align 1
+  br label %120
 
-122:                                              ; preds = %120, %.lr.ph.split.i25
-  %.2.i29 = phi ptr [ %121, %120 ], [ %118, %.lr.ph.split.i25 ]
-  %123 = ptrtoint ptr %.2.i29 to i64
-  %124 = sub i64 %123, %81
-  %125 = trunc i64 %124 to i32
-  %126 = icmp ugt i32 %.04662.i, %125
-  br i1 %126, label %127, label %._crit_edge.loopexit76.split.loop.exit78.i
+120:                                              ; preds = %118, %.lr.ph.split.i25
+  %.2.i29 = phi ptr [ %119, %118 ], [ %116, %.lr.ph.split.i25 ]
+  %121 = ptrtoint ptr %.2.i29 to i64
+  %122 = sub i64 %121, %80
+  %123 = trunc i64 %122 to i32
+  %124 = icmp ugt i32 %.04661.i, %123
+  br i1 %124, label %125, label %._crit_edge.loopexit75.split.loop.exit77.i
 
-127:                                              ; preds = %122
-  %128 = and i64 %124, 4294967295
-  %.not.i52.i = icmp eq i64 %128, 0
-  br i1 %.not.i52.i, label %_ZL9hb_memcpyPvPKvm.exit.i30, label %129
+125:                                              ; preds = %120
+  %126 = and i64 %122, 4294967295
+  %.not.i52.i = icmp eq i64 %126, 0
+  br i1 %.not.i52.i, label %_ZL9hb_memcpyPvPKvm.exit.i30, label %127
 
-129:                                              ; preds = %127
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04563.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %128, i1 false), !alias.scope !23
+127:                                              ; preds = %125
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04562.i, ptr nonnull readonly align 16 %9, i64 range(i64 0, 4294967296) %126, i1 false), !alias.scope !23
   br label %_ZL9hb_memcpyPvPKvm.exit.i30
 
-_ZL9hb_memcpyPvPKvm.exit.i30:                     ; preds = %129, %127
-  %130 = getelementptr inbounds nuw i8, ptr %.04563.i, i64 %128
-  %131 = sub nuw i32 %.04662.i, %125
+_ZL9hb_memcpyPvPKvm.exit.i30:                     ; preds = %127, %125
+  %128 = getelementptr inbounds nuw i8, ptr %.04562.i, i64 %126
+  %129 = sub nuw i32 %.04661.i, %123
   br i1 %.not, label %_ZL9hb_memcpyPvPKvm.exit.i30.cont, label %_ZL9hb_memcpyPvPKvm.exit.i30.else
 
 _ZL9hb_memcpyPvPKvm.exit.i30.else:                ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30
   %.else.val45 = load i32, ptr %5, align 4
-  %132 = add i32 %.else.val45, %125
-  store i32 %132, ptr %5, align 4
+  %130 = add i32 %.else.val45, %123
+  store i32 %130, ptr %5, align 4
   br label %_ZL9hb_memcpyPvPKvm.exit.i30.cont
 
 _ZL9hb_memcpyPvPKvm.exit.i30.cont:                ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30, %_ZL9hb_memcpyPvPKvm.exit.i30.else
-  store i8 0, ptr %130, align 1
+  store i8 0, ptr %128, align 1
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i26, 1
   %lftr.wideiv.i32 = trunc i64 %indvars.iv.next.i31 to i32
   %exitcond.not.i33 = icmp eq i32 %14, %lftr.wideiv.i32
   br i1 %exitcond.not.i33, label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, label %.lr.ph.split.i25, !llvm.loop !27
 
-._crit_edge.loopexit.split.loop.exit80.i:         ; preds = %102
-  %133 = trunc nuw i64 %indvars.iv71.i to i32
+._crit_edge.loopexit.split.loop.exit79.i:         ; preds = %100
+  %131 = trunc nuw i64 %indvars.iv70.i to i32
   br label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-._crit_edge.loopexit76.split.loop.exit78.i:       ; preds = %122
-  %134 = trunc nuw i64 %indvars.iv.i26 to i32
+._crit_edge.loopexit75.split.loop.exit77.i:       ; preds = %120
+  %132 = trunc nuw i64 %indvars.iv.i26 to i32
   br label %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
 
-_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, %.cont, %._crit_edge.loopexit.split.loop.exit80.i, %._crit_edge.loopexit76.split.loop.exit78.i
-  %.044.pn.i = phi i32 [ %14, %.cont ], [ %133, %._crit_edge.loopexit.split.loop.exit80.i ], [ %134, %._crit_edge.loopexit76.split.loop.exit78.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
+_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit: ; preds = %_ZL9hb_memcpyPvPKvm.exit.i30.cont, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont, %.cont, %._crit_edge.loopexit.split.loop.exit79.i, %._crit_edge.loopexit75.split.loop.exit77.i
+  %.044.pn.i = phi i32 [ %14, %.cont ], [ %131, %._crit_edge.loopexit.split.loop.exit79.i ], [ %132, %._crit_edge.loopexit75.split.loop.exit77.i ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.us.i39.cont ], [ %14, %_ZL9hb_memcpyPvPKvm.exit.i30.cont ]
   %.0.i23 = sub i32 %.044.pn.i, %15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
-  br label %135
+  br label %133
 
-135:                                              ; preds = %18, %17, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
+133:                                              ; preds = %18, %17, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit
   %.0 = phi i32 [ %.0.i, %_ZL33_hb_buffer_serialize_unicode_textP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit ], [ %.0.i23, %_ZL33_hb_buffer_serialize_unicode_jsonP11hb_buffer_tjjPcjPj27hb_buffer_serialize_flags_t.exit ], [ 0, %17 ], [ 0, %18 ]
   ret i32 %.0
 }

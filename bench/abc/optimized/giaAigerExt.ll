@@ -443,136 +443,134 @@ Gia_AigerReadInt.exit:                            ; preds = %4
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store ptr %13, ptr %0, align 8, !tbaa !3
-  %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  %16 = ptrtoint ptr %15 to i64
-  %17 = ptrtoint ptr %13 to i64
-  %18 = sub i64 %16, %17
-  %sext = shl i64 %18, 32
-  %19 = ashr exact i64 %sext, 32
-  %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 4) #15
-  %21 = icmp sgt i32 %9, 4
-  br i1 %21, label %.lr.ph53, label %._crit_edge54
+  %14 = zext i32 %1 to i64
+  %15 = add nsw i64 %11, %14
+  %gepdiff = shl i64 %15, 32
+  %sext = add i64 %gepdiff, -17179869184
+  %16 = ashr exact i64 %sext, 32
+  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #15
+  %18 = icmp sgt i32 %9, 4
+  br i1 %18, label %.lr.ph53, label %._crit_edge54
 
 .lr.ph53:                                         ; preds = %Gia_AigerReadInt.exit, %._crit_edge
   %.052 = phi i32 [ %.027.lcssa, %._crit_edge ], [ %1, %Gia_AigerReadInt.exit ]
   %.02651 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %Gia_AigerReadInt.exit ]
   %.promoted4550 = phi ptr [ %.promoted46, %._crit_edge ], [ %13, %Gia_AigerReadInt.exit ]
-  %22 = getelementptr inbounds nuw i8, ptr %.promoted4550, i64 1
-  store ptr %22, ptr %0, align 8, !tbaa !3
-  %23 = load i8, ptr %.promoted4550, align 1, !tbaa !8
-  %24 = zext i8 %23 to i32
-  %.not7.i = icmp sgt i8 %23, -1
+  %19 = getelementptr inbounds nuw i8, ptr %.promoted4550, i64 1
+  store ptr %19, ptr %0, align 8, !tbaa !3
+  %20 = load i8, ptr %.promoted4550, align 1, !tbaa !8
+  %21 = zext i8 %20 to i32
+  %.not7.i = icmp sgt i8 %20, -1
   br i1 %.not7.i, label %Gia_AigerReadUnsigned.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph53, %.lr.ph.i
-  %25 = phi i32 [ %34, %.lr.ph.i ], [ %24, %.lr.ph53 ]
-  %26 = phi ptr [ %32, %.lr.ph.i ], [ %22, %.lr.ph53 ]
-  %.09.i = phi i32 [ %31, %.lr.ph.i ], [ 0, %.lr.ph53 ]
-  %.068.i = phi i32 [ %28, %.lr.ph.i ], [ 0, %.lr.ph53 ]
-  %27 = and i32 %25, 127
-  %28 = add i32 %.068.i, 1
-  %29 = mul i32 %.068.i, 7
-  %30 = shl i32 %27, %29
-  %31 = or i32 %30, %.09.i
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %32, ptr %0, align 8, !tbaa !3
-  %33 = load i8, ptr %26, align 1, !tbaa !8
-  %34 = zext i8 %33 to i32
-  %.not.i = icmp sgt i8 %33, -1
+  %22 = phi i32 [ %31, %.lr.ph.i ], [ %21, %.lr.ph53 ]
+  %23 = phi ptr [ %29, %.lr.ph.i ], [ %19, %.lr.ph53 ]
+  %.09.i = phi i32 [ %28, %.lr.ph.i ], [ 0, %.lr.ph53 ]
+  %.068.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %.lr.ph53 ]
+  %24 = and i32 %22, 127
+  %25 = add i32 %.068.i, 1
+  %26 = mul i32 %.068.i, 7
+  %27 = shl i32 %24, %26
+  %28 = or i32 %27, %.09.i
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  store ptr %29, ptr %0, align 8, !tbaa !3
+  %30 = load i8, ptr %23, align 1, !tbaa !8
+  %31 = zext i8 %30 to i32
+  %.not.i = icmp sgt i8 %30, -1
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %35 = mul i32 %28, 7
+  %32 = mul i32 %25, 7
   br label %Gia_AigerReadUnsigned.exit
 
 Gia_AigerReadUnsigned.exit:                       ; preds = %.lr.ph53, %._crit_edge.loopexit.i
-  %.promoted44 = phi ptr [ %22, %.lr.ph53 ], [ %32, %._crit_edge.loopexit.i ]
-  %.06.lcssa.i = phi i32 [ 0, %.lr.ph53 ], [ %35, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.lr.ph53 ], [ %31, %._crit_edge.loopexit.i ]
-  %.lcssa.i = phi i32 [ %24, %.lr.ph53 ], [ %34, %._crit_edge.loopexit.i ]
-  %36 = shl i32 %.lcssa.i, %.06.lcssa.i
-  %37 = or i32 %36, %.0.lcssa.i
-  %38 = sext i32 %.052 to i64
-  %39 = getelementptr inbounds i32, ptr %20, i64 %38
-  store i32 %37, ptr %39, align 4, !tbaa !37
+  %.promoted44 = phi ptr [ %19, %.lr.ph53 ], [ %29, %._crit_edge.loopexit.i ]
+  %.06.lcssa.i = phi i32 [ 0, %.lr.ph53 ], [ %32, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %.lr.ph53 ], [ %28, %._crit_edge.loopexit.i ]
+  %.lcssa.i = phi i32 [ %21, %.lr.ph53 ], [ %31, %._crit_edge.loopexit.i ]
+  %33 = shl i32 %.lcssa.i, %.06.lcssa.i
+  %34 = or i32 %33, %.0.lcssa.i
+  %35 = sext i32 %.052 to i64
+  %36 = getelementptr inbounds i32, ptr %17, i64 %35
+  store i32 %34, ptr %36, align 4, !tbaa !37
   %.02736 = add i32 %.052, 1
-  %.not37 = icmp slt i32 %37, 0
+  %.not37 = icmp slt i32 %34, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Gia_AigerReadUnsigned.exit
-  %40 = sext i32 %.02736 to i64
+  %37 = sext i32 %.02736 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Gia_AigerReadDiffValue.exit
-  %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %Gia_AigerReadDiffValue.exit ]
-  %41 = phi ptr [ %.promoted44, %.lr.ph.preheader ], [ %.promoted47, %Gia_AigerReadDiffValue.exit ]
+  %indvars.iv = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next, %Gia_AigerReadDiffValue.exit ]
+  %38 = phi ptr [ %.promoted44, %.lr.ph.preheader ], [ %.promoted47, %Gia_AigerReadDiffValue.exit ]
   %.139 = phi i32 [ %.02651, %.lr.ph.preheader ], [ %.0.i, %Gia_AigerReadDiffValue.exit ]
-  %.02838 = phi i32 [ 0, %.lr.ph.preheader ], [ %62, %Gia_AigerReadDiffValue.exit ]
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store ptr %42, ptr %0, align 8, !tbaa !3
-  %43 = load i8, ptr %41, align 1, !tbaa !8
-  %44 = zext i8 %43 to i32
-  %.not7.i.i = icmp sgt i8 %43, -1
+  %.02838 = phi i32 [ 0, %.lr.ph.preheader ], [ %59, %Gia_AigerReadDiffValue.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store ptr %39, ptr %0, align 8, !tbaa !3
+  %40 = load i8, ptr %38, align 1, !tbaa !8
+  %41 = zext i8 %40 to i32
+  %.not7.i.i = icmp sgt i8 %40, -1
   br i1 %.not7.i.i, label %Gia_AigerReadDiffValue.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
-  %45 = phi i32 [ %54, %.lr.ph.i.i ], [ %44, %.lr.ph ]
-  %46 = phi ptr [ %52, %.lr.ph.i.i ], [ %42, %.lr.ph ]
-  %.09.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph ]
-  %.068.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ 0, %.lr.ph ]
-  %47 = and i32 %45, 127
-  %48 = add i32 %.068.i.i, 1
-  %49 = mul i32 %.068.i.i, 7
-  %50 = shl i32 %47, %49
-  %51 = or i32 %50, %.09.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store ptr %52, ptr %0, align 8, !tbaa !3
-  %53 = load i8, ptr %46, align 1, !tbaa !8
-  %54 = zext i8 %53 to i32
-  %.not.i.i = icmp sgt i8 %53, -1
+  %42 = phi i32 [ %51, %.lr.ph.i.i ], [ %41, %.lr.ph ]
+  %43 = phi ptr [ %49, %.lr.ph.i.i ], [ %39, %.lr.ph ]
+  %.09.i.i = phi i32 [ %48, %.lr.ph.i.i ], [ 0, %.lr.ph ]
+  %.068.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 0, %.lr.ph ]
+  %44 = and i32 %42, 127
+  %45 = add i32 %.068.i.i, 1
+  %46 = mul i32 %.068.i.i, 7
+  %47 = shl i32 %44, %46
+  %48 = or i32 %47, %.09.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  store ptr %49, ptr %0, align 8, !tbaa !3
+  %50 = load i8, ptr %43, align 1, !tbaa !8
+  %51 = zext i8 %50 to i32
+  %.not.i.i = icmp sgt i8 %50, -1
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %55 = mul i32 %48, 7
+  %52 = mul i32 %45, 7
   br label %Gia_AigerReadDiffValue.exit
 
 Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edge.loopexit.i.i
-  %.promoted47 = phi ptr [ %42, %.lr.ph ], [ %52, %._crit_edge.loopexit.i.i ]
-  %.06.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ %55, %._crit_edge.loopexit.i.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ %51, %._crit_edge.loopexit.i.i ]
-  %.lcssa.i.i = phi i32 [ %44, %.lr.ph ], [ %54, %._crit_edge.loopexit.i.i ]
-  %56 = shl i32 %.lcssa.i.i, %.06.lcssa.i.i
-  %57 = or i32 %56, %.0.lcssa.i.i
-  %58 = and i32 %57, 1
-  %.not.i29 = icmp eq i32 %58, 0
-  %59 = ashr i32 %57, 1
-  %60 = sub nsw i32 0, %59
-  %.0.p.i = select i1 %.not.i29, i32 %60, i32 %59
+  %.promoted47 = phi ptr [ %39, %.lr.ph ], [ %49, %._crit_edge.loopexit.i.i ]
+  %.06.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ %52, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph ], [ %48, %._crit_edge.loopexit.i.i ]
+  %.lcssa.i.i = phi i32 [ %41, %.lr.ph ], [ %51, %._crit_edge.loopexit.i.i ]
+  %53 = shl i32 %.lcssa.i.i, %.06.lcssa.i.i
+  %54 = or i32 %53, %.0.lcssa.i.i
+  %55 = and i32 %54, 1
+  %.not.i29 = icmp eq i32 %55, 0
+  %56 = ashr i32 %54, 1
+  %57 = sub nsw i32 0, %56
+  %.0.p.i = select i1 %.not.i29, i32 %57, i32 %56
   %.0.i = add i32 %.0.p.i, %.139
-  %61 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
-  store i32 %.0.i, ptr %61, align 4, !tbaa !37
-  %62 = add nuw i32 %.02838, 1
+  %58 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  store i32 %.0.i, ptr %58, align 4, !tbaa !37
+  %59 = add nuw i32 %.02838, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %.02838, %37
+  %exitcond.not = icmp eq i32 %.02838, %34
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %Gia_AigerReadDiffValue.exit
-  %63 = trunc nsw i64 %indvars.iv.next to i32
+  %60 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Gia_AigerReadUnsigned.exit
   %.promoted46 = phi ptr [ %.promoted44, %Gia_AigerReadUnsigned.exit ], [ %.promoted47, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.02651, %Gia_AigerReadUnsigned.exit ], [ %.0.i, %._crit_edge.loopexit ]
-  %.027.lcssa = phi i32 [ %.02736, %Gia_AigerReadUnsigned.exit ], [ %63, %._crit_edge.loopexit ]
-  %64 = sext i32 %.1.lcssa to i64
-  %65 = getelementptr inbounds i32, ptr %20, i64 %64
-  store i32 %.052, ptr %65, align 4, !tbaa !37
-  %66 = icmp ult ptr %.promoted46, %12
-  br i1 %66, label %.lr.ph53, label %._crit_edge54, !llvm.loop !50
+  %.027.lcssa = phi i32 [ %.02736, %Gia_AigerReadUnsigned.exit ], [ %60, %._crit_edge.loopexit ]
+  %61 = sext i32 %.1.lcssa to i64
+  %62 = getelementptr inbounds i32, ptr %17, i64 %61
+  store i32 %.052, ptr %62, align 4, !tbaa !37
+  %63 = icmp ult ptr %.promoted46, %12
+  br i1 %63, label %.lr.ph53, label %._crit_edge54, !llvm.loop !50
 
 ._crit_edge54:                                    ; preds = %._crit_edge, %Gia_AigerReadInt.exit
-  ret ptr %20
+  ret ptr %17
 }
 
 ; Function Attrs: nofree nounwind uwtable

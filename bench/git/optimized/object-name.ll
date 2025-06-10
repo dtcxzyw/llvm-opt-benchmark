@@ -3888,8 +3888,8 @@ get_oid_basic.exit:                               ; preds = %167, %183, %248, %3
   %331 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %332
 
-332:                                              ; preds = %370, %.lr.ph.i99
-  %.027.idx.in45.i = phi i64 [ %329, %.lr.ph.i99 ], [ %.027.idx46.i, %370 ]
+332:                                              ; preds = %369, %.lr.ph.i99
+  %.027.idx.in45.i = phi i64 [ %329, %.lr.ph.i99 ], [ %.027.idx46.i, %369 ]
   %.027.idx46.i = add nsw i64 %.027.idx.in45.i, -1
   %.027.ptr47.i = getelementptr inbounds i8, ptr %1, i64 %.027.idx46.i
   %333 = load i8, ptr %.027.ptr47.i, align 1, !tbaa !16
@@ -3899,95 +3899,94 @@ get_oid_basic.exit:                               ; preds = %167, %183, %248, %3
   %337 = icmp eq i8 %336, -1
   %338 = icmp eq i8 %333, 103
   %or.cond.i100 = and i1 %338, %337
-  br i1 %or.cond.i100, label %339, label %370
+  br i1 %or.cond.i100, label %339, label %369
 
 339:                                              ; preds = %332
   %340 = getelementptr inbounds i8, ptr %.027.ptr47.i, i64 -1
   %341 = load i8, ptr %340, align 1, !tbaa !16
   %342 = icmp eq i8 %341, 45
-  br i1 %342, label %343, label %370
+  br i1 %342, label %343, label %369
 
 343:                                              ; preds = %339
-  %344 = ptrtoint ptr %340 to i64
-  %345 = sub i64 %344, %330
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
-  %sext.i = shl i64 %345, 32
-  %346 = ashr exact i64 %sext.i, 32
-  %347 = getelementptr i8, ptr %1, i64 %346
-  %348 = getelementptr i8, ptr %347, i64 -1
-  %349 = load i8, ptr %348, align 1, !tbaa !16
-  %350 = zext i8 %349 to i64
-  %351 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %350
-  %352 = load i8, ptr %351, align 1, !tbaa !16
-  %.not.i.i103 = icmp eq i8 %352, -1
-  br i1 %.not.i.i103, label %ref_and_count_parts_valid.exit.thread.i, label %353
+  %344 = shl i64 %.027.idx.in45.i, 32
+  %sext.i = add i64 %344, -8589934592
+  %345 = ashr exact i64 %sext.i, 32
+  %346 = getelementptr i8, ptr %1, i64 %345
+  %347 = getelementptr i8, ptr %346, i64 -1
+  %348 = load i8, ptr %347, align 1, !tbaa !16
+  %349 = zext i8 %348 to i64
+  %350 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %349
+  %351 = load i8, ptr %350, align 1, !tbaa !16
+  %.not.i.i103 = icmp eq i8 %351, -1
+  br i1 %.not.i.i103, label %ref_and_count_parts_valid.exit.thread.i, label %352
 
-353:                                              ; preds = %343
-  %354 = getelementptr inbounds i8, ptr %347, i64 -2
-  %355 = icmp ult ptr %1, %354
-  br i1 %355, label %.lr.ph.i.i105, label %._crit_edge.i.i
+352:                                              ; preds = %343
+  %353 = getelementptr inbounds i8, ptr %346, i64 -2
+  %354 = icmp ult ptr %1, %353
+  br i1 %354, label %.lr.ph.i.i105, label %._crit_edge.i.i
 
-.lr.ph.i.i105:                                    ; preds = %353, %362
-  %.01725.i.i = phi ptr [ %363, %362 ], [ %354, %353 ]
-  %356 = load i8, ptr %.01725.i.i, align 1, !tbaa !16
-  %357 = icmp eq i8 %356, 45
-  br i1 %357, label %ref_and_count_parts_valid.exit.i, label %358
+.lr.ph.i.i105:                                    ; preds = %352, %361
+  %.01725.i.i = phi ptr [ %362, %361 ], [ %353, %352 ]
+  %355 = load i8, ptr %.01725.i.i, align 1, !tbaa !16
+  %356 = icmp eq i8 %355, 45
+  br i1 %356, label %ref_and_count_parts_valid.exit.i, label %357
 
-358:                                              ; preds = %.lr.ph.i.i105
-  %359 = zext i8 %356 to i64
-  %360 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %359
-  %361 = load i8, ptr %360, align 1, !tbaa !16
-  %.not18.i.i = icmp eq i8 %361, -1
-  br i1 %.not18.i.i, label %ref_and_count_parts_valid.exit.thread.i, label %362
+357:                                              ; preds = %.lr.ph.i.i105
+  %358 = zext i8 %355 to i64
+  %359 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %358
+  %360 = load i8, ptr %359, align 1, !tbaa !16
+  %.not18.i.i = icmp eq i8 %360, -1
+  br i1 %.not18.i.i, label %ref_and_count_parts_valid.exit.thread.i, label %361
 
-362:                                              ; preds = %358
-  %363 = getelementptr inbounds i8, ptr %.01725.i.i, i64 -1
-  %364 = icmp ult ptr %1, %363
-  br i1 %364, label %.lr.ph.i.i105, label %._crit_edge.i.i, !llvm.loop !138
+361:                                              ; preds = %357
+  %362 = getelementptr inbounds i8, ptr %.01725.i.i, i64 -1
+  %363 = icmp ult ptr %1, %362
+  br i1 %363, label %.lr.ph.i.i105, label %._crit_edge.i.i, !llvm.loop !138
 
-._crit_edge.i.i:                                  ; preds = %362, %353
-  %.017.lcssa.i.i = phi ptr [ %354, %353 ], [ %1, %362 ]
+._crit_edge.i.i:                                  ; preds = %361, %352
+  %.017.lcssa.i.i = phi ptr [ %353, %352 ], [ %1, %361 ]
   %.pr.i.i = load i8, ptr %.017.lcssa.i.i, align 1, !tbaa !16
   %.not19.i.i = icmp eq i8 %.pr.i.i, 45
   br i1 %.not19.i.i, label %ref_and_count_parts_valid.exit.i, label %ref_and_count_parts_valid.exit.thread.i
 
-ref_and_count_parts_valid.exit.thread.i:          ; preds = %358, %._crit_edge.i.i, %343
+ref_and_count_parts_valid.exit.thread.i:          ; preds = %357, %._crit_edge.i.i, %343
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
-  br label %370
+  br label %369
 
 ref_and_count_parts_valid.exit.i:                 ; preds = %.lr.ph.i.i105, %._crit_edge.i.i
   %.01724.i.i = phi ptr [ %.017.lcssa.i.i, %._crit_edge.i.i ], [ %.01725.i.i, %.lr.ph.i.i105 ]
-  %365 = ptrtoint ptr %.01724.i.i to i64
-  %366 = sub i64 %365, %330
-  %sext.i.i = shl i64 %366, 32
-  %367 = ashr exact i64 %sext.i.i, 32
-  call void @strbuf_init(ptr noundef nonnull %6, i64 noundef %367) #19
-  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %367) #19
-  %368 = load ptr, ptr %331, align 8, !tbaa !64
-  %369 = call i32 @check_refname_format(ptr noundef %368, i32 noundef 1) #19
-  %.not20.i.not.i = icmp eq i32 %369, 0
+  %364 = ptrtoint ptr %.01724.i.i to i64
+  %365 = sub i64 %364, %330
+  %sext.i.i = shl i64 %365, 32
+  %366 = ashr exact i64 %sext.i.i, 32
+  call void @strbuf_init(ptr noundef nonnull %6, i64 noundef %366) #19
+  call void @strbuf_add(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %366) #19
+  %367 = load ptr, ptr %331, align 8, !tbaa !64
+  %368 = call i32 @check_refname_format(ptr noundef %367, i32 noundef 1) #19
+  %.not20.i.not.i = icmp eq i32 %368, 0
   call void @strbuf_release(ptr noundef nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
-  br i1 %.not20.i.not.i, label %get_describe_name.exit, label %370
+  br i1 %.not20.i.not.i, label %get_describe_name.exit, label %369
 
-370:                                              ; preds = %ref_and_count_parts_valid.exit.i, %ref_and_count_parts_valid.exit.thread.i, %339, %332
+369:                                              ; preds = %ref_and_count_parts_valid.exit.i, %ref_and_count_parts_valid.exit.thread.i, %339, %332
   %.not.i101 = icmp slt i64 %.027.idx.in45.i, 4
   br i1 %.not.i101, label %get_describe_name.exit.thread, label %332, !llvm.loop !139
 
 get_describe_name.exit:                           ; preds = %ref_and_count_parts_valid.exit.i
+  %370 = trunc i64 %.027.idx.in45.i to i32
   %.ptr31.i = getelementptr inbounds nuw i8, ptr %1, i64 %.027.idx.in45.i
-  %371 = trunc i64 %.027.idx.in45.i to i32
-  %372 = sub i32 %2, %371
-  %373 = call fastcc i32 @get_short_oid(ptr noundef %0, ptr noundef nonnull %.ptr31.i, i32 noundef %372, ptr noundef %3, i32 noundef 3)
-  %.not82 = icmp eq i32 %373, 0
+  %371 = sub i32 %2, %370
+  %372 = call fastcc i32 @get_short_oid(ptr noundef %0, ptr noundef nonnull %.ptr31.i, i32 noundef %371, ptr noundef %3, i32 noundef 3)
+  %.not82 = icmp eq i32 %372, 0
   br i1 %.not82, label %.thread, label %get_describe_name.exit.thread
 
-get_describe_name.exit.thread:                    ; preds = %370, %.loopexit, %get_describe_name.exit
-  %374 = call fastcc i32 @get_short_oid(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
+get_describe_name.exit.thread:                    ; preds = %369, %.loopexit, %get_describe_name.exit
+  %373 = call fastcc i32 @get_short_oid(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   br label %.thread
 
 .thread:                                          ; preds = %32, %33, %get_oid_basic.exit, %peel_onion.exit.thread132, %peel_onion.exit.thread129, %get_describe_name.exit, %peel_onion.exit, %get_parent.exit, %get_nth_ancestor.exit, %43, %get_describe_name.exit.thread
-  %.3 = phi i32 [ %374, %get_describe_name.exit.thread ], [ %.017.i, %get_parent.exit ], [ %.0.i91, %get_nth_ancestor.exit ], [ -1, %43 ], [ 0, %peel_onion.exit ], [ 0, %get_oid_basic.exit ], [ 0, %get_describe_name.exit ], [ 0, %peel_onion.exit.thread129 ], [ 0, %peel_onion.exit.thread132 ], [ -1, %33 ], [ -1, %32 ]
+  %.3 = phi i32 [ %373, %get_describe_name.exit.thread ], [ %.017.i, %get_parent.exit ], [ %.0.i91, %get_nth_ancestor.exit ], [ -1, %43 ], [ 0, %peel_onion.exit ], [ 0, %get_oid_basic.exit ], [ 0, %get_describe_name.exit ], [ 0, %peel_onion.exit.thread129 ], [ 0, %peel_onion.exit.thread132 ], [ -1, %33 ], [ -1, %32 ]
   ret i32 %.3
 }
 

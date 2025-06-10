@@ -463,17 +463,17 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu
   %21 = sub i64 0, %2
   %22 = getelementptr inbounds i32, ptr %9, i64 %21
   %23 = ptrtoint ptr %22 to i64
-  %.idx.neg = shl i64 %2, 2
-  %24 = icmp sgt i64 %.idx.neg, 4
+  %24 = icmp sgt i64 %2, 1
   br i1 %24, label %25, label %26, !prof !33
 
 25:                                               ; preds = %20
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %22, i64 %.idx.neg, i1 false)
   %.pre96 = load ptr, ptr %8, align 8, !tbaa !23
   br label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 26:                                               ; preds = %20
-  %27 = icmp eq i64 %.idx.neg, 4
+  %27 = icmp eq i64 %2, 1
   br i1 %27, label %28, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 28:                                               ; preds = %26

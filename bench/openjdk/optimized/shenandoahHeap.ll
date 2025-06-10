@@ -3445,20 +3445,18 @@ _ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit:   ; preds = %.lr.ph.i.preheader.
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %22
   store i64 %38, ptr %36, align 8
-  %39 = ptrtoint ptr %34 to i64
-  %40 = ptrtoint ptr %21 to i64
-  %41 = sub i64 %39, %40
-  %42 = lshr i64 %41, 3
-  %.not.i22 = icmp ult i64 %42, %2
-  br i1 %.not.i22, label %_ZN4PLAB8allocateEm.exit, label %43
+  %.idx25 = sub i64 %22, %32
+  %39 = and i64 %.idx25, 2305843009213693951
+  %.not.i22 = icmp ult i64 %39, %2
+  br i1 %.not.i22, label %_ZN4PLAB8allocateEm.exit, label %40
 
-43:                                               ; preds = %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit
-  %44 = getelementptr inbounds ptr, ptr %21, i64 %2
-  store ptr %44, ptr %29, align 8
+40:                                               ; preds = %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit
+  %41 = getelementptr inbounds ptr, ptr %21, i64 %2
+  store ptr %41, ptr %29, align 8
   br label %_ZN4PLAB8allocateEm.exit
 
-_ZN4PLAB8allocateEm.exit:                         ; preds = %43, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit, %14, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %14 ], [ %21, %43 ], [ null, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit ]
+_ZN4PLAB8allocateEm.exit:                         ; preds = %40, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit, %14, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %14 ], [ %21, %40 ], [ null, %_ZN4Copy13zero_to_wordsEPP12HeapWordImplm.exit ]
   ret ptr %.0
 }
 

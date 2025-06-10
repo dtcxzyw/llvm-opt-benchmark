@@ -3286,7 +3286,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN3net22PriorityWri
   %37 = getelementptr inbounds ptr, ptr %.018.i, i64 %36
   %.idx.neg.i = shl nsw i64 %.sroa.speculated35.i, 3
   %38 = getelementptr inbounds ptr, ptr %.0934.i, i64 %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr nonnull align 8 %37, i64 %.idx.neg.i, i1 false), !noalias !191
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %37, i64 %.idx.neg.i, i1 false), !noalias !191
   %39 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated35.i
   %40 = icmp sgt i64 %39, -1
   br i1 %40, label %41, label %47
@@ -3393,7 +3393,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
   %87 = getelementptr inbounds ptr, ptr %.018.i10, i64 %86
   %.idx.neg.i16 = shl nsw i64 %.sroa.speculated35.i14, 3
   %88 = getelementptr inbounds ptr, ptr %.0934.i15, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %88, ptr nonnull align 8 %87, i64 %.idx.neg.i16, i1 false), !noalias !196
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %88, ptr nonnull align 8 %87, i64 %.idx.neg.i16, i1 false), !noalias !196
   %89 = sub nsw i64 %.pre28.i22.pre-phi, %.sroa.speculated35.i14
   %90 = icmp sgt i64 %89, -1
   br i1 %90, label %91, label %97
@@ -3480,7 +3480,7 @@ _ZNSt15_Deque_iteratorIPN3net22PriorityWriteSchedulerIjE10StreamInfoERS4_PS4_EmI
   %128 = getelementptr inbounds ptr, ptr %.018.i32, i64 %127
   %.idx.neg.i38 = shl nsw i64 %.sroa.speculated35.i36, 3
   %129 = getelementptr inbounds ptr, ptr %.0934.i37, i64 %127
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %129, ptr nonnull align 8 %128, i64 %.idx.neg.i38, i1 false), !noalias !199
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %129, ptr nonnull align 8 %128, i64 %.idx.neg.i38, i1 false), !noalias !199
   %130 = sub nsw i64 %.pre28.i44.pre-phi, %.sroa.speculated35.i36
   %131 = icmp sgt i64 %130, -1
   br i1 %131, label %132, label %138
@@ -3584,7 +3584,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN3net22PriorityWriteSchedulerIjE10StreamInfo
   %178 = getelementptr inbounds ptr, ptr %.018.i54, i64 %177
   %.idx.neg.i60 = shl nsw i64 %.sroa.speculated35.i58, 3
   %179 = getelementptr inbounds ptr, ptr %.0934.i59, i64 %177
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %179, ptr nonnull align 8 %178, i64 %.idx.neg.i60, i1 false), !noalias !203
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr nonnull align 8 %178, i64 %.idx.neg.i60, i1 false), !noalias !203
   %180 = sub nsw i64 %.pre28.i66.pre-phi, %.sroa.speculated35.i58
   %181 = icmp sgt i64 %180, -1
   br i1 %181, label %182, label %188

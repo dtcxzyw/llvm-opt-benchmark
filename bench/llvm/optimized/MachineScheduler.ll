@@ -20361,47 +20361,44 @@ _ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE16addLi
 define linkonce_odr hidden void @_ZN4llvm18RegisterPassParserINS_20MachineSchedRegistryEE12NotifyRemoveENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr %1, i64 %2) unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef i32 @_ZN4llvm2cl19generic_parser_base10findOptionENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(480) %4, ptr %1, i64 %2) #31
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
-  %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::ScheduleDAGInstrs *(*)(llvm::MachineSchedContext *)>::OptionInfo", ptr %7, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !26
-  %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::ScheduleDAGInstrs *(*)(llvm::MachineSchedContext *)>::OptionInfo", ptr %7, i64 %13
-  %15 = ptrtoint ptr %14 to i64
-  %16 = ptrtoint ptr %10 to i64
-  %17 = sub i64 %15, %16
-  %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE19removeLiteralOptionENS_9StringRefE.exit
+  %6 = zext i32 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load i32, ptr %7, align 8, !tbaa !26
+  %9 = zext i32 %8 to i64
+  %.idx4.i = sub nsw i64 %9, %6
+  %10 = icmp sgt i64 %.idx4.i, 1
+  br i1 %10, label %.lr.ph.preheader.i.i.i.i.i.i.i, label %_ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE19removeLiteralOptionENS_9StringRefE.exit
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %3
-  %19 = udiv exact i64 %17, 56
+  %reass.sub.i = mul nuw nsw i64 %.idx4.i, 56
+  %gepdiff.i = add nsw i64 %reass.sub.i, -56
+  %.idx3.i = mul nuw nsw i64 %6, 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx3.i
+  %14 = udiv exact i64 %gepdiff.i, 56
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %19, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i.i ], [ %10, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0910.i.i.i.i.i.i.i, i64 32, i1 false), !tbaa.struct !1024
-  %20 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 40
-  %21 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 8 dereferenceable(9) %21, i64 9, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 56
-  %23 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
-  %24 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %25 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %25, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIPN4llvm2cl6parserIPFPNS0_17ScheduleDAGInstrsEPNS0_19MachineSchedContextEEE10OptionInfoESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !1025
+  %.012.i.i.i.i.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i.i.i.i.i ], [ %14, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i ], [ %13, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %15 = getelementptr i8, ptr %.0811.i.i.i.i.i.i.i, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0811.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 32, i1 false), !tbaa.struct !1024
+  %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %16, ptr noundef nonnull align 8 dereferenceable(9) %17, i64 9, i1 false)
+  %18 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %19 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %19, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIPN4llvm2cl6parserIPFPNS0_17ScheduleDAGInstrsEPNS0_19MachineSchedContextEEE10OptionInfoESB_ET0_T_SD_SC_.exit.loopexit.i.i, !llvm.loop !1025
 
 _ZSt4moveIPN4llvm2cl6parserIPFPNS0_17ScheduleDAGInstrsEPNS0_19MachineSchedContextEEE10OptionInfoESB_ET0_T_SD_SC_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.pre.i.i = load i32, ptr %11, align 8, !tbaa !26
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !26
   br label %_ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE19removeLiteralOptionENS_9StringRefE.exit
 
 _ZN4llvm2cl6parserIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContextEEE19removeLiteralOptionENS_9StringRefE.exit: ; preds = %3, %_ZSt4moveIPN4llvm2cl6parserIPFPNS0_17ScheduleDAGInstrsEPNS0_19MachineSchedContextEEE10OptionInfoESB_ET0_T_SD_SC_.exit.loopexit.i.i
-  %26 = phi i32 [ %.pre.i.i, %_ZSt4moveIPN4llvm2cl6parserIPFPNS0_17ScheduleDAGInstrsEPNS0_19MachineSchedContextEEE10OptionInfoESB_ET0_T_SD_SC_.exit.loopexit.i.i ], [ %12, %3 ]
-  %27 = add i32 %26, -1
-  store i32 %27, ptr %11, align 8, !tbaa !26
+  %20 = phi i32 [ %.pre.i.i, %_ZSt4moveIPN4llvm2cl6parserIPFPNS0_17ScheduleDAGInstrsEPNS0_19MachineSchedContextEEE10OptionInfoESB_ET0_T_SD_SC_.exit.loopexit.i.i ], [ %8, %3 ]
+  %21 = add i32 %20, -1
+  store i32 %21, ptr %7, align 8, !tbaa !26
   ret void
 }
 
@@ -27682,7 +27679,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds i32, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 2
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !405
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %2

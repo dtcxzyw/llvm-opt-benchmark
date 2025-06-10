@@ -8059,65 +8059,64 @@ define internal fastcc ptr @parse_ident(ptr noundef %0) unnamed_addr #0 {
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %spec.select to i64
-  %28 = sub i64 %26, %27
-  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %spec.select, i64 noundef %28) #24
-  %29 = load i32, ptr @whenspec, align 4, !tbaa !11
-  switch i32 %29, label %default.unreachable [
-    i32 1, label %30
-    i32 2, label %34
-    i32 3, label %38
-    i32 4, label %42
+  %26 = add i64 %5, 3
+  %27 = add i64 %26, %16
+  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %spec.select, i64 noundef %27) #24
+  %28 = load i32, ptr @whenspec, align 4, !tbaa !11
+  switch i32 %28, label %default.unreachable [
+    i32 1, label %29
+    i32 2, label %33
+    i32 3, label %37
+    i32 4, label %41
   ]
 
-30:                                               ; preds = %24
-  %31 = call fastcc i32 @validate_raw_date(ptr noundef nonnull %25, ptr noundef %2, i32 noundef 1)
-  %32 = icmp slt i32 %31, 0
-  br i1 %32, label %33, label %46
+29:                                               ; preds = %24
+  %30 = call fastcc i32 @validate_raw_date(ptr noundef nonnull %25, ptr noundef %2, i32 noundef 1)
+  %31 = icmp slt i32 %30, 0
+  br i1 %31, label %32, label %45
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   call void (ptr, ...) @die(ptr noundef nonnull @.str.116, ptr noundef nonnull %25, ptr noundef nonnull %spec.select) #25
   unreachable
 
-34:                                               ; preds = %24
-  %35 = call fastcc i32 @validate_raw_date(ptr noundef nonnull %25, ptr noundef %2, i32 noundef 0)
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %37, label %46
+33:                                               ; preds = %24
+  %34 = call fastcc i32 @validate_raw_date(ptr noundef nonnull %25, ptr noundef %2, i32 noundef 0)
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %45
 
-37:                                               ; preds = %34
+36:                                               ; preds = %33
   call void (ptr, ...) @die(ptr noundef nonnull @.str.116, ptr noundef nonnull %25, ptr noundef nonnull %spec.select) #25
   unreachable
 
-38:                                               ; preds = %24
-  %39 = call i32 @parse_date(ptr noundef nonnull %25, ptr noundef nonnull %2) #24
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %46
+37:                                               ; preds = %24
+  %38 = call i32 @parse_date(ptr noundef nonnull %25, ptr noundef nonnull %2) #24
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %45
 
-41:                                               ; preds = %38
+40:                                               ; preds = %37
   call void (ptr, ...) @die(ptr noundef nonnull @.str.117, ptr noundef nonnull %25, ptr noundef nonnull %spec.select) #25
   unreachable
 
-42:                                               ; preds = %24
-  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.118, ptr noundef nonnull dereferenceable(1) %25) #26
-  %.not37 = icmp eq i32 %43, 0
-  br i1 %.not37, label %45, label %44
+41:                                               ; preds = %24
+  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.118, ptr noundef nonnull dereferenceable(1) %25) #26
+  %.not37 = icmp eq i32 %42, 0
+  br i1 %.not37, label %44, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   call void (ptr, ...) @die(ptr noundef nonnull @.str.119, ptr noundef nonnull %spec.select) #25
   unreachable
 
-45:                                               ; preds = %42
+44:                                               ; preds = %41
   call void @datestamp(ptr noundef nonnull %2) #24
-  br label %46
+  br label %45
 
 default.unreachable:                              ; preds = %24
   unreachable
 
-46:                                               ; preds = %38, %34, %30, %45
-  %47 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #24
+45:                                               ; preds = %37, %33, %29, %44
+  %46 = call ptr @strbuf_detach(ptr noundef nonnull %2, ptr noundef null) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #24
-  ret ptr %47
+  ret ptr %46
 }
 
 ; Function Attrs: nounwind uwtable

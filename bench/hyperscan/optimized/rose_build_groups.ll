@@ -4820,7 +4820,7 @@ _ZN3ue2L11coversGroupERKNS_13RoseBuildImplERKNS_17rose_literal_infoE.exit.i: ; p
   %.val150.i = load i64, ptr %275, align 8, !noalias !344
   %276 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %.val150.i
   %277 = ptrtoint ptr %276 to i64
-  %.idx.neg.i.i = mul i64 %.val150.i, -4
+  %.idx.neg.i.i = mul nsw i64 %.val150.i, -4
   %278 = ashr exact i64 %.idx.neg.i.i, 2
   %279 = sub nsw i64 0, %278
   %280 = ashr i64 %279, 2
@@ -5474,7 +5474,7 @@ define internal fastcc noundef zeroext i1 @"_ZN3ue29any_of_inINS_8flat_setINS_12
   %15 = alloca %"struct.ue2::left_id", align 8
   %16 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %.0.val, i64 %.8.val
   %17 = ptrtoint ptr %16 to i64
-  %.idx.neg = mul i64 %.8.val, -16
+  %.idx.neg = mul nsw i64 %.8.val, -16
   %18 = ashr exact i64 %.idx.neg, 4
   %19 = sub nsw i64 0, %18
   %20 = ashr i64 %19, 2

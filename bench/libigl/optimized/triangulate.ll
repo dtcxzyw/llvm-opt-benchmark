@@ -75002,27 +75002,25 @@ _ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_cont
   %69 = udiv i64 %68, %5
   %70 = udiv i64 %12, %5
   %71 = sub i64 %69, %70
-  %72 = getelementptr i64, ptr %63, i64 %69
-  %73 = ptrtoint ptr %72 to i64
-  %74 = sub i64 %73, %62
-  %75 = ashr exact i64 %74, 3
+  %72 = shl i64 %69, 3
+  %73 = ashr exact i64 %72, 3
   %.idx.mask = and i64 %69, 2305843009213693951
   %.not8.i.i = icmp eq i64 %.idx.mask, 0
   br i1 %.not8.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpeckENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
-  %.010.i.i = phi i64 [ %77, %.lr.ph.i.i ], [ 0, %58 ]
-  %.079.i.i = phi ptr [ %76, %.lr.ph.i.i ], [ %63, %58 ]
+  %.010.i.i = phi i64 [ %75, %.lr.ph.i.i ], [ 0, %58 ]
+  %.079.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %63, %58 ]
   store i64 %.010.i.i, ptr %.079.i.i, align 8, !tbaa !107
-  %76 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 8
-  %77 = add i64 %.010.i.i, 1
-  %.not.i.i = icmp eq i64 %77, %75
+  %74 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 8
+  %75 = add i64 %.010.i.i, 1
+  %.not.i.i = icmp eq i64 %75, %73
   br i1 %.not.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpeckENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit, label %.lr.ph.i.i, !llvm.loop !2438
 
 _ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpeckENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit: ; preds = %.lr.ph.i.i, %58
   tail call void @_ZN5boost7movelib15detail_adaptive24op_merge_blocks_with_bufIPmNS1_4lessEPN4CGAL8internal11CC_iteratorINS5_17Compact_containerINS5_37Constrained_triangulation_face_base_2INS5_5EpeckENS5_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISA_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSH_IiLin1ELin1ELi0ELin1ELin1EEESI_SI_SJ_EEvRKNSG_10MatrixBaseIT0_EERKNSK_IT1_EERKNSK_IT2_EEbRNSG_15PlainObjectBaseIT3_EERNSX_IT4_EEE9FaceInfo2SA_NS5_25Triangulation_face_base_2ISA_NS5_28Triangulation_ds_face_base_2INS5_30Triangulation_data_structure_2INS5_27Triangulation_vertex_base_2ISA_NS5_30Triangulation_ds_vertex_base_2IvEEEENS9_ISA_NSB_IS14_SA_NS15_ISA_NS16_IvEEEEEEEEEEEEEEEEEENS5_7DefaultES1L_S1L_EELb0EEENS_9container3dtl23flat_tree_value_compareISt4lessIS1N_ES1N_NS_11move_detail8identityIS1N_EEEENS0_7move_opES1O_EEvT_SL_SP_NS0_9iter_sizeISP_E4typeES22_S22_S22_S22_ST_SY_S11_(ptr noundef %63, ptr noundef %0, i64 noundef %5, i64 noundef %64, i64 noundef %70, i64 noundef %71, i64 noundef %66, ptr noundef %.pre99)
-  %78 = load i64, ptr %50, align 8, !tbaa !2386
-  %.not88 = icmp eq i64 %78, 0
+  %76 = load i64, ptr %50, align 8, !tbaa !2386
+  %.not88 = icmp eq i64 %76, 0
   br i1 %.not88, label %_ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_containerINS2_37Constrained_triangulation_face_base_2INS2_5EpeckENS2_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateIS7_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEESF_SF_SG_EEvRKNSD_10MatrixBaseIT0_EERKNSH_IT1_EERKNSH_IT2_EEbRNSD_15PlainObjectBaseIT3_EERNSU_IT4_EEE9FaceInfo2S7_NS2_25Triangulation_face_base_2IS7_NS2_28Triangulation_ds_face_base_2INS2_30Triangulation_data_structure_2INS2_27Triangulation_vertex_base_2IS7_NS2_30Triangulation_ds_vertex_base_2IvEEEENS6_IS7_NS8_IS11_S7_NS12_IS7_NS13_IvEEEEEEEEEEEEEEEEEENS2_7DefaultES1I_S1I_EELb0EEEPS1K_mE13shrink_to_fitEm.exit66, label %.preheader.preheader.i65
 
 .preheader.preheader.i65:                         ; preds = %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpeckENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit
@@ -98919,27 +98917,25 @@ _ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_cont
   %69 = udiv i64 %68, %5
   %70 = udiv i64 %12, %5
   %71 = sub i64 %69, %70
-  %72 = getelementptr i64, ptr %63, i64 %69
-  %73 = ptrtoint ptr %72 to i64
-  %74 = sub i64 %73, %62
-  %75 = ashr exact i64 %74, 3
+  %72 = shl i64 %69, 3
+  %73 = ashr exact i64 %72, 3
   %.idx.mask = and i64 %69, 2305843009213693951
   %.not8.i.i = icmp eq i64 %.idx.mask, 0
   br i1 %.not8.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpickENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
-  %.010.i.i = phi i64 [ %77, %.lr.ph.i.i ], [ 0, %58 ]
-  %.079.i.i = phi ptr [ %76, %.lr.ph.i.i ], [ %63, %58 ]
+  %.010.i.i = phi i64 [ %75, %.lr.ph.i.i ], [ 0, %58 ]
+  %.079.i.i = phi ptr [ %74, %.lr.ph.i.i ], [ %63, %58 ]
   store i64 %.010.i.i, ptr %.079.i.i, align 8, !tbaa !107
-  %76 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 8
-  %77 = add i64 %.010.i.i, 1
-  %.not.i.i = icmp eq i64 %77, %75
+  %74 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 8
+  %75 = add i64 %.010.i.i, 1
+  %.not.i.i = icmp eq i64 %75, %73
   br i1 %.not.i.i, label %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpickENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit, label %.lr.ph.i.i, !llvm.loop !3183
 
 _ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpickENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit: ; preds = %.lr.ph.i.i, %58
   tail call void @_ZN5boost7movelib15detail_adaptive24op_merge_blocks_with_bufIPmNS1_4lessEPN4CGAL8internal11CC_iteratorINS5_17Compact_containerINS5_37Constrained_triangulation_face_base_2INS5_5EpickENS5_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISA_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSH_IiLin1ELin1ELi0ELin1ELin1EEESI_SI_SJ_EEvRKNSG_10MatrixBaseIT0_EERKNSK_IT1_EERKNSK_IT2_EEbRNSG_15PlainObjectBaseIT3_EERNSX_IT4_EEE9FaceInfo2SA_NS5_25Triangulation_face_base_2ISA_NS5_28Triangulation_ds_face_base_2INS5_30Triangulation_data_structure_2INS5_27Triangulation_vertex_base_2ISA_NS5_30Triangulation_ds_vertex_base_2IvEEEENS9_ISA_NSB_IS14_SA_NS15_ISA_NS16_IvEEEEEEEEEEEEEEEEEENS5_7DefaultES1L_S1L_EELb0EEENS_9container3dtl23flat_tree_value_compareISt4lessIS1N_ES1N_NS_11move_detail8identityIS1N_EEEENS0_7move_opES1O_EEvT_SL_SP_NS0_9iter_sizeISP_E4typeES22_S22_S22_S22_ST_SY_S11_(ptr noundef %63, ptr noundef %0, i64 noundef %5, i64 noundef %64, i64 noundef %70, i64 noundef %71, i64 noundef %66, ptr noundef %.pre99)
-  %78 = load i64, ptr %50, align 8, !tbaa !3133
-  %.not88 = icmp eq i64 %78, 0
+  %76 = load i64, ptr %50, align 8, !tbaa !3133
+  %.not88 = icmp eq i64 %76, 0
   br i1 %.not88, label %_ZN5boost7movelib13adaptive_xbufIN4CGAL8internal11CC_iteratorINS2_17Compact_containerINS2_37Constrained_triangulation_face_base_2INS2_5EpickENS2_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateIS7_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSE_IiLin1ELin1ELi0ELin1ELin1EEESF_SF_SG_EEvRKNSD_10MatrixBaseIT0_EERKNSH_IT1_EERKNSH_IT2_EEbRNSD_15PlainObjectBaseIT3_EERNSU_IT4_EEE9FaceInfo2S7_NS2_25Triangulation_face_base_2IS7_NS2_28Triangulation_ds_face_base_2INS2_30Triangulation_data_structure_2INS2_27Triangulation_vertex_base_2IS7_NS2_30Triangulation_ds_vertex_base_2IvEEEENS6_IS7_NS8_IS11_S7_NS12_IS7_NS13_IvEEEEEEEEEEEEEEEEEENS2_7DefaultES1I_S1I_EELb0EEEPS1K_mE13shrink_to_fitEm.exit66, label %.preheader.preheader.i65
 
 .preheader.preheader.i65:                         ; preds = %_ZN5boost7movelib15detail_adaptive14combine_paramsIPmNS1_4lessEmNS0_13adaptive_xbufIN4CGAL8internal11CC_iteratorINS6_17Compact_containerINS6_37Constrained_triangulation_face_base_2INS6_5EpickENS6_35Triangulation_face_base_with_info_2IZN3igl8copyleft4cgal11triangulateISB_N5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENSI_IiLin1ELin1ELi0ELin1ELin1EEESJ_SJ_SK_EEvRKNSH_10MatrixBaseIT0_EERKNSL_IT1_EERKNSL_IT2_EEbRNSH_15PlainObjectBaseIT3_EERNSY_IT4_EEE9FaceInfo2SB_NS6_25Triangulation_face_base_2ISB_NS6_28Triangulation_ds_face_base_2INS6_30Triangulation_data_structure_2INS6_27Triangulation_vertex_base_2ISB_NS6_30Triangulation_ds_vertex_base_2IvEEEENSA_ISB_NSC_IS15_SB_NS16_ISB_NS17_IvEEEEEEEEEEEEEEEEEENS6_7DefaultES1M_S1M_EELb0EEEPS1O_mEEEEvT_SM_SQ_SQ_SQ_RSU_RSQ_S1T_S1T_S1T_b.exit

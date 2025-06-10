@@ -6,69 +6,62 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @libdeflate_zlib_decompress_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  %10 = icmp ult i64 %2, 6
-  br i1 %10, label %39, label %11
+  %9 = icmp ult i64 %2, 6
+  br i1 %9, label %31, label %10
 
-11:                                               ; preds = %7
+10:                                               ; preds = %7
   %.0.copyload.i = load i16, ptr %1, align 1
-  %12 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i)
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %14 = zext i16 %12 to i32
-  %15 = urem i16 %12, 31
-  %.not = icmp eq i16 %15, 0
-  %16 = and i32 %14, 3840
-  %.not35 = icmp eq i32 %16, 2048
+  %11 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i)
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %13 = zext i16 %11 to i32
+  %14 = urem i16 %11, 31
+  %.not = icmp eq i16 %14, 0
+  %15 = and i32 %13, 3840
+  %.not35 = icmp eq i32 %15, 2048
   %or.cond.not44.not47 = and i1 %.not, %.not35
-  %17 = icmp sgt i16 %12, -1
-  %or.cond41.not46 = and i1 %17, %or.cond.not44.not47
-  %18 = and i32 %14, 32
-  %.not36 = icmp eq i32 %18, 0
+  %16 = icmp sgt i16 %11, -1
+  %or.cond41.not46 = and i1 %16, %or.cond.not44.not47
+  %17 = and i32 %13, 32
+  %.not36 = icmp eq i32 %17, 0
   %or.cond42 = and i1 %.not36, %or.cond41.not46
-  br i1 %or.cond42, label %19, label %39
+  br i1 %or.cond42, label %18, label %31
 
-19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %9, i64 -4
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %13 to i64
-  %23 = sub i64 %21, %22
-  %24 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %13, i64 noundef %23, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %8, ptr noundef %6) #4
-  %.not37 = icmp eq i32 %24, 0
-  br i1 %.not37, label %25, label %39
+18:                                               ; preds = %10
+  %gepdiff = add i64 %2, -6
+  %19 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %gepdiff, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %8, ptr noundef %6) #4
+  %.not37 = icmp eq i32 %19, 0
+  br i1 %.not37, label %20, label %31
 
-25:                                               ; preds = %19
+20:                                               ; preds = %18
   %.not38 = icmp eq ptr %6, null
-  br i1 %.not38, label %28, label %26
+  br i1 %.not38, label %23, label %21
 
-26:                                               ; preds = %25
-  %27 = load i64, ptr %6, align 8, !tbaa !4
-  br label %28
+21:                                               ; preds = %20
+  %22 = load i64, ptr %6, align 8, !tbaa !4
+  br label %23
 
-28:                                               ; preds = %25, %26
-  %.031 = phi i64 [ %27, %26 ], [ %4, %25 ]
-  %29 = load i64, ptr %8, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 %29
-  %31 = call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %3, i64 noundef %.031) #4
-  %.0.copyload.i43 = load i32, ptr %30, align 1
-  %32 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i43)
-  %.not39 = icmp eq i32 %31, %32
-  br i1 %.not39, label %33, label %39
+23:                                               ; preds = %20, %21
+  %.031 = phi i64 [ %22, %21 ], [ %4, %20 ]
+  %24 = load i64, ptr %8, align 8, !tbaa !4
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 %24
+  %26 = call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %3, i64 noundef %.031) #4
+  %.0.copyload.i43 = load i32, ptr %25, align 1
+  %27 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i43)
+  %.not39 = icmp eq i32 %26, %27
+  br i1 %.not39, label %28, label %31
 
-33:                                               ; preds = %28
+28:                                               ; preds = %23
   %.not40 = icmp eq ptr %5, null
-  br i1 %.not40, label %39, label %34
+  br i1 %.not40, label %31, label %29
 
-34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %1 to i64
-  %38 = sub i64 %36, %37
-  store i64 %38, ptr %5, align 8, !tbaa !4
-  br label %39
+29:                                               ; preds = %28
+  %30 = add i64 %24, 6
+  store i64 %30, ptr %5, align 8, !tbaa !4
+  br label %31
 
-39:                                               ; preds = %33, %34, %28, %19, %11, %7
-  %.0 = phi i32 [ 1, %7 ], [ 1, %11 ], [ %24, %19 ], [ 1, %28 ], [ 0, %34 ], [ 0, %33 ]
+31:                                               ; preds = %28, %29, %23, %18, %10, %7
+  %.0 = phi i32 [ 1, %7 ], [ 1, %10 ], [ %19, %18 ], [ 1, %23 ], [ 0, %29 ], [ 0, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   ret i32 %.0
 }
@@ -86,58 +79,54 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define i32 @libdeflate_zlib_decompress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  %9 = icmp ult i64 %2, 6
-  br i1 %9, label %libdeflate_zlib_decompress_ex.exit, label %10
+  %8 = icmp ult i64 %2, 6
+  br i1 %8, label %libdeflate_zlib_decompress_ex.exit, label %9
 
-10:                                               ; preds = %6
+9:                                                ; preds = %6
   %.0.copyload.i.i = load i16, ptr %1, align 1
-  %11 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i)
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %13 = zext i16 %11 to i32
-  %14 = urem i16 %11, 31
-  %.not.i = icmp eq i16 %14, 0
-  %15 = and i32 %13, 3840
-  %.not35.i = icmp eq i32 %15, 2048
+  %10 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i)
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %12 = zext i16 %10 to i32
+  %13 = urem i16 %10, 31
+  %.not.i = icmp eq i16 %13, 0
+  %14 = and i32 %12, 3840
+  %.not35.i = icmp eq i32 %14, 2048
   %or.cond.not44.not47.i = and i1 %.not.i, %.not35.i
-  %16 = icmp sgt i16 %11, -1
-  %or.cond41.not46.i = and i1 %16, %or.cond.not44.not47.i
-  %17 = and i32 %13, 32
-  %.not36.i = icmp eq i32 %17, 0
+  %15 = icmp sgt i16 %10, -1
+  %or.cond41.not46.i = and i1 %15, %or.cond.not44.not47.i
+  %16 = and i32 %12, 32
+  %.not36.i = icmp eq i32 %16, 0
   %or.cond42.i = and i1 %.not36.i, %or.cond41.not46.i
-  br i1 %or.cond42.i, label %18, label %libdeflate_zlib_decompress_ex.exit
+  br i1 %or.cond42.i, label %17, label %libdeflate_zlib_decompress_ex.exit
 
-18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %8, i64 -4
-  %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %12 to i64
-  %22 = sub i64 %20, %21
-  %23 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %22, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7, ptr noundef %5) #4
-  %.not37.i = icmp eq i32 %23, 0
-  br i1 %.not37.i, label %24, label %libdeflate_zlib_decompress_ex.exit
+17:                                               ; preds = %9
+  %gepdiff.i = add i64 %2, -6
+  %18 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %gepdiff.i, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7, ptr noundef %5) #4
+  %.not37.i = icmp eq i32 %18, 0
+  br i1 %.not37.i, label %19, label %libdeflate_zlib_decompress_ex.exit
 
-24:                                               ; preds = %18
+19:                                               ; preds = %17
   %.not38.i = icmp eq ptr %5, null
-  br i1 %.not38.i, label %27, label %25
+  br i1 %.not38.i, label %22, label %20
 
-25:                                               ; preds = %24
-  %26 = load i64, ptr %5, align 8, !tbaa !4
-  br label %27
+20:                                               ; preds = %19
+  %21 = load i64, ptr %5, align 8, !tbaa !4
+  br label %22
 
-27:                                               ; preds = %25, %24
-  %.031.i = phi i64 [ %26, %25 ], [ %4, %24 ]
-  %28 = load i64, ptr %7, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 %28
-  %30 = call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %3, i64 noundef %.031.i) #4
-  %.0.copyload.i43.i = load i32, ptr %29, align 1
-  %31 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i43.i)
-  %.not39.i = icmp ne i32 %30, %31
+22:                                               ; preds = %20, %19
+  %.031.i = phi i64 [ %21, %20 ], [ %4, %19 ]
+  %23 = load i64, ptr %7, align 8, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
+  %25 = call i32 @libdeflate_adler32(i32 noundef 1, ptr noundef %3, i64 noundef %.031.i) #4
+  %.0.copyload.i43.i = load i32, ptr %24, align 1
+  %26 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i43.i)
+  %.not39.i = icmp ne i32 %25, %26
   %spec.select = zext i1 %.not39.i to i32
   br label %libdeflate_zlib_decompress_ex.exit
 
-libdeflate_zlib_decompress_ex.exit:               ; preds = %27, %6, %10, %18
-  %.0.i = phi i32 [ 1, %6 ], [ 1, %10 ], [ %23, %18 ], [ %spec.select, %27 ]
+libdeflate_zlib_decompress_ex.exit:               ; preds = %22, %6, %9, %17
+  %.0.i = phi i32 [ 1, %6 ], [ 1, %9 ], [ %18, %17 ], [ %spec.select, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   ret i32 %.0.i
 }

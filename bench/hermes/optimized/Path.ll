@@ -9686,25 +9686,25 @@ if.then.i:                                        ; preds = %if.then
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %add.i, i64 noundef 1) #29
   %.pre13.pre.i = load i32, ptr %Size.i, align 8
-  %.pre83.pre = load ptr, ptr %this, align 8
+  %.pre85.pre = load ptr, ptr %this, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %.pre83 = phi ptr [ %.pre83.pre, %if.then.i ], [ %0, %if.then ]
+  %.pre85 = phi ptr [ %.pre85.pre, %if.then.i ], [ %0, %if.then ]
   %.pre13.i = phi i32 [ %.pre13.pre.i, %if.then.i ], [ %1, %if.then ]
   %cmp.not.i.i = icmp eq ptr %From, %To
   br i1 %cmp.not.i.i, label %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
   %conv.i9.i = zext i32 %.pre13.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.pre83, i64 %conv.i9.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %.pre85, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %From, i64 %sub.ptr.sub.i.i.i, i1 false)
   %.pre.i = load i32, ptr %Size.i, align 8
-  %.pre82 = load ptr, ptr %this, align 8
+  %.pre84 = load ptr, ptr %this, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit
 
 _ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit: ; preds = %if.end.i, %if.then.i.i
-  %3 = phi ptr [ %.pre83, %if.end.i ], [ %.pre82, %if.then.i.i ]
+  %3 = phi ptr [ %.pre85, %if.end.i ], [ %.pre84, %if.then.i.i ]
   %4 = phi i32 [ %.pre13.i, %if.end.i ], [ %.pre.i, %if.then.i.i ]
   %5 = trunc i64 %sub.ptr.sub.i.i.i to i32
   %conv.i12.i = add i32 %4, %5
@@ -9713,6 +9713,7 @@ _ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit: ; preds = %if.end.i, %if.t
   br label %return
 
 if.end:                                           ; preds = %entry
+  %idx.neg = sub i64 0, %sub.ptr.sub.i.i.i
   %add = add i64 %sub.ptr.sub.i.i.i, %conv.i
   %Capacity.i.i31 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %6 = load i32, ptr %Capacity.i.i31, align 4
@@ -9724,13 +9725,13 @@ if.then.i35:                                      ; preds = %if.end
   %add.ptr.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i36, i64 noundef %add, i64 noundef 1) #29
   %.pre = load ptr, ptr %this, align 8
-  %.pre81 = load i32, ptr %Size.i, align 8
-  %.pre85 = zext i32 %.pre81 to i64
+  %.pre83 = load i32, ptr %Size.i, align 8
+  %.pre87 = zext i32 %.pre83 to i64
   br label %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
 
 _ZN4llvh15SmallVectorImplIcE7reserveEm.exit:      ; preds = %if.end, %if.then.i35
-  %conv.i38.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre85, %if.then.i35 ]
-  %7 = phi i32 [ %1, %if.end ], [ %.pre81, %if.then.i35 ]
+  %conv.i38.pre-phi = phi i64 [ %conv.i, %if.end ], [ %.pre87, %if.then.i35 ]
+  %7 = phi i32 [ %1, %if.end ], [ %.pre83, %if.then.i35 ]
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i35 ]
   %add.ptr7 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
   %gepdiff = sub nsw i64 %conv.i38.pre-phi, %sub.ptr.sub
@@ -9739,19 +9740,15 @@ _ZN4llvh15SmallVectorImplIcE7reserveEm.exit:      ; preds = %if.end, %if.then.i3
   br i1 %cmp12.not, label %if.end24, label %if.then13
 
 if.then13:                                        ; preds = %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
-  %idx.neg = sub i64 0, %sub.ptr.sub.i.i.i
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr.i48, i64 %idx.neg
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i48 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %add.ptr16 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %9 = load i32, ptr %Capacity.i.i31, align 4
   %conv.i.i46 = zext i32 %9 to i64
   %sub.i48 = sub nsw i64 %conv.i.i46, %conv.i38.pre-phi
-  %cmp.i49 = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %sub.i48
+  %cmp.i49 = icmp ugt i64 %sub.ptr.sub.i.i.i, %sub.i48
   br i1 %cmp.i49, label %if.then.i53, label %if.end.i50
 
 if.then.i53:                                      ; preds = %if.then13
-  %add.i54 = add i64 %sub.ptr.sub.i.i.i.i, %conv.i38.pre-phi
+  %add.i54 = add i64 %sub.ptr.sub.i.i.i, %conv.i38.pre-phi
   %add.ptr.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i55, i64 noundef %add.i54, i64 noundef 1) #29
   %.pre11.pre.i = load i32, ptr %Size.i, align 8
@@ -9766,24 +9763,24 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i50
   %10 = load ptr, ptr %this, align 8
   %conv.i7.i = zext i32 %.pre11.i to i64
   %add.ptr.i.i51 = getelementptr inbounds nuw i8, ptr %10, i64 %conv.i7.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i51, ptr nonnull align 1 %add.ptr16, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i51, ptr nonnull align 1 %add.ptr16, i64 %sub.ptr.sub.i.i.i, i1 false)
   %.pre.i52 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
 
 _ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit: ; preds = %if.end.i50, %if.then.i.i.i.i.i.i.i.i.i
   %11 = phi i32 [ %.pre11.i, %if.end.i50 ], [ %.pre.i52, %if.then.i.i.i.i.i.i.i.i.i ]
-  %12 = trunc i64 %sub.ptr.sub.i.i.i.i to i32
+  %12 = trunc i64 %sub.ptr.sub.i.i.i to i32
   %conv.i10.i = add i32 %11, %12
   store i32 %conv.i10.i, ptr %Size.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr16, %add.ptr7
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr7 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i
+  %13 = add i64 %sub.ptr.sub, %sub.ptr.sub.i.i.i
+  %gepdiff77 = sub i64 %conv.i38.pre-phi, %13
+  %idx.neg.i.i.i.i.i = sub i64 0, %gepdiff77
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i48, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr7, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i, ptr align 1 %add.ptr7, i64 %gepdiff77, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvh15SmallVectorImplIcE6appendISt13move_iteratorIPcEvEEvT_S6_.exit, %if.then.i.i.i.i.i
@@ -9794,8 +9791,8 @@ if.then.i.i.i.i.i60:                              ; preds = %_ZSt13move_backward
   br label %return
 
 if.end24:                                         ; preds = %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
-  %13 = trunc i64 %sub.ptr.sub.i.i.i to i32
-  %conv.i66 = add i32 %7, %13
+  %14 = trunc i64 %sub.ptr.sub.i.i.i to i32
+  %conv.i66 = add i32 %7, %14
   store i32 %conv.i66, ptr %Size.i, align 8
   %cmp.not.i.i69 = icmp eq i64 %sub.ptr.sub, %conv.i38.pre-phi
   br i1 %cmp.not.i.i69, label %for.end, label %for.body.preheader
@@ -9809,14 +9806,14 @@ for.body.preheader:                               ; preds = %if.end24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %J.080 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr7, %for.body.preheader ]
-  %NumOverwritten.079 = phi i64 [ %dec, %for.body ], [ %gepdiff, %for.body.preheader ]
-  %From.addr.078 = phi ptr [ %incdec.ptr36, %for.body ], [ %From, %for.body.preheader ]
-  %14 = load i8, ptr %From.addr.078, align 1
-  store i8 %14, ptr %J.080, align 1
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %J.080, i64 1
-  %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %From.addr.078, i64 1
-  %dec = add i64 %NumOverwritten.079, -1
+  %J.082 = phi ptr [ %incdec.ptr, %for.body ], [ %add.ptr7, %for.body.preheader ]
+  %NumOverwritten.081 = phi i64 [ %dec, %for.body ], [ %gepdiff, %for.body.preheader ]
+  %From.addr.080 = phi ptr [ %incdec.ptr36, %for.body ], [ %From, %for.body.preheader ]
+  %15 = load i8, ptr %From.addr.080, align 1
+  store i8 %15, ptr %J.082, align 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %J.082, i64 1
+  %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %From.addr.080, i64 1
+  %dec = add i64 %NumOverwritten.081, -1
   %cmp35.not = icmp eq i64 %dec, 0
   br i1 %cmp35.not, label %for.end, label %for.body, !llvm.loop !129
 

@@ -91560,158 +91560,156 @@ define linkonce_odr hidden void @_ZNK5clang11ASTImporter12ImportPathTy15copyCycl
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
-  %9 = ptrtoint ptr %8 to i64
-  %10 = ptrtoint ptr %3 to i64
-  %11 = sub i64 %9, %10
-  %12 = ashr i64 %11, 5
-  %13 = icmp sgt i64 %12, 0
-  br i1 %13, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.idx.i = shl nuw nsw i64 %6, 3
+  %9 = add nsw i64 %.idx.i, -8
+  %10 = ashr i64 %9, 5
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %14 = load ptr, ptr %8, align 8, !tbaa !42, !noalias !10027
-  %15 = mul nsw i64 %12, -32
-  %scevgep.i.i.i = getelementptr i8, ptr %8, i64 %15
-  br label %16
+  %12 = load ptr, ptr %8, align 8, !tbaa !42, !noalias !10027
+  %13 = mul nsw i64 %10, -32
+  %scevgep.i.i.i = getelementptr i8, ptr %8, i64 %13
+  br label %14
 
-16:                                               ; preds = %33, %.lr.ph.i.i.i.i
-  %17 = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %30, %33 ]
-  %.027.i.i.i.i = phi i64 [ %12, %.lr.ph.i.i.i.i ], [ %34, %33 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 -8
-  %19 = load ptr, ptr %18, align 8, !tbaa !42, !noalias !10027
-  %20 = icmp eq ptr %19, %14
-  br i1 %20, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit, label %21
+14:                                               ; preds = %31, %.lr.ph.i.i.i.i
+  %15 = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %28, %31 ]
+  %.027.i.i.i.i = phi i64 [ %10, %.lr.ph.i.i.i.i ], [ %32, %31 ]
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = load ptr, ptr %16, align 8, !tbaa !42, !noalias !10027
+  %18 = icmp eq ptr %17, %12
+  br i1 %18, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit, label %19
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !42, !noalias !10027
-  %24 = icmp eq ptr %23, %14
-  br i1 %24, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17, label %25
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %15, i64 -16
+  %21 = load ptr, ptr %20, align 8, !tbaa !42, !noalias !10027
+  %22 = icmp eq ptr %21, %12
+  br i1 %22, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17, label %23
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %17, i64 -24
-  %27 = load ptr, ptr %26, align 8, !tbaa !42, !noalias !10027
-  %28 = icmp eq ptr %27, %14
-  br i1 %28, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15, label %29
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %15, i64 -24
+  %25 = load ptr, ptr %24, align 8, !tbaa !42, !noalias !10027
+  %26 = icmp eq ptr %25, %12
+  br i1 %26, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15, label %27
 
-29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %17, i64 -32
-  %31 = load ptr, ptr %30, align 8, !tbaa !42, !noalias !10027
-  %32 = icmp eq ptr %31, %14
-  br i1 %32, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit, label %33
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %15, i64 -32
+  %29 = load ptr, ptr %28, align 8, !tbaa !42, !noalias !10027
+  %30 = icmp eq ptr %29, %12
+  br i1 %30, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit, label %31
 
-33:                                               ; preds = %29
-  %34 = add nsw i64 %.027.i.i.i.i, -1
-  %35 = icmp sgt i64 %.027.i.i.i.i, 1
-  br i1 %35, label %16, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !10034
+31:                                               ; preds = %27
+  %32 = add nsw i64 %.027.i.i.i.i, -1
+  %33 = icmp sgt i64 %.027.i.i.i.i, 1
+  br i1 %33, label %14, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !10034
 
-._crit_edge.loopexit.i.i.i.i:                     ; preds = %33
-  %.pre48.i.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
-  %.pre51.i.i.i.i = sub i64 %.pre48.i.i.i.i, %10
+._crit_edge.loopexit.i.i.i.i:                     ; preds = %31
+  %.pre51.i.i.i.i = add nsw i64 %13, %9
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %2
-  %.pre-phi52.i.i.i.i = phi i64 [ %.pre51.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %2 ]
-  %36 = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %8, %2 ]
-  %37 = ashr exact i64 %.pre-phi52.i.i.i.i, 3
-  switch i64 %37, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit [
-    i64 3, label %38
+  %.pre-phi52.i.i.i.i = phi i64 [ %.pre51.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %9, %2 ]
+  %34 = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %8, %2 ]
+  %35 = ashr exact i64 %.pre-phi52.i.i.i.i, 3
+  switch i64 %35, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit [
+    i64 3, label %36
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
     i64 1, label %._crit_edge._crit_edge45.i.i.i.i
   ]
 
 ._crit_edge._crit_edge45.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i
   %.pre46.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !42, !noalias !10027
-  br label %49
+  br label %47
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i
   %.pre44.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !42, !noalias !10027
-  br label %43
+  br label %41
 
-38:                                               ; preds = %._crit_edge.i.i.i.i
-  %39 = getelementptr inbounds i8, ptr %36, i64 -8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42, !noalias !10027
-  %41 = load ptr, ptr %8, align 8, !tbaa !42, !noalias !10027
-  %42 = icmp eq ptr %40, %41
-  br i1 %42, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit, label %43
+36:                                               ; preds = %._crit_edge.i.i.i.i
+  %37 = getelementptr inbounds i8, ptr %34, i64 -8
+  %38 = load ptr, ptr %37, align 8, !tbaa !42, !noalias !10027
+  %39 = load ptr, ptr %8, align 8, !tbaa !42, !noalias !10027
+  %40 = icmp eq ptr %38, %39
+  br i1 %40, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit, label %41
 
-43:                                               ; preds = %38, %._crit_edge._crit_edge.i.i.i.i
-  %44 = phi ptr [ %.pre44.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %41, %38 ]
-  %45 = phi ptr [ %36, %._crit_edge._crit_edge.i.i.i.i ], [ %39, %38 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 -8
-  %47 = load ptr, ptr %46, align 8, !tbaa !42, !noalias !10027
-  %48 = icmp eq ptr %47, %44
-  br i1 %48, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit, label %49
+41:                                               ; preds = %36, %._crit_edge._crit_edge.i.i.i.i
+  %42 = phi ptr [ %.pre44.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %39, %36 ]
+  %43 = phi ptr [ %34, %._crit_edge._crit_edge.i.i.i.i ], [ %37, %36 ]
+  %44 = getelementptr inbounds i8, ptr %43, i64 -8
+  %45 = load ptr, ptr %44, align 8, !tbaa !42, !noalias !10027
+  %46 = icmp eq ptr %45, %42
+  br i1 %46, label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit, label %47
 
-49:                                               ; preds = %43, %._crit_edge._crit_edge45.i.i.i.i
-  %50 = phi ptr [ %.pre46.i.i.i.i, %._crit_edge._crit_edge45.i.i.i.i ], [ %44, %43 ]
-  %51 = phi ptr [ %36, %._crit_edge._crit_edge45.i.i.i.i ], [ %46, %43 ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 -8
-  %53 = load ptr, ptr %52, align 8, !tbaa !42, !noalias !10027
-  %54 = icmp eq ptr %53, %50
-  %spec.select.i.i.i = select i1 %54, ptr %51, ptr %3
+47:                                               ; preds = %41, %._crit_edge._crit_edge45.i.i.i.i
+  %48 = phi ptr [ %.pre46.i.i.i.i, %._crit_edge._crit_edge45.i.i.i.i ], [ %42, %41 ]
+  %49 = phi ptr [ %34, %._crit_edge._crit_edge45.i.i.i.i ], [ %44, %41 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 -8
+  %51 = load ptr, ptr %50, align 8, !tbaa !42, !noalias !10027
+  %52 = icmp eq ptr %51, %48
+  %spec.select.i.i.i = select i1 %52, ptr %49, ptr %3
   br label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
 
-_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit: ; preds = %29
-  %55 = getelementptr inbounds i8, ptr %17, i64 -24
+_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit: ; preds = %27
+  %53 = getelementptr inbounds i8, ptr %15, i64 -24
   br label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
 
-_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15: ; preds = %25
-  %56 = getelementptr inbounds i8, ptr %17, i64 -16
+_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15: ; preds = %23
+  %54 = getelementptr inbounds i8, ptr %15, i64 -16
   br label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
 
-_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17: ; preds = %21
-  %57 = getelementptr inbounds i8, ptr %17, i64 -8
+_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17: ; preds = %19
+  %55 = getelementptr inbounds i8, ptr %15, i64 -8
   br label %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
 
-_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit: ; preds = %16, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i, %38, %43, %49
-  %.sink.i.i.i.i = phi ptr [ %36, %38 ], [ %45, %43 ], [ %3, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i, %49 ], [ %55, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit ], [ %56, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15 ], [ %57, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17 ], [ %17, %16 ]
-  %58 = getelementptr inbounds i8, ptr %.sink.i.i.i.i, i64 -8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %59, ptr %0, align 8, !tbaa !26
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %60, align 8, !tbaa !29
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 32, ptr %61, align 4, !tbaa !30
-  %62 = ptrtoint ptr %7 to i64
-  %63 = ptrtoint ptr %58 to i64
-  %64 = sub i64 %62, %63
-  %65 = ashr exact i64 %64, 3
-  %66 = icmp ugt i64 %65, 32
-  br i1 %66, label %67, label %_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i
+_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit: ; preds = %14, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17, %._crit_edge.i.i.i.i, %36, %41, %47
+  %.sink.i.i.i.i = phi ptr [ %34, %36 ], [ %43, %41 ], [ %3, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i, %47 ], [ %53, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit ], [ %54, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit15 ], [ %55, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit.loopexit.split.loop.exit17 ], [ %15, %14 ]
+  %56 = getelementptr inbounds i8, ptr %.sink.i.i.i.i, i64 -8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %57, ptr %0, align 8, !tbaa !26
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %58, align 8, !tbaa !29
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 32, ptr %59, align 4, !tbaa !30
+  %60 = ptrtoint ptr %7 to i64
+  %61 = ptrtoint ptr %56 to i64
+  %62 = sub i64 %60, %61
+  %63 = ashr exact i64 %62, 3
+  %64 = icmp ugt i64 %63, 32
+  br i1 %64, label %65, label %_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i
 
-67:                                               ; preds = %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %59, i64 noundef %65, i64 noundef 8) #25
-  %.pre8.i.i = load i32, ptr %60, align 8, !tbaa !29
+65:                                               ; preds = %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %57, i64 noundef %63, i64 noundef 8) #25
+  %.pre8.i.i = load i32, ptr %58, align 8, !tbaa !29
   %.pre9.i.i = zext i32 %.pre8.i.i to i64
   br label %_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i: ; preds = %67, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
-  %.pre-phi.i.i = phi i64 [ 0, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit ], [ %.pre9.i.i, %67 ]
-  %68 = phi i32 [ 0, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit ], [ %.pre8.i.i, %67 ]
-  %69 = icmp sgt i64 %65, 0
-  br i1 %69, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i, label %_ZN4llvm11SmallVectorIPN5clang4DeclELj32EEC2ISt16reverse_iteratorIPKS3_EvEET_SA_.exit
+_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i: ; preds = %65, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit
+  %.pre-phi.i.i = phi i64 [ 0, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit ], [ %.pre9.i.i, %65 ]
+  %66 = phi i32 [ 0, %_ZNK5clang11ASTImporter12ImportPathTy14getCycleAtBackEv.exit ], [ %.pre8.i.i, %65 ]
+  %67 = icmp sgt i64 %63, 0
+  br i1 %67, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i, label %_ZN4llvm11SmallVectorIPN5clang4DeclELj32EEC2ISt16reverse_iteratorIPKS3_EvEET_SA_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i.i:             ; preds = %_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i
-  %70 = load ptr, ptr %0, align 8, !tbaa !26
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.pre-phi.i.i
+  %68 = load ptr, ptr %0, align 8, !tbaa !26
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.pre-phi.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
-  %72 = phi ptr [ %73, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %.06.i.i.i.i.i.i.i.i.i.i = phi i64 [ %76, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %65, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %.045.i.i.i.i.i.i.i.i.i.i = phi ptr [ %75, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %71, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 -8
-  %74 = load ptr, ptr %73, align 8, !tbaa !42
-  store ptr %74, ptr %.045.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
-  %75 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i.i.i.i, i64 8
-  %76 = add nsw i64 %.06.i.i.i.i.i.i.i.i.i.i, -1
-  %77 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %77, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPN5clang4DeclELj32EEC2ISt16reverse_iteratorIPKS3_EvEET_SA_.exit, !llvm.loop !10035
+  %70 = phi ptr [ %71, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+  %.06.i.i.i.i.i.i.i.i.i.i = phi i64 [ %74, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %63, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+  %.045.i.i.i.i.i.i.i.i.i.i = phi ptr [ %73, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %69, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+  %71 = getelementptr inbounds i8, ptr %70, i64 -8
+  %72 = load ptr, ptr %71, align 8, !tbaa !42
+  store ptr %72, ptr %.045.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !42
+  %73 = getelementptr inbounds nuw i8, ptr %.045.i.i.i.i.i.i.i.i.i.i, i64 8
+  %74 = add nsw i64 %.06.i.i.i.i.i.i.i.i.i.i, -1
+  %75 = icmp samesign ugt i64 %.06.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %75, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPN5clang4DeclELj32EEC2ISt16reverse_iteratorIPKS3_EvEET_SA_.exit, !llvm.loop !10035
 
 _ZN4llvm11SmallVectorIPN5clang4DeclELj32EEC2ISt16reverse_iteratorIPKS3_EvEET_SA_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPN5clang4DeclEE7reserveEm.exit.i.i
-  %78 = trunc i64 %65 to i32
-  %79 = add i32 %68, %78
-  store i32 %79, ptr %60, align 8, !tbaa !29
+  %76 = trunc i64 %63 to i32
+  %77 = add i32 %66, %76
+  store i32 %77, ptr %58, align 8, !tbaa !29
   ret void
 }
 

@@ -363,74 +363,69 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val11, i64 %13
   %15 = load i64, ptr %14, align 4
-  %16 = and i64 %15, 536870911
-  %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %17
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %.val11 to i64
-  %21 = sub i64 %19, %20
-  %22 = sdiv exact i64 %21, 12
-  %23 = trunc i64 %22 to i32
-  %24 = load i32, ptr %3, align 4, !tbaa !32
-  %25 = load i32, ptr %2, align 8, !tbaa !36
-  %26 = icmp eq i32 %24, %25
-  br i1 %26, label %27, label %Vec_IntPush.exit
+  %16 = trunc i64 %15 to i32
+  %17 = and i32 %16, 536870911
+  %18 = sub i32 %12, %17
+  %19 = load i32, ptr %3, align 4, !tbaa !32
+  %20 = load i32, ptr %2, align 8, !tbaa !36
+  %21 = icmp eq i32 %19, %20
+  br i1 %21, label %22, label %Vec_IntPush.exit
 
-27:                                               ; preds = %8
-  %28 = icmp slt i32 %24, 16
-  br i1 %28, label %29, label %34
+22:                                               ; preds = %8
+  %23 = icmp slt i32 %19, 16
+  br i1 %23, label %24, label %29
 
-29:                                               ; preds = %27
+24:                                               ; preds = %22
   %.not9.i.i = icmp eq ptr %9, null
-  br i1 %.not9.i.i, label %32, label %30
+  br i1 %.not9.i.i, label %27, label %25
 
-30:                                               ; preds = %29
-  %31 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %9, i64 noundef 64) #7
+25:                                               ; preds = %24
+  %26 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %9, i64 noundef 64) #7
   br label %Vec_IntPush.exit.sink.split
 
-32:                                               ; preds = %29
-  %33 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
+27:                                               ; preds = %24
+  %28 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
   br label %Vec_IntPush.exit.sink.split
 
-34:                                               ; preds = %27
-  %35 = shl nuw nsw i32 %24, 1
+29:                                               ; preds = %22
+  %30 = shl nuw nsw i32 %19, 1
   %.not9.i9.i = icmp eq ptr %9, null
-  %36 = zext nneg i32 %35 to i64
-  %37 = shl nuw nsw i64 %36, 2
-  br i1 %.not9.i9.i, label %40, label %38
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw nsw i64 %31, 2
+  br i1 %.not9.i9.i, label %35, label %33
 
-38:                                               ; preds = %34
-  %39 = tail call ptr @realloc(ptr noundef nonnull %9, i64 noundef %37) #7
+33:                                               ; preds = %29
+  %34 = tail call ptr @realloc(ptr noundef nonnull %9, i64 noundef %32) #7
   br label %Vec_IntPush.exit.sink.split
 
-40:                                               ; preds = %34
-  %41 = tail call noalias ptr @malloc(i64 noundef %37) #8
+35:                                               ; preds = %29
+  %36 = tail call noalias ptr @malloc(i64 noundef %32) #8
   br label %Vec_IntPush.exit.sink.split
 
-Vec_IntPush.exit.sink.split:                      ; preds = %38, %40, %30, %32
-  %.sink18 = phi ptr [ %31, %30 ], [ %33, %32 ], [ %39, %38 ], [ %41, %40 ]
-  %.sink = phi i32 [ 16, %30 ], [ 16, %32 ], [ %35, %38 ], [ %35, %40 ]
-  store ptr %.sink18, ptr %5, align 8, !tbaa !33
+Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
+  %.sink19 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
+  %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
+  store ptr %.sink19, ptr %5, align 8, !tbaa !33
   store i32 %.sink, ptr %2, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %8
-  %.val13 = phi ptr [ %9, %8 ], [ %.sink18, %Vec_IntPush.exit.sink.split ]
-  %42 = add nsw i32 %24, 1
-  store i32 %42, ptr %3, align 4, !tbaa !32
-  %43 = sext i32 %24 to i64
-  %44 = getelementptr inbounds i32, ptr %.val13, i64 %43
-  store i32 %23, ptr %44, align 4, !tbaa !29
+  %.val13 = phi ptr [ %9, %8 ], [ %.sink19, %Vec_IntPush.exit.sink.split ]
+  %37 = add nsw i32 %19, 1
+  store i32 %37, ptr %3, align 4, !tbaa !32
+  %38 = sext i32 %19 to i64
+  %39 = getelementptr inbounds i32, ptr %.val13, i64 %38
+  store i32 %18, ptr %39, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 52
   br i1 %exitcond.not, label %Vec_IntFree.exit, label %8, !llvm.loop !41
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntPush.exit
   %.val10 = load i32, ptr %3, align 4, !tbaa !32
-  %45 = tail call ptr @Gia_ManDupAndConesLimit(ptr noundef nonnull %0, ptr noundef nonnull %.val13, i32 noundef %.val10, i32 noundef 100) #9
+  %40 = tail call ptr @Gia_ManDupAndConesLimit(ptr noundef nonnull %0, ptr noundef nonnull %.val13, i32 noundef %.val10, i32 noundef 100) #9
   tail call void @free(ptr noundef nonnull %.val13) #9
   tail call void @free(ptr noundef nonnull %2) #9
-  ret ptr %45
+  ret ptr %40
 }
 
 declare ptr @Gia_ManDupAndConesLimit(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

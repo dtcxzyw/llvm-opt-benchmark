@@ -1338,7 +1338,7 @@ define internal fastcc i32 @ecjpake_hash(i32 noundef %0, ptr noundef %1, i32 nou
 
 ecjpake_write_len_point.exit:                     ; preds = %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  br label %82
+  br label %74
 
 18:                                               ; preds = %8
   %19 = load i64, ptr %11, align 8, !tbaa !22
@@ -1350,108 +1350,106 @@ ecjpake_write_len_point.exit:                     ; preds = %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   %24 = icmp ult ptr %14, %23
-  br i1 %24, label %ecjpake_write_len_point.exit44.thread, label %25
+  %notsub = add i64 %19, -418
+  %25 = icmp sgt i64 %notsub, -6
+  %or.cond76 = or i1 %25, %24
+  br i1 %or.cond76, label %ecjpake_write_len_point.exit44.thread, label %26
 
-25:                                               ; preds = %18
-  %26 = ptrtoint ptr %14 to i64
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %26, %27
-  %29 = icmp slt i64 %28, 5
-  br i1 %29, label %ecjpake_write_len_point.exit44.thread, label %30
+26:                                               ; preds = %18
+  %27 = getelementptr i8, ptr %22, i64 8
+  %gepdiff = sub nsw i64 413, %19
+  %28 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %27, i64 noundef %gepdiff) #15
+  %.not.i42 = icmp eq i32 %28, 0
+  br i1 %.not.i42, label %29, label %ecjpake_write_len_point.exit44.thread
 
-30:                                               ; preds = %25
-  %31 = getelementptr i8, ptr %22, i64 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = sub i64 %26, %32
-  %34 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef nonnull %4, i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %31, i64 noundef %33) #15
-  %.not.i42 = icmp eq i32 %34, 0
-  br i1 %.not.i42, label %35, label %ecjpake_write_len_point.exit44.thread
-
-ecjpake_write_len_point.exit44.thread:            ; preds = %25, %18, %30
-  %.0.i43.ph = phi i32 [ %34, %30 ], [ -20224, %18 ], [ -20224, %25 ]
+ecjpake_write_len_point.exit44.thread:            ; preds = %18, %26
+  %.0.i43.ph = phi i32 [ %28, %26 ], [ -20224, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  br label %82
+  br label %74
 
-35:                                               ; preds = %30
-  %36 = load i64, ptr %10, align 8, !tbaa !22
-  %37 = trunc i64 %36 to i32
-  %38 = call i32 @llvm.bswap.i32(i32 %37)
-  store i32 %38, ptr %23, align 1
-  %39 = getelementptr i8, ptr %23, i64 %36
-  %40 = getelementptr i8, ptr %39, i64 4
+29:                                               ; preds = %26
+  %30 = load i64, ptr %10, align 8, !tbaa !22
+  %31 = trunc i64 %30 to i32
+  %32 = call i32 @llvm.bswap.i32(i32 %31)
+  store i32 %32, ptr %23, align 1
+  %33 = getelementptr i8, ptr %23, i64 %30
+  %34 = getelementptr i8, ptr %33, i64 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  %41 = icmp ult ptr %14, %40
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %26, %42
-  %44 = icmp slt i64 %43, 5
-  %or.cond72 = or i1 %41, %44
-  br i1 %or.cond72, label %ecjpake_write_len_point.exit47.thread, label %45
+  %35 = icmp ult ptr %14, %34
+  br i1 %35, label %ecjpake_write_len_point.exit47.thread, label %36
 
-45:                                               ; preds = %35
-  %46 = getelementptr i8, ptr %39, i64 8
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %26, %47
-  %49 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef %5, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %46, i64 noundef %48) #15
-  %.not.i45 = icmp eq i32 %49, 0
-  br i1 %.not.i45, label %50, label %ecjpake_write_len_point.exit47.thread
+36:                                               ; preds = %29
+  %37 = add nsw i64 %19, -414
+  %notsub71 = add i64 %37, %30
+  %38 = icmp sgt i64 %notsub71, -6
+  br i1 %38, label %ecjpake_write_len_point.exit47.thread, label %39
 
-ecjpake_write_len_point.exit47.thread:            ; preds = %35, %45
-  %.0.i46.ph = phi i32 [ %49, %45 ], [ -20224, %35 ]
+39:                                               ; preds = %36
+  %40 = getelementptr i8, ptr %33, i64 8
+  %41 = add i64 %19, %30
+  %gepdiff72 = sub i64 409, %41
+  %42 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef %5, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %40, i64 noundef %gepdiff72) #15
+  %.not.i45 = icmp eq i32 %42, 0
+  br i1 %.not.i45, label %43, label %ecjpake_write_len_point.exit47.thread
+
+ecjpake_write_len_point.exit47.thread:            ; preds = %36, %29, %39
+  %.0.i46.ph = phi i32 [ %42, %39 ], [ -20224, %29 ], [ -20224, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br label %82
+  br label %74
 
-50:                                               ; preds = %45
-  %51 = load i64, ptr %9, align 8, !tbaa !22
-  %52 = trunc i64 %51 to i32
-  %53 = call i32 @llvm.bswap.i32(i32 %52)
-  store i32 %53, ptr %40, align 1
-  %54 = getelementptr i8, ptr %40, i64 %51
-  %55 = getelementptr i8, ptr %54, i64 4
+43:                                               ; preds = %39
+  %44 = load i64, ptr %9, align 8, !tbaa !22
+  %45 = trunc i64 %44 to i32
+  %46 = call i32 @llvm.bswap.i32(i32 %45)
+  store i32 %46, ptr %34, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  %56 = ptrtoint ptr %55 to i64
-  %57 = sub i64 %26, %56
-  %58 = icmp slt i64 %57, 4
-  br i1 %58, label %82, label %59
+  %47 = add nsw i64 %19, -410
+  %48 = add i64 %47, %30
+  %notsub74 = add i64 %48, %44
+  %49 = icmp sgt i64 %notsub74, -5
+  br i1 %49, label %74, label %50
+
+50:                                               ; preds = %43
+  %51 = getelementptr i8, ptr %34, i64 %44
+  %52 = getelementptr i8, ptr %51, i64 4
+  %53 = trunc i64 %15 to i32
+  %54 = call i32 @llvm.bswap.i32(i32 %53)
+  store i32 %54, ptr %52, align 1
+  %55 = getelementptr i8, ptr %51, i64 8
+  %56 = icmp ult ptr %14, %55
+  %57 = add i64 %41, %44
+  %gepdiff75 = sub i64 405, %57
+  %58 = icmp ult i64 %gepdiff75, %15
+  %or.cond = select i1 %56, i1 true, i1 %58
+  br i1 %or.cond, label %74, label %59
 
 59:                                               ; preds = %50
-  %60 = trunc i64 %15 to i32
-  %61 = call i32 @llvm.bswap.i32(i32 %60)
-  store i32 %61, ptr %55, align 1
-  %62 = getelementptr i8, ptr %54, i64 8
-  %63 = icmp ult ptr %14, %62
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %26, %64
-  %66 = icmp ult i64 %65, %15
-  %or.cond = select i1 %63, i1 true, i1 %66
-  br i1 %or.cond, label %82, label %67
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %6, i64 %15, i1 false)
+  %60 = add i64 %15, 16
+  %61 = add i64 %60, %19
+  %62 = add i64 %61, %30
+  %63 = add i64 %62, %44
+  %64 = call ptr @mbedtls_md_info_from_type(i32 noundef %0) #15
+  %65 = call i32 @mbedtls_md(ptr noundef %64, ptr noundef nonnull %12, i64 noundef %63, ptr noundef nonnull %13) #15
+  %.not38 = icmp eq i32 %65, 0
+  br i1 %.not38, label %66, label %74
 
-67:                                               ; preds = %59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull align 1 %6, i64 %15, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 %15
-  %69 = ptrtoint ptr %68 to i64
-  %70 = ptrtoint ptr %12 to i64
-  %71 = sub i64 %69, %70
-  %72 = call ptr @mbedtls_md_info_from_type(i32 noundef %0) #15
-  %73 = call i32 @mbedtls_md(ptr noundef %72, ptr noundef nonnull %12, i64 noundef %71, ptr noundef nonnull %13) #15
-  %.not38 = icmp eq i32 %73, 0
-  br i1 %.not38, label %74, label %82
+66:                                               ; preds = %59
+  %67 = call ptr @mbedtls_md_info_from_type(i32 noundef %0) #15
+  %68 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %67) #15
+  %69 = zext i8 %68 to i64
+  %70 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %7, ptr noundef nonnull %13, i64 noundef %69) #15
+  %.not39 = icmp eq i32 %70, 0
+  br i1 %.not39, label %71, label %74
 
-74:                                               ; preds = %67
-  %75 = call ptr @mbedtls_md_info_from_type(i32 noundef %0) #15
-  %76 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %75) #15
-  %77 = zext i8 %76 to i64
-  %78 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %7, ptr noundef nonnull %13, i64 noundef %77) #15
-  %.not39 = icmp eq i32 %78, 0
-  br i1 %.not39, label %79, label %82
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %73 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %72) #15
+  br label %74
 
-79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %81 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %80) #15
-  br label %82
-
-82:                                               ; preds = %ecjpake_write_len_point.exit47.thread, %ecjpake_write_len_point.exit44.thread, %ecjpake_write_len_point.exit, %67, %74, %79, %59, %50
-  %.0 = phi i32 [ -20224, %50 ], [ -20224, %59 ], [ %17, %ecjpake_write_len_point.exit ], [ %73, %67 ], [ %78, %74 ], [ %81, %79 ], [ %.0.i43.ph, %ecjpake_write_len_point.exit44.thread ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ]
+74:                                               ; preds = %ecjpake_write_len_point.exit47.thread, %ecjpake_write_len_point.exit44.thread, %ecjpake_write_len_point.exit, %59, %66, %71, %50, %43
+  %.0 = phi i32 [ -20224, %43 ], [ -20224, %50 ], [ %17, %ecjpake_write_len_point.exit ], [ %65, %59 ], [ %70, %66 ], [ %73, %71 ], [ %.0.i43.ph, %ecjpake_write_len_point.exit44.thread ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
   call void @llvm.lifetime.end.p0(i64 421, ptr nonnull %12) #15
   ret i32 %.0

@@ -1224,89 +1224,84 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit: ; preds 
   %.pre = load ptr, ptr %0, align 8, !tbaa !15
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit
+._crit_edge:                                      ; preds = %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #23
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #23
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
-  %28 = phi ptr [ %63, %60 ], [ %.pre, %.lr.ph.preheader ]
-  %29 = phi i64 [ %69, %60 ], [ %27, %.lr.ph.preheader ]
-  %30 = phi i64 [ %68, %60 ], [ 0, %.lr.ph.preheader ]
-  %.026 = phi i32 [ %.1, %60 ], [ 0, %.lr.ph.preheader ]
-  %.0825 = phi i32 [ %spec.select11, %60 ], [ 0, %.lr.ph.preheader ]
-  %storemerge24 = phi i32 [ %67, %60 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %55
+  %28 = phi ptr [ %58, %55 ], [ %.pre, %.lr.ph.preheader ]
+  %29 = phi i64 [ %64, %55 ], [ %27, %.lr.ph.preheader ]
+  %30 = phi i64 [ %63, %55 ], [ 0, %.lr.ph.preheader ]
+  %.026 = phi i32 [ %.1, %55 ], [ 0, %.lr.ph.preheader ]
+  %.0825 = phi i32 [ %spec.select11, %55 ], [ 0, %.lr.ph.preheader ]
+  %storemerge24 = phi i32 [ %62, %55 ], [ 0, %.lr.ph.preheader ]
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !20
-  switch i8 %32, label %48 [
+  switch i8 %32, label %43 [
     i8 10, label %33
-    i8 59, label %43
+    i8 59, label %38
   ]
 
 33:                                               ; preds = %.lr.ph
   store i8 92, ptr %31, align 1, !tbaa !20
-  %34 = load ptr, ptr %0, align 8, !tbaa !15
-  %35 = load i32, ptr %8, align 4, !tbaa !84
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %34 to i64
-  %41 = sub i64 %39, %40
-  %42 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %41, i64 noundef 0, i64 noundef 1, i8 noundef signext 108) #23
-  br label %60
+  %34 = load i32, ptr %8, align 4, !tbaa !84
+  %35 = zext i32 %34 to i64
+  %36 = add nuw nsw i64 %35, 1
+  %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %36, i64 noundef 0, i64 noundef 1, i8 noundef signext 108) #23
+  br label %55
+
+38:                                               ; preds = %.lr.ph
+  %39 = add i32 %storemerge24, 1
+  %40 = zext i32 %39 to i64
+  %41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 10, i64 noundef %40) #23
+  %42 = trunc i64 %41 to i32
+  call void %4(i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef %42) #23
+  br label %55
 
 43:                                               ; preds = %.lr.ph
-  %44 = add i32 %storemerge24, 1
-  %45 = zext i32 %44 to i64
-  %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 10, i64 noundef %45) #23
-  %47 = trunc i64 %46 to i32
-  call void %4(i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef %47) #23
-  br label %60
+  %44 = icmp eq i32 %.026, 80
+  br i1 %44, label %45, label %53
 
-48:                                               ; preds = %.lr.ph
-  %49 = icmp eq i32 %.026, 80
-  br i1 %49, label %50, label %58
-
-50:                                               ; preds = %48
+45:                                               ; preds = %43
   %.not10 = icmp eq i32 %.0825, 0
   %spec.select = select i1 %.not10, i32 %storemerge24, i32 %.0825
-  %51 = zext i32 %spec.select to i64
-  %52 = icmp ult i64 %29, %51
-  br i1 %52, label %53, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12
+  %46 = zext i32 %spec.select to i64
+  %47 = icmp ult i64 %29, %46
+  br i1 %47, label %48, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12
 
-53:                                               ; preds = %50
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i64 noundef %51, i64 noundef %29) #24
+48:                                               ; preds = %45
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7, i64 noundef %46, i64 noundef %29) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12: ; preds = %50
-  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %51, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 5) #23
-  %55 = load i32, ptr %8, align 4, !tbaa !84
-  %56 = sub i32 %55, %spec.select
-  %57 = add i32 %55, 3
-  store i32 %57, ptr %8, align 4, !tbaa !84
-  br label %60
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12: ; preds = %45
+  %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %46, i64 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 5) #23
+  %50 = load i32, ptr %8, align 4, !tbaa !84
+  %51 = sub i32 %50, %spec.select
+  %52 = add i32 %50, 3
+  store i32 %52, ptr %8, align 4, !tbaa !84
+  br label %55
 
-58:                                               ; preds = %48
-  %59 = add i32 %.026, 1
-  br label %60
+53:                                               ; preds = %43
+  %54 = add i32 %.026, 1
+  br label %55
 
-60:                                               ; preds = %43, %58, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12, %33
-  %.19 = phi i32 [ 0, %33 ], [ %.0825, %43 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12 ], [ %.0825, %58 ]
-  %.1 = phi i32 [ 0, %33 ], [ %.026, %43 ], [ %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12 ], [ %59, %58 ]
-  %61 = load i32, ptr %8, align 4, !tbaa !84
-  %62 = zext i32 %61 to i64
-  %63 = load ptr, ptr %0, align 8, !tbaa !15
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
-  %65 = load i8, ptr %64, align 1, !tbaa !20
-  %66 = icmp eq i8 %65, 32
-  %spec.select11 = select i1 %66, i32 %61, i32 %.19
-  %67 = add i32 %61, 1
-  store i32 %67, ptr %8, align 4, !tbaa !84
-  %68 = zext i32 %67 to i64
-  %69 = load i64, ptr %10, align 8, !tbaa !19
-  %.not = icmp eq i64 %69, %68
+55:                                               ; preds = %38, %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12, %33
+  %.19 = phi i32 [ 0, %33 ], [ %.0825, %38 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12 ], [ %.0825, %53 ]
+  %.1 = phi i32 [ 0, %33 ], [ %.026, %38 ], [ %51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc.exit12 ], [ %54, %53 ]
+  %56 = load i32, ptr %8, align 4, !tbaa !84
+  %57 = zext i32 %56 to i64
+  %58 = load ptr, ptr %0, align 8, !tbaa !15
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %57
+  %60 = load i8, ptr %59, align 1, !tbaa !20
+  %61 = icmp eq i8 %60, 32
+  %spec.select11 = select i1 %61, i32 %56, i32 %.19
+  %62 = add i32 %56, 1
+  store i32 %62, ptr %8, align 4, !tbaa !84
+  %63 = zext i32 %62 to i64
+  %64 = load i64, ptr %10, align 8, !tbaa !19
+  %.not = icmp eq i64 %64, %63
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
 }
 

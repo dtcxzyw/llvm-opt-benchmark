@@ -85196,8 +85196,8 @@ _ZSt8distanceISt14_List_iteratorIiEENSt15iterator_traitsIT_E15difference_typeES3
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %20 = xor i64 %.015.i.i.i, -1
   %21 = getelementptr inbounds i32, ptr %10, i64 %20
-  %.idx.neg = shl i64 %6, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %10, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
+  %.idx.neg = shl nsw i64 %6, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(1) %21, i64 %.idx.neg, i1 false)
   %.pre94 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i32, ptr %.pre94, i64 %6
   store ptr %22, ptr %9, align 8
@@ -85210,7 +85210,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %26 = ashr exact i64 %25, 2
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds i32, ptr %10, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %28, ptr align 4 %1, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr align 4 %1, i64 %25, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit, %23
@@ -86656,8 +86656,8 @@ _ZSt8distanceISt14_List_iteratorIjEENSt15iterator_traitsIT_E15difference_typeES3
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %20 = xor i64 %.015.i.i.i, -1
   %21 = getelementptr inbounds i32, ptr %10, i64 %20
-  %.idx.neg = shl i64 %6, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %10, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
+  %.idx.neg = shl nsw i64 %6, 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %10, ptr noundef nonnull align 4 dereferenceable(1) %21, i64 %.idx.neg, i1 false)
   %.pre94 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i32, ptr %.pre94, i64 %6
   store ptr %22, ptr %9, align 8
@@ -86670,7 +86670,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %26 = ashr exact i64 %25, 2
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds i32, ptr %10, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %28, ptr align 4 %1, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr align 4 %1, i64 %25, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit, %23
@@ -88084,8 +88084,8 @@ _ZSt8distanceISt14_List_iteratorIlEENSt15iterator_traitsIT_E15difference_typeES3
 _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %20 = xor i64 %.015.i.i.i, -1
   %21 = getelementptr inbounds i64, ptr %10, i64 %20
-  %.idx.neg = shl i64 %6, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
+  %.idx.neg = shl nsw i64 %6, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %.idx.neg, i1 false)
   %.pre94 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i64, ptr %.pre94, i64 %6
   store ptr %22, ptr %9, align 8
@@ -88098,7 +88098,7 @@ _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds i64, ptr %10, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr align 8 %1, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %1, i64 %25, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit, %23
@@ -89509,8 +89509,8 @@ _ZSt8distanceISt14_List_iteratorImEENSt15iterator_traitsIT_E15difference_typeES3
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %20 = xor i64 %.015.i.i.i, -1
   %21 = getelementptr inbounds i64, ptr %10, i64 %20
-  %.idx.neg = shl i64 %6, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %10, ptr nonnull align 8 %21, i64 %.idx.neg, i1 false)
+  %.idx.neg = shl nsw i64 %6, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %21, i64 %.idx.neg, i1 false)
   %.pre94 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i64, ptr %.pre94, i64 %6
   store ptr %22, ptr %9, align 8
@@ -89523,7 +89523,7 @@ _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %15
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds i64, ptr %10, i64 %27
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %28, ptr align 8 %1, i64 %25, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %1, i64 %25, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, %23

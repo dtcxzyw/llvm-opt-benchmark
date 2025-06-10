@@ -47521,197 +47521,198 @@ define linkonce_odr hidden noundef ptr @_ZN6open3d4core15SmallVectorImplIlE6inse
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %2 to i64
   %16 = sub i64 %14, %15
-  %17 = ashr exact i64 %16, 3
-  %18 = add nsw i64 %17, %11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !1343
-  %21 = zext i32 %20 to i64
-  %22 = icmp ugt i64 %18, %21
-  br i1 %13, label %23, label %34
+  br i1 %13, label %17, label %34
 
-23:                                               ; preds = %4
-  br i1 %22, label %24, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i
+17:                                               ; preds = %4
+  %18 = ashr exact i64 %16, 3
+  %19 = add nsw i64 %18, %11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !1343
+  %22 = zext i32 %21 to i64
+  %23 = icmp ugt i64 %19, %22
+  br i1 %23, label %24, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i
 
-24:                                               ; preds = %23
+24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN6open3d4core15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %18, i64 noundef 8)
+  tail call void @_ZN6open3d4core15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %25, i64 noundef %19, i64 noundef 8)
   %.pre8.pre.i = load i32, ptr %9, align 8, !tbaa !1342
-  %.pre56.pre = load ptr, ptr %0, align 8, !tbaa !1072
+  %.pre61.pre = load ptr, ptr %0, align 8, !tbaa !1072
   br label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i
 
-_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i: ; preds = %24, %23
-  %.pre56 = phi ptr [ %5, %23 ], [ %.pre56.pre, %24 ]
-  %.pre8.i = phi i32 [ %10, %23 ], [ %.pre8.pre.i, %24 ]
+_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i: ; preds = %24, %17
+  %.pre61 = phi ptr [ %5, %17 ], [ %.pre61.pre, %24 ]
+  %.pre8.i = phi i32 [ %10, %17 ], [ %.pre8.pre.i, %24 ]
   %.not.i.i = icmp eq ptr %2, %3
   br i1 %.not.i.i, label %_ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit, label %26
 
 26:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i
   %27 = zext i32 %.pre8.i to i64
-  %28 = getelementptr inbounds nuw i64, ptr %.pre56, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %.pre61, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull align 1 %2, i64 noundef %16, i1 noundef false) #29
   %.pre.i = load i32, ptr %9, align 8, !tbaa !1342
-  %.pre55 = load ptr, ptr %0, align 8, !tbaa !1072
+  %.pre60 = load ptr, ptr %0, align 8, !tbaa !1072
   br label %_ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit
 
 _ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit: ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i, %26
-  %29 = phi ptr [ %.pre56, %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i ], [ %.pre55, %26 ]
+  %29 = phi ptr [ %.pre61, %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i ], [ %.pre60, %26 ]
   %30 = phi i32 [ %.pre8.i, %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i ], [ %.pre.i, %26 ]
-  %31 = trunc i64 %17 to i32
+  %31 = trunc i64 %18 to i32
   %32 = add i32 %30, %31
   store i32 %32, ptr %9, align 8, !tbaa !1342
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %8
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
 
 34:                                               ; preds = %4
-  br i1 %22, label %35, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
+  %.idx51 = sub i64 0, %16
+  %35 = ashr exact i64 %16, 3
+  %36 = add nsw i64 %35, %11
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %38 = load i32, ptr %37, align 4, !tbaa !1343
+  %39 = zext i32 %38 to i64
+  %40 = icmp ugt i64 %36, %39
+  br i1 %40, label %41, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN6open3d4core15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %36, i64 noundef %18, i64 noundef 8)
+41:                                               ; preds = %34
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN6open3d4core15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %42, i64 noundef %36, i64 noundef 8)
   %.pre = load ptr, ptr %0, align 8, !tbaa !1072
-  %.pre53 = load i32, ptr %9, align 8, !tbaa !1342
-  %.pre58 = zext i32 %.pre53 to i64
+  %.pre58 = load i32, ptr %9, align 8, !tbaa !1342
+  %.pre63 = zext i32 %.pre58 to i64
   br label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
 
-_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit: ; preds = %34, %35
-  %.pre-phi = phi i64 [ %11, %34 ], [ %.pre58, %35 ]
-  %37 = phi i32 [ %10, %34 ], [ %.pre53, %35 ]
-  %38 = phi ptr [ %5, %34 ], [ %.pre, %35 ]
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %8
+_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit: ; preds = %34, %41
+  %.pre-phi = phi i64 [ %11, %34 ], [ %.pre63, %41 ]
+  %43 = phi i32 [ %10, %34 ], [ %.pre58, %41 ]
+  %44 = phi ptr [ %5, %34 ], [ %.pre, %41 ]
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %8
   %.idx = shl nuw nsw i64 %.pre-phi, 3
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
-  %41 = ptrtoint ptr %39 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
   %gepdiff = sub nsw i64 %.idx, %8
-  %42 = ashr exact i64 %gepdiff, 3
-  %.not = icmp ult i64 %42, %17
-  br i1 %.not, label %85, label %43
+  %47 = ashr exact i64 %gepdiff, 3
+  %.not = icmp ult i64 %47, %35
+  br i1 %.not, label %84, label %48
 
-43:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
-  %44 = ptrtoint ptr %40 to i64
-  %45 = sub nsw i64 0, %17
-  %46 = getelementptr inbounds i64, ptr %40, i64 %45
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %44, %47
-  %49 = ashr exact i64 %48, 3
-  %50 = add nsw i64 %49, %.pre-phi
-  %51 = load i32, ptr %19, align 4, !tbaa !1343
+48:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
+  %49 = getelementptr inbounds i8, ptr %46, i64 %.idx51
+  %50 = add nsw i64 %35, %.pre-phi
+  %51 = load i32, ptr %37, align 4, !tbaa !1343
   %52 = zext i32 %51 to i64
   %53 = icmp ugt i64 %50, %52
   br i1 %53, label %54, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i45
 
-54:                                               ; preds = %43
+54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6open3d4core15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %55, i64 noundef %50, i64 noundef 8)
   %.pre.i46 = load i32, ptr %9, align 8, !tbaa !1342
   %.pre12.i = zext i32 %.pre.i46 to i64
-  %.pre54 = load ptr, ptr %0, align 8, !tbaa !1072
+  %.pre59 = load ptr, ptr %0, align 8, !tbaa !1072
   br label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i45
 
-_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i45: ; preds = %54, %43
-  %56 = phi ptr [ %38, %43 ], [ %.pre54, %54 ]
-  %.pre-phi.i = phi i64 [ %.pre-phi, %43 ], [ %.pre12.i, %54 ]
-  %57 = phi i32 [ %37, %43 ], [ %.pre.i46, %54 ]
+_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i45: ; preds = %54, %48
+  %56 = phi ptr [ %44, %48 ], [ %.pre59, %54 ]
+  %.pre-phi.i = phi i64 [ %.pre-phi, %48 ], [ %.pre12.i, %54 ]
+  %57 = phi i32 [ %43, %48 ], [ %.pre.i46, %54 ]
   %58 = getelementptr inbounds nuw i64, ptr %56, i64 %.pre-phi.i
-  %59 = icmp sgt i64 %48, 8
+  %59 = icmp sgt i64 %16, 8
   br i1 %59, label %60, label %61, !prof !785
 
 60:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i45
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr align 8 %46, i64 %48, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %58, ptr nonnull align 8 %49, i64 %16, i1 false)
   %.pre11.i = load i32, ptr %9, align 8, !tbaa !1342
   br label %_ZN6open3d4core15SmallVectorImplIlE6appendISt13move_iteratorIPlEvEEvT_S7_.exit
 
 61:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i45
-  %62 = icmp eq i64 %48, 8
+  %62 = icmp eq i64 %16, 8
   br i1 %62, label %63, label %_ZN6open3d4core15SmallVectorImplIlE6appendISt13move_iteratorIPlEvEEvT_S7_.exit
 
 63:                                               ; preds = %61
-  %64 = load i64, ptr %46, align 8, !tbaa !124
+  %64 = load i64, ptr %49, align 8, !tbaa !124
   store i64 %64, ptr %58, align 8, !tbaa !124
   br label %_ZN6open3d4core15SmallVectorImplIlE6appendISt13move_iteratorIPlEvEEvT_S7_.exit
 
 _ZN6open3d4core15SmallVectorImplIlE6appendISt13move_iteratorIPlEvEEvT_S7_.exit: ; preds = %60, %61, %63
   %65 = phi i32 [ %.pre11.i, %60 ], [ %57, %61 ], [ %57, %63 ]
-  %66 = trunc i64 %49 to i32
+  %66 = trunc i64 %35 to i32
   %67 = add i32 %65, %66
   store i32 %67, ptr %9, align 8, !tbaa !1342
-  %68 = sub i64 %47, %41
-  %69 = ashr exact i64 %68, 3
+  %68 = add i64 %8, %16
+  %gepdiff52 = sub i64 %.idx, %68
+  %69 = ashr exact i64 %gepdiff52, 3
   %70 = icmp sgt i64 %69, 1
   br i1 %70, label %71, label %74, !prof !785
 
 71:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE6appendISt13move_iteratorIPlEvEEvT_S7_.exit
   %72 = sub nsw i64 0, %69
-  %73 = getelementptr inbounds i64, ptr %40, i64 %72
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %73, ptr align 8 %39, i64 %68, i1 false)
+  %73 = getelementptr inbounds i64, ptr %46, i64 %72
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %73, ptr align 8 %45, i64 %gepdiff52, i1 false)
   br label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
 74:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE6appendISt13move_iteratorIPlEvEEvT_S7_.exit
-  %75 = icmp eq i64 %68, 8
+  %75 = icmp eq i64 %gepdiff52, 8
   br i1 %75, label %76, label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %40, i64 -8
-  %78 = load i64, ptr %39, align 8, !tbaa !124
+  %77 = getelementptr inbounds i8, ptr %46, i64 -8
+  %78 = load i64, ptr %45, align 8, !tbaa !124
   store i64 %78, ptr %77, align 8, !tbaa !124
   br label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit:       ; preds = %71, %74, %76
-  %79 = icmp sgt i64 %16, 8
-  br i1 %79, label %80, label %81, !prof !785
+  br i1 %59, label %79, label %80, !prof !785
+
+79:                                               ; preds = %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %45, ptr align 8 %2, i64 %16, i1 false)
+  br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
 
 80:                                               ; preds = %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %39, ptr align 8 %2, i64 %16, i1 false)
+  %81 = icmp eq i64 %16, 8
+  br i1 %81, label %82, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
+
+82:                                               ; preds = %80
+  %83 = load i64, ptr %2, align 8, !tbaa !124
+  store i64 %83, ptr %45, align 8, !tbaa !124
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
 
-81:                                               ; preds = %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
-  %82 = icmp eq i64 %16, 8
-  br i1 %82, label %83, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
-
-83:                                               ; preds = %81
-  %84 = load i64, ptr %2, align 8, !tbaa !124
-  store i64 %84, ptr %39, align 8, !tbaa !124
-  br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
-
-85:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
-  %86 = trunc i64 %17 to i32
-  %87 = add i32 %37, %86
-  store i32 %87, ptr %9, align 8, !tbaa !1342
+84:                                               ; preds = %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit
+  %85 = trunc i64 %35 to i32
+  %86 = add i32 %43, %85
+  store i32 %86, ptr %9, align 8, !tbaa !1342
   %.not.i.i47 = icmp eq i64 %8, %.idx
   br i1 %.not.i.i47, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %85
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %38, i64 %88
-  %90 = sub nsw i64 0, %42
-  %91 = getelementptr inbounds i64, ptr %89, i64 %90
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %91, ptr noundef nonnull align 1 %39, i64 noundef %gepdiff, i1 noundef false) #29
+.lr.ph.preheader:                                 ; preds = %84
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr inbounds nuw i64, ptr %44, i64 %87
+  %89 = sub nsw i64 0, %47
+  %90 = getelementptr inbounds i64, ptr %88, i64 %89
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %90, ptr noundef nonnull align 1 %45, i64 noundef %gepdiff, i1 noundef false) #29
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %85
-  %.042.lcssa = phi ptr [ %2, %85 ], [ %97, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %84
+  %.042.lcssa = phi ptr [ %2, %84 ], [ %96, %.lr.ph ]
   %.not.i = icmp eq ptr %.042.lcssa, %3
-  br i1 %.not.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit, label %92
+  br i1 %.not.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit, label %91
 
-92:                                               ; preds = %._crit_edge
-  %93 = ptrtoint ptr %.042.lcssa to i64
-  %94 = sub i64 %14, %93
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %40, ptr noundef nonnull align 1 %.042.lcssa, i64 noundef %94, i1 noundef false) #29
+91:                                               ; preds = %._crit_edge
+  %92 = ptrtoint ptr %.042.lcssa to i64
+  %93 = sub i64 %14, %92
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %46, ptr noundef nonnull align 1 %.042.lcssa, i64 noundef %93, i1 noundef false) #29
   br label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.052 = phi ptr [ %96, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.04051 = phi i64 [ %98, %.lr.ph ], [ %42, %.lr.ph.preheader ]
-  %.04250 = phi ptr [ %97, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %95 = load i64, ptr %.04250, align 8, !tbaa !124
-  store i64 %95, ptr %.052, align 8, !tbaa !124
-  %96 = getelementptr inbounds nuw i8, ptr %.052, i64 8
-  %97 = getelementptr inbounds nuw i8, ptr %.04250, i64 8
-  %98 = add i64 %.04051, -1
-  %.not44 = icmp eq i64 %98, 0
+  %.057 = phi ptr [ %95, %.lr.ph ], [ %45, %.lr.ph.preheader ]
+  %.04056 = phi i64 [ %97, %.lr.ph ], [ %47, %.lr.ph.preheader ]
+  %.04255 = phi ptr [ %96, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %94 = load i64, ptr %.04255, align 8, !tbaa !124
+  store i64 %94, ptr %.057, align 8, !tbaa !124
+  %95 = getelementptr inbounds nuw i8, ptr %.057, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.04255, i64 8
+  %97 = add i64 %.04056, -1
+  %.not44 = icmp eq i64 %97, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !1675
 
-_ZSt4copyIPKlPlET0_T_S4_S3_.exit:                 ; preds = %92, %._crit_edge, %83, %81, %80, %_ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit
-  %.041 = phi ptr [ %33, %_ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit ], [ %39, %80 ], [ %39, %81 ], [ %39, %83 ], [ %39, %._crit_edge ], [ %39, %92 ]
+_ZSt4copyIPKlPlET0_T_S4_S3_.exit:                 ; preds = %91, %._crit_edge, %82, %80, %79, %_ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit
+  %.041 = phi ptr [ %33, %_ZN6open3d4core15SmallVectorImplIlE6appendIPKlvEEvT_S6_.exit ], [ %45, %79 ], [ %45, %80 ], [ %45, %82 ], [ %45, %._crit_edge ], [ %45, %91 ]
   ret ptr %.041
 }
 
@@ -48632,7 +48633,7 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit: ; preds = %11,
   %22 = zext i32 %20 to i64
   %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
-  br label %54
+  br label %51
 
 25:                                               ; preds = %3
   %26 = ptrtoint ptr %1 to i64
@@ -48656,42 +48657,42 @@ _ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE28reserveForParamAndGetAddressERl
   %33 = phi i32 [ %6, %25 ], [ %.pre11, %30 ]
   %34 = phi ptr [ %4, %25 ], [ %.pre, %30 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %28
-  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %.pre-phi16
+  %.idx = shl nuw nsw i64 %.pre-phi16, 3
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   %38 = load i64, ptr %37, align 8, !tbaa !124
   store i64 %38, ptr %36, align 8, !tbaa !124
-  %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %35 to i64
-  %41 = sub i64 %39, %40
-  %42 = ashr exact i64 %41, 3
-  %43 = icmp sgt i64 %42, 1
-  br i1 %43, label %44, label %47, !prof !785
+  %reass.sub = sub i64 %.idx, %28
+  %gepdiff = add i64 %reass.sub, -8
+  %39 = ashr exact i64 %gepdiff, 3
+  %40 = icmp sgt i64 %39, 1
+  br i1 %40, label %41, label %44, !prof !785
 
-44:                                               ; preds = %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE28reserveForParamAndGetAddressERlm.exit
-  %45 = sub nsw i64 0, %42
-  %46 = getelementptr inbounds i64, ptr %36, i64 %45
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %35, i64 %41, i1 false)
+41:                                               ; preds = %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE28reserveForParamAndGetAddressERlm.exit
+  %42 = sub nsw i64 0, %39
+  %43 = getelementptr inbounds i64, ptr %36, i64 %42
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %35, i64 %gepdiff, i1 false)
   %.pre12 = load i32, ptr %5, align 8, !tbaa !1342
   br label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
-47:                                               ; preds = %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE28reserveForParamAndGetAddressERlm.exit
-  %48 = icmp eq i64 %41, 8
-  br i1 %48, label %49, label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
+44:                                               ; preds = %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE28reserveForParamAndGetAddressERlm.exit
+  %45 = icmp eq i64 %gepdiff, 8
+  br i1 %45, label %46, label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
-49:                                               ; preds = %47
-  %50 = load i64, ptr %35, align 8, !tbaa !124
-  store i64 %50, ptr %37, align 8, !tbaa !124
+46:                                               ; preds = %44
+  %47 = load i64, ptr %35, align 8, !tbaa !124
+  store i64 %47, ptr %37, align 8, !tbaa !124
   br label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
-_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit:       ; preds = %44, %47, %49
-  %51 = phi i32 [ %.pre12, %44 ], [ %33, %47 ], [ %33, %49 ]
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %5, align 8, !tbaa !1342
-  %53 = load i64, ptr %2, align 8, !tbaa !124
-  store i64 %53, ptr %35, align 8, !tbaa !124
-  br label %54
+_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit:       ; preds = %41, %44, %46
+  %48 = phi i32 [ %.pre12, %41 ], [ %33, %44 ], [ %33, %46 ]
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %5, align 8, !tbaa !1342
+  %50 = load i64, ptr %2, align 8, !tbaa !124
+  store i64 %50, ptr %35, align 8, !tbaa !124
+  br label %51
 
-54:                                               ; preds = %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit, %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit
+51:                                               ; preds = %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit, %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit
   %.0 = phi ptr [ %24, %_ZN6open3d4core23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %35, %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit ]
   ret ptr %.0
 }
@@ -49001,34 +49002,34 @@ _ZN8pybind116detail7cast_opIRN6open3d4core10SizeVectorEEENS0_11type_casterINS0_1
 
 _ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i: ; preds = %_ZN8pybind116detail7cast_opIRN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit
   %23 = load ptr, ptr %5, align 8, !tbaa !1072
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %spec.select.i.i
+  %.idx3 = shl nuw nsw i64 %spec.select.i.i, 3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx3
   %25 = load i64, ptr %24, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %14
-  %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %26 to i64
-  %30 = sub i64 %28, %29
-  %31 = icmp sgt i64 %30, 8
-  br i1 %31, label %32, label %33, !prof !785
+  %.idx = shl nuw nsw i64 %14, 3
+  %27 = add nuw i64 %.idx3, 8
+  %gepdiff = sub nsw i64 %.idx, %27
+  %28 = icmp sgt i64 %gepdiff, 8
+  br i1 %28, label %29, label %30, !prof !785
 
-32:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %26, i64 %30, i1 false)
+29:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %26, i64 %gepdiff, i1 false)
   %.pre.i.i = load i32, ptr %12, align 8, !tbaa !1342
   br label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
 
-33:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
-  %34 = icmp eq i64 %30, 8
-  br i1 %34, label %35, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
+30:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
+  %31 = icmp eq i64 %gepdiff, 8
+  br i1 %31, label %32, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
 
-35:                                               ; preds = %33
-  %36 = load i64, ptr %26, align 8, !tbaa !124
-  store i64 %36, ptr %24, align 8, !tbaa !124
+32:                                               ; preds = %30
+  %33 = load i64, ptr %26, align 8, !tbaa !124
+  store i64 %33, ptr %24, align 8, !tbaa !124
   br label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
 
-_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit: ; preds = %32, %33, %35
-  %37 = phi i32 [ %.pre.i.i, %32 ], [ %13, %33 ], [ %13, %35 ]
-  %38 = add i32 %37, -1
-  store i32 %38, ptr %12, align 8, !tbaa !1342
+_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit: ; preds = %29, %30, %32
+  %34 = phi i32 [ %.pre.i.i, %29 ], [ %13, %30 ], [ %13, %32 ]
+  %35 = add i32 %34, -1
+  store i32 %35, ptr %12, align 8, !tbaa !1342
   ret i64 %25
 }
 
@@ -51554,33 +51555,33 @@ _ZN8pybind116detail7cast_opIRN6open3d4core10SizeVectorEEENS0_11type_casterINS0_1
 
 _ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i: ; preds = %_ZN8pybind116detail7cast_opIRN6open3d4core10SizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit
   %23 = load ptr, ptr %5, align 8, !tbaa !1072
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %spec.select.i.i
+  %.idx5.i = shl nuw nsw i64 %spec.select.i.i, 3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx5.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %14
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %25 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp sgt i64 %29, 8
-  br i1 %30, label %31, label %32, !prof !785
+  %.idx.i = shl nuw nsw i64 %14, 3
+  %.neg.i = add nsw i64 %.idx.i, -8
+  %gepdiff.i = sub nsw i64 %.neg.i, %.idx5.i
+  %26 = icmp sgt i64 %gepdiff.i, 8
+  br i1 %26, label %27, label %28, !prof !785
 
-31:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %24, ptr nonnull align 8 %25, i64 %29, i1 false)
+27:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %24, ptr nonnull align 8 %25, i64 %gepdiff.i, i1 false)
   %.pre.i.i = load i32, ptr %12, align 8, !tbaa !1342
   br label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit
 
-32:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
-  %33 = icmp eq i64 %29, 8
-  br i1 %33, label %34, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit
+28:                                               ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
+  %29 = icmp eq i64 %gepdiff.i, 8
+  br i1 %29, label %30, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit
 
-34:                                               ; preds = %32
-  %35 = load i64, ptr %25, align 8, !tbaa !124
-  store i64 %35, ptr %24, align 8, !tbaa !124
+30:                                               ; preds = %28
+  %31 = load i64, ptr %25, align 8, !tbaa !124
+  store i64 %31, ptr %24, align 8, !tbaa !124
   br label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit
 
-_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit: ; preds = %31, %32, %34
-  %36 = phi i32 [ %.pre.i.i, %31 ], [ %13, %32 ], [ %13, %34 ]
-  %37 = add i32 %36, -1
-  store i32 %37, ptr %12, align 8, !tbaa !1342
+_ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit: ; preds = %27, %28, %30
+  %32 = phi i32 [ %.pre.i.i, %27 ], [ %13, %28 ], [ %13, %30 ]
+  %33 = add i32 %32, -1
+  store i32 %33, ptr %12, align 8, !tbaa !1342
   ret void
 }
 
@@ -51873,7 +51874,7 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
 
 .lr.ph.preheader:                                 ; preds = %_ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit
   %.pre = load i64, ptr %4, align 8, !tbaa !124
-  %.pre9 = load i32, ptr %7, align 8, !tbaa !1342
+  %.pre10 = load i32, ptr %7, align 8, !tbaa !1342
   br label %.lr.ph
 
 15:                                               ; preds = %3
@@ -51901,45 +51902,45 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit
-  %20 = phi i32 [ %37, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit ], [ %.pre9, %.lr.ph.preheader ]
-  %21 = phi i64 [ %41, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit ], [ %.pre, %.lr.ph.preheader ]
-  %.08 = phi i64 [ %42, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit ], [ 0, %.lr.ph.preheader ]
+  %20 = phi i32 [ %34, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit ], [ %.pre10, %.lr.ph.preheader ]
+  %21 = phi i64 [ %38, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit ], [ %.pre, %.lr.ph.preheader ]
+  %.09 = phi i64 [ %39, %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit ], [ 0, %.lr.ph.preheader ]
   %22 = load ptr, ptr %1, align 8, !tbaa !1072
-  %23 = getelementptr inbounds i64, ptr %22, i64 %21
+  %.idx8 = shl nsw i64 %21, 3
+  %23 = getelementptr inbounds i8, ptr %22, i64 %.idx8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = zext i32 %20 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %25
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %24 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp sgt i64 %29, 8
-  br i1 %30, label %31, label %32, !prof !785
+  %26 = sub i64 %25, %21
+  %reass.sub = shl i64 %26, 3
+  %gepdiff = add i64 %reass.sub, -8
+  %27 = icmp sgt i64 %gepdiff, 8
+  br i1 %27, label %28, label %29, !prof !785
 
-31:                                               ; preds = %.lr.ph
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %23, ptr nonnull align 8 %24, i64 %29, i1 false)
+28:                                               ; preds = %.lr.ph
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %23, ptr nonnull align 8 %24, i64 %gepdiff, i1 false)
   %.pre.i = load i32, ptr %7, align 8, !tbaa !1342
   br label %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit
 
-32:                                               ; preds = %.lr.ph
-  %33 = icmp eq i64 %29, 8
-  br i1 %33, label %34, label %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit
+29:                                               ; preds = %.lr.ph
+  %30 = icmp eq i64 %gepdiff, 8
+  br i1 %30, label %31, label %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit
 
-34:                                               ; preds = %32
-  %35 = load i64, ptr %24, align 8, !tbaa !124
-  store i64 %35, ptr %23, align 8, !tbaa !124
+31:                                               ; preds = %29
+  %32 = load i64, ptr %24, align 8, !tbaa !124
+  store i64 %32, ptr %23, align 8, !tbaa !124
   br label %_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit
 
-_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit: ; preds = %31, %32, %34
-  %36 = phi i32 [ %.pre.i, %31 ], [ %20, %32 ], [ %20, %34 ]
-  %37 = add i32 %36, -1
-  store i32 %37, ptr %7, align 8, !tbaa !1342
-  %38 = load i64, ptr %6, align 8, !tbaa !124
-  %39 = add i64 %38, -1
-  %40 = load i64, ptr %4, align 8, !tbaa !124
-  %41 = add i64 %39, %40
-  store i64 %41, ptr %4, align 8, !tbaa !124
-  %42 = add nuw i64 %.08, 1
-  %exitcond.not = icmp eq i64 %42, %14
+_ZN6open3d4core15SmallVectorImplIlE5eraseEPKl.exit: ; preds = %28, %29, %31
+  %33 = phi i32 [ %.pre.i, %28 ], [ %20, %29 ], [ %20, %31 ]
+  %34 = add i32 %33, -1
+  store i32 %34, ptr %7, align 8, !tbaa !1342
+  %35 = load i64, ptr %6, align 8, !tbaa !124
+  %36 = add i64 %35, -1
+  %37 = load i64, ptr %4, align 8, !tbaa !124
+  %38 = add i64 %36, %37
+  store i64 %38, ptr %4, align 8, !tbaa !124
+  %39 = add nuw i64 %.09, 1
+  %exitcond.not = icmp eq i64 %39, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1775
 }
 
@@ -62576,6 +62577,7 @@ define linkonce_odr hidden noundef ptr @_ZN6open3d4core15SmallVectorImplINS_7uti
   %19 = ptrtoint ptr %3 to i64
   %20 = ptrtoint ptr %2 to i64
   %21 = sub i64 %19, %20
+  %.idx49 = sub i64 0, %21
   %22 = ashr exact i64 %21, 4
   %23 = add nsw i64 %22, %12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -62638,11 +62640,11 @@ _ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE4growEm.ex
   store i32 %47, ptr %24, align 4, !tbaa !1343
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #29
   %.pre = load i32, ptr %10, align 8, !tbaa !1342
-  %.pre55 = zext i32 %.pre to i64
+  %.pre58 = zext i32 %.pre to i64
   br label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE7reserveEm.exit
 
 _ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE7reserveEm.exit: ; preds = %18, %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE4growEm.exit.i
-  %.pre-phi = phi i64 [ %12, %18 ], [ %.pre55, %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE4growEm.exit.i ]
+  %.pre-phi = phi i64 [ %12, %18 ], [ %.pre58, %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE4growEm.exit.i ]
   %48 = phi i32 [ %11, %18 ], [ %.pre, %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE4growEm.exit.i ]
   %49 = phi ptr [ %6, %18 ], [ %29, %_ZN6open3d4core23SmallVectorTemplateBaseINS_7utility8optionalIlEELb0EE4growEm.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 %9
@@ -62651,212 +62653,210 @@ _ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE7reserveEm.exit: ; pre
   %gepdiff = sub nsw i64 %.idx, %9
   %52 = ashr exact i64 %gepdiff, 4
   %.not = icmp ult i64 %52, %22
-  br i1 %.not, label %100, label %53
+  br i1 %.not, label %97, label %53
 
 53:                                               ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE7reserveEm.exit
-  %54 = ptrtoint ptr %50 to i64
-  %55 = sub nsw i64 0, %22
-  %56 = getelementptr inbounds %"class.open3d::utility::optional", ptr %51, i64 %55
-  call void @_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE6appendISt13move_iteratorIPS4_EvEEvT_SA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %56, ptr %51)
-  %57 = ptrtoint ptr %56 to i64
-  %58 = sub i64 %57, %54
-  %59 = ashr exact i64 %58, 4
-  %60 = icmp sgt i64 %59, 0
-  br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit
+  %54 = getelementptr inbounds i8, ptr %51, i64 %.idx49
+  call void @_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE6appendISt13move_iteratorIPS4_EvEEvT_SA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %54, ptr %51)
+  %55 = add i64 %9, %21
+  %gepdiff50 = sub i64 %.idx, %55
+  %56 = ashr exact i64 %gepdiff50, 4
+  %57 = icmp sgt i64 %56, 0
+  br i1 %57, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %53, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i
-  %.010.i.i.i.i.i = phi i64 [ %78, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i ], [ %59, %53 ]
-  %.069.i.i.i.i.i = phi ptr [ %62, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i ], [ %51, %53 ]
-  %.078.i.i.i.i.i = phi ptr [ %61, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i ], [ %56, %53 ]
-  %61 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
-  %62 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
-  %63 = load i8, ptr %62, align 8, !tbaa !1948, !range !111, !noundef !117
-  %64 = trunc nuw i8 %63 to i1
-  %65 = load i8, ptr %61, align 8, !tbaa !1948, !range !111, !noundef !117
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %64, label %67, label %69
+  %.010.i.i.i.i.i = phi i64 [ %75, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i ], [ %56, %53 ]
+  %.069.i.i.i.i.i = phi ptr [ %59, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i ], [ %51, %53 ]
+  %.078.i.i.i.i.i = phi ptr [ %58, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i ], [ %54, %53 ]
+  %58 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -16
+  %59 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -16
+  %60 = load i8, ptr %59, align 8, !tbaa !1948, !range !111, !noundef !117
+  %61 = trunc nuw i8 %60 to i1
+  %62 = load i8, ptr %58, align 8, !tbaa !1948, !range !111, !noundef !117
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %61, label %64, label %66
 
-67:                                               ; preds = %.lr.ph.i.i.i.i.i
-  br i1 %66, label %74, label %68
+64:                                               ; preds = %.lr.ph.i.i.i.i.i
+  br i1 %63, label %71, label %65
 
-68:                                               ; preds = %67
-  store i8 0, ptr %62, align 8, !tbaa !1948
+65:                                               ; preds = %64
+  store i8 0, ptr %59, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i
 
-69:                                               ; preds = %.lr.ph.i.i.i.i.i
-  br i1 %66, label %70, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i
+66:                                               ; preds = %.lr.ph.i.i.i.i.i
+  br i1 %63, label %67, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %72 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
-  %73 = load i64, ptr %71, align 8, !tbaa !124
-  store i64 %73, ptr %72, align 8, !tbaa !124
-  store i8 1, ptr %62, align 8, !tbaa !1948
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
+  %69 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  %70 = load i64, ptr %68, align 8, !tbaa !124
+  store i64 %70, ptr %69, align 8, !tbaa !124
+  store i8 1, ptr %59, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i
 
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
-  %76 = load i64, ptr %75, align 8, !tbaa !124
-  %77 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
-  store i64 %76, ptr %77, align 8, !tbaa !124
+71:                                               ; preds = %64
+  %72 = getelementptr inbounds i8, ptr %.078.i.i.i.i.i, i64 -8
+  %73 = load i64, ptr %72, align 8, !tbaa !124
+  %74 = getelementptr inbounds i8, ptr %.069.i.i.i.i.i, i64 -8
+  store i64 %73, ptr %74, align 8, !tbaa !124
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i
 
-_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i: ; preds = %74, %70, %69, %68
-  %78 = add nsw i64 %.010.i.i.i.i.i, -1
-  %79 = icmp sgt i64 %.010.i.i.i.i.i, 1
-  br i1 %79, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit, !llvm.loop !2148
+_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i: ; preds = %71, %67, %66, %65
+  %75 = add nsw i64 %.010.i.i.i.i.i, -1
+  %76 = icmp sgt i64 %.010.i.i.i.i.i, 1
+  br i1 %76, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit, !llvm.loop !2148
 
 _ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit: ; preds = %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i, %53
-  %80 = icmp sgt i64 %22, 0
-  br i1 %80, label %.lr.ph.i.i.i.i.i45, label %_ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit
+  %77 = icmp sgt i64 %22, 0
+  br i1 %77, label %.lr.ph.i.i.i.i.i45, label %_ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i
-  %.012.i.i.i.i.i = phi i64 [ %98, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i ], [ %22, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit ]
-  %.0811.i.i.i.i.i = phi ptr [ %97, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i ], [ %50, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit ]
-  %.0910.i.i.i.i.i = phi ptr [ %96, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit ]
-  %81 = load i8, ptr %.0811.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %82 = trunc nuw i8 %81 to i1
-  %83 = load i8, ptr %.0910.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %82, label %85, label %87
+  %.012.i.i.i.i.i = phi i64 [ %95, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i ], [ %22, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit ]
+  %.0811.i.i.i.i.i = phi ptr [ %94, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i ], [ %50, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit ]
+  %.0910.i.i.i.i.i = phi ptr [ %93, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit ]
+  %78 = load i8, ptr %.0811.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
+  %79 = trunc nuw i8 %78 to i1
+  %80 = load i8, ptr %.0910.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %79, label %82, label %84
 
-85:                                               ; preds = %.lr.ph.i.i.i.i.i45
-  br i1 %84, label %92, label %86
+82:                                               ; preds = %.lr.ph.i.i.i.i.i45
+  br i1 %81, label %89, label %83
 
-86:                                               ; preds = %85
+83:                                               ; preds = %82
   store i8 0, ptr %.0811.i.i.i.i.i, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i
 
-87:                                               ; preds = %.lr.ph.i.i.i.i.i45
-  br i1 %84, label %88, label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i
+84:                                               ; preds = %.lr.ph.i.i.i.i.i45
+  br i1 %81, label %85, label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i
 
-88:                                               ; preds = %87
-  %89 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %90 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  %91 = load i64, ptr %89, align 8, !tbaa !124
-  store i64 %91, ptr %90, align 8, !tbaa !124
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  %88 = load i64, ptr %86, align 8, !tbaa !124
+  store i64 %88, ptr %87, align 8, !tbaa !124
   store i8 1, ptr %.0811.i.i.i.i.i, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i
 
-92:                                               ; preds = %85
-  %93 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
-  %94 = load i64, ptr %93, align 8, !tbaa !124
-  %95 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
-  store i64 %94, ptr %95, align 8, !tbaa !124
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 8
+  %91 = load i64, ptr %90, align 8, !tbaa !124
+  %92 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 8
+  store i64 %91, ptr %92, align 8, !tbaa !124
   br label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i
 
-_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i: ; preds = %92, %88, %87, %86
-  %96 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
-  %97 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
-  %98 = add nsw i64 %.012.i.i.i.i.i, -1
-  %99 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %99, label %.lr.ph.i.i.i.i.i45, label %_ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit, !llvm.loop !2149
+_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i: ; preds = %89, %85, %84, %83
+  %93 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
+  %95 = add nsw i64 %.012.i.i.i.i.i, -1
+  %96 = icmp sgt i64 %.012.i.i.i.i.i, 1
+  br i1 %96, label %.lr.ph.i.i.i.i.i45, label %_ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit, !llvm.loop !2149
 
-100:                                              ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE7reserveEm.exit
-  %101 = trunc i64 %22 to i32
-  %102 = add i32 %48, %101
-  store i32 %102, ptr %10, align 8, !tbaa !1342
+97:                                               ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE7reserveEm.exit
+  %98 = trunc i64 %22 to i32
+  %99 = add i32 %48, %98
+  store i32 %99, ptr %10, align 8, !tbaa !1342
   %.not11.i.i.i.i = icmp eq i64 %9, %.idx
   br i1 %.not11.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %100
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %49, i64 %103
-  %105 = sub nsw i64 0, %52
-  %106 = getelementptr inbounds %"class.open3d::utility::optional", ptr %104, i64 %105
+.lr.ph.i.i.i.i.preheader:                         ; preds = %97
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %49, i64 %100
+  %102 = sub nsw i64 0, %52
+  %103 = getelementptr inbounds %"class.open3d::utility::optional", ptr %101, i64 %102
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i
-  %.013.i.i.i.i = phi ptr [ %114, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %106, %.lr.ph.i.i.i.i.preheader ]
-  %.sroa.08.012.i.i.i.i = phi ptr [ %113, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.preheader ]
+  %.013.i.i.i.i = phi ptr [ %111, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %103, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.08.012.i.i.i.i = phi ptr [ %110, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.preheader ]
   store i8 0, ptr %.013.i.i.i.i, align 8, !tbaa !1948
-  %107 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 8
-  store i8 0, ptr %107, align 8, !tbaa !123
-  %108 = load i8, ptr %.sroa.08.012.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %109 = trunc nuw i8 %108 to i1
-  br i1 %109, label %110, label %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i
+  %104 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 8
+  store i8 0, ptr %104, align 8, !tbaa !123
+  %105 = load i8, ptr %.sroa.08.012.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i
 
-110:                                              ; preds = %.lr.ph.i.i.i.i
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 8
-  %112 = load i64, ptr %111, align 8, !tbaa !124
-  store i64 %112, ptr %107, align 8, !tbaa !124
+107:                                              ; preds = %.lr.ph.i.i.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 8
+  %109 = load i64, ptr %108, align 8, !tbaa !124
+  store i64 %109, ptr %104, align 8, !tbaa !124
   store i8 1, ptr %.013.i.i.i.i, align 8, !tbaa !1948
   br label %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i
 
-_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %110, %.lr.ph.i.i.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 16
-  %114 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %113, %51
+_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %107, %.lr.ph.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %110, %51
   br i1 %.not.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i, !llvm.loop !2102
 
-._crit_edge:                                      ; preds = %_ZN6open3d7utility8optionalIlEaSERKS2_.exit, %100
-  %.042.lcssa = phi ptr [ %2, %100 ], [ %139, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ]
+._crit_edge:                                      ; preds = %_ZN6open3d7utility8optionalIlEaSERKS2_.exit, %97
+  %.042.lcssa = phi ptr [ %2, %97 ], [ %136, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ]
   %.not13.i.i.i.i = icmp eq ptr %.042.lcssa, %3
   br i1 %.not13.i.i.i.i, label %_ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i.i46
 
 .lr.ph.i.i.i.i46:                                 ; preds = %._crit_edge, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
-  %.015.i.i.i.i = phi ptr [ %122, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %51, %._crit_edge ]
-  %.01214.i.i.i.i = phi ptr [ %121, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.042.lcssa, %._crit_edge ]
+  %.015.i.i.i.i = phi ptr [ %119, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %51, %._crit_edge ]
+  %.01214.i.i.i.i = phi ptr [ %118, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.042.lcssa, %._crit_edge ]
   store i8 0, ptr %.015.i.i.i.i, align 8, !tbaa !1948
-  %115 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 8
-  store i8 0, ptr %115, align 8, !tbaa !123
-  %116 = load i8, ptr %.01214.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %117 = trunc nuw i8 %116 to i1
-  br i1 %117, label %118, label %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
+  %112 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 8
+  store i8 0, ptr %112, align 8, !tbaa !123
+  %113 = load i8, ptr %.01214.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
+  %114 = trunc nuw i8 %113 to i1
+  br i1 %114, label %115, label %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
 
-118:                                              ; preds = %.lr.ph.i.i.i.i46
-  %119 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 8
-  %120 = load i64, ptr %119, align 8, !tbaa !124
-  store i64 %120, ptr %115, align 8, !tbaa !124
+115:                                              ; preds = %.lr.ph.i.i.i.i46
+  %116 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 8
+  %117 = load i64, ptr %116, align 8, !tbaa !124
+  store i64 %117, ptr %112, align 8, !tbaa !124
   store i8 1, ptr %.015.i.i.i.i, align 8, !tbaa !1948
   br label %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i
 
-_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %118, %.lr.ph.i.i.i.i46
-  %121 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 16
-  %122 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 16
-  %.not.i.i.i.i47 = icmp eq ptr %121, %3
+_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %115, %.lr.ph.i.i.i.i46
+  %118 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i, i64 16
+  %.not.i.i.i.i47 = icmp eq ptr %118, %3
   br i1 %.not.i.i.i.i47, label %_ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i.i46, !llvm.loop !2150
 
 .lr.ph:                                           ; preds = %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit
-  %.053 = phi ptr [ %138, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ], [ %50, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ]
-  %.04052 = phi i64 [ %140, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ], [ %52, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ]
-  %.04251 = phi ptr [ %139, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ], [ %2, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ]
-  %123 = load i8, ptr %.053, align 8, !tbaa !1948, !range !111, !noundef !117
-  %124 = trunc nuw i8 %123 to i1
-  %125 = load i8, ptr %.04251, align 8, !tbaa !1948, !range !111, !noundef !117
-  %126 = trunc nuw i8 %125 to i1
-  br i1 %124, label %127, label %129
+  %.056 = phi ptr [ %135, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ], [ %50, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %.04055 = phi i64 [ %137, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ], [ %52, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %.04254 = phi ptr [ %136, %_ZN6open3d7utility8optionalIlEaSERKS2_.exit ], [ %2, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJS3_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %120 = load i8, ptr %.056, align 8, !tbaa !1948, !range !111, !noundef !117
+  %121 = trunc nuw i8 %120 to i1
+  %122 = load i8, ptr %.04254, align 8, !tbaa !1948, !range !111, !noundef !117
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %121, label %124, label %126
 
-127:                                              ; preds = %.lr.ph
-  br i1 %126, label %134, label %128
+124:                                              ; preds = %.lr.ph
+  br i1 %123, label %131, label %125
 
-128:                                              ; preds = %127
-  store i8 0, ptr %.053, align 8, !tbaa !1948
+125:                                              ; preds = %124
+  store i8 0, ptr %.056, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit
 
-129:                                              ; preds = %.lr.ph
-  br i1 %126, label %130, label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit
+126:                                              ; preds = %.lr.ph
+  br i1 %123, label %127, label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit
 
-130:                                              ; preds = %129
-  %131 = getelementptr inbounds nuw i8, ptr %.04251, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %.053, i64 8
-  %133 = load i64, ptr %131, align 8, !tbaa !124
-  store i64 %133, ptr %132, align 8, !tbaa !124
-  store i8 1, ptr %.053, align 8, !tbaa !1948
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds nuw i8, ptr %.04254, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.056, i64 8
+  %130 = load i64, ptr %128, align 8, !tbaa !124
+  store i64 %130, ptr %129, align 8, !tbaa !124
+  store i8 1, ptr %.056, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit
 
-134:                                              ; preds = %127
-  %135 = getelementptr inbounds nuw i8, ptr %.04251, i64 8
-  %136 = load i64, ptr %135, align 8, !tbaa !124
-  %137 = getelementptr inbounds nuw i8, ptr %.053, i64 8
-  store i64 %136, ptr %137, align 8, !tbaa !124
+131:                                              ; preds = %124
+  %132 = getelementptr inbounds nuw i8, ptr %.04254, i64 8
+  %133 = load i64, ptr %132, align 8, !tbaa !124
+  %134 = getelementptr inbounds nuw i8, ptr %.056, i64 8
+  store i64 %133, ptr %134, align 8, !tbaa !124
   br label %_ZN6open3d7utility8optionalIlEaSERKS2_.exit
 
-_ZN6open3d7utility8optionalIlEaSERKS2_.exit:      ; preds = %128, %129, %130, %134
-  %138 = getelementptr inbounds nuw i8, ptr %.053, i64 16
-  %139 = getelementptr inbounds nuw i8, ptr %.04251, i64 16
-  %140 = add i64 %.04052, -1
-  %.not44 = icmp eq i64 %140, 0
+_ZN6open3d7utility8optionalIlEaSERKS2_.exit:      ; preds = %125, %126, %127, %131
+  %135 = getelementptr inbounds nuw i8, ptr %.056, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.04254, i64 16
+  %137 = add i64 %.04055, -1
+  %.not44 = icmp eq i64 %137, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !2151
 
 _ZSt4copyIPKN6open3d7utility8optionalIlEEPS3_ET0_T_S8_S7_.exit: ; preds = %_ZN6open3d7utility8optionalIlEaSERKS2_.exit.i.i.i.i.i, %_ZSt10_ConstructIN6open3d7utility8optionalIlEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i, %._crit_edge, %_ZSt13move_backwardIPN6open3d7utility8optionalIlEES4_ET0_T_S6_S5_.exit, %15
@@ -64812,7 +64812,8 @@ _ZN8pybind116detail7cast_opIRN6open3d4core17DynamicSizeVectorEEENS0_11type_caste
 
 _ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i: ; preds = %_ZN8pybind116detail7cast_opIRN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit
   %24 = load ptr, ptr %6, align 8, !tbaa !1072, !noalias !2207
-  %25 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %24, i64 %spec.select.i.i
+  %.idx3 = shl nuw nsw i64 %spec.select.i.i, 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx3
   %26 = load i8, ptr %25, align 8, !tbaa !1948, !range !111, !noalias !2207, !noundef !117
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i
@@ -64824,71 +64825,69 @@ _ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6clas
 
 _ZN6open3d7utility8optionalIlEC2EOS2_.exit.i:     ; preds = %28, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
   %.sroa.59.0.i = phi i64 [ %30, %28 ], [ 0, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %32 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %24, i64 %15
-  %33 = ptrtoint ptr %32 to i64
-  %34 = ptrtoint ptr %31 to i64
-  %35 = sub i64 %33, %34
-  %36 = ashr exact i64 %35, 4
-  %37 = icmp sgt i64 %36, 0
-  br i1 %37, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i
+  %.idx = shl nuw nsw i64 %15, 4
+  %31 = add nuw i64 %.idx3, 16
+  %gepdiff = sub nsw i64 %.idx, %31
+  %32 = ashr exact i64 %gepdiff, 4
+  %33 = icmp sgt i64 %32, 0
+  br i1 %33, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %55, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %36, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %54, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %25, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %53, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %31, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i ]
-  %38 = load i8, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noalias !2207, !noundef !117
-  %39 = trunc nuw i8 %38 to i1
-  %40 = load i8, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noalias !2207, !noundef !117
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %39, label %42, label %44
+  %.012.i.i.i.i.i.i.i = phi i64 [ %50, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %32, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %49, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %25, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i ]
+  %.0910.i.i.i.i.i.i.i.pn = phi ptr [ %.0910.i.i.i.i.i.i.i, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %25, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i ]
+  %.0910.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.pn, i64 16
+  %34 = load i8, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noalias !2207, !noundef !117
+  %35 = trunc nuw i8 %34 to i1
+  %36 = load i8, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noalias !2207, !noundef !117
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %35, label %38, label %40
 
-42:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  br i1 %41, label %49, label %43
+38:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  br i1 %37, label %45, label %39
 
-43:                                               ; preds = %42
+39:                                               ; preds = %38
   store i8 0, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948, !noalias !2207
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-44:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  br i1 %41, label %45, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
+40:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  br i1 %37, label %41, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-45:                                               ; preds = %44
-  %46 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %48 = load i64, ptr %46, align 8, !tbaa !124, !noalias !2207
-  store i64 %48, ptr %47, align 8, !tbaa !124, !noalias !2207
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.pn, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %44 = load i64, ptr %42, align 8, !tbaa !124, !noalias !2207
+  store i64 %44, ptr %43, align 8, !tbaa !124, !noalias !2207
   store i8 1, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948, !noalias !2207
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %51 = load i64, ptr %50, align 8, !tbaa !124, !noalias !2207
-  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  store i64 %51, ptr %52, align 8, !tbaa !124, !noalias !2207
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.pn, i64 24
+  %47 = load i64, ptr %46, align 8, !tbaa !124, !noalias !2207
+  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  store i64 %47, ptr %48, align 8, !tbaa !124, !noalias !2207
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i: ; preds = %49, %45, %44, %43
-  %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
-  %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
-  %55 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %56 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i, !llvm.loop !1962
+_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i: ; preds = %45, %41, %40, %39
+  %49 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
+  %50 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %51 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %51, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i, !llvm.loop !1962
 
 _ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i: ; preds = %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i, %_ZN6open3d7utility8optionalIlEC2EOS2_.exit.i
-  %57 = add i32 %14, -1
-  store i32 %57, ptr %13, align 8, !tbaa !1342, !noalias !2207
+  %52 = add i32 %14, -1
+  store i32 %52, ptr %13, align 8, !tbaa !1342, !noalias !2207
   store i8 0, ptr %0, align 8, !tbaa !1948, !alias.scope !2207
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %58, align 8, !tbaa !123, !alias.scope !2207
-  br i1 %27, label %59, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %53, align 8, !tbaa !123, !alias.scope !2207
+  br i1 %27, label %54, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
 
-59:                                               ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i
-  store i64 %.sroa.59.0.i, ptr %58, align 8, !tbaa !124, !alias.scope !2207
+54:                                               ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i
+  store i64 %.sroa.59.0.i, ptr %53, align 8, !tbaa !124, !alias.scope !2207
   store i8 1, ptr %0, align 8, !tbaa !1948, !alias.scope !2207
   br label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit
 
-_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit: ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i, %59
+_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE_clESI_l.exit: ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit.i, %54
   ret void
 }
 
@@ -66220,62 +66219,63 @@ _ZN8pybind116detail7cast_opIRN6open3d4core17DynamicSizeVectorEEENS0_11type_caste
   br label %common.resume
 
 _ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i: ; preds = %_ZN8pybind116detail7cast_opIRN6open3d4core17DynamicSizeVectorEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS8_E4typeEEEOSB_.exit
-  %23 = load ptr, ptr %5, align 8, !tbaa !1072
-  %24 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %23, i64 %spec.select.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %23, i64 %14
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %25 to i64
-  %29 = sub i64 %27, %28
-  %30 = ashr exact i64 %29, 4
-  %31 = icmp sgt i64 %30, 0
-  br i1 %31, label %.lr.ph.i.i.i.i.i.i.i, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit
+  %.idx5.i = shl nuw nsw i64 %spec.select.i.i, 4
+  %.idx.i = shl nuw nsw i64 %14, 4
+  %.neg.i = add nsw i64 %.idx.i, -16
+  %gepdiff.i = sub nsw i64 %.neg.i, %.idx5.i
+  %23 = ashr exact i64 %gepdiff.i, 4
+  %24 = icmp sgt i64 %23, 0
+  br i1 %24, label %.lr.ph.i.i.i.i.i.i.preheader.i, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi i64 [ %49, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %30, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i ]
-  %.0811.i.i.i.i.i.i.i = phi ptr [ %48, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %24, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i ]
-  %.0910.i.i.i.i.i.i.i = phi ptr [ %47, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %25, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i ]
-  %32 = load i8, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %33 = trunc nuw i8 %32 to i1
-  %34 = load i8, ptr %.0910.i.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %33, label %36, label %38
+.lr.ph.i.i.i.i.i.i.preheader.i:                   ; preds = %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
+  %25 = load ptr, ptr %5, align 8, !tbaa !1072
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx5.i
+  %.pre.i = load i8, ptr %26, align 8, !tbaa !1948, !range !111
+  br label %.lr.ph.i.i.i.i.i.i.i
 
-36:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  br i1 %35, label %43, label %37
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.preheader.i
+  %27 = phi i8 [ %30, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %.pre.i, %.lr.ph.i.i.i.i.i.i.preheader.i ]
+  %.012.i.i.i.i.i.i.i = phi i64 [ %43, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i.i.i.preheader.i ]
+  %.0811.i.i.i.i.i.i.i = phi ptr [ %28, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i.i.i.preheader.i ]
+  %28 = getelementptr i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
+  %29 = trunc nuw i8 %27 to i1
+  %30 = load i8, ptr %28, align 8, !tbaa !1948, !range !111, !noundef !117
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %29, label %32, label %34
 
-37:                                               ; preds = %36
+32:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  br i1 %31, label %39, label %33
+
+33:                                               ; preds = %32
   store i8 0, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-38:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  br i1 %35, label %39, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
+34:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  br i1 %31, label %35, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  %42 = load i64, ptr %40, align 8, !tbaa !124
-  store i64 %42, ptr %41, align 8, !tbaa !124
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %38 = load i64, ptr %36, align 8, !tbaa !124
+  store i64 %38, ptr %37, align 8, !tbaa !124
   store i8 1, ptr %.0811.i.i.i.i.i.i.i, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-43:                                               ; preds = %36
-  %44 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !124
-  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
-  store i64 %45, ptr %46, align 8, !tbaa !124
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 24
+  %41 = load i64, ptr %40, align 8, !tbaa !124
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  store i64 %41, ptr %42, align 8, !tbaa !124
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i
 
-_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i: ; preds = %43, %39, %38, %37
-  %47 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 16
-  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 16
-  %49 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
-  %50 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %50, label %.lr.ph.i.i.i.i.i.i.i, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit, !llvm.loop !1962
+_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i: ; preds = %39, %35, %34, %33
+  %43 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
+  %44 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
+  br i1 %44, label %.lr.ph.i.i.i.i.i.i.i, label %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit, !llvm.loop !1962
 
 _ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUlRS4_lE0_clESI_l.exit: ; preds = %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i.i, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
-  %51 = add i32 %13, -1
-  store i32 %51, ptr %12, align 8, !tbaa !1342
+  %45 = add i32 %13, -1
+  store i32 %45, ptr %12, align 8, !tbaa !1342
   ret void
 }
 
@@ -66567,7 +66567,7 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
   br i1 %.not, label %24, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit
-  %.promoted8 = load i32, ptr %7, align 8
+  %.promoted9 = load i32, ptr %7, align 8
   %.promoted = load i64, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8, !tbaa !1072
   %16 = load i64, ptr %6, align 8, !tbaa !124
@@ -66594,7 +66594,7 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
 
 ._crit_edge:                                      ; preds = %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit
   %22 = trunc i64 %14 to i32
-  %23 = sub i32 %.promoted8, %22
+  %23 = sub i32 %.promoted9, %22
   store i32 %23, ptr %7, align 8, !tbaa !1342
   br label %24
 
@@ -66605,67 +66605,68 @@ _ZNK8pybind115slice7computeEmPmS1_S1_S1_.exit:    ; preds = %3
   ret void
 
 25:                                               ; preds = %.lr.ph, %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit
-  %.09 = phi i64 [ 0, %.lr.ph ], [ %57, %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %52, %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit ]
   %26 = phi i64 [ %.promoted, %.lr.ph ], [ %.reass, %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit ]
-  %27 = phi i32 [ %.promoted8, %.lr.ph ], [ %56, %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit ]
-  %28 = getelementptr inbounds %"class.open3d::utility::optional", ptr %15, i64 %26
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw %"class.open3d::utility::optional", ptr %15, i64 %30
-  %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %29 to i64
-  %34 = sub i64 %32, %33
-  %35 = ashr exact i64 %34, 4
-  %36 = icmp sgt i64 %35, 0
-  br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit
+  %27 = phi i32 [ %.promoted9, %.lr.ph ], [ %51, %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit ]
+  %28 = zext i32 %27 to i64
+  %29 = sub i64 %28, %26
+  %reass.sub = shl i64 %29, 4
+  %gepdiff = add i64 %reass.sub, -16
+  %30 = ashr exact i64 %gepdiff, 4
+  %31 = icmp sgt i64 %30, 0
+  br i1 %31, label %.lr.ph.i.i.i.i.i.i.preheader, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %25, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi i64 [ %54, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i ], [ %35, %25 ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %53, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i ], [ %28, %25 ]
-  %.0910.i.i.i.i.i.i = phi ptr [ %52, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i ], [ %29, %25 ]
-  %37 = load i8, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %38 = trunc nuw i8 %37 to i1
-  %39 = load i8, ptr %.0910.i.i.i.i.i.i, align 8, !tbaa !1948, !range !111, !noundef !117
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %38, label %41, label %43
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %25
+  %.idx8 = shl nsw i64 %26, 4
+  %32 = getelementptr inbounds i8, ptr %15, i64 %.idx8
+  %.pre = load i8, ptr %32, align 8, !tbaa !1948, !range !111
+  br label %.lr.ph.i.i.i.i.i.i
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  br i1 %40, label %48, label %42
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
+  %33 = phi i8 [ %36, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i ], [ %.pre, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.012.i.i.i.i.i.i = phi i64 [ %49, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i ], [ %30, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %34, %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %34 = getelementptr i8, ptr %.0811.i.i.i.i.i.i, i64 16
+  %35 = trunc nuw i8 %33 to i1
+  %36 = load i8, ptr %34, align 8, !tbaa !1948, !range !111, !noundef !117
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %35, label %38, label %40
 
-42:                                               ; preds = %41
+38:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  br i1 %37, label %45, label %39
+
+39:                                               ; preds = %38
   store i8 0, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
 
-43:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  br i1 %40, label %44, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
+40:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  br i1 %37, label %41, label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  %47 = load i64, ptr %45, align 8, !tbaa !124
-  store i64 %47, ptr %46, align 8, !tbaa !124
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
+  %44 = load i64, ptr %42, align 8, !tbaa !124
+  store i64 %44, ptr %43, align 8, !tbaa !124
   store i8 1, ptr %.0811.i.i.i.i.i.i, align 8, !tbaa !1948
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !124
-  %51 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  store i64 %50, ptr %51, align 8, !tbaa !124
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 24
+  %47 = load i64, ptr %46, align 8, !tbaa !124
+  %48 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
+  store i64 %47, ptr %48, align 8, !tbaa !124
   br label %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i
 
-_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i: ; preds = %48, %44, %43, %42
-  %52 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
-  %53 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
-  %54 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %55 = icmp sgt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %55, label %.lr.ph.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit, !llvm.loop !1962
+_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i: ; preds = %45, %41, %40, %39
+  %49 = add nsw i64 %.012.i.i.i.i.i.i, -1
+  %50 = icmp sgt i64 %.012.i.i.i.i.i.i, 1
+  br i1 %50, label %.lr.ph.i.i.i.i.i.i, label %_ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit, !llvm.loop !1962
 
 _ZN6open3d4core15SmallVectorImplINS_7utility8optionalIlEEE5eraseEPKS4_.exit: ; preds = %_ZN6open3d7utility8optionalIlEaSEOS2_.exit.i.i.i.i.i.i, %25
-  %56 = add i32 %27, -1
+  %51 = add i32 %27, -1
   %.reass = add i64 %26, %invariant.op
-  %57 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %57, %14
+  %52 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %52, %14
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !2234
 }
 

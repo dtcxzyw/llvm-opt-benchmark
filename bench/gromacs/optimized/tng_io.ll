@@ -1360,152 +1360,154 @@ define range(i32 0, 3) i32 @tng_chain_residue_w_id_add(ptr readnone captures(non
   %29 = load ptr, ptr %20, align 8, !tbaa !77
   tail call void @free(ptr noundef %29) #26
   store ptr null, ptr %20, align 8, !tbaa !77
-  br label %97
+  br label %95
 
 30:                                               ; preds = %18
   store ptr %25, ptr %20, align 8, !tbaa !77
   %.not55 = icmp eq i64 %.049, -1
-  br i1 %.not55, label %45, label %31
+  br i1 %.not55, label %43, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds %struct.tng_residue, ptr %25, i64 %.049
+  %.idx58 = mul nsw i64 %.049, 40
+  %32 = getelementptr inbounds i8, ptr %25, i64 %.idx58
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %32, ptr %33, align 8, !tbaa !60
   %34 = load i64, ptr %21, align 8, !tbaa !78
   %.not56 = icmp eq i64 %34, 0
-  %.pre61 = load i64, ptr %7, align 8, !tbaa !59
-  br i1 %.not56, label %47, label %35
+  %.pre63 = load i64, ptr %7, align 8, !tbaa !59
+  br i1 %.not56, label %45, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr %struct.tng_residue, ptr %25, i64 %34
-  %37 = getelementptr %struct.tng_residue, ptr %32, i64 %.pre61
+  %.idx = mul i64 %34, 40
+  %36 = getelementptr i8, ptr %25, i64 %.idx
+  %.idx59 = mul i64 %.pre63, 40
+  %37 = getelementptr i8, ptr %32, i64 %.idx59
   %.not57 = icmp eq ptr %37, %36
-  br i1 %.not57, label %47, label %38
+  br i1 %.not57, label %45, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr i8, ptr %36, i64 -40
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %41 = ptrtoint ptr %39 to i64
-  %42 = ptrtoint ptr %37 to i64
-  %43 = sub i64 %41, %42
-  %44 = sdiv exact i64 %43, 40
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %37, i64 %44, i1 false)
-  br label %47
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %40 = add i64 %.idx, -40
+  %41 = add i64 %.idx58, %.idx59
+  %gepdiff = sub i64 %40, %41
+  %42 = sdiv exact i64 %gepdiff, 40
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr align 8 %37, i64 %42, i1 false)
+  br label %45
 
-45:                                               ; preds = %30
-  %46 = load i64, ptr %21, align 8, !tbaa !78
-  %.pre60 = load i64, ptr %7, align 8, !tbaa !59
-  br label %47
+43:                                               ; preds = %30
+  %44 = load i64, ptr %21, align 8, !tbaa !78
+  %.pre62 = load i64, ptr %7, align 8, !tbaa !59
+  br label %45
 
-47:                                               ; preds = %31, %38, %35, %45
-  %48 = phi i64 [ %34, %38 ], [ %34, %35 ], [ 0, %31 ], [ %46, %45 ]
-  %49 = phi i64 [ %.pre61, %38 ], [ %.pre61, %35 ], [ %.pre61, %31 ], [ %.pre60, %45 ]
-  %.1 = phi i64 [ %.049, %38 ], [ %.049, %35 ], [ %.049, %31 ], [ %46, %45 ]
-  %50 = getelementptr %struct.tng_residue, ptr %25, i64 %.1
-  %51 = getelementptr %struct.tng_residue, ptr %50, i64 %49
-  store ptr %51, ptr %4, align 8, !tbaa !11
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !54
-  %54 = icmp sgt i64 %53, 0
-  br i1 %54, label %.lr.ph.i, label %tng_molecule_chains_residue_pointers_update.exit
+45:                                               ; preds = %31, %38, %35, %43
+  %46 = phi i64 [ %34, %38 ], [ %34, %35 ], [ 0, %31 ], [ %44, %43 ]
+  %47 = phi i64 [ %.pre63, %38 ], [ %.pre63, %35 ], [ %.pre63, %31 ], [ %.pre62, %43 ]
+  %.1 = phi i64 [ %.049, %38 ], [ %.049, %35 ], [ %.049, %31 ], [ %44, %43 ]
+  %48 = getelementptr %struct.tng_residue, ptr %25, i64 %.1
+  %49 = getelementptr %struct.tng_residue, ptr %48, i64 %47
+  store ptr %49, ptr %4, align 8, !tbaa !11
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %51 = load i64, ptr %50, align 8, !tbaa !54
+  %52 = icmp sgt i64 %51, 0
+  br i1 %52, label %.lr.ph.i, label %tng_molecule_chains_residue_pointers_update.exit
 
-.lr.ph.i:                                         ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !55
-  %57 = load ptr, ptr %20, align 8, !tbaa !77
-  br label %58
+.lr.ph.i:                                         ; preds = %45
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %54 = load ptr, ptr %53, align 8, !tbaa !55
+  %55 = load ptr, ptr %20, align 8, !tbaa !77
+  br label %56
 
-58:                                               ; preds = %58, %.lr.ph.i
-  %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %58 ]
-  %.091.i = phi i64 [ 0, %.lr.ph.i ], [ %65, %58 ]
-  %59 = getelementptr inbounds nuw %struct.tng_chain, ptr %56, i64 %.091.i
-  %60 = getelementptr inbounds %struct.tng_residue, ptr %57, i64 %.02.i
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  store ptr %60, ptr %61, align 8, !tbaa !60
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %63 = load i64, ptr %62, align 8, !tbaa !59
-  %64 = add nsw i64 %63, %.02.i
-  %65 = add nuw nsw i64 %.091.i, 1
-  %exitcond.not.i = icmp eq i64 %65, %53
-  br i1 %exitcond.not.i, label %tng_molecule_chains_residue_pointers_update.exit, label %58, !llvm.loop !82
+56:                                               ; preds = %56, %.lr.ph.i
+  %.02.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %56 ]
+  %.091.i = phi i64 [ 0, %.lr.ph.i ], [ %63, %56 ]
+  %57 = getelementptr inbounds nuw %struct.tng_chain, ptr %54, i64 %.091.i
+  %58 = getelementptr inbounds %struct.tng_residue, ptr %55, i64 %.02.i
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  store ptr %58, ptr %59, align 8, !tbaa !60
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %61 = load i64, ptr %60, align 8, !tbaa !59
+  %62 = add nsw i64 %61, %.02.i
+  %63 = add nuw nsw i64 %.091.i, 1
+  %exitcond.not.i = icmp eq i64 %63, %51
+  br i1 %exitcond.not.i, label %tng_molecule_chains_residue_pointers_update.exit, label %56, !llvm.loop !82
 
-tng_molecule_chains_residue_pointers_update.exit: ; preds = %58, %47
-  %66 = icmp sgt i64 %48, 0
-  br i1 %66, label %.lr.ph5.i, label %.thread.i
+tng_molecule_chains_residue_pointers_update.exit: ; preds = %56, %45
+  %64 = icmp sgt i64 %46, 0
+  br i1 %64, label %.lr.ph5.i, label %.thread.i
 
 .lr.ph5.i:                                        ; preds = %tng_molecule_chains_residue_pointers_update.exit
-  %67 = load ptr, ptr %20, align 8, !tbaa !77
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  br label %69
+  %65 = load ptr, ptr %20, align 8, !tbaa !77
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  br label %67
 
-69:                                               ; preds = %._crit_edge.i, %.lr.ph5.i
-  %.03.i = phi i64 [ 0, %.lr.ph5.i ], [ %77, %._crit_edge.i ]
-  %.0152.i = phi i64 [ 0, %.lr.ph5.i ], [ %78, %._crit_edge.i ]
-  %70 = getelementptr inbounds nuw %struct.tng_residue, ptr %67, i64 %.0152.i
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load i64, ptr %71, align 8, !tbaa !64
-  %73 = icmp sgt i64 %72, 0
-  br i1 %73, label %.lr.ph.i58, label %._crit_edge.i
+67:                                               ; preds = %._crit_edge.i, %.lr.ph5.i
+  %.03.i = phi i64 [ 0, %.lr.ph5.i ], [ %75, %._crit_edge.i ]
+  %.0152.i = phi i64 [ 0, %.lr.ph5.i ], [ %76, %._crit_edge.i ]
+  %68 = getelementptr inbounds nuw %struct.tng_residue, ptr %65, i64 %.0152.i
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %70 = load i64, ptr %69, align 8, !tbaa !64
+  %71 = icmp sgt i64 %70, 0
+  br i1 %71, label %.lr.ph.i60, label %._crit_edge.i
 
-.lr.ph.i58:                                       ; preds = %69
-  %74 = load ptr, ptr %68, align 8, !tbaa !66
-  %invariant.gep.i = getelementptr %struct.tng_atom, ptr %74, i64 %.03.i
-  br label %75
+.lr.ph.i60:                                       ; preds = %67
+  %72 = load ptr, ptr %66, align 8, !tbaa !66
+  %invariant.gep.i = getelementptr %struct.tng_atom, ptr %72, i64 %.03.i
+  br label %73
 
-75:                                               ; preds = %75, %.lr.ph.i58
-  %.0141.i = phi i64 [ 0, %.lr.ph.i58 ], [ %76, %75 ]
+73:                                               ; preds = %73, %.lr.ph.i60
+  %.0141.i = phi i64 [ 0, %.lr.ph.i60 ], [ %74, %73 ]
   %gep.i = getelementptr %struct.tng_atom, ptr %invariant.gep.i, i64 %.0141.i
-  store ptr %70, ptr %gep.i, align 8, !tbaa !3
-  %76 = add nuw nsw i64 %.0141.i, 1
-  %exitcond.not.i59 = icmp eq i64 %76, %72
-  br i1 %exitcond.not.i59, label %._crit_edge.i, label %75, !llvm.loop !83
+  store ptr %68, ptr %gep.i, align 8, !tbaa !3
+  %74 = add nuw nsw i64 %.0141.i, 1
+  %exitcond.not.i61 = icmp eq i64 %74, %70
+  br i1 %exitcond.not.i61, label %._crit_edge.i, label %73, !llvm.loop !83
 
-._crit_edge.i:                                    ; preds = %75, %69
-  %77 = add nsw i64 %72, %.03.i
-  %78 = add nuw nsw i64 %.0152.i, 1
-  %exitcond7.not.i = icmp eq i64 %78, %48
-  br i1 %exitcond7.not.i, label %.thread.i, label %69, !llvm.loop !84
+._crit_edge.i:                                    ; preds = %73, %67
+  %75 = add nsw i64 %70, %.03.i
+  %76 = add nuw nsw i64 %.0152.i, 1
+  %exitcond7.not.i = icmp eq i64 %76, %46
+  br i1 %exitcond7.not.i, label %.thread.i, label %67, !llvm.loop !84
 
 .thread.i:                                        ; preds = %._crit_edge.i, %tng_molecule_chains_residue_pointers_update.exit
-  %79 = load ptr, ptr %4, align 8, !tbaa !11
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store ptr null, ptr %80, align 8, !tbaa !61
-  %81 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
-  %82 = add i64 %81, 1
-  %83 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %82, i64 1024)
-  %84 = tail call noalias ptr @malloc(i64 noundef %83) #28
-  store ptr %84, ptr %80, align 8, !tbaa !61
-  %.not15.i = icmp eq ptr %84, null
-  br i1 %.not15.i, label %85, label %88
+  %77 = load ptr, ptr %4, align 8, !tbaa !11
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store ptr null, ptr %78, align 8, !tbaa !61
+  %79 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #27
+  %80 = add i64 %79, 1
+  %81 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %80, i64 1024)
+  %82 = tail call noalias ptr @malloc(i64 noundef %81) #28
+  store ptr %82, ptr %78, align 8, !tbaa !61
+  %.not15.i = icmp eq ptr %82, null
+  br i1 %.not15.i, label %83, label %86
 
-85:                                               ; preds = %.thread.i
-  %86 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7430) #29
-  %.pre62 = load ptr, ptr %4, align 8, !tbaa !11
-  %.pre63 = load i64, ptr %7, align 8, !tbaa !59
-  %.pre64 = load i64, ptr %21, align 8, !tbaa !78
+83:                                               ; preds = %.thread.i
+  %84 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 7430) #29
+  %.pre64 = load ptr, ptr %4, align 8, !tbaa !11
+  %.pre65 = load i64, ptr %7, align 8, !tbaa !59
+  %.pre66 = load i64, ptr %21, align 8, !tbaa !78
   br label %tng_residue_name_set.exit
 
-88:                                               ; preds = %.thread.i
-  %89 = tail call ptr @strncpy(ptr noundef nonnull %84, ptr noundef nonnull readonly %2, i64 noundef %83) #26
+86:                                               ; preds = %.thread.i
+  %87 = tail call ptr @strncpy(ptr noundef nonnull %82, ptr noundef nonnull readonly %2, i64 noundef %81) #26
   br label %tng_residue_name_set.exit
 
-tng_residue_name_set.exit:                        ; preds = %85, %88
-  %90 = phi i64 [ %.pre64, %85 ], [ %48, %88 ]
-  %91 = phi i64 [ %.pre63, %85 ], [ %49, %88 ]
-  %92 = phi ptr [ %.pre62, %85 ], [ %79, %88 ]
-  store ptr %1, ptr %92, align 8, !tbaa !85
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  %94 = add nsw i64 %91, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  store i64 %94, ptr %7, align 8, !tbaa !59
-  %95 = add nsw i64 %90, 1
-  store i64 %95, ptr %21, align 8, !tbaa !78
-  %96 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i64 %3, ptr %96, align 8, !tbaa !63
-  br label %97
+tng_residue_name_set.exit:                        ; preds = %83, %86
+  %88 = phi i64 [ %.pre66, %83 ], [ %46, %86 ]
+  %89 = phi i64 [ %.pre65, %83 ], [ %47, %86 ]
+  %90 = phi ptr [ %.pre64, %83 ], [ %77, %86 ]
+  store ptr %1, ptr %90, align 8, !tbaa !85
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %92 = add nsw i64 %89, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
+  store i64 %92, ptr %7, align 8, !tbaa !59
+  %93 = add nsw i64 %88, 1
+  store i64 %93, ptr %21, align 8, !tbaa !78
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  store i64 %3, ptr %94, align 8, !tbaa !63
+  br label %95
 
-97:                                               ; preds = %tng_residue_name_set.exit, %26
+95:                                               ; preds = %tng_residue_name_set.exit, %26
   %.0 = phi i32 [ 0, %tng_residue_name_set.exit ], [ 2, %26 ]
   ret i32 %.0
 }

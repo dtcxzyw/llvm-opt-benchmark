@@ -8065,12 +8065,12 @@ _ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread.thread: ; preds = %
   br i1 %.not.i, label %.thread286, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %164
-  %.phi.trans.insert349 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %.pre350 = load i16, ptr %.phi.trans.insert349, align 8, !tbaa !231
+  %.phi.trans.insert350 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %.pre351 = load i16, ptr %.phi.trans.insert350, align 8, !tbaa !231
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %141
-  %165 = phi i16 [ %.pre350, %..thread_crit_edge ], [ %143, %141 ]
+  %165 = phi i16 [ %.pre351, %..thread_crit_edge ], [ %143, %141 ]
   switch i16 %165, label %.thread286 [
     i16 66, label %166
     i16 63, label %166
@@ -8089,11 +8089,11 @@ _ZNK5clang6format11FormatToken14isMemberAccessEv.exit.thread.thread: ; preds = %
   br i1 %171, label %.thread286._crit_edge, label %175
 
 .thread286._crit_edge:                            ; preds = %.thread286
-  %.pre351 = load i16, ptr %24, align 4
+  %.pre352 = load i16, ptr %24, align 4
   br label %172
 
 172:                                              ; preds = %.thread286._crit_edge, %166
-  %173 = phi i16 [ %.pre351, %.thread286._crit_edge ], [ %167, %166 ]
+  %173 = phi i16 [ %.pre352, %.thread286._crit_edge ], [ %167, %166 ]
   %174 = and i16 %173, -17
   store i16 %174, ptr %24, align 4
   br label %175
@@ -8339,8 +8339,8 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
   %306 = load i8, ptr %305, align 2, !tbaa !305
   %307 = icmp eq i8 %306, 1
   %308 = icmp eq i8 %293, 75
-  %or.cond376 = and i1 %307, %308
-  br i1 %or.cond376, label %309, label %367
+  %or.cond377 = and i1 %307, %308
+  br i1 %or.cond377, label %309, label %367
 
 309:                                              ; preds = %.critedge191.thread
   %310 = ptrtoint ptr %300 to i64
@@ -8365,13 +8365,13 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
   %316 = getelementptr i8, ptr %313, i64 -112
   %.val2.val.i.i.i.i = load ptr, ptr %316, align 8, !tbaa !298, !noalias !331
   %.not17.i.i.i.i = icmp eq ptr %.val2.val.i.i.i.i, null
-  br i1 %.not17.i.i.i.i, label %317, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit361"
+  br i1 %.not17.i.i.i.i, label %317, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit362"
 
 317:                                              ; preds = %315
   %318 = getelementptr i8, ptr %313, i64 -168
   %.val3.val.i.i.i.i = load ptr, ptr %318, align 8, !tbaa !298, !noalias !331
   %.not18.i.i.i.i = icmp eq ptr %.val3.val.i.i.i.i, null
-  br i1 %.not18.i.i.i.i, label %319, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit359"
+  br i1 %.not18.i.i.i.i, label %319, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit360"
 
 319:                                              ; preds = %317
   %320 = getelementptr i8, ptr %313, i64 -224
@@ -8385,8 +8385,8 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
   br i1 %323, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !340
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %321
-  %.pre50.i.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
-  %.pre53.i.i.i.i = sub i64 %.pre50.i.i.i.i, %310
+  %.idx317 = mul nuw nsw i64 %302, 56
+  %.pre53.i.i.i.i = add nsw i64 %312, %.idx317
   %324 = sdiv exact i64 %.pre53.i.i.i.i, 56
   br label %._crit_edge.i.i.i.i
 
@@ -8424,16 +8424,16 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
   %334 = getelementptr i8, ptr %313, i64 -168
   br label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit"
 
-"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit359": ; preds = %317
+"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit360": ; preds = %317
   %335 = getelementptr i8, ptr %313, i64 -112
   br label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit"
 
-"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit361": ; preds = %315
+"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit362": ; preds = %315
   %336 = getelementptr i8, ptr %313, i64 -56
   br label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit"
 
-"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit359", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit361", %._crit_edge.i.i.i.i, %326, %328, %331
-  %.sink.i.i.i.i = phi ptr [ %325, %326 ], [ %329, %328 ], [ %300, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i, %331 ], [ %334, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit" ], [ %335, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit359" ], [ %336, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit361" ], [ %313, %.lr.ph.i.i.i.i ]
+"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit360", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit362", %._crit_edge.i.i.i.i, %326, %328, %331
+  %.sink.i.i.i.i = phi ptr [ %325, %326 ], [ %329, %328 ], [ %300, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i, %331 ], [ %334, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit" ], [ %335, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit360" ], [ %336, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit.loopexit.split.loop.exit362" ], [ %313, %.lr.ph.i.i.i.i ]
   %.not.i226 = icmp eq ptr %.sink.i.i.i.i, %300
   %storemerge.idx.i = select i1 %.not.i226, i64 0, i64 -56
   %storemerge.i = getelementptr inbounds i8, ptr %.sink.i.i.i.i, i64 %storemerge.idx.i
@@ -8461,13 +8461,13 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
   %346 = getelementptr i8, ptr %343, i64 -112
   %.val2.val.i.i.i.i243 = load ptr, ptr %346, align 8, !tbaa !298, !noalias !341
   %.not17.i.i.i.i244 = icmp eq ptr %.val2.val.i.i.i.i243, null
-  br i1 %.not17.i.i.i.i244, label %347, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit369"
+  br i1 %.not17.i.i.i.i244, label %347, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit370"
 
 347:                                              ; preds = %345
   %348 = getelementptr i8, ptr %343, i64 -168
   %.val3.val.i.i.i.i246 = load ptr, ptr %348, align 8, !tbaa !298, !noalias !341
   %.not18.i.i.i.i247 = icmp eq ptr %.val3.val.i.i.i.i246, null
-  br i1 %.not18.i.i.i.i247, label %349, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit367"
+  br i1 %.not18.i.i.i.i247, label %349, label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit368"
 
 349:                                              ; preds = %347
   %350 = getelementptr i8, ptr %343, i64 -224
@@ -8520,16 +8520,16 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
   %364 = getelementptr i8, ptr %343, i64 -168
   br label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255"
 
-"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit367": ; preds = %347
+"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit368": ; preds = %347
   %365 = getelementptr i8, ptr %343, i64 -112
   br label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255"
 
-"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit369": ; preds = %345
+"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit370": ; preds = %345
   %366 = getelementptr i8, ptr %343, i64 -56
   br label %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255"
 
-"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255": ; preds = %.lr.ph.i.i.i.i239, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit367", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit369", %._crit_edge.i.i.i.i227, %356, %358, %361
-  %.sink.i.i.i.i232 = phi ptr [ %354, %356 ], [ %359, %358 ], [ %300, %._crit_edge.i.i.i.i227 ], [ %spec.select.i.i.i231, %361 ], [ %364, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit" ], [ %365, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit367" ], [ %366, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit369" ], [ %343, %.lr.ph.i.i.i.i239 ]
+"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255": ; preds = %.lr.ph.i.i.i.i239, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit368", %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit370", %._crit_edge.i.i.i.i227, %356, %358, %361
+  %.sink.i.i.i.i232 = phi ptr [ %354, %356 ], [ %359, %358 ], [ %300, %._crit_edge.i.i.i.i227 ], [ %spec.select.i.i.i231, %361 ], [ %364, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit" ], [ %365, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit368" ], [ %366, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255.loopexit.split.loop.exit370" ], [ %343, %.lr.ph.i.i.i.i239 ]
   %.not.i256 = icmp eq ptr %.sink.i.i.i.i232, %300
   %storemerge.idx.i257 = select i1 %.not.i256, i64 0, i64 -56
   %storemerge.i258 = getelementptr inbounds i8, ptr %.sink.i.i.i.i232, i64 %storemerge.idx.i257
@@ -8538,18 +8538,18 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
 367:                                              ; preds = %.critedge191, %.critedge191.thread, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255"
   %368 = phi ptr [ %300, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255" ], [ %300, %.critedge191.thread ], [ %295, %.critedge191 ]
   %.sroa.0276.0 = phi ptr [ %storemerge.i258, %"_ZZN5clang6format20ContinuationIndenter17addTokenOnNewLineERNS0_9LineStateEbENK3$_0clISt16reverse_iteratorIPNS0_10ParenStateEEEEDaRKT_.exit255" ], [ %304, %.critedge191.thread ], [ %299, %.critedge191 ]
-  %.not317338 = icmp eq ptr %.sroa.0276.0, %368
-  br i1 %.not317338, label %.critedge190, label %.lr.ph
+  %.not318339 = icmp eq ptr %.sroa.0276.0, %368
+  br i1 %.not318339, label %.critedge190, label %.lr.ph
 
 .lr.ph:                                           ; preds = %367, %.lr.ph
-  %.sroa.0265.0339 = phi ptr [ %369, %.lr.ph ], [ %.sroa.0276.0, %367 ]
-  %369 = getelementptr inbounds i8, ptr %.sroa.0265.0339, i64 -56
-  %370 = getelementptr inbounds i8, ptr %.sroa.0265.0339, i64 -4
+  %.sroa.0265.0340 = phi ptr [ %369, %.lr.ph ], [ %.sroa.0276.0, %367 ]
+  %369 = getelementptr inbounds i8, ptr %.sroa.0265.0340, i64 -56
+  %370 = getelementptr inbounds i8, ptr %.sroa.0265.0340, i64 -4
   %371 = load i16, ptr %370, align 4
   %372 = or i16 %371, 16
   store i16 %372, ptr %370, align 4
-  %.not317 = icmp eq ptr %369, %368
-  br i1 %.not317, label %.critedge190, label %.lr.ph, !llvm.loop !350
+  %.not318 = icmp eq ptr %369, %368
+  br i1 %.not318, label %.critedge190, label %.lr.ph, !llvm.loop !350
 
 .critedge190:                                     ; preds = %.lr.ph, %367, %284, %275, %.critedge
   br i1 %.not.i, label %.critedge194.thread, label %373
@@ -8566,8 +8566,8 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
 376:                                              ; preds = %373
   %377 = getelementptr inbounds nuw i8, ptr %.0.i, i64 67
   %378 = load i8, ptr %377, align 1, !tbaa !230
-  %.not318 = icmp eq i8 %378, -117
-  br i1 %.not318, label %383, label %379
+  %.not319 = icmp eq i8 %378, -117
+  br i1 %.not319, label %383, label %379
 
 379:                                              ; preds = %376
   %380 = getelementptr inbounds nuw i8, ptr %.0.i, i64 65
@@ -8591,8 +8591,8 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit: ; preds = %251
 
 386:                                              ; preds = %385
   %387 = load i8, ptr %55, align 1, !tbaa !230
-  %.not319 = icmp eq i8 %387, 8
-  br i1 %.not319, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, label %388
+  %.not320 = icmp eq i8 %387, 8
+  br i1 %.not320, label %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread, label %388
 
 388:                                              ; preds = %386
   switch i8 %378, label %.thread.i [
@@ -8698,19 +8698,19 @@ _ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyl
   %430 = load i16, ptr %24, align 4
   %431 = or i16 %430, 2
   store i16 %431, ptr %24, align 4
-  %.pre353 = load i16, ptr %374, align 8, !tbaa !231
+  %.pre354 = load i16, ptr %374, align 8, !tbaa !231
   br label %.critedge193
 
 .critedge193.thread:                              ; preds = %419, %423, %_ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyleE.exit, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread
   %.ph = phi ptr [ %411, %_ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyleE.exit ], [ %411, %423 ], [ %411, %419 ], [ %415, %_ZNK5clang6format11FormatToken7isOneOfINS_3tok9TokenKindES4_JS4_EEEbT_T0_DpT1_.exit.thread.thread ]
-  %.pre354358 = load i16, ptr %24, align 4
+  %.pre355359 = load i16, ptr %24, align 4
   br label %.critedge194
 
 .critedge193:                                     ; preds = %418, %_ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyleE.exit.thread299
   %432 = phi ptr [ %411, %418 ], [ %429, %_ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyleE.exit.thread299 ]
-  %433 = phi i16 [ %409, %418 ], [ %.pre353, %_ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyleE.exit.thread299 ]
+  %433 = phi i16 [ %409, %418 ], [ %.pre354, %_ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyleE.exit.thread299 ]
   %434 = icmp eq i16 %433, 22
-  %.pre354 = load i16, ptr %24, align 4
+  %.pre355 = load i16, ptr %24, align 4
   br i1 %434, label %435, label %.critedge194
 
 435:                                              ; preds = %.critedge193
@@ -8718,14 +8718,14 @@ _ZN5clang6formatL22opensProtoMessageFieldERKNS0_11FormatTokenERKNS0_11FormatStyl
   %437 = load i8, ptr %436, align 8, !tbaa !267
   %438 = icmp eq i8 %437, 3
   %439 = select i1 %438, i16 4, i16 0
-  %440 = and i16 %.pre354, -5
+  %440 = and i16 %.pre355, -5
   %441 = or disjoint i16 %440, %439
   store i16 %441, ptr %24, align 4
   br label %.critedge194
 
 .critedge194:                                     ; preds = %.critedge193.thread, %435, %.critedge193
   %442 = phi ptr [ %432, %435 ], [ %432, %.critedge193 ], [ %.ph, %.critedge193.thread ]
-  %443 = phi i16 [ %441, %435 ], [ %.pre354, %.critedge193 ], [ %.pre354358, %.critedge193.thread ]
+  %443 = phi i16 [ %441, %435 ], [ %.pre355, %.critedge193 ], [ %.pre355359, %.critedge193.thread ]
   %444 = and i16 %443, 8
   %.not187 = icmp eq i16 %444, 0
   br i1 %.not187, label %497, label %447

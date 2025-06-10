@@ -298,9 +298,7 @@ invoke.cont8:                                     ; preds = %if.then.i.i.i.i.i.i
   %12 = getelementptr inbounds i8, ptr %cond.i.i.i.i56176, i64 %sub.ptr.sub.i.i50
   %incdec.ptr.i = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i57177, align 8, !tbaa !6
-  %sub.ptr.lhs.cast.i73 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i74 = ptrtoint ptr %cond.i.i.i.i56176 to i64
-  %sub.ptr.sub.i75 = sub i64 %sub.ptr.lhs.cast.i73, %sub.ptr.rhs.cast.i74
+  %sub.ptr.sub.i75 = add nsw i64 %sub.ptr.sub.i.i50, -8
   %sub.ptr.div.i76 = ashr exact i64 %sub.ptr.sub.i75, 3
   %13 = load i64, ptr %numberRates_, align 8, !tbaa !14
   %cmp = icmp eq i64 %sub.ptr.div.i76, %13
@@ -1948,9 +1946,7 @@ invoke.cont15:                                    ; preds = %if.then.i.i.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %cond.i.i.i.i67196, i64 %sub.ptr.sub.i.i61
   %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i68197, align 8, !tbaa !6
-  %sub.ptr.lhs.cast.i84 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i85 = ptrtoint ptr %cond.i.i.i.i67196 to i64
-  %sub.ptr.sub.i86 = sub i64 %sub.ptr.lhs.cast.i84, %sub.ptr.rhs.cast.i85
+  %sub.ptr.sub.i86 = add nsw i64 %sub.ptr.sub.i.i61, -8
   %sub.ptr.div.i87 = ashr exact i64 %sub.ptr.sub.i86, 3
   %15 = load i64, ptr %numberRates_, align 8, !tbaa !59
   %cmp = icmp eq i64 %sub.ptr.div.i87, %15

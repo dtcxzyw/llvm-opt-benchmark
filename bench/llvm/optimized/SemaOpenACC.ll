@@ -13523,7 +13523,7 @@ declare void @_ZN5clang4Sema34DiscardCleanupsInEvaluationContextEv(ptr noundef n
 declare void @_ZN5clang4Sema30PopExpressionEvaluationContextEv(ptr noundef nonnull align 8 dereferenceable(17504)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !159
@@ -13588,167 +13588,160 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %18, %20
 32:                                               ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %34 = getelementptr inbounds i8, ptr %33, i64 -1
-  %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %1 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp eq ptr %34, %1
-  br i1 %38, label %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit", label %39
+  %35 = load i8, ptr %1, align 1, !tbaa !139
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !421
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %39 = load ptr, ptr %38, align 8, !tbaa !422
+  %.not.i.i.i.i = icmp ult ptr %37, %39
+  br i1 %.not.i.i.i.i, label %42, label %40
 
-39:                                               ; preds = %32
-  %40 = load i8, ptr %1, align 1, !tbaa !139
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !421
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !422
-  %.not.i.i.i.i = icmp ult ptr %42, %44
-  br i1 %.not.i.i.i.i, label %47, label %45
-
-45:                                               ; preds = %39
-  %46 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext 39) #21
+40:                                               ; preds = %32
+  %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext 39) #21
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
 
-47:                                               ; preds = %39
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  store ptr %48, ptr %41, align 8, !tbaa !421
-  store i8 39, ptr %42, align 1, !tbaa !66
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store ptr %43, ptr %36, align 8, !tbaa !421
+  store i8 39, ptr %37, align 1, !tbaa !66
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
 
-_ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %47, %45
-  %.0.i.i.i.i = phi ptr [ %46, %45 ], [ %4, %47 ]
-  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, i8 noundef zeroext %40)
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8, !tbaa !421
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !422
-  %.not.i1.i.i.i = icmp ult ptr %51, %53
-  br i1 %.not.i1.i.i.i, label %56, label %54
+_ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %42, %40
+  %.0.i.i.i.i = phi ptr [ %41, %40 ], [ %4, %42 ]
+  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i.i, i8 noundef zeroext %35)
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !421
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %48 = load ptr, ptr %47, align 8, !tbaa !422
+  %.not.i1.i.i.i = icmp ult ptr %46, %48
+  br i1 %.not.i1.i.i.i, label %51, label %49
 
-54:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
-  %55 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %49, i8 noundef zeroext 39) #21
+49:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
+  %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 noundef zeroext 39) #21
   br label %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i"
 
-56:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %57, ptr %50, align 8, !tbaa !421
-  store i8 39, ptr %51, align 1, !tbaa !66
+51:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  store ptr %52, ptr %45, align 8, !tbaa !421
+  store i8 39, ptr %46, align 1, !tbaa !66
   br label %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i"
 
-"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i": ; preds = %56, %54
-  %.not19.i.i = icmp samesign eq i64 %37, 1
+"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i": ; preds = %51, %49
+  %.not19.i.i = icmp eq i64 %2, 2
   br i1 %.not19.i.i, label %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i"
   %.018.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %58
+  br label %53
 
-58:                                               ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i", %.lr.ph.i.i
+53:                                               ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i", %.lr.ph.i.i
   %.020.i.i = phi ptr [ %.018.i.i, %.lr.ph.i.i ], [ %.0.i.i, %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i" ]
-  %59 = load ptr, ptr %43, align 8, !tbaa !422
-  %60 = load ptr, ptr %41, align 8, !tbaa !421
-  %61 = ptrtoint ptr %59 to i64
-  %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = icmp ult i64 %63, 2
-  br i1 %64, label %65, label %67
+  %54 = load ptr, ptr %38, align 8, !tbaa !422
+  %55 = load ptr, ptr %36, align 8, !tbaa !421
+  %56 = ptrtoint ptr %54 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = icmp ult i64 %58, 2
+  br i1 %59, label %60, label %62
 
-65:                                               ; preds = %58
-  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.56, i64 noundef 2) #21
-  %.pre = load ptr, ptr %41, align 8, !tbaa !421
+60:                                               ; preds = %53
+  %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.56, i64 noundef 2) #21
+  %.pre = load ptr, ptr %36, align 8, !tbaa !421
   br label %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i"
 
-67:                                               ; preds = %58
-  store i16 8236, ptr %60, align 1
-  %68 = load ptr, ptr %41, align 8, !tbaa !421
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
-  store ptr %69, ptr %41, align 8, !tbaa !421
+62:                                               ; preds = %53
+  store i16 8236, ptr %55, align 1
+  %63 = load ptr, ptr %36, align 8, !tbaa !421
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  store ptr %64, ptr %36, align 8, !tbaa !421
   br label %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i"
 
-"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i": ; preds = %67, %65
-  %70 = phi ptr [ %69, %67 ], [ %.pre, %65 ]
-  %71 = load i8, ptr %.020.i.i, align 1, !tbaa !139
-  %72 = load ptr, ptr %43, align 8, !tbaa !422
-  %.not.i.i12.i.i = icmp ult ptr %70, %72
-  br i1 %.not.i.i12.i.i, label %75, label %73
+"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i": ; preds = %62, %60
+  %65 = phi ptr [ %64, %62 ], [ %.pre, %60 ]
+  %66 = load i8, ptr %.020.i.i, align 1, !tbaa !139
+  %67 = load ptr, ptr %38, align 8, !tbaa !422
+  %.not.i.i12.i.i = icmp ult ptr %65, %67
+  br i1 %.not.i.i12.i.i, label %70, label %68
 
-73:                                               ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i"
-  %74 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext 39) #21
+68:                                               ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i"
+  %69 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 noundef zeroext 39) #21
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i
 
-75:                                               ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i"
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  store ptr %76, ptr %41, align 8, !tbaa !421
-  store i8 39, ptr %70, align 1, !tbaa !66
+70:                                               ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_1clEv.exit.i.i"
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %71, ptr %36, align 8, !tbaa !421
+  store i8 39, ptr %65, align 1, !tbaa !66
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i
 
-_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i:           ; preds = %75, %73
-  %.0.i.i14.i.i = phi ptr [ %74, %73 ], [ %4, %75 ]
-  %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14.i.i, i8 noundef zeroext %71)
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %79 = load ptr, ptr %78, align 8, !tbaa !421
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !422
-  %.not.i1.i15.i.i = icmp ult ptr %79, %81
-  br i1 %.not.i1.i15.i.i, label %84, label %82
+_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i:           ; preds = %70, %68
+  %.0.i.i14.i.i = phi ptr [ %69, %68 ], [ %4, %70 ]
+  %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14.i.i, i8 noundef zeroext %66)
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %74 = load ptr, ptr %73, align 8, !tbaa !421
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %76 = load ptr, ptr %75, align 8, !tbaa !422
+  %.not.i1.i15.i.i = icmp ult ptr %74, %76
+  br i1 %.not.i1.i15.i.i, label %79, label %77
 
-82:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i
-  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %77, i8 noundef zeroext 39) #21
+77:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i
+  %78 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %72, i8 noundef zeroext 39) #21
   br label %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i"
 
-84:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store ptr %85, ptr %78, align 8, !tbaa !421
-  store i8 39, ptr %79, align 1, !tbaa !66
+79:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i13.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  store ptr %80, ptr %73, align 8, !tbaa !421
+  store i8 39, ptr %74, align 1, !tbaa !66
   br label %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i"
 
-"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i": ; preds = %84, %82
+"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i": ; preds = %79, %77
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
   %.not.i.i = icmp eq ptr %.0.i.i, %34
-  br i1 %.not.i.i, label %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit", label %58, !llvm.loop !423
+  br i1 %.not.i.i, label %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit", label %53, !llvm.loop !423
 
-"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit": ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i", %32, %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i"
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %87 = load ptr, ptr %86, align 8, !tbaa !422
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %89 = load ptr, ptr %88, align 8, !tbaa !421
-  %90 = ptrtoint ptr %87 to i64
-  %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = icmp ult i64 %92, 5
-  br i1 %93, label %94, label %96
+"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit": ; preds = %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit16.i.i", %"_ZZN12_GLOBAL__N_116GetListOfClausesB5cxx11EN4llvm8ArrayRefIN5clang17OpenACCClauseKindEEEENK3$_0clES3_.exit.i.i"
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %82 = load ptr, ptr %81, align 8, !tbaa !422
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %84 = load ptr, ptr %83, align 8, !tbaa !421
+  %85 = ptrtoint ptr %82 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = icmp ult i64 %87, 5
+  br i1 %88, label %89, label %91
 
-94:                                               ; preds = %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit"
-  %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.4, i64 noundef 5) #21
+89:                                               ; preds = %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit"
+  %90 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull @.str.4, i64 noundef 5) #21
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-96:                                               ; preds = %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %89, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
-  %97 = load ptr, ptr %88, align 8, !tbaa !421
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 5
-  store ptr %98, ptr %88, align 8, !tbaa !421
+91:                                               ; preds = %"_ZN4llvm10interleaveINS_8ArrayRefIN5clang17OpenACCClauseKindEEEZN12_GLOBAL__N_116GetListOfClausesB5cxx11ES4_E3$_0ZNS5_16GetListOfClausesB5cxx11ES4_E3$_1vEEvRKT_T0_T1_.exit"
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %84, ptr noundef nonnull align 1 dereferenceable(5) @.str.4, i64 5, i1 false)
+  %92 = load ptr, ptr %83, align 8, !tbaa !421
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 5
+  store ptr %93, ptr %83, align 8, !tbaa !421
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
-_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %94, %96
-  %.0.i.i6 = phi ptr [ %95, %94 ], [ %4, %96 ]
-  %99 = load i8, ptr %34, align 1, !tbaa !139
-  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i6, i8 noundef zeroext %99)
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !421
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %104 = load ptr, ptr %103, align 8, !tbaa !422
-  %.not.i7 = icmp ult ptr %102, %104
-  br i1 %.not.i7, label %107, label %105
+_ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %89, %91
+  %.0.i.i6 = phi ptr [ %90, %89 ], [ %4, %91 ]
+  %94 = load i8, ptr %34, align 1, !tbaa !139
+  %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_17OpenACCClauseKindE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i6, i8 noundef zeroext %94)
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load ptr, ptr %96, align 8, !tbaa !421
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %99 = load ptr, ptr %98, align 8, !tbaa !422
+  %.not.i7 = icmp ult ptr %97, %99
+  br i1 %.not.i7, label %102, label %100
 
-105:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %106 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %100, i8 noundef zeroext 39) #21
+100:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %101 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %95, i8 noundef zeroext 39) #21
   br label %_ZN4llvm11raw_ostreamlsEc.exit5
 
-107:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %108 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  store ptr %108, ptr %101, align 8, !tbaa !421
-  store i8 39, ptr %102, align 1, !tbaa !66
+102:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  store ptr %103, ptr %96, align 8, !tbaa !421
+  store i8 39, ptr %97, align 1, !tbaa !66
   br label %_ZN4llvm11raw_ostreamlsEc.exit5
 
-_ZN4llvm11raw_ostreamlsEc.exit5:                  ; preds = %107, %105, %30, %28
+_ZN4llvm11raw_ostreamlsEc.exit5:                  ; preds = %102, %100, %30, %28
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #21
   ret void

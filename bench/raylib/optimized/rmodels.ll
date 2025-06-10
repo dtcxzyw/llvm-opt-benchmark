@@ -613,7 +613,7 @@ define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(pt
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %434, label %9
+  br i1 %or.cond, label %410, label %9
 
 9:                                                ; preds = %4
   store ptr null, ptr %0, align 8
@@ -629,17 +629,17 @@ define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(pt
   %15 = tail call ptr @strerror(i32 noundef %14) #58
   %16 = load i32, ptr %13, align 4
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.105, ptr noundef %2, ptr noundef %15, i32 noundef %16) #59
-  br label %434
+  br label %410
 
 18:                                               ; preds = %9
   %19 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #60
   %20 = tail call ptr @fgets(ptr noundef %19, i32 noundef 128, ptr noundef nonnull %10)
-  %.not.i361 = icmp eq ptr %20, null
-  br i1 %.not.i361, label %.loopexit265.thread, label %.lr.ph
+  %.not.i376 = icmp eq ptr %20, null
+  br i1 %.not.i376, label %.loopexit280.thread, label %.lr.ph
 
-.loopexit265.thread:                              ; preds = %18
+.loopexit280.thread:                              ; preds = %18
   %21 = tail call i32 @fclose(ptr noundef nonnull %10)
-  br label %432
+  br label %408
 
 .lr.ph:                                           ; preds = %18
   %.not69 = icmp eq ptr %3, null
@@ -648,46 +648,46 @@ define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(pt
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %25
 
-25:                                               ; preds = %.lr.ph, %422
-  %.0399 = phi i32 [ 0, %.lr.ph ], [ %.1, %422 ]
-  %.032397 = phi ptr [ null, %.lr.ph ], [ %.133, %422 ]
-  %.035395 = phi i32 [ 0, %.lr.ph ], [ %.136, %422 ]
-  %.sroa.0.0394 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.1, %422 ]
-  %.sroa.8.0393 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.8.1, %422 ]
-  %.sroa.9.0392 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.9.1, %422 ]
-  %.sroa.10.0391 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.10.1, %422 ]
-  %.sroa.11.0390 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.11.1, %422 ]
-  %.sroa.12.0389 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.12.1, %422 ]
-  %.sroa.13.0388 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.13.1, %422 ]
-  %.sroa.14.0387 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.14.1, %422 ]
-  %.sroa.15.0386 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.15.1, %422 ]
-  %.sroa.16.0385 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.16.1, %422 ]
-  %.sroa.17.0384 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.17.1, %422 ]
-  %.sroa.18.0383 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.18.1, %422 ]
-  %.sroa.19.0382 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.19.1, %422 ]
-  %.sroa.20.0380 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.20.1, %422 ]
-  %.sroa.21.0378 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.21.1, %422 ]
-  %.0246377 = phi ptr [ %19, %.lr.ph ], [ %.2, %422 ]
-  %.0248376 = phi i32 [ 128, %.lr.ph ], [ %.2250, %422 ]
-  %.sroa.23.0374 = phi float [ 1.000000e+00, %.lr.ph ], [ %.sroa.23.1, %422 ]
-  %.sroa.26.0373 = phi float [ 1.000000e+00, %.lr.ph ], [ %.sroa.26.1, %422 ]
-  %.sroa.29.0372 = phi float [ 1.000000e+00, %.lr.ph ], [ %.sroa.29.1, %422 ]
-  %.sroa.33.0371 = phi i32 [ 0, %.lr.ph ], [ %.sroa.33.1, %422 ]
-  %.sroa.45.0370 = phi ptr [ null, %.lr.ph ], [ %.sroa.45.1, %422 ]
-  %.sroa.44.0369 = phi ptr [ null, %.lr.ph ], [ %.sroa.44.1, %422 ]
-  %.sroa.42.0368 = phi ptr [ null, %.lr.ph ], [ %.sroa.42.1, %422 ]
-  %.sroa.41.0367 = phi ptr [ null, %.lr.ph ], [ %.sroa.41.1, %422 ]
-  %.sroa.40.0366 = phi ptr [ null, %.lr.ph ], [ %.sroa.40.1, %422 ]
-  %.sroa.39.0365 = phi ptr [ null, %.lr.ph ], [ %.sroa.39.1, %422 ]
-  %.sroa.36208.0364 = phi ptr [ null, %.lr.ph ], [ %.sroa.36208.1, %422 ]
-  %.sroa.22.0362 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.22.1, %422 ]
-  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0246377, i32 noundef 10) #55
+25:                                               ; preds = %.lr.ph, %398
+  %.0414 = phi i32 [ 0, %.lr.ph ], [ %.1, %398 ]
+  %.032412 = phi ptr [ null, %.lr.ph ], [ %.133, %398 ]
+  %.035410 = phi i32 [ 0, %.lr.ph ], [ %.136, %398 ]
+  %.sroa.0.0409 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.1, %398 ]
+  %.sroa.8.0408 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.8.1, %398 ]
+  %.sroa.9.0407 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.9.1, %398 ]
+  %.sroa.10.0406 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.10.1, %398 ]
+  %.sroa.11.0405 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.11.1, %398 ]
+  %.sroa.12.0404 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.12.1, %398 ]
+  %.sroa.13.0403 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.13.1, %398 ]
+  %.sroa.14.0402 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.14.1, %398 ]
+  %.sroa.15.0401 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.15.1, %398 ]
+  %.sroa.16.0400 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.16.1, %398 ]
+  %.sroa.17.0399 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.17.1, %398 ]
+  %.sroa.18.0398 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.18.1, %398 ]
+  %.sroa.19.0397 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.19.1, %398 ]
+  %.sroa.20.0395 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.20.1, %398 ]
+  %.sroa.21.0393 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.21.1, %398 ]
+  %.0246392 = phi ptr [ %19, %.lr.ph ], [ %.2, %398 ]
+  %.0248391 = phi i32 [ 128, %.lr.ph ], [ %.2250, %398 ]
+  %.sroa.23.0389 = phi float [ 1.000000e+00, %.lr.ph ], [ %.sroa.23.1, %398 ]
+  %.sroa.26.0388 = phi float [ 1.000000e+00, %.lr.ph ], [ %.sroa.26.1, %398 ]
+  %.sroa.29.0387 = phi float [ 1.000000e+00, %.lr.ph ], [ %.sroa.29.1, %398 ]
+  %.sroa.33.0386 = phi i32 [ 0, %.lr.ph ], [ %.sroa.33.1, %398 ]
+  %.sroa.45.0385 = phi ptr [ null, %.lr.ph ], [ %.sroa.45.1, %398 ]
+  %.sroa.44.0384 = phi ptr [ null, %.lr.ph ], [ %.sroa.44.1, %398 ]
+  %.sroa.42.0383 = phi ptr [ null, %.lr.ph ], [ %.sroa.42.1, %398 ]
+  %.sroa.41.0382 = phi ptr [ null, %.lr.ph ], [ %.sroa.41.1, %398 ]
+  %.sroa.40.0381 = phi ptr [ null, %.lr.ph ], [ %.sroa.40.1, %398 ]
+  %.sroa.39.0380 = phi ptr [ null, %.lr.ph ], [ %.sroa.39.1, %398 ]
+  %.sroa.36208.0379 = phi ptr [ null, %.lr.ph ], [ %.sroa.36208.1, %398 ]
+  %.sroa.22.0377 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.22.1, %398 ]
+  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0246392, i32 noundef 10) #55
   %.not20.i = icmp eq ptr %26, null
   br i1 %.not20.i, label %.preheader.i, label %dynamic_fgets.exit
 
 .preheader.i:                                     ; preds = %25, %35
-  %.1249 = phi i32 [ %27, %35 ], [ %.0248376, %25 ]
-  %.1247 = phi ptr [ %29, %35 ], [ %.0246377, %25 ]
+  %.1249 = phi i32 [ %27, %35 ], [ %.0248391, %25 ]
+  %.1247 = phi ptr [ %29, %35 ], [ %.0246392, %25 ]
   %27 = shl i32 %.1249, 1
   %28 = zext i32 %27 to i64
   %29 = call ptr @realloc(ptr noundef nonnull %.1247, i64 noundef %28) #56
@@ -697,7 +697,7 @@ define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(pt
   %33 = or disjoint i32 %.1249, 1
   %34 = call ptr @fgets(ptr noundef %32, i32 noundef %33, ptr noundef nonnull %10)
   %.not21.i = icmp eq ptr %34, null
-  br i1 %.not21.i, label %.loopexit265, label %35
+  br i1 %.not21.i, label %.loopexit280, label %35
 
 35:                                               ; preds = %.preheader.i
   %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 10) #55
@@ -705,8 +705,8 @@ define internal fastcc range(i32 -3, 1) i32 @tinyobj_parse_and_index_mtl_file(pt
   br i1 %37, label %.preheader.i, label %dynamic_fgets.exit
 
 dynamic_fgets.exit:                               ; preds = %35, %25
-  %.2250 = phi i32 [ %.0248376, %25 ], [ %27, %35 ]
-  %.2 = phi ptr [ %.0246377, %25 ], [ %29, %35 ]
+  %.2250 = phi i32 [ %.0248391, %25 ], [ %27, %35 ]
+  %.2 = phi ptr [ %.0246392, %25 ], [ %29, %35 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #58
   store ptr %.2, ptr %5, align 8
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #55
@@ -716,8 +716,8 @@ dynamic_fgets.exit:                               ; preds = %35, %25
   store ptr %41, ptr %5, align 8
   %42 = load i8, ptr %41, align 1
   switch i8 %42, label %43 [
-    i8 0, label %422
-    i8 35, label %422
+    i8 0, label %398
+    i8 35, label %398
   ]
 
 43:                                               ; preds = %dynamic_fgets.exit
@@ -735,76 +735,76 @@ dynamic_fgets.exit:                               ; preds = %35, %25
 
 49:                                               ; preds = %46, %46
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #58
-  %.not68 = icmp eq i32 %.0399, 0
+  %.not68 = icmp eq i32 %.0414, 0
   br i1 %.not68, label %57, label %50
 
 50:                                               ; preds = %49
-  %51 = add i32 %.035395, 1
+  %51 = add i32 %.035410, 1
   %52 = zext i32 %51 to i64
   %53 = mul nuw nsw i64 %52, 144
-  %54 = call noalias noundef ptr @realloc(ptr noundef %.032397, i64 noundef %53) #56
-  %55 = zext i32 %.035395 to i64
+  %54 = call noalias noundef ptr @realloc(ptr noundef %.032412, i64 noundef %53) #56
+  %55 = zext i32 %.035410 to i64
   %56 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %54, i64 %55
-  store ptr %.sroa.0.0394, ptr %56, align 8
+  store ptr %.sroa.0.0409, ptr %56, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store float %.sroa.8.0393, ptr %.sroa.8.0..sroa_idx, align 8
+  store float %.sroa.8.0408, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store float %.sroa.9.0392, ptr %.sroa.9.0..sroa_idx, align 4
+  store float %.sroa.9.0407, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store float %.sroa.10.0391, ptr %.sroa.10.0..sroa_idx, align 8
+  store float %.sroa.10.0406, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 20
-  store float %.sroa.11.0390, ptr %.sroa.11.0..sroa_idx, align 4
+  store float %.sroa.11.0405, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store float %.sroa.12.0389, ptr %.sroa.12.0..sroa_idx, align 8
+  store float %.sroa.12.0404, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 28
-  store float %.sroa.13.0388, ptr %.sroa.13.0..sroa_idx, align 4
+  store float %.sroa.13.0403, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store float %.sroa.14.0387, ptr %.sroa.14.0..sroa_idx, align 8
+  store float %.sroa.14.0402, ptr %.sroa.14.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 36
-  store float %.sroa.15.0386, ptr %.sroa.15.0..sroa_idx, align 4
+  store float %.sroa.15.0401, ptr %.sroa.15.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store float %.sroa.16.0385, ptr %.sroa.16.0..sroa_idx, align 8
+  store float %.sroa.16.0400, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 44
-  store float %.sroa.17.0384, ptr %.sroa.17.0..sroa_idx, align 4
+  store float %.sroa.17.0399, ptr %.sroa.17.0..sroa_idx, align 4
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store float %.sroa.18.0383, ptr %.sroa.18.0..sroa_idx, align 8
+  store float %.sroa.18.0398, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 52
-  store float %.sroa.19.0382, ptr %.sroa.19.0..sroa_idx, align 4
+  store float %.sroa.19.0397, ptr %.sroa.19.0..sroa_idx, align 4
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 56
-  store float %.sroa.20.0380, ptr %.sroa.20.0..sroa_idx, align 8
+  store float %.sroa.20.0395, ptr %.sroa.20.0..sroa_idx, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 60
-  store float %.sroa.21.0378, ptr %.sroa.21.0..sroa_idx, align 4
+  store float %.sroa.21.0393, ptr %.sroa.21.0..sroa_idx, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 64
-  store float %.sroa.22.0362, ptr %.sroa.22.0..sroa_idx, align 8
+  store float %.sroa.22.0377, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 68
-  store float %.sroa.23.0374, ptr %.sroa.23.0..sroa_idx, align 4
+  store float %.sroa.23.0389, ptr %.sroa.23.0..sroa_idx, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 72
-  store float %.sroa.26.0373, ptr %.sroa.26.0..sroa_idx, align 8
+  store float %.sroa.26.0388, ptr %.sroa.26.0..sroa_idx, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 76
-  store float %.sroa.29.0372, ptr %.sroa.29.0..sroa_idx, align 4
+  store float %.sroa.29.0387, ptr %.sroa.29.0..sroa_idx, align 4
   %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 80
-  store i32 %.sroa.33.0371, ptr %.sroa.33.0..sroa_idx, align 8
+  store i32 %.sroa.33.0386, ptr %.sroa.33.0..sroa_idx, align 8
   %.sroa.36208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 88
-  store ptr %.sroa.36208.0364, ptr %.sroa.36208.0..sroa_idx, align 8
+  store ptr %.sroa.36208.0379, ptr %.sroa.36208.0..sroa_idx, align 8
   %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 96
-  store ptr %.sroa.39.0365, ptr %.sroa.39.0..sroa_idx, align 8
+  store ptr %.sroa.39.0380, ptr %.sroa.39.0..sroa_idx, align 8
   %.sroa.40.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 104
-  store ptr %.sroa.40.0366, ptr %.sroa.40.0..sroa_idx, align 8
+  store ptr %.sroa.40.0381, ptr %.sroa.40.0..sroa_idx, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 112
-  store ptr %.sroa.41.0367, ptr %.sroa.41.0..sroa_idx, align 8
+  store ptr %.sroa.41.0382, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 120
-  store ptr %.sroa.42.0368, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %.sroa.42.0383, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 128
-  store ptr %.sroa.44.0369, ptr %.sroa.44.0..sroa_idx, align 8
+  store ptr %.sroa.44.0384, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 136
-  store ptr %.sroa.45.0370, ptr %.sroa.45.0..sroa_idx, align 8
+  store ptr %.sroa.45.0385, ptr %.sroa.45.0..sroa_idx, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %57
 
 57:                                               ; preds = %49, %50
   %58 = phi ptr [ %.pre, %50 ], [ %41, %49 ]
-  %.237 = phi i32 [ %51, %50 ], [ %.035395, %49 ]
-  %.234 = phi ptr [ %54, %50 ], [ %.032397, %49 ]
+  %.237 = phi i32 [ %51, %50 ], [ %.035410, %49 ]
+  %.234 = phi ptr [ %54, %50 ], [ %.032412, %49 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 7
   store ptr %59, ptr %5, align 8
   %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %59, ptr noundef nonnull @.str.108, ptr noundef nonnull %6) #58
@@ -1106,7 +1106,7 @@ hash_table_insert.exit.thread.i:                  ; preds = %166, %._crit_edge.i
 
 hash_table_set.exit:                              ; preds = %hash_table_insert.exit.thread.i, %hash_table_find.exit.thread.i, %my_strdup.exit
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #58
-  br label %422
+  br label %398
 
 176:                                              ; preds = %46, %43
   switch i8 %42, label %.thread263 [
@@ -1138,7 +1138,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
   %184 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %185 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %186 = call fastcc float @parseFloat(ptr noundef nonnull %5)
-  br label %422
+  br label %398
 
 187:                                              ; preds = %177
   %188 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -1153,7 +1153,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
   %191 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %192 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %193 = call fastcc float @parseFloat(ptr noundef nonnull %5)
-  br label %422
+  br label %398
 
 194:                                              ; preds = %177
   %195 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -1168,7 +1168,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
   %198 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %199 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %200 = call fastcc float @parseFloat(ptr noundef nonnull %5)
-  br label %422
+  br label %398
 
 201:                                              ; preds = %177
   %202 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -1183,7 +1183,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
   %205 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %206 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %207 = call fastcc float @parseFloat(ptr noundef nonnull %5)
-  br label %422
+  br label %398
 
 208:                                              ; preds = %176
   %209 = getelementptr inbounds nuw i8, ptr %41, i64 1
@@ -1204,7 +1204,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
 214:                                              ; preds = %211, %211
   store ptr %212, ptr %5, align 8
   %215 = call fastcc float @parseFloat(ptr noundef %5)
-  br label %422
+  br label %398
 
 216:                                              ; preds = %177
   %217 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -1219,7 +1219,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
   %220 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %221 = call fastcc float @parseFloat(ptr noundef nonnull %5)
   %222 = call fastcc float @parseFloat(ptr noundef nonnull %5)
-  br label %422
+  br label %398
 
 223:                                              ; preds = %208
   %224 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -1232,7 +1232,7 @@ hash_table_set.exit:                              ; preds = %hash_table_insert.e
 226:                                              ; preds = %223, %223
   store ptr %224, ptr %5, align 8
   %227 = call fastcc float @parseFloat(ptr noundef %5)
-  br label %422
+  br label %398
 
 .thread263:                                       ; preds = %208, %177, %194, %187, %180, %211, %201, %216, %176, %223
   %228 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(6) @.str.109, i64 noundef 5) #55
@@ -1316,7 +1316,7 @@ my_atoi.exit.i:                                   ; preds = %.lr.ph.i.i78, %.loo
 
 parseInt.exit:                                    ; preds = %250, %250, %250, %250
   %254 = mul nsw i32 %.011.lcssa.i.i, %.0.i.i
-  br label %422
+  br label %398
 
 255:                                              ; preds = %230, %.thread263
   switch i8 %42, label %.thread264 [
@@ -1335,7 +1335,7 @@ parseInt.exit:                                    ; preds = %250, %250, %250, %2
 259:                                              ; preds = %256, %256
   store ptr %257, ptr %5, align 8
   %260 = call fastcc float @parseFloat(ptr noundef %5)
-  br label %422
+  br label %398
 
 261:                                              ; preds = %255
   %262 = getelementptr inbounds nuw i8, ptr %41, i64 1
@@ -1355,17 +1355,17 @@ parseInt.exit:                                    ; preds = %250, %250, %250, %2
   store ptr %266, ptr %5, align 8
   %269 = call fastcc float @parseFloat(ptr noundef %5)
   %270 = fsub float 1.000000e+00, %269
-  br label %422
+  br label %398
 
 .thread264:                                       ; preds = %255, %256, %265, %261
   %271 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.110, i64 noundef 6) #55
   %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %291
+  br i1 %272, label %273, label %288
 
 273:                                              ; preds = %.thread264
   %274 = getelementptr inbounds nuw i8, ptr %41, i64 6
   %275 = load i8, ptr %274, align 1
-  switch i8 %275, label %291 [
+  switch i8 %275, label %288 [
     i8 32, label %276
     i8 9, label %276
   ]
@@ -1373,520 +1373,512 @@ parseInt.exit:                                    ; preds = %250, %250, %250, %2
 276:                                              ; preds = %273, %273
   %277 = getelementptr inbounds nuw i8, ptr %41, i64 7
   store ptr %277, ptr %5, align 8
-  %278 = ptrtoint ptr %39 to i64
-  %279 = ptrtoint ptr %277 to i64
-  %280 = sub i64 %278, %279
-  %281 = trunc i64 %280 to i32
-  %.not.i.i79 = icmp eq i32 %281, 0
+  %.neg272 = add i64 %38, -7
+  %gepdiff = sub i64 %.neg272, %40
+  %278 = trunc i64 %gepdiff to i32
+  %.not.i.i79 = icmp eq i32 %278, 0
   br i1 %.not.i.i79, label %my_strdup.exit89, label %.lr.ph.preheader.i.i80
 
 .lr.ph.preheader.i.i80:                           ; preds = %276
-  %wide.trip.count.i.i81 = and i64 %280, 4294967295
+  %wide.trip.count.i.i81 = and i64 %gepdiff, 4294967295
   br label %.lr.ph.i.i82
 
-.lr.ph.i.i82:                                     ; preds = %284, %.lr.ph.preheader.i.i80
-  %indvars.iv.i.i83 = phi i64 [ 0, %.lr.ph.preheader.i.i80 ], [ %indvars.iv.next.i.i87, %284 ]
-  %282 = getelementptr inbounds nuw i8, ptr %277, i64 %indvars.iv.i.i83
-  %283 = load i8, ptr %282, align 1
-  switch i8 %283, label %284 [
+.lr.ph.i.i82:                                     ; preds = %281, %.lr.ph.preheader.i.i80
+  %indvars.iv.i.i83 = phi i64 [ 0, %.lr.ph.preheader.i.i80 ], [ %indvars.iv.next.i.i87, %281 ]
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 %indvars.iv.i.i83
+  %280 = load i8, ptr %279, align 1
+  switch i8 %280, label %281 [
     i8 10, label %._crit_edge.loopexit.split.loop.exit.i.i84
     i8 13, label %._crit_edge.loopexit.split.loop.exit.i.i84
   ]
 
-284:                                              ; preds = %.lr.ph.i.i82
+281:                                              ; preds = %.lr.ph.i.i82
   %indvars.iv.next.i.i87 = add nuw nsw i64 %indvars.iv.i.i83, 1
   %exitcond.not.i.i88 = icmp eq i64 %indvars.iv.next.i.i87, %wide.trip.count.i.i81
   br i1 %exitcond.not.i.i88, label %my_strdup.exit89, label %.lr.ph.i.i82
 
 ._crit_edge.loopexit.split.loop.exit.i.i84:       ; preds = %.lr.ph.i.i82, %.lr.ph.i.i82
-  %285 = trunc nuw i64 %indvars.iv.i.i83 to i32
+  %282 = trunc nuw i64 %indvars.iv.i.i83 to i32
   br label %my_strdup.exit89
 
-my_strdup.exit89:                                 ; preds = %284, %276, %._crit_edge.loopexit.split.loop.exit.i.i84
-  %.0.lcssa.i.i85 = phi i32 [ 0, %276 ], [ %285, %._crit_edge.loopexit.split.loop.exit.i.i84 ], [ %281, %284 ]
-  %286 = add i32 %.0.lcssa.i.i85, 1
-  %287 = zext i32 %286 to i64
-  %288 = call noalias ptr @malloc(i64 noundef %287) #60
-  %289 = zext i32 %.0.lcssa.i.i85 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %288, ptr nonnull readonly align 1 %277, i64 %289, i1 false)
-  %290 = getelementptr inbounds nuw i8, ptr %288, i64 %289
-  store i8 0, ptr %290, align 1
-  br label %422
+my_strdup.exit89:                                 ; preds = %281, %276, %._crit_edge.loopexit.split.loop.exit.i.i84
+  %.0.lcssa.i.i85 = phi i32 [ 0, %276 ], [ %282, %._crit_edge.loopexit.split.loop.exit.i.i84 ], [ %278, %281 ]
+  %283 = add i32 %.0.lcssa.i.i85, 1
+  %284 = zext i32 %283 to i64
+  %285 = call noalias ptr @malloc(i64 noundef %284) #60
+  %286 = zext i32 %.0.lcssa.i.i85 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %285, ptr nonnull readonly align 1 %277, i64 %286, i1 false)
+  %287 = getelementptr inbounds nuw i8, ptr %285, i64 %286
+  store i8 0, ptr %287, align 1
+  br label %398
 
-291:                                              ; preds = %273, %.thread264
-  %292 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.111, i64 noundef 6) #55
-  %293 = icmp eq i32 %292, 0
-  br i1 %293, label %294, label %312
+288:                                              ; preds = %273, %.thread264
+  %289 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.111, i64 noundef 6) #55
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %291, label %306
 
-294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %296 = load i8, ptr %295, align 1
-  switch i8 %296, label %312 [
-    i8 32, label %297
-    i8 9, label %297
+291:                                              ; preds = %288
+  %292 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  %293 = load i8, ptr %292, align 1
+  switch i8 %293, label %306 [
+    i8 32, label %294
+    i8 9, label %294
   ]
 
-297:                                              ; preds = %294, %294
-  %298 = getelementptr inbounds nuw i8, ptr %41, i64 7
-  store ptr %298, ptr %5, align 8
-  %299 = ptrtoint ptr %39 to i64
-  %300 = ptrtoint ptr %298 to i64
-  %301 = sub i64 %299, %300
-  %302 = trunc i64 %301 to i32
-  %.not.i.i90 = icmp eq i32 %302, 0
+294:                                              ; preds = %291, %291
+  %295 = getelementptr inbounds nuw i8, ptr %41, i64 7
+  store ptr %295, ptr %5, align 8
+  %.neg273 = add i64 %38, -7
+  %gepdiff265 = sub i64 %.neg273, %40
+  %296 = trunc i64 %gepdiff265 to i32
+  %.not.i.i90 = icmp eq i32 %296, 0
   br i1 %.not.i.i90, label %my_strdup.exit100, label %.lr.ph.preheader.i.i91
 
-.lr.ph.preheader.i.i91:                           ; preds = %297
-  %wide.trip.count.i.i92 = and i64 %301, 4294967295
+.lr.ph.preheader.i.i91:                           ; preds = %294
+  %wide.trip.count.i.i92 = and i64 %gepdiff265, 4294967295
   br label %.lr.ph.i.i93
 
-.lr.ph.i.i93:                                     ; preds = %305, %.lr.ph.preheader.i.i91
-  %indvars.iv.i.i94 = phi i64 [ 0, %.lr.ph.preheader.i.i91 ], [ %indvars.iv.next.i.i98, %305 ]
-  %303 = getelementptr inbounds nuw i8, ptr %298, i64 %indvars.iv.i.i94
-  %304 = load i8, ptr %303, align 1
-  switch i8 %304, label %305 [
+.lr.ph.i.i93:                                     ; preds = %299, %.lr.ph.preheader.i.i91
+  %indvars.iv.i.i94 = phi i64 [ 0, %.lr.ph.preheader.i.i91 ], [ %indvars.iv.next.i.i98, %299 ]
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 %indvars.iv.i.i94
+  %298 = load i8, ptr %297, align 1
+  switch i8 %298, label %299 [
     i8 10, label %._crit_edge.loopexit.split.loop.exit.i.i95
     i8 13, label %._crit_edge.loopexit.split.loop.exit.i.i95
   ]
 
-305:                                              ; preds = %.lr.ph.i.i93
+299:                                              ; preds = %.lr.ph.i.i93
   %indvars.iv.next.i.i98 = add nuw nsw i64 %indvars.iv.i.i94, 1
   %exitcond.not.i.i99 = icmp eq i64 %indvars.iv.next.i.i98, %wide.trip.count.i.i92
   br i1 %exitcond.not.i.i99, label %my_strdup.exit100, label %.lr.ph.i.i93
 
 ._crit_edge.loopexit.split.loop.exit.i.i95:       ; preds = %.lr.ph.i.i93, %.lr.ph.i.i93
-  %306 = trunc nuw i64 %indvars.iv.i.i94 to i32
+  %300 = trunc nuw i64 %indvars.iv.i.i94 to i32
   br label %my_strdup.exit100
 
-my_strdup.exit100:                                ; preds = %305, %297, %._crit_edge.loopexit.split.loop.exit.i.i95
-  %.0.lcssa.i.i96 = phi i32 [ 0, %297 ], [ %306, %._crit_edge.loopexit.split.loop.exit.i.i95 ], [ %302, %305 ]
-  %307 = add i32 %.0.lcssa.i.i96, 1
-  %308 = zext i32 %307 to i64
-  %309 = call noalias ptr @malloc(i64 noundef %308) #60
-  %310 = zext i32 %.0.lcssa.i.i96 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %309, ptr nonnull readonly align 1 %298, i64 %310, i1 false)
-  %311 = getelementptr inbounds nuw i8, ptr %309, i64 %310
-  store i8 0, ptr %311, align 1
-  br label %422
+my_strdup.exit100:                                ; preds = %299, %294, %._crit_edge.loopexit.split.loop.exit.i.i95
+  %.0.lcssa.i.i96 = phi i32 [ 0, %294 ], [ %300, %._crit_edge.loopexit.split.loop.exit.i.i95 ], [ %296, %299 ]
+  %301 = add i32 %.0.lcssa.i.i96, 1
+  %302 = zext i32 %301 to i64
+  %303 = call noalias ptr @malloc(i64 noundef %302) #60
+  %304 = zext i32 %.0.lcssa.i.i96 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %303, ptr nonnull readonly align 1 %295, i64 %304, i1 false)
+  %305 = getelementptr inbounds nuw i8, ptr %303, i64 %304
+  store i8 0, ptr %305, align 1
+  br label %398
 
-312:                                              ; preds = %294, %291
-  %313 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.112, i64 noundef 6) #55
-  %314 = icmp eq i32 %313, 0
-  br i1 %314, label %315, label %333
+306:                                              ; preds = %291, %288
+  %307 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.112, i64 noundef 6) #55
+  %308 = icmp eq i32 %307, 0
+  br i1 %308, label %309, label %324
 
-315:                                              ; preds = %312
-  %316 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %317 = load i8, ptr %316, align 1
-  switch i8 %317, label %333 [
-    i8 32, label %318
-    i8 9, label %318
+309:                                              ; preds = %306
+  %310 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  %311 = load i8, ptr %310, align 1
+  switch i8 %311, label %324 [
+    i8 32, label %312
+    i8 9, label %312
   ]
 
-318:                                              ; preds = %315, %315
-  %319 = getelementptr inbounds nuw i8, ptr %41, i64 7
-  store ptr %319, ptr %5, align 8
-  %320 = ptrtoint ptr %39 to i64
-  %321 = ptrtoint ptr %319 to i64
-  %322 = sub i64 %320, %321
-  %323 = trunc i64 %322 to i32
-  %.not.i.i101 = icmp eq i32 %323, 0
+312:                                              ; preds = %309, %309
+  %313 = getelementptr inbounds nuw i8, ptr %41, i64 7
+  store ptr %313, ptr %5, align 8
+  %.neg274 = add i64 %38, -7
+  %gepdiff266 = sub i64 %.neg274, %40
+  %314 = trunc i64 %gepdiff266 to i32
+  %.not.i.i101 = icmp eq i32 %314, 0
   br i1 %.not.i.i101, label %my_strdup.exit111, label %.lr.ph.preheader.i.i102
 
-.lr.ph.preheader.i.i102:                          ; preds = %318
-  %wide.trip.count.i.i103 = and i64 %322, 4294967295
+.lr.ph.preheader.i.i102:                          ; preds = %312
+  %wide.trip.count.i.i103 = and i64 %gepdiff266, 4294967295
   br label %.lr.ph.i.i104
 
-.lr.ph.i.i104:                                    ; preds = %326, %.lr.ph.preheader.i.i102
-  %indvars.iv.i.i105 = phi i64 [ 0, %.lr.ph.preheader.i.i102 ], [ %indvars.iv.next.i.i109, %326 ]
-  %324 = getelementptr inbounds nuw i8, ptr %319, i64 %indvars.iv.i.i105
-  %325 = load i8, ptr %324, align 1
-  switch i8 %325, label %326 [
+.lr.ph.i.i104:                                    ; preds = %317, %.lr.ph.preheader.i.i102
+  %indvars.iv.i.i105 = phi i64 [ 0, %.lr.ph.preheader.i.i102 ], [ %indvars.iv.next.i.i109, %317 ]
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 %indvars.iv.i.i105
+  %316 = load i8, ptr %315, align 1
+  switch i8 %316, label %317 [
     i8 10, label %._crit_edge.loopexit.split.loop.exit.i.i106
     i8 13, label %._crit_edge.loopexit.split.loop.exit.i.i106
   ]
 
-326:                                              ; preds = %.lr.ph.i.i104
+317:                                              ; preds = %.lr.ph.i.i104
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, %wide.trip.count.i.i103
   br i1 %exitcond.not.i.i110, label %my_strdup.exit111, label %.lr.ph.i.i104
 
 ._crit_edge.loopexit.split.loop.exit.i.i106:      ; preds = %.lr.ph.i.i104, %.lr.ph.i.i104
-  %327 = trunc nuw i64 %indvars.iv.i.i105 to i32
+  %318 = trunc nuw i64 %indvars.iv.i.i105 to i32
   br label %my_strdup.exit111
 
-my_strdup.exit111:                                ; preds = %326, %318, %._crit_edge.loopexit.split.loop.exit.i.i106
-  %.0.lcssa.i.i107 = phi i32 [ 0, %318 ], [ %327, %._crit_edge.loopexit.split.loop.exit.i.i106 ], [ %323, %326 ]
-  %328 = add i32 %.0.lcssa.i.i107, 1
-  %329 = zext i32 %328 to i64
-  %330 = call noalias ptr @malloc(i64 noundef %329) #60
-  %331 = zext i32 %.0.lcssa.i.i107 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %330, ptr nonnull readonly align 1 %319, i64 %331, i1 false)
-  %332 = getelementptr inbounds nuw i8, ptr %330, i64 %331
-  store i8 0, ptr %332, align 1
-  br label %422
+my_strdup.exit111:                                ; preds = %317, %312, %._crit_edge.loopexit.split.loop.exit.i.i106
+  %.0.lcssa.i.i107 = phi i32 [ 0, %312 ], [ %318, %._crit_edge.loopexit.split.loop.exit.i.i106 ], [ %314, %317 ]
+  %319 = add i32 %.0.lcssa.i.i107, 1
+  %320 = zext i32 %319 to i64
+  %321 = call noalias ptr @malloc(i64 noundef %320) #60
+  %322 = zext i32 %.0.lcssa.i.i107 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %321, ptr nonnull readonly align 1 %313, i64 %322, i1 false)
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 %322
+  store i8 0, ptr %323, align 1
+  br label %398
 
-333:                                              ; preds = %315, %312
-  %334 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.113, i64 noundef 6) #55
-  %335 = icmp eq i32 %334, 0
-  br i1 %335, label %336, label %354
+324:                                              ; preds = %309, %306
+  %325 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(7) @.str.113, i64 noundef 6) #55
+  %326 = icmp eq i32 %325, 0
+  br i1 %326, label %327, label %342
 
-336:                                              ; preds = %333
-  %337 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %338 = load i8, ptr %337, align 1
-  switch i8 %338, label %354 [
-    i8 32, label %339
-    i8 9, label %339
+327:                                              ; preds = %324
+  %328 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  %329 = load i8, ptr %328, align 1
+  switch i8 %329, label %342 [
+    i8 32, label %330
+    i8 9, label %330
   ]
 
-339:                                              ; preds = %336, %336
-  %340 = getelementptr inbounds nuw i8, ptr %41, i64 7
-  store ptr %340, ptr %5, align 8
-  %341 = ptrtoint ptr %39 to i64
-  %342 = ptrtoint ptr %340 to i64
-  %343 = sub i64 %341, %342
-  %344 = trunc i64 %343 to i32
-  %.not.i.i112 = icmp eq i32 %344, 0
+330:                                              ; preds = %327, %327
+  %331 = getelementptr inbounds nuw i8, ptr %41, i64 7
+  store ptr %331, ptr %5, align 8
+  %.neg275 = add i64 %38, -7
+  %gepdiff267 = sub i64 %.neg275, %40
+  %332 = trunc i64 %gepdiff267 to i32
+  %.not.i.i112 = icmp eq i32 %332, 0
   br i1 %.not.i.i112, label %my_strdup.exit122, label %.lr.ph.preheader.i.i113
 
-.lr.ph.preheader.i.i113:                          ; preds = %339
-  %wide.trip.count.i.i114 = and i64 %343, 4294967295
+.lr.ph.preheader.i.i113:                          ; preds = %330
+  %wide.trip.count.i.i114 = and i64 %gepdiff267, 4294967295
   br label %.lr.ph.i.i115
 
-.lr.ph.i.i115:                                    ; preds = %347, %.lr.ph.preheader.i.i113
-  %indvars.iv.i.i116 = phi i64 [ 0, %.lr.ph.preheader.i.i113 ], [ %indvars.iv.next.i.i120, %347 ]
-  %345 = getelementptr inbounds nuw i8, ptr %340, i64 %indvars.iv.i.i116
-  %346 = load i8, ptr %345, align 1
-  switch i8 %346, label %347 [
+.lr.ph.i.i115:                                    ; preds = %335, %.lr.ph.preheader.i.i113
+  %indvars.iv.i.i116 = phi i64 [ 0, %.lr.ph.preheader.i.i113 ], [ %indvars.iv.next.i.i120, %335 ]
+  %333 = getelementptr inbounds nuw i8, ptr %331, i64 %indvars.iv.i.i116
+  %334 = load i8, ptr %333, align 1
+  switch i8 %334, label %335 [
     i8 10, label %._crit_edge.loopexit.split.loop.exit.i.i117
     i8 13, label %._crit_edge.loopexit.split.loop.exit.i.i117
   ]
 
-347:                                              ; preds = %.lr.ph.i.i115
+335:                                              ; preds = %.lr.ph.i.i115
   %indvars.iv.next.i.i120 = add nuw nsw i64 %indvars.iv.i.i116, 1
   %exitcond.not.i.i121 = icmp eq i64 %indvars.iv.next.i.i120, %wide.trip.count.i.i114
   br i1 %exitcond.not.i.i121, label %my_strdup.exit122, label %.lr.ph.i.i115
 
 ._crit_edge.loopexit.split.loop.exit.i.i117:      ; preds = %.lr.ph.i.i115, %.lr.ph.i.i115
-  %348 = trunc nuw i64 %indvars.iv.i.i116 to i32
+  %336 = trunc nuw i64 %indvars.iv.i.i116 to i32
   br label %my_strdup.exit122
 
-my_strdup.exit122:                                ; preds = %347, %339, %._crit_edge.loopexit.split.loop.exit.i.i117
-  %.0.lcssa.i.i118 = phi i32 [ 0, %339 ], [ %348, %._crit_edge.loopexit.split.loop.exit.i.i117 ], [ %344, %347 ]
-  %349 = add i32 %.0.lcssa.i.i118, 1
-  %350 = zext i32 %349 to i64
-  %351 = call noalias ptr @malloc(i64 noundef %350) #60
-  %352 = zext i32 %.0.lcssa.i.i118 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %351, ptr nonnull readonly align 1 %340, i64 %352, i1 false)
-  %353 = getelementptr inbounds nuw i8, ptr %351, i64 %352
-  store i8 0, ptr %353, align 1
-  br label %422
+my_strdup.exit122:                                ; preds = %335, %330, %._crit_edge.loopexit.split.loop.exit.i.i117
+  %.0.lcssa.i.i118 = phi i32 [ 0, %330 ], [ %336, %._crit_edge.loopexit.split.loop.exit.i.i117 ], [ %332, %335 ]
+  %337 = add i32 %.0.lcssa.i.i118, 1
+  %338 = zext i32 %337 to i64
+  %339 = call noalias ptr @malloc(i64 noundef %338) #60
+  %340 = zext i32 %.0.lcssa.i.i118 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %339, ptr nonnull readonly align 1 %331, i64 %340, i1 false)
+  %341 = getelementptr inbounds nuw i8, ptr %339, i64 %340
+  store i8 0, ptr %341, align 1
+  br label %398
 
-354:                                              ; preds = %336, %333
-  %355 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(9) @.str.114, i64 noundef 8) #55
-  %356 = icmp eq i32 %355, 0
-  br i1 %356, label %357, label %375
+342:                                              ; preds = %327, %324
+  %343 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(9) @.str.114, i64 noundef 8) #55
+  %344 = icmp eq i32 %343, 0
+  br i1 %344, label %345, label %360
 
-357:                                              ; preds = %354
-  %358 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %359 = load i8, ptr %358, align 1
-  switch i8 %359, label %375 [
-    i8 32, label %360
-    i8 9, label %360
+345:                                              ; preds = %342
+  %346 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %347 = load i8, ptr %346, align 1
+  switch i8 %347, label %360 [
+    i8 32, label %348
+    i8 9, label %348
   ]
 
-360:                                              ; preds = %357, %357
-  %361 = getelementptr inbounds nuw i8, ptr %41, i64 9
-  store ptr %361, ptr %5, align 8
-  %362 = ptrtoint ptr %39 to i64
-  %363 = ptrtoint ptr %361 to i64
-  %364 = sub i64 %362, %363
-  %365 = trunc i64 %364 to i32
-  %.not.i.i123 = icmp eq i32 %365, 0
+348:                                              ; preds = %345, %345
+  %349 = getelementptr inbounds nuw i8, ptr %41, i64 9
+  store ptr %349, ptr %5, align 8
+  %.neg276 = add i64 %38, -9
+  %gepdiff268 = sub i64 %.neg276, %40
+  %350 = trunc i64 %gepdiff268 to i32
+  %.not.i.i123 = icmp eq i32 %350, 0
   br i1 %.not.i.i123, label %my_strdup.exit133, label %.lr.ph.preheader.i.i124
 
-.lr.ph.preheader.i.i124:                          ; preds = %360
-  %wide.trip.count.i.i125 = and i64 %364, 4294967295
+.lr.ph.preheader.i.i124:                          ; preds = %348
+  %wide.trip.count.i.i125 = and i64 %gepdiff268, 4294967295
   br label %.lr.ph.i.i126
 
-.lr.ph.i.i126:                                    ; preds = %368, %.lr.ph.preheader.i.i124
-  %indvars.iv.i.i127 = phi i64 [ 0, %.lr.ph.preheader.i.i124 ], [ %indvars.iv.next.i.i131, %368 ]
-  %366 = getelementptr inbounds nuw i8, ptr %361, i64 %indvars.iv.i.i127
-  %367 = load i8, ptr %366, align 1
-  switch i8 %367, label %368 [
+.lr.ph.i.i126:                                    ; preds = %353, %.lr.ph.preheader.i.i124
+  %indvars.iv.i.i127 = phi i64 [ 0, %.lr.ph.preheader.i.i124 ], [ %indvars.iv.next.i.i131, %353 ]
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 %indvars.iv.i.i127
+  %352 = load i8, ptr %351, align 1
+  switch i8 %352, label %353 [
     i8 10, label %._crit_edge.loopexit.split.loop.exit.i.i128
     i8 13, label %._crit_edge.loopexit.split.loop.exit.i.i128
   ]
 
-368:                                              ; preds = %.lr.ph.i.i126
+353:                                              ; preds = %.lr.ph.i.i126
   %indvars.iv.next.i.i131 = add nuw nsw i64 %indvars.iv.i.i127, 1
   %exitcond.not.i.i132 = icmp eq i64 %indvars.iv.next.i.i131, %wide.trip.count.i.i125
   br i1 %exitcond.not.i.i132, label %my_strdup.exit133, label %.lr.ph.i.i126
 
 ._crit_edge.loopexit.split.loop.exit.i.i128:      ; preds = %.lr.ph.i.i126, %.lr.ph.i.i126
-  %369 = trunc nuw i64 %indvars.iv.i.i127 to i32
+  %354 = trunc nuw i64 %indvars.iv.i.i127 to i32
   br label %my_strdup.exit133
 
-my_strdup.exit133:                                ; preds = %368, %360, %._crit_edge.loopexit.split.loop.exit.i.i128
-  %.0.lcssa.i.i129 = phi i32 [ 0, %360 ], [ %369, %._crit_edge.loopexit.split.loop.exit.i.i128 ], [ %365, %368 ]
-  %370 = add i32 %.0.lcssa.i.i129, 1
-  %371 = zext i32 %370 to i64
-  %372 = call noalias ptr @malloc(i64 noundef %371) #60
-  %373 = zext i32 %.0.lcssa.i.i129 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %372, ptr nonnull readonly align 1 %361, i64 %373, i1 false)
-  %374 = getelementptr inbounds nuw i8, ptr %372, i64 %373
-  store i8 0, ptr %374, align 1
-  br label %422
+my_strdup.exit133:                                ; preds = %353, %348, %._crit_edge.loopexit.split.loop.exit.i.i128
+  %.0.lcssa.i.i129 = phi i32 [ 0, %348 ], [ %354, %._crit_edge.loopexit.split.loop.exit.i.i128 ], [ %350, %353 ]
+  %355 = add i32 %.0.lcssa.i.i129, 1
+  %356 = zext i32 %355 to i64
+  %357 = call noalias ptr @malloc(i64 noundef %356) #60
+  %358 = zext i32 %.0.lcssa.i.i129 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %357, ptr nonnull readonly align 1 %349, i64 %358, i1 false)
+  %359 = getelementptr inbounds nuw i8, ptr %357, i64 %358
+  store i8 0, ptr %359, align 1
+  br label %398
 
-375:                                              ; preds = %357, %354
-  %376 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(6) @.str.115, i64 noundef 5) #55
-  %377 = icmp eq i32 %376, 0
-  br i1 %377, label %378, label %396
+360:                                              ; preds = %345, %342
+  %361 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(6) @.str.115, i64 noundef 5) #55
+  %362 = icmp eq i32 %361, 0
+  br i1 %362, label %363, label %378
 
-378:                                              ; preds = %375
-  %379 = getelementptr inbounds nuw i8, ptr %41, i64 5
-  %380 = load i8, ptr %379, align 1
-  switch i8 %380, label %396 [
-    i8 32, label %381
-    i8 9, label %381
+363:                                              ; preds = %360
+  %364 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  %365 = load i8, ptr %364, align 1
+  switch i8 %365, label %378 [
+    i8 32, label %366
+    i8 9, label %366
   ]
 
-381:                                              ; preds = %378, %378
-  %382 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  store ptr %382, ptr %5, align 8
-  %383 = ptrtoint ptr %39 to i64
-  %384 = ptrtoint ptr %382 to i64
-  %385 = sub i64 %383, %384
-  %386 = trunc i64 %385 to i32
-  %.not.i.i134 = icmp eq i32 %386, 0
+366:                                              ; preds = %363, %363
+  %367 = getelementptr inbounds nuw i8, ptr %41, i64 6
+  store ptr %367, ptr %5, align 8
+  %.neg277 = add i64 %38, -6
+  %gepdiff269 = sub i64 %.neg277, %40
+  %368 = trunc i64 %gepdiff269 to i32
+  %.not.i.i134 = icmp eq i32 %368, 0
   br i1 %.not.i.i134, label %my_strdup.exit144, label %.lr.ph.preheader.i.i135
 
-.lr.ph.preheader.i.i135:                          ; preds = %381
-  %wide.trip.count.i.i136 = and i64 %385, 4294967295
+.lr.ph.preheader.i.i135:                          ; preds = %366
+  %wide.trip.count.i.i136 = and i64 %gepdiff269, 4294967295
   br label %.lr.ph.i.i137
 
-.lr.ph.i.i137:                                    ; preds = %389, %.lr.ph.preheader.i.i135
-  %indvars.iv.i.i138 = phi i64 [ 0, %.lr.ph.preheader.i.i135 ], [ %indvars.iv.next.i.i142, %389 ]
-  %387 = getelementptr inbounds nuw i8, ptr %382, i64 %indvars.iv.i.i138
-  %388 = load i8, ptr %387, align 1
-  switch i8 %388, label %389 [
+.lr.ph.i.i137:                                    ; preds = %371, %.lr.ph.preheader.i.i135
+  %indvars.iv.i.i138 = phi i64 [ 0, %.lr.ph.preheader.i.i135 ], [ %indvars.iv.next.i.i142, %371 ]
+  %369 = getelementptr inbounds nuw i8, ptr %367, i64 %indvars.iv.i.i138
+  %370 = load i8, ptr %369, align 1
+  switch i8 %370, label %371 [
     i8 10, label %._crit_edge.loopexit.split.loop.exit.i.i139
     i8 13, label %._crit_edge.loopexit.split.loop.exit.i.i139
   ]
 
-389:                                              ; preds = %.lr.ph.i.i137
+371:                                              ; preds = %.lr.ph.i.i137
   %indvars.iv.next.i.i142 = add nuw nsw i64 %indvars.iv.i.i138, 1
   %exitcond.not.i.i143 = icmp eq i64 %indvars.iv.next.i.i142, %wide.trip.count.i.i136
   br i1 %exitcond.not.i.i143, label %my_strdup.exit144, label %.lr.ph.i.i137
 
 ._crit_edge.loopexit.split.loop.exit.i.i139:      ; preds = %.lr.ph.i.i137, %.lr.ph.i.i137
-  %390 = trunc nuw i64 %indvars.iv.i.i138 to i32
+  %372 = trunc nuw i64 %indvars.iv.i.i138 to i32
   br label %my_strdup.exit144
 
-my_strdup.exit144:                                ; preds = %389, %381, %._crit_edge.loopexit.split.loop.exit.i.i139
-  %.0.lcssa.i.i140 = phi i32 [ 0, %381 ], [ %390, %._crit_edge.loopexit.split.loop.exit.i.i139 ], [ %386, %389 ]
-  %391 = add i32 %.0.lcssa.i.i140, 1
-  %392 = zext i32 %391 to i64
-  %393 = call noalias ptr @malloc(i64 noundef %392) #60
-  %394 = zext i32 %.0.lcssa.i.i140 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %393, ptr nonnull readonly align 1 %382, i64 %394, i1 false)
-  %395 = getelementptr inbounds nuw i8, ptr %393, i64 %394
-  store i8 0, ptr %395, align 1
-  br label %422
+my_strdup.exit144:                                ; preds = %371, %366, %._crit_edge.loopexit.split.loop.exit.i.i139
+  %.0.lcssa.i.i140 = phi i32 [ 0, %366 ], [ %372, %._crit_edge.loopexit.split.loop.exit.i.i139 ], [ %368, %371 ]
+  %373 = add i32 %.0.lcssa.i.i140, 1
+  %374 = zext i32 %373 to i64
+  %375 = call noalias ptr @malloc(i64 noundef %374) #60
+  %376 = zext i32 %.0.lcssa.i.i140 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %375, ptr nonnull readonly align 1 %367, i64 %376, i1 false)
+  %377 = getelementptr inbounds nuw i8, ptr %375, i64 %376
+  store i8 0, ptr %377, align 1
+  br label %398
 
-396:                                              ; preds = %378, %375
-  %397 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.116, i64 noundef 4) #55
-  %398 = icmp eq i32 %397, 0
-  br i1 %398, label %399, label %409
+378:                                              ; preds = %363, %360
+  %379 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.116, i64 noundef 4) #55
+  %380 = icmp eq i32 %379, 0
+  br i1 %380, label %381, label %388
 
-399:                                              ; preds = %396
-  %400 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %401 = load i8, ptr %400, align 1
-  switch i8 %401, label %409 [
-    i8 32, label %402
-    i8 9, label %402
+381:                                              ; preds = %378
+  %382 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %383 = load i8, ptr %382, align 1
+  switch i8 %383, label %388 [
+    i8 32, label %384
+    i8 9, label %384
   ]
 
-402:                                              ; preds = %399, %399
-  %403 = getelementptr inbounds nuw i8, ptr %41, i64 5
-  store ptr %403, ptr %5, align 8
-  %404 = ptrtoint ptr %39 to i64
-  %405 = ptrtoint ptr %403 to i64
-  %406 = sub i64 %404, %405
-  %407 = trunc i64 %406 to i32
-  %408 = call fastcc ptr @my_strdup(ptr noundef nonnull %403, i32 noundef %407)
-  br label %422
+384:                                              ; preds = %381, %381
+  %385 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  store ptr %385, ptr %5, align 8
+  %.neg278 = add i64 %38, 4294967291
+  %gepdiff270 = sub i64 %.neg278, %40
+  %386 = trunc i64 %gepdiff270 to i32
+  %387 = call fastcc ptr @my_strdup(ptr noundef nonnull %385, i32 noundef %386)
+  br label %398
 
-409:                                              ; preds = %399, %396
-  %410 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.117, i64 noundef 4) #55
-  %411 = icmp eq i32 %410, 0
-  br i1 %411, label %412, label %422
+388:                                              ; preds = %381, %378
+  %389 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.117, i64 noundef 4) #55
+  %390 = icmp eq i32 %389, 0
+  br i1 %390, label %391, label %398
 
-412:                                              ; preds = %409
-  %413 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %414 = load i8, ptr %413, align 1
-  switch i8 %414, label %422 [
-    i8 32, label %415
-    i8 9, label %415
+391:                                              ; preds = %388
+  %392 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %393 = load i8, ptr %392, align 1
+  switch i8 %393, label %398 [
+    i8 32, label %394
+    i8 9, label %394
   ]
 
-415:                                              ; preds = %412, %412
-  %416 = getelementptr inbounds nuw i8, ptr %41, i64 5
-  store ptr %416, ptr %5, align 8
-  %417 = ptrtoint ptr %39 to i64
-  %418 = ptrtoint ptr %416 to i64
-  %419 = sub i64 %417, %418
-  %420 = trunc i64 %419 to i32
-  %421 = call fastcc ptr @my_strdup(ptr noundef nonnull %416, i32 noundef %420)
-  br label %422
+394:                                              ; preds = %391, %391
+  %395 = getelementptr inbounds nuw i8, ptr %41, i64 5
+  store ptr %395, ptr %5, align 8
+  %.neg279 = add i64 %38, 4294967291
+  %gepdiff271 = sub i64 %.neg279, %40
+  %396 = trunc i64 %gepdiff271 to i32
+  %397 = call fastcc ptr @my_strdup(ptr noundef nonnull %395, i32 noundef %396)
+  br label %398
 
-422:                                              ; preds = %409, %412, %dynamic_fgets.exit, %dynamic_fgets.exit, %415, %402, %my_strdup.exit144, %my_strdup.exit133, %my_strdup.exit122, %my_strdup.exit111, %my_strdup.exit100, %my_strdup.exit89, %268, %259, %parseInt.exit, %226, %219, %214, %204, %197, %190, %183, %hash_table_set.exit
-  %.sroa.22.1 = phi float [ %.sroa.22.0362, %412 ], [ %.sroa.22.0362, %415 ], [ %.sroa.22.0362, %409 ], [ %.sroa.22.0362, %402 ], [ %.sroa.22.0362, %my_strdup.exit144 ], [ %.sroa.22.0362, %my_strdup.exit133 ], [ %.sroa.22.0362, %my_strdup.exit122 ], [ %.sroa.22.0362, %my_strdup.exit111 ], [ %.sroa.22.0362, %my_strdup.exit100 ], [ %.sroa.22.0362, %my_strdup.exit89 ], [ %.sroa.22.0362, %268 ], [ %.sroa.22.0362, %259 ], [ %.sroa.22.0362, %parseInt.exit ], [ %.sroa.22.0362, %226 ], [ %222, %219 ], [ %.sroa.22.0362, %214 ], [ %.sroa.22.0362, %204 ], [ %.sroa.22.0362, %197 ], [ %.sroa.22.0362, %190 ], [ %.sroa.22.0362, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.22.0362, %dynamic_fgets.exit ], [ %.sroa.22.0362, %dynamic_fgets.exit ]
-  %.sroa.36208.1 = phi ptr [ %.sroa.36208.0364, %412 ], [ %.sroa.36208.0364, %415 ], [ %.sroa.36208.0364, %409 ], [ %.sroa.36208.0364, %402 ], [ %.sroa.36208.0364, %my_strdup.exit144 ], [ %.sroa.36208.0364, %my_strdup.exit133 ], [ %.sroa.36208.0364, %my_strdup.exit122 ], [ %.sroa.36208.0364, %my_strdup.exit111 ], [ %.sroa.36208.0364, %my_strdup.exit100 ], [ %288, %my_strdup.exit89 ], [ %.sroa.36208.0364, %268 ], [ %.sroa.36208.0364, %259 ], [ %.sroa.36208.0364, %parseInt.exit ], [ %.sroa.36208.0364, %226 ], [ %.sroa.36208.0364, %219 ], [ %.sroa.36208.0364, %214 ], [ %.sroa.36208.0364, %204 ], [ %.sroa.36208.0364, %197 ], [ %.sroa.36208.0364, %190 ], [ %.sroa.36208.0364, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.36208.0364, %dynamic_fgets.exit ], [ %.sroa.36208.0364, %dynamic_fgets.exit ]
-  %.sroa.39.1 = phi ptr [ %.sroa.39.0365, %412 ], [ %.sroa.39.0365, %415 ], [ %.sroa.39.0365, %409 ], [ %.sroa.39.0365, %402 ], [ %.sroa.39.0365, %my_strdup.exit144 ], [ %.sroa.39.0365, %my_strdup.exit133 ], [ %.sroa.39.0365, %my_strdup.exit122 ], [ %.sroa.39.0365, %my_strdup.exit111 ], [ %309, %my_strdup.exit100 ], [ %.sroa.39.0365, %my_strdup.exit89 ], [ %.sroa.39.0365, %268 ], [ %.sroa.39.0365, %259 ], [ %.sroa.39.0365, %parseInt.exit ], [ %.sroa.39.0365, %226 ], [ %.sroa.39.0365, %219 ], [ %.sroa.39.0365, %214 ], [ %.sroa.39.0365, %204 ], [ %.sroa.39.0365, %197 ], [ %.sroa.39.0365, %190 ], [ %.sroa.39.0365, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.39.0365, %dynamic_fgets.exit ], [ %.sroa.39.0365, %dynamic_fgets.exit ]
-  %.sroa.40.1 = phi ptr [ %.sroa.40.0366, %412 ], [ %.sroa.40.0366, %415 ], [ %.sroa.40.0366, %409 ], [ %.sroa.40.0366, %402 ], [ %.sroa.40.0366, %my_strdup.exit144 ], [ %.sroa.40.0366, %my_strdup.exit133 ], [ %.sroa.40.0366, %my_strdup.exit122 ], [ %330, %my_strdup.exit111 ], [ %.sroa.40.0366, %my_strdup.exit100 ], [ %.sroa.40.0366, %my_strdup.exit89 ], [ %.sroa.40.0366, %268 ], [ %.sroa.40.0366, %259 ], [ %.sroa.40.0366, %parseInt.exit ], [ %.sroa.40.0366, %226 ], [ %.sroa.40.0366, %219 ], [ %.sroa.40.0366, %214 ], [ %.sroa.40.0366, %204 ], [ %.sroa.40.0366, %197 ], [ %.sroa.40.0366, %190 ], [ %.sroa.40.0366, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.40.0366, %dynamic_fgets.exit ], [ %.sroa.40.0366, %dynamic_fgets.exit ]
-  %.sroa.41.1 = phi ptr [ %.sroa.41.0367, %412 ], [ %.sroa.41.0367, %415 ], [ %.sroa.41.0367, %409 ], [ %.sroa.41.0367, %402 ], [ %.sroa.41.0367, %my_strdup.exit144 ], [ %.sroa.41.0367, %my_strdup.exit133 ], [ %351, %my_strdup.exit122 ], [ %.sroa.41.0367, %my_strdup.exit111 ], [ %.sroa.41.0367, %my_strdup.exit100 ], [ %.sroa.41.0367, %my_strdup.exit89 ], [ %.sroa.41.0367, %268 ], [ %.sroa.41.0367, %259 ], [ %.sroa.41.0367, %parseInt.exit ], [ %.sroa.41.0367, %226 ], [ %.sroa.41.0367, %219 ], [ %.sroa.41.0367, %214 ], [ %.sroa.41.0367, %204 ], [ %.sroa.41.0367, %197 ], [ %.sroa.41.0367, %190 ], [ %.sroa.41.0367, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.41.0367, %dynamic_fgets.exit ], [ %.sroa.41.0367, %dynamic_fgets.exit ]
-  %.sroa.42.1 = phi ptr [ %.sroa.42.0368, %412 ], [ %.sroa.42.0368, %415 ], [ %.sroa.42.0368, %409 ], [ %408, %402 ], [ %.sroa.42.0368, %my_strdup.exit144 ], [ %372, %my_strdup.exit133 ], [ %.sroa.42.0368, %my_strdup.exit122 ], [ %.sroa.42.0368, %my_strdup.exit111 ], [ %.sroa.42.0368, %my_strdup.exit100 ], [ %.sroa.42.0368, %my_strdup.exit89 ], [ %.sroa.42.0368, %268 ], [ %.sroa.42.0368, %259 ], [ %.sroa.42.0368, %parseInt.exit ], [ %.sroa.42.0368, %226 ], [ %.sroa.42.0368, %219 ], [ %.sroa.42.0368, %214 ], [ %.sroa.42.0368, %204 ], [ %.sroa.42.0368, %197 ], [ %.sroa.42.0368, %190 ], [ %.sroa.42.0368, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.42.0368, %dynamic_fgets.exit ], [ %.sroa.42.0368, %dynamic_fgets.exit ]
-  %.sroa.44.1 = phi ptr [ %.sroa.44.0369, %412 ], [ %421, %415 ], [ %.sroa.44.0369, %409 ], [ %.sroa.44.0369, %402 ], [ %.sroa.44.0369, %my_strdup.exit144 ], [ %.sroa.44.0369, %my_strdup.exit133 ], [ %.sroa.44.0369, %my_strdup.exit122 ], [ %.sroa.44.0369, %my_strdup.exit111 ], [ %.sroa.44.0369, %my_strdup.exit100 ], [ %.sroa.44.0369, %my_strdup.exit89 ], [ %.sroa.44.0369, %268 ], [ %.sroa.44.0369, %259 ], [ %.sroa.44.0369, %parseInt.exit ], [ %.sroa.44.0369, %226 ], [ %.sroa.44.0369, %219 ], [ %.sroa.44.0369, %214 ], [ %.sroa.44.0369, %204 ], [ %.sroa.44.0369, %197 ], [ %.sroa.44.0369, %190 ], [ %.sroa.44.0369, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.44.0369, %dynamic_fgets.exit ], [ %.sroa.44.0369, %dynamic_fgets.exit ]
-  %.sroa.45.1 = phi ptr [ %.sroa.45.0370, %412 ], [ %.sroa.45.0370, %415 ], [ %.sroa.45.0370, %409 ], [ %.sroa.45.0370, %402 ], [ %393, %my_strdup.exit144 ], [ %.sroa.45.0370, %my_strdup.exit133 ], [ %.sroa.45.0370, %my_strdup.exit122 ], [ %.sroa.45.0370, %my_strdup.exit111 ], [ %.sroa.45.0370, %my_strdup.exit100 ], [ %.sroa.45.0370, %my_strdup.exit89 ], [ %.sroa.45.0370, %268 ], [ %.sroa.45.0370, %259 ], [ %.sroa.45.0370, %parseInt.exit ], [ %.sroa.45.0370, %226 ], [ %.sroa.45.0370, %219 ], [ %.sroa.45.0370, %214 ], [ %.sroa.45.0370, %204 ], [ %.sroa.45.0370, %197 ], [ %.sroa.45.0370, %190 ], [ %.sroa.45.0370, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.45.0370, %dynamic_fgets.exit ], [ %.sroa.45.0370, %dynamic_fgets.exit ]
-  %.sroa.33.1 = phi i32 [ %.sroa.33.0371, %412 ], [ %.sroa.33.0371, %415 ], [ %.sroa.33.0371, %409 ], [ %.sroa.33.0371, %402 ], [ %.sroa.33.0371, %my_strdup.exit144 ], [ %.sroa.33.0371, %my_strdup.exit133 ], [ %.sroa.33.0371, %my_strdup.exit122 ], [ %.sroa.33.0371, %my_strdup.exit111 ], [ %.sroa.33.0371, %my_strdup.exit100 ], [ %.sroa.33.0371, %my_strdup.exit89 ], [ %.sroa.33.0371, %268 ], [ %.sroa.33.0371, %259 ], [ %254, %parseInt.exit ], [ %.sroa.33.0371, %226 ], [ %.sroa.33.0371, %219 ], [ %.sroa.33.0371, %214 ], [ %.sroa.33.0371, %204 ], [ %.sroa.33.0371, %197 ], [ %.sroa.33.0371, %190 ], [ %.sroa.33.0371, %183 ], [ 0, %hash_table_set.exit ], [ %.sroa.33.0371, %dynamic_fgets.exit ], [ %.sroa.33.0371, %dynamic_fgets.exit ]
-  %.sroa.29.1 = phi float [ %.sroa.29.0372, %412 ], [ %.sroa.29.0372, %415 ], [ %.sroa.29.0372, %409 ], [ %.sroa.29.0372, %402 ], [ %.sroa.29.0372, %my_strdup.exit144 ], [ %.sroa.29.0372, %my_strdup.exit133 ], [ %.sroa.29.0372, %my_strdup.exit122 ], [ %.sroa.29.0372, %my_strdup.exit111 ], [ %.sroa.29.0372, %my_strdup.exit100 ], [ %.sroa.29.0372, %my_strdup.exit89 ], [ %270, %268 ], [ %260, %259 ], [ %.sroa.29.0372, %parseInt.exit ], [ %.sroa.29.0372, %226 ], [ %.sroa.29.0372, %219 ], [ %.sroa.29.0372, %214 ], [ %.sroa.29.0372, %204 ], [ %.sroa.29.0372, %197 ], [ %.sroa.29.0372, %190 ], [ %.sroa.29.0372, %183 ], [ 1.000000e+00, %hash_table_set.exit ], [ %.sroa.29.0372, %dynamic_fgets.exit ], [ %.sroa.29.0372, %dynamic_fgets.exit ]
-  %.sroa.26.1 = phi float [ %.sroa.26.0373, %412 ], [ %.sroa.26.0373, %415 ], [ %.sroa.26.0373, %409 ], [ %.sroa.26.0373, %402 ], [ %.sroa.26.0373, %my_strdup.exit144 ], [ %.sroa.26.0373, %my_strdup.exit133 ], [ %.sroa.26.0373, %my_strdup.exit122 ], [ %.sroa.26.0373, %my_strdup.exit111 ], [ %.sroa.26.0373, %my_strdup.exit100 ], [ %.sroa.26.0373, %my_strdup.exit89 ], [ %.sroa.26.0373, %268 ], [ %.sroa.26.0373, %259 ], [ %.sroa.26.0373, %parseInt.exit ], [ %.sroa.26.0373, %226 ], [ %.sroa.26.0373, %219 ], [ %215, %214 ], [ %.sroa.26.0373, %204 ], [ %.sroa.26.0373, %197 ], [ %.sroa.26.0373, %190 ], [ %.sroa.26.0373, %183 ], [ 1.000000e+00, %hash_table_set.exit ], [ %.sroa.26.0373, %dynamic_fgets.exit ], [ %.sroa.26.0373, %dynamic_fgets.exit ]
-  %.sroa.23.1 = phi float [ %.sroa.23.0374, %412 ], [ %.sroa.23.0374, %415 ], [ %.sroa.23.0374, %409 ], [ %.sroa.23.0374, %402 ], [ %.sroa.23.0374, %my_strdup.exit144 ], [ %.sroa.23.0374, %my_strdup.exit133 ], [ %.sroa.23.0374, %my_strdup.exit122 ], [ %.sroa.23.0374, %my_strdup.exit111 ], [ %.sroa.23.0374, %my_strdup.exit100 ], [ %.sroa.23.0374, %my_strdup.exit89 ], [ %.sroa.23.0374, %268 ], [ %.sroa.23.0374, %259 ], [ %.sroa.23.0374, %parseInt.exit ], [ %227, %226 ], [ %.sroa.23.0374, %219 ], [ %.sroa.23.0374, %214 ], [ %.sroa.23.0374, %204 ], [ %.sroa.23.0374, %197 ], [ %.sroa.23.0374, %190 ], [ %.sroa.23.0374, %183 ], [ 1.000000e+00, %hash_table_set.exit ], [ %.sroa.23.0374, %dynamic_fgets.exit ], [ %.sroa.23.0374, %dynamic_fgets.exit ]
-  %.sroa.21.1 = phi float [ %.sroa.21.0378, %412 ], [ %.sroa.21.0378, %415 ], [ %.sroa.21.0378, %409 ], [ %.sroa.21.0378, %402 ], [ %.sroa.21.0378, %my_strdup.exit144 ], [ %.sroa.21.0378, %my_strdup.exit133 ], [ %.sroa.21.0378, %my_strdup.exit122 ], [ %.sroa.21.0378, %my_strdup.exit111 ], [ %.sroa.21.0378, %my_strdup.exit100 ], [ %.sroa.21.0378, %my_strdup.exit89 ], [ %.sroa.21.0378, %268 ], [ %.sroa.21.0378, %259 ], [ %.sroa.21.0378, %parseInt.exit ], [ %.sroa.21.0378, %226 ], [ %221, %219 ], [ %.sroa.21.0378, %214 ], [ %.sroa.21.0378, %204 ], [ %.sroa.21.0378, %197 ], [ %.sroa.21.0378, %190 ], [ %.sroa.21.0378, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.21.0378, %dynamic_fgets.exit ], [ %.sroa.21.0378, %dynamic_fgets.exit ]
-  %.sroa.20.1 = phi float [ %.sroa.20.0380, %412 ], [ %.sroa.20.0380, %415 ], [ %.sroa.20.0380, %409 ], [ %.sroa.20.0380, %402 ], [ %.sroa.20.0380, %my_strdup.exit144 ], [ %.sroa.20.0380, %my_strdup.exit133 ], [ %.sroa.20.0380, %my_strdup.exit122 ], [ %.sroa.20.0380, %my_strdup.exit111 ], [ %.sroa.20.0380, %my_strdup.exit100 ], [ %.sroa.20.0380, %my_strdup.exit89 ], [ %.sroa.20.0380, %268 ], [ %.sroa.20.0380, %259 ], [ %.sroa.20.0380, %parseInt.exit ], [ %.sroa.20.0380, %226 ], [ %220, %219 ], [ %.sroa.20.0380, %214 ], [ %.sroa.20.0380, %204 ], [ %.sroa.20.0380, %197 ], [ %.sroa.20.0380, %190 ], [ %.sroa.20.0380, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.20.0380, %dynamic_fgets.exit ], [ %.sroa.20.0380, %dynamic_fgets.exit ]
-  %.sroa.19.1 = phi float [ %.sroa.19.0382, %412 ], [ %.sroa.19.0382, %415 ], [ %.sroa.19.0382, %409 ], [ %.sroa.19.0382, %402 ], [ %.sroa.19.0382, %my_strdup.exit144 ], [ %.sroa.19.0382, %my_strdup.exit133 ], [ %.sroa.19.0382, %my_strdup.exit122 ], [ %.sroa.19.0382, %my_strdup.exit111 ], [ %.sroa.19.0382, %my_strdup.exit100 ], [ %.sroa.19.0382, %my_strdup.exit89 ], [ %.sroa.19.0382, %268 ], [ %.sroa.19.0382, %259 ], [ %.sroa.19.0382, %parseInt.exit ], [ %.sroa.19.0382, %226 ], [ %.sroa.19.0382, %219 ], [ %.sroa.19.0382, %214 ], [ %207, %204 ], [ %.sroa.19.0382, %197 ], [ %.sroa.19.0382, %190 ], [ %.sroa.19.0382, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.19.0382, %dynamic_fgets.exit ], [ %.sroa.19.0382, %dynamic_fgets.exit ]
-  %.sroa.18.1 = phi float [ %.sroa.18.0383, %412 ], [ %.sroa.18.0383, %415 ], [ %.sroa.18.0383, %409 ], [ %.sroa.18.0383, %402 ], [ %.sroa.18.0383, %my_strdup.exit144 ], [ %.sroa.18.0383, %my_strdup.exit133 ], [ %.sroa.18.0383, %my_strdup.exit122 ], [ %.sroa.18.0383, %my_strdup.exit111 ], [ %.sroa.18.0383, %my_strdup.exit100 ], [ %.sroa.18.0383, %my_strdup.exit89 ], [ %.sroa.18.0383, %268 ], [ %.sroa.18.0383, %259 ], [ %.sroa.18.0383, %parseInt.exit ], [ %.sroa.18.0383, %226 ], [ %.sroa.18.0383, %219 ], [ %.sroa.18.0383, %214 ], [ %206, %204 ], [ %.sroa.18.0383, %197 ], [ %.sroa.18.0383, %190 ], [ %.sroa.18.0383, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.18.0383, %dynamic_fgets.exit ], [ %.sroa.18.0383, %dynamic_fgets.exit ]
-  %.sroa.17.1 = phi float [ %.sroa.17.0384, %412 ], [ %.sroa.17.0384, %415 ], [ %.sroa.17.0384, %409 ], [ %.sroa.17.0384, %402 ], [ %.sroa.17.0384, %my_strdup.exit144 ], [ %.sroa.17.0384, %my_strdup.exit133 ], [ %.sroa.17.0384, %my_strdup.exit122 ], [ %.sroa.17.0384, %my_strdup.exit111 ], [ %.sroa.17.0384, %my_strdup.exit100 ], [ %.sroa.17.0384, %my_strdup.exit89 ], [ %.sroa.17.0384, %268 ], [ %.sroa.17.0384, %259 ], [ %.sroa.17.0384, %parseInt.exit ], [ %.sroa.17.0384, %226 ], [ %.sroa.17.0384, %219 ], [ %.sroa.17.0384, %214 ], [ %205, %204 ], [ %.sroa.17.0384, %197 ], [ %.sroa.17.0384, %190 ], [ %.sroa.17.0384, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.17.0384, %dynamic_fgets.exit ], [ %.sroa.17.0384, %dynamic_fgets.exit ]
-  %.sroa.16.1 = phi float [ %.sroa.16.0385, %412 ], [ %.sroa.16.0385, %415 ], [ %.sroa.16.0385, %409 ], [ %.sroa.16.0385, %402 ], [ %.sroa.16.0385, %my_strdup.exit144 ], [ %.sroa.16.0385, %my_strdup.exit133 ], [ %.sroa.16.0385, %my_strdup.exit122 ], [ %.sroa.16.0385, %my_strdup.exit111 ], [ %.sroa.16.0385, %my_strdup.exit100 ], [ %.sroa.16.0385, %my_strdup.exit89 ], [ %.sroa.16.0385, %268 ], [ %.sroa.16.0385, %259 ], [ %.sroa.16.0385, %parseInt.exit ], [ %.sroa.16.0385, %226 ], [ %.sroa.16.0385, %219 ], [ %.sroa.16.0385, %214 ], [ %.sroa.16.0385, %204 ], [ %200, %197 ], [ %.sroa.16.0385, %190 ], [ %.sroa.16.0385, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.16.0385, %dynamic_fgets.exit ], [ %.sroa.16.0385, %dynamic_fgets.exit ]
-  %.sroa.15.1 = phi float [ %.sroa.15.0386, %412 ], [ %.sroa.15.0386, %415 ], [ %.sroa.15.0386, %409 ], [ %.sroa.15.0386, %402 ], [ %.sroa.15.0386, %my_strdup.exit144 ], [ %.sroa.15.0386, %my_strdup.exit133 ], [ %.sroa.15.0386, %my_strdup.exit122 ], [ %.sroa.15.0386, %my_strdup.exit111 ], [ %.sroa.15.0386, %my_strdup.exit100 ], [ %.sroa.15.0386, %my_strdup.exit89 ], [ %.sroa.15.0386, %268 ], [ %.sroa.15.0386, %259 ], [ %.sroa.15.0386, %parseInt.exit ], [ %.sroa.15.0386, %226 ], [ %.sroa.15.0386, %219 ], [ %.sroa.15.0386, %214 ], [ %.sroa.15.0386, %204 ], [ %199, %197 ], [ %.sroa.15.0386, %190 ], [ %.sroa.15.0386, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.15.0386, %dynamic_fgets.exit ], [ %.sroa.15.0386, %dynamic_fgets.exit ]
-  %.sroa.14.1 = phi float [ %.sroa.14.0387, %412 ], [ %.sroa.14.0387, %415 ], [ %.sroa.14.0387, %409 ], [ %.sroa.14.0387, %402 ], [ %.sroa.14.0387, %my_strdup.exit144 ], [ %.sroa.14.0387, %my_strdup.exit133 ], [ %.sroa.14.0387, %my_strdup.exit122 ], [ %.sroa.14.0387, %my_strdup.exit111 ], [ %.sroa.14.0387, %my_strdup.exit100 ], [ %.sroa.14.0387, %my_strdup.exit89 ], [ %.sroa.14.0387, %268 ], [ %.sroa.14.0387, %259 ], [ %.sroa.14.0387, %parseInt.exit ], [ %.sroa.14.0387, %226 ], [ %.sroa.14.0387, %219 ], [ %.sroa.14.0387, %214 ], [ %.sroa.14.0387, %204 ], [ %198, %197 ], [ %.sroa.14.0387, %190 ], [ %.sroa.14.0387, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.14.0387, %dynamic_fgets.exit ], [ %.sroa.14.0387, %dynamic_fgets.exit ]
-  %.sroa.13.1 = phi float [ %.sroa.13.0388, %412 ], [ %.sroa.13.0388, %415 ], [ %.sroa.13.0388, %409 ], [ %.sroa.13.0388, %402 ], [ %.sroa.13.0388, %my_strdup.exit144 ], [ %.sroa.13.0388, %my_strdup.exit133 ], [ %.sroa.13.0388, %my_strdup.exit122 ], [ %.sroa.13.0388, %my_strdup.exit111 ], [ %.sroa.13.0388, %my_strdup.exit100 ], [ %.sroa.13.0388, %my_strdup.exit89 ], [ %.sroa.13.0388, %268 ], [ %.sroa.13.0388, %259 ], [ %.sroa.13.0388, %parseInt.exit ], [ %.sroa.13.0388, %226 ], [ %.sroa.13.0388, %219 ], [ %.sroa.13.0388, %214 ], [ %.sroa.13.0388, %204 ], [ %.sroa.13.0388, %197 ], [ %193, %190 ], [ %.sroa.13.0388, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.13.0388, %dynamic_fgets.exit ], [ %.sroa.13.0388, %dynamic_fgets.exit ]
-  %.sroa.12.1 = phi float [ %.sroa.12.0389, %412 ], [ %.sroa.12.0389, %415 ], [ %.sroa.12.0389, %409 ], [ %.sroa.12.0389, %402 ], [ %.sroa.12.0389, %my_strdup.exit144 ], [ %.sroa.12.0389, %my_strdup.exit133 ], [ %.sroa.12.0389, %my_strdup.exit122 ], [ %.sroa.12.0389, %my_strdup.exit111 ], [ %.sroa.12.0389, %my_strdup.exit100 ], [ %.sroa.12.0389, %my_strdup.exit89 ], [ %.sroa.12.0389, %268 ], [ %.sroa.12.0389, %259 ], [ %.sroa.12.0389, %parseInt.exit ], [ %.sroa.12.0389, %226 ], [ %.sroa.12.0389, %219 ], [ %.sroa.12.0389, %214 ], [ %.sroa.12.0389, %204 ], [ %.sroa.12.0389, %197 ], [ %192, %190 ], [ %.sroa.12.0389, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.12.0389, %dynamic_fgets.exit ], [ %.sroa.12.0389, %dynamic_fgets.exit ]
-  %.sroa.11.1 = phi float [ %.sroa.11.0390, %412 ], [ %.sroa.11.0390, %415 ], [ %.sroa.11.0390, %409 ], [ %.sroa.11.0390, %402 ], [ %.sroa.11.0390, %my_strdup.exit144 ], [ %.sroa.11.0390, %my_strdup.exit133 ], [ %.sroa.11.0390, %my_strdup.exit122 ], [ %.sroa.11.0390, %my_strdup.exit111 ], [ %.sroa.11.0390, %my_strdup.exit100 ], [ %.sroa.11.0390, %my_strdup.exit89 ], [ %.sroa.11.0390, %268 ], [ %.sroa.11.0390, %259 ], [ %.sroa.11.0390, %parseInt.exit ], [ %.sroa.11.0390, %226 ], [ %.sroa.11.0390, %219 ], [ %.sroa.11.0390, %214 ], [ %.sroa.11.0390, %204 ], [ %.sroa.11.0390, %197 ], [ %191, %190 ], [ %.sroa.11.0390, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.11.0390, %dynamic_fgets.exit ], [ %.sroa.11.0390, %dynamic_fgets.exit ]
-  %.sroa.10.1 = phi float [ %.sroa.10.0391, %412 ], [ %.sroa.10.0391, %415 ], [ %.sroa.10.0391, %409 ], [ %.sroa.10.0391, %402 ], [ %.sroa.10.0391, %my_strdup.exit144 ], [ %.sroa.10.0391, %my_strdup.exit133 ], [ %.sroa.10.0391, %my_strdup.exit122 ], [ %.sroa.10.0391, %my_strdup.exit111 ], [ %.sroa.10.0391, %my_strdup.exit100 ], [ %.sroa.10.0391, %my_strdup.exit89 ], [ %.sroa.10.0391, %268 ], [ %.sroa.10.0391, %259 ], [ %.sroa.10.0391, %parseInt.exit ], [ %.sroa.10.0391, %226 ], [ %.sroa.10.0391, %219 ], [ %.sroa.10.0391, %214 ], [ %.sroa.10.0391, %204 ], [ %.sroa.10.0391, %197 ], [ %.sroa.10.0391, %190 ], [ %186, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.10.0391, %dynamic_fgets.exit ], [ %.sroa.10.0391, %dynamic_fgets.exit ]
-  %.sroa.9.1 = phi float [ %.sroa.9.0392, %412 ], [ %.sroa.9.0392, %415 ], [ %.sroa.9.0392, %409 ], [ %.sroa.9.0392, %402 ], [ %.sroa.9.0392, %my_strdup.exit144 ], [ %.sroa.9.0392, %my_strdup.exit133 ], [ %.sroa.9.0392, %my_strdup.exit122 ], [ %.sroa.9.0392, %my_strdup.exit111 ], [ %.sroa.9.0392, %my_strdup.exit100 ], [ %.sroa.9.0392, %my_strdup.exit89 ], [ %.sroa.9.0392, %268 ], [ %.sroa.9.0392, %259 ], [ %.sroa.9.0392, %parseInt.exit ], [ %.sroa.9.0392, %226 ], [ %.sroa.9.0392, %219 ], [ %.sroa.9.0392, %214 ], [ %.sroa.9.0392, %204 ], [ %.sroa.9.0392, %197 ], [ %.sroa.9.0392, %190 ], [ %185, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.9.0392, %dynamic_fgets.exit ], [ %.sroa.9.0392, %dynamic_fgets.exit ]
-  %.sroa.8.1 = phi float [ %.sroa.8.0393, %412 ], [ %.sroa.8.0393, %415 ], [ %.sroa.8.0393, %409 ], [ %.sroa.8.0393, %402 ], [ %.sroa.8.0393, %my_strdup.exit144 ], [ %.sroa.8.0393, %my_strdup.exit133 ], [ %.sroa.8.0393, %my_strdup.exit122 ], [ %.sroa.8.0393, %my_strdup.exit111 ], [ %.sroa.8.0393, %my_strdup.exit100 ], [ %.sroa.8.0393, %my_strdup.exit89 ], [ %.sroa.8.0393, %268 ], [ %.sroa.8.0393, %259 ], [ %.sroa.8.0393, %parseInt.exit ], [ %.sroa.8.0393, %226 ], [ %.sroa.8.0393, %219 ], [ %.sroa.8.0393, %214 ], [ %.sroa.8.0393, %204 ], [ %.sroa.8.0393, %197 ], [ %.sroa.8.0393, %190 ], [ %184, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.8.0393, %dynamic_fgets.exit ], [ %.sroa.8.0393, %dynamic_fgets.exit ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0394, %412 ], [ %.sroa.0.0394, %415 ], [ %.sroa.0.0394, %409 ], [ %.sroa.0.0394, %402 ], [ %.sroa.0.0394, %my_strdup.exit144 ], [ %.sroa.0.0394, %my_strdup.exit133 ], [ %.sroa.0.0394, %my_strdup.exit122 ], [ %.sroa.0.0394, %my_strdup.exit111 ], [ %.sroa.0.0394, %my_strdup.exit100 ], [ %.sroa.0.0394, %my_strdup.exit89 ], [ %.sroa.0.0394, %268 ], [ %.sroa.0.0394, %259 ], [ %.sroa.0.0394, %parseInt.exit ], [ %.sroa.0.0394, %226 ], [ %.sroa.0.0394, %219 ], [ %.sroa.0.0394, %214 ], [ %.sroa.0.0394, %204 ], [ %.sroa.0.0394, %197 ], [ %.sroa.0.0394, %190 ], [ %.sroa.0.0394, %183 ], [ %71, %hash_table_set.exit ], [ %.sroa.0.0394, %dynamic_fgets.exit ], [ %.sroa.0.0394, %dynamic_fgets.exit ]
-  %.136 = phi i32 [ %.035395, %412 ], [ %.035395, %415 ], [ %.035395, %409 ], [ %.035395, %402 ], [ %.035395, %my_strdup.exit144 ], [ %.035395, %my_strdup.exit133 ], [ %.035395, %my_strdup.exit122 ], [ %.035395, %my_strdup.exit111 ], [ %.035395, %my_strdup.exit100 ], [ %.035395, %my_strdup.exit89 ], [ %.035395, %268 ], [ %.035395, %259 ], [ %.035395, %parseInt.exit ], [ %.035395, %226 ], [ %.035395, %219 ], [ %.035395, %214 ], [ %.035395, %204 ], [ %.035395, %197 ], [ %.035395, %190 ], [ %.035395, %183 ], [ %.237, %hash_table_set.exit ], [ %.035395, %dynamic_fgets.exit ], [ %.035395, %dynamic_fgets.exit ]
-  %.133 = phi ptr [ %.032397, %412 ], [ %.032397, %415 ], [ %.032397, %409 ], [ %.032397, %402 ], [ %.032397, %my_strdup.exit144 ], [ %.032397, %my_strdup.exit133 ], [ %.032397, %my_strdup.exit122 ], [ %.032397, %my_strdup.exit111 ], [ %.032397, %my_strdup.exit100 ], [ %.032397, %my_strdup.exit89 ], [ %.032397, %268 ], [ %.032397, %259 ], [ %.032397, %parseInt.exit ], [ %.032397, %226 ], [ %.032397, %219 ], [ %.032397, %214 ], [ %.032397, %204 ], [ %.032397, %197 ], [ %.032397, %190 ], [ %.032397, %183 ], [ %.234, %hash_table_set.exit ], [ %.032397, %dynamic_fgets.exit ], [ %.032397, %dynamic_fgets.exit ]
-  %.1 = phi i32 [ %.0399, %412 ], [ %.0399, %415 ], [ %.0399, %409 ], [ %.0399, %402 ], [ %.0399, %my_strdup.exit144 ], [ %.0399, %my_strdup.exit133 ], [ %.0399, %my_strdup.exit122 ], [ %.0399, %my_strdup.exit111 ], [ %.0399, %my_strdup.exit100 ], [ %.0399, %my_strdup.exit89 ], [ %.0399, %268 ], [ %.0399, %259 ], [ %.0399, %parseInt.exit ], [ %.0399, %226 ], [ %.0399, %219 ], [ %.0399, %214 ], [ %.0399, %204 ], [ %.0399, %197 ], [ %.0399, %190 ], [ %.0399, %183 ], [ 1, %hash_table_set.exit ], [ %.0399, %dynamic_fgets.exit ], [ %.0399, %dynamic_fgets.exit ]
+398:                                              ; preds = %388, %391, %dynamic_fgets.exit, %dynamic_fgets.exit, %394, %384, %my_strdup.exit144, %my_strdup.exit133, %my_strdup.exit122, %my_strdup.exit111, %my_strdup.exit100, %my_strdup.exit89, %268, %259, %parseInt.exit, %226, %219, %214, %204, %197, %190, %183, %hash_table_set.exit
+  %.sroa.22.1 = phi float [ %.sroa.22.0377, %391 ], [ %.sroa.22.0377, %394 ], [ %.sroa.22.0377, %388 ], [ %.sroa.22.0377, %384 ], [ %.sroa.22.0377, %my_strdup.exit144 ], [ %.sroa.22.0377, %my_strdup.exit133 ], [ %.sroa.22.0377, %my_strdup.exit122 ], [ %.sroa.22.0377, %my_strdup.exit111 ], [ %.sroa.22.0377, %my_strdup.exit100 ], [ %.sroa.22.0377, %my_strdup.exit89 ], [ %.sroa.22.0377, %268 ], [ %.sroa.22.0377, %259 ], [ %.sroa.22.0377, %parseInt.exit ], [ %.sroa.22.0377, %226 ], [ %222, %219 ], [ %.sroa.22.0377, %214 ], [ %.sroa.22.0377, %204 ], [ %.sroa.22.0377, %197 ], [ %.sroa.22.0377, %190 ], [ %.sroa.22.0377, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.22.0377, %dynamic_fgets.exit ], [ %.sroa.22.0377, %dynamic_fgets.exit ]
+  %.sroa.36208.1 = phi ptr [ %.sroa.36208.0379, %391 ], [ %.sroa.36208.0379, %394 ], [ %.sroa.36208.0379, %388 ], [ %.sroa.36208.0379, %384 ], [ %.sroa.36208.0379, %my_strdup.exit144 ], [ %.sroa.36208.0379, %my_strdup.exit133 ], [ %.sroa.36208.0379, %my_strdup.exit122 ], [ %.sroa.36208.0379, %my_strdup.exit111 ], [ %.sroa.36208.0379, %my_strdup.exit100 ], [ %285, %my_strdup.exit89 ], [ %.sroa.36208.0379, %268 ], [ %.sroa.36208.0379, %259 ], [ %.sroa.36208.0379, %parseInt.exit ], [ %.sroa.36208.0379, %226 ], [ %.sroa.36208.0379, %219 ], [ %.sroa.36208.0379, %214 ], [ %.sroa.36208.0379, %204 ], [ %.sroa.36208.0379, %197 ], [ %.sroa.36208.0379, %190 ], [ %.sroa.36208.0379, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.36208.0379, %dynamic_fgets.exit ], [ %.sroa.36208.0379, %dynamic_fgets.exit ]
+  %.sroa.39.1 = phi ptr [ %.sroa.39.0380, %391 ], [ %.sroa.39.0380, %394 ], [ %.sroa.39.0380, %388 ], [ %.sroa.39.0380, %384 ], [ %.sroa.39.0380, %my_strdup.exit144 ], [ %.sroa.39.0380, %my_strdup.exit133 ], [ %.sroa.39.0380, %my_strdup.exit122 ], [ %.sroa.39.0380, %my_strdup.exit111 ], [ %303, %my_strdup.exit100 ], [ %.sroa.39.0380, %my_strdup.exit89 ], [ %.sroa.39.0380, %268 ], [ %.sroa.39.0380, %259 ], [ %.sroa.39.0380, %parseInt.exit ], [ %.sroa.39.0380, %226 ], [ %.sroa.39.0380, %219 ], [ %.sroa.39.0380, %214 ], [ %.sroa.39.0380, %204 ], [ %.sroa.39.0380, %197 ], [ %.sroa.39.0380, %190 ], [ %.sroa.39.0380, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.39.0380, %dynamic_fgets.exit ], [ %.sroa.39.0380, %dynamic_fgets.exit ]
+  %.sroa.40.1 = phi ptr [ %.sroa.40.0381, %391 ], [ %.sroa.40.0381, %394 ], [ %.sroa.40.0381, %388 ], [ %.sroa.40.0381, %384 ], [ %.sroa.40.0381, %my_strdup.exit144 ], [ %.sroa.40.0381, %my_strdup.exit133 ], [ %.sroa.40.0381, %my_strdup.exit122 ], [ %321, %my_strdup.exit111 ], [ %.sroa.40.0381, %my_strdup.exit100 ], [ %.sroa.40.0381, %my_strdup.exit89 ], [ %.sroa.40.0381, %268 ], [ %.sroa.40.0381, %259 ], [ %.sroa.40.0381, %parseInt.exit ], [ %.sroa.40.0381, %226 ], [ %.sroa.40.0381, %219 ], [ %.sroa.40.0381, %214 ], [ %.sroa.40.0381, %204 ], [ %.sroa.40.0381, %197 ], [ %.sroa.40.0381, %190 ], [ %.sroa.40.0381, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.40.0381, %dynamic_fgets.exit ], [ %.sroa.40.0381, %dynamic_fgets.exit ]
+  %.sroa.41.1 = phi ptr [ %.sroa.41.0382, %391 ], [ %.sroa.41.0382, %394 ], [ %.sroa.41.0382, %388 ], [ %.sroa.41.0382, %384 ], [ %.sroa.41.0382, %my_strdup.exit144 ], [ %.sroa.41.0382, %my_strdup.exit133 ], [ %339, %my_strdup.exit122 ], [ %.sroa.41.0382, %my_strdup.exit111 ], [ %.sroa.41.0382, %my_strdup.exit100 ], [ %.sroa.41.0382, %my_strdup.exit89 ], [ %.sroa.41.0382, %268 ], [ %.sroa.41.0382, %259 ], [ %.sroa.41.0382, %parseInt.exit ], [ %.sroa.41.0382, %226 ], [ %.sroa.41.0382, %219 ], [ %.sroa.41.0382, %214 ], [ %.sroa.41.0382, %204 ], [ %.sroa.41.0382, %197 ], [ %.sroa.41.0382, %190 ], [ %.sroa.41.0382, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.41.0382, %dynamic_fgets.exit ], [ %.sroa.41.0382, %dynamic_fgets.exit ]
+  %.sroa.42.1 = phi ptr [ %.sroa.42.0383, %391 ], [ %.sroa.42.0383, %394 ], [ %.sroa.42.0383, %388 ], [ %387, %384 ], [ %.sroa.42.0383, %my_strdup.exit144 ], [ %357, %my_strdup.exit133 ], [ %.sroa.42.0383, %my_strdup.exit122 ], [ %.sroa.42.0383, %my_strdup.exit111 ], [ %.sroa.42.0383, %my_strdup.exit100 ], [ %.sroa.42.0383, %my_strdup.exit89 ], [ %.sroa.42.0383, %268 ], [ %.sroa.42.0383, %259 ], [ %.sroa.42.0383, %parseInt.exit ], [ %.sroa.42.0383, %226 ], [ %.sroa.42.0383, %219 ], [ %.sroa.42.0383, %214 ], [ %.sroa.42.0383, %204 ], [ %.sroa.42.0383, %197 ], [ %.sroa.42.0383, %190 ], [ %.sroa.42.0383, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.42.0383, %dynamic_fgets.exit ], [ %.sroa.42.0383, %dynamic_fgets.exit ]
+  %.sroa.44.1 = phi ptr [ %.sroa.44.0384, %391 ], [ %397, %394 ], [ %.sroa.44.0384, %388 ], [ %.sroa.44.0384, %384 ], [ %.sroa.44.0384, %my_strdup.exit144 ], [ %.sroa.44.0384, %my_strdup.exit133 ], [ %.sroa.44.0384, %my_strdup.exit122 ], [ %.sroa.44.0384, %my_strdup.exit111 ], [ %.sroa.44.0384, %my_strdup.exit100 ], [ %.sroa.44.0384, %my_strdup.exit89 ], [ %.sroa.44.0384, %268 ], [ %.sroa.44.0384, %259 ], [ %.sroa.44.0384, %parseInt.exit ], [ %.sroa.44.0384, %226 ], [ %.sroa.44.0384, %219 ], [ %.sroa.44.0384, %214 ], [ %.sroa.44.0384, %204 ], [ %.sroa.44.0384, %197 ], [ %.sroa.44.0384, %190 ], [ %.sroa.44.0384, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.44.0384, %dynamic_fgets.exit ], [ %.sroa.44.0384, %dynamic_fgets.exit ]
+  %.sroa.45.1 = phi ptr [ %.sroa.45.0385, %391 ], [ %.sroa.45.0385, %394 ], [ %.sroa.45.0385, %388 ], [ %.sroa.45.0385, %384 ], [ %375, %my_strdup.exit144 ], [ %.sroa.45.0385, %my_strdup.exit133 ], [ %.sroa.45.0385, %my_strdup.exit122 ], [ %.sroa.45.0385, %my_strdup.exit111 ], [ %.sroa.45.0385, %my_strdup.exit100 ], [ %.sroa.45.0385, %my_strdup.exit89 ], [ %.sroa.45.0385, %268 ], [ %.sroa.45.0385, %259 ], [ %.sroa.45.0385, %parseInt.exit ], [ %.sroa.45.0385, %226 ], [ %.sroa.45.0385, %219 ], [ %.sroa.45.0385, %214 ], [ %.sroa.45.0385, %204 ], [ %.sroa.45.0385, %197 ], [ %.sroa.45.0385, %190 ], [ %.sroa.45.0385, %183 ], [ null, %hash_table_set.exit ], [ %.sroa.45.0385, %dynamic_fgets.exit ], [ %.sroa.45.0385, %dynamic_fgets.exit ]
+  %.sroa.33.1 = phi i32 [ %.sroa.33.0386, %391 ], [ %.sroa.33.0386, %394 ], [ %.sroa.33.0386, %388 ], [ %.sroa.33.0386, %384 ], [ %.sroa.33.0386, %my_strdup.exit144 ], [ %.sroa.33.0386, %my_strdup.exit133 ], [ %.sroa.33.0386, %my_strdup.exit122 ], [ %.sroa.33.0386, %my_strdup.exit111 ], [ %.sroa.33.0386, %my_strdup.exit100 ], [ %.sroa.33.0386, %my_strdup.exit89 ], [ %.sroa.33.0386, %268 ], [ %.sroa.33.0386, %259 ], [ %254, %parseInt.exit ], [ %.sroa.33.0386, %226 ], [ %.sroa.33.0386, %219 ], [ %.sroa.33.0386, %214 ], [ %.sroa.33.0386, %204 ], [ %.sroa.33.0386, %197 ], [ %.sroa.33.0386, %190 ], [ %.sroa.33.0386, %183 ], [ 0, %hash_table_set.exit ], [ %.sroa.33.0386, %dynamic_fgets.exit ], [ %.sroa.33.0386, %dynamic_fgets.exit ]
+  %.sroa.29.1 = phi float [ %.sroa.29.0387, %391 ], [ %.sroa.29.0387, %394 ], [ %.sroa.29.0387, %388 ], [ %.sroa.29.0387, %384 ], [ %.sroa.29.0387, %my_strdup.exit144 ], [ %.sroa.29.0387, %my_strdup.exit133 ], [ %.sroa.29.0387, %my_strdup.exit122 ], [ %.sroa.29.0387, %my_strdup.exit111 ], [ %.sroa.29.0387, %my_strdup.exit100 ], [ %.sroa.29.0387, %my_strdup.exit89 ], [ %270, %268 ], [ %260, %259 ], [ %.sroa.29.0387, %parseInt.exit ], [ %.sroa.29.0387, %226 ], [ %.sroa.29.0387, %219 ], [ %.sroa.29.0387, %214 ], [ %.sroa.29.0387, %204 ], [ %.sroa.29.0387, %197 ], [ %.sroa.29.0387, %190 ], [ %.sroa.29.0387, %183 ], [ 1.000000e+00, %hash_table_set.exit ], [ %.sroa.29.0387, %dynamic_fgets.exit ], [ %.sroa.29.0387, %dynamic_fgets.exit ]
+  %.sroa.26.1 = phi float [ %.sroa.26.0388, %391 ], [ %.sroa.26.0388, %394 ], [ %.sroa.26.0388, %388 ], [ %.sroa.26.0388, %384 ], [ %.sroa.26.0388, %my_strdup.exit144 ], [ %.sroa.26.0388, %my_strdup.exit133 ], [ %.sroa.26.0388, %my_strdup.exit122 ], [ %.sroa.26.0388, %my_strdup.exit111 ], [ %.sroa.26.0388, %my_strdup.exit100 ], [ %.sroa.26.0388, %my_strdup.exit89 ], [ %.sroa.26.0388, %268 ], [ %.sroa.26.0388, %259 ], [ %.sroa.26.0388, %parseInt.exit ], [ %.sroa.26.0388, %226 ], [ %.sroa.26.0388, %219 ], [ %215, %214 ], [ %.sroa.26.0388, %204 ], [ %.sroa.26.0388, %197 ], [ %.sroa.26.0388, %190 ], [ %.sroa.26.0388, %183 ], [ 1.000000e+00, %hash_table_set.exit ], [ %.sroa.26.0388, %dynamic_fgets.exit ], [ %.sroa.26.0388, %dynamic_fgets.exit ]
+  %.sroa.23.1 = phi float [ %.sroa.23.0389, %391 ], [ %.sroa.23.0389, %394 ], [ %.sroa.23.0389, %388 ], [ %.sroa.23.0389, %384 ], [ %.sroa.23.0389, %my_strdup.exit144 ], [ %.sroa.23.0389, %my_strdup.exit133 ], [ %.sroa.23.0389, %my_strdup.exit122 ], [ %.sroa.23.0389, %my_strdup.exit111 ], [ %.sroa.23.0389, %my_strdup.exit100 ], [ %.sroa.23.0389, %my_strdup.exit89 ], [ %.sroa.23.0389, %268 ], [ %.sroa.23.0389, %259 ], [ %.sroa.23.0389, %parseInt.exit ], [ %227, %226 ], [ %.sroa.23.0389, %219 ], [ %.sroa.23.0389, %214 ], [ %.sroa.23.0389, %204 ], [ %.sroa.23.0389, %197 ], [ %.sroa.23.0389, %190 ], [ %.sroa.23.0389, %183 ], [ 1.000000e+00, %hash_table_set.exit ], [ %.sroa.23.0389, %dynamic_fgets.exit ], [ %.sroa.23.0389, %dynamic_fgets.exit ]
+  %.sroa.21.1 = phi float [ %.sroa.21.0393, %391 ], [ %.sroa.21.0393, %394 ], [ %.sroa.21.0393, %388 ], [ %.sroa.21.0393, %384 ], [ %.sroa.21.0393, %my_strdup.exit144 ], [ %.sroa.21.0393, %my_strdup.exit133 ], [ %.sroa.21.0393, %my_strdup.exit122 ], [ %.sroa.21.0393, %my_strdup.exit111 ], [ %.sroa.21.0393, %my_strdup.exit100 ], [ %.sroa.21.0393, %my_strdup.exit89 ], [ %.sroa.21.0393, %268 ], [ %.sroa.21.0393, %259 ], [ %.sroa.21.0393, %parseInt.exit ], [ %.sroa.21.0393, %226 ], [ %221, %219 ], [ %.sroa.21.0393, %214 ], [ %.sroa.21.0393, %204 ], [ %.sroa.21.0393, %197 ], [ %.sroa.21.0393, %190 ], [ %.sroa.21.0393, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.21.0393, %dynamic_fgets.exit ], [ %.sroa.21.0393, %dynamic_fgets.exit ]
+  %.sroa.20.1 = phi float [ %.sroa.20.0395, %391 ], [ %.sroa.20.0395, %394 ], [ %.sroa.20.0395, %388 ], [ %.sroa.20.0395, %384 ], [ %.sroa.20.0395, %my_strdup.exit144 ], [ %.sroa.20.0395, %my_strdup.exit133 ], [ %.sroa.20.0395, %my_strdup.exit122 ], [ %.sroa.20.0395, %my_strdup.exit111 ], [ %.sroa.20.0395, %my_strdup.exit100 ], [ %.sroa.20.0395, %my_strdup.exit89 ], [ %.sroa.20.0395, %268 ], [ %.sroa.20.0395, %259 ], [ %.sroa.20.0395, %parseInt.exit ], [ %.sroa.20.0395, %226 ], [ %220, %219 ], [ %.sroa.20.0395, %214 ], [ %.sroa.20.0395, %204 ], [ %.sroa.20.0395, %197 ], [ %.sroa.20.0395, %190 ], [ %.sroa.20.0395, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.20.0395, %dynamic_fgets.exit ], [ %.sroa.20.0395, %dynamic_fgets.exit ]
+  %.sroa.19.1 = phi float [ %.sroa.19.0397, %391 ], [ %.sroa.19.0397, %394 ], [ %.sroa.19.0397, %388 ], [ %.sroa.19.0397, %384 ], [ %.sroa.19.0397, %my_strdup.exit144 ], [ %.sroa.19.0397, %my_strdup.exit133 ], [ %.sroa.19.0397, %my_strdup.exit122 ], [ %.sroa.19.0397, %my_strdup.exit111 ], [ %.sroa.19.0397, %my_strdup.exit100 ], [ %.sroa.19.0397, %my_strdup.exit89 ], [ %.sroa.19.0397, %268 ], [ %.sroa.19.0397, %259 ], [ %.sroa.19.0397, %parseInt.exit ], [ %.sroa.19.0397, %226 ], [ %.sroa.19.0397, %219 ], [ %.sroa.19.0397, %214 ], [ %207, %204 ], [ %.sroa.19.0397, %197 ], [ %.sroa.19.0397, %190 ], [ %.sroa.19.0397, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.19.0397, %dynamic_fgets.exit ], [ %.sroa.19.0397, %dynamic_fgets.exit ]
+  %.sroa.18.1 = phi float [ %.sroa.18.0398, %391 ], [ %.sroa.18.0398, %394 ], [ %.sroa.18.0398, %388 ], [ %.sroa.18.0398, %384 ], [ %.sroa.18.0398, %my_strdup.exit144 ], [ %.sroa.18.0398, %my_strdup.exit133 ], [ %.sroa.18.0398, %my_strdup.exit122 ], [ %.sroa.18.0398, %my_strdup.exit111 ], [ %.sroa.18.0398, %my_strdup.exit100 ], [ %.sroa.18.0398, %my_strdup.exit89 ], [ %.sroa.18.0398, %268 ], [ %.sroa.18.0398, %259 ], [ %.sroa.18.0398, %parseInt.exit ], [ %.sroa.18.0398, %226 ], [ %.sroa.18.0398, %219 ], [ %.sroa.18.0398, %214 ], [ %206, %204 ], [ %.sroa.18.0398, %197 ], [ %.sroa.18.0398, %190 ], [ %.sroa.18.0398, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.18.0398, %dynamic_fgets.exit ], [ %.sroa.18.0398, %dynamic_fgets.exit ]
+  %.sroa.17.1 = phi float [ %.sroa.17.0399, %391 ], [ %.sroa.17.0399, %394 ], [ %.sroa.17.0399, %388 ], [ %.sroa.17.0399, %384 ], [ %.sroa.17.0399, %my_strdup.exit144 ], [ %.sroa.17.0399, %my_strdup.exit133 ], [ %.sroa.17.0399, %my_strdup.exit122 ], [ %.sroa.17.0399, %my_strdup.exit111 ], [ %.sroa.17.0399, %my_strdup.exit100 ], [ %.sroa.17.0399, %my_strdup.exit89 ], [ %.sroa.17.0399, %268 ], [ %.sroa.17.0399, %259 ], [ %.sroa.17.0399, %parseInt.exit ], [ %.sroa.17.0399, %226 ], [ %.sroa.17.0399, %219 ], [ %.sroa.17.0399, %214 ], [ %205, %204 ], [ %.sroa.17.0399, %197 ], [ %.sroa.17.0399, %190 ], [ %.sroa.17.0399, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.17.0399, %dynamic_fgets.exit ], [ %.sroa.17.0399, %dynamic_fgets.exit ]
+  %.sroa.16.1 = phi float [ %.sroa.16.0400, %391 ], [ %.sroa.16.0400, %394 ], [ %.sroa.16.0400, %388 ], [ %.sroa.16.0400, %384 ], [ %.sroa.16.0400, %my_strdup.exit144 ], [ %.sroa.16.0400, %my_strdup.exit133 ], [ %.sroa.16.0400, %my_strdup.exit122 ], [ %.sroa.16.0400, %my_strdup.exit111 ], [ %.sroa.16.0400, %my_strdup.exit100 ], [ %.sroa.16.0400, %my_strdup.exit89 ], [ %.sroa.16.0400, %268 ], [ %.sroa.16.0400, %259 ], [ %.sroa.16.0400, %parseInt.exit ], [ %.sroa.16.0400, %226 ], [ %.sroa.16.0400, %219 ], [ %.sroa.16.0400, %214 ], [ %.sroa.16.0400, %204 ], [ %200, %197 ], [ %.sroa.16.0400, %190 ], [ %.sroa.16.0400, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.16.0400, %dynamic_fgets.exit ], [ %.sroa.16.0400, %dynamic_fgets.exit ]
+  %.sroa.15.1 = phi float [ %.sroa.15.0401, %391 ], [ %.sroa.15.0401, %394 ], [ %.sroa.15.0401, %388 ], [ %.sroa.15.0401, %384 ], [ %.sroa.15.0401, %my_strdup.exit144 ], [ %.sroa.15.0401, %my_strdup.exit133 ], [ %.sroa.15.0401, %my_strdup.exit122 ], [ %.sroa.15.0401, %my_strdup.exit111 ], [ %.sroa.15.0401, %my_strdup.exit100 ], [ %.sroa.15.0401, %my_strdup.exit89 ], [ %.sroa.15.0401, %268 ], [ %.sroa.15.0401, %259 ], [ %.sroa.15.0401, %parseInt.exit ], [ %.sroa.15.0401, %226 ], [ %.sroa.15.0401, %219 ], [ %.sroa.15.0401, %214 ], [ %.sroa.15.0401, %204 ], [ %199, %197 ], [ %.sroa.15.0401, %190 ], [ %.sroa.15.0401, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.15.0401, %dynamic_fgets.exit ], [ %.sroa.15.0401, %dynamic_fgets.exit ]
+  %.sroa.14.1 = phi float [ %.sroa.14.0402, %391 ], [ %.sroa.14.0402, %394 ], [ %.sroa.14.0402, %388 ], [ %.sroa.14.0402, %384 ], [ %.sroa.14.0402, %my_strdup.exit144 ], [ %.sroa.14.0402, %my_strdup.exit133 ], [ %.sroa.14.0402, %my_strdup.exit122 ], [ %.sroa.14.0402, %my_strdup.exit111 ], [ %.sroa.14.0402, %my_strdup.exit100 ], [ %.sroa.14.0402, %my_strdup.exit89 ], [ %.sroa.14.0402, %268 ], [ %.sroa.14.0402, %259 ], [ %.sroa.14.0402, %parseInt.exit ], [ %.sroa.14.0402, %226 ], [ %.sroa.14.0402, %219 ], [ %.sroa.14.0402, %214 ], [ %.sroa.14.0402, %204 ], [ %198, %197 ], [ %.sroa.14.0402, %190 ], [ %.sroa.14.0402, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.14.0402, %dynamic_fgets.exit ], [ %.sroa.14.0402, %dynamic_fgets.exit ]
+  %.sroa.13.1 = phi float [ %.sroa.13.0403, %391 ], [ %.sroa.13.0403, %394 ], [ %.sroa.13.0403, %388 ], [ %.sroa.13.0403, %384 ], [ %.sroa.13.0403, %my_strdup.exit144 ], [ %.sroa.13.0403, %my_strdup.exit133 ], [ %.sroa.13.0403, %my_strdup.exit122 ], [ %.sroa.13.0403, %my_strdup.exit111 ], [ %.sroa.13.0403, %my_strdup.exit100 ], [ %.sroa.13.0403, %my_strdup.exit89 ], [ %.sroa.13.0403, %268 ], [ %.sroa.13.0403, %259 ], [ %.sroa.13.0403, %parseInt.exit ], [ %.sroa.13.0403, %226 ], [ %.sroa.13.0403, %219 ], [ %.sroa.13.0403, %214 ], [ %.sroa.13.0403, %204 ], [ %.sroa.13.0403, %197 ], [ %193, %190 ], [ %.sroa.13.0403, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.13.0403, %dynamic_fgets.exit ], [ %.sroa.13.0403, %dynamic_fgets.exit ]
+  %.sroa.12.1 = phi float [ %.sroa.12.0404, %391 ], [ %.sroa.12.0404, %394 ], [ %.sroa.12.0404, %388 ], [ %.sroa.12.0404, %384 ], [ %.sroa.12.0404, %my_strdup.exit144 ], [ %.sroa.12.0404, %my_strdup.exit133 ], [ %.sroa.12.0404, %my_strdup.exit122 ], [ %.sroa.12.0404, %my_strdup.exit111 ], [ %.sroa.12.0404, %my_strdup.exit100 ], [ %.sroa.12.0404, %my_strdup.exit89 ], [ %.sroa.12.0404, %268 ], [ %.sroa.12.0404, %259 ], [ %.sroa.12.0404, %parseInt.exit ], [ %.sroa.12.0404, %226 ], [ %.sroa.12.0404, %219 ], [ %.sroa.12.0404, %214 ], [ %.sroa.12.0404, %204 ], [ %.sroa.12.0404, %197 ], [ %192, %190 ], [ %.sroa.12.0404, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.12.0404, %dynamic_fgets.exit ], [ %.sroa.12.0404, %dynamic_fgets.exit ]
+  %.sroa.11.1 = phi float [ %.sroa.11.0405, %391 ], [ %.sroa.11.0405, %394 ], [ %.sroa.11.0405, %388 ], [ %.sroa.11.0405, %384 ], [ %.sroa.11.0405, %my_strdup.exit144 ], [ %.sroa.11.0405, %my_strdup.exit133 ], [ %.sroa.11.0405, %my_strdup.exit122 ], [ %.sroa.11.0405, %my_strdup.exit111 ], [ %.sroa.11.0405, %my_strdup.exit100 ], [ %.sroa.11.0405, %my_strdup.exit89 ], [ %.sroa.11.0405, %268 ], [ %.sroa.11.0405, %259 ], [ %.sroa.11.0405, %parseInt.exit ], [ %.sroa.11.0405, %226 ], [ %.sroa.11.0405, %219 ], [ %.sroa.11.0405, %214 ], [ %.sroa.11.0405, %204 ], [ %.sroa.11.0405, %197 ], [ %191, %190 ], [ %.sroa.11.0405, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.11.0405, %dynamic_fgets.exit ], [ %.sroa.11.0405, %dynamic_fgets.exit ]
+  %.sroa.10.1 = phi float [ %.sroa.10.0406, %391 ], [ %.sroa.10.0406, %394 ], [ %.sroa.10.0406, %388 ], [ %.sroa.10.0406, %384 ], [ %.sroa.10.0406, %my_strdup.exit144 ], [ %.sroa.10.0406, %my_strdup.exit133 ], [ %.sroa.10.0406, %my_strdup.exit122 ], [ %.sroa.10.0406, %my_strdup.exit111 ], [ %.sroa.10.0406, %my_strdup.exit100 ], [ %.sroa.10.0406, %my_strdup.exit89 ], [ %.sroa.10.0406, %268 ], [ %.sroa.10.0406, %259 ], [ %.sroa.10.0406, %parseInt.exit ], [ %.sroa.10.0406, %226 ], [ %.sroa.10.0406, %219 ], [ %.sroa.10.0406, %214 ], [ %.sroa.10.0406, %204 ], [ %.sroa.10.0406, %197 ], [ %.sroa.10.0406, %190 ], [ %186, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.10.0406, %dynamic_fgets.exit ], [ %.sroa.10.0406, %dynamic_fgets.exit ]
+  %.sroa.9.1 = phi float [ %.sroa.9.0407, %391 ], [ %.sroa.9.0407, %394 ], [ %.sroa.9.0407, %388 ], [ %.sroa.9.0407, %384 ], [ %.sroa.9.0407, %my_strdup.exit144 ], [ %.sroa.9.0407, %my_strdup.exit133 ], [ %.sroa.9.0407, %my_strdup.exit122 ], [ %.sroa.9.0407, %my_strdup.exit111 ], [ %.sroa.9.0407, %my_strdup.exit100 ], [ %.sroa.9.0407, %my_strdup.exit89 ], [ %.sroa.9.0407, %268 ], [ %.sroa.9.0407, %259 ], [ %.sroa.9.0407, %parseInt.exit ], [ %.sroa.9.0407, %226 ], [ %.sroa.9.0407, %219 ], [ %.sroa.9.0407, %214 ], [ %.sroa.9.0407, %204 ], [ %.sroa.9.0407, %197 ], [ %.sroa.9.0407, %190 ], [ %185, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.9.0407, %dynamic_fgets.exit ], [ %.sroa.9.0407, %dynamic_fgets.exit ]
+  %.sroa.8.1 = phi float [ %.sroa.8.0408, %391 ], [ %.sroa.8.0408, %394 ], [ %.sroa.8.0408, %388 ], [ %.sroa.8.0408, %384 ], [ %.sroa.8.0408, %my_strdup.exit144 ], [ %.sroa.8.0408, %my_strdup.exit133 ], [ %.sroa.8.0408, %my_strdup.exit122 ], [ %.sroa.8.0408, %my_strdup.exit111 ], [ %.sroa.8.0408, %my_strdup.exit100 ], [ %.sroa.8.0408, %my_strdup.exit89 ], [ %.sroa.8.0408, %268 ], [ %.sroa.8.0408, %259 ], [ %.sroa.8.0408, %parseInt.exit ], [ %.sroa.8.0408, %226 ], [ %.sroa.8.0408, %219 ], [ %.sroa.8.0408, %214 ], [ %.sroa.8.0408, %204 ], [ %.sroa.8.0408, %197 ], [ %.sroa.8.0408, %190 ], [ %184, %183 ], [ 0.000000e+00, %hash_table_set.exit ], [ %.sroa.8.0408, %dynamic_fgets.exit ], [ %.sroa.8.0408, %dynamic_fgets.exit ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0409, %391 ], [ %.sroa.0.0409, %394 ], [ %.sroa.0.0409, %388 ], [ %.sroa.0.0409, %384 ], [ %.sroa.0.0409, %my_strdup.exit144 ], [ %.sroa.0.0409, %my_strdup.exit133 ], [ %.sroa.0.0409, %my_strdup.exit122 ], [ %.sroa.0.0409, %my_strdup.exit111 ], [ %.sroa.0.0409, %my_strdup.exit100 ], [ %.sroa.0.0409, %my_strdup.exit89 ], [ %.sroa.0.0409, %268 ], [ %.sroa.0.0409, %259 ], [ %.sroa.0.0409, %parseInt.exit ], [ %.sroa.0.0409, %226 ], [ %.sroa.0.0409, %219 ], [ %.sroa.0.0409, %214 ], [ %.sroa.0.0409, %204 ], [ %.sroa.0.0409, %197 ], [ %.sroa.0.0409, %190 ], [ %.sroa.0.0409, %183 ], [ %71, %hash_table_set.exit ], [ %.sroa.0.0409, %dynamic_fgets.exit ], [ %.sroa.0.0409, %dynamic_fgets.exit ]
+  %.136 = phi i32 [ %.035410, %391 ], [ %.035410, %394 ], [ %.035410, %388 ], [ %.035410, %384 ], [ %.035410, %my_strdup.exit144 ], [ %.035410, %my_strdup.exit133 ], [ %.035410, %my_strdup.exit122 ], [ %.035410, %my_strdup.exit111 ], [ %.035410, %my_strdup.exit100 ], [ %.035410, %my_strdup.exit89 ], [ %.035410, %268 ], [ %.035410, %259 ], [ %.035410, %parseInt.exit ], [ %.035410, %226 ], [ %.035410, %219 ], [ %.035410, %214 ], [ %.035410, %204 ], [ %.035410, %197 ], [ %.035410, %190 ], [ %.035410, %183 ], [ %.237, %hash_table_set.exit ], [ %.035410, %dynamic_fgets.exit ], [ %.035410, %dynamic_fgets.exit ]
+  %.133 = phi ptr [ %.032412, %391 ], [ %.032412, %394 ], [ %.032412, %388 ], [ %.032412, %384 ], [ %.032412, %my_strdup.exit144 ], [ %.032412, %my_strdup.exit133 ], [ %.032412, %my_strdup.exit122 ], [ %.032412, %my_strdup.exit111 ], [ %.032412, %my_strdup.exit100 ], [ %.032412, %my_strdup.exit89 ], [ %.032412, %268 ], [ %.032412, %259 ], [ %.032412, %parseInt.exit ], [ %.032412, %226 ], [ %.032412, %219 ], [ %.032412, %214 ], [ %.032412, %204 ], [ %.032412, %197 ], [ %.032412, %190 ], [ %.032412, %183 ], [ %.234, %hash_table_set.exit ], [ %.032412, %dynamic_fgets.exit ], [ %.032412, %dynamic_fgets.exit ]
+  %.1 = phi i32 [ %.0414, %391 ], [ %.0414, %394 ], [ %.0414, %388 ], [ %.0414, %384 ], [ %.0414, %my_strdup.exit144 ], [ %.0414, %my_strdup.exit133 ], [ %.0414, %my_strdup.exit122 ], [ %.0414, %my_strdup.exit111 ], [ %.0414, %my_strdup.exit100 ], [ %.0414, %my_strdup.exit89 ], [ %.0414, %268 ], [ %.0414, %259 ], [ %.0414, %parseInt.exit ], [ %.0414, %226 ], [ %.0414, %219 ], [ %.0414, %214 ], [ %.0414, %204 ], [ %.0414, %197 ], [ %.0414, %190 ], [ %.0414, %183 ], [ 1, %hash_table_set.exit ], [ %.0414, %dynamic_fgets.exit ], [ %.0414, %dynamic_fgets.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #58
-  %423 = call ptr @fgets(ptr noundef nonnull %.2, i32 noundef %.2250, ptr noundef nonnull %10)
-  %.not.i = icmp eq ptr %423, null
-  br i1 %.not.i, label %.loopexit265, label %25
+  %399 = call ptr @fgets(ptr noundef nonnull %.2, i32 noundef %.2250, ptr noundef nonnull %10)
+  %.not.i = icmp eq ptr %399, null
+  br i1 %.not.i, label %.loopexit280, label %25
 
-.loopexit265:                                     ; preds = %422, %.preheader.i
-  %.sroa.22.0357 = phi float [ %.sroa.22.0362, %.preheader.i ], [ %.sroa.22.1, %422 ]
-  %.sroa.36208.0355 = phi ptr [ %.sroa.36208.0364, %.preheader.i ], [ %.sroa.36208.1, %422 ]
-  %.sroa.39.0353 = phi ptr [ %.sroa.39.0365, %.preheader.i ], [ %.sroa.39.1, %422 ]
-  %.sroa.40.0351 = phi ptr [ %.sroa.40.0366, %.preheader.i ], [ %.sroa.40.1, %422 ]
-  %.sroa.41.0349 = phi ptr [ %.sroa.41.0367, %.preheader.i ], [ %.sroa.41.1, %422 ]
-  %.sroa.42.0347 = phi ptr [ %.sroa.42.0368, %.preheader.i ], [ %.sroa.42.1, %422 ]
-  %.sroa.44.0345 = phi ptr [ %.sroa.44.0369, %.preheader.i ], [ %.sroa.44.1, %422 ]
-  %.sroa.45.0343 = phi ptr [ %.sroa.45.0370, %.preheader.i ], [ %.sroa.45.1, %422 ]
-  %.sroa.33.0341 = phi i32 [ %.sroa.33.0371, %.preheader.i ], [ %.sroa.33.1, %422 ]
-  %.sroa.29.0339 = phi float [ %.sroa.29.0372, %.preheader.i ], [ %.sroa.29.1, %422 ]
-  %.sroa.26.0337 = phi float [ %.sroa.26.0373, %.preheader.i ], [ %.sroa.26.1, %422 ]
-  %.sroa.23.0335 = phi float [ %.sroa.23.0374, %.preheader.i ], [ %.sroa.23.1, %422 ]
-  %.sroa.21.0332 = phi float [ %.sroa.21.0378, %.preheader.i ], [ %.sroa.21.1, %422 ]
-  %.sroa.20.0330 = phi float [ %.sroa.20.0380, %.preheader.i ], [ %.sroa.20.1, %422 ]
-  %.sroa.19.0328 = phi float [ %.sroa.19.0382, %.preheader.i ], [ %.sroa.19.1, %422 ]
-  %.sroa.18.0326 = phi float [ %.sroa.18.0383, %.preheader.i ], [ %.sroa.18.1, %422 ]
-  %.sroa.17.0324 = phi float [ %.sroa.17.0384, %.preheader.i ], [ %.sroa.17.1, %422 ]
-  %.sroa.16.0322 = phi float [ %.sroa.16.0385, %.preheader.i ], [ %.sroa.16.1, %422 ]
-  %.sroa.15.0320 = phi float [ %.sroa.15.0386, %.preheader.i ], [ %.sroa.15.1, %422 ]
-  %.sroa.14.0318 = phi float [ %.sroa.14.0387, %.preheader.i ], [ %.sroa.14.1, %422 ]
-  %.sroa.13.0316 = phi float [ %.sroa.13.0388, %.preheader.i ], [ %.sroa.13.1, %422 ]
-  %.sroa.12.0314 = phi float [ %.sroa.12.0389, %.preheader.i ], [ %.sroa.12.1, %422 ]
-  %.sroa.11.0312 = phi float [ %.sroa.11.0390, %.preheader.i ], [ %.sroa.11.1, %422 ]
-  %.sroa.10.0310 = phi float [ %.sroa.10.0391, %.preheader.i ], [ %.sroa.10.1, %422 ]
-  %.sroa.9.0308 = phi float [ %.sroa.9.0392, %.preheader.i ], [ %.sroa.9.1, %422 ]
-  %.sroa.8.0306 = phi float [ %.sroa.8.0393, %.preheader.i ], [ %.sroa.8.1, %422 ]
-  %.sroa.0.0304 = phi ptr [ %.sroa.0.0394, %.preheader.i ], [ %.sroa.0.1, %422 ]
-  %.035302 = phi i32 [ %.035395, %.preheader.i ], [ %.136, %422 ]
-  %.032300 = phi ptr [ %.032397, %.preheader.i ], [ %.133, %422 ]
-  %.2.ph = phi ptr [ %29, %.preheader.i ], [ %.2, %422 ]
-  %424 = call i32 @fclose(ptr noundef nonnull %10)
-  %.not66 = icmp eq ptr %.sroa.0.0304, null
-  br i1 %.not66, label %432, label %425
+.loopexit280:                                     ; preds = %398, %.preheader.i
+  %.sroa.22.0372 = phi float [ %.sroa.22.0377, %.preheader.i ], [ %.sroa.22.1, %398 ]
+  %.sroa.36208.0370 = phi ptr [ %.sroa.36208.0379, %.preheader.i ], [ %.sroa.36208.1, %398 ]
+  %.sroa.39.0368 = phi ptr [ %.sroa.39.0380, %.preheader.i ], [ %.sroa.39.1, %398 ]
+  %.sroa.40.0366 = phi ptr [ %.sroa.40.0381, %.preheader.i ], [ %.sroa.40.1, %398 ]
+  %.sroa.41.0364 = phi ptr [ %.sroa.41.0382, %.preheader.i ], [ %.sroa.41.1, %398 ]
+  %.sroa.42.0362 = phi ptr [ %.sroa.42.0383, %.preheader.i ], [ %.sroa.42.1, %398 ]
+  %.sroa.44.0360 = phi ptr [ %.sroa.44.0384, %.preheader.i ], [ %.sroa.44.1, %398 ]
+  %.sroa.45.0358 = phi ptr [ %.sroa.45.0385, %.preheader.i ], [ %.sroa.45.1, %398 ]
+  %.sroa.33.0356 = phi i32 [ %.sroa.33.0386, %.preheader.i ], [ %.sroa.33.1, %398 ]
+  %.sroa.29.0354 = phi float [ %.sroa.29.0387, %.preheader.i ], [ %.sroa.29.1, %398 ]
+  %.sroa.26.0352 = phi float [ %.sroa.26.0388, %.preheader.i ], [ %.sroa.26.1, %398 ]
+  %.sroa.23.0350 = phi float [ %.sroa.23.0389, %.preheader.i ], [ %.sroa.23.1, %398 ]
+  %.sroa.21.0347 = phi float [ %.sroa.21.0393, %.preheader.i ], [ %.sroa.21.1, %398 ]
+  %.sroa.20.0345 = phi float [ %.sroa.20.0395, %.preheader.i ], [ %.sroa.20.1, %398 ]
+  %.sroa.19.0343 = phi float [ %.sroa.19.0397, %.preheader.i ], [ %.sroa.19.1, %398 ]
+  %.sroa.18.0341 = phi float [ %.sroa.18.0398, %.preheader.i ], [ %.sroa.18.1, %398 ]
+  %.sroa.17.0339 = phi float [ %.sroa.17.0399, %.preheader.i ], [ %.sroa.17.1, %398 ]
+  %.sroa.16.0337 = phi float [ %.sroa.16.0400, %.preheader.i ], [ %.sroa.16.1, %398 ]
+  %.sroa.15.0335 = phi float [ %.sroa.15.0401, %.preheader.i ], [ %.sroa.15.1, %398 ]
+  %.sroa.14.0333 = phi float [ %.sroa.14.0402, %.preheader.i ], [ %.sroa.14.1, %398 ]
+  %.sroa.13.0331 = phi float [ %.sroa.13.0403, %.preheader.i ], [ %.sroa.13.1, %398 ]
+  %.sroa.12.0329 = phi float [ %.sroa.12.0404, %.preheader.i ], [ %.sroa.12.1, %398 ]
+  %.sroa.11.0327 = phi float [ %.sroa.11.0405, %.preheader.i ], [ %.sroa.11.1, %398 ]
+  %.sroa.10.0325 = phi float [ %.sroa.10.0406, %.preheader.i ], [ %.sroa.10.1, %398 ]
+  %.sroa.9.0323 = phi float [ %.sroa.9.0407, %.preheader.i ], [ %.sroa.9.1, %398 ]
+  %.sroa.8.0321 = phi float [ %.sroa.8.0408, %.preheader.i ], [ %.sroa.8.1, %398 ]
+  %.sroa.0.0319 = phi ptr [ %.sroa.0.0409, %.preheader.i ], [ %.sroa.0.1, %398 ]
+  %.035317 = phi i32 [ %.035410, %.preheader.i ], [ %.136, %398 ]
+  %.032315 = phi ptr [ %.032412, %.preheader.i ], [ %.133, %398 ]
+  %.2.ph = phi ptr [ %29, %.preheader.i ], [ %.2, %398 ]
+  %400 = call i32 @fclose(ptr noundef nonnull %10)
+  %.not66 = icmp eq ptr %.sroa.0.0319, null
+  br i1 %.not66, label %408, label %401
 
-425:                                              ; preds = %.loopexit265
-  %426 = add i32 %.035302, 1
-  %427 = zext i32 %426 to i64
-  %428 = mul nuw nsw i64 %427, 144
-  %429 = call noalias noundef ptr @realloc(ptr noundef %.032300, i64 noundef %428) #56
-  %430 = zext i32 %.035302 to i64
-  %431 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %429, i64 %430
-  store ptr %.sroa.0.0304, ptr %431, align 8
-  %.sroa.8.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %431, i64 8
-  store float %.sroa.8.0306, ptr %.sroa.8.0..sroa_idx168, align 8
-  %.sroa.9.0..sroa_idx170 = getelementptr inbounds nuw i8, ptr %431, i64 12
-  store float %.sroa.9.0308, ptr %.sroa.9.0..sroa_idx170, align 4
-  %.sroa.10.0..sroa_idx172 = getelementptr inbounds nuw i8, ptr %431, i64 16
-  store float %.sroa.10.0310, ptr %.sroa.10.0..sroa_idx172, align 8
-  %.sroa.11.0..sroa_idx174 = getelementptr inbounds nuw i8, ptr %431, i64 20
-  store float %.sroa.11.0312, ptr %.sroa.11.0..sroa_idx174, align 4
-  %.sroa.12.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %431, i64 24
-  store float %.sroa.12.0314, ptr %.sroa.12.0..sroa_idx176, align 8
-  %.sroa.13.0..sroa_idx178 = getelementptr inbounds nuw i8, ptr %431, i64 28
-  store float %.sroa.13.0316, ptr %.sroa.13.0..sroa_idx178, align 4
-  %.sroa.14.0..sroa_idx180 = getelementptr inbounds nuw i8, ptr %431, i64 32
-  store float %.sroa.14.0318, ptr %.sroa.14.0..sroa_idx180, align 8
-  %.sroa.15.0..sroa_idx182 = getelementptr inbounds nuw i8, ptr %431, i64 36
-  store float %.sroa.15.0320, ptr %.sroa.15.0..sroa_idx182, align 4
-  %.sroa.16.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %431, i64 40
-  store float %.sroa.16.0322, ptr %.sroa.16.0..sroa_idx184, align 8
-  %.sroa.17.0..sroa_idx186 = getelementptr inbounds nuw i8, ptr %431, i64 44
-  store float %.sroa.17.0324, ptr %.sroa.17.0..sroa_idx186, align 4
-  %.sroa.18.0..sroa_idx188 = getelementptr inbounds nuw i8, ptr %431, i64 48
-  store float %.sroa.18.0326, ptr %.sroa.18.0..sroa_idx188, align 8
-  %.sroa.19.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %431, i64 52
-  store float %.sroa.19.0328, ptr %.sroa.19.0..sroa_idx190, align 4
-  %.sroa.20.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %431, i64 56
-  store float %.sroa.20.0330, ptr %.sroa.20.0..sroa_idx192, align 8
-  %.sroa.21.0..sroa_idx194 = getelementptr inbounds nuw i8, ptr %431, i64 60
-  store float %.sroa.21.0332, ptr %.sroa.21.0..sroa_idx194, align 4
-  %.sroa.22.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %431, i64 64
-  store float %.sroa.22.0357, ptr %.sroa.22.0..sroa_idx196, align 8
-  %.sroa.23.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %431, i64 68
-  store float %.sroa.23.0335, ptr %.sroa.23.0..sroa_idx198, align 4
-  %.sroa.26.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %431, i64 72
-  store float %.sroa.26.0337, ptr %.sroa.26.0..sroa_idx200, align 8
-  %.sroa.29.0..sroa_idx202 = getelementptr inbounds nuw i8, ptr %431, i64 76
-  store float %.sroa.29.0339, ptr %.sroa.29.0..sroa_idx202, align 4
-  %.sroa.33.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %431, i64 80
-  store i32 %.sroa.33.0341, ptr %.sroa.33.0..sroa_idx204, align 8
-  %.sroa.36208.0..sroa_idx209 = getelementptr inbounds nuw i8, ptr %431, i64 88
-  store ptr %.sroa.36208.0355, ptr %.sroa.36208.0..sroa_idx209, align 8
-  %.sroa.39.0..sroa_idx211 = getelementptr inbounds nuw i8, ptr %431, i64 96
-  store ptr %.sroa.39.0353, ptr %.sroa.39.0..sroa_idx211, align 8
-  %.sroa.40.0..sroa_idx213 = getelementptr inbounds nuw i8, ptr %431, i64 104
-  store ptr %.sroa.40.0351, ptr %.sroa.40.0..sroa_idx213, align 8
-  %.sroa.41.0..sroa_idx215 = getelementptr inbounds nuw i8, ptr %431, i64 112
-  store ptr %.sroa.41.0349, ptr %.sroa.41.0..sroa_idx215, align 8
-  %.sroa.42.0..sroa_idx217 = getelementptr inbounds nuw i8, ptr %431, i64 120
-  store ptr %.sroa.42.0347, ptr %.sroa.42.0..sroa_idx217, align 8
-  %.sroa.44.0..sroa_idx219 = getelementptr inbounds nuw i8, ptr %431, i64 128
-  store ptr %.sroa.44.0345, ptr %.sroa.44.0..sroa_idx219, align 8
-  %.sroa.45.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %431, i64 136
-  store ptr %.sroa.45.0343, ptr %.sroa.45.0..sroa_idx221, align 8
-  br label %432
+401:                                              ; preds = %.loopexit280
+  %402 = add i32 %.035317, 1
+  %403 = zext i32 %402 to i64
+  %404 = mul nuw nsw i64 %403, 144
+  %405 = call noalias noundef ptr @realloc(ptr noundef %.032315, i64 noundef %404) #56
+  %406 = zext i32 %.035317 to i64
+  %407 = getelementptr inbounds nuw %struct.tinyobj_material_t, ptr %405, i64 %406
+  store ptr %.sroa.0.0319, ptr %407, align 8
+  %.sroa.8.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %407, i64 8
+  store float %.sroa.8.0321, ptr %.sroa.8.0..sroa_idx168, align 8
+  %.sroa.9.0..sroa_idx170 = getelementptr inbounds nuw i8, ptr %407, i64 12
+  store float %.sroa.9.0323, ptr %.sroa.9.0..sroa_idx170, align 4
+  %.sroa.10.0..sroa_idx172 = getelementptr inbounds nuw i8, ptr %407, i64 16
+  store float %.sroa.10.0325, ptr %.sroa.10.0..sroa_idx172, align 8
+  %.sroa.11.0..sroa_idx174 = getelementptr inbounds nuw i8, ptr %407, i64 20
+  store float %.sroa.11.0327, ptr %.sroa.11.0..sroa_idx174, align 4
+  %.sroa.12.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %407, i64 24
+  store float %.sroa.12.0329, ptr %.sroa.12.0..sroa_idx176, align 8
+  %.sroa.13.0..sroa_idx178 = getelementptr inbounds nuw i8, ptr %407, i64 28
+  store float %.sroa.13.0331, ptr %.sroa.13.0..sroa_idx178, align 4
+  %.sroa.14.0..sroa_idx180 = getelementptr inbounds nuw i8, ptr %407, i64 32
+  store float %.sroa.14.0333, ptr %.sroa.14.0..sroa_idx180, align 8
+  %.sroa.15.0..sroa_idx182 = getelementptr inbounds nuw i8, ptr %407, i64 36
+  store float %.sroa.15.0335, ptr %.sroa.15.0..sroa_idx182, align 4
+  %.sroa.16.0..sroa_idx184 = getelementptr inbounds nuw i8, ptr %407, i64 40
+  store float %.sroa.16.0337, ptr %.sroa.16.0..sroa_idx184, align 8
+  %.sroa.17.0..sroa_idx186 = getelementptr inbounds nuw i8, ptr %407, i64 44
+  store float %.sroa.17.0339, ptr %.sroa.17.0..sroa_idx186, align 4
+  %.sroa.18.0..sroa_idx188 = getelementptr inbounds nuw i8, ptr %407, i64 48
+  store float %.sroa.18.0341, ptr %.sroa.18.0..sroa_idx188, align 8
+  %.sroa.19.0..sroa_idx190 = getelementptr inbounds nuw i8, ptr %407, i64 52
+  store float %.sroa.19.0343, ptr %.sroa.19.0..sroa_idx190, align 4
+  %.sroa.20.0..sroa_idx192 = getelementptr inbounds nuw i8, ptr %407, i64 56
+  store float %.sroa.20.0345, ptr %.sroa.20.0..sroa_idx192, align 8
+  %.sroa.21.0..sroa_idx194 = getelementptr inbounds nuw i8, ptr %407, i64 60
+  store float %.sroa.21.0347, ptr %.sroa.21.0..sroa_idx194, align 4
+  %.sroa.22.0..sroa_idx196 = getelementptr inbounds nuw i8, ptr %407, i64 64
+  store float %.sroa.22.0372, ptr %.sroa.22.0..sroa_idx196, align 8
+  %.sroa.23.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %407, i64 68
+  store float %.sroa.23.0350, ptr %.sroa.23.0..sroa_idx198, align 4
+  %.sroa.26.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %407, i64 72
+  store float %.sroa.26.0352, ptr %.sroa.26.0..sroa_idx200, align 8
+  %.sroa.29.0..sroa_idx202 = getelementptr inbounds nuw i8, ptr %407, i64 76
+  store float %.sroa.29.0354, ptr %.sroa.29.0..sroa_idx202, align 4
+  %.sroa.33.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %407, i64 80
+  store i32 %.sroa.33.0356, ptr %.sroa.33.0..sroa_idx204, align 8
+  %.sroa.36208.0..sroa_idx209 = getelementptr inbounds nuw i8, ptr %407, i64 88
+  store ptr %.sroa.36208.0370, ptr %.sroa.36208.0..sroa_idx209, align 8
+  %.sroa.39.0..sroa_idx211 = getelementptr inbounds nuw i8, ptr %407, i64 96
+  store ptr %.sroa.39.0368, ptr %.sroa.39.0..sroa_idx211, align 8
+  %.sroa.40.0..sroa_idx213 = getelementptr inbounds nuw i8, ptr %407, i64 104
+  store ptr %.sroa.40.0366, ptr %.sroa.40.0..sroa_idx213, align 8
+  %.sroa.41.0..sroa_idx215 = getelementptr inbounds nuw i8, ptr %407, i64 112
+  store ptr %.sroa.41.0364, ptr %.sroa.41.0..sroa_idx215, align 8
+  %.sroa.42.0..sroa_idx217 = getelementptr inbounds nuw i8, ptr %407, i64 120
+  store ptr %.sroa.42.0362, ptr %.sroa.42.0..sroa_idx217, align 8
+  %.sroa.44.0..sroa_idx219 = getelementptr inbounds nuw i8, ptr %407, i64 128
+  store ptr %.sroa.44.0360, ptr %.sroa.44.0..sroa_idx219, align 8
+  %.sroa.45.0..sroa_idx221 = getelementptr inbounds nuw i8, ptr %407, i64 136
+  store ptr %.sroa.45.0358, ptr %.sroa.45.0..sroa_idx221, align 8
+  br label %408
 
-432:                                              ; preds = %.loopexit265.thread, %425, %.loopexit265
-  %.2.ph523 = phi ptr [ %.2.ph, %425 ], [ %.2.ph, %.loopexit265 ], [ %19, %.loopexit265.thread ]
-  %.338 = phi i32 [ %426, %425 ], [ %.035302, %.loopexit265 ], [ 0, %.loopexit265.thread ]
-  %.3 = phi ptr [ %429, %425 ], [ %.032300, %.loopexit265 ], [ null, %.loopexit265.thread ]
+408:                                              ; preds = %.loopexit280.thread, %401, %.loopexit280
+  %.2.ph538 = phi ptr [ %.2.ph, %401 ], [ %.2.ph, %.loopexit280 ], [ %19, %.loopexit280.thread ]
+  %.338 = phi i32 [ %402, %401 ], [ %.035317, %.loopexit280 ], [ 0, %.loopexit280.thread ]
+  %.3 = phi ptr [ %405, %401 ], [ %.032315, %.loopexit280 ], [ null, %.loopexit280.thread ]
   store i32 %.338, ptr %1, align 4
   store ptr %.3, ptr %0, align 8
-  %.not67 = icmp eq ptr %.2.ph523, null
-  br i1 %.not67, label %434, label %433
+  %.not67 = icmp eq ptr %.2.ph538, null
+  br i1 %.not67, label %410, label %409
 
-433:                                              ; preds = %432
-  call void @free(ptr noundef nonnull %.2.ph523) #58
-  br label %434
+409:                                              ; preds = %408
+  call void @free(ptr noundef nonnull %.2.ph538) #58
+  br label %410
 
-434:                                              ; preds = %432, %433, %4, %11
-  %.039 = phi i32 [ -3, %11 ], [ -2, %4 ], [ 0, %433 ], [ 0, %432 ]
+410:                                              ; preds = %408, %409, %4, %11
+  %.039 = phi i32 [ -3, %11 ], [ -2, %4 ], [ 0, %409 ], [ 0, %408 ]
   ret i32 %.039
 }
 

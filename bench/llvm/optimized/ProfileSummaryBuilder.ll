@@ -4121,7 +4121,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
 44:                                               ; preds = %22
   %45 = icmp eq i64 %23, 1
   %46 = getelementptr inbounds i8, ptr %.058, i64 %.086
-  br i1 %45, label %47, label %56
+  br i1 %45, label %47, label %53
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds i8, ptr %46, i64 -1
@@ -4130,48 +4130,45 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = ptrtoint ptr %48 to i64
-  %52 = ptrtoint ptr %.058 to i64
-  %53 = sub i64 %51, %52
-  %54 = sub i64 0, %53
-  %55 = getelementptr inbounds i8, ptr %46, i64 %54
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.058, i64 %53, i1 false)
+  %51 = add i64 %.086, -1
+  %52 = getelementptr inbounds nuw i8, ptr %.058, i64 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %.058, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %47, %50
   store i8 %49, ptr %.058, align 1, !tbaa !143
   br label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit
 
-56:                                               ; preds = %44
-  %57 = sub i64 0, %23
-  %58 = getelementptr inbounds i8, ptr %46, i64 %57
-  %59 = icmp sgt i64 %.083, 0
-  br i1 %59, label %.lr.ph, label %._crit_edge
+53:                                               ; preds = %44
+  %54 = sub i64 0, %23
+  %55 = getelementptr inbounds i8, ptr %46, i64 %54
+  %56 = icmp sgt i64 %.083, 0
+  br i1 %56, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %56
-  %.361.lcssa = phi ptr [ %58, %56 ], [ %.058, %.lr.ph ]
-  %60 = srem i64 %.086, %23
-  %.not = icmp eq i64 %60, 0
+._crit_edge:                                      ; preds = %.lr.ph, %53
+  %.361.lcssa = phi ptr [ %55, %53 ], [ %.058, %.lr.ph ]
+  %57 = srem i64 %.086, %23
+  %.not = icmp eq i64 %57, 0
   br i1 %.not, label %_ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %42
   %.086.be = phi i64 [ %.083, %42 ], [ %23, %._crit_edge ]
-  %.083.be = phi i64 [ %43, %42 ], [ %60, %._crit_edge ]
+  %.083.be = phi i64 [ %43, %42 ], [ %57, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %42 ], [ %.361.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !238
 
-.lr.ph:                                           ; preds = %56, %.lr.ph
-  %.0104 = phi i64 [ %65, %.lr.ph ], [ 0, %56 ]
-  %.052103 = phi ptr [ %62, %.lr.ph ], [ %46, %56 ]
-  %.361102 = phi ptr [ %61, %.lr.ph ], [ %58, %56 ]
-  %61 = getelementptr inbounds i8, ptr %.361102, i64 -1
-  %62 = getelementptr inbounds i8, ptr %.052103, i64 -1
-  %63 = load i8, ptr %61, align 1, !tbaa !143
-  %64 = load i8, ptr %62, align 1, !tbaa !143
-  store i8 %64, ptr %61, align 1, !tbaa !143
-  store i8 %63, ptr %62, align 1, !tbaa !143
-  %65 = add nuw nsw i64 %.0104, 1
-  %exitcond.not = icmp eq i64 %65, %.083
+.lr.ph:                                           ; preds = %53, %.lr.ph
+  %.0104 = phi i64 [ %62, %.lr.ph ], [ 0, %53 ]
+  %.052103 = phi ptr [ %59, %.lr.ph ], [ %46, %53 ]
+  %.361102 = phi ptr [ %58, %.lr.ph ], [ %55, %53 ]
+  %58 = getelementptr inbounds i8, ptr %.361102, i64 -1
+  %59 = getelementptr inbounds i8, ptr %.052103, i64 -1
+  %60 = load i8, ptr %58, align 1, !tbaa !143
+  %61 = load i8, ptr %59, align 1, !tbaa !143
+  store i8 %61, ptr %58, align 1, !tbaa !143
+  store i8 %60, ptr %59, align 1, !tbaa !143
+  %62 = add nuw nsw i64 %.0104, 1
+  %exitcond.not = icmp eq i64 %62, %.083
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !239
 
 _ZSt11swap_rangesIPcS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit, %5, %3

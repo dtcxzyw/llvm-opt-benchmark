@@ -41800,18 +41800,18 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm15SmallVect
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 216
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %76, i64 noundef %70, i64 noundef 4) #30
   %.pre6.pre.i.i = load i32, ptr %11, align 8, !tbaa !26
-  %.val33.pre69.pre.i = load ptr, ptr %10, align 8, !tbaa !25
+  %.val33.pre74.pre.i = load ptr, ptr %10, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i: ; preds = %75, %74
-  %.val33.pre69.i = phi ptr [ %.val5, %74 ], [ %.val33.pre69.pre.i, %75 ]
+  %.val33.pre74.i = phi ptr [ %.val5, %74 ], [ %.val33.pre74.pre.i, %75 ]
   %.pre6.i.i = phi i32 [ 0, %74 ], [ %.pre6.pre.i.i, %75 ]
   %77 = icmp eq i32 %1, 0
   br i1 %77, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendEmS3_.exit.i, label %78
 
 78:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
   %79 = zext i32 %.pre6.i.i to i64
-  %80 = getelementptr inbounds nuw i32, ptr %.val33.pre69.i, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %.val33.pre74.i, i64 %79
   %81 = getelementptr inbounds nuw i32, ptr %80, i64 %65
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -41849,103 +41849,98 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7Lo
   %.val.i = phi ptr [ %.val5, %85 ], [ %.val.pre.i, %86 ]
   %.idx.i = shl nuw nsw i64 %.pre-phi.i, 2
   %88 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.idx.i
-  %89 = ptrtoint ptr %.val.i to i64
   %.not.i = icmp ult i64 %.pre-phi.i, %65
-  br i1 %.not.i, label %117, label %90
+  br i1 %.not.i, label %109, label %89
 
-90:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i
-  %91 = ptrtoint ptr %88 to i64
-  %92 = sub nsw i64 0, %65
-  %93 = getelementptr inbounds i32, ptr %88, i64 %92
-  %94 = ptrtoint ptr %93 to i64
-  %95 = sub i64 %91, %94
-  %96 = ashr exact i64 %95, 2
-  %97 = add nsw i64 %96, %.pre-phi.i
-  %98 = load i32, ptr %71, align 4, !tbaa !27
-  %99 = zext i32 %98 to i64
-  %100 = icmp ugt i64 %97, %99
-  br i1 %100, label %101, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
+89:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i
+  %.neg.i = mul nsw i64 %65, -4
+  %90 = getelementptr inbounds i8, ptr %88, i64 %.neg.i
+  %.idx64.neg.i = shl nuw nsw i64 %65, 2
+  %91 = add nuw nsw i64 %.pre-phi.i, %65
+  %92 = load i32, ptr %71, align 4, !tbaa !27
+  %93 = zext i32 %92 to i64
+  %94 = icmp samesign ugt i64 %91, %93
+  br i1 %94, label %95, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
 
-101:                                              ; preds = %90
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %102, i64 noundef %97, i64 noundef 4) #30
+95:                                               ; preds = %89
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %96, i64 noundef %91, i64 noundef 4) #30
   %.pre10.pre.i.i = load i32, ptr %11, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i: ; preds = %101, %90
-  %.pre10.i.i = phi i32 [ %.val46.i, %90 ], [ %.pre10.pre.i.i, %101 ]
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i: ; preds = %95, %89
+  %.pre10.i.i = phi i32 [ %.val46.i, %89 ], [ %.pre10.pre.i.i, %95 ]
   %.not.i.i.i.i.i.i.i.i.i.i6 = icmp eq i32 %1, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i, label %103
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i, label %97
 
-103:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
+97:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
   %.val.i52.i = load ptr, ptr %10, align 8, !tbaa !25
-  %104 = zext i32 %.pre10.i.i to i64
-  %105 = getelementptr inbounds nuw i32, ptr %.val.i52.i, i64 %104
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %105, ptr nonnull align 4 %93, i64 %95, i1 false)
+  %98 = zext i32 %.pre10.i.i to i64
+  %99 = getelementptr inbounds nuw i32, ptr %.val.i52.i, i64 %98
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %99, ptr nonnull align 4 %90, i64 %.idx64.neg.i, i1 false)
   %.pre.i53.i = load i32, ptr %11, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i: ; preds = %103, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
-  %106 = phi i32 [ %.pre10.i.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i ], [ %.pre.i53.i, %103 ]
-  %107 = trunc i64 %96 to i32
-  %108 = add i32 %106, %107
-  store i32 %108, ptr %11, align 8, !tbaa !26
-  %.not.i.i.i.i.i.i = icmp eq ptr %93, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i, label %109
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i: ; preds = %97, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i
+  %100 = phi i32 [ %.pre10.i.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE7reserveEm.exit.i.i ], [ %.pre.i53.i, %97 ]
+  %101 = add i32 %100, %1
+  store i32 %101, ptr %11, align 8, !tbaa !26
+  %.not.i.i.i.i.i.i = icmp eq ptr %90, %.val.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i, label %102
 
-109:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i
-  %110 = sub i64 %94, %89
-  %111 = ashr exact i64 %110, 2
-  %112 = sub nsw i64 0, %111
-  %113 = getelementptr inbounds i32, ptr %88, i64 %112
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %113, ptr align 4 %.val.i, i64 %110, i1 false)
+102:                                              ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i
+  %gepdiff68.i = add nsw i64 %.idx.i, %.neg.i
+  %103 = ashr exact i64 %gepdiff68.i, 2
+  %104 = sub nsw i64 0, %103
+  %105 = getelementptr inbounds i32, ptr %88, i64 %104
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %105, ptr align 4 %.val.i, i64 %gepdiff68.i, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i
 
-_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i: ; preds = %109, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6insertEPS3_mS3_.exit, label %114
+_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i: ; preds = %102, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit.i
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i6, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6insertEPS3_mS3_.exit, label %106
 
-114:                                              ; preds = %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i
-  %115 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %65
+106:                                              ; preds = %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i
+  %107 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %65
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %114
-  %.06.i.i.i.i.i = phi ptr [ %116, %.lr.ph.i.i.i.i.i ], [ %.val.i, %114 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %106
+  %.06.i.i.i.i.i = phi ptr [ %108, %.lr.ph.i.i.i.i.i ], [ %.val.i, %106 ]
   store i32 2, ptr %.06.i.i.i.i.i, align 4, !tbaa !323
-  %116 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i = icmp eq ptr %116, %115
+  %108 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i = icmp eq ptr %108, %107
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6insertEPS3_mS3_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1220
 
-117:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i
-  %118 = add i32 %.val46.i, %1
-  store i32 %118, ptr %11, align 8, !tbaa !26
+109:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE28reserveForParamAndGetAddressERS3_m.exit.i
+  %110 = add i32 %.val46.i, %1
+  store i32 %110, ptr %11, align 8, !tbaa !26
   %.not.i.i54.i = icmp eq i64 %.pre-phi.i, 0
   br i1 %.not.i.i54.i, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %117
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %119
-  %121 = sub nsw i64 0, %.pre-phi.i
-  %122 = getelementptr inbounds i32, ptr %120, i64 %121
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 4 %.val.i, i64 %.idx.i, i1 false)
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i: ; preds = %109
+  %111 = zext i32 %110 to i64
+  %112 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %111
+  %113 = sub nsw i64 0, %.pre-phi.i
+  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr align 4 %.val.i, i64 %.idx.i, i1 false)
   br label %.lr.ph.i.i.i.i55.i
 
 .lr.ph.i.i.i.i55.i:                               ; preds = %.lr.ph.i.i.i.i55.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i
-  %.06.i.i.i.i56.i = phi ptr [ %123, %.lr.ph.i.i.i.i55.i ], [ %.val.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ]
+  %.06.i.i.i.i56.i = phi ptr [ %115, %.lr.ph.i.i.i.i55.i ], [ %.val.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit.i ]
   store i32 2, ptr %.06.i.i.i.i56.i, align 4, !tbaa !323
-  %123 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i56.i, i64 4
-  %.not.i.i.i.i57.i = icmp eq ptr %123, %88
+  %115 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i56.i, i64 4
+  %.not.i.i.i.i57.i = icmp eq ptr %115, %88
   br i1 %.not.i.i.i.i57.i, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i, label %.lr.ph.i.i.i.i55.i, !llvm.loop !1220
 
-_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i: ; preds = %.lr.ph.i.i.i.i55.i, %117
-  %124 = sub nsw i64 %65, %.pre-phi.i
-  %125 = getelementptr inbounds nuw i32, ptr %88, i64 %124
+_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i: ; preds = %.lr.ph.i.i.i.i55.i, %109
+  %116 = sub nsw i64 %65, %.pre-phi.i
+  %117 = getelementptr inbounds nuw i32, ptr %88, i64 %116
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i
-  %.06.i.i.i.i.i.i.i = phi ptr [ %126, %.lr.ph.i.i.i.i.i.i.i ], [ %88, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i ]
+  %.06.i.i.i.i.i.i.i = phi ptr [ %118, %.lr.ph.i.i.i.i.i.i.i ], [ %88, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEmS2_ET_S4_T0_RKT1_.exit59.i ]
   store i32 2, ptr %.06.i.i.i.i.i.i.i, align 4, !tbaa !323
-  %126 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %126, %125
+  %118 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %118, %117
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6insertEPS3_mS3_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1220
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6insertEPS3_mS3_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEE6appendEmS3_.exit.i, %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindES3_ET0_T_S5_S4_.exit.i
@@ -43061,50 +43056,45 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10A
   %46 = zext i32 %.val69 to i64
   %.idx = mul nuw nsw i64 %46, 24
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx
-  %48 = ptrtoint ptr %45 to i64
   %gepdiff = sub nsw i64 %.idx, %7
-  %49 = sdiv exact i64 %gepdiff, 24
-  %.not = icmp ult i64 %49, %2
-  br i1 %.not, label %81, label %50
+  %48 = sdiv exact i64 %gepdiff, 24
+  %.not = icmp ult i64 %48, %2
+  br i1 %.not, label %75, label %49
 
-50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE28reserveForParamAndGetAddressERKS3_m.exit
-  %51 = ptrtoint ptr %47 to i64
-  %52 = sub nsw i64 0, %2
-  %53 = getelementptr inbounds %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %47, i64 %52
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %51, %54
-  %56 = sdiv exact i64 %55, 24
-  %57 = add nsw i64 %56, %46
-  %58 = load i32, ptr %13, align 4, !tbaa !27
-  %59 = zext i32 %58 to i64
-  %60 = icmp ugt i64 %57, %59
-  br i1 %60, label %61, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i
+49:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE28reserveForParamAndGetAddressERKS3_m.exit
+  %.idx88 = mul nsw i64 %2, -24
+  %50 = getelementptr inbounds i8, ptr %47, i64 %.idx88
+  %51 = add nsw i64 %2, %46
+  %52 = load i32, ptr %13, align 4, !tbaa !27
+  %53 = zext i32 %52 to i64
+  %54 = icmp ugt i64 %51, %53
+  br i1 %54, label %55, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i
 
-61:                                               ; preds = %50
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %62, i64 noundef %57, i64 noundef 24) #30
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %56, i64 noundef %51, i64 noundef 24) #30
   %.val9.pre.i = load i32, ptr %8, align 8, !tbaa !26
   %.pre11.i = zext i32 %.val9.pre.i to i64
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i
 
-_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i: ; preds = %61, %50
-  %.pre-phi.i = phi i64 [ %46, %50 ], [ %.pre11.i, %61 ]
-  %.val9.i = phi i32 [ %.val69, %50 ], [ %.val9.pre.i, %61 ]
+_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i: ; preds = %55, %49
+  %.pre-phi.i = phi i64 [ %46, %49 ], [ %.pre11.i, %55 ]
+  %.val9.i = phi i32 [ %.val69, %49 ], [ %.val9.pre.i, %55 ]
   %.not7.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i
   %.val.i72 = load ptr, ptr %0, align 8, !tbaa !25
-  %63 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val.i72, i64 %.pre-phi.i
+  %57 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val.i72, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.09.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %63, %.lr.ph.i.i.i.i.preheader.i ]
-  %.sroa.06.08.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %53, %.lr.ph.i.i.i.i.preheader.i ]
+  %.09.i.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i ], [ %57, %.lr.ph.i.i.i.i.preheader.i ]
+  %.sroa.06.08.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i ], [ %50, %.lr.ph.i.i.i.i.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sroa.06.08.i.i.i.i.i, i64 24, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %64, %47
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %58, %47
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit.loopexit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !1232
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -43112,105 +43102,106 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10A
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit.loopexit.i
-  %66 = phi i32 [ %.pre.i73, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit.loopexit.i ], [ %.val9.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i ]
-  %67 = trunc i64 %56 to i32
-  %68 = add i32 %66, %67
-  store i32 %68, ptr %8, align 8, !tbaa !26
-  %.not.i.i.i.i.i74 = icmp eq ptr %53, %45
-  br i1 %.not.i.i.i.i.i74, label %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit, label %69
+  %60 = phi i32 [ %.pre.i73, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_copyISt13move_iteratorIPS3_ES7_EEvT_S9_T0_.exit.loopexit.i ], [ %.val9.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE7reserveEm.exit.i ]
+  %61 = trunc nsw i64 %2 to i32
+  %62 = add i32 %60, %61
+  store i32 %62, ptr %8, align 8, !tbaa !26
+  %.not.i.i.i.i.i74 = icmp eq ptr %50, %45
+  br i1 %.not.i.i.i.i.i74, label %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit, label %63
 
-69:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit
-  %70 = sub i64 %54, %48
-  %.neg.i.i.i.i.i = sdiv exact i64 %70, -24
-  %71 = getelementptr inbounds %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %47, i64 %.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %71, ptr align 8 %45, i64 %70, i1 false)
+63:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit
+  %64 = sub i64 %.idx88, %7
+  %gepdiff89 = add i64 %64, %.idx
+  %.neg.i.i.i.i.i = sdiv exact i64 %gepdiff89, -24
+  %65 = getelementptr inbounds %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %47, i64 %.neg.i.i.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %65, ptr align 8 %45, i64 %gepdiff89, i1 false)
   br label %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit
 
-_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %69
+_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit: ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendISt13move_iteratorIPS3_EvEEvT_S9_.exit, %63
   %.not50 = icmp ugt ptr %45, %.016.i.i
-  br i1 %.not50, label %76, label %72
+  br i1 %.not50, label %70, label %66
 
-72:                                               ; preds = %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit
+66:                                               ; preds = %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit
   %.val60 = load ptr, ptr %0, align 8, !tbaa !25
   %.val61 = load i32, ptr %8, align 8, !tbaa !26
-  %73 = zext i32 %.val61 to i64
-  %74 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val60, i64 %73
-  %75 = icmp ult ptr %.016.i.i, %74
-  %spec.select.idx = select i1 %75, i64 %2, i64 0
+  %67 = zext i32 %.val61 to i64
+  %68 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val60, i64 %67
+  %69 = icmp ult ptr %.016.i.i, %68
+  %spec.select.idx = select i1 %69, i64 %2, i64 0
   %spec.select = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.016.i.i, i64 %spec.select.idx
-  br label %76
+  br label %70
 
-76:                                               ; preds = %72, %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit
-  %.044 = phi ptr [ %.016.i.i, %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit ], [ %spec.select, %72 ]
-  %77 = icmp eq i64 %2, 0
-  br i1 %77, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit, label %78
+70:                                               ; preds = %66, %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit
+  %.044 = phi ptr [ %.016.i.i, %_ZSt13move_backwardIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentES3_ET0_T_S5_S4_.exit ], [ %spec.select, %66 ]
+  %71 = icmp eq i64 %2, 0
+  br i1 %71, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit, label %72
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %45, i64 %2
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %45, i64 %2
   br label %.lr.ph.i.i.i.i75
 
-.lr.ph.i.i.i.i75:                                 ; preds = %.lr.ph.i.i.i.i75, %78
-  %.06.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i75 ], [ %45, %78 ]
+.lr.ph.i.i.i.i75:                                 ; preds = %.lr.ph.i.i.i.i75, %72
+  %.06.i.i.i.i = phi ptr [ %74, %.lr.ph.i.i.i.i75 ], [ %45, %72 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.044, i64 24, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
-  %.not.i.i.i.i76 = icmp eq ptr %80, %79
+  %74 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
+  %.not.i.i.i.i76 = icmp eq ptr %74, %73
   br i1 %.not.i.i.i.i76, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i.i75, !llvm.loop !1233
 
-81:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE28reserveForParamAndGetAddressERKS3_m.exit
-  %82 = trunc nsw i64 %2 to i32
-  %83 = add i32 %.val69, %82
-  store i32 %83, ptr %8, align 8, !tbaa !26
+75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE28reserveForParamAndGetAddressERKS3_m.exit
+  %76 = trunc nsw i64 %2 to i32
+  %77 = add i32 %.val69, %76
+  store i32 %77, ptr %8, align 8, !tbaa !26
   %.not.i.i77 = icmp eq i64 %7, %.idx
-  br i1 %.not.i.i77, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %84
+  br i1 %.not.i.i77, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit, label %78
 
-84:                                               ; preds = %81
-  %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val, i64 %85
-  %87 = sub nsw i64 0, %49
-  %88 = getelementptr inbounds %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %86, i64 %87
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 8 %45, i64 %gepdiff, i1 false)
+78:                                               ; preds = %75
+  %79 = zext i32 %77 to i64
+  %80 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val, i64 %79
+  %81 = sub nsw i64 0, %48
+  %82 = getelementptr inbounds %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %80, i64 %81
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 8 %45, i64 %gepdiff, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %81, %84
+_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit: ; preds = %75, %78
   %.not49 = icmp ugt ptr %45, %.016.i.i
-  br i1 %.not49, label %93, label %89
+  br i1 %.not49, label %87, label %83
 
-89:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
+83:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
   %.val54 = load ptr, ptr %0, align 8, !tbaa !25
   %.val55 = load i32, ptr %8, align 8, !tbaa !26
-  %90 = zext i32 %.val55 to i64
-  %91 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val54, i64 %90
-  %92 = icmp ult ptr %.016.i.i, %91
-  %spec.select51.idx = select i1 %92, i64 %2, i64 0
+  %84 = zext i32 %.val55 to i64
+  %85 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.val54, i64 %84
+  %86 = icmp ult ptr %.016.i.i, %85
+  %spec.select51.idx = select i1 %86, i64 %2, i64 0
   %spec.select51 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment", ptr %.016.i.i, i64 %spec.select51.idx
-  br label %93
+  br label %87
 
-93:                                               ; preds = %89, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
-  %.145 = phi ptr [ %.016.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %spec.select51, %89 ]
+87:                                               ; preds = %83, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit
+  %.145 = phi ptr [ %.016.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentELb1EE18uninitialized_moveIPS3_S6_EEvT_S7_T0_.exit ], [ %spec.select51, %83 ]
   br i1 %.not.i.i77, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82, label %.lr.ph.i.i.i.i78
 
-.lr.ph.i.i.i.i78:                                 ; preds = %93, %.lr.ph.i.i.i.i78
-  %.06.i.i.i.i79 = phi ptr [ %94, %.lr.ph.i.i.i.i78 ], [ %45, %93 ]
+.lr.ph.i.i.i.i78:                                 ; preds = %87, %.lr.ph.i.i.i.i78
+  %.06.i.i.i.i79 = phi ptr [ %88, %.lr.ph.i.i.i.i78 ], [ %45, %87 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.06.i.i.i.i79, ptr noundef nonnull readonly align 8 dereferenceable(24) %.145, i64 24, i1 false)
-  %94 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i79, i64 24
-  %.not.i.i.i.i80 = icmp eq ptr %94, %47
+  %88 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i79, i64 24
+  %.not.i.i.i.i80 = icmp eq ptr %88, %47
   br i1 %.not.i.i.i.i80, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82, label %.lr.ph.i.i.i.i78, !llvm.loop !1233
 
-_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82: ; preds = %.lr.ph.i.i.i.i78, %93
-  %95 = sub nsw i64 %2, %49
-  %.not7.i.i.i = icmp eq i64 %95, 0
+_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82: ; preds = %.lr.ph.i.i.i.i78, %87
+  %89 = sub nsw i64 %2, %48
+  %.not7.i.i.i = icmp eq i64 %89, 0
   br i1 %.not7.i.i.i, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %97, %.lr.ph.i.i.i ], [ %47, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82 ]
-  %.068.i.i.i = phi i64 [ %96, %.lr.ph.i.i.i ], [ %95, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82 ]
+  %.09.i.i.i = phi ptr [ %91, %.lr.ph.i.i.i ], [ %47, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82 ]
+  %.068.i.i.i = phi i64 [ %90, %.lr.ph.i.i.i ], [ %89, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.09.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %.145, i64 24, i1 false)
-  %96 = add i64 %.068.i.i.i, -1
-  %97 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
-  %.not.i.i.i83 = icmp eq i64 %96, 0
+  %90 = add i64 %.068.i.i.i, -1
+  %91 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 24
+  %.not.i.i.i83 = icmp eq i64 %90, 0
   br i1 %.not.i.i.i83, label %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i, !llvm.loop !1231
 
-_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i75, %.lr.ph.i.i.i, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82, %76, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendEmRKS3_.exit
+_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i75, %.lr.ph.i.i.i, %_ZSt6fill_nIPN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEmS2_ET_S4_T0_RKT1_.exit82, %70, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_126AssignmentTrackingLowering10AssignmentEE6appendEmRKS3_.exit
   ret void
 }
 

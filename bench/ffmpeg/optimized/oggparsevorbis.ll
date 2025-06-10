@@ -55,7 +55,7 @@ define i32 @ff_vorbis_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %12 = sext i32 %3 to i64
   %13 = getelementptr inbounds i8, ptr %2, i64 %12
   %14 = icmp slt i32 %3, 8
-  br i1 %14, label %146, label %15
+  br i1 %14, label %145, label %15
 
 15:                                               ; preds = %5
   %16 = load i32, ptr %2, align 1, !tbaa !19
@@ -65,267 +65,267 @@ define i32 @ff_vorbis_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %20 = icmp slt i64 %18, %19
   %21 = icmp slt i32 %16, 0
   %or.cond = or i1 %21, %20
-  br i1 %or.cond, label %146, label %22
+  br i1 %or.cond, label %145, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %24, align 1, !tbaa !19
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %17, %27
-  %29 = icmp sgt i64 %28, 3
-  %30 = icmp ne i32 %26, 0
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  %27 = add nuw nsw i64 %19, 8
+  %gepdiff = sub nsw i64 %12, %27
+  %28 = icmp sgt i64 %gepdiff, 3
+  %29 = icmp ne i32 %26, 0
+  %30 = select i1 %28, i1 %29, i1 false
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %32 = icmp ne i32 %4, 0
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %35
+  %31 = icmp ne i32 %4, 0
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %34
 
-35:                                               ; preds = %.lr.ph, %vorbis_parse_single_comment.exit
-  %.03152 = phi i32 [ %26, %.lr.ph ], [ %134, %vorbis_parse_single_comment.exit ]
+34:                                               ; preds = %.lr.ph, %vorbis_parse_single_comment.exit
+  %.03152 = phi i32 [ %26, %.lr.ph ], [ %133, %vorbis_parse_single_comment.exit ]
   %.04551 = phi i32 [ 0, %.lr.ph ], [ %.2, %vorbis_parse_single_comment.exit ]
-  %.04650 = phi ptr [ %25, %.lr.ph ], [ %133, %vorbis_parse_single_comment.exit ]
-  %36 = getelementptr inbounds nuw i8, ptr %.04650, i64 4
-  %37 = load i32, ptr %.04650, align 1, !tbaa !19
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %17, %38
-  %40 = sext i32 %37 to i64
-  %41 = icmp slt i64 %39, %40
-  %42 = icmp slt i32 %37, 0
-  %or.cond3 = or i1 %42, %41
-  br i1 %or.cond3, label %._crit_edge, label %43
+  %.04650 = phi ptr [ %25, %.lr.ph ], [ %132, %vorbis_parse_single_comment.exit ]
+  %35 = getelementptr inbounds nuw i8, ptr %.04650, i64 4
+  %36 = load i32, ptr %.04650, align 1, !tbaa !19
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %17, %37
+  %39 = sext i32 %36 to i64
+  %40 = icmp slt i64 %38, %39
+  %41 = icmp slt i32 %36, 0
+  %or.cond3 = or i1 %41, %40
+  br i1 %or.cond3, label %._crit_edge, label %42
 
-43:                                               ; preds = %35
-  %44 = zext nneg i32 %37 to i64
-  %45 = call ptr @memchr(ptr noundef nonnull %36, i32 noundef 61, i64 noundef %44) #8
-  %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %vorbis_parse_single_comment.exit, label %46
+42:                                               ; preds = %34
+  %43 = zext nneg i32 %36 to i64
+  %44 = call ptr @memchr(ptr noundef nonnull %35, i32 noundef 61, i64 noundef %43) #8
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %vorbis_parse_single_comment.exit, label %45
 
-46:                                               ; preds = %43
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %47, %38
-  %49 = trunc i64 %48 to i32
-  %50 = xor i32 %49, -1
-  %51 = add i32 %37, %50
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %53 = icmp ne i32 %49, 0
-  %54 = icmp ne i32 %51, 0
-  %or.cond.i = and i1 %53, %54
-  br i1 %or.cond.i, label %55, label %vorbis_parse_single_comment.exit
+45:                                               ; preds = %42
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %46, %37
+  %48 = trunc i64 %47 to i32
+  %49 = xor i32 %48, -1
+  %50 = add i32 %36, %49
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %52 = icmp ne i32 %48, 0
+  %53 = icmp ne i32 %50, 0
+  %or.cond.i = and i1 %52, %53
+  br i1 %or.cond.i, label %54, label %vorbis_parse_single_comment.exit
 
-55:                                               ; preds = %46
-  %sext.i = shl i64 %48, 32
-  %56 = ashr exact i64 %sext.i, 32
-  %57 = getelementptr inbounds i8, ptr %36, i64 %56
-  store i8 0, ptr %57, align 1, !tbaa !19
-  %58 = sext i32 %51 to i64
-  %59 = getelementptr inbounds i8, ptr %52, i64 %58
-  %60 = load i8, ptr %59, align 1, !tbaa !19
-  store i8 0, ptr %59, align 1, !tbaa !19
-  %61 = call i32 @av_strcasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.3) #9
-  %62 = icmp eq i32 %61, 0
-  %or.cond3.i = and i1 %32, %62
-  br i1 %or.cond3.i, label %63, label %78
+54:                                               ; preds = %45
+  %sext.i = shl i64 %47, 32
+  %55 = ashr exact i64 %sext.i, 32
+  %56 = getelementptr inbounds i8, ptr %35, i64 %55
+  store i8 0, ptr %56, align 1, !tbaa !19
+  %57 = sext i32 %50 to i64
+  %58 = getelementptr inbounds i8, ptr %51, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !19
+  store i8 0, ptr %58, align 1, !tbaa !19
+  %60 = call i32 @av_strcasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.3) #9
+  %61 = icmp eq i32 %60, 0
+  %or.cond3.i = and i1 %31, %61
+  br i1 %or.cond3.i, label %62, label %77
 
-63:                                               ; preds = %55
-  %64 = mul nsw i64 %58, 3
-  %65 = sdiv i64 %64, 4
+62:                                               ; preds = %54
+  %63 = mul nsw i64 %57, 3
+  %64 = sdiv i64 %63, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  %66 = shl nsw i64 %65, 32
-  %sext57.i = add nsw i64 %66, 274877906944
-  %67 = ashr exact i64 %sext57.i, 32
-  %68 = call noalias ptr @av_malloc(i64 noundef %67) #9
-  store ptr %68, ptr %11, align 8, !tbaa !20
-  %.not58.i = icmp eq ptr %68, null
-  br i1 %.not58.i, label %.sink.split, label %69
+  %65 = shl nsw i64 %64, 32
+  %sext57.i = add nsw i64 %65, 274877906944
+  %66 = ashr exact i64 %sext57.i, 32
+  %67 = call noalias ptr @av_malloc(i64 noundef %66) #9
+  store ptr %67, ptr %11, align 8, !tbaa !20
+  %.not58.i = icmp eq ptr %67, null
+  br i1 %.not58.i, label %.sink.split, label %68
 
-69:                                               ; preds = %63
-  %70 = trunc nsw i64 %65 to i32
-  %71 = call i32 @av_base64_decode(ptr noundef nonnull %68, ptr noundef nonnull %52, i32 noundef %70) #9
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %75
+68:                                               ; preds = %62
+  %69 = trunc nsw i64 %64 to i32
+  %70 = call i32 @av_base64_decode(ptr noundef nonnull %67, ptr noundef nonnull %51, i32 noundef %69) #9
+  %71 = icmp sgt i32 %70, 0
+  br i1 %71, label %72, label %74
 
-73:                                               ; preds = %69
-  %74 = call i32 @ff_flac_parse_picture(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %71, i32 noundef 0) #9
-  br label %75
+72:                                               ; preds = %68
+  %73 = call i32 @ff_flac_parse_picture(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %70, i32 noundef 0) #9
+  br label %74
 
-75:                                               ; preds = %73, %69
-  %.049.i = phi i32 [ %74, %73 ], [ %71, %69 ]
+74:                                               ; preds = %72, %68
+  %.049.i = phi i32 [ %73, %72 ], [ %70, %68 ]
   call void @av_freep(ptr noundef nonnull %11) #9
-  %76 = icmp slt i32 %.049.i, 0
-  br i1 %76, label %.sink.split, label %77
+  %75 = icmp slt i32 %.049.i, 0
+  br i1 %75, label %.sink.split, label %76
 
-.sink.split:                                      ; preds = %75, %63
-  %.str.5.sink = phi ptr [ @.str.4, %63 ], [ @.str.5, %75 ]
+.sink.split:                                      ; preds = %74, %62
+  %.str.5.sink = phi ptr [ @.str.4, %62 ], [ @.str.5, %74 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %.str.5.sink) #9
-  br label %77
+  br label %76
 
-77:                                               ; preds = %.sink.split, %75
+76:                                               ; preds = %.sink.split, %74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  br label %132
+  br label %131
 
-78:                                               ; preds = %55
+77:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
-  %80 = trunc i64 %79 to i32
-  %81 = icmp slt i32 %80, 9
-  br i1 %81, label %.loopexit.i, label %82
+  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #8
+  %79 = trunc i64 %78 to i32
+  %80 = icmp slt i32 %79, 9
+  br i1 %80, label %.loopexit.i, label %81
 
-82:                                               ; preds = %78
-  %83 = call i32 @av_strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.7, i64 noundef 7) #9
-  %.not.i.i = icmp eq i32 %83, 0
-  br i1 %.not.i.i, label %84, label %.loopexit.i
+81:                                               ; preds = %77
+  %82 = call i32 @av_strncasecmp(ptr noundef nonnull %35, ptr noundef nonnull @.str.7, i64 noundef 7) #9
+  %.not.i.i = icmp eq i32 %82, 0
+  br i1 %.not.i.i, label %83, label %.loopexit.i
 
-84:                                               ; preds = %82
-  %85 = getelementptr inbounds nuw i8, ptr %.04650, i64 11
-  %86 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %85, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #9
-  %.not22.i.i = icmp eq i32 %86, 1
-  br i1 %.not22.i.i, label %87, label %.loopexit.i
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds nuw i8, ptr %.04650, i64 11
+  %85 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %84, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #9
+  %.not22.i.i = icmp eq i32 %85, 1
+  br i1 %.not22.i.i, label %86, label %.loopexit.i
 
-87:                                               ; preds = %84
-  %88 = icmp samesign ult i32 %80, 11
-  br i1 %88, label %89, label %107
+86:                                               ; preds = %83
+  %87 = icmp samesign ult i32 %79, 11
+  br i1 %87, label %88, label %106
 
-89:                                               ; preds = %87
-  %90 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %52, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
-  %91 = icmp slt i32 %90, 4
-  br i1 %91, label %.loopexit.i, label %92
+88:                                               ; preds = %86
+  %89 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %51, ptr noundef nonnull @.str.9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
+  %90 = icmp slt i32 %89, 4
+  br i1 %90, label %.loopexit.i, label %91
 
-92:                                               ; preds = %89
-  %93 = load i32, ptr %6, align 4, !tbaa !21
-  %94 = sext i32 %93 to i64
-  %95 = load i32, ptr %10, align 4, !tbaa !21
-  %96 = load i32, ptr %9, align 4, !tbaa !21
-  %97 = load i32, ptr %8, align 4, !tbaa !21
-  %98 = load i32, ptr %7, align 4, !tbaa !21
-  %99 = mul nsw i32 %98, 60
-  %100 = add nsw i32 %99, %97
-  %101 = mul nsw i32 %100, 60
-  %102 = add nsw i32 %101, %96
-  %103 = mul nsw i32 %102, 1000
-  %104 = add nsw i32 %103, %95
-  %105 = sext i32 %104 to i64
-  %106 = call ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %94, i64 4294967296001, i64 noundef %105, i64 noundef -9223372036854775808, ptr noundef null) #9
+91:                                               ; preds = %88
+  %92 = load i32, ptr %6, align 4, !tbaa !21
+  %93 = sext i32 %92 to i64
+  %94 = load i32, ptr %10, align 4, !tbaa !21
+  %95 = load i32, ptr %9, align 4, !tbaa !21
+  %96 = load i32, ptr %8, align 4, !tbaa !21
+  %97 = load i32, ptr %7, align 4, !tbaa !21
+  %98 = mul nsw i32 %97, 60
+  %99 = add nsw i32 %98, %96
+  %100 = mul nsw i32 %99, 60
+  %101 = add nsw i32 %100, %95
+  %102 = mul nsw i32 %101, 1000
+  %103 = add nsw i32 %102, %94
+  %104 = sext i32 %103 to i64
+  %105 = call ptr @avpriv_new_chapter(ptr noundef %0, i64 noundef %93, i64 4294967296001, i64 noundef %104, i64 noundef -9223372036854775808, ptr noundef null) #9
   br label %ogm_chapter.exit.i
 
-107:                                              ; preds = %87
-  %108 = and i64 %79, 2147483647
-  %109 = getelementptr inbounds nuw i8, ptr %36, i64 %108
-  %110 = getelementptr inbounds i8, ptr %109, i64 -4
-  %111 = call i32 @av_strcasecmp(ptr noundef nonnull %110, ptr noundef nonnull @.str.10) #9
-  %.not23.i.i = icmp eq i32 %111, 0
+106:                                              ; preds = %86
+  %107 = and i64 %78, 2147483647
+  %108 = getelementptr inbounds nuw i8, ptr %35, i64 %107
+  %109 = getelementptr inbounds i8, ptr %108, i64 -4
+  %110 = call i32 @av_strcasecmp(ptr noundef nonnull %109, ptr noundef nonnull @.str.10) #9
+  %.not23.i.i = icmp eq i32 %110, 0
   br i1 %.not23.i.i, label %.preheader.i.i, label %.loopexit.i
 
-.preheader.i.i:                                   ; preds = %107
-  %112 = load i32, ptr %33, align 8, !tbaa !22
-  %.not28.i.i = icmp eq i32 %112, 0
+.preheader.i.i:                                   ; preds = %106
+  %111 = load i32, ptr %32, align 8, !tbaa !22
+  %.not28.i.i = icmp eq i32 %111, 0
   br i1 %.not28.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %113 = load ptr, ptr %34, align 8, !tbaa !34
-  %114 = load i32, ptr %6, align 4, !tbaa !21
-  %115 = sext i32 %114 to i64
-  %wide.trip.count.i.i = zext i32 %112 to i64
-  br label %117
+  %112 = load ptr, ptr %33, align 8, !tbaa !34
+  %113 = load i32, ptr %6, align 4, !tbaa !21
+  %114 = sext i32 %113 to i64
+  %wide.trip.count.i.i = zext i32 %111 to i64
+  br label %116
 
-116:                                              ; preds = %117
+115:                                              ; preds = %116
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %117, !llvm.loop !35
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %116, !llvm.loop !35
 
-117:                                              ; preds = %116, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %116 ]
-  %118 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv.i.i
-  %119 = load ptr, ptr %118, align 8, !tbaa !37
-  %120 = load i64, ptr %119, align 8, !tbaa !39
-  %121 = icmp eq i64 %120, %115
-  br i1 %121, label %122, label %116
+116:                                              ; preds = %115, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %115 ]
+  %117 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i.i
+  %118 = load ptr, ptr %117, align 8, !tbaa !37
+  %119 = load i64, ptr %118, align 8, !tbaa !39
+  %120 = icmp eq i64 %119, %114
+  br i1 %120, label %121, label %115
 
-122:                                              ; preds = %117
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  %124 = call i32 @av_dict_set(ptr noundef nonnull %123, ptr noundef nonnull @.str.11, ptr noundef nonnull %52, i32 noundef 0) #9
+121:                                              ; preds = %116
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %123 = call i32 @av_dict_set(ptr noundef nonnull %122, ptr noundef nonnull @.str.11, ptr noundef nonnull %51, i32 noundef 0) #9
   br label %ogm_chapter.exit.i
 
-ogm_chapter.exit.i:                               ; preds = %122, %92
+ogm_chapter.exit.i:                               ; preds = %121, %91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  br label %132
+  br label %131
 
-.loopexit.i:                                      ; preds = %116, %.preheader.i.i, %107, %89, %84, %82, %78
+.loopexit.i:                                      ; preds = %115, %.preheader.i.i, %106, %88, %83, %81, %77
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  %125 = add nsw i32 %.04551, 1
-  %126 = load ptr, ptr %1, align 8, !tbaa !41
-  %127 = call ptr @av_dict_get(ptr noundef %126, ptr noundef nonnull %36, ptr noundef null, i32 noundef 0) #9
-  %.not56.i = icmp eq ptr %127, null
-  br i1 %.not56.i, label %130, label %128
+  %124 = add nsw i32 %.04551, 1
+  %125 = load ptr, ptr %1, align 8, !tbaa !41
+  %126 = call ptr @av_dict_get(ptr noundef %125, ptr noundef nonnull %35, ptr noundef null, i32 noundef 0) #9
+  %.not56.i = icmp eq ptr %126, null
+  br i1 %.not56.i, label %129, label %127
 
-128:                                              ; preds = %.loopexit.i
-  %129 = call i32 @av_dict_set(ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull @.str.6, i32 noundef 32) #9
-  br label %130
+127:                                              ; preds = %.loopexit.i
+  %128 = call i32 @av_dict_set(ptr noundef nonnull %1, ptr noundef nonnull %35, ptr noundef nonnull @.str.6, i32 noundef 32) #9
+  br label %129
 
-130:                                              ; preds = %128, %.loopexit.i
-  %131 = call i32 @av_dict_set(ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull %52, i32 noundef 32) #9
-  br label %132
+129:                                              ; preds = %127, %.loopexit.i
+  %130 = call i32 @av_dict_set(ptr noundef nonnull %1, ptr noundef nonnull %35, ptr noundef nonnull %51, i32 noundef 32) #9
+  br label %131
 
-132:                                              ; preds = %130, %ogm_chapter.exit.i, %77
-  %.1 = phi i32 [ %.04551, %77 ], [ %125, %130 ], [ %.04551, %ogm_chapter.exit.i ]
-  store i8 61, ptr %57, align 1, !tbaa !19
-  store i8 %60, ptr %59, align 1, !tbaa !19
+131:                                              ; preds = %129, %ogm_chapter.exit.i, %76
+  %.1 = phi i32 [ %.04551, %76 ], [ %124, %129 ], [ %.04551, %ogm_chapter.exit.i ]
+  store i8 61, ptr %56, align 1, !tbaa !19
+  store i8 %59, ptr %58, align 1, !tbaa !19
   br label %vorbis_parse_single_comment.exit
 
-vorbis_parse_single_comment.exit:                 ; preds = %43, %46, %132
-  %.2 = phi i32 [ %.04551, %43 ], [ %.1, %132 ], [ %.04551, %46 ]
-  %133 = getelementptr inbounds nuw i8, ptr %36, i64 %40
-  %134 = add i32 %.03152, -1
-  %135 = ptrtoint ptr %133 to i64
-  %136 = sub i64 %17, %135
-  %137 = icmp sgt i64 %136, 3
-  %138 = icmp ne i32 %134, 0
-  %139 = select i1 %137, i1 %138, i1 false
-  br i1 %139, label %35, label %._crit_edge, !llvm.loop !42
+vorbis_parse_single_comment.exit:                 ; preds = %42, %45, %131
+  %.2 = phi i32 [ %.04551, %42 ], [ %.1, %131 ], [ %.04551, %45 ]
+  %132 = getelementptr inbounds nuw i8, ptr %35, i64 %39
+  %133 = add i32 %.03152, -1
+  %134 = ptrtoint ptr %132 to i64
+  %135 = sub i64 %17, %134
+  %136 = icmp sgt i64 %135, 3
+  %137 = icmp ne i32 %133, 0
+  %138 = select i1 %136, i1 %137, i1 false
+  br i1 %138, label %34, label %._crit_edge, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %vorbis_parse_single_comment.exit, %35, %22
-  %.045.lcssa = phi i32 [ 0, %22 ], [ %.04551, %35 ], [ %.2, %vorbis_parse_single_comment.exit ]
-  %.031.lcssa = phi i32 [ %26, %22 ], [ %.03152, %35 ], [ %134, %vorbis_parse_single_comment.exit ]
-  %.lcssa49 = phi i1 [ %30, %22 ], [ true, %35 ], [ %138, %vorbis_parse_single_comment.exit ]
-  %.147 = phi ptr [ %25, %22 ], [ %36, %35 ], [ %133, %vorbis_parse_single_comment.exit ]
+._crit_edge:                                      ; preds = %vorbis_parse_single_comment.exit, %34, %22
+  %.045.lcssa = phi i32 [ 0, %22 ], [ %.04551, %34 ], [ %.2, %vorbis_parse_single_comment.exit ]
+  %.031.lcssa = phi i32 [ %26, %22 ], [ %.03152, %34 ], [ %133, %vorbis_parse_single_comment.exit ]
+  %.lcssa49 = phi i1 [ %29, %22 ], [ true, %34 ], [ %137, %vorbis_parse_single_comment.exit ]
+  %.147 = phi ptr [ %25, %22 ], [ %35, %34 ], [ %132, %vorbis_parse_single_comment.exit ]
   %.not = icmp eq ptr %.147, %13
-  br i1 %.not, label %143, label %140
+  br i1 %.not, label %142, label %139
 
-140:                                              ; preds = %._crit_edge
-  %141 = ptrtoint ptr %.147 to i64
-  %142 = sub i64 %17, %141
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str, i64 noundef %142) #9
-  br label %143
+139:                                              ; preds = %._crit_edge
+  %140 = ptrtoint ptr %.147 to i64
+  %141 = sub i64 %17, %140
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str, i64 noundef %141) #9
+  br label %142
 
-143:                                              ; preds = %140, %._crit_edge
-  br i1 %.lcssa49, label %144, label %145
+142:                                              ; preds = %139, %._crit_edge
+  br i1 %.lcssa49, label %143, label %144
 
-144:                                              ; preds = %143
+143:                                              ; preds = %142
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %.031.lcssa) #9
+  br label %144
+
+144:                                              ; preds = %143, %142
+  call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ff_vorbiscomment_metadata_conv) #9
   br label %145
 
-145:                                              ; preds = %144, %143
-  call void @ff_metadata_conv(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ff_vorbiscomment_metadata_conv) #9
-  br label %146
-
-146:                                              ; preds = %15, %5, %145
-  %.0 = phi i32 [ %.045.lcssa, %145 ], [ -1094995529, %5 ], [ -1094995529, %15 ]
+145:                                              ; preds = %15, %5, %144
+  %.0 = phi i32 [ %.045.lcssa, %144 ], [ -1094995529, %5 ], [ -1094995529, %15 ]
   ret i32 %.0
 }
 

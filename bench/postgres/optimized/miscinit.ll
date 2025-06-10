@@ -1510,13 +1510,13 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
 
 7:                                                ; preds = %2
   %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
-  br i1 %8, label %9, label %89
+  br i1 %8, label %9, label %86
 
 9:                                                ; preds = %7
   %10 = tail call i32 @errcode_for_file_access() #22
   %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.39) #22
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1583, ptr noundef nonnull @__func__.AddToDataDirLockFile) #22
-  br label %89
+  br label %86
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @my_wait_event_info, align 8
@@ -1540,7 +1540,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
 
 22:                                               ; preds = %19, %17
   %23 = tail call i32 @close(i32 noundef %5) #22
-  br label %89
+  br label %86
 
 24:                                               ; preds = %12
   %25 = and i64 %14, 2147483647
@@ -1550,15 +1550,15 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24, %30
-  %.03549 = phi ptr [ %31, %30 ], [ %3, %24 ]
-  %.03748 = phi i32 [ %32, %30 ], [ 1, %24 ]
-  %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03549, i32 noundef 10) #25
+  %.03551 = phi ptr [ %31, %30 ], [ %3, %24 ]
+  %.03750 = phi i32 [ %32, %30 ], [ 1, %24 ]
+  %28 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03551, i32 noundef 10) #25
   %29 = icmp eq ptr %28, null
   br i1 %29, label %._crit_edge, label %30
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %32 = add nuw nsw i32 %.03748, 1
+  %32 = add nuw nsw i32 %.03750, 1
   %exitcond.not = icmp eq i32 %32, %0
   br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !8
 
@@ -1567,132 +1567,130 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   %34 = ptrtoint ptr %3 to i64
   %35 = sub i64 %33, %34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 %3, i64 %35, i1 false)
-  %.034.ptr5467 = getelementptr inbounds i8, ptr %4, i64 %35
-  br label %._crit_edge60
+  %.034.ptr5669 = getelementptr inbounds i8, ptr %4, i64 %35
+  br label %._crit_edge62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.037.lcssa = phi i32 [ 1, %24 ], [ %.03748, %.lr.ph ]
-  %.035.lcssa = phi ptr [ %3, %24 ], [ %.03549, %.lr.ph ]
+  %.037.lcssa = phi i32 [ 1, %24 ], [ %.03750, %.lr.ph ]
+  %.035.lcssa = phi ptr [ %3, %24 ], [ %.03551, %.lr.ph ]
   %36 = ptrtoint ptr %.035.lcssa to i64
   %37 = ptrtoint ptr %3 to i64
   %38 = sub i64 %36, %37
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 %3, i64 %38, i1 false)
-  %.034.ptr54 = getelementptr inbounds i8, ptr %4, i64 %38
+  %.034.ptr56 = getelementptr inbounds i8, ptr %4, i64 %38
   %39 = icmp slt i32 %.037.lcssa, %0
-  br i1 %39, label %.lr.ph59, label %._crit_edge60
+  br i1 %39, label %.lr.ph61, label %._crit_edge62
 
-.lr.ph59:                                         ; preds = %._crit_edge, %42
-  %.034.ptr57 = phi ptr [ %.034.ptr, %42 ], [ %.034.ptr54, %._crit_edge ]
-  %.034.idx56 = phi i64 [ %.1.idx, %42 ], [ %38, %._crit_edge ]
-  %.13855 = phi i32 [ %43, %42 ], [ %.037.lcssa, %._crit_edge ]
-  %40 = icmp slt i64 %.034.idx56, 8192
+.lr.ph61:                                         ; preds = %._crit_edge, %42
+  %.034.ptr59 = phi ptr [ %.034.ptr, %42 ], [ %.034.ptr56, %._crit_edge ]
+  %.034.idx58 = phi i64 [ %.1.idx, %42 ], [ %38, %._crit_edge ]
+  %.13857 = phi i32 [ %43, %42 ], [ %.037.lcssa, %._crit_edge ]
+  %40 = icmp slt i64 %.034.idx58, 8192
   br i1 %40, label %41, label %42
 
-41:                                               ; preds = %.lr.ph59
-  %.034.add = add nsw i64 %.034.idx56, 1
-  store i8 10, ptr %.034.ptr57, align 1
+41:                                               ; preds = %.lr.ph61
+  %.034.add = add nsw i64 %.034.idx58, 1
+  store i8 10, ptr %.034.ptr59, align 1
   br label %42
 
-42:                                               ; preds = %.lr.ph59, %41
-  %.1.idx = phi i64 [ %.034.add, %41 ], [ %.034.idx56, %.lr.ph59 ]
-  %43 = add nuw nsw i32 %.13855, 1
+42:                                               ; preds = %.lr.ph61, %41
+  %.1.idx = phi i64 [ %.034.add, %41 ], [ %.034.idx58, %.lr.ph61 ]
+  %43 = add nuw nsw i32 %.13857, 1
   %.034.ptr = getelementptr inbounds i8, ptr %4, i64 %.1.idx
-  %exitcond64.not = icmp eq i32 %43, %0
-  br i1 %exitcond64.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !9
+  %exitcond66.not = icmp eq i32 %43, %0
+  br i1 %exitcond66.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !9
 
-._crit_edge60:                                    ; preds = %42, %._crit_edge.thread, %._crit_edge
-  %.035.lcssa68 = phi ptr [ %.035.lcssa, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %.035.lcssa, %42 ]
+._crit_edge62:                                    ; preds = %42, %._crit_edge.thread, %._crit_edge
+  %.035.lcssa70 = phi ptr [ %.035.lcssa, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %.035.lcssa, %42 ]
   %.034.idx.lcssa = phi i64 [ %38, %._crit_edge ], [ %35, %._crit_edge.thread ], [ %.1.idx, %42 ]
-  %.034.ptr.lcssa = phi ptr [ %.034.ptr54, %._crit_edge ], [ %.034.ptr5467, %._crit_edge.thread ], [ %.034.ptr, %42 ]
+  %.034.ptr.lcssa = phi ptr [ %.034.ptr56, %._crit_edge ], [ %.034.ptr5669, %._crit_edge.thread ], [ %.034.ptr, %42 ]
   %gepdiff = sub nsw i64 8192, %.034.idx.lcssa
   %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %.034.ptr.lcssa, i64 noundef %gepdiff, ptr noundef nonnull @.str.44, ptr noundef %1) #22
-  %45 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.035.lcssa68, i32 noundef 10) #25
+  %45 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.035.lcssa70, i32 noundef 10) #25
   %.not43 = icmp eq ptr %45, null
-  br i1 %.not43, label %55, label %46
+  br i1 %.not43, label %52, label %46
 
-46:                                               ; preds = %._crit_edge60
-  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8192
-  %48 = ptrtoint ptr %47 to i64
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.034.ptr.lcssa) #25
-  %50 = getelementptr inbounds nuw i8, ptr %.034.ptr.lcssa, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %48, %52
-  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %50, i64 noundef %53, ptr noundef nonnull @.str.45, ptr noundef nonnull %51) #22
-  br label %55
+46:                                               ; preds = %._crit_edge62
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.034.ptr.lcssa) #25
+  %48 = getelementptr inbounds nuw i8, ptr %.034.ptr.lcssa, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  %50 = add i64 %.034.idx.lcssa, %47
+  %gepdiff48 = sub i64 8192, %50
+  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %48, i64 noundef %gepdiff48, ptr noundef nonnull @.str.45, ptr noundef nonnull %49) #22
+  br label %52
 
-55:                                               ; preds = %46, %._crit_edge60
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #25
-  %57 = tail call ptr @__errno_location() #24
-  store i32 0, ptr %57, align 4
+52:                                               ; preds = %46, %._crit_edge62
+  %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #25
+  %54 = tail call ptr @__errno_location() #24
+  store i32 0, ptr %54, align 4
+  %55 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772185, ptr %55, align 4
+  %sext = shl i64 %53, 32
+  %56 = ashr exact i64 %sext, 32
+  %57 = call i64 @pwrite(i32 noundef %5, ptr noundef nonnull %4, i64 noundef %56, i64 noundef 0) #22
+  %.not44 = icmp eq i64 %57, %56
   %58 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772185, ptr %58, align 4
-  %sext = shl i64 %56, 32
-  %59 = ashr exact i64 %sext, 32
-  %60 = call i64 @pwrite(i32 noundef %5, ptr noundef nonnull %4, i64 noundef %59, i64 noundef 0) #22
-  %.not44 = icmp eq i64 %60, %59
-  %61 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %61, align 4
-  br i1 %.not44, label %73, label %62
+  store volatile i32 0, ptr %58, align 4
+  br i1 %.not44, label %70, label %59
 
-62:                                               ; preds = %55
-  %63 = load i32, ptr %57, align 4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %66
+59:                                               ; preds = %52
+  %60 = load i32, ptr %54, align 4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %63
 
-65:                                               ; preds = %62
-  store i32 28, ptr %57, align 4
-  br label %66
+62:                                               ; preds = %59
+  store i32 28, ptr %54, align 4
+  br label %63
 
-66:                                               ; preds = %65, %62
-  %67 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
-  br i1 %67, label %68, label %71
+63:                                               ; preds = %62, %59
+  %64 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
+  br i1 %64, label %65, label %68
 
-68:                                               ; preds = %66
-  %69 = call i32 @errcode_for_file_access() #22
-  %70 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.39) #22
+65:                                               ; preds = %63
+  %66 = call i32 @errcode_for_file_access() #22
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.39) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1658, ptr noundef nonnull @__func__.AddToDataDirLockFile) #22
-  br label %71
+  br label %68
 
-71:                                               ; preds = %68, %66
-  %72 = call i32 @close(i32 noundef %5) #22
-  br label %89
+68:                                               ; preds = %65, %63
+  %69 = call i32 @close(i32 noundef %5) #22
+  br label %86
 
-73:                                               ; preds = %55
-  %74 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 167772184, ptr %74, align 4
-  %75 = call i32 @pg_fsync(i32 noundef %5) #22
-  %.not45 = icmp eq i32 %75, 0
-  br i1 %.not45, label %81, label %76
+70:                                               ; preds = %52
+  %71 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 167772184, ptr %71, align 4
+  %72 = call i32 @pg_fsync(i32 noundef %5) #22
+  %.not45 = icmp eq i32 %72, 0
+  br i1 %.not45, label %78, label %73
 
-76:                                               ; preds = %73
-  %77 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
-  br i1 %77, label %78, label %81
+73:                                               ; preds = %70
+  %74 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
+  br i1 %74, label %75, label %78
 
-78:                                               ; preds = %76
-  %79 = call i32 @errcode_for_file_access() #22
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.39) #22
+75:                                               ; preds = %73
+  %76 = call i32 @errcode_for_file_access() #22
+  %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.39) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1669, ptr noundef nonnull @__func__.AddToDataDirLockFile) #22
-  br label %81
+  br label %78
 
-81:                                               ; preds = %76, %78, %73
-  %82 = load ptr, ptr @my_wait_event_info, align 8
-  store volatile i32 0, ptr %82, align 4
-  %83 = call i32 @close(i32 noundef %5) #22
-  %.not46 = icmp eq i32 %83, 0
-  br i1 %.not46, label %89, label %84
+78:                                               ; preds = %73, %75, %70
+  %79 = load ptr, ptr @my_wait_event_info, align 8
+  store volatile i32 0, ptr %79, align 4
+  %80 = call i32 @close(i32 noundef %5) #22
+  %.not46 = icmp eq i32 %80, 0
+  br i1 %.not46, label %86, label %81
 
-84:                                               ; preds = %81
-  %85 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
-  br i1 %85, label %86, label %89
+81:                                               ; preds = %78
+  %82 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
+  br i1 %82, label %83, label %86
 
-86:                                               ; preds = %84
-  %87 = call i32 @errcode_for_file_access() #22
-  %88 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.39) #22
+83:                                               ; preds = %81
+  %84 = call i32 @errcode_for_file_access() #22
+  %85 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.39) #22
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1677, ptr noundef nonnull @__func__.AddToDataDirLockFile) #22
-  br label %89
+  br label %86
 
-89:                                               ; preds = %81, %86, %84, %7, %9, %71, %22
+86:                                               ; preds = %78, %83, %81, %7, %9, %68, %22
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #22
   ret void

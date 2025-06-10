@@ -2943,9 +2943,7 @@ entry:
 if.then:                                          ; preds = %entry
   %idx.neg.i.i.i = sub i64 0, %add11.i.i
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %0, i64 %idx.neg.i.i.i
-  %add.ptr.i.i.i.idx.neg = shl i64 %add11.i.i, 2
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %add.ptr.i.i.i.idx.neg, 2
-  %cmp7.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
+  %cmp7.i.i.i.i = icmp sgt i64 %add11.i.i, 0
   br i1 %cmp7.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl4copyINS_16reverse_iteratorIPiEENS_13DequeIteratorIiS2_RiLj64EEEEET0_T_S8_S7_.exit
 
 for.body.i.i.i.i:                                 ; preds = %if.then, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i
@@ -2953,7 +2951,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then, %_ZN5eastl
   %agg.tmp2.sroa.12.0.i.i.i = phi ptr [ %agg.tmp2.sroa.12.1.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i ], [ %3, %if.then ]
   %agg.tmp2.sroa.8.0.i.i.i = phi ptr [ %agg.tmp2.sroa.8.1.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i ], [ %6, %if.then ]
   %agg.tmp2.sroa.0.0.i.i.i = phi ptr [ %agg.tmp2.sroa.0.1.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i ], [ %7, %if.then ]
-  %n.08.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.then ]
+  %n.08.i.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i ], [ %add11.i.i, %if.then ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -4
   %8 = load i32, ptr %incdec.ptr.i.i.i.i.i, align 4, !noalias !76
   store i32 %8, ptr %agg.tmp2.sroa.0.0.i.i.i, align 4, !noalias !76

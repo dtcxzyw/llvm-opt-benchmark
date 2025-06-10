@@ -1833,339 +1833,334 @@ define hidden range(i32 -1, 1) i32 @cdf_read_property_info(ptr noundef readonly 
   %11 = load ptr, ptr %0, align 8, !tbaa !4
   %12 = zext nneg i32 %2 to i64
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = getelementptr i8, ptr %0, i64 24
-  %.val.i = load i64, ptr %15, align 8, !tbaa !31
-  %16 = ptrtoint ptr %11 to i64
-  %17 = ptrtoint ptr %14 to i64
-  %18 = sub i64 %17, %16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !22
-  %21 = mul i64 %20, %.val.i
-  %.not12.i = icmp ugt i64 %18, %21
+  %14 = getelementptr i8, ptr %0, i64 24
+  %.val.i = load i64, ptr %14, align 8, !tbaa !31
+  %15 = add nuw nsw i64 %12, 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i64, ptr %16, align 8, !tbaa !22
+  %18 = mul i64 %17, %.val.i
+  %.not12.i = icmp ugt i64 %15, %18
   br i1 %.not12.i, label %cdf_check_stream_offset.exit.thread, label %cdf_check_stream_offset.exit
 
 cdf_check_stream_offset.exit.thread:              ; preds = %10
-  %22 = tail call ptr @__errno_location() #22
-  store i32 22, ptr %22, align 4, !tbaa !21
+  %19 = tail call ptr @__errno_location() #22
+  store i32 22, ptr %19, align 4, !tbaa !21
   br label %cdf_get_property_info_pos.exit.thread
 
 cdf_check_stream_offset.exit:                     ; preds = %10
-  %23 = load i32, ptr %13, align 4, !tbaa !44
-  %24 = icmp ugt i32 %23, 67108863
-  br i1 %24, label %25, label %27
+  %20 = load i32, ptr %13, align 4, !tbaa !44
+  %21 = icmp ugt i32 %20, 67108863
+  br i1 %21, label %22, label %24
 
-25:                                               ; preds = %cdf_check_stream_offset.exit
-  %26 = tail call ptr @__errno_location() #22
-  store i32 22, ptr %26, align 4, !tbaa !21
+22:                                               ; preds = %cdf_check_stream_offset.exit
+  %23 = tail call ptr @__errno_location() #22
+  store i32 22, ptr %23, align 4, !tbaa !21
   br label %cdf_get_property_info_pos.exit.thread
 
-27:                                               ; preds = %cdf_check_stream_offset.exit
-  %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 %28
-  %.not.i156 = icmp ult ptr %29, %11
-  br i1 %.not.i156, label %cdf_check_stream_offset.exit160.thread, label %30
+24:                                               ; preds = %cdf_check_stream_offset.exit
+  %25 = zext nneg i32 %20 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 %25
+  %.not.i156 = icmp ult ptr %26, %11
+  %27 = add nuw nsw i64 %25, %12
+  %.not12.i158 = icmp ugt i64 %27, %18
+  %or.cond225 = select i1 %.not.i156, i1 true, i1 %.not12.i158
+  br i1 %or.cond225, label %cdf_check_stream_offset.exit160.thread, label %cdf_check_stream_offset.exit160
 
-30:                                               ; preds = %27
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %31, %16
-  %.not12.i158 = icmp ugt i64 %32, %21
-  br i1 %.not12.i158, label %cdf_check_stream_offset.exit160.thread, label %cdf_check_stream_offset.exit160
-
-cdf_check_stream_offset.exit160.thread:           ; preds = %27, %30
-  %33 = tail call ptr @__errno_location() #22
-  store i32 22, ptr %33, align 4, !tbaa !21
+cdf_check_stream_offset.exit160.thread:           ; preds = %24
+  %28 = tail call ptr @__errno_location() #22
+  store i32 22, ptr %28, align 4, !tbaa !21
   br label %cdf_get_property_info_pos.exit.thread
 
-cdf_check_stream_offset.exit160:                  ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !46
-  %36 = zext i32 %35 to i64
-  %37 = icmp ugt i32 %35, 2796202
-  br i1 %37, label %cdf_get_property_info_pos.exit.thread, label %38
+cdf_check_stream_offset.exit160:                  ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !46
+  %31 = zext i32 %30 to i64
+  %32 = icmp ugt i32 %30, 2796202
+  br i1 %32, label %cdf_get_property_info_pos.exit.thread, label %33
 
-38:                                               ; preds = %cdf_check_stream_offset.exit160
-  %39 = load i64, ptr %5, align 8, !tbaa !47
-  %40 = add i64 %39, %36
-  %41 = icmp ugt i64 %40, 2796202
-  br i1 %41, label %cdf_grow_info.exit.thread, label %42
+33:                                               ; preds = %cdf_check_stream_offset.exit160
+  %34 = load i64, ptr %5, align 8, !tbaa !47
+  %35 = add i64 %34, %31
+  %36 = icmp ugt i64 %35, 2796202
+  br i1 %36, label %cdf_grow_info.exit.thread, label %37
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %3, align 8, !tbaa !37
-  %44 = mul nuw nsw i64 %40, 24
-  %45 = tail call ptr @_erealloc(ptr noundef %43, i64 noundef %44) #26
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %cdf_grow_info.exit.thread, label %48
+37:                                               ; preds = %33
+  %38 = load ptr, ptr %3, align 8, !tbaa !37
+  %39 = mul nuw nsw i64 %35, 24
+  %40 = tail call ptr @_erealloc(ptr noundef %38, i64 noundef %39) #26
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %cdf_grow_info.exit.thread, label %43
 
-cdf_grow_info.exit.thread:                        ; preds = %38, %42
-  %47 = load ptr, ptr %3, align 8, !tbaa !37
-  tail call void @_efree(ptr noundef %47) #21
+cdf_grow_info.exit.thread:                        ; preds = %33, %37
+  %42 = load ptr, ptr %3, align 8, !tbaa !37
+  tail call void @_efree(ptr noundef %42) #21
   store i64 0, ptr %5, align 8, !tbaa !47
   store ptr null, ptr %3, align 8, !tbaa !37
   br label %cdf_get_property_info_pos.exit.thread
 
-48:                                               ; preds = %42
-  store ptr %45, ptr %3, align 8, !tbaa !37
-  store i64 %40, ptr %5, align 8, !tbaa !47
-  %49 = load i64, ptr %4, align 8, !tbaa !47
-  %50 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %45, i64 %49
-  %51 = add i64 %49, %36
-  store i64 %51, ptr %4, align 8, !tbaa !47
-  %52 = load ptr, ptr %0, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %12
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %.not = icmp ult ptr %54, %29
-  br i1 %.not, label %55, label %cdf_get_property_info_pos.exit.thread
+43:                                               ; preds = %37
+  store ptr %40, ptr %3, align 8, !tbaa !37
+  store i64 %35, ptr %5, align 8, !tbaa !47
+  %44 = load i64, ptr %4, align 8, !tbaa !47
+  %45 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %40, i64 %44
+  %46 = add i64 %44, %31
+  store i64 %46, ptr %4, align 8, !tbaa !47
+  %47 = load ptr, ptr %0, align 8, !tbaa !4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %12
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %.not = icmp ult ptr %49, %26
+  br i1 %.not, label %50, label %cdf_get_property_info_pos.exit.thread
 
-55:                                               ; preds = %48
-  %.val.i164 = load i64, ptr %15, align 8, !tbaa !31
-  %56 = ptrtoint ptr %52 to i64
-  %57 = sub i64 %31, %56
-  %58 = load i64, ptr %19, align 8, !tbaa !22
-  %59 = mul i64 %58, %.val.i164
-  %.not12.i165 = icmp ugt i64 %57, %59
+50:                                               ; preds = %43
+  %.val.i164 = load i64, ptr %14, align 8, !tbaa !31
+  %51 = ptrtoint ptr %47 to i64
+  %52 = ptrtoint ptr %26 to i64
+  %53 = sub i64 %52, %51
+  %54 = load i64, ptr %16, align 8, !tbaa !22
+  %55 = mul i64 %54, %.val.i164
+  %.not12.i165 = icmp ugt i64 %53, %55
   br i1 %.not12.i165, label %cdf_check_stream_offset.exit167.thread, label %cdf_check_stream_offset.exit167.preheader
 
-cdf_check_stream_offset.exit167.preheader:        ; preds = %55
-  %.not215 = icmp eq i32 %35, 0
+cdf_check_stream_offset.exit167.preheader:        ; preds = %50
+  %.not215 = icmp eq i32 %30, 0
   br i1 %.not215, label %.loopexit, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %cdf_check_stream_offset.exit167.preheader
-  %60 = ptrtoint ptr %54 to i64
-  %61 = sub i64 %31, %60
-  br label %63
+  %56 = ptrtoint ptr %49 to i64
+  %57 = sub i64 %52, %56
+  br label %59
 
-cdf_check_stream_offset.exit167.thread:           ; preds = %55
-  %62 = tail call ptr @__errno_location() #22
-  store i32 22, ptr %62, align 4, !tbaa !21
+cdf_check_stream_offset.exit167.thread:           ; preds = %50
+  %58 = tail call ptr @__errno_location() #22
+  store i32 22, ptr %58, align 4, !tbaa !21
   br label %cdf_get_property_info_pos.exit.thread
 
-63:                                               ; preds = %.lr.ph214, %cdf_check_stream_offset.exit167
-  %.0124213 = phi ptr [ %50, %.lr.ph214 ], [ %.3, %cdf_check_stream_offset.exit167 ]
-  %.0126212 = phi i64 [ 0, %.lr.ph214 ], [ %159, %cdf_check_stream_offset.exit167 ]
-  %64 = shl i64 %.0126212, 3
-  %65 = load ptr, ptr %0, align 8, !tbaa !4
-  %66 = getelementptr inbounds nuw i8, ptr %54, i64 %64
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %.not.i.i = icmp ult ptr %67, %65
-  br i1 %.not.i.i, label %cdf_check_stream_offset.exit.thread.i, label %68
+59:                                               ; preds = %.lr.ph214, %cdf_check_stream_offset.exit167
+  %.0124213 = phi ptr [ %45, %.lr.ph214 ], [ %.3, %cdf_check_stream_offset.exit167 ]
+  %.0126212 = phi i64 [ 0, %.lr.ph214 ], [ %155, %cdf_check_stream_offset.exit167 ]
+  %60 = shl i64 %.0126212, 3
+  %61 = load ptr, ptr %0, align 8, !tbaa !4
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 %60
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %.not.i.i = icmp ult ptr %63, %61
+  br i1 %.not.i.i, label %cdf_check_stream_offset.exit.thread.i, label %64
 
-68:                                               ; preds = %63
-  %.val.i.i = load i64, ptr %15, align 8, !tbaa !31
-  %69 = ptrtoint ptr %65 to i64
-  %70 = ptrtoint ptr %67 to i64
-  %71 = sub i64 %70, %69
-  %72 = load i64, ptr %19, align 8, !tbaa !22
-  %73 = mul i64 %72, %.val.i.i
-  %.not12.i.i = icmp ugt i64 %71, %73
+64:                                               ; preds = %59
+  %.val.i.i = load i64, ptr %14, align 8, !tbaa !31
+  %65 = ptrtoint ptr %61 to i64
+  %66 = ptrtoint ptr %63 to i64
+  %67 = sub i64 %66, %65
+  %68 = load i64, ptr %16, align 8, !tbaa !22
+  %69 = mul i64 %68, %.val.i.i
+  %.not12.i.i = icmp ugt i64 %67, %69
   br i1 %.not12.i.i, label %cdf_check_stream_offset.exit.thread.i, label %cdf_check_stream_offset.exit.i
 
-cdf_check_stream_offset.exit.thread.i:            ; preds = %68, %63
-  %74 = tail call ptr @__errno_location() #22
-  store i32 22, ptr %74, align 4, !tbaa !21
+cdf_check_stream_offset.exit.thread.i:            ; preds = %64, %59
+  %70 = tail call ptr @__errno_location() #22
+  store i32 22, ptr %70, align 4, !tbaa !21
   br label %cdf_get_property_info_pos.exit.thread
 
-cdf_check_stream_offset.exit.i:                   ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  %.0.copyload.i.i = load i32, ptr %75, align 1
-  %76 = icmp ult i32 %.0.copyload.i.i, 8
-  br i1 %76, label %cdf_get_property_info_pos.exit.thread, label %77
+cdf_check_stream_offset.exit.i:                   ; preds = %64
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %.0.copyload.i.i = load i32, ptr %71, align 1
+  %72 = icmp ult i32 %.0.copyload.i.i, 8
+  br i1 %72, label %cdf_get_property_info_pos.exit.thread, label %73
 
-77:                                               ; preds = %cdf_check_stream_offset.exit.i
-  %78 = zext i32 %.0.copyload.i.i to i64
-  %79 = add nsw i64 %78, -8
-  %80 = icmp ugt i64 %79, %61
-  %81 = getelementptr i8, ptr %53, i64 %78
-  br i1 %80, label %cdf_get_property_info_pos.exit.thread, label %cdf_get_property_info_pos.exit
+73:                                               ; preds = %cdf_check_stream_offset.exit.i
+  %74 = zext i32 %.0.copyload.i.i to i64
+  %75 = add nsw i64 %74, -8
+  %76 = icmp ugt i64 %75, %57
+  %77 = getelementptr i8, ptr %48, i64 %74
+  br i1 %76, label %cdf_get_property_info_pos.exit.thread, label %cdf_get_property_info_pos.exit
 
-cdf_get_property_info_pos.exit:                   ; preds = %77
-  %.0.copyload.i = load i32, ptr %66, align 1
-  %82 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.0124213, i64 %.0126212
-  store i32 %.0.copyload.i, ptr %82, align 8, !tbaa !48
-  %83 = ptrtoint ptr %81 to i64
-  %84 = sub i64 %31, %83
-  %85 = icmp ult i64 %84, 4
-  br i1 %85, label %cdf_get_property_info_pos.exit.thread, label %86
+cdf_get_property_info_pos.exit:                   ; preds = %73
+  %.0.copyload.i = load i32, ptr %62, align 1
+  %78 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.0124213, i64 %.0126212
+  store i32 %.0.copyload.i, ptr %78, align 8, !tbaa !48
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %52, %79
+  %81 = icmp ult i64 %80, 4
+  br i1 %81, label %cdf_get_property_info_pos.exit.thread, label %82
 
-86:                                               ; preds = %cdf_get_property_info_pos.exit
-  %.0.copyload.i171 = load i32, ptr %81, align 1
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store i32 %.0.copyload.i171, ptr %87, align 4, !tbaa !50
-  %88 = and i32 %.0.copyload.i171, 4096
-  %.not148 = icmp eq i32 %88, 0
-  br i1 %.not148, label %96, label %89
+82:                                               ; preds = %cdf_get_property_info_pos.exit
+  %.0.copyload.i171 = load i32, ptr %77, align 1
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  store i32 %.0.copyload.i171, ptr %83, align 4, !tbaa !50
+  %84 = and i32 %.0.copyload.i171, 4096
+  %.not148 = icmp eq i32 %84, 0
+  br i1 %.not148, label %92, label %85
 
-89:                                               ; preds = %86
-  %90 = icmp ult i64 %84, 8
-  br i1 %90, label %cdf_get_property_info_pos.exit.thread, label %91
+85:                                               ; preds = %82
+  %86 = icmp ult i64 %80, 8
+  br i1 %86, label %cdf_get_property_info_pos.exit.thread, label %87
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %.0.copyload.i174 = load i32, ptr %92, align 1
-  %93 = add i32 %.0.copyload.i174, -100001
-  %or.cond = icmp ult i32 %93, -100000
-  br i1 %or.cond, label %cdf_get_property_info_pos.exit.thread, label %94
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %.0.copyload.i174 = load i32, ptr %88, align 1
+  %89 = add i32 %.0.copyload.i174, -100001
+  %or.cond = icmp ult i32 %89, -100000
+  br i1 %or.cond, label %cdf_get_property_info_pos.exit.thread, label %90
 
-94:                                               ; preds = %91
-  %95 = zext nneg i32 %.0.copyload.i174 to i64
-  br label %96
+90:                                               ; preds = %87
+  %91 = zext nneg i32 %.0.copyload.i174 to i64
+  br label %92
 
-96:                                               ; preds = %86, %94
-  %.0133 = phi i64 [ %95, %94 ], [ 1, %86 ]
-  %.0129 = phi i64 [ 2, %94 ], [ 1, %86 ]
-  %97 = shl nuw nsw i64 %.0129, 2
-  %98 = and i32 %.0.copyload.i171, 57344
-  %.not149 = icmp eq i32 %98, 0
-  br i1 %.not149, label %99, label %cdf_copy_info.exit.thread
+92:                                               ; preds = %82, %90
+  %.0133 = phi i64 [ %91, %90 ], [ 1, %82 ]
+  %.0129 = phi i64 [ 2, %90 ], [ 1, %82 ]
+  %93 = shl nuw nsw i64 %.0129, 2
+  %94 = and i32 %.0.copyload.i171, 57344
+  %.not149 = icmp eq i32 %94, 0
+  br i1 %.not149, label %95, label %cdf_copy_info.exit.thread
 
-99:                                               ; preds = %96
-  %100 = and i32 %.0.copyload.i171, 4095
-  switch i32 %100, label %cdf_copy_info.exit.thread [
+95:                                               ; preds = %92
+  %96 = and i32 %.0.copyload.i171, 4095
+  switch i32 %96, label %cdf_copy_info.exit.thread [
     i32 1, label %cdf_check_stream_offset.exit167
     i32 0, label %cdf_check_stream_offset.exit167
-    i32 2, label %101
-    i32 3, label %108
-    i32 11, label %108
-    i32 19, label %108
-    i32 4, label %108
-    i32 20, label %115
-    i32 21, label %115
-    i32 5, label %115
-    i32 64, label %115
-    i32 30, label %122
-    i32 31, label %122
-    i32 71, label %157
+    i32 2, label %97
+    i32 3, label %104
+    i32 11, label %104
+    i32 19, label %104
+    i32 4, label %104
+    i32 20, label %111
+    i32 21, label %111
+    i32 5, label %111
+    i32 64, label %111
+    i32 30, label %118
+    i32 31, label %118
+    i32 71, label %153
   ]
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %81, i64 %97
-  %.not.i177 = icmp ne i32 %88, 0
-  %103 = ptrtoint ptr %102 to i64
-  %104 = sub i64 %31, %103
-  %105 = icmp ult i64 %104, 2
-  %or.cond.i = or i1 %.not.i177, %105
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %77, i64 %93
+  %.not.i177 = icmp ne i32 %84, 0
+  %99 = ptrtoint ptr %98 to i64
+  %100 = sub i64 %52, %99
+  %101 = icmp ult i64 %100, 2
+  %or.cond.i = or i1 %.not.i177, %101
   br i1 %or.cond.i, label %cdf_copy_info.exit.thread, label %cdf_copy_info.exit
 
-cdf_copy_info.exit:                               ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %107 = load i16, ptr %102, align 1
-  store i16 %107, ptr %106, align 8, !tbaa !42
+cdf_copy_info.exit:                               ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %103 = load i16, ptr %98, align 1
+  store i16 %103, ptr %102, align 8, !tbaa !42
   br label %cdf_check_stream_offset.exit167
 
-108:                                              ; preds = %99, %99, %99, %99
-  %109 = getelementptr inbounds nuw i8, ptr %81, i64 %97
-  %.not.i180 = icmp ne i32 %88, 0
-  %110 = ptrtoint ptr %109 to i64
-  %111 = sub i64 %31, %110
-  %112 = icmp ult i64 %111, 4
-  %or.cond.i181 = or i1 %.not.i180, %112
+104:                                              ; preds = %95, %95, %95, %95
+  %105 = getelementptr inbounds nuw i8, ptr %77, i64 %93
+  %.not.i180 = icmp ne i32 %84, 0
+  %106 = ptrtoint ptr %105 to i64
+  %107 = sub i64 %52, %106
+  %108 = icmp ult i64 %107, 4
+  %or.cond.i181 = or i1 %.not.i180, %108
   br i1 %or.cond.i181, label %cdf_copy_info.exit.thread, label %cdf_copy_info.exit183
 
-cdf_copy_info.exit183:                            ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %114 = load i32, ptr %109, align 1
-  store i32 %114, ptr %113, align 8, !tbaa !42
+cdf_copy_info.exit183:                            ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %110 = load i32, ptr %105, align 1
+  store i32 %110, ptr %109, align 8, !tbaa !42
   br label %cdf_check_stream_offset.exit167
 
-115:                                              ; preds = %99, %99, %99, %99
-  %116 = getelementptr inbounds nuw i8, ptr %81, i64 %97
-  %.not.i184 = icmp ne i32 %88, 0
-  %117 = ptrtoint ptr %116 to i64
-  %118 = sub i64 %31, %117
-  %119 = icmp ult i64 %118, 8
-  %or.cond.i185 = or i1 %.not.i184, %119
+111:                                              ; preds = %95, %95, %95, %95
+  %112 = getelementptr inbounds nuw i8, ptr %77, i64 %93
+  %.not.i184 = icmp ne i32 %84, 0
+  %113 = ptrtoint ptr %112 to i64
+  %114 = sub i64 %52, %113
+  %115 = icmp ult i64 %114, 8
+  %or.cond.i185 = or i1 %.not.i184, %115
   br i1 %or.cond.i185, label %cdf_copy_info.exit.thread, label %cdf_copy_info.exit187
 
-cdf_copy_info.exit187:                            ; preds = %115
-  %120 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %121 = load i64, ptr %116, align 1
-  store i64 %121, ptr %120, align 8, !tbaa !42
+cdf_copy_info.exit187:                            ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %117 = load i64, ptr %112, align 1
+  store i64 %117, ptr %116, align 8, !tbaa !42
   br label %cdf_check_stream_offset.exit167
 
-122:                                              ; preds = %99, %99
-  %123 = icmp samesign ugt i64 %.0133, 1
-  br i1 %123, label %124, label %132
+118:                                              ; preds = %95, %95
+  %119 = icmp samesign ugt i64 %.0133, 1
+  br i1 %119, label %120, label %128
 
-124:                                              ; preds = %122
-  %125 = load ptr, ptr %3, align 8, !tbaa !37
-  %126 = tail call fastcc ptr @cdf_grow_info(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %.0133)
-  %127 = icmp eq ptr %126, null
-  %128 = ptrtoint ptr %.0124213 to i64
-  %129 = ptrtoint ptr %125 to i64
-  %130 = sub i64 %128, %129
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 %130
-  br i1 %127, label %cdf_get_property_info_pos.exit.thread, label %132
+120:                                              ; preds = %118
+  %121 = load ptr, ptr %3, align 8, !tbaa !37
+  %122 = tail call fastcc ptr @cdf_grow_info(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %.0133)
+  %123 = icmp eq ptr %122, null
+  %124 = ptrtoint ptr %.0124213 to i64
+  %125 = ptrtoint ptr %121 to i64
+  %126 = sub i64 %124, %125
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 %126
+  br i1 %123, label %cdf_get_property_info_pos.exit.thread, label %128
 
-132:                                              ; preds = %124, %122
-  %.1125 = phi ptr [ %131, %124 ], [ %.0124213, %122 ]
-  %133 = icmp ult i64 %.0126212, %36
-  br i1 %133, label %.lr.ph.split, label %._crit_edge
+128:                                              ; preds = %120, %118
+  %.1125 = phi ptr [ %127, %120 ], [ %.0124213, %118 ]
+  %129 = icmp ult i64 %.0126212, %31
+  br i1 %129, label %.lr.ph.split, label %._crit_edge
 
-.lr.ph.split:                                     ; preds = %132, %142
-  %.1127211 = phi i64 [ %152, %142 ], [ %.0126212, %132 ]
-  %.1130210 = phi i64 [ %149, %142 ], [ %.0129, %132 ]
-  %.0132209 = phi i64 [ %151, %142 ], [ 0, %132 ]
-  %.0134208 = phi i64 [ %150, %142 ], [ %97, %132 ]
-  %134 = add i64 %.0134208, 4
-  %135 = icmp ugt i64 %134, %84
-  br i1 %135, label %cdf_get_property_info_pos.exit.thread, label %136
+.lr.ph.split:                                     ; preds = %128, %138
+  %.1127211 = phi i64 [ %148, %138 ], [ %.0126212, %128 ]
+  %.1130210 = phi i64 [ %145, %138 ], [ %.0129, %128 ]
+  %.0132209 = phi i64 [ %147, %138 ], [ 0, %128 ]
+  %.0134208 = phi i64 [ %146, %138 ], [ %93, %128 ]
+  %130 = add i64 %.0134208, 4
+  %131 = icmp ugt i64 %130, %80
+  br i1 %131, label %cdf_get_property_info_pos.exit.thread, label %132
 
-136:                                              ; preds = %.lr.ph.split
-  %137 = shl i64 %.1130210, 2
-  %138 = getelementptr inbounds nuw i8, ptr %81, i64 %137
-  %.0.copyload.i188 = load i32, ptr %138, align 1
-  %139 = zext i32 %.0.copyload.i188 to i64
-  %140 = add i64 %134, %139
-  %141 = icmp ugt i64 %140, %84
-  br i1 %141, label %cdf_get_property_info_pos.exit.thread, label %142
+132:                                              ; preds = %.lr.ph.split
+  %133 = shl i64 %.1130210, 2
+  %134 = getelementptr inbounds nuw i8, ptr %77, i64 %133
+  %.0.copyload.i188 = load i32, ptr %134, align 1
+  %135 = zext i32 %.0.copyload.i188 to i64
+  %136 = add i64 %130, %135
+  %137 = icmp ugt i64 %136, %80
+  br i1 %137, label %cdf_get_property_info_pos.exit.thread, label %138
 
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.1125, i64 %.1127211, i32 2
-  store i32 %.0.copyload.i188, ptr %143, align 8, !tbaa !42
-  %144 = getelementptr inbounds nuw i8, ptr %81, i64 %134
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  store ptr %144, ptr %145, align 8, !tbaa !42
-  %146 = and i32 %.0.copyload.i188, 1
-  %spec.select = add i32 %146, %.0.copyload.i188
-  %147 = lshr i32 %spec.select, 1
-  %148 = zext nneg i32 %147 to i64
-  %149 = add i64 %.1130210, %148
-  %150 = shl i64 %149, 2
-  %151 = add nuw nsw i64 %.0132209, 1
-  %152 = add nuw nsw i64 %.1127211, 1
-  %153 = icmp samesign ult i64 %151, %.0133
-  %154 = icmp ult i64 %152, %36
-  %155 = select i1 %153, i1 %154, i1 false
-  br i1 %155, label %.lr.ph.split, label %._crit_edge
+138:                                              ; preds = %132
+  %139 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.1125, i64 %.1127211, i32 2
+  store i32 %.0.copyload.i188, ptr %139, align 8, !tbaa !42
+  %140 = getelementptr inbounds nuw i8, ptr %77, i64 %130
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  store ptr %140, ptr %141, align 8, !tbaa !42
+  %142 = and i32 %.0.copyload.i188, 1
+  %spec.select = add i32 %142, %.0.copyload.i188
+  %143 = lshr i32 %spec.select, 1
+  %144 = zext nneg i32 %143 to i64
+  %145 = add i64 %.1130210, %144
+  %146 = shl i64 %145, 2
+  %147 = add nuw nsw i64 %.0132209, 1
+  %148 = add nuw nsw i64 %.1127211, 1
+  %149 = icmp samesign ult i64 %147, %.0133
+  %150 = icmp ult i64 %148, %31
+  %151 = select i1 %149, i1 %150, i1 false
+  br i1 %151, label %.lr.ph.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %142, %132
-  %.1127.lcssa = phi i64 [ %.0126212, %132 ], [ %152, %142 ]
-  %156 = add i64 %.1127.lcssa, -1
+._crit_edge:                                      ; preds = %138, %128
+  %.1127.lcssa = phi i64 [ %.0126212, %128 ], [ %148, %138 ]
+  %152 = add i64 %.1127.lcssa, -1
   br label %cdf_check_stream_offset.exit167
 
-157:                                              ; preds = %99
+153:                                              ; preds = %95
   br i1 %.not148, label %cdf_check_stream_offset.exit167, label %cdf_copy_info.exit.thread
 
-cdf_copy_info.exit.thread:                        ; preds = %115, %108, %101, %99, %157, %96
-  %158 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, i8 0, i64 16, i1 false)
+cdf_copy_info.exit.thread:                        ; preds = %111, %104, %97, %95, %153, %92
+  %154 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
   br label %cdf_check_stream_offset.exit167
 
-cdf_check_stream_offset.exit167:                  ; preds = %cdf_copy_info.exit187, %cdf_copy_info.exit183, %cdf_copy_info.exit, %._crit_edge, %cdf_copy_info.exit.thread, %99, %99, %157
-  %.2128 = phi i64 [ %.0126212, %cdf_copy_info.exit.thread ], [ %.0126212, %99 ], [ %.0126212, %99 ], [ %.0126212, %cdf_copy_info.exit ], [ %.0126212, %cdf_copy_info.exit183 ], [ %.0126212, %cdf_copy_info.exit187 ], [ %156, %._crit_edge ], [ %.0126212, %157 ]
-  %.3 = phi ptr [ %.0124213, %cdf_copy_info.exit.thread ], [ %.0124213, %99 ], [ %.0124213, %99 ], [ %.0124213, %cdf_copy_info.exit ], [ %.0124213, %cdf_copy_info.exit183 ], [ %.0124213, %cdf_copy_info.exit187 ], [ %.1125, %._crit_edge ], [ %.0124213, %157 ]
-  %159 = add i64 %.2128, 1
-  %160 = icmp ult i64 %159, %36
-  br i1 %160, label %63, label %.loopexit
+cdf_check_stream_offset.exit167:                  ; preds = %cdf_copy_info.exit187, %cdf_copy_info.exit183, %cdf_copy_info.exit, %._crit_edge, %cdf_copy_info.exit.thread, %95, %95, %153
+  %.2128 = phi i64 [ %.0126212, %cdf_copy_info.exit.thread ], [ %.0126212, %95 ], [ %.0126212, %95 ], [ %.0126212, %cdf_copy_info.exit ], [ %.0126212, %cdf_copy_info.exit183 ], [ %.0126212, %cdf_copy_info.exit187 ], [ %152, %._crit_edge ], [ %.0126212, %153 ]
+  %.3 = phi ptr [ %.0124213, %cdf_copy_info.exit.thread ], [ %.0124213, %95 ], [ %.0124213, %95 ], [ %.0124213, %cdf_copy_info.exit ], [ %.0124213, %cdf_copy_info.exit183 ], [ %.0124213, %cdf_copy_info.exit187 ], [ %.1125, %._crit_edge ], [ %.0124213, %153 ]
+  %155 = add i64 %.2128, 1
+  %156 = icmp ult i64 %155, %31
+  br i1 %156, label %59, label %.loopexit
 
-cdf_get_property_info_pos.exit.thread:            ; preds = %77, %cdf_check_stream_offset.exit.i, %124, %91, %89, %cdf_get_property_info_pos.exit, %.lr.ph.split, %136, %cdf_check_stream_offset.exit.thread.i, %cdf_check_stream_offset.exit167.thread, %cdf_grow_info.exit.thread, %cdf_check_stream_offset.exit160.thread, %cdf_check_stream_offset.exit.thread, %48, %cdf_check_stream_offset.exit160, %25, %8
-  %161 = load ptr, ptr %3, align 8, !tbaa !37
-  tail call void @_efree(ptr noundef %161) #21
+cdf_get_property_info_pos.exit.thread:            ; preds = %73, %cdf_check_stream_offset.exit.i, %120, %87, %85, %cdf_get_property_info_pos.exit, %.lr.ph.split, %132, %cdf_check_stream_offset.exit.thread.i, %cdf_check_stream_offset.exit167.thread, %cdf_grow_info.exit.thread, %cdf_check_stream_offset.exit160.thread, %cdf_check_stream_offset.exit.thread, %43, %cdf_check_stream_offset.exit160, %22, %8
+  %157 = load ptr, ptr %3, align 8, !tbaa !37
+  tail call void @_efree(ptr noundef %157) #21
   store ptr null, ptr %3, align 8, !tbaa !37
   store i64 0, ptr %4, align 8, !tbaa !47
   store i64 0, ptr %5, align 8, !tbaa !47
-  %162 = tail call ptr @__errno_location() #22
-  store i32 22, ptr %162, align 4, !tbaa !21
+  %158 = tail call ptr @__errno_location() #22
+  store i32 22, ptr %158, align 4, !tbaa !21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %cdf_check_stream_offset.exit167, %cdf_check_stream_offset.exit167.preheader, %cdf_get_property_info_pos.exit.thread

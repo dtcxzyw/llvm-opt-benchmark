@@ -433,7 +433,7 @@ define void @_ZN3zmq34socks_basic_auth_request_encoder_tC2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3zmq34socks_basic_auth_request_encoder_t6encodeERKNS_26socks_basic_auth_request_tE(ptr noundef nonnull align 8 dereferenceable(529) initializes((16, 18)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq34socks_basic_auth_request_encoder_t6encodeERKNS_26socks_basic_auth_request_tE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(529) initializes((0, 18)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 1, ptr %3, align 8, !tbaa !8
@@ -457,13 +457,11 @@ define void @_ZN3zmq34socks_basic_auth_request_encoder_t6encodeERKNS_26socks_bas
   %19 = load i64, ptr %14, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %18, i64 %19, i1 false)
   %20 = load i64, ptr %14, align 8, !tbaa !29
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %20
-  %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %3 to i64
-  %24 = sub i64 %22, %23
-  store i64 %24, ptr %0, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %25, align 8, !tbaa !33
+  %21 = add i64 %11, 3
+  %gepdiff = add i64 %21, %20
+  store i64 %gepdiff, ptr %0, align 8, !tbaa !31
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %22, align 8, !tbaa !33
   ret void
 }
 

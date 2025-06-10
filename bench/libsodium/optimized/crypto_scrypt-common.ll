@@ -135,7 +135,7 @@ define hidden noundef ptr @_sodium_escrypt_r(ptr noundef %0, ptr noundef %1, i64
 12:                                               ; preds = %11, %6
   %13 = call ptr @_sodium_escrypt_parse_setting(ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not52 = icmp eq ptr %13, null
-  br i1 %.not52, label %72, label %14
+  br i1 %.not52, label %70, label %14
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %8, align 4
@@ -164,7 +164,7 @@ define hidden noundef ptr @_sodium_escrypt_r(ptr noundef %0, ptr noundef %1, i64
   %30 = icmp ugt i64 %29, %5
   %31 = icmp ult i64 %29, %.045
   %or.cond = or i1 %30, %31
-  br i1 %or.cond, label %72, label %32
+  br i1 %or.cond, label %70, label %32
 
 32:                                               ; preds = %27
   %33 = tail call i32 @sodium_runtime_has_sse2() #8
@@ -174,86 +174,84 @@ define hidden noundef ptr @_sodium_escrypt_r(ptr noundef %0, ptr noundef %1, i64
   %36 = load i32, ptr %10, align 4
   %37 = call i32 %34(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13, i64 noundef %.045, i64 noundef %17, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %7, i64 noundef 32) #8, !callees !6
   %.not55 = icmp eq i32 %37, 0
-  br i1 %.not55, label %38, label %72
+  br i1 %.not55, label %38, label %70
 
 38:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %3, i64 noundef %28, i1 noundef false) #8
   %39 = getelementptr i8, ptr %4, i64 %28
   %40 = getelementptr i8, ptr %39, i64 1
   store i8 36, ptr %39, align 1
-  %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %4 to i64
-  %.neg = add i64 %5, %42
-  %43 = sub i64 %.neg, %41
-  br label %44
+  %.neg = xor i64 %28, -1
+  %41 = add i64 %5, %.neg
+  br label %42
 
-44:                                               ; preds = %encode64_uint32.exit.i, %38
-  %.028.i = phi i64 [ %43, %38 ], [ %69, %encode64_uint32.exit.i ]
-  %.026.i = phi ptr [ %40, %38 ], [ %62, %encode64_uint32.exit.i ]
-  %.024.i = phi i64 [ 0, %38 ], [ %46, %encode64_uint32.exit.i ]
-  %45 = icmp ult i64 %.024.i, 32
-  br i1 %45, label %.preheader.i, label %encode64.exit
+42:                                               ; preds = %encode64_uint32.exit.i, %38
+  %.028.i = phi i64 [ %41, %38 ], [ %67, %encode64_uint32.exit.i ]
+  %.026.i = phi ptr [ %40, %38 ], [ %60, %encode64_uint32.exit.i ]
+  %.024.i = phi i64 [ 0, %38 ], [ %44, %encode64_uint32.exit.i ]
+  %43 = icmp ult i64 %.024.i, 32
+  br i1 %43, label %.preheader.i, label %encode64.exit
 
-.preheader.i:                                     ; preds = %44, %.preheader.i
-  %.125.i = phi i64 [ %46, %.preheader.i ], [ %.024.i, %44 ]
-  %.022.i = phi i32 [ %51, %.preheader.i ], [ 0, %44 ]
-  %.021.i = phi i32 [ %52, %.preheader.i ], [ 0, %44 ]
-  %46 = add nuw nsw i64 %.125.i, 1
-  %47 = getelementptr i8, ptr %7, i64 %.125.i
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw nsw i32 %49, %.021.i
-  %51 = or i32 %50, %.022.i
-  %52 = add nuw nsw i32 %.021.i, 8
-  %53 = icmp samesign ult i32 %.021.i, 16
-  %54 = icmp samesign ult i64 %.125.i, 31
-  %55 = and i1 %54, %53
-  br i1 %55, label %.preheader.i, label %.lr.ph.i.i, !llvm.loop !7
+.preheader.i:                                     ; preds = %42, %.preheader.i
+  %.125.i = phi i64 [ %44, %.preheader.i ], [ %.024.i, %42 ]
+  %.022.i = phi i32 [ %49, %.preheader.i ], [ 0, %42 ]
+  %.021.i = phi i32 [ %50, %.preheader.i ], [ 0, %42 ]
+  %44 = add nuw nsw i64 %.125.i, 1
+  %45 = getelementptr i8, ptr %7, i64 %.125.i
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i32
+  %48 = shl nuw nsw i32 %47, %.021.i
+  %49 = or i32 %48, %.022.i
+  %50 = add nuw nsw i32 %.021.i, 8
+  %51 = icmp samesign ult i32 %.021.i, 16
+  %52 = icmp samesign ult i64 %.125.i, 31
+  %53 = and i1 %52, %51
+  br i1 %53, label %.preheader.i, label %.lr.ph.i.i, !llvm.loop !7
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i, %57
-  %.016.i.i = phi i32 [ %65, %57 ], [ 0, %.preheader.i ]
-  %.01015.i.i = phi i32 [ %64, %57 ], [ %51, %.preheader.i ]
-  %.01114.i.i = phi i64 [ %63, %57 ], [ %.028.i, %.preheader.i ]
-  %.01213.i.i = phi ptr [ %62, %57 ], [ %.026.i, %.preheader.i ]
-  %56 = icmp eq i64 %.01114.i.i, 0
-  br i1 %56, label %encode64.exit, label %57
+.lr.ph.i.i:                                       ; preds = %.preheader.i, %55
+  %.016.i.i = phi i32 [ %63, %55 ], [ 0, %.preheader.i ]
+  %.01015.i.i = phi i32 [ %62, %55 ], [ %49, %.preheader.i ]
+  %.01114.i.i = phi i64 [ %61, %55 ], [ %.028.i, %.preheader.i ]
+  %.01213.i.i = phi ptr [ %60, %55 ], [ %.026.i, %.preheader.i ]
+  %54 = icmp eq i64 %.01114.i.i, 0
+  br i1 %54, label %encode64.exit, label %55
 
-57:                                               ; preds = %.lr.ph.i.i
-  %58 = and i32 %.01015.i.i, 63
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr i8, ptr @.str, i64 %59
-  %61 = load i8, ptr %60, align 1
-  %62 = getelementptr i8, ptr %.01213.i.i, i64 1
-  store i8 %61, ptr %.01213.i.i, align 1
-  %63 = add i64 %.01114.i.i, -1
-  %64 = lshr i32 %.01015.i.i, 6
-  %65 = add nuw nsw i32 %.016.i.i, 6
-  %66 = icmp samesign ult i32 %65, %52
-  br i1 %66, label %.lr.ph.i.i, label %encode64_uint32.exit.i, !llvm.loop !8
+55:                                               ; preds = %.lr.ph.i.i
+  %56 = and i32 %.01015.i.i, 63
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr i8, ptr @.str, i64 %57
+  %59 = load i8, ptr %58, align 1
+  %60 = getelementptr i8, ptr %.01213.i.i, i64 1
+  store i8 %59, ptr %.01213.i.i, align 1
+  %61 = add i64 %.01114.i.i, -1
+  %62 = lshr i32 %.01015.i.i, 6
+  %63 = add nuw nsw i32 %.016.i.i, 6
+  %64 = icmp samesign ult i32 %63, %50
+  br i1 %64, label %.lr.ph.i.i, label %encode64_uint32.exit.i, !llvm.loop !8
 
-encode64_uint32.exit.i:                           ; preds = %57
-  %.not.not.i = icmp eq ptr %62, null
-  %67 = ptrtoint ptr %62 to i64
-  %68 = ptrtoint ptr %.026.i to i64
-  %.neg.i = add i64 %.028.i, %68
-  %69 = sub i64 %.neg.i, %67
-  br i1 %.not.not.i, label %encode64.exit, label %44, !llvm.loop !9
+encode64_uint32.exit.i:                           ; preds = %55
+  %.not.not.i = icmp eq ptr %60, null
+  %65 = ptrtoint ptr %60 to i64
+  %66 = ptrtoint ptr %.026.i to i64
+  %.neg.i = add i64 %.028.i, %66
+  %67 = sub i64 %.neg.i, %65
+  br i1 %.not.not.i, label %encode64.exit, label %42, !llvm.loop !9
 
-encode64.exit:                                    ; preds = %44, %encode64_uint32.exit.i, %.lr.ph.i.i
-  %.2.i = phi ptr [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ %.026.i, %44 ]
+encode64.exit:                                    ; preds = %42, %encode64_uint32.exit.i, %.lr.ph.i.i
+  %.2.i = phi ptr [ null, %.lr.ph.i.i ], [ null, %encode64_uint32.exit.i ], [ %.026.i, %42 ]
   call void @sodium_memzero(ptr noundef nonnull %7, i64 noundef 32) #8
   %.not56 = icmp ne ptr %.2.i, null
-  %70 = getelementptr i8, ptr %4, i64 %5
-  %.not57 = icmp ult ptr %.2.i, %70
+  %68 = getelementptr i8, ptr %4, i64 %5
+  %.not57 = icmp ult ptr %.2.i, %68
   %or.cond58 = and i1 %.not56, %.not57
-  br i1 %or.cond58, label %71, label %72
+  br i1 %or.cond58, label %69, label %70
 
-71:                                               ; preds = %encode64.exit
+69:                                               ; preds = %encode64.exit
   store i8 0, ptr %.2.i, align 1
-  br label %72
+  br label %70
 
-72:                                               ; preds = %encode64.exit, %32, %27, %12, %71
-  %.0 = phi ptr [ %4, %71 ], [ null, %12 ], [ null, %27 ], [ null, %32 ], [ null, %encode64.exit ]
+70:                                               ; preds = %encode64.exit, %32, %27, %12, %69
+  %.0 = phi ptr [ %4, %69 ], [ null, %12 ], [ null, %27 ], [ null, %32 ], [ null, %encode64.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8

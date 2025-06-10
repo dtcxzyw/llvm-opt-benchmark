@@ -15,70 +15,72 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"Compressed data violation\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(argmem: readwrite)
-define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
-  %4 = getelementptr i8, ptr %0, i64 %2
-  %5 = icmp slt i64 %2, 33
-  br i1 %5, label %.loopexit, label %6
+define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
+  %4 = icmp slt i64 %2, 33
+  br i1 %4, label %.loopexit, label %5
 
-6:                                                ; preds = %3
-  %7 = getelementptr i8, ptr %0, i64 9
-  br label %8
+5:                                                ; preds = %3
+  %6 = getelementptr i8, ptr %0, i64 9
+  br label %7
 
-8:                                                ; preds = %15, %6
-  %9 = phi i64 [ 0, %6 ], [ %17, %15 ]
-  %10 = phi ptr [ %0, %6 ], [ %16, %15 ]
-  %11 = load i8, ptr %10, align 1
-  %12 = getelementptr [9 x i8], ptr @lzop_magic, i64 0, i64 %9
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %11, %13
-  br i1 %14, label %15, label %.loopexit
+7:                                                ; preds = %14, %5
+  %8 = phi i64 [ 0, %5 ], [ %16, %14 ]
+  %9 = phi ptr [ %0, %5 ], [ %15, %14 ]
+  %10 = load i8, ptr %9, align 1
+  %11 = getelementptr [9 x i8], ptr @lzop_magic, i64 0, i64 %8
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %10, %12
+  br i1 %13, label %14, label %.loopexit
 
-15:                                               ; preds = %8
-  %16 = getelementptr i8, ptr %10, i64 1
-  %17 = add nuw nsw i64 %9, 1
-  %18 = icmp eq i64 %17, 9
-  br i1 %18, label %19, label %8, !llvm.loop !5
+14:                                               ; preds = %7
+  %15 = getelementptr i8, ptr %9, i64 1
+  %16 = add nuw nsw i64 %8, 1
+  %17 = icmp eq i64 %16, 9
+  br i1 %17, label %18, label %7, !llvm.loop !5
 
-19:                                               ; preds = %15
-  %20 = load i16, ptr %7, align 1
-  %21 = tail call i16 @llvm.bswap.i16(i16 %20)
-  %22 = icmp ugt i16 %21, 2367
-  %23 = select i1 %22, i64 8, i64 7
-  %24 = getelementptr i8, ptr %7, i64 %23
-  %25 = load i32, ptr %24, align 1
-  %26 = and i32 %25, 524288
-  %27 = icmp eq i32 %26, 0
-  %28 = select i1 %27, i64 4, i64 8
-  %29 = getelementptr i8, ptr %24, i64 %28
-  %30 = ptrtoint ptr %4 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = icmp slt i64 %32, 13
-  br i1 %33, label %.loopexit, label %34
+18:                                               ; preds = %14
+  %19 = load i16, ptr %6, align 1
+  %20 = tail call i16 @llvm.bswap.i16(i16 %19)
+  %21 = icmp ugt i16 %20, 2367
+  %22 = select i1 %21, i64 8, i64 7
+  %23 = getelementptr i8, ptr %6, i64 %22
+  %24 = load i32, ptr %23, align 1
+  %25 = and i32 %24, 524288
+  %26 = icmp eq i32 %25, 0
+  %27 = select i1 %26, i64 4, i64 8
+  %28 = add nuw nsw i64 %27, %22
+  %29 = add nuw nsw i64 %28, 9
+  %gepdiff = sub nsw i64 %2, %29
+  %30 = icmp slt i64 %gepdiff, 13
+  br i1 %30, label %.loopexit, label %31
 
-34:                                               ; preds = %19
-  %35 = select i1 %22, i64 12, i64 8
-  %36 = getelementptr i8, ptr %29, i64 %35
-  %37 = getelementptr i8, ptr %36, i64 1
-  %38 = load i8, ptr %36, align 1
-  %39 = zext i8 %38 to i64
-  %40 = ptrtoint ptr %37 to i64
-  %41 = sub i64 %30, %40
-  %42 = add nuw nsw i64 %39, 4
-  %43 = icmp slt i64 %41, %42
-  br i1 %43, label %.loopexit, label %44
+31:                                               ; preds = %18
+  %.neg8 = select i1 %26, i64 -4, i64 -8
+  %.neg = select i1 %21, i64 -8, i64 -7
+  %32 = getelementptr i8, ptr %23, i64 %27
+  %.neg7 = select i1 %21, i64 -12, i64 -8
+  %33 = select i1 %21, i64 12, i64 8
+  %34 = getelementptr i8, ptr %32, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = zext i8 %35 to i64
+  %.neg5 = add nsw i64 %2, -10
+  %.neg6 = add i64 %.neg5, %.neg
+  %reass.sub = add i64 %.neg6, %.neg7
+  %gepdiff2 = add i64 %reass.sub, %.neg8
+  %37 = add nuw nsw i64 %36, 4
+  %38 = icmp slt i64 %gepdiff2, %37
+  br i1 %38, label %.loopexit, label %39
 
-44:                                               ; preds = %34
-  %45 = getelementptr i8, ptr %37, i64 %42
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %0 to i64
-  %48 = sub i64 %46, %47
-  store i64 %48, ptr %1, align 8
+39:                                               ; preds = %31
+  %40 = or disjoint i64 %33, 1
+  %41 = add nuw nsw i64 %40, %29
+  %42 = add nuw nsw i64 %41, %37
+  store i64 %42, ptr %1, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %44, %34, %19, %3
-  %49 = phi i64 [ 1, %44 ], [ 0, %3 ], [ 0, %19 ], [ 0, %34 ], [ 0, %8 ]
-  ret i64 %49
+.loopexit:                                        ; preds = %7, %39, %31, %18, %3
+  %43 = phi i64 [ 1, %39 ], [ 0, %3 ], [ 0, %18 ], [ 0, %31 ], [ 0, %7 ]
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

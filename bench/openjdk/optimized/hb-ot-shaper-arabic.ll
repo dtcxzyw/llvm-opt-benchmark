@@ -5653,71 +5653,66 @@ _ZN2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E9serializeEP22hb_serializ
   br i1 %.not.i15, label %83, label %select.unfold
 
 83:                                               ; preds = %81
-  %84 = load i8, ptr %52, align 1
-  %85 = zext i8 %84 to i64
-  %86 = shl nuw nsw i64 %85, 1
-  %87 = getelementptr inbounds nuw i8, ptr %31, i64 %86
-  %88 = load i8, ptr %31, align 1
-  %89 = zext i8 %88 to i64
-  %90 = shl nuw nsw i64 %89, 9
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 %90
-  %.0.in.v.v.i.i = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %.0.in.v.i.i = ptrtoint ptr %.0.in.v.v.i.i to i64
-  %92 = ptrtoint ptr %0 to i64
-  %.0.in.i.i = sub i64 %.0.in.v.i.i, %92
-  %93 = and i64 %.0.in.i.i, 4294967295
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 %93
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %76 to i64
-  %97 = sub i64 %95, %96
-  %98 = icmp ugt i64 %97, 2147483647
-  br i1 %98, label %104, label %99
+  %84 = load i8, ptr %31, align 1
+  %85 = load i8, ptr %52, align 1
+  %86 = zext i8 %85 to i64
+  %87 = shl nuw nsw i64 %86, 1
+  %88 = zext i8 %84 to i64
+  %89 = shl nuw nsw i64 %88, 9
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %87
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %89
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = ptrtoint ptr %92 to i64
+  %94 = ptrtoint ptr %76 to i64
+  %95 = sub i64 %93, %94
+  %96 = icmp ugt i64 %95, 2147483647
+  br i1 %96, label %102, label %97
 
-99:                                               ; preds = %83
-  %100 = load ptr, ptr %17, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %102 = sub i64 %101, %96
-  %103 = icmp slt i64 %102, %97
-  br i1 %103, label %104, label %105
+97:                                               ; preds = %83
+  %98 = load ptr, ptr %17, align 8
+  %99 = ptrtoint ptr %98 to i64
+  %100 = sub i64 %99, %94
+  %101 = icmp slt i64 %100, %95
+  br i1 %101, label %102, label %103
 
-104:                                              ; preds = %99, %83
+102:                                              ; preds = %97, %83
   store i32 4, ptr %6, align 4
   br label %select.unfold
 
-105:                                              ; preds = %99
-  %.not.i.i.i.not.i17 = icmp eq ptr %94, %76
-  br i1 %.not.i.i.i.not.i17, label %_ZL9hb_memsetPvij.exit.i.i.i19, label %106
+103:                                              ; preds = %97
+  %.not.i.i.i.not.i18 = icmp eq ptr %92, %76
+  br i1 %.not.i.i.i.not.i18, label %_ZL9hb_memsetPvij.exit.i.i.i20, label %104
 
-106:                                              ; preds = %105
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 %97, i1 false)
-  %.pre.i.i.i18 = load ptr, ptr %10, align 8
-  br label %_ZL9hb_memsetPvij.exit.i.i.i19
+104:                                              ; preds = %103
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 %95, i1 false)
+  %.pre.i.i.i19 = load ptr, ptr %10, align 8
+  br label %_ZL9hb_memsetPvij.exit.i.i.i20
 
-_ZL9hb_memsetPvij.exit.i.i.i19:                   ; preds = %106, %105
-  %107 = phi ptr [ %.pre.i.i.i18, %106 ], [ %76, %105 ]
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 %97
-  store ptr %108, ptr %10, align 8
-  %109 = icmp eq ptr %107, null
-  br i1 %109, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit
+_ZL9hb_memsetPvij.exit.i.i.i20:                   ; preds = %104, %103
+  %105 = phi ptr [ %.pre.i.i.i19, %104 ], [ %76, %103 ]
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %95
+  store ptr %106, ptr %10, align 8
+  %107 = icmp eq ptr %105, null
+  br i1 %107, label %select.unfold, label %_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit
 
-_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i19
-  %110 = load i8, ptr %31, align 1
+_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit: ; preds = %_ZL9hb_memsetPvij.exit.i.i.i20
+  %108 = load i8, ptr %31, align 1
+  %109 = zext i8 %108 to i64
+  %110 = load i8, ptr %52, align 1
   %111 = zext i8 %110 to i64
-  %112 = load i8, ptr %52, align 1
-  %113 = zext i8 %112 to i64
-  %114 = shl nuw nsw i64 %111, 9
-  %115 = shl nuw nsw i64 %113, 1
-  %116 = getelementptr inbounds nuw i8, ptr %31, i64 %115
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %114
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
-  %119 = lshr i32 %3, 16
-  %120 = trunc nuw i32 %119 to i16
-  %.sroa.0.0.insert.insert.i20 = tail call i16 @llvm.bswap.i16(i16 %120)
-  store i16 %.sroa.0.0.insert.insert.i20, ptr %118, align 1
+  %112 = shl nuw nsw i64 %109, 9
+  %113 = shl nuw nsw i64 %111, 1
+  %114 = getelementptr inbounds nuw i8, ptr %31, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %112
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 2
+  %117 = lshr i32 %3, 16
+  %118 = trunc nuw i32 %117 to i16
+  %.sroa.0.0.insert.insert.i21 = tail call i16 @llvm.bswap.i16(i16 %118)
+  store i16 %.sroa.0.0.insert.insert.i21, ptr %116, align 1
   br label %select.unfold
 
-select.unfold:                                    ; preds = %_ZL9hb_memsetPvij.exit.i.i.i19, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i, %_ZL9hb_memsetPvij.exit.i.i.i.i, %72, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i, %43, %_ZN22hb_serialize_context_t10extend_minIN2OT6LookupEEEPT_S4_.exit, %_ZL9hb_memsetPvij.exit.i.i.i, %77, %_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit, %104, %81, %_ZN2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E9serializeEP22hb_serialize_context_tjb.exit, %22, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %22 ], [ false, %_ZN2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E9serializeEP22hb_serialize_context_tjb.exit ], [ false, %81 ], [ false, %104 ], [ true, %_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit ], [ true, %77 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %_ZN22hb_serialize_context_t10extend_minIN2OT6LookupEEEPT_S4_.exit ], [ false, %43 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i ], [ false, %72 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i19 ]
+select.unfold:                                    ; preds = %_ZL9hb_memsetPvij.exit.i.i.i20, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i, %_ZL9hb_memsetPvij.exit.i.i.i.i, %72, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i, %43, %_ZN22hb_serialize_context_t10extend_minIN2OT6LookupEEEPT_S4_.exit, %_ZL9hb_memsetPvij.exit.i.i.i, %77, %_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit, %102, %81, %_ZN2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E9serializeEP22hb_serialize_context_tjb.exit, %22, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %22 ], [ false, %_ZN2OT7ArrayOfINS_6OffsetINS_7IntTypeItLj2EEELb1EEES3_E9serializeEP22hb_serialize_context_tjb.exit ], [ false, %81 ], [ false, %102 ], [ true, %_ZN22hb_serialize_context_t6extendIN2OT6LookupEJEEEPT_S4_DpOT0_.exit ], [ true, %77 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i ], [ false, %_ZN22hb_serialize_context_t10extend_minIN2OT6LookupEEEPT_S4_.exit ], [ false, %43 ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.i ], [ false, %72 ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i.i ], [ false, %_ZN22hb_serialize_context_t12check_assignIN2OT7IntTypeItLj2EEERjEEbRT_OT0_20hb_serialize_error_t.exit.thread.i ], [ false, %_ZL9hb_memsetPvij.exit.i.i.i20 ]
   ret i1 %.0
 }
 

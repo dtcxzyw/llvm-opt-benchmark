@@ -3035,60 +3035,58 @@ define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(add
   %101 = getelementptr inbounds nuw i8, ptr %.088.lcssa, i64 1
   %102 = ptrtoint ptr %101 to i64
   %103 = sub i64 %102, %97
-  %104 = getelementptr inbounds i8, ptr %77, i64 %103
-  %105 = getelementptr inbounds i8, ptr %104, i64 -1
-  %106 = ptrtoint ptr %105 to i64
-  %107 = ptrtoint ptr %77 to i64
-  %108 = sub i64 %106, %107
-  %109 = trunc i64 %108 to i32
-  %110 = icmp ugt i32 %.095, %109
-  br i1 %110, label %111, label %.thread
+  %104 = trunc i64 %103 to i32
+  %105 = add i32 %104, -1
+  %106 = icmp ugt i32 %.095, %105
+  br i1 %106, label %107, label %.thread
 
-111:                                              ; preds = %95
-  %112 = sub nuw i32 %.095, %109
-  %113 = zext i32 %112 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %105, i8 32, i64 %113, i1 false)
+107:                                              ; preds = %95
+  %108 = getelementptr inbounds i8, ptr %77, i64 %103
+  %109 = getelementptr inbounds i8, ptr %108, i64 -1
+  %110 = sub nuw i32 %.095, %105
+  %111 = zext i32 %110 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %109, i8 32, i64 %111, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %95, %111
-  br i1 %18, label %114, label %.critedge118
+.thread:                                          ; preds = %._crit_edge, %95, %107
+  br i1 %18, label %112, label %.critedge118
 
-114:                                              ; preds = %.thread
-  %115 = tail call fastcc i32 @Synchronize_Field(ptr noundef nonnull %0)
-  %.not116 = icmp eq i32 %115, 0
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %117 = load ptr, ptr %116, align 8, !tbaa !65
-  %.not16.i = icmp eq ptr %117, null
+112:                                              ; preds = %.thread
+  %113 = tail call fastcc i32 @Synchronize_Field(ptr noundef nonnull %0)
+  %.not116 = icmp eq i32 %113, 0
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %115 = load ptr, ptr %114, align 8, !tbaa !65
+  %.not16.i = icmp eq ptr %115, null
   br i1 %.not16.i, label %Synchronize_Linked_Fields.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %114
-  %.not1718.i = icmp eq ptr %117, %0
+.preheader.i:                                     ; preds = %112
+  %.not1718.i = icmp eq ptr %115, %0
   br i1 %.not1718.i, label %Synchronize_Linked_Fields.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.01120.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.01219.i = phi ptr [ %122, %.lr.ph.i ], [ %117, %.preheader.i ]
-  %118 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i)
-  %119 = icmp ne i32 %118, 0
-  %120 = icmp eq i32 %.01120.i, 0
-  %or.cond.i = select i1 %119, i1 %120, i1 false
-  %spec.select.i = select i1 %or.cond.i, i32 %118, i32 %.01120.i
-  %121 = getelementptr inbounds nuw i8, ptr %.01219.i, i64 72
-  %122 = load ptr, ptr %121, align 8, !tbaa !65
-  %.not17.i = icmp eq ptr %122, %0
+  %.01219.i = phi ptr [ %120, %.lr.ph.i ], [ %115, %.preheader.i ]
+  %116 = tail call fastcc i32 @Synchronize_Field(ptr noundef %.01219.i)
+  %117 = icmp ne i32 %116, 0
+  %118 = icmp eq i32 %.01120.i, 0
+  %or.cond.i = select i1 %117, i1 %118, i1 false
+  %spec.select.i = select i1 %or.cond.i, i32 %116, i32 %.01120.i
+  %119 = getelementptr inbounds nuw i8, ptr %.01219.i, i64 72
+  %120 = load ptr, ptr %119, align 8, !tbaa !65
+  %.not17.i = icmp eq ptr %120, %0
   br i1 %.not17.i, label %Synchronize_Linked_Fields.exit, label %.lr.ph.i, !llvm.loop !66
 
-Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %114, %.preheader.i
-  %.0.i = phi i32 [ -1, %114 ], [ 0, %.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %123 = icmp ne i32 %.0.i, 0
-  %or.cond9 = and i1 %.not116, %123
-  %.2100 = select i1 %or.cond9, i32 %.0.i, i32 %115
+Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %112, %.preheader.i
+  %.0.i = phi i32 [ -1, %112 ], [ 0, %.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %121 = icmp ne i32 %.0.i, 0
+  %or.cond9 = and i1 %.not116, %121
+  %.2100 = select i1 %or.cond9, i32 %.0.i, i32 %113
   br label %.critedge118
 
 .critedge118:                                     ; preds = %24, %62, %.thread, %Synchronize_Linked_Fields.exit, %42, %3, %7
   %.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %42 ], [ %.2100, %Synchronize_Linked_Fields.exit ], [ 0, %.thread ], [ -2, %62 ], [ -2, %24 ]
-  %124 = tail call ptr @__errno_location() #14
-  store i32 %.sink, ptr %124, align 4, !tbaa !32
+  %122 = tail call ptr @__errno_location() #14
+  store i32 %.sink, ptr %122, align 4, !tbaa !32
   ret i32 %.sink
 }
 

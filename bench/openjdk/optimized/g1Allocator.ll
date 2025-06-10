@@ -1419,7 +1419,7 @@ _ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit: ; preds = %10, %14
   %41 = load i64, ptr @_ZN13CollectedHeap22_lab_alignment_reserveE, align 8
   %42 = add i64 %41, %2
   %.not = icmp ugt i64 %42, %.040
-  br i1 %.not, label %88, label %43
+  br i1 %.not, label %85, label %43
 
 43:                                               ; preds = %40
   %44 = mul i64 %25, 100
@@ -1427,7 +1427,7 @@ _ZNK15G1PLABAllocator12alloc_bufferE16G1HeapRegionAttrj.exit: ; preds = %10, %14
   %46 = zext i32 %45 to i64
   %47 = mul i64 %29, %46
   %48 = icmp ult i64 %44, %47
-  br i1 %48, label %49, label %88
+  br i1 %48, label %49, label %85
 
 49:                                               ; preds = %43
   tail call void @_ZN4PLAB6retireEv(ptr noundef nonnull align 8 dereferenceable(128) %.0.i.i) #15
@@ -1478,7 +1478,7 @@ _ZN15G1PLABAllocator8PLABData18notify_plab_refillEmm.exit: ; preds = %57, %59
 _ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit: ; preds = %63, %65
   %.0.i = phi ptr [ %64, %63 ], [ %66, %65 ]
   %.not43 = icmp eq ptr %.0.i, null
-  br i1 %.not43, label %87, label %69
+  br i1 %.not43, label %84, label %69
 
 69:                                               ; preds = %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit
   %70 = load i64, ptr %7, align 8
@@ -1498,65 +1498,63 @@ _ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit: ; preds =
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %70
   store i64 %80, ptr %78, align 8
-  %81 = ptrtoint ptr %77 to i64
-  %82 = ptrtoint ptr %.0.i to i64
-  %83 = sub i64 %81, %82
-  %84 = lshr i64 %83, 3
-  %.not.i = icmp ult i64 %84, %2
-  br i1 %.not.i, label %_ZN4PLAB8allocateEm.exit, label %85
+  %.idx66 = sub i64 %70, %75
+  %81 = and i64 %.idx66, 2305843009213693951
+  %.not.i = icmp ult i64 %81, %2
+  br i1 %.not.i, label %_ZN4PLAB8allocateEm.exit, label %82
 
-85:                                               ; preds = %69
-  %86 = getelementptr inbounds ptr, ptr %.0.i, i64 %2
-  store ptr %86, ptr %20, align 8
+82:                                               ; preds = %69
+  %83 = getelementptr inbounds ptr, ptr %.0.i, i64 %2
+  store ptr %83, ptr %20, align 8
   br label %_ZN4PLAB8allocateEm.exit
 
-87:                                               ; preds = %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit
+84:                                               ; preds = %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmmPmj.exit
   store i8 1, ptr %3, align 1
-  br label %88
+  br label %85
 
-88:                                               ; preds = %87, %43, %40
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
+85:                                               ; preds = %84, %43, %40
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load ptr, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  switch i8 %.sroa.355.0.extract.trunc, label %95 [
-    i8 0, label %91
-    i8 1, label %93
+  switch i8 %.sroa.355.0.extract.trunc, label %92 [
+    i8 0, label %88
+    i8 1, label %90
   ]
 
-91:                                               ; preds = %88
-  %92 = call noundef ptr @_ZN11G1Allocator27survivor_attempt_allocationEmmPmj(ptr noundef nonnull align 8 dereferenceable(120) %90, i64 noundef %2, i64 noundef %2, ptr noundef nonnull %6, i32 noundef %4)
+88:                                               ; preds = %85
+  %89 = call noundef ptr @_ZN11G1Allocator27survivor_attempt_allocationEmmPmj(ptr noundef nonnull align 8 dereferenceable(120) %87, i64 noundef %2, i64 noundef %2, ptr noundef nonnull %6, i32 noundef %4)
   br label %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit
 
-93:                                               ; preds = %88
-  %94 = call noundef ptr @_ZN11G1Allocator22old_attempt_allocationEmmPm(ptr noundef nonnull align 8 dereferenceable(120) %90, i64 noundef %2, i64 noundef %2, ptr noundef nonnull %6)
+90:                                               ; preds = %85
+  %91 = call noundef ptr @_ZN11G1Allocator22old_attempt_allocationEmmPm(ptr noundef nonnull align 8 dereferenceable(120) %87, i64 noundef %2, i64 noundef %2, ptr noundef nonnull %6)
   br label %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit
 
-95:                                               ; preds = %88
-  %96 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %96, align 1
+92:                                               ; preds = %85
+  %93 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %93, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 237) #16
   unreachable
 
-_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit: ; preds = %91, %93
-  %.0.i.i50 = phi ptr [ %92, %91 ], [ %94, %93 ]
+_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit: ; preds = %88, %90
+  %.0.i.i50 = phi ptr [ %89, %88 ], [ %91, %90 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not44 = icmp eq ptr %.0.i.i50, null
-  br i1 %.not44, label %_ZN4PLAB8allocateEm.exit, label %97
+  br i1 %.not44, label %_ZN4PLAB8allocateEm.exit, label %94
 
-97:                                               ; preds = %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit
-  %98 = getelementptr inbounds nuw i8, ptr %30, i64 8
+94:                                               ; preds = %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit
+  %95 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %96 = load i64, ptr %95, align 8
+  %97 = add i64 %96, %2
+  store i64 %97, ptr %95, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, %2
+  %100 = add i64 %99, 1
   store i64 %100, ptr %98, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %102 = load i64, ptr %101, align 8
-  %103 = add i64 %102, 1
-  store i64 %103, ptr %101, align 8
   br label %_ZN4PLAB8allocateEm.exit
 
-_ZN4PLAB8allocateEm.exit:                         ; preds = %85, %69, %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit, %97
-  %.0 = phi ptr [ %.0.i.i50, %97 ], [ null, %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit ], [ %.0.i, %85 ], [ null, %69 ]
+_ZN4PLAB8allocateEm.exit:                         ; preds = %82, %69, %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit, %94
+  %.0 = phi ptr [ %.0.i.i50, %94 ], [ null, %_ZN11G1Allocator22par_allocate_during_gcE16G1HeapRegionAttrmj.exit ], [ %.0.i, %82 ], [ null, %69 ]
   ret ptr %.0
 }
 

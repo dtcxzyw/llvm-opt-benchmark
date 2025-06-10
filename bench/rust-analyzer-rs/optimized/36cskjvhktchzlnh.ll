@@ -12382,10 +12382,9 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17hf3
   %56 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 } }, ptr %9, i64 %.pre-phi.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3075)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3078)
-  %.idx.neg = mul i64 %.pre-phi.i, -40
-  %57 = sdiv exact i64 %.idx.neg, 40
+  %57 = sub nsw i64 0, %.pre-phi.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3081)
-  %58 = add nsw i64 %57, -16
+  %58 = sub i64 -16, %.pre-phi.i
   %59 = and i64 %58, %8
   %60 = getelementptr inbounds i8, ptr %9, i64 %59
   %.0.copyload.i19.i.i.i = load <16 x i8>, ptr %60, align 1, !noalias !3084

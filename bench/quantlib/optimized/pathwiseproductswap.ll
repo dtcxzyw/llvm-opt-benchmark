@@ -319,9 +319,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %cond.i.i.i.i89328, i64 %sub.ptr.sub.i.i83
   %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i.i90329, align 8, !tbaa !6
-  %sub.ptr.lhs.cast.i106 = ptrtoint ptr %incdec.ptr.i to i64
-  %sub.ptr.rhs.cast.i107 = ptrtoint ptr %cond.i.i.i.i89328 to i64
-  %sub.ptr.sub.i108 = sub i64 %sub.ptr.lhs.cast.i106, %sub.ptr.rhs.cast.i107
+  %sub.ptr.sub.i108 = add nsw i64 %sub.ptr.sub.i.i83, -8
   %sub.ptr.div.i109 = ashr exact i64 %sub.ptr.sub.i108, 3
   %17 = load i64, ptr %numberRates_, align 8, !tbaa !14
   %cmp = icmp eq i64 %sub.ptr.div.i109, %17
@@ -537,7 +535,7 @@ if.then.i.i137:                                   ; preds = %if.then44
   unreachable
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %if.then44
-  %cmp.not.i.i.i.i133 = icmp eq ptr %incdec.ptr.i, %cond.i.i.i.i89328
+  %cmp.not.i.i.i.i133 = icmp eq i64 %sub.ptr.sub.i108, 0
   br i1 %cmp.not.i.i.i.i133, label %invoke.cont50, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i

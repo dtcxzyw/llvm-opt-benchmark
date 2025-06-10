@@ -4176,8 +4176,8 @@ define internal fastcc i32 @ssl_session_load(ptr noundef captures(address_is_nul
   br i1 %139, label %ssl_tls12_session_load.exit, label %140
 
 140:                                              ; preds = %138
-  %.0.copyload.i84.i = load i32, ptr %30, align 1
-  %141 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i84.i)
+  %.0.copyload.i85.i = load i32, ptr %30, align 1
+  %141 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i85.i)
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %141, ptr %142, align 8, !tbaa !219
   %143 = getelementptr inbounds nuw i8, ptr %.027, i64 8
@@ -4202,113 +4202,110 @@ define internal fastcc i32 @ssl_session_load(ptr noundef captures(address_is_nul
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 %149
   switch i8 %25, label %ssl_tls12_session_load.exit [
     i8 1, label %156
-    i8 0, label %162
+    i8 0, label %160
   ]
 
 156:                                              ; preds = %152
-  %157 = ptrtoint ptr %155 to i64
-  %158 = sub i64 %14, %157
-  %159 = icmp slt i64 %158, 8
-  br i1 %159, label %ssl_tls12_session_load.exit, label %.thread.i
+  %gepdiff80.i = sub nsw i64 %gepdiff.i30, %149
+  %157 = icmp slt i64 %gepdiff80.i, 8
+  br i1 %157, label %ssl_tls12_session_load.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %156
-  %.0.copyload.i82.i = load i64, ptr %155, align 1
-  %160 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i82.i)
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %160, ptr %161, align 8, !tbaa !216
+  %.0.copyload.i83.i = load i64, ptr %155, align 1
+  %158 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i83.i)
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 %158, ptr %159, align 8, !tbaa !216
   br label %ssl_tls12_session_load.exit
 
-162:                                              ; preds = %152
-  %163 = ptrtoint ptr %155 to i64
-  %164 = sub i64 %14, %163
-  %165 = icmp slt i64 %164, 2
-  br i1 %165, label %ssl_tls12_session_load.exit, label %166
+160:                                              ; preds = %152
+  %gepdiff91.i = sub nsw i64 %gepdiff.i30, %149
+  %161 = icmp slt i64 %gepdiff91.i, 2
+  br i1 %161, label %ssl_tls12_session_load.exit, label %162
 
-166:                                              ; preds = %162
-  %.0.copyload.i81.i = load i16, ptr %155, align 1
-  %167 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i81.i)
-  %168 = zext i16 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %155, i64 2
-  %170 = ptrtoint ptr %169 to i64
-  %171 = sub i64 %14, %170
-  %172 = icmp slt i64 %171, %168
-  br i1 %172, label %ssl_tls12_session_load.exit, label %173
+162:                                              ; preds = %160
+  %.0.copyload.i82.i = load i16, ptr %155, align 1
+  %163 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i82.i)
+  %164 = zext i16 %163 to i64
+  %165 = getelementptr inbounds nuw i8, ptr %155, i64 2
+  %.neg94.i = add nsw i64 %32, -8
+  %gepdiff92.i = sub nsw i64 %.neg94.i, %149
+  %166 = icmp slt i64 %gepdiff92.i, %164
+  br i1 %166, label %ssl_tls12_session_load.exit, label %167
 
-173:                                              ; preds = %166
-  %.not.i31 = icmp eq i16 %.0.copyload.i81.i, 0
-  br i1 %.not.i31, label %180, label %174
+167:                                              ; preds = %162
+  %.not.i31 = icmp eq i16 %.0.copyload.i82.i, 0
+  br i1 %.not.i31, label %174, label %168
 
-174:                                              ; preds = %173
-  %175 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %168) #27
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %175, ptr %176, align 8, !tbaa !47
-  %177 = icmp eq ptr %175, null
+168:                                              ; preds = %167
+  %169 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %164) #27
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr %169, ptr %170, align 8, !tbaa !47
+  %171 = icmp eq ptr %169, null
+  br i1 %171, label %ssl_tls12_session_load.exit, label %172
+
+172:                                              ; preds = %168
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %169, ptr nonnull align 1 %165, i64 %164, i1 false)
+  %173 = getelementptr inbounds nuw i8, ptr %165, i64 %164
+  br label %174
+
+174:                                              ; preds = %172, %167
+  %.174.i = phi ptr [ %173, %172 ], [ %165, %167 ]
+  %175 = ptrtoint ptr %.174.i to i64
+  %176 = sub i64 %14, %175
+  %177 = icmp slt i64 %176, 8
   br i1 %177, label %ssl_tls12_session_load.exit, label %178
 
 178:                                              ; preds = %174
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %175, ptr nonnull align 1 %169, i64 %168, i1 false)
-  %179 = getelementptr inbounds nuw i8, ptr %169, i64 %168
-  %.pre.i = ptrtoint ptr %179 to i64
-  %.pre90.i = sub i64 %14, %.pre.i
-  br label %180
+  %.0.copyload.i84.i = load i64, ptr %.174.i, align 1
+  %179 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i84.i)
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i64 %179, ptr %180, align 8, !tbaa !221
+  %181 = getelementptr inbounds nuw i8, ptr %.174.i, i64 8
+  %182 = ptrtoint ptr %181 to i64
+  %183 = sub i64 %14, %182
+  %184 = icmp slt i64 %183, 4
+  br i1 %184, label %ssl_tls12_session_load.exit, label %185
 
-180:                                              ; preds = %178, %173
-  %.pre-phi91.i = phi i64 [ %.pre90.i, %178 ], [ %171, %173 ]
-  %.174.i = phi ptr [ %179, %178 ], [ %169, %173 ]
-  %181 = icmp slt i64 %.pre-phi91.i, 8
-  br i1 %181, label %ssl_tls12_session_load.exit, label %182
+185:                                              ; preds = %178
+  %.0.copyload.i86.i = load i32, ptr %181, align 1
+  %186 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i86.i)
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %186, ptr %187, align 8, !tbaa !215
+  %188 = getelementptr inbounds nuw i8, ptr %.174.i, i64 12
+  %189 = ptrtoint ptr %188 to i64
+  %190 = sub i64 %14, %189
+  %191 = icmp slt i64 %190, 2
+  br i1 %191, label %ssl_tls12_session_load.exit, label %192
 
-182:                                              ; preds = %180
-  %.0.copyload.i83.i = load i64, ptr %.174.i, align 1
-  %183 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i83.i)
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 %183, ptr %184, align 8, !tbaa !221
-  %185 = getelementptr inbounds nuw i8, ptr %.174.i, i64 8
-  %186 = ptrtoint ptr %185 to i64
-  %187 = sub i64 %14, %186
-  %188 = icmp slt i64 %187, 4
-  br i1 %188, label %ssl_tls12_session_load.exit, label %189
+192:                                              ; preds = %185
+  %.0.copyload.i.i32 = load i16, ptr %188, align 1
+  %193 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i32)
+  %194 = zext i16 %193 to i64
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %194, ptr %195, align 8, !tbaa !61
+  %196 = getelementptr inbounds nuw i8, ptr %.174.i, i64 14
+  %197 = ptrtoint ptr %196 to i64
+  %198 = sub i64 %14, %197
+  %199 = icmp slt i64 %198, %194
+  br i1 %199, label %ssl_tls12_session_load.exit, label %200
 
-189:                                              ; preds = %182
-  %.0.copyload.i85.i = load i32, ptr %185, align 1
-  %190 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i85.i)
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %190, ptr %191, align 8, !tbaa !215
-  %192 = getelementptr inbounds nuw i8, ptr %.174.i, i64 12
-  %193 = ptrtoint ptr %192 to i64
-  %194 = sub i64 %14, %193
-  %195 = icmp slt i64 %194, 2
-  br i1 %195, label %ssl_tls12_session_load.exit, label %196
+200:                                              ; preds = %192
+  %.not81.i = icmp eq i16 %.0.copyload.i.i32, 0
+  br i1 %.not81.i, label %ssl_tls12_session_load.exit, label %201
 
-196:                                              ; preds = %189
-  %.0.copyload.i.i32 = load i16, ptr %192, align 1
-  %197 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i32)
-  %198 = zext i16 %197 to i64
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %198, ptr %199, align 8, !tbaa !61
-  %200 = getelementptr inbounds nuw i8, ptr %.174.i, i64 14
-  %201 = ptrtoint ptr %200 to i64
-  %202 = sub i64 %14, %201
-  %203 = icmp slt i64 %202, %198
-  br i1 %203, label %ssl_tls12_session_load.exit, label %204
+201:                                              ; preds = %200
+  %202 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %194) #27
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %202, ptr %203, align 8, !tbaa !48
+  %204 = icmp eq ptr %202, null
+  br i1 %204, label %ssl_tls12_session_load.exit, label %205
 
-204:                                              ; preds = %196
-  %.not80.i = icmp eq i16 %.0.copyload.i.i32, 0
-  br i1 %.not80.i, label %ssl_tls12_session_load.exit, label %205
-
-205:                                              ; preds = %204
-  %206 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %198) #27
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %206, ptr %207, align 8, !tbaa !48
-  %208 = icmp eq ptr %206, null
-  br i1 %208, label %ssl_tls12_session_load.exit, label %209
-
-209:                                              ; preds = %205
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %206, ptr nonnull align 1 %200, i64 %198, i1 false)
+205:                                              ; preds = %201
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull align 1 %196, i64 %194, i1 false)
   br label %ssl_tls12_session_load.exit
 
-ssl_tls12_session_load.exit:                      ; preds = %209, %205, %204, %196, %189, %182, %180, %174, %166, %162, %.thread.i, %156, %152, %140, %138, %133, %129, %127, %119, %112, %107, %103, %84, %77, %71, %69, %39, %35, %33, %18, %13, %10, %8, %4
-  %.0 = phi i32 [ -27648, %4 ], [ -28928, %8 ], [ -24320, %10 ], [ -28928, %13 ], [ -28928, %18 ], [ -28928, %33 ], [ -28928, %35 ], [ -28928, %39 ], [ -28928, %84 ], [ -28928, %103 ], [ -32512, %107 ], [ -28928, %112 ], [ -28928, %119 ], [ -28928, %127 ], [ -28928, %129 ], [ %..i, %133 ], [ -32512, %71 ], [ -28928, %69 ], [ %76, %77 ], [ -28928, %138 ], [ -28928, %140 ], [ -28928, %156 ], [ 0, %209 ], [ 0, %204 ], [ 0, %.thread.i ], [ -32512, %205 ], [ -28928, %196 ], [ -28928, %189 ], [ -28928, %182 ], [ -28928, %180 ], [ -32512, %174 ], [ -28928, %166 ], [ -28928, %162 ], [ 0, %152 ]
+ssl_tls12_session_load.exit:                      ; preds = %205, %201, %200, %192, %185, %178, %174, %168, %162, %160, %.thread.i, %156, %152, %140, %138, %133, %129, %127, %119, %112, %107, %103, %84, %77, %71, %69, %39, %35, %33, %18, %13, %10, %8, %4
+  %.0 = phi i32 [ -27648, %4 ], [ -28928, %8 ], [ -24320, %10 ], [ -28928, %13 ], [ -28928, %18 ], [ -28928, %33 ], [ -28928, %35 ], [ -28928, %39 ], [ -28928, %84 ], [ -28928, %103 ], [ -32512, %107 ], [ -28928, %112 ], [ -28928, %119 ], [ -28928, %127 ], [ -28928, %129 ], [ %..i, %133 ], [ -32512, %71 ], [ -28928, %69 ], [ %76, %77 ], [ -28928, %138 ], [ -28928, %140 ], [ -28928, %156 ], [ 0, %205 ], [ 0, %200 ], [ 0, %.thread.i ], [ -32512, %201 ], [ -28928, %192 ], [ -28928, %185 ], [ -28928, %178 ], [ -28928, %174 ], [ -32512, %168 ], [ -28928, %162 ], [ -28928, %160 ], [ 0, %152 ]
   ret i32 %.0
 }
 
@@ -5158,315 +5155,323 @@ define hidden i32 @mbedtls_ssl_context_load(ptr noundef %0, ptr noundef %1, i64 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !34
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %7, label %177
+  br i1 %.not.i, label %7, label %169
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8, !tbaa !125
   %.not151.i = icmp eq ptr %9, null
-  br i1 %.not151.i, label %10, label %177
+  br i1 %.not151.i, label %10, label %169
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 8, !tbaa !199
   %.not152.i = icmp eq i8 %13, 0
-  br i1 %.not152.i, label %14, label %177
+  br i1 %.not152.i, label %14, label %169
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 9
   %16 = load i8, ptr %15, align 1, !tbaa !29
   %.not153.i = icmp eq i8 %16, 1
-  br i1 %.not153.i, label %17, label %177
+  br i1 %.not153.i, label %17, label %169
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %11, align 8, !tbaa !82
   %19 = icmp ult i32 %18, 771
-  br i1 %19, label %177, label %20
+  br i1 %19, label %169, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !81
   %23 = icmp ugt i32 %22, 771
-  br i1 %23, label %177, label %24
+  br i1 %23, label %169, label %24
 
 24:                                               ; preds = %20
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 5272, ptr noundef nonnull @.str.157, ptr noundef %1, i64 noundef %2) #26
-  %25 = ptrtoint ptr %4 to i64
-  %26 = icmp ult i64 %2, 8
-  br i1 %26, label %177, label %27
+  %25 = icmp ult i64 %2, 8
+  br i1 %25, label %169, label %26
 
-27:                                               ; preds = %24
+26:                                               ; preds = %24
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %1, ptr noundef nonnull dereferenceable(8) @ssl_serialized_context_header, i64 8)
   %.not154.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not154.i, label %28, label %177
+  br i1 %.not154.i, label %27, label %169
 
-28:                                               ; preds = %27
-  %29 = and i64 %2, -4
-  %30 = icmp eq i64 %29, 8
-  br i1 %30, label %177, label %31
+27:                                               ; preds = %26
+  %28 = and i64 %2, -4
+  %29 = icmp eq i64 %28, 8
+  br i1 %29, label %169, label %30
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.0.copyload.i168.i = load i32, ptr %32, align 1
-  %33 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i168.i)
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %37 = load ptr, ptr %36, align 8, !tbaa !88
-  store ptr %37, ptr %8, align 8, !tbaa !125
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %37, ptr %38, align 8, !tbaa !240
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %37, ptr %39, align 8, !tbaa !208
-  store ptr null, ptr %36, align 8, !tbaa !88
-  %gepdiff.i = add nsw i64 %2, -12
-  %40 = icmp ult i64 %gepdiff.i, %34
-  br i1 %40, label %177, label %41
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.0.copyload.i176.i = load i32, ptr %31, align 1
+  %32 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i176.i)
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %36 = load ptr, ptr %35, align 8, !tbaa !88
+  store ptr %36, ptr %8, align 8, !tbaa !125
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %36, ptr %37, align 8, !tbaa !240
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %36, ptr %38, align 8, !tbaa !208
+  store ptr null, ptr %35, align 8, !tbaa !88
+  %gepdiff.i = add i64 %2, -12
+  %39 = icmp ult i64 %gepdiff.i, %33
+  br i1 %39, label %169, label %40
 
-41:                                               ; preds = %31
-  %42 = tail call fastcc i32 @ssl_session_load(ptr noundef %37, i8 noundef zeroext 1, ptr noundef nonnull %35, i64 noundef %34)
-  %.not155.i = icmp eq i32 %42, 0
-  br i1 %.not155.i, label %45, label %43
+40:                                               ; preds = %30
+  %41 = tail call fastcc i32 @ssl_session_load(ptr noundef %36, i8 noundef zeroext 1, ptr noundef nonnull %34, i64 noundef %33)
+  %.not155.i = icmp eq i32 %41, 0
+  br i1 %.not155.i, label %44, label %42
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr %8, align 8, !tbaa !125
-  tail call void @mbedtls_ssl_session_free(ptr noundef %44)
-  br label %177
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %8, align 8, !tbaa !125
+  tail call void @mbedtls_ssl_session_free(ptr noundef %43)
+  br label %169
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 %34
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %48 = load ptr, ptr %47, align 8, !tbaa !87
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %48, ptr %49, align 8, !tbaa !119
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %48, ptr %50, align 8, !tbaa !35
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %48, ptr %51, align 8, !tbaa !92
-  store ptr null, ptr %47, align 8, !tbaa !87
-  %52 = load ptr, ptr %8, align 8, !tbaa !125
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !153
-  %55 = tail call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %54) #26
-  %.not.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i, label %177, label %ssl_tls12prf_from_cs.exit.i
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 %33
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %47 = load ptr, ptr %46, align 8, !tbaa !87
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %47, ptr %48, align 8, !tbaa !119
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %47, ptr %49, align 8, !tbaa !35
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %47, ptr %50, align 8, !tbaa !92
+  store ptr null, ptr %46, align 8, !tbaa !87
+  %51 = load ptr, ptr %8, align 8, !tbaa !125
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !153
+  %54 = tail call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef %53) #26
+  %.not.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i, label %169, label %55
 
-ssl_tls12prf_from_cs.exit.i:                      ; preds = %45
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 17
+55:                                               ; preds = %44
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 17
   %57 = load i8, ptr %56, align 1, !tbaa !68
-  %switch.selectcmp.i.i = icmp eq i8 %57, 9
-  %switch.select.i.i = select i1 %switch.selectcmp.i.i, ptr @tls_prf_sha256, ptr null
-  %switch.selectcmp6.i.i = icmp eq i8 %57, 10
-  %switch.select7.i.i = select i1 %switch.selectcmp6.i.i, ptr @tls_prf_sha384, ptr %switch.select.i.i
-  %58 = icmp eq ptr %switch.select7.i.i, null
-  %59 = ptrtoint ptr %46 to i64
-  %60 = sub i64 %25, %59
-  %61 = icmp ult i64 %60, 64
-  %or.cond.i = select i1 %58, i1 true, i1 %61
-  br i1 %or.cond.i, label %177, label %62
+  switch i8 %57, label %169 [
+    i8 10, label %ssl_tls12prf_from_cs.exit.thread179.i
+    i8 9, label %ssl_tls12prf_from_cs.exit.thread179.fold.split.i
+  ]
 
-62:                                               ; preds = %ssl_tls12prf_from_cs.exit.i
-  %63 = load ptr, ptr %49, align 8, !tbaa !119
-  %64 = load ptr, ptr %8, align 8, !tbaa !125
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i32, ptr %65, align 8, !tbaa !153
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 64
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 232
-  %69 = load i32, ptr %68, align 8, !tbaa !217
-  %70 = load ptr, ptr %0, align 8, !tbaa !23
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load i8, ptr %71, align 8, !tbaa !94
-  %73 = zext i8 %72 to i32
-  %74 = tail call fastcc i32 @ssl_tls12_populate_transform(ptr noundef %63, i32 noundef %66, ptr noundef nonnull %67, i32 noundef %69, ptr noundef nonnull %switch.select7.i.i, ptr noundef nonnull %46, i32 noundef 771, i32 noundef %73, ptr noundef nonnull %0)
-  %.not156.i = icmp eq i32 %74, 0
-  br i1 %.not156.i, label %75, label %177
+ssl_tls12prf_from_cs.exit.thread179.fold.split.i: ; preds = %55
+  br label %ssl_tls12prf_from_cs.exit.thread179.i
 
-75:                                               ; preds = %62
-  %76 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  %77 = icmp eq ptr %4, %76
-  br i1 %77, label %177, label %78
+ssl_tls12prf_from_cs.exit.thread179.i:            ; preds = %ssl_tls12prf_from_cs.exit.thread179.fold.split.i, %55
+  %.0.i181.i = phi ptr [ @tls_prf_sha384, %55 ], [ @tls_prf_sha256, %ssl_tls12prf_from_cs.exit.thread179.fold.split.i ]
+  %gepdiff156.i = sub i64 %gepdiff.i, %33
+  %58 = icmp ult i64 %gepdiff156.i, 64
+  br i1 %58, label %169, label %59
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %46, i64 65
-  %80 = load i8, ptr %76, align 1, !tbaa !80
-  %81 = load ptr, ptr %49, align 8, !tbaa !119
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 320
-  store i8 %80, ptr %82, align 8, !tbaa !36
-  %83 = ptrtoint ptr %79 to i64
-  %84 = sub i64 %25, %83
-  %85 = zext i8 %80 to i64
-  %.not157.i = icmp ugt i64 %84, %85
-  br i1 %.not157.i, label %86, label %177
+59:                                               ; preds = %ssl_tls12prf_from_cs.exit.thread179.i
+  %60 = load ptr, ptr %48, align 8, !tbaa !119
+  %61 = load ptr, ptr %8, align 8, !tbaa !125
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %63 = load i32, ptr %62, align 8, !tbaa !153
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 232
+  %66 = load i32, ptr %65, align 8, !tbaa !217
+  %67 = load ptr, ptr %0, align 8, !tbaa !23
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = load i8, ptr %68, align 8, !tbaa !94
+  %70 = zext i8 %69 to i32
+  %71 = tail call fastcc i32 @ssl_tls12_populate_transform(ptr noundef %60, i32 noundef %63, ptr noundef nonnull %64, i32 noundef %66, ptr noundef nonnull %.0.i181.i, ptr noundef nonnull %45, i32 noundef 771, i32 noundef %70, ptr noundef nonnull %0)
+  %.not157.i = icmp eq i32 %71, 0
+  br i1 %.not157.i, label %72, label %169
 
-86:                                               ; preds = %78
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 322
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %87, ptr nonnull align 1 %79, i64 %85, i1 false)
-  %88 = load ptr, ptr %49, align 8, !tbaa !119
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 320
-  %90 = load i8, ptr %89, align 8, !tbaa !36
-  %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %79, i64 %91
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  %94 = load i8, ptr %92, align 1, !tbaa !80
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 321
-  store i8 %94, ptr %95, align 1, !tbaa !43
-  %96 = ptrtoint ptr %93 to i64
-  %97 = sub i64 %25, %96
-  %98 = zext i8 %94 to i64
-  %99 = icmp ult i64 %97, %98
-  br i1 %99, label %177, label %100
+72:                                               ; preds = %59
+  %73 = add nuw nsw i64 %33, 76
+  %74 = icmp eq i64 %2, %73
+  br i1 %74, label %169, label %75
 
-100:                                              ; preds = %86
-  %101 = getelementptr inbounds nuw i8, ptr %88, i64 354
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %101, ptr nonnull align 1 %93, i64 %98, i1 false)
-  %102 = load ptr, ptr %49, align 8, !tbaa !119
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 321
-  %104 = load i8, ptr %103, align 1, !tbaa !43
-  %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %93, i64 %105
-  %107 = ptrtoint ptr %106 to i64
-  %108 = sub i64 %25, %107
-  %109 = icmp ult i64 %108, 4
-  br i1 %109, label %177, label %110
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %45, i64 64
+  %77 = load i8, ptr %76, align 1, !tbaa !80
+  %78 = load ptr, ptr %48, align 8, !tbaa !119
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 320
+  store i8 %77, ptr %79, align 8, !tbaa !36
+  %.neg9 = add i64 %2, -77
+  %gepdiff159.i = sub i64 %.neg9, %33
+  %80 = zext i8 %77 to i64
+  %.not160.i = icmp ugt i64 %gepdiff159.i, %80
+  br i1 %.not160.i, label %81, label %169
 
-110:                                              ; preds = %100
-  %.0.copyload.i169.i = load i32, ptr %106, align 1
-  %111 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i169.i)
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %111, ptr %112, align 8, !tbaa !237
-  %113 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %114 = ptrtoint ptr %113 to i64
-  %115 = sub i64 %25, %114
-  %116 = icmp ult i64 %115, 16
-  br i1 %116, label %177, label %117
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 65
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 322
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %83, ptr nonnull align 1 %82, i64 %80, i1 false)
+  %84 = load ptr, ptr %48, align 8, !tbaa !119
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 320
+  %86 = load i8, ptr %85, align 8, !tbaa !36
+  %87 = zext i8 %86 to i64
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 %87
+  %89 = load i8, ptr %88, align 1, !tbaa !80
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 321
+  store i8 %89, ptr %90, align 1, !tbaa !43
+  %.neg11 = add i64 %2, -78
+  %91 = add nuw nsw i64 %33, %87
+  %gepdiff161.i = sub i64 %.neg11, %91
+  %92 = zext i8 %89 to i64
+  %93 = icmp ult i64 %gepdiff161.i, %92
+  br i1 %93, label %169, label %94
 
-117:                                              ; preds = %110
-  %.0.copyload.i166.i = load i64, ptr %113, align 1
-  %118 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i166.i)
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 %118, ptr %119, align 8, !tbaa !238
-  %120 = getelementptr inbounds nuw i8, ptr %106, i64 12
-  %.0.copyload.i167.i = load i64, ptr %120, align 1
-  %121 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i167.i)
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i64 %121, ptr %122, align 8, !tbaa !239
-  %123 = getelementptr inbounds nuw i8, ptr %106, i64 20
-  %124 = icmp eq ptr %4, %123
-  br i1 %124, label %177, label %125
+94:                                               ; preds = %81
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 354
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %96, ptr nonnull align 1 %95, i64 %92, i1 false)
+  %97 = load ptr, ptr %48, align 8, !tbaa !119
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 321
+  %99 = load i8, ptr %98, align 1, !tbaa !43
+  %100 = zext i8 %99 to i64
+  %101 = add nuw nsw i64 %33, 78
+  %102 = add nuw nsw i64 %101, %87
+  %103 = add nuw nsw i64 %102, %100
+  %gepdiff162.i = sub nsw i64 %2, %103
+  %104 = icmp ult i64 %gepdiff162.i, 4
+  br i1 %104, label %169, label %105
 
-125:                                              ; preds = %117
-  %126 = getelementptr inbounds nuw i8, ptr %106, i64 21
-  %127 = load i8, ptr %123, align 1, !tbaa !80
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i8 %127, ptr %128, align 8, !tbaa !130
-  %129 = ptrtoint ptr %126 to i64
-  %130 = sub i64 %25, %129
-  %131 = icmp ult i64 %130, 8
-  br i1 %131, label %177, label %132
+105:                                              ; preds = %94
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 %100
+  %.0.copyload.i177.i = load i32, ptr %106, align 1
+  %107 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i177.i)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %107, ptr %108, align 8, !tbaa !237
+  %.neg188.i = add i64 %2, -4
+  %gepdiff163.i = sub i64 %.neg188.i, %103
+  %109 = icmp ult i64 %gepdiff163.i, 16
+  br i1 %109, label %169, label %110
 
-132:                                              ; preds = %125
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %134 = load i64, ptr %126, align 1
-  store i64 %134, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %106, i64 29
-  %136 = ptrtoint ptr %135 to i64
-  %137 = sub i64 %25, %136
-  %138 = icmp ult i64 %137, 2
-  br i1 %138, label %177, label %139
+110:                                              ; preds = %105
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 4
+  %.0.copyload.i174.i = load i64, ptr %111, align 1
+  %112 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i174.i)
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 %112, ptr %113, align 8, !tbaa !238
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 12
+  %.0.copyload.i175.i = load i64, ptr %114, align 1
+  %115 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i175.i)
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store i64 %115, ptr %116, align 8, !tbaa !239
+  %117 = add nuw nsw i64 %103, 20
+  %118 = icmp eq i64 %2, %117
+  br i1 %118, label %169, label %119
 
-139:                                              ; preds = %132
-  %.0.copyload.i.i = load i16, ptr %135, align 1
-  %140 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i)
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i16 %140, ptr %141, align 8, !tbaa !143
-  %142 = getelementptr inbounds nuw i8, ptr %106, i64 31
-  %143 = icmp eq ptr %4, %142
-  br i1 %143, label %177, label %144
+119:                                              ; preds = %110
+  %120 = getelementptr inbounds nuw i8, ptr %106, i64 20
+  %121 = load i8, ptr %120, align 1, !tbaa !80
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store i8 %121, ptr %122, align 8, !tbaa !130
+  %.neg189.i = add i64 %2, -21
+  %gepdiff165.i = sub i64 %.neg189.i, %103
+  %123 = icmp ult i64 %gepdiff165.i, 8
+  br i1 %123, label %169, label %124
 
-144:                                              ; preds = %139
-  %145 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %146 = load i8, ptr %142, align 1, !tbaa !80
-  %.not158.i = icmp eq i8 %146, 0
-  br i1 %.not158.i, label %167, label %147
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds nuw i8, ptr %106, i64 21
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %127 = load i64, ptr %125, align 1
+  store i64 %127, ptr %126, align 8
+  %.neg190.i = add i64 %2, -29
+  %gepdiff166.i = sub i64 %.neg190.i, %103
+  %128 = icmp ult i64 %gepdiff166.i, 2
+  br i1 %128, label %169, label %129
 
-147:                                              ; preds = %144
-  %148 = load ptr, ptr %0, align 8, !tbaa !23
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 328
-  %150 = load ptr, ptr %149, align 8, !tbaa !193
-  %.not159.i = icmp eq ptr %150, null
-  br i1 %.not159.i, label %.loopexit.i, label %.preheader.i
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds nuw i8, ptr %106, i64 29
+  %.0.copyload.i.i = load i16, ptr %130, align 1
+  %131 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i)
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store i16 %131, ptr %132, align 8, !tbaa !143
+  %133 = add nuw nsw i64 %103, 31
+  %134 = icmp eq i64 %2, %133
+  br i1 %134, label %169, label %135
 
-.preheader.i:                                     ; preds = %147
-  %151 = load ptr, ptr %150, align 8, !tbaa !64
-  %.not160175.i = icmp eq ptr %151, null
-  br i1 %.not160175.i, label %.loopexit.i, label %.lr.ph.i
+135:                                              ; preds = %129
+  %136 = getelementptr inbounds nuw i8, ptr %106, i64 31
+  %137 = getelementptr inbounds nuw i8, ptr %106, i64 32
+  %138 = load i8, ptr %136, align 1, !tbaa !80
+  %.not168.i = icmp eq i8 %138, 0
+  br i1 %.not168.i, label %159, label %139
+
+139:                                              ; preds = %135
+  %140 = load ptr, ptr %0, align 8, !tbaa !23
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 328
+  %142 = load ptr, ptr %141, align 8, !tbaa !193
+  %.not169.i = icmp eq ptr %142, null
+  br i1 %.not169.i, label %.loopexit.i, label %.preheader.i
+
+.preheader.i:                                     ; preds = %139
+  %143 = load ptr, ptr %142, align 8, !tbaa !64
+  %.not170192.i = icmp eq ptr %143, null
+  br i1 %.not170192.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %152 = zext i8 %146 to i64
-  br label %153
+  %144 = zext i8 %138 to i64
+  br label %145
 
-153:                                              ; preds = %161, %.lr.ph.i
-  %154 = phi ptr [ %151, %.lr.ph.i ], [ %163, %161 ]
-  %.0176.i = phi ptr [ %150, %.lr.ph.i ], [ %162, %161 ]
-  %155 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %154) #28
-  %156 = icmp eq i64 %155, %152
-  br i1 %156, label %157, label %161
+145:                                              ; preds = %153, %.lr.ph.i
+  %146 = phi ptr [ %143, %.lr.ph.i ], [ %155, %153 ]
+  %.0193.i = phi ptr [ %142, %.lr.ph.i ], [ %154, %153 ]
+  %147 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #28
+  %148 = icmp eq i64 %147, %144
+  br i1 %148, label %149, label %153
 
-157:                                              ; preds = %153
-  %bcmp161.i = tail call i32 @bcmp(ptr nonnull %145, ptr nonnull %154, i64 %152)
-  %158 = icmp eq i32 %bcmp161.i, 0
-  br i1 %158, label %159, label %161
+149:                                              ; preds = %145
+  %bcmp171.i = tail call i32 @bcmp(ptr nonnull %137, ptr nonnull %146, i64 %144)
+  %150 = icmp eq i32 %bcmp171.i, 0
+  br i1 %150, label %151, label %153
 
-159:                                              ; preds = %157
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr %154, ptr %160, align 8, !tbaa !126
+151:                                              ; preds = %149
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store ptr %146, ptr %152, align 8, !tbaa !126
   br label %.loopexit.i
 
-161:                                              ; preds = %157, %153
-  %162 = getelementptr inbounds nuw i8, ptr %.0176.i, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !64
-  %.not160.i = icmp eq ptr %163, null
-  br i1 %.not160.i, label %.loopexit.i, label %153, !llvm.loop !241
+153:                                              ; preds = %149, %145
+  %154 = getelementptr inbounds nuw i8, ptr %.0193.i, i64 8
+  %155 = load ptr, ptr %154, align 8, !tbaa !64
+  %.not170.i = icmp eq ptr %155, null
+  br i1 %.not170.i, label %.loopexit.i, label %145, !llvm.loop !241
 
-.loopexit.i:                                      ; preds = %161, %159, %.preheader.i, %147
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %165 = load ptr, ptr %164, align 8, !tbaa !126
-  %166 = icmp eq ptr %165, null
-  br i1 %166, label %177, label %167
+.loopexit.i:                                      ; preds = %153, %151, %.preheader.i, %139
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %157 = load ptr, ptr %156, align 8, !tbaa !126
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %169, label %159
 
-167:                                              ; preds = %.loopexit.i, %144
-  %168 = zext i8 %146 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %145, i64 %168
+159:                                              ; preds = %.loopexit.i, %135
+  %160 = zext i8 %138 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %137, i64 %160
   store i32 27, ptr %5, align 8, !tbaa !34
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 771, ptr %170, align 4, !tbaa !84
-  tail call void @mbedtls_ssl_update_out_pointers(ptr noundef nonnull %0, ptr noundef %102) #26
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i16 1, ptr %171, align 8, !tbaa !115
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %173 = load ptr, ptr %172, align 8, !tbaa !70
-  %.not162.i = icmp eq ptr %173, null
-  br i1 %.not162.i, label %176, label %174
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 771, ptr %162, align 4, !tbaa !84
+  tail call void @mbedtls_ssl_update_out_pointers(ptr noundef nonnull %0, ptr noundef %97) #26
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i16 1, ptr %163, align 8, !tbaa !115
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %165 = load ptr, ptr %164, align 8, !tbaa !70
+  %.not172.i = icmp eq ptr %165, null
+  br i1 %.not172.i, label %168, label %166
 
-174:                                              ; preds = %167
+166:                                              ; preds = %159
   tail call void @mbedtls_ssl_handshake_free(ptr noundef nonnull %0)
-  %175 = load ptr, ptr %172, align 8, !tbaa !70
-  tail call void @free(ptr noundef %175) #26
-  store ptr null, ptr %172, align 8, !tbaa !70
-  br label %176
+  %167 = load ptr, ptr %164, align 8, !tbaa !70
+  tail call void @free(ptr noundef %167) #26
+  store ptr null, ptr %164, align 8, !tbaa !70
+  br label %168
 
-176:                                              ; preds = %174, %167
-  %.not163.i = icmp eq ptr %169, %4
-  br i1 %.not163.i, label %ssl_context_load.exit, label %177
+168:                                              ; preds = %166, %159
+  %.not173.i = icmp eq ptr %161, %4
+  br i1 %.not173.i, label %ssl_context_load.exit, label %169
 
-177:                                              ; preds = %43, %7, %3, %20, %17, %14, %10, %24, %27, %28, %31, %ssl_tls12prf_from_cs.exit.i, %62, %75, %78, %86, %100, %110, %117, %125, %132, %176, %45, %139, %.loopexit.i
-  %.0140.i.ph = phi i32 [ -28928, %.loopexit.i ], [ -28928, %139 ], [ -28928, %45 ], [ -28928, %176 ], [ -28928, %132 ], [ -28928, %125 ], [ -28928, %117 ], [ -28928, %110 ], [ -28928, %100 ], [ -28928, %86 ], [ -28928, %78 ], [ -28928, %75 ], [ %74, %62 ], [ -28928, %ssl_tls12prf_from_cs.exit.i ], [ -28928, %31 ], [ -28928, %28 ], [ -24320, %27 ], [ -28928, %24 ], [ -28928, %10 ], [ -28928, %14 ], [ -28928, %17 ], [ -28928, %20 ], [ -28928, %3 ], [ -28928, %7 ], [ %42, %43 ]
+169:                                              ; preds = %42, %7, %3, %20, %17, %14, %10, %24, %26, %27, %30, %ssl_tls12prf_from_cs.exit.thread179.i, %59, %72, %75, %81, %94, %105, %110, %119, %124, %168, %44, %129, %.loopexit.i, %55
+  %.0140.i.ph = phi i32 [ -28928, %55 ], [ -28928, %.loopexit.i ], [ -28928, %129 ], [ -28928, %44 ], [ -28928, %168 ], [ -28928, %124 ], [ -28928, %119 ], [ -28928, %110 ], [ -28928, %105 ], [ -28928, %94 ], [ -28928, %81 ], [ -28928, %75 ], [ -28928, %72 ], [ %71, %59 ], [ -28928, %ssl_tls12prf_from_cs.exit.thread179.i ], [ -28928, %30 ], [ -28928, %27 ], [ -24320, %26 ], [ -28928, %24 ], [ -28928, %10 ], [ -28928, %14 ], [ -28928, %17 ], [ -28928, %20 ], [ -28928, %3 ], [ -28928, %7 ], [ %41, %42 ]
   tail call void @mbedtls_ssl_free(ptr noundef nonnull %0)
   br label %ssl_context_load.exit
 
-ssl_context_load.exit:                            ; preds = %176, %177
-  %.0140.i8 = phi i32 [ %.0140.i.ph, %177 ], [ 0, %176 ]
+ssl_context_load.exit:                            ; preds = %168, %169
+  %.0140.i8 = phi i32 [ %.0140.i.ph, %169 ], [ 0, %168 ]
   ret i32 %.0140.i8
 }
 

@@ -6708,31 +6708,31 @@ if.end6.i:                                        ; preds = %if.then23.i.i, %if.
 
 _ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit: ; preds = %entry, %if.end6.i
   %15 = phi ptr [ %0, %entry ], [ %.pre, %if.end6.i ]
-  %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %conv.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %16 = load i32, ptr %Size.i.i, align 8
   %conv.i.i2 = zext i32 %16 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %conv.i.i2
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
+  %17 = sub nsw i64 %conv.i.i2, %conv.i
+  %reass.sub = shl nsw i64 %17, 4
+  %gepdiff = add nsw i64 %reass.sub, -16
+  %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %gepdiff, 4
   %cmp6.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_.exit
+  br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.preheader, label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_.exit
 
-for.body.i.i.i.i.i.i:                             ; preds = %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit, %for.body.i.i.i.i.i.i
-  %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit ]
-  %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr, %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit ]
-  %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr.i, %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit ]
-  %17 = load ptr, ptr %__first.addr.07.i.i.i.i.i.i, align 8
-  store ptr %17, ptr %__result.addr.08.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 8
-  %18 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
+for.body.i.i.i.i.i.i.preheader:                   ; preds = %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit
+  %add.ptr.idx = shl nuw nsw i64 %conv.i, 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %15, i64 %add.ptr.idx
+  br label %for.body.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i
+  %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.preheader ]
+  %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.i.preheader ]
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 16
+  %18 = load ptr, ptr %incdec.ptr1.i.i.i.i.i.i, align 8
+  store ptr %18, ptr %__result.addr.08.i.i.i.i.i.i, align 8
+  %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 24
+  %19 = load i32, ptr %second.i.i.i.i.i.i.i, align 4
   %second3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 8
-  store i32 %18, ptr %second3.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i.i, i64 16
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.08.i.i.i.i.i.i, i64 16
+  store i32 %19, ptr %second3.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i, !llvm.loop !24
@@ -6742,8 +6742,8 @@ _ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i: ; preds = 
   br label %_ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_.exit
 
 _ZN4llvh15SmallVectorImplISt4pairIPN6hermes5ValueEjEE5eraseEPKS5_.exit: ; preds = %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit, %_ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i
-  %19 = phi i32 [ %.pre.i, %_ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i ], [ %16, %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit ]
-  %sub.i.i = add i32 %19, -1
+  %20 = phi i32 [ %.pre.i, %_ZSt4moveIPSt4pairIPN6hermes5ValueEjES5_ET0_T_S7_S6_.exit.loopexit.i ], [ %16, %_ZN6hermes11Instruction10setOperandEPNS_5ValueEj.exit ]
+  %sub.i.i = add i32 %20, -1
   store i32 %sub.i.i, ptr %Size.i.i, align 8
   ret void
 }
@@ -13118,11 +13118,8 @@ if.then36:                                        ; preds = %if.else33
   br i1 %tobool.not.i.i.i.i.i39, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i40
 
 if.then.i.i.i.i.i40:                              ; preds = %if.then36
-  %sub.ptr.lhs.cast.i.i.i.i.i41 = ptrtoint ptr %add.ptr39 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i42 = ptrtoint ptr %__p.0 to i64
-  %sub.ptr.sub.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i41, %sub.ptr.rhs.cast.i.i.i.i.i42
-  %idx.neg.i.i.i.i.i = sub i64 0, %sub.ptr.sub.i.i.i.i.i43
-  %add.ptr.i.i.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.neg.i.i.i.i.i
+  %sub.ptr.sub.i.i.i.i.i43 = add i64 %__n.0, -1
+  %add.ptr.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__p.0, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i44, ptr nonnull align 1 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i43, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
 

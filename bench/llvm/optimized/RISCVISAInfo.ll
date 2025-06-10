@@ -4832,7 +4832,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm12RISCVISAInfo20isSupportedExtensio
   %.01327.i.i = phi i64 [ %.2.i.i, %_ZSt13__upper_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.sroa.5.0.copyload, %.lr.ph.i.i.preheader ]
   %.026.i.i = phi ptr [ %.1.i.i, %_ZSt13__upper_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.sroa.0.0.copyload, %.lr.ph.i.i.preheader ]
   %7 = lshr i64 %.01327.i.i, 1
-  %8 = getelementptr inbounds nuw %"struct.(anonymous namespace)::RISCVSupportedExtension", ptr %.026.i.i, i64 %7
+  %.idx68 = shl nuw nsw i64 %7, 4
+  %8 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 %.idx68
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !31
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, label %9
@@ -4947,98 +4948,97 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RIS
 
 _ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RISCVSupportedExtensionEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.thread.i.i
   %.0.lcssa.i.i.i = phi ptr [ %.026.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.thread.i.i ], [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RISCVSupportedExtensionEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ]
-  %42 = getelementptr inbounds nuw %"struct.(anonymous namespace)::RISCVSupportedExtension", ptr %.026.i.i, i64 %.01327.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %44 = ptrtoint ptr %42 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = ashr exact i64 %46, 4
-  %48 = icmp sgt i64 %47, 0
-  br i1 %48, label %.lr.ph.i40.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
+  %.idx = shl nuw nsw i64 %.01327.i.i, 4
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %43 = add nuw i64 %.idx68, 16
+  %gepdiff = sub nsw i64 %.idx, %43
+  %44 = ashr exact i64 %gepdiff, 4
+  %45 = icmp sgt i64 %44, 0
+  br i1 %45, label %.lr.ph.i40.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
 
 .lr.ph.i40.i.i:                                   ; preds = %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i
-  %.04.i41.i.i = phi ptr [ %.1.i55.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i ], [ %43, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ]
-  %.0113.i42.i.i = phi i64 [ %.112.i54.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i ], [ %47, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ]
-  %49 = lshr i64 %.0113.i42.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.(anonymous namespace)::RISCVSupportedExtension", ptr %.04.i41.i.i, i64 %49
-  %.val14.i.i.i = load ptr, ptr %50, align 8, !tbaa !31
+  %.04.i41.i.i = phi ptr [ %.1.i55.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i ], [ %42, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ]
+  %.0113.i42.i.i = phi i64 [ %.112.i54.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i ], [ %44, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ]
+  %46 = lshr i64 %.0113.i42.i.i, 1
+  %47 = getelementptr inbounds nuw %"struct.(anonymous namespace)::RISCVSupportedExtension", ptr %.04.i41.i.i, i64 %46
+  %.val14.i.i.i = load ptr, ptr %47, align 8, !tbaa !31
   %.not.i.i.i.i45.i.i = icmp eq ptr %.val14.i.i.i, null
-  br i1 %.not.i.i.i.i45.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i, label %51
+  br i1 %.not.i.i.i.i45.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i, label %48
 
-51:                                               ; preds = %.lr.ph.i40.i.i
-  %52 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val14.i.i.i) #19
+48:                                               ; preds = %.lr.ph.i40.i.i
+  %49 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val14.i.i.i) #19
   br label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i
 
-_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i:        ; preds = %51, %.lr.ph.i40.i.i
-  %53 = phi i64 [ %52, %51 ], [ 0, %.lr.ph.i40.i.i ]
-  %.sroa.speculated.i.i.i.i.i47.i.i = tail call i64 @llvm.umin.i64(i64 %53, i64 %1)
-  %54 = icmp eq i64 %.sroa.speculated.i.i.i.i.i47.i.i, 0
-  br i1 %54, label %.thread.i.i.i.i.i56.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i
+_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i:        ; preds = %48, %.lr.ph.i40.i.i
+  %50 = phi i64 [ %49, %48 ], [ 0, %.lr.ph.i40.i.i ]
+  %.sroa.speculated.i.i.i.i.i47.i.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %1)
+  %51 = icmp eq i64 %.sroa.speculated.i.i.i.i.i47.i.i, 0
+  br i1 %51, label %.thread.i.i.i.i.i56.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i
-  %55 = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %.val14.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i47.i.i) #22
-  %.fr.i.i.i.i.i49.i.i = freeze i32 %55
+  %52 = tail call i32 @memcmp(ptr noundef readonly %0, ptr noundef readonly %.val14.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i47.i.i) #22
+  %.fr.i.i.i.i.i49.i.i = freeze i32 %52
   %.not.not.i.i.i.i.i50.i.i = icmp eq i32 %.fr.i.i.i.i.i49.i.i, 0
   %.inv.i.i.i.i.i51.i.i = icmp sgt i32 %.fr.i.i.i.i.i49.i.i, -1
   %spec.select.i.i.i.i.i52.i.i = select i1 %.inv.i.i.i.i.i51.i.i, i32 1, i32 -1
   br i1 %.not.not.i.i.i.i.i50.i.i, label %.thread.i.i.i.i.i56.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i
 
 .thread.i.i.i.i.i56.i.i:                          ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i46.i.i
-  %56 = icmp eq i64 %1, %53
-  br i1 %56, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i, label %57
+  %53 = icmp eq i64 %1, %50
+  br i1 %53, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i, label %54
 
-57:                                               ; preds = %.thread.i.i.i.i.i56.i.i
-  %58 = icmp ult i64 %1, %53
-  %59 = select i1 %58, i32 -1, i32 1
+54:                                               ; preds = %.thread.i.i.i.i.i56.i.i
+  %55 = icmp ult i64 %1, %50
+  %56 = select i1 %55, i32 -1, i32 1
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i: ; preds = %57, %.thread.i.i.i.i.i56.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i
-  %.1.i.i.i.i.i53.i.i = phi i32 [ %59, %57 ], [ %spec.select.i.i.i.i.i52.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i ], [ 0, %.thread.i.i.i.i.i56.i.i ]
-  %60 = icmp slt i32 %.1.i.i.i.i.i53.i.i, 0
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %62 = xor i64 %49, -1
-  %63 = add nsw i64 %.0113.i42.i.i, %62
-  %.112.i54.i.i = select i1 %60, i64 %49, i64 %63
-  %.1.i55.i.i = select i1 %60, ptr %.04.i41.i.i, ptr %61
-  %64 = icmp sgt i64 %.112.i54.i.i, 0
-  br i1 %64, label %.lr.ph.i40.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !175
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i: ; preds = %54, %.thread.i.i.i.i.i56.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i
+  %.1.i.i.i.i.i53.i.i = phi i32 [ %56, %54 ], [ %spec.select.i.i.i.i.i52.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i48.i.i ], [ 0, %.thread.i.i.i.i.i56.i.i ]
+  %57 = icmp slt i32 %.1.i.i.i.i.i53.i.i, 0
+  %58 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %59 = xor i64 %46, -1
+  %60 = add nsw i64 %.0113.i42.i.i, %59
+  %.112.i54.i.i = select i1 %57, i64 %46, i64 %60
+  %.1.i55.i.i = select i1 %57, ptr %.04.i41.i.i, ptr %58
+  %61 = icmp sgt i64 %.112.i54.i.i, 0
+  br i1 %61, label %.lr.ph.i40.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !175
 
 _ZSt13__upper_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i, %.thread.i.i.i.i36.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RISCVSupportedExtensionEKN4llvm9StringRefEEEbT_RT0_.exit.thread11.i.i
   %.1.i.i = phi ptr [ %16, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RISCVSupportedExtensionEKN4llvm9StringRefEEEbT_RT0_.exit.thread11.i.i ], [ %.026.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i ], [ %.026.i.i, %.thread.i.i.i.i36.i.i ]
   %.2.i.i = phi i64 [ %18, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RISCVSupportedExtensionEKN4llvm9StringRefEEEbT_RT0_.exit.thread11.i.i ], [ %7, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i ], [ %7, %.thread.i.i.i.i36.i.i ]
-  %65 = icmp sgt i64 %.2.i.i, 0
-  br i1 %65, label %.lr.ph.i.i, label %._crit_edge, !llvm.loop !176
+  %62 = icmp sgt i64 %.2.i.i, 0
+  br i1 %62, label %.lr.ph.i.i, label %._crit_edge, !llvm.loop !176
 
 _ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i
-  %.sroa.3.2.i.i = phi ptr [ %43, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i55.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i ]
+  %.sroa.3.2.i.i = phi ptr [ %42, %_ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_comp_valINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i55.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.i.i.i ]
   %.not2444 = icmp eq ptr %.0.lcssa.i.i.i, %.sroa.3.2.i.i
   br i1 %.not2444, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, %73
-  %.02045 = phi ptr [ %74, %73 ], [ %.0.lcssa.i.i.i, %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit ]
-  %66 = getelementptr inbounds nuw i8, ptr %.02045, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !27
-  %68 = icmp eq i32 %67, %2
-  br i1 %68, label %69, label %73
+.lr.ph:                                           ; preds = %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, %70
+  %.02045 = phi ptr [ %71, %70 ], [ %.0.lcssa.i.i.i, %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit ]
+  %63 = getelementptr inbounds nuw i8, ptr %.02045, i64 8
+  %64 = load i32, ptr %63, align 8, !tbaa !27
+  %65 = icmp eq i32 %64, %2
+  br i1 %65, label %66, label %70
 
-69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds nuw i8, ptr %.02045, i64 12
-  %71 = load i32, ptr %70, align 4, !tbaa !30
-  %72 = icmp eq i32 %71, %3
-  br i1 %72, label %.loopexit, label %73
+66:                                               ; preds = %.lr.ph
+  %67 = getelementptr inbounds nuw i8, ptr %.02045, i64 12
+  %68 = load i32, ptr %67, align 4, !tbaa !30
+  %69 = icmp eq i32 %68, %3
+  br i1 %69, label %.loopexit, label %70
 
-73:                                               ; preds = %.lr.ph, %69
-  %74 = getelementptr inbounds nuw i8, ptr %.02045, i64 16
-  %.not24 = icmp eq ptr %74, %.sroa.3.2.i.i
+70:                                               ; preds = %.lr.ph, %66
+  %71 = getelementptr inbounds nuw i8, ptr %.02045, i64 16
+  %.not24 = icmp eq ptr %71, %.sroa.3.2.i.i
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !177
 
-._crit_edge:                                      ; preds = %_ZSt13__upper_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i, %73, %5, %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
+._crit_edge:                                      ; preds = %_ZSt13__upper_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_comp_iterINS0_11LessExtNameEEEET_SB_SB_RKT0_T1_.exit.i.i, %70, %5, %_ZSt11equal_rangeIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefENS0_11LessExtNameEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
   %.021.add = add nuw nsw i64 %.021.idx46, 16
   %.not.not = icmp eq i64 %.021.add, 32
   br i1 %.not.not, label %.loopexit, label %5
 
-.loopexit:                                        ; preds = %._crit_edge, %69
-  %.not43 = phi i1 [ true, %69 ], [ false, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %66
+  %.not43 = phi i1 [ true, %66 ], [ false, %._crit_edge ]
   ret i1 %.not43
 }
 
@@ -16848,7 +16848,8 @@ _ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit:  ; preds = %_ZSt7advanceIPK16Im
   %.01283 = phi i64 [ %8, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph ], [ %.2, %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit ]
   %.082 = phi ptr [ %0, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph ], [ %.1, %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit ]
   %9 = lshr i64 %.01283, 1
-  %10 = getelementptr inbounds nuw %struct.ImpliedExtsEntry, ptr %.082, i64 %9
+  %.idx98 = mul nuw nsw i64 %9, 24
+  %10 = getelementptr inbounds nuw i8, ptr %.082, i64 %.idx98
   %11 = getelementptr i8, ptr %10, i64 8
   %.val2.i = load i64, ptr %11, align 8, !tbaa !34
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i, i64 %.val2.i)
@@ -16945,67 +16946,66 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEb
 
 _ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread
   %.0.lcssa.i = phi ptr [ %.082, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread ], [ %.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.i ]
-  %37 = getelementptr inbounds nuw %struct.ImpliedExtsEntry, ptr %.082, i64 %.01283
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = icmp sgt i64 %41, 0
-  br i1 %42, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread
+  %.idx = mul nuw nsw i64 %.01283, 24
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %38 = add nuw i64 %.idx98, 24
+  %gepdiff = sub nsw i64 %.idx, %38
+  %39 = icmp sgt i64 %gepdiff, 0
+  br i1 %39, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread
 
 _ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30: ; preds = %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit
-  %43 = udiv exact i64 %41, 24
+  %40 = udiv exact i64 %gepdiff, 24
   br label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i34
 
 _ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i34: ; preds = %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30
-  %.017.i35 = phi ptr [ %38, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30 ], [ %.1.i49, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ]
-  %.01116.i36 = phi i64 [ %43, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30 ], [ %.112.i48, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ]
-  %44 = lshr i64 %.01116.i36, 1
-  %45 = getelementptr inbounds nuw %struct.ImpliedExtsEntry, ptr %.017.i35, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 8
-  %.val2.i.i39 = load i64, ptr %46, align 8, !tbaa !34
+  %.017.i35 = phi ptr [ %37, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30 ], [ %.1.i49, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ]
+  %.01116.i36 = phi i64 [ %40, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30 ], [ %.112.i48, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ]
+  %41 = lshr i64 %.01116.i36, 1
+  %42 = getelementptr inbounds nuw %struct.ImpliedExtsEntry, ptr %.017.i35, i64 %41
+  %43 = getelementptr i8, ptr %42, i64 8
+  %.val2.i.i39 = load i64, ptr %43, align 8, !tbaa !34
   %.sroa.speculated.i.i.i.i.i40 = tail call i64 @llvm.umin.i64(i64 %.val2.i.i39, i64 %.sroa.2.0.copyload.i)
-  %47 = icmp eq i64 %.sroa.speculated.i.i.i.i.i40, 0
-  br i1 %47, label %.thread.i.i.i.i.i50, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41
+  %44 = icmp eq i64 %.sroa.speculated.i.i.i.i.i40, 0
+  br i1 %44, label %.thread.i.i.i.i.i50, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41: ; preds = %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i34
-  %.val.i.i42 = load ptr, ptr %45, align 8, !tbaa !67
-  %48 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0.0.copyload.i, ptr noundef readonly %.val.i.i42, i64 noundef %.sroa.speculated.i.i.i.i.i40) #22
-  %.fr.i.i.i.i.i43 = freeze i32 %48
+  %.val.i.i42 = load ptr, ptr %42, align 8, !tbaa !67
+  %45 = tail call i32 @memcmp(ptr noundef readonly %.sroa.0.0.copyload.i, ptr noundef readonly %.val.i.i42, i64 noundef %.sroa.speculated.i.i.i.i.i40) #22
+  %.fr.i.i.i.i.i43 = freeze i32 %45
   %.not.not.i.i.i.i.i44 = icmp eq i32 %.fr.i.i.i.i.i43, 0
   %.inv.i.i.i.i.i45 = icmp sgt i32 %.fr.i.i.i.i.i43, -1
   %spec.select.i.i.i.i.i46 = select i1 %.inv.i.i.i.i.i45, i32 1, i32 -1
   br i1 %.not.not.i.i.i.i.i44, label %.thread.i.i.i.i.i50, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i
 
 .thread.i.i.i.i.i50:                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41, %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i34
-  %49 = icmp eq i64 %.sroa.2.0.copyload.i, %.val2.i.i39
-  br i1 %49, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i, label %50
+  %46 = icmp eq i64 %.sroa.2.0.copyload.i, %.val2.i.i39
+  br i1 %46, label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i, label %47
 
-50:                                               ; preds = %.thread.i.i.i.i.i50
-  %51 = icmp ult i64 %.sroa.2.0.copyload.i, %.val2.i.i39
-  %52 = select i1 %51, i32 -1, i32 1
+47:                                               ; preds = %.thread.i.i.i.i.i50
+  %48 = icmp ult i64 %.sroa.2.0.copyload.i, %.val2.i.i39
+  %49 = select i1 %48, i32 -1, i32 1
   br label %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i: ; preds = %50, %.thread.i.i.i.i.i50, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41
-  %.1.i.i.i.i.i47 = phi i32 [ %52, %50 ], [ %spec.select.i.i.i.i.i46, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41 ], [ 0, %.thread.i.i.i.i.i50 ]
-  %53 = icmp slt i32 %.1.i.i.i.i.i47, 0
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %55 = xor i64 %44, -1
-  %56 = add nsw i64 %.01116.i36, %55
-  %.112.i48 = select i1 %53, i64 %44, i64 %56
-  %.1.i49 = select i1 %53, ptr %.017.i35, ptr %54
-  %57 = icmp sgt i64 %.112.i48, 0
-  br i1 %57, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i34, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread, !llvm.loop !840
+_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i: ; preds = %47, %.thread.i.i.i.i.i50, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41
+  %.1.i.i.i.i.i47 = phi i32 [ %49, %47 ], [ %spec.select.i.i.i.i.i46, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i41 ], [ 0, %.thread.i.i.i.i.i50 ]
+  %50 = icmp slt i32 %.1.i.i.i.i.i47, 0
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %52 = xor i64 %41, -1
+  %53 = add nsw i64 %.01116.i36, %52
+  %.112.i48 = select i1 %50, i64 %41, i64 %53
+  %.1.i49 = select i1 %50, ptr %.017.i35, ptr %51
+  %54 = icmp sgt i64 %.112.i48, 0
+  br i1 %54, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.i34, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread, !llvm.loop !840
 
 _ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit: ; preds = %.thread.i.i.i.i25, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.thread67, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit
   %.1 = phi ptr [ %17, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.thread67 ], [ %.082, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit ], [ %.082, %.thread.i.i.i.i25 ]
   %.2 = phi i64 [ %19, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.thread67 ], [ %9, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit ], [ %9, %.thread.i.i.i.i25 ]
-  %58 = icmp sgt i64 %.2, 0
-  br i1 %58, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread, !llvm.loop !841
+  %55 = icmp sgt i64 %.2, 0
+  br i1 %55, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread, !llvm.loop !841
 
 _ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread: ; preds = %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i, %3, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit
   %.sroa.0.2 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.0.lcssa.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %.1, %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit ]
-  %.sroa.3.2 = phi ptr [ %38, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.1.i49, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %.1, %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit ]
+  %.sroa.3.2 = phi ptr [ %37, %_ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit ], [ %0, %3 ], [ %.1.i49, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.i ], [ %.1, %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.3.2, 1
   ret { ptr, ptr } %.fca.1.insert

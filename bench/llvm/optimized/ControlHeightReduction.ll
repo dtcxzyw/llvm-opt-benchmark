@@ -18419,9 +18419,9 @@ _ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.i.i: ; pr
   br i1 %.not.i.i.i.i203, label %_ZN4llvm12append_rangeINS_11SmallVectorIPN12_GLOBAL__N_18CHRScopeELj8EEERS5_EEvRT_OT0_.exit, label %1176
 
 1176:                                             ; preds = %_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE7reserveEm.exit.i.i.i
-  %.val45.pre77.i.i = load ptr, ptr %25, align 8, !tbaa !25
+  %.val45.pre82.i.i = load ptr, ptr %25, align 8, !tbaa !25
   %1177 = zext i32 %.pre10.i.i.i to i64
-  %1178 = getelementptr inbounds nuw ptr, ptr %.val45.pre77.i.i, i64 %1177
+  %1178 = getelementptr inbounds nuw ptr, ptr %.val45.pre82.i.i, i64 %1177
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1178, ptr readonly align 8 %.val89, i64 %.idx.i202, i1 false)
   %.pre.i.i.i204 = load i32, ptr %161, align 8, !tbaa !26
   br label %_ZN4llvm12append_rangeINS_11SmallVectorIPN12_GLOBAL__N_18CHRScopeELj8EEERS5_EEvRT_OT0_.exit
@@ -20721,14 +20721,14 @@ _ZSt15__find_if_not_nIPPN12_GLOBAL__N_18CHRScopeEN9__gnu_cxx5__ops10_Iter_predIZ
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %.058.i.i, align 8, !tbaa !150
-  %.idx.i.i = shl nsw i64 %.086.i.i, 3
-  %103 = getelementptr inbounds i8, ptr %.058.i.i, i64 %.idx.i.i
+  %.idx97.i.i = shl nsw i64 %.086.i.i, 3
+  %103 = getelementptr inbounds i8, ptr %.058.i.i, i64 %.idx97.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.086.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %.058.i.i, i64 8
-  %gepdiff.i.i = add nsw i64 %.idx.i.i, -8
+  %gepdiff.i.i = add nsw i64 %.idx97.i.i, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.058.i.i, ptr nonnull align 8 %105, i64 %gepdiff.i.i, i1 false)
   br label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i
 
@@ -20739,40 +20739,40 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %104, %
 
 107:                                              ; preds = %99
   %108 = icmp sgt i64 %97, 0
-  br i1 %108, label %.lr.ph109.preheader.i.i, label %._crit_edge110.i.i
+  br i1 %108, label %.lr.ph110.preheader.i.i, label %._crit_edge111.i.i
 
-.lr.ph109.preheader.i.i:                          ; preds = %107
+.lr.ph110.preheader.i.i:                          ; preds = %107
   %109 = getelementptr inbounds ptr, ptr %.058.i.i, i64 %.083.i.i
-  br label %.lr.ph109.i.i
+  br label %.lr.ph110.i.i
 
-._crit_edge110.i.i:                               ; preds = %.lr.ph109.i.i, %107
-  %.159.lcssa.i.i = phi ptr [ %.058.i.i, %107 ], [ %113, %.lr.ph109.i.i ]
+._crit_edge111.i.i:                               ; preds = %.lr.ph110.i.i, %107
+  %.159.lcssa.i.i = phi ptr [ %.058.i.i, %107 ], [ %113, %.lr.ph110.i.i ]
   %110 = srem i64 %.086.i.i, %.083.i.i
   %.not67.i.i = icmp eq i64 %110, 0
   br i1 %.not67.i.i, label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit, label %116
 
-.lr.ph109.i.i:                                    ; preds = %.lr.ph109.i.i, %.lr.ph109.preheader.i.i
-  %.054107.i.i = phi i64 [ %115, %.lr.ph109.i.i ], [ 0, %.lr.ph109.preheader.i.i ]
-  %.055106.i.i = phi ptr [ %114, %.lr.ph109.i.i ], [ %109, %.lr.ph109.preheader.i.i ]
-  %.159105.i.i = phi ptr [ %113, %.lr.ph109.i.i ], [ %.058.i.i, %.lr.ph109.preheader.i.i ]
-  %111 = load ptr, ptr %.159105.i.i, align 8, !tbaa !150
-  %112 = load ptr, ptr %.055106.i.i, align 8, !tbaa !150
-  store ptr %112, ptr %.159105.i.i, align 8, !tbaa !150
-  store ptr %111, ptr %.055106.i.i, align 8, !tbaa !150
-  %113 = getelementptr inbounds nuw i8, ptr %.159105.i.i, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %.055106.i.i, i64 8
-  %115 = add nuw nsw i64 %.054107.i.i, 1
-  %exitcond118.not.i.i = icmp eq i64 %115, %97
-  br i1 %exitcond118.not.i.i, label %._crit_edge110.i.i, label %.lr.ph109.i.i, !llvm.loop !782
+.lr.ph110.i.i:                                    ; preds = %.lr.ph110.i.i, %.lr.ph110.preheader.i.i
+  %.054108.i.i = phi i64 [ %115, %.lr.ph110.i.i ], [ 0, %.lr.ph110.preheader.i.i ]
+  %.055107.i.i = phi ptr [ %114, %.lr.ph110.i.i ], [ %109, %.lr.ph110.preheader.i.i ]
+  %.159106.i.i = phi ptr [ %113, %.lr.ph110.i.i ], [ %.058.i.i, %.lr.ph110.preheader.i.i ]
+  %111 = load ptr, ptr %.159106.i.i, align 8, !tbaa !150
+  %112 = load ptr, ptr %.055107.i.i, align 8, !tbaa !150
+  store ptr %112, ptr %.159106.i.i, align 8, !tbaa !150
+  store ptr %111, ptr %.055107.i.i, align 8, !tbaa !150
+  %113 = getelementptr inbounds nuw i8, ptr %.159106.i.i, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.055107.i.i, i64 8
+  %115 = add nuw nsw i64 %.054108.i.i, 1
+  %exitcond119.not.i.i = icmp eq i64 %115, %97
+  br i1 %exitcond119.not.i.i, label %._crit_edge111.i.i, label %.lr.ph110.i.i, !llvm.loop !782
 
-116:                                              ; preds = %._crit_edge110.i.i
+116:                                              ; preds = %._crit_edge111.i.i
   %117 = sub nsw i64 %.083.i.i, %110
   br label %.backedge
 
 118:                                              ; preds = %96
   %119 = icmp eq i64 %97, 1
   %120 = getelementptr inbounds ptr, ptr %.058.i.i, i64 %.086.i.i
-  br i1 %119, label %121, label %131
+  br i1 %119, label %121, label %129
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %120, i64 -8
@@ -20781,53 +20781,52 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %104, %
   br i1 %.not.i.i.i.i.i68.i.i, label %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, label %124
 
 124:                                              ; preds = %121
-  %125 = ptrtoint ptr %122 to i64
-  %126 = ptrtoint ptr %.058.i.i to i64
-  %127 = sub i64 %125, %126
-  %128 = ashr exact i64 %127, 3
-  %129 = sub nsw i64 0, %128
-  %130 = getelementptr inbounds ptr, ptr %120, i64 %129
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %130, ptr nonnull align 8 %.058.i.i, i64 %127, i1 false)
+  %.idx.i.i = shl nsw i64 %.086.i.i, 3
+  %125 = add i64 %.idx.i.i, -8
+  %126 = ashr exact i64 %125, 3
+  %127 = sub nsw i64 0, %126
+  %128 = getelementptr inbounds ptr, ptr %120, i64 %127
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %128, ptr nonnull align 8 %.058.i.i, i64 %125, i1 false)
   br label %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i
 
 _ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %124, %121
   store ptr %123, ptr %.058.i.i, align 8, !tbaa !150
   br label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit
 
-131:                                              ; preds = %118
-  %132 = sub i64 0, %97
-  %133 = getelementptr inbounds ptr, ptr %120, i64 %132
-  %134 = icmp sgt i64 %.083.i.i, 0
-  br i1 %134, label %.lr.ph.i.i, label %._crit_edge.i.i
+129:                                              ; preds = %118
+  %130 = sub i64 0, %97
+  %131 = getelementptr inbounds ptr, ptr %120, i64 %130
+  %132 = icmp sgt i64 %.083.i.i, 0
+  br i1 %132, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %131
-  %.361.lcssa.i.i = phi ptr [ %133, %131 ], [ %.058.i.i, %.lr.ph.i.i ]
-  %135 = srem i64 %.086.i.i, %97
-  %.not.i.i51 = icmp eq i64 %135, 0
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %129
+  %.361.lcssa.i.i = phi ptr [ %131, %129 ], [ %.058.i.i, %.lr.ph.i.i ]
+  %133 = srem i64 %.086.i.i, %97
+  %.not.i.i51 = icmp eq i64 %133, 0
   br i1 %.not.i.i51, label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i, %116
   %.086.i.i.be = phi i64 [ %.083.i.i, %116 ], [ %97, %._crit_edge.i.i ]
-  %.083.i.i.be = phi i64 [ %117, %116 ], [ %135, %._crit_edge.i.i ]
+  %.083.i.i.be = phi i64 [ %117, %116 ], [ %133, %._crit_edge.i.i ]
   %.058.i.i.be = phi ptr [ %.159.lcssa.i.i, %116 ], [ %.361.lcssa.i.i, %._crit_edge.i.i ]
   br label %96, !llvm.loop !783
 
-.lr.ph.i.i:                                       ; preds = %131, %.lr.ph.i.i
-  %.0104.i.i = phi i64 [ %140, %.lr.ph.i.i ], [ 0, %131 ]
-  %.052103.i.i = phi ptr [ %137, %.lr.ph.i.i ], [ %120, %131 ]
-  %.361102.i.i = phi ptr [ %136, %.lr.ph.i.i ], [ %133, %131 ]
-  %136 = getelementptr inbounds i8, ptr %.361102.i.i, i64 -8
-  %137 = getelementptr inbounds i8, ptr %.052103.i.i, i64 -8
-  %138 = load ptr, ptr %136, align 8, !tbaa !150
-  %139 = load ptr, ptr %137, align 8, !tbaa !150
-  store ptr %139, ptr %136, align 8, !tbaa !150
-  store ptr %138, ptr %137, align 8, !tbaa !150
-  %140 = add nuw nsw i64 %.0104.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %140, %.083.i.i
+.lr.ph.i.i:                                       ; preds = %129, %.lr.ph.i.i
+  %.0105.i.i = phi i64 [ %138, %.lr.ph.i.i ], [ 0, %129 ]
+  %.052104.i.i = phi ptr [ %135, %.lr.ph.i.i ], [ %120, %129 ]
+  %.361103.i.i = phi ptr [ %134, %.lr.ph.i.i ], [ %131, %129 ]
+  %134 = getelementptr inbounds i8, ptr %.361103.i.i, i64 -8
+  %135 = getelementptr inbounds i8, ptr %.052104.i.i, i64 -8
+  %136 = load ptr, ptr %134, align 8, !tbaa !150
+  %137 = load ptr, ptr %135, align 8, !tbaa !150
+  store ptr %137, ptr %134, align 8, !tbaa !150
+  store ptr %136, ptr %135, align 8, !tbaa !150
+  %138 = add nuw nsw i64 %.0105.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %138, %.083.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !784
 
-_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge.i.i, %._crit_edge110.i.i, %.lr.ph.i.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, %77, %_ZSt15__find_if_not_nIPPN12_GLOBAL__N_18CHRScopeEN9__gnu_cxx5__ops10_Iter_predIZNS1_5splitEPN4llvm6RegionEEUlS2_E_EElET_SC_RT1_T0_.exit.thread, %._crit_edge.thread, %._crit_edge, %6
-  %.0 = phi ptr [ %0, %6 ], [ %.1, %._crit_edge ], [ %.042.lcssa101, %._crit_edge.thread ], [ %.041, %_ZSt15__find_if_not_nIPPN12_GLOBAL__N_18CHRScopeEN9__gnu_cxx5__ops10_Iter_predIZNS1_5splitEPN4llvm6RegionEEUlS2_E_EElET_SC_RT1_T0_.exit.thread ], [ %48, %77 ], [ %95, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %95, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %47, %.lr.ph.i.i.i ], [ %95, %._crit_edge110.i.i ], [ %95, %._crit_edge.i.i ]
+_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge.i.i, %._crit_edge111.i.i, %.lr.ph.i.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, %77, %_ZSt15__find_if_not_nIPPN12_GLOBAL__N_18CHRScopeEN9__gnu_cxx5__ops10_Iter_predIZNS1_5splitEPN4llvm6RegionEEUlS2_E_EElET_SC_RT1_T0_.exit.thread, %._crit_edge.thread, %._crit_edge, %6
+  %.0 = phi ptr [ %0, %6 ], [ %.1, %._crit_edge ], [ %.042.lcssa101, %._crit_edge.thread ], [ %.041, %_ZSt15__find_if_not_nIPPN12_GLOBAL__N_18CHRScopeEN9__gnu_cxx5__ops10_Iter_predIZNS1_5splitEPN4llvm6RegionEEUlS2_E_EElET_SC_RT1_T0_.exit.thread ], [ %48, %77 ], [ %95, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %95, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %47, %.lr.ph.i.i.i ], [ %95, %._crit_edge111.i.i ], [ %95, %._crit_edge.i.i ]
   ret ptr %.0
 }
 
@@ -22479,8 +22478,8 @@ define internal fastcc void @_ZSt22__merge_without_bufferIPPN12_GLOBAL__N_18CHRS
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit
-  %.tr7388 = phi i64 [ %4, %.lr.ph ], [ %117, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit ]
-  %.tr7287 = phi i64 [ %3, %.lr.ph ], [ %116, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit ]
+  %.tr7388 = phi i64 [ %4, %.lr.ph ], [ %115, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit ]
+  %.tr7287 = phi i64 [ %3, %.lr.ph ], [ %114, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit ]
   %.tr7085 = phi ptr [ %1, %.lr.ph ], [ %.066, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit ]
   %.tr83 = phi ptr [ %0, %.lr.ph ], [ %.053.i.i, %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit ]
   %11 = add nsw i64 %.tr7388, %.tr7287
@@ -22631,14 +22630,14 @@ _ZSt13__upper_boundIPPN12_GLOBAL__N_18CHRScopeES2_N9__gnu_cxx5__ops14_Val_comp_i
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %.058.i.i, align 8, !tbaa !150
-  %.idx.i.i = shl nsw i64 %.086.i.i, 3
-  %78 = getelementptr inbounds i8, ptr %.058.i.i, i64 %.idx.i.i
+  %.idx97.i.i = shl nsw i64 %.086.i.i, 3
+  %78 = getelementptr inbounds i8, ptr %.058.i.i, i64 %.idx97.i.i
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.086.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %.058.i.i, i64 8
-  %gepdiff.i.i = add nsw i64 %.idx.i.i, -8
+  %gepdiff.i.i = add nsw i64 %.idx97.i.i, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.058.i.i, ptr nonnull align 8 %80, i64 %gepdiff.i.i, i1 false)
   br label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i
 
@@ -22649,40 +22648,40 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %79, %7
 
 82:                                               ; preds = %74
   %83 = icmp sgt i64 %72, 0
-  br i1 %83, label %.lr.ph109.preheader.i.i, label %._crit_edge110.i.i
+  br i1 %83, label %.lr.ph110.preheader.i.i, label %._crit_edge111.i.i
 
-.lr.ph109.preheader.i.i:                          ; preds = %82
+.lr.ph110.preheader.i.i:                          ; preds = %82
   %84 = getelementptr inbounds ptr, ptr %.058.i.i, i64 %.083.i.i
-  br label %.lr.ph109.i.i
+  br label %.lr.ph110.i.i
 
-._crit_edge110.i.i:                               ; preds = %.lr.ph109.i.i, %82
-  %.159.lcssa.i.i = phi ptr [ %.058.i.i, %82 ], [ %88, %.lr.ph109.i.i ]
+._crit_edge111.i.i:                               ; preds = %.lr.ph110.i.i, %82
+  %.159.lcssa.i.i = phi ptr [ %.058.i.i, %82 ], [ %88, %.lr.ph110.i.i ]
   %85 = srem i64 %.086.i.i, %.083.i.i
   %.not67.i.i = icmp eq i64 %85, 0
   br i1 %.not67.i.i, label %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit, label %91
 
-.lr.ph109.i.i:                                    ; preds = %.lr.ph109.i.i, %.lr.ph109.preheader.i.i
-  %.054107.i.i = phi i64 [ %90, %.lr.ph109.i.i ], [ 0, %.lr.ph109.preheader.i.i ]
-  %.055106.i.i = phi ptr [ %89, %.lr.ph109.i.i ], [ %84, %.lr.ph109.preheader.i.i ]
-  %.159105.i.i = phi ptr [ %88, %.lr.ph109.i.i ], [ %.058.i.i, %.lr.ph109.preheader.i.i ]
-  %86 = load ptr, ptr %.159105.i.i, align 8, !tbaa !150
-  %87 = load ptr, ptr %.055106.i.i, align 8, !tbaa !150
-  store ptr %87, ptr %.159105.i.i, align 8, !tbaa !150
-  store ptr %86, ptr %.055106.i.i, align 8, !tbaa !150
-  %88 = getelementptr inbounds nuw i8, ptr %.159105.i.i, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %.055106.i.i, i64 8
-  %90 = add nuw nsw i64 %.054107.i.i, 1
-  %exitcond118.not.i.i = icmp eq i64 %90, %72
-  br i1 %exitcond118.not.i.i, label %._crit_edge110.i.i, label %.lr.ph109.i.i, !llvm.loop !782
+.lr.ph110.i.i:                                    ; preds = %.lr.ph110.i.i, %.lr.ph110.preheader.i.i
+  %.054108.i.i = phi i64 [ %90, %.lr.ph110.i.i ], [ 0, %.lr.ph110.preheader.i.i ]
+  %.055107.i.i = phi ptr [ %89, %.lr.ph110.i.i ], [ %84, %.lr.ph110.preheader.i.i ]
+  %.159106.i.i = phi ptr [ %88, %.lr.ph110.i.i ], [ %.058.i.i, %.lr.ph110.preheader.i.i ]
+  %86 = load ptr, ptr %.159106.i.i, align 8, !tbaa !150
+  %87 = load ptr, ptr %.055107.i.i, align 8, !tbaa !150
+  store ptr %87, ptr %.159106.i.i, align 8, !tbaa !150
+  store ptr %86, ptr %.055107.i.i, align 8, !tbaa !150
+  %88 = getelementptr inbounds nuw i8, ptr %.159106.i.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.055107.i.i, i64 8
+  %90 = add nuw nsw i64 %.054108.i.i, 1
+  %exitcond119.not.i.i = icmp eq i64 %90, %72
+  br i1 %exitcond119.not.i.i, label %._crit_edge111.i.i, label %.lr.ph110.i.i, !llvm.loop !782
 
-91:                                               ; preds = %._crit_edge110.i.i
+91:                                               ; preds = %._crit_edge111.i.i
   %92 = sub nsw i64 %.083.i.i, %85
   br label %.backedge
 
 93:                                               ; preds = %71
   %94 = icmp eq i64 %72, 1
   %95 = getelementptr inbounds ptr, ptr %.058.i.i, i64 %.086.i.i
-  br i1 %94, label %96, label %106
+  br i1 %94, label %96, label %104
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds i8, ptr %95, i64 -8
@@ -22691,59 +22690,58 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %79, %7
   br i1 %.not.i.i.i.i.i68.i.i, label %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, label %99
 
 99:                                               ; preds = %96
-  %100 = ptrtoint ptr %97 to i64
-  %101 = ptrtoint ptr %.058.i.i to i64
-  %102 = sub i64 %100, %101
-  %103 = ashr exact i64 %102, 3
-  %104 = sub nsw i64 0, %103
-  %105 = getelementptr inbounds ptr, ptr %95, i64 %104
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %105, ptr nonnull align 8 %.058.i.i, i64 %102, i1 false)
+  %.idx.i.i = shl nsw i64 %.086.i.i, 3
+  %100 = add i64 %.idx.i.i, -8
+  %101 = ashr exact i64 %100, 3
+  %102 = sub nsw i64 0, %101
+  %103 = getelementptr inbounds ptr, ptr %95, i64 %102
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %103, ptr nonnull align 8 %.058.i.i, i64 %100, i1 false)
   br label %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i
 
 _ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %99, %96
   store ptr %98, ptr %.058.i.i, align 8, !tbaa !150
   br label %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit
 
-106:                                              ; preds = %93
-  %107 = sub i64 0, %72
-  %108 = getelementptr inbounds ptr, ptr %95, i64 %107
-  %109 = icmp sgt i64 %.083.i.i, 0
-  br i1 %109, label %.lr.ph.i.i, label %._crit_edge.i.i
+104:                                              ; preds = %93
+  %105 = sub i64 0, %72
+  %106 = getelementptr inbounds ptr, ptr %95, i64 %105
+  %107 = icmp sgt i64 %.083.i.i, 0
+  br i1 %107, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %106
-  %.361.lcssa.i.i = phi ptr [ %108, %106 ], [ %.058.i.i, %.lr.ph.i.i ]
-  %110 = srem i64 %.086.i.i, %72
-  %.not.i.i = icmp eq i64 %110, 0
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %104
+  %.361.lcssa.i.i = phi ptr [ %106, %104 ], [ %.058.i.i, %.lr.ph.i.i ]
+  %108 = srem i64 %.086.i.i, %72
+  %.not.i.i = icmp eq i64 %108, 0
   br i1 %.not.i.i, label %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i, %91
   %.086.i.i.be = phi i64 [ %.083.i.i, %91 ], [ %72, %._crit_edge.i.i ]
-  %.083.i.i.be = phi i64 [ %92, %91 ], [ %110, %._crit_edge.i.i ]
+  %.083.i.i.be = phi i64 [ %92, %91 ], [ %108, %._crit_edge.i.i ]
   %.058.i.i.be = phi ptr [ %.159.lcssa.i.i, %91 ], [ %.361.lcssa.i.i, %._crit_edge.i.i ]
   br label %71, !llvm.loop !783
 
-.lr.ph.i.i:                                       ; preds = %106, %.lr.ph.i.i
-  %.0104.i.i = phi i64 [ %115, %.lr.ph.i.i ], [ 0, %106 ]
-  %.052103.i.i = phi ptr [ %112, %.lr.ph.i.i ], [ %95, %106 ]
-  %.361102.i.i = phi ptr [ %111, %.lr.ph.i.i ], [ %108, %106 ]
-  %111 = getelementptr inbounds i8, ptr %.361102.i.i, i64 -8
-  %112 = getelementptr inbounds i8, ptr %.052103.i.i, i64 -8
-  %113 = load ptr, ptr %111, align 8, !tbaa !150
-  %114 = load ptr, ptr %112, align 8, !tbaa !150
-  store ptr %114, ptr %111, align 8, !tbaa !150
-  store ptr %113, ptr %112, align 8, !tbaa !150
-  %115 = add nuw nsw i64 %.0104.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %115, %.083.i.i
+.lr.ph.i.i:                                       ; preds = %104, %.lr.ph.i.i
+  %.0105.i.i = phi i64 [ %113, %.lr.ph.i.i ], [ 0, %104 ]
+  %.052104.i.i = phi ptr [ %110, %.lr.ph.i.i ], [ %95, %104 ]
+  %.361103.i.i = phi ptr [ %109, %.lr.ph.i.i ], [ %106, %104 ]
+  %109 = getelementptr inbounds i8, ptr %.361103.i.i, i64 -8
+  %110 = getelementptr inbounds i8, ptr %.052104.i.i, i64 -8
+  %111 = load ptr, ptr %109, align 8, !tbaa !150
+  %112 = load ptr, ptr %110, align 8, !tbaa !150
+  store ptr %112, ptr %109, align 8, !tbaa !150
+  store ptr %111, ptr %110, align 8, !tbaa !150
+  %113 = add nuw nsw i64 %.0105.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %113, %.083.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !784
 
-_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit: ; preds = %._crit_edge110.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %50, %52, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i
-  %.053.i.i = phi ptr [ %.066, %50 ], [ %.067, %52 ], [ %70, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %70, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %.tr7085, %.lr.ph.i.i.i ], [ %70, %._crit_edge.i.i ], [ %70, %._crit_edge110.i.i ]
+_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit: ; preds = %._crit_edge111.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %50, %52, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i
+  %.053.i.i = phi ptr [ %.066, %50 ], [ %.067, %52 ], [ %70, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %70, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i ], [ %.tr7085, %.lr.ph.i.i.i ], [ %70, %._crit_edge.i.i ], [ %70, %._crit_edge111.i.i ]
   tail call fastcc void @_ZSt22__merge_without_bufferIPPN12_GLOBAL__N_18CHRScopeElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_SA_T0_SB_T1_(ptr noundef %.tr83, ptr noundef %.067, ptr noundef %.053.i.i, i64 noundef %.0, i64 noundef %.038, ptr %5)
-  %116 = sub nsw i64 %.tr7287, %.0
-  %117 = sub nsw i64 %.tr7388, %.038
-  %118 = icmp eq i64 %116, 0
-  %119 = icmp eq i64 %117, 0
-  %or.cond = or i1 %118, %119
+  %114 = sub nsw i64 %.tr7287, %.0
+  %115 = sub nsw i64 %.tr7388, %.038
+  %116 = icmp eq i64 %114, 0
+  %117 = icmp eq i64 %115, 0
+  %or.cond = or i1 %116, %117
   br i1 %or.cond, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %_ZNSt3_V26rotateIPPN12_GLOBAL__N_18CHRScopeEEET_S5_S5_S5_.exit, %6, %13, %15
@@ -23184,7 +23182,7 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i: ; preds = %._crit_e
 
 27:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
   %.not135 = phi i1 [ %.not126, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
-  %.tr109134 = phi i64 [ %4, %.lr.ph ], [ %183, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
+  %.tr109134 = phi i64 [ %4, %.lr.ph ], [ %181, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr108133 = phi i64 [ %3, %.lr.ph ], [ %86, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr106131 = phi ptr [ %1, %.lr.ph ], [ %.0102, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
   %.tr129 = phi ptr [ %0, %.lr.ph ], [ %.0.i92, %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit ]
@@ -23476,14 +23474,14 @@ _ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit45.i: ; preds
 
 143:                                              ; preds = %141
   %144 = load ptr, ptr %.058.i.i.i, align 8, !tbaa !150
-  %.idx.i.i.i = shl nsw i64 %.086.i.i.i, 3
-  %145 = getelementptr inbounds i8, ptr %.058.i.i.i, i64 %.idx.i.i.i
+  %.idx97.i.i.i = shl nsw i64 %.086.i.i.i, 3
+  %145 = getelementptr inbounds i8, ptr %.058.i.i.i, i64 %.idx97.i.i.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.086.i.i.i, 1
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds nuw i8, ptr %.058.i.i.i, i64 8
-  %gepdiff.i.i.i = add nsw i64 %.idx.i.i.i, -8
+  %gepdiff.i.i.i = add nsw i64 %.idx97.i.i.i, -8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.058.i.i.i, ptr nonnull align 8 %147, i64 %gepdiff.i.i.i, i1 false)
   br label %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i
 
@@ -23494,40 +23492,40 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i: ; preds = %146,
 
 149:                                              ; preds = %141
   %150 = icmp sgt i64 %139, 0
-  br i1 %150, label %.lr.ph109.preheader.i.i.i, label %._crit_edge110.i.i.i
+  br i1 %150, label %.lr.ph110.preheader.i.i.i, label %._crit_edge111.i.i.i
 
-.lr.ph109.preheader.i.i.i:                        ; preds = %149
+.lr.ph110.preheader.i.i.i:                        ; preds = %149
   %151 = getelementptr inbounds ptr, ptr %.058.i.i.i, i64 %.083.i.i.i
-  br label %.lr.ph109.i.i.i
+  br label %.lr.ph110.i.i.i
 
-._crit_edge110.i.i.i:                             ; preds = %.lr.ph109.i.i.i, %149
-  %.159.lcssa.i.i.i = phi ptr [ %.058.i.i.i, %149 ], [ %155, %.lr.ph109.i.i.i ]
+._crit_edge111.i.i.i:                             ; preds = %.lr.ph110.i.i.i, %149
+  %.159.lcssa.i.i.i = phi ptr [ %.058.i.i.i, %149 ], [ %155, %.lr.ph110.i.i.i ]
   %152 = srem i64 %.086.i.i.i, %.083.i.i.i
   %.not67.i.i.i = icmp eq i64 %152, 0
   br i1 %.not67.i.i.i, label %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %158
 
-.lr.ph109.i.i.i:                                  ; preds = %.lr.ph109.i.i.i, %.lr.ph109.preheader.i.i.i
-  %.054107.i.i.i = phi i64 [ %157, %.lr.ph109.i.i.i ], [ 0, %.lr.ph109.preheader.i.i.i ]
-  %.055106.i.i.i = phi ptr [ %156, %.lr.ph109.i.i.i ], [ %151, %.lr.ph109.preheader.i.i.i ]
-  %.159105.i.i.i = phi ptr [ %155, %.lr.ph109.i.i.i ], [ %.058.i.i.i, %.lr.ph109.preheader.i.i.i ]
-  %153 = load ptr, ptr %.159105.i.i.i, align 8, !tbaa !150
-  %154 = load ptr, ptr %.055106.i.i.i, align 8, !tbaa !150
-  store ptr %154, ptr %.159105.i.i.i, align 8, !tbaa !150
-  store ptr %153, ptr %.055106.i.i.i, align 8, !tbaa !150
-  %155 = getelementptr inbounds nuw i8, ptr %.159105.i.i.i, i64 8
-  %156 = getelementptr inbounds nuw i8, ptr %.055106.i.i.i, i64 8
-  %157 = add nuw nsw i64 %.054107.i.i.i, 1
-  %exitcond118.not.i.i.i = icmp eq i64 %157, %139
-  br i1 %exitcond118.not.i.i.i, label %._crit_edge110.i.i.i, label %.lr.ph109.i.i.i, !llvm.loop !782
+.lr.ph110.i.i.i:                                  ; preds = %.lr.ph110.i.i.i, %.lr.ph110.preheader.i.i.i
+  %.054108.i.i.i = phi i64 [ %157, %.lr.ph110.i.i.i ], [ 0, %.lr.ph110.preheader.i.i.i ]
+  %.055107.i.i.i = phi ptr [ %156, %.lr.ph110.i.i.i ], [ %151, %.lr.ph110.preheader.i.i.i ]
+  %.159106.i.i.i = phi ptr [ %155, %.lr.ph110.i.i.i ], [ %.058.i.i.i, %.lr.ph110.preheader.i.i.i ]
+  %153 = load ptr, ptr %.159106.i.i.i, align 8, !tbaa !150
+  %154 = load ptr, ptr %.055107.i.i.i, align 8, !tbaa !150
+  store ptr %154, ptr %.159106.i.i.i, align 8, !tbaa !150
+  store ptr %153, ptr %.055107.i.i.i, align 8, !tbaa !150
+  %155 = getelementptr inbounds nuw i8, ptr %.159106.i.i.i, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.055107.i.i.i, i64 8
+  %157 = add nuw nsw i64 %.054108.i.i.i, 1
+  %exitcond119.not.i.i.i = icmp eq i64 %157, %139
+  br i1 %exitcond119.not.i.i.i, label %._crit_edge111.i.i.i, label %.lr.ph110.i.i.i, !llvm.loop !782
 
-158:                                              ; preds = %._crit_edge110.i.i.i
+158:                                              ; preds = %._crit_edge111.i.i.i
   %159 = sub nsw i64 %.083.i.i.i, %152
   br label %.backedge
 
 160:                                              ; preds = %138
   %161 = icmp eq i64 %139, 1
   %162 = getelementptr inbounds ptr, ptr %.058.i.i.i, i64 %.086.i.i.i
-  br i1 %161, label %163, label %173
+  br i1 %161, label %163, label %171
 
 163:                                              ; preds = %160
   %164 = getelementptr inbounds i8, ptr %162, i64 -8
@@ -23536,56 +23534,55 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i: ; preds = %146,
   br i1 %.not.i.i.i.i.i68.i.i.i, label %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i, label %166
 
 166:                                              ; preds = %163
-  %167 = ptrtoint ptr %164 to i64
-  %168 = ptrtoint ptr %.058.i.i.i to i64
-  %169 = sub i64 %167, %168
-  %170 = ashr exact i64 %169, 3
-  %171 = sub nsw i64 0, %170
-  %172 = getelementptr inbounds ptr, ptr %162, i64 %171
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %172, ptr nonnull align 8 %.058.i.i.i, i64 %169, i1 false)
+  %.idx.i.i.i = shl nsw i64 %.086.i.i.i, 3
+  %167 = add i64 %.idx.i.i.i, -8
+  %168 = ashr exact i64 %167, 3
+  %169 = sub nsw i64 0, %168
+  %170 = getelementptr inbounds ptr, ptr %162, i64 %169
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %170, ptr nonnull align 8 %.058.i.i.i, i64 %167, i1 false)
   br label %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i
 
 _ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i: ; preds = %166, %163
   store ptr %165, ptr %.058.i.i.i, align 8, !tbaa !150
   br label %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit
 
-173:                                              ; preds = %160
-  %174 = sub i64 0, %139
-  %175 = getelementptr inbounds ptr, ptr %162, i64 %174
-  %176 = icmp sgt i64 %.083.i.i.i, 0
-  br i1 %176, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+171:                                              ; preds = %160
+  %172 = sub i64 0, %139
+  %173 = getelementptr inbounds ptr, ptr %162, i64 %172
+  %174 = icmp sgt i64 %.083.i.i.i, 0
+  br i1 %174, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %173
-  %.361.lcssa.i.i.i = phi ptr [ %175, %173 ], [ %.058.i.i.i, %.lr.ph.i.i.i ]
-  %177 = srem i64 %.086.i.i.i, %139
-  %.not.i.i.i = icmp eq i64 %177, 0
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %171
+  %.361.lcssa.i.i.i = phi ptr [ %173, %171 ], [ %.058.i.i.i, %.lr.ph.i.i.i ]
+  %175 = srem i64 %.086.i.i.i, %139
+  %.not.i.i.i = icmp eq i64 %175, 0
   br i1 %.not.i.i.i, label %_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i.i, %158
   %.086.i.i.i.be = phi i64 [ %.083.i.i.i, %158 ], [ %139, %._crit_edge.i.i.i ]
-  %.083.i.i.i.be = phi i64 [ %159, %158 ], [ %177, %._crit_edge.i.i.i ]
+  %.083.i.i.i.be = phi i64 [ %159, %158 ], [ %175, %._crit_edge.i.i.i ]
   %.058.i.i.i.be = phi ptr [ %.159.lcssa.i.i.i, %158 ], [ %.361.lcssa.i.i.i, %._crit_edge.i.i.i ]
   br label %138, !llvm.loop !783
 
-.lr.ph.i.i.i:                                     ; preds = %173, %.lr.ph.i.i.i
-  %.0104.i.i.i = phi i64 [ %182, %.lr.ph.i.i.i ], [ 0, %173 ]
-  %.052103.i.i.i = phi ptr [ %179, %.lr.ph.i.i.i ], [ %162, %173 ]
-  %.361102.i.i.i = phi ptr [ %178, %.lr.ph.i.i.i ], [ %175, %173 ]
-  %178 = getelementptr inbounds i8, ptr %.361102.i.i.i, i64 -8
-  %179 = getelementptr inbounds i8, ptr %.052103.i.i.i, i64 -8
-  %180 = load ptr, ptr %178, align 8, !tbaa !150
-  %181 = load ptr, ptr %179, align 8, !tbaa !150
-  store ptr %181, ptr %178, align 8, !tbaa !150
-  store ptr %180, ptr %179, align 8, !tbaa !150
-  %182 = add nuw nsw i64 %.0104.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %182, %.083.i.i.i
+.lr.ph.i.i.i:                                     ; preds = %171, %.lr.ph.i.i.i
+  %.0105.i.i.i = phi i64 [ %180, %.lr.ph.i.i.i ], [ 0, %171 ]
+  %.052104.i.i.i = phi ptr [ %177, %.lr.ph.i.i.i ], [ %162, %171 ]
+  %.361103.i.i.i = phi ptr [ %176, %.lr.ph.i.i.i ], [ %173, %171 ]
+  %176 = getelementptr inbounds i8, ptr %.361103.i.i.i, i64 -8
+  %177 = getelementptr inbounds i8, ptr %.052104.i.i.i, i64 -8
+  %178 = load ptr, ptr %176, align 8, !tbaa !150
+  %179 = load ptr, ptr %177, align 8, !tbaa !150
+  store ptr %179, ptr %176, align 8, !tbaa !150
+  store ptr %178, ptr %177, align 8, !tbaa !150
+  %180 = add nuw nsw i64 %.0105.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %180, %.083.i.i.i
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !784
 
-_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %._crit_edge110.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %88, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit38.i, %103, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit45.i, %117, %119, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i
-  %.0.i92 = phi ptr [ %101, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit38.i ], [ %116, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit45.i ], [ %.0103, %88 ], [ %.0102, %103 ], [ %.0102, %117 ], [ %.0103, %119 ], [ %137, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i ], [ %137, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i ], [ %.tr106131, %.lr.ph.i.i.i.i ], [ %137, %._crit_edge.i.i.i ], [ %137, %._crit_edge110.i.i.i ]
+_ZSt17__rotate_adaptiveIPPN12_GLOBAL__N_18CHRScopeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; preds = %._crit_edge111.i.i.i, %._crit_edge.i.i.i, %.lr.ph.i.i.i.i, %88, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit38.i, %103, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit45.i, %117, %119, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i
+  %.0.i92 = phi ptr [ %101, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit38.i ], [ %116, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit45.i ], [ %.0103, %88 ], [ %.0102, %103 ], [ %.0102, %117 ], [ %.0103, %119 ], [ %137, %_ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i ], [ %137, %_ZSt13move_backwardIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i ], [ %.tr106131, %.lr.ph.i.i.i.i ], [ %137, %._crit_edge.i.i.i ], [ %137, %._crit_edge111.i.i.i ]
   tail call fastcc void @_ZSt16__merge_adaptiveIPPN12_GLOBAL__N_18CHRScopeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_SA_SA_T0_SB_T1_SB_T2_(ptr noundef %.tr129, ptr noundef %.0103, ptr noundef %.0.i92, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
-  %183 = sub nsw i64 %.tr109134, %.063
-  %.not = icmp sgt i64 %86, %183
+  %181 = sub nsw i64 %.tr109134, %.063
+  %.not = icmp sgt i64 %86, %181
   %.not67 = icmp sgt i64 %86, %6
   %or.cond = or i1 %.not67, %.not
   br i1 %or.cond, label %27, label %tailrecurse._crit_edge

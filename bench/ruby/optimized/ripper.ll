@@ -36497,58 +36497,58 @@ parse_string.exit:                                ; preds = %parser_set_lex_stat
   store ptr %1051, ptr %1020, align 8, !tbaa !48
   %1052 = load i8, ptr %1050, align 1, !tbaa !6
   %1053 = zext i8 %1052 to i32
-  switch i8 %1052, label %2706 [
+  switch i8 %1052, label %2704 [
     i8 13, label %1054
     i8 0, label %nextc0.exit.thread1205
     i8 4, label %nextc0.exit.thread1205
     i8 26, label %nextc0.exit.thread1205
-    i8 95, label %2698
-    i8 64, label %2696
+    i8 95, label %2696
+    i8 64, label %2694
     i8 32, label %warn_cr.exit.preheader
     i8 9, label %warn_cr.exit.preheader
     i8 12, label %warn_cr.exit.preheader
     i8 11, label %warn_cr.exit.preheader
     i8 35, label %1128
     i8 10, label %ripper_dispatch_scan_event.exit909
-    i8 42, label %1589
-    i8 33, label %1662
-    i8 61, label %1677
-    i8 60, label %1781
-    i8 62, label %1837
-    i8 34, label %1858
-    i8 96, label %1872
-    i8 39, label %1896
-    i8 63, label %1910
-    i8 38, label %1912
-    i8 124, label %1988
-    i8 43, label %2037
-    i8 45, label %2088
-    i8 46, label %2146
-    i8 48, label %2290
-    i8 49, label %2290
-    i8 50, label %2290
-    i8 51, label %2290
-    i8 52, label %2290
-    i8 53, label %2290
-    i8 54, label %2290
-    i8 55, label %2290
-    i8 56, label %2290
-    i8 57, label %2290
-    i8 41, label %2292
-    i8 93, label %2314
-    i8 125, label %2336
-    i8 58, label %2362
-    i8 47, label %2421
-    i8 94, label %2466
-    i8 59, label %2484
-    i8 44, label %2492
-    i8 126, label %2498
-    i8 40, label %2515
-    i8 91, label %2560
-    i8 123, label %2615
-    i8 92, label %2657
-    i8 37, label %2692
-    i8 36, label %2694
+    i8 42, label %1587
+    i8 33, label %1660
+    i8 61, label %1675
+    i8 60, label %1779
+    i8 62, label %1835
+    i8 34, label %1856
+    i8 96, label %1870
+    i8 39, label %1894
+    i8 63, label %1908
+    i8 38, label %1910
+    i8 124, label %1986
+    i8 43, label %2035
+    i8 45, label %2086
+    i8 46, label %2144
+    i8 48, label %2288
+    i8 49, label %2288
+    i8 50, label %2288
+    i8 51, label %2288
+    i8 52, label %2288
+    i8 53, label %2288
+    i8 54, label %2288
+    i8 55, label %2288
+    i8 56, label %2288
+    i8 57, label %2288
+    i8 41, label %2290
+    i8 93, label %2312
+    i8 125, label %2334
+    i8 58, label %2360
+    i8 47, label %2419
+    i8 94, label %2464
+    i8 59, label %2482
+    i8 44, label %2490
+    i8 126, label %2496
+    i8 40, label %2513
+    i8 91, label %2558
+    i8 123, label %2613
+    i8 92, label %2655
+    i8 37, label %2690
+    i8 36, label %2692
   ], !prof !513
 
 1054:                                             ; preds = %1049
@@ -36841,1292 +36841,1290 @@ magic_comment_marker.exit.i:                      ; preds = %1153, %1144
 
 magic_comment_marker.exit231.i:                   ; preds = %1178, %1169
   %.sink2614 = phi i64 [ 1, %1169 ], [ 2, %1178 ]
-  %1184 = getelementptr inbounds nuw i8, ptr %1163, i64 %.sink2614
-  %1185 = ptrtoint ptr %1184 to i64
-  %reass.sub = sub i64 %1185, %1160
-  %1186 = add i64 %reass.sub, -3
+  %reass.sub = add nuw i64 %.028.i226.i, %.sink2614
+  %1184 = add i64 %reass.sub, -3
   br label %magic_comment_marker.exit.thread.i
 
 magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic_comment_marker.exit231.i
   %.not265.i = phi i1 [ false, %magic_comment_marker.exit231.i ], [ true, %1148 ], [ true, %1156 ]
-  %.0153.i = phi i64 [ %1186, %magic_comment_marker.exit231.i ], [ %1136, %1148 ], [ %1136, %1156 ]
+  %.0153.i = phi i64 [ %1184, %magic_comment_marker.exit231.i ], [ %1136, %1148 ], [ %1136, %1156 ]
   %.0147.i = phi ptr [ %1159, %magic_comment_marker.exit231.i ], [ %1051, %1148 ], [ %1051, %1156 ]
-  %1187 = icmp sgt i64 %.0153.i, 0
-  br i1 %1187, label %.preheader295.i, label %parser_magic_comment.exit
+  %1185 = icmp sgt i64 %.0153.i, 0
+  br i1 %1185, label %.preheader295.i, label %parser_magic_comment.exit
 
-.preheader295.i:                                  ; preds = %magic_comment_marker.exit.thread.i, %1349
-  %.1148389.i = phi ptr [ %.5.i, %1349 ], [ %.0147.i, %magic_comment_marker.exit.thread.i ]
-  %.1154388.i = phi i64 [ %.5158.i, %1349 ], [ %.0153.i, %magic_comment_marker.exit.thread.i ]
-  %.0173387.i = phi i64 [ %.1174.i, %1349 ], [ 0, %magic_comment_marker.exit.thread.i ]
-  %.0179386.i = phi i64 [ %.1180.i, %1349 ], [ 0, %magic_comment_marker.exit.thread.i ]
-  br label %1188
+.preheader295.i:                                  ; preds = %magic_comment_marker.exit.thread.i, %1347
+  %.1148389.i = phi ptr [ %.5.i, %1347 ], [ %.0147.i, %magic_comment_marker.exit.thread.i ]
+  %.1154388.i = phi i64 [ %.5158.i, %1347 ], [ %.0153.i, %magic_comment_marker.exit.thread.i ]
+  %.0173387.i = phi i64 [ %.1174.i, %1347 ], [ 0, %magic_comment_marker.exit.thread.i ]
+  %.0179386.i = phi i64 [ %.1180.i, %1347 ], [ 0, %magic_comment_marker.exit.thread.i ]
+  br label %1186
 
-1188:                                             ; preds = %1195, %.preheader295.i
-  %.2149325.i = phi ptr [ %.1148389.i, %.preheader295.i ], [ %1196, %1195 ]
-  %.2155324.i = phi i64 [ %.1154388.i, %.preheader295.i ], [ %1197, %1195 ]
-  %1189 = load i8, ptr %.2149325.i, align 1, !tbaa !6
-  switch i8 %1189, label %1190 [
+1186:                                             ; preds = %1193, %.preheader295.i
+  %.2149325.i = phi ptr [ %.1148389.i, %.preheader295.i ], [ %1194, %1193 ]
+  %.2155324.i = phi i64 [ %.1154388.i, %.preheader295.i ], [ %1195, %1193 ]
+  %1187 = load i8, ptr %.2149325.i, align 1, !tbaa !6
+  switch i8 %1187, label %1188 [
     i8 0, label %.lr.ph.i882.preheader
-    i8 39, label %1195
-    i8 34, label %1195
-    i8 58, label %1195
-    i8 59, label %1195
+    i8 39, label %1193
+    i8 34, label %1193
+    i8 58, label %1193
+    i8 59, label %1193
   ]
 
-.lr.ph.i882.preheader:                            ; preds = %1190, %1188
+.lr.ph.i882.preheader:                            ; preds = %1188, %1186
   br label %.lr.ph.i882
 
-1190:                                             ; preds = %1188
-  %1191 = sext i8 %1189 to i32
-  %1192 = icmp ne i8 %1189, 32
-  %1193 = add nsw i32 %1191, -14
-  %1194 = icmp ult i32 %1193, -5
-  %narrow.i.not.i = and i1 %1192, %1194
-  br i1 %narrow.i.not.i, label %.lr.ph.i882.preheader, label %1195
+1188:                                             ; preds = %1186
+  %1189 = sext i8 %1187 to i32
+  %1190 = icmp ne i8 %1187, 32
+  %1191 = add nsw i32 %1189, -14
+  %1192 = icmp ult i32 %1191, -5
+  %narrow.i.not.i = and i1 %1190, %1192
+  br i1 %narrow.i.not.i, label %.lr.ph.i882.preheader, label %1193
 
-1195:                                             ; preds = %1190, %1188, %1188, %1188, %1188
-  %1196 = getelementptr inbounds nuw i8, ptr %.2149325.i, i64 1
-  %1197 = add nsw i64 %.2155324.i, -1
-  %1198 = icmp sgt i64 %.2155324.i, 1
-  br i1 %1198, label %1188, label %parser_magic_comment.exit, !llvm.loop !517
+1193:                                             ; preds = %1188, %1186, %1186, %1186, %1186
+  %1194 = getelementptr inbounds nuw i8, ptr %.2149325.i, i64 1
+  %1195 = add nsw i64 %.2155324.i, -1
+  %1196 = icmp sgt i64 %.2155324.i, 1
+  br i1 %1196, label %1186, label %parser_magic_comment.exit, !llvm.loop !517
 
-.lr.ph.i882:                                      ; preds = %.lr.ph.i882.preheader, %1205
-  %.3150327.i = phi ptr [ %1206, %1205 ], [ %.2149325.i, %.lr.ph.i882.preheader ]
-  %.3156326.i = phi i64 [ %1207, %1205 ], [ %.2155324.i, %.lr.ph.i882.preheader ]
-  %1199 = load i8, ptr %.3150327.i, align 1, !tbaa !6
-  switch i8 %1199, label %1200 [
+.lr.ph.i882:                                      ; preds = %.lr.ph.i882.preheader, %1203
+  %.3150327.i = phi ptr [ %1204, %1203 ], [ %.2149325.i, %.lr.ph.i882.preheader ]
+  %.3156326.i = phi i64 [ %1205, %1203 ], [ %.2155324.i, %.lr.ph.i882.preheader ]
+  %1197 = load i8, ptr %.3150327.i, align 1, !tbaa !6
+  switch i8 %1197, label %1198 [
     i8 39, label %.lr.ph347.i.preheader
     i8 34, label %.lr.ph347.i.preheader
     i8 58, label %.lr.ph347.i.preheader
     i8 59, label %.lr.ph347.i.preheader
   ]
 
-.lr.ph347.i.preheader:                            ; preds = %1200, %.lr.ph.i882, %.lr.ph.i882, %.lr.ph.i882, %.lr.ph.i882
+.lr.ph347.i.preheader:                            ; preds = %1198, %.lr.ph.i882, %.lr.ph.i882, %.lr.ph.i882, %.lr.ph.i882
   br label %.lr.ph347.i
 
-1200:                                             ; preds = %.lr.ph.i882
-  %1201 = sext i8 %1199 to i32
-  %1202 = icmp ne i8 %1199, 32
-  %1203 = add nsw i32 %1201, -14
-  %1204 = icmp ult i32 %1203, -5
-  %narrow.i232.not.i = and i1 %1202, %1204
-  br i1 %narrow.i232.not.i, label %1205, label %.lr.ph347.i.preheader
+1198:                                             ; preds = %.lr.ph.i882
+  %1199 = sext i8 %1197 to i32
+  %1200 = icmp ne i8 %1197, 32
+  %1201 = add nsw i32 %1199, -14
+  %1202 = icmp ult i32 %1201, -5
+  %narrow.i232.not.i = and i1 %1200, %1202
+  br i1 %narrow.i232.not.i, label %1203, label %.lr.ph347.i.preheader
 
-1205:                                             ; preds = %1200
-  %1206 = getelementptr inbounds nuw i8, ptr %.3150327.i, i64 1
-  %1207 = add nsw i64 %.3156326.i, -1
-  %1208 = icmp sgt i64 %.3156326.i, 1
-  br i1 %1208, label %.lr.ph.i882, label %parser_magic_comment.exit, !llvm.loop !518
+1203:                                             ; preds = %1198
+  %1204 = getelementptr inbounds nuw i8, ptr %.3150327.i, i64 1
+  %1205 = add nsw i64 %.3156326.i, -1
+  %1206 = icmp sgt i64 %.3156326.i, 1
+  br i1 %1206, label %.lr.ph.i882, label %parser_magic_comment.exit, !llvm.loop !518
 
-.lr.ph347.i:                                      ; preds = %.lr.ph347.i.preheader, %1214
-  %.4345.i = phi ptr [ %1215, %1214 ], [ %.3150327.i, %.lr.ph347.i.preheader ]
-  %.4157344.i = phi i64 [ %1216, %1214 ], [ %.3156326.i, %.lr.ph347.i.preheader ]
-  %1209 = load i8, ptr %.4345.i, align 1, !tbaa !6
-  %1210 = sext i8 %1209 to i32
-  %1211 = icmp ne i8 %1209, 32
-  %1212 = add nsw i32 %1210, -14
-  %1213 = icmp ult i32 %1212, -5
-  %narrow.i233.not.i = and i1 %1211, %1213
-  br i1 %narrow.i233.not.i, label %.critedge2.thread.i, label %1214
+.lr.ph347.i:                                      ; preds = %.lr.ph347.i.preheader, %1212
+  %.4345.i = phi ptr [ %1213, %1212 ], [ %.3150327.i, %.lr.ph347.i.preheader ]
+  %.4157344.i = phi i64 [ %1214, %1212 ], [ %.3156326.i, %.lr.ph347.i.preheader ]
+  %1207 = load i8, ptr %.4345.i, align 1, !tbaa !6
+  %1208 = sext i8 %1207 to i32
+  %1209 = icmp ne i8 %1207, 32
+  %1210 = add nsw i32 %1208, -14
+  %1211 = icmp ult i32 %1210, -5
+  %narrow.i233.not.i = and i1 %1209, %1211
+  br i1 %narrow.i233.not.i, label %.critedge2.thread.i, label %1212
 
-1214:                                             ; preds = %.lr.ph347.i
-  %1215 = getelementptr inbounds nuw i8, ptr %.4345.i, i64 1
-  %1216 = add nsw i64 %.4157344.i, -1
-  %1217 = icmp sgt i64 %.4157344.i, 1
-  br i1 %1217, label %.lr.ph347.i, label %parser_magic_comment.exit, !llvm.loop !519
+1212:                                             ; preds = %.lr.ph347.i
+  %1213 = getelementptr inbounds nuw i8, ptr %.4345.i, i64 1
+  %1214 = add nsw i64 %.4157344.i, -1
+  %1215 = icmp sgt i64 %.4157344.i, 1
+  br i1 %1215, label %.lr.ph347.i, label %parser_magic_comment.exit, !llvm.loop !519
 
 .critedge2.thread.i:                              ; preds = %.lr.ph347.i
-  %.not206.i = icmp eq i8 %1209, 58
-  br i1 %.not206.i, label %.preheader294.preheader.i, label %1219
+  %.not206.i = icmp eq i8 %1207, 58
+  br i1 %.not206.i, label %.preheader294.preheader.i, label %1217
 
 .preheader294.preheader.i:                        ; preds = %.critedge2.thread.i
   %smin425.i = tail call i64 @llvm.smin.i64(i64 %.4157344.i, i64 1)
-  %1218 = add i64 %smin425.i, -1
+  %1216 = add i64 %smin425.i, -1
   br label %.preheader294.i
 
-1219:                                             ; preds = %.critedge2.thread.i
-  br i1 %.not265.i, label %.loopexit, label %1349
+1217:                                             ; preds = %.critedge2.thread.i
+  br i1 %.not265.i, label %.loopexit, label %1347
 
-.preheader294.i:                                  ; preds = %1222, %.preheader294.preheader.i
-  %.6159.i = phi i64 [ %1223, %1222 ], [ %.4157344.i, %.preheader294.preheader.i ]
-  %.6.i = phi ptr [ %1220, %1222 ], [ %.4345.i, %.preheader294.preheader.i ]
-  %1220 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
-  %1221 = icmp sgt i64 %.6159.i, 1
-  br i1 %1221, label %1222, label %.critedge4.i
+.preheader294.i:                                  ; preds = %1220, %.preheader294.preheader.i
+  %.6159.i = phi i64 [ %1221, %1220 ], [ %.4157344.i, %.preheader294.preheader.i ]
+  %.6.i = phi ptr [ %1218, %1220 ], [ %.4345.i, %.preheader294.preheader.i ]
+  %1218 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
+  %1219 = icmp sgt i64 %.6159.i, 1
+  br i1 %1219, label %1220, label %.critedge4.i
 
-1222:                                             ; preds = %.preheader294.i
-  %1223 = add nsw i64 %.6159.i, -1
-  %1224 = load i8, ptr %1220, align 1, !tbaa !6
-  %1225 = sext i8 %1224 to i32
-  %1226 = icmp ne i8 %1224, 32
-  %1227 = add nsw i32 %1225, -14
-  %1228 = icmp ult i32 %1227, -5
-  %narrow.i234.not.i = and i1 %1226, %1228
+1220:                                             ; preds = %.preheader294.i
+  %1221 = add nsw i64 %.6159.i, -1
+  %1222 = load i8, ptr %1218, align 1, !tbaa !6
+  %1223 = sext i8 %1222 to i32
+  %1224 = icmp ne i8 %1222, 32
+  %1225 = add nsw i32 %1223, -14
+  %1226 = icmp ult i32 %1225, -5
+  %narrow.i234.not.i = and i1 %1224, %1226
   br i1 %narrow.i234.not.i, label %.critedge4.thread.i, label %.preheader294.i, !llvm.loop !520
 
 .critedge4.i:                                     ; preds = %.preheader294.i
-  %.not208.i = icmp eq i64 %1218, 0
+  %.not208.i = icmp eq i64 %1216, 0
   br i1 %.not208.i, label %parser_magic_comment.exit, label %.critedge4.thread.i
 
-.critedge4.thread.i:                              ; preds = %1222, %.critedge4.i
-  %.6159408.i = phi i64 [ %smin425.i, %.critedge4.i ], [ %.6159.i, %1222 ]
-  %1229 = phi i64 [ %1218, %.critedge4.i ], [ %1223, %1222 ]
-  %1230 = load i8, ptr %1220, align 1, !tbaa !6
-  %1231 = icmp eq i8 %1230, 34
-  br i1 %1231, label %1234, label %.preheader293.i
+.critedge4.thread.i:                              ; preds = %1220, %.critedge4.i
+  %.6159408.i = phi i64 [ %smin425.i, %.critedge4.i ], [ %.6159.i, %1220 ]
+  %1227 = phi i64 [ %1216, %.critedge4.i ], [ %1221, %1220 ]
+  %1228 = load i8, ptr %1218, align 1, !tbaa !6
+  %1229 = icmp eq i8 %1228, 34
+  br i1 %1229, label %1232, label %.preheader293.i
 
 .preheader293.i:                                  ; preds = %.critedge4.thread.i
-  %1232 = icmp sgt i64 %.6159408.i, 1
-  br i1 %1232, label %.lr.ph352.preheader.i, label %.critedge8.i
+  %1230 = icmp sgt i64 %.6159408.i, 1
+  br i1 %1230, label %.lr.ph352.preheader.i, label %.critedge8.i
 
 .lr.ph352.preheader.i:                            ; preds = %.preheader293.i
-  %smin426.i = tail call i64 @llvm.smin.i64(i64 %1229, i64 1)
-  %1233 = add i64 %smin426.i, -1
+  %smin426.i = tail call i64 @llvm.smin.i64(i64 %1227, i64 1)
+  %1231 = add i64 %smin426.i, -1
   br label %.lr.ph352.i
 
-1234:                                             ; preds = %.critedge4.thread.i
-  %1235 = getelementptr inbounds nuw i8, ptr %.6.i, i64 2
-  %1236 = add nsw i64 %.6159408.i, -2
-  %1237 = icmp sgt i64 %.6159408.i, 2
-  br i1 %1237, label %.lr.ph367.i, label %.critedge6.i
+1232:                                             ; preds = %.critedge4.thread.i
+  %1233 = getelementptr inbounds nuw i8, ptr %.6.i, i64 2
+  %1234 = add nsw i64 %.6159408.i, -2
+  %1235 = icmp sgt i64 %.6159408.i, 2
+  br i1 %1235, label %.lr.ph367.i, label %.critedge6.i
 
-.lr.ph367.i:                                      ; preds = %1234, %1243
-  %1238 = phi i64 [ %1245, %1243 ], [ %1236, %1234 ]
-  %.7365.i = phi ptr [ %1244, %1243 ], [ %1235, %1234 ]
-  %.7160364.i = phi i64 [ %.8161.i, %1243 ], [ %1229, %1234 ]
-  %1239 = load i8, ptr %.7365.i, align 1, !tbaa !6
-  switch i8 %1239, label %1243 [
+.lr.ph367.i:                                      ; preds = %1232, %1241
+  %1236 = phi i64 [ %1243, %1241 ], [ %1234, %1232 ]
+  %.7365.i = phi ptr [ %1242, %1241 ], [ %1233, %1232 ]
+  %.7160364.i = phi i64 [ %.8161.i, %1241 ], [ %1227, %1232 ]
+  %1237 = load i8, ptr %.7365.i, align 1, !tbaa !6
+  switch i8 %1237, label %1241 [
     i8 34, label %.critedge6.thread.i
-    i8 92, label %1240
+    i8 92, label %1238
   ]
 
-1240:                                             ; preds = %.lr.ph367.i
-  %1241 = add nsw i64 %.7160364.i, -2
-  %1242 = getelementptr inbounds nuw i8, ptr %.7365.i, i64 1
-  br label %1243
+1238:                                             ; preds = %.lr.ph367.i
+  %1239 = add nsw i64 %.7160364.i, -2
+  %1240 = getelementptr inbounds nuw i8, ptr %.7365.i, i64 1
+  br label %1241
 
-1243:                                             ; preds = %1240, %.lr.ph367.i
-  %.8161.i = phi i64 [ %1241, %1240 ], [ %1238, %.lr.ph367.i ]
-  %.8.i = phi ptr [ %1242, %1240 ], [ %.7365.i, %.lr.ph367.i ]
-  %1244 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
-  %1245 = add nsw i64 %.8161.i, -1
-  %1246 = icmp sgt i64 %.8161.i, 1
-  br i1 %1246, label %.lr.ph367.i, label %.critedge6.i, !llvm.loop !521
+1241:                                             ; preds = %1238, %.lr.ph367.i
+  %.8161.i = phi i64 [ %1239, %1238 ], [ %1236, %.lr.ph367.i ]
+  %.8.i = phi ptr [ %1240, %1238 ], [ %.7365.i, %.lr.ph367.i ]
+  %1242 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
+  %1243 = add nsw i64 %.8161.i, -1
+  %1244 = icmp sgt i64 %.8161.i, 1
+  br i1 %1244, label %.lr.ph367.i, label %.critedge6.i, !llvm.loop !521
 
-.critedge6.i:                                     ; preds = %1243, %1234
-  %.7160.lcssa.i = phi i64 [ %1229, %1234 ], [ %.8161.i, %1243 ]
-  %.7.lcssa.i = phi ptr [ %1235, %1234 ], [ %1244, %1243 ]
-  %.lcssa307.i = phi i64 [ %1236, %1234 ], [ %1245, %1243 ]
+.critedge6.i:                                     ; preds = %1241, %1232
+  %.7160.lcssa.i = phi i64 [ %1227, %1232 ], [ %.8161.i, %1241 ]
+  %.7.lcssa.i = phi ptr [ %1233, %1232 ], [ %1242, %1241 ]
+  %.lcssa307.i = phi i64 [ %1234, %1232 ], [ %1243, %1241 ]
   %.not213.i = icmp eq i64 %.lcssa307.i, 0
   br i1 %.not213.i, label %.critedge10.i, label %.critedge6.thread.i
 
 .critedge6.thread.i:                              ; preds = %.lr.ph367.i, %.critedge6.i
   %.7160312.i = phi i64 [ %.7160.lcssa.i, %.critedge6.i ], [ %.7160364.i, %.lr.ph367.i ]
   %.7310.i = phi ptr [ %.7.lcssa.i, %.critedge6.i ], [ %.7365.i, %.lr.ph367.i ]
-  %1247 = add nsw i64 %.7160312.i, -2
-  %1248 = getelementptr inbounds nuw i8, ptr %.7310.i, i64 1
+  %1245 = add nsw i64 %.7160312.i, -2
+  %1246 = getelementptr inbounds nuw i8, ptr %.7310.i, i64 1
   br label %.critedge8.i
 
-.lr.ph352.i:                                      ; preds = %1255, %.lr.ph352.preheader.i
-  %.10351.i = phi ptr [ %1257, %1255 ], [ %1220, %.lr.ph352.preheader.i ]
-  %.10163350.i = phi i64 [ %1256, %1255 ], [ %1229, %.lr.ph352.preheader.i ]
-  %1249 = load i8, ptr %.10351.i, align 1, !tbaa !6
-  switch i8 %1249, label %1250 [
+.lr.ph352.i:                                      ; preds = %1253, %.lr.ph352.preheader.i
+  %.10351.i = phi ptr [ %1255, %1253 ], [ %1218, %.lr.ph352.preheader.i ]
+  %.10163350.i = phi i64 [ %1254, %1253 ], [ %1227, %.lr.ph352.preheader.i ]
+  %1247 = load i8, ptr %.10351.i, align 1, !tbaa !6
+  switch i8 %1247, label %1248 [
     i8 34, label %.critedge8.i
     i8 59, label %.critedge8.i
   ]
 
-1250:                                             ; preds = %.lr.ph352.i
-  %1251 = sext i8 %1249 to i32
-  %1252 = icmp ne i8 %1249, 32
-  %1253 = add nsw i32 %1251, -14
-  %1254 = icmp ult i32 %1253, -5
-  %narrow.i235.not.i = and i1 %1252, %1254
-  br i1 %narrow.i235.not.i, label %1255, label %.critedge8.i
+1248:                                             ; preds = %.lr.ph352.i
+  %1249 = sext i8 %1247 to i32
+  %1250 = icmp ne i8 %1247, 32
+  %1251 = add nsw i32 %1249, -14
+  %1252 = icmp ult i32 %1251, -5
+  %narrow.i235.not.i = and i1 %1250, %1252
+  br i1 %narrow.i235.not.i, label %1253, label %.critedge8.i
 
-1255:                                             ; preds = %1250
-  %1256 = add nsw i64 %.10163350.i, -1
-  %1257 = getelementptr inbounds nuw i8, ptr %.10351.i, i64 1
-  %1258 = icmp sgt i64 %.10163350.i, 1
-  br i1 %1258, label %.lr.ph352.i, label %.critedge8.i, !llvm.loop !522
+1253:                                             ; preds = %1248
+  %1254 = add nsw i64 %.10163350.i, -1
+  %1255 = getelementptr inbounds nuw i8, ptr %.10351.i, i64 1
+  %1256 = icmp sgt i64 %.10163350.i, 1
+  br i1 %1256, label %.lr.ph352.i, label %.critedge8.i, !llvm.loop !522
 
-.critedge8.i:                                     ; preds = %1255, %1250, %.lr.ph352.i, %.lr.ph352.i, %.critedge6.thread.i, %.preheader293.i
-  %.0172.i = phi ptr [ %1235, %.critedge6.thread.i ], [ %1220, %.preheader293.i ], [ %1220, %.lr.ph352.i ], [ %1220, %.lr.ph352.i ], [ %1220, %1250 ], [ %1220, %1255 ]
-  %.0171.i = phi ptr [ %.7310.i, %.critedge6.thread.i ], [ %1220, %.preheader293.i ], [ %1257, %1255 ], [ %.10351.i, %1250 ], [ %.10351.i, %.lr.ph352.i ], [ %.10351.i, %.lr.ph352.i ]
-  %.9162.i = phi i64 [ %1247, %.critedge6.thread.i ], [ %1229, %.preheader293.i ], [ %1233, %1255 ], [ %.10163350.i, %1250 ], [ %.10163350.i, %.lr.ph352.i ], [ %.10163350.i, %.lr.ph352.i ]
-  %.9.i = phi ptr [ %1248, %.critedge6.thread.i ], [ %1220, %.preheader293.i ], [ %1257, %1255 ], [ %.10351.i, %1250 ], [ %.10351.i, %.lr.ph352.i ], [ %.10351.i, %.lr.ph352.i ]
-  %1259 = icmp sgt i64 %.9162.i, 0
+.critedge8.i:                                     ; preds = %1253, %1248, %.lr.ph352.i, %.lr.ph352.i, %.critedge6.thread.i, %.preheader293.i
+  %.0172.i = phi ptr [ %1233, %.critedge6.thread.i ], [ %1218, %.preheader293.i ], [ %1218, %.lr.ph352.i ], [ %1218, %.lr.ph352.i ], [ %1218, %1248 ], [ %1218, %1253 ]
+  %.0171.i = phi ptr [ %.7310.i, %.critedge6.thread.i ], [ %1218, %.preheader293.i ], [ %1255, %1253 ], [ %.10351.i, %1248 ], [ %.10351.i, %.lr.ph352.i ], [ %.10351.i, %.lr.ph352.i ]
+  %.9162.i = phi i64 [ %1245, %.critedge6.thread.i ], [ %1227, %.preheader293.i ], [ %1231, %1253 ], [ %.10163350.i, %1248 ], [ %.10163350.i, %.lr.ph352.i ], [ %.10163350.i, %.lr.ph352.i ]
+  %.9.i = phi ptr [ %1246, %.critedge6.thread.i ], [ %1218, %.preheader293.i ], [ %1255, %1253 ], [ %.10351.i, %1248 ], [ %.10351.i, %.lr.ph352.i ], [ %.10351.i, %.lr.ph352.i ]
+  %1257 = icmp sgt i64 %.9162.i, 0
   br i1 %.not265.i, label %.preheader291.i, label %.preheader292.i
 
 .preheader292.i:                                  ; preds = %.critedge8.i
-  br i1 %1259, label %.lr.ph373.preheader.i, label %.critedge10.i
+  br i1 %1257, label %.lr.ph373.preheader.i, label %.critedge10.i
 
 .lr.ph373.preheader.i:                            ; preds = %.preheader292.i
   %scevgep427.i = getelementptr i8, ptr %.9.i, i64 %.9162.i
   br label %.lr.ph373.i
 
 .preheader291.i:                                  ; preds = %.critedge8.i
-  br i1 %1259, label %.lr.ph381.preheader.i, label %.critedge14.i
+  br i1 %1257, label %.lr.ph381.preheader.i, label %.critedge14.i
 
 .lr.ph381.preheader.i:                            ; preds = %.preheader291.i
   %scevgep428.i = getelementptr i8, ptr %.9.i, i64 %.9162.i
   br label %.lr.ph381.i
 
 .lr.ph373.i:                                      ; preds = %.critedge12.i, %.lr.ph373.preheader.i
-  %.11372.i = phi ptr [ %1268, %.critedge12.i ], [ %.9.i, %.lr.ph373.preheader.i ]
-  %.11164371.i = phi i64 [ %1267, %.critedge12.i ], [ %.9162.i, %.lr.ph373.preheader.i ]
-  %1260 = load i8, ptr %.11372.i, align 1, !tbaa !6
-  %1261 = icmp eq i8 %1260, 59
-  br i1 %1261, label %.critedge12.i, label %1262
+  %.11372.i = phi ptr [ %1266, %.critedge12.i ], [ %.9.i, %.lr.ph373.preheader.i ]
+  %.11164371.i = phi i64 [ %1265, %.critedge12.i ], [ %.9162.i, %.lr.ph373.preheader.i ]
+  %1258 = load i8, ptr %.11372.i, align 1, !tbaa !6
+  %1259 = icmp eq i8 %1258, 59
+  br i1 %1259, label %.critedge12.i, label %1260
 
-1262:                                             ; preds = %.lr.ph373.i
-  %1263 = sext i8 %1260 to i32
-  %1264 = icmp ne i8 %1260, 32
-  %1265 = add nsw i32 %1263, -14
-  %1266 = icmp ult i32 %1265, -5
-  %narrow.i236.not.i = and i1 %1264, %1266
+1260:                                             ; preds = %.lr.ph373.i
+  %1261 = sext i8 %1258 to i32
+  %1262 = icmp ne i8 %1258, 32
+  %1263 = add nsw i32 %1261, -14
+  %1264 = icmp ult i32 %1263, -5
+  %narrow.i236.not.i = and i1 %1262, %1264
   br i1 %narrow.i236.not.i, label %.critedge10.i, label %.critedge12.i
 
-.critedge12.i:                                    ; preds = %1262, %.lr.ph373.i
-  %1267 = add nsw i64 %.11164371.i, -1
-  %1268 = getelementptr inbounds nuw i8, ptr %.11372.i, i64 1
-  %1269 = icmp sgt i64 %.11164371.i, 1
-  br i1 %1269, label %.lr.ph373.i, label %.critedge10.i, !llvm.loop !523
+.critedge12.i:                                    ; preds = %1260, %.lr.ph373.i
+  %1265 = add nsw i64 %.11164371.i, -1
+  %1266 = getelementptr inbounds nuw i8, ptr %.11372.i, i64 1
+  %1267 = icmp sgt i64 %.11164371.i, 1
+  br i1 %1267, label %.lr.ph373.i, label %.critedge10.i, !llvm.loop !523
 
-.lr.ph381.i:                                      ; preds = %1275, %.lr.ph381.preheader.i
-  %.13380.i = phi ptr [ %1277, %1275 ], [ %.9.i, %.lr.ph381.preheader.i ]
-  %.13166379.i = phi i64 [ %1276, %1275 ], [ %.9162.i, %.lr.ph381.preheader.i ]
-  %1270 = load i8, ptr %.13380.i, align 1, !tbaa !6
-  %1271 = sext i8 %1270 to i32
-  %1272 = icmp ne i8 %1270, 32
-  %1273 = add nsw i32 %1271, -14
-  %1274 = icmp ult i32 %1273, -5
-  %narrow.i237.not.i = and i1 %1272, %1274
-  br i1 %narrow.i237.not.i, label %.loopexit, label %1275
+.lr.ph381.i:                                      ; preds = %1273, %.lr.ph381.preheader.i
+  %.13380.i = phi ptr [ %1275, %1273 ], [ %.9.i, %.lr.ph381.preheader.i ]
+  %.13166379.i = phi i64 [ %1274, %1273 ], [ %.9162.i, %.lr.ph381.preheader.i ]
+  %1268 = load i8, ptr %.13380.i, align 1, !tbaa !6
+  %1269 = sext i8 %1268 to i32
+  %1270 = icmp ne i8 %1268, 32
+  %1271 = add nsw i32 %1269, -14
+  %1272 = icmp ult i32 %1271, -5
+  %narrow.i237.not.i = and i1 %1270, %1272
+  br i1 %narrow.i237.not.i, label %.loopexit, label %1273
 
-1275:                                             ; preds = %.lr.ph381.i
-  %1276 = add nsw i64 %.13166379.i, -1
-  %1277 = getelementptr inbounds nuw i8, ptr %.13380.i, i64 1
-  %1278 = icmp sgt i64 %.13166379.i, 1
-  br i1 %1278, label %.lr.ph381.i, label %.critedge10.i, !llvm.loop !524
+1273:                                             ; preds = %.lr.ph381.i
+  %1274 = add nsw i64 %.13166379.i, -1
+  %1275 = getelementptr inbounds nuw i8, ptr %.13380.i, i64 1
+  %1276 = icmp sgt i64 %.13166379.i, 1
+  br i1 %1276, label %.lr.ph381.i, label %.critedge10.i, !llvm.loop !524
 
 .critedge14.i:                                    ; preds = %.preheader291.i
   %.not216.i = icmp eq i64 %.9162.i, 0
   br i1 %.not216.i, label %.critedge10.i, label %.loopexit
 
-.critedge10.i:                                    ; preds = %.critedge12.i, %1262, %1275, %.critedge14.i, %.preheader292.i, %.critedge6.i
-  %.9466.i = phi ptr [ %.9.i, %.critedge14.i ], [ %.9.i, %.preheader292.i ], [ %.7.lcssa.i, %.critedge6.i ], [ %.9.i, %1275 ], [ %.9.i, %1262 ], [ %.9.i, %.critedge12.i ]
-  %.0171461.i = phi ptr [ %.0171.i, %.critedge14.i ], [ %.0171.i, %.preheader292.i ], [ %.7.lcssa.i, %.critedge6.i ], [ %.0171.i, %1275 ], [ %.0171.i, %1262 ], [ %.0171.i, %.critedge12.i ]
-  %.0172458.i = phi ptr [ %.0172.i, %.critedge14.i ], [ %.0172.i, %.preheader292.i ], [ %1235, %.critedge6.i ], [ %.0172.i, %1275 ], [ %.0172.i, %1262 ], [ %.0172.i, %.critedge12.i ]
-  %.12165.i = phi i64 [ 0, %.critedge14.i ], [ %.9162.i, %.preheader292.i ], [ 0, %.critedge6.i ], [ 0, %1275 ], [ 0, %.critedge12.i ], [ %.11164371.i, %1262 ]
-  %.12.i = phi ptr [ %.9.i, %.critedge14.i ], [ %.9.i, %.preheader292.i ], [ %.7.lcssa.i, %.critedge6.i ], [ %scevgep428.i, %1275 ], [ %scevgep427.i, %.critedge12.i ], [ %.11372.i, %1262 ]
-  %1279 = ptrtoint ptr %.3150327.i to i64
-  %1280 = ptrtoint ptr %.2149325.i to i64
-  %1281 = sub i64 %1279, %1280
+.critedge10.i:                                    ; preds = %.critedge12.i, %1260, %1273, %.critedge14.i, %.preheader292.i, %.critedge6.i
+  %.9466.i = phi ptr [ %.9.i, %.critedge14.i ], [ %.9.i, %.preheader292.i ], [ %.7.lcssa.i, %.critedge6.i ], [ %.9.i, %1273 ], [ %.9.i, %1260 ], [ %.9.i, %.critedge12.i ]
+  %.0171461.i = phi ptr [ %.0171.i, %.critedge14.i ], [ %.0171.i, %.preheader292.i ], [ %.7.lcssa.i, %.critedge6.i ], [ %.0171.i, %1273 ], [ %.0171.i, %1260 ], [ %.0171.i, %.critedge12.i ]
+  %.0172458.i = phi ptr [ %.0172.i, %.critedge14.i ], [ %.0172.i, %.preheader292.i ], [ %1233, %.critedge6.i ], [ %.0172.i, %1273 ], [ %.0172.i, %1260 ], [ %.0172.i, %.critedge12.i ]
+  %.12165.i = phi i64 [ 0, %.critedge14.i ], [ %.9162.i, %.preheader292.i ], [ 0, %.critedge6.i ], [ 0, %1273 ], [ 0, %.critedge12.i ], [ %.11164371.i, %1260 ]
+  %.12.i = phi ptr [ %.9.i, %.critedge14.i ], [ %.9.i, %.preheader292.i ], [ %.7.lcssa.i, %.critedge6.i ], [ %scevgep428.i, %1273 ], [ %scevgep427.i, %.critedge12.i ], [ %.11372.i, %1260 ]
+  %1277 = ptrtoint ptr %.3150327.i to i64
+  %1278 = ptrtoint ptr %.2149325.i to i64
+  %1279 = sub i64 %1277, %1278
   %.not218.i = icmp eq i64 %.0179386.i, 0
-  br i1 %.not218.i, label %1290, label %1282
+  br i1 %.not218.i, label %1288, label %1280
 
-1282:                                             ; preds = %.critedge10.i
-  %1283 = tail call i64 @rb_str_resize(i64 noundef %.0179386.i, i64 noundef %1281) #31
-  %1284 = inttoptr i64 %.0179386.i to ptr
-  %1285 = load i64, ptr %1284, align 8, !tbaa !420, !noalias !525
-  %1286 = and i64 %1285, 8192
-  %.not.i.i.i883 = icmp eq i64 %1286, 0
-  %1287 = getelementptr inbounds nuw i8, ptr %1284, i64 24
-  br i1 %.not.i.i.i883, label %rbimpl_size_mul_or_raise.exit.i, label %1288
+1280:                                             ; preds = %.critedge10.i
+  %1281 = tail call i64 @rb_str_resize(i64 noundef %.0179386.i, i64 noundef %1279) #31
+  %1282 = inttoptr i64 %.0179386.i to ptr
+  %1283 = load i64, ptr %1282, align 8, !tbaa !420, !noalias !525
+  %1284 = and i64 %1283, 8192
+  %.not.i.i.i883 = icmp eq i64 %1284, 0
+  %1285 = getelementptr inbounds nuw i8, ptr %1282, i64 24
+  br i1 %.not.i.i.i883, label %rbimpl_size_mul_or_raise.exit.i, label %1286
 
-1288:                                             ; preds = %1282
-  %.sroa.2.0.copyload.i.i = load ptr, ptr %1287, align 8
+1286:                                             ; preds = %1280
+  %.sroa.2.0.copyload.i.i = load ptr, ptr %1285, align 8
   br label %rbimpl_size_mul_or_raise.exit.i
 
-rbimpl_size_mul_or_raise.exit.i:                  ; preds = %1288, %1282
-  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %1288 ], [ %1287, %1282 ]
+rbimpl_size_mul_or_raise.exit.i:                  ; preds = %1286, %1280
+  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %1286 ], [ %1285, %1280 ]
   %.not.i238.i = icmp eq ptr %.3150327.i, %.2149325.i
-  br i1 %.not.i238.i, label %ruby_nonempty_memcpy.exit.i, label %1289
+  br i1 %.not.i238.i, label %ruby_nonempty_memcpy.exit.i, label %1287
 
-1289:                                             ; preds = %rbimpl_size_mul_or_raise.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i.i, ptr noundef nonnull readonly align 1 %.2149325.i, i64 noundef range(i64 1, 0) %1281, i1 noundef false) #31
+1287:                                             ; preds = %rbimpl_size_mul_or_raise.exit.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i.i, ptr noundef nonnull readonly align 1 %.2149325.i, i64 noundef range(i64 1, 0) %1279, i1 noundef false) #31
   br label %ruby_nonempty_memcpy.exit.i
 
-1290:                                             ; preds = %.critedge10.i
-  %1291 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1292 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.2149325.i, i64 noundef %1281, ptr noundef %1291) #31
-  %.pre430.i = inttoptr i64 %1292 to ptr
+1288:                                             ; preds = %.critedge10.i
+  %1289 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1290 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.2149325.i, i64 noundef %1279, ptr noundef %1289) #31
+  %.pre430.i = inttoptr i64 %1290 to ptr
   br label %ruby_nonempty_memcpy.exit.i
 
-ruby_nonempty_memcpy.exit.i:                      ; preds = %1290, %1289, %rbimpl_size_mul_or_raise.exit.i
-  %.pre-phi.i884 = phi ptr [ %1284, %1289 ], [ %1284, %rbimpl_size_mul_or_raise.exit.i ], [ %.pre430.i, %1290 ]
-  %.3182.i = phi i64 [ %.0179386.i, %1289 ], [ %.0179386.i, %rbimpl_size_mul_or_raise.exit.i ], [ %1292, %1290 ]
-  %1293 = load i64, ptr %.pre-phi.i884, align 8, !tbaa !420, !noalias !528
-  %1294 = and i64 %1293, 8192
-  %.not.i.i239.i885 = icmp eq i64 %1294, 0
-  %1295 = getelementptr inbounds nuw i8, ptr %.pre-phi.i884, i64 24
-  br i1 %.not.i.i239.i885, label %RSTRING_PTR.exit242.i, label %1296
+ruby_nonempty_memcpy.exit.i:                      ; preds = %1288, %1287, %rbimpl_size_mul_or_raise.exit.i
+  %.pre-phi.i884 = phi ptr [ %1282, %1287 ], [ %1282, %rbimpl_size_mul_or_raise.exit.i ], [ %.pre430.i, %1288 ]
+  %.3182.i = phi i64 [ %.0179386.i, %1287 ], [ %.0179386.i, %rbimpl_size_mul_or_raise.exit.i ], [ %1290, %1288 ]
+  %1291 = load i64, ptr %.pre-phi.i884, align 8, !tbaa !420, !noalias !528
+  %1292 = and i64 %1291, 8192
+  %.not.i.i239.i885 = icmp eq i64 %1292, 0
+  %1293 = getelementptr inbounds nuw i8, ptr %.pre-phi.i884, i64 24
+  br i1 %.not.i.i239.i885, label %RSTRING_PTR.exit242.i, label %1294
 
-1296:                                             ; preds = %ruby_nonempty_memcpy.exit.i
-  %.sroa.2.0.copyload.i240.i = load ptr, ptr %1295, align 8
+1294:                                             ; preds = %ruby_nonempty_memcpy.exit.i
+  %.sroa.2.0.copyload.i240.i = load ptr, ptr %1293, align 8
   br label %RSTRING_PTR.exit242.i
 
-RSTRING_PTR.exit242.i:                            ; preds = %1296, %ruby_nonempty_memcpy.exit.i
-  %.sroa.2.0.i241.i = phi ptr [ %.sroa.2.0.copyload.i240.i, %1296 ], [ %1295, %ruby_nonempty_memcpy.exit.i ]
-  %1297 = icmp sgt i64 %1281, 0
-  br i1 %1297, label %.lr.ph385.i, label %.preheader.i886.preheader
+RSTRING_PTR.exit242.i:                            ; preds = %1294, %ruby_nonempty_memcpy.exit.i
+  %.sroa.2.0.i241.i = phi ptr [ %.sroa.2.0.copyload.i240.i, %1294 ], [ %1293, %ruby_nonempty_memcpy.exit.i ]
+  %1295 = icmp sgt i64 %1279, 0
+  br i1 %1295, label %.lr.ph385.i, label %.preheader.i886.preheader
 
-.lr.ph385.i:                                      ; preds = %RSTRING_PTR.exit242.i, %1302
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %1302 ], [ 0, %RSTRING_PTR.exit242.i ]
-  %1298 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i241.i, i64 %indvars.iv.i
-  %1299 = load i8, ptr %1298, align 1, !tbaa !6
-  %1300 = icmp eq i8 %1299, 45
-  br i1 %1300, label %1301, label %1302
+.lr.ph385.i:                                      ; preds = %RSTRING_PTR.exit242.i, %1300
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %1300 ], [ 0, %RSTRING_PTR.exit242.i ]
+  %1296 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i241.i, i64 %indvars.iv.i
+  %1297 = load i8, ptr %1296, align 1, !tbaa !6
+  %1298 = icmp eq i8 %1297, 45
+  br i1 %1298, label %1299, label %1300
 
-1301:                                             ; preds = %.lr.ph385.i
-  store i8 95, ptr %1298, align 1, !tbaa !6
-  br label %1302
+1299:                                             ; preds = %.lr.ph385.i
+  store i8 95, ptr %1296, align 1, !tbaa !6
+  br label %1300
 
-1302:                                             ; preds = %1301, %.lr.ph385.i
+1300:                                             ; preds = %1299, %.lr.ph385.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i889 = icmp eq i64 %indvars.iv.next.i, %1281
+  %exitcond.not.i889 = icmp eq i64 %indvars.iv.next.i, %1279
   br i1 %exitcond.not.i889, label %.preheader.i886.preheader, label %.lr.ph385.i, !llvm.loop !531
 
-.preheader.i886.preheader:                        ; preds = %1302, %RSTRING_PTR.exit242.i
+.preheader.i886.preheader:                        ; preds = %1300, %RSTRING_PTR.exit242.i
   br label %.preheader.i886
 
-.preheader.i886:                                  ; preds = %.preheader.i886.preheader, %1335
-  %.0168.idx.i = phi i64 [ %.0168.add.i, %1335 ], [ 0, %.preheader.i886.preheader ]
+.preheader.i886:                                  ; preds = %.preheader.i886.preheader, %1333
+  %.0168.idx.i = phi i64 [ %.0168.add.i, %1333 ], [ 0, %.preheader.i886.preheader ]
   %.0168.ptr.i = getelementptr inbounds nuw i8, ptr @magic_comments, i64 %.0168.idx.i
-  %1303 = load ptr, ptr %.0168.ptr.i, align 8, !tbaa !532
-  %1304 = tail call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef %1303, ptr noundef %.sroa.2.0.i241.i, i64 noundef %1281) #34
-  %1305 = icmp eq i32 %1304, 0
-  br i1 %1305, label %1306, label %1335
+  %1301 = load ptr, ptr %.0168.ptr.i, align 8, !tbaa !532
+  %1302 = tail call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef %1301, ptr noundef %.sroa.2.0.i241.i, i64 noundef %1279) #34
+  %1303 = icmp eq i32 %1302, 0
+  br i1 %1303, label %1304, label %1333
 
-1306:                                             ; preds = %.preheader.i886
-  %1307 = getelementptr inbounds i8, ptr %1303, i64 %1281
-  %1308 = load i8, ptr %1307, align 1, !tbaa !6
-  %.not219.i = icmp eq i8 %1308, 0
-  br i1 %.not219.i, label %1309, label %1335
+1304:                                             ; preds = %.preheader.i886
+  %1305 = getelementptr inbounds i8, ptr %1301, i64 %1279
+  %1306 = load i8, ptr %1305, align 1, !tbaa !6
+  %.not219.i = icmp eq i8 %1306, 0
+  br i1 %.not219.i, label %1307, label %1333
 
-1309:                                             ; preds = %1306
+1307:                                             ; preds = %1304
   %.0168.ptr.i.le = getelementptr inbounds nuw i8, ptr @magic_comments, i64 %.0168.idx.i
-  %1310 = ptrtoint ptr %.0171461.i to i64
-  %1311 = ptrtoint ptr %.0172458.i to i64
-  %1312 = sub i64 %1310, %1311
-  %1313 = getelementptr inbounds nuw i8, ptr %.0168.ptr.i.le, i64 16
-  %1314 = load ptr, ptr %1313, align 8, !tbaa !534
-  %.not220.i = icmp eq ptr %1314, null
-  br i1 %.not220.i, label %1317, label %1315
+  %1308 = ptrtoint ptr %.0171461.i to i64
+  %1309 = ptrtoint ptr %.0172458.i to i64
+  %1310 = sub i64 %1308, %1309
+  %1311 = getelementptr inbounds nuw i8, ptr %.0168.ptr.i.le, i64 16
+  %1312 = load ptr, ptr %1311, align 8, !tbaa !534
+  %.not220.i = icmp eq ptr %1312, null
+  br i1 %.not220.i, label %1315, label %1313
 
-1315:                                             ; preds = %1309
-  %1316 = tail call i64 %1314(ptr noundef %0, ptr noundef nonnull %.0172458.i, i64 noundef %1312) #31
-  br label %1317
+1313:                                             ; preds = %1307
+  %1314 = tail call i64 %1312(ptr noundef %0, ptr noundef nonnull %.0172458.i, i64 noundef %1310) #31
+  br label %1315
 
-1317:                                             ; preds = %1315, %1309
-  %.0151.i = phi i64 [ %1316, %1315 ], [ %1312, %1309 ]
+1315:                                             ; preds = %1313, %1307
+  %.0151.i = phi i64 [ %1314, %1313 ], [ %1310, %1307 ]
   %.not221.i = icmp eq i64 %.0173387.i, 0
-  br i1 %.not221.i, label %1326, label %1318
+  br i1 %.not221.i, label %1324, label %1316
 
-1318:                                             ; preds = %1317
-  %1319 = tail call i64 @rb_str_resize(i64 noundef %.0173387.i, i64 noundef %.0151.i) #31
-  %1320 = inttoptr i64 %.0173387.i to ptr
-  %1321 = load i64, ptr %1320, align 8, !tbaa !420, !noalias !535
-  %1322 = and i64 %1321, 8192
-  %.not.i.i243.i = icmp eq i64 %1322, 0
-  %1323 = getelementptr inbounds nuw i8, ptr %1320, i64 24
-  br i1 %.not.i.i243.i, label %rbimpl_size_mul_or_raise.exit247.i, label %1324
+1316:                                             ; preds = %1315
+  %1317 = tail call i64 @rb_str_resize(i64 noundef %.0173387.i, i64 noundef %.0151.i) #31
+  %1318 = inttoptr i64 %.0173387.i to ptr
+  %1319 = load i64, ptr %1318, align 8, !tbaa !420, !noalias !535
+  %1320 = and i64 %1319, 8192
+  %.not.i.i243.i = icmp eq i64 %1320, 0
+  %1321 = getelementptr inbounds nuw i8, ptr %1318, i64 24
+  br i1 %.not.i.i243.i, label %rbimpl_size_mul_or_raise.exit247.i, label %1322
 
-1324:                                             ; preds = %1318
-  %.sroa.2.0.copyload.i244.i = load ptr, ptr %1323, align 8
+1322:                                             ; preds = %1316
+  %.sroa.2.0.copyload.i244.i = load ptr, ptr %1321, align 8
   br label %rbimpl_size_mul_or_raise.exit247.i
 
-rbimpl_size_mul_or_raise.exit247.i:               ; preds = %1324, %1318
-  %.sroa.2.0.i245.i = phi ptr [ %.sroa.2.0.copyload.i244.i, %1324 ], [ %1323, %1318 ]
+rbimpl_size_mul_or_raise.exit247.i:               ; preds = %1322, %1316
+  %.sroa.2.0.i245.i = phi ptr [ %.sroa.2.0.copyload.i244.i, %1322 ], [ %1321, %1316 ]
   %.not.i248.i = icmp eq i64 %.0151.i, 0
-  br i1 %.not.i248.i, label %ruby_nonempty_memcpy.exit250.i, label %1325
+  br i1 %.not.i248.i, label %ruby_nonempty_memcpy.exit250.i, label %1323
 
-1325:                                             ; preds = %rbimpl_size_mul_or_raise.exit247.i
+1323:                                             ; preds = %rbimpl_size_mul_or_raise.exit247.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i245.i, ptr noundef nonnull readonly align 1 %.0172458.i, i64 noundef range(i64 1, 0) %.0151.i, i1 noundef false) #31
   br label %ruby_nonempty_memcpy.exit250.i
 
-1326:                                             ; preds = %1317
-  %1327 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1328 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0172458.i, i64 noundef %.0151.i, ptr noundef %1327) #31
-  %.pre431.i = inttoptr i64 %1328 to ptr
+1324:                                             ; preds = %1315
+  %1325 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1326 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0172458.i, i64 noundef %.0151.i, ptr noundef %1325) #31
+  %.pre431.i = inttoptr i64 %1326 to ptr
   br label %ruby_nonempty_memcpy.exit250.i
 
-ruby_nonempty_memcpy.exit250.i:                   ; preds = %1326, %1325, %rbimpl_size_mul_or_raise.exit247.i
-  %.pre-phi432.i = phi ptr [ %1320, %1325 ], [ %1320, %rbimpl_size_mul_or_raise.exit247.i ], [ %.pre431.i, %1326 ]
-  %.3176.i = phi i64 [ %.0173387.i, %1325 ], [ %.0173387.i, %rbimpl_size_mul_or_raise.exit247.i ], [ %1328, %1326 ]
-  store ptr %1220, ptr %1023, align 8, !tbaa !41
+ruby_nonempty_memcpy.exit250.i:                   ; preds = %1324, %1323, %rbimpl_size_mul_or_raise.exit247.i
+  %.pre-phi432.i = phi ptr [ %1318, %1323 ], [ %1318, %rbimpl_size_mul_or_raise.exit247.i ], [ %.pre431.i, %1324 ]
+  %.3176.i = phi i64 [ %.0173387.i, %1323 ], [ %.0173387.i, %rbimpl_size_mul_or_raise.exit247.i ], [ %1326, %1324 ]
+  store ptr %1218, ptr %1023, align 8, !tbaa !41
   store ptr %.9466.i, ptr %1020, align 8, !tbaa !48
-  %1329 = getelementptr inbounds nuw i8, ptr %.0168.ptr.i.le, i64 8
-  %1330 = load ptr, ptr %1329, align 8, !tbaa !538
-  %1331 = load i64, ptr %.pre-phi432.i, align 8, !tbaa !420, !noalias !539
-  %1332 = and i64 %1331, 8192
-  %.not.i.i251.i = icmp eq i64 %1332, 0
-  %1333 = getelementptr inbounds nuw i8, ptr %.pre-phi432.i, i64 24
-  br i1 %.not.i.i251.i, label %RSTRING_PTR.exit254.i, label %1334
+  %1327 = getelementptr inbounds nuw i8, ptr %.0168.ptr.i.le, i64 8
+  %1328 = load ptr, ptr %1327, align 8, !tbaa !538
+  %1329 = load i64, ptr %.pre-phi432.i, align 8, !tbaa !420, !noalias !539
+  %1330 = and i64 %1329, 8192
+  %.not.i.i251.i = icmp eq i64 %1330, 0
+  %1331 = getelementptr inbounds nuw i8, ptr %.pre-phi432.i, i64 24
+  br i1 %.not.i.i251.i, label %RSTRING_PTR.exit254.i, label %1332
 
-1334:                                             ; preds = %ruby_nonempty_memcpy.exit250.i
-  %.sroa.2.0.copyload.i252.i = load ptr, ptr %1333, align 8
+1332:                                             ; preds = %ruby_nonempty_memcpy.exit250.i
+  %.sroa.2.0.copyload.i252.i = load ptr, ptr %1331, align 8
   br label %RSTRING_PTR.exit254.i
 
-RSTRING_PTR.exit254.i:                            ; preds = %1334, %ruby_nonempty_memcpy.exit250.i
-  %.sroa.2.0.i253.i = phi ptr [ %.sroa.2.0.copyload.i252.i, %1334 ], [ %1333, %ruby_nonempty_memcpy.exit250.i ]
-  tail call void %1330(ptr noundef nonnull %0, ptr noundef nonnull %1303, ptr noundef %.sroa.2.0.i253.i) #31
+RSTRING_PTR.exit254.i:                            ; preds = %1332, %ruby_nonempty_memcpy.exit250.i
+  %.sroa.2.0.i253.i = phi ptr [ %.sroa.2.0.copyload.i252.i, %1332 ], [ %1331, %ruby_nonempty_memcpy.exit250.i ]
+  tail call void %1328(ptr noundef nonnull %0, ptr noundef nonnull %1301, ptr noundef %.sroa.2.0.i253.i) #31
   br label %.loopexit.i887
 
-1335:                                             ; preds = %1306, %.preheader.i886
+1333:                                             ; preds = %1304, %.preheader.i886
   %.0168.add.i = add nuw nsw i64 %.0168.idx.i, 24
-  %1336 = icmp samesign ult i64 %.0168.idx.i, 96
-  br i1 %1336, label %.preheader.i886, label %.loopexit.i887.loopexit, !llvm.loop !542
+  %1334 = icmp samesign ult i64 %.0168.idx.i, 96
+  br i1 %1334, label %.preheader.i886, label %.loopexit.i887.loopexit, !llvm.loop !542
 
-.loopexit.i887.loopexit:                          ; preds = %1335
+.loopexit.i887.loopexit:                          ; preds = %1333
   %.pre1979 = ptrtoint ptr %.0171461.i to i64
   %.pre1980 = ptrtoint ptr %.0172458.i to i64
   %.pre1982 = sub i64 %.pre1979, %.pre1980
   br label %.loopexit.i887
 
 .loopexit.i887:                                   ; preds = %.loopexit.i887.loopexit, %RSTRING_PTR.exit254.i
-  %.pre-phi1983 = phi i64 [ %.pre1982, %.loopexit.i887.loopexit ], [ %1312, %RSTRING_PTR.exit254.i ]
+  %.pre-phi1983 = phi i64 [ %.pre1982, %.loopexit.i887.loopexit ], [ %1310, %RSTRING_PTR.exit254.i ]
   %.4177.i = phi i64 [ %.0173387.i, %.loopexit.i887.loopexit ], [ %.3176.i, %RSTRING_PTR.exit254.i ]
   %.not222.i = icmp eq i64 %.4177.i, 0
-  br i1 %.not222.i, label %1345, label %1337
+  br i1 %.not222.i, label %1343, label %1335
 
-1337:                                             ; preds = %.loopexit.i887
-  %1338 = tail call i64 @rb_str_resize(i64 noundef %.4177.i, i64 noundef %.pre-phi1983) #31
-  %1339 = inttoptr i64 %.4177.i to ptr
-  %1340 = load i64, ptr %1339, align 8, !tbaa !420, !noalias !543
-  %1341 = and i64 %1340, 8192
-  %.not.i.i255.i = icmp eq i64 %1341, 0
-  %1342 = getelementptr inbounds nuw i8, ptr %1339, i64 24
-  br i1 %.not.i.i255.i, label %rbimpl_size_mul_or_raise.exit259.i, label %1343
+1335:                                             ; preds = %.loopexit.i887
+  %1336 = tail call i64 @rb_str_resize(i64 noundef %.4177.i, i64 noundef %.pre-phi1983) #31
+  %1337 = inttoptr i64 %.4177.i to ptr
+  %1338 = load i64, ptr %1337, align 8, !tbaa !420, !noalias !543
+  %1339 = and i64 %1338, 8192
+  %.not.i.i255.i = icmp eq i64 %1339, 0
+  %1340 = getelementptr inbounds nuw i8, ptr %1337, i64 24
+  br i1 %.not.i.i255.i, label %rbimpl_size_mul_or_raise.exit259.i, label %1341
 
-1343:                                             ; preds = %1337
-  %.sroa.2.0.copyload.i256.i = load ptr, ptr %1342, align 8
+1341:                                             ; preds = %1335
+  %.sroa.2.0.copyload.i256.i = load ptr, ptr %1340, align 8
   br label %rbimpl_size_mul_or_raise.exit259.i
 
-rbimpl_size_mul_or_raise.exit259.i:               ; preds = %1343, %1337
-  %.sroa.2.0.i257.i = phi ptr [ %.sroa.2.0.copyload.i256.i, %1343 ], [ %1342, %1337 ]
+rbimpl_size_mul_or_raise.exit259.i:               ; preds = %1341, %1335
+  %.sroa.2.0.i257.i = phi ptr [ %.sroa.2.0.copyload.i256.i, %1341 ], [ %1340, %1335 ]
   %.not.i260.i = icmp eq ptr %.0171461.i, %.0172458.i
-  br i1 %.not.i260.i, label %ruby_nonempty_memcpy.exit262.i, label %1344
+  br i1 %.not.i260.i, label %ruby_nonempty_memcpy.exit262.i, label %1342
 
-1344:                                             ; preds = %rbimpl_size_mul_or_raise.exit259.i
+1342:                                             ; preds = %rbimpl_size_mul_or_raise.exit259.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i257.i, ptr noundef nonnull readonly align 1 %.0172458.i, i64 noundef range(i64 1, 0) %.pre-phi1983, i1 noundef false) #31
   br label %ruby_nonempty_memcpy.exit262.i
 
-1345:                                             ; preds = %.loopexit.i887
-  %1346 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1347 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0172458.i, i64 noundef %.pre-phi1983, ptr noundef %1346) #31
+1343:                                             ; preds = %.loopexit.i887
+  %1344 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1345 = tail call i64 @rb_enc_str_new(ptr noundef nonnull %.0172458.i, i64 noundef %.pre-phi1983, ptr noundef %1344) #31
   br label %ruby_nonempty_memcpy.exit262.i
 
-ruby_nonempty_memcpy.exit262.i:                   ; preds = %1345, %1344, %rbimpl_size_mul_or_raise.exit259.i
-  %.5178.i = phi i64 [ %1347, %1345 ], [ %.4177.i, %rbimpl_size_mul_or_raise.exit259.i ], [ %.4177.i, %1344 ]
+ruby_nonempty_memcpy.exit262.i:                   ; preds = %1343, %1342, %rbimpl_size_mul_or_raise.exit259.i
+  %.5178.i = phi i64 [ %1345, %1343 ], [ %.4177.i, %rbimpl_size_mul_or_raise.exit259.i ], [ %.4177.i, %1342 ]
   %.val.i888 = load i64, ptr %1025, align 8, !tbaa !46
-  %1348 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i888, i64 noundef %1030, i32 noundef 2, i64 noundef %.3182.i, i64 noundef %.5178.i) #31
-  br label %1349
+  %1346 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i888, i64 noundef %1030, i32 noundef 2, i64 noundef %.3182.i, i64 noundef %.5178.i) #31
+  br label %1347
 
-1349:                                             ; preds = %ruby_nonempty_memcpy.exit262.i, %1219
-  %.1180.i = phi i64 [ %.0179386.i, %1219 ], [ %.3182.i, %ruby_nonempty_memcpy.exit262.i ]
-  %.1174.i = phi i64 [ %.0173387.i, %1219 ], [ %.5178.i, %ruby_nonempty_memcpy.exit262.i ]
-  %.5158.i = phi i64 [ %.4157344.i, %1219 ], [ %.12165.i, %ruby_nonempty_memcpy.exit262.i ]
-  %.5.i = phi ptr [ %.4345.i, %1219 ], [ %.12.i, %ruby_nonempty_memcpy.exit262.i ]
-  %1350 = icmp sgt i64 %.5158.i, 0
-  br i1 %1350, label %.preheader295.i, label %parser_magic_comment.exit
+1347:                                             ; preds = %ruby_nonempty_memcpy.exit262.i, %1217
+  %.1180.i = phi i64 [ %.0179386.i, %1217 ], [ %.3182.i, %ruby_nonempty_memcpy.exit262.i ]
+  %.1174.i = phi i64 [ %.0173387.i, %1217 ], [ %.5178.i, %ruby_nonempty_memcpy.exit262.i ]
+  %.5158.i = phi i64 [ %.4157344.i, %1217 ], [ %.12165.i, %ruby_nonempty_memcpy.exit262.i ]
+  %.5.i = phi ptr [ %.4345.i, %1217 ], [ %.12.i, %ruby_nonempty_memcpy.exit262.i ]
+  %1348 = icmp sgt i64 %.5158.i, 0
+  br i1 %1348, label %.preheader295.i, label %parser_magic_comment.exit
 
-.loopexit:                                        ; preds = %1181, %1173, %.critedge14.i, %1219, %.lr.ph381.i, %1128, %magic_comment_marker.exit.i
-  %1351 = load i16, ptr %10, align 8
-  %1352 = and i16 %1351, 128
-  %.not.i891 = icmp eq i16 %1352, 0
+.loopexit:                                        ; preds = %1181, %1173, %.critedge14.i, %1217, %.lr.ph381.i, %1128, %magic_comment_marker.exit.i
+  %1349 = load i16, ptr %10, align 8
+  %1350 = and i16 %1349, 128
+  %.not.i891 = icmp eq i16 %1350, 0
   br i1 %.not.i891, label %comment_at_top.exit, label %parser_magic_comment.exit
 
 comment_at_top.exit:                              ; preds = %.loopexit
-  %1353 = load i32, ptr %1031, align 8, !tbaa !546
-  %1354 = and i16 %1351, 64
-  %.not4.i = icmp eq i16 %1354, 0
-  %1355 = select i1 %.not4.i, i32 1, i32 2
-  %1356 = icmp eq i32 %1353, %1355
-  br i1 %1356, label %1357, label %parser_magic_comment.exit
+  %1351 = load i32, ptr %1031, align 8, !tbaa !546
+  %1352 = and i16 %1349, 64
+  %.not4.i = icmp eq i16 %1352, 0
+  %1353 = select i1 %.not4.i, i32 1, i32 2
+  %1354 = icmp eq i32 %1351, %1353
+  br i1 %1354, label %1355, label %parser_magic_comment.exit
 
-1357:                                             ; preds = %comment_at_top.exit
-  %1358 = load ptr, ptr %1020, align 8, !tbaa !48
-  %1359 = load ptr, ptr %1021, align 8, !tbaa !401
-  %1360 = ptrtoint ptr %1359 to i64
-  %1361 = ptrtoint ptr %1358 to i64
-  %1362 = sub i64 %1360, %1361
-  %1363 = icmp slt i64 %1362, 7
-  br i1 %1363, label %parser_magic_comment.exit, label %.lr.ph.i893
+1355:                                             ; preds = %comment_at_top.exit
+  %1356 = load ptr, ptr %1020, align 8, !tbaa !48
+  %1357 = load ptr, ptr %1021, align 8, !tbaa !401
+  %1358 = ptrtoint ptr %1357 to i64
+  %1359 = ptrtoint ptr %1356 to i64
+  %1360 = sub i64 %1358, %1359
+  %1361 = icmp slt i64 %1360, 7
+  br i1 %1361, label %parser_magic_comment.exit, label %.lr.ph.i893
 
-.lr.ph.i893:                                      ; preds = %1357, %.backedge.i894
-  %.065.i = phi ptr [ %.0.be.i, %.backedge.i894 ], [ %1358, %1357 ]
-  %1364 = getelementptr inbounds nuw i8, ptr %.065.i, i64 6
-  %1365 = load i8, ptr %1364, align 1, !tbaa !6
-  switch i8 %1365, label %1379 [
+.lr.ph.i893:                                      ; preds = %1355, %.backedge.i894
+  %.065.i = phi ptr [ %.0.be.i, %.backedge.i894 ], [ %1356, %1355 ]
+  %1362 = getelementptr inbounds nuw i8, ptr %.065.i, i64 6
+  %1363 = load i8, ptr %1362, align 1, !tbaa !6
+  switch i8 %1363, label %1377 [
     i8 67, label %.backedge.i894
     i8 99, label %.backedge.i894
-    i8 79, label %1369
-    i8 111, label %1369
-    i8 68, label %1371
-    i8 100, label %1371
-    i8 73, label %1373
-    i8 105, label %1373
-    i8 78, label %1375
-    i8 110, label %1375
-    i8 71, label %1377
-    i8 103, label %1377
-    i8 61, label %1384
-    i8 58, label %1384
+    i8 79, label %1367
+    i8 111, label %1367
+    i8 68, label %1369
+    i8 100, label %1369
+    i8 73, label %1371
+    i8 105, label %1371
+    i8 78, label %1373
+    i8 110, label %1373
+    i8 71, label %1375
+    i8 103, label %1375
+    i8 61, label %1382
+    i8 58, label %1382
   ]
 
-.backedge.i894:                                   ; preds = %1384, %1379, %1377, %1375, %1373, %1371, %1369, %.lr.ph.i893, %.lr.ph.i893
-  %.0.be.i = phi ptr [ %1364, %1379 ], [ %1370, %1369 ], [ %1372, %1371 ], [ %1374, %1373 ], [ %1376, %1375 ], [ %1378, %1377 ], [ %1364, %1384 ], [ %1364, %.lr.ph.i893 ], [ %1364, %.lr.ph.i893 ]
-  %1366 = ptrtoint ptr %.0.be.i to i64
-  %1367 = sub i64 %1360, %1366
-  %1368 = icmp slt i64 %1367, 7
-  br i1 %1368, label %parser_magic_comment.exit, label %.lr.ph.i893
+.backedge.i894:                                   ; preds = %1382, %1377, %1375, %1373, %1371, %1369, %1367, %.lr.ph.i893, %.lr.ph.i893
+  %.0.be.i = phi ptr [ %1362, %1377 ], [ %1368, %1367 ], [ %1370, %1369 ], [ %1372, %1371 ], [ %1374, %1373 ], [ %1376, %1375 ], [ %1362, %1382 ], [ %1362, %.lr.ph.i893 ], [ %1362, %.lr.ph.i893 ]
+  %1364 = ptrtoint ptr %.0.be.i to i64
+  %1365 = sub i64 %1358, %1364
+  %1366 = icmp slt i64 %1365, 7
+  br i1 %1366, label %parser_magic_comment.exit, label %.lr.ph.i893
+
+1367:                                             ; preds = %.lr.ph.i893, %.lr.ph.i893
+  %1368 = getelementptr inbounds nuw i8, ptr %.065.i, i64 5
+  br label %.backedge.i894
 
 1369:                                             ; preds = %.lr.ph.i893, %.lr.ph.i893
-  %1370 = getelementptr inbounds nuw i8, ptr %.065.i, i64 5
+  %1370 = getelementptr inbounds nuw i8, ptr %.065.i, i64 4
   br label %.backedge.i894
 
 1371:                                             ; preds = %.lr.ph.i893, %.lr.ph.i893
-  %1372 = getelementptr inbounds nuw i8, ptr %.065.i, i64 4
+  %1372 = getelementptr inbounds nuw i8, ptr %.065.i, i64 3
   br label %.backedge.i894
 
 1373:                                             ; preds = %.lr.ph.i893, %.lr.ph.i893
-  %1374 = getelementptr inbounds nuw i8, ptr %.065.i, i64 3
+  %1374 = getelementptr inbounds nuw i8, ptr %.065.i, i64 2
   br label %.backedge.i894
 
 1375:                                             ; preds = %.lr.ph.i893, %.lr.ph.i893
-  %1376 = getelementptr inbounds nuw i8, ptr %.065.i, i64 2
+  %1376 = getelementptr inbounds nuw i8, ptr %.065.i, i64 1
   br label %.backedge.i894
 
-1377:                                             ; preds = %.lr.ph.i893, %.lr.ph.i893
-  %1378 = getelementptr inbounds nuw i8, ptr %.065.i, i64 1
-  br label %.backedge.i894
+1377:                                             ; preds = %.lr.ph.i893
+  %1378 = sext i8 %1363 to i32
+  %1379 = icmp ne i8 %1363, 32
+  %1380 = add nsw i32 %1378, -14
+  %1381 = icmp ult i32 %1380, -5
+  %narrow.i.not.i903 = and i1 %1379, %1381
+  br i1 %narrow.i.not.i903, label %.backedge.i894, label %1382
 
-1379:                                             ; preds = %.lr.ph.i893
-  %1380 = sext i8 %1365 to i32
-  %1381 = icmp ne i8 %1365, 32
-  %1382 = add nsw i32 %1380, -14
-  %1383 = icmp ult i32 %1382, -5
-  %narrow.i.not.i903 = and i1 %1381, %1383
-  br i1 %narrow.i.not.i903, label %.backedge.i894, label %1384
+1382:                                             ; preds = %1377, %.lr.ph.i893, %.lr.ph.i893
+  %1383 = phi i1 [ true, %1377 ], [ false, %.lr.ph.i893 ], [ false, %.lr.ph.i893 ]
+  %1384 = tail call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef nonnull %.065.i, ptr noundef nonnull @.str.620, i64 noundef 6) #34
+  %1385 = icmp eq i32 %1384, 0
+  br i1 %1385, label %.preheader58.i, label %.backedge.i894
 
-1384:                                             ; preds = %1379, %.lr.ph.i893, %.lr.ph.i893
-  %1385 = phi i1 [ true, %1379 ], [ false, %.lr.ph.i893 ], [ false, %.lr.ph.i893 ]
-  %1386 = tail call i32 @rb_parser_st_locale_insensitive_strncasecmp(ptr noundef nonnull %.065.i, ptr noundef nonnull @.str.620, i64 noundef 6) #34
-  %1387 = icmp eq i32 %1386, 0
-  br i1 %1387, label %.preheader58.i, label %.backedge.i894
+.preheader58.i:                                   ; preds = %1382, %1397
+  %.240.i = phi i1 [ false, %1397 ], [ %1383, %1382 ]
+  %.2.i = phi ptr [ %1398, %1397 ], [ %1362, %1382 ]
+  br label %1386
 
-.preheader58.i:                                   ; preds = %1384, %1399
-  %.240.i = phi i1 [ false, %1399 ], [ %1385, %1384 ]
-  %.2.i = phi ptr [ %1400, %1399 ], [ %1364, %1384 ]
-  br label %1388
+1386:                                             ; preds = %1388, %.preheader58.i
+  %.3.i896 = phi ptr [ %.2.i, %.preheader58.i ], [ %1387, %1388 ]
+  %1387 = getelementptr inbounds nuw i8, ptr %.3.i896, i64 1
+  %.not47.i = icmp ult ptr %1387, %1357
+  br i1 %.not47.i, label %1388, label %parser_magic_comment.exit
 
-1388:                                             ; preds = %1390, %.preheader58.i
-  %.3.i896 = phi ptr [ %.2.i, %.preheader58.i ], [ %1389, %1390 ]
-  %1389 = getelementptr inbounds nuw i8, ptr %.3.i896, i64 1
-  %.not47.i = icmp ult ptr %1389, %1359
-  br i1 %.not47.i, label %1390, label %parser_magic_comment.exit
+1388:                                             ; preds = %1386
+  %1389 = load i8, ptr %1387, align 1, !tbaa !6
+  %1390 = sext i8 %1389 to i32
+  %1391 = icmp ne i8 %1389, 32
+  %1392 = add nsw i32 %1390, -14
+  %1393 = icmp ult i32 %1392, -5
+  %narrow.i53.not.i = and i1 %1391, %1393
+  br i1 %narrow.i53.not.i, label %1394, label %1386, !llvm.loop !547
 
-1390:                                             ; preds = %1388
-  %1391 = load i8, ptr %1389, align 1, !tbaa !6
-  %1392 = sext i8 %1391 to i32
-  %1393 = icmp ne i8 %1391, 32
-  %1394 = add nsw i32 %1392, -14
-  %1395 = icmp ult i32 %1394, -5
-  %narrow.i53.not.i = and i1 %1393, %1395
-  br i1 %narrow.i53.not.i, label %1396, label %1388, !llvm.loop !547
+1394:                                             ; preds = %1388
+  br i1 %.240.i, label %1396, label %.preheader.i897
 
-1396:                                             ; preds = %1390
-  br i1 %.240.i, label %1398, label %.preheader.i897
-
-.preheader.i897:                                  ; preds = %1396
-  %scevgep.i = getelementptr i8, ptr %.2.i, i64 %1360
+.preheader.i897:                                  ; preds = %1394
+  %scevgep.i = getelementptr i8, ptr %.2.i, i64 %1358
   %.2.lcssa7375.i = ptrtoint ptr %.2.i to i64
-  %1397 = sub i64 0, %.2.lcssa7375.i
-  %scevgep76.i = getelementptr i8, ptr %scevgep.i, i64 %1397
-  br label %1401
+  %1395 = sub i64 0, %.2.lcssa7375.i
+  %scevgep76.i = getelementptr i8, ptr %scevgep.i, i64 %1395
+  br label %1399
 
-1398:                                             ; preds = %1396
-  switch i8 %1391, label %parser_magic_comment.exit [
-    i8 61, label %1399
-    i8 58, label %1399
+1396:                                             ; preds = %1394
+  switch i8 %1389, label %parser_magic_comment.exit [
+    i8 61, label %1397
+    i8 58, label %1397
   ]
 
-1399:                                             ; preds = %1398, %1398
-  %1400 = getelementptr inbounds nuw i8, ptr %.3.i896, i64 2
+1397:                                             ; preds = %1396, %1396
+  %1398 = getelementptr inbounds nuw i8, ptr %.3.i896, i64 2
   br label %.preheader58.i
 
-1401:                                             ; preds = %1409, %.preheader.i897
-  %.4.i = phi ptr [ %1410, %1409 ], [ %1389, %.preheader.i897 ]
-  %1402 = load i8, ptr %.4.i, align 1, !tbaa !6
-  switch i8 %1402, label %1403 [
-    i8 45, label %1409
-    i8 95, label %1409
+1399:                                             ; preds = %1407, %.preheader.i897
+  %.4.i = phi ptr [ %1408, %1407 ], [ %1387, %.preheader.i897 ]
+  %1400 = load i8, ptr %.4.i, align 1, !tbaa !6
+  switch i8 %1400, label %1401 [
+    i8 45, label %1407
+    i8 95, label %1407
   ]
 
-1403:                                             ; preds = %1401
-  %1404 = sext i8 %1402 to i32
-  %1405 = and i32 %1404, -33
-  %1406 = add nsw i32 %1405, -91
-  %narrow.i.i.i = icmp ult i32 %1406, -26
-  %1407 = add nsw i32 %1404, -58
-  %1408 = icmp ult i32 %1407, -10
-  %narrow.i54.not.i = select i1 %narrow.i.i.i, i1 %1408, i1 false
-  br i1 %narrow.i54.not.i, label %.critedge.i898, label %1409
+1401:                                             ; preds = %1399
+  %1402 = sext i8 %1400 to i32
+  %1403 = and i32 %1402, -33
+  %1404 = add nsw i32 %1403, -91
+  %narrow.i.i.i = icmp ult i32 %1404, -26
+  %1405 = add nsw i32 %1402, -58
+  %1406 = icmp ult i32 %1405, -10
+  %narrow.i54.not.i = select i1 %narrow.i.i.i, i1 %1406, i1 false
+  br i1 %narrow.i54.not.i, label %.critedge.i898, label %1407
 
-1409:                                             ; preds = %1403, %1401, %1401
-  %1410 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
-  %1411 = icmp ult ptr %1410, %1359
-  br i1 %1411, label %1401, label %.critedge.i898, !llvm.loop !548
+1407:                                             ; preds = %1401, %1399, %1399
+  %1408 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
+  %1409 = icmp ult ptr %1408, %1357
+  br i1 %1409, label %1399, label %.critedge.i898, !llvm.loop !548
 
-.critedge.i898:                                   ; preds = %1409, %1403
-  %.5.i899 = phi ptr [ %scevgep76.i, %1409 ], [ %.4.i, %1403 ]
-  %1412 = ptrtoint ptr %.5.i899 to i64
-  %1413 = ptrtoint ptr %1389 to i64
-  %1414 = sub i64 %1412, %1413
-  %1415 = tail call i64 @parser_encode_length(ptr poison, ptr noundef nonnull %1389, i64 noundef %1414)
-  %1416 = tail call i64 @rb_str_new(ptr noundef nonnull %1389, i64 noundef %1415) #31
-  store ptr %1389, ptr %1023, align 8, !tbaa !41
+.critedge.i898:                                   ; preds = %1407, %1401
+  %.5.i899 = phi ptr [ %scevgep76.i, %1407 ], [ %.4.i, %1401 ]
+  %1410 = ptrtoint ptr %.5.i899 to i64
+  %1411 = ptrtoint ptr %1387 to i64
+  %1412 = sub i64 %1410, %1411
+  %1413 = tail call i64 @parser_encode_length(ptr poison, ptr noundef nonnull %1387, i64 noundef %1412)
+  %1414 = tail call i64 @rb_str_new(ptr noundef nonnull %1387, i64 noundef %1413) #31
+  store ptr %1387, ptr %1023, align 8, !tbaa !41
   store ptr %.5.i899, ptr %1020, align 8, !tbaa !48
-  %1417 = inttoptr i64 %1416 to ptr
-  %1418 = load i64, ptr %1417, align 8, !tbaa !420, !noalias !549
-  %1419 = and i64 %1418, 8192
-  %.not.i.i.i900 = icmp eq i64 %1419, 0
-  %1420 = getelementptr inbounds nuw i8, ptr %1417, i64 24
-  br i1 %.not.i.i.i900, label %RSTRING_PTR.exit.i, label %1421
+  %1415 = inttoptr i64 %1414 to ptr
+  %1416 = load i64, ptr %1415, align 8, !tbaa !420, !noalias !549
+  %1417 = and i64 %1416, 8192
+  %.not.i.i.i900 = icmp eq i64 %1417, 0
+  %1418 = getelementptr inbounds nuw i8, ptr %1415, i64 24
+  br i1 %.not.i.i.i900, label %RSTRING_PTR.exit.i, label %1419
 
-1421:                                             ; preds = %.critedge.i898
-  %.sroa.2.0.copyload.i.i901 = load ptr, ptr %1420, align 8
+1419:                                             ; preds = %.critedge.i898
+  %.sroa.2.0.copyload.i.i901 = load ptr, ptr %1418, align 8
   br label %RSTRING_PTR.exit.i
 
-RSTRING_PTR.exit.i:                               ; preds = %1421, %.critedge.i898
-  %.sroa.2.0.i.i902 = phi ptr [ %.sroa.2.0.copyload.i.i901, %1421 ], [ %1420, %.critedge.i898 ]
+RSTRING_PTR.exit.i:                               ; preds = %1419, %.critedge.i898
+  %.sroa.2.0.i.i902 = phi ptr [ %.sroa.2.0.copyload.i.i901, %1419 ], [ %1418, %.critedge.i898 ]
   tail call fastcc void @parser_set_encode(ptr noundef nonnull %0, ptr noundef %.sroa.2.0.i.i902)
-  %1422 = tail call i64 @rb_str_resize(i64 noundef %1416, i64 noundef 0) #31
+  %1420 = tail call i64 @rb_str_resize(i64 noundef %1414, i64 noundef 0) #31
   br label %parser_magic_comment.exit
 
-parser_magic_comment.exit:                        ; preds = %1349, %.critedge4.i, %.backedge.i894, %1398, %1195, %1205, %1214, %1388, %.loopexit, %RSTRING_PTR.exit.i, %1357, %magic_comment_marker.exit.thread.i, %comment_at_top.exit
+parser_magic_comment.exit:                        ; preds = %1347, %.critedge4.i, %.backedge.i894, %1396, %1193, %1203, %1212, %1386, %.loopexit, %RSTRING_PTR.exit.i, %1355, %magic_comment_marker.exit.thread.i, %comment_at_top.exit
   store ptr %1132, ptr %1023, align 8, !tbaa !41
-  %1423 = load ptr, ptr %1021, align 8, !tbaa !401
-  store ptr %1423, ptr %1020, align 8, !tbaa !48
-  %1424 = icmp ult ptr %1423, %1132
-  br i1 %1424, label %1425, label %ripper_has_scan_event.exit.i906
+  %1421 = load ptr, ptr %1021, align 8, !tbaa !401
+  store ptr %1421, ptr %1020, align 8, !tbaa !48
+  %1422 = icmp ult ptr %1421, %1132
+  br i1 %1422, label %1423, label %ripper_has_scan_event.exit.i906
 
-1425:                                             ; preds = %parser_magic_comment.exit
-  %1426 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1426, ptr noundef nonnull @.str.666) #33
+1423:                                             ; preds = %parser_magic_comment.exit
+  %1424 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1424, ptr noundef nonnull @.str.666) #33
   unreachable
 
 ripper_has_scan_event.exit.i906:                  ; preds = %parser_magic_comment.exit
-  %.not.i907 = icmp ugt ptr %1423, %1132
-  br i1 %.not.i907, label %1427, label %ripper_dispatch_scan_event.exit909
+  %.not.i907 = icmp ugt ptr %1421, %1132
+  br i1 %.not.i907, label %1425, label %ripper_dispatch_scan_event.exit909
 
-1427:                                             ; preds = %ripper_has_scan_event.exit.i906
-  %1428 = ptrtoint ptr %1423 to i64
-  %1429 = ptrtoint ptr %1132 to i64
-  %1430 = sub i64 %1428, %1429
-  %1431 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1432 = tail call i64 @rb_enc_str_new(ptr noundef %1132, i64 noundef %1430, ptr noundef %1431) #31
-  %1433 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 352) #31
+1425:                                             ; preds = %ripper_has_scan_event.exit.i906
+  %1426 = ptrtoint ptr %1421 to i64
+  %1427 = ptrtoint ptr %1132 to i64
+  %1428 = sub i64 %1426, %1427
+  %1429 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1430 = tail call i64 @rb_enc_str_new(ptr noundef %1132, i64 noundef %1428, ptr noundef %1429) #31
+  %1431 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 352) #31
   %.val.i.i908 = load i64, ptr %1025, align 8, !tbaa !46
-  %1434 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i908, i64 noundef %1433, i32 noundef 1, i64 noundef %1432) #31
-  %1435 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1436 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1435) #31
-  %1437 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1437, ptr %1023, align 8, !tbaa !41
-  store i64 %1434, ptr %1027, align 8, !tbaa !47
+  %1432 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i908, i64 noundef %1431, i32 noundef 1, i64 noundef %1430) #31
+  %1433 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1434 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1433) #31
+  %1435 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1435, ptr %1023, align 8, !tbaa !41
+  store i64 %1432, ptr %1027, align 8, !tbaa !47
   br label %ripper_dispatch_scan_event.exit909
 
-ripper_dispatch_scan_event.exit909:               ; preds = %1049, %1427, %ripper_has_scan_event.exit.i906, %nextc0.exit.thread1207
-  %.val.i910 = phi ptr [ %1059, %nextc0.exit.thread1207 ], [ %1423, %ripper_has_scan_event.exit.i906 ], [ %1437, %1427 ], [ %1051, %1049 ]
-  %.1653 = phi i32 [ %.0652, %nextc0.exit.thread1207 ], [ 1, %ripper_has_scan_event.exit.i906 ], [ 1, %1427 ], [ %.0652, %1049 ]
-  %1438 = load i16, ptr %10, align 8
-  %1439 = and i16 %1438, -129
-  %1440 = or disjoint i16 %1439, %1013
-  store i16 %1440, ptr %10, align 8
-  %1441 = load ptr, ptr %1033, align 8, !tbaa !479
-  %1442 = load i32, ptr %1019, align 8, !tbaa !60
-  %1443 = and i32 %1442, 897
-  %.not794 = icmp ne i32 %1443, 0
-  %1444 = and i32 %1442, 2048
-  %.not795 = icmp eq i32 %1444, 0
-  %1445 = and i1 %.not794, %.not795
-  %1446 = and i32 %1442, 2064
-  %1447 = icmp eq i32 %1446, 2064
-  %or.cond1291 = or i1 %1447, %1445
-  br i1 %or.cond1291, label %1448, label %.preheader
+ripper_dispatch_scan_event.exit909:               ; preds = %1049, %1425, %ripper_has_scan_event.exit.i906, %nextc0.exit.thread1207
+  %.val.i910 = phi ptr [ %1059, %nextc0.exit.thread1207 ], [ %1421, %ripper_has_scan_event.exit.i906 ], [ %1435, %1425 ], [ %1051, %1049 ]
+  %.1653 = phi i32 [ %.0652, %nextc0.exit.thread1207 ], [ 1, %ripper_has_scan_event.exit.i906 ], [ 1, %1425 ], [ %.0652, %1049 ]
+  %1436 = load i16, ptr %10, align 8
+  %1437 = and i16 %1436, -129
+  %1438 = or disjoint i16 %1437, %1013
+  store i16 %1438, ptr %10, align 8
+  %1439 = load ptr, ptr %1033, align 8, !tbaa !479
+  %1440 = load i32, ptr %1019, align 8, !tbaa !60
+  %1441 = and i32 %1440, 897
+  %.not794 = icmp ne i32 %1441, 0
+  %1442 = and i32 %1440, 2048
+  %.not795 = icmp eq i32 %1442, 0
+  %1443 = and i1 %.not794, %.not795
+  %1444 = and i32 %1440, 2064
+  %1445 = icmp eq i32 %1444, 2064
+  %or.cond1291 = or i1 %1445, %1443
+  br i1 %or.cond1291, label %1446, label %.preheader
 
-1448:                                             ; preds = %ripper_dispatch_scan_event.exit909
+1446:                                             ; preds = %ripper_dispatch_scan_event.exit909
   %.not799 = icmp eq i32 %.1653, 0
-  br i1 %.not799, label %1449, label %ripper_dispatch_scan_event.exit915
+  br i1 %.not799, label %1447, label %ripper_dispatch_scan_event.exit915
 
-1449:                                             ; preds = %1448
+1447:                                             ; preds = %1446
   %.val3.i911 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1450 = icmp ult ptr %.val.i910, %.val3.i911
-  br i1 %1450, label %1451, label %ripper_has_scan_event.exit.i912
+  %1448 = icmp ult ptr %.val.i910, %.val3.i911
+  br i1 %1448, label %1449, label %ripper_has_scan_event.exit.i912
 
-1451:                                             ; preds = %1449
-  %1452 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1452, ptr noundef nonnull @.str.666) #33
+1449:                                             ; preds = %1447
+  %1450 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1450, ptr noundef nonnull @.str.666) #33
   unreachable
 
-ripper_has_scan_event.exit.i912:                  ; preds = %1449
+ripper_has_scan_event.exit.i912:                  ; preds = %1447
   %.not.i913 = icmp ugt ptr %.val.i910, %.val3.i911
-  br i1 %.not.i913, label %1453, label %ripper_dispatch_scan_event.exit915
+  br i1 %.not.i913, label %1451, label %ripper_dispatch_scan_event.exit915
 
-1453:                                             ; preds = %ripper_has_scan_event.exit.i912
-  %1454 = ptrtoint ptr %.val.i910 to i64
-  %1455 = ptrtoint ptr %.val3.i911 to i64
-  %1456 = sub i64 %1454, %1455
-  %1457 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1458 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i911, i64 noundef %1456, ptr noundef %1457) #31
-  %1459 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 351) #31
+1451:                                             ; preds = %ripper_has_scan_event.exit.i912
+  %1452 = ptrtoint ptr %.val.i910 to i64
+  %1453 = ptrtoint ptr %.val3.i911 to i64
+  %1454 = sub i64 %1452, %1453
+  %1455 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1456 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i911, i64 noundef %1454, ptr noundef %1455) #31
+  %1457 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 351) #31
   %.val.i.i914 = load i64, ptr %1025, align 8, !tbaa !46
-  %1460 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i914, i64 noundef %1459, i32 noundef 1, i64 noundef %1458) #31
-  %1461 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1462 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1461) #31
-  %1463 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1463, ptr %1023, align 8, !tbaa !41
-  store i64 %1460, ptr %1027, align 8, !tbaa !47
+  %1458 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i914, i64 noundef %1457, i32 noundef 1, i64 noundef %1456) #31
+  %1459 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1460 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1459) #31
+  %1461 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1461, ptr %1023, align 8, !tbaa !41
+  store i64 %1458, ptr %1027, align 8, !tbaa !47
   br label %ripper_dispatch_scan_event.exit915
 
-ripper_dispatch_scan_event.exit915:               ; preds = %1453, %ripper_has_scan_event.exit.i912, %1448
-  %1464 = phi ptr [ %1463, %1453 ], [ %.val.i910, %ripper_has_scan_event.exit.i912 ], [ %.val.i910, %1448 ]
-  br i1 %1445, label %.backedge.backedge, label %1465
+ripper_dispatch_scan_event.exit915:               ; preds = %1451, %ripper_has_scan_event.exit.i912, %1446
+  %1462 = phi ptr [ %1461, %1451 ], [ %.val.i910, %ripper_has_scan_event.exit.i912 ], [ %.val.i910, %1446 ]
+  br i1 %1443, label %.backedge.backedge, label %1463
 
-1465:                                             ; preds = %ripper_dispatch_scan_event.exit915
-  %1466 = load i16, ptr %1038, align 8
-  %1467 = and i16 %1466, 2
-  %.not800 = icmp eq i16 %1467, 0
+1463:                                             ; preds = %ripper_dispatch_scan_event.exit915
+  %1464 = load i16, ptr %1038, align 8
+  %1465 = and i16 %1464, 2
+  %.not800 = icmp eq i16 %1465, 0
   br i1 %.not800, label %.backedge.backedge, label %.loopexit1343
 
 .preheader:                                       ; preds = %ripper_dispatch_scan_event.exit909, %.preheader.backedge
-  %1468 = phi ptr [ %1479, %.preheader.backedge ], [ %.val.i910, %ripper_dispatch_scan_event.exit909 ]
+  %1466 = phi ptr [ %1477, %.preheader.backedge ], [ %.val.i910, %ripper_dispatch_scan_event.exit909 ]
   %.1650 = phi i32 [ 1, %.preheader.backedge ], [ %.0649, %ripper_dispatch_scan_event.exit909 ]
-  %1469 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i916 = icmp ult ptr %1468, %1469
-  br i1 %.not.i916, label %1470, label %.critedge.i917, !prof !477
+  %1467 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i916 = icmp ult ptr %1466, %1467
+  br i1 %.not.i916, label %1468, label %.critedge.i917, !prof !477
 
-1470:                                             ; preds = %.preheader
-  %1471 = load i16, ptr %10, align 8
-  %1472 = and i16 %1471, 8
-  %.not13.i923 = icmp eq i16 %1472, 0
-  br i1 %.not13.i923, label %1473, label %.critedge.i917, !prof !477
+1468:                                             ; preds = %.preheader
+  %1469 = load i16, ptr %10, align 8
+  %1470 = and i16 %1469, 8
+  %.not13.i923 = icmp eq i16 %1470, 0
+  br i1 %.not13.i923, label %1471, label %.critedge.i917, !prof !477
 
-1473:                                             ; preds = %1470
-  %1474 = load ptr, ptr %1022, align 8, !tbaa !478
-  %1475 = icmp ugt ptr %1474, inttoptr (i64 1 to ptr)
-  br i1 %1475, label %.critedge.i917, label %1477, !prof !189
+1471:                                             ; preds = %1468
+  %1472 = load ptr, ptr %1022, align 8, !tbaa !478
+  %1473 = icmp ugt ptr %1472, inttoptr (i64 1 to ptr)
+  br i1 %1473, label %.critedge.i917, label %1475, !prof !189
 
-.critedge.i917:                                   ; preds = %1473, %1470, %.preheader
-  %1476 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
-  %.not14.i918 = icmp eq i32 %1476, 0
-  br i1 %.not14.i918, label %.critedge._crit_edge.i920, label %1565
+.critedge.i917:                                   ; preds = %1471, %1468, %.preheader
+  %1474 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
+  %.not14.i918 = icmp eq i32 %1474, 0
+  br i1 %.not14.i918, label %.critedge._crit_edge.i920, label %1563
 
 .critedge._crit_edge.i920:                        ; preds = %.critedge.i917
   %.pre.i921 = load ptr, ptr %1020, align 8, !tbaa !48
-  br label %1477
+  br label %1475
 
-1477:                                             ; preds = %.critedge._crit_edge.i920, %1473
-  %1478 = phi ptr [ %.pre.i921, %.critedge._crit_edge.i920 ], [ %1468, %1473 ]
-  %1479 = getelementptr inbounds nuw i8, ptr %1478, i64 1
-  store ptr %1479, ptr %1020, align 8, !tbaa !48
-  %1480 = load i8, ptr %1478, align 1, !tbaa !6
-  switch i8 %1480, label %.loopexit1336 [
-    i8 13, label %1481
+1475:                                             ; preds = %.critedge._crit_edge.i920, %1471
+  %1476 = phi ptr [ %.pre.i921, %.critedge._crit_edge.i920 ], [ %1466, %1471 ]
+  %1477 = getelementptr inbounds nuw i8, ptr %1476, i64 1
+  store ptr %1477, ptr %1020, align 8, !tbaa !48
+  %1478 = load i8, ptr %1476, align 1, !tbaa !6
+  switch i8 %1478, label %.loopexit1336 [
+    i8 13, label %1479
     i8 32, label %.preheader.backedge
     i8 9, label %.preheader.backedge
     i8 12, label %.preheader.backedge
-    i8 46, label %1502
+    i8 46, label %1500
     i8 11, label %.preheader.backedge
-    i8 35, label %1486
-    i8 38, label %1502
+    i8 35, label %1484
+    i8 38, label %1500
   ], !prof !552
 
-.preheader.backedge:                              ; preds = %1477, %1477, %1477, %1477, %1483, %1481
+.preheader.backedge:                              ; preds = %1475, %1475, %1475, %1475, %1481, %1479
   br label %.preheader
 
-1481:                                             ; preds = %1477
-  %1482 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i.i922 = icmp ult ptr %1479, %1482
-  br i1 %.not.i.i922, label %1483, label %.preheader.backedge
+1479:                                             ; preds = %1475
+  %1480 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i.i922 = icmp ult ptr %1477, %1480
+  br i1 %.not.i.i922, label %1481, label %.preheader.backedge
 
-1483:                                             ; preds = %1481
-  %1484 = load i8, ptr %1479, align 1, !tbaa !6
-  %1485 = icmp eq i8 %1484, 10
-  br i1 %1485, label %.loopexit1336, label %.preheader.backedge
+1481:                                             ; preds = %1479
+  %1482 = load i8, ptr %1477, align 1, !tbaa !6
+  %1483 = icmp eq i8 %1482, 10
+  br i1 %1483, label %.loopexit1336, label %.preheader.backedge
 
-1486:                                             ; preds = %1477
-  %1487 = load i16, ptr %10, align 8
-  %1488 = and i16 %1487, -9
-  store i16 %1488, ptr %10, align 8
-  store ptr %1478, ptr %1020, align 8, !tbaa !48
-  %1489 = load ptr, ptr %1028, align 8, !tbaa !44
-  %1490 = icmp ugt ptr %1478, %1489
-  br i1 %1490, label %1491, label %pushback.exit925
+1484:                                             ; preds = %1475
+  %1485 = load i16, ptr %10, align 8
+  %1486 = and i16 %1485, -9
+  store i16 %1486, ptr %10, align 8
+  store ptr %1476, ptr %1020, align 8, !tbaa !48
+  %1487 = load ptr, ptr %1028, align 8, !tbaa !44
+  %1488 = icmp ugt ptr %1476, %1487
+  br i1 %1488, label %1489, label %pushback.exit925
 
-1491:                                             ; preds = %1486
-  %1492 = load i8, ptr %1478, align 1, !tbaa !6
-  %1493 = icmp eq i8 %1492, 10
-  br i1 %1493, label %1494, label %pushback.exit925
+1489:                                             ; preds = %1484
+  %1490 = load i8, ptr %1476, align 1, !tbaa !6
+  %1491 = icmp eq i8 %1490, 10
+  br i1 %1491, label %1492, label %pushback.exit925
 
-1494:                                             ; preds = %1491
-  %1495 = getelementptr inbounds i8, ptr %1478, i64 -1
-  %1496 = load i8, ptr %1495, align 1, !tbaa !6
-  %1497 = icmp eq i8 %1496, 13
-  br i1 %1497, label %1498, label %pushback.exit925
+1492:                                             ; preds = %1489
+  %1493 = getelementptr inbounds i8, ptr %1476, i64 -1
+  %1494 = load i8, ptr %1493, align 1, !tbaa !6
+  %1495 = icmp eq i8 %1494, 13
+  br i1 %1495, label %1496, label %pushback.exit925
 
-1498:                                             ; preds = %1494
-  store ptr %1495, ptr %1020, align 8, !tbaa !48
+1496:                                             ; preds = %1492
+  store ptr %1493, ptr %1020, align 8, !tbaa !48
   br label %pushback.exit925
 
-pushback.exit925:                                 ; preds = %1486, %1491, %1494, %1498
-  %1499 = phi ptr [ %1478, %1486 ], [ %1478, %1491 ], [ %1478, %1494 ], [ %1495, %1498 ]
+pushback.exit925:                                 ; preds = %1484, %1489, %1492, %1496
+  %1497 = phi ptr [ %1476, %1484 ], [ %1476, %1489 ], [ %1476, %1492 ], [ %1493, %1496 ]
   %.not797 = icmp eq i32 %.1650, 0
-  br i1 %.not797, label %.backedge.backedge, label %1500
+  br i1 %.not797, label %.backedge.backedge, label %1498
 
-1500:                                             ; preds = %pushback.exit925
+1498:                                             ; preds = %pushback.exit925
   tail call fastcc void @ripper_dispatch_scan_event(ptr noundef nonnull %0, i32 noundef 324)
-  %1501 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1501, ptr %1023, align 8, !tbaa !41
+  %1499 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1499, ptr %1023, align 8, !tbaa !41
   br label %.backedge.backedge
 
-1502:                                             ; preds = %1477, %1477
-  %1503 = load ptr, ptr %1034, align 8, !tbaa !40
-  %.not.i926 = icmp eq ptr %1503, null
-  br i1 %.not.i926, label %ripper_dispatch_delayed_token.exit, label %1504
+1500:                                             ; preds = %1475, %1475
+  %1501 = load ptr, ptr %1034, align 8, !tbaa !40
+  %.not.i926 = icmp eq ptr %1501, null
+  br i1 %.not.i926, label %ripper_dispatch_delayed_token.exit, label %1502
 
-1504:                                             ; preds = %1502
-  %1505 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1506 = load i32, ptr %1035, align 4, !tbaa !42
-  %1507 = load i32, ptr %1036, align 8, !tbaa !43
-  store i32 %1507, ptr %1035, align 4, !tbaa !42
-  %1508 = load ptr, ptr %1028, align 8, !tbaa !44
-  %1509 = load i32, ptr %1037, align 4, !tbaa !45
-  %1510 = sext i32 %1509 to i64
-  %1511 = getelementptr inbounds i8, ptr %1508, i64 %1510
-  store ptr %1511, ptr %1023, align 8, !tbaa !41
-  %1512 = tail call i64 @rb_str_new_mutable_parser_string(ptr noundef nonnull %1503) #31
-  %1513 = load ptr, ptr %1034, align 8, !tbaa !40
-  tail call void @rb_parser_string_free(ptr noundef nonnull %0, ptr noundef %1513) #31
-  %1514 = tail call i64 @ripper_token2eventid(i32 noundef 351) #31
+1502:                                             ; preds = %1500
+  %1503 = load ptr, ptr %1023, align 8, !tbaa !41
+  %1504 = load i32, ptr %1035, align 4, !tbaa !42
+  %1505 = load i32, ptr %1036, align 8, !tbaa !43
+  store i32 %1505, ptr %1035, align 4, !tbaa !42
+  %1506 = load ptr, ptr %1028, align 8, !tbaa !44
+  %1507 = load i32, ptr %1037, align 4, !tbaa !45
+  %1508 = sext i32 %1507 to i64
+  %1509 = getelementptr inbounds i8, ptr %1506, i64 %1508
+  store ptr %1509, ptr %1023, align 8, !tbaa !41
+  %1510 = tail call i64 @rb_str_new_mutable_parser_string(ptr noundef nonnull %1501) #31
+  %1511 = load ptr, ptr %1034, align 8, !tbaa !40
+  tail call void @rb_parser_string_free(ptr noundef nonnull %0, ptr noundef %1511) #31
+  %1512 = tail call i64 @ripper_token2eventid(i32 noundef 351) #31
   %.val.i927 = load i64, ptr %1025, align 8, !tbaa !46
-  %1515 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i927, i64 noundef %1514, i32 noundef 1, i64 noundef %1512) #31
-  store i64 %1515, ptr %1027, align 8, !tbaa !47
+  %1513 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i927, i64 noundef %1512, i32 noundef 1, i64 noundef %1510) #31
+  store i64 %1513, ptr %1027, align 8, !tbaa !47
   store ptr null, ptr %1034, align 8, !tbaa !40
-  store i32 %1506, ptr %1035, align 4, !tbaa !42
-  store ptr %1505, ptr %1023, align 8, !tbaa !41
+  store i32 %1504, ptr %1035, align 4, !tbaa !42
+  store ptr %1503, ptr %1023, align 8, !tbaa !41
   %.pre1977 = load ptr, ptr %1020, align 8, !tbaa !48
   br label %ripper_dispatch_delayed_token.exit
 
-ripper_dispatch_delayed_token.exit:               ; preds = %1502, %1504
-  %1516 = phi ptr [ %1479, %1502 ], [ %.pre1977, %1504 ]
-  %1517 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not796 = icmp ult ptr %1516, %1517
-  br i1 %.not796, label %1518, label %1522
+ripper_dispatch_delayed_token.exit:               ; preds = %1500, %1502
+  %1514 = phi ptr [ %1477, %1500 ], [ %.pre1977, %1502 ]
+  %1515 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not796 = icmp ult ptr %1514, %1515
+  br i1 %.not796, label %1516, label %1520
 
-1518:                                             ; preds = %ripper_dispatch_delayed_token.exit
-  %1519 = load i8, ptr %1516, align 1, !tbaa !6
-  %1520 = icmp eq i8 %1519, 46
-  %1521 = zext i1 %1520 to i32
-  br label %1522
+1516:                                             ; preds = %ripper_dispatch_delayed_token.exit
+  %1517 = load i8, ptr %1514, align 1, !tbaa !6
+  %1518 = icmp eq i8 %1517, 46
+  %1519 = zext i1 %1518 to i32
+  br label %1520
 
-1522:                                             ; preds = %1518, %ripper_dispatch_delayed_token.exit
-  %1523 = phi i32 [ 0, %ripper_dispatch_delayed_token.exit ], [ %1521, %1518 ]
-  %1524 = icmp eq i8 %1480, 38
-  %1525 = zext i1 %1524 to i32
-  %1526 = icmp eq i32 %1523, %1525
-  br i1 %1526, label %1527, label %.loopexit1336
+1520:                                             ; preds = %1516, %ripper_dispatch_delayed_token.exit
+  %1521 = phi i32 [ 0, %ripper_dispatch_delayed_token.exit ], [ %1519, %1516 ]
+  %1522 = icmp eq i8 %1478, 38
+  %1523 = zext i1 %1522 to i32
+  %1524 = icmp eq i32 %1521, %1523
+  br i1 %1524, label %1525, label %.loopexit1336
 
-1527:                                             ; preds = %1522
-  %1528 = load i16, ptr %10, align 8
-  %1529 = and i16 %1528, -9
-  store i16 %1529, ptr %10, align 8
-  %1530 = getelementptr inbounds i8, ptr %1516, i64 -1
-  store ptr %1530, ptr %1020, align 8, !tbaa !48
-  %1531 = load ptr, ptr %1028, align 8, !tbaa !44
-  %1532 = icmp ugt ptr %1530, %1531
-  br i1 %1532, label %1533, label %pushback.exit928
+1525:                                             ; preds = %1520
+  %1526 = load i16, ptr %10, align 8
+  %1527 = and i16 %1526, -9
+  store i16 %1527, ptr %10, align 8
+  %1528 = getelementptr inbounds i8, ptr %1514, i64 -1
+  store ptr %1528, ptr %1020, align 8, !tbaa !48
+  %1529 = load ptr, ptr %1028, align 8, !tbaa !44
+  %1530 = icmp ugt ptr %1528, %1529
+  br i1 %1530, label %1531, label %pushback.exit928
 
-1533:                                             ; preds = %1527
-  %1534 = load i8, ptr %1530, align 1, !tbaa !6
-  %1535 = icmp eq i8 %1534, 10
-  br i1 %1535, label %1536, label %pushback.exit928
+1531:                                             ; preds = %1525
+  %1532 = load i8, ptr %1528, align 1, !tbaa !6
+  %1533 = icmp eq i8 %1532, 10
+  br i1 %1533, label %1534, label %pushback.exit928
 
-1536:                                             ; preds = %1533
-  %1537 = getelementptr inbounds i8, ptr %1516, i64 -2
-  %1538 = load i8, ptr %1537, align 1, !tbaa !6
-  %1539 = icmp eq i8 %1538, 13
-  br i1 %1539, label %1540, label %pushback.exit928
+1534:                                             ; preds = %1531
+  %1535 = getelementptr inbounds i8, ptr %1514, i64 -2
+  %1536 = load i8, ptr %1535, align 1, !tbaa !6
+  %1537 = icmp eq i8 %1536, 13
+  br i1 %1537, label %1538, label %pushback.exit928
 
-1540:                                             ; preds = %1536
-  store ptr %1537, ptr %1020, align 8, !tbaa !48
+1538:                                             ; preds = %1534
+  store ptr %1535, ptr %1020, align 8, !tbaa !48
   br label %pushback.exit928
 
-pushback.exit928:                                 ; preds = %1527, %1533, %1536, %1540
-  %.val.i929 = phi ptr [ %1530, %1527 ], [ %1530, %1533 ], [ %1530, %1536 ], [ %1537, %1540 ]
+pushback.exit928:                                 ; preds = %1525, %1531, %1534, %1538
+  %.val.i929 = phi ptr [ %1528, %1525 ], [ %1528, %1531 ], [ %1528, %1534 ], [ %1535, %1538 ]
   %.val3.i930 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1541 = icmp ult ptr %.val.i929, %.val3.i930
-  br i1 %1541, label %1542, label %ripper_has_scan_event.exit.i931
+  %1539 = icmp ult ptr %.val.i929, %.val3.i930
+  br i1 %1539, label %1540, label %ripper_has_scan_event.exit.i931
 
-1542:                                             ; preds = %pushback.exit928
-  %1543 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1543, ptr noundef nonnull @.str.666) #33
+1540:                                             ; preds = %pushback.exit928
+  %1541 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1541, ptr noundef nonnull @.str.666) #33
   unreachable
 
 ripper_has_scan_event.exit.i931:                  ; preds = %pushback.exit928
   %.not.i932 = icmp ugt ptr %.val.i929, %.val3.i930
-  br i1 %.not.i932, label %1544, label %.backedge.backedge
+  br i1 %.not.i932, label %1542, label %.backedge.backedge
 
-1544:                                             ; preds = %ripper_has_scan_event.exit.i931
-  %1545 = ptrtoint ptr %.val.i929 to i64
-  %1546 = ptrtoint ptr %.val3.i930 to i64
-  %1547 = sub i64 %1545, %1546
-  %1548 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1549 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i930, i64 noundef %1547, ptr noundef %1548) #31
-  %1550 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 324) #31
+1542:                                             ; preds = %ripper_has_scan_event.exit.i931
+  %1543 = ptrtoint ptr %.val.i929 to i64
+  %1544 = ptrtoint ptr %.val3.i930 to i64
+  %1545 = sub i64 %1543, %1544
+  %1546 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1547 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i930, i64 noundef %1545, ptr noundef %1546) #31
+  %1548 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 324) #31
   %.val.i.i933 = load i64, ptr %1025, align 8, !tbaa !46
-  %1551 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i933, i64 noundef %1550, i32 noundef 1, i64 noundef %1549) #31
-  %1552 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1553 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1552) #31
-  %1554 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1554, ptr %1023, align 8, !tbaa !41
-  store i64 %1551, ptr %1027, align 8, !tbaa !47
+  %1549 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i933, i64 noundef %1548, i32 noundef 1, i64 noundef %1547) #31
+  %1550 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1551 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1550) #31
+  %1552 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1552, ptr %1023, align 8, !tbaa !41
+  store i64 %1549, ptr %1027, align 8, !tbaa !47
   br label %.backedge.backedge
 
-.loopexit1336:                                    ; preds = %1522, %1477, %1483
-  %1555 = load i32, ptr %1035, align 4, !tbaa !42
-  %1556 = add nsw i32 %1555, -1
-  store i32 %1556, ptr %1035, align 4, !tbaa !42
-  %1557 = load ptr, ptr %1033, align 8, !tbaa !479
-  store ptr %1557, ptr %1022, align 8, !tbaa !478
-  %1558 = getelementptr inbounds nuw i8, ptr %1441, i64 24
-  %1559 = load ptr, ptr %1558, align 8, !tbaa !443
-  store ptr %1559, ptr %1028, align 8, !tbaa !44
-  %1560 = getelementptr inbounds nuw i8, ptr %1441, i64 16
-  %1561 = load i64, ptr %1560, align 8, !tbaa !445
-  %1562 = getelementptr inbounds i8, ptr %1559, i64 %1561
-  store ptr %1562, ptr %1021, align 8, !tbaa !401
-  store ptr %1441, ptr %1033, align 8, !tbaa !479
-  store ptr %1562, ptr %1020, align 8, !tbaa !48
-  store ptr %1562, ptr %1023, align 8, !tbaa !41
-  %1563 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1564 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1563) #31
+.loopexit1336:                                    ; preds = %1520, %1475, %1481
+  %1553 = load i32, ptr %1035, align 4, !tbaa !42
+  %1554 = add nsw i32 %1553, -1
+  store i32 %1554, ptr %1035, align 4, !tbaa !42
+  %1555 = load ptr, ptr %1033, align 8, !tbaa !479
+  store ptr %1555, ptr %1022, align 8, !tbaa !478
+  %1556 = getelementptr inbounds nuw i8, ptr %1439, i64 24
+  %1557 = load ptr, ptr %1556, align 8, !tbaa !443
+  store ptr %1557, ptr %1028, align 8, !tbaa !44
+  %1558 = getelementptr inbounds nuw i8, ptr %1439, i64 16
+  %1559 = load i64, ptr %1558, align 8, !tbaa !445
+  %1560 = getelementptr inbounds i8, ptr %1557, i64 %1559
+  store ptr %1560, ptr %1021, align 8, !tbaa !401
+  store ptr %1439, ptr %1033, align 8, !tbaa !479
+  store ptr %1560, ptr %1020, align 8, !tbaa !48
+  store ptr %1560, ptr %1023, align 8, !tbaa !41
+  %1561 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1562 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1561) #31
   br label %.loopexit1343
 
-1565:                                             ; preds = %.critedge.i917
+1563:                                             ; preds = %.critedge.i917
   %.not1323 = icmp eq i32 %.1650, 0
-  br i1 %.not1323, label %ripper_dispatch_scan_event.exit940, label %1566
+  br i1 %.not1323, label %ripper_dispatch_scan_event.exit940, label %1564
 
-1566:                                             ; preds = %1565
+1564:                                             ; preds = %1563
   %.val.i935 = load ptr, ptr %1020, align 8, !tbaa !48
   %.val3.i936 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1567 = icmp ult ptr %.val.i935, %.val3.i936
-  br i1 %1567, label %1568, label %ripper_has_scan_event.exit.i937
+  %1565 = icmp ult ptr %.val.i935, %.val3.i936
+  br i1 %1565, label %1566, label %ripper_has_scan_event.exit.i937
 
-1568:                                             ; preds = %1566
-  %1569 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1569, ptr noundef nonnull @.str.666) #33
+1566:                                             ; preds = %1564
+  %1567 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1567, ptr noundef nonnull @.str.666) #33
   unreachable
 
-ripper_has_scan_event.exit.i937:                  ; preds = %1566
+ripper_has_scan_event.exit.i937:                  ; preds = %1564
   %.not.i938 = icmp ugt ptr %.val.i935, %.val3.i936
-  br i1 %.not.i938, label %1570, label %ripper_dispatch_scan_event.exit940
+  br i1 %.not.i938, label %1568, label %ripper_dispatch_scan_event.exit940
 
-1570:                                             ; preds = %ripper_has_scan_event.exit.i937
-  %1571 = ptrtoint ptr %.val.i935 to i64
-  %1572 = ptrtoint ptr %.val3.i936 to i64
-  %1573 = sub i64 %1571, %1572
-  %1574 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1575 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i936, i64 noundef %1573, ptr noundef %1574) #31
-  %1576 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 324) #31
+1568:                                             ; preds = %ripper_has_scan_event.exit.i937
+  %1569 = ptrtoint ptr %.val.i935 to i64
+  %1570 = ptrtoint ptr %.val3.i936 to i64
+  %1571 = sub i64 %1569, %1570
+  %1572 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1573 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i936, i64 noundef %1571, ptr noundef %1572) #31
+  %1574 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 324) #31
   %.val.i.i939 = load i64, ptr %1025, align 8, !tbaa !46
-  %1577 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i939, i64 noundef %1576, i32 noundef 1, i64 noundef %1575) #31
-  %1578 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1579 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1578) #31
-  %1580 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1580, ptr %1023, align 8, !tbaa !41
-  store i64 %1577, ptr %1027, align 8, !tbaa !47
-  %1581 = load ptr, ptr %1021, align 8, !tbaa !401
-  store ptr %1581, ptr %1020, align 8, !tbaa !48
+  %1575 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i939, i64 noundef %1574, i32 noundef 1, i64 noundef %1573) #31
+  %1576 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1577 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1576) #31
+  %1578 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1578, ptr %1023, align 8, !tbaa !41
+  store i64 %1575, ptr %1027, align 8, !tbaa !47
+  %1579 = load ptr, ptr %1021, align 8, !tbaa !401
+  store ptr %1579, ptr %1020, align 8, !tbaa !48
   br label %.loopexit1343
 
-ripper_dispatch_scan_event.exit940:               ; preds = %ripper_has_scan_event.exit.i937, %1565
-  %1582 = load ptr, ptr %1021, align 8, !tbaa !401
-  store ptr %1582, ptr %1020, align 8, !tbaa !48
+ripper_dispatch_scan_event.exit940:               ; preds = %ripper_has_scan_event.exit.i937, %1563
+  %1580 = load ptr, ptr %1021, align 8, !tbaa !401
+  store ptr %1580, ptr %1020, align 8, !tbaa !48
   br label %.loopexit1343
 
-.loopexit1343:                                    ; preds = %1465, %ripper_dispatch_scan_event.exit940, %1570, %.loopexit1336
-  %1583 = load i16, ptr %10, align 8
-  %1584 = or i16 %1583, 4
-  store i16 %1584, ptr %10, align 8
-  %1585 = and i16 %1583, 32
-  %.not.i941 = icmp eq i16 %1585, 0
-  br i1 %.not.i941, label %parser_set_lex_state.exit, label %1586
+.loopexit1343:                                    ; preds = %1463, %ripper_dispatch_scan_event.exit940, %1568, %.loopexit1336
+  %1581 = load i16, ptr %10, align 8
+  %1582 = or i16 %1581, 4
+  store i16 %1582, ptr %10, align 8
+  %1583 = and i16 %1581, 32
+  %.not.i941 = icmp eq i16 %1583, 0
+  br i1 %.not.i941, label %parser_set_lex_state.exit, label %1584
 
-1586:                                             ; preds = %.loopexit1343
-  %1587 = load i32, ptr %1019, align 8, !tbaa !60
-  %1588 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1587, i32 noundef 1, i32 noundef 10627) #31
+1584:                                             ; preds = %.loopexit1343
+  %1585 = load i32, ptr %1019, align 8, !tbaa !60
+  %1586 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1585, i32 noundef 1, i32 noundef 10627) #31
   br label %parser_set_lex_state.exit
 
-parser_set_lex_state.exit:                        ; preds = %.loopexit1343, %1586
-  %.0.i942 = phi i32 [ %1588, %1586 ], [ 1, %.loopexit1343 ]
+parser_set_lex_state.exit:                        ; preds = %.loopexit1343, %1584
+  %.0.i942 = phi i32 [ %1586, %1584 ], [ 1, %.loopexit1343 ]
   store i32 %.0.i942, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1589:                                             ; preds = %1049
-  %1590 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  switch i32 %1590, label %1631 [
-    i32 42, label %1591
-    i32 61, label %1624
+1587:                                             ; preds = %1049
+  %1588 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  switch i32 %1588, label %1629 [
+    i32 42, label %1589
+    i32 61, label %1622
   ]
 
-1591:                                             ; preds = %1589
-  %1592 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1593 = icmp eq i32 %1592, 61
-  br i1 %1593, label %1594, label %1601
+1589:                                             ; preds = %1587
+  %1590 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1591 = icmp eq i32 %1590, 61
+  br i1 %1591, label %1592, label %1599
 
-1594:                                             ; preds = %1591
-  %1595 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 134, ptr %1595, align 8, !tbaa !6
-  %1596 = load i16, ptr %10, align 8
-  %1597 = and i16 %1596, 32
-  %.not.i943 = icmp eq i16 %1597, 0
-  br i1 %.not.i943, label %parser_set_lex_state.exit945, label %1598
+1592:                                             ; preds = %1589
+  %1593 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 134, ptr %1593, align 8, !tbaa !6
+  %1594 = load i16, ptr %10, align 8
+  %1595 = and i16 %1594, 32
+  %.not.i943 = icmp eq i16 %1595, 0
+  br i1 %.not.i943, label %parser_set_lex_state.exit945, label %1596
 
-1598:                                             ; preds = %1594
-  %1599 = load i32, ptr %1019, align 8, !tbaa !60
-  %1600 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1599, i32 noundef 1, i32 noundef 10634) #31
+1596:                                             ; preds = %1592
+  %1597 = load i32, ptr %1019, align 8, !tbaa !60
+  %1598 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1597, i32 noundef 1, i32 noundef 10634) #31
   br label %parser_set_lex_state.exit945
 
-parser_set_lex_state.exit945:                     ; preds = %1594, %1598
-  %.0.i944 = phi i32 [ %1600, %1598 ], [ 1, %1594 ]
+parser_set_lex_state.exit945:                     ; preds = %1592, %1596
+  %.0.i944 = phi i32 [ %1598, %1596 ], [ 1, %1592 ]
   store i32 %.0.i944, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1601:                                             ; preds = %1591
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1592)
-  %1602 = load i32, ptr %1019, align 8, !tbaa !60
-  %1603 = and i32 %1602, 48
-  %1604 = icmp ne i32 %1603, 0
-  %1605 = icmp ne i32 %.0649, 0
-  %or.cond5 = select i1 %1604, i1 %1605, i1 false
-  br i1 %or.cond5, label %1606, label %1612
+1599:                                             ; preds = %1589
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1590)
+  %1600 = load i32, ptr %1019, align 8, !tbaa !60
+  %1601 = and i32 %1600, 48
+  %1602 = icmp ne i32 %1601, 0
+  %1603 = icmp ne i32 %.0649, 0
+  %or.cond5 = select i1 %1602, i1 %1603, i1 false
+  br i1 %or.cond5, label %1604, label %1610
 
-1606:                                             ; preds = %1601
-  switch i32 %1592, label %1607 [
-    i32 32, label %1612
-    i32 13, label %1612
-    i32 12, label %1612
-    i32 11, label %1612
-    i32 10, label %1612
-    i32 9, label %1612
+1604:                                             ; preds = %1599
+  switch i32 %1590, label %1605 [
+    i32 32, label %1610
+    i32 13, label %1610
+    i32 12, label %1610
+    i32 11, label %1610
+    i32 10, label %1610
+    i32 9, label %1610
   ]
 
-1607:                                             ; preds = %1606
-  %1608 = load i64, ptr %1025, align 8, !tbaa !46
-  %1609 = load i64, ptr @id_warning, align 8, !tbaa !9
-  %1610 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.582, i64 noundef 35) #31
-  %1611 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1608, i64 noundef %1609, i32 noundef 1, i64 noundef %1610) #31
-  br label %1654
+1605:                                             ; preds = %1604
+  %1606 = load i64, ptr %1025, align 8, !tbaa !46
+  %1607 = load i64, ptr @id_warning, align 8, !tbaa !9
+  %1608 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.582, i64 noundef 35) #31
+  %1609 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1606, i64 noundef %1607, i32 noundef 1, i64 noundef %1608) #31
+  br label %1652
 
-1612:                                             ; preds = %1606, %1606, %1606, %1606, %1606, %1606, %1601
-  %1613 = and i32 %1602, 577
-  %.not790 = icmp ne i32 %1613, 0
-  %1614 = and i32 %1602, 2064
-  %1615 = icmp eq i32 %1614, 2064
-  %or.cond805 = or i1 %.not790, %1615
-  br i1 %or.cond805, label %1654, label %1616
+1610:                                             ; preds = %1604, %1604, %1604, %1604, %1604, %1604, %1599
+  %1611 = and i32 %1600, 577
+  %.not790 = icmp ne i32 %1611, 0
+  %1612 = and i32 %1600, 2064
+  %1613 = icmp eq i32 %1612, 2064
+  %or.cond805 = or i1 %.not790, %1613
+  br i1 %or.cond805, label %1652, label %1614
 
-1616:                                             ; preds = %1612
-  %1617 = and i32 %1040, 904
-  %1618 = icmp eq i32 %1617, 0
-  %or.cond7 = select i1 %1618, i1 %1605, i1 false
-  br i1 %or.cond7, label %1619, label %1654
+1614:                                             ; preds = %1610
+  %1615 = and i32 %1040, 904
+  %1616 = icmp eq i32 %1615, 0
+  %or.cond7 = select i1 %1616, i1 %1603, i1 false
+  br i1 %or.cond7, label %1617, label %1652
 
-1619:                                             ; preds = %1616
-  switch i32 %1592, label %1620 [
-    i32 32, label %1654
-    i32 13, label %1654
-    i32 12, label %1654
-    i32 11, label %1654
-    i32 10, label %1654
-    i32 9, label %1654
+1617:                                             ; preds = %1614
+  switch i32 %1590, label %1618 [
+    i32 32, label %1652
+    i32 13, label %1652
+    i32 12, label %1652
+    i32 11, label %1652
+    i32 10, label %1652
+    i32 9, label %1652
   ]
 
-1620:                                             ; preds = %1619
-  %1621 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %1622 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.583, i64 noundef 15) #31
+1618:                                             ; preds = %1617
+  %1619 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %1620 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.583, i64 noundef 15) #31
   %.val837 = load i64, ptr %1025, align 8, !tbaa !46
-  %1623 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val837, i64 noundef %1621, i32 noundef 2, i64 noundef 34316, i64 noundef %1622) #31
-  br label %1654
+  %1621 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val837, i64 noundef %1619, i32 noundef 2, i64 noundef 34316, i64 noundef %1620) #31
+  br label %1652
 
-1624:                                             ; preds = %1589
-  %1625 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 42, ptr %1625, align 8, !tbaa !6
-  %1626 = load i16, ptr %10, align 8
-  %1627 = and i16 %1626, 32
-  %.not.i947 = icmp eq i16 %1627, 0
-  br i1 %.not.i947, label %parser_set_lex_state.exit949, label %1628
+1622:                                             ; preds = %1587
+  %1623 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 42, ptr %1623, align 8, !tbaa !6
+  %1624 = load i16, ptr %10, align 8
+  %1625 = and i16 %1624, 32
+  %.not.i947 = icmp eq i16 %1625, 0
+  br i1 %.not.i947, label %parser_set_lex_state.exit949, label %1626
 
-1628:                                             ; preds = %1624
-  %1629 = load i32, ptr %1019, align 8, !tbaa !60
-  %1630 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1629, i32 noundef 1, i32 noundef 10652) #31
+1626:                                             ; preds = %1622
+  %1627 = load i32, ptr %1019, align 8, !tbaa !60
+  %1628 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1627, i32 noundef 1, i32 noundef 10652) #31
   br label %parser_set_lex_state.exit949
 
-parser_set_lex_state.exit949:                     ; preds = %1624, %1628
-  %.0.i948 = phi i32 [ %1630, %1628 ], [ 1, %1624 ]
+parser_set_lex_state.exit949:                     ; preds = %1622, %1626
+  %.0.i948 = phi i32 [ %1628, %1626 ], [ 1, %1622 ]
   store i32 %.0.i948, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1631:                                             ; preds = %1589
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1590)
-  %1632 = load i32, ptr %1019, align 8, !tbaa !60
-  %1633 = and i32 %1632, 48
-  %1634 = icmp ne i32 %1633, 0
-  %1635 = icmp ne i32 %.0649, 0
-  %or.cond9 = select i1 %1634, i1 %1635, i1 false
-  br i1 %or.cond9, label %1636, label %1642
+1629:                                             ; preds = %1587
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1588)
+  %1630 = load i32, ptr %1019, align 8, !tbaa !60
+  %1631 = and i32 %1630, 48
+  %1632 = icmp ne i32 %1631, 0
+  %1633 = icmp ne i32 %.0649, 0
+  %or.cond9 = select i1 %1632, i1 %1633, i1 false
+  br i1 %or.cond9, label %1634, label %1640
 
-1636:                                             ; preds = %1631
-  switch i32 %1590, label %1637 [
-    i32 32, label %1642
-    i32 13, label %1642
-    i32 12, label %1642
-    i32 11, label %1642
-    i32 10, label %1642
-    i32 9, label %1642
+1634:                                             ; preds = %1629
+  switch i32 %1588, label %1635 [
+    i32 32, label %1640
+    i32 13, label %1640
+    i32 12, label %1640
+    i32 11, label %1640
+    i32 10, label %1640
+    i32 9, label %1640
   ]
 
-1637:                                             ; preds = %1636
-  %1638 = load i64, ptr %1025, align 8, !tbaa !46
-  %1639 = load i64, ptr @id_warning, align 8, !tbaa !9
-  %1640 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.584, i64 noundef 34) #31
-  %1641 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1638, i64 noundef %1639, i32 noundef 1, i64 noundef %1640) #31
-  br label %1654
+1635:                                             ; preds = %1634
+  %1636 = load i64, ptr %1025, align 8, !tbaa !46
+  %1637 = load i64, ptr @id_warning, align 8, !tbaa !9
+  %1638 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.584, i64 noundef 34) #31
+  %1639 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1636, i64 noundef %1637, i32 noundef 1, i64 noundef %1638) #31
+  br label %1652
 
-1642:                                             ; preds = %1636, %1636, %1636, %1636, %1636, %1636, %1631
-  %1643 = and i32 %1632, 577
-  %.not787 = icmp ne i32 %1643, 0
-  %1644 = and i32 %1632, 2064
-  %1645 = icmp eq i32 %1644, 2064
-  %or.cond807 = or i1 %.not787, %1645
-  br i1 %or.cond807, label %1654, label %1646
+1640:                                             ; preds = %1634, %1634, %1634, %1634, %1634, %1634, %1629
+  %1641 = and i32 %1630, 577
+  %.not787 = icmp ne i32 %1641, 0
+  %1642 = and i32 %1630, 2064
+  %1643 = icmp eq i32 %1642, 2064
+  %or.cond807 = or i1 %.not787, %1643
+  br i1 %or.cond807, label %1652, label %1644
 
-1646:                                             ; preds = %1642
-  %1647 = and i32 %1040, 904
-  %1648 = icmp eq i32 %1647, 0
-  %or.cond11 = select i1 %1648, i1 %1635, i1 false
-  br i1 %or.cond11, label %1649, label %1654
+1644:                                             ; preds = %1640
+  %1645 = and i32 %1040, 904
+  %1646 = icmp eq i32 %1645, 0
+  %or.cond11 = select i1 %1646, i1 %1633, i1 false
+  br i1 %or.cond11, label %1647, label %1652
 
-1649:                                             ; preds = %1646
-  switch i32 %1590, label %1650 [
-    i32 32, label %1654
-    i32 13, label %1654
-    i32 12, label %1654
-    i32 11, label %1654
-    i32 10, label %1654
-    i32 9, label %1654
+1647:                                             ; preds = %1644
+  switch i32 %1588, label %1648 [
+    i32 32, label %1652
+    i32 13, label %1652
+    i32 12, label %1652
+    i32 11, label %1652
+    i32 10, label %1652
+    i32 9, label %1652
   ]
 
-1650:                                             ; preds = %1649
-  %1651 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %1652 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.583, i64 noundef 15) #31
+1648:                                             ; preds = %1647
+  %1649 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %1650 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.583, i64 noundef 15) #31
   %.val836 = load i64, ptr %1025, align 8, !tbaa !46
-  %1653 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val836, i64 noundef %1651, i32 noundef 2, i64 noundef 10764, i64 noundef %1652) #31
-  br label %1654
+  %1651 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val836, i64 noundef %1649, i32 noundef 2, i64 noundef 10764, i64 noundef %1650) #31
+  br label %1652
 
-1654:                                             ; preds = %1649, %1649, %1649, %1649, %1649, %1649, %1619, %1619, %1619, %1619, %1619, %1619, %1646, %1650, %1642, %1616, %1620, %1612, %1637, %1607
-  %.0644 = phi i32 [ 334, %1607 ], [ 333, %1637 ], [ 334, %1612 ], [ 134, %1620 ], [ 134, %1619 ], [ 134, %1616 ], [ 333, %1642 ], [ 42, %1650 ], [ 42, %1649 ], [ 42, %1646 ], [ 134, %1619 ], [ 134, %1619 ], [ 134, %1619 ], [ 134, %1619 ], [ 134, %1619 ], [ 42, %1649 ], [ 42, %1649 ], [ 42, %1649 ], [ 42, %1649 ], [ 42, %1649 ]
-  %1655 = load i32, ptr %1019, align 8, !tbaa !60
-  %1656 = and i32 %1655, 384
-  %.not792 = icmp eq i32 %1656, 0
-  %1657 = select i1 %.not792, i32 1, i32 16
-  %1658 = load i16, ptr %10, align 8
-  %1659 = and i16 %1658, 32
-  %.not.i952 = icmp eq i16 %1659, 0
-  br i1 %.not.i952, label %parser_set_lex_state.exit954, label %1660
+1652:                                             ; preds = %1647, %1647, %1647, %1647, %1647, %1647, %1617, %1617, %1617, %1617, %1617, %1617, %1644, %1648, %1640, %1614, %1618, %1610, %1635, %1605
+  %.0644 = phi i32 [ 334, %1605 ], [ 333, %1635 ], [ 334, %1610 ], [ 134, %1618 ], [ 134, %1617 ], [ 134, %1614 ], [ 333, %1640 ], [ 42, %1648 ], [ 42, %1647 ], [ 42, %1644 ], [ 134, %1617 ], [ 134, %1617 ], [ 134, %1617 ], [ 134, %1617 ], [ 134, %1617 ], [ 42, %1647 ], [ 42, %1647 ], [ 42, %1647 ], [ 42, %1647 ], [ 42, %1647 ]
+  %1653 = load i32, ptr %1019, align 8, !tbaa !60
+  %1654 = and i32 %1653, 384
+  %.not792 = icmp eq i32 %1654, 0
+  %1655 = select i1 %.not792, i32 1, i32 16
+  %1656 = load i16, ptr %10, align 8
+  %1657 = and i16 %1656, 32
+  %.not.i952 = icmp eq i16 %1657, 0
+  br i1 %.not.i952, label %parser_set_lex_state.exit954, label %1658
 
-1660:                                             ; preds = %1654
-  %1661 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1655, i32 noundef %1657, i32 noundef 10667) #31
+1658:                                             ; preds = %1652
+  %1659 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1653, i32 noundef %1655, i32 noundef 10667) #31
   br label %parser_set_lex_state.exit954
 
-parser_set_lex_state.exit954:                     ; preds = %1654, %1660
-  %.0.i953 = phi i32 [ %1661, %1660 ], [ %1657, %1654 ]
+parser_set_lex_state.exit954:                     ; preds = %1652, %1658
+  %.0.i953 = phi i32 [ %1659, %1658 ], [ %1655, %1652 ]
   store i32 %.0.i953, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1662:                                             ; preds = %1049
-  %1663 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1664 = load i32, ptr %1019, align 8, !tbaa !60
-  %1665 = and i32 %1664, 384
-  %.not785 = icmp eq i32 %1665, 0
-  %1666 = load i16, ptr %10, align 8
-  %1667 = and i16 %1666, 32
-  %.not.i958 = icmp eq i16 %1667, 0
-  br i1 %.not785, label %1671, label %1668
+1660:                                             ; preds = %1049
+  %1661 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1662 = load i32, ptr %1019, align 8, !tbaa !60
+  %1663 = and i32 %1662, 384
+  %.not785 = icmp eq i32 %1663, 0
+  %1664 = load i16, ptr %10, align 8
+  %1665 = and i16 %1664, 32
+  %.not.i958 = icmp eq i16 %1665, 0
+  br i1 %.not785, label %1669, label %1666
 
-1668:                                             ; preds = %1662
-  br i1 %.not.i958, label %parser_set_lex_state.exit957, label %1669
+1666:                                             ; preds = %1660
+  br i1 %.not.i958, label %parser_set_lex_state.exit957, label %1667
 
-1669:                                             ; preds = %1668
-  %1670 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1664, i32 noundef 16, i32 noundef 10673) #31
+1667:                                             ; preds = %1666
+  %1668 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1662, i32 noundef 16, i32 noundef 10673) #31
   br label %parser_set_lex_state.exit957
 
-parser_set_lex_state.exit957:                     ; preds = %1668, %1669
-  %.0.i956 = phi i32 [ %1670, %1669 ], [ 16, %1668 ]
+parser_set_lex_state.exit957:                     ; preds = %1666, %1667
+  %.0.i956 = phi i32 [ %1668, %1667 ], [ 16, %1666 ]
   store i32 %.0.i956, ptr %1019, align 8, !tbaa !60
-  switch i32 %1663, label %1676 [
+  switch i32 %1661, label %1674 [
     i32 64, label %pushback.exit1048
-    i32 61, label %1674
-    i32 126, label %1675
+    i32 61, label %1672
+    i32 126, label %1673
   ]
 
-1671:                                             ; preds = %1662
-  br i1 %.not.i958, label %parser_set_lex_state.exit960, label %1672
+1669:                                             ; preds = %1660
+  br i1 %.not.i958, label %parser_set_lex_state.exit960, label %1670
 
-1672:                                             ; preds = %1671
-  %1673 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1664, i32 noundef 1, i32 noundef 10679) #31
+1670:                                             ; preds = %1669
+  %1671 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1662, i32 noundef 1, i32 noundef 10679) #31
   br label %parser_set_lex_state.exit960
 
-parser_set_lex_state.exit960:                     ; preds = %1671, %1672
-  %.0.i959 = phi i32 [ %1673, %1672 ], [ 1, %1671 ]
+parser_set_lex_state.exit960:                     ; preds = %1669, %1670
+  %.0.i959 = phi i32 [ %1671, %1670 ], [ 1, %1669 ]
   store i32 %.0.i959, ptr %1019, align 8, !tbaa !60
-  switch i32 %1663, label %1676 [
-    i32 61, label %1674
-    i32 126, label %1675
+  switch i32 %1661, label %1674 [
+    i32 61, label %1672
+    i32 126, label %1673
   ]
 
+1672:                                             ; preds = %parser_set_lex_state.exit957, %parser_set_lex_state.exit960
+  br label %pushback.exit1048
+
+1673:                                             ; preds = %parser_set_lex_state.exit957, %parser_set_lex_state.exit960
+  br label %pushback.exit1048
+
 1674:                                             ; preds = %parser_set_lex_state.exit957, %parser_set_lex_state.exit960
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1661)
   br label %pushback.exit1048
 
-1675:                                             ; preds = %parser_set_lex_state.exit957, %parser_set_lex_state.exit960
-  br label %pushback.exit1048
+1675:                                             ; preds = %1049
+  %1676 = load ptr, ptr %1028, align 8, !tbaa !44
+  %1677 = icmp eq ptr %1050, %1676
+  br i1 %1677, label %1678, label %word_match_p.exit.thread
 
-1676:                                             ; preds = %parser_set_lex_state.exit957, %parser_set_lex_state.exit960
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1663)
-  br label %pushback.exit1048
+1678:                                             ; preds = %1675
+  %1679 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1051, ptr noundef nonnull dereferenceable(6) @.str.29, i64 noundef 5) #34
+  %.not.i961 = icmp eq i32 %1679, 0
+  br i1 %.not.i961, label %1680, label %word_match_p.exit.thread
 
-1677:                                             ; preds = %1049
-  %1678 = load ptr, ptr %1028, align 8, !tbaa !44
-  %1679 = icmp eq ptr %1050, %1678
-  br i1 %1679, label %1680, label %word_match_p.exit.thread
+1680:                                             ; preds = %1678
+  %1681 = getelementptr inbounds nuw i8, ptr %1050, i64 6
+  %1682 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not11.i = icmp ult ptr %1681, %1682
+  br i1 %.not11.i, label %1683, label %.critedge
 
-1680:                                             ; preds = %1677
-  %1681 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1051, ptr noundef nonnull dereferenceable(6) @.str.29, i64 noundef 5) #34
-  %.not.i961 = icmp eq i32 %1681, 0
-  br i1 %.not.i961, label %1682, label %word_match_p.exit.thread
-
-1682:                                             ; preds = %1680
-  %1683 = getelementptr inbounds nuw i8, ptr %1050, i64 6
-  %1684 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not11.i = icmp ult ptr %1683, %1684
-  br i1 %.not11.i, label %1685, label %.critedge
-
-1685:                                             ; preds = %1682
-  %1686 = load i8, ptr %1683, align 1, !tbaa !6
-  switch i8 %1686, label %word_match_p.exit.thread [
+1683:                                             ; preds = %1680
+  %1684 = load i8, ptr %1681, align 1, !tbaa !6
+  switch i8 %1684, label %word_match_p.exit.thread [
     i8 32, label %.critedge
     i8 13, label %.critedge
     i8 12, label %.critedge
@@ -38138,129 +38136,129 @@ parser_set_lex_state.exit960:                     ; preds = %1671, %1672
     i8 26, label %.critedge
   ]
 
-.critedge:                                        ; preds = %1685, %1685, %1685, %1685, %1685, %1685, %1685, %1685, %1685, %1682
-  store ptr %1684, ptr %1020, align 8, !tbaa !48
+.critedge:                                        ; preds = %1683, %1683, %1683, %1683, %1683, %1683, %1683, %1683, %1683, %1680
+  store ptr %1682, ptr %1020, align 8, !tbaa !48
   %.val3.i964 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1687 = icmp ult ptr %1684, %.val3.i964
-  br i1 %1687, label %1688, label %ripper_has_scan_event.exit.i965
+  %1685 = icmp ult ptr %1682, %.val3.i964
+  br i1 %1685, label %1686, label %ripper_has_scan_event.exit.i965
 
-1688:                                             ; preds = %.critedge
-  %1689 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1689, ptr noundef nonnull @.str.666) #33
+1686:                                             ; preds = %.critedge
+  %1687 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1687, ptr noundef nonnull @.str.666) #33
   unreachable
 
 ripper_has_scan_event.exit.i965:                  ; preds = %.critedge
-  %.not.i966 = icmp ugt ptr %1684, %.val3.i964
-  br i1 %.not.i966, label %1690, label %ripper_dispatch_scan_event.exit968
+  %.not.i966 = icmp ugt ptr %1682, %.val3.i964
+  br i1 %.not.i966, label %1688, label %ripper_dispatch_scan_event.exit968
 
-1690:                                             ; preds = %ripper_has_scan_event.exit.i965
-  %1691 = ptrtoint ptr %1684 to i64
-  %1692 = ptrtoint ptr %.val3.i964 to i64
-  %1693 = sub i64 %1691, %1692
-  %1694 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1695 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i964, i64 noundef %1693, ptr noundef %1694) #31
-  %1696 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 353) #31
+1688:                                             ; preds = %ripper_has_scan_event.exit.i965
+  %1689 = ptrtoint ptr %1682 to i64
+  %1690 = ptrtoint ptr %.val3.i964 to i64
+  %1691 = sub i64 %1689, %1690
+  %1692 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1693 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i964, i64 noundef %1691, ptr noundef %1692) #31
+  %1694 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 353) #31
   %.val.i.i967 = load i64, ptr %1025, align 8, !tbaa !46
-  %1697 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i967, i64 noundef %1696, i32 noundef 1, i64 noundef %1695) #31
-  %1698 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1699 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1698) #31
-  %1700 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1700, ptr %1023, align 8, !tbaa !41
-  store i64 %1697, ptr %1027, align 8, !tbaa !47
+  %1695 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i967, i64 noundef %1694, i32 noundef 1, i64 noundef %1693) #31
+  %1696 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1697 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1696) #31
+  %1698 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1698, ptr %1023, align 8, !tbaa !41
+  store i64 %1695, ptr %1027, align 8, !tbaa !47
   %.pre1973 = load ptr, ptr %1021, align 8, !tbaa !401
   br label %ripper_dispatch_scan_event.exit968
 
-ripper_dispatch_scan_event.exit968:               ; preds = %ripper_has_scan_event.exit.i965, %1690
-  %1701 = phi ptr [ %1684, %ripper_has_scan_event.exit.i965 ], [ %.pre1973, %1690 ]
-  store ptr %1701, ptr %1020, align 8, !tbaa !48
+ripper_dispatch_scan_event.exit968:               ; preds = %ripper_has_scan_event.exit.i965, %1688
+  %1699 = phi ptr [ %1682, %ripper_has_scan_event.exit.i965 ], [ %.pre1973, %1688 ]
+  store ptr %1699, ptr %1020, align 8, !tbaa !48
   br label %ripper_dispatch_scan_event.exit989
 
 ripper_dispatch_scan_event.exit989:               ; preds = %ripper_dispatch_scan_event.exit989.backedge, %ripper_dispatch_scan_event.exit968
-  %1702 = phi ptr [ %1701, %ripper_dispatch_scan_event.exit968 ], [ %.be, %ripper_dispatch_scan_event.exit989.backedge ]
-  %1703 = phi ptr [ %1701, %ripper_dispatch_scan_event.exit968 ], [ %.be2628, %ripper_dispatch_scan_event.exit989.backedge ]
-  %.not.i969 = icmp ult ptr %1703, %1702
-  br i1 %.not.i969, label %1704, label %.critedge.i970, !prof !477
+  %1700 = phi ptr [ %1699, %ripper_dispatch_scan_event.exit968 ], [ %.be, %ripper_dispatch_scan_event.exit989.backedge ]
+  %1701 = phi ptr [ %1699, %ripper_dispatch_scan_event.exit968 ], [ %.be2628, %ripper_dispatch_scan_event.exit989.backedge ]
+  %.not.i969 = icmp ult ptr %1701, %1700
+  br i1 %.not.i969, label %1702, label %.critedge.i970, !prof !477
 
-1704:                                             ; preds = %ripper_dispatch_scan_event.exit989
-  %1705 = load i16, ptr %10, align 8
-  %1706 = and i16 %1705, 8
-  %.not13.i976 = icmp eq i16 %1706, 0
-  br i1 %.not13.i976, label %1707, label %.critedge.i970, !prof !477
+1702:                                             ; preds = %ripper_dispatch_scan_event.exit989
+  %1703 = load i16, ptr %10, align 8
+  %1704 = and i16 %1703, 8
+  %.not13.i976 = icmp eq i16 %1704, 0
+  br i1 %.not13.i976, label %1705, label %.critedge.i970, !prof !477
 
-1707:                                             ; preds = %1704
-  %1708 = load ptr, ptr %1022, align 8, !tbaa !478
-  %1709 = icmp ugt ptr %1708, inttoptr (i64 1 to ptr)
-  br i1 %1709, label %.critedge.i970, label %1711, !prof !189
+1705:                                             ; preds = %1702
+  %1706 = load ptr, ptr %1022, align 8, !tbaa !478
+  %1707 = icmp ugt ptr %1706, inttoptr (i64 1 to ptr)
+  br i1 %1707, label %.critedge.i970, label %1709, !prof !189
 
-.critedge.i970:                                   ; preds = %1707, %1704, %ripper_dispatch_scan_event.exit989
-  %1710 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
-  %.not14.i971 = icmp eq i32 %1710, 0
+.critedge.i970:                                   ; preds = %1705, %1702, %ripper_dispatch_scan_event.exit989
+  %1708 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
+  %.not14.i971 = icmp eq i32 %1708, 0
   br i1 %.not14.i971, label %.critedge._crit_edge.i973, label %ripper_dispatch_scan_event.exit995.thread
 
 .critedge._crit_edge.i973:                        ; preds = %.critedge.i970
   %.pre.i974 = load ptr, ptr %1020, align 8, !tbaa !48
-  br label %1711
+  br label %1709
 
-1711:                                             ; preds = %.critedge._crit_edge.i973, %1707
-  %1712 = phi ptr [ %.pre.i974, %.critedge._crit_edge.i973 ], [ %1703, %1707 ]
-  %1713 = getelementptr inbounds nuw i8, ptr %1712, i64 1
-  store ptr %1713, ptr %1020, align 8, !tbaa !48
-  %1714 = load i8, ptr %1712, align 1, !tbaa !6
-  switch i8 %1714, label %.split658 [
-    i8 13, label %1715
+1709:                                             ; preds = %.critedge._crit_edge.i973, %1705
+  %1710 = phi ptr [ %.pre.i974, %.critedge._crit_edge.i973 ], [ %1701, %1705 ]
+  %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 1
+  store ptr %1711, ptr %1020, align 8, !tbaa !48
+  %1712 = load i8, ptr %1710, align 1, !tbaa !6
+  switch i8 %1712, label %.split658 [
+    i8 13, label %1713
     i8 61, label %sub_0
   ], !prof !554
 
-1715:                                             ; preds = %1711
-  %1716 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i.i975 = icmp ult ptr %1713, %1716
-  br i1 %.not.i.i975, label %1717, label %.split658
+1713:                                             ; preds = %1709
+  %1714 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i.i975 = icmp ult ptr %1711, %1714
+  br i1 %.not.i.i975, label %1715, label %.split658
 
-1717:                                             ; preds = %1715
-  %1718 = load i8, ptr %1713, align 1, !tbaa !6
-  %1719 = icmp eq i8 %1718, 10
-  %1720 = getelementptr inbounds nuw i8, ptr %1712, i64 2
-  %spec.select2325 = select i1 %1719, ptr %1720, ptr %1713
+1715:                                             ; preds = %1713
+  %1716 = load i8, ptr %1711, align 1, !tbaa !6
+  %1717 = icmp eq i8 %1716, 10
+  %1718 = getelementptr inbounds nuw i8, ptr %1710, i64 2
+  %spec.select2325 = select i1 %1717, ptr %1718, ptr %1711
   br label %.split658
 
 ripper_dispatch_scan_event.exit995.thread:        ; preds = %.critedge.i970
   tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.585) #31
   br label %pushback.exit1048
 
-.split658:                                        ; preds = %1717, %1711, %1715
-  %1721 = phi ptr [ %1713, %1711 ], [ %1713, %1715 ], [ %spec.select2325, %1717 ]
-  %1722 = load i16, ptr %10, align 8
-  %1723 = and i16 %1722, -9
-  store i16 %1723, ptr %10, align 8
-  %1724 = getelementptr inbounds i8, ptr %1721, i64 -1
+.split658:                                        ; preds = %1715, %1709, %1713
+  %1719 = phi ptr [ %1711, %1709 ], [ %1711, %1713 ], [ %spec.select2325, %1715 ]
+  %1720 = load i16, ptr %10, align 8
+  %1721 = and i16 %1720, -9
+  store i16 %1721, ptr %10, align 8
+  %1722 = getelementptr inbounds i8, ptr %1719, i64 -1
   br label %pushback.exit978
 
-sub_0:                                            ; preds = %1711
-  %1725 = load i8, ptr %1713, align 1
-  %.not1724 = icmp eq i8 %1725, 101
+sub_0:                                            ; preds = %1709
+  %1723 = load i8, ptr %1711, align 1
+  %.not1724 = icmp eq i8 %1723, 101
   br i1 %.not1724, label %sub_1, label %.split659
 
 sub_1:                                            ; preds = %sub_0
-  %1726 = getelementptr inbounds nuw i8, ptr %1712, i64 2
-  %1727 = load i8, ptr %1726, align 1
-  %.not1725 = icmp eq i8 %1727, 110
+  %1724 = getelementptr inbounds nuw i8, ptr %1710, i64 2
+  %1725 = load i8, ptr %1724, align 1
+  %.not1725 = icmp eq i8 %1725, 110
   br i1 %.not1725, label %.tail, label %.split659
 
 .tail:                                            ; preds = %sub_1
-  %1728 = getelementptr inbounds nuw i8, ptr %1712, i64 3
-  %1729 = load i8, ptr %1728, align 1
-  %1730 = icmp eq i8 %1729, 100
-  br i1 %1730, label %1731, label %.split659
+  %1726 = getelementptr inbounds nuw i8, ptr %1710, i64 3
+  %1727 = load i8, ptr %1726, align 1
+  %1728 = icmp eq i8 %1727, 100
+  br i1 %1728, label %1729, label %.split659
 
-1731:                                             ; preds = %.tail
-  %1732 = getelementptr inbounds nuw i8, ptr %1712, i64 4
-  %1733 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not11.i981 = icmp ult ptr %1732, %1733
-  br i1 %.not11.i981, label %1734, label %word_match_p.exit982
+1729:                                             ; preds = %.tail
+  %1730 = getelementptr inbounds nuw i8, ptr %1710, i64 4
+  %1731 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not11.i981 = icmp ult ptr %1730, %1731
+  br i1 %.not11.i981, label %1732, label %word_match_p.exit982
 
-1734:                                             ; preds = %1731
-  %1735 = load i8, ptr %1732, align 1, !tbaa !6
-  switch i8 %1735, label %.split659 [
+1732:                                             ; preds = %1729
+  %1733 = load i8, ptr %1730, align 1, !tbaa !6
+  switch i8 %1733, label %.split659 [
     i8 32, label %word_match_p.exit982
     i8 13, label %word_match_p.exit982
     i8 12, label %word_match_p.exit982
@@ -38272,242 +38270,242 @@ sub_1:                                            ; preds = %sub_0
     i8 26, label %word_match_p.exit982
   ]
 
-.split659:                                        ; preds = %sub_1, %sub_0, %1734, %.tail
-  %1736 = load i16, ptr %10, align 8
-  %1737 = and i16 %1736, -9
-  store i16 %1737, ptr %10, align 8
+.split659:                                        ; preds = %sub_1, %sub_0, %1732, %.tail
+  %1734 = load i16, ptr %10, align 8
+  %1735 = and i16 %1734, -9
+  store i16 %1735, ptr %10, align 8
   br label %pushback.exit978
 
 pushback.exit978:                                 ; preds = %.split659, %.split658
-  %.sink2330 = phi ptr [ %1712, %.split659 ], [ %1724, %.split658 ]
+  %.sink2330 = phi ptr [ %1710, %.split659 ], [ %1722, %.split658 ]
   store ptr %.sink2330, ptr %1020, align 8, !tbaa !48
-  %1738 = load ptr, ptr %1021, align 8, !tbaa !401
-  store ptr %1738, ptr %1020, align 8, !tbaa !48
+  %1736 = load ptr, ptr %1021, align 8, !tbaa !401
+  store ptr %1736, ptr %1020, align 8, !tbaa !48
   %.val3.i985 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1739 = icmp ult ptr %1738, %.val3.i985
-  br i1 %1739, label %1740, label %ripper_has_scan_event.exit.i986
+  %1737 = icmp ult ptr %1736, %.val3.i985
+  br i1 %1737, label %1738, label %ripper_has_scan_event.exit.i986
 
-1740:                                             ; preds = %pushback.exit978
-  %1741 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1741, ptr noundef nonnull @.str.666) #33
+1738:                                             ; preds = %pushback.exit978
+  %1739 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1739, ptr noundef nonnull @.str.666) #33
   unreachable
 
 ripper_has_scan_event.exit.i986:                  ; preds = %pushback.exit978
-  %.not.i987 = icmp ugt ptr %1738, %.val3.i985
-  br i1 %.not.i987, label %1742, label %ripper_dispatch_scan_event.exit989.backedge
+  %.not.i987 = icmp ugt ptr %1736, %.val3.i985
+  br i1 %.not.i987, label %1740, label %ripper_dispatch_scan_event.exit989.backedge
 
-ripper_dispatch_scan_event.exit989.backedge:      ; preds = %ripper_has_scan_event.exit.i986, %1742
-  %.be = phi ptr [ %1738, %ripper_has_scan_event.exit.i986 ], [ %.pre1974.pre, %1742 ]
-  %.be2628 = phi ptr [ %1738, %ripper_has_scan_event.exit.i986 ], [ %1752, %1742 ]
+ripper_dispatch_scan_event.exit989.backedge:      ; preds = %ripper_has_scan_event.exit.i986, %1740
+  %.be = phi ptr [ %1736, %ripper_has_scan_event.exit.i986 ], [ %.pre1974.pre, %1740 ]
+  %.be2628 = phi ptr [ %1736, %ripper_has_scan_event.exit.i986 ], [ %1750, %1740 ]
   br label %ripper_dispatch_scan_event.exit989
 
-1742:                                             ; preds = %ripper_has_scan_event.exit.i986
-  %1743 = ptrtoint ptr %1738 to i64
-  %1744 = ptrtoint ptr %.val3.i985 to i64
-  %1745 = sub i64 %1743, %1744
-  %1746 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1747 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i985, i64 noundef %1745, ptr noundef %1746) #31
-  %1748 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 354) #31
+1740:                                             ; preds = %ripper_has_scan_event.exit.i986
+  %1741 = ptrtoint ptr %1736 to i64
+  %1742 = ptrtoint ptr %.val3.i985 to i64
+  %1743 = sub i64 %1741, %1742
+  %1744 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1745 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i985, i64 noundef %1743, ptr noundef %1744) #31
+  %1746 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 354) #31
   %.val.i.i988 = load i64, ptr %1025, align 8, !tbaa !46
-  %1749 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i988, i64 noundef %1748, i32 noundef 1, i64 noundef %1747) #31
-  %1750 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1751 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1750) #31
-  %1752 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1752, ptr %1023, align 8, !tbaa !41
-  store i64 %1749, ptr %1027, align 8, !tbaa !47
+  %1747 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i988, i64 noundef %1746, i32 noundef 1, i64 noundef %1745) #31
+  %1748 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1749 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1748) #31
+  %1750 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1750, ptr %1023, align 8, !tbaa !41
+  store i64 %1747, ptr %1027, align 8, !tbaa !47
   %.pre1974.pre = load ptr, ptr %1021, align 8, !tbaa !401
   br label %ripper_dispatch_scan_event.exit989.backedge
 
-word_match_p.exit982:                             ; preds = %1734, %1734, %1734, %1734, %1734, %1734, %1734, %1734, %1734, %1731
-  store ptr %1733, ptr %1020, align 8, !tbaa !48
+word_match_p.exit982:                             ; preds = %1732, %1732, %1732, %1732, %1732, %1732, %1732, %1732, %1732, %1729
+  store ptr %1731, ptr %1020, align 8, !tbaa !48
   %.val3.i991 = load ptr, ptr %1023, align 8, !tbaa !41
-  %1753 = icmp ult ptr %1733, %.val3.i991
-  br i1 %1753, label %1754, label %ripper_has_scan_event.exit.i992
+  %1751 = icmp ult ptr %1731, %.val3.i991
+  br i1 %1751, label %1752, label %ripper_has_scan_event.exit.i992
 
-1754:                                             ; preds = %word_match_p.exit982
-  %1755 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1755, ptr noundef nonnull @.str.666) #33
+1752:                                             ; preds = %word_match_p.exit982
+  %1753 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %1753, ptr noundef nonnull @.str.666) #33
   unreachable
 
 ripper_has_scan_event.exit.i992:                  ; preds = %word_match_p.exit982
-  %.not.i993 = icmp ugt ptr %1733, %.val3.i991
-  br i1 %.not.i993, label %1756, label %.backedge.backedge
+  %.not.i993 = icmp ugt ptr %1731, %.val3.i991
+  br i1 %.not.i993, label %1754, label %.backedge.backedge
 
-1756:                                             ; preds = %ripper_has_scan_event.exit.i992
-  %1757 = ptrtoint ptr %1733 to i64
-  %1758 = ptrtoint ptr %.val3.i991 to i64
-  %1759 = sub i64 %1757, %1758
-  %1760 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1761 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i991, i64 noundef %1759, ptr noundef %1760) #31
-  %1762 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 355) #31
+1754:                                             ; preds = %ripper_has_scan_event.exit.i992
+  %1755 = ptrtoint ptr %1731 to i64
+  %1756 = ptrtoint ptr %.val3.i991 to i64
+  %1757 = sub i64 %1755, %1756
+  %1758 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1759 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i991, i64 noundef %1757, ptr noundef %1758) #31
+  %1760 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 355) #31
   %.val.i.i994 = load i64, ptr %1025, align 8, !tbaa !46
-  %1763 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i994, i64 noundef %1762, i32 noundef 1, i64 noundef %1761) #31
-  %1764 = load ptr, ptr %1026, align 8, !tbaa !39
-  %1765 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1764) #31
-  %1766 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %1766, ptr %1023, align 8, !tbaa !41
-  store i64 %1763, ptr %1027, align 8, !tbaa !47
+  %1761 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i994, i64 noundef %1760, i32 noundef 1, i64 noundef %1759) #31
+  %1762 = load ptr, ptr %1026, align 8, !tbaa !39
+  %1763 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %1762) #31
+  %1764 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %1764, ptr %1023, align 8, !tbaa !41
+  store i64 %1761, ptr %1027, align 8, !tbaa !47
   br label %.backedge.backedge
 
-word_match_p.exit.thread:                         ; preds = %1685, %1680, %1677
-  %1767 = load i32, ptr %1019, align 8, !tbaa !60
-  %1768 = and i32 %1767, 384
-  %.not781 = icmp eq i32 %1768, 0
-  %1769 = select i1 %.not781, i32 1, i32 16
-  %1770 = load i16, ptr %10, align 8
-  %1771 = and i16 %1770, 32
-  %.not.i996 = icmp eq i16 %1771, 0
-  br i1 %.not.i996, label %parser_set_lex_state.exit998, label %1772
+word_match_p.exit.thread:                         ; preds = %1683, %1678, %1675
+  %1765 = load i32, ptr %1019, align 8, !tbaa !60
+  %1766 = and i32 %1765, 384
+  %.not781 = icmp eq i32 %1766, 0
+  %1767 = select i1 %.not781, i32 1, i32 16
+  %1768 = load i16, ptr %10, align 8
+  %1769 = and i16 %1768, 32
+  %.not.i996 = icmp eq i16 %1769, 0
+  br i1 %.not.i996, label %parser_set_lex_state.exit998, label %1770
 
-1772:                                             ; preds = %word_match_p.exit.thread
-  %1773 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1767, i32 noundef %1769, i32 noundef 10720) #31
+1770:                                             ; preds = %word_match_p.exit.thread
+  %1771 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1765, i32 noundef %1767, i32 noundef 10720) #31
   br label %parser_set_lex_state.exit998
 
-parser_set_lex_state.exit998:                     ; preds = %word_match_p.exit.thread, %1772
-  %.0.i997 = phi i32 [ %1773, %1772 ], [ %1769, %word_match_p.exit.thread ]
+parser_set_lex_state.exit998:                     ; preds = %word_match_p.exit.thread, %1770
+  %.0.i997 = phi i32 [ %1771, %1770 ], [ %1767, %word_match_p.exit.thread ]
   store i32 %.0.i997, ptr %1019, align 8, !tbaa !60
-  %1774 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  switch i32 %1774, label %1780 [
-    i32 61, label %1775
+  %1772 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  switch i32 %1772, label %1778 [
+    i32 61, label %1773
     i32 126, label %pushback.exit1048
-    i32 62, label %1779
+    i32 62, label %1777
   ]
 
-1775:                                             ; preds = %parser_set_lex_state.exit998
-  %1776 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1777 = icmp eq i32 %1776, 61
-  br i1 %1777, label %pushback.exit1048, label %1778
+1773:                                             ; preds = %parser_set_lex_state.exit998
+  %1774 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1775 = icmp eq i32 %1774, 61
+  br i1 %1775, label %pushback.exit1048, label %1776
 
-1778:                                             ; preds = %1775
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1776)
-  br label %pushback.exit1048
-
-1779:                                             ; preds = %parser_set_lex_state.exit998
-  br label %pushback.exit1048
-
-1780:                                             ; preds = %parser_set_lex_state.exit998
+1776:                                             ; preds = %1773
   tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1774)
   br label %pushback.exit1048
 
-1781:                                             ; preds = %1049
-  %1782 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1783 = icmp eq i32 %1782, 60
-  %.pre1971 = load i32, ptr %1019, align 8, !tbaa !60
-  %1784 = and i32 %.pre1971, 782
-  %or.cond808 = icmp eq i32 %1784, 0
-  %or.cond2326 = select i1 %1783, i1 %or.cond808, i1 false
-  br i1 %or.cond2326, label %1785, label %1794
-
-1785:                                             ; preds = %1781
-  %1786 = and i32 %.pre1971, 48
-  %.not775 = icmp eq i32 %1786, 0
-  br i1 %.not775, label %1791, label %1787
-
-1787:                                             ; preds = %1785
-  %1788 = and i32 %.pre1971, 2048
-  %1789 = icmp ne i32 %1788, 0
-  %1790 = icmp ne i32 %.0649, 0
-  %or.cond13 = select i1 %1789, i1 true, i1 %1790
-  br i1 %or.cond13, label %1791, label %1794
-
-1791:                                             ; preds = %1787, %1785
-  %1792 = tail call fastcc i32 @heredoc_identifier(ptr noundef nonnull %0)
-  %.not776 = icmp eq i32 %1792, 0
-  %1793 = tail call i32 @llvm.smax.i32(i32 %1792, i32 0)
-  br i1 %.not776, label %._crit_edge, label %pushback.exit1048
-
-._crit_edge:                                      ; preds = %1791
-  %.pre1970 = load i32, ptr %1019, align 8, !tbaa !60
-  br label %1794
-
-1794:                                             ; preds = %._crit_edge, %1787, %1781
-  %1795 = phi i32 [ %.pre1970, %._crit_edge ], [ %.pre1971, %1787 ], [ %.pre1971, %1781 ]
-  %1796 = and i32 %1795, 384
-  %.not777 = icmp eq i32 %1796, 0
-  br i1 %.not777, label %1802, label %1797
-
-1797:                                             ; preds = %1794
-  %1798 = load i16, ptr %10, align 8
-  %1799 = and i16 %1798, 32
-  %.not.i999 = icmp eq i16 %1799, 0
-  br i1 %.not.i999, label %parser_set_lex_state.exit1001, label %1800
-
-1800:                                             ; preds = %1797
-  %1801 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1795, i32 noundef 16, i32 noundef 10747) #31
-  br label %parser_set_lex_state.exit1001
-
-1802:                                             ; preds = %1794
-  %1803 = and i32 %1795, 512
-  %.not778 = icmp eq i32 %1803, 0
-  %.pre1972 = load i16, ptr %10, align 8
-  br i1 %.not778, label %1806, label %1804
-
-1804:                                             ; preds = %1802
-  %1805 = or i16 %.pre1972, 4
-  store i16 %1805, ptr %10, align 8
-  br label %1806
-
-1806:                                             ; preds = %1804, %1802
-  %1807 = phi i16 [ %1805, %1804 ], [ %.pre1972, %1802 ]
-  %1808 = and i16 %1807, 32
-  %.not.i1002 = icmp eq i16 %1808, 0
-  br i1 %.not.i1002, label %parser_set_lex_state.exit1001, label %1809
-
-1809:                                             ; preds = %1806
-  %1810 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1795, i32 noundef 1, i32 noundef 10752) #31
-  br label %parser_set_lex_state.exit1001
-
-parser_set_lex_state.exit1001:                    ; preds = %1809, %1806, %1800, %1797
-  %storemerge1312 = phi i32 [ %1801, %1800 ], [ 16, %1797 ], [ %1810, %1809 ], [ 1, %1806 ]
-  store i32 %storemerge1312, ptr %1019, align 8, !tbaa !60
-  %1811 = icmp eq i32 %1782, 61
-  br i1 %1811, label %1812, label %1816
-
-1812:                                             ; preds = %parser_set_lex_state.exit1001
-  %1813 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1814 = icmp eq i32 %1813, 62
-  br i1 %1814, label %pushback.exit1048, label %1815
-
-1815:                                             ; preds = %1812
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1813)
+1777:                                             ; preds = %parser_set_lex_state.exit998
   br label %pushback.exit1048
 
-1816:                                             ; preds = %parser_set_lex_state.exit1001
-  br i1 %1783, label %1817, label %1836
+1778:                                             ; preds = %parser_set_lex_state.exit998
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1772)
+  br label %pushback.exit1048
 
-1817:                                             ; preds = %1816
-  %1818 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1819 = icmp eq i32 %1818, 61
-  br i1 %1819, label %1820, label %1827
+1779:                                             ; preds = %1049
+  %1780 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1781 = icmp eq i32 %1780, 60
+  %.pre1971 = load i32, ptr %1019, align 8, !tbaa !60
+  %1782 = and i32 %.pre1971, 782
+  %or.cond808 = icmp eq i32 %1782, 0
+  %or.cond2326 = select i1 %1781, i1 %or.cond808, i1 false
+  br i1 %or.cond2326, label %1783, label %1792
 
-1820:                                             ; preds = %1817
-  %1821 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 136, ptr %1821, align 8, !tbaa !6
-  %1822 = load i16, ptr %10, align 8
-  %1823 = and i16 %1822, 32
-  %.not.i1005 = icmp eq i16 %1823, 0
-  br i1 %.not.i1005, label %parser_set_lex_state.exit1007, label %1824
+1783:                                             ; preds = %1779
+  %1784 = and i32 %.pre1971, 48
+  %.not775 = icmp eq i32 %1784, 0
+  br i1 %.not775, label %1789, label %1785
 
-1824:                                             ; preds = %1820
-  %1825 = load i32, ptr %1019, align 8, !tbaa !60
-  %1826 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1825, i32 noundef 1, i32 noundef 10764) #31
+1785:                                             ; preds = %1783
+  %1786 = and i32 %.pre1971, 2048
+  %1787 = icmp ne i32 %1786, 0
+  %1788 = icmp ne i32 %.0649, 0
+  %or.cond13 = select i1 %1787, i1 true, i1 %1788
+  br i1 %or.cond13, label %1789, label %1792
+
+1789:                                             ; preds = %1785, %1783
+  %1790 = tail call fastcc i32 @heredoc_identifier(ptr noundef nonnull %0)
+  %.not776 = icmp eq i32 %1790, 0
+  %1791 = tail call i32 @llvm.smax.i32(i32 %1790, i32 0)
+  br i1 %.not776, label %._crit_edge, label %pushback.exit1048
+
+._crit_edge:                                      ; preds = %1789
+  %.pre1970 = load i32, ptr %1019, align 8, !tbaa !60
+  br label %1792
+
+1792:                                             ; preds = %._crit_edge, %1785, %1779
+  %1793 = phi i32 [ %.pre1970, %._crit_edge ], [ %.pre1971, %1785 ], [ %.pre1971, %1779 ]
+  %1794 = and i32 %1793, 384
+  %.not777 = icmp eq i32 %1794, 0
+  br i1 %.not777, label %1800, label %1795
+
+1795:                                             ; preds = %1792
+  %1796 = load i16, ptr %10, align 8
+  %1797 = and i16 %1796, 32
+  %.not.i999 = icmp eq i16 %1797, 0
+  br i1 %.not.i999, label %parser_set_lex_state.exit1001, label %1798
+
+1798:                                             ; preds = %1795
+  %1799 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1793, i32 noundef 16, i32 noundef 10747) #31
+  br label %parser_set_lex_state.exit1001
+
+1800:                                             ; preds = %1792
+  %1801 = and i32 %1793, 512
+  %.not778 = icmp eq i32 %1801, 0
+  %.pre1972 = load i16, ptr %10, align 8
+  br i1 %.not778, label %1804, label %1802
+
+1802:                                             ; preds = %1800
+  %1803 = or i16 %.pre1972, 4
+  store i16 %1803, ptr %10, align 8
+  br label %1804
+
+1804:                                             ; preds = %1802, %1800
+  %1805 = phi i16 [ %1803, %1802 ], [ %.pre1972, %1800 ]
+  %1806 = and i16 %1805, 32
+  %.not.i1002 = icmp eq i16 %1806, 0
+  br i1 %.not.i1002, label %parser_set_lex_state.exit1001, label %1807
+
+1807:                                             ; preds = %1804
+  %1808 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1793, i32 noundef 1, i32 noundef 10752) #31
+  br label %parser_set_lex_state.exit1001
+
+parser_set_lex_state.exit1001:                    ; preds = %1807, %1804, %1798, %1795
+  %storemerge1312 = phi i32 [ %1799, %1798 ], [ 16, %1795 ], [ %1808, %1807 ], [ 1, %1804 ]
+  store i32 %storemerge1312, ptr %1019, align 8, !tbaa !60
+  %1809 = icmp eq i32 %1780, 61
+  br i1 %1809, label %1810, label %1814
+
+1810:                                             ; preds = %parser_set_lex_state.exit1001
+  %1811 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1812 = icmp eq i32 %1811, 62
+  br i1 %1812, label %pushback.exit1048, label %1813
+
+1813:                                             ; preds = %1810
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1811)
+  br label %pushback.exit1048
+
+1814:                                             ; preds = %parser_set_lex_state.exit1001
+  br i1 %1781, label %1815, label %1834
+
+1815:                                             ; preds = %1814
+  %1816 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1817 = icmp eq i32 %1816, 61
+  br i1 %1817, label %1818, label %1825
+
+1818:                                             ; preds = %1815
+  %1819 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 136, ptr %1819, align 8, !tbaa !6
+  %1820 = load i16, ptr %10, align 8
+  %1821 = and i16 %1820, 32
+  %.not.i1005 = icmp eq i16 %1821, 0
+  br i1 %.not.i1005, label %parser_set_lex_state.exit1007, label %1822
+
+1822:                                             ; preds = %1818
+  %1823 = load i32, ptr %1019, align 8, !tbaa !60
+  %1824 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1823, i32 noundef 1, i32 noundef 10764) #31
   br label %parser_set_lex_state.exit1007
 
-parser_set_lex_state.exit1007:                    ; preds = %1820, %1824
-  %.0.i1006 = phi i32 [ %1826, %1824 ], [ 1, %1820 ]
+parser_set_lex_state.exit1007:                    ; preds = %1818, %1822
+  %.0.i1006 = phi i32 [ %1824, %1822 ], [ 1, %1818 ]
   store i32 %.0.i1006, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1827:                                             ; preds = %1817
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1818)
-  %1828 = and i32 %1040, 904
-  %1829 = icmp eq i32 %1828, 0
-  %1830 = icmp ne i32 %.0649, 0
-  %or.cond15 = select i1 %1829, i1 %1830, i1 false
-  br i1 %or.cond15, label %1831, label %pushback.exit1048
+1825:                                             ; preds = %1815
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1816)
+  %1826 = and i32 %1040, 904
+  %1827 = icmp eq i32 %1826, 0
+  %1828 = icmp ne i32 %.0649, 0
+  %or.cond15 = select i1 %1827, i1 %1828, i1 false
+  br i1 %or.cond15, label %1829, label %pushback.exit1048
 
-1831:                                             ; preds = %1827
-  switch i32 %1818, label %1832 [
+1829:                                             ; preds = %1825
+  switch i32 %1816, label %1830 [
     i32 32, label %pushback.exit1048
     i32 13, label %pushback.exit1048
     i32 12, label %pushback.exit1048
@@ -38516,346 +38514,346 @@ parser_set_lex_state.exit1007:                    ; preds = %1820, %1824
     i32 9, label %pushback.exit1048
   ]
 
-1832:                                             ; preds = %1831
-  %1833 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %1834 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.586, i64 noundef 13) #31
+1830:                                             ; preds = %1829
+  %1831 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %1832 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.586, i64 noundef 13) #31
   %.val835 = load i64, ptr %1025, align 8, !tbaa !46
-  %1835 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val835, i64 noundef %1833, i32 noundef 2, i64 noundef 34828, i64 noundef %1834) #31
+  %1833 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val835, i64 noundef %1831, i32 noundef 2, i64 noundef 34828, i64 noundef %1832) #31
   br label %pushback.exit1048
 
-1836:                                             ; preds = %1816
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1782)
+1834:                                             ; preds = %1814
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1780)
   br label %pushback.exit1048
 
-1837:                                             ; preds = %1049
-  %1838 = load i32, ptr %1019, align 8, !tbaa !60
-  %1839 = and i32 %1838, 384
-  %.not772 = icmp eq i32 %1839, 0
-  %1840 = select i1 %.not772, i32 1, i32 16
-  %1841 = load i16, ptr %10, align 8
-  %1842 = and i16 %1841, 32
-  %.not.i1009 = icmp eq i16 %1842, 0
-  br i1 %.not.i1009, label %parser_set_lex_state.exit1011, label %1843
+1835:                                             ; preds = %1049
+  %1836 = load i32, ptr %1019, align 8, !tbaa !60
+  %1837 = and i32 %1836, 384
+  %.not772 = icmp eq i32 %1837, 0
+  %1838 = select i1 %.not772, i32 1, i32 16
+  %1839 = load i16, ptr %10, align 8
+  %1840 = and i16 %1839, 32
+  %.not.i1009 = icmp eq i16 %1840, 0
+  br i1 %.not.i1009, label %parser_set_lex_state.exit1011, label %1841
 
-1843:                                             ; preds = %1837
-  %1844 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1838, i32 noundef %1840, i32 noundef 10774) #31
+1841:                                             ; preds = %1835
+  %1842 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1836, i32 noundef %1838, i32 noundef 10774) #31
   br label %parser_set_lex_state.exit1011
 
-parser_set_lex_state.exit1011:                    ; preds = %1837, %1843
-  %.0.i1010 = phi i32 [ %1844, %1843 ], [ %1840, %1837 ]
+parser_set_lex_state.exit1011:                    ; preds = %1835, %1841
+  %.0.i1010 = phi i32 [ %1842, %1841 ], [ %1838, %1835 ]
   store i32 %.0.i1010, ptr %1019, align 8, !tbaa !60
-  %1845 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  switch i32 %1845, label %1857 [
+  %1843 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  switch i32 %1843, label %1855 [
     i32 61, label %pushback.exit1048
-    i32 62, label %1846
+    i32 62, label %1844
   ]
 
-1846:                                             ; preds = %parser_set_lex_state.exit1011
-  %1847 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1848 = icmp eq i32 %1847, 61
-  br i1 %1848, label %1849, label %1856
+1844:                                             ; preds = %parser_set_lex_state.exit1011
+  %1845 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1846 = icmp eq i32 %1845, 61
+  br i1 %1846, label %1847, label %1854
 
-1849:                                             ; preds = %1846
-  %1850 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 137, ptr %1850, align 8, !tbaa !6
-  %1851 = load i16, ptr %10, align 8
-  %1852 = and i16 %1851, 32
-  %.not.i1012 = icmp eq i16 %1852, 0
-  br i1 %.not.i1012, label %parser_set_lex_state.exit1014, label %1853
+1847:                                             ; preds = %1844
+  %1848 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 137, ptr %1848, align 8, !tbaa !6
+  %1849 = load i16, ptr %10, align 8
+  %1850 = and i16 %1849, 32
+  %.not.i1012 = icmp eq i16 %1850, 0
+  br i1 %.not.i1012, label %parser_set_lex_state.exit1014, label %1851
 
-1853:                                             ; preds = %1849
-  %1854 = load i32, ptr %1019, align 8, !tbaa !60
-  %1855 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1854, i32 noundef 1, i32 noundef 10781) #31
+1851:                                             ; preds = %1847
+  %1852 = load i32, ptr %1019, align 8, !tbaa !60
+  %1853 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1852, i32 noundef 1, i32 noundef 10781) #31
   br label %parser_set_lex_state.exit1014
 
-parser_set_lex_state.exit1014:                    ; preds = %1849, %1853
-  %.0.i1013 = phi i32 [ %1855, %1853 ], [ 1, %1849 ]
+parser_set_lex_state.exit1014:                    ; preds = %1847, %1851
+  %.0.i1013 = phi i32 [ %1853, %1851 ], [ 1, %1847 ]
   store i32 %.0.i1013, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1856:                                             ; preds = %1846
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1847)
-  br label %pushback.exit1048
-
-1857:                                             ; preds = %parser_set_lex_state.exit1011
+1854:                                             ; preds = %1844
   tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1845)
   br label %pushback.exit1048
 
-1858:                                             ; preds = %1049
-  %1859 = load i32, ptr %1019, align 8, !tbaa !60
-  %1860 = and i32 %1859, 1032
-  %1861 = icmp eq i32 %1860, 0
-  %1862 = icmp ne i16 %1015, 0
-  %or.cond17 = select i1 %1861, i1 true, i1 %1862
-  %1863 = and i32 %1859, 48
-  %.not771 = icmp eq i32 %1863, 0
-  %1864 = select i1 %or.cond17, i1 %.not771, i1 false
-  %1865 = select i1 %1864, i32 2, i32 66
-  %1866 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %1867 = getelementptr inbounds nuw i8, ptr %1866, i64 16
-  store i32 %1865, ptr %1867, align 8, !tbaa !6
-  %1868 = getelementptr inbounds nuw i8, ptr %1866, i64 24
-  store i32 34, ptr %1868, align 8, !tbaa !6
-  %1869 = getelementptr inbounds nuw i8, ptr %1866, i64 20
-  store i32 0, ptr %1869, align 4, !tbaa !6
-  store ptr %1866, ptr %12, align 8, !tbaa !164
-  %1870 = load ptr, ptr %1020, align 8, !tbaa !48
-  %1871 = getelementptr inbounds i8, ptr %1870, i64 -1
-  store ptr %1871, ptr %1023, align 8, !tbaa !41
+1855:                                             ; preds = %parser_set_lex_state.exit1011
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1843)
   br label %pushback.exit1048
 
-1872:                                             ; preds = %1049
-  %1873 = load i32, ptr %1019, align 8, !tbaa !60
-  %1874 = and i32 %1873, 128
-  %.not768 = icmp eq i32 %1874, 0
-  br i1 %.not768, label %1880, label %1875
+1856:                                             ; preds = %1049
+  %1857 = load i32, ptr %1019, align 8, !tbaa !60
+  %1858 = and i32 %1857, 1032
+  %1859 = icmp eq i32 %1858, 0
+  %1860 = icmp ne i16 %1015, 0
+  %or.cond17 = select i1 %1859, i1 true, i1 %1860
+  %1861 = and i32 %1857, 48
+  %.not771 = icmp eq i32 %1861, 0
+  %1862 = select i1 %or.cond17, i1 %.not771, i1 false
+  %1863 = select i1 %1862, i32 2, i32 66
+  %1864 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 16
+  store i32 %1863, ptr %1865, align 8, !tbaa !6
+  %1866 = getelementptr inbounds nuw i8, ptr %1864, i64 24
+  store i32 34, ptr %1866, align 8, !tbaa !6
+  %1867 = getelementptr inbounds nuw i8, ptr %1864, i64 20
+  store i32 0, ptr %1867, align 4, !tbaa !6
+  store ptr %1864, ptr %12, align 8, !tbaa !164
+  %1868 = load ptr, ptr %1020, align 8, !tbaa !48
+  %1869 = getelementptr inbounds i8, ptr %1868, i64 -1
+  store ptr %1869, ptr %1023, align 8, !tbaa !41
+  br label %pushback.exit1048
 
-1875:                                             ; preds = %1872
-  %1876 = load i16, ptr %10, align 8
-  %1877 = and i16 %1876, 32
-  %.not.i1015 = icmp eq i16 %1877, 0
-  br i1 %.not.i1015, label %parser_set_lex_state.exit1017, label %1878
+1870:                                             ; preds = %1049
+  %1871 = load i32, ptr %1019, align 8, !tbaa !60
+  %1872 = and i32 %1871, 128
+  %.not768 = icmp eq i32 %1872, 0
+  br i1 %.not768, label %1878, label %1873
 
-1878:                                             ; preds = %1875
-  %1879 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1873, i32 noundef 8, i32 noundef 10798) #31
+1873:                                             ; preds = %1870
+  %1874 = load i16, ptr %10, align 8
+  %1875 = and i16 %1874, 32
+  %.not.i1015 = icmp eq i16 %1875, 0
+  br i1 %.not.i1015, label %parser_set_lex_state.exit1017, label %1876
+
+1876:                                             ; preds = %1873
+  %1877 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1871, i32 noundef 8, i32 noundef 10798) #31
   br label %parser_set_lex_state.exit1017
 
-parser_set_lex_state.exit1017:                    ; preds = %1875, %1878
-  %.0.i1016 = phi i32 [ %1879, %1878 ], [ 8, %1875 ]
+parser_set_lex_state.exit1017:                    ; preds = %1873, %1876
+  %.0.i1016 = phi i32 [ %1877, %1876 ], [ 8, %1873 ]
   store i32 %.0.i1016, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1880:                                             ; preds = %1872
-  %1881 = and i32 %1873, 256
-  %.not769 = icmp eq i32 %1881, 0
-  br i1 %.not769, label %1891, label %1882
+1878:                                             ; preds = %1870
+  %1879 = and i32 %1871, 256
+  %.not769 = icmp eq i32 %1879, 0
+  br i1 %.not769, label %1889, label %1880
 
-1882:                                             ; preds = %1880
+1880:                                             ; preds = %1878
   %.not770 = icmp eq i16 %1015, 0
-  %1883 = load i16, ptr %10, align 8
-  %1884 = and i16 %1883, 32
-  %.not.i1021 = icmp eq i16 %1884, 0
-  br i1 %.not770, label %1888, label %1885
+  %1881 = load i16, ptr %10, align 8
+  %1882 = and i16 %1881, 32
+  %.not.i1021 = icmp eq i16 %1882, 0
+  br i1 %.not770, label %1886, label %1883
 
-1885:                                             ; preds = %1882
-  br i1 %.not.i1021, label %parser_set_lex_state.exit1020, label %1886
+1883:                                             ; preds = %1880
+  br i1 %.not.i1021, label %parser_set_lex_state.exit1020, label %1884
 
-1886:                                             ; preds = %1885
-  %1887 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1873, i32 noundef 32, i32 noundef 10803) #31
+1884:                                             ; preds = %1883
+  %1885 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1871, i32 noundef 32, i32 noundef 10803) #31
   br label %parser_set_lex_state.exit1020
 
-parser_set_lex_state.exit1020:                    ; preds = %1885, %1886
-  %.0.i1019 = phi i32 [ %1887, %1886 ], [ 32, %1885 ]
+parser_set_lex_state.exit1020:                    ; preds = %1883, %1884
+  %.0.i1019 = phi i32 [ %1885, %1884 ], [ 32, %1883 ]
   store i32 %.0.i1019, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1888:                                             ; preds = %1882
-  br i1 %.not.i1021, label %parser_set_lex_state.exit1023, label %1889
+1886:                                             ; preds = %1880
+  br i1 %.not.i1021, label %parser_set_lex_state.exit1023, label %1887
 
-1889:                                             ; preds = %1888
-  %1890 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1873, i32 noundef 16, i32 noundef 10805) #31
+1887:                                             ; preds = %1886
+  %1888 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1871, i32 noundef 16, i32 noundef 10805) #31
   br label %parser_set_lex_state.exit1023
 
-parser_set_lex_state.exit1023:                    ; preds = %1888, %1889
-  %.0.i1022 = phi i32 [ %1890, %1889 ], [ 16, %1888 ]
+parser_set_lex_state.exit1023:                    ; preds = %1886, %1887
+  %.0.i1022 = phi i32 [ %1888, %1887 ], [ 16, %1886 ]
   store i32 %.0.i1022, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1891:                                             ; preds = %1880
-  %1892 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %1893 = getelementptr inbounds nuw i8, ptr %1892, i64 16
-  store i32 2, ptr %1893, align 8, !tbaa !6
-  %1894 = getelementptr inbounds nuw i8, ptr %1892, i64 24
-  store i32 96, ptr %1894, align 8, !tbaa !6
-  %1895 = getelementptr inbounds nuw i8, ptr %1892, i64 20
-  store i32 0, ptr %1895, align 4, !tbaa !6
-  store ptr %1892, ptr %12, align 8, !tbaa !164
+1889:                                             ; preds = %1878
+  %1890 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 16
+  store i32 2, ptr %1891, align 8, !tbaa !6
+  %1892 = getelementptr inbounds nuw i8, ptr %1890, i64 24
+  store i32 96, ptr %1892, align 8, !tbaa !6
+  %1893 = getelementptr inbounds nuw i8, ptr %1890, i64 20
+  store i32 0, ptr %1893, align 4, !tbaa !6
+  store ptr %1890, ptr %12, align 8, !tbaa !164
   br label %pushback.exit1048
 
-1896:                                             ; preds = %1049
-  %1897 = load i32, ptr %1019, align 8, !tbaa !60
-  %1898 = and i32 %1897, 1032
-  %1899 = icmp eq i32 %1898, 0
-  %1900 = icmp ne i16 %1015, 0
-  %or.cond19 = select i1 %1899, i1 true, i1 %1900
-  %1901 = and i32 %1897, 48
-  %.not767 = icmp eq i32 %1901, 0
-  %1902 = select i1 %or.cond19, i1 %.not767, i1 false
-  %1903 = select i1 %1902, i32 0, i32 64
-  %1904 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 16
-  store i32 %1903, ptr %1905, align 8, !tbaa !6
-  %1906 = getelementptr inbounds nuw i8, ptr %1904, i64 24
-  store i32 39, ptr %1906, align 8, !tbaa !6
-  %1907 = getelementptr inbounds nuw i8, ptr %1904, i64 20
-  store i32 0, ptr %1907, align 4, !tbaa !6
-  store ptr %1904, ptr %12, align 8, !tbaa !164
-  %1908 = load ptr, ptr %1020, align 8, !tbaa !48
-  %1909 = getelementptr inbounds i8, ptr %1908, i64 -1
-  store ptr %1909, ptr %1023, align 8, !tbaa !41
+1894:                                             ; preds = %1049
+  %1895 = load i32, ptr %1019, align 8, !tbaa !60
+  %1896 = and i32 %1895, 1032
+  %1897 = icmp eq i32 %1896, 0
+  %1898 = icmp ne i16 %1015, 0
+  %or.cond19 = select i1 %1897, i1 true, i1 %1898
+  %1899 = and i32 %1895, 48
+  %.not767 = icmp eq i32 %1899, 0
+  %1900 = select i1 %or.cond19, i1 %.not767, i1 false
+  %1901 = select i1 %1900, i32 0, i32 64
+  %1902 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %1903 = getelementptr inbounds nuw i8, ptr %1902, i64 16
+  store i32 %1901, ptr %1903, align 8, !tbaa !6
+  %1904 = getelementptr inbounds nuw i8, ptr %1902, i64 24
+  store i32 39, ptr %1904, align 8, !tbaa !6
+  %1905 = getelementptr inbounds nuw i8, ptr %1902, i64 20
+  store i32 0, ptr %1905, align 4, !tbaa !6
+  store ptr %1902, ptr %12, align 8, !tbaa !164
+  %1906 = load ptr, ptr %1020, align 8, !tbaa !48
+  %1907 = getelementptr inbounds i8, ptr %1906, i64 -1
+  store ptr %1907, ptr %1023, align 8, !tbaa !41
+  br label %pushback.exit1048
+
+1908:                                             ; preds = %1049
+  %1909 = tail call fastcc i32 @parse_qmark(ptr noundef nonnull %0, i32 noundef %.0649)
   br label %pushback.exit1048
 
 1910:                                             ; preds = %1049
-  %1911 = tail call fastcc i32 @parse_qmark(ptr noundef nonnull %0, i32 noundef %.0649)
-  br label %pushback.exit1048
-
-1912:                                             ; preds = %1049
-  %1913 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  switch i32 %1913, label %1944 [
-    i32 38, label %1914
-    i32 61, label %1930
-    i32 46, label %1937
+  %1911 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  switch i32 %1911, label %1942 [
+    i32 38, label %1912
+    i32 61, label %1928
+    i32 46, label %1935
   ]
 
-1914:                                             ; preds = %1912
-  %1915 = load i16, ptr %10, align 8
-  %1916 = and i16 %1915, 32
-  %.not.i1024 = icmp eq i16 %1916, 0
-  br i1 %.not.i1024, label %parser_set_lex_state.exit1026, label %1917
+1912:                                             ; preds = %1910
+  %1913 = load i16, ptr %10, align 8
+  %1914 = and i16 %1913, 32
+  %.not.i1024 = icmp eq i16 %1914, 0
+  br i1 %.not.i1024, label %parser_set_lex_state.exit1026, label %1915
 
-1917:                                             ; preds = %1914
-  %1918 = load i32, ptr %1019, align 8, !tbaa !60
-  %1919 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1918, i32 noundef 1, i32 noundef 10822) #31
+1915:                                             ; preds = %1912
+  %1916 = load i32, ptr %1019, align 8, !tbaa !60
+  %1917 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1916, i32 noundef 1, i32 noundef 10822) #31
   br label %parser_set_lex_state.exit1026
 
-parser_set_lex_state.exit1026:                    ; preds = %1914, %1917
-  %.0.i1025 = phi i32 [ %1919, %1917 ], [ 1, %1914 ]
+parser_set_lex_state.exit1026:                    ; preds = %1912, %1915
+  %.0.i1025 = phi i32 [ %1917, %1915 ], [ 1, %1912 ]
   store i32 %.0.i1025, ptr %1019, align 8, !tbaa !60
-  %1920 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1921 = icmp eq i32 %1920, 61
-  br i1 %1921, label %1922, label %1929
+  %1918 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1919 = icmp eq i32 %1918, 61
+  br i1 %1919, label %1920, label %1927
 
-1922:                                             ; preds = %parser_set_lex_state.exit1026
-  %1923 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 148, ptr %1923, align 8, !tbaa !6
-  %1924 = load i16, ptr %10, align 8
-  %1925 = and i16 %1924, 32
-  %.not.i1027 = icmp eq i16 %1925, 0
-  br i1 %.not.i1027, label %parser_set_lex_state.exit1029, label %1926
+1920:                                             ; preds = %parser_set_lex_state.exit1026
+  %1921 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 148, ptr %1921, align 8, !tbaa !6
+  %1922 = load i16, ptr %10, align 8
+  %1923 = and i16 %1922, 32
+  %.not.i1027 = icmp eq i16 %1923, 0
+  br i1 %.not.i1027, label %parser_set_lex_state.exit1029, label %1924
 
-1926:                                             ; preds = %1922
-  %1927 = load i32, ptr %1019, align 8, !tbaa !60
-  %1928 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1927, i32 noundef 1, i32 noundef 10825) #31
+1924:                                             ; preds = %1920
+  %1925 = load i32, ptr %1019, align 8, !tbaa !60
+  %1926 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1925, i32 noundef 1, i32 noundef 10825) #31
   br label %parser_set_lex_state.exit1029
 
-parser_set_lex_state.exit1029:                    ; preds = %1922, %1926
-  %.0.i1028 = phi i32 [ %1928, %1926 ], [ 1, %1922 ]
+parser_set_lex_state.exit1029:                    ; preds = %1920, %1924
+  %.0.i1028 = phi i32 [ %1926, %1924 ], [ 1, %1920 ]
   store i32 %.0.i1028, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1929:                                             ; preds = %parser_set_lex_state.exit1026
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1920)
+1927:                                             ; preds = %parser_set_lex_state.exit1026
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1918)
   br label %pushback.exit1048
 
-1930:                                             ; preds = %1912
-  %1931 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 38, ptr %1931, align 8, !tbaa !6
-  %1932 = load i16, ptr %10, align 8
-  %1933 = and i16 %1932, 32
-  %.not.i1030 = icmp eq i16 %1933, 0
-  br i1 %.not.i1030, label %parser_set_lex_state.exit1032, label %1934
+1928:                                             ; preds = %1910
+  %1929 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 38, ptr %1929, align 8, !tbaa !6
+  %1930 = load i16, ptr %10, align 8
+  %1931 = and i16 %1930, 32
+  %.not.i1030 = icmp eq i16 %1931, 0
+  br i1 %.not.i1030, label %parser_set_lex_state.exit1032, label %1932
 
-1934:                                             ; preds = %1930
-  %1935 = load i32, ptr %1019, align 8, !tbaa !60
-  %1936 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1935, i32 noundef 1, i32 noundef 10833) #31
+1932:                                             ; preds = %1928
+  %1933 = load i32, ptr %1019, align 8, !tbaa !60
+  %1934 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1933, i32 noundef 1, i32 noundef 10833) #31
   br label %parser_set_lex_state.exit1032
 
-parser_set_lex_state.exit1032:                    ; preds = %1930, %1934
-  %.0.i1031 = phi i32 [ %1936, %1934 ], [ 1, %1930 ]
+parser_set_lex_state.exit1032:                    ; preds = %1928, %1932
+  %.0.i1031 = phi i32 [ %1934, %1932 ], [ 1, %1928 ]
   store i32 %.0.i1031, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1937:                                             ; preds = %1912
-  %1938 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 150, ptr %1938, align 8, !tbaa !6
-  %1939 = load i16, ptr %10, align 8
-  %1940 = and i16 %1939, 32
-  %.not.i1033 = icmp eq i16 %1940, 0
-  br i1 %.not.i1033, label %parser_set_lex_state.exit1035, label %1941
+1935:                                             ; preds = %1910
+  %1936 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 150, ptr %1936, align 8, !tbaa !6
+  %1937 = load i16, ptr %10, align 8
+  %1938 = and i16 %1937, 32
+  %.not.i1033 = icmp eq i16 %1938, 0
+  br i1 %.not.i1033, label %parser_set_lex_state.exit1035, label %1939
 
-1941:                                             ; preds = %1937
-  %1942 = load i32, ptr %1019, align 8, !tbaa !60
-  %1943 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1942, i32 noundef 256, i32 noundef 10838) #31
+1939:                                             ; preds = %1935
+  %1940 = load i32, ptr %1019, align 8, !tbaa !60
+  %1941 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1940, i32 noundef 256, i32 noundef 10838) #31
   br label %parser_set_lex_state.exit1035
 
-parser_set_lex_state.exit1035:                    ; preds = %1937, %1941
-  %.0.i1034 = phi i32 [ %1943, %1941 ], [ 256, %1937 ]
+parser_set_lex_state.exit1035:                    ; preds = %1935, %1939
+  %.0.i1034 = phi i32 [ %1941, %1939 ], [ 256, %1935 ]
   store i32 %.0.i1034, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1944:                                             ; preds = %1912
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1913)
-  %1945 = load i32, ptr %1019, align 8, !tbaa !60
-  %1946 = and i32 %1945, 48
-  %1947 = icmp ne i32 %1946, 0
-  %1948 = icmp ne i32 %.0649, 0
-  %or.cond21 = select i1 %1947, i1 %1948, i1 false
-  br i1 %or.cond21, label %1949, label %1969
+1942:                                             ; preds = %1910
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1911)
+  %1943 = load i32, ptr %1019, align 8, !tbaa !60
+  %1944 = and i32 %1943, 48
+  %1945 = icmp ne i32 %1944, 0
+  %1946 = icmp ne i32 %.0649, 0
+  %or.cond21 = select i1 %1945, i1 %1946, i1 false
+  br i1 %or.cond21, label %1947, label %1967
 
-1949:                                             ; preds = %1944
-  switch i32 %1913, label %.thread1243 [
-    i32 32, label %1969
-    i32 13, label %1969
-    i32 12, label %1969
-    i32 11, label %1969
-    i32 10, label %1969
-    i32 9, label %1969
-    i32 58, label %1950
+1947:                                             ; preds = %1942
+  switch i32 %1911, label %.thread1243 [
+    i32 32, label %1967
+    i32 13, label %1967
+    i32 12, label %1967
+    i32 11, label %1967
+    i32 10, label %1967
+    i32 9, label %1967
+    i32 58, label %1948
   ]
 
-1950:                                             ; preds = %1949
-  %1951 = load ptr, ptr %1020, align 8, !tbaa !48
-  %1952 = getelementptr inbounds nuw i8, ptr %1951, i64 1
-  %1953 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not762 = icmp ult ptr %1952, %1953
-  br i1 %.not762, label %1954, label %.thread1243
+1948:                                             ; preds = %1947
+  %1949 = load ptr, ptr %1020, align 8, !tbaa !48
+  %1950 = getelementptr inbounds nuw i8, ptr %1949, i64 1
+  %1951 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not762 = icmp ult ptr %1950, %1951
+  br i1 %.not762, label %1952, label %.thread1243
 
-1954:                                             ; preds = %1950
-  %1955 = load i8, ptr %1952, align 1, !tbaa !6
-  switch i8 %1955, label %1956 [
+1952:                                             ; preds = %1948
+  %1953 = load i8, ptr %1950, align 1, !tbaa !6
+  switch i8 %1953, label %1954 [
     i8 34, label %is_identchar.exit.thread
     i8 39, label %is_identchar.exit.thread
   ]
 
-1956:                                             ; preds = %1954
-  %1957 = load ptr, ptr %1024, align 8, !tbaa !49
-  %1958 = zext i8 %1955 to i32
-  %1959 = getelementptr inbounds nuw i8, ptr %1957, i64 88
-  %1960 = load ptr, ptr %1959, align 8, !tbaa !555
-  %1961 = tail call i32 %1960(i32 noundef range(i32 -1, 256) %1958, i32 noundef 13, ptr noundef %1957) #31
-  %.not.i1037 = icmp eq i32 %1961, 0
-  br i1 %.not.i1037, label %1962, label %is_identchar.exit.thread
+1954:                                             ; preds = %1952
+  %1955 = load ptr, ptr %1024, align 8, !tbaa !49
+  %1956 = zext i8 %1953 to i32
+  %1957 = getelementptr inbounds nuw i8, ptr %1955, i64 88
+  %1958 = load ptr, ptr %1957, align 8, !tbaa !555
+  %1959 = tail call i32 %1958(i32 noundef range(i32 -1, 256) %1956, i32 noundef 13, ptr noundef %1955) #31
+  %.not.i1037 = icmp eq i32 %1959, 0
+  br i1 %.not.i1037, label %1960, label %is_identchar.exit.thread
 
-1962:                                             ; preds = %1956
-  %1963 = load i8, ptr %1952, align 1, !tbaa !6
-  %1964 = icmp ne i8 %1963, 95
-  %.not763 = icmp sgt i8 %1963, -1
-  %or.cond = and i1 %1964, %.not763
+1960:                                             ; preds = %1954
+  %1961 = load i8, ptr %1950, align 1, !tbaa !6
+  %1962 = icmp ne i8 %1961, 95
+  %.not763 = icmp sgt i8 %1961, -1
+  %or.cond = and i1 %1962, %.not763
   br i1 %or.cond, label %.thread1243, label %is_identchar.exit.thread
 
-.thread1243:                                      ; preds = %1962, %1949, %1950
-  %1965 = load i64, ptr %1025, align 8, !tbaa !46
-  %1966 = load i64, ptr @id_warning, align 8, !tbaa !9
-  %1967 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.587, i64 noundef 34) #31
-  %1968 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1965, i64 noundef %1966, i32 noundef 1, i64 noundef %1967) #31
+.thread1243:                                      ; preds = %1960, %1947, %1948
+  %1963 = load i64, ptr %1025, align 8, !tbaa !46
+  %1964 = load i64, ptr @id_warning, align 8, !tbaa !9
+  %1965 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.587, i64 noundef 34) #31
+  %1966 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1963, i64 noundef %1964, i32 noundef 1, i64 noundef %1965) #31
   br label %is_identchar.exit.thread
 
-1969:                                             ; preds = %1949, %1949, %1949, %1949, %1949, %1949, %1944
-  %1970 = and i32 %1945, 577
-  %.not764 = icmp ne i32 %1970, 0
-  %1971 = and i32 %1945, 2064
-  %1972 = icmp eq i32 %1971, 2064
-  %or.cond810 = or i1 %.not764, %1972
-  br i1 %or.cond810, label %is_identchar.exit.thread, label %1973
+1967:                                             ; preds = %1947, %1947, %1947, %1947, %1947, %1947, %1942
+  %1968 = and i32 %1943, 577
+  %.not764 = icmp ne i32 %1968, 0
+  %1969 = and i32 %1943, 2064
+  %1970 = icmp eq i32 %1969, 2064
+  %or.cond810 = or i1 %.not764, %1970
+  br i1 %or.cond810, label %is_identchar.exit.thread, label %1971
 
-1973:                                             ; preds = %1969
-  %1974 = and i32 %1040, 904
-  %1975 = icmp eq i32 %1974, 0
-  %or.cond25 = select i1 %1975, i1 %1948, i1 false
-  br i1 %or.cond25, label %1976, label %is_identchar.exit.thread
+1971:                                             ; preds = %1967
+  %1972 = and i32 %1040, 904
+  %1973 = icmp eq i32 %1972, 0
+  %or.cond25 = select i1 %1973, i1 %1946, i1 false
+  br i1 %or.cond25, label %1974, label %is_identchar.exit.thread
 
-1976:                                             ; preds = %1973
-  switch i32 %1913, label %1977 [
+1974:                                             ; preds = %1971
+  switch i32 %1911, label %1975 [
     i32 32, label %is_identchar.exit.thread
     i32 13, label %is_identchar.exit.thread
     i32 12, label %is_identchar.exit.thread
@@ -38864,268 +38862,268 @@ parser_set_lex_state.exit1035:                    ; preds = %1937, %1941
     i32 9, label %is_identchar.exit.thread
   ]
 
-1977:                                             ; preds = %1976
-  %1978 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %1979 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.583, i64 noundef 15) #31
+1975:                                             ; preds = %1974
+  %1976 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %1977 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.583, i64 noundef 15) #31
   %.val834 = load i64, ptr %1025, align 8, !tbaa !46
-  %1980 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val834, i64 noundef %1978, i32 noundef 2, i64 noundef 9740, i64 noundef %1979) #31
+  %1978 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val834, i64 noundef %1976, i32 noundef 2, i64 noundef 9740, i64 noundef %1977) #31
   br label %is_identchar.exit.thread
 
-is_identchar.exit.thread:                         ; preds = %1976, %1976, %1976, %1976, %1976, %1976, %1954, %1956, %1962, %1954, %1973, %1977, %1969, %.thread1243
-  %.1645 = phi i32 [ 335, %.thread1243 ], [ 335, %1969 ], [ 38, %1977 ], [ 38, %1976 ], [ 38, %1973 ], [ 335, %1954 ], [ 335, %1954 ], [ 335, %1962 ], [ 335, %1956 ], [ 38, %1976 ], [ 38, %1976 ], [ 38, %1976 ], [ 38, %1976 ], [ 38, %1976 ]
-  %1981 = load i32, ptr %1019, align 8, !tbaa !60
-  %1982 = and i32 %1981, 384
-  %.not766 = icmp eq i32 %1982, 0
-  %1983 = select i1 %.not766, i32 1, i32 16
-  %1984 = load i16, ptr %10, align 8
-  %1985 = and i16 %1984, 32
-  %.not.i1039 = icmp eq i16 %1985, 0
-  br i1 %.not.i1039, label %parser_set_lex_state.exit1041, label %1986
+is_identchar.exit.thread:                         ; preds = %1974, %1974, %1974, %1974, %1974, %1974, %1952, %1954, %1960, %1952, %1971, %1975, %1967, %.thread1243
+  %.1645 = phi i32 [ 335, %.thread1243 ], [ 335, %1967 ], [ 38, %1975 ], [ 38, %1974 ], [ 38, %1971 ], [ 335, %1952 ], [ 335, %1952 ], [ 335, %1960 ], [ 335, %1954 ], [ 38, %1974 ], [ 38, %1974 ], [ 38, %1974 ], [ 38, %1974 ], [ 38, %1974 ]
+  %1979 = load i32, ptr %1019, align 8, !tbaa !60
+  %1980 = and i32 %1979, 384
+  %.not766 = icmp eq i32 %1980, 0
+  %1981 = select i1 %.not766, i32 1, i32 16
+  %1982 = load i16, ptr %10, align 8
+  %1983 = and i16 %1982, 32
+  %.not.i1039 = icmp eq i16 %1983, 0
+  br i1 %.not.i1039, label %parser_set_lex_state.exit1041, label %1984
 
-1986:                                             ; preds = %is_identchar.exit.thread
-  %1987 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1981, i32 noundef %1983, i32 noundef 10857) #31
+1984:                                             ; preds = %is_identchar.exit.thread
+  %1985 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1979, i32 noundef %1981, i32 noundef 10857) #31
   br label %parser_set_lex_state.exit1041
 
-parser_set_lex_state.exit1041:                    ; preds = %is_identchar.exit.thread, %1986
-  %.0.i1040 = phi i32 [ %1987, %1986 ], [ %1983, %is_identchar.exit.thread ]
+parser_set_lex_state.exit1041:                    ; preds = %is_identchar.exit.thread, %1984
+  %.0.i1040 = phi i32 [ %1985, %1984 ], [ %1981, %is_identchar.exit.thread ]
   store i32 %.0.i1040, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-1988:                                             ; preds = %1049
-  %1989 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  switch i32 %1989, label %2029 [
-    i32 124, label %1990
-    i32 61, label %2022
+1986:                                             ; preds = %1049
+  %1987 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  switch i32 %1987, label %2027 [
+    i32 124, label %1988
+    i32 61, label %2020
   ]
 
-1990:                                             ; preds = %1988
-  %1991 = load i16, ptr %10, align 8
-  %1992 = and i16 %1991, 32
-  %.not.i1042 = icmp eq i16 %1992, 0
-  br i1 %.not.i1042, label %parser_set_lex_state.exit1044, label %1993
+1988:                                             ; preds = %1986
+  %1989 = load i16, ptr %10, align 8
+  %1990 = and i16 %1989, 32
+  %.not.i1042 = icmp eq i16 %1990, 0
+  br i1 %.not.i1042, label %parser_set_lex_state.exit1044, label %1991
 
-1993:                                             ; preds = %1990
-  %1994 = load i32, ptr %1019, align 8, !tbaa !60
-  %1995 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1994, i32 noundef 1, i32 noundef 10862) #31
+1991:                                             ; preds = %1988
+  %1992 = load i32, ptr %1019, align 8, !tbaa !60
+  %1993 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %1992, i32 noundef 1, i32 noundef 10862) #31
   br label %parser_set_lex_state.exit1044
 
-parser_set_lex_state.exit1044:                    ; preds = %1990, %1993
-  %.0.i1043 = phi i32 [ %1995, %1993 ], [ 1, %1990 ]
+parser_set_lex_state.exit1044:                    ; preds = %1988, %1991
+  %.0.i1043 = phi i32 [ %1993, %1991 ], [ 1, %1988 ]
   store i32 %.0.i1043, ptr %1019, align 8, !tbaa !60
-  %1996 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %1997 = icmp eq i32 %1996, 61
-  br i1 %1997, label %1998, label %2005
+  %1994 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %1995 = icmp eq i32 %1994, 61
+  br i1 %1995, label %1996, label %2003
 
-1998:                                             ; preds = %parser_set_lex_state.exit1044
-  %1999 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 149, ptr %1999, align 8, !tbaa !6
-  %2000 = load i16, ptr %10, align 8
-  %2001 = and i16 %2000, 32
-  %.not.i1045 = icmp eq i16 %2001, 0
-  br i1 %.not.i1045, label %parser_set_lex_state.exit1047, label %2002
+1996:                                             ; preds = %parser_set_lex_state.exit1044
+  %1997 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 149, ptr %1997, align 8, !tbaa !6
+  %1998 = load i16, ptr %10, align 8
+  %1999 = and i16 %1998, 32
+  %.not.i1045 = icmp eq i16 %1999, 0
+  br i1 %.not.i1045, label %parser_set_lex_state.exit1047, label %2000
 
-2002:                                             ; preds = %1998
-  %2003 = load i32, ptr %1019, align 8, !tbaa !60
-  %2004 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2003, i32 noundef 1, i32 noundef 10865) #31
+2000:                                             ; preds = %1996
+  %2001 = load i32, ptr %1019, align 8, !tbaa !60
+  %2002 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2001, i32 noundef 1, i32 noundef 10865) #31
   br label %parser_set_lex_state.exit1047
 
-parser_set_lex_state.exit1047:                    ; preds = %1998, %2002
-  %.0.i1046 = phi i32 [ %2004, %2002 ], [ 1, %1998 ]
+parser_set_lex_state.exit1047:                    ; preds = %1996, %2000
+  %.0.i1046 = phi i32 [ %2002, %2000 ], [ 1, %1996 ]
   store i32 %.0.i1046, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2005:                                             ; preds = %parser_set_lex_state.exit1044
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1996)
-  %2006 = and i32 %1040, 1
-  %.not759 = icmp eq i32 %2006, 0
-  br i1 %.not759, label %pushback.exit1048, label %2007
+2003:                                             ; preds = %parser_set_lex_state.exit1044
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1994)
+  %2004 = and i32 %1040, 1
+  %.not759 = icmp eq i32 %2004, 0
+  br i1 %.not759, label %pushback.exit1048, label %2005
 
-2007:                                             ; preds = %2005
-  %2008 = load i16, ptr %10, align 8
-  %2009 = and i16 %2008, -9
-  store i16 %2009, ptr %10, align 8
-  %2010 = load ptr, ptr %1020, align 8, !tbaa !48
-  %2011 = getelementptr inbounds i8, ptr %2010, i64 -1
-  store ptr %2011, ptr %1020, align 8, !tbaa !48
-  %2012 = load ptr, ptr %1028, align 8, !tbaa !44
-  %2013 = icmp ugt ptr %2011, %2012
-  br i1 %2013, label %2014, label %pushback.exit1048
+2005:                                             ; preds = %2003
+  %2006 = load i16, ptr %10, align 8
+  %2007 = and i16 %2006, -9
+  store i16 %2007, ptr %10, align 8
+  %2008 = load ptr, ptr %1020, align 8, !tbaa !48
+  %2009 = getelementptr inbounds i8, ptr %2008, i64 -1
+  store ptr %2009, ptr %1020, align 8, !tbaa !48
+  %2010 = load ptr, ptr %1028, align 8, !tbaa !44
+  %2011 = icmp ugt ptr %2009, %2010
+  br i1 %2011, label %2012, label %pushback.exit1048
 
-2014:                                             ; preds = %2007
-  %2015 = load i8, ptr %2011, align 1, !tbaa !6
-  %2016 = icmp eq i8 %2015, 10
-  br i1 %2016, label %2017, label %pushback.exit1048
+2012:                                             ; preds = %2005
+  %2013 = load i8, ptr %2009, align 1, !tbaa !6
+  %2014 = icmp eq i8 %2013, 10
+  br i1 %2014, label %2015, label %pushback.exit1048
 
-2017:                                             ; preds = %2014
-  %2018 = getelementptr inbounds i8, ptr %2010, i64 -2
-  %2019 = load i8, ptr %2018, align 1, !tbaa !6
-  %2020 = icmp eq i8 %2019, 13
-  br i1 %2020, label %2021, label %pushback.exit1048
+2015:                                             ; preds = %2012
+  %2016 = getelementptr inbounds i8, ptr %2008, i64 -2
+  %2017 = load i8, ptr %2016, align 1, !tbaa !6
+  %2018 = icmp eq i8 %2017, 13
+  br i1 %2018, label %2019, label %pushback.exit1048
 
-2021:                                             ; preds = %2017
-  store ptr %2018, ptr %1020, align 8, !tbaa !48
+2019:                                             ; preds = %2015
+  store ptr %2016, ptr %1020, align 8, !tbaa !48
   br label %pushback.exit1048
 
-2022:                                             ; preds = %1988
-  %2023 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 124, ptr %2023, align 8, !tbaa !6
-  %2024 = load i16, ptr %10, align 8
-  %2025 = and i16 %2024, 32
-  %.not.i1049 = icmp eq i16 %2025, 0
-  br i1 %.not.i1049, label %parser_set_lex_state.exit1051, label %2026
+2020:                                             ; preds = %1986
+  %2021 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 124, ptr %2021, align 8, !tbaa !6
+  %2022 = load i16, ptr %10, align 8
+  %2023 = and i16 %2022, 32
+  %.not.i1049 = icmp eq i16 %2023, 0
+  br i1 %.not.i1049, label %parser_set_lex_state.exit1051, label %2024
 
-2026:                                             ; preds = %2022
-  %2027 = load i32, ptr %1019, align 8, !tbaa !60
-  %2028 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2027, i32 noundef 1, i32 noundef 10878) #31
+2024:                                             ; preds = %2020
+  %2025 = load i32, ptr %1019, align 8, !tbaa !60
+  %2026 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2025, i32 noundef 1, i32 noundef 10878) #31
   br label %parser_set_lex_state.exit1051
 
-parser_set_lex_state.exit1051:                    ; preds = %2022, %2026
-  %.0.i1050 = phi i32 [ %2028, %2026 ], [ 1, %2022 ]
+parser_set_lex_state.exit1051:                    ; preds = %2020, %2024
+  %.0.i1050 = phi i32 [ %2026, %2024 ], [ 1, %2020 ]
   store i32 %.0.i1050, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2029:                                             ; preds = %1988
-  %2030 = load i32, ptr %1019, align 8, !tbaa !60
-  %2031 = and i32 %2030, 384
-  %.not758 = icmp eq i32 %2031, 0
-  %2032 = select i1 %.not758, i32 1025, i32 16
-  %2033 = load i16, ptr %10, align 8
-  %2034 = and i16 %2033, 32
-  %.not.i1052 = icmp eq i16 %2034, 0
-  br i1 %.not.i1052, label %parser_set_lex_state.exit1054, label %2035
+2027:                                             ; preds = %1986
+  %2028 = load i32, ptr %1019, align 8, !tbaa !60
+  %2029 = and i32 %2028, 384
+  %.not758 = icmp eq i32 %2029, 0
+  %2030 = select i1 %.not758, i32 1025, i32 16
+  %2031 = load i16, ptr %10, align 8
+  %2032 = and i16 %2031, 32
+  %.not.i1052 = icmp eq i16 %2032, 0
+  br i1 %.not.i1052, label %parser_set_lex_state.exit1054, label %2033
 
-2035:                                             ; preds = %2029
-  %2036 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2030, i32 noundef %2032, i32 noundef 10881) #31
+2033:                                             ; preds = %2027
+  %2034 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2028, i32 noundef %2030, i32 noundef 10881) #31
   br label %parser_set_lex_state.exit1054
 
-parser_set_lex_state.exit1054:                    ; preds = %2029, %2035
-  %.0.i1053 = phi i32 [ %2036, %2035 ], [ %2032, %2029 ]
+parser_set_lex_state.exit1054:                    ; preds = %2027, %2033
+  %.0.i1053 = phi i32 [ %2034, %2033 ], [ %2030, %2027 ]
   store i32 %.0.i1053, ptr %1019, align 8, !tbaa !60
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1989)
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %1987)
   br label %pushback.exit1048
 
-2037:                                             ; preds = %1049
-  %2038 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2039 = load i32, ptr %1019, align 8, !tbaa !60
-  %2040 = and i32 %2039, 384
-  %.not752 = icmp eq i32 %2040, 0
-  br i1 %.not752, label %2048, label %2041
+2035:                                             ; preds = %1049
+  %2036 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2037 = load i32, ptr %1019, align 8, !tbaa !60
+  %2038 = and i32 %2037, 384
+  %.not752 = icmp eq i32 %2038, 0
+  br i1 %.not752, label %2046, label %2039
 
-2041:                                             ; preds = %2037
-  %2042 = load i16, ptr %10, align 8
-  %2043 = and i16 %2042, 32
-  %.not.i1055 = icmp eq i16 %2043, 0
-  br i1 %.not.i1055, label %parser_set_lex_state.exit1057, label %2044
+2039:                                             ; preds = %2035
+  %2040 = load i16, ptr %10, align 8
+  %2041 = and i16 %2040, 32
+  %.not.i1055 = icmp eq i16 %2041, 0
+  br i1 %.not.i1055, label %parser_set_lex_state.exit1057, label %2042
 
-2044:                                             ; preds = %2041
-  %2045 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2039, i32 noundef 16, i32 noundef 10888) #31
+2042:                                             ; preds = %2039
+  %2043 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2037, i32 noundef 16, i32 noundef 10888) #31
   br label %parser_set_lex_state.exit1057
 
-parser_set_lex_state.exit1057:                    ; preds = %2041, %2044
-  %.0.i1056 = phi i32 [ %2045, %2044 ], [ 16, %2041 ]
+parser_set_lex_state.exit1057:                    ; preds = %2039, %2042
+  %.0.i1056 = phi i32 [ %2043, %2042 ], [ 16, %2039 ]
   store i32 %.0.i1056, ptr %1019, align 8, !tbaa !60
-  %2046 = icmp eq i32 %2038, 64
-  br i1 %2046, label %pushback.exit1048, label %2047
+  %2044 = icmp eq i32 %2036, 64
+  br i1 %2044, label %pushback.exit1048, label %2045
 
-2047:                                             ; preds = %parser_set_lex_state.exit1057
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2038)
+2045:                                             ; preds = %parser_set_lex_state.exit1057
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2036)
   br label %pushback.exit1048
 
-2048:                                             ; preds = %2037
-  %2049 = icmp eq i32 %2038, 61
-  br i1 %2049, label %2050, label %2057
+2046:                                             ; preds = %2035
+  %2047 = icmp eq i32 %2036, 61
+  br i1 %2047, label %2048, label %2055
 
-2050:                                             ; preds = %2048
-  %2051 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 43, ptr %2051, align 8, !tbaa !6
-  %2052 = load i16, ptr %10, align 8
-  %2053 = and i16 %2052, 32
-  %.not.i1058 = icmp eq i16 %2053, 0
-  br i1 %.not.i1058, label %parser_set_lex_state.exit1060, label %2054
+2048:                                             ; preds = %2046
+  %2049 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 43, ptr %2049, align 8, !tbaa !6
+  %2050 = load i16, ptr %10, align 8
+  %2051 = and i16 %2050, 32
+  %.not.i1058 = icmp eq i16 %2051, 0
+  br i1 %.not.i1058, label %parser_set_lex_state.exit1060, label %2052
 
-2054:                                             ; preds = %2050
-  %2055 = load i32, ptr %1019, align 8, !tbaa !60
-  %2056 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2055, i32 noundef 1, i32 noundef 10897) #31
+2052:                                             ; preds = %2048
+  %2053 = load i32, ptr %1019, align 8, !tbaa !60
+  %2054 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2053, i32 noundef 1, i32 noundef 10897) #31
   br label %parser_set_lex_state.exit1060
 
-parser_set_lex_state.exit1060:                    ; preds = %2050, %2054
-  %.0.i1059 = phi i32 [ %2056, %2054 ], [ 1, %2050 ]
+parser_set_lex_state.exit1060:                    ; preds = %2048, %2052
+  %.0.i1059 = phi i32 [ %2054, %2052 ], [ 1, %2048 ]
   store i32 %.0.i1059, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2057:                                             ; preds = %2048
-  %2058 = and i32 %2039, 577
-  %.not753 = icmp ne i32 %2058, 0
-  %2059 = and i32 %2039, 2064
-  %2060 = icmp eq i32 %2059, 2064
-  %or.cond812 = or i1 %.not753, %2060
-  br i1 %or.cond812, label %2067, label %2061
+2055:                                             ; preds = %2046
+  %2056 = and i32 %2037, 577
+  %.not753 = icmp ne i32 %2056, 0
+  %2057 = and i32 %2037, 2064
+  %2058 = icmp eq i32 %2057, 2064
+  %or.cond812 = or i1 %.not753, %2058
+  br i1 %or.cond812, label %2065, label %2059
 
-2061:                                             ; preds = %2057
-  %2062 = and i32 %2039, 48
-  %2063 = icmp ne i32 %2062, 0
-  %2064 = icmp ne i32 %.0649, 0
-  %or.cond27 = select i1 %2063, i1 %2064, i1 false
-  br i1 %or.cond27, label %2065, label %2076
+2059:                                             ; preds = %2055
+  %2060 = and i32 %2037, 48
+  %2061 = icmp ne i32 %2060, 0
+  %2062 = icmp ne i32 %.0649, 0
+  %or.cond27 = select i1 %2061, i1 %2062, i1 false
+  br i1 %or.cond27, label %2063, label %2074
 
-2065:                                             ; preds = %2061
-  switch i32 %2038, label %2066 [
-    i32 32, label %2076
-    i32 13, label %2076
-    i32 12, label %2076
-    i32 11, label %2076
-    i32 10, label %2076
-    i32 9, label %2076
+2063:                                             ; preds = %2059
+  switch i32 %2036, label %2064 [
+    i32 32, label %2074
+    i32 13, label %2074
+    i32 12, label %2074
+    i32 11, label %2074
+    i32 10, label %2074
+    i32 9, label %2074
   ]
 
-2066:                                             ; preds = %2065
+2064:                                             ; preds = %2063
   tail call fastcc void @arg_ambiguous(ptr noundef nonnull %0, i8 noundef signext 43)
-  br label %2067
+  br label %2065
 
-2067:                                             ; preds = %2066, %2057
-  %2068 = load i16, ptr %10, align 8
-  %2069 = and i16 %2068, 32
-  %.not.i1062 = icmp eq i16 %2069, 0
-  br i1 %.not.i1062, label %parser_set_lex_state.exit1064, label %2070
+2065:                                             ; preds = %2064, %2055
+  %2066 = load i16, ptr %10, align 8
+  %2067 = and i16 %2066, 32
+  %.not.i1062 = icmp eq i16 %2067, 0
+  br i1 %.not.i1062, label %parser_set_lex_state.exit1064, label %2068
 
-2070:                                             ; preds = %2067
-  %2071 = load i32, ptr %1019, align 8, !tbaa !60
-  %2072 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2071, i32 noundef 1, i32 noundef 10901) #31
+2068:                                             ; preds = %2065
+  %2069 = load i32, ptr %1019, align 8, !tbaa !60
+  %2070 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2069, i32 noundef 1, i32 noundef 10901) #31
   br label %parser_set_lex_state.exit1064
 
-parser_set_lex_state.exit1064:                    ; preds = %2067, %2070
-  %.0.i1063 = phi i32 [ %2072, %2070 ], [ 1, %2067 ]
+parser_set_lex_state.exit1064:                    ; preds = %2065, %2068
+  %.0.i1063 = phi i32 [ %2070, %2068 ], [ 1, %2065 ]
   store i32 %.0.i1063, ptr %1019, align 8, !tbaa !60
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2038)
-  %2073 = add nsw i32 %2038, -58
-  %or.cond1325 = icmp ult i32 %2073, -10
-  br i1 %or.cond1325, label %pushback.exit1048, label %2074
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2036)
+  %2071 = add nsw i32 %2036, -58
+  %or.cond1325 = icmp ult i32 %2071, -10
+  br i1 %or.cond1325, label %pushback.exit1048, label %2072
 
-2074:                                             ; preds = %parser_set_lex_state.exit1064
-  %2075 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef 43)
+2072:                                             ; preds = %parser_set_lex_state.exit1064
+  %2073 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef 43)
   br label %pushback.exit1048
 
-2076:                                             ; preds = %2065, %2065, %2065, %2065, %2065, %2065, %2061
-  %2077 = load i16, ptr %10, align 8
-  %2078 = and i16 %2077, 32
-  %.not.i1065 = icmp eq i16 %2078, 0
-  br i1 %.not.i1065, label %parser_set_lex_state.exit1067, label %2079
+2074:                                             ; preds = %2063, %2063, %2063, %2063, %2063, %2063, %2059
+  %2075 = load i16, ptr %10, align 8
+  %2076 = and i16 %2075, 32
+  %.not.i1065 = icmp eq i16 %2076, 0
+  br i1 %.not.i1065, label %parser_set_lex_state.exit1067, label %2077
 
-2079:                                             ; preds = %2076
-  %2080 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2039, i32 noundef 1, i32 noundef 10908) #31
+2077:                                             ; preds = %2074
+  %2078 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2037, i32 noundef 1, i32 noundef 10908) #31
   br label %parser_set_lex_state.exit1067
 
-parser_set_lex_state.exit1067:                    ; preds = %2076, %2079
-  %.0.i1066 = phi i32 [ %2080, %2079 ], [ 1, %2076 ]
+parser_set_lex_state.exit1067:                    ; preds = %2074, %2077
+  %.0.i1066 = phi i32 [ %2078, %2077 ], [ 1, %2074 ]
   store i32 %.0.i1066, ptr %1019, align 8, !tbaa !60
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2038)
-  %2081 = and i32 %1040, 904
-  %2082 = icmp eq i32 %2081, 0
-  %or.cond29 = select i1 %2082, i1 %2064, i1 false
-  br i1 %or.cond29, label %2083, label %pushback.exit1048
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2036)
+  %2079 = and i32 %1040, 904
+  %2080 = icmp eq i32 %2079, 0
+  %or.cond29 = select i1 %2080, i1 %2062, i1 false
+  br i1 %or.cond29, label %2081, label %pushback.exit1048
 
-2083:                                             ; preds = %parser_set_lex_state.exit1067
-  switch i32 %2038, label %2084 [
+2081:                                             ; preds = %parser_set_lex_state.exit1067
+  switch i32 %2036, label %2082 [
     i32 32, label %pushback.exit1048
     i32 13, label %pushback.exit1048
     i32 12, label %pushback.exit1048
@@ -39134,156 +39132,156 @@ parser_set_lex_state.exit1067:                    ; preds = %2076, %2079
     i32 9, label %pushback.exit1048
   ]
 
-2084:                                             ; preds = %2083
-  %2085 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %2086 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.588, i64 noundef 14) #31
+2082:                                             ; preds = %2081
+  %2083 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %2084 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.588, i64 noundef 14) #31
   %.val833 = load i64, ptr %1025, align 8, !tbaa !46
-  %2087 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val833, i64 noundef %2085, i32 noundef 2, i64 noundef 11020, i64 noundef %2086) #31
+  %2085 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val833, i64 noundef %2083, i32 noundef 2, i64 noundef 11020, i64 noundef %2084) #31
   br label %pushback.exit1048
 
-2088:                                             ; preds = %1049
-  %2089 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2090 = load i32, ptr %1019, align 8, !tbaa !60
-  %2091 = and i32 %2090, 384
-  %.not746 = icmp eq i32 %2091, 0
-  br i1 %.not746, label %2099, label %2092
+2086:                                             ; preds = %1049
+  %2087 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2088 = load i32, ptr %1019, align 8, !tbaa !60
+  %2089 = and i32 %2088, 384
+  %.not746 = icmp eq i32 %2089, 0
+  br i1 %.not746, label %2097, label %2090
 
-2092:                                             ; preds = %2088
-  %2093 = load i16, ptr %10, align 8
-  %2094 = and i16 %2093, 32
-  %.not.i1069 = icmp eq i16 %2094, 0
-  br i1 %.not.i1069, label %parser_set_lex_state.exit1071, label %2095
+2090:                                             ; preds = %2086
+  %2091 = load i16, ptr %10, align 8
+  %2092 = and i16 %2091, 32
+  %.not.i1069 = icmp eq i16 %2092, 0
+  br i1 %.not.i1069, label %parser_set_lex_state.exit1071, label %2093
 
-2095:                                             ; preds = %2092
-  %2096 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2090, i32 noundef 16, i32 noundef 10915) #31
+2093:                                             ; preds = %2090
+  %2094 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2088, i32 noundef 16, i32 noundef 10915) #31
   br label %parser_set_lex_state.exit1071
 
-parser_set_lex_state.exit1071:                    ; preds = %2092, %2095
-  %.0.i1070 = phi i32 [ %2096, %2095 ], [ 16, %2092 ]
+parser_set_lex_state.exit1071:                    ; preds = %2090, %2093
+  %.0.i1070 = phi i32 [ %2094, %2093 ], [ 16, %2090 ]
   store i32 %.0.i1070, ptr %1019, align 8, !tbaa !60
-  %2097 = icmp eq i32 %2089, 64
-  br i1 %2097, label %pushback.exit1048, label %2098
+  %2095 = icmp eq i32 %2087, 64
+  br i1 %2095, label %pushback.exit1048, label %2096
 
-2098:                                             ; preds = %parser_set_lex_state.exit1071
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2089)
+2096:                                             ; preds = %parser_set_lex_state.exit1071
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2087)
   br label %pushback.exit1048
 
-2099:                                             ; preds = %2088
-  switch i32 %2089, label %2117 [
-    i32 61, label %2100
-    i32 62, label %2107
+2097:                                             ; preds = %2086
+  switch i32 %2087, label %2115 [
+    i32 61, label %2098
+    i32 62, label %2105
   ]
 
-2100:                                             ; preds = %2099
-  %2101 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 45, ptr %2101, align 8, !tbaa !6
-  %2102 = load i16, ptr %10, align 8
-  %2103 = and i16 %2102, 32
-  %.not.i1072 = icmp eq i16 %2103, 0
-  br i1 %.not.i1072, label %parser_set_lex_state.exit1074, label %2104
+2098:                                             ; preds = %2097
+  %2099 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 45, ptr %2099, align 8, !tbaa !6
+  %2100 = load i16, ptr %10, align 8
+  %2101 = and i16 %2100, 32
+  %.not.i1072 = icmp eq i16 %2101, 0
+  br i1 %.not.i1072, label %parser_set_lex_state.exit1074, label %2102
 
-2104:                                             ; preds = %2100
-  %2105 = load i32, ptr %1019, align 8, !tbaa !60
-  %2106 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2105, i32 noundef 1, i32 noundef 10924) #31
+2102:                                             ; preds = %2098
+  %2103 = load i32, ptr %1019, align 8, !tbaa !60
+  %2104 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2103, i32 noundef 1, i32 noundef 10924) #31
   br label %parser_set_lex_state.exit1074
 
-parser_set_lex_state.exit1074:                    ; preds = %2100, %2104
-  %.0.i1073 = phi i32 [ %2106, %2104 ], [ 1, %2100 ]
+parser_set_lex_state.exit1074:                    ; preds = %2098, %2102
+  %.0.i1073 = phi i32 [ %2104, %2102 ], [ 1, %2098 ]
   store i32 %.0.i1073, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2107:                                             ; preds = %2099
-  %2108 = load i16, ptr %10, align 8
-  %2109 = and i16 %2108, 32
-  %.not.i1075 = icmp eq i16 %2109, 0
-  br i1 %.not.i1075, label %parser_set_lex_state.exit1077, label %2110
+2105:                                             ; preds = %2097
+  %2106 = load i16, ptr %10, align 8
+  %2107 = and i16 %2106, 32
+  %.not.i1075 = icmp eq i16 %2107, 0
+  br i1 %.not.i1075, label %parser_set_lex_state.exit1077, label %2108
 
-2110:                                             ; preds = %2107
-  %2111 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2090, i32 noundef 8, i32 noundef 10928) #31
+2108:                                             ; preds = %2105
+  %2109 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2088, i32 noundef 8, i32 noundef 10928) #31
   br label %parser_set_lex_state.exit1077
 
-parser_set_lex_state.exit1077:                    ; preds = %2107, %2110
-  %.0.i1076 = phi i32 [ %2111, %2110 ], [ 8, %2107 ]
+parser_set_lex_state.exit1077:                    ; preds = %2105, %2108
+  %.0.i1076 = phi i32 [ %2109, %2108 ], [ 8, %2105 ]
   store i32 %.0.i1076, ptr %1019, align 8, !tbaa !60
-  %2112 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %2113 = load i32, ptr %2112, align 8, !tbaa !151
-  %2114 = load ptr, ptr %0, align 8, !tbaa !18
-  store i32 %2113, ptr %2114, align 8, !tbaa !6
-  %2115 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2116 = load i32, ptr %2115, align 4, !tbaa !167
-  store i32 %2116, ptr %2112, align 8, !tbaa !151
+  %2110 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %2111 = load i32, ptr %2110, align 8, !tbaa !151
+  %2112 = load ptr, ptr %0, align 8, !tbaa !18
+  store i32 %2111, ptr %2112, align 8, !tbaa !6
+  %2113 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2114 = load i32, ptr %2113, align 4, !tbaa !167
+  store i32 %2114, ptr %2110, align 8, !tbaa !151
   br label %pushback.exit1048
 
-2117:                                             ; preds = %2099
-  %2118 = and i32 %2090, 577
-  %.not747 = icmp ne i32 %2118, 0
-  %2119 = and i32 %2090, 2064
-  %2120 = icmp eq i32 %2119, 2064
-  %or.cond814 = or i1 %.not747, %2120
-  br i1 %or.cond814, label %2127, label %2121
+2115:                                             ; preds = %2097
+  %2116 = and i32 %2088, 577
+  %.not747 = icmp ne i32 %2116, 0
+  %2117 = and i32 %2088, 2064
+  %2118 = icmp eq i32 %2117, 2064
+  %or.cond814 = or i1 %.not747, %2118
+  br i1 %or.cond814, label %2125, label %2119
 
-2121:                                             ; preds = %2117
-  %2122 = and i32 %2090, 48
-  %2123 = icmp ne i32 %2122, 0
-  %2124 = icmp ne i32 %.0649, 0
-  %or.cond31 = select i1 %2123, i1 %2124, i1 false
-  br i1 %or.cond31, label %2125, label %2134
+2119:                                             ; preds = %2115
+  %2120 = and i32 %2088, 48
+  %2121 = icmp ne i32 %2120, 0
+  %2122 = icmp ne i32 %.0649, 0
+  %or.cond31 = select i1 %2121, i1 %2122, i1 false
+  br i1 %or.cond31, label %2123, label %2132
 
-2125:                                             ; preds = %2121
-  switch i32 %2089, label %2126 [
-    i32 32, label %2134
-    i32 13, label %2134
-    i32 12, label %2134
-    i32 11, label %2134
-    i32 10, label %2134
-    i32 9, label %2134
+2123:                                             ; preds = %2119
+  switch i32 %2087, label %2124 [
+    i32 32, label %2132
+    i32 13, label %2132
+    i32 12, label %2132
+    i32 11, label %2132
+    i32 10, label %2132
+    i32 9, label %2132
   ]
 
-2126:                                             ; preds = %2125
+2124:                                             ; preds = %2123
   tail call fastcc void @arg_ambiguous(ptr noundef nonnull %0, i8 noundef signext 45)
-  br label %2127
+  br label %2125
 
-2127:                                             ; preds = %2126, %2117
-  %2128 = load i16, ptr %10, align 8
-  %2129 = and i16 %2128, 32
-  %.not.i1079 = icmp eq i16 %2129, 0
-  br i1 %.not.i1079, label %parser_set_lex_state.exit1081, label %2130
+2125:                                             ; preds = %2124, %2115
+  %2126 = load i16, ptr %10, align 8
+  %2127 = and i16 %2126, 32
+  %.not.i1079 = icmp eq i16 %2127, 0
+  br i1 %.not.i1079, label %parser_set_lex_state.exit1081, label %2128
 
-2130:                                             ; preds = %2127
-  %2131 = load i32, ptr %1019, align 8, !tbaa !60
-  %2132 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2131, i32 noundef 1, i32 noundef 10934) #31
+2128:                                             ; preds = %2125
+  %2129 = load i32, ptr %1019, align 8, !tbaa !60
+  %2130 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2129, i32 noundef 1, i32 noundef 10934) #31
   br label %parser_set_lex_state.exit1081
 
-parser_set_lex_state.exit1081:                    ; preds = %2127, %2130
-  %.0.i1080 = phi i32 [ %2132, %2130 ], [ 1, %2127 ]
+parser_set_lex_state.exit1081:                    ; preds = %2125, %2128
+  %.0.i1080 = phi i32 [ %2130, %2128 ], [ 1, %2125 ]
   store i32 %.0.i1080, ptr %1019, align 8, !tbaa !60
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2089)
-  %2133 = add nsw i32 %2089, -58
-  %or.cond1327 = icmp ult i32 %2133, -10
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2087)
+  %2131 = add nsw i32 %2087, -58
+  %or.cond1327 = icmp ult i32 %2131, -10
   %spec.select1331 = select i1 %or.cond1327, i32 133, i32 360
   br label %pushback.exit1048
 
-2134:                                             ; preds = %2125, %2125, %2125, %2125, %2125, %2125, %2121
-  %2135 = load i16, ptr %10, align 8
-  %2136 = and i16 %2135, 32
-  %.not.i1082 = icmp eq i16 %2136, 0
-  br i1 %.not.i1082, label %parser_set_lex_state.exit1084, label %2137
+2132:                                             ; preds = %2123, %2123, %2123, %2123, %2123, %2123, %2119
+  %2133 = load i16, ptr %10, align 8
+  %2134 = and i16 %2133, 32
+  %.not.i1082 = icmp eq i16 %2134, 0
+  br i1 %.not.i1082, label %parser_set_lex_state.exit1084, label %2135
 
-2137:                                             ; preds = %2134
-  %2138 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2090, i32 noundef 1, i32 noundef 10941) #31
+2135:                                             ; preds = %2132
+  %2136 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2088, i32 noundef 1, i32 noundef 10941) #31
   br label %parser_set_lex_state.exit1084
 
-parser_set_lex_state.exit1084:                    ; preds = %2134, %2137
-  %.0.i1083 = phi i32 [ %2138, %2137 ], [ 1, %2134 ]
+parser_set_lex_state.exit1084:                    ; preds = %2132, %2135
+  %.0.i1083 = phi i32 [ %2136, %2135 ], [ 1, %2132 ]
   store i32 %.0.i1083, ptr %1019, align 8, !tbaa !60
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2089)
-  %2139 = and i32 %1040, 904
-  %2140 = icmp eq i32 %2139, 0
-  %or.cond33 = select i1 %2140, i1 %2124, i1 false
-  br i1 %or.cond33, label %2141, label %pushback.exit1048
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2087)
+  %2137 = and i32 %1040, 904
+  %2138 = icmp eq i32 %2137, 0
+  %or.cond33 = select i1 %2138, i1 %2122, i1 false
+  br i1 %or.cond33, label %2139, label %pushback.exit1048
 
-2141:                                             ; preds = %parser_set_lex_state.exit1084
-  switch i32 %2089, label %2142 [
+2139:                                             ; preds = %parser_set_lex_state.exit1084
+  switch i32 %2087, label %2140 [
     i32 32, label %pushback.exit1048
     i32 13, label %pushback.exit1048
     i32 12, label %pushback.exit1048
@@ -39292,729 +39290,729 @@ parser_set_lex_state.exit1084:                    ; preds = %2134, %2137
     i32 9, label %pushback.exit1048
   ]
 
-2142:                                             ; preds = %2141
-  %2143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %2144 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.588, i64 noundef 14) #31
+2140:                                             ; preds = %2139
+  %2141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %2142 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.588, i64 noundef 14) #31
   %.val832 = load i64, ptr %1025, align 8, !tbaa !46
-  %2145 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val832, i64 noundef %2143, i32 noundef 2, i64 noundef 11532, i64 noundef %2144) #31
+  %2143 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val832, i64 noundef %2141, i32 noundef 2, i64 noundef 11532, i64 noundef %2142) #31
   br label %pushback.exit1048
 
-2146:                                             ; preds = %1049
-  %2147 = load i32, ptr %1019, align 8, !tbaa !60
-  %2148 = load i16, ptr %10, align 8
-  %2149 = and i16 %2148, 32
-  %.not.i1086 = icmp eq i16 %2149, 0
-  br i1 %.not.i1086, label %parser_set_lex_state.exit1088, label %2150
+2144:                                             ; preds = %1049
+  %2145 = load i32, ptr %1019, align 8, !tbaa !60
+  %2146 = load i16, ptr %10, align 8
+  %2147 = and i16 %2146, 32
+  %.not.i1086 = icmp eq i16 %2147, 0
+  br i1 %.not.i1086, label %parser_set_lex_state.exit1088, label %2148
 
-2150:                                             ; preds = %2146
-  %2151 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2147, i32 noundef 1, i32 noundef 10947) #31
+2148:                                             ; preds = %2144
+  %2149 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2145, i32 noundef 1, i32 noundef 10947) #31
   %.pre1968 = load ptr, ptr %1020, align 8, !tbaa !48
   br label %parser_set_lex_state.exit1088
 
-parser_set_lex_state.exit1088:                    ; preds = %2146, %2150
-  %2152 = phi ptr [ %.pre1968, %2150 ], [ %1051, %2146 ]
-  %.0.i1087 = phi i32 [ %2151, %2150 ], [ 1, %2146 ]
+parser_set_lex_state.exit1088:                    ; preds = %2144, %2148
+  %2150 = phi ptr [ %.pre1968, %2148 ], [ %1051, %2144 ]
+  %.0.i1087 = phi i32 [ %2149, %2148 ], [ 1, %2144 ]
   store i32 %.0.i1087, ptr %1019, align 8, !tbaa !60
-  %2153 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i1089 = icmp ult ptr %2152, %2153
-  br i1 %.not.i1089, label %2154, label %.critedge.i1090, !prof !477
+  %2151 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i1089 = icmp ult ptr %2150, %2151
+  br i1 %.not.i1089, label %2152, label %.critedge.i1090, !prof !477
 
-2154:                                             ; preds = %parser_set_lex_state.exit1088
-  %2155 = load i16, ptr %10, align 8
-  %2156 = and i16 %2155, 8
-  %.not13.i1096 = icmp eq i16 %2156, 0
-  br i1 %.not13.i1096, label %2157, label %.critedge.i1090, !prof !477
+2152:                                             ; preds = %parser_set_lex_state.exit1088
+  %2153 = load i16, ptr %10, align 8
+  %2154 = and i16 %2153, 8
+  %.not13.i1096 = icmp eq i16 %2154, 0
+  br i1 %.not13.i1096, label %2155, label %.critedge.i1090, !prof !477
 
-2157:                                             ; preds = %2154
-  %2158 = load ptr, ptr %1022, align 8, !tbaa !478
-  %2159 = icmp ugt ptr %2158, inttoptr (i64 1 to ptr)
-  br i1 %2159, label %.critedge.i1090, label %2161, !prof !189
+2155:                                             ; preds = %2152
+  %2156 = load ptr, ptr %1022, align 8, !tbaa !478
+  %2157 = icmp ugt ptr %2156, inttoptr (i64 1 to ptr)
+  br i1 %2157, label %.critedge.i1090, label %2159, !prof !189
 
-.critedge.i1090:                                  ; preds = %2157, %2154, %parser_set_lex_state.exit1088
-  %2160 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
-  %.not14.i1091 = icmp eq i32 %2160, 0
+.critedge.i1090:                                  ; preds = %2155, %2152, %parser_set_lex_state.exit1088
+  %2158 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
+  %.not14.i1091 = icmp eq i32 %2158, 0
   br i1 %.not14.i1091, label %.critedge._crit_edge.i1093, label %pushback.exit1111
 
 .critedge._crit_edge.i1093:                       ; preds = %.critedge.i1090
   %.pre.i1094 = load ptr, ptr %1020, align 8, !tbaa !48
-  br label %2161
+  br label %2159
 
-2161:                                             ; preds = %.critedge._crit_edge.i1093, %2157
-  %2162 = phi ptr [ %.pre.i1094, %.critedge._crit_edge.i1093 ], [ %2152, %2157 ]
-  %2163 = getelementptr inbounds nuw i8, ptr %2162, i64 1
-  store ptr %2163, ptr %1020, align 8, !tbaa !48
-  %2164 = load i8, ptr %2162, align 1, !tbaa !6
-  %2165 = icmp eq i8 %2164, 13
-  br i1 %2165, label %2166, label %nextc0.exit1097, !prof !189
+2159:                                             ; preds = %.critedge._crit_edge.i1093, %2155
+  %2160 = phi ptr [ %.pre.i1094, %.critedge._crit_edge.i1093 ], [ %2150, %2155 ]
+  %2161 = getelementptr inbounds nuw i8, ptr %2160, i64 1
+  store ptr %2161, ptr %1020, align 8, !tbaa !48
+  %2162 = load i8, ptr %2160, align 1, !tbaa !6
+  %2163 = icmp eq i8 %2162, 13
+  br i1 %2163, label %2164, label %nextc0.exit1097, !prof !189
 
-2166:                                             ; preds = %2161
-  %2167 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i.i1095 = icmp ult ptr %2163, %2167
-  br i1 %.not.i.i1095, label %2168, label %.thread1254
+2164:                                             ; preds = %2159
+  %2165 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i.i1095 = icmp ult ptr %2161, %2165
+  br i1 %.not.i.i1095, label %2166, label %.thread1254
 
-2168:                                             ; preds = %2166
-  %2169 = load i8, ptr %2163, align 1, !tbaa !6
-  %2170 = icmp eq i8 %2169, 10
-  %2171 = getelementptr inbounds nuw i8, ptr %2162, i64 2
-  %spec.select2327 = select i1 %2170, ptr %2171, ptr %2163
-  %spec.select2328 = select i1 %2170, i32 10, i32 13
+2166:                                             ; preds = %2164
+  %2167 = load i8, ptr %2161, align 1, !tbaa !6
+  %2168 = icmp eq i8 %2167, 10
+  %2169 = getelementptr inbounds nuw i8, ptr %2160, i64 2
+  %spec.select2327 = select i1 %2168, ptr %2169, ptr %2161
+  %spec.select2328 = select i1 %2168, i32 10, i32 13
   br label %.thread1254
 
-nextc0.exit1097:                                  ; preds = %2161
-  %2172 = zext i8 %2164 to i32
-  %2173 = icmp eq i8 %2164, 46
-  br i1 %2173, label %2174, label %.thread1254
+nextc0.exit1097:                                  ; preds = %2159
+  %2170 = zext i8 %2162 to i32
+  %2171 = icmp eq i8 %2162, 46
+  br i1 %2171, label %2172, label %.thread1254
 
-2174:                                             ; preds = %nextc0.exit1097
-  %2175 = and i32 %2147, 577
-  %.not739.le = icmp ne i32 %2175, 0
-  %2176 = and i32 %2147, 2064
-  %2177 = icmp eq i32 %2176, 2064
-  %2178 = or i1 %.not739.le, %2177
-  %2179 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i1098 = icmp ult ptr %2163, %2179
-  br i1 %.not.i1098, label %2180, label %.critedge.i1099, !prof !477
+2172:                                             ; preds = %nextc0.exit1097
+  %2173 = and i32 %2145, 577
+  %.not739.le = icmp ne i32 %2173, 0
+  %2174 = and i32 %2145, 2064
+  %2175 = icmp eq i32 %2174, 2064
+  %2176 = or i1 %.not739.le, %2175
+  %2177 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i1098 = icmp ult ptr %2161, %2177
+  br i1 %.not.i1098, label %2178, label %.critedge.i1099, !prof !477
 
-2180:                                             ; preds = %2174
-  %2181 = load i16, ptr %10, align 8
-  %2182 = and i16 %2181, 8
-  %.not13.i1105 = icmp eq i16 %2182, 0
-  br i1 %.not13.i1105, label %2183, label %.critedge.i1099, !prof !477
+2178:                                             ; preds = %2172
+  %2179 = load i16, ptr %10, align 8
+  %2180 = and i16 %2179, 8
+  %.not13.i1105 = icmp eq i16 %2180, 0
+  br i1 %.not13.i1105, label %2181, label %.critedge.i1099, !prof !477
 
-2183:                                             ; preds = %2180
-  %2184 = load ptr, ptr %1022, align 8, !tbaa !478
-  %2185 = icmp ugt ptr %2184, inttoptr (i64 1 to ptr)
-  br i1 %2185, label %.critedge.i1099, label %2187, !prof !189
+2181:                                             ; preds = %2178
+  %2182 = load ptr, ptr %1022, align 8, !tbaa !478
+  %2183 = icmp ugt ptr %2182, inttoptr (i64 1 to ptr)
+  br i1 %2183, label %.critedge.i1099, label %2185, !prof !189
 
-.critedge.i1099:                                  ; preds = %2183, %2180, %2174
-  %2186 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
-  %.not14.i1100 = icmp eq i32 %2186, 0
+.critedge.i1099:                                  ; preds = %2181, %2178, %2172
+  %2184 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
+  %.not14.i1100 = icmp eq i32 %2184, 0
   br i1 %.not14.i1100, label %.critedge._crit_edge.i1102, label %pushback.exit1110
 
 .critedge._crit_edge.i1102:                       ; preds = %.critedge.i1099
   %.pre.i1103 = load ptr, ptr %1020, align 8, !tbaa !48
-  br label %2187
+  br label %2185
 
-2187:                                             ; preds = %.critedge._crit_edge.i1102, %2183
-  %2188 = phi ptr [ %.pre.i1103, %.critedge._crit_edge.i1102 ], [ %2163, %2183 ]
-  %2189 = getelementptr inbounds nuw i8, ptr %2188, i64 1
-  store ptr %2189, ptr %1020, align 8, !tbaa !48
-  %2190 = load i8, ptr %2188, align 1, !tbaa !6
-  switch i8 %2190, label %.thread1249 [
-    i8 13, label %2191
-    i8 46, label %2197
+2185:                                             ; preds = %.critedge._crit_edge.i1102, %2181
+  %2186 = phi ptr [ %.pre.i1103, %.critedge._crit_edge.i1102 ], [ %2161, %2181 ]
+  %2187 = getelementptr inbounds nuw i8, ptr %2186, i64 1
+  store ptr %2187, ptr %1020, align 8, !tbaa !48
+  %2188 = load i8, ptr %2186, align 1, !tbaa !6
+  switch i8 %2188, label %.thread1249 [
+    i8 13, label %2189
+    i8 46, label %2195
   ], !prof !554
 
-2191:                                             ; preds = %2187
-  %2192 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i.i1104 = icmp ult ptr %2189, %2192
-  br i1 %.not.i.i1104, label %2193, label %.thread1249
+2189:                                             ; preds = %2185
+  %2190 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i.i1104 = icmp ult ptr %2187, %2190
+  br i1 %.not.i.i1104, label %2191, label %.thread1249
 
-2193:                                             ; preds = %2191
-  %2194 = load i8, ptr %2189, align 1, !tbaa !6
-  %2195 = icmp eq i8 %2194, 10
-  %2196 = getelementptr inbounds nuw i8, ptr %2188, i64 2
-  %spec.select2329 = select i1 %2195, ptr %2196, ptr %2189
+2191:                                             ; preds = %2189
+  %2192 = load i8, ptr %2187, align 1, !tbaa !6
+  %2193 = icmp eq i8 %2192, 10
+  %2194 = getelementptr inbounds nuw i8, ptr %2186, i64 2
+  %spec.select2329 = select i1 %2193, ptr %2194, ptr %2187
   br label %.thread1249
 
-2197:                                             ; preds = %2187
-  %2198 = load i16, ptr %1038, align 8
-  %2199 = and i16 %2198, 4
-  %.not743 = icmp eq i16 %2199, 0
-  br i1 %.not743, label %2200, label %2206
+2195:                                             ; preds = %2185
+  %2196 = load i16, ptr %1038, align 8
+  %2197 = and i16 %2196, 4
+  %.not743 = icmp eq i16 %2197, 0
+  br i1 %.not743, label %2198, label %2204
 
-2200:                                             ; preds = %2197
-  %2201 = load i32, ptr %1019, align 8, !tbaa !60
-  %2202 = and i32 %2201, 1032
-  %2203 = icmp eq i32 %2202, 0
-  %2204 = icmp ne i16 %1015, 0
-  %or.cond35 = select i1 %2203, i1 true, i1 %2204
-  %2205 = and i32 %2201, 48
-  %.not744 = icmp eq i32 %2205, 0
+2198:                                             ; preds = %2195
+  %2199 = load i32, ptr %1019, align 8, !tbaa !60
+  %2200 = and i32 %2199, 1032
+  %2201 = icmp eq i32 %2200, 0
+  %2202 = icmp ne i16 %1015, 0
+  %or.cond35 = select i1 %2201, i1 true, i1 %2202
+  %2203 = and i32 %2199, 48
+  %.not744 = icmp eq i32 %2203, 0
   %or.cond815 = and i1 %.not744, %or.cond35
-  br i1 %or.cond815, label %2212, label %2206
+  br i1 %or.cond815, label %2210, label %2204
 
-2206:                                             ; preds = %2200, %2197
-  %2207 = load i16, ptr %10, align 8
-  %2208 = and i16 %2207, 32
-  %.not.i1107 = icmp eq i16 %2208, 0
-  br i1 %.not.i1107, label %parser_set_lex_state.exit1109, label %2209
+2204:                                             ; preds = %2198, %2195
+  %2205 = load i16, ptr %10, align 8
+  %2206 = and i16 %2205, 32
+  %.not.i1107 = icmp eq i16 %2206, 0
+  br i1 %.not.i1107, label %parser_set_lex_state.exit1109, label %2207
 
-2209:                                             ; preds = %2206
-  %2210 = load i32, ptr %1019, align 8, !tbaa !60
-  %2211 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2210, i32 noundef 4, i32 noundef 10951) #31
+2207:                                             ; preds = %2204
+  %2208 = load i32, ptr %1019, align 8, !tbaa !60
+  %2209 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2208, i32 noundef 4, i32 noundef 10951) #31
   br label %parser_set_lex_state.exit1109
 
-parser_set_lex_state.exit1109:                    ; preds = %2206, %2209
-  %.0.i1108 = phi i32 [ %2211, %2209 ], [ 4, %2206 ]
+parser_set_lex_state.exit1109:                    ; preds = %2204, %2207
+  %.0.i1108 = phi i32 [ %2209, %2207 ], [ 4, %2204 ]
   store i32 %.0.i1108, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2212:                                             ; preds = %2200
-  %2213 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2214 = load i32, ptr %2213, align 4, !tbaa !167
-  %2215 = icmp eq i32 %2214, 0
-  br i1 %2215, label %2216, label %2223
+2210:                                             ; preds = %2198
+  %2211 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2212 = load i32, ptr %2211, align 4, !tbaa !167
+  %2213 = icmp eq i32 %2212, 0
+  br i1 %2213, label %2214, label %2221
 
-2216:                                             ; preds = %2212
-  %2217 = tail call fastcc i32 @looking_at_eol_p(ptr noundef nonnull %0)
-  %.not745 = icmp eq i32 %2217, 0
-  br i1 %.not745, label %2223, label %2218
+2214:                                             ; preds = %2210
+  %2215 = tail call fastcc i32 @looking_at_eol_p(ptr noundef nonnull %0)
+  %.not745 = icmp eq i32 %2215, 0
+  br i1 %.not745, label %2221, label %2216
 
-2218:                                             ; preds = %2216
-  %2219 = load i64, ptr %1025, align 8, !tbaa !46
-  %2220 = load i64, ptr @id_warn, align 8, !tbaa !9
-  %2221 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.589, i64 noundef 36) #31
-  %2222 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2219, i64 noundef %2220, i32 noundef 1, i64 noundef %2221) #31
-  br label %2223
+2216:                                             ; preds = %2214
+  %2217 = load i64, ptr %1025, align 8, !tbaa !46
+  %2218 = load i64, ptr @id_warn, align 8, !tbaa !9
+  %2219 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.589, i64 noundef 36) #31
+  %2220 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2217, i64 noundef %2218, i32 noundef 1, i64 noundef %2219) #31
+  br label %2221
 
-2223:                                             ; preds = %2218, %2216, %2212
-  %2224 = select i1 %2178, i32 131, i32 129
+2221:                                             ; preds = %2216, %2214, %2210
+  %2222 = select i1 %2176, i32 131, i32 129
   br label %pushback.exit1048
 
-.thread1249:                                      ; preds = %2193, %2187, %2191
-  %2225 = phi ptr [ %2189, %2187 ], [ %2189, %2191 ], [ %spec.select2329, %2193 ]
-  %2226 = load i16, ptr %10, align 8
-  %2227 = and i16 %2226, -9
-  store i16 %2227, ptr %10, align 8
-  %2228 = getelementptr inbounds i8, ptr %2225, i64 -1
-  store ptr %2228, ptr %1020, align 8, !tbaa !48
-  %2229 = load ptr, ptr %1028, align 8, !tbaa !44
-  %2230 = icmp ugt ptr %2228, %2229
-  br i1 %2230, label %2231, label %pushback.exit1110
+.thread1249:                                      ; preds = %2191, %2185, %2189
+  %2223 = phi ptr [ %2187, %2185 ], [ %2187, %2189 ], [ %spec.select2329, %2191 ]
+  %2224 = load i16, ptr %10, align 8
+  %2225 = and i16 %2224, -9
+  store i16 %2225, ptr %10, align 8
+  %2226 = getelementptr inbounds i8, ptr %2223, i64 -1
+  store ptr %2226, ptr %1020, align 8, !tbaa !48
+  %2227 = load ptr, ptr %1028, align 8, !tbaa !44
+  %2228 = icmp ugt ptr %2226, %2227
+  br i1 %2228, label %2229, label %pushback.exit1110
 
-2231:                                             ; preds = %.thread1249
-  %2232 = load i8, ptr %2228, align 1, !tbaa !6
-  %2233 = icmp eq i8 %2232, 10
-  br i1 %2233, label %2234, label %pushback.exit1110
+2229:                                             ; preds = %.thread1249
+  %2230 = load i8, ptr %2226, align 1, !tbaa !6
+  %2231 = icmp eq i8 %2230, 10
+  br i1 %2231, label %2232, label %pushback.exit1110
 
-2234:                                             ; preds = %2231
-  %2235 = getelementptr inbounds i8, ptr %2225, i64 -2
-  %2236 = load i8, ptr %2235, align 1, !tbaa !6
-  %2237 = icmp eq i8 %2236, 13
-  br i1 %2237, label %2238, label %pushback.exit1110
+2232:                                             ; preds = %2229
+  %2233 = getelementptr inbounds i8, ptr %2223, i64 -2
+  %2234 = load i8, ptr %2233, align 1, !tbaa !6
+  %2235 = icmp eq i8 %2234, 13
+  br i1 %2235, label %2236, label %pushback.exit1110
 
-2238:                                             ; preds = %2234
-  store ptr %2235, ptr %1020, align 8, !tbaa !48
+2236:                                             ; preds = %2232
+  store ptr %2233, ptr %1020, align 8, !tbaa !48
   br label %pushback.exit1110
 
-pushback.exit1110:                                ; preds = %.critedge.i1099, %.thread1249, %2231, %2234, %2238
-  %2239 = select i1 %2178, i32 130, i32 128
+pushback.exit1110:                                ; preds = %.critedge.i1099, %.thread1249, %2229, %2232, %2236
+  %2237 = select i1 %2176, i32 130, i32 128
   br label %pushback.exit1048
 
-.thread1254:                                      ; preds = %2168, %2166, %nextc0.exit1097
-  %2240 = phi ptr [ %2163, %nextc0.exit1097 ], [ %2163, %2166 ], [ %spec.select2327, %2168 ]
-  %.011.i109212461256 = phi i32 [ %2172, %nextc0.exit1097 ], [ 13, %2166 ], [ %spec.select2328, %2168 ]
-  %2241 = load i16, ptr %10, align 8
-  %2242 = and i16 %2241, -9
-  store i16 %2242, ptr %10, align 8
-  %2243 = getelementptr inbounds i8, ptr %2240, i64 -1
-  store ptr %2243, ptr %1020, align 8, !tbaa !48
-  %2244 = load ptr, ptr %1028, align 8, !tbaa !44
-  %2245 = icmp ugt ptr %2243, %2244
-  br i1 %2245, label %2246, label %2254
+.thread1254:                                      ; preds = %2166, %2164, %nextc0.exit1097
+  %2238 = phi ptr [ %2161, %nextc0.exit1097 ], [ %2161, %2164 ], [ %spec.select2327, %2166 ]
+  %.011.i109212461256 = phi i32 [ %2170, %nextc0.exit1097 ], [ 13, %2164 ], [ %spec.select2328, %2166 ]
+  %2239 = load i16, ptr %10, align 8
+  %2240 = and i16 %2239, -9
+  store i16 %2240, ptr %10, align 8
+  %2241 = getelementptr inbounds i8, ptr %2238, i64 -1
+  store ptr %2241, ptr %1020, align 8, !tbaa !48
+  %2242 = load ptr, ptr %1028, align 8, !tbaa !44
+  %2243 = icmp ugt ptr %2241, %2242
+  br i1 %2243, label %2244, label %2252
 
-2246:                                             ; preds = %.thread1254
-  %2247 = load i8, ptr %2243, align 1, !tbaa !6
-  %2248 = icmp eq i8 %2247, 10
-  br i1 %2248, label %2249, label %2254
+2244:                                             ; preds = %.thread1254
+  %2245 = load i8, ptr %2241, align 1, !tbaa !6
+  %2246 = icmp eq i8 %2245, 10
+  br i1 %2246, label %2247, label %2252
 
-2249:                                             ; preds = %2246
-  %2250 = getelementptr inbounds i8, ptr %2240, i64 -2
-  %2251 = load i8, ptr %2250, align 1, !tbaa !6
-  %2252 = icmp eq i8 %2251, 13
-  br i1 %2252, label %2253, label %2254
+2247:                                             ; preds = %2244
+  %2248 = getelementptr inbounds i8, ptr %2238, i64 -2
+  %2249 = load i8, ptr %2248, align 1, !tbaa !6
+  %2250 = icmp eq i8 %2249, 13
+  br i1 %2250, label %2251, label %2252
 
-2253:                                             ; preds = %2249
-  store ptr %2250, ptr %1020, align 8, !tbaa !48
-  br label %2254
+2251:                                             ; preds = %2247
+  store ptr %2248, ptr %1020, align 8, !tbaa !48
+  br label %2252
 
-2254:                                             ; preds = %.thread1254, %2246, %2249, %2253
-  %2255 = phi ptr [ %2243, %.thread1254 ], [ %2243, %2246 ], [ %2243, %2249 ], [ %2250, %2253 ]
-  %2256 = add nsw i32 %.011.i109212461256, -58
-  %2257 = icmp ult i32 %2256, -10
-  br i1 %2257, label %pushback.exit1111, label %2258
+2252:                                             ; preds = %.thread1254, %2244, %2247, %2251
+  %2253 = phi ptr [ %2241, %.thread1254 ], [ %2241, %2244 ], [ %2241, %2247 ], [ %2248, %2251 ]
+  %2254 = add nsw i32 %.011.i109212461256, -58
+  %2255 = icmp ult i32 %2254, -10
+  br i1 %2255, label %pushback.exit1111, label %2256
 
-2258:                                             ; preds = %2254
-  %2259 = getelementptr inbounds i8, ptr %2255, i64 -1
-  %2260 = icmp ugt ptr %2259, %2244
-  br i1 %2260, label %2261, label %.critedge1329
+2256:                                             ; preds = %2252
+  %2257 = getelementptr inbounds i8, ptr %2253, i64 -1
+  %2258 = icmp ugt ptr %2257, %2242
+  br i1 %2258, label %2259, label %.critedge1329
 
-2261:                                             ; preds = %2258
-  %2262 = getelementptr inbounds i8, ptr %2255, i64 -2
-  %2263 = load i8, ptr %2262, align 1, !tbaa !6
-  %2264 = sext i8 %2263 to i32
-  %2265 = add nsw i32 %2264, -58
-  %2266 = icmp ult i32 %2265, -10
-  %2267 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef 46)
-  br i1 %2266, label %2275, label %2268
+2259:                                             ; preds = %2256
+  %2260 = getelementptr inbounds i8, ptr %2253, i64 -2
+  %2261 = load i8, ptr %2260, align 1, !tbaa !6
+  %2262 = sext i8 %2261 to i32
+  %2263 = add nsw i32 %2262, -58
+  %2264 = icmp ult i32 %2263, -10
+  %2265 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef 46)
+  br i1 %2264, label %2273, label %2266
 
-2268:                                             ; preds = %2261
-  %2269 = load ptr, ptr %1024, align 8, !tbaa !49
-  %2270 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.590, i64 noundef 46, ptr noundef %2269) #31
+2266:                                             ; preds = %2259
+  %2267 = load ptr, ptr %1024, align 8, !tbaa !49
+  %2268 = tail call i64 @rb_enc_str_new(ptr noundef nonnull @.str.590, i64 noundef 46, ptr noundef %2267) #31
   %.val.i1112 = load i64, ptr %1025, align 8, !tbaa !46
-  %2271 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i1112, i64 noundef %1029, i32 noundef 1, i64 noundef %2270) #31
-  %2272 = load i16, ptr %10, align 8
-  %2273 = or i16 %2272, 512
-  store i16 %2273, ptr %10, align 8
-  br label %2276
+  %2269 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i1112, i64 noundef %1029, i32 noundef 1, i64 noundef %2268) #31
+  %2270 = load i16, ptr %10, align 8
+  %2271 = or i16 %2270, 512
+  store i16 %2271, ptr %10, align 8
+  br label %2274
 
-.critedge1329:                                    ; preds = %2258
-  %2274 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef 46)
-  br label %2275
+.critedge1329:                                    ; preds = %2256
+  %2272 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef 46)
+  br label %2273
 
-2275:                                             ; preds = %.critedge1329, %2261
+2273:                                             ; preds = %.critedge1329, %2259
   tail call fastcc void @parser_yyerror0(ptr noundef %0, ptr noundef @.str.591)
   %.pre1969 = load i16, ptr %10, align 8
-  br label %2276
+  br label %2274
 
-2276:                                             ; preds = %2275, %2268
-  %2277 = phi i16 [ %.pre1969, %2275 ], [ %2273, %2268 ]
-  %2278 = and i16 %2277, 32
-  %.not.i1113 = icmp eq i16 %2278, 0
-  br i1 %.not.i1113, label %2288, label %2279
+2274:                                             ; preds = %2273, %2266
+  %2275 = phi i16 [ %.pre1969, %2273 ], [ %2271, %2266 ]
+  %2276 = and i16 %2275, 32
+  %.not.i1113 = icmp eq i16 %2276, 0
+  br i1 %.not.i1113, label %2286, label %2277
 
-2279:                                             ; preds = %2276
-  %2280 = load i32, ptr %1019, align 8, !tbaa !60
-  %2281 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2280, i32 noundef 2, i32 noundef 10972) #31
-  br label %2288
+2277:                                             ; preds = %2274
+  %2278 = load i32, ptr %1019, align 8, !tbaa !60
+  %2279 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2278, i32 noundef 2, i32 noundef 10972) #31
+  br label %2286
 
-pushback.exit1111:                                ; preds = %.critedge.i1090, %2254
-  %2282 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 46, ptr %2282, align 8, !tbaa !6
-  %2283 = load i16, ptr %10, align 8
-  %2284 = and i16 %2283, 32
-  %.not.i1116 = icmp eq i16 %2284, 0
-  br i1 %.not.i1116, label %parser_set_lex_state.exit1118, label %2285
+pushback.exit1111:                                ; preds = %.critedge.i1090, %2252
+  %2280 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 46, ptr %2280, align 8, !tbaa !6
+  %2281 = load i16, ptr %10, align 8
+  %2282 = and i16 %2281, 32
+  %.not.i1116 = icmp eq i16 %2282, 0
+  br i1 %.not.i1116, label %parser_set_lex_state.exit1118, label %2283
 
-2285:                                             ; preds = %pushback.exit1111
-  %2286 = load i32, ptr %1019, align 8, !tbaa !60
-  %2287 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2286, i32 noundef 256, i32 noundef 10977) #31
+2283:                                             ; preds = %pushback.exit1111
+  %2284 = load i32, ptr %1019, align 8, !tbaa !60
+  %2285 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2284, i32 noundef 256, i32 noundef 10977) #31
   br label %parser_set_lex_state.exit1118
 
-parser_set_lex_state.exit1118:                    ; preds = %pushback.exit1111, %2285
-  %.0.i1117 = phi i32 [ %2287, %2285 ], [ 256, %pushback.exit1111 ]
+parser_set_lex_state.exit1118:                    ; preds = %pushback.exit1111, %2283
+  %.0.i1117 = phi i32 [ %2285, %2283 ], [ 256, %pushback.exit1111 ]
   store i32 %.0.i1117, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2288:                                             ; preds = %2279, %2276
-  %.0.i1114 = phi i32 [ %2281, %2279 ], [ 2, %2276 ]
+2286:                                             ; preds = %2277, %2274
+  %.0.i1114 = phi i32 [ %2279, %2277 ], [ 2, %2274 ]
   store i32 %.0.i1114, ptr %1019, align 8, !tbaa !60
-  %2289 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %2289, ptr %1023, align 8, !tbaa !41
+  %2287 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %2287, ptr %1023, align 8, !tbaa !41
   br label %.backedge.backedge
 
-2290:                                             ; preds = %1049, %1049, %1049, %1049, %1049, %1049, %1049, %1049, %1049, %1049
-  %2291 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef %1053)
+2288:                                             ; preds = %1049, %1049, %1049, %1049, %1049, %1049, %1049, %1049, %1049, %1049
+  %2289 = tail call fastcc i32 @parse_numeric(ptr noundef nonnull %0, i32 noundef %1053)
   br label %pushback.exit1048
 
-2292:                                             ; preds = %1049
-  %2293 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2294 = load i64, ptr %2293, align 8, !tbaa !99
-  %2295 = lshr i64 %2294, 1
-  store i64 %2295, ptr %2293, align 8, !tbaa !99
-  %2296 = load i16, ptr %10, align 8
-  %2297 = and i16 %2296, 32
-  %.not737 = icmp eq i16 %2297, 0
-  br i1 %.not737, label %.thread, label %2301
+2290:                                             ; preds = %1049
+  %2291 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2292 = load i64, ptr %2291, align 8, !tbaa !99
+  %2293 = lshr i64 %2292, 1
+  store i64 %2293, ptr %2291, align 8, !tbaa !99
+  %2294 = load i16, ptr %10, align 8
+  %2295 = and i16 %2294, 32
+  %.not737 = icmp eq i16 %2295, 0
+  br i1 %.not737, label %.thread, label %2299
 
-.thread:                                          ; preds = %2292
-  %2298 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2299 = load i64, ptr %2298, align 8, !tbaa !112
-  %2300 = lshr i64 %2299, 1
-  store i64 %2300, ptr %2298, align 8, !tbaa !112
+.thread:                                          ; preds = %2290
+  %2296 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2297 = load i64, ptr %2296, align 8, !tbaa !112
+  %2298 = lshr i64 %2297, 1
+  store i64 %2298, ptr %2296, align 8, !tbaa !112
   br label %parser_set_lex_state.exit1121
 
-2301:                                             ; preds = %2292
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2295, ptr noundef nonnull @.str.13, i32 noundef 10986) #31
+2299:                                             ; preds = %2290
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2293, ptr noundef nonnull @.str.13, i32 noundef 10986) #31
   %.pre1966 = load i16, ptr %10, align 8
   %.pre1984 = and i16 %.pre1966, 32
-  %2302 = icmp eq i16 %.pre1984, 0
-  %2303 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2304 = load i64, ptr %2303, align 8, !tbaa !112
-  %2305 = lshr i64 %2304, 1
-  store i64 %2305, ptr %2303, align 8, !tbaa !112
-  br i1 %2302, label %parser_set_lex_state.exit1121, label %2306
+  %2300 = icmp eq i16 %.pre1984, 0
+  %2301 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2302 = load i64, ptr %2301, align 8, !tbaa !112
+  %2303 = lshr i64 %2302, 1
+  store i64 %2303, ptr %2301, align 8, !tbaa !112
+  br i1 %2300, label %parser_set_lex_state.exit1121, label %2304
 
-2306:                                             ; preds = %2301
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2305, ptr noundef nonnull @.str.16, i32 noundef 10987) #31
+2304:                                             ; preds = %2299
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2303, ptr noundef nonnull @.str.16, i32 noundef 10987) #31
   %.pre1967 = load i16, ptr %10, align 8
   %.pre1986 = and i16 %.pre1967, 32
-  %2307 = icmp eq i16 %.pre1986, 0
-  br i1 %2307, label %parser_set_lex_state.exit1121, label %2308
+  %2305 = icmp eq i16 %.pre1986, 0
+  br i1 %2305, label %parser_set_lex_state.exit1121, label %2306
 
-2308:                                             ; preds = %2306
-  %2309 = load i32, ptr %1019, align 8, !tbaa !60
-  %2310 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2309, i32 noundef 8, i32 noundef 10988) #31
+2306:                                             ; preds = %2304
+  %2307 = load i32, ptr %1019, align 8, !tbaa !60
+  %2308 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2307, i32 noundef 8, i32 noundef 10988) #31
   br label %parser_set_lex_state.exit1121
 
-parser_set_lex_state.exit1121:                    ; preds = %.thread, %2301, %2306, %2308
-  %.0.i1120 = phi i32 [ %2310, %2308 ], [ 8, %2306 ], [ 8, %2301 ], [ 8, %.thread ]
+parser_set_lex_state.exit1121:                    ; preds = %.thread, %2299, %2304, %2306
+  %.0.i1120 = phi i32 [ %2308, %2306 ], [ 8, %2304 ], [ 8, %2299 ], [ 8, %.thread ]
   store i32 %.0.i1120, ptr %1019, align 8, !tbaa !60
-  %2311 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2312 = load i32, ptr %2311, align 4, !tbaa !167
-  %2313 = add nsw i32 %2312, -1
-  store i32 %2313, ptr %2311, align 4, !tbaa !167
+  %2309 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2310 = load i32, ptr %2309, align 4, !tbaa !167
+  %2311 = add nsw i32 %2310, -1
+  store i32 %2311, ptr %2309, align 4, !tbaa !167
   br label %pushback.exit1048
 
-2314:                                             ; preds = %1049
-  %2315 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2316 = load i64, ptr %2315, align 8, !tbaa !99
-  %2317 = lshr i64 %2316, 1
-  store i64 %2317, ptr %2315, align 8, !tbaa !99
-  %2318 = load i16, ptr %10, align 8
-  %2319 = and i16 %2318, 32
-  %.not735 = icmp eq i16 %2319, 0
-  br i1 %.not735, label %.thread2010, label %2323
+2312:                                             ; preds = %1049
+  %2313 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2314 = load i64, ptr %2313, align 8, !tbaa !99
+  %2315 = lshr i64 %2314, 1
+  store i64 %2315, ptr %2313, align 8, !tbaa !99
+  %2316 = load i16, ptr %10, align 8
+  %2317 = and i16 %2316, 32
+  %.not735 = icmp eq i16 %2317, 0
+  br i1 %.not735, label %.thread2010, label %2321
 
-.thread2010:                                      ; preds = %2314
-  %2320 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2321 = load i64, ptr %2320, align 8, !tbaa !112
-  %2322 = lshr i64 %2321, 1
-  store i64 %2322, ptr %2320, align 8, !tbaa !112
+.thread2010:                                      ; preds = %2312
+  %2318 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2319 = load i64, ptr %2318, align 8, !tbaa !112
+  %2320 = lshr i64 %2319, 1
+  store i64 %2320, ptr %2318, align 8, !tbaa !112
   br label %parser_set_lex_state.exit1124
 
-2323:                                             ; preds = %2314
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2317, ptr noundef nonnull @.str.13, i32 noundef 10993) #31
+2321:                                             ; preds = %2312
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2315, ptr noundef nonnull @.str.13, i32 noundef 10993) #31
   %.pre1964 = load i16, ptr %10, align 8
   %.pre1988 = and i16 %.pre1964, 32
-  %2324 = icmp eq i16 %.pre1988, 0
-  %2325 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2326 = load i64, ptr %2325, align 8, !tbaa !112
-  %2327 = lshr i64 %2326, 1
-  store i64 %2327, ptr %2325, align 8, !tbaa !112
-  br i1 %2324, label %parser_set_lex_state.exit1124, label %2328
+  %2322 = icmp eq i16 %.pre1988, 0
+  %2323 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2324 = load i64, ptr %2323, align 8, !tbaa !112
+  %2325 = lshr i64 %2324, 1
+  store i64 %2325, ptr %2323, align 8, !tbaa !112
+  br i1 %2322, label %parser_set_lex_state.exit1124, label %2326
 
-2328:                                             ; preds = %2323
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2327, ptr noundef nonnull @.str.16, i32 noundef 10994) #31
+2326:                                             ; preds = %2321
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2325, ptr noundef nonnull @.str.16, i32 noundef 10994) #31
   %.pre1965 = load i16, ptr %10, align 8
   %.pre1990 = and i16 %.pre1965, 32
-  %2329 = icmp eq i16 %.pre1990, 0
-  br i1 %2329, label %parser_set_lex_state.exit1124, label %2330
+  %2327 = icmp eq i16 %.pre1990, 0
+  br i1 %2327, label %parser_set_lex_state.exit1124, label %2328
 
-2330:                                             ; preds = %2328
-  %2331 = load i32, ptr %1019, align 8, !tbaa !60
-  %2332 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2331, i32 noundef 2, i32 noundef 10995) #31
+2328:                                             ; preds = %2326
+  %2329 = load i32, ptr %1019, align 8, !tbaa !60
+  %2330 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2329, i32 noundef 2, i32 noundef 10995) #31
   br label %parser_set_lex_state.exit1124
 
-parser_set_lex_state.exit1124:                    ; preds = %.thread2010, %2323, %2328, %2330
-  %.0.i1123 = phi i32 [ %2332, %2330 ], [ 2, %2328 ], [ 2, %2323 ], [ 2, %.thread2010 ]
+parser_set_lex_state.exit1124:                    ; preds = %.thread2010, %2321, %2326, %2328
+  %.0.i1123 = phi i32 [ %2330, %2328 ], [ 2, %2326 ], [ 2, %2321 ], [ 2, %.thread2010 ]
   store i32 %.0.i1123, ptr %1019, align 8, !tbaa !60
-  %2333 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2334 = load i32, ptr %2333, align 4, !tbaa !167
-  %2335 = add nsw i32 %2334, -1
-  store i32 %2335, ptr %2333, align 4, !tbaa !167
+  %2331 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2332 = load i32, ptr %2331, align 4, !tbaa !167
+  %2333 = add nsw i32 %2332, -1
+  store i32 %2333, ptr %2331, align 4, !tbaa !167
   br label %pushback.exit1048
 
-2336:                                             ; preds = %1049
-  %2337 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %2338 = load i32, ptr %2337, align 4, !tbaa !165
-  %2339 = add nsw i32 %2338, -1
-  store i32 %2339, ptr %2337, align 4, !tbaa !165
-  %.not732 = icmp eq i32 %2338, 0
-  br i1 %.not732, label %pushback.exit1048, label %2340
+2334:                                             ; preds = %1049
+  %2335 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %2336 = load i32, ptr %2335, align 4, !tbaa !165
+  %2337 = add nsw i32 %2336, -1
+  store i32 %2337, ptr %2335, align 4, !tbaa !165
+  %.not732 = icmp eq i32 %2336, 0
+  br i1 %.not732, label %pushback.exit1048, label %2338
 
-2340:                                             ; preds = %2336
-  %2341 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2342 = load i64, ptr %2341, align 8, !tbaa !99
-  %2343 = lshr i64 %2342, 1
-  store i64 %2343, ptr %2341, align 8, !tbaa !99
-  %2344 = load i16, ptr %10, align 8
-  %2345 = and i16 %2344, 32
-  %.not733 = icmp eq i16 %2345, 0
-  br i1 %.not733, label %.thread2015, label %2349
+2338:                                             ; preds = %2334
+  %2339 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2340 = load i64, ptr %2339, align 8, !tbaa !99
+  %2341 = lshr i64 %2340, 1
+  store i64 %2341, ptr %2339, align 8, !tbaa !99
+  %2342 = load i16, ptr %10, align 8
+  %2343 = and i16 %2342, 32
+  %.not733 = icmp eq i16 %2343, 0
+  br i1 %.not733, label %.thread2015, label %2347
 
-.thread2015:                                      ; preds = %2340
-  %2346 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2347 = load i64, ptr %2346, align 8, !tbaa !112
-  %2348 = lshr i64 %2347, 1
-  store i64 %2348, ptr %2346, align 8, !tbaa !112
+.thread2015:                                      ; preds = %2338
+  %2344 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2345 = load i64, ptr %2344, align 8, !tbaa !112
+  %2346 = lshr i64 %2345, 1
+  store i64 %2346, ptr %2344, align 8, !tbaa !112
   br label %parser_set_lex_state.exit1127
 
-2349:                                             ; preds = %2340
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2343, ptr noundef nonnull @.str.13, i32 noundef 11002) #31
+2347:                                             ; preds = %2338
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2341, ptr noundef nonnull @.str.13, i32 noundef 11002) #31
   %.pre1962 = load i16, ptr %10, align 8
   %.pre1992 = and i16 %.pre1962, 32
-  %2350 = icmp eq i16 %.pre1992, 0
-  %2351 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2352 = load i64, ptr %2351, align 8, !tbaa !112
-  %2353 = lshr i64 %2352, 1
-  store i64 %2353, ptr %2351, align 8, !tbaa !112
-  br i1 %2350, label %parser_set_lex_state.exit1127, label %2354
+  %2348 = icmp eq i16 %.pre1992, 0
+  %2349 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2350 = load i64, ptr %2349, align 8, !tbaa !112
+  %2351 = lshr i64 %2350, 1
+  store i64 %2351, ptr %2349, align 8, !tbaa !112
+  br i1 %2348, label %parser_set_lex_state.exit1127, label %2352
 
-2354:                                             ; preds = %2349
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2353, ptr noundef nonnull @.str.16, i32 noundef 11003) #31
+2352:                                             ; preds = %2347
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2351, ptr noundef nonnull @.str.16, i32 noundef 11003) #31
   %.pre1963 = load i16, ptr %10, align 8
   %.pre1994 = and i16 %.pre1963, 32
-  %2355 = icmp eq i16 %.pre1994, 0
-  br i1 %2355, label %parser_set_lex_state.exit1127, label %2356
+  %2353 = icmp eq i16 %.pre1994, 0
+  br i1 %2353, label %parser_set_lex_state.exit1127, label %2354
 
-2356:                                             ; preds = %2354
-  %2357 = load i32, ptr %1019, align 8, !tbaa !60
-  %2358 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2357, i32 noundef 2, i32 noundef 11004) #31
+2354:                                             ; preds = %2352
+  %2355 = load i32, ptr %1019, align 8, !tbaa !60
+  %2356 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2355, i32 noundef 2, i32 noundef 11004) #31
   br label %parser_set_lex_state.exit1127
 
-parser_set_lex_state.exit1127:                    ; preds = %.thread2015, %2349, %2354, %2356
-  %.0.i1126 = phi i32 [ %2358, %2356 ], [ 2, %2354 ], [ 2, %2349 ], [ 2, %.thread2015 ]
+parser_set_lex_state.exit1127:                    ; preds = %.thread2015, %2347, %2352, %2354
+  %.0.i1126 = phi i32 [ %2356, %2354 ], [ 2, %2352 ], [ 2, %2347 ], [ 2, %.thread2015 ]
   store i32 %.0.i1126, ptr %1019, align 8, !tbaa !60
-  %2359 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2360 = load i32, ptr %2359, align 4, !tbaa !167
-  %2361 = add nsw i32 %2360, -1
-  store i32 %2361, ptr %2359, align 4, !tbaa !167
+  %2357 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2358 = load i32, ptr %2357, align 4, !tbaa !167
+  %2359 = add nsw i32 %2358, -1
+  store i32 %2359, ptr %2357, align 4, !tbaa !167
   br label %pushback.exit1048
 
-2362:                                             ; preds = %1049
-  %2363 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2364 = icmp eq i32 %2363, 58
-  %2365 = load i32, ptr %1019, align 8, !tbaa !60
-  br i1 %2364, label %2366, label %2386
+2360:                                             ; preds = %1049
+  %2361 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2362 = icmp eq i32 %2361, 58
+  %2363 = load i32, ptr %1019, align 8, !tbaa !60
+  br i1 %2362, label %2364, label %2384
 
-2366:                                             ; preds = %2362
-  %2367 = and i32 %2365, 577
-  %.not730 = icmp ne i32 %2367, 0
-  %2368 = and i32 %2365, 2064
-  %2369 = icmp eq i32 %2368, 2064
-  %or.cond817 = or i1 %.not730, %2369
-  br i1 %or.cond817, label %2374, label %2370
+2364:                                             ; preds = %2360
+  %2365 = and i32 %2363, 577
+  %.not730 = icmp ne i32 %2365, 0
+  %2366 = and i32 %2363, 2064
+  %2367 = icmp eq i32 %2366, 2064
+  %or.cond817 = or i1 %.not730, %2367
+  br i1 %or.cond817, label %2372, label %2368
 
-2370:                                             ; preds = %2366
-  %2371 = and i32 %2365, 48
-  %2372 = icmp ne i32 %2371, 0
-  %2373 = icmp ne i32 %.0649, 0
-  %or.cond37 = select i1 %2372, i1 %2373, i1 false
-  br i1 %or.cond37, label %2374, label %2379
+2368:                                             ; preds = %2364
+  %2369 = and i32 %2363, 48
+  %2370 = icmp ne i32 %2369, 0
+  %2371 = icmp ne i32 %.0649, 0
+  %or.cond37 = select i1 %2370, i1 %2371, i1 false
+  br i1 %or.cond37, label %2372, label %2377
 
-2374:                                             ; preds = %2370, %2366
-  %2375 = load i16, ptr %10, align 8
-  %2376 = and i16 %2375, 32
-  %.not.i1128 = icmp eq i16 %2376, 0
-  br i1 %.not.i1128, label %parser_set_lex_state.exit1130, label %2377
+2372:                                             ; preds = %2368, %2364
+  %2373 = load i16, ptr %10, align 8
+  %2374 = and i16 %2373, 32
+  %.not.i1128 = icmp eq i16 %2374, 0
+  br i1 %.not.i1128, label %parser_set_lex_state.exit1130, label %2375
 
-2377:                                             ; preds = %2374
-  %2378 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2365, i32 noundef 1, i32 noundef 11012) #31
+2375:                                             ; preds = %2372
+  %2376 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2363, i32 noundef 1, i32 noundef 11012) #31
   br label %parser_set_lex_state.exit1130
 
-parser_set_lex_state.exit1130:                    ; preds = %2374, %2377
-  %.0.i1129 = phi i32 [ %2378, %2377 ], [ 1, %2374 ]
+parser_set_lex_state.exit1130:                    ; preds = %2372, %2375
+  %.0.i1129 = phi i32 [ %2376, %2375 ], [ 1, %2372 ]
   store i32 %.0.i1129, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2379:                                             ; preds = %2370
-  %2380 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 147, ptr %2380, align 8, !tbaa !6
-  %2381 = load i16, ptr %10, align 8
-  %2382 = and i16 %2381, 32
-  %.not.i1131 = icmp eq i16 %2382, 0
-  br i1 %.not.i1131, label %parser_set_lex_state.exit1133, label %2383
+2377:                                             ; preds = %2368
+  %2378 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 147, ptr %2378, align 8, !tbaa !6
+  %2379 = load i16, ptr %10, align 8
+  %2380 = and i16 %2379, 32
+  %.not.i1131 = icmp eq i16 %2380, 0
+  br i1 %.not.i1131, label %parser_set_lex_state.exit1133, label %2381
 
-2383:                                             ; preds = %2379
-  %2384 = load i32, ptr %1019, align 8, !tbaa !60
-  %2385 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2384, i32 noundef 256, i32 noundef 11016) #31
+2381:                                             ; preds = %2377
+  %2382 = load i32, ptr %1019, align 8, !tbaa !60
+  %2383 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2382, i32 noundef 256, i32 noundef 11016) #31
   br label %parser_set_lex_state.exit1133
 
-parser_set_lex_state.exit1133:                    ; preds = %2379, %2383
-  %.0.i1132 = phi i32 [ %2385, %2383 ], [ 256, %2379 ]
+parser_set_lex_state.exit1133:                    ; preds = %2377, %2381
+  %.0.i1132 = phi i32 [ %2383, %2381 ], [ 256, %2377 ]
   store i32 %.0.i1132, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2386:                                             ; preds = %2362
-  %2387 = and i32 %2365, 14
-  %.not728 = icmp eq i32 %2387, 0
-  br i1 %.not728, label %2388, label %2389
+2384:                                             ; preds = %2360
+  %2385 = and i32 %2363, 14
+  %.not728 = icmp eq i32 %2385, 0
+  br i1 %.not728, label %2386, label %2387
 
-2388:                                             ; preds = %2386
-  switch i32 %2363, label %2414 [
-    i32 35, label %2389
-    i32 32, label %2389
-    i32 13, label %2389
-    i32 12, label %2389
-    i32 11, label %2389
-    i32 10, label %2389
-    i32 9, label %2389
-    i32 39, label %2404
-    i32 34, label %2409
+2386:                                             ; preds = %2384
+  switch i32 %2361, label %2412 [
+    i32 35, label %2387
+    i32 32, label %2387
+    i32 13, label %2387
+    i32 12, label %2387
+    i32 11, label %2387
+    i32 10, label %2387
+    i32 9, label %2387
+    i32 39, label %2402
+    i32 34, label %2407
   ]
 
-2389:                                             ; preds = %2388, %2388, %2388, %2388, %2388, %2388, %2388, %2386
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2363)
-  %2390 = and i32 %1040, 904
-  %2391 = icmp eq i32 %2390, 0
-  %2392 = icmp ne i32 %.0649, 0
-  %or.cond41 = select i1 %2391, i1 %2392, i1 false
-  br i1 %or.cond41, label %2393, label %2398
+2387:                                             ; preds = %2386, %2386, %2386, %2386, %2386, %2386, %2386, %2384
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2361)
+  %2388 = and i32 %1040, 904
+  %2389 = icmp eq i32 %2388, 0
+  %2390 = icmp ne i32 %.0649, 0
+  %or.cond41 = select i1 %2389, i1 %2390, i1 false
+  br i1 %or.cond41, label %2391, label %2396
 
-2393:                                             ; preds = %2389
-  switch i32 %2363, label %2394 [
-    i32 32, label %2398
-    i32 13, label %2398
-    i32 12, label %2398
-    i32 11, label %2398
-    i32 10, label %2398
-    i32 9, label %2398
+2391:                                             ; preds = %2387
+  switch i32 %2361, label %2392 [
+    i32 32, label %2396
+    i32 13, label %2396
+    i32 12, label %2396
+    i32 11, label %2396
+    i32 10, label %2396
+    i32 9, label %2396
   ]
 
-2394:                                             ; preds = %2393
-  %2395 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %2396 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.592, i64 noundef 14) #31
+2392:                                             ; preds = %2391
+  %2393 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %2394 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.592, i64 noundef 14) #31
   %.val831 = load i64, ptr %1025, align 8, !tbaa !46
-  %2397 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val831, i64 noundef %2395, i32 noundef 2, i64 noundef 14860, i64 noundef %2396) #31
-  br label %2398
+  %2395 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val831, i64 noundef %2393, i32 noundef 2, i64 noundef 14860, i64 noundef %2394) #31
+  br label %2396
 
-2398:                                             ; preds = %2393, %2393, %2393, %2393, %2393, %2393, %2394, %2389
-  %2399 = load i16, ptr %10, align 8
-  %2400 = and i16 %2399, 32
-  %.not.i1136 = icmp eq i16 %2400, 0
-  br i1 %.not.i1136, label %parser_set_lex_state.exit1138, label %2401
+2396:                                             ; preds = %2391, %2391, %2391, %2391, %2391, %2391, %2392, %2387
+  %2397 = load i16, ptr %10, align 8
+  %2398 = and i16 %2397, 32
+  %.not.i1136 = icmp eq i16 %2398, 0
+  br i1 %.not.i1136, label %parser_set_lex_state.exit1138, label %2399
 
-2401:                                             ; preds = %2398
-  %2402 = load i32, ptr %1019, align 8, !tbaa !60
-  %2403 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2402, i32 noundef 1, i32 noundef 11022) #31
+2399:                                             ; preds = %2396
+  %2400 = load i32, ptr %1019, align 8, !tbaa !60
+  %2401 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2400, i32 noundef 1, i32 noundef 11022) #31
   br label %parser_set_lex_state.exit1138
 
-parser_set_lex_state.exit1138:                    ; preds = %2398, %2401
-  %.0.i1137 = phi i32 [ %2403, %2401 ], [ 1, %2398 ]
+parser_set_lex_state.exit1138:                    ; preds = %2396, %2399
+  %.0.i1137 = phi i32 [ %2401, %2399 ], [ 1, %2396 ]
   store i32 %.0.i1137, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2404:                                             ; preds = %2388
-  %2405 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %2406 = getelementptr inbounds nuw i8, ptr %2405, i64 16
-  store i32 16, ptr %2406, align 8, !tbaa !6
-  %2407 = getelementptr inbounds nuw i8, ptr %2405, i64 24
-  store i32 39, ptr %2407, align 8, !tbaa !6
-  %2408 = getelementptr inbounds nuw i8, ptr %2405, i64 20
-  store i32 0, ptr %2408, align 4, !tbaa !6
-  store ptr %2405, ptr %12, align 8, !tbaa !164
-  br label %2415
+2402:                                             ; preds = %2386
+  %2403 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %2404 = getelementptr inbounds nuw i8, ptr %2403, i64 16
+  store i32 16, ptr %2404, align 8, !tbaa !6
+  %2405 = getelementptr inbounds nuw i8, ptr %2403, i64 24
+  store i32 39, ptr %2405, align 8, !tbaa !6
+  %2406 = getelementptr inbounds nuw i8, ptr %2403, i64 20
+  store i32 0, ptr %2406, align 4, !tbaa !6
+  store ptr %2403, ptr %12, align 8, !tbaa !164
+  br label %2413
 
-2409:                                             ; preds = %2388
-  %2410 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %2411 = getelementptr inbounds nuw i8, ptr %2410, i64 16
-  store i32 18, ptr %2411, align 8, !tbaa !6
-  %2412 = getelementptr inbounds nuw i8, ptr %2410, i64 24
-  store i32 34, ptr %2412, align 8, !tbaa !6
-  %2413 = getelementptr inbounds nuw i8, ptr %2410, i64 20
-  store i32 0, ptr %2413, align 4, !tbaa !6
-  store ptr %2410, ptr %12, align 8, !tbaa !164
-  br label %2415
+2407:                                             ; preds = %2386
+  %2408 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %2409 = getelementptr inbounds nuw i8, ptr %2408, i64 16
+  store i32 18, ptr %2409, align 8, !tbaa !6
+  %2410 = getelementptr inbounds nuw i8, ptr %2408, i64 24
+  store i32 34, ptr %2410, align 8, !tbaa !6
+  %2411 = getelementptr inbounds nuw i8, ptr %2408, i64 20
+  store i32 0, ptr %2411, align 4, !tbaa !6
+  store ptr %2408, ptr %12, align 8, !tbaa !164
+  br label %2413
 
-2414:                                             ; preds = %2388
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2363)
-  br label %2415
+2412:                                             ; preds = %2386
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2361)
+  br label %2413
 
-2415:                                             ; preds = %2414, %2409, %2404
-  %2416 = load i16, ptr %10, align 8
-  %2417 = and i16 %2416, 32
-  %.not.i1139 = icmp eq i16 %2417, 0
-  br i1 %.not.i1139, label %parser_set_lex_state.exit1141, label %2418
+2413:                                             ; preds = %2412, %2407, %2402
+  %2414 = load i16, ptr %10, align 8
+  %2415 = and i16 %2414, 32
+  %.not.i1139 = icmp eq i16 %2415, 0
+  br i1 %.not.i1139, label %parser_set_lex_state.exit1141, label %2416
 
-2418:                                             ; preds = %2415
-  %2419 = load i32, ptr %1019, align 8, !tbaa !60
-  %2420 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2419, i32 noundef 128, i32 noundef 11036) #31
+2416:                                             ; preds = %2413
+  %2417 = load i32, ptr %1019, align 8, !tbaa !60
+  %2418 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2417, i32 noundef 128, i32 noundef 11036) #31
   br label %parser_set_lex_state.exit1141
 
-parser_set_lex_state.exit1141:                    ; preds = %2415, %2418
-  %.0.i1140 = phi i32 [ %2420, %2418 ], [ 128, %2415 ]
+parser_set_lex_state.exit1141:                    ; preds = %2413, %2416
+  %.0.i1140 = phi i32 [ %2418, %2416 ], [ 128, %2413 ]
   store i32 %.0.i1140, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2421:                                             ; preds = %1049
-  %2422 = load i32, ptr %1019, align 8, !tbaa !60
-  %2423 = and i32 %2422, 577
-  %.not724 = icmp ne i32 %2423, 0
-  %2424 = and i32 %2422, 2064
-  %2425 = icmp eq i32 %2424, 2064
-  %or.cond819 = or i1 %.not724, %2425
-  br i1 %or.cond819, label %2426, label %2431
+2419:                                             ; preds = %1049
+  %2420 = load i32, ptr %1019, align 8, !tbaa !60
+  %2421 = and i32 %2420, 577
+  %.not724 = icmp ne i32 %2421, 0
+  %2422 = and i32 %2420, 2064
+  %2423 = icmp eq i32 %2422, 2064
+  %or.cond819 = or i1 %.not724, %2423
+  br i1 %or.cond819, label %2424, label %2429
 
-2426:                                             ; preds = %2421
-  %2427 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %2428 = getelementptr inbounds nuw i8, ptr %2427, i64 16
-  store i32 7, ptr %2428, align 8, !tbaa !6
-  %2429 = getelementptr inbounds nuw i8, ptr %2427, i64 24
-  store i32 47, ptr %2429, align 8, !tbaa !6
-  %2430 = getelementptr inbounds nuw i8, ptr %2427, i64 20
-  store i32 0, ptr %2430, align 4, !tbaa !6
-  store ptr %2427, ptr %12, align 8, !tbaa !164
+2424:                                             ; preds = %2419
+  %2425 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %2426 = getelementptr inbounds nuw i8, ptr %2425, i64 16
+  store i32 7, ptr %2426, align 8, !tbaa !6
+  %2427 = getelementptr inbounds nuw i8, ptr %2425, i64 24
+  store i32 47, ptr %2427, align 8, !tbaa !6
+  %2428 = getelementptr inbounds nuw i8, ptr %2425, i64 20
+  store i32 0, ptr %2428, align 4, !tbaa !6
+  store ptr %2425, ptr %12, align 8, !tbaa !164
   br label %pushback.exit1048
 
-2431:                                             ; preds = %2421
-  %2432 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2433 = icmp eq i32 %2432, 61
-  br i1 %2433, label %2434, label %2441
+2429:                                             ; preds = %2419
+  %2430 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2431 = icmp eq i32 %2430, 61
+  br i1 %2431, label %2432, label %2439
 
-2434:                                             ; preds = %2431
-  %2435 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 47, ptr %2435, align 8, !tbaa !6
-  %2436 = load i16, ptr %10, align 8
-  %2437 = and i16 %2436, 32
-  %.not.i1142 = icmp eq i16 %2437, 0
-  br i1 %.not.i1142, label %parser_set_lex_state.exit1144, label %2438
+2432:                                             ; preds = %2429
+  %2433 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 47, ptr %2433, align 8, !tbaa !6
+  %2434 = load i16, ptr %10, align 8
+  %2435 = and i16 %2434, 32
+  %.not.i1142 = icmp eq i16 %2435, 0
+  br i1 %.not.i1142, label %parser_set_lex_state.exit1144, label %2436
 
-2438:                                             ; preds = %2434
-  %2439 = load i32, ptr %1019, align 8, !tbaa !60
-  %2440 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2439, i32 noundef 1, i32 noundef 11046) #31
+2436:                                             ; preds = %2432
+  %2437 = load i32, ptr %1019, align 8, !tbaa !60
+  %2438 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2437, i32 noundef 1, i32 noundef 11046) #31
   br label %parser_set_lex_state.exit1144
 
-parser_set_lex_state.exit1144:                    ; preds = %2434, %2438
-  %.0.i1143 = phi i32 [ %2440, %2438 ], [ 1, %2434 ]
+parser_set_lex_state.exit1144:                    ; preds = %2432, %2436
+  %.0.i1143 = phi i32 [ %2438, %2436 ], [ 1, %2432 ]
   store i32 %.0.i1143, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2441:                                             ; preds = %2431
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2432)
-  %2442 = load i32, ptr %1019, align 8, !tbaa !60
-  %2443 = and i32 %2442, 48
-  %2444 = icmp ne i32 %2443, 0
-  %2445 = icmp ne i32 %.0649, 0
-  %or.cond43 = select i1 %2444, i1 %2445, i1 false
-  br i1 %or.cond43, label %2446, label %2452
+2439:                                             ; preds = %2429
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2430)
+  %2440 = load i32, ptr %1019, align 8, !tbaa !60
+  %2441 = and i32 %2440, 48
+  %2442 = icmp ne i32 %2441, 0
+  %2443 = icmp ne i32 %.0649, 0
+  %or.cond43 = select i1 %2442, i1 %2443, i1 false
+  br i1 %or.cond43, label %2444, label %2450
 
-2446:                                             ; preds = %2441
-  switch i32 %2432, label %2447 [
-    i32 32, label %2452
-    i32 13, label %2452
-    i32 12, label %2452
-    i32 11, label %2452
-    i32 10, label %2452
-    i32 9, label %2452
+2444:                                             ; preds = %2439
+  switch i32 %2430, label %2445 [
+    i32 32, label %2450
+    i32 13, label %2450
+    i32 12, label %2450
+    i32 11, label %2450
+    i32 10, label %2450
+    i32 9, label %2450
   ]
 
-2447:                                             ; preds = %2446
+2445:                                             ; preds = %2444
   tail call fastcc void @arg_ambiguous(ptr noundef nonnull %0, i8 noundef signext 47)
-  %2448 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
-  %2449 = getelementptr inbounds nuw i8, ptr %2448, i64 16
-  store i32 7, ptr %2449, align 8, !tbaa !6
-  %2450 = getelementptr inbounds nuw i8, ptr %2448, i64 24
-  store i32 47, ptr %2450, align 8, !tbaa !6
-  %2451 = getelementptr inbounds nuw i8, ptr %2448, i64 20
-  store i32 0, ptr %2451, align 4, !tbaa !6
-  store ptr %2448, ptr %12, align 8, !tbaa !164
+  %2446 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 40) #35
+  %2447 = getelementptr inbounds nuw i8, ptr %2446, i64 16
+  store i32 7, ptr %2447, align 8, !tbaa !6
+  %2448 = getelementptr inbounds nuw i8, ptr %2446, i64 24
+  store i32 47, ptr %2448, align 8, !tbaa !6
+  %2449 = getelementptr inbounds nuw i8, ptr %2446, i64 20
+  store i32 0, ptr %2449, align 4, !tbaa !6
+  store ptr %2446, ptr %12, align 8, !tbaa !164
   br label %pushback.exit1048
 
-2452:                                             ; preds = %2446, %2446, %2446, %2446, %2446, %2446, %2441
-  %2453 = and i32 %2442, 384
-  %.not726 = icmp eq i32 %2453, 0
-  %2454 = select i1 %.not726, i32 1, i32 16
-  %2455 = load i16, ptr %10, align 8
-  %2456 = and i16 %2455, 32
-  %.not.i1146 = icmp eq i16 %2456, 0
-  br i1 %.not.i1146, label %parser_set_lex_state.exit1148, label %2457
+2450:                                             ; preds = %2444, %2444, %2444, %2444, %2444, %2444, %2439
+  %2451 = and i32 %2440, 384
+  %.not726 = icmp eq i32 %2451, 0
+  %2452 = select i1 %.not726, i32 1, i32 16
+  %2453 = load i16, ptr %10, align 8
+  %2454 = and i16 %2453, 32
+  %.not.i1146 = icmp eq i16 %2454, 0
+  br i1 %.not.i1146, label %parser_set_lex_state.exit1148, label %2455
 
-2457:                                             ; preds = %2452
-  %2458 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2442, i32 noundef %2454, i32 noundef 11055) #31
+2455:                                             ; preds = %2450
+  %2456 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2440, i32 noundef %2452, i32 noundef 11055) #31
   br label %parser_set_lex_state.exit1148
 
-parser_set_lex_state.exit1148:                    ; preds = %2452, %2457
-  %.0.i1147 = phi i32 [ %2458, %2457 ], [ %2454, %2452 ]
+parser_set_lex_state.exit1148:                    ; preds = %2450, %2455
+  %.0.i1147 = phi i32 [ %2456, %2455 ], [ %2452, %2450 ]
   store i32 %.0.i1147, ptr %1019, align 8, !tbaa !60
-  %2459 = and i32 %1040, 904
-  %2460 = icmp eq i32 %2459, 0
-  %or.cond45 = select i1 %2460, i1 %2445, i1 false
-  br i1 %or.cond45, label %2461, label %pushback.exit1048
+  %2457 = and i32 %1040, 904
+  %2458 = icmp eq i32 %2457, 0
+  %or.cond45 = select i1 %2458, i1 %2443, i1 false
+  br i1 %or.cond45, label %2459, label %pushback.exit1048
 
-2461:                                             ; preds = %parser_set_lex_state.exit1148
-  switch i32 %2432, label %2462 [
+2459:                                             ; preds = %parser_set_lex_state.exit1148
+  switch i32 %2430, label %2460 [
     i32 32, label %pushback.exit1048
     i32 13, label %pushback.exit1048
     i32 12, label %pushback.exit1048
@@ -40023,611 +40021,611 @@ parser_set_lex_state.exit1148:                    ; preds = %2452, %2457
     i32 9, label %pushback.exit1048
   ]
 
-2462:                                             ; preds = %2461
-  %2463 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
-  %2464 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.593, i64 noundef 14) #31
+2460:                                             ; preds = %2459
+  %2461 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ripper_parser_ids, i64 624), align 8, !tbaa !553
+  %2462 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.593, i64 noundef 14) #31
   %.val830 = load i64, ptr %1025, align 8, !tbaa !46
-  %2465 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val830, i64 noundef %2463, i32 noundef 2, i64 noundef 12044, i64 noundef %2464) #31
+  %2463 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val830, i64 noundef %2461, i32 noundef 2, i64 noundef 12044, i64 noundef %2462) #31
   br label %pushback.exit1048
 
-2466:                                             ; preds = %1049
-  %2467 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2468 = icmp eq i32 %2467, 61
-  br i1 %2468, label %2469, label %2476
+2464:                                             ; preds = %1049
+  %2465 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2466 = icmp eq i32 %2465, 61
+  br i1 %2466, label %2467, label %2474
 
-2469:                                             ; preds = %2466
-  %2470 = load ptr, ptr %0, align 8, !tbaa !18
-  store i64 94, ptr %2470, align 8, !tbaa !6
-  %2471 = load i16, ptr %10, align 8
-  %2472 = and i16 %2471, 32
-  %.not.i1150 = icmp eq i16 %2472, 0
-  br i1 %.not.i1150, label %parser_set_lex_state.exit1152, label %2473
+2467:                                             ; preds = %2464
+  %2468 = load ptr, ptr %0, align 8, !tbaa !18
+  store i64 94, ptr %2468, align 8, !tbaa !6
+  %2469 = load i16, ptr %10, align 8
+  %2470 = and i16 %2469, 32
+  %.not.i1150 = icmp eq i16 %2470, 0
+  br i1 %.not.i1150, label %parser_set_lex_state.exit1152, label %2471
 
-2473:                                             ; preds = %2469
-  %2474 = load i32, ptr %1019, align 8, !tbaa !60
-  %2475 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2474, i32 noundef 1, i32 noundef 11061) #31
+2471:                                             ; preds = %2467
+  %2472 = load i32, ptr %1019, align 8, !tbaa !60
+  %2473 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2472, i32 noundef 1, i32 noundef 11061) #31
   br label %parser_set_lex_state.exit1152
 
-parser_set_lex_state.exit1152:                    ; preds = %2469, %2473
-  %.0.i1151 = phi i32 [ %2475, %2473 ], [ 1, %2469 ]
+parser_set_lex_state.exit1152:                    ; preds = %2467, %2471
+  %.0.i1151 = phi i32 [ %2473, %2471 ], [ 1, %2467 ]
   store i32 %.0.i1151, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2476:                                             ; preds = %2466
-  %2477 = load i32, ptr %1019, align 8, !tbaa !60
-  %2478 = and i32 %2477, 384
-  %.not723 = icmp eq i32 %2478, 0
-  %2479 = select i1 %.not723, i32 1, i32 16
-  %2480 = load i16, ptr %10, align 8
-  %2481 = and i16 %2480, 32
-  %.not.i1153 = icmp eq i16 %2481, 0
-  br i1 %.not.i1153, label %parser_set_lex_state.exit1155, label %2482
+2474:                                             ; preds = %2464
+  %2475 = load i32, ptr %1019, align 8, !tbaa !60
+  %2476 = and i32 %2475, 384
+  %.not723 = icmp eq i32 %2476, 0
+  %2477 = select i1 %.not723, i32 1, i32 16
+  %2478 = load i16, ptr %10, align 8
+  %2479 = and i16 %2478, 32
+  %.not.i1153 = icmp eq i16 %2479, 0
+  br i1 %.not.i1153, label %parser_set_lex_state.exit1155, label %2480
 
-2482:                                             ; preds = %2476
-  %2483 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2477, i32 noundef %2479, i32 noundef 11064) #31
+2480:                                             ; preds = %2474
+  %2481 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2475, i32 noundef %2477, i32 noundef 11064) #31
   br label %parser_set_lex_state.exit1155
 
-parser_set_lex_state.exit1155:                    ; preds = %2476, %2482
-  %.0.i1154 = phi i32 [ %2483, %2482 ], [ %2479, %2476 ]
+parser_set_lex_state.exit1155:                    ; preds = %2474, %2480
+  %.0.i1154 = phi i32 [ %2481, %2480 ], [ %2477, %2474 ]
   store i32 %.0.i1154, ptr %1019, align 8, !tbaa !60
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2467)
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2465)
   br label %pushback.exit1048
 
-2484:                                             ; preds = %1049
-  %2485 = load i16, ptr %10, align 8
-  %2486 = and i16 %2485, 32
-  %.not.i1156 = icmp eq i16 %2486, 0
-  br i1 %.not.i1156, label %parser_set_lex_state.exit1158, label %2487
+2482:                                             ; preds = %1049
+  %2483 = load i16, ptr %10, align 8
+  %2484 = and i16 %2483, 32
+  %.not.i1156 = icmp eq i16 %2484, 0
+  br i1 %.not.i1156, label %parser_set_lex_state.exit1158, label %2485
 
-2487:                                             ; preds = %2484
-  %2488 = load i32, ptr %1019, align 8, !tbaa !60
-  %2489 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2488, i32 noundef 1, i32 noundef 11069) #31
+2485:                                             ; preds = %2482
+  %2486 = load i32, ptr %1019, align 8, !tbaa !60
+  %2487 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2486, i32 noundef 1, i32 noundef 11069) #31
   %.pre1961 = load i16, ptr %10, align 8
   br label %parser_set_lex_state.exit1158
 
-parser_set_lex_state.exit1158:                    ; preds = %2484, %2487
-  %2490 = phi i16 [ %.pre1961, %2487 ], [ %2485, %2484 ]
-  %.0.i1157 = phi i32 [ %2489, %2487 ], [ 1, %2484 ]
+parser_set_lex_state.exit1158:                    ; preds = %2482, %2485
+  %2488 = phi i16 [ %.pre1961, %2485 ], [ %2483, %2482 ]
+  %.0.i1157 = phi i32 [ %2487, %2485 ], [ 1, %2482 ]
   store i32 %.0.i1157, ptr %1019, align 8, !tbaa !60
-  %2491 = or i16 %2490, 4
-  store i16 %2491, ptr %10, align 8
+  %2489 = or i16 %2488, 4
+  store i16 %2489, ptr %10, align 8
   br label %pushback.exit1048
 
-2492:                                             ; preds = %1049
-  %2493 = load i16, ptr %10, align 8
-  %2494 = and i16 %2493, 32
-  %.not.i1159 = icmp eq i16 %2494, 0
-  br i1 %.not.i1159, label %parser_set_lex_state.exit1161, label %2495
+2490:                                             ; preds = %1049
+  %2491 = load i16, ptr %10, align 8
+  %2492 = and i16 %2491, 32
+  %.not.i1159 = icmp eq i16 %2492, 0
+  br i1 %.not.i1159, label %parser_set_lex_state.exit1161, label %2493
 
-2495:                                             ; preds = %2492
-  %2496 = load i32, ptr %1019, align 8, !tbaa !60
-  %2497 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2496, i32 noundef 1025, i32 noundef 11074) #31
+2493:                                             ; preds = %2490
+  %2494 = load i32, ptr %1019, align 8, !tbaa !60
+  %2495 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2494, i32 noundef 1025, i32 noundef 11074) #31
   br label %parser_set_lex_state.exit1161
 
-parser_set_lex_state.exit1161:                    ; preds = %2492, %2495
-  %.0.i1160 = phi i32 [ %2497, %2495 ], [ 1025, %2492 ]
+parser_set_lex_state.exit1161:                    ; preds = %2490, %2493
+  %.0.i1160 = phi i32 [ %2495, %2493 ], [ 1025, %2490 ]
   store i32 %.0.i1160, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2498:                                             ; preds = %1049
-  %2499 = load i32, ptr %1019, align 8, !tbaa !60
-  %2500 = and i32 %2499, 384
-  %.not721 = icmp eq i32 %2500, 0
-  br i1 %.not721, label %2510, label %2501
+2496:                                             ; preds = %1049
+  %2497 = load i32, ptr %1019, align 8, !tbaa !60
+  %2498 = and i32 %2497, 384
+  %.not721 = icmp eq i32 %2498, 0
+  br i1 %.not721, label %2508, label %2499
 
-2501:                                             ; preds = %2498
-  %2502 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %.not722 = icmp eq i32 %2502, 64
-  br i1 %.not722, label %2504, label %2503
+2499:                                             ; preds = %2496
+  %2500 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %.not722 = icmp eq i32 %2500, 64
+  br i1 %.not722, label %2502, label %2501
 
-2503:                                             ; preds = %2501
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2502)
-  br label %2504
+2501:                                             ; preds = %2499
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2500)
+  br label %2502
 
-2504:                                             ; preds = %2503, %2501
-  %2505 = load i16, ptr %10, align 8
-  %2506 = and i16 %2505, 32
-  %.not.i1162 = icmp eq i16 %2506, 0
-  br i1 %.not.i1162, label %parser_set_lex_state.exit1164, label %2507
+2502:                                             ; preds = %2501, %2499
+  %2503 = load i16, ptr %10, align 8
+  %2504 = and i16 %2503, 32
+  %.not.i1162 = icmp eq i16 %2504, 0
+  br i1 %.not.i1162, label %parser_set_lex_state.exit1164, label %2505
 
-2507:                                             ; preds = %2504
-  %2508 = load i32, ptr %1019, align 8, !tbaa !60
-  %2509 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2508, i32 noundef 16, i32 noundef 11082) #31
+2505:                                             ; preds = %2502
+  %2506 = load i32, ptr %1019, align 8, !tbaa !60
+  %2507 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2506, i32 noundef 16, i32 noundef 11082) #31
   br label %parser_set_lex_state.exit1164
 
-parser_set_lex_state.exit1164:                    ; preds = %2504, %2507
-  %.0.i1163 = phi i32 [ %2509, %2507 ], [ 16, %2504 ]
+parser_set_lex_state.exit1164:                    ; preds = %2502, %2505
+  %.0.i1163 = phi i32 [ %2507, %2505 ], [ 16, %2502 ]
   store i32 %.0.i1163, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2510:                                             ; preds = %2498
-  %2511 = load i16, ptr %10, align 8
-  %2512 = and i16 %2511, 32
-  %.not.i1165 = icmp eq i16 %2512, 0
-  br i1 %.not.i1165, label %parser_set_lex_state.exit1167, label %2513
+2508:                                             ; preds = %2496
+  %2509 = load i16, ptr %10, align 8
+  %2510 = and i16 %2509, 32
+  %.not.i1165 = icmp eq i16 %2510, 0
+  br i1 %.not.i1165, label %parser_set_lex_state.exit1167, label %2511
 
-2513:                                             ; preds = %2510
-  %2514 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2499, i32 noundef 1, i32 noundef 11085) #31
+2511:                                             ; preds = %2508
+  %2512 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2497, i32 noundef 1, i32 noundef 11085) #31
   br label %parser_set_lex_state.exit1167
 
-parser_set_lex_state.exit1167:                    ; preds = %2510, %2513
-  %.0.i1166 = phi i32 [ %2514, %2513 ], [ 1, %2510 ]
+parser_set_lex_state.exit1167:                    ; preds = %2508, %2511
+  %.0.i1166 = phi i32 [ %2512, %2511 ], [ 1, %2508 ]
   store i32 %.0.i1166, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2515:                                             ; preds = %1049
-  %2516 = load i32, ptr %1019, align 8, !tbaa !60
-  %2517 = and i32 %2516, 577
-  %.not715 = icmp ne i32 %2517, 0
-  %2518 = and i32 %2516, 2064
-  %2519 = icmp eq i32 %2518, 2064
-  %or.cond821 = or i1 %.not715, %2519
-  br i1 %or.cond821, label %2538, label %2520
+2513:                                             ; preds = %1049
+  %2514 = load i32, ptr %1019, align 8, !tbaa !60
+  %2515 = and i32 %2514, 577
+  %.not715 = icmp ne i32 %2515, 0
+  %2516 = and i32 %2514, 2064
+  %2517 = icmp eq i32 %2516, 2064
+  %or.cond821 = or i1 %.not715, %2517
+  br i1 %or.cond821, label %2536, label %2518
 
-2520:                                             ; preds = %2515
+2518:                                             ; preds = %2513
   %.not716 = icmp eq i32 %.0649, 0
-  br i1 %.not716, label %2538, label %2521
+  br i1 %.not716, label %2536, label %2519
 
-2521:                                             ; preds = %2520
-  %2522 = and i32 %2516, 48
-  %.not717 = icmp ne i32 %2522, 0
-  %2523 = and i32 %2516, 1026
-  %2524 = icmp eq i32 %2523, 1026
-  %or.cond823 = or i1 %.not717, %2524
-  br i1 %or.cond823, label %2538, label %2525
+2519:                                             ; preds = %2518
+  %2520 = and i32 %2514, 48
+  %.not717 = icmp ne i32 %2520, 0
+  %2521 = and i32 %2514, 1026
+  %2522 = icmp eq i32 %2521, 1026
+  %or.cond823 = or i1 %.not717, %2522
+  br i1 %or.cond823, label %2536, label %2523
 
-2525:                                             ; preds = %2521
-  %2526 = and i32 %2516, 8
-  %.not718 = icmp eq i32 %2526, 0
-  br i1 %.not718, label %2538, label %2527
+2523:                                             ; preds = %2519
+  %2524 = and i32 %2514, 8
+  %.not718 = icmp eq i32 %2524, 0
+  br i1 %.not718, label %2536, label %2525
 
-2527:                                             ; preds = %2525
-  %2528 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %2529 = load i32, ptr %2528, align 8, !tbaa !151
-  %2530 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2531 = load i32, ptr %2530, align 4, !tbaa !167
-  %2532 = icmp eq i32 %2529, %2531
-  br i1 %2532, label %2538, label %2533
+2525:                                             ; preds = %2523
+  %2526 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %2527 = load i32, ptr %2526, align 8, !tbaa !151
+  %2528 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2529 = load i32, ptr %2528, align 4, !tbaa !167
+  %2530 = icmp eq i32 %2527, %2529
+  br i1 %2530, label %2536, label %2531
 
-2533:                                             ; preds = %2527
-  %2534 = load i64, ptr %1025, align 8, !tbaa !46
-  %2535 = load i64, ptr @id_warning, align 8, !tbaa !9
-  %2536 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.594, i64 noundef 91) #31
-  %2537 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2534, i64 noundef %2535, i32 noundef 1, i64 noundef %2536) #31
-  br label %2538
+2531:                                             ; preds = %2525
+  %2532 = load i64, ptr %1025, align 8, !tbaa !46
+  %2533 = load i64, ptr @id_warning, align 8, !tbaa !9
+  %2534 = tail call i64 @rb_usascii_str_new_static(ptr noundef nonnull @.str.594, i64 noundef 91) #31
+  %2535 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2532, i64 noundef %2533, i32 noundef 1, i64 noundef %2534) #31
+  br label %2536
 
-2538:                                             ; preds = %2521, %2515, %2520, %2525, %2527, %2533
-  %.2646 = phi i32 [ 40, %2527 ], [ 40, %2533 ], [ 40, %2525 ], [ 40, %2520 ], [ 328, %2515 ], [ 329, %2521 ]
-  %2539 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2540 = load i32, ptr %2539, align 4, !tbaa !167
-  %2541 = add nsw i32 %2540, 1
-  store i32 %2541, ptr %2539, align 4, !tbaa !167
-  %2542 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2543 = load i64, ptr %2542, align 8, !tbaa !99
-  %2544 = shl i64 %2543, 1
-  store i64 %2544, ptr %2542, align 8, !tbaa !99
-  %2545 = load i16, ptr %10, align 8
-  %2546 = and i16 %2545, 32
-  %.not719 = icmp eq i16 %2546, 0
-  br i1 %.not719, label %.thread2020, label %2550
+2536:                                             ; preds = %2519, %2513, %2518, %2523, %2525, %2531
+  %.2646 = phi i32 [ 40, %2525 ], [ 40, %2531 ], [ 40, %2523 ], [ 40, %2518 ], [ 328, %2513 ], [ 329, %2519 ]
+  %2537 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2538 = load i32, ptr %2537, align 4, !tbaa !167
+  %2539 = add nsw i32 %2538, 1
+  store i32 %2539, ptr %2537, align 4, !tbaa !167
+  %2540 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2541 = load i64, ptr %2540, align 8, !tbaa !99
+  %2542 = shl i64 %2541, 1
+  store i64 %2542, ptr %2540, align 8, !tbaa !99
+  %2543 = load i16, ptr %10, align 8
+  %2544 = and i16 %2543, 32
+  %.not719 = icmp eq i16 %2544, 0
+  br i1 %.not719, label %.thread2020, label %2548
 
-.thread2020:                                      ; preds = %2538
-  %2547 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2548 = load i64, ptr %2547, align 8, !tbaa !112
-  %2549 = shl i64 %2548, 1
-  store i64 %2549, ptr %2547, align 8, !tbaa !112
+.thread2020:                                      ; preds = %2536
+  %2545 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2546 = load i64, ptr %2545, align 8, !tbaa !112
+  %2547 = shl i64 %2546, 1
+  store i64 %2547, ptr %2545, align 8, !tbaa !112
   br label %parser_set_lex_state.exit1170
 
-2550:                                             ; preds = %2538
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2544, ptr noundef nonnull @.str.12, i32 noundef 11104) #31
+2548:                                             ; preds = %2536
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2542, ptr noundef nonnull @.str.12, i32 noundef 11104) #31
   %.pre1959 = load i16, ptr %10, align 8
   %.pre1996 = and i16 %.pre1959, 32
-  %2551 = icmp eq i16 %.pre1996, 0
-  %2552 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2553 = load i64, ptr %2552, align 8, !tbaa !112
-  %2554 = shl i64 %2553, 1
-  store i64 %2554, ptr %2552, align 8, !tbaa !112
-  br i1 %2551, label %parser_set_lex_state.exit1170, label %2555
+  %2549 = icmp eq i16 %.pre1996, 0
+  %2550 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2551 = load i64, ptr %2550, align 8, !tbaa !112
+  %2552 = shl i64 %2551, 1
+  store i64 %2552, ptr %2550, align 8, !tbaa !112
+  br i1 %2549, label %parser_set_lex_state.exit1170, label %2553
 
-2555:                                             ; preds = %2550
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2554, ptr noundef nonnull @.str.17, i32 noundef 11105) #31
+2553:                                             ; preds = %2548
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2552, ptr noundef nonnull @.str.17, i32 noundef 11105) #31
   %.pre1960 = load i16, ptr %10, align 8
   %.pre1998 = and i16 %.pre1960, 32
-  %2556 = icmp eq i16 %.pre1998, 0
-  br i1 %2556, label %parser_set_lex_state.exit1170, label %2557
+  %2554 = icmp eq i16 %.pre1998, 0
+  br i1 %2554, label %parser_set_lex_state.exit1170, label %2555
 
-2557:                                             ; preds = %2555
-  %2558 = load i32, ptr %1019, align 8, !tbaa !60
-  %2559 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2558, i32 noundef 1025, i32 noundef 11106) #31
+2555:                                             ; preds = %2553
+  %2556 = load i32, ptr %1019, align 8, !tbaa !60
+  %2557 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2556, i32 noundef 1025, i32 noundef 11106) #31
   br label %parser_set_lex_state.exit1170
 
-parser_set_lex_state.exit1170:                    ; preds = %.thread2020, %2550, %2555, %2557
-  %.0.i1169 = phi i32 [ %2559, %2557 ], [ 1025, %2555 ], [ 1025, %2550 ], [ 1025, %.thread2020 ]
+parser_set_lex_state.exit1170:                    ; preds = %.thread2020, %2548, %2553, %2555
+  %.0.i1169 = phi i32 [ %2557, %2555 ], [ 1025, %2553 ], [ 1025, %2548 ], [ 1025, %.thread2020 ]
   store i32 %.0.i1169, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2560:                                             ; preds = %1049
-  %2561 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2562 = load i32, ptr %2561, align 4, !tbaa !167
-  %2563 = add nsw i32 %2562, 1
-  store i32 %2563, ptr %2561, align 4, !tbaa !167
-  %2564 = load i32, ptr %1019, align 8, !tbaa !60
-  %2565 = and i32 %2564, 384
-  %.not708 = icmp eq i32 %2565, 0
-  br i1 %.not708, label %2586, label %2566
+2558:                                             ; preds = %1049
+  %2559 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2560 = load i32, ptr %2559, align 4, !tbaa !167
+  %2561 = add nsw i32 %2560, 1
+  store i32 %2561, ptr %2559, align 4, !tbaa !167
+  %2562 = load i32, ptr %1019, align 8, !tbaa !60
+  %2563 = and i32 %2562, 384
+  %.not708 = icmp eq i32 %2563, 0
+  br i1 %.not708, label %2584, label %2564
 
-2566:                                             ; preds = %2560
-  %2567 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2568 = icmp eq i32 %2567, 93
-  br i1 %2568, label %2569, label %2580
+2564:                                             ; preds = %2558
+  %2565 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2566 = icmp eq i32 %2565, 93
+  br i1 %2566, label %2567, label %2578
 
-2569:                                             ; preds = %2566
-  %2570 = load i32, ptr %2561, align 4, !tbaa !167
-  %2571 = add nsw i32 %2570, -1
-  store i32 %2571, ptr %2561, align 4, !tbaa !167
-  %2572 = load i16, ptr %10, align 8
-  %2573 = and i16 %2572, 32
-  %.not.i1171 = icmp eq i16 %2573, 0
-  br i1 %.not.i1171, label %parser_set_lex_state.exit1173, label %2574
+2567:                                             ; preds = %2564
+  %2568 = load i32, ptr %2559, align 4, !tbaa !167
+  %2569 = add nsw i32 %2568, -1
+  store i32 %2569, ptr %2559, align 4, !tbaa !167
+  %2570 = load i16, ptr %10, align 8
+  %2571 = and i16 %2570, 32
+  %.not.i1171 = icmp eq i16 %2571, 0
+  br i1 %.not.i1171, label %parser_set_lex_state.exit1173, label %2572
 
-2574:                                             ; preds = %2569
-  %2575 = load i32, ptr %1019, align 8, !tbaa !60
-  %2576 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2575, i32 noundef 16, i32 noundef 11114) #31
+2572:                                             ; preds = %2567
+  %2573 = load i32, ptr %1019, align 8, !tbaa !60
+  %2574 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2573, i32 noundef 16, i32 noundef 11114) #31
   br label %parser_set_lex_state.exit1173
 
-parser_set_lex_state.exit1173:                    ; preds = %2569, %2574
-  %.0.i1172 = phi i32 [ %2576, %2574 ], [ 16, %2569 ]
+parser_set_lex_state.exit1173:                    ; preds = %2567, %2572
+  %.0.i1172 = phi i32 [ %2574, %2572 ], [ 16, %2567 ]
   store i32 %.0.i1172, ptr %1019, align 8, !tbaa !60
-  %2577 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
-  %2578 = icmp eq i32 %2577, 61
-  br i1 %2578, label %pushback.exit1048, label %2579
+  %2575 = tail call fastcc i32 @nextc0(ptr noundef nonnull %0)
+  %2576 = icmp eq i32 %2575, 61
+  br i1 %2576, label %pushback.exit1048, label %2577
 
-2579:                                             ; preds = %parser_set_lex_state.exit1173
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2577)
+2577:                                             ; preds = %parser_set_lex_state.exit1173
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2575)
   br label %pushback.exit1048
 
-2580:                                             ; preds = %2566
-  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2567)
-  %2581 = load i16, ptr %10, align 8
-  %2582 = and i16 %2581, 32
-  %.not.i1174 = icmp eq i16 %2582, 0
-  br i1 %.not.i1174, label %parser_set_lex_state.exit1176, label %2583
+2578:                                             ; preds = %2564
+  tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %2565)
+  %2579 = load i16, ptr %10, align 8
+  %2580 = and i16 %2579, 32
+  %.not.i1174 = icmp eq i16 %2580, 0
+  br i1 %.not.i1174, label %parser_set_lex_state.exit1176, label %2581
 
-2583:                                             ; preds = %2580
-  %2584 = load i32, ptr %1019, align 8, !tbaa !60
-  %2585 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2584, i32 noundef 1040, i32 noundef 11122) #31
+2581:                                             ; preds = %2578
+  %2582 = load i32, ptr %1019, align 8, !tbaa !60
+  %2583 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2582, i32 noundef 1040, i32 noundef 11122) #31
   br label %parser_set_lex_state.exit1176
 
-parser_set_lex_state.exit1176:                    ; preds = %2580, %2583
-  %.0.i1175 = phi i32 [ %2585, %2583 ], [ 1040, %2580 ]
+parser_set_lex_state.exit1176:                    ; preds = %2578, %2581
+  %.0.i1175 = phi i32 [ %2583, %2581 ], [ 1040, %2578 ]
   store i32 %.0.i1175, ptr %1019, align 8, !tbaa !60
   br label %pushback.exit1048
 
-2586:                                             ; preds = %2560
-  %2587 = and i32 %2564, 577
-  %.not709 = icmp ne i32 %2587, 0
-  %2588 = and i32 %2564, 2064
-  %2589 = icmp eq i32 %2588, 2064
-  %or.cond825 = or i1 %.not709, %2589
-  br i1 %or.cond825, label %2595, label %2590
+2584:                                             ; preds = %2558
+  %2585 = and i32 %2562, 577
+  %.not709 = icmp ne i32 %2585, 0
+  %2586 = and i32 %2562, 2064
+  %2587 = icmp eq i32 %2586, 2064
+  %or.cond825 = or i1 %.not709, %2587
+  br i1 %or.cond825, label %2593, label %2588
 
-2590:                                             ; preds = %2586
-  %2591 = and i32 %2564, 48
-  %.not710 = icmp eq i32 %2591, 0
-  br i1 %.not710, label %2595, label %2592
+2588:                                             ; preds = %2584
+  %2589 = and i32 %2562, 48
+  %.not710 = icmp eq i32 %2589, 0
+  br i1 %.not710, label %2593, label %2590
 
-2592:                                             ; preds = %2590
-  %2593 = and i32 %2564, 2048
-  %2594 = or disjoint i32 %2593, %.0649
-  %or.cond826 = icmp eq i32 %2594, 0
+2590:                                             ; preds = %2588
+  %2591 = and i32 %2562, 2048
+  %2592 = or disjoint i32 %2591, %.0649
+  %or.cond826 = icmp eq i32 %2592, 0
   %spec.select = select i1 %or.cond826, i32 91, i32 330
-  br label %2595
+  br label %2593
 
-2595:                                             ; preds = %2592, %2586, %2590
-  %.3647 = phi i32 [ 91, %2590 ], [ 330, %2586 ], [ %spec.select, %2592 ]
-  %2596 = load i16, ptr %10, align 8
-  %2597 = and i16 %2596, 32
-  %.not.i1177 = icmp eq i16 %2597, 0
+2593:                                             ; preds = %2590, %2584, %2588
+  %.3647 = phi i32 [ 91, %2588 ], [ 330, %2584 ], [ %spec.select, %2590 ]
+  %2594 = load i16, ptr %10, align 8
+  %2595 = and i16 %2594, 32
+  %.not.i1177 = icmp eq i16 %2595, 0
   br i1 %.not.i1177, label %parser_set_lex_state.exit1179.thread, label %parser_set_lex_state.exit1179
 
-parser_set_lex_state.exit1179.thread:             ; preds = %2595
+parser_set_lex_state.exit1179.thread:             ; preds = %2593
   store i32 1025, ptr %1019, align 8, !tbaa !60
-  %2598 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2599 = load i64, ptr %2598, align 8, !tbaa !99
-  %2600 = shl i64 %2599, 1
-  store i64 %2600, ptr %2598, align 8, !tbaa !99
+  %2596 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2597 = load i64, ptr %2596, align 8, !tbaa !99
+  %2598 = shl i64 %2597, 1
+  store i64 %2598, ptr %2596, align 8, !tbaa !99
   br label %.thread2028
 
-parser_set_lex_state.exit1179:                    ; preds = %2595
-  %2601 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2564, i32 noundef 1025, i32 noundef 11131) #31
+parser_set_lex_state.exit1179:                    ; preds = %2593
+  %2599 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2562, i32 noundef 1025, i32 noundef 11131) #31
   %.pre1957 = load i16, ptr %10, align 8
   %.pre2000 = and i16 %.pre1957, 32
-  %2602 = icmp eq i16 %.pre2000, 0
-  store i32 %2601, ptr %1019, align 8, !tbaa !60
-  %2603 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2604 = load i64, ptr %2603, align 8, !tbaa !99
-  %2605 = shl i64 %2604, 1
-  store i64 %2605, ptr %2603, align 8, !tbaa !99
-  br i1 %2602, label %.thread2028, label %2609
+  %2600 = icmp eq i16 %.pre2000, 0
+  store i32 %2599, ptr %1019, align 8, !tbaa !60
+  %2601 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2602 = load i64, ptr %2601, align 8, !tbaa !99
+  %2603 = shl i64 %2602, 1
+  store i64 %2603, ptr %2601, align 8, !tbaa !99
+  br i1 %2600, label %.thread2028, label %2607
 
 .thread2028:                                      ; preds = %parser_set_lex_state.exit1179, %parser_set_lex_state.exit1179.thread
-  %2606 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2607 = load i64, ptr %2606, align 8, !tbaa !112
-  %2608 = shl i64 %2607, 1
-  store i64 %2608, ptr %2606, align 8, !tbaa !112
+  %2604 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2605 = load i64, ptr %2604, align 8, !tbaa !112
+  %2606 = shl i64 %2605, 1
+  store i64 %2606, ptr %2604, align 8, !tbaa !112
   br label %pushback.exit1048
 
-2609:                                             ; preds = %parser_set_lex_state.exit1179
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2605, ptr noundef nonnull @.str.12, i32 noundef 11132) #31
+2607:                                             ; preds = %parser_set_lex_state.exit1179
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2603, ptr noundef nonnull @.str.12, i32 noundef 11132) #31
   %.pre1958 = load i16, ptr %10, align 8
   %.pre2002 = and i16 %.pre1958, 32
-  %2610 = icmp eq i16 %.pre2002, 0
-  %2611 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2612 = load i64, ptr %2611, align 8, !tbaa !112
-  %2613 = shl i64 %2612, 1
-  store i64 %2613, ptr %2611, align 8, !tbaa !112
-  br i1 %2610, label %pushback.exit1048, label %2614
+  %2608 = icmp eq i16 %.pre2002, 0
+  %2609 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2610 = load i64, ptr %2609, align 8, !tbaa !112
+  %2611 = shl i64 %2610, 1
+  store i64 %2611, ptr %2609, align 8, !tbaa !112
+  br i1 %2608, label %pushback.exit1048, label %2612
 
-2614:                                             ; preds = %2609
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2613, ptr noundef nonnull @.str.17, i32 noundef 11133) #31
+2612:                                             ; preds = %2607
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2611, ptr noundef nonnull @.str.17, i32 noundef 11133) #31
   br label %pushback.exit1048
 
-2615:                                             ; preds = %1049
-  %2616 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %2617 = load i32, ptr %2616, align 4, !tbaa !165
-  %2618 = add nsw i32 %2617, 1
-  store i32 %2618, ptr %2616, align 4, !tbaa !165
-  %2619 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %2620 = load i32, ptr %2619, align 8, !tbaa !151
-  %2621 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %2622 = load i32, ptr %2621, align 4, !tbaa !167
-  %2623 = icmp eq i32 %2620, %2622
-  br i1 %2623, label %.thread1268, label %2624
+2613:                                             ; preds = %1049
+  %2614 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %2615 = load i32, ptr %2614, align 4, !tbaa !165
+  %2616 = add nsw i32 %2615, 1
+  store i32 %2616, ptr %2614, align 4, !tbaa !165
+  %2617 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %2618 = load i32, ptr %2617, align 8, !tbaa !151
+  %2619 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %2620 = load i32, ptr %2619, align 4, !tbaa !167
+  %2621 = icmp eq i32 %2618, %2620
+  br i1 %2621, label %.thread1268, label %2622
 
-2624:                                             ; preds = %2615
-  %2625 = load i32, ptr %1019, align 8, !tbaa !60
-  %2626 = and i32 %2625, 2048
-  %.not702 = icmp eq i32 %2626, 0
-  br i1 %.not702, label %2627, label %.thread1273
+2622:                                             ; preds = %2613
+  %2623 = load i32, ptr %1019, align 8, !tbaa !60
+  %2624 = and i32 %2623, 2048
+  %.not702 = icmp eq i32 %2624, 0
+  br i1 %.not702, label %2625, label %.thread1273
 
-2627:                                             ; preds = %2624
-  %2628 = and i32 %2625, 58
-  %.not703 = icmp eq i32 %2628, 0
-  br i1 %.not703, label %2629, label %.thread1268
+2625:                                             ; preds = %2622
+  %2626 = and i32 %2623, 58
+  %.not703 = icmp eq i32 %2626, 0
+  br i1 %.not703, label %2627, label %.thread1268
 
-2629:                                             ; preds = %2627
-  %2630 = and i32 %2625, 4
-  %.not704 = icmp eq i32 %2630, 0
+2627:                                             ; preds = %2625
+  %2628 = and i32 %2623, 4
+  %.not704 = icmp eq i32 %2628, 0
   br i1 %.not704, label %.thread1273, label %.thread1268
 
-.thread1268:                                      ; preds = %2627, %2615, %2629
-  %.46481272 = phi i32 [ 332, %2629 ], [ 123, %2627 ], [ 349, %2615 ]
-  %2631 = load i16, ptr %10, align 8
-  %2632 = or i16 %2631, 4
-  store i16 %2632, ptr %10, align 8
-  %2633 = and i16 %2631, 32
-  %.not.i1180 = icmp eq i16 %2633, 0
-  br i1 %.not.i1180, label %parser_set_lex_state.exit1182, label %2634
+.thread1268:                                      ; preds = %2625, %2613, %2627
+  %.46481272 = phi i32 [ 332, %2627 ], [ 123, %2625 ], [ 349, %2613 ]
+  %2629 = load i16, ptr %10, align 8
+  %2630 = or i16 %2629, 4
+  store i16 %2630, ptr %10, align 8
+  %2631 = and i16 %2629, 32
+  %.not.i1180 = icmp eq i16 %2631, 0
+  br i1 %.not.i1180, label %parser_set_lex_state.exit1182, label %2632
 
-2634:                                             ; preds = %.thread1268
-  %2635 = load i32, ptr %1019, align 8, !tbaa !60
-  %2636 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2635, i32 noundef 1, i32 noundef 11150) #31
+2632:                                             ; preds = %.thread1268
+  %2633 = load i32, ptr %1019, align 8, !tbaa !60
+  %2634 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2633, i32 noundef 1, i32 noundef 11150) #31
   br label %parser_set_lex_state.exit1182
 
-.thread1273:                                      ; preds = %2624, %2629
-  %2637 = load i16, ptr %10, align 8
-  %2638 = and i16 %2637, 32
-  %.not.i1183 = icmp eq i16 %2638, 0
-  br i1 %.not.i1183, label %parser_set_lex_state.exit1182, label %2639
+.thread1273:                                      ; preds = %2622, %2627
+  %2635 = load i16, ptr %10, align 8
+  %2636 = and i16 %2635, 32
+  %.not.i1183 = icmp eq i16 %2636, 0
+  br i1 %.not.i1183, label %parser_set_lex_state.exit1182, label %2637
 
-2639:                                             ; preds = %.thread1273
-  %2640 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2625, i32 noundef 1025, i32 noundef 11153) #31
+2637:                                             ; preds = %.thread1273
+  %2638 = tail call i32 @rb_parser_trace_lex_state(ptr noundef nonnull %0, i32 noundef %2623, i32 noundef 1025, i32 noundef 11153) #31
   br label %parser_set_lex_state.exit1182
 
-parser_set_lex_state.exit1182:                    ; preds = %2639, %.thread1273, %2634, %.thread1268
-  %storemerge = phi i32 [ %2636, %2634 ], [ 1, %.thread1268 ], [ %2640, %2639 ], [ 1025, %.thread1273 ]
-  %.46481271 = phi i32 [ %.46481272, %2634 ], [ %.46481272, %.thread1268 ], [ 331, %2639 ], [ 331, %.thread1273 ]
+parser_set_lex_state.exit1182:                    ; preds = %2637, %.thread1273, %2632, %.thread1268
+  %storemerge = phi i32 [ %2634, %2632 ], [ 1, %.thread1268 ], [ %2638, %2637 ], [ 1025, %.thread1273 ]
+  %.46481271 = phi i32 [ %.46481272, %2632 ], [ %.46481272, %.thread1268 ], [ 331, %2637 ], [ 331, %.thread1273 ]
   store i32 %storemerge, ptr %1019, align 8, !tbaa !60
-  %2641 = load i32, ptr %2621, align 4, !tbaa !167
-  %2642 = add nsw i32 %2641, 1
-  store i32 %2642, ptr %2621, align 4, !tbaa !167
-  %2643 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %2644 = load i64, ptr %2643, align 8, !tbaa !99
-  %2645 = shl i64 %2644, 1
-  store i64 %2645, ptr %2643, align 8, !tbaa !99
-  %2646 = load i16, ptr %10, align 8
-  %2647 = and i16 %2646, 32
-  %.not706 = icmp eq i16 %2647, 0
-  br i1 %.not706, label %.thread2030, label %2651
+  %2639 = load i32, ptr %2619, align 4, !tbaa !167
+  %2640 = add nsw i32 %2639, 1
+  store i32 %2640, ptr %2619, align 4, !tbaa !167
+  %2641 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %2642 = load i64, ptr %2641, align 8, !tbaa !99
+  %2643 = shl i64 %2642, 1
+  store i64 %2643, ptr %2641, align 8, !tbaa !99
+  %2644 = load i16, ptr %10, align 8
+  %2645 = and i16 %2644, 32
+  %.not706 = icmp eq i16 %2645, 0
+  br i1 %.not706, label %.thread2030, label %2649
 
 .thread2030:                                      ; preds = %parser_set_lex_state.exit1182
-  %2648 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2649 = load i64, ptr %2648, align 8, !tbaa !112
-  %2650 = shl i64 %2649, 1
-  store i64 %2650, ptr %2648, align 8, !tbaa !112
+  %2646 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2647 = load i64, ptr %2646, align 8, !tbaa !112
+  %2648 = shl i64 %2647, 1
+  store i64 %2648, ptr %2646, align 8, !tbaa !112
   br label %pushback.exit1048
 
-2651:                                             ; preds = %parser_set_lex_state.exit1182
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2645, ptr noundef nonnull @.str.12, i32 noundef 11156) #31
+2649:                                             ; preds = %parser_set_lex_state.exit1182
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2643, ptr noundef nonnull @.str.12, i32 noundef 11156) #31
   %.pre1956 = load i16, ptr %10, align 8
   %.pre2004 = and i16 %.pre1956, 32
-  %2652 = icmp eq i16 %.pre2004, 0
-  %2653 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %2654 = load i64, ptr %2653, align 8, !tbaa !112
-  %2655 = shl i64 %2654, 1
-  store i64 %2655, ptr %2653, align 8, !tbaa !112
-  br i1 %2652, label %pushback.exit1048, label %2656
+  %2650 = icmp eq i16 %.pre2004, 0
+  %2651 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %2652 = load i64, ptr %2651, align 8, !tbaa !112
+  %2653 = shl i64 %2652, 1
+  store i64 %2653, ptr %2651, align 8, !tbaa !112
+  br i1 %2650, label %pushback.exit1048, label %2654
 
-2656:                                             ; preds = %2651
-  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2655, ptr noundef nonnull @.str.17, i32 noundef 11157) #31
+2654:                                             ; preds = %2649
+  tail call void @rb_parser_show_bitstack(ptr noundef nonnull %0, i64 noundef %2653, ptr noundef nonnull @.str.17, i32 noundef 11157) #31
   br label %pushback.exit1048
 
-2657:                                             ; preds = %1049
-  %2658 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i1186 = icmp ult ptr %1051, %2658
-  br i1 %.not.i1186, label %2659, label %.critedge.i1187, !prof !477
+2655:                                             ; preds = %1049
+  %2656 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i1186 = icmp ult ptr %1051, %2656
+  br i1 %.not.i1186, label %2657, label %.critedge.i1187, !prof !477
 
-2659:                                             ; preds = %2657
-  %2660 = load i16, ptr %10, align 8
-  %2661 = and i16 %2660, 8
-  %.not13.i1193 = icmp eq i16 %2661, 0
-  br i1 %.not13.i1193, label %2662, label %.critedge.i1187, !prof !477
+2657:                                             ; preds = %2655
+  %2658 = load i16, ptr %10, align 8
+  %2659 = and i16 %2658, 8
+  %.not13.i1193 = icmp eq i16 %2659, 0
+  br i1 %.not13.i1193, label %2660, label %.critedge.i1187, !prof !477
 
-2662:                                             ; preds = %2659
-  %2663 = load ptr, ptr %1022, align 8, !tbaa !478
-  %2664 = icmp ugt ptr %2663, inttoptr (i64 1 to ptr)
-  br i1 %2664, label %.critedge.i1187, label %2666, !prof !189
+2660:                                             ; preds = %2657
+  %2661 = load ptr, ptr %1022, align 8, !tbaa !478
+  %2662 = icmp ugt ptr %2661, inttoptr (i64 1 to ptr)
+  br i1 %2662, label %.critedge.i1187, label %2664, !prof !189
 
-.critedge.i1187:                                  ; preds = %2662, %2659, %2657
-  %2665 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
-  %.not14.i1188 = icmp eq i32 %2665, 0
+.critedge.i1187:                                  ; preds = %2660, %2657, %2655
+  %2663 = tail call fastcc i32 @nextline(ptr noundef nonnull %0)
+  %.not14.i1188 = icmp eq i32 %2663, 0
   br i1 %.not14.i1188, label %.critedge._crit_edge.i1190, label %nextc0.exit1194.thread.thread
 
 .critedge._crit_edge.i1190:                       ; preds = %.critedge.i1187
   %.pre.i1191 = load ptr, ptr %1020, align 8, !tbaa !48
-  br label %2666
+  br label %2664
 
-2666:                                             ; preds = %.critedge._crit_edge.i1190, %2662
-  %2667 = phi ptr [ %.pre.i1191, %.critedge._crit_edge.i1190 ], [ %1051, %2662 ]
-  %2668 = getelementptr inbounds nuw i8, ptr %2667, i64 1
-  store ptr %2668, ptr %1020, align 8, !tbaa !48
-  %2669 = load i8, ptr %2667, align 1, !tbaa !6
-  switch i8 %2669, label %nextc0.exit1194.thread [
-    i8 13, label %2670
-    i8 10, label %2676
+2664:                                             ; preds = %.critedge._crit_edge.i1190, %2660
+  %2665 = phi ptr [ %.pre.i1191, %.critedge._crit_edge.i1190 ], [ %1051, %2660 ]
+  %2666 = getelementptr inbounds nuw i8, ptr %2665, i64 1
+  store ptr %2666, ptr %1020, align 8, !tbaa !48
+  %2667 = load i8, ptr %2665, align 1, !tbaa !6
+  switch i8 %2667, label %nextc0.exit1194.thread [
+    i8 13, label %2668
+    i8 10, label %2674
     i8 32, label %pushback.exit1048
   ], !prof !556
 
-2670:                                             ; preds = %2666
-  %2671 = load ptr, ptr %1021, align 8, !tbaa !401
-  %.not.i.i1192 = icmp ult ptr %2668, %2671
-  br i1 %.not.i.i1192, label %2672, label %pushback.exit1048
+2668:                                             ; preds = %2664
+  %2669 = load ptr, ptr %1021, align 8, !tbaa !401
+  %.not.i.i1192 = icmp ult ptr %2666, %2669
+  br i1 %.not.i.i1192, label %2670, label %pushback.exit1048
 
-2672:                                             ; preds = %2670
-  %2673 = load i8, ptr %2668, align 1, !tbaa !6
-  %2674 = icmp eq i8 %2673, 10
-  br i1 %2674, label %nextc0.exit1194.thread1279, label %pushback.exit1048
+2670:                                             ; preds = %2668
+  %2671 = load i8, ptr %2666, align 1, !tbaa !6
+  %2672 = icmp eq i8 %2671, 10
+  br i1 %2672, label %nextc0.exit1194.thread1279, label %pushback.exit1048
 
-nextc0.exit1194.thread1279:                       ; preds = %2672
-  %2675 = getelementptr inbounds nuw i8, ptr %2667, i64 2
-  store ptr %2675, ptr %1020, align 8, !tbaa !48
-  br label %2676
+nextc0.exit1194.thread1279:                       ; preds = %2670
+  %2673 = getelementptr inbounds nuw i8, ptr %2665, i64 2
+  store ptr %2673, ptr %1020, align 8, !tbaa !48
+  br label %2674
 
-2676:                                             ; preds = %2666, %nextc0.exit1194.thread1279
-  %.val.i1195 = phi ptr [ %2668, %2666 ], [ %2675, %nextc0.exit1194.thread1279 ]
+2674:                                             ; preds = %2664, %nextc0.exit1194.thread1279
+  %.val.i1195 = phi ptr [ %2666, %2664 ], [ %2673, %nextc0.exit1194.thread1279 ]
   %.val3.i1196 = load ptr, ptr %1023, align 8, !tbaa !41
-  %2677 = icmp ult ptr %.val.i1195, %.val3.i1196
-  br i1 %2677, label %2678, label %ripper_has_scan_event.exit.i1197
+  %2675 = icmp ult ptr %.val.i1195, %.val3.i1196
+  br i1 %2675, label %2676, label %ripper_has_scan_event.exit.i1197
 
-2678:                                             ; preds = %2676
-  %2679 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2679, ptr noundef nonnull @.str.666) #33
+2676:                                             ; preds = %2674
+  %2677 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2677, ptr noundef nonnull @.str.666) #33
   unreachable
 
-ripper_has_scan_event.exit.i1197:                 ; preds = %2676
+ripper_has_scan_event.exit.i1197:                 ; preds = %2674
   %.not.i1198 = icmp ugt ptr %.val.i1195, %.val3.i1196
-  br i1 %.not.i1198, label %2680, label %.backedge.backedge
+  br i1 %.not.i1198, label %2678, label %.backedge.backedge
 
-2680:                                             ; preds = %ripper_has_scan_event.exit.i1197
-  %2681 = ptrtoint ptr %.val.i1195 to i64
-  %2682 = ptrtoint ptr %.val3.i1196 to i64
-  %2683 = sub i64 %2681, %2682
-  %2684 = load ptr, ptr %1024, align 8, !tbaa !49
-  %2685 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i1196, i64 noundef %2683, ptr noundef %2684) #31
-  %2686 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 324) #31
+2678:                                             ; preds = %ripper_has_scan_event.exit.i1197
+  %2679 = ptrtoint ptr %.val.i1195 to i64
+  %2680 = ptrtoint ptr %.val3.i1196 to i64
+  %2681 = sub i64 %2679, %2680
+  %2682 = load ptr, ptr %1024, align 8, !tbaa !49
+  %2683 = tail call i64 @rb_enc_str_new(ptr noundef %.val3.i1196, i64 noundef %2681, ptr noundef %2682) #31
+  %2684 = tail call i64 @ripper_token2eventid(i32 noundef range(i32 1, 0) 324) #31
   %.val.i.i1199 = load i64, ptr %1025, align 8, !tbaa !46
-  %2687 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i1199, i64 noundef %2686, i32 noundef 1, i64 noundef %2685) #31
-  %2688 = load ptr, ptr %1026, align 8, !tbaa !39
-  %2689 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %2688) #31
-  %2690 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %2690, ptr %1023, align 8, !tbaa !41
-  store i64 %2687, ptr %1027, align 8, !tbaa !47
+  %2685 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val.i.i1199, i64 noundef %2684, i32 noundef 1, i64 noundef %2683) #31
+  %2686 = load ptr, ptr %1026, align 8, !tbaa !39
+  %2687 = tail call ptr @rb_parser_set_location(ptr noundef nonnull %0, ptr noundef %2686) #31
+  %2688 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %2688, ptr %1023, align 8, !tbaa !41
+  store i64 %2685, ptr %1027, align 8, !tbaa !47
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %2680, %ripper_has_scan_event.exit.i1197, %ripper_has_scan_event.exit.i992, %1756, %1544, %ripper_has_scan_event.exit.i931, %pushback.exit925, %1500, %ripper_dispatch_scan_event.exit915, %1465, %1117, %ripper_has_scan_event.exit.i, %parser_is_identchar.exit.thread1282, %2288
-  %.be2630 = phi ptr [ %2717, %parser_is_identchar.exit.thread1282 ], [ %2289, %2288 ], [ %.val.i, %ripper_has_scan_event.exit.i ], [ %1127, %1117 ], [ %1464, %1465 ], [ %1464, %ripper_dispatch_scan_event.exit915 ], [ %1501, %1500 ], [ %1499, %pushback.exit925 ], [ %.val.i929, %ripper_has_scan_event.exit.i931 ], [ %1554, %1544 ], [ %1766, %1756 ], [ %1733, %ripper_has_scan_event.exit.i992 ], [ %.val.i1195, %ripper_has_scan_event.exit.i1197 ], [ %2690, %2680 ]
-  %.0652.be = phi i32 [ %.0652, %parser_is_identchar.exit.thread1282 ], [ %.0652, %2288 ], [ %.0652, %ripper_has_scan_event.exit.i ], [ %.0652, %1117 ], [ 0, %1465 ], [ 0, %ripper_dispatch_scan_event.exit915 ], [ %.1653, %1500 ], [ %.1653, %pushback.exit925 ], [ %.1653, %ripper_has_scan_event.exit.i931 ], [ %.1653, %1544 ], [ %.0652, %1756 ], [ %.0652, %ripper_has_scan_event.exit.i992 ], [ %.0652, %ripper_has_scan_event.exit.i1197 ], [ %.0652, %2680 ]
-  %.0649.be = phi i32 [ %.0649, %parser_is_identchar.exit.thread1282 ], [ %.0649, %2288 ], [ 1, %ripper_has_scan_event.exit.i ], [ 1, %1117 ], [ %.0649, %1465 ], [ %.0649, %ripper_dispatch_scan_event.exit915 ], [ %.1650, %1500 ], [ 0, %pushback.exit925 ], [ %.1650, %ripper_has_scan_event.exit.i931 ], [ %.1650, %1544 ], [ %.0649, %1756 ], [ %.0649, %ripper_has_scan_event.exit.i992 ], [ 1, %ripper_has_scan_event.exit.i1197 ], [ 1, %2680 ]
+.backedge.backedge:                               ; preds = %2678, %ripper_has_scan_event.exit.i1197, %ripper_has_scan_event.exit.i992, %1754, %1542, %ripper_has_scan_event.exit.i931, %pushback.exit925, %1498, %ripper_dispatch_scan_event.exit915, %1463, %1117, %ripper_has_scan_event.exit.i, %parser_is_identchar.exit.thread1282, %2286
+  %.be2630 = phi ptr [ %2715, %parser_is_identchar.exit.thread1282 ], [ %2287, %2286 ], [ %.val.i, %ripper_has_scan_event.exit.i ], [ %1127, %1117 ], [ %1462, %1463 ], [ %1462, %ripper_dispatch_scan_event.exit915 ], [ %1499, %1498 ], [ %1497, %pushback.exit925 ], [ %.val.i929, %ripper_has_scan_event.exit.i931 ], [ %1552, %1542 ], [ %1764, %1754 ], [ %1731, %ripper_has_scan_event.exit.i992 ], [ %.val.i1195, %ripper_has_scan_event.exit.i1197 ], [ %2688, %2678 ]
+  %.0652.be = phi i32 [ %.0652, %parser_is_identchar.exit.thread1282 ], [ %.0652, %2286 ], [ %.0652, %ripper_has_scan_event.exit.i ], [ %.0652, %1117 ], [ 0, %1463 ], [ 0, %ripper_dispatch_scan_event.exit915 ], [ %.1653, %1498 ], [ %.1653, %pushback.exit925 ], [ %.1653, %ripper_has_scan_event.exit.i931 ], [ %.1653, %1542 ], [ %.0652, %1754 ], [ %.0652, %ripper_has_scan_event.exit.i992 ], [ %.0652, %ripper_has_scan_event.exit.i1197 ], [ %.0652, %2678 ]
+  %.0649.be = phi i32 [ %.0649, %parser_is_identchar.exit.thread1282 ], [ %.0649, %2286 ], [ 1, %ripper_has_scan_event.exit.i ], [ 1, %1117 ], [ %.0649, %1463 ], [ %.0649, %ripper_dispatch_scan_event.exit915 ], [ %.1650, %1498 ], [ 0, %pushback.exit925 ], [ %.1650, %ripper_has_scan_event.exit.i931 ], [ %.1650, %1542 ], [ %.0649, %1754 ], [ %.0649, %ripper_has_scan_event.exit.i992 ], [ 1, %ripper_has_scan_event.exit.i1197 ], [ 1, %2678 ]
   br label %.backedge
 
-nextc0.exit1194.thread:                           ; preds = %2666
-  %2691 = zext i8 %2669 to i32
-  switch i8 %2669, label %nextc0.exit1194.thread.thread [
+nextc0.exit1194.thread:                           ; preds = %2664
+  %2689 = zext i8 %2667 to i32
+  switch i8 %2667, label %nextc0.exit1194.thread.thread [
     i8 11, label %pushback.exit1048
     i8 9, label %pushback.exit1048
     i8 12, label %pushback.exit1048
   ]
 
 nextc0.exit1194.thread.thread:                    ; preds = %.critedge.i1187, %nextc0.exit1194.thread
-  %.011.i118912782033 = phi i32 [ %2691, %nextc0.exit1194.thread ], [ -1, %.critedge.i1187 ]
+  %.011.i118912782033 = phi i32 [ %2689, %nextc0.exit1194.thread ], [ -1, %.critedge.i1187 ]
   tail call fastcc void @pushback(ptr noundef nonnull %0, i32 noundef %.011.i118912782033)
   br label %pushback.exit1048
 
+2690:                                             ; preds = %1049
+  %2691 = tail call fastcc i32 @parse_percent(ptr noundef nonnull %0, i32 noundef %.0649, i32 noundef %1040)
+  br label %pushback.exit1048
+
 2692:                                             ; preds = %1049
-  %2693 = tail call fastcc i32 @parse_percent(ptr noundef nonnull %0, i32 noundef %.0649, i32 noundef %1040)
+  %2693 = tail call fastcc i32 @parse_gvar(ptr noundef nonnull %0, i32 noundef %1040)
   br label %pushback.exit1048
 
 2694:                                             ; preds = %1049
-  %2695 = tail call fastcc i32 @parse_gvar(ptr noundef nonnull %0, i32 noundef %1040)
+  %2695 = tail call fastcc i32 @parse_atmark(ptr noundef nonnull %0, i32 noundef %1040)
   br label %pushback.exit1048
 
 2696:                                             ; preds = %1049
-  %2697 = tail call fastcc i32 @parse_atmark(ptr noundef nonnull %0, i32 noundef %1040)
-  br label %pushback.exit1048
+  %2697 = load ptr, ptr %1028, align 8, !tbaa !44
+  %2698 = icmp eq ptr %1050, %2697
+  br i1 %2698, label %2699, label %parser_is_identchar.exit.thread
 
-2698:                                             ; preds = %1049
-  %2699 = load ptr, ptr %1028, align 8, !tbaa !44
-  %2700 = icmp eq ptr %1050, %2699
-  br i1 %2700, label %2701, label %parser_is_identchar.exit.thread
-
-2701:                                             ; preds = %2698
+2699:                                             ; preds = %2696
   %.val829 = load ptr, ptr %1021, align 8, !tbaa !401
-  %2702 = tail call fastcc i32 @whole_match_p(ptr %2699, ptr %.val829, ptr noundef nonnull @.str.595, i64 noundef 7, i32 noundef 0)
-  %.not700 = icmp eq i32 %2702, 0
-  br i1 %.not700, label %parser_is_identchar.exit.thread, label %2703
+  %2700 = tail call fastcc i32 @whole_match_p(ptr %2697, ptr %.val829, ptr noundef nonnull @.str.595, i64 noundef 7, i32 noundef 0)
+  %.not700 = icmp eq i32 %2700, 0
+  br i1 %.not700, label %parser_is_identchar.exit.thread, label %2701
 
-2703:                                             ; preds = %2701
-  %2704 = load i16, ptr %10, align 8
-  %2705 = or i16 %2704, 24
-  store i16 %2705, ptr %10, align 8
+2701:                                             ; preds = %2699
+  %2702 = load i16, ptr %10, align 8
+  %2703 = or i16 %2702, 24
+  store i16 %2703, ptr %10, align 8
   store ptr %.val829, ptr %1020, align 8, !tbaa !48
   tail call fastcc void @ripper_dispatch_scan_event(ptr noundef nonnull %0, i32 noundef 358)
   br label %pushback.exit1048
 
-2706:                                             ; preds = %1049
-  %2707 = load i16, ptr %10, align 8
-  %2708 = and i16 %2707, 8
-  %.not.i1202 = icmp eq i16 %2708, 0
-  br i1 %.not.i1202, label %2709, label %parser_is_identchar.exit.thread1282
+2704:                                             ; preds = %1049
+  %2705 = load i16, ptr %10, align 8
+  %2706 = and i16 %2705, 8
+  %.not.i1202 = icmp eq i16 %2706, 0
+  br i1 %.not.i1202, label %2707, label %parser_is_identchar.exit.thread1282
 
-2709:                                             ; preds = %2706
-  %2710 = load ptr, ptr %1024, align 8, !tbaa !49
-  %2711 = getelementptr inbounds nuw i8, ptr %2710, i64 88
-  %2712 = load ptr, ptr %2711, align 8, !tbaa !555
-  %2713 = tail call i32 %2712(i32 noundef range(i32 -1, 256) %1053, i32 noundef 13, ptr noundef %2710) #31
-  %.not.i.i1203 = icmp eq i32 %2713, 0
-  br i1 %.not.i.i1203, label %2714, label %parser_is_identchar.exit.thread
+2707:                                             ; preds = %2704
+  %2708 = load ptr, ptr %1024, align 8, !tbaa !49
+  %2709 = getelementptr inbounds nuw i8, ptr %2708, i64 88
+  %2710 = load ptr, ptr %2709, align 8, !tbaa !555
+  %2711 = tail call i32 %2710(i32 noundef range(i32 -1, 256) %1053, i32 noundef 13, ptr noundef %2708) #31
+  %.not.i.i1203 = icmp eq i32 %2711, 0
+  br i1 %.not.i.i1203, label %2712, label %parser_is_identchar.exit.thread
 
-2714:                                             ; preds = %2709
-  %2715 = load i8, ptr %1050, align 1, !tbaa !6
-  %2716 = icmp ne i8 %2715, 95
-  %.not802 = icmp sgt i8 %2715, -1
-  %or.cond1330 = and i1 %2716, %.not802
+2712:                                             ; preds = %2707
+  %2713 = load i8, ptr %1050, align 1, !tbaa !6
+  %2714 = icmp ne i8 %2713, 95
+  %.not802 = icmp sgt i8 %2713, -1
+  %or.cond1330 = and i1 %2714, %.not802
   br i1 %or.cond1330, label %parser_is_identchar.exit.thread1282, label %parser_is_identchar.exit.thread
 
-parser_is_identchar.exit.thread1282:              ; preds = %2714, %2706
+parser_is_identchar.exit.thread1282:              ; preds = %2712, %2704
   tail call void (ptr, ptr, ...) @ripper_compile_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.596, i32 noundef %1053) #31
-  %2717 = load ptr, ptr %1020, align 8, !tbaa !48
-  store ptr %2717, ptr %1023, align 8, !tbaa !41
+  %2715 = load ptr, ptr %1020, align 8, !tbaa !48
+  store ptr %2715, ptr %1023, align 8, !tbaa !41
   br label %.backedge.backedge
 
-parser_is_identchar.exit.thread:                  ; preds = %2714, %2709, %2698, %2701
+parser_is_identchar.exit.thread:                  ; preds = %2712, %2707, %2696, %2699
   tail call fastcc void @newtok(ptr noundef nonnull %0)
-  %2718 = tail call fastcc i32 @parse_ident(ptr noundef nonnull %0, i32 noundef %1053, i32 noundef %1016)
+  %2716 = tail call fastcc i32 @parse_ident(ptr noundef nonnull %0, i32 noundef %1053, i32 noundef %1016)
   br label %pushback.exit1048
 
-pushback.exit1048:                                ; preds = %2670, %2672, %2666, %nextc0.exit1194.thread, %nextc0.exit1194.thread, %.thread2030, %.thread2028, %parser_set_lex_state.exit1081, %nextc0.exit1194.thread, %2461, %2461, %2461, %2461, %2461, %2461, %2141, %2141, %2141, %2141, %2141, %2141, %2083, %2083, %2083, %2083, %2083, %2083, %1831, %1831, %1831, %1831, %1831, %1831, %parser_set_lex_state.exit1118, %pushback.exit1110, %2223, %parser_set_lex_state.exit1109, %2021, %2017, %2014, %2007, %ripper_dispatch_scan_event.exit995.thread, %2656, %2651, %2614, %2609, %parser_set_lex_state.exit1173, %parser_set_lex_state.exit1164, %parser_set_lex_state.exit1167, %parser_set_lex_state.exit1148, %2462, %2336, %parser_set_lex_state.exit1084, %2142, %parser_set_lex_state.exit1071, %parser_set_lex_state.exit1067, %2084, %parser_set_lex_state.exit1064, %parser_set_lex_state.exit1057, %2005, %parser_set_lex_state.exit1020, %parser_set_lex_state.exit1023, %parser_set_lex_state.exit1011, %1827, %1832, %1812, %parser_set_lex_state.exit998, %1775, %parser_set_lex_state.exit957, %1791, %parser_is_identchar.exit.thread, %2703, %2696, %2694, %2692, %nextc0.exit1194.thread.thread, %parser_set_lex_state.exit1176, %2579, %parser_set_lex_state.exit1170, %parser_set_lex_state.exit1161, %parser_set_lex_state.exit1158, %parser_set_lex_state.exit1155, %parser_set_lex_state.exit1152, %2447, %parser_set_lex_state.exit1144, %2426, %parser_set_lex_state.exit1141, %parser_set_lex_state.exit1138, %parser_set_lex_state.exit1133, %parser_set_lex_state.exit1130, %parser_set_lex_state.exit1127, %parser_set_lex_state.exit1124, %parser_set_lex_state.exit1121, %2290, %parser_set_lex_state.exit1077, %parser_set_lex_state.exit1074, %2098, %2074, %parser_set_lex_state.exit1060, %2047, %parser_set_lex_state.exit1054, %parser_set_lex_state.exit1051, %parser_set_lex_state.exit1047, %parser_set_lex_state.exit1041, %parser_set_lex_state.exit1035, %parser_set_lex_state.exit1032, %1929, %parser_set_lex_state.exit1029, %1910, %1896, %1891, %parser_set_lex_state.exit1017, %1858, %1857, %1856, %parser_set_lex_state.exit1014, %1836, %parser_set_lex_state.exit1007, %1815, %1780, %1779, %1778, %1676, %1675, %1674, %parser_set_lex_state.exit954, %parser_set_lex_state.exit949, %parser_set_lex_state.exit945, %parser_set_lex_state.exit, %nextc0.exit.thread1205, %parse_string.exit, %here_document.exit
-  %.0 = phi i32 [ %.0.i, %here_document.exit ], [ %.0.i845, %parse_string.exit ], [ %2718, %parser_is_identchar.exit.thread ], [ 0, %nextc0.exit.thread1205 ], [ 10, %parser_set_lex_state.exit ], [ 326, %parser_set_lex_state.exit945 ], [ %.0644, %parser_set_lex_state.exit954 ], [ 326, %parser_set_lex_state.exit949 ], [ 142, %1674 ], [ 144, %1675 ], [ 33, %1676 ], [ 140, %1778 ], [ 327, %1779 ], [ 61, %1780 ], [ 138, %1815 ], [ 326, %parser_set_lex_state.exit1007 ], [ 60, %1836 ], [ %1793, %1791 ], [ 326, %parser_set_lex_state.exit1014 ], [ 137, %1856 ], [ 62, %1857 ], [ 338, %1858 ], [ 96, %parser_set_lex_state.exit1017 ], [ 339, %1891 ], [ 338, %1896 ], [ %1911, %1910 ], [ 326, %parser_set_lex_state.exit1029 ], [ 148, %1929 ], [ 326, %parser_set_lex_state.exit1032 ], [ 150, %parser_set_lex_state.exit1035 ], [ %.1645, %parser_set_lex_state.exit1041 ], [ 326, %parser_set_lex_state.exit1047 ], [ 326, %parser_set_lex_state.exit1051 ], [ 124, %parser_set_lex_state.exit1054 ], [ 43, %2047 ], [ 326, %parser_set_lex_state.exit1060 ], [ %2075, %2074 ], [ 45, %2098 ], [ 326, %parser_set_lex_state.exit1074 ], [ 336, %parser_set_lex_state.exit1077 ], [ %2291, %2290 ], [ 41, %parser_set_lex_state.exit1121 ], [ 93, %parser_set_lex_state.exit1124 ], [ 125, %parser_set_lex_state.exit1127 ], [ 325, %parser_set_lex_state.exit1130 ], [ 147, %parser_set_lex_state.exit1133 ], [ 58, %parser_set_lex_state.exit1138 ], [ 337, %parser_set_lex_state.exit1141 ], [ 340, %2426 ], [ 326, %parser_set_lex_state.exit1144 ], [ 340, %2447 ], [ 326, %parser_set_lex_state.exit1152 ], [ 94, %parser_set_lex_state.exit1155 ], [ 59, %parser_set_lex_state.exit1158 ], [ 44, %parser_set_lex_state.exit1161 ], [ %.2646, %parser_set_lex_state.exit1170 ], [ 145, %2579 ], [ 91, %parser_set_lex_state.exit1176 ], [ 92, %nextc0.exit1194.thread.thread ], [ %2693, %2692 ], [ %2695, %2694 ], [ %2697, %2696 ], [ 0, %2703 ], [ 33, %parser_set_lex_state.exit957 ], [ 141, %1775 ], [ 143, %parser_set_lex_state.exit998 ], [ 135, %1812 ], [ 136, %1832 ], [ 136, %1831 ], [ 136, %1827 ], [ 139, %parser_set_lex_state.exit1011 ], [ 96, %parser_set_lex_state.exit1023 ], [ 96, %parser_set_lex_state.exit1020 ], [ 149, %2005 ], [ 132, %parser_set_lex_state.exit1057 ], [ 132, %parser_set_lex_state.exit1064 ], [ 43, %2084 ], [ 43, %2083 ], [ 43, %parser_set_lex_state.exit1067 ], [ 133, %parser_set_lex_state.exit1071 ], [ 45, %2142 ], [ 45, %2141 ], [ 45, %parser_set_lex_state.exit1084 ], [ 346, %2336 ], [ 47, %2462 ], [ 47, %2461 ], [ 47, %parser_set_lex_state.exit1148 ], [ 126, %parser_set_lex_state.exit1167 ], [ 126, %parser_set_lex_state.exit1164 ], [ 146, %parser_set_lex_state.exit1173 ], [ %.3647, %2609 ], [ %.3647, %2614 ], [ %.46481271, %2651 ], [ %.46481271, %2656 ], [ 0, %ripper_dispatch_scan_event.exit995.thread ], [ 124, %2007 ], [ 124, %2014 ], [ 124, %2017 ], [ 124, %2021 ], [ 46, %parser_set_lex_state.exit1118 ], [ %2239, %pushback.exit1110 ], [ %2224, %2223 ], [ 131, %parser_set_lex_state.exit1109 ], [ 136, %1831 ], [ 136, %1831 ], [ 136, %1831 ], [ 136, %1831 ], [ 136, %1831 ], [ 43, %2083 ], [ 43, %2083 ], [ 43, %2083 ], [ 43, %2083 ], [ 43, %2083 ], [ 45, %2141 ], [ 45, %2141 ], [ 45, %2141 ], [ 45, %2141 ], [ 45, %2141 ], [ 47, %2461 ], [ 47, %2461 ], [ 47, %2461 ], [ 47, %2461 ], [ 47, %2461 ], [ %2691, %nextc0.exit1194.thread ], [ %2691, %nextc0.exit1194.thread ], [ %2691, %nextc0.exit1194.thread ], [ %spec.select1331, %parser_set_lex_state.exit1081 ], [ %.3647, %.thread2028 ], [ %.46481271, %.thread2030 ], [ 13, %2670 ], [ 13, %2672 ], [ 324, %2666 ]
+pushback.exit1048:                                ; preds = %2668, %2670, %2664, %nextc0.exit1194.thread, %nextc0.exit1194.thread, %.thread2030, %.thread2028, %parser_set_lex_state.exit1081, %nextc0.exit1194.thread, %2459, %2459, %2459, %2459, %2459, %2459, %2139, %2139, %2139, %2139, %2139, %2139, %2081, %2081, %2081, %2081, %2081, %2081, %1829, %1829, %1829, %1829, %1829, %1829, %parser_set_lex_state.exit1118, %pushback.exit1110, %2221, %parser_set_lex_state.exit1109, %2019, %2015, %2012, %2005, %ripper_dispatch_scan_event.exit995.thread, %2654, %2649, %2612, %2607, %parser_set_lex_state.exit1173, %parser_set_lex_state.exit1164, %parser_set_lex_state.exit1167, %parser_set_lex_state.exit1148, %2460, %2334, %parser_set_lex_state.exit1084, %2140, %parser_set_lex_state.exit1071, %parser_set_lex_state.exit1067, %2082, %parser_set_lex_state.exit1064, %parser_set_lex_state.exit1057, %2003, %parser_set_lex_state.exit1020, %parser_set_lex_state.exit1023, %parser_set_lex_state.exit1011, %1825, %1830, %1810, %parser_set_lex_state.exit998, %1773, %parser_set_lex_state.exit957, %1789, %parser_is_identchar.exit.thread, %2701, %2694, %2692, %2690, %nextc0.exit1194.thread.thread, %parser_set_lex_state.exit1176, %2577, %parser_set_lex_state.exit1170, %parser_set_lex_state.exit1161, %parser_set_lex_state.exit1158, %parser_set_lex_state.exit1155, %parser_set_lex_state.exit1152, %2445, %parser_set_lex_state.exit1144, %2424, %parser_set_lex_state.exit1141, %parser_set_lex_state.exit1138, %parser_set_lex_state.exit1133, %parser_set_lex_state.exit1130, %parser_set_lex_state.exit1127, %parser_set_lex_state.exit1124, %parser_set_lex_state.exit1121, %2288, %parser_set_lex_state.exit1077, %parser_set_lex_state.exit1074, %2096, %2072, %parser_set_lex_state.exit1060, %2045, %parser_set_lex_state.exit1054, %parser_set_lex_state.exit1051, %parser_set_lex_state.exit1047, %parser_set_lex_state.exit1041, %parser_set_lex_state.exit1035, %parser_set_lex_state.exit1032, %1927, %parser_set_lex_state.exit1029, %1908, %1894, %1889, %parser_set_lex_state.exit1017, %1856, %1855, %1854, %parser_set_lex_state.exit1014, %1834, %parser_set_lex_state.exit1007, %1813, %1778, %1777, %1776, %1674, %1673, %1672, %parser_set_lex_state.exit954, %parser_set_lex_state.exit949, %parser_set_lex_state.exit945, %parser_set_lex_state.exit, %nextc0.exit.thread1205, %parse_string.exit, %here_document.exit
+  %.0 = phi i32 [ %.0.i, %here_document.exit ], [ %.0.i845, %parse_string.exit ], [ %2716, %parser_is_identchar.exit.thread ], [ 0, %nextc0.exit.thread1205 ], [ 10, %parser_set_lex_state.exit ], [ 326, %parser_set_lex_state.exit945 ], [ %.0644, %parser_set_lex_state.exit954 ], [ 326, %parser_set_lex_state.exit949 ], [ 142, %1672 ], [ 144, %1673 ], [ 33, %1674 ], [ 140, %1776 ], [ 327, %1777 ], [ 61, %1778 ], [ 138, %1813 ], [ 326, %parser_set_lex_state.exit1007 ], [ 60, %1834 ], [ %1791, %1789 ], [ 326, %parser_set_lex_state.exit1014 ], [ 137, %1854 ], [ 62, %1855 ], [ 338, %1856 ], [ 96, %parser_set_lex_state.exit1017 ], [ 339, %1889 ], [ 338, %1894 ], [ %1909, %1908 ], [ 326, %parser_set_lex_state.exit1029 ], [ 148, %1927 ], [ 326, %parser_set_lex_state.exit1032 ], [ 150, %parser_set_lex_state.exit1035 ], [ %.1645, %parser_set_lex_state.exit1041 ], [ 326, %parser_set_lex_state.exit1047 ], [ 326, %parser_set_lex_state.exit1051 ], [ 124, %parser_set_lex_state.exit1054 ], [ 43, %2045 ], [ 326, %parser_set_lex_state.exit1060 ], [ %2073, %2072 ], [ 45, %2096 ], [ 326, %parser_set_lex_state.exit1074 ], [ 336, %parser_set_lex_state.exit1077 ], [ %2289, %2288 ], [ 41, %parser_set_lex_state.exit1121 ], [ 93, %parser_set_lex_state.exit1124 ], [ 125, %parser_set_lex_state.exit1127 ], [ 325, %parser_set_lex_state.exit1130 ], [ 147, %parser_set_lex_state.exit1133 ], [ 58, %parser_set_lex_state.exit1138 ], [ 337, %parser_set_lex_state.exit1141 ], [ 340, %2424 ], [ 326, %parser_set_lex_state.exit1144 ], [ 340, %2445 ], [ 326, %parser_set_lex_state.exit1152 ], [ 94, %parser_set_lex_state.exit1155 ], [ 59, %parser_set_lex_state.exit1158 ], [ 44, %parser_set_lex_state.exit1161 ], [ %.2646, %parser_set_lex_state.exit1170 ], [ 145, %2577 ], [ 91, %parser_set_lex_state.exit1176 ], [ 92, %nextc0.exit1194.thread.thread ], [ %2691, %2690 ], [ %2693, %2692 ], [ %2695, %2694 ], [ 0, %2701 ], [ 33, %parser_set_lex_state.exit957 ], [ 141, %1773 ], [ 143, %parser_set_lex_state.exit998 ], [ 135, %1810 ], [ 136, %1830 ], [ 136, %1829 ], [ 136, %1825 ], [ 139, %parser_set_lex_state.exit1011 ], [ 96, %parser_set_lex_state.exit1023 ], [ 96, %parser_set_lex_state.exit1020 ], [ 149, %2003 ], [ 132, %parser_set_lex_state.exit1057 ], [ 132, %parser_set_lex_state.exit1064 ], [ 43, %2082 ], [ 43, %2081 ], [ 43, %parser_set_lex_state.exit1067 ], [ 133, %parser_set_lex_state.exit1071 ], [ 45, %2140 ], [ 45, %2139 ], [ 45, %parser_set_lex_state.exit1084 ], [ 346, %2334 ], [ 47, %2460 ], [ 47, %2459 ], [ 47, %parser_set_lex_state.exit1148 ], [ 126, %parser_set_lex_state.exit1167 ], [ 126, %parser_set_lex_state.exit1164 ], [ 146, %parser_set_lex_state.exit1173 ], [ %.3647, %2607 ], [ %.3647, %2612 ], [ %.46481271, %2649 ], [ %.46481271, %2654 ], [ 0, %ripper_dispatch_scan_event.exit995.thread ], [ 124, %2005 ], [ 124, %2012 ], [ 124, %2015 ], [ 124, %2019 ], [ 46, %parser_set_lex_state.exit1118 ], [ %2237, %pushback.exit1110 ], [ %2222, %2221 ], [ 131, %parser_set_lex_state.exit1109 ], [ 136, %1829 ], [ 136, %1829 ], [ 136, %1829 ], [ 136, %1829 ], [ 136, %1829 ], [ 43, %2081 ], [ 43, %2081 ], [ 43, %2081 ], [ 43, %2081 ], [ 43, %2081 ], [ 45, %2139 ], [ 45, %2139 ], [ 45, %2139 ], [ 45, %2139 ], [ 45, %2139 ], [ 47, %2459 ], [ 47, %2459 ], [ 47, %2459 ], [ 47, %2459 ], [ 47, %2459 ], [ %2689, %nextc0.exit1194.thread ], [ %2689, %nextc0.exit1194.thread ], [ %2689, %nextc0.exit1194.thread ], [ %spec.select1331, %parser_set_lex_state.exit1081 ], [ %.3647, %.thread2028 ], [ %.46481271, %.thread2030 ], [ 13, %2668 ], [ 13, %2670 ], [ 324, %2664 ]
   ret i32 %.0
 }
 

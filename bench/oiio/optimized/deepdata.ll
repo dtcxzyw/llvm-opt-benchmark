@@ -1936,103 +1936,99 @@ _ZN11OpenImageIO6v3_1_017is_or_endswithdotENS0_17basic_string_viewIcSt11char_tra
 
 576:                                              ; preds = %_ZN11OpenImageIO6v3_1_017is_or_endswithdotENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit87.thread, %_ZN11OpenImageIO6v3_1_017is_or_endswithdotENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit87
   %577 = getelementptr inbounds nuw i8, ptr %520, i64 %522
-  %578 = ptrtoint ptr %577 to i64
-  %579 = ptrtoint ptr %520 to i64
-  %580 = ashr i64 %522, 2
-  %581 = icmp sgt i64 %580, 0
-  br i1 %581, label %.lr.ph.i.preheader.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %578 = ptrtoint ptr %520 to i64
+  %579 = ashr i64 %522, 2
+  %580 = icmp sgt i64 %579, 0
+  br i1 %580, label %.lr.ph.i.preheader.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %576
-  %582 = mul nsw i64 %580, -4
-  %scevgep.i.i.i.i = getelementptr i8, ptr %577, i64 %582
+  %581 = mul nsw i64 %579, -4
+  %scevgep.i.i.i.i = getelementptr i8, ptr %577, i64 %581
   br label %.lr.ph.i.i.i.i.i88
 
-.lr.ph.i.i.i.i.i88:                               ; preds = %599, %.lr.ph.i.preheader.i.i.i.i
-  %583 = phi ptr [ %596, %599 ], [ %577, %.lr.ph.i.preheader.i.i.i.i ]
-  %.027.i.i.i.i.i = phi i64 [ %600, %599 ], [ %580, %.lr.ph.i.preheader.i.i.i.i ]
-  %584 = getelementptr inbounds i8, ptr %583, i64 -1
-  %585 = load i8, ptr %584, align 1, !tbaa !47, !noalias !108
-  %586 = icmp eq i8 %585, 46
-  br i1 %586, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %587
+.lr.ph.i.i.i.i.i88:                               ; preds = %598, %.lr.ph.i.preheader.i.i.i.i
+  %582 = phi ptr [ %595, %598 ], [ %577, %.lr.ph.i.preheader.i.i.i.i ]
+  %.027.i.i.i.i.i = phi i64 [ %599, %598 ], [ %579, %.lr.ph.i.preheader.i.i.i.i ]
+  %583 = getelementptr inbounds i8, ptr %582, i64 -1
+  %584 = load i8, ptr %583, align 1, !tbaa !47, !noalias !108
+  %585 = icmp eq i8 %584, 46
+  br i1 %585, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %586
 
-587:                                              ; preds = %.lr.ph.i.i.i.i.i88
-  %588 = getelementptr inbounds i8, ptr %583, i64 -2
-  %589 = load i8, ptr %588, align 1, !tbaa !47, !noalias !108
-  %590 = icmp eq i8 %589, 46
-  br i1 %590, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, label %591
+586:                                              ; preds = %.lr.ph.i.i.i.i.i88
+  %587 = getelementptr inbounds i8, ptr %582, i64 -2
+  %588 = load i8, ptr %587, align 1, !tbaa !47, !noalias !108
+  %589 = icmp eq i8 %588, 46
+  br i1 %589, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, label %590
 
-591:                                              ; preds = %587
-  %592 = getelementptr inbounds i8, ptr %583, i64 -3
-  %593 = load i8, ptr %592, align 1, !tbaa !47, !noalias !108
-  %594 = icmp eq i8 %593, 46
-  br i1 %594, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453, label %595
+590:                                              ; preds = %586
+  %591 = getelementptr inbounds i8, ptr %582, i64 -3
+  %592 = load i8, ptr %591, align 1, !tbaa !47, !noalias !108
+  %593 = icmp eq i8 %592, 46
+  br i1 %593, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453, label %594
 
-595:                                              ; preds = %591
-  %596 = getelementptr inbounds i8, ptr %583, i64 -4
-  %597 = load i8, ptr %596, align 1, !tbaa !47, !noalias !108
-  %598 = icmp eq i8 %597, 46
-  br i1 %598, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455, label %599
+594:                                              ; preds = %590
+  %595 = getelementptr inbounds i8, ptr %582, i64 -4
+  %596 = load i8, ptr %595, align 1, !tbaa !47, !noalias !108
+  %597 = icmp eq i8 %596, 46
+  br i1 %597, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455, label %598
 
-599:                                              ; preds = %595
-  %600 = add nsw i64 %.027.i.i.i.i.i, -1
-  %601 = icmp sgt i64 %.027.i.i.i.i.i, 1
-  br i1 %601, label %.lr.ph.i.i.i.i.i88, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !115
+598:                                              ; preds = %594
+  %599 = add nsw i64 %.027.i.i.i.i.i, -1
+  %600 = icmp sgt i64 %.027.i.i.i.i.i, 1
+  br i1 %600, label %.lr.ph.i.i.i.i.i88, label %._crit_edge.i.i.i.i.i, !llvm.loop !115
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %599
-  %.pre45.i.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  br label %._crit_edge.i.i.i.i.i
-
-._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %576
-  %.pre-phi.i.i.i.i.i = phi i64 [ %.pre45.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %578, %576 ]
-  %602 = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %577, %576 ]
-  %603 = sub i64 %.pre-phi.i.i.i.i.i, %579
-  switch i64 %603, label %._crit_edge.i.i.i.i.thread [
-    i64 3, label %604
-    i64 2, label %608
-    i64 1, label %613
+._crit_edge.i.i.i.i.i:                            ; preds = %598, %576
+  %601 = phi ptr [ %577, %576 ], [ %scevgep.i.i.i.i, %598 ]
+  %.pre-phi.i.i.i.i.i = ptrtoint ptr %601 to i64
+  %602 = sub i64 %.pre-phi.i.i.i.i.i, %578
+  switch i64 %602, label %._crit_edge.i.i.i.i.thread [
+    i64 3, label %603
+    i64 2, label %607
+    i64 1, label %612
   ]
 
-604:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %605 = getelementptr inbounds i8, ptr %602, i64 -1
-  %606 = load i8, ptr %605, align 1, !tbaa !47, !noalias !108
-  %607 = icmp eq i8 %606, 46
-  br i1 %607, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %608
+603:                                              ; preds = %._crit_edge.i.i.i.i.i
+  %604 = getelementptr inbounds i8, ptr %601, i64 -1
+  %605 = load i8, ptr %604, align 1, !tbaa !47, !noalias !108
+  %606 = icmp eq i8 %605, 46
+  br i1 %606, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %607
 
-608:                                              ; preds = %604, %._crit_edge.i.i.i.i.i
-  %609 = phi ptr [ %602, %._crit_edge.i.i.i.i.i ], [ %605, %604 ]
-  %610 = getelementptr inbounds i8, ptr %609, i64 -1
-  %611 = load i8, ptr %610, align 1, !tbaa !47, !noalias !108
-  %612 = icmp eq i8 %611, 46
-  br i1 %612, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %613
+607:                                              ; preds = %603, %._crit_edge.i.i.i.i.i
+  %608 = phi ptr [ %601, %._crit_edge.i.i.i.i.i ], [ %604, %603 ]
+  %609 = getelementptr inbounds i8, ptr %608, i64 -1
+  %610 = load i8, ptr %609, align 1, !tbaa !47, !noalias !108
+  %611 = icmp eq i8 %610, 46
+  br i1 %611, label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i, label %612
 
-613:                                              ; preds = %608, %._crit_edge.i.i.i.i.i
-  %614 = phi ptr [ %602, %._crit_edge.i.i.i.i.i ], [ %610, %608 ]
-  %615 = getelementptr inbounds i8, ptr %614, i64 -1
-  %616 = load i8, ptr %615, align 1, !tbaa !47, !noalias !108
-  %617 = icmp eq i8 %616, 46
-  %spec.select.i.i.i.i = select i1 %617, ptr %614, ptr %520
+612:                                              ; preds = %607, %._crit_edge.i.i.i.i.i
+  %613 = phi ptr [ %601, %._crit_edge.i.i.i.i.i ], [ %609, %607 ]
+  %614 = getelementptr inbounds i8, ptr %613, i64 -1
+  %615 = load i8, ptr %614, align 1, !tbaa !47, !noalias !108
+  %616 = icmp eq i8 %615, 46
+  %spec.select.i.i.i.i = select i1 %616, ptr %613, ptr %520
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %587
-  %618 = getelementptr inbounds i8, ptr %583, i64 -1
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %586
+  %617 = getelementptr inbounds i8, ptr %582, i64 -1
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453: ; preds = %591
-  %619 = getelementptr inbounds i8, ptr %583, i64 -2
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453: ; preds = %590
+  %618 = getelementptr inbounds i8, ptr %582, i64 -2
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455: ; preds = %595
-  %620 = getelementptr inbounds i8, ptr %583, i64 -3
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455: ; preds = %594
+  %619 = getelementptr inbounds i8, ptr %582, i64 -3
   br label %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
 
-_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455, %613, %608, %604
-  %.sink.i.i.i.i.i = phi ptr [ %602, %604 ], [ %609, %608 ], [ %spec.select.i.i.i.i, %613 ], [ %618, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit ], [ %619, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453 ], [ %620, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455 ], [ %583, %.lr.ph.i.i.i.i.i88 ]
-  %621 = icmp eq ptr %.sink.i.i.i.i.i, %520
-  br i1 %621, label %._crit_edge.i.i.i.i.thread, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit
+_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i88, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455, %612, %607, %603
+  %.sink.i.i.i.i.i = phi ptr [ %601, %603 ], [ %608, %607 ], [ %spec.select.i.i.i.i, %612 ], [ %617, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit ], [ %618, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit453 ], [ %619, %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i.loopexit.split.loop.exit455 ], [ %582, %.lr.ph.i.i.i.i.i88 ]
+  %620 = icmp eq ptr %.sink.i.i.i.i.i, %520
+  br i1 %620, label %._crit_edge.i.i.i.i.thread, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit
 
 _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit: ; preds = %_ZSt7find_ifISt16reverse_iteratorIPKcEN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_SB_SB_T0_.exit.i.i
+  %621 = ptrtoint ptr %577 to i64
   %622 = ptrtoint ptr %.sink.i.i.i.i.i to i64
-  %623 = xor i64 %578, -1
+  %623 = xor i64 %621, -1
   %624 = add i64 %522, %623
   %625 = add i64 %624, %622
   %626 = icmp eq i64 %625, -1
@@ -3593,7 +3589,7 @@ define void @_ZN11OpenImageIO6v3_1_08DeepData11set_samplesEli(ptr noundef nonnul
   %6 = load i64, ptr %5, align 8
   %.not = icmp slt i64 %1, %6
   %or.cond = select i1 %4, i1 %.not, i1 false
-  br i1 %or.cond, label %7, label %69
+  br i1 %or.cond, label %7, label %67
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !35
@@ -3603,7 +3599,7 @@ define void @_ZN11OpenImageIO6v3_1_08DeepData11set_samplesEli(ptr noundef nonnul
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i32, ptr %13, i64 %1
-  br i1 %11, label %15, label %64
+  br i1 %11, label %15, label %62
 
 15:                                               ; preds = %7
   %16 = load i32, ptr %14, align 4, !tbaa !85
@@ -3624,21 +3620,21 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i: ; preds = %15
   %.pre27.i = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre27.i, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  %.phi.trans.insert30 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
-  %.pre31 = load i32, ptr %.phi.trans.insert30, align 4, !tbaa !85
+  %.phi.trans.insert35 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %.pre36 = load i32, ptr %.phi.trans.insert35, align 4, !tbaa !85
   br label %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i, %24
-  %25 = phi i32 [ %.pre31, %24 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ]
+  %25 = phi i32 [ %.pre36, %24 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ]
   %26 = phi ptr [ %.pre, %24 ], [ %13, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ]
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %1
   %28 = add i32 %18, %25
   store i32 %28, ptr %27, align 4, !tbaa !85
-  br label %69
+  br label %67
 
 29:                                               ; preds = %15
   %30 = icmp slt i32 %2, %16
-  br i1 %30, label %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24, label %69
+  br i1 %30, label %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24, label %67
 
 _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24: ; preds = %29
   %31 = sub nsw i32 %16, %2
@@ -3671,36 +3667,35 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24: ; preds = %29
   br i1 %.not.i.i.i.i.i.i27, label %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit, label %56
 
 56:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24
-  %57 = ptrtoint ptr %55 to i64
-  %58 = ptrtoint ptr %53 to i64
-  %59 = sub i64 %57, %58
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr align 1 %53, i64 %59, i1 false)
-  %.pre.i28 = load ptr, ptr %0, align 8, !tbaa !35
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i28, i64 72
-  %.pre21.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
-  %.phi.trans.insert22.i = getelementptr inbounds nuw i32, ptr %.pre21.i, i64 %1
-  %.pre23.i = load i32, ptr %.phi.trans.insert22.i, align 4, !tbaa !85
+  %57 = add i64 %40, %52
+  %gepdiff.i28 = sub i64 %46, %57
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %50, ptr align 1 %53, i64 %gepdiff.i28, i1 false)
+  %.pre.i29 = load ptr, ptr %0, align 8, !tbaa !35
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i29, i64 72
+  %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.phi.trans.insert26.i = getelementptr inbounds nuw i32, ptr %.pre25.i, i64 %1
+  %.pre27.i30 = load i32, ptr %.phi.trans.insert26.i, align 4, !tbaa !85
   br label %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24, %56
-  %60 = phi i32 [ %.pre23.i, %56 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
-  %61 = phi ptr [ %.pre21.i, %56 ], [ %13, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %1
-  %63 = sub i32 %60, %.sroa.speculated.i
-  store i32 %63, ptr %62, align 4, !tbaa !85
-  br label %69
+  %58 = phi i32 [ %.pre27.i30, %56 ], [ %16, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
+  %59 = phi ptr [ %.pre25.i, %56 ], [ %13, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i24 ]
+  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %1
+  %61 = sub i32 %58, %.sroa.speculated.i
+  store i32 %61, ptr %60, align 4, !tbaa !85
+  br label %67
 
-64:                                               ; preds = %7
+62:                                               ; preds = %7
   store i32 %2, ptr %14, align 4, !tbaa !85
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %66 = load ptr, ptr %65, align 8, !tbaa !54
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %1
-  %68 = load i32, ptr %67, align 4, !tbaa !85
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %2, i32 %68)
-  store i32 %.sroa.speculated, ptr %67, align 4, !tbaa !85
-  br label %69
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %64 = load ptr, ptr %63, align 8, !tbaa !54
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %1
+  %66 = load i32, ptr %65, align 4, !tbaa !85
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %2, i32 %66)
+  store i32 %.sroa.speculated, ptr %65, align 4, !tbaa !85
+  br label %67
 
-69:                                               ; preds = %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit, %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit, %29, %3, %64
+67:                                               ; preds = %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit, %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit, %29, %3, %62
   ret void
 }
 
@@ -3774,23 +3769,21 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit: ; preds = %4, %8
   %49 = sext i32 %3 to i64
   %50 = mul i64 %34, %49
   %51 = getelementptr inbounds i8, ptr %48, i64 %50
-  %52 = ptrtoint ptr %48 to i64
-  %53 = ptrtoint ptr %47 to i64
-  %54 = sub i64 %52, %53
-  %55 = sub i64 0, %54
-  %56 = getelementptr inbounds i8, ptr %51, i64 %55
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %56, ptr align 1 %47, i64 %54, i1 false)
+  %gepdiff = sub i64 %38, %35
+  %52 = sub i64 0, %gepdiff
+  %53 = getelementptr inbounds i8, ptr %51, i64 %52
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %53, ptr align 1 %47, i64 %gepdiff, i1 false)
   %.pre28 = load ptr, ptr %0, align 8, !tbaa !35
   br label %_ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit
 
 _ZSt13copy_backwardIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit: ; preds = %39, %26, %20
-  %57 = phi ptr [ %.pre28, %39 ], [ %21, %26 ], [ %21, %20 ]
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %59 = load ptr, ptr %58, align 8, !tbaa !54
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %1
-  %61 = load i32, ptr %60, align 4, !tbaa !85
-  %62 = add i32 %61, %3
-  store i32 %62, ptr %60, align 4, !tbaa !85
+  %54 = phi ptr [ %.pre28, %39 ], [ %21, %26 ], [ %21, %20 ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
+  %56 = load ptr, ptr %55, align 8, !tbaa !54
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %1
+  %58 = load i32, ptr %57, align 4, !tbaa !85
+  %59 = add i32 %58, %3
+  store i32 %59, ptr %57, align 4, !tbaa !85
   ret void
 }
 
@@ -3842,23 +3835,22 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit: ; preds = %4
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit, label %40
 
 40:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit
-  %41 = ptrtoint ptr %39 to i64
-  %42 = ptrtoint ptr %37 to i64
-  %43 = sub i64 %41, %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %37, i64 %43, i1 false)
+  %41 = add i64 %24, %36
+  %gepdiff = sub i64 %30, %41
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %34, ptr align 1 %37, i64 %gepdiff, i1 false)
   %.pre = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
-  %.pre21 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
-  %.phi.trans.insert22 = getelementptr inbounds nuw i32, ptr %.pre21, i64 %1
-  %.pre23 = load i32, ptr %.phi.trans.insert22, align 4, !tbaa !85
+  %.pre25 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
+  %.phi.trans.insert26 = getelementptr inbounds nuw i32, ptr %.pre25, i64 %1
+  %.pre27 = load i32, ptr %.phi.trans.insert26, align 4, !tbaa !85
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit: ; preds = %40, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit, %4
-  %44 = phi i32 [ %.pre23, %40 ], [ %9, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %9, %4 ]
-  %45 = phi ptr [ %.pre21, %40 ], [ %7, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %7, %4 ]
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %1
-  %47 = sub i32 %44, %.sroa.speculated
-  store i32 %47, ptr %46, align 4, !tbaa !85
+  %42 = phi i32 [ %.pre27, %40 ], [ %9, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %9, %4 ]
+  %43 = phi ptr [ %.pre25, %40 ], [ %7, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit ], [ %7, %4 ]
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %1
+  %45 = sub i32 %42, %.sroa.speculated
+  store i32 %45, ptr %44, align 4, !tbaa !85
   ret void
 }
 
@@ -5658,488 +5650,486 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i: ; preds = %35, %33
   %73 = getelementptr i8, ptr %68, i64 %72
   %74 = getelementptr i8, ptr %69, i64 %72
   %75 = getelementptr inbounds i8, ptr %74, i64 %60
-  %76 = ptrtoint ptr %74 to i64
-  %77 = ptrtoint ptr %73 to i64
-  %78 = sub i64 %76, %77
-  %79 = sub i64 0, %78
-  %80 = getelementptr inbounds i8, ptr %75, i64 %79
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %80, ptr align 1 %73, i64 %78, i1 false)
+  %gepdiff.i = sub i64 %64, %61
+  %76 = sub i64 0, %gepdiff.i
+  %77 = getelementptr inbounds i8, ptr %75, i64 %76
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %73, i64 %gepdiff.i, i1 false)
   %.pre28.i = load ptr, ptr %0, align 8, !tbaa !35
   br label %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit: ; preds = %46, %52, %65
-  %81 = phi ptr [ %.pre28.i, %65 ], [ %47, %52 ], [ %47, %46 ]
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %83 = load ptr, ptr %82, align 8, !tbaa !54
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %1
-  %85 = load i32, ptr %84, align 4, !tbaa !85
-  %86 = add i32 %85, 1
-  store i32 %86, ptr %84, align 4, !tbaa !85
-  %87 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08DeepData16copy_deep_sampleEliRKS1_li(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %.0125)
+  %78 = phi ptr [ %.pre28.i, %65 ], [ %47, %52 ], [ %47, %46 ]
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 72
+  %80 = load ptr, ptr %79, align 8, !tbaa !54
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %1
+  %82 = load i32, ptr %81, align 4, !tbaa !85
+  %83 = add i32 %82, 1
+  store i32 %83, ptr %81, align 4, !tbaa !85
+  %84 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08DeepData16copy_deep_sampleEliRKS1_li(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %32, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %.0125)
   tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %8, i32 noundef %.0125, float noundef %2)
   tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %6, i32 noundef %32, float noundef %2)
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit
-  %88 = fsub float %2, %28
-  %89 = fsub float %29, %28
-  %90 = fdiv float %88, %89
-  %91 = fsub float %29, %2
-  %92 = fdiv float %91, %89
-  br label %98
+  %85 = fsub float %2, %28
+  %86 = fsub float %29, %28
+  %87 = fdiv float %85, %86
+  %88 = fsub float %29, %2
+  %89 = fdiv float %88, %86
+  br label %95
 
-.lr.ph173:                                        ; preds = %227
-  %93 = fsub float %2, %28
-  %94 = fsub float %29, %28
-  %95 = fdiv float %93, %94
-  %96 = fsub float %29, %2
-  %97 = fdiv float %96, %94
-  br label %228
+.lr.ph173:                                        ; preds = %224
+  %90 = fsub float %2, %28
+  %91 = fsub float %29, %28
+  %92 = fdiv float %90, %91
+  %93 = fsub float %29, %2
+  %94 = fdiv float %93, %91
+  br label %225
 
-98:                                               ; preds = %.lr.ph, %227
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %227 ]
-  %99 = load ptr, ptr %0, align 8, !tbaa !35
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 192
-  %101 = load ptr, ptr %100, align 8, !tbaa !38
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
-  %103 = load i32, ptr %102, align 4, !tbaa !85
-  %104 = icmp slt i32 %103, 0
-  %105 = zext i32 %103 to i64
-  %106 = icmp eq i64 %indvars.iv, %105
-  %or.cond138 = or i1 %104, %106
-  br i1 %or.cond138, label %227, label %107
+95:                                               ; preds = %.lr.ph, %224
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %224 ]
+  %96 = load ptr, ptr %0, align 8, !tbaa !35
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 192
+  %98 = load ptr, ptr %97, align 8, !tbaa !38
+  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
+  %100 = load i32, ptr %99, align 4, !tbaa !85
+  %101 = icmp slt i32 %100, 0
+  %102 = zext i32 %100 to i64
+  %103 = icmp eq i64 %indvars.iv, %102
+  %or.cond138 = or i1 %101, %103
+  br i1 %or.cond138, label %224, label %104
 
-107:                                              ; preds = %98
-  br i1 %17, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, label %108
+104:                                              ; preds = %95
+  br i1 %17, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, label %105
 
-108:                                              ; preds = %107
-  %109 = load i64, ptr %15, align 8, !tbaa !62
-  %110 = icmp slt i64 %1, %109
-  %111 = load i32, ptr %12, align 8
-  %.not.i.i144 = icmp slt i32 %103, %111
-  %or.cond21.i.i = select i1 %110, i1 %.not.i.i144, i1 false
-  br i1 %or.cond21.i.i, label %112, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
+105:                                              ; preds = %104
+  %106 = load i64, ptr %15, align 8, !tbaa !62
+  %107 = icmp slt i64 %1, %106
+  %108 = load i32, ptr %12, align 8
+  %.not.i.i144 = icmp slt i32 %100, %108
+  %or.cond21.i.i = select i1 %107, i1 %.not.i.i144, i1 false
+  br i1 %or.cond21.i.i, label %109, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i8, ptr %99, i64 144
-  %114 = getelementptr inbounds nuw i8, ptr %99, i64 152
-  %115 = load ptr, ptr %114, align 8, !tbaa !129
-  %116 = load ptr, ptr %113, align 8, !tbaa !51
-  %117 = icmp eq ptr %115, %116
-  br i1 %117, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, label %118
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %96, i64 144
+  %111 = getelementptr inbounds nuw i8, ptr %96, i64 152
+  %112 = load ptr, ptr %111, align 8, !tbaa !129
+  %113 = load ptr, ptr %110, align 8, !tbaa !51
+  %114 = icmp eq ptr %112, %113
+  br i1 %114, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, label %115
 
-118:                                              ; preds = %112
-  %119 = getelementptr inbounds nuw i8, ptr %99, i64 72
-  %120 = load ptr, ptr %119, align 8, !tbaa !54
-  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %1
-  %122 = load i32, ptr %121, align 4, !tbaa !85
-  %.not19.i.i = icmp slt i32 %.0125, %122
+115:                                              ; preds = %109
+  %116 = getelementptr inbounds nuw i8, ptr %96, i64 72
+  %117 = load ptr, ptr %116, align 8, !tbaa !54
+  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %1
+  %119 = load i32, ptr %118, align 4, !tbaa !85
+  %.not19.i.i = icmp slt i32 %.0125, %119
   br i1 %.not19.i.i, label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i: ; preds = %118
-  %123 = getelementptr inbounds nuw i8, ptr %99, i64 120
-  %124 = load ptr, ptr %123, align 8, !tbaa !54
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %1
-  %126 = load i32, ptr %125, align 4, !tbaa !85
-  %127 = add i32 %126, %.0125
-  %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw i8, ptr %99, i64 216
-  %130 = load i64, ptr %129, align 8, !tbaa !93
-  %131 = mul i64 %130, %128
-  %132 = getelementptr inbounds nuw i8, ptr %99, i64 48
-  %133 = load ptr, ptr %132, align 8, !tbaa !57
-  %134 = getelementptr inbounds nuw i64, ptr %133, i64 %105
-  %135 = load i64, ptr %134, align 8, !tbaa !96
-  %136 = getelementptr i8, ptr %116, i64 %131
-  %137 = getelementptr i8, ptr %136, i64 %135
-  %.not.i146 = icmp eq ptr %137, null
+_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i: ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %96, i64 120
+  %121 = load ptr, ptr %120, align 8, !tbaa !54
+  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %1
+  %123 = load i32, ptr %122, align 4, !tbaa !85
+  %124 = add i32 %123, %.0125
+  %125 = zext i32 %124 to i64
+  %126 = getelementptr inbounds nuw i8, ptr %96, i64 216
+  %127 = load i64, ptr %126, align 8, !tbaa !93
+  %128 = mul i64 %127, %125
+  %129 = getelementptr inbounds nuw i8, ptr %96, i64 48
+  %130 = load ptr, ptr %129, align 8, !tbaa !57
+  %131 = getelementptr inbounds nuw i64, ptr %130, i64 %102
+  %132 = load i64, ptr %131, align 8, !tbaa !96
+  %133 = getelementptr i8, ptr %113, i64 %128
+  %134 = getelementptr i8, ptr %133, i64 %132
+  %.not.i146 = icmp eq ptr %134, null
   br i1 %.not.i146, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i
-  %138 = load ptr, ptr %99, align 8, !tbaa !9
-  %139 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %138, i64 %105
-  %140 = load i64, ptr %139, align 4
-  %.sroa.01.0.extract.trunc.i = trunc i64 %140 to i8
+  %135 = load ptr, ptr %96, align 8, !tbaa !9
+  %136 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %135, i64 %102
+  %137 = load i64, ptr %136, align 4
+  %.sroa.01.0.extract.trunc.i = trunc i64 %137 to i8
   switch i8 %.sroa.01.0.extract.trunc.i, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i [
-    i8 11, label %141
-    i8 10, label %143
-    i8 6, label %167
-    i8 2, label %171
-    i8 3, label %175
-    i8 4, label %179
-    i8 5, label %183
-    i8 7, label %187
-    i8 8, label %191
-    i8 9, label %195
+    i8 11, label %138
+    i8 10, label %140
+    i8 6, label %164
+    i8 2, label %168
+    i8 3, label %172
+    i8 4, label %176
+    i8 5, label %180
+    i8 7, label %184
+    i8 8, label %188
+    i8 9, label %192
   ]
 
-141:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %142 = load float, ptr %137, align 4, !tbaa !138
+138:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %139 = load float, ptr %134, align 4, !tbaa !138
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-143:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %144 = load i16, ptr %137, align 2, !tbaa !140
-  %145 = zext i16 %144 to i32
-  %146 = shl nuw nsw i32 %145, 13
-  %147 = and i32 %146, 268427264
-  %.signext.i.i.i = sext i16 %144 to i32
-  %148 = and i32 %.signext.i.i.i, -2147483648
-  %149 = icmp samesign ugt i32 %147, 8388607
-  br i1 %149, label %150, label %157, !prof !143
+140:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %141 = load i16, ptr %134, align 2, !tbaa !140
+  %142 = zext i16 %141 to i32
+  %143 = shl nuw nsw i32 %142, 13
+  %144 = and i32 %143, 268427264
+  %.signext.i.i.i = sext i16 %141 to i32
+  %145 = and i32 %.signext.i.i.i, -2147483648
+  %146 = icmp samesign ugt i32 %144, 8388607
+  br i1 %146, label %147, label %154, !prof !143
 
-150:                                              ; preds = %143
-  %151 = or disjoint i32 %147, %148
-  %152 = icmp samesign ult i32 %147, 260046848
-  br i1 %152, label %153, label %155, !prof !143
+147:                                              ; preds = %140
+  %148 = or disjoint i32 %144, %145
+  %149 = icmp samesign ult i32 %144, 260046848
+  br i1 %149, label %150, label %152, !prof !143
 
-153:                                              ; preds = %150
-  %154 = add nuw nsw i32 %151, 939524096
+150:                                              ; preds = %147
+  %151 = add nuw nsw i32 %148, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i
 
-155:                                              ; preds = %150
-  %156 = or i32 %151, 2139095040
+152:                                              ; preds = %147
+  %153 = or i32 %148, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i
 
-157:                                              ; preds = %143
-  %.not.i.i.i = icmp eq i32 %147, 0
-  br i1 %.not.i.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit.i, label %158
+154:                                              ; preds = %140
+  %.not.i.i.i = icmp eq i32 %144, 0
+  br i1 %.not.i.i.i, label %_ZNK9Imath_3_14halfcvfEv.exit.i, label %155
 
-158:                                              ; preds = %157
-  %159 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
-  %160 = add nsw i32 %159, -8
-  %161 = shl i32 %147, %160
-  %162 = or i32 %148, %161
-  %163 = or i32 %162, 947912704
-  %164 = shl nuw nsw i32 %160, 23
-  %165 = sub nuw i32 %163, %164
+155:                                              ; preds = %154
+  %156 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
+  %157 = add nsw i32 %156, -8
+  %158 = shl i32 %144, %157
+  %159 = or i32 %145, %158
+  %160 = or i32 %159, 947912704
+  %161 = shl nuw nsw i32 %157, 23
+  %162 = sub nuw i32 %160, %161
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i
 
-_ZNK9Imath_3_14halfcvfEv.exit.i:                  ; preds = %158, %157, %155, %153
-  %.sroa.0.0.i.i.i = phi i32 [ %154, %153 ], [ %156, %155 ], [ %165, %158 ], [ %148, %157 ]
-  %166 = bitcast i32 %.sroa.0.0.i.i.i to float
+_ZNK9Imath_3_14halfcvfEv.exit.i:                  ; preds = %155, %154, %152, %150
+  %.sroa.0.0.i.i.i = phi i32 [ %151, %150 ], [ %153, %152 ], [ %162, %155 ], [ %145, %154 ]
+  %163 = bitcast i32 %.sroa.0.0.i.i.i to float
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-167:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %168 = load i32, ptr %137, align 4, !tbaa !85
-  %169 = uitofp i32 %168 to float
-  %170 = fmul float %169, 0x3DF0000000000000
+164:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %165 = load i32, ptr %134, align 4, !tbaa !85
+  %166 = uitofp i32 %165 to float
+  %167 = fmul float %166, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-171:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %172 = load i8, ptr %137, align 1, !tbaa !47
-  %173 = uitofp i8 %172 to float
-  %174 = fmul float %173, 0x3F70101020000000
+168:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %169 = load i8, ptr %134, align 1, !tbaa !47
+  %170 = uitofp i8 %169 to float
+  %171 = fmul float %170, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-175:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %176 = load i8, ptr %137, align 1, !tbaa !47
-  %177 = sitofp i8 %176 to float
-  %178 = fmul float %177, 0x3F80204080000000
+172:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %173 = load i8, ptr %134, align 1, !tbaa !47
+  %174 = sitofp i8 %173 to float
+  %175 = fmul float %174, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-179:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %180 = load i16, ptr %137, align 2, !tbaa !144
-  %181 = uitofp i16 %180 to float
-  %182 = fmul float %181, 0x3EF0001000000000
+176:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %177 = load i16, ptr %134, align 2, !tbaa !144
+  %178 = uitofp i16 %177 to float
+  %179 = fmul float %178, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-183:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %184 = load i16, ptr %137, align 2, !tbaa !144
-  %185 = sitofp i16 %184 to float
-  %186 = fmul float %185, 0x3F00002000000000
+180:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %181 = load i16, ptr %134, align 2, !tbaa !144
+  %182 = sitofp i16 %181 to float
+  %183 = fmul float %182, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-187:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %188 = load i32, ptr %137, align 4, !tbaa !85
-  %189 = sitofp i32 %188 to float
-  %190 = fmul float %189, 0x3E00000000000000
+184:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %185 = load i32, ptr %134, align 4, !tbaa !85
+  %186 = sitofp i32 %185 to float
+  %187 = fmul float %186, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-191:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %192 = load i64, ptr %137, align 8, !tbaa !145
-  %193 = uitofp i64 %192 to float
-  %194 = fmul float %193, 0x3BF0000000000000
+188:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %189 = load i64, ptr %134, align 8, !tbaa !145
+  %190 = uitofp i64 %189 to float
+  %191 = fmul float %190, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-195:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %196 = load i64, ptr %137, align 8, !tbaa !145
-  %197 = sitofp i64 %196 to float
-  %198 = fmul float %197, 0x3C00000000000000
+192:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
+  %193 = load i64, ptr %134, align 8, !tbaa !145
+  %194 = sitofp i64 %193 to float
+  %195 = fmul float %194, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
-  %199 = trunc i64 %140 to i32
-  %200 = and i32 %199, 255
-  %201 = load ptr, ptr @stderr, align 8, !tbaa !89
-  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %200) #33
+  %196 = trunc i64 %137 to i32
+  %197 = and i32 %196, 255
+  %198 = load ptr, ptr @stderr, align 8, !tbaa !89
+  %199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %197) #33
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
-_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit: ; preds = %107, %108, %112, %118, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i, %141, %_ZNK9Imath_3_14halfcvfEv.exit.i, %167, %171, %175, %179, %183, %187, %191, %195, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i
-  %.0.i145 = phi float [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i ], [ %142, %141 ], [ %166, %_ZNK9Imath_3_14halfcvfEv.exit.i ], [ %170, %167 ], [ %174, %171 ], [ %178, %175 ], [ %182, %179 ], [ %186, %183 ], [ %190, %187 ], [ %194, %191 ], [ %198, %195 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i ], [ 0.000000e+00, %118 ], [ 0.000000e+00, %112 ], [ 0.000000e+00, %108 ], [ 0.000000e+00, %107 ]
+_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit: ; preds = %104, %105, %109, %115, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i, %138, %_ZNK9Imath_3_14halfcvfEv.exit.i, %164, %168, %172, %176, %180, %184, %188, %192, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i
+  %.0.i145 = phi float [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i ], [ %139, %138 ], [ %163, %_ZNK9Imath_3_14halfcvfEv.exit.i ], [ %167, %164 ], [ %171, %168 ], [ %175, %172 ], [ %179, %176 ], [ %183, %180 ], [ %187, %184 ], [ %191, %188 ], [ %195, %192 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i ], [ 0.000000e+00, %115 ], [ 0.000000e+00, %109 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %104 ]
   %.inv169 = fcmp oge float %.0.i145, 0.000000e+00
   %.0.i = select i1 %.inv169, float %.0.i145, float 0.000000e+00
-  %203 = fcmp ogt float %.0.i, 1.000000e+00
-  %.1.i = select i1 %203, float 1.000000e+00, float %.0.i
-  %204 = fcmp oeq float %.1.i, 1.000000e+00
-  br i1 %204, label %227, label %205
+  %200 = fcmp ogt float %.0.i, 1.000000e+00
+  %.1.i = select i1 %200, float 1.000000e+00, float %.0.i
+  %201 = fcmp oeq float %.1.i, 1.000000e+00
+  br i1 %201, label %224, label %202
 
-205:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
-  %206 = fcmp ogt float %.1.i, 0x3810000000000000
-  br i1 %206, label %207, label %222
+202:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
+  %203 = fcmp ogt float %.1.i, 0x3810000000000000
+  br i1 %203, label %204, label %219
 
-207:                                              ; preds = %205
-  %208 = fneg float %.1.i
-  %209 = tail call noundef float @log1pf(float noundef %208) #35
-  %210 = fmul float %90, %209
+204:                                              ; preds = %202
+  %205 = fneg float %.1.i
+  %206 = tail call noundef float @log1pf(float noundef %205) #35
+  %207 = fmul float %87, %206
+  %208 = tail call noundef float @expm1f(float noundef %207) #35
+  %209 = fneg float %208
+  %210 = fmul float %89, %206
   %211 = tail call noundef float @expm1f(float noundef %210) #35
   %212 = fneg float %211
-  %213 = fmul float %92, %209
-  %214 = tail call noundef float @expm1f(float noundef %213) #35
-  %215 = fneg float %214
-  %216 = trunc nuw nsw i64 %indvars.iv to i32
-  %217 = tail call noundef float @_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %216, i32 noundef %.0125)
-  %218 = fdiv float %212, %.1.i
-  %219 = fmul float %218, %217
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %216, i32 noundef %.0125, float noundef %219)
-  %220 = fdiv float %215, %.1.i
-  %221 = fmul float %220, %217
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %216, i32 noundef %32, float noundef %221)
-  br label %227
+  %213 = trunc nuw nsw i64 %indvars.iv to i32
+  %214 = tail call noundef float @_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %213, i32 noundef %.0125)
+  %215 = fdiv float %209, %.1.i
+  %216 = fmul float %215, %214
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %213, i32 noundef %.0125, float noundef %216)
+  %217 = fdiv float %212, %.1.i
+  %218 = fmul float %217, %214
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %213, i32 noundef %32, float noundef %218)
+  br label %224
 
-222:                                              ; preds = %205
-  %223 = trunc nuw nsw i64 %indvars.iv to i32
-  %224 = tail call noundef float @_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %223, i32 noundef %.0125)
-  %225 = fmul float %90, %224
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %223, i32 noundef %.0125, float noundef %225)
-  %226 = fmul float %92, %224
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %223, i32 noundef %32, float noundef %226)
-  br label %227
+219:                                              ; preds = %202
+  %220 = trunc nuw nsw i64 %indvars.iv to i32
+  %221 = tail call noundef float @_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %220, i32 noundef %.0125)
+  %222 = fmul float %87, %221
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %220, i32 noundef %.0125, float noundef %222)
+  %223 = fmul float %89, %221
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %220, i32 noundef %32, float noundef %223)
+  br label %224
 
-227:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, %222, %207, %98
+224:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit, %219, %204, %95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph173, label %98, !llvm.loop !156
+  br i1 %exitcond.not, label %.lr.ph173, label %95, !llvm.loop !156
 
-228:                                              ; preds = %.lr.ph173, %350
-  %indvars.iv175 = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next176, %350 ]
-  %229 = load ptr, ptr %0, align 8, !tbaa !35
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 192
-  %231 = load ptr, ptr %230, align 8, !tbaa !38
-  %232 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv175
-  %233 = load i32, ptr %232, align 4, !tbaa !85
-  %234 = zext i32 %233 to i64
-  %.not = icmp eq i64 %indvars.iv175, %234
-  br i1 %.not, label %235, label %350
+225:                                              ; preds = %.lr.ph173, %347
+  %indvars.iv175 = phi i64 [ 0, %.lr.ph173 ], [ %indvars.iv.next176, %347 ]
+  %226 = load ptr, ptr %0, align 8, !tbaa !35
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 192
+  %228 = load ptr, ptr %227, align 8, !tbaa !38
+  %229 = getelementptr inbounds nuw i32, ptr %228, i64 %indvars.iv175
+  %230 = load i32, ptr %229, align 4, !tbaa !85
+  %231 = zext i32 %230 to i64
+  %.not = icmp eq i64 %indvars.iv175, %231
+  br i1 %.not, label %232, label %347
 
-235:                                              ; preds = %228
-  br i1 %17, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, label %236
+232:                                              ; preds = %225
+  br i1 %17, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, label %233
 
-236:                                              ; preds = %235
-  %237 = load i64, ptr %15, align 8, !tbaa !62
-  %238 = icmp slt i64 %1, %237
-  %239 = icmp sgt i32 %233, -1
-  %or.cond.not24.i.i147 = and i1 %239, %238
-  %240 = load i32, ptr %12, align 8
-  %.not.i.i148 = icmp slt i32 %233, %240
+233:                                              ; preds = %232
+  %234 = load i64, ptr %15, align 8, !tbaa !62
+  %235 = icmp slt i64 %1, %234
+  %236 = icmp sgt i32 %230, -1
+  %or.cond.not24.i.i147 = and i1 %236, %235
+  %237 = load i32, ptr %12, align 8
+  %.not.i.i148 = icmp slt i32 %230, %237
   %or.cond21.i.i149 = select i1 %or.cond.not24.i.i147, i1 %.not.i.i148, i1 false
-  br i1 %or.cond21.i.i149, label %241, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
+  br i1 %or.cond21.i.i149, label %238, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-241:                                              ; preds = %236
-  %242 = getelementptr inbounds nuw i8, ptr %229, i64 144
-  %243 = getelementptr inbounds nuw i8, ptr %229, i64 152
-  %244 = load ptr, ptr %243, align 8, !tbaa !129
-  %245 = load ptr, ptr %242, align 8, !tbaa !51
-  %246 = icmp eq ptr %244, %245
-  br i1 %246, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, label %247
+238:                                              ; preds = %233
+  %239 = getelementptr inbounds nuw i8, ptr %226, i64 144
+  %240 = getelementptr inbounds nuw i8, ptr %226, i64 152
+  %241 = load ptr, ptr %240, align 8, !tbaa !129
+  %242 = load ptr, ptr %239, align 8, !tbaa !51
+  %243 = icmp eq ptr %241, %242
+  br i1 %243, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, label %244
 
-247:                                              ; preds = %241
-  %248 = getelementptr inbounds nuw i8, ptr %229, i64 72
-  %249 = load ptr, ptr %248, align 8, !tbaa !54
-  %250 = getelementptr inbounds nuw i32, ptr %249, i64 %1
-  %251 = load i32, ptr %250, align 4, !tbaa !85
-  %.not19.i.i152 = icmp slt i32 %.0125, %251
+244:                                              ; preds = %238
+  %245 = getelementptr inbounds nuw i8, ptr %226, i64 72
+  %246 = load ptr, ptr %245, align 8, !tbaa !54
+  %247 = getelementptr inbounds nuw i32, ptr %246, i64 %1
+  %248 = load i32, ptr %247, align 4, !tbaa !85
+  %.not19.i.i152 = icmp slt i32 %.0125, %248
   br i1 %.not19.i.i152, label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153: ; preds = %247
-  %252 = getelementptr inbounds nuw i8, ptr %229, i64 120
-  %253 = load ptr, ptr %252, align 8, !tbaa !54
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %1
-  %255 = load i32, ptr %254, align 4, !tbaa !85
-  %256 = add i32 %255, %.0125
-  %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw i8, ptr %229, i64 216
-  %259 = load i64, ptr %258, align 8, !tbaa !93
-  %260 = mul i64 %259, %257
-  %261 = getelementptr inbounds nuw i8, ptr %229, i64 48
-  %262 = load ptr, ptr %261, align 8, !tbaa !57
-  %263 = getelementptr inbounds nuw i64, ptr %262, i64 %indvars.iv175
-  %264 = load i64, ptr %263, align 8, !tbaa !96
-  %265 = getelementptr i8, ptr %245, i64 %260
-  %266 = getelementptr i8, ptr %265, i64 %264
-  %.not.i154 = icmp eq ptr %266, null
+_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153: ; preds = %244
+  %249 = getelementptr inbounds nuw i8, ptr %226, i64 120
+  %250 = load ptr, ptr %249, align 8, !tbaa !54
+  %251 = getelementptr inbounds nuw i32, ptr %250, i64 %1
+  %252 = load i32, ptr %251, align 4, !tbaa !85
+  %253 = add i32 %252, %.0125
+  %254 = zext i32 %253 to i64
+  %255 = getelementptr inbounds nuw i8, ptr %226, i64 216
+  %256 = load i64, ptr %255, align 8, !tbaa !93
+  %257 = mul i64 %256, %254
+  %258 = getelementptr inbounds nuw i8, ptr %226, i64 48
+  %259 = load ptr, ptr %258, align 8, !tbaa !57
+  %260 = getelementptr inbounds nuw i64, ptr %259, i64 %indvars.iv175
+  %261 = load i64, ptr %260, align 8, !tbaa !96
+  %262 = getelementptr i8, ptr %242, i64 %257
+  %263 = getelementptr i8, ptr %262, i64 %261
+  %.not.i154 = icmp eq ptr %263, null
   br i1 %.not.i154, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153
-  %267 = load ptr, ptr %229, align 8, !tbaa !9
-  %268 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %267, i64 %indvars.iv175
-  %269 = load i64, ptr %268, align 4
-  %.sroa.01.0.extract.trunc.i156 = trunc i64 %269 to i8
+  %264 = load ptr, ptr %226, align 8, !tbaa !9
+  %265 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %264, i64 %indvars.iv175
+  %266 = load i64, ptr %265, align 4
+  %.sroa.01.0.extract.trunc.i156 = trunc i64 %266 to i8
   switch i8 %.sroa.01.0.extract.trunc.i156, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 [
-    i8 11, label %270
-    i8 10, label %272
-    i8 6, label %296
-    i8 2, label %300
-    i8 3, label %304
-    i8 4, label %308
-    i8 5, label %312
-    i8 7, label %316
-    i8 8, label %320
-    i8 9, label %324
+    i8 11, label %267
+    i8 10, label %269
+    i8 6, label %293
+    i8 2, label %297
+    i8 3, label %301
+    i8 4, label %305
+    i8 5, label %309
+    i8 7, label %313
+    i8 8, label %317
+    i8 9, label %321
   ]
 
-270:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %271 = load float, ptr %266, align 4, !tbaa !138
+267:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %268 = load float, ptr %263, align 4, !tbaa !138
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-272:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %273 = load i16, ptr %266, align 2, !tbaa !140
-  %274 = zext i16 %273 to i32
-  %275 = shl nuw nsw i32 %274, 13
-  %276 = and i32 %275, 268427264
-  %.signext.i.i.i157 = sext i16 %273 to i32
-  %277 = and i32 %.signext.i.i.i157, -2147483648
-  %278 = icmp samesign ugt i32 %276, 8388607
-  br i1 %278, label %279, label %286, !prof !143
+269:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %270 = load i16, ptr %263, align 2, !tbaa !140
+  %271 = zext i16 %270 to i32
+  %272 = shl nuw nsw i32 %271, 13
+  %273 = and i32 %272, 268427264
+  %.signext.i.i.i157 = sext i16 %270 to i32
+  %274 = and i32 %.signext.i.i.i157, -2147483648
+  %275 = icmp samesign ugt i32 %273, 8388607
+  br i1 %275, label %276, label %283, !prof !143
 
-279:                                              ; preds = %272
-  %280 = or disjoint i32 %276, %277
-  %281 = icmp samesign ult i32 %276, 260046848
-  br i1 %281, label %282, label %284, !prof !143
+276:                                              ; preds = %269
+  %277 = or disjoint i32 %273, %274
+  %278 = icmp samesign ult i32 %273, 260046848
+  br i1 %278, label %279, label %281, !prof !143
 
-282:                                              ; preds = %279
-  %283 = add nuw nsw i32 %280, 939524096
+279:                                              ; preds = %276
+  %280 = add nuw nsw i32 %277, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i159
 
-284:                                              ; preds = %279
-  %285 = or i32 %280, 2139095040
+281:                                              ; preds = %276
+  %282 = or i32 %277, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i159
 
-286:                                              ; preds = %272
-  %.not.i.i.i158 = icmp eq i32 %276, 0
-  br i1 %.not.i.i.i158, label %_ZNK9Imath_3_14halfcvfEv.exit.i159, label %287
+283:                                              ; preds = %269
+  %.not.i.i.i158 = icmp eq i32 %273, 0
+  br i1 %.not.i.i.i158, label %_ZNK9Imath_3_14halfcvfEv.exit.i159, label %284
 
-287:                                              ; preds = %286
-  %288 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %276, i1 true)
-  %289 = add nsw i32 %288, -8
-  %290 = shl i32 %276, %289
-  %291 = or i32 %277, %290
-  %292 = or i32 %291, 947912704
-  %293 = shl nuw nsw i32 %289, 23
-  %294 = sub nuw i32 %292, %293
+284:                                              ; preds = %283
+  %285 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %273, i1 true)
+  %286 = add nsw i32 %285, -8
+  %287 = shl i32 %273, %286
+  %288 = or i32 %274, %287
+  %289 = or i32 %288, 947912704
+  %290 = shl nuw nsw i32 %286, 23
+  %291 = sub nuw i32 %289, %290
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i159
 
-_ZNK9Imath_3_14halfcvfEv.exit.i159:               ; preds = %287, %286, %284, %282
-  %.sroa.0.0.i.i.i160 = phi i32 [ %283, %282 ], [ %285, %284 ], [ %294, %287 ], [ %277, %286 ]
-  %295 = bitcast i32 %.sroa.0.0.i.i.i160 to float
+_ZNK9Imath_3_14halfcvfEv.exit.i159:               ; preds = %284, %283, %281, %279
+  %.sroa.0.0.i.i.i160 = phi i32 [ %280, %279 ], [ %282, %281 ], [ %291, %284 ], [ %274, %283 ]
+  %292 = bitcast i32 %.sroa.0.0.i.i.i160 to float
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-296:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %297 = load i32, ptr %266, align 4, !tbaa !85
-  %298 = uitofp i32 %297 to float
-  %299 = fmul float %298, 0x3DF0000000000000
+293:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %294 = load i32, ptr %263, align 4, !tbaa !85
+  %295 = uitofp i32 %294 to float
+  %296 = fmul float %295, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-300:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %301 = load i8, ptr %266, align 1, !tbaa !47
-  %302 = uitofp i8 %301 to float
-  %303 = fmul float %302, 0x3F70101020000000
+297:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %298 = load i8, ptr %263, align 1, !tbaa !47
+  %299 = uitofp i8 %298 to float
+  %300 = fmul float %299, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-304:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %305 = load i8, ptr %266, align 1, !tbaa !47
-  %306 = sitofp i8 %305 to float
-  %307 = fmul float %306, 0x3F80204080000000
+301:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %302 = load i8, ptr %263, align 1, !tbaa !47
+  %303 = sitofp i8 %302 to float
+  %304 = fmul float %303, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-308:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %309 = load i16, ptr %266, align 2, !tbaa !144
-  %310 = uitofp i16 %309 to float
-  %311 = fmul float %310, 0x3EF0001000000000
+305:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %306 = load i16, ptr %263, align 2, !tbaa !144
+  %307 = uitofp i16 %306 to float
+  %308 = fmul float %307, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-312:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %313 = load i16, ptr %266, align 2, !tbaa !144
-  %314 = sitofp i16 %313 to float
-  %315 = fmul float %314, 0x3F00002000000000
+309:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %310 = load i16, ptr %263, align 2, !tbaa !144
+  %311 = sitofp i16 %310 to float
+  %312 = fmul float %311, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-316:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %317 = load i32, ptr %266, align 4, !tbaa !85
-  %318 = sitofp i32 %317 to float
-  %319 = fmul float %318, 0x3E00000000000000
+313:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %314 = load i32, ptr %263, align 4, !tbaa !85
+  %315 = sitofp i32 %314 to float
+  %316 = fmul float %315, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-320:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %321 = load i64, ptr %266, align 8, !tbaa !145
-  %322 = uitofp i64 %321 to float
-  %323 = fmul float %322, 0x3BF0000000000000
+317:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %318 = load i64, ptr %263, align 8, !tbaa !145
+  %319 = uitofp i64 %318 to float
+  %320 = fmul float %319, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-324:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %325 = load i64, ptr %266, align 8, !tbaa !145
-  %326 = sitofp i64 %325 to float
-  %327 = fmul float %326, 0x3C00000000000000
+321:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
+  %322 = load i64, ptr %263, align 8, !tbaa !145
+  %323 = sitofp i64 %322 to float
+  %324 = fmul float %323, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
-  %328 = trunc i64 %269 to i32
-  %329 = and i32 %328, 255
-  %330 = load ptr, ptr @stderr, align 8, !tbaa !89
-  %331 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %330, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %329) #33
+  %325 = trunc i64 %266 to i32
+  %326 = and i32 %325, 255
+  %327 = load ptr, ptr @stderr, align 8, !tbaa !89
+  %328 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %327, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %326) #33
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
-_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162: ; preds = %235, %236, %241, %247, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153, %270, %_ZNK9Imath_3_14halfcvfEv.exit.i159, %296, %300, %304, %308, %312, %316, %320, %324, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161
-  %.0.i150 = phi float [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ], [ %271, %270 ], [ %295, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %299, %296 ], [ %303, %300 ], [ %307, %304 ], [ %311, %308 ], [ %315, %312 ], [ %319, %316 ], [ %323, %320 ], [ %327, %324 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ 0.000000e+00, %247 ], [ 0.000000e+00, %241 ], [ 0.000000e+00, %236 ], [ 0.000000e+00, %235 ]
+_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162: ; preds = %232, %233, %238, %244, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153, %267, %_ZNK9Imath_3_14halfcvfEv.exit.i159, %293, %297, %301, %305, %309, %313, %317, %321, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161
+  %.0.i150 = phi float [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ], [ %268, %267 ], [ %292, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %296, %293 ], [ %300, %297 ], [ %304, %301 ], [ %308, %305 ], [ %312, %309 ], [ %316, %313 ], [ %320, %317 ], [ %324, %321 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ 0.000000e+00, %244 ], [ 0.000000e+00, %238 ], [ 0.000000e+00, %233 ], [ 0.000000e+00, %232 ]
   %.inv = fcmp oge float %.0.i150, 0.000000e+00
   %.0.i140 = select i1 %.inv, float %.0.i150, float 0.000000e+00
-  %332 = fcmp ogt float %.0.i140, 1.000000e+00
-  %.1.i141 = select i1 %332, float 1.000000e+00, float %.0.i140
-  %333 = fcmp oeq float %.1.i141, 1.000000e+00
-  br i1 %333, label %350, label %334
+  %329 = fcmp ogt float %.0.i140, 1.000000e+00
+  %.1.i141 = select i1 %329, float 1.000000e+00, float %.0.i140
+  %330 = fcmp oeq float %.1.i141, 1.000000e+00
+  br i1 %330, label %347, label %331
 
-334:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
-  %335 = fcmp ogt float %.1.i141, 0x3810000000000000
-  br i1 %335, label %336, label %346
+331:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
+  %332 = fcmp ogt float %.1.i141, 0x3810000000000000
+  br i1 %332, label %333, label %343
 
-336:                                              ; preds = %334
-  %337 = fneg float %.1.i141
-  %338 = tail call noundef float @log1pf(float noundef %337) #35
-  %339 = fmul float %95, %338
+333:                                              ; preds = %331
+  %334 = fneg float %.1.i141
+  %335 = tail call noundef float @log1pf(float noundef %334) #35
+  %336 = fmul float %92, %335
+  %337 = tail call noundef float @expm1f(float noundef %336) #35
+  %338 = fneg float %337
+  %339 = fmul float %94, %335
   %340 = tail call noundef float @expm1f(float noundef %339) #35
   %341 = fneg float %340
-  %342 = fmul float %97, %338
-  %343 = tail call noundef float @expm1f(float noundef %342) #35
-  %344 = fneg float %343
+  %342 = trunc nuw nsw i64 %indvars.iv175 to i32
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %342, i32 noundef %.0125, float noundef %338)
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %342, i32 noundef %32, float noundef %341)
+  br label %347
+
+343:                                              ; preds = %331
+  %344 = fmul float %92, %.1.i141
   %345 = trunc nuw nsw i64 %indvars.iv175 to i32
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %345, i32 noundef %.0125, float noundef %341)
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %345, i32 noundef %32, float noundef %344)
-  br label %350
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %345, i32 noundef %.0125, float noundef %344)
+  %346 = fmul float %94, %.1.i141
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %345, i32 noundef %32, float noundef %346)
+  br label %347
 
-346:                                              ; preds = %334
-  %347 = fmul float %95, %.1.i141
-  %348 = trunc nuw nsw i64 %indvars.iv175 to i32
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %348, i32 noundef %.0125, float noundef %347)
-  %349 = fmul float %97, %.1.i141
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %348, i32 noundef %32, float noundef %349)
-  br label %350
-
-350:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, %346, %336, %228
+347:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162, %343, %333, %225
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %.loopexit, label %228, !llvm.loop !157
+  br i1 %exitcond179.not, label %.loopexit, label %225, !llvm.loop !157
 
-.loopexit:                                        ; preds = %350, %27, %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit
-  %.1 = phi i1 [ true, %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit ], [ %.0124, %27 ], [ true, %350 ]
+.loopexit:                                        ; preds = %347, %27, %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit
+  %.1 = phi i1 [ true, %_ZN11OpenImageIO6v3_1_08DeepData14insert_samplesElii.exit ], [ %.0124, %27 ], [ true, %347 ]
   br label %18, !llvm.loop !158
 
 .loopexit170:                                     ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit, %3
@@ -6291,11 +6281,11 @@ define void @_ZN11OpenImageIO6v3_1_08DeepData14merge_overlapsEl(ptr noundef nonn
   %15 = icmp sgt i32 %12, 0
   %16 = icmp slt i64 %1, 0
   %wide.trip.count = zext nneg i32 %12 to i64
-  %wide.trip.count265 = zext nneg i32 %12 to i64
+  %wide.trip.count267 = zext nneg i32 %12 to i64
   br label %17
 
-17:                                               ; preds = %724, %7
-  %.0105 = phi i32 [ 1, %7 ], [ %725, %724 ]
+17:                                               ; preds = %722, %7
+  %.0105 = phi i32 [ 1, %7 ], [ %723, %722 ]
   %18 = load i64, ptr %14, align 8
   %.not.i = icmp slt i64 %1, %18
   %or.cond.i = select i1 %13, i1 %.not.i, i1 false
@@ -6320,25 +6310,25 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit: ; preds = %17, %19
   %29 = add nsw i32 %.0105, -1
   %30 = tail call noundef float @_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %5, i32 noundef %29)
   %31 = fcmp oeq float %27, %30
-  br i1 %31, label %32, label %724
+  br i1 %31, label %32, label %722
 
 32:                                               ; preds = %26
   %33 = tail call noundef float @_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %spec.select, i32 noundef %29)
   %34 = fcmp oeq float %28, %33
-  br i1 %34, label %.preheader257, label %724
+  br i1 %34, label %.preheader259, label %722
 
-.preheader257:                                    ; preds = %32
+.preheader259:                                    ; preds = %32
   br i1 %15, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader257
+.lr.ph:                                           ; preds = %.preheader259
   %35 = icmp slt i32 %.0105, 1
   %36 = icmp slt i32 %.0105, 0
   br label %39
 
-.lr.ph260:                                        ; preds = %471
+.lr.ph262:                                        ; preds = %471
   %37 = icmp slt i32 %.0105, 1
   %38 = icmp slt i32 %.0105, 0
-  br label %513
+  br label %511
 
 39:                                               ; preds = %.lr.ph, %471
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %471 ]
@@ -6518,11 +6508,11 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i: ; preds = %_ZNK11Open
   %142 = load ptr, ptr @stderr, align 8, !tbaa !89
   %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %141) #33
   %.pre = load i64, ptr %14, align 8, !tbaa !62
-  %.pre267 = load i32, ptr %11, align 8
+  %.pre269 = load i32, ptr %11, align 8
   br label %144
 
 144:                                              ; preds = %49, %53, %59, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i, %82, %_ZNK9Imath_3_14halfcvfEv.exit.i, %108, %112, %116, %120, %124, %128, %132, %136, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i
-  %145 = phi i32 [ %52, %49 ], [ %52, %53 ], [ %52, %59 ], [ %52, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i ], [ %52, %136 ], [ %52, %132 ], [ %52, %128 ], [ %52, %124 ], [ %52, %120 ], [ %52, %116 ], [ %52, %112 ], [ %52, %108 ], [ %52, %_ZNK9Imath_3_14halfcvfEv.exit.i ], [ %52, %82 ], [ %.pre267, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i ]
+  %145 = phi i32 [ %52, %49 ], [ %52, %53 ], [ %52, %59 ], [ %52, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i ], [ %52, %136 ], [ %52, %132 ], [ %52, %128 ], [ %52, %124 ], [ %52, %120 ], [ %52, %116 ], [ %52, %112 ], [ %52, %108 ], [ %52, %_ZNK9Imath_3_14halfcvfEv.exit.i ], [ %52, %82 ], [ %.pre269, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i ]
   %146 = phi i64 [ %50, %49 ], [ %50, %53 ], [ %50, %59 ], [ %50, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i ], [ %50, %136 ], [ %50, %132 ], [ %50, %128 ], [ %50, %124 ], [ %50, %120 ], [ %50, %116 ], [ %50, %112 ], [ %50, %108 ], [ %50, %_ZNK9Imath_3_14halfcvfEv.exit.i ], [ %50, %82 ], [ %.pre, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i ]
   %.0.i127.ph = phi float [ 0.000000e+00, %49 ], [ 0.000000e+00, %53 ], [ 0.000000e+00, %59 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i ], [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %120 ], [ %119, %116 ], [ %115, %112 ], [ %111, %108 ], [ %107, %_ZNK9Imath_3_14halfcvfEv.exit.i ], [ %83, %82 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i ]
   %.inv255 = fcmp oge float %.0.i127.ph, 0.000000e+00
@@ -6692,13 +6682,13 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144: ; preds = %_ZNK11O
   %239 = and i32 %238, 255
   %240 = load ptr, ptr @stderr, align 8, !tbaa !89
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %240, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %239) #33
-  %.pre268 = load i64, ptr %14, align 8, !tbaa !62
-  %.pre269 = load i32, ptr %11, align 8
+  %.pre270 = load i64, ptr %14, align 8, !tbaa !62
+  %.pre271 = load i32, ptr %11, align 8
   br label %242
 
 242:                                              ; preds = %144, %149, %151, %157, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i136, %180, %_ZNK9Imath_3_14halfcvfEv.exit.i142, %206, %210, %214, %218, %222, %226, %230, %234, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144
-  %243 = phi i32 [ %145, %144 ], [ %145, %149 ], [ %145, %151 ], [ %145, %157 ], [ %145, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i136 ], [ %145, %234 ], [ %145, %230 ], [ %145, %226 ], [ %145, %222 ], [ %145, %218 ], [ %145, %214 ], [ %145, %210 ], [ %145, %206 ], [ %145, %_ZNK9Imath_3_14halfcvfEv.exit.i142 ], [ %145, %180 ], [ %.pre269, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144 ]
-  %244 = phi i64 [ %146, %144 ], [ %146, %149 ], [ %146, %151 ], [ %146, %157 ], [ %146, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i136 ], [ %146, %234 ], [ %146, %230 ], [ %146, %226 ], [ %146, %222 ], [ %146, %218 ], [ %146, %214 ], [ %146, %210 ], [ %146, %206 ], [ %146, %_ZNK9Imath_3_14halfcvfEv.exit.i142 ], [ %146, %180 ], [ %.pre268, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144 ]
+  %243 = phi i32 [ %145, %144 ], [ %145, %149 ], [ %145, %151 ], [ %145, %157 ], [ %145, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i136 ], [ %145, %234 ], [ %145, %230 ], [ %145, %226 ], [ %145, %222 ], [ %145, %218 ], [ %145, %214 ], [ %145, %210 ], [ %145, %206 ], [ %145, %_ZNK9Imath_3_14halfcvfEv.exit.i142 ], [ %145, %180 ], [ %.pre271, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144 ]
+  %244 = phi i64 [ %146, %144 ], [ %146, %149 ], [ %146, %151 ], [ %146, %157 ], [ %146, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i136 ], [ %146, %234 ], [ %146, %230 ], [ %146, %226 ], [ %146, %222 ], [ %146, %218 ], [ %146, %214 ], [ %146, %210 ], [ %146, %206 ], [ %146, %_ZNK9Imath_3_14halfcvfEv.exit.i142 ], [ %146, %180 ], [ %.pre270, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144 ]
   %.0.i132.ph = phi float [ 0.000000e+00, %144 ], [ 0.000000e+00, %149 ], [ 0.000000e+00, %151 ], [ 0.000000e+00, %157 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i136 ], [ %237, %234 ], [ %233, %230 ], [ %229, %226 ], [ %225, %222 ], [ %221, %218 ], [ %217, %214 ], [ %213, %210 ], [ %209, %206 ], [ %205, %_ZNK9Imath_3_14halfcvfEv.exit.i142 ], [ %181, %180 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144 ]
   %.inv256 = fcmp oge float %.0.i132.ph, 0.000000e+00
   %.0.i122233 = select i1 %.inv256, float %.0.i132.ph, float 0.000000e+00
@@ -6868,14 +6858,14 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161: ; preds = %_ZNK11O
   %338 = and i32 %337, 255
   %339 = load ptr, ptr @stderr, align 8, !tbaa !89
   %340 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %338) #33
-  %.pre270 = load i64, ptr %14, align 8, !tbaa !62
-  %.pre271 = load i32, ptr %11, align 8
-  %.pre274 = sext i32 %.pre271 to i64
+  %.pre272 = load i64, ptr %14, align 8, !tbaa !62
+  %.pre273 = load i32, ptr %11, align 8
+  %.pre276 = sext i32 %.pre273 to i64
   br label %341
 
 341:                                              ; preds = %242, %248, %250, %256, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153, %279, %_ZNK9Imath_3_14halfcvfEv.exit.i159, %305, %309, %313, %317, %321, %325, %329, %333, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161
-  %.pre-phi = phi i64 [ %247, %242 ], [ %247, %248 ], [ %247, %250 ], [ %247, %256 ], [ %247, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ %247, %279 ], [ %247, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %247, %305 ], [ %247, %309 ], [ %247, %313 ], [ %247, %317 ], [ %247, %321 ], [ %247, %325 ], [ %247, %329 ], [ %247, %333 ], [ %.pre274, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ]
-  %342 = phi i64 [ %244, %242 ], [ %244, %248 ], [ %244, %250 ], [ %244, %256 ], [ %244, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ %244, %279 ], [ %244, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %244, %305 ], [ %244, %309 ], [ %244, %313 ], [ %244, %317 ], [ %244, %321 ], [ %244, %325 ], [ %244, %329 ], [ %244, %333 ], [ %.pre270, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ]
+  %.pre-phi = phi i64 [ %247, %242 ], [ %247, %248 ], [ %247, %250 ], [ %247, %256 ], [ %247, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ %247, %279 ], [ %247, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %247, %305 ], [ %247, %309 ], [ %247, %313 ], [ %247, %317 ], [ %247, %321 ], [ %247, %325 ], [ %247, %329 ], [ %247, %333 ], [ %.pre276, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ]
+  %342 = phi i64 [ %244, %242 ], [ %244, %248 ], [ %244, %250 ], [ %244, %256 ], [ %244, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ %244, %279 ], [ %244, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %244, %305 ], [ %244, %309 ], [ %244, %313 ], [ %244, %317 ], [ %244, %321 ], [ %244, %325 ], [ %244, %329 ], [ %244, %333 ], [ %.pre272, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ]
   %.0.i149.ph = phi float [ 0.000000e+00, %242 ], [ 0.000000e+00, %248 ], [ 0.000000e+00, %250 ], [ 0.000000e+00, %256 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i153 ], [ %280, %279 ], [ %304, %_ZNK9Imath_3_14halfcvfEv.exit.i159 ], [ %308, %305 ], [ %312, %309 ], [ %316, %313 ], [ %320, %317 ], [ %324, %321 ], [ %328, %325 ], [ %332, %329 ], [ %336, %333 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161 ]
   %343 = icmp slt i64 %1, %342
   %.not.i.i164 = icmp slt i64 %indvars.iv, %.pre-phi
@@ -7100,9 +7090,9 @@ _ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179: ; preds = %48, %341, 
 471:                                              ; preds = %39, %469
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph260, label %39, !llvm.loop !162
+  br i1 %exitcond.not, label %.lr.ph262, label %39, !llvm.loop !162
 
-._crit_edge:                                      ; preds = %723, %.preheader257
+._crit_edge:                                      ; preds = %721, %.preheader259
   %472 = load ptr, ptr %0, align 8, !tbaa !35
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 72
   %474 = load ptr, ptr %473, align 8, !tbaa !54
@@ -7147,408 +7137,407 @@ _ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i: ; preds = %._crit_edge
   br i1 %.not.i.i.i.i.i.i, label %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit, label %505
 
 505:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i
-  %506 = ptrtoint ptr %504 to i64
-  %507 = ptrtoint ptr %502 to i64
-  %508 = sub i64 %506, %507
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %499, ptr align 1 %502, i64 %508, i1 false)
+  %506 = add i64 %489, %501
+  %gepdiff.i = sub i64 %495, %506
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %499, ptr align 1 %502, i64 %gepdiff.i, i1 false)
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !35
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 72
-  %.pre21.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
-  %.phi.trans.insert22.i = getelementptr inbounds nuw i32, ptr %.pre21.i, i64 %1
-  %.pre23.i = load i32, ptr %.phi.trans.insert22.i, align 4, !tbaa !85
+  %.pre25.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !54
+  %.phi.trans.insert26.i = getelementptr inbounds nuw i32, ptr %.pre25.i, i64 %1
+  %.pre27.i = load i32, ptr %.phi.trans.insert26.i, align 4, !tbaa !85
   br label %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit
 
 _ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit: ; preds = %._crit_edge, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i, %505
-  %509 = phi i32 [ %.pre23.i, %505 ], [ %476, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %476, %._crit_edge ]
-  %510 = phi ptr [ %.pre21.i, %505 ], [ %474, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %474, %._crit_edge ]
-  %511 = getelementptr inbounds nuw i32, ptr %510, i64 %1
-  %512 = sub i32 %509, %.sroa.speculated.i
-  store i32 %512, ptr %511, align 4, !tbaa !85
-  br label %724
+  %507 = phi i32 [ %.pre27.i, %505 ], [ %476, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %476, %._crit_edge ]
+  %508 = phi ptr [ %.pre25.i, %505 ], [ %474, %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit.i ], [ %474, %._crit_edge ]
+  %509 = getelementptr inbounds nuw i32, ptr %508, i64 %1
+  %510 = sub i32 %507, %.sroa.speculated.i
+  store i32 %510, ptr %509, align 4, !tbaa !85
+  br label %722
 
-513:                                              ; preds = %.lr.ph260, %723
-  %indvars.iv262 = phi i64 [ 0, %.lr.ph260 ], [ %indvars.iv.next263, %723 ]
-  %514 = load ptr, ptr %0, align 8, !tbaa !35
-  %515 = getelementptr inbounds nuw i8, ptr %514, i64 192
-  %516 = load ptr, ptr %515, align 8, !tbaa !38
-  %517 = getelementptr inbounds nuw i32, ptr %516, i64 %indvars.iv262
-  %518 = load i32, ptr %517, align 4, !tbaa !85
-  %519 = zext i32 %518 to i64
-  %.not = icmp eq i64 %indvars.iv262, %519
-  br i1 %.not, label %520, label %723
+511:                                              ; preds = %.lr.ph262, %721
+  %indvars.iv264 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next265, %721 ]
+  %512 = load ptr, ptr %0, align 8, !tbaa !35
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 192
+  %514 = load ptr, ptr %513, align 8, !tbaa !38
+  %515 = getelementptr inbounds nuw i32, ptr %514, i64 %indvars.iv264
+  %516 = load i32, ptr %515, align 4, !tbaa !85
+  %517 = zext i32 %516 to i64
+  %.not = icmp eq i64 %indvars.iv264, %517
+  br i1 %.not, label %518, label %721
 
-520:                                              ; preds = %513
-  %521 = icmp slt i32 %518, 0
-  br i1 %521, label %.thread, label %522
+518:                                              ; preds = %511
+  %519 = icmp slt i32 %516, 0
+  br i1 %519, label %.thread, label %520
 
-522:                                              ; preds = %520
-  br i1 %16, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %523
+520:                                              ; preds = %518
+  br i1 %16, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %521
 
-523:                                              ; preds = %522
-  %524 = load i64, ptr %14, align 8, !tbaa !62
-  %525 = icmp slt i64 %1, %524
-  %526 = load i32, ptr %11, align 8
-  %.not.i.i182 = icmp slt i32 %518, %526
-  %or.cond21.i.i183 = select i1 %525, i1 %.not.i.i182, i1 false
-  br i1 %or.cond21.i.i183, label %527, label %618
+521:                                              ; preds = %520
+  %522 = load i64, ptr %14, align 8, !tbaa !62
+  %523 = icmp slt i64 %1, %522
+  %524 = load i32, ptr %11, align 8
+  %.not.i.i182 = icmp slt i32 %516, %524
+  %or.cond21.i.i183 = select i1 %523, i1 %.not.i.i182, i1 false
+  br i1 %or.cond21.i.i183, label %525, label %616
 
-527:                                              ; preds = %523
-  %528 = getelementptr inbounds nuw i8, ptr %514, i64 144
-  %529 = getelementptr inbounds nuw i8, ptr %514, i64 152
-  %530 = load ptr, ptr %529, align 8, !tbaa !129
-  %531 = load ptr, ptr %528, align 8, !tbaa !51
-  %532 = icmp eq ptr %530, %531
-  %or.cond3.i.i186 = or i1 %37, %532
-  br i1 %or.cond3.i.i186, label %618, label %533
+525:                                              ; preds = %521
+  %526 = getelementptr inbounds nuw i8, ptr %512, i64 144
+  %527 = getelementptr inbounds nuw i8, ptr %512, i64 152
+  %528 = load ptr, ptr %527, align 8, !tbaa !129
+  %529 = load ptr, ptr %526, align 8, !tbaa !51
+  %530 = icmp eq ptr %528, %529
+  %or.cond3.i.i186 = or i1 %37, %530
+  br i1 %or.cond3.i.i186, label %616, label %531
 
-533:                                              ; preds = %527
-  %534 = getelementptr inbounds nuw i8, ptr %514, i64 72
-  %535 = load ptr, ptr %534, align 8, !tbaa !54
-  %536 = getelementptr inbounds nuw i32, ptr %535, i64 %1
-  %537 = load i32, ptr %536, align 4, !tbaa !85
-  %.not19.i.i187.not = icmp sgt i32 %.0105, %537
-  br i1 %.not19.i.i187.not, label %618, label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188
+531:                                              ; preds = %525
+  %532 = getelementptr inbounds nuw i8, ptr %512, i64 72
+  %533 = load ptr, ptr %532, align 8, !tbaa !54
+  %534 = getelementptr inbounds nuw i32, ptr %533, i64 %1
+  %535 = load i32, ptr %534, align 4, !tbaa !85
+  %.not19.i.i187.not = icmp sgt i32 %.0105, %535
+  br i1 %.not19.i.i187.not, label %616, label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188
 
-_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188: ; preds = %533
-  %538 = getelementptr inbounds nuw i8, ptr %514, i64 120
-  %539 = load ptr, ptr %538, align 8, !tbaa !54
-  %540 = getelementptr inbounds nuw i32, ptr %539, i64 %1
-  %541 = load i32, ptr %540, align 4, !tbaa !85
-  %542 = add i32 %541, %29
-  %543 = zext i32 %542 to i64
-  %544 = getelementptr inbounds nuw i8, ptr %514, i64 216
-  %545 = load i64, ptr %544, align 8, !tbaa !93
-  %546 = mul i64 %545, %543
-  %547 = getelementptr inbounds nuw i8, ptr %514, i64 48
-  %548 = load ptr, ptr %547, align 8, !tbaa !57
-  %549 = getelementptr inbounds nuw i64, ptr %548, i64 %indvars.iv262
-  %550 = load i64, ptr %549, align 8, !tbaa !96
-  %551 = getelementptr i8, ptr %531, i64 %546
-  %552 = getelementptr i8, ptr %551, i64 %550
-  %.not.i189 = icmp eq ptr %552, null
-  br i1 %.not.i189, label %618, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188: ; preds = %531
+  %536 = getelementptr inbounds nuw i8, ptr %512, i64 120
+  %537 = load ptr, ptr %536, align 8, !tbaa !54
+  %538 = getelementptr inbounds nuw i32, ptr %537, i64 %1
+  %539 = load i32, ptr %538, align 4, !tbaa !85
+  %540 = add i32 %539, %29
+  %541 = zext i32 %540 to i64
+  %542 = getelementptr inbounds nuw i8, ptr %512, i64 216
+  %543 = load i64, ptr %542, align 8, !tbaa !93
+  %544 = mul i64 %543, %541
+  %545 = getelementptr inbounds nuw i8, ptr %512, i64 48
+  %546 = load ptr, ptr %545, align 8, !tbaa !57
+  %547 = getelementptr inbounds nuw i64, ptr %546, i64 %indvars.iv264
+  %548 = load i64, ptr %547, align 8, !tbaa !96
+  %549 = getelementptr i8, ptr %529, i64 %544
+  %550 = getelementptr i8, ptr %549, i64 %548
+  %.not.i189 = icmp eq ptr %550, null
+  br i1 %.not.i189, label %616, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188
-  %553 = load ptr, ptr %514, align 8, !tbaa !9
-  %554 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %553, i64 %indvars.iv262
-  %555 = load i64, ptr %554, align 4
-  %.sroa.01.0.extract.trunc.i191 = trunc i64 %555 to i8
+  %551 = load ptr, ptr %512, align 8, !tbaa !9
+  %552 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %551, i64 %indvars.iv264
+  %553 = load i64, ptr %552, align 4
+  %.sroa.01.0.extract.trunc.i191 = trunc i64 %553 to i8
   switch i8 %.sroa.01.0.extract.trunc.i191, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 [
-    i8 11, label %556
-    i8 10, label %558
-    i8 6, label %582
-    i8 2, label %586
-    i8 3, label %590
-    i8 4, label %594
-    i8 5, label %598
-    i8 7, label %602
-    i8 8, label %606
-    i8 9, label %610
+    i8 11, label %554
+    i8 10, label %556
+    i8 6, label %580
+    i8 2, label %584
+    i8 3, label %588
+    i8 4, label %592
+    i8 5, label %596
+    i8 7, label %600
+    i8 8, label %604
+    i8 9, label %608
   ]
 
+554:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %555 = load float, ptr %550, align 4, !tbaa !138
+  br label %616
+
 556:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %557 = load float, ptr %552, align 4, !tbaa !138
-  br label %618
+  %557 = load i16, ptr %550, align 2, !tbaa !140
+  %558 = zext i16 %557 to i32
+  %559 = shl nuw nsw i32 %558, 13
+  %560 = and i32 %559, 268427264
+  %.signext.i.i.i192 = sext i16 %557 to i32
+  %561 = and i32 %.signext.i.i.i192, -2147483648
+  %562 = icmp samesign ugt i32 %560, 8388607
+  br i1 %562, label %563, label %570, !prof !143
 
-558:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %559 = load i16, ptr %552, align 2, !tbaa !140
-  %560 = zext i16 %559 to i32
-  %561 = shl nuw nsw i32 %560, 13
-  %562 = and i32 %561, 268427264
-  %.signext.i.i.i192 = sext i16 %559 to i32
-  %563 = and i32 %.signext.i.i.i192, -2147483648
-  %564 = icmp samesign ugt i32 %562, 8388607
-  br i1 %564, label %565, label %572, !prof !143
+563:                                              ; preds = %556
+  %564 = or disjoint i32 %560, %561
+  %565 = icmp samesign ult i32 %560, 260046848
+  br i1 %565, label %566, label %568, !prof !143
 
-565:                                              ; preds = %558
-  %566 = or disjoint i32 %562, %563
-  %567 = icmp samesign ult i32 %562, 260046848
-  br i1 %567, label %568, label %570, !prof !143
-
-568:                                              ; preds = %565
-  %569 = add nuw nsw i32 %566, 939524096
+566:                                              ; preds = %563
+  %567 = add nuw nsw i32 %564, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i194
 
-570:                                              ; preds = %565
-  %571 = or i32 %566, 2139095040
+568:                                              ; preds = %563
+  %569 = or i32 %564, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i194
 
-572:                                              ; preds = %558
-  %.not.i.i.i193 = icmp eq i32 %562, 0
-  br i1 %.not.i.i.i193, label %_ZNK9Imath_3_14halfcvfEv.exit.i194, label %573
+570:                                              ; preds = %556
+  %.not.i.i.i193 = icmp eq i32 %560, 0
+  br i1 %.not.i.i.i193, label %_ZNK9Imath_3_14halfcvfEv.exit.i194, label %571
 
-573:                                              ; preds = %572
-  %574 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %562, i1 true)
-  %575 = add nsw i32 %574, -8
-  %576 = shl i32 %562, %575
-  %577 = or i32 %563, %576
-  %578 = or i32 %577, 947912704
-  %579 = shl nuw nsw i32 %575, 23
-  %580 = sub nuw i32 %578, %579
+571:                                              ; preds = %570
+  %572 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %560, i1 true)
+  %573 = add nsw i32 %572, -8
+  %574 = shl i32 %560, %573
+  %575 = or i32 %561, %574
+  %576 = or i32 %575, 947912704
+  %577 = shl nuw nsw i32 %573, 23
+  %578 = sub nuw i32 %576, %577
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i194
 
-_ZNK9Imath_3_14halfcvfEv.exit.i194:               ; preds = %573, %572, %570, %568
-  %.sroa.0.0.i.i.i195 = phi i32 [ %569, %568 ], [ %571, %570 ], [ %580, %573 ], [ %563, %572 ]
-  %581 = bitcast i32 %.sroa.0.0.i.i.i195 to float
-  br label %618
+_ZNK9Imath_3_14halfcvfEv.exit.i194:               ; preds = %571, %570, %568, %566
+  %.sroa.0.0.i.i.i195 = phi i32 [ %567, %566 ], [ %569, %568 ], [ %578, %571 ], [ %561, %570 ]
+  %579 = bitcast i32 %.sroa.0.0.i.i.i195 to float
+  br label %616
 
-582:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %583 = load i32, ptr %552, align 4, !tbaa !85
-  %584 = uitofp i32 %583 to float
-  %585 = fmul float %584, 0x3DF0000000000000
-  br label %618
+580:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %581 = load i32, ptr %550, align 4, !tbaa !85
+  %582 = uitofp i32 %581 to float
+  %583 = fmul float %582, 0x3DF0000000000000
+  br label %616
 
-586:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %587 = load i8, ptr %552, align 1, !tbaa !47
-  %588 = uitofp i8 %587 to float
-  %589 = fmul float %588, 0x3F70101020000000
-  br label %618
+584:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %585 = load i8, ptr %550, align 1, !tbaa !47
+  %586 = uitofp i8 %585 to float
+  %587 = fmul float %586, 0x3F70101020000000
+  br label %616
 
-590:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %591 = load i8, ptr %552, align 1, !tbaa !47
-  %592 = sitofp i8 %591 to float
-  %593 = fmul float %592, 0x3F80204080000000
-  br label %618
+588:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %589 = load i8, ptr %550, align 1, !tbaa !47
+  %590 = sitofp i8 %589 to float
+  %591 = fmul float %590, 0x3F80204080000000
+  br label %616
 
-594:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %595 = load i16, ptr %552, align 2, !tbaa !144
-  %596 = uitofp i16 %595 to float
-  %597 = fmul float %596, 0x3EF0001000000000
-  br label %618
+592:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %593 = load i16, ptr %550, align 2, !tbaa !144
+  %594 = uitofp i16 %593 to float
+  %595 = fmul float %594, 0x3EF0001000000000
+  br label %616
 
-598:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %599 = load i16, ptr %552, align 2, !tbaa !144
-  %600 = sitofp i16 %599 to float
-  %601 = fmul float %600, 0x3F00002000000000
-  br label %618
+596:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %597 = load i16, ptr %550, align 2, !tbaa !144
+  %598 = sitofp i16 %597 to float
+  %599 = fmul float %598, 0x3F00002000000000
+  br label %616
 
-602:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %603 = load i32, ptr %552, align 4, !tbaa !85
-  %604 = sitofp i32 %603 to float
-  %605 = fmul float %604, 0x3E00000000000000
-  br label %618
+600:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %601 = load i32, ptr %550, align 4, !tbaa !85
+  %602 = sitofp i32 %601 to float
+  %603 = fmul float %602, 0x3E00000000000000
+  br label %616
 
-606:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %607 = load i64, ptr %552, align 8, !tbaa !145
-  %608 = uitofp i64 %607 to float
-  %609 = fmul float %608, 0x3BF0000000000000
-  br label %618
+604:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %605 = load i64, ptr %550, align 8, !tbaa !145
+  %606 = uitofp i64 %605 to float
+  %607 = fmul float %606, 0x3BF0000000000000
+  br label %616
 
-610:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %611 = load i64, ptr %552, align 8, !tbaa !145
-  %612 = sitofp i64 %611 to float
-  %613 = fmul float %612, 0x3C00000000000000
-  br label %618
+608:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
+  %609 = load i64, ptr %550, align 8, !tbaa !145
+  %610 = sitofp i64 %609 to float
+  %611 = fmul float %610, 0x3C00000000000000
+  br label %616
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
-  %614 = trunc i64 %555 to i32
-  %615 = and i32 %614, 255
-  %616 = load ptr, ptr @stderr, align 8, !tbaa !89
-  %617 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %616, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %615) #33
-  %.pre272 = load i64, ptr %14, align 8, !tbaa !62
-  %.pre273 = load i32, ptr %11, align 8
-  br label %618
+  %612 = trunc i64 %553 to i32
+  %613 = and i32 %612, 255
+  %614 = load ptr, ptr @stderr, align 8, !tbaa !89
+  %615 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %614, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %613) #33
+  %.pre274 = load i64, ptr %14, align 8, !tbaa !62
+  %.pre275 = load i32, ptr %11, align 8
+  br label %616
 
-618:                                              ; preds = %523, %527, %533, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188, %556, %_ZNK9Imath_3_14halfcvfEv.exit.i194, %582, %586, %590, %594, %598, %602, %606, %610, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196
-  %619 = phi i32 [ %526, %523 ], [ %526, %527 ], [ %526, %533 ], [ %526, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188 ], [ %526, %610 ], [ %526, %606 ], [ %526, %602 ], [ %526, %598 ], [ %526, %594 ], [ %526, %590 ], [ %526, %586 ], [ %526, %582 ], [ %526, %_ZNK9Imath_3_14halfcvfEv.exit.i194 ], [ %526, %556 ], [ %.pre273, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 ]
-  %620 = phi i64 [ %524, %523 ], [ %524, %527 ], [ %524, %533 ], [ %524, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188 ], [ %524, %610 ], [ %524, %606 ], [ %524, %602 ], [ %524, %598 ], [ %524, %594 ], [ %524, %590 ], [ %524, %586 ], [ %524, %582 ], [ %524, %_ZNK9Imath_3_14halfcvfEv.exit.i194 ], [ %524, %556 ], [ %.pre272, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 ]
-  %.0.i184.ph = phi float [ 0.000000e+00, %523 ], [ 0.000000e+00, %527 ], [ 0.000000e+00, %533 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188 ], [ %613, %610 ], [ %609, %606 ], [ %605, %602 ], [ %601, %598 ], [ %597, %594 ], [ %593, %590 ], [ %589, %586 ], [ %585, %582 ], [ %581, %_ZNK9Imath_3_14halfcvfEv.exit.i194 ], [ %557, %556 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 ]
+616:                                              ; preds = %521, %525, %531, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188, %554, %_ZNK9Imath_3_14halfcvfEv.exit.i194, %580, %584, %588, %592, %596, %600, %604, %608, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196
+  %617 = phi i32 [ %524, %521 ], [ %524, %525 ], [ %524, %531 ], [ %524, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188 ], [ %524, %608 ], [ %524, %604 ], [ %524, %600 ], [ %524, %596 ], [ %524, %592 ], [ %524, %588 ], [ %524, %584 ], [ %524, %580 ], [ %524, %_ZNK9Imath_3_14halfcvfEv.exit.i194 ], [ %524, %554 ], [ %.pre275, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 ]
+  %618 = phi i64 [ %522, %521 ], [ %522, %525 ], [ %522, %531 ], [ %522, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188 ], [ %522, %608 ], [ %522, %604 ], [ %522, %600 ], [ %522, %596 ], [ %522, %592 ], [ %522, %588 ], [ %522, %584 ], [ %522, %580 ], [ %522, %_ZNK9Imath_3_14halfcvfEv.exit.i194 ], [ %522, %554 ], [ %.pre274, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 ]
+  %.0.i184.ph = phi float [ 0.000000e+00, %521 ], [ 0.000000e+00, %525 ], [ 0.000000e+00, %531 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i188 ], [ %611, %608 ], [ %607, %604 ], [ %603, %600 ], [ %599, %596 ], [ %595, %592 ], [ %591, %588 ], [ %587, %584 ], [ %583, %580 ], [ %579, %_ZNK9Imath_3_14halfcvfEv.exit.i194 ], [ %555, %554 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196 ]
   %.inv = fcmp oge float %.0.i184.ph, 0.000000e+00
   %.0.i120250 = select i1 %.inv, float %.0.i184.ph, float 0.000000e+00
-  %621 = fcmp ogt float %.0.i120250, 1.000000e+00
-  %.1.i121251 = select i1 %621, float 1.000000e+00, float %.0.i120250
-  %622 = icmp slt i64 %1, %620
-  %.not.i.i199 = icmp slt i32 %518, %619
-  %or.cond21.i.i200 = select i1 %622, i1 %.not.i.i199, i1 false
-  br i1 %or.cond21.i.i200, label %623, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
+  %619 = fcmp ogt float %.0.i120250, 1.000000e+00
+  %.1.i121251 = select i1 %619, float 1.000000e+00, float %.0.i120250
+  %620 = icmp slt i64 %1, %618
+  %.not.i.i199 = icmp slt i32 %516, %617
+  %or.cond21.i.i200 = select i1 %620, i1 %.not.i.i199, i1 false
+  br i1 %or.cond21.i.i200, label %621, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-623:                                              ; preds = %618
-  %624 = load ptr, ptr %0, align 8, !tbaa !35
-  %.not18.i.i202 = icmp eq ptr %624, null
-  br i1 %.not18.i.i202, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %625
+621:                                              ; preds = %616
+  %622 = load ptr, ptr %0, align 8, !tbaa !35
+  %.not18.i.i202 = icmp eq ptr %622, null
+  br i1 %.not18.i.i202, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %623
 
-625:                                              ; preds = %623
-  %626 = getelementptr inbounds nuw i8, ptr %624, i64 144
-  %627 = getelementptr inbounds nuw i8, ptr %624, i64 152
-  %628 = load ptr, ptr %627, align 8, !tbaa !129
-  %629 = load ptr, ptr %626, align 8, !tbaa !51
-  %630 = icmp eq ptr %628, %629
-  %or.cond3.i.i203 = or i1 %38, %630
-  br i1 %or.cond3.i.i203, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %631
+623:                                              ; preds = %621
+  %624 = getelementptr inbounds nuw i8, ptr %622, i64 144
+  %625 = getelementptr inbounds nuw i8, ptr %622, i64 152
+  %626 = load ptr, ptr %625, align 8, !tbaa !129
+  %627 = load ptr, ptr %624, align 8, !tbaa !51
+  %628 = icmp eq ptr %626, %627
+  %or.cond3.i.i203 = or i1 %38, %628
+  br i1 %or.cond3.i.i203, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %629
 
-631:                                              ; preds = %625
-  %632 = getelementptr inbounds nuw i8, ptr %624, i64 72
-  %633 = load ptr, ptr %632, align 8, !tbaa !54
-  %634 = getelementptr inbounds nuw i32, ptr %633, i64 %1
-  %635 = load i32, ptr %634, align 4, !tbaa !85
-  %.not19.i.i204 = icmp slt i32 %.0105, %635
+629:                                              ; preds = %623
+  %630 = getelementptr inbounds nuw i8, ptr %622, i64 72
+  %631 = load ptr, ptr %630, align 8, !tbaa !54
+  %632 = getelementptr inbounds nuw i32, ptr %631, i64 %1
+  %633 = load i32, ptr %632, align 4, !tbaa !85
+  %.not19.i.i204 = icmp slt i32 %.0105, %633
   br i1 %.not19.i.i204, label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205: ; preds = %631
-  %636 = getelementptr inbounds nuw i8, ptr %624, i64 120
-  %637 = load ptr, ptr %636, align 8, !tbaa !54
-  %638 = getelementptr inbounds nuw i32, ptr %637, i64 %1
-  %639 = load i32, ptr %638, align 4, !tbaa !85
-  %640 = add i32 %639, %.0105
-  %641 = zext i32 %640 to i64
-  %642 = getelementptr inbounds nuw i8, ptr %624, i64 216
-  %643 = load i64, ptr %642, align 8, !tbaa !93
-  %644 = mul i64 %643, %641
-  %645 = getelementptr inbounds nuw i8, ptr %624, i64 48
-  %646 = load ptr, ptr %645, align 8, !tbaa !57
-  %647 = getelementptr inbounds nuw i64, ptr %646, i64 %indvars.iv262
-  %648 = load i64, ptr %647, align 8, !tbaa !96
-  %649 = getelementptr i8, ptr %629, i64 %644
-  %650 = getelementptr i8, ptr %649, i64 %648
-  %.not.i206 = icmp eq ptr %650, null
+_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205: ; preds = %629
+  %634 = getelementptr inbounds nuw i8, ptr %622, i64 120
+  %635 = load ptr, ptr %634, align 8, !tbaa !54
+  %636 = getelementptr inbounds nuw i32, ptr %635, i64 %1
+  %637 = load i32, ptr %636, align 4, !tbaa !85
+  %638 = add i32 %637, %.0105
+  %639 = zext i32 %638 to i64
+  %640 = getelementptr inbounds nuw i8, ptr %622, i64 216
+  %641 = load i64, ptr %640, align 8, !tbaa !93
+  %642 = mul i64 %641, %639
+  %643 = getelementptr inbounds nuw i8, ptr %622, i64 48
+  %644 = load ptr, ptr %643, align 8, !tbaa !57
+  %645 = getelementptr inbounds nuw i64, ptr %644, i64 %indvars.iv264
+  %646 = load i64, ptr %645, align 8, !tbaa !96
+  %647 = getelementptr i8, ptr %627, i64 %642
+  %648 = getelementptr i8, ptr %647, i64 %646
+  %.not.i206 = icmp eq ptr %648, null
   br i1 %.not.i206, label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205
-  %651 = load ptr, ptr %624, align 8, !tbaa !9
-  %652 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %651, i64 %indvars.iv262
-  %653 = load i64, ptr %652, align 4
-  %.sroa.01.0.extract.trunc.i208 = trunc i64 %653 to i8
+  %649 = load ptr, ptr %622, align 8, !tbaa !9
+  %650 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TypeDesc", ptr %649, i64 %indvars.iv264
+  %651 = load i64, ptr %650, align 4
+  %.sroa.01.0.extract.trunc.i208 = trunc i64 %651 to i8
   switch i8 %.sroa.01.0.extract.trunc.i208, label %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213 [
-    i8 11, label %654
-    i8 10, label %656
-    i8 6, label %680
-    i8 2, label %684
-    i8 3, label %688
-    i8 4, label %692
-    i8 5, label %696
-    i8 7, label %700
-    i8 8, label %704
-    i8 9, label %708
+    i8 11, label %652
+    i8 10, label %654
+    i8 6, label %678
+    i8 2, label %682
+    i8 3, label %686
+    i8 4, label %690
+    i8 5, label %694
+    i8 7, label %698
+    i8 8, label %702
+    i8 9, label %706
   ]
 
+652:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %653 = load float, ptr %648, align 4, !tbaa !138
+  br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
+
 654:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %655 = load float, ptr %650, align 4, !tbaa !138
-  br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
+  %655 = load i16, ptr %648, align 2, !tbaa !140
+  %656 = zext i16 %655 to i32
+  %657 = shl nuw nsw i32 %656, 13
+  %658 = and i32 %657, 268427264
+  %.signext.i.i.i209 = sext i16 %655 to i32
+  %659 = and i32 %.signext.i.i.i209, -2147483648
+  %660 = icmp samesign ugt i32 %658, 8388607
+  br i1 %660, label %661, label %668, !prof !143
 
-656:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %657 = load i16, ptr %650, align 2, !tbaa !140
-  %658 = zext i16 %657 to i32
-  %659 = shl nuw nsw i32 %658, 13
-  %660 = and i32 %659, 268427264
-  %.signext.i.i.i209 = sext i16 %657 to i32
-  %661 = and i32 %.signext.i.i.i209, -2147483648
-  %662 = icmp samesign ugt i32 %660, 8388607
-  br i1 %662, label %663, label %670, !prof !143
+661:                                              ; preds = %654
+  %662 = or disjoint i32 %658, %659
+  %663 = icmp samesign ult i32 %658, 260046848
+  br i1 %663, label %664, label %666, !prof !143
 
-663:                                              ; preds = %656
-  %664 = or disjoint i32 %660, %661
-  %665 = icmp samesign ult i32 %660, 260046848
-  br i1 %665, label %666, label %668, !prof !143
-
-666:                                              ; preds = %663
-  %667 = add nuw nsw i32 %664, 939524096
+664:                                              ; preds = %661
+  %665 = add nuw nsw i32 %662, 939524096
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i211
 
-668:                                              ; preds = %663
-  %669 = or i32 %664, 2139095040
+666:                                              ; preds = %661
+  %667 = or i32 %662, 2139095040
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i211
 
-670:                                              ; preds = %656
-  %.not.i.i.i210 = icmp eq i32 %660, 0
-  br i1 %.not.i.i.i210, label %_ZNK9Imath_3_14halfcvfEv.exit.i211, label %671
+668:                                              ; preds = %654
+  %.not.i.i.i210 = icmp eq i32 %658, 0
+  br i1 %.not.i.i.i210, label %_ZNK9Imath_3_14halfcvfEv.exit.i211, label %669
 
-671:                                              ; preds = %670
-  %672 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %660, i1 true)
-  %673 = add nsw i32 %672, -8
-  %674 = shl i32 %660, %673
-  %675 = or i32 %661, %674
-  %676 = or i32 %675, 947912704
-  %677 = shl nuw nsw i32 %673, 23
-  %678 = sub nuw i32 %676, %677
+669:                                              ; preds = %668
+  %670 = tail call range(i32 9, 33) i32 @llvm.ctlz.i32(i32 %658, i1 true)
+  %671 = add nsw i32 %670, -8
+  %672 = shl i32 %658, %671
+  %673 = or i32 %659, %672
+  %674 = or i32 %673, 947912704
+  %675 = shl nuw nsw i32 %671, 23
+  %676 = sub nuw i32 %674, %675
   br label %_ZNK9Imath_3_14halfcvfEv.exit.i211
 
-_ZNK9Imath_3_14halfcvfEv.exit.i211:               ; preds = %671, %670, %668, %666
-  %.sroa.0.0.i.i.i212 = phi i32 [ %667, %666 ], [ %669, %668 ], [ %678, %671 ], [ %661, %670 ]
-  %679 = bitcast i32 %.sroa.0.0.i.i.i212 to float
+_ZNK9Imath_3_14halfcvfEv.exit.i211:               ; preds = %669, %668, %666, %664
+  %.sroa.0.0.i.i.i212 = phi i32 [ %665, %664 ], [ %667, %666 ], [ %676, %669 ], [ %659, %668 ]
+  %677 = bitcast i32 %.sroa.0.0.i.i.i212 to float
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-680:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %681 = load i32, ptr %650, align 4, !tbaa !85
-  %682 = uitofp i32 %681 to float
-  %683 = fmul float %682, 0x3DF0000000000000
+678:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %679 = load i32, ptr %648, align 4, !tbaa !85
+  %680 = uitofp i32 %679 to float
+  %681 = fmul float %680, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-684:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %685 = load i8, ptr %650, align 1, !tbaa !47
-  %686 = uitofp i8 %685 to float
-  %687 = fmul float %686, 0x3F70101020000000
+682:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %683 = load i8, ptr %648, align 1, !tbaa !47
+  %684 = uitofp i8 %683 to float
+  %685 = fmul float %684, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-688:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %689 = load i8, ptr %650, align 1, !tbaa !47
-  %690 = sitofp i8 %689 to float
-  %691 = fmul float %690, 0x3F80204080000000
+686:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %687 = load i8, ptr %648, align 1, !tbaa !47
+  %688 = sitofp i8 %687 to float
+  %689 = fmul float %688, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-692:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %693 = load i16, ptr %650, align 2, !tbaa !144
-  %694 = uitofp i16 %693 to float
-  %695 = fmul float %694, 0x3EF0001000000000
+690:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %691 = load i16, ptr %648, align 2, !tbaa !144
+  %692 = uitofp i16 %691 to float
+  %693 = fmul float %692, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-696:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %697 = load i16, ptr %650, align 2, !tbaa !144
-  %698 = sitofp i16 %697 to float
-  %699 = fmul float %698, 0x3F00002000000000
+694:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %695 = load i16, ptr %648, align 2, !tbaa !144
+  %696 = sitofp i16 %695 to float
+  %697 = fmul float %696, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-700:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %701 = load i32, ptr %650, align 4, !tbaa !85
-  %702 = sitofp i32 %701 to float
-  %703 = fmul float %702, 0x3E00000000000000
+698:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %699 = load i32, ptr %648, align 4, !tbaa !85
+  %700 = sitofp i32 %699 to float
+  %701 = fmul float %700, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-704:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %705 = load i64, ptr %650, align 8, !tbaa !145
-  %706 = uitofp i64 %705 to float
-  %707 = fmul float %706, 0x3BF0000000000000
+702:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %703 = load i64, ptr %648, align 8, !tbaa !145
+  %704 = uitofp i64 %703 to float
+  %705 = fmul float %704, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-708:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %709 = load i64, ptr %650, align 8, !tbaa !145
-  %710 = sitofp i64 %709 to float
-  %711 = fmul float %710, 0x3C00000000000000
+706:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
+  %707 = load i64, ptr %648, align 8, !tbaa !145
+  %708 = sitofp i64 %707 to float
+  %709 = fmul float %708, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
-  %712 = trunc i64 %653 to i32
-  %713 = and i32 %712, 255
-  %714 = load ptr, ptr @stderr, align 8, !tbaa !89
-  %715 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %714, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %713) #33
+  %710 = trunc i64 %651 to i32
+  %711 = and i32 %710, 255
+  %712 = load ptr, ptr @stderr, align 8, !tbaa !89
+  %713 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %712, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__FUNCTION__._ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii, ptr noundef nonnull @.str.11, i32 noundef %711) #33
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
-_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214: ; preds = %522, %618, %623, %625, %631, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205, %654, %_ZNK9Imath_3_14halfcvfEv.exit.i211, %680, %684, %688, %692, %696, %700, %704, %708, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213
-  %.1.i121253 = phi float [ %.1.i121251, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213 ], [ %.1.i121251, %654 ], [ %.1.i121251, %_ZNK9Imath_3_14halfcvfEv.exit.i211 ], [ %.1.i121251, %680 ], [ %.1.i121251, %684 ], [ %.1.i121251, %688 ], [ %.1.i121251, %692 ], [ %.1.i121251, %696 ], [ %.1.i121251, %700 ], [ %.1.i121251, %704 ], [ %.1.i121251, %708 ], [ %.1.i121251, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205 ], [ %.1.i121251, %631 ], [ %.1.i121251, %625 ], [ %.1.i121251, %623 ], [ %.1.i121251, %618 ], [ 0.000000e+00, %522 ]
-  %.0.i201 = phi float [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213 ], [ %655, %654 ], [ %679, %_ZNK9Imath_3_14halfcvfEv.exit.i211 ], [ %683, %680 ], [ %687, %684 ], [ %691, %688 ], [ %695, %692 ], [ %699, %696 ], [ %703, %700 ], [ %707, %704 ], [ %711, %708 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205 ], [ 0.000000e+00, %631 ], [ 0.000000e+00, %625 ], [ 0.000000e+00, %623 ], [ 0.000000e+00, %618 ], [ 0.000000e+00, %522 ]
+_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214: ; preds = %520, %616, %621, %623, %629, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205, %652, %_ZNK9Imath_3_14halfcvfEv.exit.i211, %678, %682, %686, %690, %694, %698, %702, %706, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213
+  %.1.i121253 = phi float [ %.1.i121251, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213 ], [ %.1.i121251, %652 ], [ %.1.i121251, %_ZNK9Imath_3_14halfcvfEv.exit.i211 ], [ %.1.i121251, %678 ], [ %.1.i121251, %682 ], [ %.1.i121251, %686 ], [ %.1.i121251, %690 ], [ %.1.i121251, %694 ], [ %.1.i121251, %698 ], [ %.1.i121251, %702 ], [ %.1.i121251, %706 ], [ %.1.i121251, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205 ], [ %.1.i121251, %629 ], [ %.1.i121251, %623 ], [ %.1.i121251, %621 ], [ %.1.i121251, %616 ], [ 0.000000e+00, %520 ]
+  %.0.i201 = phi float [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213 ], [ %653, %652 ], [ %677, %_ZNK9Imath_3_14halfcvfEv.exit.i211 ], [ %681, %678 ], [ %685, %682 ], [ %689, %686 ], [ %693, %690 ], [ %697, %694 ], [ %701, %698 ], [ %705, %702 ], [ %709, %706 ], [ 0.000000e+00, %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.i205 ], [ 0.000000e+00, %629 ], [ 0.000000e+00, %623 ], [ 0.000000e+00, %621 ], [ 0.000000e+00, %616 ], [ 0.000000e+00, %520 ]
   %.inv254 = fcmp oge float %.0.i201, 0.000000e+00
   %.0.i = select i1 %.inv254, float %.0.i201, float 0.000000e+00
-  %716 = fcmp ogt float %.0.i, 1.000000e+00
-  %.1.i = select i1 %716, float 1.000000e+00, float %.0.i
+  %714 = fcmp ogt float %.0.i, 1.000000e+00
+  %.1.i = select i1 %714, float 1.000000e+00, float %.0.i
   br label %.thread
 
-.thread:                                          ; preds = %520, %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
-  %717 = phi float [ %.1.i121253, %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214 ], [ 1.000000e+00, %520 ]
-  %718 = phi float [ %.1.i, %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214 ], [ 1.000000e+00, %520 ]
-  %719 = fadd float %717, %718
-  %720 = fneg float %717
-  %721 = tail call float @llvm.fmuladd.f32(float %720, float %718, float %719)
-  %722 = trunc nuw nsw i64 %indvars.iv262 to i32
-  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %722, i32 noundef %29, float noundef %721)
-  br label %723
+.thread:                                          ; preds = %518, %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
+  %715 = phi float [ %.1.i121253, %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214 ], [ 1.000000e+00, %518 ]
+  %716 = phi float [ %.1.i, %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214 ], [ 1.000000e+00, %518 ]
+  %717 = fadd float %715, %716
+  %718 = fneg float %715
+  %719 = tail call float @llvm.fmuladd.f32(float %718, float %716, float %717)
+  %720 = trunc nuw nsw i64 %indvars.iv264 to i32
+  tail call void @_ZN11OpenImageIO6v3_1_08DeepData14set_deep_valueEliif(ptr noundef nonnull align 8 dereferenceable(20) %0, i64 noundef %1, i32 noundef %720, i32 noundef %29, float noundef %719)
+  br label %721
 
-723:                                              ; preds = %513, %.thread
-  %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
-  %exitcond266.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count265
-  br i1 %exitcond266.not, label %._crit_edge, label %513, !llvm.loop !163
+721:                                              ; preds = %511, %.thread
+  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
+  %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
+  br i1 %exitcond268.not, label %._crit_edge, label %511, !llvm.loop !163
 
-724:                                              ; preds = %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit, %32, %26
+722:                                              ; preds = %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit, %32, %26
   %.1 = phi i32 [ %29, %_ZN11OpenImageIO6v3_1_08DeepData13erase_samplesElii.exit ], [ %.0105, %32 ], [ %.0105, %26 ]
-  %725 = add nsw i32 %.1, 1
+  %723 = add nsw i32 %.1, 1
   br label %17, !llvm.loop !164
 
 .loopexit:                                        ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData7samplesEl.exit, %2
@@ -9483,7 +9472,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds i32, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 2
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !92
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %2
@@ -9661,7 +9650,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds i32, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 2
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !82
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %2
@@ -11271,14 +11260,14 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPiEET_S2_S2_S2_St26random_ac
 
 29:                                               ; preds = %27
   %30 = load i32, ptr %.058, align 4, !tbaa !85
-  %.idx = shl nsw i64 %.086, 2
-  %31 = getelementptr inbounds i8, ptr %.058, i64 %.idx
+  %.idx97 = shl nsw i64 %.086, 2
+  %31 = getelementptr inbounds i8, ptr %.058, i64 %.idx97
   %.not.i.i.i.i.i = icmp eq i64 %.086, 1
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.058, i64 4
-  %gepdiff = add nsw i64 %.idx, -4
+  %gepdiff = add nsw i64 %.idx97, -4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %.058, ptr nonnull align 4 %33, i64 %gepdiff, i1 false)
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit
 
@@ -11289,40 +11278,40 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %32
 
 35:                                               ; preds = %27
   %36 = icmp sgt i64 %25, 0
-  br i1 %36, label %.lr.ph109.preheader, label %._crit_edge110
+  br i1 %36, label %.lr.ph110.preheader, label %._crit_edge111
 
-.lr.ph109.preheader:                              ; preds = %35
+.lr.ph110.preheader:                              ; preds = %35
   %37 = getelementptr inbounds i32, ptr %.058, i64 %.083
-  br label %.lr.ph109
+  br label %.lr.ph110
 
-._crit_edge110:                                   ; preds = %.lr.ph109, %35
-  %.159.lcssa = phi ptr [ %.058, %35 ], [ %41, %.lr.ph109 ]
+._crit_edge111:                                   ; preds = %.lr.ph110, %35
+  %.159.lcssa = phi ptr [ %.058, %35 ], [ %41, %.lr.ph110 ]
   %38 = srem i64 %.086, %.083
   %.not67 = icmp eq i64 %38, 0
   br i1 %.not67, label %_ZSt11swap_rangesIPiS0_ET0_T_S2_S1_.exit, label %44
 
-.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
-  %.054107 = phi i64 [ %43, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
-  %.055106 = phi ptr [ %42, %.lr.ph109 ], [ %37, %.lr.ph109.preheader ]
-  %.159105 = phi ptr [ %41, %.lr.ph109 ], [ %.058, %.lr.ph109.preheader ]
-  %39 = load i32, ptr %.159105, align 4, !tbaa !85
-  %40 = load i32, ptr %.055106, align 4, !tbaa !85
-  store i32 %40, ptr %.159105, align 4, !tbaa !85
-  store i32 %39, ptr %.055106, align 4, !tbaa !85
-  %41 = getelementptr inbounds nuw i8, ptr %.159105, i64 4
-  %42 = getelementptr inbounds nuw i8, ptr %.055106, i64 4
-  %43 = add nuw nsw i64 %.054107, 1
-  %exitcond118.not = icmp eq i64 %43, %25
-  br i1 %exitcond118.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !202
+.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
+  %.054108 = phi i64 [ %43, %.lr.ph110 ], [ 0, %.lr.ph110.preheader ]
+  %.055107 = phi ptr [ %42, %.lr.ph110 ], [ %37, %.lr.ph110.preheader ]
+  %.159106 = phi ptr [ %41, %.lr.ph110 ], [ %.058, %.lr.ph110.preheader ]
+  %39 = load i32, ptr %.159106, align 4, !tbaa !85
+  %40 = load i32, ptr %.055107, align 4, !tbaa !85
+  store i32 %40, ptr %.159106, align 4, !tbaa !85
+  store i32 %39, ptr %.055107, align 4, !tbaa !85
+  %41 = getelementptr inbounds nuw i8, ptr %.159106, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.055107, i64 4
+  %43 = add nuw nsw i64 %.054108, 1
+  %exitcond119.not = icmp eq i64 %43, %25
+  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !202
 
-44:                                               ; preds = %._crit_edge110
+44:                                               ; preds = %._crit_edge111
   %45 = sub nsw i64 %.083, %38
   br label %.backedge
 
 46:                                               ; preds = %24
   %47 = icmp eq i64 %25, 1
   %48 = getelementptr inbounds i32, ptr %.058, i64 %.086
-  br i1 %47, label %49, label %59
+  br i1 %47, label %49, label %57
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 -4
@@ -11331,53 +11320,52 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %32
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = ptrtoint ptr %50 to i64
-  %54 = ptrtoint ptr %.058 to i64
-  %55 = sub i64 %53, %54
-  %56 = ashr exact i64 %55, 2
-  %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds i32, ptr %48, i64 %57
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %58, ptr nonnull align 4 %.058, i64 %55, i1 false)
+  %.idx = shl nsw i64 %.086, 2
+  %53 = add i64 %.idx, -4
+  %54 = ashr exact i64 %53, 2
+  %55 = sub nsw i64 0, %54
+  %56 = getelementptr inbounds i32, ptr %48, i64 %55
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %56, ptr nonnull align 4 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
 _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %49, %52
   store i32 %51, ptr %.058, align 4, !tbaa !85
   br label %_ZSt11swap_rangesIPiS0_ET0_T_S2_S1_.exit
 
-59:                                               ; preds = %46
-  %60 = sub i64 0, %25
-  %61 = getelementptr inbounds i32, ptr %48, i64 %60
-  %62 = icmp sgt i64 %.083, 0
-  br i1 %62, label %.lr.ph, label %._crit_edge
+57:                                               ; preds = %46
+  %58 = sub i64 0, %25
+  %59 = getelementptr inbounds i32, ptr %48, i64 %58
+  %60 = icmp sgt i64 %.083, 0
+  br i1 %60, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.361.lcssa = phi ptr [ %61, %59 ], [ %.058, %.lr.ph ]
-  %63 = srem i64 %.086, %25
-  %.not = icmp eq i64 %63, 0
+._crit_edge:                                      ; preds = %.lr.ph, %57
+  %.361.lcssa = phi ptr [ %59, %57 ], [ %.058, %.lr.ph ]
+  %61 = srem i64 %.086, %25
+  %.not = icmp eq i64 %61, 0
   br i1 %.not, label %_ZSt11swap_rangesIPiS0_ET0_T_S2_S1_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %44
   %.086.be = phi i64 [ %.083, %44 ], [ %25, %._crit_edge ]
-  %.083.be = phi i64 [ %45, %44 ], [ %63, %._crit_edge ]
+  %.083.be = phi i64 [ %45, %44 ], [ %61, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %44 ], [ %.361.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !203
 
-.lr.ph:                                           ; preds = %59, %.lr.ph
-  %.0104 = phi i64 [ %68, %.lr.ph ], [ 0, %59 ]
-  %.052103 = phi ptr [ %65, %.lr.ph ], [ %48, %59 ]
-  %.361102 = phi ptr [ %64, %.lr.ph ], [ %61, %59 ]
-  %64 = getelementptr inbounds i8, ptr %.361102, i64 -4
-  %65 = getelementptr inbounds i8, ptr %.052103, i64 -4
-  %66 = load i32, ptr %64, align 4, !tbaa !85
-  %67 = load i32, ptr %65, align 4, !tbaa !85
-  store i32 %67, ptr %64, align 4, !tbaa !85
-  store i32 %66, ptr %65, align 4, !tbaa !85
-  %68 = add nuw nsw i64 %.0104, 1
-  %exitcond.not = icmp eq i64 %68, %.083
+.lr.ph:                                           ; preds = %57, %.lr.ph
+  %.0105 = phi i64 [ %66, %.lr.ph ], [ 0, %57 ]
+  %.052104 = phi ptr [ %63, %.lr.ph ], [ %48, %57 ]
+  %.361103 = phi ptr [ %62, %.lr.ph ], [ %59, %57 ]
+  %62 = getelementptr inbounds i8, ptr %.361103, i64 -4
+  %63 = getelementptr inbounds i8, ptr %.052104, i64 -4
+  %64 = load i32, ptr %62, align 4, !tbaa !85
+  %65 = load i32, ptr %63, align 4, !tbaa !85
+  store i32 %65, ptr %62, align 4, !tbaa !85
+  store i32 %64, ptr %63, align 4, !tbaa !85
+  %66 = add nuw nsw i64 %.0105, 1
+  %exitcond.not = icmp eq i64 %66, %.083
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !204
 
-_ZSt11swap_rangesIPiS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge110, %.lr.ph.i, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %5, %3
-  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge110 ], [ %23, %._crit_edge ]
+_ZSt11swap_rangesIPiS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit, %5, %3
+  %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit ], [ %23, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
   ret ptr %.053
 }
 

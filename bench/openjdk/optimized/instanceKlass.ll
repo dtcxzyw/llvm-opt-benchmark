@@ -10599,10 +10599,10 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
   br label %65
 
 65:                                               ; preds = %62, %64
-  %.sink62 = phi i32 [ 2, %64 ], [ 0, %62 ]
+  %.sink63 = phi i32 [ 2, %64 ], [ 0, %62 ]
   %66 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 %.sink62, ptr %67, align 8
+  store i32 %.sink63, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -10652,11 +10652,11 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
   %90 = load i16, ptr %36, align 4
   %91 = shl i16 %90, 1
   %92 = and i16 %91, 2
-  %.75 = zext nneg i16 %92 to i32
+  %.76 = zext nneg i16 %92 to i32
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %94 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i32 %.75, ptr %95, align 8
+  store i32 %.76, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 32
@@ -10686,7 +10686,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, 0
-  br i1 %110, label %111, label %.loopexit49
+  br i1 %110, label %111, label %.loopexit50
 
 111:                                              ; preds = %65
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -10697,70 +10697,76 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8
   %119 = sdiv i32 %118, 8
-  %120 = ptrtoint ptr %116 to i64
-  %121 = ptrtoint ptr %0 to i64
-  %122 = sub i64 %120, %121
-  %123 = lshr exact i64 %122, 3
-  %124 = trunc i64 %123 to i32
-  %125 = sub nsw i32 %119, %124
-  %126 = sdiv i32 %125, 2
-  %127 = icmp sgt i32 %125, 1
-  br i1 %127, label %.lr.ph53, label %.loopexit49
+  %reass.sub = sub i32 %119, %114
+  %120 = add i32 %reass.sub, -58
+  %121 = sdiv i32 %120, 2
+  %122 = icmp sgt i32 %120, 1
+  br i1 %122, label %.lr.ph54, label %.loopexit50
 
-.lr.ph53:                                         ; preds = %111, %.loopexit
-  %.03852 = phi ptr [ %147, %.loopexit ], [ %116, %111 ]
-  %.03951 = phi i32 [ %146, %.loopexit ], [ 0, %111 ]
-  %128 = load ptr, ptr %.03852, align 8
-  %.not41 = icmp eq ptr %128, null
-  br i1 %.not41, label %.loopexit, label %129
+.lr.ph54:                                         ; preds = %111, %.loopexit
+  %.03853 = phi ptr [ %142, %.loopexit ], [ %116, %111 ]
+  %.03952 = phi i32 [ %141, %.loopexit ], [ 0, %111 ]
+  %123 = load ptr, ptr %.03853, align 8
+  %.not41 = icmp eq ptr %123, null
+  br i1 %.not41, label %.loopexit, label %124
 
-129:                                              ; preds = %.lr.ph53
-  %130 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store i32 2, ptr %131, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %130, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  store ptr %.03852, ptr %133, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %130) #26
-  %134 = getelementptr inbounds nuw i8, ptr %.03852, i64 8
-  %135 = load i32, ptr %134, align 8
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %0, i64 %136
-  %138 = load ptr, ptr %.03852, align 8
-  %139 = tail call noundef i32 @_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass(ptr noundef %138) #26
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.lr.ph.preheader, label %.loopexit
+124:                                              ; preds = %.lr.ph54
+  %125 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store i32 2, ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %127, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %125, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  store ptr %.03853, ptr %128, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %125) #26
+  %129 = getelementptr inbounds nuw i8, ptr %.03853, i64 8
+  %130 = load i32, ptr %129, align 8
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %0, i64 %131
+  %133 = load ptr, ptr %.03853, align 8
+  %134 = tail call noundef i32 @_ZN11klassItable26method_count_for_interfaceEP13InstanceKlass(ptr noundef %133) #26
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %129
-  %wide.trip.count = zext nneg i32 %139 to i64
+.lr.ph.preheader:                                 ; preds = %124
+  %wide.trip.count = zext nneg i32 %134 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %141 = getelementptr inbounds nuw %class.itableMethodEntry, ptr %137, i64 %indvars.iv
-  %142 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  store i32 2, ptr %143, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %142, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store ptr %141, ptr %145, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %142) #26
+  %136 = getelementptr inbounds nuw %class.itableMethodEntry, ptr %132, i64 %indvars.iv
+  %137 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  store i32 2, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6MethodEE, i64 16), ptr %137, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  store ptr %136, ptr %140, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %137) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
-.loopexit:                                        ; preds = %.lr.ph, %129, %.lr.ph53
-  %146 = add nuw nsw i32 %.03951, 1
-  %147 = getelementptr inbounds nuw i8, ptr %.03852, i64 16
-  %exitcond55.not = icmp eq i32 %146, %126
-  br i1 %exitcond55.not, label %.loopexit49, label %.lr.ph53, !llvm.loop !71
+.loopexit:                                        ; preds = %.lr.ph, %124, %.lr.ph54
+  %141 = add nuw nsw i32 %.03952, 1
+  %142 = getelementptr inbounds nuw i8, ptr %.03853, i64 16
+  %exitcond56.not = icmp eq i32 %141, %121
+  br i1 %exitcond56.not, label %.loopexit50, label %.lr.ph54, !llvm.loop !71
 
-.loopexit49:                                      ; preds = %.loopexit, %111, %65
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 240
+.loopexit50:                                      ; preds = %.loopexit, %111, %65
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %144 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  store i32 2, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  store ptr %143, ptr %147, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefItEE, i64 16), ptr %144, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %144) #26
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %149 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 2, ptr %150, align 8
@@ -10770,7 +10776,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
   store ptr %148, ptr %152, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefItEE, i64 16), ptr %149, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %149) #26
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %154 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i32 2, ptr %155, align 8
@@ -10778,18 +10784,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 32
   store ptr %153, ptr %157, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefItEE, i64 16), ptr %154, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI15RecordComponentEE, i64 16), ptr %154, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %154) #26
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %159 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #26
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store i32 2, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 32
-  store ptr %158, ptr %162, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure18MSOPointerArrayRefI15RecordComponentEE, i64 16), ptr %159, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %159) #26
   ret void
 }
 

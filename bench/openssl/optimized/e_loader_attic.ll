@@ -2847,7 +2847,7 @@ define internal ptr @try_decode_params(ptr noundef %0, ptr readnone captures(non
 
 19:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #10
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %21 = trunc i64 %20 to i32
   %.not.i = icmp sgt i32 %21, 11
   br i1 %.not.i, label %22, label %check_suffix.exit.thread
@@ -2862,117 +2862,110 @@ define internal ptr @try_decode_params(ptr noundef %0, ptr readnone captures(non
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %23, i64 -10
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(11) @.str.45) #11
+  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull dereferenceable(11) @.str.45) #11
   %.not15.i = icmp eq i32 %28, 0
-  br i1 %.not15.i, label %check_suffix.exit, label %check_suffix.exit.thread
+  br i1 %.not15.i, label %29, label %check_suffix.exit.thread
 
-check_suffix.exit:                                ; preds = %26
-  %29 = ptrtoint ptr %24 to i64
-  %30 = ptrtoint ptr %0 to i64
-  %31 = sub i64 %29, %30
-  %32 = trunc i64 %31 to i32
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %check_suffix.exit.thread
+29:                                               ; preds = %26
+  %30 = add nsw i32 %21, -11
+  %31 = tail call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %0, i32 noundef %30) #10
+  %.not34 = icmp eq ptr %31, null
+  br i1 %.not34, label %check_suffix.exit.thread, label %32
 
-34:                                               ; preds = %check_suffix.exit
-  %35 = tail call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %0, i32 noundef %32) #10
-  %.not34 = icmp eq ptr %35, null
-  br i1 %.not34, label %check_suffix.exit.thread, label %36
+32:                                               ; preds = %29
+  %33 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %31) #10
+  %.not35 = icmp eq i32 %33, 0
+  br i1 %.not35, label %check_suffix.exit.thread, label %34
 
-36:                                               ; preds = %34
-  %37 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %35) #10
-  %.not35 = icmp eq i32 %37, 0
-  br i1 %.not35, label %check_suffix.exit.thread, label %38
-
-38:                                               ; preds = %36
+34:                                               ; preds = %32
   store i32 1, ptr %5, align 4, !tbaa !12
-  %39 = load i32, ptr %13, align 4, !tbaa !12
-  %40 = call ptr @d2i_KeyParams(i32 noundef %39, ptr noundef null, ptr noundef nonnull %12, i64 noundef %3) #10
+  %35 = load i32, ptr %13, align 4, !tbaa !12
+  %36 = call ptr @d2i_KeyParams(i32 noundef %35, ptr noundef null, ptr noundef nonnull %12, i64 noundef %3) #10
   br label %check_suffix.exit.thread
 
-check_suffix.exit.thread:                         ; preds = %22, %26, %19, %38, %36, %34, %check_suffix.exit
-  %.025 = phi ptr [ %40, %38 ], [ null, %36 ], [ null, %34 ], [ null, %check_suffix.exit ], [ null, %19 ], [ null, %26 ], [ null, %22 ]
+check_suffix.exit.thread:                         ; preds = %26, %22, %19, %34, %32, %29
+  %.025 = phi ptr [ %36, %34 ], [ null, %32 ], [ null, %29 ], [ null, %19 ], [ null, %22 ], [ null, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #10
-  br label %63
+  br label %59
 
-.lr.ph:                                           ; preds = %.preheader, %57
-  %.039 = phi i32 [ %58, %57 ], [ 0, %.preheader ]
-  %.238 = phi ptr [ %.3, %57 ], [ null, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %53
+  %.039 = phi i32 [ %54, %53 ], [ 0, %.preheader ]
+  %.238 = phi ptr [ %.3, %53 ], [ null, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
   store ptr %2, ptr %14, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #10
-  %41 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.039) #10
-  %42 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef %41) #10
-  %.not30 = icmp eq i32 %42, 0
-  br i1 %.not30, label %57, label %43
+  %37 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.039) #10
+  %38 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, ptr noundef %37) #10
+  %.not30 = icmp eq i32 %38, 0
+  br i1 %.not30, label %53, label %39
 
-43:                                               ; preds = %.lr.ph
-  %44 = load i32, ptr %16, align 4, !tbaa !12
-  %45 = and i32 %44, 1
-  %.not31 = icmp eq i32 %45, 0
-  br i1 %.not31, label %46, label %57
+39:                                               ; preds = %.lr.ph
+  %40 = load i32, ptr %16, align 4, !tbaa !12
+  %41 = and i32 %40, 1
+  %.not31 = icmp eq i32 %41, 0
+  br i1 %.not31, label %42, label %53
 
-46:                                               ; preds = %43
-  %47 = call i32 @ERR_set_mark() #10
-  %48 = load i32, ptr %15, align 4, !tbaa !12
-  %49 = call ptr @d2i_KeyParams(i32 noundef %48, ptr noundef null, ptr noundef nonnull %14, i64 noundef %3) #10
-  %.not32 = icmp eq ptr %49, null
-  br i1 %.not32, label %55, label %50
+42:                                               ; preds = %39
+  %43 = call i32 @ERR_set_mark() #10
+  %44 = load i32, ptr %15, align 4, !tbaa !12
+  %45 = call ptr @d2i_KeyParams(i32 noundef %44, ptr noundef null, ptr noundef nonnull %14, i64 noundef %3) #10
+  %.not32 = icmp eq ptr %45, null
+  br i1 %.not32, label %51, label %46
 
-50:                                               ; preds = %46
+46:                                               ; preds = %42
   %.not33 = icmp eq ptr %.238, null
-  br i1 %.not33, label %52, label %51
+  br i1 %.not33, label %48, label %47
 
-51:                                               ; preds = %50
-  call void @EVP_PKEY_free(ptr noundef nonnull %49) #10
-  br label %52
+47:                                               ; preds = %46
+  call void @EVP_PKEY_free(ptr noundef nonnull %45) #10
+  br label %48
 
-52:                                               ; preds = %50, %51
-  %.5 = phi ptr [ %.238, %51 ], [ %49, %50 ]
-  %53 = load i32, ptr %5, align 4, !tbaa !12
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %5, align 4, !tbaa !12
-  br label %55
+48:                                               ; preds = %46, %47
+  %.5 = phi ptr [ %.238, %47 ], [ %45, %46 ]
+  %49 = load i32, ptr %5, align 4, !tbaa !12
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %5, align 4, !tbaa !12
+  br label %51
 
-55:                                               ; preds = %52, %46
-  %.4 = phi ptr [ %.5, %52 ], [ %.238, %46 ]
-  %56 = call i32 @ERR_pop_to_mark() #10
-  br label %57
+51:                                               ; preds = %48, %42
+  %.4 = phi ptr [ %.5, %48 ], [ %.238, %42 ]
+  %52 = call i32 @ERR_pop_to_mark() #10
+  br label %53
 
-57:                                               ; preds = %.lr.ph, %43, %55
-  %.3 = phi ptr [ %.4, %55 ], [ %.238, %43 ], [ %.238, %.lr.ph ]
+53:                                               ; preds = %.lr.ph, %39, %51
+  %.3 = phi ptr [ %.4, %51 ], [ %.238, %39 ], [ %.238, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
-  %58 = add nuw nsw i32 %.039, 1
-  %59 = call i32 @EVP_PKEY_asn1_get_count() #10
-  %60 = icmp slt i32 %58, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !85
+  %54 = add nuw nsw i32 %.039, 1
+  %55 = call i32 @EVP_PKEY_asn1_get_count() #10
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
-._crit_edge:                                      ; preds = %57, %.preheader
-  %.2.lcssa = phi ptr [ null, %.preheader ], [ %.3, %57 ]
-  %61 = load i32, ptr %5, align 4, !tbaa !12
-  %62 = icmp sgt i32 %61, 1
-  br i1 %62, label %.sink.split, label %63
+._crit_edge:                                      ; preds = %53, %.preheader
+  %.2.lcssa = phi ptr [ null, %.preheader ], [ %.3, %53 ]
+  %57 = load i32, ptr %5, align 4, !tbaa !12
+  %58 = icmp sgt i32 %57, 1
+  br i1 %58, label %.sink.split, label %59
 
-63:                                               ; preds = %._crit_edge, %check_suffix.exit.thread
+59:                                               ; preds = %._crit_edge, %check_suffix.exit.thread
   %.1 = phi ptr [ %.025, %check_suffix.exit.thread ], [ %.2.lcssa, %._crit_edge ]
-  %64 = icmp eq ptr %.1, null
-  br i1 %64, label %68, label %65
+  %60 = icmp eq ptr %.1, null
+  br i1 %60, label %64, label %61
 
-65:                                               ; preds = %63
-  %66 = call ptr @OSSL_STORE_INFO_new_PARAMS(ptr noundef nonnull %.1) #10
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %.sink.split, label %68
+61:                                               ; preds = %59
+  %62 = call ptr @OSSL_STORE_INFO_new_PARAMS(ptr noundef nonnull %.1) #10
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.sink.split, label %64
 
-.sink.split:                                      ; preds = %65, %._crit_edge
-  %.2.lcssa.sink = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.1, %65 ]
+.sink.split:                                      ; preds = %61, %._crit_edge
+  %.2.lcssa.sink = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.1, %61 ]
   call void @EVP_PKEY_free(ptr noundef %.2.lcssa.sink) #10
-  br label %68
+  br label %64
 
-68:                                               ; preds = %.sink.split, %65, %63
-  %.024 = phi ptr [ null, %63 ], [ %66, %65 ], [ null, %.sink.split ]
+64:                                               ; preds = %.sink.split, %61, %59
+  %.024 = phi ptr [ null, %59 ], [ %62, %61 ], [ null, %.sink.split ]
   ret ptr %.024
 }
 
@@ -3037,7 +3030,7 @@ define internal ptr @try_decode_PrivateKey(ptr noundef %0, ptr readnone captures
   %21 = alloca i32, align 4
   store ptr %2, ptr %12, align 8, !tbaa !47
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %52, label %22
+  br i1 %.not, label %48, label %22
 
 22:                                               ; preds = %11
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.34) #11
@@ -3057,11 +3050,11 @@ define internal ptr @try_decode_PrivateKey(ptr noundef %0, ptr readnone captures
 29:                                               ; preds = %27, %25
   %.058 = phi ptr [ %28, %27 ], [ null, %25 ]
   call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef %26) #10
-  br label %106
+  br label %102
 
 30:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #10
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #11
   %32 = trunc i64 %31 to i32
   %.not.i = icmp sgt i32 %32, 12
   br i1 %.not.i, label %33, label %check_suffix.exit.thread
@@ -3076,125 +3069,118 @@ define internal ptr @try_decode_PrivateKey(ptr noundef %0, ptr readnone captures
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %34, i64 -11
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.34) #11
+  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %38, ptr noundef nonnull dereferenceable(12) @.str.34) #11
   %.not15.i = icmp eq i32 %39, 0
-  br i1 %.not15.i, label %check_suffix.exit, label %check_suffix.exit.thread
+  br i1 %.not15.i, label %40, label %check_suffix.exit.thread
 
-check_suffix.exit:                                ; preds = %37
-  %40 = ptrtoint ptr %35 to i64
-  %41 = ptrtoint ptr %0 to i64
-  %42 = sub i64 %40, %41
-  %43 = trunc i64 %42 to i32
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %check_suffix.exit.thread
+40:                                               ; preds = %37
+  %41 = add nsw i32 %32, -12
+  %42 = tail call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %0, i32 noundef %41) #10
+  %.not78 = icmp eq ptr %42, null
+  br i1 %.not78, label %check_suffix.exit.thread, label %43
 
-45:                                               ; preds = %check_suffix.exit
-  %46 = tail call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %0, i32 noundef %43) #10
-  %.not78 = icmp eq ptr %46, null
-  br i1 %.not78, label %check_suffix.exit.thread, label %47
+43:                                               ; preds = %40
+  %44 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42) #10
+  %.not79 = icmp eq i32 %44, 0
+  br i1 %.not79, label %check_suffix.exit.thread, label %45
 
-47:                                               ; preds = %45
-  %48 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %13, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %46) #10
-  %.not79 = icmp eq i32 %48, 0
-  br i1 %.not79, label %check_suffix.exit.thread, label %49
-
-49:                                               ; preds = %47
+45:                                               ; preds = %43
   store i32 1, ptr %5, align 4, !tbaa !12
-  %50 = load i32, ptr %13, align 4, !tbaa !12
-  %51 = call ptr @d2i_PrivateKey_ex(i32 noundef %50, ptr noundef null, ptr noundef nonnull %12, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
+  %46 = load i32, ptr %13, align 4, !tbaa !12
+  %47 = call ptr @d2i_PrivateKey_ex(i32 noundef %46, ptr noundef null, ptr noundef nonnull %12, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
   br label %check_suffix.exit.thread
 
-check_suffix.exit.thread:                         ; preds = %33, %37, %30, %49, %47, %45, %check_suffix.exit
-  %.159 = phi ptr [ %51, %49 ], [ null, %47 ], [ null, %45 ], [ null, %check_suffix.exit ], [ null, %30 ], [ null, %37 ], [ null, %33 ]
+check_suffix.exit.thread:                         ; preds = %37, %33, %30, %45, %43, %40
+  %.159 = phi ptr [ %47, %45 ], [ null, %43 ], [ null, %40 ], [ null, %30 ], [ null, %33 ], [ null, %37 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #10
-  br label %106
+  br label %102
 
-52:                                               ; preds = %11
-  %53 = tail call ptr @ENGINE_get_first() #10
-  %.not6785 = icmp eq ptr %53, null
+48:                                               ; preds = %11
+  %49 = tail call ptr @ENGINE_get_first() #10
+  %.not6785 = icmp eq ptr %49, null
   br i1 %.not6785, label %.preheader, label %.lr.ph90
 
-.preheader:                                       ; preds = %82, %52
-  %.3.lcssa = phi ptr [ null, %52 ], [ %.4, %82 ]
-  %54 = call i32 @EVP_PKEY_asn1_get_count() #10
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %.lr.ph94, label %._crit_edge95
+.preheader:                                       ; preds = %78, %48
+  %.3.lcssa = phi ptr [ null, %48 ], [ %.4, %78 ]
+  %50 = call i32 @EVP_PKEY_asn1_get_count() #10
+  %51 = icmp sgt i32 %50, 0
+  br i1 %51, label %.lr.ph94, label %._crit_edge95
 
-.lr.ph90:                                         ; preds = %52, %82
-  %.05687 = phi ptr [ %83, %82 ], [ %53, %52 ]
-  %.386 = phi ptr [ %.4, %82 ], [ null, %52 ]
-  %56 = call ptr @ENGINE_get_pkey_asn1_meths(ptr noundef nonnull %.05687) #10
-  %.not72 = icmp eq ptr %56, null
-  br i1 %.not72, label %82, label %57
+.lr.ph90:                                         ; preds = %48, %78
+  %.05687 = phi ptr [ %79, %78 ], [ %49, %48 ]
+  %.386 = phi ptr [ %.4, %78 ], [ null, %48 ]
+  %52 = call ptr @ENGINE_get_pkey_asn1_meths(ptr noundef nonnull %.05687) #10
+  %.not72 = icmp eq ptr %52, null
+  br i1 %.not72, label %78, label %53
 
-57:                                               ; preds = %.lr.ph90
+53:                                               ; preds = %.lr.ph90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #10
   store ptr null, ptr %14, align 8, !tbaa !35
-  %58 = call i32 %56(ptr noundef nonnull %.05687, ptr noundef null, ptr noundef nonnull %14, i32 noundef 0) #10
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph.preheader, label %._crit_edge
+  %54 = call i32 %52(ptr noundef nonnull %.05687, ptr noundef null, ptr noundef nonnull %14, i32 noundef 0) #10
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %57
-  %wide.trip.count = zext nneg i32 %58 to i64
+.lr.ph.preheader:                                 ; preds = %53
+  %wide.trip.count = zext nneg i32 %54 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %81
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
-  %.583 = phi ptr [ %.386, %.lr.ph.preheader ], [ %.6, %81 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %77 ]
+  %.583 = phi ptr [ %.386, %.lr.ph.preheader ], [ %.6, %77 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #10
   store ptr null, ptr %15, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #10
   store ptr %2, ptr %16, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #10
-  %60 = load ptr, ptr %14, align 8, !tbaa !35
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
-  %62 = load i32, ptr %61, align 4, !tbaa !12
-  %63 = call i32 %56(ptr noundef nonnull %.05687, ptr noundef nonnull %15, ptr noundef null, i32 noundef %62) #10
-  %.not73 = icmp eq i32 %63, 0
-  br i1 %.not73, label %81, label %64
+  %56 = load ptr, ptr %14, align 8, !tbaa !35
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %58 = load i32, ptr %57, align 4, !tbaa !12
+  %59 = call i32 %52(ptr noundef nonnull %.05687, ptr noundef nonnull %15, ptr noundef null, i32 noundef %58) #10
+  %.not73 = icmp eq i32 %59, 0
+  br i1 %.not73, label %77, label %60
 
-64:                                               ; preds = %.lr.ph
-  %65 = load ptr, ptr %15, align 8, !tbaa !86
-  %66 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %18, ptr noundef null, ptr noundef null, ptr noundef %65) #10
-  %.not74 = icmp eq i32 %66, 0
-  br i1 %.not74, label %81, label %67
+60:                                               ; preds = %.lr.ph
+  %61 = load ptr, ptr %15, align 8, !tbaa !86
+  %62 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %18, ptr noundef null, ptr noundef null, ptr noundef %61) #10
+  %.not74 = icmp eq i32 %62, 0
+  br i1 %.not74, label %77, label %63
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %18, align 4, !tbaa !12
-  %69 = and i32 %68, 1
-  %.not75 = icmp eq i32 %69, 0
-  br i1 %.not75, label %70, label %81
+63:                                               ; preds = %60
+  %64 = load i32, ptr %18, align 4, !tbaa !12
+  %65 = and i32 %64, 1
+  %.not75 = icmp eq i32 %65, 0
+  br i1 %.not75, label %66, label %77
 
-70:                                               ; preds = %67
-  %71 = call i32 @ERR_set_mark() #10
-  %72 = load i32, ptr %17, align 4, !tbaa !12
-  %73 = call ptr @d2i_PrivateKey_ex(i32 noundef %72, ptr noundef null, ptr noundef nonnull %16, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
-  %.not76 = icmp eq ptr %73, null
-  br i1 %.not76, label %79, label %74
+66:                                               ; preds = %63
+  %67 = call i32 @ERR_set_mark() #10
+  %68 = load i32, ptr %17, align 4, !tbaa !12
+  %69 = call ptr @d2i_PrivateKey_ex(i32 noundef %68, ptr noundef null, ptr noundef nonnull %16, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
+  %.not76 = icmp eq ptr %69, null
+  br i1 %.not76, label %75, label %70
 
-74:                                               ; preds = %70
+70:                                               ; preds = %66
   %.not77 = icmp eq ptr %.583, null
-  br i1 %.not77, label %76, label %75
+  br i1 %.not77, label %72, label %71
 
-75:                                               ; preds = %74
-  call void @EVP_PKEY_free(ptr noundef nonnull %73) #10
-  br label %76
+71:                                               ; preds = %70
+  call void @EVP_PKEY_free(ptr noundef nonnull %69) #10
+  br label %72
 
-76:                                               ; preds = %74, %75
-  %.8 = phi ptr [ %.583, %75 ], [ %73, %74 ]
-  %77 = load i32, ptr %5, align 4, !tbaa !12
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %5, align 4, !tbaa !12
-  br label %79
+72:                                               ; preds = %70, %71
+  %.8 = phi ptr [ %.583, %71 ], [ %69, %70 ]
+  %73 = load i32, ptr %5, align 4, !tbaa !12
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %5, align 4, !tbaa !12
+  br label %75
 
-79:                                               ; preds = %76, %70
-  %.7 = phi ptr [ %.8, %76 ], [ %.583, %70 ]
-  %80 = call i32 @ERR_pop_to_mark() #10
-  br label %81
+75:                                               ; preds = %72, %66
+  %.7 = phi ptr [ %.8, %72 ], [ %.583, %66 ]
+  %76 = call i32 @ERR_pop_to_mark() #10
+  br label %77
 
-81:                                               ; preds = %.lr.ph, %64, %67, %79
-  %.6 = phi ptr [ %.7, %79 ], [ %.583, %67 ], [ %.583, %64 ], [ %.583, %.lr.ph ]
+77:                                               ; preds = %.lr.ph, %60, %63, %75
+  %.6 = phi ptr [ %.7, %75 ], [ %.583, %63 ], [ %.583, %60 ], [ %.583, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #10
@@ -3203,95 +3189,95 @@ check_suffix.exit.thread:                         ; preds = %33, %37, %30, %49, 
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
-._crit_edge:                                      ; preds = %81, %57
-  %.5.lcssa = phi ptr [ %.386, %57 ], [ %.6, %81 ]
+._crit_edge:                                      ; preds = %77, %53
+  %.5.lcssa = phi ptr [ %.386, %53 ], [ %.6, %77 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
-  br label %82
+  br label %78
 
-82:                                               ; preds = %._crit_edge, %.lr.ph90
+78:                                               ; preds = %._crit_edge, %.lr.ph90
   %.4 = phi ptr [ %.5.lcssa, %._crit_edge ], [ %.386, %.lr.ph90 ]
-  %83 = call ptr @ENGINE_get_next(ptr noundef nonnull %.05687) #10
-  %.not67 = icmp eq ptr %83, null
+  %79 = call ptr @ENGINE_get_next(ptr noundef nonnull %.05687) #10
+  %.not67 = icmp eq ptr %79, null
   br i1 %.not67, label %.preheader, label %.lr.ph90, !llvm.loop !89
 
-.lr.ph94:                                         ; preds = %.preheader, %100
-  %.193 = phi i32 [ %101, %100 ], [ 0, %.preheader ]
-  %.992 = phi ptr [ %.10, %100 ], [ %.3.lcssa, %.preheader ]
+.lr.ph94:                                         ; preds = %.preheader, %96
+  %.193 = phi i32 [ %97, %96 ], [ 0, %.preheader ]
+  %.992 = phi ptr [ %.10, %96 ], [ %.3.lcssa, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #10
   store ptr %2, ptr %19, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #10
-  %84 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.193) #10
-  %85 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %20, ptr noundef null, ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef %84) #10
-  %.not68 = icmp eq i32 %85, 0
-  br i1 %.not68, label %100, label %86
+  %80 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.193) #10
+  %81 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %20, ptr noundef null, ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef %80) #10
+  %.not68 = icmp eq i32 %81, 0
+  br i1 %.not68, label %96, label %82
 
-86:                                               ; preds = %.lr.ph94
-  %87 = load i32, ptr %21, align 4, !tbaa !12
-  %88 = and i32 %87, 1
-  %.not69 = icmp eq i32 %88, 0
-  br i1 %.not69, label %89, label %100
+82:                                               ; preds = %.lr.ph94
+  %83 = load i32, ptr %21, align 4, !tbaa !12
+  %84 = and i32 %83, 1
+  %.not69 = icmp eq i32 %84, 0
+  br i1 %.not69, label %85, label %96
 
-89:                                               ; preds = %86
-  %90 = call i32 @ERR_set_mark() #10
-  %91 = load i32, ptr %20, align 4, !tbaa !12
-  %92 = call ptr @d2i_PrivateKey_ex(i32 noundef %91, ptr noundef null, ptr noundef nonnull %19, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
-  %.not70 = icmp eq ptr %92, null
-  br i1 %.not70, label %98, label %93
+85:                                               ; preds = %82
+  %86 = call i32 @ERR_set_mark() #10
+  %87 = load i32, ptr %20, align 4, !tbaa !12
+  %88 = call ptr @d2i_PrivateKey_ex(i32 noundef %87, ptr noundef null, ptr noundef nonnull %19, i64 noundef %3, ptr noundef %9, ptr noundef %10) #10
+  %.not70 = icmp eq ptr %88, null
+  br i1 %.not70, label %94, label %89
 
-93:                                               ; preds = %89
+89:                                               ; preds = %85
   %.not71 = icmp eq ptr %.992, null
-  br i1 %.not71, label %95, label %94
+  br i1 %.not71, label %91, label %90
 
-94:                                               ; preds = %93
-  call void @EVP_PKEY_free(ptr noundef nonnull %92) #10
-  br label %95
+90:                                               ; preds = %89
+  call void @EVP_PKEY_free(ptr noundef nonnull %88) #10
+  br label %91
 
-95:                                               ; preds = %93, %94
-  %.12 = phi ptr [ %.992, %94 ], [ %92, %93 ]
-  %96 = load i32, ptr %5, align 4, !tbaa !12
-  %97 = add nsw i32 %96, 1
-  store i32 %97, ptr %5, align 4, !tbaa !12
-  br label %98
+91:                                               ; preds = %89, %90
+  %.12 = phi ptr [ %.992, %90 ], [ %88, %89 ]
+  %92 = load i32, ptr %5, align 4, !tbaa !12
+  %93 = add nsw i32 %92, 1
+  store i32 %93, ptr %5, align 4, !tbaa !12
+  br label %94
 
-98:                                               ; preds = %95, %89
-  %.11 = phi ptr [ %.12, %95 ], [ %.992, %89 ]
-  %99 = call i32 @ERR_pop_to_mark() #10
-  br label %100
+94:                                               ; preds = %91, %85
+  %.11 = phi ptr [ %.12, %91 ], [ %.992, %85 ]
+  %95 = call i32 @ERR_pop_to_mark() #10
+  br label %96
 
-100:                                              ; preds = %.lr.ph94, %86, %98
-  %.10 = phi ptr [ %.11, %98 ], [ %.992, %86 ], [ %.992, %.lr.ph94 ]
+96:                                               ; preds = %.lr.ph94, %82, %94
+  %.10 = phi ptr [ %.11, %94 ], [ %.992, %82 ], [ %.992, %.lr.ph94 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #10
-  %101 = add nuw nsw i32 %.193, 1
-  %102 = call i32 @EVP_PKEY_asn1_get_count() #10
-  %103 = icmp slt i32 %101, %102
-  br i1 %103, label %.lr.ph94, label %._crit_edge95, !llvm.loop !90
+  %97 = add nuw nsw i32 %.193, 1
+  %98 = call i32 @EVP_PKEY_asn1_get_count() #10
+  %99 = icmp slt i32 %97, %98
+  br i1 %99, label %.lr.ph94, label %._crit_edge95, !llvm.loop !90
 
-._crit_edge95:                                    ; preds = %100, %.preheader
-  %.9.lcssa = phi ptr [ %.3.lcssa, %.preheader ], [ %.10, %100 ]
-  %104 = load i32, ptr %5, align 4, !tbaa !12
-  %105 = icmp sgt i32 %104, 1
-  br i1 %105, label %.sink.split, label %106
+._crit_edge95:                                    ; preds = %96, %.preheader
+  %.9.lcssa = phi ptr [ %.3.lcssa, %.preheader ], [ %.10, %96 ]
+  %100 = load i32, ptr %5, align 4, !tbaa !12
+  %101 = icmp sgt i32 %100, 1
+  br i1 %101, label %.sink.split, label %102
 
-106:                                              ; preds = %._crit_edge95, %29, %check_suffix.exit.thread
+102:                                              ; preds = %._crit_edge95, %29, %check_suffix.exit.thread
   %.2 = phi ptr [ %.058, %29 ], [ %.159, %check_suffix.exit.thread ], [ %.9.lcssa, %._crit_edge95 ]
-  %107 = icmp eq ptr %.2, null
-  br i1 %107, label %111, label %108
+  %103 = icmp eq ptr %.2, null
+  br i1 %103, label %107, label %104
 
-108:                                              ; preds = %106
-  %109 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %.2) #10
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %.sink.split, label %111
+104:                                              ; preds = %102
+  %105 = call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %.2) #10
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.sink.split, label %107
 
-.sink.split:                                      ; preds = %108, %._crit_edge95
-  %.9.lcssa.sink = phi ptr [ %.9.lcssa, %._crit_edge95 ], [ %.2, %108 ]
+.sink.split:                                      ; preds = %104, %._crit_edge95
+  %.9.lcssa.sink = phi ptr [ %.9.lcssa, %._crit_edge95 ], [ %.2, %104 ]
   call void @EVP_PKEY_free(ptr noundef %.9.lcssa.sink) #10
-  br label %111
+  br label %107
 
-111:                                              ; preds = %.sink.split, %108, %106
-  %.0 = phi ptr [ null, %106 ], [ %109, %108 ], [ null, %.sink.split ]
+107:                                              ; preds = %.sink.split, %104, %102
+  %.0 = phi ptr [ null, %102 ], [ %105, %104 ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

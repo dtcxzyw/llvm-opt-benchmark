@@ -3670,7 +3670,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE28reserveForP
   %31 = phi i32 [ %7, %22 ], [ %.pre11.i.i, %28 ]
   %32 = phi ptr [ %5, %22 ], [ %.pre.i.i, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %25
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %.pre-phi16.i.i
+  %.idx.i.i = shl nuw nsw i64 %.pre-phi16.i.i, 3
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i.i
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %36 = load ptr, ptr %35, align 8, !tbaa !78
   store ptr %36, ptr %34, align 8, !tbaa !78
@@ -3678,29 +3679,28 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE28reserveForP
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPN4llvm9sandboxir11InstructionES4_ET0_T_S6_S5_.exit.i.i, label %37
 
 37:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %33 to i64
-  %40 = sub i64 %38, %39
-  %41 = ashr exact i64 %40, 3
-  %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds ptr, ptr %34, i64 %42
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %33, i64 %40, i1 false)
+  %reass.sub.i.i = sub i64 %.idx.i.i, %25
+  %gepdiff.i.i = add i64 %reass.sub.i.i, -8
+  %38 = ashr exact i64 %gepdiff.i.i, 3
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds ptr, ptr %34, i64 %39
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %33, i64 %gepdiff.i.i, i1 false)
   %.pre12.i.i = load i32, ptr %6, align 8, !tbaa !27
   br label %_ZSt13move_backwardIPPN4llvm9sandboxir11InstructionES4_ET0_T_S6_S5_.exit.i.i
 
 _ZSt13move_backwardIPPN4llvm9sandboxir11InstructionES4_ET0_T_S6_S5_.exit.i.i: ; preds = %37, %_ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i
-  %44 = phi i32 [ %31, %_ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i ], [ %.pre12.i.i, %37 ]
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %6, align 8, !tbaa !27
+  %41 = phi i32 [ %31, %_ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE28reserveForParamAndGetAddressERS3_m.exit.i.i ], [ %.pre12.i.i, %37 ]
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %6, align 8, !tbaa !27
   store ptr %2, ptr %33, align 8, !tbaa !78
   br label %_ZN4llvm15SmallVectorImplIPNS_9sandboxir11InstructionEE6insertEPS3_RKS3_.exit
 
 _ZN4llvm15SmallVectorImplIPNS_9sandboxir11InstructionEE6insertEPS3_RKS3_.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_9sandboxir11InstructionELb1EE9push_backES3_.exit.i.i, %_ZSt13move_backwardIPPN4llvm9sandboxir11InstructionES4_ET0_T_S6_S5_.exit.i.i
-  %46 = tail call noundef i32 @_ZN4llvm9sandboxir5Utils10getNumBitsEPNS0_11InstructionE(ptr noundef %2)
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %48 = load i32, ptr %47, align 4, !tbaa !60
-  %49 = add i32 %48, %46
-  store i32 %49, ptr %47, align 4, !tbaa !60
+  %43 = tail call noundef i32 @_ZN4llvm9sandboxir5Utils10getNumBitsEPNS0_11InstructionE(ptr noundef %2)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %45 = load i32, ptr %44, align 4, !tbaa !60
+  %46 = add i32 %45, %43
+  store i32 %46, ptr %44, align 4, !tbaa !60
   ret void
 }
 

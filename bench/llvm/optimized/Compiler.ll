@@ -22655,88 +22655,88 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE21VisitPseudoObjectExprEPKNS_16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load i64, ptr %1, align 8
-  %4 = lshr i64 %3, 29
-  %.idx = and i64 %4, 524280
-  %.add = add nuw nsw i64 %.idx, 16
-  %.ptr51 = getelementptr inbounds nuw i8, ptr %1, i64 %.add
-  %.not42 = icmp eq i64 %.add, 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = load i64, ptr %1, align 8
+  %5 = lshr i64 %4, 29
+  %.idx.i = and i64 %5, 524280
+  %6 = getelementptr i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %6, i64 -8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.not42 = icmp eq ptr %3, %7
   br i1 %.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 586
-  br label %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 586
+  br label %11
 
-8:                                                ; preds = %.lr.ph, %35
-  %.02143 = phi ptr [ %5, %.lr.ph ], [ %36, %35 ]
-  %9 = load ptr, ptr %.02143, align 8, !tbaa !233
-  %10 = load i16, ptr %9, align 8
-  %11 = and i16 %10, 511
-  %.not40 = icmp eq i16 %11, 28
-  %12 = load i64, ptr %1, align 8
-  %13 = icmp ult i64 %12, 281474976710656
-  br i1 %.not40, label %14, label %25
+11:                                               ; preds = %.lr.ph, %38
+  %.02143 = phi ptr [ %3, %.lr.ph ], [ %39, %38 ]
+  %12 = load ptr, ptr %.02143, align 8, !tbaa !233
+  %13 = load i16, ptr %12, align 8
+  %14 = and i16 %13, 511
+  %.not40 = icmp eq i16 %14, 28
+  %15 = load i64, ptr %1, align 8
+  %16 = icmp ult i64 %15, 281474976710656
+  br i1 %.not40, label %17, label %28
 
-14:                                               ; preds = %8
-  br i1 %13, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
+17:                                               ; preds = %11
+  br i1 %16, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %14
-  %15 = lshr i64 %12, 48
-  %16 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !233
-  %18 = icmp eq ptr %9, %17
-  br i1 %18, label %.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %17
+  %18 = lshr i64 %15, 48
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %20 = load ptr, ptr %19, align 8, !tbaa !233
+  %21 = icmp eq ptr %12, %20
+  br i1 %21, label %.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread: ; preds = %14, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
-  %19 = load i32, ptr %9, align 8
-  %20 = and i32 %19, 524288
-  %.not41 = icmp eq i32 %20, 0
-  br i1 %.not41, label %21, label %35
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread: ; preds = %17, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
+  %22 = load i32, ptr %12, align 8
+  %23 = and i32 %22, 524288
+  %.not41 = icmp eq i32 %23, 0
+  br i1 %.not41, label %24, label %38
 
-21:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
-  %22 = load i8, ptr %6, align 8, !tbaa !17, !range !74, !noundef !75
-  %23 = load i8, ptr %7, align 2, !tbaa !76, !range !74, !noundef !75
-  store i8 1, ptr %6, align 8, !tbaa !17
-  store i8 0, ptr %7, align 2, !tbaa !76
-  %24 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %9)
-  store i8 %22, ptr %6, align 8, !tbaa !17
-  store i8 %23, ptr %7, align 2, !tbaa !76
-  br i1 %24, label %35, label %.thread
+24:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
+  %25 = load i8, ptr %9, align 8, !tbaa !17, !range !74, !noundef !75
+  %26 = load i8, ptr %10, align 2, !tbaa !76, !range !74, !noundef !75
+  store i8 1, ptr %9, align 8, !tbaa !17
+  store i8 0, ptr %10, align 2, !tbaa !76
+  %27 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %12)
+  store i8 %25, ptr %9, align 8, !tbaa !17
+  store i8 %26, ptr %10, align 2, !tbaa !76
+  br i1 %27, label %38, label %.thread
 
-25:                                               ; preds = %8
-  br i1 %13, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
+28:                                               ; preds = %11
+  br i1 %16, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29: ; preds = %25
-  %26 = lshr i64 %12, 48
-  %27 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !233
-  %29 = icmp eq ptr %9, %28
-  br i1 %29, label %30, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29: ; preds = %28
+  %29 = lshr i64 %15, 48
+  %30 = getelementptr inbounds nuw ptr, ptr %8, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !233
+  %32 = icmp eq ptr %12, %31
+  br i1 %32, label %33, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread
 
-30:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
-  %31 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %9)
-  br i1 %31, label %35, label %.thread
+33:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
+  %34 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %12)
+  br i1 %34, label %38, label %.thread
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread: ; preds = %25, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
-  %32 = load i8, ptr %6, align 8, !tbaa !17, !range !74, !noundef !75
-  %33 = load i8, ptr %7, align 2, !tbaa !76, !range !74, !noundef !75
-  store i8 1, ptr %6, align 8, !tbaa !17
-  store i8 0, ptr %7, align 2, !tbaa !76
-  %34 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %9)
-  store i8 %32, ptr %6, align 8, !tbaa !17
-  store i8 %33, ptr %7, align 2, !tbaa !76
-  br i1 %34, label %35, label %.thread
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread: ; preds = %28, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
+  %35 = load i8, ptr %9, align 8, !tbaa !17, !range !74, !noundef !75
+  %36 = load i8, ptr %10, align 2, !tbaa !76, !range !74, !noundef !75
+  store i8 1, ptr %9, align 8, !tbaa !17
+  store i8 0, ptr %10, align 2, !tbaa !76
+  %37 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %12)
+  store i8 %35, ptr %9, align 8, !tbaa !17
+  store i8 %36, ptr %10, align 2, !tbaa !76
+  br i1 %37, label %38, label %.thread
 
-35:                                               ; preds = %21, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %30, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
-  %36 = getelementptr inbounds nuw i8, ptr %.02143, i64 8
-  %.not = icmp eq ptr %36, %.ptr51
-  br i1 %.not, label %.thread, label %8
+38:                                               ; preds = %24, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %33, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
+  %39 = getelementptr inbounds nuw i8, ptr %.02143, i64 8
+  %.not = icmp eq ptr %39, %7
+  br i1 %.not, label %.thread, label %11
 
-.thread:                                          ; preds = %35, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %21, %30, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread ], [ false, %30 ], [ false, %21 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ true, %35 ]
+.thread:                                          ; preds = %38, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %24, %33, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %2
+  %.not.lcssa = phi i1 [ true, %2 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread ], [ false, %33 ], [ false, %24 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ true, %38 ]
   ret i1 %.not.lcssa
 }
 
@@ -55154,88 +55154,88 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE21VisitPseudoObjectExprEPKNS_16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load i64, ptr %1, align 8
-  %4 = lshr i64 %3, 29
-  %.idx = and i64 %4, 524280
-  %.add = add nuw nsw i64 %.idx, 16
-  %.ptr51 = getelementptr inbounds nuw i8, ptr %1, i64 %.add
-  %.not42 = icmp eq i64 %.add, 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = load i64, ptr %1, align 8
+  %5 = lshr i64 %4, 29
+  %.idx.i = and i64 %5, 524280
+  %6 = getelementptr i8, ptr %3, i64 %.idx.i
+  %7 = getelementptr i8, ptr %6, i64 -8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.not42 = icmp eq ptr %3, %7
   br i1 %.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1146
-  br label %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1146
+  br label %11
 
-8:                                                ; preds = %.lr.ph, %35
-  %.02143 = phi ptr [ %5, %.lr.ph ], [ %36, %35 ]
-  %9 = load ptr, ptr %.02143, align 8, !tbaa !233
-  %10 = load i16, ptr %9, align 8
-  %11 = and i16 %10, 511
-  %.not40 = icmp eq i16 %11, 28
-  %12 = load i64, ptr %1, align 8
-  %13 = icmp ult i64 %12, 281474976710656
-  br i1 %.not40, label %14, label %25
+11:                                               ; preds = %.lr.ph, %38
+  %.02143 = phi ptr [ %3, %.lr.ph ], [ %39, %38 ]
+  %12 = load ptr, ptr %.02143, align 8, !tbaa !233
+  %13 = load i16, ptr %12, align 8
+  %14 = and i16 %13, 511
+  %.not40 = icmp eq i16 %14, 28
+  %15 = load i64, ptr %1, align 8
+  %16 = icmp ult i64 %15, 281474976710656
+  br i1 %.not40, label %17, label %28
 
-14:                                               ; preds = %8
-  br i1 %13, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
+17:                                               ; preds = %11
+  br i1 %16, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %14
-  %15 = lshr i64 %12, 48
-  %16 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %15
-  %17 = load ptr, ptr %16, align 8, !tbaa !233
-  %18 = icmp eq ptr %9, %17
-  br i1 %18, label %.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %17
+  %18 = lshr i64 %15, 48
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %20 = load ptr, ptr %19, align 8, !tbaa !233
+  %21 = icmp eq ptr %12, %20
+  br i1 %21, label %.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread: ; preds = %14, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
-  %19 = load i32, ptr %9, align 8
-  %20 = and i32 %19, 524288
-  %.not41 = icmp eq i32 %20, 0
-  br i1 %.not41, label %21, label %35
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread: ; preds = %17, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
+  %22 = load i32, ptr %12, align 8
+  %23 = and i32 %22, 524288
+  %.not41 = icmp eq i32 %23, 0
+  br i1 %.not41, label %24, label %38
 
-21:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
-  %22 = load i8, ptr %6, align 8, !tbaa !1143, !range !74, !noundef !75
-  %23 = load i8, ptr %7, align 2, !tbaa !1197, !range !74, !noundef !75
-  store i8 1, ptr %6, align 8, !tbaa !1143
-  store i8 0, ptr %7, align 2, !tbaa !1197
-  %24 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %9)
-  store i8 %22, ptr %6, align 8, !tbaa !1143
-  store i8 %23, ptr %7, align 2, !tbaa !1197
-  br i1 %24, label %35, label %.thread
+24:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
+  %25 = load i8, ptr %9, align 8, !tbaa !1143, !range !74, !noundef !75
+  %26 = load i8, ptr %10, align 2, !tbaa !1197, !range !74, !noundef !75
+  store i8 1, ptr %9, align 8, !tbaa !1143
+  store i8 0, ptr %10, align 2, !tbaa !1197
+  %27 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %12)
+  store i8 %25, ptr %9, align 8, !tbaa !1143
+  store i8 %26, ptr %10, align 2, !tbaa !1197
+  br i1 %27, label %38, label %.thread
 
-25:                                               ; preds = %8
-  br i1 %13, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
+28:                                               ; preds = %11
+  br i1 %16, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29: ; preds = %25
-  %26 = lshr i64 %12, 48
-  %27 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !233
-  %29 = icmp eq ptr %9, %28
-  br i1 %29, label %30, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29: ; preds = %28
+  %29 = lshr i64 %15, 48
+  %30 = getelementptr inbounds nuw ptr, ptr %8, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !233
+  %32 = icmp eq ptr %12, %31
+  br i1 %32, label %33, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread
 
-30:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
-  %31 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %9)
-  br i1 %31, label %35, label %.thread
+33:                                               ; preds = %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
+  %34 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %12)
+  br i1 %34, label %38, label %.thread
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread: ; preds = %25, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
-  %32 = load i8, ptr %6, align 8, !tbaa !1143, !range !74, !noundef !75
-  %33 = load i8, ptr %7, align 2, !tbaa !1197, !range !74, !noundef !75
-  store i8 1, ptr %6, align 8, !tbaa !1143
-  store i8 0, ptr %7, align 2, !tbaa !1197
-  %34 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %9)
-  store i8 %32, ptr %6, align 8, !tbaa !1143
-  store i8 %33, ptr %7, align 2, !tbaa !1197
-  br i1 %34, label %35, label %.thread
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread: ; preds = %28, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29
+  %35 = load i8, ptr %9, align 8, !tbaa !1143, !range !74, !noundef !75
+  %36 = load i8, ptr %10, align 2, !tbaa !1197, !range !74, !noundef !75
+  store i8 1, ptr %9, align 8, !tbaa !1143
+  store i8 0, ptr %10, align 2, !tbaa !1197
+  %37 = tail call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %12)
+  store i8 %35, ptr %9, align 8, !tbaa !1143
+  store i8 %36, ptr %10, align 2, !tbaa !1197
+  br i1 %37, label %38, label %.thread
 
-35:                                               ; preds = %21, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %30, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
-  %36 = getelementptr inbounds nuw i8, ptr %.02143, i64 8
-  %.not = icmp eq ptr %36, %.ptr51
-  br i1 %.not, label %.thread, label %8
+38:                                               ; preds = %24, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %33, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit.thread
+  %39 = getelementptr inbounds nuw i8, ptr %.02143, i64 8
+  %.not = icmp eq ptr %39, %7
+  br i1 %.not, label %.thread, label %11
 
-.thread:                                          ; preds = %35, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %21, %30, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %2
-  %.not.lcssa = phi i1 [ true, %2 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread ], [ false, %30 ], [ false, %21 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ true, %35 ]
+.thread:                                          ; preds = %38, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %24, %33, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread, %2
+  %.not.lcssa = phi i1 [ true, %2 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit29.thread ], [ false, %33 ], [ false, %24 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ true, %38 ]
   ret i1 %.not.lcssa
 }
 

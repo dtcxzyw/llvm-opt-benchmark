@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nodeElt_s = type { i32, i16, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -119, 128) i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define dso_local i64 @HUF_writeCTable_wksp(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = ptrtoint ptr %5 to i64
@@ -108,99 +108,94 @@ define dso_local range(i64 -119, 128) i64 @HUF_writeCTable_wksp(ptr noundef %0, 
   br i1 %56, label %57, label %HUF_compressWeights.exit.thread
 
 57:                                               ; preds = %50
-  %58 = ptrtoint ptr %36 to i64
-  %59 = load i32, ptr %8, align 4, !tbaa !12
-  %60 = call i64 @FSE_writeNCount(ptr noundef nonnull %36, i64 noundef range(i64 0, -1) %37, ptr noundef nonnull %53, i32 noundef %59, i32 noundef %52) #13
-  %61 = icmp ult i64 %60, -119
-  %62 = getelementptr inbounds nuw i8, ptr %36, i64 %60
-  br i1 %61, label %63, label %HUF_compressWeights.exit.thread
+  %58 = load i32, ptr %8, align 4, !tbaa !12
+  %59 = call i64 @FSE_writeNCount(ptr noundef nonnull %36, i64 noundef range(i64 0, -1) %37, ptr noundef nonnull %53, i32 noundef %58, i32 noundef %52) #13
+  %60 = icmp ult i64 %59, -119
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 %59
+  br i1 %60, label %62, label %HUF_compressWeights.exit.thread
 
-63:                                               ; preds = %57
-  %64 = load i32, ptr %8, align 4, !tbaa !12
-  %65 = getelementptr inbounds nuw i8, ptr %43, i64 236
-  %66 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %43, ptr noundef nonnull %53, i32 noundef %64, i32 noundef %52, ptr noundef nonnull %65, i64 noundef 164) #13
-  %67 = icmp ult i64 %66, -119
-  br i1 %67, label %68, label %HUF_compressWeights.exit.thread
+62:                                               ; preds = %57
+  %63 = load i32, ptr %8, align 4, !tbaa !12
+  %64 = getelementptr inbounds nuw i8, ptr %43, i64 236
+  %65 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %43, ptr noundef nonnull %53, i32 noundef %63, i32 noundef %52, ptr noundef nonnull %64, i64 noundef 164) #13
+  %66 = icmp ult i64 %65, -119
+  br i1 %66, label %67, label %HUF_compressWeights.exit.thread
 
-68:                                               ; preds = %63
-  %gepdiff.i = sub nsw i64 %37, %60
-  %69 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %62, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef nonnull %43) #13
-  %70 = icmp ult i64 %69, -119
-  br i1 %70, label %71, label %HUF_compressWeights.exit.thread
+67:                                               ; preds = %62
+  %gepdiff.i = sub nsw i64 %37, %59
+  %68 = call i64 @FSE_compress_usingCTable(ptr noundef nonnull %61, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef nonnull %43) #13
+  %69 = icmp ult i64 %68, -119
+  br i1 %69, label %HUF_compressWeights.exit, label %HUF_compressWeights.exit.thread
 
-71:                                               ; preds = %68
-  %72 = icmp eq i64 %69, 0
-  br i1 %72, label %.thread, label %HUF_compressWeights.exit
-
-HUF_compressWeights.exit.thread:                  ; preds = %63, %57, %50, %35, %68
-  %.0.i59.ph = phi i64 [ %69, %68 ], [ -1, %35 ], [ %55, %50 ], [ %60, %57 ], [ %66, %63 ]
+HUF_compressWeights.exit.thread:                  ; preds = %62, %57, %50, %35, %67
+  %.0.i59.ph = phi i64 [ %68, %67 ], [ -1, %35 ], [ %55, %50 ], [ %59, %57 ], [ %65, %62 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   br label %.thread70
 
-.thread:                                          ; preds = %71, %46, %44
+.thread:                                          ; preds = %46, %44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  br label %86
+  br label %82
 
-HUF_compressWeights.exit:                         ; preds = %71
-  %73 = getelementptr inbounds nuw i8, ptr %62, i64 %69
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, %58
+HUF_compressWeights.exit:                         ; preds = %67
+  %70 = icmp eq i64 %68, 0
+  %71 = add i64 %68, %59
+  %spec.select.i = select i1 %70, i64 0, i64 %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  %76 = icmp ult i64 %75, -119
-  br i1 %76, label %77, label %.thread70
+  %72 = icmp ult i64 %spec.select.i, -119
+  br i1 %72, label %73, label %.thread70
 
-77:                                               ; preds = %HUF_compressWeights.exit
-  %78 = icmp ugt i64 %75, 1
-  %79 = lshr i32 %3, 1
-  %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i64 %75, %80
-  %82 = and i1 %78, %81
-  br i1 %82, label %83, label %86
+73:                                               ; preds = %HUF_compressWeights.exit
+  %74 = icmp ugt i64 %spec.select.i, 1
+  %75 = lshr i32 %3, 1
+  %76 = zext nneg i32 %75 to i64
+  %77 = icmp ult i64 %spec.select.i, %76
+  %78 = and i1 %74, %77
+  br i1 %78, label %79, label %82
 
-83:                                               ; preds = %77
-  %84 = trunc nuw nsw i64 %75 to i8
-  store i8 %84, ptr %0, align 1, !tbaa !4
-  %85 = add nuw nsw i64 %75, 1
+79:                                               ; preds = %73
+  %80 = trunc nuw nsw i64 %spec.select.i to i8
+  store i8 %80, ptr %0, align 1, !tbaa !4
+  %81 = add nuw nsw i64 %spec.select.i, 1
   br label %.thread70
 
-86:                                               ; preds = %77, %.thread
-  %87 = icmp samesign ugt i32 %3, 128
-  br i1 %87, label %.thread70, label %88
+82:                                               ; preds = %73, %.thread
+  %83 = icmp samesign ugt i32 %3, 128
+  br i1 %83, label %.thread70, label %84
 
-88:                                               ; preds = %86
-  %89 = add nuw nsw i32 %3, 1
-  %90 = lshr i32 %89, 1
-  %91 = add nuw nsw i32 %90, 1
-  %92 = zext nneg i32 %91 to i64
-  %93 = icmp ult i64 %1, %92
-  br i1 %93, label %.thread70, label %94
+84:                                               ; preds = %82
+  %85 = add nuw nsw i32 %3, 1
+  %86 = lshr i32 %85, 1
+  %87 = add nuw nsw i32 %86, 1
+  %88 = zext nneg i32 %87 to i64
+  %89 = icmp ult i64 %1, %88
+  br i1 %89, label %.thread70, label %90
 
-94:                                               ; preds = %88
-  %95 = trunc nuw i32 %3 to i8
-  %96 = add nuw i8 %95, 127
-  store i8 %96, ptr %0, align 1, !tbaa !4
-  %97 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %39
-  store i8 0, ptr %97, align 1, !tbaa !4
+90:                                               ; preds = %84
+  %91 = trunc nuw i32 %3 to i8
+  %92 = add nuw i8 %91, 127
+  store i8 %92, ptr %0, align 1, !tbaa !4
+  %93 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %39
+  store i8 0, ptr %93, align 1, !tbaa !4
   br i1 %.not, label %.thread70, label %.lr.ph78
 
-.lr.ph78:                                         ; preds = %94, %.lr.ph78
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph78 ], [ 0, %94 ]
-  %98 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %indvars.iv86
+.lr.ph78:                                         ; preds = %90, %.lr.ph78
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph78 ], [ 0, %90 ]
+  %94 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %indvars.iv86
+  %95 = load i8, ptr %94, align 1, !tbaa !4
+  %96 = shl i8 %95, 4
+  %97 = or disjoint i64 %indvars.iv86, 1
+  %98 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !4
-  %100 = shl i8 %99, 4
-  %101 = or disjoint i64 %indvars.iv86, 1
-  %102 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !4
-  %104 = add i8 %100, %103
-  %105 = lshr exact i64 %indvars.iv86, 1
-  %gep = getelementptr inbounds nuw i8, ptr %36, i64 %105
-  store i8 %104, ptr %gep, align 1, !tbaa !4
+  %100 = add i8 %96, %99
+  %101 = lshr exact i64 %indvars.iv86, 1
+  %gep = getelementptr inbounds nuw i8, ptr %36, i64 %101
+  store i8 %100, ptr %gep, align 1, !tbaa !4
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
-  %106 = icmp samesign ult i64 %indvars.iv.next87, %39
-  br i1 %106, label %.lr.ph78, label %.thread70, !llvm.loop !14
+  %102 = icmp samesign ult i64 %indvars.iv.next87, %39
+  br i1 %102, label %.lr.ph78, label %.thread70, !llvm.loop !14
 
-.thread70:                                        ; preds = %.lr.ph78, %94, %HUF_compressWeights.exit.thread, %HUF_compressWeights.exit, %83, %88, %86, %._crit_edge, %15, %7
-  %.0 = phi i64 [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %86 ], [ -70, %88 ], [ %.0.i59.ph, %HUF_compressWeights.exit.thread ], [ %75, %HUF_compressWeights.exit ], [ %85, %83 ], [ %92, %94 ], [ %92, %.lr.ph78 ]
+.thread70:                                        ; preds = %.lr.ph78, %90, %HUF_compressWeights.exit.thread, %HUF_compressWeights.exit, %79, %84, %82, %._crit_edge, %15, %7
+  %.0 = phi i64 [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %82 ], [ -70, %84 ], [ %.0.i59.ph, %HUF_compressWeights.exit.thread ], [ %71, %HUF_compressWeights.exit ], [ %81, %79 ], [ %88, %90 ], [ %88, %.lr.ph78 ]
   ret i64 %.0
 }
 
@@ -2619,97 +2614,92 @@ HUF_compress1X_usingCTable_internal_body.exit:    ; preds = %865, %HUF_compress1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @HUF_compress4X_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #8 {
+define dso_local range(i64 -119, 262147) i64 @HUF_compress4X_usingCTable(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #8 {
   %7 = tail call fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   ret i64 %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #8 {
+define internal fastcc range(i64 -119, 262147) i64 @HUF_compress4X_usingCTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #8 {
   %6 = add i64 %3, 3
   %7 = lshr i64 %6, 2
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %9 = icmp ult i64 %1, 17
-  %10 = icmp ult i64 %3, 12
-  %or.cond107 = or i1 %9, %10
-  br i1 %or.cond107, label %.thread, label %11
+  %8 = icmp ult i64 %1, 17
+  %9 = icmp ult i64 %3, 12
+  %or.cond108 = or i1 %8, %9
+  br i1 %or.cond108, label %.thread, label %10
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %14 = ptrtoint ptr %12 to i64
-  %gepdiff = add nsw i64 %1, -6
-  %15 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %13, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %7, ptr noundef %4)
-  %16 = icmp ult i64 %15, -119
-  br i1 %16, label %17, label %.thread
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %gepdiff = add i64 %1, -6
+  %12 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %11, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %7, ptr noundef %4)
+  %13 = icmp ult i64 %12, -119
+  br i1 %13, label %14, label %.thread
 
-17:                                               ; preds = %11
-  %18 = add i64 %15, -65536
-  %or.cond = icmp ult i64 %18, -65535
-  br i1 %or.cond, label %.thread, label %19
+14:                                               ; preds = %10
+  %15 = add i64 %12, -65536
+  %or.cond = icmp ult i64 %15, -65535
+  br i1 %or.cond, label %.thread, label %16
 
-19:                                               ; preds = %17
-  %20 = trunc nuw i64 %15 to i16
-  store i16 %20, ptr %0, align 1, !tbaa !17
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %7
-  %23 = ptrtoint ptr %21 to i64
-  %24 = sub i64 %14, %23
-  %25 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %21, i64 noundef %24, ptr noundef %22, i64 noundef %7, ptr noundef %4)
-  %26 = icmp ult i64 %25, -119
-  br i1 %26, label %27, label %.thread
+16:                                               ; preds = %14
+  %17 = trunc nuw i64 %12 to i16
+  store i16 %17, ptr %0, align 1, !tbaa !17
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %7
+  %gepdiff127 = sub i64 %gepdiff, %12
+  %20 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %18, i64 noundef %gepdiff127, ptr noundef %19, i64 noundef %7, ptr noundef %4)
+  %21 = icmp ult i64 %20, -119
+  br i1 %21, label %22, label %.thread
 
-27:                                               ; preds = %19
-  %28 = add i64 %25, -65536
-  %or.cond6 = icmp ult i64 %28, -65535
-  br i1 %or.cond6, label %.thread, label %29
+22:                                               ; preds = %16
+  %23 = add i64 %20, -65536
+  %or.cond6 = icmp ult i64 %23, -65535
+  br i1 %or.cond6, label %.thread, label %24
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %31 = trunc nuw i64 %25 to i16
-  store i16 %31, ptr %30, align 1, !tbaa !17
-  %32 = getelementptr inbounds nuw i8, ptr %21, i64 %25
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 %7
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %14, %34
-  %36 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %32, i64 noundef %35, ptr noundef %33, i64 noundef %7, ptr noundef %4)
-  %37 = icmp ult i64 %36, -119
-  br i1 %37, label %38, label %.thread
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %26 = trunc nuw i64 %20 to i16
+  store i16 %26, ptr %25, align 1, !tbaa !17
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 %7
+  %29 = add nuw nsw i64 %12, %20
+  %gepdiff128 = sub i64 %gepdiff, %29
+  %30 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %27, i64 noundef %gepdiff128, ptr noundef %28, i64 noundef %7, ptr noundef %4)
+  %31 = icmp ult i64 %30, -119
+  br i1 %31, label %32, label %.thread
 
-38:                                               ; preds = %29
-  %39 = add i64 %36, -65536
-  %or.cond8 = icmp ult i64 %39, -65535
-  br i1 %or.cond8, label %.thread, label %40
+32:                                               ; preds = %24
+  %33 = add i64 %30, -65536
+  %or.cond8 = icmp ult i64 %33, -65535
+  br i1 %or.cond8, label %.thread, label %34
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %42 = trunc nuw i64 %36 to i16
-  store i16 %42, ptr %41, align 1, !tbaa !17
-  %43 = getelementptr inbounds nuw i8, ptr %32, i64 %36
-  %44 = getelementptr inbounds nuw i8, ptr %33, i64 %7
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %14, %45
-  %47 = ptrtoint ptr %8 to i64
-  %48 = ptrtoint ptr %44 to i64
-  %49 = sub i64 %47, %48
-  %50 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %43, i64 noundef %46, ptr noundef %44, i64 noundef %49, ptr noundef %4)
-  %51 = icmp ult i64 %50, -119
-  br i1 %51, label %52, label %.thread
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %36 = trunc nuw i64 %30 to i16
+  store i16 %36, ptr %35, align 1, !tbaa !17
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 %30
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 %7
+  %39 = add nuw nsw i64 %29, %30
+  %gepdiff129 = sub i64 %gepdiff, %39
+  %.neg = mul i64 %7, -3
+  %gepdiff106 = add i64 %.neg, %3
+  %40 = tail call fastcc i64 @HUF_compress1X_usingCTable_internal(ptr noundef nonnull %37, i64 noundef %gepdiff129, ptr noundef %38, i64 noundef %gepdiff106, ptr noundef %4)
+  %41 = icmp ult i64 %40, -119
+  br i1 %41, label %42, label %.thread
 
-52:                                               ; preds = %40
-  %53 = add i64 %50, -65536
-  %or.cond10 = icmp ult i64 %53, -65535
-  br i1 %or.cond10, label %.thread, label %54
+42:                                               ; preds = %34
+  %43 = add i64 %40, -65536
+  %or.cond10 = icmp ult i64 %43, -65535
+  br i1 %or.cond10, label %.thread, label %44
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 %50
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %0 to i64
-  %58 = sub i64 %56, %57
+44:                                               ; preds = %42
+  %45 = add nuw nsw i64 %12, 6
+  %46 = add nuw nsw i64 %45, %20
+  %47 = add nuw nsw i64 %46, %30
+  %48 = add nuw nsw i64 %47, %40
   br label %.thread
 
-.thread:                                          ; preds = %52, %40, %38, %29, %27, %19, %17, %11, %5, %54
-  %.0 = phi i64 [ %58, %54 ], [ 0, %5 ], [ 0, %17 ], [ %15, %11 ], [ 0, %27 ], [ %25, %19 ], [ 0, %38 ], [ %36, %29 ], [ 0, %52 ], [ %50, %40 ]
+.thread:                                          ; preds = %42, %34, %32, %24, %22, %16, %14, %10, %5, %44
+  %.0 = phi i64 [ %48, %44 ], [ 0, %5 ], [ 0, %14 ], [ %12, %10 ], [ 0, %22 ], [ %20, %16 ], [ 0, %32 ], [ %30, %24 ], [ 0, %42 ], [ %40, %34 ]
   ret i64 %.0
 }
 
@@ -2873,7 +2863,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
   %57 = lshr i64 %56, 3
-  %58 = add nuw nsw i64 %57, %47
+  %58 = add i64 %57, %47
   %59 = add nuw i64 %.04560, 1
   %60 = icmp ugt i64 %58, %59
   br i1 %60, label %.loopexit, label %61
@@ -3096,7 +3086,7 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
   br i1 %.not179, label %..thread220_crit_edge, label %105
 
 ..thread220_crit_edge:                            ; preds = %103
-  %.pre = add nuw nsw i64 %100, 12
+  %.pre = add nuw i64 %100, 12
   br label %.thread220
 
 105:                                              ; preds = %103
@@ -3147,10 +3137,10 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
 HUF_estimateCompressedSize.exit206:               ; preds = %.lr.ph.i199
   %126 = lshr i64 %116, 3
   %127 = lshr i64 %125, 3
-  %128 = add nuw nsw i64 %127, %100
-  %.not180 = icmp samesign ugt i64 %126, %128
-  %129 = add nuw nsw i64 %100, 12
-  %.not181 = icmp samesign ult i64 %129, %3
+  %128 = add i64 %127, %100
+  %.not180 = icmp ugt i64 %126, %128
+  %129 = add nuw i64 %100, 12
+  %.not181 = icmp ult i64 %129, %3
   %or.cond186 = and i1 %.not181, %.not180
   br i1 %or.cond186, label %.thread220, label %HUF_estimateCompressedSize.exit206.thread
 
@@ -3160,12 +3150,12 @@ HUF_estimateCompressedSize.exit206.thread:        ; preds = %105, %HUF_estimateC
 
 .thread220:                                       ; preds = %..thread220_crit_edge, %HUF_estimateCompressedSize.exit206
   %.pre-phi = phi i64 [ %.pre, %..thread220_crit_edge ], [ %129, %HUF_estimateCompressedSize.exit206 ]
-  %.not182 = icmp samesign ult i64 %.pre-phi, %3
+  %.not182 = icmp ult i64 %.pre-phi, %3
   br i1 %.not182, label %132, label %.thread
 
 .thread223:                                       ; preds = %102
-  %131 = add nuw nsw i64 %100, 12
-  %.not182224 = icmp samesign ult i64 %131, %3
+  %131 = add nuw i64 %100, 12
+  %.not182224 = icmp ult i64 %131, %3
   br i1 %.not182224, label %.thread225, label %.thread
 
 132:                                              ; preds = %.thread220
@@ -3339,7 +3329,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef range(i64 1, 131073) %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly captures(none) %6) unnamed_addr #8 {
+define internal fastcc i64 @HUF_compressCTable_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef range(i64 1, 131073) %4, i32 noundef range(i32 0, 2) %5, ptr noundef readonly captures(none) %6) unnamed_addr #8 {
   %8 = icmp eq i32 %5, 0
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %1 to i64

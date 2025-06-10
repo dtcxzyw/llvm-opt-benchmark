@@ -3999,20 +3999,14 @@ _ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49:   ; preds = %_ZN5clang15OMPLinea
   %76 = zext i32 %74 to i64
   %.ptr = getelementptr inbounds nuw i8, ptr %75, i64 16
   %.idx70 = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx70
-  %.ptr71 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %78 = ptrtoint ptr %.ptr71 to i64
-  %79 = ptrtoint ptr %.ptr to i64
-  %reass.sub.i.i56 = sub i64 %78, %79
-  %80 = and i64 %reass.sub.i.i56, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.ptr, i8 0, i64 %80, i1 false), !tbaa !15
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.ptr, i8 0, i64 %.idx70, i1 false), !tbaa !15
   br label %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit57
 
 _ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit57:   ; preds = %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49, %.lr.ph.preheader.i.i.i55
-  %81 = phi ptr [ %72, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ], [ %75, %.lr.ph.preheader.i.i.i55 ]
-  store ptr %11, ptr %81, align 8, !tbaa !15
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %12, ptr %82, align 8, !tbaa !15
+  %77 = phi ptr [ %72, %_ZSt4fillIPPN5clang4ExprEDnEvT_S4_RKT0_.exit49 ], [ %75, %.lr.ph.preheader.i.i.i55 ]
+  store ptr %11, ptr %77, align 8, !tbaa !15
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store ptr %12, ptr %78, align 8, !tbaa !15
   store ptr %13, ptr %47, align 8, !tbaa !277
   store i32 102, ptr %48, align 8, !tbaa !315
   store ptr %14, ptr %49, align 8, !tbaa !316

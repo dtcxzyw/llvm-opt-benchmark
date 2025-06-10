@@ -1237,19 +1237,19 @@ define i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %19 = getelementptr i8, ptr %18, i64 -776
   %20 = load i64, ptr %19, align 8, !tbaa !29
   %21 = xor i64 %20, -1
-  br label %141
+  br label %140
 
 .thread147:                                       ; preds = %.thread
   %22 = zext nneg i8 %10 to i64
   %23 = getelementptr i64, ptr %3, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -776
   %25 = load i64, ptr %24, align 8, !tbaa !29
-  br label %141
+  br label %140
 
 26:                                               ; preds = %.thread, %11
   %27 = phi i8 [ %10, %.thread ], [ %13, %11 ]
   %.pn154 = phi ptr [ %9, %.thread ], [ %12, %11 ]
-  switch i8 %27, label %112 [
+  switch i8 %27, label %111 [
     i8 40, label %28
     i8 91, label %43
     i8 60, label %58
@@ -1282,7 +1282,7 @@ define i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.0124.lcssa = phi i64 [ -1, %28 ], [ %38, %.lr.ph170 ]
   %41 = sext i1 %.not to i64
   %42 = xor i64 %.0124.lcssa, %41
-  br label %141
+  br label %140
 
 43:                                               ; preds = %26
   %44 = ptrtoint ptr %.pn154 to i64
@@ -1311,7 +1311,7 @@ define i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.0125.lcssa = phi i64 [ 0, %43 ], [ %53, %.lr.ph164 ]
   %56 = sext i1 %.not to i64
   %57 = xor i64 %.0125.lcssa, %56
-  br label %141
+  br label %140
 
 58:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29
@@ -1329,145 +1329,144 @@ define i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %68, label %69, label %.loopexit
 
 69:                                               ; preds = %58
-  %70 = ptrtoint ptr %66 to i64
-  %71 = sub i64 %70, %60
-  %72 = getelementptr inbounds i32, ptr %2, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !6
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %0, i64 %74
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 2
-  store ptr %76, ptr %1, align 8, !tbaa !19
-  %.not177 = icmp ult ptr %76, %75
+  %70 = getelementptr i32, ptr %2, i64 %64
+  %71 = getelementptr i8, ptr %70, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !6
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %0, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 2
+  store ptr %75, ptr %1, align 8, !tbaa !19
+  %.not177 = icmp ult ptr %75, %74
   br i1 %.not177, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %69, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %69 ]
-  %77 = tail call i64 @Dau_Dsd6ToTruth_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
-  %78 = getelementptr inbounds nuw [6 x i64], ptr %6, i64 0, i64 %indvars.iv
-  store i64 %77, ptr %78, align 8, !tbaa !29
-  %79 = load ptr, ptr %1, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store ptr %80, ptr %1, align 8, !tbaa !19
+  %76 = tail call i64 @Dau_Dsd6ToTruth_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %77 = getelementptr inbounds nuw [6 x i64], ptr %6, i64 0, i64 %indvars.iv
+  store i64 %76, ptr %77, align 8, !tbaa !29
+  %78 = load ptr, ptr %1, align 8, !tbaa !19
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  store ptr %79, ptr %1, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = icmp ult ptr %80, %75
-  br i1 %81, label %.lr.ph, label %.preheader.preheader, !llvm.loop !33
+  %80 = icmp ult ptr %79, %74
+  br i1 %80, label %.lr.ph, label %.preheader.preheader, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %69
-  %82 = getelementptr inbounds i8, ptr %0, i64 %64
+  %81 = getelementptr inbounds i8, ptr %0, i64 %64
   br label %.loopexit
 
 .preheader.preheader:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %62, align 4, !tbaa !6
   %.pre184 = sext i32 %.pre to i64
-  %83 = getelementptr inbounds i8, ptr %0, i64 %.pre184
+  %82 = getelementptr inbounds i8, ptr %0, i64 %.pre184
   br label %.loopexit
 
 .loopexit:                                        ; preds = %58, %._crit_edge, %.preheader.preheader
-  %84 = phi ptr [ %82, %._crit_edge ], [ %83, %.preheader.preheader ], [ %65, %58 ]
+  %83 = phi ptr [ %81, %._crit_edge ], [ %82, %.preheader.preheader ], [ %65, %58 ]
   %.0127151 = phi ptr [ %6, %._crit_edge ], [ %6, %.preheader.preheader ], [ %3, %58 ]
   %storemerge155 = getelementptr inbounds nuw i8, ptr %.pn154, i64 1
   store ptr %storemerge155, ptr %1, align 8, !tbaa !19
-  %85 = icmp ult ptr %storemerge155, %84
-  br i1 %85, label %.lr.ph158, label %._crit_edge159
+  %84 = icmp ult ptr %storemerge155, %83
+  br i1 %84, label %.lr.ph158, label %._crit_edge159
 
 .lr.ph158:                                        ; preds = %.loopexit, %.lr.ph158
-  %.0129156 = phi ptr [ %87, %.lr.ph158 ], [ %5, %.loopexit ]
-  %86 = call i64 @Dau_Dsd6ToTruth_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.0127151)
-  %87 = getelementptr inbounds nuw i8, ptr %.0129156, i64 8
-  store i64 %86, ptr %.0129156, align 8, !tbaa !29
+  %.0129156 = phi ptr [ %86, %.lr.ph158 ], [ %5, %.loopexit ]
+  %85 = call i64 @Dau_Dsd6ToTruth_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.0127151)
+  %86 = getelementptr inbounds nuw i8, ptr %.0129156, i64 8
+  store i64 %85, ptr %.0129156, align 8, !tbaa !29
   %.pn = load ptr, ptr %1, align 8, !tbaa !19
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %1, align 8, !tbaa !19
-  %88 = icmp ult ptr %storemerge, %84
-  br i1 %88, label %.lr.ph158, label %._crit_edge159, !llvm.loop !34
+  %87 = icmp ult ptr %storemerge, %83
+  br i1 %87, label %.lr.ph158, label %._crit_edge159, !llvm.loop !34
 
 ._crit_edge159:                                   ; preds = %.lr.ph158, %.loopexit
   %.pn.lcssa = phi ptr [ %.pn154, %.loopexit ], [ %.pn, %.lr.ph158 ]
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  %90 = load i8, ptr %89, align 1, !tbaa !3
-  %91 = icmp eq i8 %90, 123
-  br i1 %91, label %92, label %100
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 1
+  %89 = load i8, ptr %88, align 1, !tbaa !3
+  %90 = icmp eq i8 %89, 123
+  br i1 %90, label %91, label %99
 
-92:                                               ; preds = %._crit_edge159
-  %93 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 2
-  %94 = ptrtoint ptr %93 to i64
-  %95 = sub i64 %94, %60
-  %96 = getelementptr inbounds i32, ptr %2, i64 %95
-  %97 = load i32, ptr %96, align 4, !tbaa !6
-  %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %0, i64 %98
-  store ptr %99, ptr %1, align 8, !tbaa !19
-  br label %100
+91:                                               ; preds = %._crit_edge159
+  %92 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 2
+  %93 = ptrtoint ptr %92 to i64
+  %94 = sub i64 %93, %60
+  %95 = getelementptr inbounds i32, ptr %2, i64 %94
+  %96 = load i32, ptr %95, align 4, !tbaa !6
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i8, ptr %0, i64 %97
+  store ptr %98, ptr %1, align 8, !tbaa !19
+  br label %99
 
-100:                                              ; preds = %92, %._crit_edge159
-  %101 = load i64, ptr %5, align 16, !tbaa !29
-  %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %103 = load i64, ptr %102, align 8, !tbaa !29
-  %104 = and i64 %103, %101
-  %105 = xor i64 %101, -1
-  %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %107 = load i64, ptr %106, align 16, !tbaa !29
-  %108 = and i64 %107, %105
-  %109 = or i64 %108, %104
-  %110 = sext i1 %.not to i64
-  %111 = xor i64 %109, %110
+99:                                               ; preds = %91, %._crit_edge159
+  %100 = load i64, ptr %5, align 16, !tbaa !29
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %102 = load i64, ptr %101, align 8, !tbaa !29
+  %103 = and i64 %102, %100
+  %104 = xor i64 %100, -1
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %106 = load i64, ptr %105, align 16, !tbaa !29
+  %107 = and i64 %106, %104
+  %108 = or i64 %107, %103
+  %109 = sext i1 %.not to i64
+  %110 = xor i64 %108, %109
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #29
-  br label %141
+  br label %140
 
-112:                                              ; preds = %26
-  %113 = add i8 %27, -65
-  %or.cond144 = icmp ult i8 %113, 6
-  %114 = add i8 %27, -48
-  %or.cond145 = icmp ult i8 %114, 10
+111:                                              ; preds = %26
+  %112 = add i8 %27, -65
+  %or.cond144 = icmp ult i8 %112, 6
+  %113 = add i8 %27, -48
+  %or.cond145 = icmp ult i8 %113, 10
   %or.cond152 = or i1 %or.cond144, %or.cond145
-  br i1 %or.cond152, label %115, label %141
+  br i1 %or.cond152, label %114, label %140
 
-115:                                              ; preds = %112
+114:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #29
-  %116 = call fastcc i32 @Abc_TtReadHex(ptr noundef %7, ptr noundef nonnull %.pn154)
-  %117 = icmp slt i32 %116, 3
-  %118 = add nsw i32 %116, -2
-  %119 = shl nuw i32 1, %118
-  %120 = select i1 %117, i32 1, i32 %119
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %.pn154, i64 %121
-  %123 = ptrtoint ptr %122 to i64
-  %124 = ptrtoint ptr %0 to i64
-  %125 = sub i64 %123, %124
-  %126 = getelementptr inbounds i32, ptr %2, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !6
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %0, i64 %128
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  store ptr %130, ptr %1, align 8, !tbaa !19
-  %131 = icmp ult ptr %130, %129
-  br i1 %131, label %.lr.ph175, label %._crit_edge176
+  %115 = call fastcc i32 @Abc_TtReadHex(ptr noundef %7, ptr noundef nonnull %.pn154)
+  %116 = icmp slt i32 %115, 3
+  %117 = add nsw i32 %115, -2
+  %118 = shl nuw i32 1, %117
+  %119 = select i1 %116, i32 1, i32 %118
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr %.pn154, i64 %120
+  %122 = ptrtoint ptr %121 to i64
+  %123 = ptrtoint ptr %0 to i64
+  %124 = sub i64 %122, %123
+  %125 = getelementptr inbounds i32, ptr %2, i64 %124
+  %126 = load i32, ptr %125, align 4, !tbaa !6
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %0, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  store ptr %129, ptr %1, align 8, !tbaa !19
+  %130 = icmp ult ptr %129, %128
+  br i1 %130, label %.lr.ph175, label %._crit_edge176
 
-.lr.ph175:                                        ; preds = %115, %.lr.ph175
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph175 ], [ 0, %115 ]
-  %132 = tail call i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
-  %133 = getelementptr inbounds nuw [6 x i64], ptr %8, i64 0, i64 %indvars.iv181
-  store i64 %132, ptr %133, align 8, !tbaa !29
-  %134 = load ptr, ptr %1, align 8, !tbaa !19
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 1
-  store ptr %135, ptr %1, align 8, !tbaa !19
+.lr.ph175:                                        ; preds = %114, %.lr.ph175
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph175 ], [ 0, %114 ]
+  %131 = tail call i64 @Dau_Dsd6ToTruth_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  %132 = getelementptr inbounds nuw [6 x i64], ptr %8, i64 0, i64 %indvars.iv181
+  store i64 %131, ptr %132, align 8, !tbaa !29
+  %133 = load ptr, ptr %1, align 8, !tbaa !19
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1
+  store ptr %134, ptr %1, align 8, !tbaa !19
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %136 = icmp ult ptr %135, %129
-  br i1 %136, label %.lr.ph175, label %._crit_edge176, !llvm.loop !35
+  %135 = icmp ult ptr %134, %128
+  br i1 %135, label %.lr.ph175, label %._crit_edge176, !llvm.loop !35
 
-._crit_edge176:                                   ; preds = %.lr.ph175, %115
-  %137 = load i64, ptr %7, align 8, !tbaa !29
-  %138 = call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %137, ptr noundef nonnull %8, i32 noundef %116)
-  %139 = sext i1 %.not to i64
-  %140 = xor i64 %138, %139
+._crit_edge176:                                   ; preds = %.lr.ph175, %114
+  %136 = load i64, ptr %7, align 8, !tbaa !29
+  %137 = call i64 @Dau_Dsd6TruthCompose_rec(i64 noundef %136, ptr noundef nonnull %8, i32 noundef %115)
+  %138 = sext i1 %.not to i64
+  %139 = xor i64 %137, %138
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #29
-  br label %141
+  br label %140
 
-141:                                              ; preds = %112, %16, %.thread147, %._crit_edge176, %100, %._crit_edge165, %._crit_edge171
-  %.0 = phi i64 [ %42, %._crit_edge171 ], [ %57, %._crit_edge165 ], [ %111, %100 ], [ %140, %._crit_edge176 ], [ %21, %16 ], [ %25, %.thread147 ], [ 0, %112 ]
+140:                                              ; preds = %111, %16, %.thread147, %._crit_edge176, %99, %._crit_edge165, %._crit_edge171
+  %.0 = phi i64 [ %42, %._crit_edge171 ], [ %57, %._crit_edge165 ], [ %110, %99 ], [ %139, %._crit_edge176 ], [ %21, %16 ], [ %25, %.thread147 ], [ 0, %111 ]
   ret i64 %.0
 }
 

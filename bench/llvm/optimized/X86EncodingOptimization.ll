@@ -260,7 +260,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedR
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmediateOneERNS_6MCInstE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %2, label %271 [
+  switch i32 %2, label %268 [
     i32 3692, label %250
     i32 3693, label %3
     i32 3694, label %4
@@ -1260,30 +1260,31 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %255 = zext i32 %253 to i64
   %256 = load ptr, ptr %254, align 8, !tbaa !22
-  %257 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %256, i64 %255
+  %.idx10 = shl nuw nsw i64 %255, 4
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx10
   %258 = load i8, ptr %257, align 8, !tbaa !28
   %259 = icmp eq i8 %258, 2
-  br i1 %259, label %260, label %271
+  br i1 %259, label %260, label %268
 
 260:                                              ; preds = %250
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %262 = load i64, ptr %261, align 8, !tbaa !23
   %.not = icmp eq i64 %262, 1
-  br i1 %.not, label %263, label %271
+  br i1 %.not, label %263, label %268
 
 263:                                              ; preds = %260
   store i32 %.09, ptr %0, align 8, !tbaa !3
   %264 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %265 = zext i32 %252 to i64
-  %266 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %256, i64 %265
+  %.idx = shl nuw nsw i64 %265, 4
+  %266 = getelementptr inbounds nuw i8, ptr %256, i64 %.idx
   %.not.i.i.i.i.i.i.i = icmp eq ptr %266, %264
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, label %267
 
 267:                                              ; preds = %263
-  %268 = ptrtoint ptr %266 to i64
-  %269 = ptrtoint ptr %264 to i64
-  %270 = sub i64 %268, %269
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %257, ptr nonnull align 8 %264, i64 %270, i1 false)
+  %.neg = add nsw i64 %.idx, -16
+  %gepdiff = sub nsw i64 %.neg, %.idx10
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %257, ptr nonnull align 8 %264, i64 %gepdiff, i1 false)
   %.pre.i.i = load i32, ptr %251, align 8, !tbaa !27
   %.pre = add i32 %.pre.i.i, -1
   br label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit
@@ -1291,9 +1292,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
 _ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %263, %267
   %.pre-phi = phi i32 [ %253, %263 ], [ %.pre, %267 ]
   store i32 %.pre-phi, ptr %251, align 8, !tbaa !27
-  br label %271
+  br label %268
 
-271:                                              ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %260, %250, %1
+268:                                              ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %260, %250, %1
   %.0 = phi i1 [ false, %1 ], [ true, %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit ], [ false, %260 ], [ false, %250 ]
   ret i1 %.0
 }
@@ -1301,7 +1302,7 @@ _ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %263, %267
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOneOrSixERNS_6MCInstE(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %2, label %81 [
+  switch i32 %2, label %78 [
     i32 15638, label %62
     i32 15639, label %3
     i32 15640, label %4
@@ -1550,10 +1551,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = zext i32 %65 to i64
   %68 = load ptr, ptr %66, align 8, !tbaa !22
-  %69 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %67
+  %.idx16 = shl nuw nsw i64 %67, 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx16
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !23
-  switch i64 %71, label %81 [
+  switch i64 %71, label %78 [
     i64 0, label %73
     i64 6, label %72
   ]
@@ -1566,15 +1568,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
   store i32 %.0, ptr %0, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %75 = zext i32 %64 to i64
-  %76 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %68, i64 %75
+  %.idx = shl nuw nsw i64 %75, 4
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   %.not.i.i.i.i.i.i.i = icmp eq ptr %76, %74
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, label %77
 
 77:                                               ; preds = %73
-  %78 = ptrtoint ptr %76 to i64
-  %79 = ptrtoint ptr %74 to i64
-  %80 = sub i64 %78, %79
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %74, i64 %80, i1 false)
+  %.neg = add nsw i64 %.idx, -16
+  %gepdiff = sub nsw i64 %.neg, %.idx16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %74, i64 %gepdiff, i1 false)
   %.pre.i.i = load i32, ptr %63, align 8, !tbaa !27
   %.pre = add i32 %.pre.i.i, -1
   br label %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit
@@ -1582,9 +1584,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
 _ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit:       ; preds = %73, %77
   %.pre-phi = phi i32 [ %65, %73 ], [ %.pre, %77 ]
   store i32 %.pre-phi, ptr %63, align 8, !tbaa !27
-  br label %81
+  br label %78
 
-81:                                               ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %62, %1
+78:                                               ; preds = %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit, %62, %1
   %.012 = phi i1 [ false, %1 ], [ true, %_ZN4llvm6MCInst5eraseEPNS_9MCOperandE.exit ], [ false, %62 ]
   ret i1 %.012
 }

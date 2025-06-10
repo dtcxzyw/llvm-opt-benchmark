@@ -133906,8 +133906,8 @@ define void @_ZN11polars_expr5state15execution_state14ExecutionState15remove_df_
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31, !noalias !24248
   unreachable
 
-common.resume:                                    ; preds = %98, %31
-  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %99, %98 ]
+common.resume:                                    ; preds = %97, %31
+  %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %98, %97 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7c2436d5d2f0f73fE.exit": ; preds = %"_ZN3std4sync6poison6rwlock15RwLock$LT$T$GT$5write17h397686388db1b448E.exit"
@@ -133978,7 +133978,7 @@ common.resume:                                    ; preds = %98, %31
   %74 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i, splat (i8 -1)
   %75 = bitcast <16 x i1> %74 to i16
   %76 = icmp eq i16 %75, 0
-  br i1 %76, label %77, label %110
+  br i1 %76, label %77, label %109
 
 77:                                               ; preds = %73
   %78 = add i64 %.sroa.08.0.i.i.i, 16
@@ -133989,100 +133989,98 @@ common.resume:                                    ; preds = %98, %31
   %81 = getelementptr inbounds { i64, ptr }, ptr %58, i64 %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24286)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24289)
-  %.idx.neg.i = shl i64 %70, 4
-  %82 = ashr exact i64 %.idx.neg.i, 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24292)
-  %83 = add nsw i64 %82, -16
-  %84 = and i64 %83, %57
-  %85 = getelementptr inbounds nuw i8, ptr %58, i64 %84
-  %.sroa.0.0.copyload.i5.i.i.i.i = load <16 x i8>, ptr %85, align 1, !noalias !24295
-  %86 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i, splat (i8 -1)
-  %87 = bitcast <16 x i1> %86 to i16
-  %88 = getelementptr inbounds nuw i8, ptr %58, i64 %82
-  %.sroa.0.0.copyload.i46.i.i.i.i = load <16 x i8>, ptr %88, align 1, !noalias !24295
-  %89 = icmp eq <16 x i8> %.sroa.0.0.copyload.i46.i.i.i.i, splat (i8 -1)
-  %90 = bitcast <16 x i1> %89 to i16
-  %91 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %87, i1 false)
-  %92 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %90, i1 false)
-  %narrow.i.i.i.i = add nuw nsw i16 %92, %91
-  %93 = icmp samesign ugt i16 %narrow.i.i.i.i, 15
-  br i1 %93, label %100, label %94
+  %82 = add nsw i64 %70, -16
+  %83 = and i64 %82, %57
+  %84 = getelementptr inbounds nuw i8, ptr %58, i64 %83
+  %.sroa.0.0.copyload.i5.i.i.i.i = load <16 x i8>, ptr %84, align 1, !noalias !24295
+  %85 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i.i, splat (i8 -1)
+  %86 = bitcast <16 x i1> %85 to i16
+  %87 = getelementptr inbounds nuw i8, ptr %58, i64 %70
+  %.sroa.0.0.copyload.i46.i.i.i.i = load <16 x i8>, ptr %87, align 1, !noalias !24295
+  %88 = icmp eq <16 x i8> %.sroa.0.0.copyload.i46.i.i.i.i, splat (i8 -1)
+  %89 = bitcast <16 x i1> %88 to i16
+  %90 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %86, i1 false)
+  %91 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %89, i1 false)
+  %narrow.i.i.i.i = add nuw nsw i16 %91, %90
+  %92 = icmp samesign ugt i16 %narrow.i.i.i.i, 15
+  br i1 %92, label %99, label %93
 
-94:                                               ; preds = %80
-  %95 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %96 = load i64, ptr %95, align 8, !alias.scope !24297, !noalias !24298, !noundef !4
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %95, align 8, !alias.scope !24297, !noalias !24298
-  br label %100
+93:                                               ; preds = %80
+  %94 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %95 = load i64, ptr %94, align 8, !alias.scope !24297, !noalias !24298, !noundef !4
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %94, align 8, !alias.scope !24297, !noalias !24298
+  br label %99
 
-98:                                               ; preds = %109, %110
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %108, %109
+  %98 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr275drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$hashbrown..map..HashMap$LT$usize$C$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$17h37e2db5b7a2f7df7E"(ptr nonnull %37, i8 %39) #32
-          to label %common.resume unwind label %123
+          to label %common.resume unwind label %122
 
-100:                                              ; preds = %94, %80
-  %.sroa.0.0.i.i.i.i = phi i8 [ -1, %94 ], [ -128, %80 ]
-  store i8 %.sroa.0.0.i.i.i.i, ptr %88, align 1, !noalias !24295
-  %101 = getelementptr i8, ptr %85, i64 16
-  store i8 %.sroa.0.0.i.i.i.i, ptr %101, align 1, !noalias !24295
-  %102 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %103 = load i64, ptr %102, align 8, !alias.scope !24297, !noalias !24298, !noundef !4
-  %104 = add i64 %103, -1
-  store i64 %104, ptr %102, align 8, !alias.scope !24297, !noalias !24298
-  %105 = getelementptr inbounds i8, ptr %81, i64 -8
-  %106 = load ptr, ptr %105, align 8, !noalias !24299, !nonnull !4, !noundef !4
-  store ptr %106, ptr %4, align 8
-  %107 = atomicrmw sub ptr %106, i64 1 release, align 8, !noalias !24300
-  %108 = icmp eq i64 %107, 1
-  br i1 %108, label %109, label %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit"
+99:                                               ; preds = %93, %80
+  %.sroa.0.0.i.i.i.i = phi i8 [ -1, %93 ], [ -128, %80 ]
+  store i8 %.sroa.0.0.i.i.i.i, ptr %87, align 1, !noalias !24295
+  %100 = getelementptr i8, ptr %84, i64 16
+  store i8 %.sroa.0.0.i.i.i.i, ptr %100, align 1, !noalias !24295
+  %101 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  %102 = load i64, ptr %101, align 8, !alias.scope !24297, !noalias !24298, !noundef !4
+  %103 = add i64 %102, -1
+  store i64 %103, ptr %101, align 8, !alias.scope !24297, !noalias !24298
+  %104 = getelementptr inbounds i8, ptr %81, i64 -8
+  %105 = load ptr, ptr %104, align 8, !noalias !24299, !nonnull !4, !noundef !4
+  store ptr %105, ptr %4, align 8
+  %106 = atomicrmw sub ptr %105, i64 1 release, align 8, !noalias !24300
+  %107 = icmp eq i64 %106, 1
+  br i1 %107, label %108, label %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit"
 
-109:                                              ; preds = %100
+108:                                              ; preds = %99
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h845a70efdb4bd0f4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit" unwind label %98
+          to label %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit" unwind label %97
 
-110:                                              ; preds = %73
+109:                                              ; preds = %73
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a931955907d59035cff02406950d6d6b.278) #33
-          to label %111 unwind label %98
+          to label %110 unwind label %97
 
-111:                                              ; preds = %110
+110:                                              ; preds = %109
   unreachable
 
-"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit": ; preds = %100, %109
+"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit": ; preds = %99, %108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %112 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  br i1 %40, label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, label %113
+  %111 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  br i1 %40, label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, label %112
 
-113:                                              ; preds = %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit"
-  %114 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h159f7ea2c5b68b35E monotonic, align 8
-  %115 = and i64 %114, 9223372036854775807
-  %116 = icmp eq i64 %115, 0
-  br i1 %116, label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, label %117, !prof !79
+112:                                              ; preds = %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit"
+  %113 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h159f7ea2c5b68b35E monotonic, align 8
+  %114 = and i64 %113, 9223372036854775807
+  %115 = icmp eq i64 %114, 0
+  br i1 %115, label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, label %116, !prof !79
 
-117:                                              ; preds = %113
-  %118 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17he136b951174b0e24E()
-  br i1 %118, label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, label %119
+116:                                              ; preds = %112
+  %117 = call noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17he136b951174b0e24E()
+  br i1 %117, label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, label %118
 
-119:                                              ; preds = %117
-  store atomic i8 1, ptr %112 monotonic, align 8
+118:                                              ; preds = %116
+  store atomic i8 1, ptr %111 monotonic, align 8
   br label %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i
 
-_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i: ; preds = %119, %117, %113, %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit"
-  %120 = atomicrmw sub ptr %37, i32 1073741823 release, align 4
-  %121 = add i32 %120, -1073741823
-  %or.cond.i.i = icmp ult i32 %121, 1073741824
-  br i1 %or.cond.i.i, label %"_ZN4core3ptr275drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$hashbrown..map..HashMap$LT$usize$C$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$17h37e2db5b7a2f7df7E.exit", label %122, !prof !6898
+_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i: ; preds = %118, %116, %112, %"_ZN4core3ptr152drop_in_place$LT$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$GT$17hdd88950f55879c9bE.exit"
+  %119 = atomicrmw sub ptr %37, i32 1073741823 release, align 4
+  %120 = add i32 %119, -1073741823
+  %or.cond.i.i = icmp ult i32 %120, 1073741824
+  br i1 %or.cond.i.i, label %"_ZN4core3ptr275drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$hashbrown..map..HashMap$LT$usize$C$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$17h37e2db5b7a2f7df7E.exit", label %121, !prof !6898
 
-122:                                              ; preds = %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i
-  call void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17hb312284754215a96E(ptr noundef nonnull align 4 %37, i32 noundef %121)
+121:                                              ; preds = %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i
+  call void @_ZN3std3sys4sync6rwlock5futex6RwLock22wake_writer_or_readers17hb312284754215a96E(ptr noundef nonnull align 4 %37, i32 noundef %120)
   br label %"_ZN4core3ptr275drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$hashbrown..map..HashMap$LT$usize$C$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$17h37e2db5b7a2f7df7E.exit"
 
-"_ZN4core3ptr275drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$hashbrown..map..HashMap$LT$usize$C$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$17h37e2db5b7a2f7df7E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, %122
+"_ZN4core3ptr275drop_in_place$LT$std..sync..poison..rwlock..RwLockWriteGuard$LT$hashbrown..map..HashMap$LT$usize$C$alloc..sync..Arc$LT$$LP$core..sync..atomic..AtomicI64$C$std..sync..once_lock..OnceLock$LT$polars_core..frame..DataFrame$GT$$RP$$GT$$C$foldhash..quality..RandomState$GT$$GT$$GT$17h37e2db5b7a2f7df7E.exit": ; preds = %_ZN3std4sync6poison4Flag4done17hf1c95fd25479095eE.exit.i.i, %121
   ret void
 
-123:                                              ; preds = %98
-  %124 = landingpad { ptr, i32 }
+122:                                              ; preds = %97
+  %123 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #31
   unreachable

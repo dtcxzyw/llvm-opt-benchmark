@@ -1398,7 +1398,7 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
   %142 = phi i32 [ %140, %ct_sip_header_search.exit.thread ], [ %20, %22 ], [ %20, %19 ]
   %143 = call i32 @ct_sip_get_header(ptr noundef %0, ptr noundef %1, i32 noundef %142, i32 noundef %3, i32 noundef %4, ptr noundef %6, ptr noundef %7), !range !19
   %144 = icmp sgt i32 %143, 0
-  br i1 %144, label %.loopexit15, label %.preheader
+  br i1 %144, label %.loopexit16, label %.preheader
 
 .preheader:                                       ; preds = %141, %147
   %145 = phi i32 [ %149, %147 ], [ %143, %141 ]
@@ -1409,12 +1409,12 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
   %148 = load i32, ptr %6, align 4
   %149 = call i32 @ct_sip_get_header(ptr noundef %0, ptr noundef %1, i32 noundef %148, i32 noundef %3, i32 noundef %4, ptr noundef %6, ptr noundef %7), !range !19
   %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %.loopexit15, label %.preheader, !llvm.loop !20
+  br i1 %150, label %.loopexit16, label %.preheader, !llvm.loop !20
 
-.loopexit15:                                      ; preds = %147, %141
+.loopexit16:                                      ; preds = %147, %141
   br i1 %21, label %156, label %151
 
-151:                                              ; preds = %.loopexit15
+151:                                              ; preds = %.loopexit16
   store i32 1, ptr %5, align 4
   br label %156
 
@@ -1426,7 +1426,7 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   br label %156
 
-156:                                              ; preds = %152, %151, %.loopexit15
+156:                                              ; preds = %152, %151, %.loopexit16
   %157 = load i32, ptr %6, align 4
   %158 = zext i32 %157 to i64
   %159 = getelementptr i8, ptr %1, i64 %158
@@ -1439,20 +1439,20 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %163 = load i16, ptr %162, align 2
-  switch i16 %163, label %188 [
+  switch i16 %163, label %184 [
     i16 2, label %164
     i16 10, label %167
   ]
 
 164:                                              ; preds = %161
-  %gepdiff = sub i32 %3, %157
-  %165 = call i32 @in4_pton(ptr noundef %159, i32 noundef %gepdiff, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
+  %gepdiff15 = sub i32 %3, %157
+  %165 = call i32 @in4_pton(ptr noundef %159, i32 noundef %gepdiff15, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %sip_parse_addr.exit.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %164
   %.pre = load ptr, ptr %11, align 8
-  br label %189
+  br label %185
 
 167:                                              ; preds = %161
   %168 = icmp ult ptr %159, %15
@@ -1465,77 +1465,75 @@ ct_sip_header_search.exit.thread:                 ; preds = %ct_sip_header_searc
 
 172:                                              ; preds = %169
   %173 = getelementptr i8, ptr %159, i64 1
-  %174 = ptrtoint ptr %15 to i64
-  %175 = ptrtoint ptr %173 to i64
-  %176 = sub i64 %174, %175
-  %177 = trunc i64 %176 to i32
-  %178 = call i32 @in6_pton(ptr noundef %173, i32 noundef %177, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
-  %179 = icmp eq i32 %178, 0
-  br i1 %179, label %sip_parse_addr.exit.thread, label %180
+  %.neg = xor i32 %157, -1
+  %gepdiff = add i32 %3, %.neg
+  %174 = call i32 @in6_pton(ptr noundef %173, i32 noundef %gepdiff, ptr noundef %8, i32 noundef -1, ptr noundef nonnull %11) #14
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %sip_parse_addr.exit.thread, label %176
 
-180:                                              ; preds = %172
-  %181 = load ptr, ptr %11, align 8
-  %182 = icmp ult ptr %181, %15
-  br i1 %182, label %183, label %sip_parse_addr.exit.thread
+176:                                              ; preds = %172
+  %177 = load ptr, ptr %11, align 8
+  %178 = icmp ult ptr %177, %15
+  br i1 %178, label %179, label %sip_parse_addr.exit.thread
 
-183:                                              ; preds = %180
-  %184 = load i8, ptr %181, align 1
-  %185 = icmp eq i8 %184, 93
-  br i1 %185, label %186, label %sip_parse_addr.exit.thread
+179:                                              ; preds = %176
+  %180 = load i8, ptr %177, align 1
+  %181 = icmp eq i8 %180, 93
+  br i1 %181, label %182, label %sip_parse_addr.exit.thread
 
-186:                                              ; preds = %183
-  %187 = getelementptr i8, ptr %181, i64 1
-  br label %189
+182:                                              ; preds = %179
+  %183 = getelementptr i8, ptr %177, i64 1
+  br label %185
 
-188:                                              ; preds = %161
+184:                                              ; preds = %161
   call void asm sideeffect "1021: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1021b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1021) #14, !srcloc !11
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 176, i32 0, i64 12) #14, !srcloc !12
   unreachable
 
-sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %169, %167, %183, %180
+sip_parse_addr.exit.thread:                       ; preds = %156, %164, %172, %169, %167, %179, %176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   br label %.loopexit
 
-189:                                              ; preds = %._crit_edge, %186
-  %190 = phi ptr [ %.pre, %._crit_edge ], [ %187, %186 ]
+185:                                              ; preds = %._crit_edge, %182
+  %186 = phi ptr [ %.pre, %._crit_edge ], [ %183, %182 ]
+  store ptr %186, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  %187 = load i8, ptr %186, align 1
+  %188 = icmp eq i8 %187, 58
+  br i1 %188, label %189, label %198
+
+189:                                              ; preds = %185
+  %190 = getelementptr i8, ptr %186, i64 1
   store ptr %190, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  %191 = load i8, ptr %190, align 1
-  %192 = icmp eq i8 %191, 58
-  br i1 %192, label %193, label %202
+  %191 = call i64 @simple_strtoul(ptr noundef %190, ptr noundef nonnull %13, i32 noundef 10) #14
+  %192 = trunc i64 %191 to i32
+  %193 = add i32 %192, -65536
+  %194 = icmp ult i32 %193, -64512
+  br i1 %194, label %.loopexit, label %195
 
-193:                                              ; preds = %189
-  %194 = getelementptr i8, ptr %190, i64 1
-  store ptr %194, ptr %13, align 8
-  %195 = call i64 @simple_strtoul(ptr noundef %194, ptr noundef nonnull %13, i32 noundef 10) #14
-  %196 = trunc i64 %195 to i32
-  %197 = add i32 %196, -65536
-  %198 = icmp ult i32 %197, -64512
-  br i1 %198, label %.loopexit, label %199
+195:                                              ; preds = %189
+  %196 = trunc i64 %191 to i16
+  %197 = call i16 @llvm.bswap.i16(i16 %196)
+  br label %198
 
-199:                                              ; preds = %193
-  %200 = trunc i64 %195 to i16
-  %201 = call i16 @llvm.bswap.i16(i16 %200)
-  br label %202
+198:                                              ; preds = %195, %185
+  %199 = phi i16 [ %197, %195 ], [ -15341, %185 ]
+  store i16 %199, ptr %9, align 2
+  br i1 %16, label %.loopexit, label %200
 
-202:                                              ; preds = %199, %189
-  %203 = phi i16 [ %201, %199 ], [ -15341, %189 ]
-  store i16 %203, ptr %9, align 2
-  br i1 %16, label %.loopexit, label %204
-
-204:                                              ; preds = %202
-  %205 = load ptr, ptr %13, align 8
-  %206 = ptrtoint ptr %205 to i64
-  %207 = ptrtoint ptr %1 to i64
-  %208 = sub i64 %206, %207
-  %209 = trunc i64 %208 to i32
-  store i32 %209, ptr %2, align 4
+200:                                              ; preds = %198
+  %201 = load ptr, ptr %13, align 8
+  %202 = ptrtoint ptr %201 to i64
+  %203 = ptrtoint ptr %1 to i64
+  %204 = sub i64 %202, %203
+  %205 = trunc i64 %204 to i32
+  store i32 %205, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %sip_parse_addr.exit.thread, %204, %202, %193
-  %210 = phi i32 [ -1, %193 ], [ 1, %204 ], [ 1, %202 ], [ -1, %sip_parse_addr.exit.thread ], [ 0, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %sip_parse_addr.exit.thread, %200, %198, %189
+  %206 = phi i32 [ -1, %189 ], [ 1, %200 ], [ 1, %198 ], [ -1, %sip_parse_addr.exit.thread ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  ret i32 %210
+  ret i32 %206
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

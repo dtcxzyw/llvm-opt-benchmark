@@ -3902,7 +3902,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %86, %80
   %106 = load i64, ptr %105, align 8, !noalias !88
   %107 = getelementptr inbounds nuw i32, ptr %104, i64 %106
   %108 = ptrtoint ptr %107 to i64
-  %.idx.neg.i.i = mul i64 %106, -4
+  %.idx.neg.i.i = mul nsw i64 %106, -4
   %109 = ashr exact i64 %.idx.neg.i.i, 2
   %110 = sub nsw i64 0, %109
   %111 = ashr i64 %110, 2
@@ -14708,7 +14708,7 @@ define internal fastcc void @_ZN3ue2L11makeCatchupERKNS_13ReportManagerEbRKNS_8f
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i32, ptr %.0.val, i64 %.8.val
   %7 = ptrtoint ptr %6 to i64
-  %.idx.neg = mul i64 %.8.val, -4
+  %.idx.neg = mul nsw i64 %.8.val, -4
   %8 = ashr exact i64 %.idx.neg, 2
   %9 = sub nsw i64 0, %8
   %10 = ashr i64 %9, 2

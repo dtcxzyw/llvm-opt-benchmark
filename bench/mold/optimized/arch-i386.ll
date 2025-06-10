@@ -2586,234 +2586,233 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN4mold12InputSectionINS_4I386EE12g
   %14 = getelementptr inbounds nuw %"struct.mold::ElfSym", ptr %13, i64 %11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 14
   %16 = load i16, ptr %15, align 1
-  switch i16 %16, label %27 [
-    i16 -15, label %136
-    i16 -14, label %136
-    i16 0, label %136
+  switch i16 %16, label %25 [
+    i16 -15, label %134
+    i16 -14, label %134
+    i16 0, label %134
     i16 -1, label %17
   ]
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 696
-  %19 = ptrtoint ptr %14 to i64
-  %20 = ptrtoint ptr %12 to i64
-  %21 = sub i64 %19, %20
-  %22 = load ptr, ptr %18, align 8, !tbaa !391
-  %23 = ashr exact i64 %21, 2
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
-  %25 = load i32, ptr %24, align 1
-  %26 = zext i32 %25 to i64
+  %.idx30 = shl nuw nsw i64 %11, 4
+  %19 = or disjoint i64 %.idx30, %.idx
+  %20 = load ptr, ptr %18, align 8, !tbaa !391
+  %21 = lshr exact i64 %19, 2
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %23 = load i32, ptr %22, align 1
+  %24 = zext i32 %23 to i64
   br label %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit
 
-27:                                               ; preds = %3
-  %28 = icmp ugt i16 %16, -257
-  %narrow.i = select i1 %28, i16 0, i16 %16
+25:                                               ; preds = %3
+  %26 = icmp ugt i16 %16, -257
+  %narrow.i = select i1 %26, i16 0, i16 %16
   %spec.select.i = zext i16 %narrow.i to i64
   br label %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit
 
-_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %17, %27
-  %.0.i = phi i64 [ %26, %17 ], [ %spec.select.i, %27 ]
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  %30 = load ptr, ptr %29, align 8, !tbaa !394
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.323", ptr %30, i64 %.0.i
-  %32 = load ptr, ptr %31, align 8, !tbaa !397
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %136, label %33
+_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit: ; preds = %17, %25
+  %.0.i = phi i64 [ %24, %17 ], [ %spec.select.i, %25 ]
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 352
+  %28 = load ptr, ptr %27, align 8, !tbaa !394
+  %29 = getelementptr inbounds nuw %"class.std::unique_ptr.323", ptr %28, i64 %.0.i
+  %30 = load ptr, ptr %29, align 8, !tbaa !397
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %134, label %31
 
-33:                                               ; preds = %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %35 = load i8, ptr %34, align 1
-  %36 = and i8 %35, 15
-  %37 = icmp eq i8 %36, 3
-  %38 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %39 = load i32, ptr %38, align 1
-  %40 = zext i32 %39 to i64
-  br i1 %37, label %41, label %89
+31:                                               ; preds = %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %33 = load i8, ptr %32, align 1
+  %34 = and i8 %33, 15
+  %35 = icmp eq i8 %34, 3
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %37 = load i32, ptr %36, align 1
+  %38 = zext i32 %37 to i64
+  br i1 %35, label %39, label %87
 
-41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !354
-  %44 = load i32, ptr %2, align 1
-  %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %48 = load i8, ptr %47, align 1, !tbaa !11
-  switch i8 %48, label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit [
-    i8 22, label %49
-    i8 23, label %49
-    i8 20, label %52
-    i8 21, label %52
-    i8 1, label %55
-    i8 2, label %55
-    i8 3, label %55
-    i8 43, label %55
-    i8 4, label %55
-    i8 9, label %55
-    i8 10, label %55
-    i8 19, label %55
-    i8 16, label %55
-    i8 17, label %55
-    i8 15, label %55
-    i8 18, label %55
-    i8 32, label %55
-    i8 38, label %55
-    i8 39, label %55
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !354
+  %42 = load i32, ptr %2, align 1
+  %43 = zext i32 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %46 = load i8, ptr %45, align 1, !tbaa !11
+  switch i8 %46, label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit [
+    i8 22, label %47
+    i8 23, label %47
+    i8 20, label %50
+    i8 21, label %50
+    i8 1, label %53
+    i8 2, label %53
+    i8 3, label %53
+    i8 43, label %53
+    i8 4, label %53
+    i8 9, label %53
+    i8 10, label %53
+    i8 19, label %53
+    i8 16, label %53
+    i8 17, label %53
+    i8 15, label %53
+    i8 18, label %53
+    i8 32, label %53
+    i8 38, label %53
+    i8 39, label %53
   ]
 
-49:                                               ; preds = %41, %41
-  %50 = load i8, ptr %46, align 1, !tbaa !15
-  %51 = zext i8 %50 to i64
+47:                                               ; preds = %39, %39
+  %48 = load i8, ptr %44, align 1, !tbaa !15
+  %49 = zext i8 %48 to i64
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit
 
-52:                                               ; preds = %41, %41
-  %53 = load i16, ptr %46, align 1
-  %54 = zext i16 %53 to i64
+50:                                               ; preds = %39, %39
+  %51 = load i16, ptr %44, align 1
+  %52 = zext i16 %51 to i64
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit
 
-55:                                               ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %41
-  %56 = load i32, ptr %46, align 1
-  %57 = zext i32 %56 to i64
+53:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39, %39
+  %54 = load i32, ptr %44, align 1
+  %55 = zext i32 %54 to i64
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit
 
-_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit: ; preds = %41, %49, %52, %55
-  %.0.i.i = phi i64 [ %51, %49 ], [ %54, %52 ], [ %57, %55 ], [ 0, %41 ]
-  %58 = add nuw nsw i64 %.0.i.i, %40
-  %59 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %60 = load ptr, ptr %59, align 8, !tbaa !399
-  %61 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %62 = load ptr, ptr %61, align 8, !tbaa !401
-  %63 = ptrtoint ptr %60 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %64, %63
-  %66 = ashr exact i64 %65, 2
-  %67 = icmp sgt i64 %66, 0
-  br i1 %67, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit
+_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit: ; preds = %39, %47, %50, %53
+  %.0.i.i = phi i64 [ %49, %47 ], [ %52, %50 ], [ %55, %53 ], [ 0, %39 ]
+  %56 = add nuw nsw i64 %.0.i.i, %38
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %58 = load ptr, ptr %57, align 8, !tbaa !399
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %60 = load ptr, ptr %59, align 8, !tbaa !401
+  %61 = ptrtoint ptr %58 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %62, %61
+  %64 = ashr exact i64 %63, 2
+  %65 = icmp sgt i64 %64, 0
+  br i1 %65, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i: ; preds = %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i
-  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ], [ %66, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit ]
-  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ], [ %60, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit ]
-  %68 = lshr i64 %.013.i.i.i, 1
-  %69 = getelementptr inbounds nuw i32, ptr %.sroa.011.012.i.i.i, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !402
-  %71 = zext i32 %70 to i64
-  %72 = icmp samesign ult i64 %58, %71
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %74 = xor i64 %68, -1
-  %75 = add nsw i64 %.013.i.i.i, %74
-  %.sroa.011.1.i.i.i = select i1 %72, ptr %.sroa.011.012.i.i.i, ptr %73
-  %.1.i.i.i = select i1 %72, i64 %68, i64 %75
-  %76 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %76, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit, !llvm.loop !403
+  %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ], [ %64, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit ]
+  %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ], [ %58, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit ]
+  %66 = lshr i64 %.013.i.i.i, 1
+  %67 = getelementptr inbounds nuw i32, ptr %.sroa.011.012.i.i.i, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !402
+  %69 = zext i32 %68 to i64
+  %70 = icmp samesign ult i64 %56, %69
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %72 = xor i64 %66, -1
+  %73 = add nsw i64 %.013.i.i.i, %72
+  %.sroa.011.1.i.i.i = select i1 %70, ptr %.sroa.011.012.i.i.i, ptr %71
+  %.1.i.i.i = select i1 %70, i64 %66, i64 %73
+  %74 = icmp sgt i64 %.1.i.i.i, 0
+  br i1 %74, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit, !llvm.loop !403
 
 _ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit
-  %.sroa.011.0.lcssa.i.i.i = phi ptr [ %60, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ]
-  %77 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 -4
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %78, %63
-  %80 = ashr exact i64 %79, 2
-  %81 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !404
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %80
-  %84 = getelementptr inbounds nuw i8, ptr %60, i64 %79
-  %85 = load i32, ptr %84, align 4, !tbaa !402
-  %86 = zext i32 %85 to i64
-  %87 = sub nsw i64 %58, %86
-  %88 = load ptr, ptr %83, align 8, !tbaa !407
-  br label %136
+  %.sroa.011.0.lcssa.i.i.i = phi ptr [ %58, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i ]
+  %75 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i, i64 -4
+  %76 = ptrtoint ptr %75 to i64
+  %77 = sub i64 %76, %61
+  %78 = ashr exact i64 %77, 2
+  %79 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !404
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %78
+  %82 = getelementptr inbounds nuw i8, ptr %58, i64 %77
+  %83 = load i32, ptr %82, align 4, !tbaa !402
+  %84 = zext i32 %83 to i64
+  %85 = sub nsw i64 %56, %84
+  %86 = load ptr, ptr %81, align 8, !tbaa !407
+  br label %134
 
-89:                                               ; preds = %33
-  %90 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %91 = load ptr, ptr %90, align 8, !tbaa !399
-  %92 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %93 = load ptr, ptr %92, align 8, !tbaa !401
-  %94 = ptrtoint ptr %91 to i64
-  %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %95, %94
-  %97 = ashr exact i64 %96, 2
-  %98 = icmp sgt i64 %97, 0
-  br i1 %98, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
+87:                                               ; preds = %31
+  %88 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %89 = load ptr, ptr %88, align 8, !tbaa !399
+  %90 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %91 = load ptr, ptr %90, align 8, !tbaa !401
+  %92 = ptrtoint ptr %89 to i64
+  %93 = ptrtoint ptr %91 to i64
+  %94 = sub i64 %93, %92
+  %95 = ashr exact i64 %94, 2
+  %96 = icmp sgt i64 %95, 0
+  br i1 %96, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17: ; preds = %89, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17
-  %.013.i.i.i18 = phi i64 [ %.1.i.i.i23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ], [ %97, %89 ]
-  %.sroa.011.012.i.i.i19 = phi ptr [ %.sroa.011.1.i.i.i22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ], [ %91, %89 ]
-  %99 = lshr i64 %.013.i.i.i18, 1
-  %100 = getelementptr inbounds nuw i32, ptr %.sroa.011.012.i.i.i19, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !402
-  %102 = icmp ult i32 %39, %101
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %104 = xor i64 %99, -1
-  %105 = add nsw i64 %.013.i.i.i18, %104
-  %.sroa.011.1.i.i.i22 = select i1 %102, ptr %.sroa.011.012.i.i.i19, ptr %103
-  %.1.i.i.i23 = select i1 %102, i64 %99, i64 %105
-  %106 = icmp sgt i64 %.1.i.i.i23, 0
-  br i1 %106, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, !llvm.loop !403
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17: ; preds = %87, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17
+  %.013.i.i.i18 = phi i64 [ %.1.i.i.i23, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ], [ %95, %87 ]
+  %.sroa.011.012.i.i.i19 = phi ptr [ %.sroa.011.1.i.i.i22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ], [ %89, %87 ]
+  %97 = lshr i64 %.013.i.i.i18, 1
+  %98 = getelementptr inbounds nuw i32, ptr %.sroa.011.012.i.i.i19, i64 %97
+  %99 = load i32, ptr %98, align 4, !tbaa !402
+  %100 = icmp ult i32 %37, %99
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %102 = xor i64 %97, -1
+  %103 = add nsw i64 %.013.i.i.i18, %102
+  %.sroa.011.1.i.i.i22 = select i1 %100, ptr %.sroa.011.012.i.i.i19, ptr %101
+  %.1.i.i.i23 = select i1 %100, i64 %97, i64 %103
+  %104 = icmp sgt i64 %.1.i.i.i23, 0
+  br i1 %104, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, label %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, !llvm.loop !403
 
-_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, %89
-  %.sroa.011.0.lcssa.i.i.i14 = phi ptr [ %91, %89 ], [ %.sroa.011.1.i.i.i22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ]
-  %107 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i14, i64 -4
-  %108 = ptrtoint ptr %107 to i64
-  %109 = sub i64 %108, %94
-  %110 = ashr exact i64 %109, 2
-  %111 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !404
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %110
-  %114 = getelementptr inbounds nuw i8, ptr %91, i64 %109
-  %115 = load i32, ptr %114, align 4, !tbaa !402
-  %116 = zext i32 %115 to i64
-  %117 = sub nsw i64 %40, %116
-  %118 = load ptr, ptr %113, align 8, !tbaa !407
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %120 = load ptr, ptr %119, align 8, !tbaa !354
-  %121 = load i32, ptr %2, align 1
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 %122
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %125 = load i8, ptr %124, align 1, !tbaa !11
-  switch i8 %125, label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 [
-    i8 22, label %126
-    i8 23, label %126
-    i8 20, label %129
-    i8 21, label %129
-    i8 1, label %132
-    i8 2, label %132
-    i8 3, label %132
-    i8 43, label %132
-    i8 4, label %132
-    i8 9, label %132
-    i8 10, label %132
-    i8 19, label %132
-    i8 16, label %132
-    i8 17, label %132
-    i8 15, label %132
-    i8 18, label %132
-    i8 32, label %132
-    i8 38, label %132
-    i8 39, label %132
+_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17, %87
+  %.sroa.011.0.lcssa.i.i.i14 = phi ptr [ %89, %87 ], [ %.sroa.011.1.i.i.i22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt4spanIjLm18446744073709551615EEEElEvRT_T0_.exit.i.i.i17 ]
+  %105 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i14, i64 -4
+  %106 = ptrtoint ptr %105 to i64
+  %107 = sub i64 %106, %92
+  %108 = ashr exact i64 %107, 2
+  %109 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !404
+  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %112 = getelementptr inbounds nuw i8, ptr %89, i64 %107
+  %113 = load i32, ptr %112, align 4, !tbaa !402
+  %114 = zext i32 %113 to i64
+  %115 = sub nsw i64 %38, %114
+  %116 = load ptr, ptr %111, align 8, !tbaa !407
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %118 = load ptr, ptr %117, align 8, !tbaa !354
+  %119 = load i32, ptr %2, align 1
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %123 = load i8, ptr %122, align 1, !tbaa !11
+  switch i8 %123, label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 [
+    i8 22, label %124
+    i8 23, label %124
+    i8 20, label %127
+    i8 21, label %127
+    i8 1, label %130
+    i8 2, label %130
+    i8 3, label %130
+    i8 43, label %130
+    i8 4, label %130
+    i8 9, label %130
+    i8 10, label %130
+    i8 19, label %130
+    i8 16, label %130
+    i8 17, label %130
+    i8 15, label %130
+    i8 18, label %130
+    i8 32, label %130
+    i8 38, label %130
+    i8 39, label %130
   ]
 
-126:                                              ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
-  %127 = load i8, ptr %123, align 1, !tbaa !15
-  %128 = zext i8 %127 to i64
+124:                                              ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
+  %125 = load i8, ptr %121, align 1, !tbaa !15
+  %126 = zext i8 %125 to i64
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
 
-129:                                              ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
-  %130 = load i16, ptr %123, align 1
-  %131 = zext i16 %130 to i64
+127:                                              ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
+  %128 = load i16, ptr %121, align 1
+  %129 = zext i16 %128 to i64
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
 
-132:                                              ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
-  %133 = load i32, ptr %123, align 1
-  %134 = zext i32 %133 to i64
+130:                                              ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24
+  %131 = load i32, ptr %121, align 1
+  %132 = zext i32 %131 to i64
   br label %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
 
-_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26: ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %126, %129, %132
-  %.0.i.i25 = phi i64 [ %128, %126 ], [ %131, %129 ], [ %134, %132 ], [ 0, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24 ]
-  %135 = add nsw i64 %117, %.0.i.i25
-  br label %136
+_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26: ; preds = %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24, %124, %127, %130
+  %.0.i.i25 = phi i64 [ %126, %124 ], [ %129, %127 ], [ %132, %130 ], [ 0, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit24 ]
+  %133 = add nsw i64 %115, %.0.i.i25
+  br label %134
 
-136:                                              ; preds = %3, %3, %3, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
-  %.sroa.029.0 = phi ptr [ %88, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %118, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ null, %3 ], [ null, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ], [ null, %3 ], [ null, %3 ]
-  %.sroa.5.0 = phi i64 [ %87, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %135, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ 0, %3 ], [ 0, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ], [ 0, %3 ], [ 0, %3 ]
+134:                                              ; preds = %3, %3, %3, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26
+  %.sroa.029.0 = phi ptr [ %86, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %116, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ null, %3 ], [ null, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ], [ null, %3 ], [ null, %3 ]
+  %.sroa.5.0 = phi i64 [ %85, %_ZN4mold16MergeableSectionINS_4I386EE12get_fragmentEl.exit ], [ %133, %_ZN4mold10get_addendINS_4I386EEElRNS_12InputSectionIT_EERKNS_6ElfRelIS3_EE.exit26 ], [ 0, %3 ], [ 0, %_ZN4mold10ObjectFileINS_4I386EE9get_shndxERKNS_6ElfSymIS1_EE.exit ], [ 0, %3 ], [ 0, %3 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.029.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
   ret { ptr, i64 } %.fca.1.insert

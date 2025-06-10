@@ -16,7 +16,7 @@ define i64 @_ZN11duckdb_zstd20HUF_readCTableHeaderEPKm(ptr noundef readonly capt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -119, 128) i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 {
+define noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = ptrtoint ptr %5 to i64
@@ -117,99 +117,94 @@ define noundef range(i64 -119, 128) i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspE
   br i1 %56, label %57, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
 
 57:                                               ; preds = %50
-  %58 = ptrtoint ptr %36 to i64
-  %59 = load i32, ptr %8, align 4, !tbaa !11
-  %60 = call noundef i64 @_ZN11duckdb_zstd15FSE_writeNCountEPvmPKsjj(ptr noundef nonnull %36, i64 noundef range(i64 0, -1) %37, ptr noundef nonnull %53, i32 noundef %59, i32 noundef %52)
-  %61 = icmp ult i64 %60, -119
-  %62 = getelementptr inbounds nuw i8, ptr %36, i64 %60
-  br i1 %61, label %63, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
+  %58 = load i32, ptr %8, align 4, !tbaa !11
+  %59 = call noundef i64 @_ZN11duckdb_zstd15FSE_writeNCountEPvmPKsjj(ptr noundef nonnull %36, i64 noundef range(i64 0, -1) %37, ptr noundef nonnull %53, i32 noundef %58, i32 noundef %52)
+  %60 = icmp ult i64 %59, -119
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 %59
+  br i1 %60, label %62, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
 
-63:                                               ; preds = %57
-  %64 = load i32, ptr %8, align 4, !tbaa !11
-  %65 = getelementptr inbounds nuw i8, ptr %43, i64 236
-  %66 = call noundef i64 @_ZN11duckdb_zstd20FSE_buildCTable_wkspEPjPKsjjPvm(ptr noundef nonnull %43, ptr noundef nonnull %53, i32 noundef %64, i32 noundef %52, ptr noundef nonnull %65, i64 noundef 164)
-  %67 = icmp ult i64 %66, -119
-  br i1 %67, label %68, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
+62:                                               ; preds = %57
+  %63 = load i32, ptr %8, align 4, !tbaa !11
+  %64 = getelementptr inbounds nuw i8, ptr %43, i64 236
+  %65 = call noundef i64 @_ZN11duckdb_zstd20FSE_buildCTable_wkspEPjPKsjjPvm(ptr noundef nonnull %43, ptr noundef nonnull %53, i32 noundef %63, i32 noundef %52, ptr noundef nonnull %64, i64 noundef 164)
+  %66 = icmp ult i64 %65, -119
+  br i1 %66, label %67, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
 
-68:                                               ; preds = %63
-  %gepdiff.i = sub nsw i64 %37, %60
-  %69 = call noundef i64 @_ZN11duckdb_zstd24FSE_compress_usingCTableEPvmPKvmPKj(ptr noundef nonnull %62, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef nonnull %43)
-  %70 = icmp ult i64 %69, -119
-  br i1 %70, label %71, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
+67:                                               ; preds = %62
+  %gepdiff.i = sub nsw i64 %37, %59
+  %68 = call noundef i64 @_ZN11duckdb_zstd24FSE_compress_usingCTableEPvmPKvmPKj(ptr noundef nonnull %61, i64 noundef %gepdiff.i, ptr noundef nonnull %38, i64 noundef range(i64 0, 256) %39, ptr noundef nonnull %43)
+  %69 = icmp ult i64 %68, -119
+  br i1 %69, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread
 
-71:                                               ; preds = %68
-  %72 = icmp eq i64 %69, 0
-  br i1 %72, label %.thread, label %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit
-
-_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread: ; preds = %63, %57, %50, %35, %68
-  %.0.i59.ph = phi i64 [ %69, %68 ], [ -1, %35 ], [ %55, %50 ], [ %60, %57 ], [ %66, %63 ]
+_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread: ; preds = %62, %57, %50, %35, %67
+  %.0.i59.ph = phi i64 [ %68, %67 ], [ -1, %35 ], [ %55, %50 ], [ %59, %57 ], [ %65, %62 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   br label %.thread70
 
-.thread:                                          ; preds = %71, %46, %44
+.thread:                                          ; preds = %46, %44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  br label %86
+  br label %82
 
-_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit: ; preds = %71
-  %73 = getelementptr inbounds nuw i8, ptr %62, i64 %69
-  %74 = ptrtoint ptr %73 to i64
-  %75 = sub i64 %74, %58
+_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit: ; preds = %67
+  %70 = icmp eq i64 %68, 0
+  %71 = add i64 %68, %59
+  %spec.select.i = select i1 %70, i64 0, i64 %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  %76 = icmp ult i64 %75, -119
-  br i1 %76, label %77, label %.thread70
+  %72 = icmp ult i64 %spec.select.i, -119
+  br i1 %72, label %73, label %.thread70
 
-77:                                               ; preds = %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit
-  %78 = icmp ugt i64 %75, 1
-  %79 = lshr i32 %3, 1
-  %80 = zext nneg i32 %79 to i64
-  %81 = icmp ult i64 %75, %80
-  %82 = and i1 %78, %81
-  br i1 %82, label %83, label %86
+73:                                               ; preds = %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit
+  %74 = icmp ugt i64 %spec.select.i, 1
+  %75 = lshr i32 %3, 1
+  %76 = zext nneg i32 %75 to i64
+  %77 = icmp ult i64 %spec.select.i, %76
+  %78 = and i1 %74, %77
+  br i1 %78, label %79, label %82
 
-83:                                               ; preds = %77
-  %84 = trunc nuw nsw i64 %75 to i8
-  store i8 %84, ptr %0, align 1, !tbaa !3
-  %85 = add nuw nsw i64 %75, 1
+79:                                               ; preds = %73
+  %80 = trunc nuw nsw i64 %spec.select.i to i8
+  store i8 %80, ptr %0, align 1, !tbaa !3
+  %81 = add nuw nsw i64 %spec.select.i, 1
   br label %.thread70
 
-86:                                               ; preds = %77, %.thread
-  %87 = icmp samesign ugt i32 %3, 128
-  br i1 %87, label %.thread70, label %88
+82:                                               ; preds = %73, %.thread
+  %83 = icmp samesign ugt i32 %3, 128
+  br i1 %83, label %.thread70, label %84
 
-88:                                               ; preds = %86
-  %89 = add nuw nsw i32 %3, 1
-  %90 = lshr i32 %89, 1
-  %91 = add nuw nsw i32 %90, 1
-  %92 = zext nneg i32 %91 to i64
-  %93 = icmp ult i64 %1, %92
-  br i1 %93, label %.thread70, label %94
+84:                                               ; preds = %82
+  %85 = add nuw nsw i32 %3, 1
+  %86 = lshr i32 %85, 1
+  %87 = add nuw nsw i32 %86, 1
+  %88 = zext nneg i32 %87 to i64
+  %89 = icmp ult i64 %1, %88
+  br i1 %89, label %.thread70, label %90
 
-94:                                               ; preds = %88
-  %95 = trunc nuw i32 %3 to i8
-  %96 = add nuw i8 %95, 127
-  store i8 %96, ptr %0, align 1, !tbaa !3
-  %97 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %39
-  store i8 0, ptr %97, align 1, !tbaa !3
+90:                                               ; preds = %84
+  %91 = trunc nuw i32 %3 to i8
+  %92 = add nuw i8 %91, 127
+  store i8 %92, ptr %0, align 1, !tbaa !3
+  %93 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %39
+  store i8 0, ptr %93, align 1, !tbaa !3
   br i1 %.not, label %.thread70, label %.lr.ph78
 
-.lr.ph78:                                         ; preds = %94, %.lr.ph78
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph78 ], [ 0, %94 ]
-  %98 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %indvars.iv86
+.lr.ph78:                                         ; preds = %90, %.lr.ph78
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph78 ], [ 0, %90 ]
+  %94 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %indvars.iv86
+  %95 = load i8, ptr %94, align 1, !tbaa !3
+  %96 = shl i8 %95, 4
+  %97 = or disjoint i64 %indvars.iv86, 1
+  %98 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !3
-  %100 = shl i8 %99, 4
-  %101 = or disjoint i64 %indvars.iv86, 1
-  %102 = getelementptr inbounds nuw [255 x i8], ptr %38, i64 0, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !3
-  %104 = add i8 %100, %103
-  %105 = lshr exact i64 %indvars.iv86, 1
-  %gep = getelementptr inbounds nuw i8, ptr %36, i64 %105
-  store i8 %104, ptr %gep, align 1, !tbaa !3
+  %100 = add i8 %96, %99
+  %101 = lshr exact i64 %indvars.iv86, 1
+  %gep = getelementptr inbounds nuw i8, ptr %36, i64 %101
+  store i8 %100, ptr %gep, align 1, !tbaa !3
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
-  %106 = icmp samesign ult i64 %indvars.iv.next87, %39
-  br i1 %106, label %.lr.ph78, label %.thread70, !llvm.loop !13
+  %102 = icmp samesign ult i64 %indvars.iv.next87, %39
+  br i1 %102, label %.lr.ph78, label %.thread70, !llvm.loop !13
 
-.thread70:                                        ; preds = %.lr.ph78, %94, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit, %83, %88, %86, %._crit_edge, %15, %7
-  %.0 = phi i64 [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %86 ], [ -70, %88 ], [ %.0.i59.ph, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread ], [ %75, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit ], [ %85, %83 ], [ %92, %94 ], [ %92, %.lr.ph78 ]
+.thread70:                                        ; preds = %.lr.ph78, %90, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit, %79, %84, %82, %._crit_edge, %15, %7
+  %.0 = phi i64 [ -1, %7 ], [ -46, %15 ], [ -70, %._crit_edge ], [ -1, %82 ], [ -70, %84 ], [ %.0.i59.ph, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread ], [ %71, %_ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit ], [ %81, %79 ], [ %88, %90 ], [ %88, %.lr.ph78 ]
   ret i64 %.0
 }
 
@@ -2668,97 +2663,92 @@ _ZN11duckdb_zstdL43HUF_compress1X_usingCTable_internal_defaultEPvmPKvmPKm.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN11duckdb_zstd26HUF_compress4X_usingCTableEPvmPKvmPKmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #8 {
+define noundef range(i64 -119, 262147) i64 @_ZN11duckdb_zstd26HUF_compress4X_usingCTableEPvmPKvmPKmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #8 {
   %7 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress4X_usingCTable_internalEPvmPKvmPKmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5)
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress4X_usingCTable_internalEPvmPKvmPKmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #8 {
+define internal fastcc noundef range(i64 -119, 262147) i64 @_ZN11duckdb_zstdL35HUF_compress4X_usingCTable_internalEPvmPKvmPKmi(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #8 {
   %7 = add i64 %3, 3
   %8 = lshr i64 %7, 2
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %10 = icmp ult i64 %1, 17
-  %11 = icmp ult i64 %3, 12
-  %or.cond107 = or i1 %10, %11
-  br i1 %or.cond107, label %.thread, label %12
+  %9 = icmp ult i64 %1, 17
+  %10 = icmp ult i64 %3, 12
+  %or.cond108 = or i1 %9, %10
+  br i1 %or.cond108, label %.thread, label %11
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %15 = ptrtoint ptr %13 to i64
-  %gepdiff = add nsw i64 %1, -6
-  %16 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %14, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %8, ptr noundef %4, i32 noundef %5)
-  %17 = icmp ult i64 %16, -119
-  br i1 %17, label %18, label %.thread
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %gepdiff = add i64 %1, -6
+  %13 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %12, i64 noundef %gepdiff, ptr noundef %2, i64 noundef %8, ptr noundef %4, i32 noundef %5)
+  %14 = icmp ult i64 %13, -119
+  br i1 %14, label %15, label %.thread
 
-18:                                               ; preds = %12
-  %19 = add i64 %16, -65536
-  %or.cond = icmp ult i64 %19, -65535
-  br i1 %or.cond, label %.thread, label %20
+15:                                               ; preds = %11
+  %16 = add i64 %13, -65536
+  %or.cond = icmp ult i64 %16, -65535
+  br i1 %or.cond, label %.thread, label %17
 
-20:                                               ; preds = %18
-  %21 = trunc nuw i64 %16 to i16
-  store i16 %21, ptr %0, align 1, !tbaa !16
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %16
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 %8
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %15, %24
-  %26 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %22, i64 noundef %25, ptr noundef %23, i64 noundef %8, ptr noundef %4, i32 noundef %5)
-  %27 = icmp ult i64 %26, -119
-  br i1 %27, label %28, label %.thread
+17:                                               ; preds = %15
+  %18 = trunc nuw i64 %13 to i16
+  store i16 %18, ptr %0, align 1, !tbaa !16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %13
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %8
+  %gepdiff127 = sub i64 %gepdiff, %13
+  %21 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %19, i64 noundef %gepdiff127, ptr noundef %20, i64 noundef %8, ptr noundef %4, i32 noundef %5)
+  %22 = icmp ult i64 %21, -119
+  br i1 %22, label %23, label %.thread
 
-28:                                               ; preds = %20
-  %29 = add i64 %26, -65536
-  %or.cond6 = icmp ult i64 %29, -65535
-  br i1 %or.cond6, label %.thread, label %30
+23:                                               ; preds = %17
+  %24 = add i64 %21, -65536
+  %or.cond6 = icmp ult i64 %24, -65535
+  br i1 %or.cond6, label %.thread, label %25
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %32 = trunc nuw i64 %26 to i16
-  store i16 %32, ptr %31, align 1, !tbaa !16
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 %26
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %8
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %15, %35
-  %37 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %33, i64 noundef %36, ptr noundef %34, i64 noundef %8, ptr noundef %4, i32 noundef %5)
-  %38 = icmp ult i64 %37, -119
-  br i1 %38, label %39, label %.thread
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %27 = trunc nuw i64 %21 to i16
+  store i16 %27, ptr %26, align 1, !tbaa !16
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 %21
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 %8
+  %30 = add nuw nsw i64 %13, %21
+  %gepdiff128 = sub i64 %gepdiff, %30
+  %31 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %28, i64 noundef %gepdiff128, ptr noundef %29, i64 noundef %8, ptr noundef %4, i32 noundef %5)
+  %32 = icmp ult i64 %31, -119
+  br i1 %32, label %33, label %.thread
 
-39:                                               ; preds = %30
-  %40 = add i64 %37, -65536
-  %or.cond8 = icmp ult i64 %40, -65535
-  br i1 %or.cond8, label %.thread, label %41
+33:                                               ; preds = %25
+  %34 = add i64 %31, -65536
+  %or.cond8 = icmp ult i64 %34, -65535
+  br i1 %or.cond8, label %.thread, label %35
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %43 = trunc nuw i64 %37 to i16
-  store i16 %43, ptr %42, align 1, !tbaa !16
-  %44 = getelementptr inbounds nuw i8, ptr %33, i64 %37
-  %45 = getelementptr inbounds nuw i8, ptr %34, i64 %8
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %15, %46
-  %48 = ptrtoint ptr %9 to i64
-  %49 = ptrtoint ptr %45 to i64
-  %50 = sub i64 %48, %49
-  %51 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %44, i64 noundef %47, ptr noundef %45, i64 noundef %50, ptr noundef %4, i32 noundef %5)
-  %52 = icmp ult i64 %51, -119
-  br i1 %52, label %53, label %.thread
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %37 = trunc nuw i64 %31 to i16
+  store i16 %37, ptr %36, align 1, !tbaa !16
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 %31
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 %8
+  %40 = add nuw nsw i64 %30, %31
+  %gepdiff129 = sub i64 %gepdiff, %40
+  %.neg = mul i64 %8, -3
+  %gepdiff106 = add i64 %.neg, %3
+  %41 = tail call fastcc noundef i64 @_ZN11duckdb_zstdL35HUF_compress1X_usingCTable_internalEPvmPKvmPKmi(ptr noundef nonnull %38, i64 noundef %gepdiff129, ptr noundef %39, i64 noundef %gepdiff106, ptr noundef %4, i32 noundef %5)
+  %42 = icmp ult i64 %41, -119
+  br i1 %42, label %43, label %.thread
 
-53:                                               ; preds = %41
-  %54 = add i64 %51, -65536
-  %or.cond10 = icmp ult i64 %54, -65535
-  br i1 %or.cond10, label %.thread, label %55
+43:                                               ; preds = %35
+  %44 = add i64 %41, -65536
+  %or.cond10 = icmp ult i64 %44, -65535
+  br i1 %or.cond10, label %.thread, label %45
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 %51
-  %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %0 to i64
-  %59 = sub i64 %57, %58
+45:                                               ; preds = %43
+  %46 = add nuw nsw i64 %13, 6
+  %47 = add nuw nsw i64 %46, %21
+  %48 = add nuw nsw i64 %47, %31
+  %49 = add nuw nsw i64 %48, %41
   br label %.thread
 
-.thread:                                          ; preds = %53, %41, %39, %30, %28, %20, %18, %12, %6, %55
-  %.0 = phi i64 [ %59, %55 ], [ 0, %6 ], [ 0, %18 ], [ %16, %12 ], [ 0, %28 ], [ %26, %20 ], [ 0, %39 ], [ %37, %30 ], [ 0, %53 ], [ %51, %41 ]
+.thread:                                          ; preds = %43, %35, %33, %25, %23, %17, %15, %11, %6, %45
+  %.0 = phi i64 [ %49, %45 ], [ 0, %6 ], [ 0, %15 ], [ %13, %11 ], [ 0, %23 ], [ %21, %17 ], [ 0, %33 ], [ %31, %25 ], [ 0, %43 ], [ %41, %35 ]
   ret i64 %.0
 }
 
@@ -2922,7 +2912,7 @@ _ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us: ; preds = %29
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i59
   %56 = lshr i64 %55, 3
-  %57 = add nuw nsw i64 %56, %46
+  %57 = add i64 %56, %46
   %58 = add nuw i64 %.04871, 1
   %59 = icmp ugt i64 %57, %58
   br i1 %59, label %.loopexit, label %60
@@ -3116,7 +3106,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
   br i1 %.not175, label %..thread206_crit_edge, label %90
 
 ..thread206_crit_edge:                            ; preds = %88
-  %.pre = add nuw nsw i64 %85, 12
+  %.pre = add nuw i64 %85, 12
   br label %.thread206
 
 90:                                               ; preds = %88
@@ -3167,10 +3157,10 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
 _ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194: ; preds = %.lr.ph.i187
   %111 = lshr i64 %101, 3
   %112 = lshr i64 %110, 3
-  %113 = add nuw nsw i64 %112, %85
-  %.not176 = icmp samesign ugt i64 %111, %113
-  %114 = add nuw nsw i64 %85, 12
-  %.not177 = icmp samesign ult i64 %114, %3
+  %113 = add i64 %112, %85
+  %.not176 = icmp ugt i64 %111, %113
+  %114 = add nuw i64 %85, 12
+  %.not177 = icmp ult i64 %114, %3
   %or.cond182 = and i1 %.not177, %.not176
   br i1 %or.cond182, label %.thread206, label %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194.thread
 
@@ -3180,12 +3170,12 @@ _ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194.thread: ; preds = %
 
 .thread206:                                       ; preds = %..thread206_crit_edge, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194
   %.pre-phi = phi i64 [ %.pre, %..thread206_crit_edge ], [ %114, %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit194 ]
-  %.not178 = icmp samesign ult i64 %.pre-phi, %3
+  %.not178 = icmp ult i64 %.pre-phi, %3
   br i1 %.not178, label %117, label %.thread
 
 .thread209:                                       ; preds = %87
-  %116 = add nuw nsw i64 %85, 12
-  %.not178210 = icmp samesign ult i64 %116, %3
+  %116 = add nuw i64 %85, 12
+  %.not178210 = icmp ult i64 %116, %3
   br i1 %.not178210, label %.thread211, label %.thread
 
 117:                                              ; preds = %.thread206

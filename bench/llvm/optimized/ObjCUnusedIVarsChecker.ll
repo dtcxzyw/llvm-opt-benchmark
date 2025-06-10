@@ -2131,54 +2131,51 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %.not, label %.loopexit69, label %.lr.ph
 
 41:                                               ; preds = %.lr.ph
-  %42 = load i64, ptr %.tr6873, align 8
-  %43 = lshr i64 %42, 29
-  %.idx = and i64 %43, 524280
-  %.add = add nuw nsw i64 %.idx, 16
-  %.ptr79 = getelementptr inbounds nuw i8, ptr %.tr6873, i64 %.add
-  %.not4174 = icmp eq i64 %.add, 24
-  br i1 %.not4174, label %.loopexit, label %.lr.ph76.preheader
+  %42 = getelementptr inbounds nuw i8, ptr %.tr6873, i64 24
+  %43 = load i64, ptr %.tr6873, align 8
+  %44 = lshr i64 %43, 29
+  %.idx.i = and i64 %44, 524280
+  %45 = getelementptr i8, ptr %42, i64 %.idx.i
+  %46 = getelementptr i8, ptr %45, i64 -8
+  %.not4174 = icmp eq ptr %42, %46
+  br i1 %.not4174, label %.loopexit, label %.lr.ph76
 
-.lr.ph76.preheader:                               ; preds = %41
-  %44 = getelementptr inbounds nuw i8, ptr %.tr6873, i64 24
-  br label %.lr.ph76
+.lr.ph76:                                         ; preds = %41, %53
+  %.03175 = phi ptr [ %54, %53 ], [ %42, %41 ]
+  %47 = load ptr, ptr %.03175, align 8, !tbaa !212
+  %48 = load i16, ptr %47, align 8
+  %49 = and i16 %48, 511
+  %.not67 = icmp eq i16 %49, 28
+  br i1 %.not67, label %50, label %53
 
-.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %51
-  %.03175 = phi ptr [ %52, %51 ], [ %44, %.lr.ph76.preheader ]
-  %45 = load ptr, ptr %.03175, align 8, !tbaa !212
-  %46 = load i16, ptr %45, align 8
-  %47 = and i16 %46, 511
-  %.not67 = icmp eq i16 %47, 28
-  br i1 %.not67, label %48, label %51
+50:                                               ; preds = %.lr.ph76
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !213
+  br label %53
 
-48:                                               ; preds = %.lr.ph76
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !213
-  br label %51
-
-51:                                               ; preds = %48, %.lr.ph76
-  %.032 = phi ptr [ %50, %48 ], [ %45, %.lr.ph76 ]
+53:                                               ; preds = %50, %.lr.ph76
+  %.032 = phi ptr [ %52, %50 ], [ %47, %.lr.ph76 ]
   tail call fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %.032)
-  %52 = getelementptr inbounds nuw i8, ptr %.03175, i64 8
-  %.not41 = icmp eq ptr %52, %.ptr79
+  %54 = getelementptr inbounds nuw i8, ptr %.03175, i64 8
+  %.not41 = icmp eq ptr %54, %46
   br i1 %.not41, label %.loopexit, label %.lr.ph76
 
-.loopexit:                                        ; preds = %.lr.ph, %51, %41
+.loopexit:                                        ; preds = %.lr.ph, %53, %41
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14, !noalias !215
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.639") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.tr6873) #14, !noalias !215
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.451.24.copyload = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.451.24.copyload = load ptr, ptr %55, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14, !noalias !215
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %55 = load ptr, ptr %4, align 8, !tbaa !128
-  %56 = icmp ne ptr %55, %.sroa.451.24.copyload
-  %57 = load i64, ptr %54, align 8
-  %58 = icmp ne i64 %57, %.sroa.6.24.copyload
-  %.not3.i77 = select i1 %56, i1 true, i1 %58
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %57 = load ptr, ptr %4, align 8, !tbaa !128
+  %58 = icmp ne ptr %57, %.sroa.451.24.copyload
+  %59 = load i64, ptr %56, align 8
+  %60 = icmp ne i64 %59, %.sroa.6.24.copyload
+  %.not3.i77 = select i1 %58, i1 true, i1 %60
   br i1 %.not3.i77, label %.lr.ph78, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %.loopexit
@@ -2186,49 +2183,49 @@ tailrecurse:                                      ; preds = %.lr.ph
   br label %.loopexit69
 
 .lr.ph78:                                         ; preds = %.loopexit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %59 = phi i64 [ %77, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %57, %.loopexit ]
-  %60 = phi ptr [ %75, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %55, %.loopexit ]
-  %61 = and i64 %59, 3
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %63
+  %61 = phi i64 [ %79, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %59, %.loopexit ]
+  %62 = phi ptr [ %77, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %57, %.loopexit ]
+  %63 = and i64 %61, 3
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %65
 
-63:                                               ; preds = %.lr.ph78
-  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
+65:                                               ; preds = %.lr.ph78
+  %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph78, %63
-  %.in.i = phi ptr [ %64, %63 ], [ %60, %.lr.ph78 ]
-  %65 = load ptr, ptr %.in.i, align 8, !tbaa !218
-  call fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %65)
-  %66 = load i64, ptr %54, align 8, !tbaa !219
-  %67 = and i64 %66, 3
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %69, label %72
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph78, %65
+  %.in.i = phi ptr [ %66, %65 ], [ %62, %.lr.ph78 ]
+  %67 = load ptr, ptr %.in.i, align 8, !tbaa !218
+  call fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %67)
+  %68 = load i64, ptr %56, align 8, !tbaa !219
+  %69 = and i64 %68, 3
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %71, label %74
 
-69:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %70 = load ptr, ptr %4, align 8, !tbaa !128
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store ptr %71, ptr %4, align 8, !tbaa !128
+71:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %72 = load ptr, ptr %4, align 8, !tbaa !128
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store ptr %73, ptr %4, align 8, !tbaa !128
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-72:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %.not.i = icmp ult i64 %66, 4
-  br i1 %.not.i, label %74, label %73
+74:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %.not.i = icmp ult i64 %68, 4
+  br i1 %.not.i, label %76, label %75
 
-73:                                               ; preds = %72
+75:                                               ; preds = %74
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-74:                                               ; preds = %72
+76:                                               ; preds = %74
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext true) #14
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %69, %73, %74
-  %75 = load ptr, ptr %4, align 8, !tbaa !128
-  %76 = icmp ne ptr %75, %.sroa.451.24.copyload
-  %77 = load i64, ptr %54, align 8
-  %78 = icmp ne i64 %77, %.sroa.6.24.copyload
-  %.not3.i = select i1 %76, i1 true, i1 %78
+_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %71, %75, %76
+  %77 = load ptr, ptr %4, align 8, !tbaa !128
+  %78 = icmp ne ptr %77, %.sroa.451.24.copyload
+  %79 = load i64, ptr %56, align 8
+  %80 = icmp ne i64 %79, %.sroa.6.24.copyload
+  %.not3.i = select i1 %78, i1 true, i1 %80
   br i1 %.not3.i, label %.lr.ph78, label %._crit_edge
 
 .loopexit69:                                      ; preds = %tailrecurse, %2, %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit, %._crit_edge

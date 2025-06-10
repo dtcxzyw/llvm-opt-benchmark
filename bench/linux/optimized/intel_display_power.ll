@@ -539,52 +539,49 @@ define dso_local noundef zeroext i1 @__intel_display_power_is_enabled(ptr nounde
 
 13:                                               ; preds = %8, %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %17 = load i32, ptr %16, align 4
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct.i915_power_well, ptr %15, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 -32
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %15 to i64
-  %23 = sub i64 %21, %22
-  %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.loopexit, label %25
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp slt i32 %16, 1
+  br i1 %17, label %.loopexit, label %18
 
-25:                                               ; preds = %13
-  %26 = zext i32 %1 to i64
-  br label %27
+18:                                               ; preds = %13
+  %19 = zext nneg i32 %16 to i64
+  %20 = load ptr, ptr %14, align 8
+  %21 = getelementptr %struct.i915_power_well, ptr %20, i64 %19
+  %22 = getelementptr i8, ptr %21, i64 -32
+  %23 = zext i32 %1 to i64
+  br label %24
 
-27:                                               ; preds = %38, %25
-  %28 = phi ptr [ %20, %25 ], [ %39, %38 ]
-  %29 = phi ptr [ %19, %25 ], [ %28, %38 ]
-  %30 = getelementptr i8, ptr %29, i64 -24
-  %31 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %30, i64 %26) #10, !srcloc !11
-  %32 = icmp ult i8 %31, 2
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp eq i8 %31, 0
-  br i1 %33, label %38, label %34
+24:                                               ; preds = %35, %18
+  %25 = phi ptr [ %22, %18 ], [ %36, %35 ]
+  %26 = phi ptr [ %21, %18 ], [ %25, %35 ]
+  %27 = getelementptr i8, ptr %26, i64 -24
+  %28 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %23) #10, !srcloc !11
+  %29 = icmp ult i8 %28, 2
+  tail call void @llvm.assume(i1 %29)
+  %30 = icmp eq i8 %28, 0
+  br i1 %30, label %35, label %31
 
-34:                                               ; preds = %27
-  %35 = tail call zeroext i1 @intel_power_well_is_always_on(ptr noundef %28) #10
-  br i1 %35, label %38, label %36
+31:                                               ; preds = %24
+  %32 = tail call zeroext i1 @intel_power_well_is_always_on(ptr noundef %25) #10
+  br i1 %32, label %35, label %33
 
-36:                                               ; preds = %34
-  %37 = tail call zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef %28) #10
-  br i1 %37, label %38, label %.loopexit
+33:                                               ; preds = %31
+  %34 = tail call zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef %25) #10
+  br i1 %34, label %35, label %.loopexit
 
-38:                                               ; preds = %36, %34, %27
-  %39 = getelementptr i8, ptr %28, i64 -32
-  %40 = load ptr, ptr %14, align 8
-  %41 = ptrtoint ptr %39 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = icmp slt i64 %43, 0
-  br i1 %44, label %.loopexit, label %27, !llvm.loop !12
+35:                                               ; preds = %33, %31, %24
+  %36 = getelementptr i8, ptr %25, i64 -32
+  %37 = load ptr, ptr %14, align 8
+  %38 = ptrtoint ptr %36 to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  %41 = icmp slt i64 %40, 0
+  br i1 %41, label %.loopexit, label %24, !llvm.loop !12
 
-.loopexit:                                        ; preds = %38, %36, %13, %8
-  %45 = phi i1 [ false, %8 ], [ true, %13 ], [ false, %36 ], [ true, %38 ]
-  ret i1 %45
+.loopexit:                                        ; preds = %35, %33, %13, %8
+  %42 = phi i1 [ false, %8 ], [ true, %13 ], [ false, %33 ], [ true, %35 ]
+  ret i1 %42
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -613,53 +610,50 @@ define dso_local noundef zeroext i1 @intel_display_power_is_enabled(ptr noundef 
 
 14:                                               ; preds = %9, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %18 = load i32, ptr %17, align 4
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr %struct.i915_power_well, ptr %16, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -32
-  %22 = ptrtoint ptr %21 to i64
-  %23 = ptrtoint ptr %16 to i64
-  %24 = sub i64 %22, %23
-  %25 = icmp slt i64 %24, 0
-  br i1 %25, label %.loopexit, label %26
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp slt i32 %17, 1
+  br i1 %18, label %.loopexit, label %19
 
-26:                                               ; preds = %14
-  %27 = zext i32 %1 to i64
-  br label %28
+19:                                               ; preds = %14
+  %20 = zext nneg i32 %17 to i64
+  %21 = load ptr, ptr %15, align 8
+  %22 = getelementptr %struct.i915_power_well, ptr %21, i64 %20
+  %23 = getelementptr i8, ptr %22, i64 -32
+  %24 = zext i32 %1 to i64
+  br label %25
 
-28:                                               ; preds = %39, %26
-  %29 = phi ptr [ %21, %26 ], [ %40, %39 ]
-  %30 = phi ptr [ %20, %26 ], [ %29, %39 ]
-  %31 = getelementptr i8, ptr %30, i64 -24
-  %32 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %31, i64 %27) #10, !srcloc !11
-  %33 = icmp ult i8 %32, 2
-  tail call void @llvm.assume(i1 %33)
-  %34 = icmp eq i8 %32, 0
-  br i1 %34, label %39, label %35
+25:                                               ; preds = %36, %19
+  %26 = phi ptr [ %23, %19 ], [ %37, %36 ]
+  %27 = phi ptr [ %22, %19 ], [ %26, %36 ]
+  %28 = getelementptr i8, ptr %27, i64 -24
+  %29 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 %24) #10, !srcloc !11
+  %30 = icmp ult i8 %29, 2
+  tail call void @llvm.assume(i1 %30)
+  %31 = icmp eq i8 %29, 0
+  br i1 %31, label %36, label %32
 
-35:                                               ; preds = %28
-  %36 = tail call zeroext i1 @intel_power_well_is_always_on(ptr noundef %29) #10
-  br i1 %36, label %39, label %37
+32:                                               ; preds = %25
+  %33 = tail call zeroext i1 @intel_power_well_is_always_on(ptr noundef %26) #10
+  br i1 %33, label %36, label %34
 
-37:                                               ; preds = %35
-  %38 = tail call zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef %29) #10
-  br i1 %38, label %39, label %.loopexit
+34:                                               ; preds = %32
+  %35 = tail call zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef %26) #10
+  br i1 %35, label %36, label %.loopexit
 
-39:                                               ; preds = %37, %35, %28
-  %40 = getelementptr i8, ptr %29, i64 -32
-  %41 = load ptr, ptr %15, align 8
-  %42 = ptrtoint ptr %40 to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = icmp slt i64 %44, 0
-  br i1 %45, label %.loopexit, label %28, !llvm.loop !12
+36:                                               ; preds = %34, %32, %25
+  %37 = getelementptr i8, ptr %26, i64 -32
+  %38 = load ptr, ptr %15, align 8
+  %39 = ptrtoint ptr %37 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = icmp slt i64 %41, 0
+  br i1 %42, label %.loopexit, label %25, !llvm.loop !12
 
-.loopexit:                                        ; preds = %39, %37, %14, %9
-  %46 = phi i1 [ false, %9 ], [ true, %14 ], [ false, %37 ], [ true, %39 ]
+.loopexit:                                        ; preds = %36, %34, %14, %9
+  %43 = phi i1 [ false, %9 ], [ true, %14 ], [ false, %34 ], [ true, %36 ]
   tail call void @mutex_unlock(ptr noundef nonnull %3) #10
-  ret i1 %46
+  ret i1 %43
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -882,7 +876,7 @@ define dso_local i64 @intel_display_power_get_if_enabled(ptr noundef %0, i32 nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8928
   %4 = tail call i64 @intel_runtime_pm_get_if_in_use(ptr noundef nonnull %3) #10
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %50, label %6
+  br i1 %5, label %47, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2792
@@ -903,62 +897,59 @@ define dso_local i64 @intel_display_power_get_if_enabled(ptr noundef %0, i32 nou
 
 18:                                               ; preds = %13, %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct.i915_power_well, ptr %20, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -32
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %20 to i64
-  %28 = sub i64 %26, %27
-  %29 = icmp slt i64 %28, 0
-  br i1 %29, label %.loopexit3, label %30
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp slt i32 %21, 1
+  br i1 %22, label %.loopexit3, label %23
 
-30:                                               ; preds = %18
-  %31 = zext i32 %1 to i64
-  br label %32
+23:                                               ; preds = %18
+  %24 = zext nneg i32 %21 to i64
+  %25 = load ptr, ptr %19, align 8
+  %26 = getelementptr %struct.i915_power_well, ptr %25, i64 %24
+  %27 = getelementptr i8, ptr %26, i64 -32
+  %28 = zext i32 %1 to i64
+  br label %29
 
-32:                                               ; preds = %43, %30
-  %33 = phi ptr [ %25, %30 ], [ %44, %43 ]
-  %34 = phi ptr [ %24, %30 ], [ %33, %43 ]
-  %35 = getelementptr i8, ptr %34, i64 -24
-  %36 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %35, i64 %31) #10, !srcloc !11
-  %37 = icmp ult i8 %36, 2
-  tail call void @llvm.assume(i1 %37)
-  %38 = icmp eq i8 %36, 0
-  br i1 %38, label %43, label %39
+29:                                               ; preds = %40, %23
+  %30 = phi ptr [ %27, %23 ], [ %41, %40 ]
+  %31 = phi ptr [ %26, %23 ], [ %30, %40 ]
+  %32 = getelementptr i8, ptr %31, i64 -24
+  %33 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 %28) #10, !srcloc !11
+  %34 = icmp ult i8 %33, 2
+  tail call void @llvm.assume(i1 %34)
+  %35 = icmp eq i8 %33, 0
+  br i1 %35, label %40, label %36
 
-39:                                               ; preds = %32
-  %40 = tail call zeroext i1 @intel_power_well_is_always_on(ptr noundef %33) #10
-  br i1 %40, label %43, label %41
+36:                                               ; preds = %29
+  %37 = tail call zeroext i1 @intel_power_well_is_always_on(ptr noundef %30) #10
+  br i1 %37, label %40, label %38
 
-41:                                               ; preds = %39
-  %42 = tail call zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef %33) #10
-  br i1 %42, label %43, label %.loopexit
+38:                                               ; preds = %36
+  %39 = tail call zeroext i1 @intel_power_well_is_enabled_cached(ptr noundef %30) #10
+  br i1 %39, label %40, label %.loopexit
 
-43:                                               ; preds = %41, %39, %32
-  %44 = getelementptr i8, ptr %33, i64 -32
-  %45 = load ptr, ptr %19, align 8
-  %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = icmp slt i64 %48, 0
-  br i1 %49, label %.loopexit3, label %32, !llvm.loop !12
+40:                                               ; preds = %38, %36, %29
+  %41 = getelementptr i8, ptr %30, i64 -32
+  %42 = load ptr, ptr %19, align 8
+  %43 = ptrtoint ptr %41 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = icmp slt i64 %45, 0
+  br i1 %46, label %.loopexit3, label %29, !llvm.loop !12
 
-.loopexit3:                                       ; preds = %43, %18
+.loopexit3:                                       ; preds = %40, %18
   tail call fastcc void @__intel_display_power_get_domain(ptr noundef %0, i32 noundef %1)
   tail call void @mutex_unlock(ptr noundef nonnull %7) #10
-  br label %50
+  br label %47
 
-.loopexit:                                        ; preds = %41, %13
+.loopexit:                                        ; preds = %38, %13
   tail call void @mutex_unlock(ptr noundef nonnull %7) #10
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %3) #10
-  br label %50
+  br label %47
 
-50:                                               ; preds = %.loopexit, %.loopexit3, %2
-  %51 = phi i64 [ 0, %2 ], [ %4, %.loopexit3 ], [ 0, %.loopexit ]
-  ret i64 %51
+47:                                               ; preds = %.loopexit, %.loopexit3, %2
+  %48 = phi i64 [ 0, %2 ], [ %4, %.loopexit3 ], [ 0, %.loopexit ]
+  ret i64 %48
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1127,42 +1118,42 @@ define internal fastcc void @__intel_display_power_put_domain(ptr noundef %0, i3
   %42 = add i32 %41, -1
   store i32 %42, ptr %7, align 4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr %struct.i915_power_well, ptr %44, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 -32
-  %50 = ptrtoint ptr %49 to i64
-  %51 = ptrtoint ptr %44 to i64
-  %52 = sub i64 %50, %51
-  %53 = icmp sgt i64 %52, -1
-  br i1 %53, label %.preheader, label %.loopexit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %.preheader.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %40, %61
-  %54 = phi ptr [ %62, %61 ], [ %49, %40 ]
-  %55 = phi ptr [ %54, %61 ], [ %48, %40 ]
-  %56 = getelementptr i8, ptr %55, i64 -24
-  %57 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, i64 %6) #10, !srcloc !11
-  %58 = icmp ult i8 %57, 2
-  call void @llvm.assume(i1 %58)
-  %59 = icmp eq i8 %57, 0
-  br i1 %59, label %61, label %60
+.preheader.preheader:                             ; preds = %40
+  %47 = load ptr, ptr %43, align 8
+  %48 = zext nneg i32 %45 to i64
+  %49 = getelementptr %struct.i915_power_well, ptr %47, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 -32
+  br label %.preheader
 
-60:                                               ; preds = %.preheader
-  call void @intel_power_well_put(ptr noundef %0, ptr noundef %54) #10
-  br label %61
+.preheader:                                       ; preds = %.preheader.preheader, %58
+  %51 = phi ptr [ %59, %58 ], [ %50, %.preheader.preheader ]
+  %52 = phi ptr [ %51, %58 ], [ %49, %.preheader.preheader ]
+  %53 = getelementptr i8, ptr %52, i64 -24
+  %54 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %53, i64 %6) #10, !srcloc !11
+  %55 = icmp ult i8 %54, 2
+  call void @llvm.assume(i1 %55)
+  %56 = icmp eq i8 %54, 0
+  br i1 %56, label %58, label %57
 
-61:                                               ; preds = %60, %.preheader
-  %62 = getelementptr i8, ptr %54, i64 -32
-  %63 = load ptr, ptr %43, align 8
-  %64 = ptrtoint ptr %62 to i64
-  %65 = ptrtoint ptr %63 to i64
-  %66 = sub i64 %64, %65
-  %67 = icmp sgt i64 %66, -1
-  br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !42
+57:                                               ; preds = %.preheader
+  call void @intel_power_well_put(ptr noundef %0, ptr noundef %51) #10
+  br label %58
 
-.loopexit:                                        ; preds = %61, %40
+58:                                               ; preds = %57, %.preheader
+  %59 = getelementptr i8, ptr %51, i64 -32
+  %60 = load ptr, ptr %43, align 8
+  %61 = ptrtoint ptr %59 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = icmp sgt i64 %63, -1
+  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !42
+
+.loopexit:                                        ; preds = %58, %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   ret void
 }
@@ -3033,95 +3024,92 @@ define dso_local void @intel_power_domains_sanitize_state(ptr noundef %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   tail call void @mutex_lock(ptr noundef nonnull %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3264
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2756
-  %6 = load i32, ptr %5, align 4
-  %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.i915_power_well, ptr %4, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -32
-  %10 = ptrtoint ptr %9 to i64
-  %11 = ptrtoint ptr %4 to i64
-  %12 = sub i64 %10, %11
-  %13 = icmp sgt i64 %12, -1
-  br i1 %13, label %14, label %.loopexit
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2756
+  %5 = load i32, ptr %4, align 4
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %7, label %.loopexit
 
-14:                                               ; preds = %1
-  %15 = icmp eq ptr %0, null
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %15, label %.split.us, label %.split
+7:                                                ; preds = %1
+  %8 = zext nneg i32 %5 to i64
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr %struct.i915_power_well, ptr %9, i64 %8
+  %11 = getelementptr i8, ptr %10, i64 -32
+  %12 = icmp eq ptr %0, null
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %12, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %14, %32
-  %17 = phi ptr [ %33, %32 ], [ %9, %14 ]
-  %18 = phi ptr [ %17, %32 ], [ %8, %14 ]
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i16, ptr %20, align 8
-  %22 = and i16 %21, 16
-  %23 = icmp eq i16 %22, 0
-  br i1 %23, label %24, label %32
+.split.us:                                        ; preds = %7, %29
+  %14 = phi ptr [ %30, %29 ], [ %11, %7 ]
+  %15 = phi ptr [ %14, %29 ], [ %10, %7 ]
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i16, ptr %17, align 8
+  %19 = and i16 %18, 16
+  %20 = icmp eq i16 %19, 0
+  br i1 %20, label %21, label %29
 
-24:                                               ; preds = %.split.us
-  %25 = getelementptr i8, ptr %18, i64 -8
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %32
+21:                                               ; preds = %.split.us
+  %22 = getelementptr i8, ptr %15, i64 -8
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %29
 
-28:                                               ; preds = %24
-  %29 = tail call zeroext i1 @intel_power_well_is_enabled(ptr noundef null, ptr noundef %17) #10
-  br i1 %29, label %30, label %32
+25:                                               ; preds = %21
+  %26 = tail call zeroext i1 @intel_power_well_is_enabled(ptr noundef null, ptr noundef %14) #10
+  br i1 %26, label %27, label %29
 
-30:                                               ; preds = %28
-  %31 = tail call ptr @intel_power_well_name(ptr noundef %17) #10
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %31) #10
-  tail call void @intel_power_well_disable(ptr noundef null, ptr noundef %17) #10
-  br label %32
+27:                                               ; preds = %25
+  %28 = tail call ptr @intel_power_well_name(ptr noundef %14) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %28) #10
+  tail call void @intel_power_well_disable(ptr noundef null, ptr noundef %14) #10
+  br label %29
 
-32:                                               ; preds = %30, %28, %24, %.split.us
-  %33 = getelementptr i8, ptr %17, i64 -32
-  %34 = load ptr, ptr %3, align 8
-  %35 = ptrtoint ptr %33 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp sgt i64 %37, -1
-  br i1 %38, label %.split.us, label %.loopexit, !llvm.loop !130
+29:                                               ; preds = %27, %25, %21, %.split.us
+  %30 = getelementptr i8, ptr %14, i64 -32
+  %31 = load ptr, ptr %3, align 8
+  %32 = ptrtoint ptr %30 to i64
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %32, %33
+  %35 = icmp sgt i64 %34, -1
+  br i1 %35, label %.split.us, label %.loopexit, !llvm.loop !130
 
-.split:                                           ; preds = %14, %55
-  %39 = phi ptr [ %56, %55 ], [ %9, %14 ]
-  %40 = phi ptr [ %39, %55 ], [ %8, %14 ]
-  %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load i16, ptr %42, align 8
-  %44 = and i16 %43, 16
-  %45 = icmp eq i16 %44, 0
-  br i1 %45, label %46, label %55
+.split:                                           ; preds = %7, %52
+  %36 = phi ptr [ %53, %52 ], [ %11, %7 ]
+  %37 = phi ptr [ %36, %52 ], [ %10, %7 ]
+  %38 = load ptr, ptr %36, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load i16, ptr %39, align 8
+  %41 = and i16 %40, 16
+  %42 = icmp eq i16 %41, 0
+  br i1 %42, label %43, label %52
 
-46:                                               ; preds = %.split
-  %47 = getelementptr i8, ptr %40, i64 -8
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %55
+43:                                               ; preds = %.split
+  %44 = getelementptr i8, ptr %37, i64 -8
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %52
 
-50:                                               ; preds = %46
-  %51 = tail call zeroext i1 @intel_power_well_is_enabled(ptr noundef nonnull %0, ptr noundef %39) #10
-  br i1 %51, label %52, label %55
+47:                                               ; preds = %43
+  %48 = tail call zeroext i1 @intel_power_well_is_enabled(ptr noundef nonnull %0, ptr noundef %36) #10
+  br i1 %48, label %49, label %52
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %16, align 8
-  %54 = tail call ptr @intel_power_well_name(ptr noundef %39) #10
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %53, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %54) #10
-  tail call void @intel_power_well_disable(ptr noundef nonnull %0, ptr noundef %39) #10
-  br label %55
+49:                                               ; preds = %47
+  %50 = load ptr, ptr %13, align 8
+  %51 = tail call ptr @intel_power_well_name(ptr noundef %36) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef %51) #10
+  tail call void @intel_power_well_disable(ptr noundef nonnull %0, ptr noundef %36) #10
+  br label %52
 
-55:                                               ; preds = %52, %50, %46, %.split
-  %56 = getelementptr i8, ptr %39, i64 -32
-  %57 = load ptr, ptr %3, align 8
-  %58 = ptrtoint ptr %56 to i64
-  %59 = ptrtoint ptr %57 to i64
-  %60 = sub i64 %58, %59
-  %61 = icmp sgt i64 %60, -1
-  br i1 %61, label %.split, label %.loopexit, !llvm.loop !130
+52:                                               ; preds = %49, %47, %43, %.split
+  %53 = getelementptr i8, ptr %36, i64 -32
+  %54 = load ptr, ptr %3, align 8
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = icmp sgt i64 %57, -1
+  br i1 %58, label %.split, label %.loopexit, !llvm.loop !130
 
-.loopexit:                                        ; preds = %55, %32, %1
+.loopexit:                                        ; preds = %52, %29, %1
   tail call void @mutex_unlock(ptr noundef nonnull %2) #10
   ret void
 }

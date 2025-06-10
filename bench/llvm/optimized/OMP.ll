@@ -9930,7 +9930,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit15: 
 define dso_local noundef i32 @_ZN4llvm3omp20getCompoundConstructENS_8ArrayRefINS0_9DirectiveEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #4 {
   %3 = alloca %"class.llvm::SmallVector", align 8
   %4 = icmp eq i64 %1, 0
-  br i1 %4, label %109, label %.lr.ph.preheader
+  br i1 %4, label %103, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
@@ -10039,152 +10039,146 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit: ; 
   %.idx18.i.i.i.i = ashr exact i64 %sext, 30
   %50 = getelementptr i8, ptr %.pre57, i64 %.idx18.i.i.i.i
   %.ptr20.i.i.i.i = getelementptr i8, ptr %50, i64 8
-  %51 = ptrtoint ptr %.ptr20.i.i.i.i to i64
-  %52 = ptrtoint ptr %11 to i64
-  %53 = sub i64 %51, %52
   br label %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i
 
 _ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i: ; preds = %.thread.i.i, %47
   %.020.i.i.idx = phi i64 [ 0, %47 ], [ %.idx63, %.thread.i.i ]
-  %.01119.i.i = phi i64 [ 105, %47 ], [ %84, %.thread.i.i ]
-  %54 = lshr i64 %.01119.i.i, 1
-  %.idx64 = shl nuw nsw i64 %54, 5
+  %.01119.i.i = phi i64 [ 105, %47 ], [ %78, %.thread.i.i ]
+  %51 = lshr i64 %.01119.i.i, 1
+  %.idx64 = shl nuw nsw i64 %51, 5
   %.020.i.i.add = add nuw nsw i64 %.020.i.i.idx, %.idx64
   %.ptr67 = getelementptr inbounds nuw i8, ptr @_ZL18LeafConstructTable, i64 %.020.i.i.add
-  %55 = getelementptr inbounds nuw i8, ptr %.ptr67, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !7
-  %57 = or i32 %56, %48
-  %or.cond.i.i13.i.i = icmp eq i32 %57, 0
-  br i1 %or.cond.i.i13.i.i, label %58, label %62
+  %52 = getelementptr inbounds nuw i8, ptr %.ptr67, i64 4
+  %53 = load i32, ptr %52, align 4, !tbaa !7
+  %54 = or i32 %53, %48
+  %or.cond.i.i13.i.i = icmp eq i32 %54, 0
+  br i1 %or.cond.i.i13.i.i, label %55, label %59
 
-58:                                               ; preds = %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i
-  %59 = load i32, ptr %.ptr67, align 4, !tbaa !7
-  %60 = load i32, ptr %.pre57, align 4, !tbaa !7
-  %61 = icmp slt i32 %59, %60
-  %cond.fr412.i.i = freeze i1 %61
-  br i1 %cond.fr412.i.i, label %82, label %.thread.i.i
+55:                                               ; preds = %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i
+  %56 = load i32, ptr %.ptr67, align 4, !tbaa !7
+  %57 = load i32, ptr %.pre57, align 4, !tbaa !7
+  %58 = icmp slt i32 %56, %57
+  %cond.fr412.i.i = freeze i1 %58
+  br i1 %cond.fr412.i.i, label %76, label %.thread.i.i
 
-62:                                               ; preds = %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i
-  %63 = sext i32 %56 to i64
-  %.idx.i.i.i.i = shl nsw i64 %63, 2
-  %64 = getelementptr i8, ptr %.ptr67, i64 %.idx.i.i.i.i
-  %.ptr17.i.i.i.i = getelementptr i8, ptr %64, i64 8
+59:                                               ; preds = %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i
+  %60 = sext i32 %53 to i64
+  %.idx.i.i.i.i = shl nsw i64 %60, 2
+  %61 = getelementptr i8, ptr %.ptr67, i64 %.idx.i.i.i.i
+  %.ptr17.i.i.i.i = getelementptr i8, ptr %61, i64 8
   %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.ptr67, i64 8
-  %65 = ptrtoint ptr %.ptr17.i.i.i.i to i64
-  %66 = ptrtoint ptr %.ptr.i.i.i.i to i64
-  %67 = sub i64 %65, %66
-  %68 = icmp slt i64 %53, %67
-  %69 = getelementptr inbounds i8, ptr %.ptr.i.i.i.i, i64 %53
-  %70 = select i1 %68, ptr %69, ptr %.ptr17.i.i.i.i
-  %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %.ptr.i.i.i.i, %70
+  %62 = icmp slt i64 %.idx18.i.i.i.i, %.idx.i.i.i.i
+  %63 = getelementptr inbounds i8, ptr %.ptr.i.i.i.i, i64 %.idx18.i.i.i.i
+  %64 = select i1 %62, ptr %63, ptr %.ptr17.i.i.i.i
+  %.not22.i.i.i.i.i.i.i.i.i = icmp eq ptr %.ptr.i.i.i.i, %64
   br i1 %.not22.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %62, %78
-  %.01924.i.i.i.i.i.i.i.i.i = phi ptr [ %80, %78 ], [ %11, %62 ]
-  %.02023.i.i.i.i.i.i.i.i.i = phi ptr [ %79, %78 ], [ %.ptr.i.i.i.i, %62 ]
-  %71 = load i32, ptr %.02023.i.i.i.i.i.i.i.i.i, align 4, !tbaa !7
-  %72 = load i32, ptr %.01924.i.i.i.i.i.i.i.i.i, align 4, !tbaa !7
-  %73 = icmp slt i32 %71, %72
-  br i1 %73, label %.thread16.i.i, label %76
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %59, %72
+  %.01924.i.i.i.i.i.i.i.i.i = phi ptr [ %74, %72 ], [ %11, %59 ]
+  %.02023.i.i.i.i.i.i.i.i.i = phi ptr [ %73, %72 ], [ %.ptr.i.i.i.i, %59 ]
+  %65 = load i32, ptr %.02023.i.i.i.i.i.i.i.i.i, align 4, !tbaa !7
+  %66 = load i32, ptr %.01924.i.i.i.i.i.i.i.i.i, align 4, !tbaa !7
+  %67 = icmp slt i32 %65, %66
+  br i1 %67, label %.thread16.i.i, label %70
 
 .thread16.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.add = add nuw nsw i64 %.020.i.i.add, 32
-  %74 = xor i64 %54, -1
-  %75 = add nsw i64 %.01119.i.i, %74
+  %68 = xor i64 %51, -1
+  %69 = add nsw i64 %.01119.i.i, %68
   br label %.thread.i.i
 
-76:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %77 = icmp slt i32 %72, %71
-  br i1 %77, label %.thread.i.i, label %78
+70:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %71 = icmp slt i32 %66, %65
+  br i1 %71, label %.thread.i.i, label %72
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i.i.i.i, i64 4
-  %80 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %79, %70
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %.02023.i.i.i.i.i.i.i.i.i, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.01924.i.i.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, %64
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i", label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !20
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i": ; preds = %78, %62
-  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %62 ], [ %80, %78 ]
-  %81 = icmp ne ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %.ptr20.i.i.i.i
-  %cond.fr4.i.i = freeze i1 %81
-  br i1 %cond.fr4.i.i, label %82, label %.thread.i.i
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i": ; preds = %72, %59
+  %.019.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %59 ], [ %74, %72 ]
+  %75 = icmp ne ptr %.019.lcssa.i.i.i.i.i.i.i.i.i, %.ptr20.i.i.i.i
+  %cond.fr4.i.i = freeze i1 %75
+  br i1 %cond.fr4.i.i, label %76, label %.thread.i.i
 
-82:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i", %58
+76:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i", %55
   %.add65 = add nuw nsw i64 %.020.i.i.add, 32
-  %.pn.i.i = xor i64 %54, -1
-  %83 = add nsw i64 %.01119.i.i, %.pn.i.i
+  %.pn.i.i = xor i64 %51, -1
+  %77 = add nsw i64 %.01119.i.i, %.pn.i.i
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %76, %82, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i", %.thread16.i.i, %58
-  %84 = phi i64 [ %54, %58 ], [ %54, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i" ], [ %83, %82 ], [ %75, %.thread16.i.i ], [ %54, %76 ]
-  %.idx63 = phi i64 [ %.020.i.i.idx, %58 ], [ %.020.i.i.idx, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i" ], [ %.add65, %82 ], [ %.add, %.thread16.i.i ], [ %.020.i.i.idx, %76 ]
-  %85 = icmp sgt i64 %84, 0
-  br i1 %85, label %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit", !llvm.loop !21
+.thread.i.i:                                      ; preds = %70, %76, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i", %.thread16.i.i, %55
+  %78 = phi i64 [ %51, %55 ], [ %51, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i" ], [ %77, %76 ], [ %69, %.thread16.i.i ], [ %51, %70 ]
+  %.idx63 = phi i64 [ %.020.i.i.idx, %55 ], [ %.020.i.i.idx, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm3omp20getCompoundConstructENS2_8ArrayRefINS3_9DirectiveEEEE3$_0EclIPA8_KS5_KPSA_EEbT_RT0_.exit.i.i" ], [ %.add65, %76 ], [ %.add, %.thread16.i.i ], [ %.020.i.i.idx, %70 ]
+  %79 = icmp sgt i64 %78, 0
+  br i1 %79, label %_ZSt7advanceIPA8_KN4llvm3omp9DirectiveElEvRT_T0_.exit.i.i, label %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit", !llvm.loop !21
 
 "_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit": ; preds = %.thread.i.i
   %.ptr66.le = getelementptr inbounds nuw i8, ptr @_ZL18LeafConstructTable, i64 %.idx63
-  %86 = icmp eq i64 %.idx63, 3648
-  br i1 %86, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit, label %87
+  %80 = icmp eq i64 %.idx63, 3648
+  br i1 %80, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit, label %81
 
-87:                                               ; preds = %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit"
-  %88 = load i32, ptr %.ptr66.le, align 4, !tbaa !7
-  %89 = icmp ugt i32 %88, 113
-  br i1 %89, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22
+81:                                               ; preds = %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit"
+  %82 = load i32, ptr %.ptr66.le, align 4, !tbaa !7
+  %83 = icmp ugt i32 %82, 113
+  br i1 %83, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread, label %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22
 
-_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22: ; preds = %87
-  %90 = zext nneg i32 %88 to i64
-  %91 = getelementptr inbounds nuw [114 x i32], ptr @_ZL26LeafConstructTableOrdering, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !3
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [114 x [8 x i32]], ptr @_ZL18LeafConstructTable, i64 0, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !7
-  %97 = sext i32 %96 to i64
-  %.not.i.i23 = icmp eq i64 %10, %97
-  br i1 %.not.i.i23, label %98, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
+_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22: ; preds = %81
+  %84 = zext nneg i32 %82 to i64
+  %85 = getelementptr inbounds nuw [114 x i32], ptr @_ZL26LeafConstructTableOrdering, i64 0, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !3
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds [114 x [8 x i32]], ptr @_ZL18LeafConstructTable, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !7
+  %91 = sext i32 %90 to i64
+  %.not.i.i23 = icmp eq i64 %10, %91
+  br i1 %.not.i.i23, label %92, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
 
-_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread: ; preds = %87
+_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread: ; preds = %81
   %.not.i.i2342 = icmp eq i64 %10, 0
-  %spec.select = select i1 %.not.i.i2342, i32 %88, i32 102
+  %spec.select = select i1 %.not.i.i2342, i32 %82, i32 102
   br label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
 
-98:                                               ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22
-  %99 = getelementptr i32, ptr %94, i64 %9
-  %.not9.i.i.i.i.i.i = icmp eq i32 %96, 0
+92:                                               ; preds = %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22
+  %93 = getelementptr i32, ptr %88, i64 %9
+  %.not9.i.i.i.i.i.i = icmp eq i32 %90, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit, label %.lr.ph.i.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %98
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %92
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 8
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %104
-  %.011.i.i.i.i.i.i = phi ptr [ %106, %104 ], [ %11, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %.0810.i.i.i.i.i.i = phi ptr [ %105, %104 ], [ %100, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %101 = load i32, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !7
-  %102 = load i32, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !7
-  %103 = icmp eq i32 %101, %102
-  br i1 %103, label %104, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %98
+  %.011.i.i.i.i.i.i = phi ptr [ %100, %98 ], [ %11, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.0810.i.i.i.i.i.i = phi ptr [ %99, %98 ], [ %94, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %95 = load i32, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !7
+  %96 = load i32, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !7
+  %97 = icmp eq i32 %95, %96
+  br i1 %97, label %98, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
 
-104:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %105 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 4
-  %106 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i = icmp eq ptr %105, %99
+98:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %99 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %99, %93
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !22
 
-_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %104, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22, %98, %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit", %45
-  %.1 = phi i32 [ %46, %45 ], [ 102, %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit" ], [ 102, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22 ], [ %88, %98 ], [ %spec.select, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread ], [ %88, %104 ], [ 102, %.lr.ph.i.i.i.i.i.i ]
-  %107 = icmp eq ptr %.pre57, %5
-  br i1 %107, label %_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit, label %108
+_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %98, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22, %92, %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit", %45
+  %.1 = phi i32 [ %46, %45 ], [ 102, %"_ZSt11lower_boundIPA8_KN4llvm3omp9DirectiveEPS3_ZNS1_20getCompoundConstructENS0_8ArrayRefIS2_EEE3$_0ET_SA_SA_RKT0_T1_.exit" ], [ 102, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22 ], [ %82, %92 ], [ %spec.select, %_ZN4llvm3omp17getLeafConstructsENS0_9DirectiveE.exit22.thread ], [ %82, %98 ], [ 102, %.lr.ph.i.i.i.i.i.i ]
+  %101 = icmp eq ptr %.pre57, %5
+  br i1 %101, label %_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit, label %102
 
-108:                                              ; preds = %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
+102:                                              ; preds = %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit
   call void @free(ptr noundef %.pre57) #14
   br label %_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit: ; preds = %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit, %108
+_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit: ; preds = %_ZN4llvmeqINS_3omp9DirectiveEEEbNS_8ArrayRefIT_EES5_.exit, %102
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
-  br label %109
+  br label %103
 
-109:                                              ; preds = %2, %_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit
+103:                                              ; preds = %2, %_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit
   %.0 = phi i32 [ %.1, %_ZN4llvm11SmallVectorINS_3omp9DirectiveELj12EED2Ev.exit ], [ 102, %2 ]
   ret i32 %.0
 }

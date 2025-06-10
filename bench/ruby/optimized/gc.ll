@@ -22366,7 +22366,7 @@ define internal fastcc range(i32 0, 2) i32 @heap_page_allocate_and_initialize(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %5 = load i64, ptr %4, align 8, !tbaa !363
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %127, label %6
+  br i1 %.not, label %124, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -22382,16 +22382,16 @@ heap_page_resurrect.exit:                         ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !490
   store ptr %13, ptr %7, align 8, !tbaa !555
-  br label %119
+  br label %116
 
 14:                                               ; preds = %6
   %.b22.i.i = load i1, ptr @heap_page_alloc_use_mmap, align 1
-  br i1 %.b22.i.i, label %15, label %34
+  br i1 %.b22.i.i, label %15, label %31
 
 15:                                               ; preds = %14
   %16 = tail call ptr @mmap(ptr noundef null, i64 noundef 131072, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #7
-  %.not26.i.i = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
-  br i1 %.not26.i.i, label %heap_page_body_allocate.exit.thread.i, label %17
+  %.not25.i.i = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
+  br i1 %.not25.i.i, label %heap_page_body_allocate.exit.thread.i, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr i8, ptr %16, i64 65536
@@ -22399,251 +22399,244 @@ heap_page_resurrect.exit:                         ; preds = %6
   %20 = and i64 %19, 65535
   %21 = sub nsw i64 0, %20
   %22 = getelementptr i8, ptr %18, i64 %21
-  %23 = ptrtoint ptr %22 to i64
-  %24 = ptrtoint ptr %16 to i64
-  %25 = sub i64 %23, %24
-  %.not.i.i = icmp eq ptr %22, %16
-  br i1 %.not.i.i, label %.thread.i.i, label %26
+  %23 = sub nuw nsw i64 65536, %20
+  %24 = tail call i32 @munmap(ptr noundef %16, i64 noundef %23) #7
+  %.not.i.i = icmp eq i32 %24, 0
+  br i1 %.not.i.i, label %26, label %25
 
-26:                                               ; preds = %17
-  %27 = tail call i32 @munmap(ptr noundef %16, i64 noundef %25) #7
-  %.not23.i.i = icmp eq i32 %27, 0
-  br i1 %.not23.i.i, label %29, label %28
-
-28:                                               ; preds = %26
+25:                                               ; preds = %17
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.124) #61
   unreachable
 
-29:                                               ; preds = %26
-  %.not24.i.i = icmp eq i64 %25, 65536
-  br i1 %.not24.i.i, label %heap_page_body_allocate.exit.i, label %.thread.i.i
+26:                                               ; preds = %17
+  %.not23.i.i = icmp eq i64 %20, 0
+  br i1 %.not23.i.i, label %heap_page_body_allocate.exit.i, label %27
 
-.thread.i.i:                                      ; preds = %29, %17
-  %30 = sub i64 65536, %25
-  %31 = getelementptr i8, ptr %22, i64 65536
-  %32 = tail call i32 @munmap(ptr noundef %31, i64 noundef %30) #7
-  %.not25.i.i = icmp eq i32 %32, 0
-  br i1 %.not25.i.i, label %heap_page_body_allocate.exit.i, label %33
+27:                                               ; preds = %26
+  %28 = getelementptr i8, ptr %22, i64 65536
+  %29 = tail call i32 @munmap(ptr noundef %28, i64 noundef %20) #7
+  %.not24.i.i = icmp eq i32 %29, 0
+  br i1 %.not24.i.i, label %heap_page_body_allocate.exit.i, label %30
 
-33:                                               ; preds = %.thread.i.i
+30:                                               ; preds = %27
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.125) #61
   unreachable
 
-34:                                               ; preds = %14
+31:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  %35 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 65536, i64 noundef 65536) #7
-  %.not.i.i.i = icmp eq i32 %35, 0
-  %36 = load ptr, ptr %3, align 8
+  %32 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 65536, i64 noundef 65536) #7
+  %.not.i.i.i = icmp eq i32 %32, 0
+  %33 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   br i1 %.not.i.i.i, label %heap_page_body_allocate.exit.i, label %heap_page_body_allocate.exit.thread.i
 
-heap_page_body_allocate.exit.i:                   ; preds = %34, %.thread.i.i, %29
-  %.1.i.i = phi ptr [ %22, %.thread.i.i ], [ %22, %29 ], [ %36, %34 ]
-  %37 = icmp eq ptr %.1.i.i, null
-  br i1 %37, label %heap_page_body_allocate.exit.thread.i, label %38
+heap_page_body_allocate.exit.i:                   ; preds = %31, %27, %26
+  %.1.i.i = phi ptr [ %22, %27 ], [ %22, %26 ], [ %33, %31 ]
+  %34 = icmp eq ptr %.1.i.i, null
+  br i1 %34, label %heap_page_body_allocate.exit.thread.i, label %35
 
-heap_page_body_allocate.exit.thread.i:            ; preds = %heap_page_body_allocate.exit.i, %34, %15
+heap_page_body_allocate.exit.thread.i:            ; preds = %heap_page_body_allocate.exit.i, %31, %15
   call void @rb_memerror() #62
   unreachable
 
-38:                                               ; preds = %heap_page_body_allocate.exit.i
-  %39 = call noalias noundef dereferenceable_or_null(1736) ptr @calloc(i64 noundef 1, i64 noundef 1736) #64
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %42
+35:                                               ; preds = %heap_page_body_allocate.exit.i
+  %36 = call noalias noundef dereferenceable_or_null(1736) ptr @calloc(i64 noundef 1, i64 noundef 1736) #64
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %39
 
-41:                                               ; preds = %38
+38:                                               ; preds = %35
   call fastcc void @heap_page_body_free(ptr noundef nonnull %.1.i.i)
   call void @rb_memerror() #62
   unreachable
 
-42:                                               ; preds = %38
-  %43 = ptrtoint ptr %.1.i.i to i64
-  %44 = add i64 %43, 8
-  %45 = add i64 %43, 65536
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %47 = load ptr, ptr %46, align 8, !tbaa !170
-  %.not.i53.i = icmp eq ptr %47, null
+39:                                               ; preds = %35
+  %40 = ptrtoint ptr %.1.i.i to i64
+  %41 = add i64 %40, 8
+  %42 = add i64 %40, 65536
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %44 = load ptr, ptr %43, align 8, !tbaa !170
+  %.not.i53.i = icmp eq ptr %44, null
   br i1 %.not.i53.i, label %rbimpl_size_mul_or_raise.exit.i.i.i.i, label %rb_darray_size.exit.i
 
-rb_darray_size.exit.i:                            ; preds = %42
-  %48 = load i64, ptr %47, align 8, !tbaa !171
-  %.not.i18 = icmp eq i64 %48, 0
+rb_darray_size.exit.i:                            ; preds = %39
+  %45 = load i64, ptr %44, align 8, !tbaa !171
+  %.not.i18 = icmp eq i64 %45, 0
   br i1 %.not.i18, label %rb_darray_size.exit.i.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %rb_darray_size.exit.i
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  br label %50
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  br label %47
 
-50:                                               ; preds = %63, %.lr.ph.i
-  %.060.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %63 ]
-  %.04559.i = phi i64 [ %48, %.lr.ph.i ], [ %.146.i, %63 ]
-  %51 = add i64 %.04559.i, %.060.i
-  %52 = lshr i64 %51, 1
-  %53 = getelementptr [0 x ptr], ptr %49, i64 0, i64 %52
-  %54 = load ptr, ptr %53, align 8, !tbaa !173
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %56 = load i64, ptr %55, align 8, !tbaa !257
-  %57 = icmp ult i64 %56, %44
-  br i1 %57, label %58, label %60
+47:                                               ; preds = %60, %.lr.ph.i
+  %.060.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %60 ]
+  %.04559.i = phi i64 [ %45, %.lr.ph.i ], [ %.146.i, %60 ]
+  %48 = add i64 %.04559.i, %.060.i
+  %49 = lshr i64 %48, 1
+  %50 = getelementptr [0 x ptr], ptr %46, i64 0, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !173
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %53 = load i64, ptr %52, align 8, !tbaa !257
+  %54 = icmp ult i64 %53, %41
+  br i1 %54, label %55, label %57
 
-58:                                               ; preds = %50
-  %59 = add nuw i64 %52, 1
-  br label %63
+55:                                               ; preds = %47
+  %56 = add nuw i64 %49, 1
+  br label %60
 
-60:                                               ; preds = %50
-  %61 = icmp ugt i64 %56, %44
-  br i1 %61, label %63, label %62
+57:                                               ; preds = %47
+  %58 = icmp ugt i64 %53, %41
+  br i1 %58, label %60, label %59
 
-62:                                               ; preds = %60
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.123, ptr noundef nonnull %.1.i.i, i64 noundef %52) #61
+59:                                               ; preds = %57
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.123, ptr noundef nonnull %.1.i.i, i64 noundef %49) #61
   unreachable
 
-63:                                               ; preds = %60, %58
-  %.146.i = phi i64 [ %.04559.i, %58 ], [ %52, %60 ]
-  %.1.i = phi i64 [ %59, %58 ], [ %.060.i, %60 ]
-  %64 = icmp ult i64 %.1.i, %.146.i
-  br i1 %64, label %50, label %rb_darray_size.exit.i.i, !llvm.loop !584
+60:                                               ; preds = %57, %55
+  %.146.i = phi i64 [ %.04559.i, %55 ], [ %49, %57 ]
+  %.1.i = phi i64 [ %56, %55 ], [ %.060.i, %57 ]
+  %61 = icmp ult i64 %.1.i, %.146.i
+  br i1 %61, label %47, label %rb_darray_size.exit.i.i, !llvm.loop !584
 
-rb_darray_size.exit.i.i:                          ; preds = %63, %rb_darray_size.exit.i
-  %.045.lcssa.ph.i = phi i64 [ 0, %rb_darray_size.exit.i ], [ %.146.i, %63 ]
-  %65 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !289
-  %.fr.i.i = freeze i64 %66
-  %67 = icmp ult i64 %48, %.fr.i.i
-  br i1 %67, label %rb_darray_ensure_space.exit.thread.i, label %72
+rb_darray_size.exit.i.i:                          ; preds = %60, %rb_darray_size.exit.i
+  %.045.lcssa.ph.i = phi i64 [ 0, %rb_darray_size.exit.i ], [ %.146.i, %60 ]
+  %62 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %63 = load i64, ptr %62, align 8, !tbaa !289
+  %.fr.i.i = freeze i64 %63
+  %64 = icmp ult i64 %45, %.fr.i.i
+  br i1 %64, label %rb_darray_ensure_space.exit.thread.i, label %69
 
 rb_darray_ensure_space.exit.thread.i:             ; preds = %rb_darray_size.exit.i.i
-  %68 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %69 = add nuw i64 %.045.lcssa.ph.i, 1
-  %70 = getelementptr [0 x ptr], ptr %68, i64 0, i64 %69
-  %71 = getelementptr [0 x ptr], ptr %68, i64 0, i64 %.045.lcssa.ph.i
+  %65 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %66 = add nuw i64 %.045.lcssa.ph.i, 1
+  %67 = getelementptr [0 x ptr], ptr %65, i64 0, i64 %66
+  %68 = getelementptr [0 x ptr], ptr %65, i64 0, i64 %.045.lcssa.ph.i
   br label %rb_darray_size.exit56.i
 
-72:                                               ; preds = %rb_darray_size.exit.i.i
-  %73 = icmp eq i64 %.fr.i.i, 0
-  %74 = shl i64 %.fr.i.i, 1
-  br i1 %73, label %rbimpl_size_mul_or_raise.exit.i.i.i.i, label %75
+69:                                               ; preds = %rb_darray_size.exit.i.i
+  %70 = icmp eq i64 %.fr.i.i, 0
+  %71 = shl i64 %.fr.i.i, 1
+  br i1 %70, label %rbimpl_size_mul_or_raise.exit.i.i.i.i, label %72
 
-75:                                               ; preds = %72
-  %76 = icmp ugt i64 %74, 2305843009213693951
-  br i1 %76, label %77, label %rbimpl_size_mul_or_raise.exit.i.i.i.i, !prof !290
+72:                                               ; preds = %69
+  %73 = icmp ugt i64 %71, 2305843009213693951
+  br i1 %73, label %74, label %rbimpl_size_mul_or_raise.exit.i.i.i.i, !prof !290
 
-77:                                               ; preds = %75
-  call void @ruby_malloc_size_overflow(i64 noundef %74, i64 noundef 8) #63
+74:                                               ; preds = %72
+  call void @ruby_malloc_size_overflow(i64 noundef %71, i64 noundef 8) #63
   unreachable
 
-rbimpl_size_mul_or_raise.exit.i.i.i.i:            ; preds = %42, %72, %75
-  %.045.lcssa64.i = phi i64 [ %.045.lcssa.ph.i, %75 ], [ %.045.lcssa.ph.i, %72 ], [ 0, %42 ]
-  %78 = phi i64 [ %74, %75 ], [ 1, %72 ], [ 1, %42 ]
-  %79 = shl nuw i64 %78, 3
-  %80 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %79, i64 16)
-  %81 = extractvalue { i64, i1 } %80, 1
-  br i1 %81, label %82, label %rbimpl_size_add_or_raise.exit.i.i.i.i, !prof !79
+rbimpl_size_mul_or_raise.exit.i.i.i.i:            ; preds = %39, %69, %72
+  %.045.lcssa64.i = phi i64 [ %.045.lcssa.ph.i, %72 ], [ %.045.lcssa.ph.i, %69 ], [ 0, %39 ]
+  %75 = phi i64 [ %71, %72 ], [ 1, %69 ], [ 1, %39 ]
+  %76 = shl nuw i64 %75, 3
+  %77 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %76, i64 16)
+  %78 = extractvalue { i64, i1 } %77, 1
+  br i1 %78, label %79, label %rbimpl_size_add_or_raise.exit.i.i.i.i, !prof !79
 
-82:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i.i.i.i
-  call void @ruby_malloc_add_size_overflow(i64 noundef %79, i64 noundef 16) #63
+79:                                               ; preds = %rbimpl_size_mul_or_raise.exit.i.i.i.i
+  call void @ruby_malloc_add_size_overflow(i64 noundef %76, i64 noundef 16) #63
   unreachable
 
 rbimpl_size_add_or_raise.exit.i.i.i.i:            ; preds = %rbimpl_size_mul_or_raise.exit.i.i.i.i
-  %83 = extractvalue { i64, i1 } %80, 0
-  %84 = call ptr @realloc(ptr noundef %47, i64 noundef %83) #68
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %86, label %rb_darray_realloc_mul_add_without_gc.exit.i.i.i
+  %80 = extractvalue { i64, i1 } %77, 0
+  %81 = call ptr @realloc(ptr noundef %44, i64 noundef %80) #68
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %rb_darray_realloc_mul_add_without_gc.exit.i.i.i
 
-86:                                               ; preds = %rbimpl_size_add_or_raise.exit.i.i.i.i
+83:                                               ; preds = %rbimpl_size_add_or_raise.exit.i.i.i.i
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.101) #61
   unreachable
 
 rb_darray_realloc_mul_add_without_gc.exit.i.i.i:  ; preds = %rbimpl_size_add_or_raise.exit.i.i.i.i
-  br i1 %.not.i53.i, label %87, label %rb_darray_ensure_space.exit.i
+  br i1 %.not.i53.i, label %84, label %rb_darray_ensure_space.exit.i
 
-87:                                               ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i.i
-  store i64 0, ptr %84, align 8, !tbaa !171
+84:                                               ; preds = %rb_darray_realloc_mul_add_without_gc.exit.i.i.i
+  store i64 0, ptr %81, align 8, !tbaa !171
   br label %rb_darray_ensure_space.exit.i
 
-rb_darray_ensure_space.exit.i:                    ; preds = %87, %rb_darray_realloc_mul_add_without_gc.exit.i.i.i
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 %78, ptr %88, align 8, !tbaa !289
-  %89 = ptrtoint ptr %84 to i64
-  store i64 %89, ptr %46, align 1
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %91 = add nuw i64 %.045.lcssa64.i, 1
-  %92 = getelementptr [0 x ptr], ptr %90, i64 0, i64 %91
-  %93 = getelementptr [0 x ptr], ptr %90, i64 0, i64 %.045.lcssa64.i
-  %.pre = load i64, ptr %84, align 8, !tbaa !171
+rb_darray_ensure_space.exit.i:                    ; preds = %84, %rb_darray_realloc_mul_add_without_gc.exit.i.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store i64 %75, ptr %85, align 8, !tbaa !289
+  %86 = ptrtoint ptr %81 to i64
+  store i64 %86, ptr %43, align 1
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %88 = add nuw i64 %.045.lcssa64.i, 1
+  %89 = getelementptr [0 x ptr], ptr %87, i64 0, i64 %88
+  %90 = getelementptr [0 x ptr], ptr %87, i64 0, i64 %.045.lcssa64.i
+  %.pre = load i64, ptr %81, align 8, !tbaa !171
   br label %rb_darray_size.exit56.i
 
 rb_darray_size.exit56.i:                          ; preds = %rb_darray_ensure_space.exit.thread.i, %rb_darray_ensure_space.exit.i
-  %94 = phi ptr [ %71, %rb_darray_ensure_space.exit.thread.i ], [ %93, %rb_darray_ensure_space.exit.i ]
-  %95 = phi ptr [ %70, %rb_darray_ensure_space.exit.thread.i ], [ %92, %rb_darray_ensure_space.exit.i ]
+  %91 = phi ptr [ %68, %rb_darray_ensure_space.exit.thread.i ], [ %90, %rb_darray_ensure_space.exit.i ]
+  %92 = phi ptr [ %67, %rb_darray_ensure_space.exit.thread.i ], [ %89, %rb_darray_ensure_space.exit.i ]
   %.045.lcssa6571.i = phi i64 [ %.045.lcssa.ph.i, %rb_darray_ensure_space.exit.thread.i ], [ %.045.lcssa64.i, %rb_darray_ensure_space.exit.i ]
-  %96 = phi i64 [ %48, %rb_darray_ensure_space.exit.thread.i ], [ %.pre, %rb_darray_ensure_space.exit.i ]
-  %97 = sub i64 %96, %.045.lcssa6571.i
-  %98 = icmp ugt i64 %97, 2305843009213693951
-  br i1 %98, label %99, label %rbimpl_size_mul_or_raise.exit.i, !prof !79
+  %93 = phi i64 [ %45, %rb_darray_ensure_space.exit.thread.i ], [ %.pre, %rb_darray_ensure_space.exit.i ]
+  %94 = sub i64 %93, %.045.lcssa6571.i
+  %95 = icmp ugt i64 %94, 2305843009213693951
+  br i1 %95, label %96, label %rbimpl_size_mul_or_raise.exit.i, !prof !79
 
-99:                                               ; preds = %rb_darray_size.exit56.i
-  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %97) #63
+96:                                               ; preds = %rb_darray_size.exit56.i
+  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %94) #63
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i:                  ; preds = %rb_darray_size.exit56.i
-  %100 = shl nuw i64 %97, 3
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %95, ptr noundef nonnull align 1 %94, i64 noundef %100, i1 noundef false) #7
-  %101 = load ptr, ptr %46, align 8, !tbaa !170
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %103 = getelementptr [0 x ptr], ptr %102, i64 0, i64 %.045.lcssa6571.i
-  store ptr %39, ptr %103, align 8, !tbaa !173
-  %104 = load i64, ptr %101, align 8, !tbaa !171
-  %105 = add i64 %104, 1
-  store i64 %105, ptr %101, align 8, !tbaa !171
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %107 = load i64, ptr %106, align 8, !tbaa !93
-  %108 = add i64 %107, -1
-  %or.cond.not.i = icmp ult i64 %108, %44
-  br i1 %or.cond.not.i, label %110, label %109
+  %97 = shl nuw i64 %94, 3
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %92, ptr noundef nonnull align 1 %91, i64 noundef %97, i1 noundef false) #7
+  %98 = load ptr, ptr %43, align 8, !tbaa !170
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = getelementptr [0 x ptr], ptr %99, i64 0, i64 %.045.lcssa6571.i
+  store ptr %36, ptr %100, align 8, !tbaa !173
+  %101 = load i64, ptr %98, align 8, !tbaa !171
+  %102 = add i64 %101, 1
+  store i64 %102, ptr %98, align 8, !tbaa !171
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %104 = load i64, ptr %103, align 8, !tbaa !93
+  %105 = add i64 %104, -1
+  %or.cond.not.i = icmp ult i64 %105, %41
+  br i1 %or.cond.not.i, label %107, label %106
 
-109:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i
-  store i64 %44, ptr %106, align 8, !tbaa !93
-  br label %110
+106:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i
+  store i64 %41, ptr %103, align 8, !tbaa !93
+  br label %107
 
-110:                                              ; preds = %109, %rbimpl_size_mul_or_raise.exit.i
-  %111 = getelementptr i8, ptr %0, i64 864
-  %112 = load i64, ptr %111, align 8, !tbaa !93
-  %113 = icmp ult i64 %112, %45
-  br i1 %113, label %114, label %heap_page_allocate.exit
+107:                                              ; preds = %106, %rbimpl_size_mul_or_raise.exit.i
+  %108 = getelementptr i8, ptr %0, i64 864
+  %109 = load i64, ptr %108, align 8, !tbaa !93
+  %110 = icmp ult i64 %109, %42
+  br i1 %110, label %111, label %heap_page_allocate.exit
 
-114:                                              ; preds = %110
-  store i64 %45, ptr %111, align 8, !tbaa !93
+111:                                              ; preds = %107
+  store i64 %42, ptr %108, align 8, !tbaa !93
   br label %heap_page_allocate.exit
 
-heap_page_allocate.exit:                          ; preds = %110, %114
-  %115 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr %.1.i.i, ptr %115, align 8, !tbaa !175
-  store ptr %39, ptr %.1.i.i, align 8, !tbaa !186
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %117 = load i64, ptr %116, align 8, !tbaa !400
-  %118 = add i64 %117, 1
-  store i64 %118, ptr %116, align 8, !tbaa !400
-  br label %119
+heap_page_allocate.exit:                          ; preds = %107, %111
+  %112 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store ptr %.1.i.i, ptr %112, align 8, !tbaa !175
+  store ptr %36, ptr %.1.i.i, align 8, !tbaa !186
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %114 = load i64, ptr %113, align 8, !tbaa !400
+  %115 = add i64 %114, 1
+  store i64 %115, ptr %113, align 8, !tbaa !400
+  br label %116
 
-119:                                              ; preds = %heap_page_resurrect.exit, %heap_page_allocate.exit
-  %.0 = phi ptr [ %39, %heap_page_allocate.exit ], [ %8, %heap_page_resurrect.exit ]
+116:                                              ; preds = %heap_page_resurrect.exit, %heap_page_allocate.exit
+  %.0 = phi ptr [ %36, %heap_page_allocate.exit ], [ %8, %heap_page_resurrect.exit ]
   call fastcc void @heap_add_page(ptr noundef %1, ptr noundef %.0)
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %121 = load ptr, ptr %120, align 8, !tbaa !483
-  %122 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  store ptr %121, ptr %122, align 8, !tbaa !490
-  store ptr %.0, ptr %120, align 8, !tbaa !483
-  %123 = load i64, ptr %4, align 8, !tbaa !363
-  %124 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  %125 = load i16, ptr %124, align 2, !tbaa !258
-  %126 = zext i16 %125 to i64
-  %storemerge = call i64 @llvm.usub.sat.i64(i64 %123, i64 %126)
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %118 = load ptr, ptr %117, align 8, !tbaa !483
+  %119 = getelementptr inbounds nuw i8, ptr %.0, i64 24
+  store ptr %118, ptr %119, align 8, !tbaa !490
+  store ptr %.0, ptr %117, align 8, !tbaa !483
+  %120 = load i64, ptr %4, align 8, !tbaa !363
+  %121 = getelementptr inbounds nuw i8, ptr %.0, i64 2
+  %122 = load i16, ptr %121, align 2, !tbaa !258
+  %123 = zext i16 %122 to i64
+  %storemerge = call i64 @llvm.usub.sat.i64(i64 %120, i64 %123)
   store i64 %storemerge, ptr %4, align 8, !tbaa !363
-  br label %127
+  br label %124
 
-127:                                              ; preds = %2, %119
-  %.014 = phi i32 [ 1, %119 ], [ 0, %2 ]
+124:                                              ; preds = %2, %116
+  %.014 = phi i32 [ 1, %116 ], [ 0, %2 ]
   ret i32 %.014
 }
 

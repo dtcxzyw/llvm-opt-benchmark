@@ -1009,7 +1009,7 @@ memop_alignment_bits.exit:                        ; preds = %4, %6, %8
   br i1 %11, label %12, label %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge
 
 memop_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %memop_alignment_bits.exit
-  %.pre89 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %.pre88 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %check_max_alignment.exit
 
 12:                                               ; preds = %memop_alignment_bits.exit
@@ -1024,8 +1024,8 @@ memop_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %memop_a
   br label %check_max_alignment.exit
 
 check_max_alignment.exit:                         ; preds = %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge, %12
-  %.pre-phi90 = phi ptr [ %.pre89, %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %14, %12 ]
-  %20 = load ptr, ptr %.pre-phi90, align 8
+  %.pre-phi89 = phi ptr [ %.pre88, %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %14, %12 ]
+  %20 = load ptr, ptr %.pre-phi89, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2
@@ -1034,7 +1034,7 @@ check_max_alignment.exit:                         ; preds = %memop_alignment_bit
 
 24:                                               ; preds = %check_max_alignment.exit
   tail call void @tcg_gen_mb(i32 noundef 50) #6
-  %.pre = load ptr, ptr %.pre-phi90, align 8
+  %.pre = load ptr, ptr %.pre-phi89, align 8
   br label %tcg_gen_req_mo.exit
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %24
@@ -1054,281 +1054,262 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
   %36 = load i32, ptr @cpuinfo, align 4
   %37 = and i32 %36, 65536
   %.not74 = icmp eq i32 %37, 0
-  br i1 %.not74, label %73, label %38
+  br i1 %.not74, label %64, label %38
 
 38:                                               ; preds = %tcg_gen_req_mo.exit
   %39 = and i32 %.062, 16
   %.not76 = icmp eq i32 %39, 0
-  br i1 %.not76, label %52, label %40
+  br i1 %.not76, label %48, label %40
 
 40:                                               ; preds = %38
   %41 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %.062) #6
-  %.pre85 = load ptr, ptr %.pre-phi90, align 8
-  br i1 %41, label %52, label %42
+  br i1 %41, label %48, label %42
 
 42:                                               ; preds = %40
   %43 = ptrtoint ptr %0 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %.pre85, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %.pre85 to i64
-  %48 = sub i64 %46, %47
-  %49 = inttoptr i64 %48 to ptr
-  %50 = and i32 %34, -272
-  %51 = or i32 %50, %33
+  %44 = add i64 %43, 56
+  %45 = inttoptr i64 %44 to ptr
+  %46 = and i32 %34, -272
+  %47 = or i32 %46, %33
   br label %gen_ldst.exit
 
-52:                                               ; preds = %40, %38
-  %53 = phi ptr [ %.pre85, %40 ], [ %25, %38 ]
-  %54 = ptrtoint ptr %0 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %53 to i64
-  %59 = sub i64 %57, %58
-  %60 = inttoptr i64 %59 to ptr
+48:                                               ; preds = %40, %38
+  %49 = ptrtoint ptr %0 to i64
+  %50 = add i64 %49, 56
+  %51 = inttoptr i64 %50 to ptr
   br label %gen_ldst.exit
 
-gen_ldst.exit:                                    ; preds = %52, %42
-  %.pre-phi88 = phi i64 [ %59, %52 ], [ %43, %42 ]
-  %.pre-phi = phi i64 [ %54, %52 ], [ %48, %42 ]
-  %61 = phi ptr [ %53, %52 ], [ %.pre85, %42 ]
-  %.069 = phi ptr [ %0, %52 ], [ %49, %42 ]
-  %.068 = phi ptr [ %60, %52 ], [ %0, %42 ]
-  %.067 = phi i1 [ false, %52 ], [ true, %42 ]
-  %.066 = phi i32 [ %35, %52 ], [ %51, %42 ]
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 60
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 0
-  %. = select i1 %64, i32 145, i32 146
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 %.pre-phi
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 %.pre-phi88
-  %67 = ptrtoint ptr %65 to i64
-  %68 = ptrtoint ptr %66 to i64
-  %69 = ptrtoint ptr %1 to i64
-  %70 = zext i32 %.066 to i64
-  %71 = tail call ptr @tcg_gen_op4(i32 noundef range(i32 135, 149) %., i32 noundef 2, i64 noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef %70) #6
-  br i1 %.067, label %72, label %180
+gen_ldst.exit:                                    ; preds = %48, %42
+  %.pre-phi87 = phi i64 [ %50, %48 ], [ %43, %42 ]
+  %.pre-phi = phi i64 [ %49, %48 ], [ %44, %42 ]
+  %.069 = phi ptr [ %0, %48 ], [ %45, %42 ]
+  %.068 = phi ptr [ %51, %48 ], [ %0, %42 ]
+  %.067 = phi i1 [ false, %48 ], [ true, %42 ]
+  %.066 = phi i32 [ %35, %48 ], [ %47, %42 ]
+  %52 = load ptr, ptr %.pre-phi89, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 60
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  %. = select i1 %55, i32 145, i32 146
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 %.pre-phi
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %.pre-phi87
+  %58 = ptrtoint ptr %56 to i64
+  %59 = ptrtoint ptr %57 to i64
+  %60 = ptrtoint ptr %1 to i64
+  %61 = zext i32 %.066 to i64
+  %62 = tail call ptr @tcg_gen_op4(i32 noundef range(i32 135, 149) %., i32 noundef 2, i64 noundef %58, i64 noundef %59, i64 noundef %60, i64 noundef %61) #6
+  br i1 %.067, label %63, label %167
 
-72:                                               ; preds = %gen_ldst.exit
+63:                                               ; preds = %gen_ldst.exit
   tail call void @tcg_gen_bswap64_i64(ptr noundef %.069, ptr noundef %.069) #6
   tail call void @tcg_gen_bswap64_i64(ptr noundef %.068, ptr noundef %.068) #6
-  br label %180
+  br label %167
 
-73:                                               ; preds = %tcg_gen_req_mo.exit
-  %74 = load i8, ptr @tcg_use_softmmu, align 1, !range !4, !noundef !5
-  %75 = trunc nuw i8 %74 to i1
-  br i1 %75, label %150, label %76
+64:                                               ; preds = %tcg_gen_req_mo.exit
+  %65 = load i8, ptr @tcg_use_softmmu, align 1, !range !4, !noundef !5
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %137, label %67
 
-76:                                               ; preds = %73
-  %77 = lshr i32 %.062, 8
-  %78 = and i32 %77, 7
-  switch i32 %78, label %79 [
+67:                                               ; preds = %64
+  %68 = lshr i32 %.062, 8
+  %69 = and i32 %68, 7
+  switch i32 %69, label %70 [
     i32 5, label %use_two_i64_for_i128.exit
     i32 1, label %use_two_i64_for_i128.exit
-    i32 0, label %150
-    i32 4, label %150
-    i32 2, label %150
-    i32 3, label %150
+    i32 0, label %137
+    i32 4, label %137
+    i32 2, label %137
+    i32 3, label %137
   ]
 
-79:                                               ; preds = %76
+70:                                               ; preds = %67
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 493, ptr noundef nonnull @__func__.use_two_i64_for_i128, ptr noundef null) #7
   unreachable
 
-use_two_i64_for_i128.exit:                        ; preds = %76, %76
-  %80 = and i32 %.062, -8
-  %81 = or disjoint i32 %80, 3
-  %82 = lshr i32 %.062, 5
-  %83 = and i32 %82, 7
-  switch i32 %83, label %default.unreachable [
-    i32 0, label %91
-    i32 1, label %91
-    i32 2, label %91
-    i32 3, label %84
-    i32 7, label %86
-    i32 4, label %89
-    i32 5, label %89
-    i32 6, label %89
+use_two_i64_for_i128.exit:                        ; preds = %67, %67
+  %71 = and i32 %.062, -8
+  %72 = or disjoint i32 %71, 3
+  %73 = lshr i32 %.062, 5
+  %74 = and i32 %73, 7
+  switch i32 %74, label %default.unreachable [
+    i32 0, label %82
+    i32 1, label %82
+    i32 2, label %82
+    i32 3, label %75
+    i32 7, label %77
+    i32 4, label %80
+    i32 5, label %80
+    i32 6, label %80
   ]
 
-84:                                               ; preds = %use_two_i64_for_i128.exit
-  %85 = or i32 %80, 227
-  br label %91
+75:                                               ; preds = %use_two_i64_for_i128.exit
+  %76 = or i32 %71, 227
+  br label %82
 
-86:                                               ; preds = %use_two_i64_for_i128.exit
-  %87 = and i32 %81, -229
-  %88 = or disjoint i32 %87, 128
-  br label %91
+77:                                               ; preds = %use_two_i64_for_i128.exit
+  %78 = and i32 %72, -229
+  %79 = or disjoint i32 %78, 128
+  br label %82
 
-89:                                               ; preds = %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %90 = or i32 %80, 227
-  br label %91
+80:                                               ; preds = %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
+  %81 = or i32 %71, 227
+  br label %82
 
 default.unreachable:                              ; preds = %use_two_i64_for_i128.exit
   unreachable
 
-91:                                               ; preds = %89, %86, %84, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %.016.i = phi i32 [ %85, %84 ], [ %88, %86 ], [ %81, %89 ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ]
-  %.0.i80 = phi i32 [ %85, %84 ], [ %81, %86 ], [ %90, %89 ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ], [ %81, %use_two_i64_for_i128.exit ]
-  %92 = and i32 %.062, 16
-  %.not.i81 = icmp eq i32 %92, 0
-  br i1 %.not.i81, label %canonicalize_memop_i128_as_i64.exit, label %93
+82:                                               ; preds = %80, %77, %75, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
+  %.016.i = phi i32 [ %76, %75 ], [ %79, %77 ], [ %72, %80 ], [ %72, %use_two_i64_for_i128.exit ], [ %72, %use_two_i64_for_i128.exit ], [ %72, %use_two_i64_for_i128.exit ]
+  %.0.i80 = phi i32 [ %76, %75 ], [ %72, %77 ], [ %81, %80 ], [ %72, %use_two_i64_for_i128.exit ], [ %72, %use_two_i64_for_i128.exit ], [ %72, %use_two_i64_for_i128.exit ]
+  %83 = and i32 %.062, 16
+  %.not.i81 = icmp eq i32 %83, 0
+  br i1 %.not.i81, label %canonicalize_memop_i128_as_i64.exit, label %84
 
-93:                                               ; preds = %91
-  %94 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %.016.i) #6
-  br i1 %94, label %canonicalize_memop_i128_as_i64.exit, label %95
+84:                                               ; preds = %82
+  %85 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %.016.i) #6
+  br i1 %85, label %canonicalize_memop_i128_as_i64.exit, label %86
 
-95:                                               ; preds = %93
-  %96 = and i32 %.016.i, -17
-  %97 = and i32 %.0.i80, -17
+86:                                               ; preds = %84
+  %87 = and i32 %.016.i, -17
+  %88 = and i32 %.0.i80, -17
   br label %canonicalize_memop_i128_as_i64.exit
 
-canonicalize_memop_i128_as_i64.exit:              ; preds = %91, %93, %95
-  %.117.i = phi i32 [ %.016.i, %93 ], [ %96, %95 ], [ %.016.i, %91 ]
-  %.1.i = phi i32 [ %.0.i80, %93 ], [ %97, %95 ], [ %.0.i80, %91 ]
-  %98 = xor i32 %.117.i, %.062
-  %99 = and i32 %98, 16
-  %.not75 = icmp eq i32 %99, 0
-  %100 = load ptr, ptr %.pre-phi90, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 60
-  %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %102, 0
-  %.77 = select i1 %103, i32 137, i32 141
-  %104 = ptrtoint ptr %0 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %100, i64 %104
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
-  %107 = ptrtoint ptr %106 to i64
-  %108 = ptrtoint ptr %100 to i64
-  %109 = sub i64 %107, %108
-  %110 = inttoptr i64 %109 to ptr
-  %.064 = select i1 %.not.i81, ptr %0, ptr %110
-  %.063 = select i1 %.not.i81, ptr %110, ptr %0
-  %111 = shl i32 %.117.i, 4
-  %112 = or i32 %111, %33
-  %113 = ptrtoint ptr %.064 to i64
-  %114 = getelementptr inbounds nuw i8, ptr %100, i64 %113
-  %115 = ptrtoint ptr %114 to i64
-  %116 = ptrtoint ptr %1 to i64
-  %117 = zext i32 %112 to i64
-  %118 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.77, i32 noundef 1, i64 noundef %115, i64 noundef %116, i64 noundef %117) #6
-  br i1 %.not75, label %120, label %119
+canonicalize_memop_i128_as_i64.exit:              ; preds = %82, %84, %86
+  %.117.i = phi i32 [ %.016.i, %84 ], [ %87, %86 ], [ %.016.i, %82 ]
+  %.1.i = phi i32 [ %.0.i80, %84 ], [ %88, %86 ], [ %.0.i80, %82 ]
+  %89 = xor i32 %.117.i, %.062
+  %90 = and i32 %89, 16
+  %.not75 = icmp eq i32 %90, 0
+  %91 = load ptr, ptr %.pre-phi89, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 60
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp eq i32 %93, 0
+  %.77 = select i1 %94, i32 137, i32 141
+  %95 = ptrtoint ptr %0 to i64
+  %96 = add i64 %95, 56
+  %97 = inttoptr i64 %96 to ptr
+  %.064 = select i1 %.not.i81, ptr %0, ptr %97
+  %.063 = select i1 %.not.i81, ptr %97, ptr %0
+  %98 = shl i32 %.117.i, 4
+  %99 = or i32 %98, %33
+  %100 = ptrtoint ptr %.064 to i64
+  %101 = getelementptr inbounds nuw i8, ptr %91, i64 %100
+  %102 = ptrtoint ptr %101 to i64
+  %103 = ptrtoint ptr %1 to i64
+  %104 = zext i32 %99 to i64
+  %105 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.77, i32 noundef 1, i64 noundef %102, i64 noundef %103, i64 noundef %104) #6
+  br i1 %.not75, label %107, label %106
 
-119:                                              ; preds = %canonicalize_memop_i128_as_i64.exit
+106:                                              ; preds = %canonicalize_memop_i128_as_i64.exit
   tail call void @tcg_gen_bswap64_i64(ptr noundef %.064, ptr noundef %.064) #6
-  br label %120
+  br label %107
 
-120:                                              ; preds = %119, %canonicalize_memop_i128_as_i64.exit
-  %121 = load ptr, ptr %.pre-phi90, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 60
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %131
+107:                                              ; preds = %106, %canonicalize_memop_i128_as_i64.exit
+  %108 = load ptr, ptr %.pre-phi89, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 60
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp eq i32 %110, 0
+  br i1 %111, label %112, label %118
 
-125:                                              ; preds = %120
-  %126 = tail call ptr @tcg_temp_ebb_new_i32() #6
-  %127 = load ptr, ptr %.pre-phi90, align 8
-  %128 = ptrtoint ptr %127 to i64
-  %129 = sub i64 %116, %128
-  %130 = inttoptr i64 %129 to ptr
-  tail call void @tcg_gen_addi_i32(ptr noundef %126, ptr noundef %130, i32 noundef 8) #6
-  br label %137
+112:                                              ; preds = %107
+  %113 = tail call ptr @tcg_temp_ebb_new_i32() #6
+  %114 = load ptr, ptr %.pre-phi89, align 8
+  %115 = ptrtoint ptr %114 to i64
+  %116 = sub i64 %103, %115
+  %117 = inttoptr i64 %116 to ptr
+  tail call void @tcg_gen_addi_i32(ptr noundef %113, ptr noundef %117, i32 noundef 8) #6
+  br label %124
 
-131:                                              ; preds = %120
-  %132 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %133 = load ptr, ptr %.pre-phi90, align 8
-  %134 = ptrtoint ptr %133 to i64
-  %135 = sub i64 %116, %134
-  %136 = inttoptr i64 %135 to ptr
-  tail call void @tcg_gen_addi_i64(ptr noundef %132, ptr noundef %136, i64 noundef 8) #6
-  br label %137
+118:                                              ; preds = %107
+  %119 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %120 = load ptr, ptr %.pre-phi89, align 8
+  %121 = ptrtoint ptr %120 to i64
+  %122 = sub i64 %103, %121
+  %123 = inttoptr i64 %122 to ptr
+  tail call void @tcg_gen_addi_i64(ptr noundef %119, ptr noundef %123, i64 noundef 8) #6
+  br label %124
 
-137:                                              ; preds = %131, %125
-  %.sink92 = phi ptr [ %132, %131 ], [ %126, %125 ]
-  %138 = load ptr, ptr %.pre-phi90, align 8
-  %139 = ptrtoint ptr %.sink92 to i64
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %139
-  %141 = shl i32 %.1.i, 4
-  %142 = or i32 %141, %33
-  %143 = ptrtoint ptr %.063 to i64
-  %144 = getelementptr inbounds nuw i8, ptr %138, i64 %143
-  %145 = ptrtoint ptr %144 to i64
-  %146 = ptrtoint ptr %140 to i64
-  %147 = zext i32 %142 to i64
-  %148 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.77, i32 noundef 1, i64 noundef %145, i64 noundef %146, i64 noundef %147) #6
-  tail call void @tcg_temp_free_internal(ptr noundef %140) #6
-  br i1 %.not75, label %180, label %149
+124:                                              ; preds = %118, %112
+  %.sink91 = phi ptr [ %119, %118 ], [ %113, %112 ]
+  %125 = load ptr, ptr %.pre-phi89, align 8
+  %126 = ptrtoint ptr %.sink91 to i64
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 %126
+  %128 = shl i32 %.1.i, 4
+  %129 = or i32 %128, %33
+  %130 = ptrtoint ptr %.063 to i64
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 %130
+  %132 = ptrtoint ptr %131 to i64
+  %133 = ptrtoint ptr %127 to i64
+  %134 = zext i32 %129 to i64
+  %135 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.77, i32 noundef 1, i64 noundef %132, i64 noundef %133, i64 noundef %134) #6
+  tail call void @tcg_temp_free_internal(ptr noundef %127) #6
+  br i1 %.not75, label %167, label %136
 
-149:                                              ; preds = %137
+136:                                              ; preds = %124
   tail call void @tcg_gen_bswap64_i64(ptr noundef %.063, ptr noundef %.063) #6
-  br label %180
+  br label %167
 
-150:                                              ; preds = %76, %76, %76, %76, %73
-  %151 = getelementptr inbounds nuw i8, ptr %25, i64 60
-  %152 = load i32, ptr %151, align 4
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %164
+137:                                              ; preds = %67, %67, %67, %67, %64
+  %138 = getelementptr inbounds nuw i8, ptr %25, i64 60
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %139, 0
+  br i1 %140, label %141, label %151
 
-154:                                              ; preds = %150
-  %155 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %156 = load ptr, ptr %.pre-phi90, align 8
-  %157 = ptrtoint ptr %1 to i64
-  %158 = ptrtoint ptr %156 to i64
-  %159 = sub i64 %157, %158
-  %160 = inttoptr i64 %159 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %155, ptr noundef %160) #6
-  %161 = load ptr, ptr %.pre-phi90, align 8
-  %162 = ptrtoint ptr %155 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 %162
-  br label %164
+141:                                              ; preds = %137
+  %142 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %143 = load ptr, ptr %.pre-phi89, align 8
+  %144 = ptrtoint ptr %1 to i64
+  %145 = ptrtoint ptr %143 to i64
+  %146 = sub i64 %144, %145
+  %147 = inttoptr i64 %146 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %142, ptr noundef %147) #6
+  %148 = load ptr, ptr %.pre-phi89, align 8
+  %149 = ptrtoint ptr %142 to i64
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 %149
+  br label %151
 
-164:                                              ; preds = %154, %150
-  %165 = phi ptr [ %161, %154 ], [ %25, %150 ]
-  %.173 = phi ptr [ %155, %154 ], [ null, %150 ]
-  %.1 = phi ptr [ %163, %154 ], [ %1, %150 ]
-  %166 = load ptr, ptr @tcg_env, align 8
-  %167 = ptrtoint ptr %.1 to i64
-  %168 = ptrtoint ptr %165 to i64
-  %169 = sub i64 %167, %168
-  %170 = tail call ptr @tcg_constant_i32(i32 noundef %35) #6
-  %171 = load ptr, ptr @helper_info_ld_i128, align 8
-  %172 = load ptr, ptr %.pre-phi90, align 8
+151:                                              ; preds = %141, %137
+  %152 = phi ptr [ %148, %141 ], [ %25, %137 ]
+  %.173 = phi ptr [ %142, %141 ], [ null, %137 ]
+  %.1 = phi ptr [ %150, %141 ], [ %1, %137 ]
+  %153 = load ptr, ptr @tcg_env, align 8
+  %154 = ptrtoint ptr %.1 to i64
+  %155 = ptrtoint ptr %152 to i64
+  %156 = sub i64 %154, %155
+  %157 = tail call ptr @tcg_constant_i32(i32 noundef %35) #6
+  %158 = load ptr, ptr @helper_info_ld_i128, align 8
+  %159 = load ptr, ptr %.pre-phi89, align 8
+  %160 = ptrtoint ptr %0 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 %160
+  %162 = ptrtoint ptr %153 to i64
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 %162
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 %156
+  %165 = ptrtoint ptr %157 to i64
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 %165
+  tail call void @tcg_gen_call3(ptr noundef %158, ptr noundef nonnull @helper_info_ld_i128, ptr noundef %161, ptr noundef %163, ptr noundef %164, ptr noundef %166) #6
+  br label %167
+
+167:                                              ; preds = %124, %136, %gen_ldst.exit, %63, %151
+  %.072 = phi ptr [ %.173, %151 ], [ null, %63 ], [ null, %gen_ldst.exit ], [ null, %136 ], [ null, %124 ]
+  %.0 = phi ptr [ %.1, %151 ], [ %1, %63 ], [ %1, %gen_ldst.exit ], [ %1, %136 ], [ %1, %124 ]
+  %168 = load ptr, ptr %.pre-phi89, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 232
+  %170 = load ptr, ptr %169, align 8
+  %.not.i82 = icmp eq ptr %170, null
+  br i1 %.not.i82, label %plugin_gen_mem_callbacks_i128.exit, label %171
+
+171:                                              ; preds = %167
+  %172 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %0, ptr noundef %172, i64 noundef -24) #6
   %173 = ptrtoint ptr %0 to i64
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 %173
-  %175 = ptrtoint ptr %166 to i64
-  %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 %169
-  %178 = ptrtoint ptr %170 to i64
-  %179 = getelementptr inbounds nuw i8, ptr %172, i64 %178
-  tail call void @tcg_gen_call3(ptr noundef %171, ptr noundef nonnull @helper_info_ld_i128, ptr noundef %174, ptr noundef %176, ptr noundef %177, ptr noundef %179) #6
-  br label %180
-
-180:                                              ; preds = %137, %149, %gen_ldst.exit, %72, %164
-  %.072 = phi ptr [ %.173, %164 ], [ null, %72 ], [ null, %gen_ldst.exit ], [ null, %149 ], [ null, %137 ]
-  %.0 = phi ptr [ %.1, %164 ], [ %1, %72 ], [ %1, %gen_ldst.exit ], [ %1, %149 ], [ %1, %137 ]
-  %181 = load ptr, ptr %.pre-phi90, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 232
-  %183 = load ptr, ptr %182, align 8
-  %.not.i82 = icmp eq ptr %183, null
-  br i1 %.not.i82, label %plugin_gen_mem_callbacks_i128.exit, label %184
-
-184:                                              ; preds = %180
-  %185 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %0, ptr noundef %185, i64 noundef -24) #6
-  %186 = load ptr, ptr %.pre-phi90, align 8
-  %187 = ptrtoint ptr %0 to i64
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 %187
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 56
-  %190 = ptrtoint ptr %189 to i64
-  %191 = ptrtoint ptr %186 to i64
-  %192 = sub i64 %190, %191
-  %193 = inttoptr i64 %192 to ptr
-  %194 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %193, ptr noundef %194, i64 noundef -16) #6
+  %174 = add i64 %173, 56
+  %175 = inttoptr i64 %174 to ptr
+  %176 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %175, ptr noundef %176, i64 noundef -16) #6
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %.072, ptr noundef %.0, i32 noundef %35, i32 noundef 1)
   br label %plugin_gen_mem_callbacks_i128.exit
 
-plugin_gen_mem_callbacks_i128.exit:               ; preds = %180, %184
+plugin_gen_mem_callbacks_i128.exit:               ; preds = %167, %171
   ret void
 }
 
@@ -1374,7 +1355,7 @@ memop_alignment_bits.exit:                        ; preds = %4, %6, %8
   br i1 %11, label %12, label %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge
 
 memop_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %memop_alignment_bits.exit
-  %.pre107 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %.pre105 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %check_max_alignment.exit
 
 12:                                               ; preds = %memop_alignment_bits.exit
@@ -1389,8 +1370,8 @@ memop_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %memop_a
   br label %check_max_alignment.exit
 
 check_max_alignment.exit:                         ; preds = %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge, %12
-  %.pre-phi108 = phi ptr [ %.pre107, %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %14, %12 ]
-  %20 = load ptr, ptr %.pre-phi108, align 8
+  %.pre-phi106 = phi ptr [ %.pre105, %memop_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %14, %12 ]
+  %20 = load ptr, ptr %.pre-phi106, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 2
@@ -1399,7 +1380,7 @@ check_max_alignment.exit:                         ; preds = %memop_alignment_bit
 
 24:                                               ; preds = %check_max_alignment.exit
   tail call void @tcg_gen_mb(i32 noundef 50) #6
-  %.pre = load ptr, ptr %.pre-phi108, align 8
+  %.pre = load ptr, ptr %.pre-phi106, align 8
   br label %tcg_gen_req_mo.exit
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %24
@@ -1419,328 +1400,300 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
   %36 = load i32, ptr @cpuinfo, align 4
   %37 = and i32 %36, 65536
   %.not81 = icmp eq i32 %37, 0
-  br i1 %.not81, label %77, label %38
+  br i1 %.not81, label %67, label %38
 
 38:                                               ; preds = %tcg_gen_req_mo.exit
   %39 = and i32 %.067, 16
   %.not84 = icmp eq i32 %39, 0
-  br i1 %.not84, label %55, label %40
+  br i1 %.not84, label %50, label %40
 
 40:                                               ; preds = %38
   %41 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %.067) #6
-  br i1 %41, label %._crit_edge, label %42
-
-._crit_edge:                                      ; preds = %40
-  %.pre103 = load ptr, ptr %.pre-phi108, align 8
-  br label %55
+  br i1 %41, label %50, label %42
 
 42:                                               ; preds = %40
   %43 = tail call ptr @tcg_temp_ebb_new_i64() #6
   %44 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %45 = load ptr, ptr %.pre-phi108, align 8
-  %46 = ptrtoint ptr %0 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = ptrtoint ptr %48 to i64
-  %50 = ptrtoint ptr %45 to i64
-  %51 = sub i64 %49, %50
-  %52 = inttoptr i64 %51 to ptr
-  tail call void @tcg_gen_bswap64_i64(ptr noundef %43, ptr noundef %52) #6
+  %45 = ptrtoint ptr %0 to i64
+  %46 = add i64 %45, 56
+  %47 = inttoptr i64 %46 to ptr
+  tail call void @tcg_gen_bswap64_i64(ptr noundef %43, ptr noundef %47) #6
   tail call void @tcg_gen_bswap64_i64(ptr noundef %44, ptr noundef %0) #6
-  %53 = and i32 %34, -272
-  %54 = or i32 %53, %33
-  %.pre104 = load ptr, ptr %.pre-phi108, align 8
-  %.pre106 = ptrtoint ptr %43 to i64
+  %48 = and i32 %34, -272
+  %49 = or i32 %48, %33
+  %.pre104 = ptrtoint ptr %43 to i64
   br label %gen_ldst.exit
 
-55:                                               ; preds = %._crit_edge, %38
-  %56 = phi ptr [ %.pre103, %._crit_edge ], [ %25, %38 ]
-  %57 = ptrtoint ptr %0 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
-  %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %56 to i64
-  %62 = sub i64 %60, %61
-  %63 = inttoptr i64 %62 to ptr
+50:                                               ; preds = %40, %38
+  %51 = ptrtoint ptr %0 to i64
+  %52 = add i64 %51, 56
+  %53 = inttoptr i64 %52 to ptr
   br label %gen_ldst.exit
 
-gen_ldst.exit:                                    ; preds = %55, %42
-  %.pre-phi = phi i64 [ %57, %55 ], [ %.pre106, %42 ]
-  %64 = phi ptr [ %56, %55 ], [ %.pre104, %42 ]
-  %.076 = phi ptr [ %0, %55 ], [ %43, %42 ]
-  %.075 = phi ptr [ %63, %55 ], [ %44, %42 ]
-  %.074 = phi i32 [ %35, %55 ], [ %54, %42 ]
-  %.073 = phi i1 [ false, %55 ], [ true, %42 ]
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 60
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, 0
-  %. = select i1 %67, i32 147, i32 148
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %.pre-phi
-  %69 = ptrtoint ptr %.075 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 %69
-  %71 = ptrtoint ptr %68 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %1 to i64
-  %74 = zext i32 %.074 to i64
-  %75 = tail call ptr @tcg_gen_op4(i32 noundef range(i32 135, 149) %., i32 noundef 2, i64 noundef %71, i64 noundef %72, i64 noundef %73, i64 noundef %74) #6
-  br i1 %.073, label %76, label %209
+gen_ldst.exit:                                    ; preds = %50, %42
+  %.pre-phi = phi i64 [ %51, %50 ], [ %.pre104, %42 ]
+  %.076 = phi ptr [ %0, %50 ], [ %43, %42 ]
+  %.075 = phi ptr [ %53, %50 ], [ %44, %42 ]
+  %.074 = phi i32 [ %35, %50 ], [ %49, %42 ]
+  %.073 = phi i1 [ false, %50 ], [ true, %42 ]
+  %54 = load ptr, ptr %.pre-phi106, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 60
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %56, 0
+  %. = select i1 %57, i32 147, i32 148
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.pre-phi
+  %59 = ptrtoint ptr %.075 to i64
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 %59
+  %61 = ptrtoint ptr %58 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = ptrtoint ptr %1 to i64
+  %64 = zext i32 %.074 to i64
+  %65 = tail call ptr @tcg_gen_op4(i32 noundef range(i32 135, 149) %., i32 noundef 2, i64 noundef %61, i64 noundef %62, i64 noundef %63, i64 noundef %64) #6
+  br i1 %.073, label %66, label %191
 
-76:                                               ; preds = %gen_ldst.exit
+66:                                               ; preds = %gen_ldst.exit
   tail call void @tcg_temp_free_i64(ptr noundef %.076) #6
   tail call void @tcg_temp_free_i64(ptr noundef %.075) #6
-  br label %209
+  br label %191
 
-77:                                               ; preds = %tcg_gen_req_mo.exit
-  %78 = load i8, ptr @tcg_use_softmmu, align 1, !range !4, !noundef !5
-  %79 = trunc nuw i8 %78 to i1
-  br i1 %79, label %179, label %80
+67:                                               ; preds = %tcg_gen_req_mo.exit
+  %68 = load i8, ptr @tcg_use_softmmu, align 1, !range !4, !noundef !5
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %161, label %70
 
-80:                                               ; preds = %77
-  %81 = lshr i32 %.067, 8
-  %82 = and i32 %81, 7
-  switch i32 %82, label %83 [
+70:                                               ; preds = %67
+  %71 = lshr i32 %.067, 8
+  %72 = and i32 %71, 7
+  switch i32 %72, label %73 [
     i32 5, label %use_two_i64_for_i128.exit
     i32 1, label %use_two_i64_for_i128.exit
-    i32 0, label %179
-    i32 4, label %179
-    i32 2, label %179
-    i32 3, label %179
+    i32 0, label %161
+    i32 4, label %161
+    i32 2, label %161
+    i32 3, label %161
   ]
 
-83:                                               ; preds = %80
+73:                                               ; preds = %70
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 493, ptr noundef nonnull @__func__.use_two_i64_for_i128, ptr noundef null) #7
   unreachable
 
-use_two_i64_for_i128.exit:                        ; preds = %80, %80
-  %84 = and i32 %.067, -8
-  %85 = or disjoint i32 %84, 3
-  %86 = lshr i32 %.067, 5
-  %87 = and i32 %86, 7
-  switch i32 %87, label %default.unreachable [
-    i32 0, label %95
-    i32 1, label %95
-    i32 2, label %95
-    i32 3, label %88
-    i32 7, label %90
-    i32 4, label %93
-    i32 5, label %93
-    i32 6, label %93
+use_two_i64_for_i128.exit:                        ; preds = %70, %70
+  %74 = and i32 %.067, -8
+  %75 = or disjoint i32 %74, 3
+  %76 = lshr i32 %.067, 5
+  %77 = and i32 %76, 7
+  switch i32 %77, label %default.unreachable [
+    i32 0, label %85
+    i32 1, label %85
+    i32 2, label %85
+    i32 3, label %78
+    i32 7, label %80
+    i32 4, label %83
+    i32 5, label %83
+    i32 6, label %83
   ]
 
-88:                                               ; preds = %use_two_i64_for_i128.exit
-  %89 = or i32 %84, 227
-  br label %95
+78:                                               ; preds = %use_two_i64_for_i128.exit
+  %79 = or i32 %74, 227
+  br label %85
 
-90:                                               ; preds = %use_two_i64_for_i128.exit
-  %91 = and i32 %85, -229
-  %92 = or disjoint i32 %91, 128
-  br label %95
+80:                                               ; preds = %use_two_i64_for_i128.exit
+  %81 = and i32 %75, -229
+  %82 = or disjoint i32 %81, 128
+  br label %85
 
-93:                                               ; preds = %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %94 = or i32 %84, 227
-  br label %95
+83:                                               ; preds = %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
+  %84 = or i32 %74, 227
+  br label %85
 
 default.unreachable:                              ; preds = %use_two_i64_for_i128.exit
   unreachable
 
-95:                                               ; preds = %93, %90, %88, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
-  %.016.i = phi i32 [ %89, %88 ], [ %92, %90 ], [ %85, %93 ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ]
-  %.0.i88 = phi i32 [ %89, %88 ], [ %85, %90 ], [ %94, %93 ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ], [ %85, %use_two_i64_for_i128.exit ]
-  %96 = and i32 %.067, 16
-  %.not.i89 = icmp eq i32 %96, 0
-  br i1 %.not.i89, label %112, label %97
+85:                                               ; preds = %83, %80, %78, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit, %use_two_i64_for_i128.exit
+  %.016.i = phi i32 [ %79, %78 ], [ %82, %80 ], [ %75, %83 ], [ %75, %use_two_i64_for_i128.exit ], [ %75, %use_two_i64_for_i128.exit ], [ %75, %use_two_i64_for_i128.exit ]
+  %.0.i88 = phi i32 [ %79, %78 ], [ %75, %80 ], [ %84, %83 ], [ %75, %use_two_i64_for_i128.exit ], [ %75, %use_two_i64_for_i128.exit ], [ %75, %use_two_i64_for_i128.exit ]
+  %86 = and i32 %.067, 16
+  %.not.i89 = icmp eq i32 %86, 0
+  br i1 %.not.i89, label %98, label %87
 
-97:                                               ; preds = %95
-  %98 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %.016.i) #6
-  %99 = and i32 %.016.i, -17
-  %100 = and i32 %.0.i88, -17
-  %.117.i.ph = select i1 %98, i32 %.016.i, i32 %99
-  %.1.i.ph = select i1 %98, i32 %.0.i88, i32 %100
-  %101 = load ptr, ptr %.pre-phi108, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 60
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp eq i32 %103, 0
-  %.8596 = select i1 %104, i32 138, i32 142
-  %105 = ptrtoint ptr %0 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
-  %108 = ptrtoint ptr %107 to i64
-  %109 = ptrtoint ptr %101 to i64
-  %110 = sub i64 %108, %109
-  %111 = inttoptr i64 %110 to ptr
-  br label %123
+87:                                               ; preds = %85
+  %88 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %.016.i) #6
+  %89 = and i32 %.016.i, -17
+  %90 = and i32 %.0.i88, -17
+  %.117.i.ph = select i1 %88, i32 %.016.i, i32 %89
+  %.1.i.ph = select i1 %88, i32 %.0.i88, i32 %90
+  %91 = load ptr, ptr %.pre-phi106, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 60
+  %93 = load i32, ptr %92, align 4
+  %94 = icmp eq i32 %93, 0
+  %.8596 = select i1 %94, i32 138, i32 142
+  %95 = ptrtoint ptr %0 to i64
+  %96 = add i64 %95, 56
+  %97 = inttoptr i64 %96 to ptr
+  br label %105
 
-112:                                              ; preds = %95
-  %113 = getelementptr inbounds nuw i8, ptr %25, i64 60
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp eq i32 %114, 0
-  %.85 = select i1 %115, i32 138, i32 142
-  %116 = ptrtoint ptr %0 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %25, i64 %116
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %119 = ptrtoint ptr %118 to i64
-  %120 = ptrtoint ptr %25 to i64
-  %121 = sub i64 %119, %120
-  %122 = inttoptr i64 %121 to ptr
-  br label %123
+98:                                               ; preds = %85
+  %99 = getelementptr inbounds nuw i8, ptr %25, i64 60
+  %100 = load i32, ptr %99, align 4
+  %101 = icmp eq i32 %100, 0
+  %.85 = select i1 %101, i32 138, i32 142
+  %102 = ptrtoint ptr %0 to i64
+  %103 = add i64 %102, 56
+  %104 = inttoptr i64 %103 to ptr
+  br label %105
 
-123:                                              ; preds = %97, %112
-  %124 = phi ptr [ %25, %112 ], [ %101, %97 ]
-  %.85101 = phi i32 [ %.85, %112 ], [ %.8596, %97 ]
-  %.1.i99 = phi i32 [ %.0.i88, %112 ], [ %.1.i.ph, %97 ]
-  %.117.i97 = phi i32 [ %.016.i, %112 ], [ %.117.i.ph, %97 ]
-  %.070 = phi ptr [ %0, %112 ], [ %111, %97 ]
-  %.069 = phi ptr [ %122, %112 ], [ %0, %97 ]
-  %125 = xor i32 %.117.i97, %.067
-  %126 = and i32 %125, 16
-  %.not82 = icmp eq i32 %126, 0
-  br i1 %.not82, label %129, label %127
+105:                                              ; preds = %87, %98
+  %106 = phi ptr [ %25, %98 ], [ %91, %87 ]
+  %.85101 = phi i32 [ %.85, %98 ], [ %.8596, %87 ]
+  %.1.i99 = phi i32 [ %.0.i88, %98 ], [ %.1.i.ph, %87 ]
+  %.117.i97 = phi i32 [ %.016.i, %98 ], [ %.117.i.ph, %87 ]
+  %.070 = phi ptr [ %0, %98 ], [ %97, %87 ]
+  %.069 = phi ptr [ %104, %98 ], [ %0, %87 ]
+  %107 = xor i32 %.117.i97, %.067
+  %108 = and i32 %107, 16
+  %.not82 = icmp eq i32 %108, 0
+  br i1 %.not82, label %111, label %109
 
-127:                                              ; preds = %123
-  %128 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  tail call void @tcg_gen_bswap64_i64(ptr noundef %128, ptr noundef %.070) #6
-  %.pre105 = load ptr, ptr %.pre-phi108, align 8
-  br label %129
+109:                                              ; preds = %105
+  %110 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  tail call void @tcg_gen_bswap64_i64(ptr noundef %110, ptr noundef %.070) #6
+  %.pre103 = load ptr, ptr %.pre-phi106, align 8
+  br label %111
 
-129:                                              ; preds = %127, %123
-  %130 = phi ptr [ %.pre105, %127 ], [ %124, %123 ]
-  %.171 = phi ptr [ %128, %127 ], [ %.070, %123 ]
-  %.068 = phi ptr [ %128, %127 ], [ null, %123 ]
-  %131 = shl i32 %.117.i97, 4
-  %132 = or i32 %131, %33
-  %133 = ptrtoint ptr %.171 to i64
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %133
-  %135 = ptrtoint ptr %134 to i64
-  %136 = ptrtoint ptr %1 to i64
-  %137 = zext i32 %132 to i64
-  %138 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.85101, i32 noundef 1, i64 noundef %135, i64 noundef %136, i64 noundef %137) #6
-  %139 = load ptr, ptr %.pre-phi108, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 60
-  %141 = load i32, ptr %140, align 4
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %149
+111:                                              ; preds = %109, %105
+  %112 = phi ptr [ %.pre103, %109 ], [ %106, %105 ]
+  %.171 = phi ptr [ %110, %109 ], [ %.070, %105 ]
+  %.068 = phi ptr [ %110, %109 ], [ null, %105 ]
+  %113 = shl i32 %.117.i97, 4
+  %114 = or i32 %113, %33
+  %115 = ptrtoint ptr %.171 to i64
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 %115
+  %117 = ptrtoint ptr %116 to i64
+  %118 = ptrtoint ptr %1 to i64
+  %119 = zext i32 %114 to i64
+  %120 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.85101, i32 noundef 1, i64 noundef %117, i64 noundef %118, i64 noundef %119) #6
+  %121 = load ptr, ptr %.pre-phi106, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 60
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %131
 
-143:                                              ; preds = %129
-  %144 = tail call ptr @tcg_temp_ebb_new_i32() #6
-  %145 = load ptr, ptr %.pre-phi108, align 8
-  %146 = ptrtoint ptr %145 to i64
-  %147 = sub i64 %136, %146
-  %148 = inttoptr i64 %147 to ptr
-  tail call void @tcg_gen_addi_i32(ptr noundef %144, ptr noundef %148, i32 noundef 8) #6
-  br label %155
+125:                                              ; preds = %111
+  %126 = tail call ptr @tcg_temp_ebb_new_i32() #6
+  %127 = load ptr, ptr %.pre-phi106, align 8
+  %128 = ptrtoint ptr %127 to i64
+  %129 = sub i64 %118, %128
+  %130 = inttoptr i64 %129 to ptr
+  tail call void @tcg_gen_addi_i32(ptr noundef %126, ptr noundef %130, i32 noundef 8) #6
+  br label %137
 
-149:                                              ; preds = %129
-  %150 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %151 = load ptr, ptr %.pre-phi108, align 8
-  %152 = ptrtoint ptr %151 to i64
-  %153 = sub i64 %136, %152
-  %154 = inttoptr i64 %153 to ptr
-  tail call void @tcg_gen_addi_i64(ptr noundef %150, ptr noundef %154, i64 noundef 8) #6
-  br label %155
+131:                                              ; preds = %111
+  %132 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %133 = load ptr, ptr %.pre-phi106, align 8
+  %134 = ptrtoint ptr %133 to i64
+  %135 = sub i64 %118, %134
+  %136 = inttoptr i64 %135 to ptr
+  tail call void @tcg_gen_addi_i64(ptr noundef %132, ptr noundef %136, i64 noundef 8) #6
+  br label %137
 
-155:                                              ; preds = %149, %143
-  %.sink110 = phi ptr [ %150, %149 ], [ %144, %143 ]
-  %156 = load ptr, ptr %.pre-phi108, align 8
-  %157 = ptrtoint ptr %.sink110 to i64
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
+137:                                              ; preds = %131, %125
+  %.sink108 = phi ptr [ %132, %131 ], [ %126, %125 ]
+  %138 = load ptr, ptr %.pre-phi106, align 8
+  %139 = ptrtoint ptr %.sink108 to i64
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %139
   %.not83 = icmp eq ptr %.068, null
-  br i1 %.not83, label %169, label %159
+  br i1 %.not83, label %151, label %141
 
-159:                                              ; preds = %155
+141:                                              ; preds = %137
   tail call void @tcg_gen_bswap64_i64(ptr noundef nonnull %.068, ptr noundef %.069) #6
-  %160 = shl i32 %.1.i99, 4
-  %161 = or i32 %160, %33
-  %162 = load ptr, ptr %.pre-phi108, align 8
-  %163 = ptrtoint ptr %.068 to i64
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 %163
-  %165 = ptrtoint ptr %164 to i64
-  %166 = ptrtoint ptr %158 to i64
-  %167 = zext i32 %161 to i64
-  %168 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.85101, i32 noundef 1, i64 noundef %165, i64 noundef %166, i64 noundef %167) #6
+  %142 = shl i32 %.1.i99, 4
+  %143 = or i32 %142, %33
+  %144 = load ptr, ptr %.pre-phi106, align 8
+  %145 = ptrtoint ptr %.068 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 %145
+  %147 = ptrtoint ptr %146 to i64
+  %148 = ptrtoint ptr %140 to i64
+  %149 = zext i32 %143 to i64
+  %150 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.85101, i32 noundef 1, i64 noundef %147, i64 noundef %148, i64 noundef %149) #6
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %.068) #6
-  br label %178
+  br label %160
 
-169:                                              ; preds = %155
-  %170 = shl i32 %.1.i99, 4
-  %171 = or i32 %170, %33
-  %172 = ptrtoint ptr %.069 to i64
-  %173 = getelementptr inbounds nuw i8, ptr %156, i64 %172
-  %174 = ptrtoint ptr %173 to i64
-  %175 = ptrtoint ptr %158 to i64
-  %176 = zext i32 %171 to i64
-  %177 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.85101, i32 noundef 1, i64 noundef %174, i64 noundef %175, i64 noundef %176) #6
-  br label %178
+151:                                              ; preds = %137
+  %152 = shl i32 %.1.i99, 4
+  %153 = or i32 %152, %33
+  %154 = ptrtoint ptr %.069 to i64
+  %155 = getelementptr inbounds nuw i8, ptr %138, i64 %154
+  %156 = ptrtoint ptr %155 to i64
+  %157 = ptrtoint ptr %140 to i64
+  %158 = zext i32 %153 to i64
+  %159 = tail call ptr @tcg_gen_op3(i32 noundef range(i32 137, 143) %.85101, i32 noundef 1, i64 noundef %156, i64 noundef %157, i64 noundef %158) #6
+  br label %160
 
-178:                                              ; preds = %169, %159
-  tail call void @tcg_temp_free_internal(ptr noundef %158) #6
-  br label %209
+160:                                              ; preds = %151, %141
+  tail call void @tcg_temp_free_internal(ptr noundef %140) #6
+  br label %191
 
-179:                                              ; preds = %80, %80, %80, %80, %77
-  %180 = getelementptr inbounds nuw i8, ptr %25, i64 60
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %183, label %193
+161:                                              ; preds = %70, %70, %70, %70, %67
+  %162 = getelementptr inbounds nuw i8, ptr %25, i64 60
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %175
 
-183:                                              ; preds = %179
-  %184 = tail call ptr @tcg_temp_ebb_new_i64() #6
-  %185 = load ptr, ptr %.pre-phi108, align 8
-  %186 = ptrtoint ptr %1 to i64
-  %187 = ptrtoint ptr %185 to i64
-  %188 = sub i64 %186, %187
-  %189 = inttoptr i64 %188 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %184, ptr noundef %189) #6
-  %190 = load ptr, ptr %.pre-phi108, align 8
-  %191 = ptrtoint ptr %184 to i64
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 %191
-  br label %193
+165:                                              ; preds = %161
+  %166 = tail call ptr @tcg_temp_ebb_new_i64() #6
+  %167 = load ptr, ptr %.pre-phi106, align 8
+  %168 = ptrtoint ptr %1 to i64
+  %169 = ptrtoint ptr %167 to i64
+  %170 = sub i64 %168, %169
+  %171 = inttoptr i64 %170 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %166, ptr noundef %171) #6
+  %172 = load ptr, ptr %.pre-phi106, align 8
+  %173 = ptrtoint ptr %166 to i64
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 %173
+  br label %175
 
-193:                                              ; preds = %183, %179
-  %194 = phi ptr [ %190, %183 ], [ %25, %179 ]
-  %.180 = phi ptr [ %184, %183 ], [ null, %179 ]
-  %.1 = phi ptr [ %192, %183 ], [ %1, %179 ]
-  %195 = load ptr, ptr @tcg_env, align 8
-  %196 = ptrtoint ptr %.1 to i64
-  %197 = ptrtoint ptr %194 to i64
-  %198 = sub i64 %196, %197
-  %199 = tail call ptr @tcg_constant_i32(i32 noundef %35) #6
-  %200 = load ptr, ptr @helper_info_st_i128, align 8
-  %201 = load ptr, ptr %.pre-phi108, align 8
-  %202 = ptrtoint ptr %195 to i64
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 %202
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 %198
-  %205 = ptrtoint ptr %0 to i64
-  %206 = getelementptr inbounds nuw i8, ptr %201, i64 %205
-  %207 = ptrtoint ptr %199 to i64
-  %208 = getelementptr inbounds nuw i8, ptr %201, i64 %207
-  tail call void @tcg_gen_call4(ptr noundef %200, ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %203, ptr noundef %204, ptr noundef %206, ptr noundef %208) #6
-  br label %209
+175:                                              ; preds = %165, %161
+  %176 = phi ptr [ %172, %165 ], [ %25, %161 ]
+  %.180 = phi ptr [ %166, %165 ], [ null, %161 ]
+  %.1 = phi ptr [ %174, %165 ], [ %1, %161 ]
+  %177 = load ptr, ptr @tcg_env, align 8
+  %178 = ptrtoint ptr %.1 to i64
+  %179 = ptrtoint ptr %176 to i64
+  %180 = sub i64 %178, %179
+  %181 = tail call ptr @tcg_constant_i32(i32 noundef %35) #6
+  %182 = load ptr, ptr @helper_info_st_i128, align 8
+  %183 = load ptr, ptr %.pre-phi106, align 8
+  %184 = ptrtoint ptr %177 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 %184
+  %186 = getelementptr inbounds nuw i8, ptr %183, i64 %180
+  %187 = ptrtoint ptr %0 to i64
+  %188 = getelementptr inbounds nuw i8, ptr %183, i64 %187
+  %189 = ptrtoint ptr %181 to i64
+  %190 = getelementptr inbounds nuw i8, ptr %183, i64 %189
+  tail call void @tcg_gen_call4(ptr noundef %182, ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %185, ptr noundef %186, ptr noundef %188, ptr noundef %190) #6
+  br label %191
 
-209:                                              ; preds = %gen_ldst.exit, %76, %178, %193
-  %.079 = phi ptr [ null, %178 ], [ %.180, %193 ], [ null, %76 ], [ null, %gen_ldst.exit ]
-  %.0 = phi ptr [ %1, %178 ], [ %.1, %193 ], [ %1, %76 ], [ %1, %gen_ldst.exit ]
-  %210 = load ptr, ptr %.pre-phi108, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 232
-  %212 = load ptr, ptr %211, align 8
-  %.not.i90 = icmp eq ptr %212, null
-  br i1 %.not.i90, label %plugin_gen_mem_callbacks_i128.exit, label %213
+191:                                              ; preds = %gen_ldst.exit, %66, %160, %175
+  %.079 = phi ptr [ null, %160 ], [ %.180, %175 ], [ null, %66 ], [ null, %gen_ldst.exit ]
+  %.0 = phi ptr [ %1, %160 ], [ %.1, %175 ], [ %1, %66 ], [ %1, %gen_ldst.exit ]
+  %192 = load ptr, ptr %.pre-phi106, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 232
+  %194 = load ptr, ptr %193, align 8
+  %.not.i90 = icmp eq ptr %194, null
+  br i1 %.not.i90, label %plugin_gen_mem_callbacks_i128.exit, label %195
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %0, ptr noundef %214, i64 noundef -24) #6
-  %215 = load ptr, ptr %.pre-phi108, align 8
-  %216 = ptrtoint ptr %0 to i64
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 %216
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 56
-  %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %215 to i64
-  %221 = sub i64 %219, %220
-  %222 = inttoptr i64 %221 to ptr
-  %223 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %222, ptr noundef %223, i64 noundef -16) #6
+195:                                              ; preds = %191
+  %196 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %0, ptr noundef %196, i64 noundef -24) #6
+  %197 = ptrtoint ptr %0 to i64
+  %198 = add i64 %197, 56
+  %199 = inttoptr i64 %198 to ptr
+  %200 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st_i64(ptr noundef %199, ptr noundef %200, i64 noundef -16) #6
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %.079, ptr noundef %.0, i32 noundef %35, i32 noundef 2)
   br label %plugin_gen_mem_callbacks_i128.exit
 
-plugin_gen_mem_callbacks_i128.exit:               ; preds = %209, %213
+plugin_gen_mem_callbacks_i128.exit:               ; preds = %191, %195
   ret void
 }
 
@@ -2250,44 +2203,22 @@ define internal fastcc void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %0, 
   %11 = tail call ptr @tcg_constant_i64(i64 noundef 0) #6
   tail call fastcc void @tcg_gen_qemu_ld_i128_int(ptr noundef %7, ptr noundef %1, i64 noundef %4, i32 noundef %5)
   tail call void @tcg_gen_xor_i64(ptr noundef %9, ptr noundef %7, ptr noundef %2) #6
-  %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %13 = load ptr, ptr %12, align 8
-  %14 = ptrtoint ptr %7 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = ptrtoint ptr %16 to i64
-  %18 = ptrtoint ptr %13 to i64
-  %19 = sub i64 %17, %18
-  %20 = inttoptr i64 %19 to ptr
-  %21 = ptrtoint ptr %2 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %24 = ptrtoint ptr %23 to i64
-  %25 = sub i64 %24, %18
-  %26 = inttoptr i64 %25 to ptr
-  tail call void @tcg_gen_xor_i64(ptr noundef %10, ptr noundef %20, ptr noundef %26) #6
+  %12 = ptrtoint ptr %7 to i64
+  %13 = add i64 %12, 56
+  %14 = inttoptr i64 %13 to ptr
+  %15 = ptrtoint ptr %2 to i64
+  %16 = add i64 %15, 56
+  %17 = inttoptr i64 %16 to ptr
+  tail call void @tcg_gen_xor_i64(ptr noundef %10, ptr noundef %14, ptr noundef %17) #6
   tail call void @tcg_gen_or_i64(ptr noundef %9, ptr noundef %9, ptr noundef %10) #6
   tail call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %8, ptr noundef %9, ptr noundef %11, ptr noundef %3, ptr noundef %7) #6
-  %27 = load ptr, ptr %12, align 8
-  %28 = ptrtoint ptr %8 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %27 to i64
-  %33 = sub i64 %31, %32
-  %34 = inttoptr i64 %33 to ptr
-  %35 = ptrtoint ptr %3 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %38 = ptrtoint ptr %37 to i64
-  %39 = sub i64 %38, %32
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %27, i64 %14
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %43 = ptrtoint ptr %42 to i64
-  %44 = sub i64 %43, %32
-  %45 = inttoptr i64 %44 to ptr
-  tail call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %34, ptr noundef %9, ptr noundef %11, ptr noundef %40, ptr noundef %45) #6
+  %18 = ptrtoint ptr %8 to i64
+  %19 = add i64 %18, 56
+  %20 = inttoptr i64 %19 to ptr
+  %21 = ptrtoint ptr %3 to i64
+  %22 = add i64 %21, 56
+  %23 = inttoptr i64 %22 to ptr
+  tail call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %20, ptr noundef %9, ptr noundef %11, ptr noundef %23, ptr noundef %14) #6
   tail call fastcc void @tcg_gen_qemu_st_i128_int(ptr noundef %8, ptr noundef %1, i64 noundef %4, i32 noundef %5)
   tail call void @tcg_gen_mov_i128(ptr noundef %0, ptr noundef %7) #6
   tail call void @tcg_temp_free_i64(ptr noundef %9) #6

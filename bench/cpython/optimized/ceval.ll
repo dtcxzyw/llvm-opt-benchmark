@@ -954,7 +954,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [43 x i8] c"Cannot recover from Python stack overflow.\00", align 1
 @.str.14 = private unnamed_addr constant [33 x i8] c"maximum recursion depth exceeded\00", align 1
 @__func__._PyEval_EvalFrameDefault = private unnamed_addr constant [25 x i8] c"_PyEval_EvalFrameDefault\00", align 1
-@_PyEval_EvalFrameDefault.opcode_targets = internal unnamed_addr constant [256 x ptr] [ptr blockaddress(@_PyEval_EvalFrameDefault, %1142), ptr blockaddress(@_PyEval_EvalFrameDefault, %501), ptr blockaddress(@_PyEval_EvalFrameDefault, %547), ptr blockaddress(@_PyEval_EvalFrameDefault, %304), ptr blockaddress(@_PyEval_EvalFrameDefault, %1964), ptr blockaddress(@_PyEval_EvalFrameDefault, %3542), ptr blockaddress(@_PyEval_EvalFrameDefault, %3610), ptr blockaddress(@_PyEval_EvalFrameDefault, %3661), ptr blockaddress(@_PyEval_EvalFrameDefault, %4310), ptr blockaddress(@_PyEval_EvalFrameDefault, %4429), ptr blockaddress(@_PyEval_EvalFrameDefault, %4492), ptr blockaddress(@_PyEval_EvalFrameDefault, %4510), ptr blockaddress(@_PyEval_EvalFrameDefault, %4530), ptr blockaddress(@_PyEval_EvalFrameDefault, %4558), ptr blockaddress(@_PyEval_EvalFrameDefault, %4588), ptr blockaddress(@_PyEval_EvalFrameDefault, %4852), ptr blockaddress(@_PyEval_EvalFrameDefault, %4919), ptr blockaddress(@_PyEval_EvalFrameDefault, %8457), ptr blockaddress(@_PyEval_EvalFrameDefault, %4958), ptr blockaddress(@_PyEval_EvalFrameDefault, %4982), ptr blockaddress(@_PyEval_EvalFrameDefault, %5000), ptr blockaddress(@_PyEval_EvalFrameDefault, %6271), ptr blockaddress(@_PyEval_EvalFrameDefault, %7059), ptr blockaddress(@_PyEval_EvalFrameDefault, %7543), ptr blockaddress(@_PyEval_EvalFrameDefault, %7862), ptr blockaddress(@_PyEval_EvalFrameDefault, %7961), ptr blockaddress(@_PyEval_EvalFrameDefault, %7978), ptr blockaddress(@_PyEval_EvalFrameDefault, %7991), ptr blockaddress(@_PyEval_EvalFrameDefault, %8004), ptr blockaddress(@_PyEval_EvalFrameDefault, %8010), ptr blockaddress(@_PyEval_EvalFrameDefault, %8016), ptr blockaddress(@_PyEval_EvalFrameDefault, %8041), ptr blockaddress(@_PyEval_EvalFrameDefault, %8166), ptr blockaddress(@_PyEval_EvalFrameDefault, %8183), ptr blockaddress(@_PyEval_EvalFrameDefault, %8199), ptr blockaddress(@_PyEval_EvalFrameDefault, %8508), ptr blockaddress(@_PyEval_EvalFrameDefault, %8556), ptr blockaddress(@_PyEval_EvalFrameDefault, %8738), ptr blockaddress(@_PyEval_EvalFrameDefault, %9289), ptr blockaddress(@_PyEval_EvalFrameDefault, %9344), ptr blockaddress(@_PyEval_EvalFrameDefault, %9501), ptr blockaddress(@_PyEval_EvalFrameDefault, %9638), ptr blockaddress(@_PyEval_EvalFrameDefault, %9662), ptr blockaddress(@_PyEval_EvalFrameDefault, %9686), ptr blockaddress(@_PyEval_EvalFrameDefault, %9876), ptr blockaddress(@_PyEval_EvalFrameDefault, %98), ptr blockaddress(@_PyEval_EvalFrameDefault, %915), ptr blockaddress(@_PyEval_EvalFrameDefault, %932), ptr blockaddress(@_PyEval_EvalFrameDefault, %972), ptr blockaddress(@_PyEval_EvalFrameDefault, %1046), ptr blockaddress(@_PyEval_EvalFrameDefault, %1092), ptr blockaddress(@_PyEval_EvalFrameDefault, %1125), ptr blockaddress(@_PyEval_EvalFrameDefault, %1144), ptr blockaddress(@_PyEval_EvalFrameDefault, %2109), ptr blockaddress(@_PyEval_EvalFrameDefault, %2136), ptr blockaddress(@_PyEval_EvalFrameDefault, %2249), ptr blockaddress(@_PyEval_EvalFrameDefault, %3744), ptr blockaddress(@_PyEval_EvalFrameDefault, %3961), ptr blockaddress(@_PyEval_EvalFrameDefault, %4082), ptr blockaddress(@_PyEval_EvalFrameDefault, %4111), ptr blockaddress(@_PyEval_EvalFrameDefault, %4126), ptr blockaddress(@_PyEval_EvalFrameDefault, %4156), ptr blockaddress(@_PyEval_EvalFrameDefault, %4185), ptr blockaddress(@_PyEval_EvalFrameDefault, %4226), ptr blockaddress(@_PyEval_EvalFrameDefault, %4255), ptr blockaddress(@_PyEval_EvalFrameDefault, %4281), ptr blockaddress(@_PyEval_EvalFrameDefault, %4343), ptr blockaddress(@_PyEval_EvalFrameDefault, %4383), ptr blockaddress(@_PyEval_EvalFrameDefault, %4548), ptr blockaddress(@_PyEval_EvalFrameDefault, %4624), ptr blockaddress(@_PyEval_EvalFrameDefault, %4934), ptr blockaddress(@_PyEval_EvalFrameDefault, %5038), ptr blockaddress(@_PyEval_EvalFrameDefault, %5060), ptr blockaddress(@_PyEval_EvalFrameDefault, %6279), ptr blockaddress(@_PyEval_EvalFrameDefault, %6309), ptr blockaddress(@_PyEval_EvalFrameDefault, %6350), ptr blockaddress(@_PyEval_EvalFrameDefault, %6375), ptr blockaddress(@_PyEval_EvalFrameDefault, %6383), ptr blockaddress(@_PyEval_EvalFrameDefault, %6405), ptr blockaddress(@_PyEval_EvalFrameDefault, %6457), ptr blockaddress(@_PyEval_EvalFrameDefault, %7081), ptr blockaddress(@_PyEval_EvalFrameDefault, %7090), ptr blockaddress(@_PyEval_EvalFrameDefault, %7149), ptr blockaddress(@_PyEval_EvalFrameDefault, %7184), ptr blockaddress(@_PyEval_EvalFrameDefault, %7200), ptr blockaddress(@_PyEval_EvalFrameDefault, %7210), ptr blockaddress(@_PyEval_EvalFrameDefault, %7235), ptr blockaddress(@_PyEval_EvalFrameDefault, %7262), ptr blockaddress(@_PyEval_EvalFrameDefault, %7312), ptr blockaddress(@_PyEval_EvalFrameDefault, %7392), ptr blockaddress(@_PyEval_EvalFrameDefault, %7563), ptr blockaddress(@_PyEval_EvalFrameDefault, %7583), ptr blockaddress(@_PyEval_EvalFrameDefault, %7594), ptr blockaddress(@_PyEval_EvalFrameDefault, %7627), ptr blockaddress(@_PyEval_EvalFrameDefault, %7835), ptr blockaddress(@_PyEval_EvalFrameDefault, %7892), ptr blockaddress(@_PyEval_EvalFrameDefault, %7911), ptr blockaddress(@_PyEval_EvalFrameDefault, %8058), ptr blockaddress(@_PyEval_EvalFrameDefault, %8079), ptr blockaddress(@_PyEval_EvalFrameDefault, %8112), ptr blockaddress(@_PyEval_EvalFrameDefault, %8145), ptr blockaddress(@_PyEval_EvalFrameDefault, %8206), ptr blockaddress(@_PyEval_EvalFrameDefault, %8397), ptr blockaddress(@_PyEval_EvalFrameDefault, %8576), ptr blockaddress(@_PyEval_EvalFrameDefault, %8789), ptr blockaddress(@_PyEval_EvalFrameDefault, %8815), ptr blockaddress(@_PyEval_EvalFrameDefault, %8829), ptr blockaddress(@_PyEval_EvalFrameDefault, %8856), ptr blockaddress(@_PyEval_EvalFrameDefault, %9089), ptr blockaddress(@_PyEval_EvalFrameDefault, %9113), ptr blockaddress(@_PyEval_EvalFrameDefault, %9135), ptr blockaddress(@_PyEval_EvalFrameDefault, %9167), ptr blockaddress(@_PyEval_EvalFrameDefault, %9206), ptr blockaddress(@_PyEval_EvalFrameDefault, %9237), ptr blockaddress(@_PyEval_EvalFrameDefault, %9490), ptr blockaddress(@_PyEval_EvalFrameDefault, %9694), ptr blockaddress(@_PyEval_EvalFrameDefault, %9725), ptr blockaddress(@_PyEval_EvalFrameDefault, %9914), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %8459), ptr blockaddress(@_PyEval_EvalFrameDefault, %148), ptr blockaddress(@_PyEval_EvalFrameDefault, %175), ptr blockaddress(@_PyEval_EvalFrameDefault, %219), ptr blockaddress(@_PyEval_EvalFrameDefault, %263), ptr blockaddress(@_PyEval_EvalFrameDefault, %359), ptr blockaddress(@_PyEval_EvalFrameDefault, %386), ptr blockaddress(@_PyEval_EvalFrameDefault, %430), ptr blockaddress(@_PyEval_EvalFrameDefault, %457), ptr blockaddress(@_PyEval_EvalFrameDefault, %592), ptr blockaddress(@_PyEval_EvalFrameDefault, %636), ptr blockaddress(@_PyEval_EvalFrameDefault, %719), ptr blockaddress(@_PyEval_EvalFrameDefault, %777), ptr blockaddress(@_PyEval_EvalFrameDefault, %858), ptr blockaddress(@_PyEval_EvalFrameDefault, %1317), ptr blockaddress(@_PyEval_EvalFrameDefault, %1427), ptr blockaddress(@_PyEval_EvalFrameDefault, %1529), ptr blockaddress(@_PyEval_EvalFrameDefault, %1620), ptr blockaddress(@_PyEval_EvalFrameDefault, %1709), ptr blockaddress(@_PyEval_EvalFrameDefault, %1799), ptr blockaddress(@_PyEval_EvalFrameDefault, %1889), ptr blockaddress(@_PyEval_EvalFrameDefault, %2175), ptr blockaddress(@_PyEval_EvalFrameDefault, %2429), ptr blockaddress(@_PyEval_EvalFrameDefault, %2534), ptr blockaddress(@_PyEval_EvalFrameDefault, %2637), ptr blockaddress(@_PyEval_EvalFrameDefault, %2711), ptr blockaddress(@_PyEval_EvalFrameDefault, %2770), ptr blockaddress(@_PyEval_EvalFrameDefault, %2824), ptr blockaddress(@_PyEval_EvalFrameDefault, %2927), ptr blockaddress(@_PyEval_EvalFrameDefault, %3030), ptr blockaddress(@_PyEval_EvalFrameDefault, %3112), ptr blockaddress(@_PyEval_EvalFrameDefault, %3219), ptr blockaddress(@_PyEval_EvalFrameDefault, %3306), ptr blockaddress(@_PyEval_EvalFrameDefault, %3375), ptr blockaddress(@_PyEval_EvalFrameDefault, %3433), ptr blockaddress(@_PyEval_EvalFrameDefault, %3473), ptr blockaddress(@_PyEval_EvalFrameDefault, %3513), ptr blockaddress(@_PyEval_EvalFrameDefault, %3807), ptr blockaddress(@_PyEval_EvalFrameDefault, %3856), ptr blockaddress(@_PyEval_EvalFrameDefault, %3918), ptr blockaddress(@_PyEval_EvalFrameDefault, %4005), ptr blockaddress(@_PyEval_EvalFrameDefault, %4043), ptr blockaddress(@_PyEval_EvalFrameDefault, %4690), ptr blockaddress(@_PyEval_EvalFrameDefault, %4726), ptr blockaddress(@_PyEval_EvalFrameDefault, %4774), ptr blockaddress(@_PyEval_EvalFrameDefault, %4806), ptr blockaddress(@_PyEval_EvalFrameDefault, %6334), ptr blockaddress(@_PyEval_EvalFrameDefault, %6359), ptr blockaddress(@_PyEval_EvalFrameDefault, %6529), ptr blockaddress(@_PyEval_EvalFrameDefault, %6564), ptr blockaddress(@_PyEval_EvalFrameDefault, %6603), ptr blockaddress(@_PyEval_EvalFrameDefault, %6659), ptr blockaddress(@_PyEval_EvalFrameDefault, %6704), ptr blockaddress(@_PyEval_EvalFrameDefault, %6730), ptr blockaddress(@_PyEval_EvalFrameDefault, %6750), ptr blockaddress(@_PyEval_EvalFrameDefault, %6782), ptr blockaddress(@_PyEval_EvalFrameDefault, %6835), ptr blockaddress(@_PyEval_EvalFrameDefault, %6862), ptr blockaddress(@_PyEval_EvalFrameDefault, %6901), ptr blockaddress(@_PyEval_EvalFrameDefault, %6957), ptr blockaddress(@_PyEval_EvalFrameDefault, %6994), ptr blockaddress(@_PyEval_EvalFrameDefault, %7115), ptr blockaddress(@_PyEval_EvalFrameDefault, %7130), ptr blockaddress(@_PyEval_EvalFrameDefault, %7444), ptr blockaddress(@_PyEval_EvalFrameDefault, %7500), ptr blockaddress(@_PyEval_EvalFrameDefault, %7711), ptr blockaddress(@_PyEval_EvalFrameDefault, %7768), ptr blockaddress(@_PyEval_EvalFrameDefault, %8497), ptr blockaddress(@_PyEval_EvalFrameDefault, %8702), ptr blockaddress(@_PyEval_EvalFrameDefault, %8912), ptr blockaddress(@_PyEval_EvalFrameDefault, %8976), ptr blockaddress(@_PyEval_EvalFrameDefault, %9015), ptr blockaddress(@_PyEval_EvalFrameDefault, %9397), ptr blockaddress(@_PyEval_EvalFrameDefault, %9427), ptr blockaddress(@_PyEval_EvalFrameDefault, %9533), ptr blockaddress(@_PyEval_EvalFrameDefault, %9554), ptr blockaddress(@_PyEval_EvalFrameDefault, %9565), ptr blockaddress(@_PyEval_EvalFrameDefault, %9588), ptr blockaddress(@_PyEval_EvalFrameDefault, %9608), ptr blockaddress(@_PyEval_EvalFrameDefault, %9617), ptr blockaddress(@_PyEval_EvalFrameDefault, %9762), ptr blockaddress(@_PyEval_EvalFrameDefault, %9801), ptr blockaddress(@_PyEval_EvalFrameDefault, %9839), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %9937), ptr blockaddress(@_PyEval_EvalFrameDefault, %5634), ptr blockaddress(@_PyEval_EvalFrameDefault, %6000), ptr blockaddress(@_PyEval_EvalFrameDefault, %5659), ptr blockaddress(@_PyEval_EvalFrameDefault, %5690), ptr blockaddress(@_PyEval_EvalFrameDefault, %5747), ptr blockaddress(@_PyEval_EvalFrameDefault, %5794), ptr blockaddress(@_PyEval_EvalFrameDefault, %5986), ptr blockaddress(@_PyEval_EvalFrameDefault, %6143), ptr blockaddress(@_PyEval_EvalFrameDefault, %6032), ptr blockaddress(@_PyEval_EvalFrameDefault, %6061), ptr blockaddress(@_PyEval_EvalFrameDefault, %6103), ptr blockaddress(@_PyEval_EvalFrameDefault, %6172), ptr blockaddress(@_PyEval_EvalFrameDefault, %6212), ptr blockaddress(@_PyEval_EvalFrameDefault, %6237), ptr blockaddress(@_PyEval_EvalFrameDefault, %5863), ptr blockaddress(@_PyEval_EvalFrameDefault, %5103), ptr blockaddress(@_PyEval_EvalFrameDefault, %5429), ptr blockaddress(@_PyEval_EvalFrameDefault, %5288), ptr blockaddress(@_PyEval_EvalFrameDefault, %5764), ptr blockaddress(@_PyEval_EvalFrameDefault, %5815), ptr blockaddress(@_PyEval_EvalFrameDefault, %4528)], align 16
+@_PyEval_EvalFrameDefault.opcode_targets = internal unnamed_addr constant [256 x ptr] [ptr blockaddress(@_PyEval_EvalFrameDefault, %1142), ptr blockaddress(@_PyEval_EvalFrameDefault, %501), ptr blockaddress(@_PyEval_EvalFrameDefault, %547), ptr blockaddress(@_PyEval_EvalFrameDefault, %304), ptr blockaddress(@_PyEval_EvalFrameDefault, %1964), ptr blockaddress(@_PyEval_EvalFrameDefault, %3542), ptr blockaddress(@_PyEval_EvalFrameDefault, %3610), ptr blockaddress(@_PyEval_EvalFrameDefault, %3661), ptr blockaddress(@_PyEval_EvalFrameDefault, %4310), ptr blockaddress(@_PyEval_EvalFrameDefault, %4429), ptr blockaddress(@_PyEval_EvalFrameDefault, %4492), ptr blockaddress(@_PyEval_EvalFrameDefault, %4510), ptr blockaddress(@_PyEval_EvalFrameDefault, %4530), ptr blockaddress(@_PyEval_EvalFrameDefault, %4558), ptr blockaddress(@_PyEval_EvalFrameDefault, %4588), ptr blockaddress(@_PyEval_EvalFrameDefault, %4852), ptr blockaddress(@_PyEval_EvalFrameDefault, %4919), ptr blockaddress(@_PyEval_EvalFrameDefault, %8457), ptr blockaddress(@_PyEval_EvalFrameDefault, %4958), ptr blockaddress(@_PyEval_EvalFrameDefault, %4982), ptr blockaddress(@_PyEval_EvalFrameDefault, %5000), ptr blockaddress(@_PyEval_EvalFrameDefault, %6271), ptr blockaddress(@_PyEval_EvalFrameDefault, %7059), ptr blockaddress(@_PyEval_EvalFrameDefault, %7543), ptr blockaddress(@_PyEval_EvalFrameDefault, %7862), ptr blockaddress(@_PyEval_EvalFrameDefault, %7961), ptr blockaddress(@_PyEval_EvalFrameDefault, %7978), ptr blockaddress(@_PyEval_EvalFrameDefault, %7991), ptr blockaddress(@_PyEval_EvalFrameDefault, %8004), ptr blockaddress(@_PyEval_EvalFrameDefault, %8010), ptr blockaddress(@_PyEval_EvalFrameDefault, %8016), ptr blockaddress(@_PyEval_EvalFrameDefault, %8041), ptr blockaddress(@_PyEval_EvalFrameDefault, %8166), ptr blockaddress(@_PyEval_EvalFrameDefault, %8183), ptr blockaddress(@_PyEval_EvalFrameDefault, %8199), ptr blockaddress(@_PyEval_EvalFrameDefault, %8508), ptr blockaddress(@_PyEval_EvalFrameDefault, %8556), ptr blockaddress(@_PyEval_EvalFrameDefault, %8738), ptr blockaddress(@_PyEval_EvalFrameDefault, %9286), ptr blockaddress(@_PyEval_EvalFrameDefault, %9341), ptr blockaddress(@_PyEval_EvalFrameDefault, %9498), ptr blockaddress(@_PyEval_EvalFrameDefault, %9635), ptr blockaddress(@_PyEval_EvalFrameDefault, %9659), ptr blockaddress(@_PyEval_EvalFrameDefault, %9683), ptr blockaddress(@_PyEval_EvalFrameDefault, %9873), ptr blockaddress(@_PyEval_EvalFrameDefault, %98), ptr blockaddress(@_PyEval_EvalFrameDefault, %915), ptr blockaddress(@_PyEval_EvalFrameDefault, %932), ptr blockaddress(@_PyEval_EvalFrameDefault, %972), ptr blockaddress(@_PyEval_EvalFrameDefault, %1046), ptr blockaddress(@_PyEval_EvalFrameDefault, %1092), ptr blockaddress(@_PyEval_EvalFrameDefault, %1125), ptr blockaddress(@_PyEval_EvalFrameDefault, %1144), ptr blockaddress(@_PyEval_EvalFrameDefault, %2109), ptr blockaddress(@_PyEval_EvalFrameDefault, %2136), ptr blockaddress(@_PyEval_EvalFrameDefault, %2249), ptr blockaddress(@_PyEval_EvalFrameDefault, %3744), ptr blockaddress(@_PyEval_EvalFrameDefault, %3961), ptr blockaddress(@_PyEval_EvalFrameDefault, %4082), ptr blockaddress(@_PyEval_EvalFrameDefault, %4111), ptr blockaddress(@_PyEval_EvalFrameDefault, %4126), ptr blockaddress(@_PyEval_EvalFrameDefault, %4156), ptr blockaddress(@_PyEval_EvalFrameDefault, %4185), ptr blockaddress(@_PyEval_EvalFrameDefault, %4226), ptr blockaddress(@_PyEval_EvalFrameDefault, %4255), ptr blockaddress(@_PyEval_EvalFrameDefault, %4281), ptr blockaddress(@_PyEval_EvalFrameDefault, %4343), ptr blockaddress(@_PyEval_EvalFrameDefault, %4383), ptr blockaddress(@_PyEval_EvalFrameDefault, %4548), ptr blockaddress(@_PyEval_EvalFrameDefault, %4624), ptr blockaddress(@_PyEval_EvalFrameDefault, %4934), ptr blockaddress(@_PyEval_EvalFrameDefault, %5038), ptr blockaddress(@_PyEval_EvalFrameDefault, %5060), ptr blockaddress(@_PyEval_EvalFrameDefault, %6279), ptr blockaddress(@_PyEval_EvalFrameDefault, %6309), ptr blockaddress(@_PyEval_EvalFrameDefault, %6350), ptr blockaddress(@_PyEval_EvalFrameDefault, %6375), ptr blockaddress(@_PyEval_EvalFrameDefault, %6383), ptr blockaddress(@_PyEval_EvalFrameDefault, %6405), ptr blockaddress(@_PyEval_EvalFrameDefault, %6457), ptr blockaddress(@_PyEval_EvalFrameDefault, %7081), ptr blockaddress(@_PyEval_EvalFrameDefault, %7090), ptr blockaddress(@_PyEval_EvalFrameDefault, %7149), ptr blockaddress(@_PyEval_EvalFrameDefault, %7184), ptr blockaddress(@_PyEval_EvalFrameDefault, %7200), ptr blockaddress(@_PyEval_EvalFrameDefault, %7210), ptr blockaddress(@_PyEval_EvalFrameDefault, %7235), ptr blockaddress(@_PyEval_EvalFrameDefault, %7262), ptr blockaddress(@_PyEval_EvalFrameDefault, %7312), ptr blockaddress(@_PyEval_EvalFrameDefault, %7392), ptr blockaddress(@_PyEval_EvalFrameDefault, %7563), ptr blockaddress(@_PyEval_EvalFrameDefault, %7583), ptr blockaddress(@_PyEval_EvalFrameDefault, %7594), ptr blockaddress(@_PyEval_EvalFrameDefault, %7627), ptr blockaddress(@_PyEval_EvalFrameDefault, %7835), ptr blockaddress(@_PyEval_EvalFrameDefault, %7892), ptr blockaddress(@_PyEval_EvalFrameDefault, %7911), ptr blockaddress(@_PyEval_EvalFrameDefault, %8058), ptr blockaddress(@_PyEval_EvalFrameDefault, %8079), ptr blockaddress(@_PyEval_EvalFrameDefault, %8112), ptr blockaddress(@_PyEval_EvalFrameDefault, %8145), ptr blockaddress(@_PyEval_EvalFrameDefault, %8206), ptr blockaddress(@_PyEval_EvalFrameDefault, %8397), ptr blockaddress(@_PyEval_EvalFrameDefault, %8576), ptr blockaddress(@_PyEval_EvalFrameDefault, %8789), ptr blockaddress(@_PyEval_EvalFrameDefault, %8815), ptr blockaddress(@_PyEval_EvalFrameDefault, %8829), ptr blockaddress(@_PyEval_EvalFrameDefault, %8856), ptr blockaddress(@_PyEval_EvalFrameDefault, %9086), ptr blockaddress(@_PyEval_EvalFrameDefault, %9110), ptr blockaddress(@_PyEval_EvalFrameDefault, %9132), ptr blockaddress(@_PyEval_EvalFrameDefault, %9164), ptr blockaddress(@_PyEval_EvalFrameDefault, %9203), ptr blockaddress(@_PyEval_EvalFrameDefault, %9234), ptr blockaddress(@_PyEval_EvalFrameDefault, %9487), ptr blockaddress(@_PyEval_EvalFrameDefault, %9691), ptr blockaddress(@_PyEval_EvalFrameDefault, %9722), ptr blockaddress(@_PyEval_EvalFrameDefault, %9911), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %8459), ptr blockaddress(@_PyEval_EvalFrameDefault, %148), ptr blockaddress(@_PyEval_EvalFrameDefault, %175), ptr blockaddress(@_PyEval_EvalFrameDefault, %219), ptr blockaddress(@_PyEval_EvalFrameDefault, %263), ptr blockaddress(@_PyEval_EvalFrameDefault, %359), ptr blockaddress(@_PyEval_EvalFrameDefault, %386), ptr blockaddress(@_PyEval_EvalFrameDefault, %430), ptr blockaddress(@_PyEval_EvalFrameDefault, %457), ptr blockaddress(@_PyEval_EvalFrameDefault, %592), ptr blockaddress(@_PyEval_EvalFrameDefault, %636), ptr blockaddress(@_PyEval_EvalFrameDefault, %719), ptr blockaddress(@_PyEval_EvalFrameDefault, %777), ptr blockaddress(@_PyEval_EvalFrameDefault, %858), ptr blockaddress(@_PyEval_EvalFrameDefault, %1317), ptr blockaddress(@_PyEval_EvalFrameDefault, %1427), ptr blockaddress(@_PyEval_EvalFrameDefault, %1529), ptr blockaddress(@_PyEval_EvalFrameDefault, %1620), ptr blockaddress(@_PyEval_EvalFrameDefault, %1709), ptr blockaddress(@_PyEval_EvalFrameDefault, %1799), ptr blockaddress(@_PyEval_EvalFrameDefault, %1889), ptr blockaddress(@_PyEval_EvalFrameDefault, %2175), ptr blockaddress(@_PyEval_EvalFrameDefault, %2429), ptr blockaddress(@_PyEval_EvalFrameDefault, %2534), ptr blockaddress(@_PyEval_EvalFrameDefault, %2637), ptr blockaddress(@_PyEval_EvalFrameDefault, %2711), ptr blockaddress(@_PyEval_EvalFrameDefault, %2770), ptr blockaddress(@_PyEval_EvalFrameDefault, %2824), ptr blockaddress(@_PyEval_EvalFrameDefault, %2927), ptr blockaddress(@_PyEval_EvalFrameDefault, %3030), ptr blockaddress(@_PyEval_EvalFrameDefault, %3112), ptr blockaddress(@_PyEval_EvalFrameDefault, %3219), ptr blockaddress(@_PyEval_EvalFrameDefault, %3306), ptr blockaddress(@_PyEval_EvalFrameDefault, %3375), ptr blockaddress(@_PyEval_EvalFrameDefault, %3433), ptr blockaddress(@_PyEval_EvalFrameDefault, %3473), ptr blockaddress(@_PyEval_EvalFrameDefault, %3513), ptr blockaddress(@_PyEval_EvalFrameDefault, %3807), ptr blockaddress(@_PyEval_EvalFrameDefault, %3856), ptr blockaddress(@_PyEval_EvalFrameDefault, %3918), ptr blockaddress(@_PyEval_EvalFrameDefault, %4005), ptr blockaddress(@_PyEval_EvalFrameDefault, %4043), ptr blockaddress(@_PyEval_EvalFrameDefault, %4690), ptr blockaddress(@_PyEval_EvalFrameDefault, %4726), ptr blockaddress(@_PyEval_EvalFrameDefault, %4774), ptr blockaddress(@_PyEval_EvalFrameDefault, %4806), ptr blockaddress(@_PyEval_EvalFrameDefault, %6334), ptr blockaddress(@_PyEval_EvalFrameDefault, %6359), ptr blockaddress(@_PyEval_EvalFrameDefault, %6529), ptr blockaddress(@_PyEval_EvalFrameDefault, %6564), ptr blockaddress(@_PyEval_EvalFrameDefault, %6603), ptr blockaddress(@_PyEval_EvalFrameDefault, %6659), ptr blockaddress(@_PyEval_EvalFrameDefault, %6704), ptr blockaddress(@_PyEval_EvalFrameDefault, %6730), ptr blockaddress(@_PyEval_EvalFrameDefault, %6750), ptr blockaddress(@_PyEval_EvalFrameDefault, %6782), ptr blockaddress(@_PyEval_EvalFrameDefault, %6835), ptr blockaddress(@_PyEval_EvalFrameDefault, %6862), ptr blockaddress(@_PyEval_EvalFrameDefault, %6901), ptr blockaddress(@_PyEval_EvalFrameDefault, %6957), ptr blockaddress(@_PyEval_EvalFrameDefault, %6994), ptr blockaddress(@_PyEval_EvalFrameDefault, %7115), ptr blockaddress(@_PyEval_EvalFrameDefault, %7130), ptr blockaddress(@_PyEval_EvalFrameDefault, %7444), ptr blockaddress(@_PyEval_EvalFrameDefault, %7500), ptr blockaddress(@_PyEval_EvalFrameDefault, %7711), ptr blockaddress(@_PyEval_EvalFrameDefault, %7768), ptr blockaddress(@_PyEval_EvalFrameDefault, %8497), ptr blockaddress(@_PyEval_EvalFrameDefault, %8702), ptr blockaddress(@_PyEval_EvalFrameDefault, %8912), ptr blockaddress(@_PyEval_EvalFrameDefault, %8973), ptr blockaddress(@_PyEval_EvalFrameDefault, %9012), ptr blockaddress(@_PyEval_EvalFrameDefault, %9394), ptr blockaddress(@_PyEval_EvalFrameDefault, %9424), ptr blockaddress(@_PyEval_EvalFrameDefault, %9530), ptr blockaddress(@_PyEval_EvalFrameDefault, %9551), ptr blockaddress(@_PyEval_EvalFrameDefault, %9562), ptr blockaddress(@_PyEval_EvalFrameDefault, %9585), ptr blockaddress(@_PyEval_EvalFrameDefault, %9605), ptr blockaddress(@_PyEval_EvalFrameDefault, %9614), ptr blockaddress(@_PyEval_EvalFrameDefault, %9759), ptr blockaddress(@_PyEval_EvalFrameDefault, %9798), ptr blockaddress(@_PyEval_EvalFrameDefault, %9836), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %9934), ptr blockaddress(@_PyEval_EvalFrameDefault, %5634), ptr blockaddress(@_PyEval_EvalFrameDefault, %6000), ptr blockaddress(@_PyEval_EvalFrameDefault, %5659), ptr blockaddress(@_PyEval_EvalFrameDefault, %5690), ptr blockaddress(@_PyEval_EvalFrameDefault, %5747), ptr blockaddress(@_PyEval_EvalFrameDefault, %5794), ptr blockaddress(@_PyEval_EvalFrameDefault, %5986), ptr blockaddress(@_PyEval_EvalFrameDefault, %6143), ptr blockaddress(@_PyEval_EvalFrameDefault, %6032), ptr blockaddress(@_PyEval_EvalFrameDefault, %6061), ptr blockaddress(@_PyEval_EvalFrameDefault, %6103), ptr blockaddress(@_PyEval_EvalFrameDefault, %6172), ptr blockaddress(@_PyEval_EvalFrameDefault, %6212), ptr blockaddress(@_PyEval_EvalFrameDefault, %6237), ptr blockaddress(@_PyEval_EvalFrameDefault, %5863), ptr blockaddress(@_PyEval_EvalFrameDefault, %5103), ptr blockaddress(@_PyEval_EvalFrameDefault, %5429), ptr blockaddress(@_PyEval_EvalFrameDefault, %5288), ptr blockaddress(@_PyEval_EvalFrameDefault, %5764), ptr blockaddress(@_PyEval_EvalFrameDefault, %5815), ptr blockaddress(@_PyEval_EvalFrameDefault, %4528)], align 16
 @PyFloat_Type = external global %struct._typeobject, align 8
 @PyLong_Type = external global %struct._typeobject, align 8
 @PyDict_Type = external global %struct._typeobject, align 8
@@ -2611,7 +2611,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
   %41 = add i32 %40, 1
   store i32 %41, ptr %24, align 4, !tbaa !99
   tail call void @_PyEval_FrameClearAndPop(ptr noundef nonnull %0, ptr noundef %1)
-  br label %10280
+  br label %10277
 
 42:                                               ; preds = %_Py_EnsureFuncTstateNotNULL.exit, %33, %30
   store i64 ptrtoint (ptr @_Py_NoneStruct to i64), ptr %6, align 8, !tbaa !113
@@ -2636,7 +2636,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
   %53 = add i32 %25, -2
   store i32 %53, ptr %24, align 4, !tbaa !99
   %.not9264 = icmp eq i32 %2, 0
-  br i1 %.not9264, label %10225, label %54
+  br i1 %.not9264, label %10222, label %54
 
 54:                                               ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2662,7 +2662,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
 
 65:                                               ; preds = %59
   %66 = icmp slt i32 %57, 1
-  br i1 %66, label %10267, label %67
+  br i1 %66, label %10264, label %67
 
 67:                                               ; preds = %54, %65, %62
   %.val10436 = load i64, ptr %1, align 8, !tbaa !113
@@ -2748,12 +2748,12 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
   %111 = zext i8 %110 to i64
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %106, %141, %170, %214, %258, %297, %354, %381, %425, %452, %496, %541, %554, %585, %628, %_PyFrame_PushUnchecked.exit, %770, %851, %908, %924, %963, %1037, %1084, %1117, %1134, %1155, %1311, %1416, %._crit_edge11501, %1609, %1703, %1793, %1883, %1959, %2104, %2130, %2168, %._crit_edge11488, %2261, %2422, %2523, %2631, %2700, %2763, %2819, %2921, %3024, %3107, %3213, %3300, %._crit_edge11470, %3422, %3468, %3508, %3537, %3601, %3656, %3737, %3750, %3802, %3851, %3913, %3955, %3967, %3999, %4037, %4076, %4105, %_Py_NewRef.exit10645, %._crit_edge11519, %4180, %4221, %4251, %4277, %4306, %4338, %4378, %4424, %4487, %4505, %4524, %4544, %4548, %4583, %4617, %4631, %_PyErr_Occurred.exit.thread, %4684, %4704, %4752, %_Py_NewRef.exit10663, %4784, %4800, %4831, %_Py_NewRef.exit10664, %4913, %4928, %4952, %4976, %4994, %5033, %5054, %5096, %5282, %5424, %5627, %5654, %5685, %5743, %5761, %5790, %5811, %5848, %5860, %5979, %5996, %6027, %6057, %6099, %6139, %6168, %6188, %6207, %6219, %6246, %6250, %6305, %6314, %6327, %6343, %6350, %6368, %6375, %6401, %6452, %6463, %6520, %6558, %6597, %6698, %_Py_NewRef.exit10703, %_Py_NewRef.exit10704, %_Py_NewRef.exit10706, %6829, %_Py_NewRef.exit10707, %_Py_NewRef.exit10709, %_Py_NewRef.exit10712, %6988, %7053, %7075, %7081, %7110, %7115, %_Py_NewRef.exit10716, %7178, %_Py_NewRef.exit10729, %7200, %_Py_NewRef.exit10730, %_Py_NewRef.exit10732, %7304, %7385, %7398, %7437, %7493, %7536, %_Py_NewRef.exit10738, %7577, %7583, %7618, %7634, %7704, %7761, %7827, %7858, %7884, %7906, %_PyErr_Occurred.exit10744.thread, %7972, %7978, %7991, %8004, %8010, %8035, %8054, %8072, %8105, %8138, %8159, %8179, %_Py_NewRef.exit10745, %8199, %8476, %8493, %8504, %_PyFrame_Copy.exit, %8556, %8582, %8694, %8716, %8785, %8810, %8815, %8851, %8862, %8907, %8971, %9010, %9084, %PyCell_SetTakeRef.exit, %9131, %_Py_NewRef.exit10775, %9202, %9232, %9284, %9340, %9351, %9392, %9423, %9485, %9490, %9507, %9528, %9550, %9561, %9584, %9604, %9613, %9634, %9656, %9680, %9686, %9718, %9731, %9755, %9795, %9833, %9871, %9908, %9914
-  %.28898.be = phi ptr [ %109, %106 ], [ %144, %141 ], [ %151, %170 ], [ %178, %214 ], [ %222, %258 ], [ %300, %297 ], [ %308, %354 ], [ %362, %381 ], [ %389, %425 ], [ %433, %452 ], [ %460, %496 ], [ %543, %541 ], [ %556, %554 ], [ %588, %585 ], [ %632, %628 ], [ %715, %_PyFrame_PushUnchecked.exit ], [ %773, %770 ], [ %854, %851 ], [ %911, %908 ], [ %928, %924 ], [ %968, %963 ], [ %1042, %1037 ], [ %1088, %1084 ], [ %1121, %1117 ], [ %1138, %1134 ], [ %1162, %1155 ], [ %1313, %1311 ], [ %1421, %1416 ], [ %1523, %._crit_edge11501 ], [ %1614, %1609 ], [ %1705, %1703 ], [ %1795, %1793 ], [ %1885, %1883 ], [ %1960, %1959 ], [ %2105, %2104 ], [ %2119, %2130 ], [ %2171, %2168 ], [ %2245, %._crit_edge11488 ], [ %2268, %2261 ], [ %2425, %2422 ], [ %2528, %2523 ], [ %2633, %2631 ], [ %2705, %2700 ], [ %2766, %2763 ], [ %2818, %2819 ], [ %2923, %2921 ], [ %3026, %3024 ], [ %3108, %3107 ], [ %3215, %3213 ], [ %3302, %3300 ], [ %3369, %._crit_edge11470 ], [ %3427, %3422 ], [ %3469, %3468 ], [ %3509, %3508 ], [ %3538, %3537 ], [ %.308926, %3601 ], [ %3648, %3656 ], [ %3740, %3737 ], [ %3752, %3750 ], [ %3803, %3802 ], [ %3810, %3851 ], [ %3859, %3913 ], [ %3921, %3955 ], [ %3969, %3967 ], [ %4001, %3999 ], [ %4039, %4037 ], [ %4078, %4076 ], [ %4107, %4105 ], [ %4122, %_Py_NewRef.exit10645 ], [ %.28898, %._crit_edge11519 ], [ %4181, %4180 ], [ %4222, %4221 ], [ %.28898, %4251 ], [ %4269, %4277 ], [ %4301, %4306 ], [ %4339, %4338 ], [ %4379, %4378 ], [ %4425, %4424 ], [ %4488, %4487 ], [ %4506, %4505 ], [ %4513, %4524 ], [ %4533, %4544 ], [ %.28898, %4548 ], [ %4584, %4583 ], [ %4620, %4617 ], [ %4633, %4631 ], [ %.35, %_PyErr_Occurred.exit.thread ], [ %4686, %4684 ], [ %4720, %4704 ], [ %.36, %4752 ], [ %4770, %_Py_NewRef.exit10663 ], [ %.28898, %4784 ], [ %4802, %4800 ], [ %.37, %4831 ], [ %4848, %_Py_NewRef.exit10664 ], [ %4877, %4913 ], [ %4930, %4928 ], [ %4941, %4952 ], [ %4965, %4976 ], [ %4996, %4994 ], [ %.38, %5033 ], [ %5056, %5054 ], [ %5099, %5096 ], [ %5284, %5282 ], [ %5425, %5424 ], [ %5630, %5627 ], [ %5655, %5654 ], [ %5686, %5685 ], [ %.50, %5743 ], [ %5752, %5761 ], [ %.52, %5790 ], [ %.53, %5811 ], [ %5842, %5848 ], [ %.54, %5860 ], [ %5982, %5979 ], [ %.58, %5996 ], [ %6028, %6027 ], [ %.60, %6057 ], [ %.61, %6099 ], [ %.62, %6139 ], [ %.63, %6168 ], [ %6187, %6188 ], [ %6206, %6207 ], [ %6233, %6219 ], [ %6243, %6246 ], [ %6267, %6250 ], [ %6282, %6305 ], [ %.28898, %6314 ], [ %.65, %6327 ], [ %.66, %6343 ], [ %.28898, %6350 ], [ %.67, %6368 ], [ %.28898, %6375 ], [ %6386, %6401 ], [ %6453, %6452 ], [ %6473, %6463 ], [ %6525, %6520 ], [ %6560, %6558 ], [ %6599, %6597 ], [ %6700, %6698 ], [ %6726, %_Py_NewRef.exit10703 ], [ %6746, %_Py_NewRef.exit10704 ], [ %6778, %_Py_NewRef.exit10706 ], [ %6831, %6829 ], [ %.28898, %_Py_NewRef.exit10707 ], [ %.28898, %_Py_NewRef.exit10709 ], [ %6951, %_Py_NewRef.exit10712 ], [ %6990, %6988 ], [ %7055, %7053 ], [ %7077, %7075 ], [ %7086, %7081 ], [ %7111, %7110 ], [ %7126, %7115 ], [ %7145, %_Py_NewRef.exit10716 ], [ %7180, %7178 ], [ %7196, %_Py_NewRef.exit10729 ], [ %7206, %7200 ], [ %7231, %_Py_NewRef.exit10730 ], [ %7258, %_Py_NewRef.exit10732 ], [ %7308, %7304 ], [ %.70, %7385 ], [ %7412, %7398 ], [ %7440, %7437 ], [ %7496, %7493 ], [ %7539, %7536 ], [ %7559, %_Py_NewRef.exit10738 ], [ %7579, %7577 ], [ %7590, %7583 ], [ %7623, %7618 ], [ %7636, %7634 ], [ %7707, %7704 ], [ %7764, %7761 ], [ %7831, %7827 ], [ %.28898, %7858 ], [ %7888, %7884 ], [ %7907, %7906 ], [ %7957, %_PyErr_Occurred.exit10744.thread ], [ %7974, %7972 ], [ %7987, %7978 ], [ %8000, %7991 ], [ %.28898, %8004 ], [ %.28898, %8010 ], [ %8037, %8035 ], [ %8044, %8054 ], [ %8061, %8072 ], [ %8082, %8105 ], [ %8115, %8138 ], [ %8148, %8159 ], [ %8169, %8179 ], [ %8195, %_Py_NewRef.exit10745 ], [ %8202, %8199 ], [ %8475, %8476 ], [ %.78, %8493 ], [ %.28898, %8504 ], [ %8552, %_PyFrame_Copy.exit ], [ %8572, %8556 ], [ %8584, %8582 ], [ %8698, %8694 ], [ %8732, %8716 ], [ %.82, %8785 ], [ %8811, %8810 ], [ %8818, %8815 ], [ %8852, %8851 ], [ %8871, %8862 ], [ %8908, %8907 ], [ %8972, %8971 ], [ %9011, %9010 ], [ %9085, %9084 ], [ %9109, %PyCell_SetTakeRef.exit ], [ %9116, %9131 ], [ %.28898, %_Py_NewRef.exit10775 ], [ %9171, %9202 ], [ %9233, %9232 ], [ %9285, %9284 ], [ %9339, %9340 ], [ %9353, %9351 ], [ %9393, %9392 ], [ %9422, %9423 ], [ %9486, %9485 ], [ %.28898, %9490 ], [ %9509, %9507 ], [ %9517, %9528 ], [ %.28898, %9550 ], [ %.28898, %9561 ], [ %.28898, %9584 ], [ %.28898, %9604 ], [ %.28898, %9613 ], [ %.28898, %9634 ], [ %9645, %9656 ], [ %9669, %9680 ], [ %.28898, %9686 ], [ %9721, %9718 ], [ %9733, %9731 ], [ %9758, %9755 ], [ %9797, %9795 ], [ %9835, %9833 ], [ %9872, %9871 ], [ %9910, %9908 ], [ %9933, %9914 ]
-  %.28893.be = phi ptr [ %.28893, %106 ], [ %.18892, %141 ], [ %150, %170 ], [ %177, %214 ], [ %221, %258 ], [ %265, %297 ], [ %355, %354 ], [ %361, %381 ], [ %388, %425 ], [ %432, %452 ], [ %459, %496 ], [ %503, %541 ], [ %.28893, %554 ], [ %.48895, %585 ], [ %594, %628 ], [ %709, %_PyFrame_PushUnchecked.exit ], [ %721, %770 ], [ %779, %851 ], [ %860, %908 ], [ %917, %924 ], [ %934, %963 ], [ %974, %1037 ], [ %1048, %1084 ], [ %1094, %1117 ], [ %1127, %1134 ], [ %.28893, %1155 ], [ %.5, %1311 ], [ %1423, %1416 ], [ %1525, %._crit_edge11501 ], [ %1616, %1609 ], [ %1622, %1703 ], [ %1711, %1793 ], [ %1801, %1883 ], [ %1891, %1959 ], [ %1966, %2104 ], [ %2111, %2130 ], [ %2138, %2168 ], [ %2177, %._crit_edge11488 ], [ %.28893, %2261 ], [ %.7, %2422 ], [ %2530, %2523 ], [ %2536, %2631 ], [ %2707, %2700 ], [ %2713, %2763 ], [ %2820, %2819 ], [ %2826, %2921 ], [ %2929, %3024 ], [ %3032, %3107 ], [ %3114, %3213 ], [ %3221, %3300 ], [ %3371, %._crit_edge11470 ], [ %3429, %3422 ], [ %3435, %3468 ], [ %3475, %3508 ], [ %3515, %3537 ], [ %3544, %3601 ], [ %3612, %3656 ], [ %3663, %3737 ], [ %.28893, %3750 ], [ %.9, %3802 ], [ %3809, %3851 ], [ %3858, %3913 ], [ %3920, %3955 ], [ %.28893, %3967 ], [ %.10, %3999 ], [ %4007, %4037 ], [ %4045, %4076 ], [ %4084, %4105 ], [ %4114, %_Py_NewRef.exit10645 ], [ %4128, %._crit_edge11519 ], [ %4158, %4180 ], [ %4187, %4221 ], [ %4228, %4251 ], [ %4257, %4277 ], [ %4283, %4306 ], [ %4312, %4338 ], [ %4345, %4378 ], [ %4385, %4424 ], [ %4431, %4487 ], [ %4493, %4505 ], [ %4512, %4524 ], [ %4532, %4544 ], [ %4550, %4548 ], [ %4560, %4583 ], [ %4590, %4617 ], [ %.28893, %4631 ], [ %4680, %_PyErr_Occurred.exit.thread ], [ %.11, %4684 ], [ %4722, %4704 ], [ %4755, %4752 ], [ %4728, %_Py_NewRef.exit10663 ], [ %4787, %4784 ], [ %4776, %4800 ], [ %4834, %4831 ], [ %4808, %_Py_NewRef.exit10664 ], [ %4854, %4913 ], [ %4921, %4928 ], [ %4936, %4952 ], [ %4960, %4976 ], [ %4984, %4994 ], [ %5002, %5033 ], [ %5040, %5054 ], [ %5062, %5096 ], [ %5105, %5282 ], [ %5290, %5424 ], [ %5431, %5627 ], [ %5635, %5654 ], [ %5661, %5685 ], [ %.12, %5743 ], [ %.28893, %5761 ], [ %.13, %5790 ], [ %.14, %5811 ], [ %5847, %5848 ], [ %.15, %5860 ], [ %5865, %5979 ], [ %.17, %5996 ], [ %.18, %6027 ], [ %.19, %6057 ], [ %.20, %6099 ], [ %.21, %6139 ], [ %.22, %6168 ], [ %.28893, %6188 ], [ %spec.select, %6207 ], [ %6232, %6219 ], [ %6245, %6246 ], [ %6266, %6250 ], [ %6281, %6305 ], [ %.28893, %6314 ], [ %6330, %6327 ], [ %6346, %6343 ], [ %6355, %6350 ], [ %6371, %6368 ], [ %6379, %6375 ], [ %6385, %6401 ], [ %6407, %6452 ], [ %.28893, %6463 ], [ %.24, %6520 ], [ %6531, %6558 ], [ %6566, %6597 ], [ %6661, %6698 ], [ %6706, %_Py_NewRef.exit10703 ], [ %6732, %_Py_NewRef.exit10704 ], [ %6752, %_Py_NewRef.exit10706 ], [ %6784, %6829 ], [ %6837, %_Py_NewRef.exit10707 ], [ %6864, %_Py_NewRef.exit10709 ], [ %6953, %_Py_NewRef.exit10712 ], [ %6959, %6988 ], [ %6996, %7053 ], [ %7061, %7075 ], [ %7083, %7081 ], [ %7092, %7110 ], [ %7117, %7115 ], [ %7132, %_Py_NewRef.exit10716 ], [ %7151, %7178 ], [ %7186, %_Py_NewRef.exit10729 ], [ %7202, %7200 ], [ %7212, %_Py_NewRef.exit10730 ], [ %7237, %_Py_NewRef.exit10732 ], [ %7264, %7304 ], [ %7314, %7385 ], [ %.28893, %7398 ], [ %.25, %7437 ], [ %7446, %7493 ], [ %7502, %7536 ], [ %7545, %_Py_NewRef.exit10738 ], [ %7565, %7577 ], [ %7585, %7583 ], [ %7596, %7618 ], [ %.28893, %7634 ], [ %.26, %7704 ], [ %7713, %7761 ], [ %7770, %7827 ], [ %7837, %7858 ], [ %7864, %7884 ], [ %7894, %7906 ], [ %7913, %_PyErr_Occurred.exit10744.thread ], [ %7963, %7972 ], [ %7980, %7978 ], [ %7993, %7991 ], [ %8006, %8004 ], [ %8012, %8010 ], [ %8018, %8035 ], [ %8043, %8054 ], [ %8075, %8072 ], [ %8108, %8105 ], [ %8141, %8138 ], [ %8162, %8159 ], [ %8168, %8179 ], [ %8185, %_Py_NewRef.exit10745 ], [ %8201, %8199 ], [ %.28893, %8476 ], [ %.27, %8493 ], [ %8499, %8504 ], [ %8548, %_PyFrame_Copy.exit ], [ %8571, %8556 ], [ %.28893, %8582 ], [ %.29, %8694 ], [ %8734, %8716 ], [ %8740, %8785 ], [ %8791, %8810 ], [ %8817, %8815 ], [ %8831, %8851 ], [ %.28893, %8862 ], [ %.30, %8907 ], [ %8914, %8971 ], [ %8978, %9010 ], [ %9017, %9084 ], [ %9091, %PyCell_SetTakeRef.exit ], [ %9115, %9131 ], [ %9137, %_Py_NewRef.exit10775 ], [ %9169, %9202 ], [ %9208, %9232 ], [ %9239, %9284 ], [ %9291, %9340 ], [ %.28893, %9351 ], [ %.31, %9392 ], [ %9399, %9423 ], [ %9429, %9485 ], [ %9492, %9490 ], [ %.28893, %9507 ], [ %.32, %9528 ], [ %9535, %9550 ], [ %9556, %9561 ], [ %9567, %9584 ], [ %9590, %9604 ], [ %9610, %9613 ], [ %9619, %9634 ], [ %9640, %9656 ], [ %9664, %9680 ], [ %9688, %9686 ], [ %9696, %9718 ], [ %.28893, %9731 ], [ %.33, %9755 ], [ %9764, %9795 ], [ %9803, %9833 ], [ %9841, %9871 ], [ %9878, %9908 ], [ %9932, %9914 ]
-  %.08890.be = phi i32 [ %.08890, %106 ], [ %.sroa.24789.0.extract.trunc, %141 ], [ %.sroa.24772.0.extract.trunc, %170 ], [ %.sroa.24738.0.extract.trunc, %214 ], [ %.sroa.24704.0.extract.trunc, %258 ], [ %.sroa.24672.0.extract.trunc, %297 ], [ %.sroa.24636.0.extract.trunc, %354 ], [ %.sroa.24619.0.extract.trunc, %381 ], [ %.sroa.24585.0.extract.trunc, %425 ], [ %.sroa.24568.0.extract.trunc, %452 ], [ %.sroa.24534.0.extract.trunc, %496 ], [ %.sroa.24511.0.extract.trunc, %541 ], [ %.08890, %554 ], [ %.sroa.24480.0.extract.trunc, %585 ], [ %.sroa.24456.0.extract.trunc, %628 ], [ %.sroa.24434.0.extract.trunc, %_PyFrame_PushUnchecked.exit ], [ %.sroa.24402.0.extract.trunc, %770 ], [ %.sroa.24369.0.extract.trunc, %851 ], [ %.sroa.24337.0.extract.trunc, %908 ], [ %.sroa.24330.0.extract.trunc, %924 ], [ %.sroa.24313.0.extract.trunc, %963 ], [ %.sroa.24278.0.extract.trunc, %1037 ], [ %.sroa.24258.0.extract.trunc, %1084 ], [ %.sroa.24242.0.extract.trunc, %1117 ], [ %.sroa.24235.0.extract.trunc, %1134 ], [ %.08890, %1155 ], [ %.sroa.24142.0.extract.trunc, %1311 ], [ %.sroa.24102.0.extract.trunc, %1416 ], [ %.sroa.24052.0.extract.trunc, %._crit_edge11501 ], [ %.sroa.24011.0.extract.trunc, %1609 ], [ %.sroa.23968.0.extract.trunc, %1703 ], [ %.sroa.23925.0.extract.trunc, %1793 ], [ %.sroa.23882.0.extract.trunc, %1883 ], [ %.sroa.23850.0.extract.trunc, %1959 ], [ %.sroa.23746.0.extract.trunc, %2104 ], [ %.sroa.23733.0.extract.trunc, %2130 ], [ %.sroa.23711.0.extract.trunc, %2168 ], [ %.sroa.23670.0.extract.trunc, %._crit_edge11488 ], [ %.08890, %2261 ], [ %.sroa.23558.0.extract.trunc, %2422 ], [ %.sroa.23506.0.extract.trunc, %2523 ], [ %.sroa.23454.0.extract.trunc, %2631 ], [ %.sroa.23419.0.extract.trunc, %2700 ], [ %.sroa.23389.0.extract.trunc, %2763 ], [ %.sroa.23367.0.extract.trunc, %2819 ], [ %.sroa.23318.0.extract.trunc, %2921 ], [ %.sroa.23268.0.extract.trunc, %3024 ], [ %.sroa.23232.0.extract.trunc, %3107 ], [ %.sroa.23184.0.extract.trunc, %3213 ], [ %.sroa.23142.0.extract.trunc, %3300 ], [ %.sroa.23109.0.extract.trunc, %._crit_edge11470 ], [ %.sroa.23085.0.extract.trunc, %3422 ], [ %.sroa.23066.0.extract.trunc, %3468 ], [ %.sroa.23047.0.extract.trunc, %3508 ], [ %.sroa.23032.0.extract.trunc, %3537 ], [ %.sroa.22995.0.extract.trunc, %3601 ], [ %.sroa.22971.0.extract.trunc, %3656 ], [ %.sroa.22941.0.extract.trunc, %3737 ], [ %.08890, %3750 ], [ %.sroa.22899.0.extract.trunc, %3802 ], [ %.sroa.22861.0.extract.trunc, %3851 ], [ %.sroa.22821.0.extract.trunc, %3913 ], [ %.sroa.22787.0.extract.trunc, %3955 ], [ %.08890, %3967 ], [ %.sroa.22756.0.extract.trunc, %3999 ], [ %.sroa.22732.0.extract.trunc, %4037 ], [ %.sroa.22707.0.extract.trunc, %4076 ], [ %.sroa.22693.0.extract.trunc, %4105 ], [ %.sroa.22688.0.extract.trunc, %_Py_NewRef.exit10645 ], [ %.sroa.22676.0.extract.trunc, %._crit_edge11519 ], [ %.sroa.22665.0.extract.trunc, %4180 ], [ %.sroa.22655.0.extract.trunc, %4221 ], [ %.sroa.22644.0.extract.trunc, %4251 ], [ %.sroa.22638.0.extract.trunc, %4277 ], [ %.sroa.22630.0.extract.trunc, %4306 ], [ %.sroa.22613.0.extract.trunc, %4338 ], [ %.sroa.22591.0.extract.trunc, %4378 ], [ %.sroa.22570.0.extract.trunc, %4424 ], [ %.sroa.22550.0.extract.trunc, %4487 ], [ %.sroa.22542.0.extract.trunc, %4505 ], [ %.sroa.22531.0.extract.trunc, %4524 ], [ %.sroa.22527.0.extract.trunc, %4544 ], [ %4556, %4548 ], [ %.sroa.22510.0.extract.trunc, %4583 ], [ %.sroa.22490.0.extract.trunc, %4617 ], [ %.08890, %4631 ], [ %.sroa.22472.0.extract.trunc, %_PyErr_Occurred.exit.thread ], [ %.sroa.22469.0.extract.trunc, %4684 ], [ %.sroa.22454.0.extract.trunc, %4704 ], [ %.sroa.22434.0.extract.trunc, %4752 ], [ %.sroa.22427.0.extract.trunc, %_Py_NewRef.exit10663 ], [ %.sroa.22419.0.extract.trunc, %4784 ], [ %.sroa.22408.0.extract.trunc, %4800 ], [ %.sroa.22389.0.extract.trunc, %4831 ], [ %.sroa.22382.0.extract.trunc, %_Py_NewRef.exit10664 ], [ %.sroa.22347.0.extract.trunc, %4913 ], [ %.sroa.22340.0.extract.trunc, %4928 ], [ %.sroa.22327.0.extract.trunc, %4952 ], [ %.sroa.22314.0.extract.trunc, %4976 ], [ %.sroa.22305.0.extract.trunc, %4994 ], [ %.sroa.22285.0.extract.trunc, %5033 ], [ %.sroa.22277.0.extract.trunc, %5054 ], [ %.sroa.22256.0.extract.trunc, %5096 ], [ %.sroa.22161.0.extract.trunc, %5282 ], [ %.sroa.22057.0.extract.trunc, %5424 ], [ %.sroa.21944.0.extract.trunc, %5627 ], [ %.sroa.21932.0.extract.trunc, %5654 ], [ %.sroa.21915.0.extract.trunc, %5685 ], [ %.sroa.21903.0.extract.trunc, %5743 ], [ %.08890, %5761 ], [ %.sroa.21892.0.extract.trunc, %5790 ], [ %.sroa.21888.0.extract.trunc, %5811 ], [ %.sroa.21874.0.extract.trunc, %5848 ], [ %.08890, %5860 ], [ %.sroa.21793.0.extract.trunc, %5979 ], [ %.sroa.21789.0.extract.trunc, %5996 ], [ %.sroa.21776.0.extract.trunc, %6027 ], [ %.sroa.21767.0.extract.trunc, %6057 ], [ %.sroa.21752.0.extract.trunc, %6099 ], [ %.sroa.21737.0.extract.trunc, %6139 ], [ %.sroa.21728.0.extract.trunc, %6168 ], [ %.sroa.21720.0.extract.trunc, %6188 ], [ %.sroa.21716.0.extract.trunc, %6207 ], [ %.sroa.21704.0.extract.trunc, %6219 ], [ %.sroa.21695.0.extract.trunc, %6246 ], [ %.sroa.21687.0.extract.trunc, %6250 ], [ %.sroa.21665.0.extract.trunc, %6305 ], [ %.08890, %6314 ], [ %.sroa.21659.0.extract.trunc, %6327 ], [ %.sroa.21656.0.extract.trunc, %6343 ], [ %.sroa.21654.0.extract.trunc, %6350 ], [ %.sroa.21651.0.extract.trunc, %6368 ], [ %.sroa.21649.0.extract.trunc, %6375 ], [ %.sroa.21644.0.extract.trunc, %6401 ], [ %.sroa.21621.0.extract.trunc, %6452 ], [ %.08890, %6463 ], [ %.sroa.21588.0.extract.trunc, %6520 ], [ %.sroa.21569.0.extract.trunc, %6558 ], [ %.sroa.21546.0.extract.trunc, %6597 ], [ %.sroa.21501.0.extract.trunc, %6698 ], [ %.sroa.21483.0.extract.trunc, %_Py_NewRef.exit10703 ], [ %.sroa.21470.0.extract.trunc, %_Py_NewRef.exit10704 ], [ %.sroa.21448.0.extract.trunc, %_Py_NewRef.exit10706 ], [ %.sroa.21421.0.extract.trunc, %6829 ], [ %.sroa.21405.0.extract.trunc, %_Py_NewRef.exit10707 ], [ %.sroa.21380.0.extract.trunc, %_Py_NewRef.exit10709 ], [ %.sroa.21360.0.extract.trunc, %_Py_NewRef.exit10712 ], [ %.sroa.21337.0.extract.trunc, %6988 ], [ %.sroa.21306.0.extract.trunc, %7053 ], [ %.sroa.21301.0.extract.trunc, %7075 ], [ %.sroa.21296.0.extract.trunc, %7081 ], [ %.sroa.21288.0.extract.trunc, %7110 ], [ %.sroa.21283.0.extract.trunc, %7115 ], [ %.sroa.21278.0.extract.trunc, %_Py_NewRef.exit10716 ], [ %.sroa.21271.0.extract.trunc, %7178 ], [ %.sroa.21267.0.extract.trunc, %_Py_NewRef.exit10729 ], [ %.sroa.21263.0.extract.trunc, %7200 ], [ %.sroa.21257.0.extract.trunc, %_Py_NewRef.exit10730 ], [ %.sroa.21249.0.extract.trunc, %_Py_NewRef.exit10732 ], [ %.sroa.21234.0.extract.trunc, %7304 ], [ %.sroa.21214.0.extract.trunc, %7385 ], [ %.08890, %7398 ], [ %.sroa.21199.0.extract.trunc, %7437 ], [ %.sroa.21175.0.extract.trunc, %7493 ], [ %.sroa.21156.0.extract.trunc, %7536 ], [ %.sroa.21150.0.extract.trunc, %_Py_NewRef.exit10738 ], [ %.sroa.21143.0.extract.trunc, %7577 ], [ %.sroa.21138.0.extract.trunc, %7583 ], [ %.sroa.21125.0.extract.trunc, %7618 ], [ %.08890, %7634 ], [ %.sroa.21037.0.extract.trunc, %7704 ], [ %.sroa.21005.0.extract.trunc, %7761 ], [ %.sroa.2967.0.extract.trunc, %7827 ], [ %.sroa.2953.0.extract.trunc, %7858 ], [ %.sroa.2937.0.extract.trunc, %7884 ], [ %.sroa.2930.0.extract.trunc, %7906 ], [ %.sroa.2902.0.extract.trunc, %_PyErr_Occurred.exit10744.thread ], [ %.sroa.2894.0.extract.trunc, %7972 ], [ %.sroa.2887.0.extract.trunc, %7978 ], [ %.sroa.2880.0.extract.trunc, %7991 ], [ %.sroa.2878.0.extract.trunc, %8004 ], [ %.sroa.2876.0.extract.trunc, %8010 ], [ %.sroa.2861.0.extract.trunc, %8035 ], [ %.sroa.2853.0.extract.trunc, %8054 ], [ %.sroa.2846.0.extract.trunc, %8072 ], [ %.sroa.2829.0.extract.trunc, %8105 ], [ %.sroa.2812.0.extract.trunc, %8138 ], [ %.sroa.2805.0.extract.trunc, %8159 ], [ %.sroa.2797.0.extract.trunc, %8179 ], [ %.sroa.2785.0.extract.trunc, %_Py_NewRef.exit10745 ], [ %.sroa.2781.0.extract.trunc, %8199 ], [ %.sroa.2755.0.extract.trunc, %8476 ], [ %.sroa.2752.0.extract.trunc, %8493 ], [ %.sroa.2748.0.extract.trunc, %8504 ], [ %.sroa.2736.0.extract.trunc, %_PyFrame_Copy.exit ], [ %.sroa.2728.0.extract.trunc, %8556 ], [ %.08890, %8582 ], [ %.sroa.2682.0.extract.trunc, %8694 ], [ %.sroa.2666.0.extract.trunc, %8716 ], [ %.sroa.2652.0.extract.trunc, %8785 ], [ %.sroa.2641.0.extract.trunc, %8810 ], [ %.sroa.2630.0.extract.trunc, %8815 ], [ %.sroa.2619.0.extract.trunc, %8851 ], [ %.08890, %8862 ], [ %.sroa.2592.0.extract.trunc, %8907 ], [ %.sroa.2555.0.extract.trunc, %8971 ], [ %.sroa.2528.0.extract.trunc, %9010 ], [ %.sroa.2490.0.extract.trunc, %9084 ], [ %.sroa.2486.0.extract.trunc, %PyCell_SetTakeRef.exit ], [ %.sroa.2474.0.extract.trunc, %9131 ], [ %.sroa.2457.0.extract.trunc, %_Py_NewRef.exit10775 ], [ %.sroa.2431.0.extract.trunc, %9202 ], [ %.sroa.2420.0.extract.trunc, %9232 ], [ %.sroa.2396.0.extract.trunc, %9284 ], [ %.sroa.2369.0.extract.trunc, %9340 ], [ %.08890, %9351 ], [ %.sroa.2336.0.extract.trunc, %9392 ], [ %.sroa.2322.0.extract.trunc, %9423 ], [ %.sroa.2285.0.extract.trunc, %9485 ], [ %.sroa.2277.0.extract.trunc, %9490 ], [ %.08890, %9507 ], [ %.sroa.2255.0.extract.trunc, %9528 ], [ %.sroa.2240.0.extract.trunc, %9550 ], [ %.sroa.2237.0.extract.trunc, %9561 ], [ %.sroa.2223.0.extract.trunc, %9584 ], [ %.sroa.2209.0.extract.trunc, %9604 ], [ %.sroa.2204.0.extract.trunc, %9613 ], [ %.sroa.2190.0.extract.trunc, %9634 ], [ %.sroa.2177.0.extract.trunc, %9656 ], [ %.sroa.2164.0.extract.trunc, %9680 ], [ %.sroa.2158.0.extract.trunc, %9686 ], [ %.sroa.2146.0.extract.trunc, %9718 ], [ %.08890, %9731 ], [ %.sroa.2126.0.extract.trunc, %9755 ], [ %.sroa.2109.0.extract.trunc, %9795 ], [ %.sroa.292.0.extract.trunc, %9833 ], [ %.sroa.275.0.extract.trunc, %9871 ], [ %.sroa.249.0.extract.trunc, %9908 ], [ %.sroa.239.0.extract.trunc, %9914 ]
-  %.2.be = phi ptr [ %.2, %106 ], [ %.2, %141 ], [ %.2, %170 ], [ %.2, %214 ], [ %.2, %258 ], [ %.2, %297 ], [ %.2, %354 ], [ %.2, %381 ], [ %.2, %425 ], [ %.2, %452 ], [ %.2, %496 ], [ %.2, %541 ], [ %.2, %554 ], [ %.2, %585 ], [ %.2, %628 ], [ %674, %_PyFrame_PushUnchecked.exit ], [ %.2, %770 ], [ %.2, %851 ], [ %.2, %908 ], [ %.2, %924 ], [ %.2, %963 ], [ %.2, %1037 ], [ %.2, %1084 ], [ %.2, %1117 ], [ %.2, %1134 ], [ %.2, %1155 ], [ %.2, %1311 ], [ %1411, %1416 ], [ %1509, %._crit_edge11501 ], [ %1605, %1609 ], [ %.2, %1703 ], [ %.2, %1793 ], [ %.2, %1883 ], [ %.2, %1959 ], [ %.2, %2104 ], [ %.2, %2130 ], [ %.2, %2168 ], [ %.2, %._crit_edge11488 ], [ %.2, %2261 ], [ %.2, %2422 ], [ %2508, %2523 ], [ %.2, %2631 ], [ %2685, %2700 ], [ %.2, %2763 ], [ %.2, %2819 ], [ %.2, %2921 ], [ %.2, %3024 ], [ %.2, %3107 ], [ %.2, %3213 ], [ %.2, %3300 ], [ %3355, %._crit_edge11470 ], [ %3418, %3422 ], [ %.2, %3468 ], [ %.2, %3508 ], [ %.2, %3537 ], [ %.2, %3601 ], [ %.2, %3656 ], [ %.2, %3737 ], [ %.2, %3750 ], [ %.2, %3802 ], [ %.2, %3851 ], [ %.2, %3913 ], [ %.2, %3955 ], [ %.2, %3967 ], [ %.2, %3999 ], [ %.2, %4037 ], [ %.2, %4076 ], [ %.2, %4105 ], [ %.2, %_Py_NewRef.exit10645 ], [ %.2, %._crit_edge11519 ], [ %.2, %4180 ], [ %.2, %4221 ], [ %.2, %4251 ], [ %.2, %4277 ], [ %.2, %4306 ], [ %.2, %4338 ], [ %.2, %4378 ], [ %.2, %4424 ], [ %.2, %4487 ], [ %.2, %4505 ], [ %.2, %4524 ], [ %.2, %4544 ], [ %.2, %4548 ], [ %.2, %4583 ], [ %.2, %4617 ], [ %.2, %4631 ], [ %.2, %_PyErr_Occurred.exit.thread ], [ %.2, %4684 ], [ %4705, %4704 ], [ %.2, %4752 ], [ %.2, %_Py_NewRef.exit10663 ], [ %.2, %4784 ], [ %.2, %4800 ], [ %.2, %4831 ], [ %.2, %_Py_NewRef.exit10664 ], [ %.2, %4913 ], [ %.2, %4928 ], [ %.2, %4952 ], [ %.2, %4976 ], [ %.2, %4994 ], [ %.2, %5033 ], [ %.2, %5054 ], [ %.2, %5096 ], [ %.2, %5282 ], [ %.2, %5424 ], [ %.2, %5627 ], [ %.2, %5654 ], [ %.2, %5685 ], [ %.2, %5743 ], [ %.2, %5761 ], [ %.2, %5790 ], [ %.2, %5811 ], [ %.2, %5848 ], [ %.2, %5860 ], [ %.2, %5979 ], [ %.2, %5996 ], [ %.2, %6027 ], [ %.2, %6057 ], [ %.2, %6099 ], [ %.2, %6139 ], [ %.2, %6168 ], [ %.2, %6188 ], [ %.2, %6207 ], [ %6224, %6219 ], [ %.2, %6246 ], [ %6261, %6250 ], [ %.2, %6305 ], [ %.2, %6314 ], [ %.2, %6327 ], [ %.2, %6343 ], [ %.2, %6350 ], [ %.2, %6368 ], [ %.2, %6375 ], [ %.2, %6401 ], [ %.2, %6452 ], [ %.2, %6463 ], [ %.2, %6520 ], [ %.2, %6558 ], [ %.2, %6597 ], [ %.2, %6698 ], [ %.2, %_Py_NewRef.exit10703 ], [ %.2, %_Py_NewRef.exit10704 ], [ %.2, %_Py_NewRef.exit10706 ], [ %.2, %6829 ], [ %.2, %_Py_NewRef.exit10707 ], [ %.2, %_Py_NewRef.exit10709 ], [ %6944, %_Py_NewRef.exit10712 ], [ %.2, %6988 ], [ %.2, %7053 ], [ %.2, %7075 ], [ %.2, %7081 ], [ %.2, %7110 ], [ %.2, %7115 ], [ %.2, %_Py_NewRef.exit10716 ], [ %.2, %7178 ], [ %.2, %_Py_NewRef.exit10729 ], [ %.2, %7200 ], [ %.2, %_Py_NewRef.exit10730 ], [ %.2, %_Py_NewRef.exit10732 ], [ %.2, %7304 ], [ %.2, %7385 ], [ %.2, %7398 ], [ %.2, %7437 ], [ %.2, %7493 ], [ %.2, %7536 ], [ %.2, %_Py_NewRef.exit10738 ], [ %.2, %7577 ], [ %.2, %7583 ], [ %.2, %7618 ], [ %.2, %7634 ], [ %.2, %7704 ], [ %.2, %7761 ], [ %.2, %7827 ], [ %.2, %7858 ], [ %.2, %7884 ], [ %.2, %7906 ], [ %.2, %_PyErr_Occurred.exit10744.thread ], [ %.2, %7972 ], [ %.2, %7978 ], [ %.2, %7991 ], [ %.2, %8004 ], [ %.2, %8010 ], [ %.2, %8035 ], [ %.2, %8054 ], [ %.2, %8072 ], [ %.2, %8105 ], [ %.2, %8138 ], [ %.2, %8159 ], [ %.2, %8179 ], [ %.2, %_Py_NewRef.exit10745 ], [ %.2, %8199 ], [ %.2, %8476 ], [ %.2, %8493 ], [ %.2, %8504 ], [ %8542, %_PyFrame_Copy.exit ], [ %8563, %8556 ], [ %.2, %8582 ], [ %.2, %8694 ], [ %8717, %8716 ], [ %.2, %8785 ], [ %.2, %8810 ], [ %.2, %8815 ], [ %.2, %8851 ], [ %.2, %8862 ], [ %.2, %8907 ], [ %.2, %8971 ], [ %.2, %9010 ], [ %.2, %9084 ], [ %.2, %PyCell_SetTakeRef.exit ], [ %.2, %9131 ], [ %.2, %_Py_NewRef.exit10775 ], [ %.2, %9202 ], [ %.2, %9232 ], [ %.2, %9284 ], [ %.2, %9340 ], [ %.2, %9351 ], [ %.2, %9392 ], [ %.2, %9423 ], [ %.2, %9485 ], [ %.2, %9490 ], [ %.2, %9507 ], [ %.2, %9528 ], [ %.2, %9550 ], [ %.2, %9561 ], [ %.2, %9584 ], [ %.2, %9604 ], [ %.2, %9613 ], [ %.2, %9634 ], [ %.2, %9656 ], [ %.2, %9680 ], [ %.2, %9686 ], [ %.2, %9718 ], [ %.2, %9731 ], [ %.2, %9755 ], [ %.2, %9795 ], [ %.2, %9833 ], [ %.2, %9871 ], [ %.2, %9908 ], [ %9927, %9914 ]
-  %.pn.pn.be = phi i64 [ %111, %106 ], [ %147, %141 ], [ %174, %170 ], [ %218, %214 ], [ %262, %258 ], [ %303, %297 ], [ %358, %354 ], [ %385, %381 ], [ %429, %425 ], [ %456, %452 ], [ %500, %496 ], [ %546, %541 ], [ %558, %554 ], [ %591, %585 ], [ %635, %628 ], [ %718, %_PyFrame_PushUnchecked.exit ], [ %776, %770 ], [ %857, %851 ], [ %914, %908 ], [ %931, %924 ], [ %971, %963 ], [ %1045, %1037 ], [ %1091, %1084 ], [ %1124, %1117 ], [ %1141, %1134 ], [ %1164, %1155 ], [ %1316, %1311 ], [ %1426, %1416 ], [ %1528, %._crit_edge11501 ], [ %1619, %1609 ], [ %1708, %1703 ], [ %1798, %1793 ], [ %1888, %1883 ], [ %1963, %1959 ], [ %2108, %2104 ], [ %2135, %2130 ], [ %2174, %2168 ], [ %2248, %._crit_edge11488 ], [ %2270, %2261 ], [ %2428, %2422 ], [ %2533, %2523 ], [ %2636, %2631 ], [ %2710, %2700 ], [ %2769, %2763 ], [ %2823, %2819 ], [ %2926, %2921 ], [ %3029, %3024 ], [ %3111, %3107 ], [ %3218, %3213 ], [ %3305, %3300 ], [ %3374, %._crit_edge11470 ], [ %3432, %3422 ], [ %3472, %3468 ], [ %3512, %3508 ], [ %3541, %3537 ], [ %3609, %3601 ], [ %3660, %3656 ], [ %3743, %3737 ], [ %3754, %3750 ], [ %3806, %3802 ], [ %3855, %3851 ], [ %3917, %3913 ], [ %3960, %3955 ], [ %3971, %3967 ], [ %4004, %3999 ], [ %4042, %4037 ], [ %4081, %4076 ], [ %4110, %4105 ], [ %4125, %_Py_NewRef.exit10645 ], [ %4155, %._crit_edge11519 ], [ %4184, %4180 ], [ %4225, %4221 ], [ %4254, %4251 ], [ %4280, %4277 ], [ %4309, %4306 ], [ %4342, %4338 ], [ %4382, %4378 ], [ %4428, %4424 ], [ %4491, %4487 ], [ %4509, %4505 ], [ %4527, %4524 ], [ %4547, %4544 ], [ %4557, %4548 ], [ %4587, %4583 ], [ %4623, %4617 ], [ %4635, %4631 ], [ %4683, %_PyErr_Occurred.exit.thread ], [ %4689, %4684 ], [ %4725, %4704 ], [ %4758, %4752 ], [ %4773, %_Py_NewRef.exit10663 ], [ %4790, %4784 ], [ %4805, %4800 ], [ %4837, %4831 ], [ %4851, %_Py_NewRef.exit10664 ], [ %4918, %4913 ], [ %4933, %4928 ], [ %4957, %4952 ], [ %4981, %4976 ], [ %4999, %4994 ], [ %5037, %5033 ], [ %5059, %5054 ], [ %5102, %5096 ], [ %5287, %5282 ], [ %5428, %5424 ], [ %5633, %5627 ], [ %5658, %5654 ], [ %5689, %5685 ], [ %5746, %5743 ], [ %5763, %5761 ], [ %5793, %5790 ], [ %5814, %5811 ], [ %5851, %5848 ], [ %5862, %5860 ], [ %5985, %5979 ], [ %5999, %5996 ], [ %6031, %6027 ], [ %6060, %6057 ], [ %6102, %6099 ], [ %6142, %6139 ], [ %6171, %6168 ], [ %6191, %6188 ], [ %6211, %6207 ], [ %6236, %6219 ], [ %6249, %6246 ], [ %6270, %6250 ], [ %6308, %6305 ], [ %6319, %6314 ], [ %6333, %6327 ], [ %6349, %6343 ], [ %6358, %6350 ], [ %6374, %6368 ], [ %6382, %6375 ], [ %6404, %6401 ], [ %6456, %6452 ], [ %6475, %6463 ], [ %6528, %6520 ], [ %6563, %6558 ], [ %6602, %6597 ], [ %6703, %6698 ], [ %6729, %_Py_NewRef.exit10703 ], [ %6749, %_Py_NewRef.exit10704 ], [ %6781, %_Py_NewRef.exit10706 ], [ %6834, %6829 ], [ %6861, %_Py_NewRef.exit10707 ], [ %6900, %_Py_NewRef.exit10709 ], [ %6956, %_Py_NewRef.exit10712 ], [ %6993, %6988 ], [ %7058, %7053 ], [ %7080, %7075 ], [ %7089, %7081 ], [ %7114, %7110 ], [ %7129, %7115 ], [ %7148, %_Py_NewRef.exit10716 ], [ %7183, %7178 ], [ %7199, %_Py_NewRef.exit10729 ], [ %7209, %7200 ], [ %7234, %_Py_NewRef.exit10730 ], [ %7261, %_Py_NewRef.exit10732 ], [ %7311, %7304 ], [ %7391, %7385 ], [ %7414, %7398 ], [ %7443, %7437 ], [ %7499, %7493 ], [ %7542, %7536 ], [ %7562, %_Py_NewRef.exit10738 ], [ %7582, %7577 ], [ %7593, %7583 ], [ %7626, %7618 ], [ %7638, %7634 ], [ %7710, %7704 ], [ %7767, %7761 ], [ %7834, %7827 ], [ %7861, %7858 ], [ %7891, %7884 ], [ %7910, %7906 ], [ %7960, %_PyErr_Occurred.exit10744.thread ], [ %7977, %7972 ], [ %7990, %7978 ], [ %8003, %7991 ], [ %8009, %8004 ], [ %8015, %8010 ], [ %8040, %8035 ], [ %8057, %8054 ], [ %8078, %8072 ], [ %8111, %8105 ], [ %8144, %8138 ], [ %8165, %8159 ], [ %8182, %8179 ], [ %8198, %_Py_NewRef.exit10745 ], [ %8205, %8199 ], [ %8479, %8476 ], [ %8496, %8493 ], [ %8507, %8504 ], [ %8555, %_PyFrame_Copy.exit ], [ %8575, %8556 ], [ %8586, %8582 ], [ %8701, %8694 ], [ %8737, %8716 ], [ %8788, %8785 ], [ %8814, %8810 ], [ %8828, %8815 ], [ %8855, %8851 ], [ %8873, %8862 ], [ %8911, %8907 ], [ %8975, %8971 ], [ %9014, %9010 ], [ %9088, %9084 ], [ %9112, %PyCell_SetTakeRef.exit ], [ %9134, %9131 ], [ %9166, %_Py_NewRef.exit10775 ], [ %9205, %9202 ], [ %9236, %9232 ], [ %9288, %9284 ], [ %9343, %9340 ], [ %9355, %9351 ], [ %9396, %9392 ], [ %9426, %9423 ], [ %9489, %9485 ], [ %9500, %9490 ], [ %9511, %9507 ], [ %9532, %9528 ], [ %9553, %9550 ], [ %9564, %9561 ], [ %9587, %9584 ], [ %9607, %9604 ], [ %9616, %9613 ], [ %9637, %9634 ], [ %9661, %9656 ], [ %9685, %9680 ], [ %9693, %9686 ], [ %9724, %9718 ], [ %9735, %9731 ], [ %9761, %9755 ], [ %9800, %9795 ], [ %9838, %9833 ], [ %9875, %9871 ], [ %9913, %9908 ], [ %9936, %9914 ]
+.backedge.backedge:                               ; preds = %106, %141, %170, %214, %258, %297, %354, %381, %425, %452, %496, %541, %554, %585, %628, %_PyFrame_PushUnchecked.exit, %770, %851, %908, %924, %963, %1037, %1084, %1117, %1134, %1155, %1311, %1416, %._crit_edge11503, %1609, %1703, %1793, %1883, %1959, %2104, %2130, %2168, %._crit_edge11490, %2261, %2422, %2523, %2631, %2700, %2763, %2819, %2921, %3024, %3107, %3213, %3300, %._crit_edge11472, %3422, %3468, %3508, %3537, %3601, %3656, %3737, %3750, %3802, %3851, %3913, %3955, %3967, %3999, %4037, %4076, %4105, %_Py_NewRef.exit10645, %._crit_edge11521, %4180, %4221, %4251, %4277, %4306, %4338, %4378, %4424, %4487, %4505, %4524, %4544, %4548, %4583, %4617, %4631, %_PyErr_Occurred.exit.thread, %4684, %4704, %4752, %_Py_NewRef.exit10663, %4784, %4800, %4831, %_Py_NewRef.exit10664, %4913, %4928, %4952, %4976, %4994, %5033, %5054, %5096, %5282, %5424, %5627, %5654, %5685, %5743, %5761, %5790, %5811, %5848, %5860, %5979, %5996, %6027, %6057, %6099, %6139, %6168, %6188, %6207, %6219, %6246, %6250, %6305, %6314, %6327, %6343, %6350, %6368, %6375, %6401, %6452, %6463, %6520, %6558, %6597, %6698, %_Py_NewRef.exit10703, %_Py_NewRef.exit10704, %_Py_NewRef.exit10706, %6829, %_Py_NewRef.exit10707, %_Py_NewRef.exit10709, %_Py_NewRef.exit10712, %6988, %7053, %7075, %7081, %7110, %7115, %_Py_NewRef.exit10716, %7178, %_Py_NewRef.exit10729, %7200, %_Py_NewRef.exit10730, %_Py_NewRef.exit10732, %7304, %7385, %7398, %7437, %7493, %7536, %_Py_NewRef.exit10738, %7577, %7583, %7618, %7634, %7704, %7761, %7827, %7858, %7884, %7906, %_PyErr_Occurred.exit10744.thread, %7972, %7978, %7991, %8004, %8010, %8035, %8054, %8072, %8105, %8138, %8159, %8179, %_Py_NewRef.exit10745, %8199, %8476, %8493, %8504, %_PyFrame_Copy.exit, %8556, %8582, %8694, %8716, %8785, %8810, %8815, %8851, %8862, %8907, %8968, %9007, %9081, %PyCell_SetTakeRef.exit, %9128, %_Py_NewRef.exit10775, %9199, %9229, %9281, %9337, %9348, %9389, %9420, %9482, %9487, %9504, %9525, %9547, %9558, %9581, %9601, %9610, %9631, %9653, %9677, %9683, %9715, %9728, %9752, %9792, %9830, %9868, %9905, %9911
+  %.28898.be = phi ptr [ %109, %106 ], [ %144, %141 ], [ %151, %170 ], [ %178, %214 ], [ %222, %258 ], [ %300, %297 ], [ %308, %354 ], [ %362, %381 ], [ %389, %425 ], [ %433, %452 ], [ %460, %496 ], [ %543, %541 ], [ %556, %554 ], [ %588, %585 ], [ %632, %628 ], [ %715, %_PyFrame_PushUnchecked.exit ], [ %773, %770 ], [ %854, %851 ], [ %911, %908 ], [ %928, %924 ], [ %968, %963 ], [ %1042, %1037 ], [ %1088, %1084 ], [ %1121, %1117 ], [ %1138, %1134 ], [ %1162, %1155 ], [ %1313, %1311 ], [ %1421, %1416 ], [ %1523, %._crit_edge11503 ], [ %1614, %1609 ], [ %1705, %1703 ], [ %1795, %1793 ], [ %1885, %1883 ], [ %1960, %1959 ], [ %2105, %2104 ], [ %2119, %2130 ], [ %2171, %2168 ], [ %2245, %._crit_edge11490 ], [ %2268, %2261 ], [ %2425, %2422 ], [ %2528, %2523 ], [ %2633, %2631 ], [ %2705, %2700 ], [ %2766, %2763 ], [ %2818, %2819 ], [ %2923, %2921 ], [ %3026, %3024 ], [ %3108, %3107 ], [ %3215, %3213 ], [ %3302, %3300 ], [ %3369, %._crit_edge11472 ], [ %3427, %3422 ], [ %3469, %3468 ], [ %3509, %3508 ], [ %3538, %3537 ], [ %.308926, %3601 ], [ %3648, %3656 ], [ %3740, %3737 ], [ %3752, %3750 ], [ %3803, %3802 ], [ %3810, %3851 ], [ %3859, %3913 ], [ %3921, %3955 ], [ %3969, %3967 ], [ %4001, %3999 ], [ %4039, %4037 ], [ %4078, %4076 ], [ %4107, %4105 ], [ %4122, %_Py_NewRef.exit10645 ], [ %.28898, %._crit_edge11521 ], [ %4181, %4180 ], [ %4222, %4221 ], [ %.28898, %4251 ], [ %4269, %4277 ], [ %4301, %4306 ], [ %4339, %4338 ], [ %4379, %4378 ], [ %4425, %4424 ], [ %4488, %4487 ], [ %4506, %4505 ], [ %4513, %4524 ], [ %4533, %4544 ], [ %.28898, %4548 ], [ %4584, %4583 ], [ %4620, %4617 ], [ %4633, %4631 ], [ %.35, %_PyErr_Occurred.exit.thread ], [ %4686, %4684 ], [ %4720, %4704 ], [ %.36, %4752 ], [ %4770, %_Py_NewRef.exit10663 ], [ %.28898, %4784 ], [ %4802, %4800 ], [ %.37, %4831 ], [ %4848, %_Py_NewRef.exit10664 ], [ %4877, %4913 ], [ %4930, %4928 ], [ %4941, %4952 ], [ %4965, %4976 ], [ %4996, %4994 ], [ %.38, %5033 ], [ %5056, %5054 ], [ %5099, %5096 ], [ %5284, %5282 ], [ %5425, %5424 ], [ %5630, %5627 ], [ %5655, %5654 ], [ %5686, %5685 ], [ %.50, %5743 ], [ %5752, %5761 ], [ %.52, %5790 ], [ %.53, %5811 ], [ %5842, %5848 ], [ %.54, %5860 ], [ %5982, %5979 ], [ %.58, %5996 ], [ %6028, %6027 ], [ %.60, %6057 ], [ %.61, %6099 ], [ %.62, %6139 ], [ %.63, %6168 ], [ %6187, %6188 ], [ %6206, %6207 ], [ %6233, %6219 ], [ %6243, %6246 ], [ %6267, %6250 ], [ %6282, %6305 ], [ %.28898, %6314 ], [ %.65, %6327 ], [ %.66, %6343 ], [ %.28898, %6350 ], [ %.67, %6368 ], [ %.28898, %6375 ], [ %6386, %6401 ], [ %6453, %6452 ], [ %6473, %6463 ], [ %6525, %6520 ], [ %6560, %6558 ], [ %6599, %6597 ], [ %6700, %6698 ], [ %6726, %_Py_NewRef.exit10703 ], [ %6746, %_Py_NewRef.exit10704 ], [ %6778, %_Py_NewRef.exit10706 ], [ %6831, %6829 ], [ %.28898, %_Py_NewRef.exit10707 ], [ %.28898, %_Py_NewRef.exit10709 ], [ %6951, %_Py_NewRef.exit10712 ], [ %6990, %6988 ], [ %7055, %7053 ], [ %7077, %7075 ], [ %7086, %7081 ], [ %7111, %7110 ], [ %7126, %7115 ], [ %7145, %_Py_NewRef.exit10716 ], [ %7180, %7178 ], [ %7196, %_Py_NewRef.exit10729 ], [ %7206, %7200 ], [ %7231, %_Py_NewRef.exit10730 ], [ %7258, %_Py_NewRef.exit10732 ], [ %7308, %7304 ], [ %.70, %7385 ], [ %7412, %7398 ], [ %7440, %7437 ], [ %7496, %7493 ], [ %7539, %7536 ], [ %7559, %_Py_NewRef.exit10738 ], [ %7579, %7577 ], [ %7590, %7583 ], [ %7623, %7618 ], [ %7636, %7634 ], [ %7707, %7704 ], [ %7764, %7761 ], [ %7831, %7827 ], [ %.28898, %7858 ], [ %7888, %7884 ], [ %7907, %7906 ], [ %7957, %_PyErr_Occurred.exit10744.thread ], [ %7974, %7972 ], [ %7987, %7978 ], [ %8000, %7991 ], [ %.28898, %8004 ], [ %.28898, %8010 ], [ %8037, %8035 ], [ %8044, %8054 ], [ %8061, %8072 ], [ %8082, %8105 ], [ %8115, %8138 ], [ %8148, %8159 ], [ %8169, %8179 ], [ %8195, %_Py_NewRef.exit10745 ], [ %8202, %8199 ], [ %8475, %8476 ], [ %.78, %8493 ], [ %.28898, %8504 ], [ %8552, %_PyFrame_Copy.exit ], [ %8572, %8556 ], [ %8584, %8582 ], [ %8698, %8694 ], [ %8732, %8716 ], [ %.82, %8785 ], [ %8811, %8810 ], [ %8818, %8815 ], [ %8852, %8851 ], [ %8871, %8862 ], [ %8908, %8907 ], [ %8969, %8968 ], [ %9008, %9007 ], [ %9082, %9081 ], [ %9106, %PyCell_SetTakeRef.exit ], [ %9113, %9128 ], [ %.28898, %_Py_NewRef.exit10775 ], [ %9168, %9199 ], [ %9230, %9229 ], [ %9282, %9281 ], [ %9336, %9337 ], [ %9350, %9348 ], [ %9390, %9389 ], [ %9419, %9420 ], [ %9483, %9482 ], [ %.28898, %9487 ], [ %9506, %9504 ], [ %9514, %9525 ], [ %.28898, %9547 ], [ %.28898, %9558 ], [ %.28898, %9581 ], [ %.28898, %9601 ], [ %.28898, %9610 ], [ %.28898, %9631 ], [ %9642, %9653 ], [ %9666, %9677 ], [ %.28898, %9683 ], [ %9718, %9715 ], [ %9730, %9728 ], [ %9755, %9752 ], [ %9794, %9792 ], [ %9832, %9830 ], [ %9869, %9868 ], [ %9907, %9905 ], [ %9930, %9911 ]
+  %.28893.be = phi ptr [ %.28893, %106 ], [ %.18892, %141 ], [ %150, %170 ], [ %177, %214 ], [ %221, %258 ], [ %265, %297 ], [ %355, %354 ], [ %361, %381 ], [ %388, %425 ], [ %432, %452 ], [ %459, %496 ], [ %503, %541 ], [ %.28893, %554 ], [ %.48895, %585 ], [ %594, %628 ], [ %709, %_PyFrame_PushUnchecked.exit ], [ %721, %770 ], [ %779, %851 ], [ %860, %908 ], [ %917, %924 ], [ %934, %963 ], [ %974, %1037 ], [ %1048, %1084 ], [ %1094, %1117 ], [ %1127, %1134 ], [ %.28893, %1155 ], [ %.5, %1311 ], [ %1423, %1416 ], [ %1525, %._crit_edge11503 ], [ %1616, %1609 ], [ %1622, %1703 ], [ %1711, %1793 ], [ %1801, %1883 ], [ %1891, %1959 ], [ %1966, %2104 ], [ %2111, %2130 ], [ %2138, %2168 ], [ %2177, %._crit_edge11490 ], [ %.28893, %2261 ], [ %.7, %2422 ], [ %2530, %2523 ], [ %2536, %2631 ], [ %2707, %2700 ], [ %2713, %2763 ], [ %2820, %2819 ], [ %2826, %2921 ], [ %2929, %3024 ], [ %3032, %3107 ], [ %3114, %3213 ], [ %3221, %3300 ], [ %3371, %._crit_edge11472 ], [ %3429, %3422 ], [ %3435, %3468 ], [ %3475, %3508 ], [ %3515, %3537 ], [ %3544, %3601 ], [ %3612, %3656 ], [ %3663, %3737 ], [ %.28893, %3750 ], [ %.9, %3802 ], [ %3809, %3851 ], [ %3858, %3913 ], [ %3920, %3955 ], [ %.28893, %3967 ], [ %.10, %3999 ], [ %4007, %4037 ], [ %4045, %4076 ], [ %4084, %4105 ], [ %4114, %_Py_NewRef.exit10645 ], [ %4128, %._crit_edge11521 ], [ %4158, %4180 ], [ %4187, %4221 ], [ %4228, %4251 ], [ %4257, %4277 ], [ %4283, %4306 ], [ %4312, %4338 ], [ %4345, %4378 ], [ %4385, %4424 ], [ %4431, %4487 ], [ %4493, %4505 ], [ %4512, %4524 ], [ %4532, %4544 ], [ %4550, %4548 ], [ %4560, %4583 ], [ %4590, %4617 ], [ %.28893, %4631 ], [ %4680, %_PyErr_Occurred.exit.thread ], [ %.11, %4684 ], [ %4722, %4704 ], [ %4755, %4752 ], [ %4728, %_Py_NewRef.exit10663 ], [ %4787, %4784 ], [ %4776, %4800 ], [ %4834, %4831 ], [ %4808, %_Py_NewRef.exit10664 ], [ %4854, %4913 ], [ %4921, %4928 ], [ %4936, %4952 ], [ %4960, %4976 ], [ %4984, %4994 ], [ %5002, %5033 ], [ %5040, %5054 ], [ %5062, %5096 ], [ %5105, %5282 ], [ %5290, %5424 ], [ %5431, %5627 ], [ %5635, %5654 ], [ %5661, %5685 ], [ %.12, %5743 ], [ %.28893, %5761 ], [ %.13, %5790 ], [ %.14, %5811 ], [ %5847, %5848 ], [ %.15, %5860 ], [ %5865, %5979 ], [ %.17, %5996 ], [ %.18, %6027 ], [ %.19, %6057 ], [ %.20, %6099 ], [ %.21, %6139 ], [ %.22, %6168 ], [ %.28893, %6188 ], [ %spec.select, %6207 ], [ %6232, %6219 ], [ %6245, %6246 ], [ %6266, %6250 ], [ %6281, %6305 ], [ %.28893, %6314 ], [ %6330, %6327 ], [ %6346, %6343 ], [ %6355, %6350 ], [ %6371, %6368 ], [ %6379, %6375 ], [ %6385, %6401 ], [ %6407, %6452 ], [ %.28893, %6463 ], [ %.24, %6520 ], [ %6531, %6558 ], [ %6566, %6597 ], [ %6661, %6698 ], [ %6706, %_Py_NewRef.exit10703 ], [ %6732, %_Py_NewRef.exit10704 ], [ %6752, %_Py_NewRef.exit10706 ], [ %6784, %6829 ], [ %6837, %_Py_NewRef.exit10707 ], [ %6864, %_Py_NewRef.exit10709 ], [ %6953, %_Py_NewRef.exit10712 ], [ %6959, %6988 ], [ %6996, %7053 ], [ %7061, %7075 ], [ %7083, %7081 ], [ %7092, %7110 ], [ %7117, %7115 ], [ %7132, %_Py_NewRef.exit10716 ], [ %7151, %7178 ], [ %7186, %_Py_NewRef.exit10729 ], [ %7202, %7200 ], [ %7212, %_Py_NewRef.exit10730 ], [ %7237, %_Py_NewRef.exit10732 ], [ %7264, %7304 ], [ %7314, %7385 ], [ %.28893, %7398 ], [ %.25, %7437 ], [ %7446, %7493 ], [ %7502, %7536 ], [ %7545, %_Py_NewRef.exit10738 ], [ %7565, %7577 ], [ %7585, %7583 ], [ %7596, %7618 ], [ %.28893, %7634 ], [ %.26, %7704 ], [ %7713, %7761 ], [ %7770, %7827 ], [ %7837, %7858 ], [ %7864, %7884 ], [ %7894, %7906 ], [ %7913, %_PyErr_Occurred.exit10744.thread ], [ %7963, %7972 ], [ %7980, %7978 ], [ %7993, %7991 ], [ %8006, %8004 ], [ %8012, %8010 ], [ %8018, %8035 ], [ %8043, %8054 ], [ %8075, %8072 ], [ %8108, %8105 ], [ %8141, %8138 ], [ %8162, %8159 ], [ %8168, %8179 ], [ %8185, %_Py_NewRef.exit10745 ], [ %8201, %8199 ], [ %.28893, %8476 ], [ %.27, %8493 ], [ %8499, %8504 ], [ %8548, %_PyFrame_Copy.exit ], [ %8571, %8556 ], [ %.28893, %8582 ], [ %.29, %8694 ], [ %8734, %8716 ], [ %8740, %8785 ], [ %8791, %8810 ], [ %8817, %8815 ], [ %8831, %8851 ], [ %.28893, %8862 ], [ %.30, %8907 ], [ %8914, %8968 ], [ %8975, %9007 ], [ %9014, %9081 ], [ %9088, %PyCell_SetTakeRef.exit ], [ %9112, %9128 ], [ %9134, %_Py_NewRef.exit10775 ], [ %9166, %9199 ], [ %9205, %9229 ], [ %9236, %9281 ], [ %9288, %9337 ], [ %.28893, %9348 ], [ %.31, %9389 ], [ %9396, %9420 ], [ %9426, %9482 ], [ %9489, %9487 ], [ %.28893, %9504 ], [ %.32, %9525 ], [ %9532, %9547 ], [ %9553, %9558 ], [ %9564, %9581 ], [ %9587, %9601 ], [ %9607, %9610 ], [ %9616, %9631 ], [ %9637, %9653 ], [ %9661, %9677 ], [ %9685, %9683 ], [ %9693, %9715 ], [ %.28893, %9728 ], [ %.33, %9752 ], [ %9761, %9792 ], [ %9800, %9830 ], [ %9838, %9868 ], [ %9875, %9905 ], [ %9929, %9911 ]
+  %.08890.be = phi i32 [ %.08890, %106 ], [ %.sroa.24789.0.extract.trunc, %141 ], [ %.sroa.24772.0.extract.trunc, %170 ], [ %.sroa.24738.0.extract.trunc, %214 ], [ %.sroa.24704.0.extract.trunc, %258 ], [ %.sroa.24672.0.extract.trunc, %297 ], [ %.sroa.24636.0.extract.trunc, %354 ], [ %.sroa.24619.0.extract.trunc, %381 ], [ %.sroa.24585.0.extract.trunc, %425 ], [ %.sroa.24568.0.extract.trunc, %452 ], [ %.sroa.24534.0.extract.trunc, %496 ], [ %.sroa.24511.0.extract.trunc, %541 ], [ %.08890, %554 ], [ %.sroa.24480.0.extract.trunc, %585 ], [ %.sroa.24456.0.extract.trunc, %628 ], [ %.sroa.24434.0.extract.trunc, %_PyFrame_PushUnchecked.exit ], [ %.sroa.24402.0.extract.trunc, %770 ], [ %.sroa.24369.0.extract.trunc, %851 ], [ %.sroa.24337.0.extract.trunc, %908 ], [ %.sroa.24330.0.extract.trunc, %924 ], [ %.sroa.24313.0.extract.trunc, %963 ], [ %.sroa.24278.0.extract.trunc, %1037 ], [ %.sroa.24258.0.extract.trunc, %1084 ], [ %.sroa.24242.0.extract.trunc, %1117 ], [ %.sroa.24235.0.extract.trunc, %1134 ], [ %.08890, %1155 ], [ %.sroa.24142.0.extract.trunc, %1311 ], [ %.sroa.24102.0.extract.trunc, %1416 ], [ %.sroa.24052.0.extract.trunc, %._crit_edge11503 ], [ %.sroa.24011.0.extract.trunc, %1609 ], [ %.sroa.23968.0.extract.trunc, %1703 ], [ %.sroa.23925.0.extract.trunc, %1793 ], [ %.sroa.23882.0.extract.trunc, %1883 ], [ %.sroa.23850.0.extract.trunc, %1959 ], [ %.sroa.23746.0.extract.trunc, %2104 ], [ %.sroa.23733.0.extract.trunc, %2130 ], [ %.sroa.23711.0.extract.trunc, %2168 ], [ %.sroa.23670.0.extract.trunc, %._crit_edge11490 ], [ %.08890, %2261 ], [ %.sroa.23558.0.extract.trunc, %2422 ], [ %.sroa.23506.0.extract.trunc, %2523 ], [ %.sroa.23454.0.extract.trunc, %2631 ], [ %.sroa.23419.0.extract.trunc, %2700 ], [ %.sroa.23389.0.extract.trunc, %2763 ], [ %.sroa.23367.0.extract.trunc, %2819 ], [ %.sroa.23318.0.extract.trunc, %2921 ], [ %.sroa.23268.0.extract.trunc, %3024 ], [ %.sroa.23232.0.extract.trunc, %3107 ], [ %.sroa.23184.0.extract.trunc, %3213 ], [ %.sroa.23142.0.extract.trunc, %3300 ], [ %.sroa.23109.0.extract.trunc, %._crit_edge11472 ], [ %.sroa.23085.0.extract.trunc, %3422 ], [ %.sroa.23066.0.extract.trunc, %3468 ], [ %.sroa.23047.0.extract.trunc, %3508 ], [ %.sroa.23032.0.extract.trunc, %3537 ], [ %.sroa.22995.0.extract.trunc, %3601 ], [ %.sroa.22971.0.extract.trunc, %3656 ], [ %.sroa.22941.0.extract.trunc, %3737 ], [ %.08890, %3750 ], [ %.sroa.22899.0.extract.trunc, %3802 ], [ %.sroa.22861.0.extract.trunc, %3851 ], [ %.sroa.22821.0.extract.trunc, %3913 ], [ %.sroa.22787.0.extract.trunc, %3955 ], [ %.08890, %3967 ], [ %.sroa.22756.0.extract.trunc, %3999 ], [ %.sroa.22732.0.extract.trunc, %4037 ], [ %.sroa.22707.0.extract.trunc, %4076 ], [ %.sroa.22693.0.extract.trunc, %4105 ], [ %.sroa.22688.0.extract.trunc, %_Py_NewRef.exit10645 ], [ %.sroa.22676.0.extract.trunc, %._crit_edge11521 ], [ %.sroa.22665.0.extract.trunc, %4180 ], [ %.sroa.22655.0.extract.trunc, %4221 ], [ %.sroa.22644.0.extract.trunc, %4251 ], [ %.sroa.22638.0.extract.trunc, %4277 ], [ %.sroa.22630.0.extract.trunc, %4306 ], [ %.sroa.22613.0.extract.trunc, %4338 ], [ %.sroa.22591.0.extract.trunc, %4378 ], [ %.sroa.22570.0.extract.trunc, %4424 ], [ %.sroa.22550.0.extract.trunc, %4487 ], [ %.sroa.22542.0.extract.trunc, %4505 ], [ %.sroa.22531.0.extract.trunc, %4524 ], [ %.sroa.22527.0.extract.trunc, %4544 ], [ %4556, %4548 ], [ %.sroa.22510.0.extract.trunc, %4583 ], [ %.sroa.22490.0.extract.trunc, %4617 ], [ %.08890, %4631 ], [ %.sroa.22472.0.extract.trunc, %_PyErr_Occurred.exit.thread ], [ %.sroa.22469.0.extract.trunc, %4684 ], [ %.sroa.22454.0.extract.trunc, %4704 ], [ %.sroa.22434.0.extract.trunc, %4752 ], [ %.sroa.22427.0.extract.trunc, %_Py_NewRef.exit10663 ], [ %.sroa.22419.0.extract.trunc, %4784 ], [ %.sroa.22408.0.extract.trunc, %4800 ], [ %.sroa.22389.0.extract.trunc, %4831 ], [ %.sroa.22382.0.extract.trunc, %_Py_NewRef.exit10664 ], [ %.sroa.22347.0.extract.trunc, %4913 ], [ %.sroa.22340.0.extract.trunc, %4928 ], [ %.sroa.22327.0.extract.trunc, %4952 ], [ %.sroa.22314.0.extract.trunc, %4976 ], [ %.sroa.22305.0.extract.trunc, %4994 ], [ %.sroa.22285.0.extract.trunc, %5033 ], [ %.sroa.22277.0.extract.trunc, %5054 ], [ %.sroa.22256.0.extract.trunc, %5096 ], [ %.sroa.22161.0.extract.trunc, %5282 ], [ %.sroa.22057.0.extract.trunc, %5424 ], [ %.sroa.21944.0.extract.trunc, %5627 ], [ %.sroa.21932.0.extract.trunc, %5654 ], [ %.sroa.21915.0.extract.trunc, %5685 ], [ %.sroa.21903.0.extract.trunc, %5743 ], [ %.08890, %5761 ], [ %.sroa.21892.0.extract.trunc, %5790 ], [ %.sroa.21888.0.extract.trunc, %5811 ], [ %.sroa.21874.0.extract.trunc, %5848 ], [ %.08890, %5860 ], [ %.sroa.21793.0.extract.trunc, %5979 ], [ %.sroa.21789.0.extract.trunc, %5996 ], [ %.sroa.21776.0.extract.trunc, %6027 ], [ %.sroa.21767.0.extract.trunc, %6057 ], [ %.sroa.21752.0.extract.trunc, %6099 ], [ %.sroa.21737.0.extract.trunc, %6139 ], [ %.sroa.21728.0.extract.trunc, %6168 ], [ %.sroa.21720.0.extract.trunc, %6188 ], [ %.sroa.21716.0.extract.trunc, %6207 ], [ %.sroa.21704.0.extract.trunc, %6219 ], [ %.sroa.21695.0.extract.trunc, %6246 ], [ %.sroa.21687.0.extract.trunc, %6250 ], [ %.sroa.21665.0.extract.trunc, %6305 ], [ %.08890, %6314 ], [ %.sroa.21659.0.extract.trunc, %6327 ], [ %.sroa.21656.0.extract.trunc, %6343 ], [ %.sroa.21654.0.extract.trunc, %6350 ], [ %.sroa.21651.0.extract.trunc, %6368 ], [ %.sroa.21649.0.extract.trunc, %6375 ], [ %.sroa.21644.0.extract.trunc, %6401 ], [ %.sroa.21621.0.extract.trunc, %6452 ], [ %.08890, %6463 ], [ %.sroa.21588.0.extract.trunc, %6520 ], [ %.sroa.21569.0.extract.trunc, %6558 ], [ %.sroa.21546.0.extract.trunc, %6597 ], [ %.sroa.21501.0.extract.trunc, %6698 ], [ %.sroa.21483.0.extract.trunc, %_Py_NewRef.exit10703 ], [ %.sroa.21470.0.extract.trunc, %_Py_NewRef.exit10704 ], [ %.sroa.21448.0.extract.trunc, %_Py_NewRef.exit10706 ], [ %.sroa.21421.0.extract.trunc, %6829 ], [ %.sroa.21405.0.extract.trunc, %_Py_NewRef.exit10707 ], [ %.sroa.21380.0.extract.trunc, %_Py_NewRef.exit10709 ], [ %.sroa.21360.0.extract.trunc, %_Py_NewRef.exit10712 ], [ %.sroa.21337.0.extract.trunc, %6988 ], [ %.sroa.21306.0.extract.trunc, %7053 ], [ %.sroa.21301.0.extract.trunc, %7075 ], [ %.sroa.21296.0.extract.trunc, %7081 ], [ %.sroa.21288.0.extract.trunc, %7110 ], [ %.sroa.21283.0.extract.trunc, %7115 ], [ %.sroa.21278.0.extract.trunc, %_Py_NewRef.exit10716 ], [ %.sroa.21271.0.extract.trunc, %7178 ], [ %.sroa.21267.0.extract.trunc, %_Py_NewRef.exit10729 ], [ %.sroa.21263.0.extract.trunc, %7200 ], [ %.sroa.21257.0.extract.trunc, %_Py_NewRef.exit10730 ], [ %.sroa.21249.0.extract.trunc, %_Py_NewRef.exit10732 ], [ %.sroa.21234.0.extract.trunc, %7304 ], [ %.sroa.21214.0.extract.trunc, %7385 ], [ %.08890, %7398 ], [ %.sroa.21199.0.extract.trunc, %7437 ], [ %.sroa.21175.0.extract.trunc, %7493 ], [ %.sroa.21156.0.extract.trunc, %7536 ], [ %.sroa.21150.0.extract.trunc, %_Py_NewRef.exit10738 ], [ %.sroa.21143.0.extract.trunc, %7577 ], [ %.sroa.21138.0.extract.trunc, %7583 ], [ %.sroa.21125.0.extract.trunc, %7618 ], [ %.08890, %7634 ], [ %.sroa.21037.0.extract.trunc, %7704 ], [ %.sroa.21005.0.extract.trunc, %7761 ], [ %.sroa.2967.0.extract.trunc, %7827 ], [ %.sroa.2953.0.extract.trunc, %7858 ], [ %.sroa.2937.0.extract.trunc, %7884 ], [ %.sroa.2930.0.extract.trunc, %7906 ], [ %.sroa.2902.0.extract.trunc, %_PyErr_Occurred.exit10744.thread ], [ %.sroa.2894.0.extract.trunc, %7972 ], [ %.sroa.2887.0.extract.trunc, %7978 ], [ %.sroa.2880.0.extract.trunc, %7991 ], [ %.sroa.2878.0.extract.trunc, %8004 ], [ %.sroa.2876.0.extract.trunc, %8010 ], [ %.sroa.2861.0.extract.trunc, %8035 ], [ %.sroa.2853.0.extract.trunc, %8054 ], [ %.sroa.2846.0.extract.trunc, %8072 ], [ %.sroa.2829.0.extract.trunc, %8105 ], [ %.sroa.2812.0.extract.trunc, %8138 ], [ %.sroa.2805.0.extract.trunc, %8159 ], [ %.sroa.2797.0.extract.trunc, %8179 ], [ %.sroa.2785.0.extract.trunc, %_Py_NewRef.exit10745 ], [ %.sroa.2781.0.extract.trunc, %8199 ], [ %.sroa.2755.0.extract.trunc, %8476 ], [ %.sroa.2752.0.extract.trunc, %8493 ], [ %.sroa.2748.0.extract.trunc, %8504 ], [ %.sroa.2736.0.extract.trunc, %_PyFrame_Copy.exit ], [ %.sroa.2728.0.extract.trunc, %8556 ], [ %.08890, %8582 ], [ %.sroa.2682.0.extract.trunc, %8694 ], [ %.sroa.2666.0.extract.trunc, %8716 ], [ %.sroa.2652.0.extract.trunc, %8785 ], [ %.sroa.2641.0.extract.trunc, %8810 ], [ %.sroa.2630.0.extract.trunc, %8815 ], [ %.sroa.2619.0.extract.trunc, %8851 ], [ %.08890, %8862 ], [ %.sroa.2592.0.extract.trunc, %8907 ], [ %.sroa.2555.0.extract.trunc, %8968 ], [ %.sroa.2528.0.extract.trunc, %9007 ], [ %.sroa.2490.0.extract.trunc, %9081 ], [ %.sroa.2486.0.extract.trunc, %PyCell_SetTakeRef.exit ], [ %.sroa.2474.0.extract.trunc, %9128 ], [ %.sroa.2457.0.extract.trunc, %_Py_NewRef.exit10775 ], [ %.sroa.2431.0.extract.trunc, %9199 ], [ %.sroa.2420.0.extract.trunc, %9229 ], [ %.sroa.2396.0.extract.trunc, %9281 ], [ %.sroa.2369.0.extract.trunc, %9337 ], [ %.08890, %9348 ], [ %.sroa.2336.0.extract.trunc, %9389 ], [ %.sroa.2322.0.extract.trunc, %9420 ], [ %.sroa.2285.0.extract.trunc, %9482 ], [ %.sroa.2277.0.extract.trunc, %9487 ], [ %.08890, %9504 ], [ %.sroa.2255.0.extract.trunc, %9525 ], [ %.sroa.2240.0.extract.trunc, %9547 ], [ %.sroa.2237.0.extract.trunc, %9558 ], [ %.sroa.2223.0.extract.trunc, %9581 ], [ %.sroa.2209.0.extract.trunc, %9601 ], [ %.sroa.2204.0.extract.trunc, %9610 ], [ %.sroa.2190.0.extract.trunc, %9631 ], [ %.sroa.2177.0.extract.trunc, %9653 ], [ %.sroa.2164.0.extract.trunc, %9677 ], [ %.sroa.2158.0.extract.trunc, %9683 ], [ %.sroa.2146.0.extract.trunc, %9715 ], [ %.08890, %9728 ], [ %.sroa.2126.0.extract.trunc, %9752 ], [ %.sroa.2109.0.extract.trunc, %9792 ], [ %.sroa.292.0.extract.trunc, %9830 ], [ %.sroa.275.0.extract.trunc, %9868 ], [ %.sroa.249.0.extract.trunc, %9905 ], [ %.sroa.239.0.extract.trunc, %9911 ]
+  %.2.be = phi ptr [ %.2, %106 ], [ %.2, %141 ], [ %.2, %170 ], [ %.2, %214 ], [ %.2, %258 ], [ %.2, %297 ], [ %.2, %354 ], [ %.2, %381 ], [ %.2, %425 ], [ %.2, %452 ], [ %.2, %496 ], [ %.2, %541 ], [ %.2, %554 ], [ %.2, %585 ], [ %.2, %628 ], [ %674, %_PyFrame_PushUnchecked.exit ], [ %.2, %770 ], [ %.2, %851 ], [ %.2, %908 ], [ %.2, %924 ], [ %.2, %963 ], [ %.2, %1037 ], [ %.2, %1084 ], [ %.2, %1117 ], [ %.2, %1134 ], [ %.2, %1155 ], [ %.2, %1311 ], [ %1411, %1416 ], [ %1509, %._crit_edge11503 ], [ %1605, %1609 ], [ %.2, %1703 ], [ %.2, %1793 ], [ %.2, %1883 ], [ %.2, %1959 ], [ %.2, %2104 ], [ %.2, %2130 ], [ %.2, %2168 ], [ %.2, %._crit_edge11490 ], [ %.2, %2261 ], [ %.2, %2422 ], [ %2508, %2523 ], [ %.2, %2631 ], [ %2685, %2700 ], [ %.2, %2763 ], [ %.2, %2819 ], [ %.2, %2921 ], [ %.2, %3024 ], [ %.2, %3107 ], [ %.2, %3213 ], [ %.2, %3300 ], [ %3355, %._crit_edge11472 ], [ %3418, %3422 ], [ %.2, %3468 ], [ %.2, %3508 ], [ %.2, %3537 ], [ %.2, %3601 ], [ %.2, %3656 ], [ %.2, %3737 ], [ %.2, %3750 ], [ %.2, %3802 ], [ %.2, %3851 ], [ %.2, %3913 ], [ %.2, %3955 ], [ %.2, %3967 ], [ %.2, %3999 ], [ %.2, %4037 ], [ %.2, %4076 ], [ %.2, %4105 ], [ %.2, %_Py_NewRef.exit10645 ], [ %.2, %._crit_edge11521 ], [ %.2, %4180 ], [ %.2, %4221 ], [ %.2, %4251 ], [ %.2, %4277 ], [ %.2, %4306 ], [ %.2, %4338 ], [ %.2, %4378 ], [ %.2, %4424 ], [ %.2, %4487 ], [ %.2, %4505 ], [ %.2, %4524 ], [ %.2, %4544 ], [ %.2, %4548 ], [ %.2, %4583 ], [ %.2, %4617 ], [ %.2, %4631 ], [ %.2, %_PyErr_Occurred.exit.thread ], [ %.2, %4684 ], [ %4705, %4704 ], [ %.2, %4752 ], [ %.2, %_Py_NewRef.exit10663 ], [ %.2, %4784 ], [ %.2, %4800 ], [ %.2, %4831 ], [ %.2, %_Py_NewRef.exit10664 ], [ %.2, %4913 ], [ %.2, %4928 ], [ %.2, %4952 ], [ %.2, %4976 ], [ %.2, %4994 ], [ %.2, %5033 ], [ %.2, %5054 ], [ %.2, %5096 ], [ %.2, %5282 ], [ %.2, %5424 ], [ %.2, %5627 ], [ %.2, %5654 ], [ %.2, %5685 ], [ %.2, %5743 ], [ %.2, %5761 ], [ %.2, %5790 ], [ %.2, %5811 ], [ %.2, %5848 ], [ %.2, %5860 ], [ %.2, %5979 ], [ %.2, %5996 ], [ %.2, %6027 ], [ %.2, %6057 ], [ %.2, %6099 ], [ %.2, %6139 ], [ %.2, %6168 ], [ %.2, %6188 ], [ %.2, %6207 ], [ %6224, %6219 ], [ %.2, %6246 ], [ %6261, %6250 ], [ %.2, %6305 ], [ %.2, %6314 ], [ %.2, %6327 ], [ %.2, %6343 ], [ %.2, %6350 ], [ %.2, %6368 ], [ %.2, %6375 ], [ %.2, %6401 ], [ %.2, %6452 ], [ %.2, %6463 ], [ %.2, %6520 ], [ %.2, %6558 ], [ %.2, %6597 ], [ %.2, %6698 ], [ %.2, %_Py_NewRef.exit10703 ], [ %.2, %_Py_NewRef.exit10704 ], [ %.2, %_Py_NewRef.exit10706 ], [ %.2, %6829 ], [ %.2, %_Py_NewRef.exit10707 ], [ %.2, %_Py_NewRef.exit10709 ], [ %6944, %_Py_NewRef.exit10712 ], [ %.2, %6988 ], [ %.2, %7053 ], [ %.2, %7075 ], [ %.2, %7081 ], [ %.2, %7110 ], [ %.2, %7115 ], [ %.2, %_Py_NewRef.exit10716 ], [ %.2, %7178 ], [ %.2, %_Py_NewRef.exit10729 ], [ %.2, %7200 ], [ %.2, %_Py_NewRef.exit10730 ], [ %.2, %_Py_NewRef.exit10732 ], [ %.2, %7304 ], [ %.2, %7385 ], [ %.2, %7398 ], [ %.2, %7437 ], [ %.2, %7493 ], [ %.2, %7536 ], [ %.2, %_Py_NewRef.exit10738 ], [ %.2, %7577 ], [ %.2, %7583 ], [ %.2, %7618 ], [ %.2, %7634 ], [ %.2, %7704 ], [ %.2, %7761 ], [ %.2, %7827 ], [ %.2, %7858 ], [ %.2, %7884 ], [ %.2, %7906 ], [ %.2, %_PyErr_Occurred.exit10744.thread ], [ %.2, %7972 ], [ %.2, %7978 ], [ %.2, %7991 ], [ %.2, %8004 ], [ %.2, %8010 ], [ %.2, %8035 ], [ %.2, %8054 ], [ %.2, %8072 ], [ %.2, %8105 ], [ %.2, %8138 ], [ %.2, %8159 ], [ %.2, %8179 ], [ %.2, %_Py_NewRef.exit10745 ], [ %.2, %8199 ], [ %.2, %8476 ], [ %.2, %8493 ], [ %.2, %8504 ], [ %8542, %_PyFrame_Copy.exit ], [ %8563, %8556 ], [ %.2, %8582 ], [ %.2, %8694 ], [ %8717, %8716 ], [ %.2, %8785 ], [ %.2, %8810 ], [ %.2, %8815 ], [ %.2, %8851 ], [ %.2, %8862 ], [ %.2, %8907 ], [ %.2, %8968 ], [ %.2, %9007 ], [ %.2, %9081 ], [ %.2, %PyCell_SetTakeRef.exit ], [ %.2, %9128 ], [ %.2, %_Py_NewRef.exit10775 ], [ %.2, %9199 ], [ %.2, %9229 ], [ %.2, %9281 ], [ %.2, %9337 ], [ %.2, %9348 ], [ %.2, %9389 ], [ %.2, %9420 ], [ %.2, %9482 ], [ %.2, %9487 ], [ %.2, %9504 ], [ %.2, %9525 ], [ %.2, %9547 ], [ %.2, %9558 ], [ %.2, %9581 ], [ %.2, %9601 ], [ %.2, %9610 ], [ %.2, %9631 ], [ %.2, %9653 ], [ %.2, %9677 ], [ %.2, %9683 ], [ %.2, %9715 ], [ %.2, %9728 ], [ %.2, %9752 ], [ %.2, %9792 ], [ %.2, %9830 ], [ %.2, %9868 ], [ %.2, %9905 ], [ %9924, %9911 ]
+  %.pn.pn.be = phi i64 [ %111, %106 ], [ %147, %141 ], [ %174, %170 ], [ %218, %214 ], [ %262, %258 ], [ %303, %297 ], [ %358, %354 ], [ %385, %381 ], [ %429, %425 ], [ %456, %452 ], [ %500, %496 ], [ %546, %541 ], [ %558, %554 ], [ %591, %585 ], [ %635, %628 ], [ %718, %_PyFrame_PushUnchecked.exit ], [ %776, %770 ], [ %857, %851 ], [ %914, %908 ], [ %931, %924 ], [ %971, %963 ], [ %1045, %1037 ], [ %1091, %1084 ], [ %1124, %1117 ], [ %1141, %1134 ], [ %1164, %1155 ], [ %1316, %1311 ], [ %1426, %1416 ], [ %1528, %._crit_edge11503 ], [ %1619, %1609 ], [ %1708, %1703 ], [ %1798, %1793 ], [ %1888, %1883 ], [ %1963, %1959 ], [ %2108, %2104 ], [ %2135, %2130 ], [ %2174, %2168 ], [ %2248, %._crit_edge11490 ], [ %2270, %2261 ], [ %2428, %2422 ], [ %2533, %2523 ], [ %2636, %2631 ], [ %2710, %2700 ], [ %2769, %2763 ], [ %2823, %2819 ], [ %2926, %2921 ], [ %3029, %3024 ], [ %3111, %3107 ], [ %3218, %3213 ], [ %3305, %3300 ], [ %3374, %._crit_edge11472 ], [ %3432, %3422 ], [ %3472, %3468 ], [ %3512, %3508 ], [ %3541, %3537 ], [ %3609, %3601 ], [ %3660, %3656 ], [ %3743, %3737 ], [ %3754, %3750 ], [ %3806, %3802 ], [ %3855, %3851 ], [ %3917, %3913 ], [ %3960, %3955 ], [ %3971, %3967 ], [ %4004, %3999 ], [ %4042, %4037 ], [ %4081, %4076 ], [ %4110, %4105 ], [ %4125, %_Py_NewRef.exit10645 ], [ %4155, %._crit_edge11521 ], [ %4184, %4180 ], [ %4225, %4221 ], [ %4254, %4251 ], [ %4280, %4277 ], [ %4309, %4306 ], [ %4342, %4338 ], [ %4382, %4378 ], [ %4428, %4424 ], [ %4491, %4487 ], [ %4509, %4505 ], [ %4527, %4524 ], [ %4547, %4544 ], [ %4557, %4548 ], [ %4587, %4583 ], [ %4623, %4617 ], [ %4635, %4631 ], [ %4683, %_PyErr_Occurred.exit.thread ], [ %4689, %4684 ], [ %4725, %4704 ], [ %4758, %4752 ], [ %4773, %_Py_NewRef.exit10663 ], [ %4790, %4784 ], [ %4805, %4800 ], [ %4837, %4831 ], [ %4851, %_Py_NewRef.exit10664 ], [ %4918, %4913 ], [ %4933, %4928 ], [ %4957, %4952 ], [ %4981, %4976 ], [ %4999, %4994 ], [ %5037, %5033 ], [ %5059, %5054 ], [ %5102, %5096 ], [ %5287, %5282 ], [ %5428, %5424 ], [ %5633, %5627 ], [ %5658, %5654 ], [ %5689, %5685 ], [ %5746, %5743 ], [ %5763, %5761 ], [ %5793, %5790 ], [ %5814, %5811 ], [ %5851, %5848 ], [ %5862, %5860 ], [ %5985, %5979 ], [ %5999, %5996 ], [ %6031, %6027 ], [ %6060, %6057 ], [ %6102, %6099 ], [ %6142, %6139 ], [ %6171, %6168 ], [ %6191, %6188 ], [ %6211, %6207 ], [ %6236, %6219 ], [ %6249, %6246 ], [ %6270, %6250 ], [ %6308, %6305 ], [ %6319, %6314 ], [ %6333, %6327 ], [ %6349, %6343 ], [ %6358, %6350 ], [ %6374, %6368 ], [ %6382, %6375 ], [ %6404, %6401 ], [ %6456, %6452 ], [ %6475, %6463 ], [ %6528, %6520 ], [ %6563, %6558 ], [ %6602, %6597 ], [ %6703, %6698 ], [ %6729, %_Py_NewRef.exit10703 ], [ %6749, %_Py_NewRef.exit10704 ], [ %6781, %_Py_NewRef.exit10706 ], [ %6834, %6829 ], [ %6861, %_Py_NewRef.exit10707 ], [ %6900, %_Py_NewRef.exit10709 ], [ %6956, %_Py_NewRef.exit10712 ], [ %6993, %6988 ], [ %7058, %7053 ], [ %7080, %7075 ], [ %7089, %7081 ], [ %7114, %7110 ], [ %7129, %7115 ], [ %7148, %_Py_NewRef.exit10716 ], [ %7183, %7178 ], [ %7199, %_Py_NewRef.exit10729 ], [ %7209, %7200 ], [ %7234, %_Py_NewRef.exit10730 ], [ %7261, %_Py_NewRef.exit10732 ], [ %7311, %7304 ], [ %7391, %7385 ], [ %7414, %7398 ], [ %7443, %7437 ], [ %7499, %7493 ], [ %7542, %7536 ], [ %7562, %_Py_NewRef.exit10738 ], [ %7582, %7577 ], [ %7593, %7583 ], [ %7626, %7618 ], [ %7638, %7634 ], [ %7710, %7704 ], [ %7767, %7761 ], [ %7834, %7827 ], [ %7861, %7858 ], [ %7891, %7884 ], [ %7910, %7906 ], [ %7960, %_PyErr_Occurred.exit10744.thread ], [ %7977, %7972 ], [ %7990, %7978 ], [ %8003, %7991 ], [ %8009, %8004 ], [ %8015, %8010 ], [ %8040, %8035 ], [ %8057, %8054 ], [ %8078, %8072 ], [ %8111, %8105 ], [ %8144, %8138 ], [ %8165, %8159 ], [ %8182, %8179 ], [ %8198, %_Py_NewRef.exit10745 ], [ %8205, %8199 ], [ %8479, %8476 ], [ %8496, %8493 ], [ %8507, %8504 ], [ %8555, %_PyFrame_Copy.exit ], [ %8575, %8556 ], [ %8586, %8582 ], [ %8701, %8694 ], [ %8737, %8716 ], [ %8788, %8785 ], [ %8814, %8810 ], [ %8828, %8815 ], [ %8855, %8851 ], [ %8873, %8862 ], [ %8911, %8907 ], [ %8972, %8968 ], [ %9011, %9007 ], [ %9085, %9081 ], [ %9109, %PyCell_SetTakeRef.exit ], [ %9131, %9128 ], [ %9163, %_Py_NewRef.exit10775 ], [ %9202, %9199 ], [ %9233, %9229 ], [ %9285, %9281 ], [ %9340, %9337 ], [ %9352, %9348 ], [ %9393, %9389 ], [ %9423, %9420 ], [ %9486, %9482 ], [ %9497, %9487 ], [ %9508, %9504 ], [ %9529, %9525 ], [ %9550, %9547 ], [ %9561, %9558 ], [ %9584, %9581 ], [ %9604, %9601 ], [ %9613, %9610 ], [ %9634, %9631 ], [ %9658, %9653 ], [ %9682, %9677 ], [ %9690, %9683 ], [ %9721, %9715 ], [ %9732, %9728 ], [ %9758, %9752 ], [ %9797, %9792 ], [ %9835, %9830 ], [ %9872, %9868 ], [ %9910, %9905 ], [ %9933, %9911 ]
   br label %.backedge
 
 112:                                              ; preds = %101
@@ -2808,7 +2808,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
 
 139:                                              ; preds = %132, %135, %130
   %140 = icmp eq ptr %120, null
-  br i1 %140, label %.loopexit10901, label %141
+  br i1 %140, label %.loopexit10903, label %141
 
 141:                                              ; preds = %139
   %142 = ptrtoint ptr %120 to i64
@@ -2851,7 +2851,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
   %167 = fadd double %164, %166
   %168 = call ptr @_PyFloat_FromDouble_ConsumeInputs(i64 %.sroa.04785.0.copyload, i64 %.sroa.04782.0.copyload, double noundef %167) #15
   %169 = icmp eq ptr %168, null
-  br i1 %169, label %.loopexit10901, label %170
+  br i1 %169, label %.loopexit10903, label %170
 
 170:                                              ; preds = %162
   %171 = ptrtoint ptr %168 to i64
@@ -2937,7 +2937,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
 
 212:                                              ; preds = %203, %211, %201
   %213 = icmp eq ptr %190, null
-  br i1 %213, label %.loopexit10901, label %214
+  br i1 %213, label %.loopexit10903, label %214
 
 214:                                              ; preds = %212
   %215 = ptrtoint ptr %190 to i64
@@ -3023,7 +3023,7 @@ _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %3
 
 256:                                              ; preds = %247, %255, %245
   %257 = icmp eq ptr %234, null
-  br i1 %257, label %.loopexit10901, label %258
+  br i1 %257, label %.loopexit10903, label %258
 
 258:                                              ; preds = %256
   %259 = ptrtoint ptr %234 to i64
@@ -3208,7 +3208,7 @@ thread-pre-split:                                 ; preds = %350, %342
 351:                                              ; preds = %thread-pre-split, %336
   %352 = phi i64 [ %.pr, %thread-pre-split ], [ %340, %336 ]
   %353 = icmp eq i64 %352, 0
-  br i1 %353, label %.loopexit10901, label %354
+  br i1 %353, label %.loopexit10903, label %354
 
 354:                                              ; preds = %351
   %355 = getelementptr i8, ptr %.28893, i64 14
@@ -3248,7 +3248,7 @@ thread-pre-split:                                 ; preds = %350, %342
   %378 = fmul double %375, %377
   %379 = call ptr @_PyFloat_FromDouble_ConsumeInputs(i64 %.sroa.04632.0.copyload, i64 %.sroa.04629.0.copyload, double noundef %378) #15
   %380 = icmp eq ptr %379, null
-  br i1 %380, label %.loopexit10901, label %381
+  br i1 %380, label %.loopexit10903, label %381
 
 381:                                              ; preds = %373
   %382 = ptrtoint ptr %379 to i64
@@ -3334,7 +3334,7 @@ thread-pre-split:                                 ; preds = %350, %342
 
 423:                                              ; preds = %414, %422, %412
   %424 = icmp eq ptr %401, null
-  br i1 %424, label %.loopexit10901, label %425
+  br i1 %424, label %.loopexit10903, label %425
 
 425:                                              ; preds = %423
   %426 = ptrtoint ptr %401 to i64
@@ -3375,7 +3375,7 @@ thread-pre-split:                                 ; preds = %350, %342
   %449 = fsub double %446, %448
   %450 = call ptr @_PyFloat_FromDouble_ConsumeInputs(i64 %.sroa.04581.0.copyload, i64 %.sroa.04578.0.copyload, double noundef %449) #15
   %451 = icmp eq ptr %450, null
-  br i1 %451, label %.loopexit10901, label %452
+  br i1 %451, label %.loopexit10903, label %452
 
 452:                                              ; preds = %444
   %453 = ptrtoint ptr %450 to i64
@@ -3461,7 +3461,7 @@ thread-pre-split:                                 ; preds = %350, %342
 
 494:                                              ; preds = %485, %493, %483
   %495 = icmp eq ptr %472, null
-  br i1 %495, label %.loopexit10901, label %496
+  br i1 %495, label %.loopexit10903, label %496
 
 496:                                              ; preds = %494
   %497 = ptrtoint ptr %472 to i64
@@ -3491,10 +3491,10 @@ thread-pre-split:                                 ; preds = %350, %342
   %511 = load ptr, ptr %507, align 8, !tbaa !136
   store ptr null, ptr %507, align 8, !tbaa !136
   %512 = icmp eq ptr %510, null
-  br i1 %512, label %._crit_edge12588, label %513
+  br i1 %512, label %._crit_edge12591, label %513
 
-._crit_edge12588:                                 ; preds = %501
-  %.pre12589 = inttoptr i64 %.sroa.04531.0.copyload to ptr
+._crit_edge12591:                                 ; preds = %501
+  %.pre12592 = inttoptr i64 %.sroa.04531.0.copyload to ptr
   br label %528
 
 513:                                              ; preds = %501
@@ -3526,28 +3526,28 @@ thread-pre-split:                                 ; preds = %350, %342
   %527 = getelementptr i8, ptr %526, i64 16
   br label %528
 
-528:                                              ; preds = %._crit_edge12588, %525
-  %.pre-phi12590 = phi ptr [ %.pre12589, %._crit_edge12588 ], [ %515, %525 ]
-  %.08930 = phi ptr [ null, %._crit_edge12588 ], [ %516, %525 ]
-  %.48900 = phi ptr [ %511, %._crit_edge12588 ], [ %527, %525 ]
+528:                                              ; preds = %._crit_edge12591, %525
+  %.pre-phi12593 = phi ptr [ %.pre12592, %._crit_edge12591 ], [ %515, %525 ]
+  %.08930 = phi ptr [ null, %._crit_edge12591 ], [ %516, %525 ]
+  %.48900 = phi ptr [ %511, %._crit_edge12591 ], [ %527, %525 ]
   %529 = getelementptr i8, ptr %.48900, i64 -24
   store ptr %529, ptr %507, align 8, !tbaa !136
-  %530 = load i32, ptr %.pre-phi12590, align 8, !tbaa !113
+  %530 = load i32, ptr %.pre-phi12593, align 8, !tbaa !113
   %.not9824 = icmp sgt i32 %530, -1
   br i1 %.not9824, label %531, label %538
 
 531:                                              ; preds = %528
   %532 = add nsw i32 %530, -1
-  store i32 %532, ptr %.pre-phi12590, align 8, !tbaa !113
+  store i32 %532, ptr %.pre-phi12593, align 8, !tbaa !113
   %533 = icmp eq i32 %532, 0
   br i1 %533, label %534, label %538
 
 534:                                              ; preds = %531
-  %535 = getelementptr i8, ptr %.pre-phi12590, i64 8
+  %535 = getelementptr i8, ptr %.pre-phi12593, i64 8
   %.val10409 = load ptr, ptr %535, align 8, !tbaa !103
   %536 = getelementptr inbounds nuw i8, ptr %.val10409, i64 48
   %537 = load ptr, ptr %536, align 8, !tbaa !114
-  call void %537(ptr noundef nonnull %.pre-phi12590) #15
+  call void %537(ptr noundef nonnull %.pre-phi12593) #15
   br label %538
 
 538:                                              ; preds = %531, %534, %528
@@ -3643,7 +3643,7 @@ _PyThreadState_HasStackSpace.exit.thread:         ; preds = %657, %876, %872, %8
 
 583:                                              ; preds = %576, %579, %574
   %584 = icmp eq ptr %564, null
-  br i1 %584, label %.loopexit10901, label %585
+  br i1 %584, label %.loopexit10903, label %585
 
 585:                                              ; preds = %583
   %586 = ptrtoint ptr %564 to i64
@@ -3728,7 +3728,7 @@ _PyThreadState_HasStackSpace.exit.thread:         ; preds = %657, %876, %872, %8
 
 626:                                              ; preds = %619, %622, %617
   %627 = icmp slt i32 %604, 1
-  br i1 %627, label %.loopexit10901, label %628
+  br i1 %627, label %.loopexit10903, label %628
 
 628:                                              ; preds = %626
   %629 = load ptr, ptr %8, align 8, !tbaa !100
@@ -3747,7 +3747,7 @@ _PyThreadState_HasStackSpace.exit.thread:         ; preds = %657, %876, %872, %8
   %637 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %637, align 8, !tbaa !133
   %638 = getelementptr i8, ptr %.28893, i64 4
-  %639 = load ptr, ptr %10247, align 8, !tbaa !9
+  %639 = load ptr, ptr %10244, align 8, !tbaa !9
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 8472
   %641 = load ptr, ptr %640, align 8, !tbaa !126
   %.not9525 = icmp eq ptr %641, null
@@ -3780,7 +3780,7 @@ _PyThreadState_HasStackSpace.exit.thread:         ; preds = %657, %876, %872, %8
   br i1 %.not9527, label %657, label %_PyThreadState_HasStackSpace.exit.thread
 
 657:                                              ; preds = %652
-  %658 = load ptr, ptr %10251, align 8, !tbaa !165
+  %658 = load ptr, ptr %10248, align 8, !tbaa !165
   %.not.i10596 = icmp eq ptr %658, null
   br i1 %.not.i10596, label %_PyThreadState_HasStackSpace.exit.thread, label %_PyThreadState_HasStackSpace.exit
 
@@ -3790,7 +3790,7 @@ _PyThreadState_HasStackSpace.exit:                ; preds = %657
   %660 = getelementptr inbounds nuw i8, ptr %.val10515, i64 76
   %661 = load i32, ptr %660, align 4, !tbaa !167
   %662 = sext i32 %661 to i64
-  %663 = load ptr, ptr %10252, align 8, !tbaa !168
+  %663 = load ptr, ptr %10249, align 8, !tbaa !168
   %664 = ptrtoint ptr %663 to i64
   %665 = ptrtoint ptr %658 to i64
   %666 = sub i64 %664, %665
@@ -3806,19 +3806,19 @@ _PyThreadState_HasStackSpace.exit:                ; preds = %657
 672:                                              ; preds = %669
   %673 = add nuw i32 %670, 1
   store i32 %673, ptr %650, align 8, !tbaa !113
-  %.pre12544 = load ptr, ptr %10251, align 8, !tbaa !165
-  %.pre12545 = load i32, ptr %660, align 4, !tbaa !167
-  %.pre12585 = sext i32 %.pre12545 to i64
+  %.pre12547 = load ptr, ptr %10248, align 8, !tbaa !165
+  %.pre12548 = load i32, ptr %660, align 4, !tbaa !167
+  %.pre12588 = sext i32 %.pre12548 to i64
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %669, %672
-  %.pre-phi12586 = phi i64 [ %662, %669 ], [ %.pre12585, %672 ]
-  %674 = phi ptr [ %658, %669 ], [ %.pre12544, %672 ]
+  %.pre-phi12589 = phi i64 [ %662, %669 ], [ %.pre12588, %672 ]
+  %674 = phi ptr [ %658, %669 ], [ %.pre12547, %672 ]
   %675 = ptrtoint ptr %650 to i64
   %676 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.04450.0.copyload = load i64, ptr %676, align 8, !tbaa !113
-  %677 = getelementptr ptr, ptr %674, i64 %.pre-phi12586
-  store ptr %677, ptr %10251, align 8, !tbaa !165
+  %677 = getelementptr ptr, ptr %674, i64 %.pre-phi12589
+  store ptr %677, ptr %10248, align 8, !tbaa !165
   %678 = getelementptr inbounds nuw i8, ptr %674, i64 8
   store ptr %.2, ptr %678, align 8, !tbaa !141
   %679 = getelementptr inbounds nuw i8, ptr %674, i64 16
@@ -3877,11 +3877,11 @@ _Py_NewRef.exit.i.i:                              ; preds = %682, %_Py_NewRef.ex
   br i1 %708, label %.lr.ph.i.i, label %_PyFrame_PushUnchecked.exit.loopexit, !llvm.loop !176
 
 _PyFrame_PushUnchecked.exit.loopexit:             ; preds = %.lr.ph.i.i
-  %.pre12546 = load ptr, ptr %700, align 8, !tbaa !133
+  %.pre12549 = load ptr, ptr %700, align 8, !tbaa !133
   br label %_PyFrame_PushUnchecked.exit
 
 _PyFrame_PushUnchecked.exit:                      ; preds = %_PyFrame_PushUnchecked.exit.loopexit, %_Py_NewRef.exit.i.i
-  %709 = phi ptr [ %.pre12546, %_PyFrame_PushUnchecked.exit.loopexit ], [ %699, %_Py_NewRef.exit.i.i ]
+  %709 = phi ptr [ %.pre12549, %_PyFrame_PushUnchecked.exit.loopexit ], [ %699, %_Py_NewRef.exit.i.i ]
   store i64 %.sroa.04453.0.copyload, ptr %692, align 8, !tbaa !113
   %710 = getelementptr i8, ptr %674, i64 88
   store i64 %.sroa.04450.0.copyload, ptr %710, align 8, !tbaa !113
@@ -3890,9 +3890,9 @@ _PyFrame_PushUnchecked.exit:                      ; preds = %_PyFrame_PushUnchec
   %712 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %643, ptr %712, align 8, !tbaa !136
   store ptr %674, ptr %49, align 8, !tbaa !140
-  %713 = load i32, ptr %10249, align 4, !tbaa !95
+  %713 = load i32, ptr %10246, align 4, !tbaa !95
   %714 = add i32 %713, -1
-  store i32 %714, ptr %10249, align 4, !tbaa !95
+  store i32 %714, ptr %10246, align 4, !tbaa !95
   %715 = load ptr, ptr %697, align 8, !tbaa !136
   store ptr null, ptr %697, align 8, !tbaa !136
   %716 = load i16, ptr %709, align 2, !tbaa !143
@@ -4339,23 +4339,23 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %942 = shl i32 %.08890, 1
   %943 = add i32 %942, -1
   %944 = icmp sgt i32 %943, -1
-  br i1 %944, label %.lr.ph11541.preheader, label %._crit_edge11542
+  br i1 %944, label %.lr.ph11543.preheader, label %._crit_edge11544
 
-.lr.ph11541.preheader:                            ; preds = %932
+.lr.ph11543.preheader:                            ; preds = %932
   %945 = add i32 %942, -1
   %946 = zext nneg i32 %945 to i64
-  br label %.lr.ph11541
+  br label %.lr.ph11543
 
-.lr.ph11541:                                      ; preds = %.lr.ph11541.preheader, %958
-  %indvars.iv12537 = phi i64 [ %946, %.lr.ph11541.preheader ], [ %indvars.iv.next12538, %958 ]
-  %947 = getelementptr %union._PyStackRef, ptr %936, i64 %indvars.iv12537
+.lr.ph11543:                                      ; preds = %.lr.ph11543.preheader, %958
+  %indvars.iv12540 = phi i64 [ %946, %.lr.ph11543.preheader ], [ %indvars.iv.next12541, %958 ]
+  %947 = getelementptr %union._PyStackRef, ptr %936, i64 %indvars.iv12540
   %948 = load i64, ptr %947, align 8, !tbaa !113
   %949 = inttoptr i64 %948 to ptr
   %950 = load i32, ptr %949, align 8, !tbaa !113
   %.not9751 = icmp sgt i32 %950, -1
   br i1 %.not9751, label %951, label %958
 
-951:                                              ; preds = %.lr.ph11541
+951:                                              ; preds = %.lr.ph11543
   %952 = add nsw i32 %950, -1
   store i32 %952, ptr %949, align 8, !tbaa !113
   %953 = icmp eq i32 %952, 0
@@ -4369,20 +4369,20 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   call void %957(ptr noundef nonnull %949) #15
   br label %958
 
-958:                                              ; preds = %951, %954, %.lr.ph11541
-  %indvars.iv.next12538 = add nsw i64 %indvars.iv12537, -1
-  %959 = icmp sgt i64 %indvars.iv12537, 0
-  br i1 %959, label %.lr.ph11541, label %._crit_edge11542, !llvm.loop !186
+958:                                              ; preds = %951, %954, %.lr.ph11543
+  %indvars.iv.next12541 = add nsw i64 %indvars.iv12540, -1
+  %959 = icmp sgt i64 %indvars.iv12540, 0
+  br i1 %959, label %.lr.ph11543, label %._crit_edge11544, !llvm.loop !186
 
-._crit_edge11542:                                 ; preds = %958, %932
+._crit_edge11544:                                 ; preds = %958, %932
   %960 = icmp eq ptr %940, null
   br i1 %960, label %961, label %963
 
-961:                                              ; preds = %._crit_edge11542
+961:                                              ; preds = %._crit_edge11544
   %962 = getelementptr %union._PyStackRef, ptr %941, i64 %935
   br label %monitor_throw.exit
 
-963:                                              ; preds = %._crit_edge11542
+963:                                              ; preds = %._crit_edge11544
   %964 = ptrtoint ptr %940 to i64
   %965 = getelementptr %union._PyStackRef, ptr %941, i64 %935
   store i64 %964, ptr %965, align 8, !tbaa !113
@@ -4409,35 +4409,35 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %980 = load ptr, ptr %978, align 8, !tbaa !136
   store ptr null, ptr %978, align 8, !tbaa !136
   %981 = icmp eq ptr %979, null
-  br i1 %981, label %.preheader, label %.preheader10897
+  br i1 %981, label %.preheader, label %.preheader10899
 
-.preheader10897:                                  ; preds = %972
+.preheader10899:                                  ; preds = %972
   %982 = icmp sgt i32 %.08890, 0
-  br i1 %982, label %.lr.ph11535.preheader, label %.preheader10896
+  br i1 %982, label %.lr.ph11537.preheader, label %.preheader10898
 
-.lr.ph11535.preheader:                            ; preds = %.preheader10897
-  %wide.trip.count12532 = zext nneg i32 %.08890 to i64
-  br label %.lr.ph11535
+.lr.ph11537.preheader:                            ; preds = %.preheader10899
+  %wide.trip.count12535 = zext nneg i32 %.08890 to i64
+  br label %.lr.ph11537
 
 .preheader:                                       ; preds = %972
   %983 = add i32 %.08890, -1
   %984 = icmp sgt i32 %983, -1
-  br i1 %984, label %.lr.ph11903.preheader, label %._crit_edge11904
+  br i1 %984, label %.lr.ph11905.preheader, label %._crit_edge11906
 
-.lr.ph11903.preheader:                            ; preds = %.preheader
+.lr.ph11905.preheader:                            ; preds = %.preheader
   %985 = zext nneg i32 %983 to i64
-  br label %.lr.ph11903
+  br label %.lr.ph11905
 
-.lr.ph11903:                                      ; preds = %.lr.ph11903.preheader, %997
-  %indvars.iv12541 = phi i64 [ %985, %.lr.ph11903.preheader ], [ %indvars.iv.next12542, %997 ]
-  %986 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12541
+.lr.ph11905:                                      ; preds = %.lr.ph11905.preheader, %997
+  %indvars.iv12544 = phi i64 [ %985, %.lr.ph11905.preheader ], [ %indvars.iv.next12545, %997 ]
+  %986 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12544
   %987 = load i64, ptr %986, align 8, !tbaa !113
   %988 = inttoptr i64 %987 to ptr
   %989 = load i32, ptr %988, align 8, !tbaa !113
   %.not9750 = icmp sgt i32 %989, -1
   br i1 %.not9750, label %990, label %997
 
-990:                                              ; preds = %.lr.ph11903
+990:                                              ; preds = %.lr.ph11905
   %991 = add nsw i32 %989, -1
   store i32 %991, ptr %988, align 8, !tbaa !113
   %992 = icmp eq i32 %991, 0
@@ -4451,40 +4451,40 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   call void %996(ptr noundef nonnull %988) #15
   br label %997
 
-997:                                              ; preds = %990, %993, %.lr.ph11903
-  %indvars.iv.next12542 = add nsw i64 %indvars.iv12541, -1
-  %998 = icmp sgt i64 %indvars.iv12541, 0
-  br i1 %998, label %.lr.ph11903, label %._crit_edge11904, !llvm.loop !187
+997:                                              ; preds = %990, %993, %.lr.ph11905
+  %indvars.iv.next12545 = add nsw i64 %indvars.iv12544, -1
+  %998 = icmp sgt i64 %indvars.iv12544, 0
+  br i1 %998, label %.lr.ph11905, label %._crit_edge11906, !llvm.loop !187
 
-._crit_edge11904:                                 ; preds = %997, %.preheader
+._crit_edge11906:                                 ; preds = %997, %.preheader
   %999 = getelementptr %union._PyStackRef, ptr %980, i64 %976
   br label %monitor_throw.exit
 
-.preheader10896.loopexit:                         ; preds = %1011
+.preheader10898.loopexit:                         ; preds = %1011
   %1000 = icmp eq i32 %.18934, 0
-  br label %.preheader10896
+  br label %.preheader10898
 
-.preheader10896:                                  ; preds = %.preheader10896.loopexit, %.preheader10897
-  %.08933.lcssa = phi i1 [ true, %.preheader10897 ], [ %1000, %.preheader10896.loopexit ]
-  %.68902.lcssa = phi ptr [ %980, %.preheader10897 ], [ %.78903, %.preheader10896.loopexit ]
+.preheader10898:                                  ; preds = %.preheader10898.loopexit, %.preheader10899
+  %.08933.lcssa = phi i1 [ true, %.preheader10899 ], [ %1000, %.preheader10898.loopexit ]
+  %.68902.lcssa = phi ptr [ %980, %.preheader10899 ], [ %.78903, %.preheader10898.loopexit ]
   %1001 = add i32 %.08890, -1
   %1002 = icmp sgt i32 %1001, -1
-  br i1 %1002, label %.lr.ph11538.preheader, label %._crit_edge11539
+  br i1 %1002, label %.lr.ph11540.preheader, label %._crit_edge11541
 
-.lr.ph11538.preheader:                            ; preds = %.preheader10896
+.lr.ph11540.preheader:                            ; preds = %.preheader10898
   %1003 = zext nneg i32 %1001 to i64
-  br label %.lr.ph11538
+  br label %.lr.ph11540
 
-.lr.ph11535:                                      ; preds = %.lr.ph11535.preheader, %1011
-  %indvars.iv12529 = phi i64 [ 0, %.lr.ph11535.preheader ], [ %indvars.iv.next12530, %1011 ]
-  %.6890211534 = phi ptr [ %980, %.lr.ph11535.preheader ], [ %.78903, %1011 ]
-  %.0893311533 = phi i32 [ 0, %.lr.ph11535.preheader ], [ %.18934, %1011 ]
-  %1004 = icmp eq i32 %.0893311533, 0
+.lr.ph11537:                                      ; preds = %.lr.ph11537.preheader, %1011
+  %indvars.iv12532 = phi i64 [ 0, %.lr.ph11537.preheader ], [ %indvars.iv.next12533, %1011 ]
+  %.6890211536 = phi ptr [ %980, %.lr.ph11537.preheader ], [ %.78903, %1011 ]
+  %.0893311535 = phi i32 [ 0, %.lr.ph11537.preheader ], [ %.18934, %1011 ]
+  %1004 = icmp eq i32 %.0893311535, 0
   br i1 %1004, label %1005, label %1011
 
-1005:                                             ; preds = %.lr.ph11535
-  store ptr %.6890211534, ptr %978, align 8, !tbaa !136
-  %1006 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12529
+1005:                                             ; preds = %.lr.ph11537
+  store ptr %.6890211536, ptr %978, align 8, !tbaa !136
+  %1006 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12532
   %1007 = load i64, ptr %1006, align 8, !tbaa !113
   %1008 = inttoptr i64 %1007 to ptr
   %1009 = call i32 @PySet_Add(ptr noundef nonnull %979, ptr noundef %1008) #15
@@ -4492,23 +4492,23 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   store ptr null, ptr %978, align 8, !tbaa !136
   br label %1011
 
-1011:                                             ; preds = %.lr.ph11535, %1005
-  %.18934 = phi i32 [ %1009, %1005 ], [ %.0893311533, %.lr.ph11535 ]
-  %.78903 = phi ptr [ %1010, %1005 ], [ %.6890211534, %.lr.ph11535 ]
-  %indvars.iv.next12530 = add nuw nsw i64 %indvars.iv12529, 1
-  %exitcond12533.not = icmp eq i64 %indvars.iv.next12530, %wide.trip.count12532
-  br i1 %exitcond12533.not, label %.preheader10896.loopexit, label %.lr.ph11535, !llvm.loop !188
+1011:                                             ; preds = %.lr.ph11537, %1005
+  %.18934 = phi i32 [ %1009, %1005 ], [ %.0893311535, %.lr.ph11537 ]
+  %.78903 = phi ptr [ %1010, %1005 ], [ %.6890211536, %.lr.ph11537 ]
+  %indvars.iv.next12533 = add nuw nsw i64 %indvars.iv12532, 1
+  %exitcond12536.not = icmp eq i64 %indvars.iv.next12533, %wide.trip.count12535
+  br i1 %exitcond12536.not, label %.preheader10898.loopexit, label %.lr.ph11537, !llvm.loop !188
 
-.lr.ph11538:                                      ; preds = %.lr.ph11538.preheader, %1023
-  %indvars.iv12534 = phi i64 [ %1003, %.lr.ph11538.preheader ], [ %indvars.iv.next12535, %1023 ]
-  %1012 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12534
+.lr.ph11540:                                      ; preds = %.lr.ph11540.preheader, %1023
+  %indvars.iv12537 = phi i64 [ %1003, %.lr.ph11540.preheader ], [ %indvars.iv.next12538, %1023 ]
+  %1012 = getelementptr %union._PyStackRef, ptr %977, i64 %indvars.iv12537
   %1013 = load i64, ptr %1012, align 8, !tbaa !113
   %1014 = inttoptr i64 %1013 to ptr
   %1015 = load i32, ptr %1014, align 8, !tbaa !113
   %.not9749 = icmp sgt i32 %1015, -1
   br i1 %.not9749, label %1016, label %1023
 
-1016:                                             ; preds = %.lr.ph11538
+1016:                                             ; preds = %.lr.ph11540
   %1017 = add nsw i32 %1015, -1
   store i32 %1017, ptr %1014, align 8, !tbaa !113
   %1018 = icmp eq i32 %1017, 0
@@ -4522,15 +4522,15 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   call void %1022(ptr noundef nonnull %1014) #15
   br label %1023
 
-1023:                                             ; preds = %1016, %1019, %.lr.ph11538
-  %indvars.iv.next12535 = add nsw i64 %indvars.iv12534, -1
-  %1024 = icmp sgt i64 %indvars.iv12534, 0
-  br i1 %1024, label %.lr.ph11538, label %._crit_edge11539, !llvm.loop !189
+1023:                                             ; preds = %1016, %1019, %.lr.ph11540
+  %indvars.iv.next12538 = add nsw i64 %indvars.iv12537, -1
+  %1024 = icmp sgt i64 %indvars.iv12537, 0
+  br i1 %1024, label %.lr.ph11540, label %._crit_edge11541, !llvm.loop !189
 
-._crit_edge11539:                                 ; preds = %1023, %.preheader10896
+._crit_edge11541:                                 ; preds = %1023, %.preheader10898
   br i1 %.08933.lcssa, label %1037, label %1025
 
-1025:                                             ; preds = %._crit_edge11539
+1025:                                             ; preds = %._crit_edge11541
   %1026 = getelementptr %union._PyStackRef, ptr %.68902.lcssa, i64 %976
   store ptr %1026, ptr %978, align 8, !tbaa !136
   %1027 = load i32, ptr %979, align 8, !tbaa !113
@@ -4556,7 +4556,7 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   store ptr null, ptr %978, align 8, !tbaa !136
   br label %monitor_throw.exit
 
-1037:                                             ; preds = %._crit_edge11539
+1037:                                             ; preds = %._crit_edge11541
   %1038 = ptrtoint ptr %979 to i64
   %1039 = getelementptr %union._PyStackRef, ptr %.68902.lcssa, i64 %976
   store i64 %1038, ptr %1039, align 8, !tbaa !113
@@ -4583,37 +4583,37 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %1055 = load i64, ptr %1054, align 8, !tbaa !113
   %1056 = inttoptr i64 %1055 to ptr
   %1057 = icmp eq i32 %.08890, 3
-  br i1 %1057, label %.thread12595, label %1062
+  br i1 %1057, label %.thread12598, label %1062
 
-.thread12595:                                     ; preds = %1046
+.thread12598:                                     ; preds = %1046
   %1058 = getelementptr i8, ptr %1051, i64 16
   %1059 = load i64, ptr %1058, align 8, !tbaa !113
   %1060 = inttoptr i64 %1059 to ptr
   %1061 = call ptr @PySlice_New(ptr noundef %1053, ptr noundef %1056, ptr noundef %1060) #15
-  br label %.lr.ph11530.preheader
+  br label %.lr.ph11532.preheader
 
 1062:                                             ; preds = %1046
   %1063 = call ptr @PySlice_New(ptr noundef %1053, ptr noundef %1056, ptr noundef null) #15
   %1064 = add i32 %.08890, -1
   %1065 = icmp sgt i32 %1064, -1
-  br i1 %1065, label %.lr.ph11530.preheader, label %._crit_edge11531
+  br i1 %1065, label %.lr.ph11532.preheader, label %._crit_edge11533
 
-.lr.ph11530.preheader:                            ; preds = %.thread12595, %1062
-  %1066 = phi i32 [ 2, %.thread12595 ], [ %1064, %1062 ]
-  %1067 = phi ptr [ %1061, %.thread12595 ], [ %1063, %1062 ]
+.lr.ph11532.preheader:                            ; preds = %.thread12598, %1062
+  %1066 = phi i32 [ 2, %.thread12598 ], [ %1064, %1062 ]
+  %1067 = phi ptr [ %1061, %.thread12598 ], [ %1063, %1062 ]
   %1068 = zext nneg i32 %1066 to i64
-  br label %.lr.ph11530
+  br label %.lr.ph11532
 
-.lr.ph11530:                                      ; preds = %.lr.ph11530.preheader, %1080
-  %indvars.iv12526 = phi i64 [ %1068, %.lr.ph11530.preheader ], [ %indvars.iv.next12527, %1080 ]
-  %1069 = getelementptr %union._PyStackRef, ptr %1051, i64 %indvars.iv12526
+.lr.ph11532:                                      ; preds = %.lr.ph11532.preheader, %1080
+  %indvars.iv12529 = phi i64 [ %1068, %.lr.ph11532.preheader ], [ %indvars.iv.next12530, %1080 ]
+  %1069 = getelementptr %union._PyStackRef, ptr %1051, i64 %indvars.iv12529
   %1070 = load i64, ptr %1069, align 8, !tbaa !113
   %1071 = inttoptr i64 %1070 to ptr
   %1072 = load i32, ptr %1071, align 8, !tbaa !113
   %.not9746 = icmp sgt i32 %1072, -1
   br i1 %.not9746, label %1073, label %1080
 
-1073:                                             ; preds = %.lr.ph11530
+1073:                                             ; preds = %.lr.ph11532
   %1074 = add nsw i32 %1072, -1
   store i32 %1074, ptr %1071, align 8, !tbaa !113
   %1075 = icmp eq i32 %1074, 0
@@ -4627,17 +4627,17 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   call void %1079(ptr noundef nonnull %1071) #15
   br label %1080
 
-1080:                                             ; preds = %1073, %1076, %.lr.ph11530
-  %indvars.iv.next12527 = add nsw i64 %indvars.iv12526, -1
-  %1081 = icmp sgt i64 %indvars.iv12526, 0
-  br i1 %1081, label %.lr.ph11530, label %._crit_edge11531, !llvm.loop !190
+1080:                                             ; preds = %1073, %1076, %.lr.ph11532
+  %indvars.iv.next12530 = add nsw i64 %indvars.iv12529, -1
+  %1081 = icmp sgt i64 %indvars.iv12529, 0
+  br i1 %1081, label %.lr.ph11532, label %._crit_edge11533, !llvm.loop !190
 
-._crit_edge11531:                                 ; preds = %1080, %1062
+._crit_edge11533:                                 ; preds = %1080, %1062
   %1082 = phi ptr [ %1063, %1062 ], [ %1067, %1080 ]
   %1083 = icmp eq ptr %1082, null
   br i1 %1083, label %monitor_throw.exit.loopexit, label %1084
 
-1084:                                             ; preds = %._crit_edge11531
+1084:                                             ; preds = %._crit_edge11533
   %1085 = ptrtoint ptr %1082 to i64
   store i64 %1085, ptr %1051, align 8, !tbaa !113
   %1086 = sub i32 1, %.08890
@@ -4661,22 +4661,22 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %1099 = call ptr @_PyUnicode_JoinArray(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), ptr noundef %1097, i64 noundef %1098) #15
   %1100 = add i32 %.08890, -1
   %1101 = icmp sgt i32 %1100, -1
-  br i1 %1101, label %.lr.ph11527.preheader, label %._crit_edge11528
+  br i1 %1101, label %.lr.ph11529.preheader, label %._crit_edge11530
 
-.lr.ph11527.preheader:                            ; preds = %1092
+.lr.ph11529.preheader:                            ; preds = %1092
   %1102 = zext nneg i32 %1100 to i64
-  br label %.lr.ph11527
+  br label %.lr.ph11529
 
-.lr.ph11527:                                      ; preds = %.lr.ph11527.preheader, %1114
-  %indvars.iv12523 = phi i64 [ %1102, %.lr.ph11527.preheader ], [ %indvars.iv.next12524, %1114 ]
-  %1103 = getelementptr %union._PyStackRef, ptr %1097, i64 %indvars.iv12523
+.lr.ph11529:                                      ; preds = %.lr.ph11529.preheader, %1114
+  %indvars.iv12526 = phi i64 [ %1102, %.lr.ph11529.preheader ], [ %indvars.iv.next12527, %1114 ]
+  %1103 = getelementptr %union._PyStackRef, ptr %1097, i64 %indvars.iv12526
   %1104 = load i64, ptr %1103, align 8, !tbaa !113
   %1105 = inttoptr i64 %1104 to ptr
   %1106 = load i32, ptr %1105, align 8, !tbaa !113
   %.not9745 = icmp sgt i32 %1106, -1
   br i1 %.not9745, label %1107, label %1114
 
-1107:                                             ; preds = %.lr.ph11527
+1107:                                             ; preds = %.lr.ph11529
   %1108 = add nsw i32 %1106, -1
   store i32 %1108, ptr %1105, align 8, !tbaa !113
   %1109 = icmp eq i32 %1108, 0
@@ -4690,16 +4690,16 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   call void %1113(ptr noundef nonnull %1105) #15
   br label %1114
 
-1114:                                             ; preds = %1107, %1110, %.lr.ph11527
-  %indvars.iv.next12524 = add nsw i64 %indvars.iv12523, -1
-  %1115 = icmp sgt i64 %indvars.iv12523, 0
-  br i1 %1115, label %.lr.ph11527, label %._crit_edge11528, !llvm.loop !191
+1114:                                             ; preds = %1107, %1110, %.lr.ph11529
+  %indvars.iv.next12527 = add nsw i64 %indvars.iv12526, -1
+  %1115 = icmp sgt i64 %indvars.iv12526, 0
+  br i1 %1115, label %.lr.ph11529, label %._crit_edge11530, !llvm.loop !191
 
-._crit_edge11528:                                 ; preds = %1114, %1092
+._crit_edge11530:                                 ; preds = %1114, %1092
   %1116 = icmp eq ptr %1099, null
   br i1 %1116, label %monitor_throw.exit.loopexit, label %1117
 
-1117:                                             ; preds = %._crit_edge11528
+1117:                                             ; preds = %._crit_edge11530
   %1118 = ptrtoint ptr %1099 to i64
   store i64 %1118, ptr %1097, align 8, !tbaa !113
   %1119 = sub i32 1, %.08890
@@ -4793,18 +4793,18 @@ _PyThreadState_HasStackSpace.exit10601.thread:    ; preds = %3337, %1491, %1344,
 1173:                                             ; preds = %1165
   %1174 = load i64, ptr %1149, align 8, !tbaa !113
   %1175 = icmp eq i64 %1174, 0
-  br i1 %1175, label %1182, label %.thread12596
+  br i1 %1175, label %1182, label %.thread12599
 
-.thread12596:                                     ; preds = %1173
+.thread12599:                                     ; preds = %1173
   %1176 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1168
   %1177 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1148
   %1178 = getelementptr %union._PyStackRef, ptr %.88904, i64 %1151
   %1179 = load i64, ptr %1177, align 8, !tbaa !113
   %1180 = icmp eq i64 %1179, 0
   %1181 = add i32 %.08890, 1
-  %.08940.idx12600 = select i1 %1180, i64 0, i64 -8
-  %.0894012601 = getelementptr i8, ptr %1176, i64 %.08940.idx12600
-  %.0893912602 = select i1 %1180, i32 %.08890, i32 %1181
+  %.08940.idx12603 = select i1 %1180, i64 0, i64 -8
+  %.0894012604 = getelementptr i8, ptr %1176, i64 %.08940.idx12603
+  %.0893912605 = select i1 %1180, i32 %.08890, i32 %1181
   br label %1247
 
 1182:                                             ; preds = %1173
@@ -4861,15 +4861,15 @@ _Py_NewRef.exit10598:                             ; preds = %_Py_NewRef.exit1059
 1207:                                             ; preds = %1200, %1203, %_Py_NewRef.exit10598
   %1208 = load ptr, ptr %1197, align 8, !tbaa !136
   store ptr null, ptr %1197, align 8, !tbaa !136
-  %.phi.trans.insert12570 = getelementptr %union._PyStackRef, ptr %1208, i64 %1151
-  %.pre12571 = load i64, ptr %.phi.trans.insert12570, align 8, !tbaa !113
-  %.phi.trans.insert12572 = inttoptr i64 %.pre12571 to ptr
-  %.phi.trans.insert12573 = getelementptr i8, ptr %.phi.trans.insert12572, i64 8
-  %.val10392.pre = load ptr, ptr %.phi.trans.insert12573, align 8, !tbaa !103
+  %.phi.trans.insert12573 = getelementptr %union._PyStackRef, ptr %1208, i64 %1151
+  %.pre12574 = load i64, ptr %.phi.trans.insert12573, align 8, !tbaa !113
+  %.phi.trans.insert12575 = inttoptr i64 %.pre12574 to ptr
+  %.phi.trans.insert12576 = getelementptr i8, ptr %.phi.trans.insert12575, i64 8
+  %.val10392.pre = load ptr, ptr %.phi.trans.insert12576, align 8, !tbaa !103
   br label %1209
 
 1209:                                             ; preds = %1207, %1165
-  %.pre-phi = phi ptr [ %.phi.trans.insert12572, %1207 ], [ %1170, %1165 ]
+  %.pre-phi = phi ptr [ %.phi.trans.insert12575, %1207 ], [ %1170, %1165 ]
   %.val10392 = phi ptr [ %.val10392.pre, %1207 ], [ %.val10394, %1165 ]
   %.98905 = phi ptr [ %1208, %1207 ], [ %.88904, %1165 ]
   %1210 = getelementptr %union._PyStackRef, ptr %.98905, i64 %1168
@@ -4885,7 +4885,7 @@ _Py_NewRef.exit10598:                             ; preds = %_Py_NewRef.exit1059
   br i1 %1216, label %1217, label %1247
 
 1217:                                             ; preds = %1209
-  %1218 = load ptr, ptr %10247, align 8, !tbaa !9
+  %1218 = load ptr, ptr %10244, align 8, !tbaa !9
   %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 8472
   %1220 = load ptr, ptr %1219, align 8, !tbaa !126
   %1221 = icmp eq ptr %1220, null
@@ -4935,22 +4935,22 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   %1246 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %1246, align 8, !tbaa !139
   store ptr %1243, ptr %1238, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
-1247:                                             ; preds = %.thread12596, %1222, %1217, %1209
-  %.0893912606 = phi i32 [ %.0893912602, %.thread12596 ], [ %.08939, %1222 ], [ %.08939, %1217 ], [ %.08939, %1209 ]
-  %.0894012605 = phi ptr [ %.0894012601, %.thread12596 ], [ %.08940, %1222 ], [ %.08940, %1217 ], [ %.08940, %1209 ]
-  %1248 = phi i32 [ %1181, %.thread12596 ], [ %1215, %1222 ], [ %1215, %1217 ], [ %1215, %1209 ]
-  %1249 = phi ptr [ %1178, %.thread12596 ], [ %1212, %1222 ], [ %1212, %1217 ], [ %1212, %1209 ]
-  %1250 = phi ptr [ %1177, %.thread12596 ], [ %1211, %1222 ], [ %1211, %1217 ], [ %1211, %1209 ]
-  %1251 = phi ptr [ %1176, %.thread12596 ], [ %1210, %1222 ], [ %1210, %1217 ], [ %1210, %1209 ]
-  %.9890512604 = phi ptr [ %.88904, %.thread12596 ], [ %.98905, %1222 ], [ %.98905, %1217 ], [ %.98905, %1209 ]
-  %.pre-phi12603 = phi ptr [ %1170, %.thread12596 ], [ %.pre-phi, %1222 ], [ %.pre-phi, %1217 ], [ %.pre-phi, %1209 ]
+1247:                                             ; preds = %.thread12599, %1222, %1217, %1209
+  %.0893912609 = phi i32 [ %.0893912605, %.thread12599 ], [ %.08939, %1222 ], [ %.08939, %1217 ], [ %.08939, %1209 ]
+  %.0894012608 = phi ptr [ %.0894012604, %.thread12599 ], [ %.08940, %1222 ], [ %.08940, %1217 ], [ %.08940, %1209 ]
+  %1248 = phi i32 [ %1181, %.thread12599 ], [ %1215, %1222 ], [ %1215, %1217 ], [ %1215, %1209 ]
+  %1249 = phi ptr [ %1178, %.thread12599 ], [ %1212, %1222 ], [ %1212, %1217 ], [ %1212, %1209 ]
+  %1250 = phi ptr [ %1177, %.thread12599 ], [ %1211, %1222 ], [ %1211, %1217 ], [ %1211, %1209 ]
+  %1251 = phi ptr [ %1176, %.thread12599 ], [ %1210, %1222 ], [ %1210, %1217 ], [ %1210, %1209 ]
+  %.9890512607 = phi ptr [ %.88904, %.thread12599 ], [ %.98905, %1222 ], [ %.98905, %1217 ], [ %.98905, %1209 ]
+  %.pre-phi12606 = phi ptr [ %1170, %.thread12599 ], [ %.pre-phi, %1222 ], [ %.pre-phi, %1217 ], [ %.pre-phi, %1209 ]
   %1252 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.9890512604, ptr %1252, align 8, !tbaa !136
-  %1253 = sext i32 %.0893912606 to i64
+  store ptr %.9890512607, ptr %1252, align 8, !tbaa !136
+  %1253 = sext i32 %.0893912609 to i64
   %1254 = or i64 %1253, -9223372036854775808
-  %1255 = call ptr @PyObject_Vectorcall(ptr noundef nonnull %.pre-phi12603, ptr noundef %.0894012605, i64 noundef %1254, ptr noundef null) #15
+  %1255 = call ptr @PyObject_Vectorcall(ptr noundef nonnull %.pre-phi12606, ptr noundef %.0894012608, i64 noundef %1254, ptr noundef null) #15
   %1256 = load ptr, ptr %1252, align 8, !tbaa !136
   store ptr null, ptr %1252, align 8, !tbaa !136
   %1257 = load i64, ptr %1249, align 8, !tbaa !113
@@ -5001,22 +5001,22 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
 1279:                                             ; preds = %1267, %1272, %1275, %1269
   %1280 = add i32 %.08890, -1
   %1281 = icmp sgt i32 %1280, -1
-  br i1 %1281, label %.lr.ph11524.preheader, label %._crit_edge11525
+  br i1 %1281, label %.lr.ph11526.preheader, label %._crit_edge11527
 
-.lr.ph11524.preheader:                            ; preds = %1279
+.lr.ph11526.preheader:                            ; preds = %1279
   %1282 = zext nneg i32 %1280 to i64
-  br label %.lr.ph11524
+  br label %.lr.ph11526
 
-.lr.ph11524:                                      ; preds = %.lr.ph11524.preheader, %1294
-  %indvars.iv12520 = phi i64 [ %1282, %.lr.ph11524.preheader ], [ %indvars.iv.next12521, %1294 ]
-  %1283 = getelementptr %union._PyStackRef, ptr %1251, i64 %indvars.iv12520
+.lr.ph11526:                                      ; preds = %.lr.ph11526.preheader, %1294
+  %indvars.iv12523 = phi i64 [ %1282, %.lr.ph11526.preheader ], [ %indvars.iv.next12524, %1294 ]
+  %1283 = getelementptr %union._PyStackRef, ptr %1251, i64 %indvars.iv12523
   %1284 = load i64, ptr %1283, align 8, !tbaa !113
   %1285 = inttoptr i64 %1284 to ptr
   %1286 = load i32, ptr %1285, align 8, !tbaa !113
   %.not9743 = icmp sgt i32 %1286, -1
   br i1 %.not9743, label %1287, label %1294
 
-1287:                                             ; preds = %.lr.ph11524
+1287:                                             ; preds = %.lr.ph11526
   %1288 = add nsw i32 %1286, -1
   store i32 %1288, ptr %1285, align 8, !tbaa !113
   %1289 = icmp eq i32 %1288, 0
@@ -5030,22 +5030,22 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   call void %1293(ptr noundef nonnull %1285) #15
   br label %1294
 
-1294:                                             ; preds = %1287, %1290, %.lr.ph11524
-  %indvars.iv.next12521 = add nsw i64 %indvars.iv12520, -1
-  %1295 = icmp sgt i64 %indvars.iv12520, 0
-  br i1 %1295, label %.lr.ph11524, label %._crit_edge11525, !llvm.loop !196
+1294:                                             ; preds = %1287, %1290, %.lr.ph11526
+  %indvars.iv.next12524 = add nsw i64 %indvars.iv12523, -1
+  %1295 = icmp sgt i64 %indvars.iv12523, 0
+  br i1 %1295, label %.lr.ph11526, label %._crit_edge11527, !llvm.loop !196
 
-._crit_edge11525:                                 ; preds = %1294, %1279
+._crit_edge11527:                                 ; preds = %1294, %1279
   %1296 = icmp eq ptr %1255, null
   br i1 %1296, label %1297, label %1299
 
-1297:                                             ; preds = %._crit_edge11525
+1297:                                             ; preds = %._crit_edge11527
   %1298 = getelementptr %union._PyStackRef, ptr %1256, i64 %1151
   br label %monitor_throw.exit
 
-1299:                                             ; preds = %._crit_edge11525
+1299:                                             ; preds = %._crit_edge11527
   %1300 = ptrtoint ptr %1255 to i64
-  %1301 = load atomic i64, ptr %10250 monotonic, align 8
+  %1301 = load atomic i64, ptr %10247 monotonic, align 8
   %1302 = and i64 %1301, 255
   %.not9741 = icmp eq i64 %1302, 0
   br i1 %.not9741, label %1311, label %1303
@@ -5082,7 +5082,7 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
   %1318 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %1318, align 8, !tbaa !133
   %1319 = getelementptr i8, ptr %.28893, i64 8
-  %1320 = load ptr, ptr %10247, align 8, !tbaa !9
+  %1320 = load ptr, ptr %10244, align 8, !tbaa !9
   %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 8472
   %1322 = load ptr, ptr %1321, align 8, !tbaa !126
   %.not9506 = icmp eq ptr %1322, null
@@ -5123,7 +5123,7 @@ _Py_NewRef.exit10599:                             ; preds = %1235, %1231, %1226
 1344:                                             ; preds = %1341
   %1345 = getelementptr inbounds nuw i8, ptr %1334, i64 928
   %1346 = load ptr, ptr %1345, align 8, !tbaa !198
-  %1347 = load ptr, ptr %10251, align 8, !tbaa !165
+  %1347 = load ptr, ptr %10248, align 8, !tbaa !165
   %.not.i10600 = icmp eq ptr %1347, null
   br i1 %.not.i10600, label %_PyThreadState_HasStackSpace.exit10601.thread, label %_PyThreadState_HasStackSpace.exit10601
 
@@ -5132,9 +5132,9 @@ _PyThreadState_HasStackSpace.exit10601:           ; preds = %1344
   %1349 = load ptr, ptr %1348, align 8, !tbaa !166
   %1350 = getelementptr inbounds nuw i8, ptr %1349, i64 76
   %1351 = load i32, ptr %1350, align 4, !tbaa !167
-  %1352 = add i32 %1351, %10253
+  %1352 = add i32 %1351, %10250
   %1353 = sext i32 %1352 to i64
-  %1354 = load ptr, ptr %10252, align 8, !tbaa !168
+  %1354 = load ptr, ptr %10249, align 8, !tbaa !168
   %1355 = ptrtoint ptr %1354 to i64
   %1356 = ptrtoint ptr %1347 to i64
   %1357 = sub i64 %1355, %1356
@@ -5192,9 +5192,9 @@ _Py_NewRef.exit10602:                             ; preds = %1365, %1369
   %1383 = getelementptr %union._PyStackRef, ptr %1382, i64 %1325
   %1384 = getelementptr %union._PyStackRef, ptr %1382, i64 %1327
   %1385 = getelementptr %union._PyStackRef, ptr %1382, i64 %1330
-  %1386 = load ptr, ptr %10251, align 8, !tbaa !165
-  %1387 = getelementptr ptr, ptr %1386, i64 %10254
-  store ptr %1387, ptr %10251, align 8, !tbaa !165
+  %1386 = load ptr, ptr %10248, align 8, !tbaa !165
+  %1387 = getelementptr ptr, ptr %1386, i64 %10251
+  store ptr %1387, ptr %10248, align 8, !tbaa !165
   %1388 = getelementptr inbounds nuw i8, ptr %1386, i64 8
   store ptr %.2, ptr %1388, align 8, !tbaa !141
   %1389 = getelementptr inbounds nuw i8, ptr %1386, i64 16
@@ -5203,7 +5203,7 @@ _Py_NewRef.exit10602:                             ; preds = %1365, %1369
   %1390 = getelementptr inbounds nuw i8, ptr %1386, i64 40
   store ptr null, ptr %1390, align 8, !tbaa !173
   %1391 = getelementptr inbounds nuw i8, ptr %1386, i64 80
-  %1392 = getelementptr %union._PyStackRef, ptr %1391, i64 %10256
+  %1392 = getelementptr %union._PyStackRef, ptr %1391, i64 %10253
   %1393 = getelementptr i8, ptr %1392, i64 8
   %1394 = getelementptr inbounds nuw i8, ptr %1386, i64 64
   store ptr %1393, ptr %1394, align 8, !tbaa !136
@@ -5251,11 +5251,11 @@ _Py_NewRef.exit10603:                             ; preds = %1381, %1405
 1416:                                             ; preds = %_Py_NewRef.exit10603
   %1417 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %1417, align 8, !tbaa !139
-  %1418 = load i32, ptr %10249, align 4, !tbaa !95
+  %1418 = load i32, ptr %10246, align 4, !tbaa !95
   store ptr %1413, ptr %1361, align 8, !tbaa !136
   store ptr %1411, ptr %49, align 8, !tbaa !140
   %1419 = add i32 %1418, -2
-  store i32 %1419, ptr %10249, align 4, !tbaa !95
+  store i32 %1419, ptr %10246, align 4, !tbaa !95
   %1420 = getelementptr inbounds nuw i8, ptr %1411, i64 64
   %1421 = load ptr, ptr %1420, align 8, !tbaa !136
   store ptr null, ptr %1420, align 8, !tbaa !136
@@ -5272,7 +5272,7 @@ _Py_NewRef.exit10603:                             ; preds = %1381, %1405
   %1428 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %1428, align 8, !tbaa !133
   %1429 = getelementptr i8, ptr %.28893, i64 8
-  %1430 = load ptr, ptr %10247, align 8, !tbaa !9
+  %1430 = load ptr, ptr %10244, align 8, !tbaa !9
   %1431 = getelementptr inbounds nuw i8, ptr %1430, i64 8472
   %1432 = load ptr, ptr %1431, align 8, !tbaa !126
   %.not9501 = icmp eq ptr %1432, null
@@ -5379,7 +5379,7 @@ _Py_NewRef.exit10605:                             ; preds = %_Py_NewRef.exit1060
   br i1 %.not9505, label %1491, label %_PyThreadState_HasStackSpace.exit10601.thread
 
 1491:                                             ; preds = %1482
-  %1492 = load ptr, ptr %10251, align 8, !tbaa !165
+  %1492 = load ptr, ptr %10248, align 8, !tbaa !165
   %.not.i10606 = icmp eq ptr %1492, null
   br i1 %.not.i10606, label %_PyThreadState_HasStackSpace.exit10601.thread, label %_PyThreadState_HasStackSpace.exit10607
 
@@ -5387,7 +5387,7 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
   %1493 = getelementptr inbounds nuw i8, ptr %1484, i64 76
   %1494 = load i32, ptr %1493, align 4, !tbaa !167
   %1495 = sext i32 %1494 to i64
-  %1496 = load ptr, ptr %10252, align 8, !tbaa !168
+  %1496 = load ptr, ptr %10249, align 8, !tbaa !168
   %1497 = ptrtoint ptr %1496 to i64
   %1498 = ptrtoint ptr %1492 to i64
   %1499 = sub i64 %1497, %1498
@@ -5396,7 +5396,7 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
   br i1 %1501, label %1502, label %_PyThreadState_HasStackSpace.exit10601.thread
 
 1502:                                             ; preds = %_PyThreadState_HasStackSpace.exit10607
-  %1503 = load i32, ptr %10249, align 4, !tbaa !95
+  %1503 = load i32, ptr %10246, align 4, !tbaa !95
   %1504 = icmp slt i32 %1503, 2
   br i1 %1504, label %_PyThreadState_HasStackSpace.exit10601.thread, label %1505
 
@@ -5411,31 +5411,31 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
   %1513 = load i64, ptr %1436, align 8, !tbaa !113
   store i64 %1513, ptr %1510, align 8, !tbaa !113
   %1514 = icmp sgt i32 %.08890, 0
-  br i1 %1514, label %.lr.ph11500.preheader, label %._crit_edge11501
+  br i1 %1514, label %.lr.ph11502.preheader, label %._crit_edge11503
 
-.lr.ph11500.preheader:                            ; preds = %1505
-  %wide.trip.count12498 = zext nneg i32 %.08890 to i64
-  br label %.lr.ph11500
+.lr.ph11502.preheader:                            ; preds = %1505
+  %wide.trip.count12501 = zext nneg i32 %.08890 to i64
+  br label %.lr.ph11502
 
-.lr.ph11500:                                      ; preds = %.lr.ph11500.preheader, %.lr.ph11500
-  %indvars.iv12495 = phi i64 [ 0, %.lr.ph11500.preheader ], [ %indvars.iv.next12496, %.lr.ph11500 ]
-  %1515 = getelementptr %union._PyStackRef, ptr %1512, i64 %indvars.iv12495
-  %1516 = getelementptr %union._PyStackRef, ptr %1508, i64 %indvars.iv12495
+.lr.ph11502:                                      ; preds = %.lr.ph11502.preheader, %.lr.ph11502
+  %indvars.iv12498 = phi i64 [ 0, %.lr.ph11502.preheader ], [ %indvars.iv.next12499, %.lr.ph11502 ]
+  %1515 = getelementptr %union._PyStackRef, ptr %1512, i64 %indvars.iv12498
+  %1516 = getelementptr %union._PyStackRef, ptr %1508, i64 %indvars.iv12498
   %1517 = load i64, ptr %1516, align 8, !tbaa !113
   store i64 %1517, ptr %1515, align 8, !tbaa !113
-  %indvars.iv.next12496 = add nuw nsw i64 %indvars.iv12495, 1
-  %exitcond12499.not = icmp eq i64 %indvars.iv.next12496, %wide.trip.count12498
-  br i1 %exitcond12499.not, label %._crit_edge11501, label %.lr.ph11500, !llvm.loop !200
+  %indvars.iv.next12499 = add nuw nsw i64 %indvars.iv12498, 1
+  %exitcond12502.not = icmp eq i64 %indvars.iv.next12499, %wide.trip.count12501
+  br i1 %exitcond12502.not, label %._crit_edge11503, label %.lr.ph11502, !llvm.loop !200
 
-._crit_edge11501:                                 ; preds = %.lr.ph11500, %1505
+._crit_edge11503:                                 ; preds = %.lr.ph11502, %1505
   %1518 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %1518, align 8, !tbaa !139
   %1519 = getelementptr %union._PyStackRef, ptr %1472, i64 %1438
   store ptr %1519, ptr %1461, align 8, !tbaa !136
   store ptr %1509, ptr %49, align 8, !tbaa !140
-  %1520 = load i32, ptr %10249, align 4, !tbaa !95
+  %1520 = load i32, ptr %10246, align 4, !tbaa !95
   %1521 = add i32 %1520, -1
-  store i32 %1521, ptr %10249, align 4, !tbaa !95
+  store i32 %1521, ptr %10246, align 4, !tbaa !95
   %1522 = getelementptr inbounds nuw i8, ptr %1509, i64 64
   %1523 = load ptr, ptr %1522, align 8, !tbaa !136
   store ptr null, ptr %1522, align 8, !tbaa !136
@@ -5452,7 +5452,7 @@ _PyThreadState_HasStackSpace.exit10607:           ; preds = %1491
   %1530 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %1530, align 8, !tbaa !133
   %1531 = getelementptr i8, ptr %.28893, i64 8
-  %1532 = load ptr, ptr %10247, align 8, !tbaa !9
+  %1532 = load ptr, ptr %10244, align 8, !tbaa !9
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 8472
   %1534 = load ptr, ptr %1533, align 8, !tbaa !126
   %.not9496 = icmp eq ptr %1534, null
@@ -5594,9 +5594,9 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   store i16 4, ptr %1610, align 8, !tbaa !139
   store ptr %1607, ptr %1572, align 8, !tbaa !136
   store ptr %1605, ptr %49, align 8, !tbaa !140
-  %1611 = load i32, ptr %10249, align 4, !tbaa !95
+  %1611 = load i32, ptr %10246, align 4, !tbaa !95
   %1612 = add i32 %1611, -1
-  store i32 %1612, ptr %10249, align 4, !tbaa !95
+  store i32 %1612, ptr %10246, align 4, !tbaa !95
   %1613 = getelementptr inbounds nuw i8, ptr %1605, i64 64
   %1614 = load ptr, ptr %1613, align 8, !tbaa !136
   store ptr null, ptr %1613, align 8, !tbaa !136
@@ -5699,22 +5699,22 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
 1671:                                             ; preds = %1659, %1664, %1667, %1661
   %1672 = add i32 %.08890, -1
   %1673 = icmp sgt i32 %1672, -1
-  br i1 %1673, label %.lr.ph11496.preheader, label %._crit_edge11497
+  br i1 %1673, label %.lr.ph11498.preheader, label %._crit_edge11499
 
-.lr.ph11496.preheader:                            ; preds = %1671
+.lr.ph11498.preheader:                            ; preds = %1671
   %1674 = zext nneg i32 %1672 to i64
-  br label %.lr.ph11496
+  br label %.lr.ph11498
 
-.lr.ph11496:                                      ; preds = %.lr.ph11496.preheader, %1686
-  %indvars.iv12492 = phi i64 [ %1674, %.lr.ph11496.preheader ], [ %indvars.iv.next12493, %1686 ]
-  %1675 = getelementptr %union._PyStackRef, ptr %1625, i64 %indvars.iv12492
+.lr.ph11498:                                      ; preds = %.lr.ph11498.preheader, %1686
+  %indvars.iv12495 = phi i64 [ %1674, %.lr.ph11498.preheader ], [ %indvars.iv.next12496, %1686 ]
+  %1675 = getelementptr %union._PyStackRef, ptr %1625, i64 %indvars.iv12495
   %1676 = load i64, ptr %1675, align 8, !tbaa !113
   %1677 = inttoptr i64 %1676 to ptr
   %1678 = load i32, ptr %1677, align 8, !tbaa !113
   %.not9495 = icmp sgt i32 %1678, -1
   br i1 %.not9495, label %1679, label %1686
 
-1679:                                             ; preds = %.lr.ph11496
+1679:                                             ; preds = %.lr.ph11498
   %1680 = add nsw i32 %1678, -1
   store i32 %1680, ptr %1677, align 8, !tbaa !113
   %1681 = icmp eq i32 %1680, 0
@@ -5728,22 +5728,22 @@ _Py_NewRef.exit10610:                             ; preds = %1600, %1596, %1582
   call void %1685(ptr noundef nonnull %1677) #15
   br label %1686
 
-1686:                                             ; preds = %1679, %1682, %.lr.ph11496
-  %indvars.iv.next12493 = add nsw i64 %indvars.iv12492, -1
-  %1687 = icmp sgt i64 %indvars.iv12492, 0
-  br i1 %1687, label %.lr.ph11496, label %._crit_edge11497, !llvm.loop !202
+1686:                                             ; preds = %1679, %1682, %.lr.ph11498
+  %indvars.iv.next12496 = add nsw i64 %indvars.iv12495, -1
+  %1687 = icmp sgt i64 %indvars.iv12495, 0
+  br i1 %1687, label %.lr.ph11498, label %._crit_edge11499, !llvm.loop !202
 
-._crit_edge11497:                                 ; preds = %1686, %1671
+._crit_edge11499:                                 ; preds = %1686, %1671
   %1688 = icmp eq ptr %1647, null
   br i1 %1688, label %1689, label %1691
 
-1689:                                             ; preds = %._crit_edge11497
+1689:                                             ; preds = %._crit_edge11499
   %1690 = getelementptr %union._PyStackRef, ptr %1648, i64 %1630
   br label %monitor_throw.exit
 
-1691:                                             ; preds = %._crit_edge11497
+1691:                                             ; preds = %._crit_edge11499
   %1692 = ptrtoint ptr %1647 to i64
-  %1693 = load atomic i64, ptr %10250 monotonic, align 8
+  %1693 = load atomic i64, ptr %10247 monotonic, align 8
   %1694 = and i64 %1693, 255
   %.not9493 = icmp eq i64 %1694, 0
   br i1 %.not9493, label %1703, label %1695
@@ -5869,22 +5869,22 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
 1761:                                             ; preds = %1749, %1754, %1757, %1751
   %1762 = add i32 %.08890, -1
   %1763 = icmp sgt i32 %1762, -1
-  br i1 %1763, label %.lr.ph11493.preheader, label %._crit_edge11494
+  br i1 %1763, label %.lr.ph11495.preheader, label %._crit_edge11496
 
-.lr.ph11493.preheader:                            ; preds = %1761
+.lr.ph11495.preheader:                            ; preds = %1761
   %1764 = zext nneg i32 %1762 to i64
-  br label %.lr.ph11493
+  br label %.lr.ph11495
 
-.lr.ph11493:                                      ; preds = %.lr.ph11493.preheader, %1776
-  %indvars.iv12489 = phi i64 [ %1764, %.lr.ph11493.preheader ], [ %indvars.iv.next12490, %1776 ]
-  %1765 = getelementptr %union._PyStackRef, ptr %1714, i64 %indvars.iv12489
+.lr.ph11495:                                      ; preds = %.lr.ph11495.preheader, %1776
+  %indvars.iv12492 = phi i64 [ %1764, %.lr.ph11495.preheader ], [ %indvars.iv.next12493, %1776 ]
+  %1765 = getelementptr %union._PyStackRef, ptr %1714, i64 %indvars.iv12492
   %1766 = load i64, ptr %1765, align 8, !tbaa !113
   %1767 = inttoptr i64 %1766 to ptr
   %1768 = load i32, ptr %1767, align 8, !tbaa !113
   %.not9489 = icmp sgt i32 %1768, -1
   br i1 %.not9489, label %1769, label %1776
 
-1769:                                             ; preds = %.lr.ph11493
+1769:                                             ; preds = %.lr.ph11495
   %1770 = add nsw i32 %1768, -1
   store i32 %1770, ptr %1767, align 8, !tbaa !113
   %1771 = icmp eq i32 %1770, 0
@@ -5898,22 +5898,22 @@ PyCFunction_GET_SELF.exit:                        ; preds = %1729
   call void %1775(ptr noundef nonnull %1767) #15
   br label %1776
 
-1776:                                             ; preds = %1769, %1772, %.lr.ph11493
-  %indvars.iv.next12490 = add nsw i64 %indvars.iv12489, -1
-  %1777 = icmp sgt i64 %indvars.iv12489, 0
-  br i1 %1777, label %.lr.ph11493, label %._crit_edge11494, !llvm.loop !209
+1776:                                             ; preds = %1769, %1772, %.lr.ph11495
+  %indvars.iv.next12493 = add nsw i64 %indvars.iv12492, -1
+  %1777 = icmp sgt i64 %indvars.iv12492, 0
+  br i1 %1777, label %.lr.ph11495, label %._crit_edge11496, !llvm.loop !209
 
-._crit_edge11494:                                 ; preds = %1776, %1761
+._crit_edge11496:                                 ; preds = %1776, %1761
   %1778 = icmp eq ptr %1737, null
   br i1 %1778, label %1779, label %1781
 
-1779:                                             ; preds = %._crit_edge11494
+1779:                                             ; preds = %._crit_edge11496
   %1780 = getelementptr %union._PyStackRef, ptr %1738, i64 %1719
   br label %monitor_throw.exit
 
-1781:                                             ; preds = %._crit_edge11494
+1781:                                             ; preds = %._crit_edge11496
   %1782 = ptrtoint ptr %1737 to i64
-  %1783 = load atomic i64, ptr %10250 monotonic, align 8
+  %1783 = load atomic i64, ptr %10247 monotonic, align 8
   %1784 = and i64 %1783, 255
   %.not9487 = icmp eq i64 %1784, 0
   br i1 %.not9487, label %1793, label %1785
@@ -6039,22 +6039,22 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
 1851:                                             ; preds = %1839, %1844, %1847, %1841
   %1852 = add i32 %.08890, -1
   %1853 = icmp sgt i32 %1852, -1
-  br i1 %1853, label %.lr.ph11490.preheader, label %._crit_edge11491
+  br i1 %1853, label %.lr.ph11492.preheader, label %._crit_edge11493
 
-.lr.ph11490.preheader:                            ; preds = %1851
+.lr.ph11492.preheader:                            ; preds = %1851
   %1854 = zext nneg i32 %1852 to i64
-  br label %.lr.ph11490
+  br label %.lr.ph11492
 
-.lr.ph11490:                                      ; preds = %.lr.ph11490.preheader, %1866
-  %indvars.iv12486 = phi i64 [ %1854, %.lr.ph11490.preheader ], [ %indvars.iv.next12487, %1866 ]
-  %1855 = getelementptr %union._PyStackRef, ptr %1804, i64 %indvars.iv12486
+.lr.ph11492:                                      ; preds = %.lr.ph11492.preheader, %1866
+  %indvars.iv12489 = phi i64 [ %1854, %.lr.ph11492.preheader ], [ %indvars.iv.next12490, %1866 ]
+  %1855 = getelementptr %union._PyStackRef, ptr %1804, i64 %indvars.iv12489
   %1856 = load i64, ptr %1855, align 8, !tbaa !113
   %1857 = inttoptr i64 %1856 to ptr
   %1858 = load i32, ptr %1857, align 8, !tbaa !113
   %.not9483 = icmp sgt i32 %1858, -1
   br i1 %.not9483, label %1859, label %1866
 
-1859:                                             ; preds = %.lr.ph11490
+1859:                                             ; preds = %.lr.ph11492
   %1860 = add nsw i32 %1858, -1
   store i32 %1860, ptr %1857, align 8, !tbaa !113
   %1861 = icmp eq i32 %1860, 0
@@ -6068,22 +6068,22 @@ PyCFunction_GET_SELF.exit10615:                   ; preds = %1819
   call void %1865(ptr noundef nonnull %1857) #15
   br label %1866
 
-1866:                                             ; preds = %1859, %1862, %.lr.ph11490
-  %indvars.iv.next12487 = add nsw i64 %indvars.iv12486, -1
-  %1867 = icmp sgt i64 %indvars.iv12486, 0
-  br i1 %1867, label %.lr.ph11490, label %._crit_edge11491, !llvm.loop !210
+1866:                                             ; preds = %1859, %1862, %.lr.ph11492
+  %indvars.iv.next12490 = add nsw i64 %indvars.iv12489, -1
+  %1867 = icmp sgt i64 %indvars.iv12489, 0
+  br i1 %1867, label %.lr.ph11492, label %._crit_edge11493, !llvm.loop !210
 
-._crit_edge11491:                                 ; preds = %1866, %1851
+._crit_edge11493:                                 ; preds = %1866, %1851
   %1868 = icmp eq ptr %1827, null
   br i1 %1868, label %1869, label %1871
 
-1869:                                             ; preds = %._crit_edge11491
+1869:                                             ; preds = %._crit_edge11493
   %1870 = getelementptr %union._PyStackRef, ptr %1828, i64 %1809
   br label %monitor_throw.exit
 
-1871:                                             ; preds = %._crit_edge11491
+1871:                                             ; preds = %._crit_edge11493
   %1872 = ptrtoint ptr %1827 to i64
-  %1873 = load atomic i64, ptr %10250 monotonic, align 8
+  %1873 = load atomic i64, ptr %10247 monotonic, align 8
   %1874 = and i64 %1873, 255
   %.not9481 = icmp eq i64 %1874, 0
   br i1 %.not9481, label %1883, label %1875
@@ -6224,7 +6224,7 @@ PyCFunction_GET_SELF.exit10618:                   ; preds = %1913
 
 1949:                                             ; preds = %1946
   %1950 = ptrtoint ptr %1922 to i64
-  %1951 = load atomic i64, ptr %10250 monotonic, align 8
+  %1951 = load atomic i64, ptr %10247 monotonic, align 8
   %1952 = and i64 %1951, 255
   %.not9476 = icmp eq i64 %1952, 0
   br i1 %.not9476, label %1959, label %1953
@@ -6363,7 +6363,7 @@ _Py_Check_ArgsIterable.exit:                      ; preds = %1981, %1984, %1990,
   br i1 %2018, label %2019, label %2051
 
 2019:                                             ; preds = %2015
-  %2020 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2020 = load ptr, ptr %10244, align 8, !tbaa !9
   %2021 = getelementptr inbounds nuw i8, ptr %2020, i64 8472
   %2022 = load ptr, ptr %2021, align 8, !tbaa !126
   %2023 = icmp eq ptr %2022, null
@@ -6416,7 +6416,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   %2050 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 1, ptr %2050, align 8, !tbaa !139
   store ptr %2047, ptr %2044, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
 2051:                                             ; preds = %2024, %2019, %2015
   %2052 = inttoptr i64 %.sroa.03838.0 to ptr
@@ -6504,7 +6504,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
 
 2094:                                             ; preds = %2091
   %2095 = ptrtoint ptr %2057 to i64
-  %2096 = load atomic i64, ptr %10250 monotonic, align 8
+  %2096 = load atomic i64, ptr %10247 monotonic, align 8
   %2097 = and i64 %2096, 255
   %.not9810 = icmp eq i64 %2097, 0
   br i1 %.not9810, label %2104, label %2098
@@ -6569,7 +6569,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
 
 2128:                                             ; preds = %2121, %2124, %2109
   %2129 = icmp eq ptr %2118, null
-  br i1 %2129, label %.loopexit10902, label %2130
+  br i1 %2129, label %.loopexit10904, label %2130
 
 2130:                                             ; preds = %2128
   %2131 = ptrtoint ptr %2118 to i64
@@ -6639,7 +6639,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
 
 2166:                                             ; preds = %2159, %2162, %2157
   %2167 = icmp eq ptr %2147, null
-  br i1 %2167, label %.loopexit10901, label %2168
+  br i1 %2167, label %.loopexit10903, label %2168
 
 2168:                                             ; preds = %2166
   %2169 = ptrtoint ptr %2147 to i64
@@ -6678,7 +6678,7 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
 2190:                                             ; preds = %2175
   %2191 = load i64, ptr %2186, align 8, !tbaa !113
   %2192 = inttoptr i64 %2191 to ptr
-  %2193 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2193 = load ptr, ptr %10244, align 8, !tbaa !9
   %2194 = getelementptr inbounds nuw i8, ptr %2193, i64 222936
   %2195 = load ptr, ptr %2194, align 8, !tbaa !214
   %.not9467 = icmp eq ptr %2195, %2192
@@ -6749,22 +6749,22 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
 2227:                                             ; preds = %2215, %2220, %2223, %2217
   %2228 = add i32 %.08890, -1
   %2229 = icmp sgt i32 %2228, -1
-  br i1 %2229, label %.lr.ph11487.preheader, label %._crit_edge11488
+  br i1 %2229, label %.lr.ph11489.preheader, label %._crit_edge11490
 
-.lr.ph11487.preheader:                            ; preds = %2227
+.lr.ph11489.preheader:                            ; preds = %2227
   %2230 = zext nneg i32 %2228 to i64
-  br label %.lr.ph11487
+  br label %.lr.ph11489
 
-.lr.ph11487:                                      ; preds = %.lr.ph11487.preheader, %2242
-  %indvars.iv12483 = phi i64 [ %2230, %.lr.ph11487.preheader ], [ %indvars.iv.next12484, %2242 ]
-  %2231 = getelementptr %union._PyStackRef, ptr %2180, i64 %indvars.iv12483
+.lr.ph11489:                                      ; preds = %.lr.ph11489.preheader, %2242
+  %indvars.iv12486 = phi i64 [ %2230, %.lr.ph11489.preheader ], [ %indvars.iv.next12487, %2242 ]
+  %2231 = getelementptr %union._PyStackRef, ptr %2180, i64 %indvars.iv12486
   %2232 = load i64, ptr %2231, align 8, !tbaa !113
   %2233 = inttoptr i64 %2232 to ptr
   %2234 = load i32, ptr %2233, align 8, !tbaa !113
   %.not9471 = icmp sgt i32 %2234, -1
   br i1 %.not9471, label %2235, label %2242
 
-2235:                                             ; preds = %.lr.ph11487
+2235:                                             ; preds = %.lr.ph11489
   %2236 = add nsw i32 %2234, -1
   store i32 %2236, ptr %2233, align 8, !tbaa !113
   %2237 = icmp eq i32 %2236, 0
@@ -6778,12 +6778,12 @@ _Py_NewRef.exit10622:                             ; preds = %2040, %2036, %2028
   call void %2241(ptr noundef nonnull %2233) #15
   br label %2242
 
-2242:                                             ; preds = %2235, %2238, %.lr.ph11487
-  %indvars.iv.next12484 = add nsw i64 %indvars.iv12483, -1
-  %2243 = icmp sgt i64 %indvars.iv12483, 0
-  br i1 %2243, label %.lr.ph11487, label %._crit_edge11488, !llvm.loop !215
+2242:                                             ; preds = %2235, %2238, %.lr.ph11489
+  %indvars.iv.next12487 = add nsw i64 %indvars.iv12486, -1
+  %2243 = icmp sgt i64 %indvars.iv12486, 0
+  br i1 %2243, label %.lr.ph11489, label %._crit_edge11490, !llvm.loop !215
 
-._crit_edge11488:                                 ; preds = %2242, %2227
+._crit_edge11490:                                 ; preds = %2242, %2227
   %2244 = getelementptr %union._PyStackRef, ptr %2202, i64 %2185
   store i64 %.9827, ptr %2244, align 8, !tbaa !113
   %2245 = getelementptr %union._PyStackRef, ptr %2202, i64 %2182
@@ -6902,15 +6902,15 @@ _Py_NewRef.exit10624:                             ; preds = %_Py_NewRef.exit1062
 2308:                                             ; preds = %2301, %2304, %_Py_NewRef.exit10624
   %2309 = load ptr, ptr %2298, align 8, !tbaa !136
   store ptr null, ptr %2298, align 8, !tbaa !136
-  %.phi.trans.insert12565 = getelementptr %union._PyStackRef, ptr %2309, i64 %2257
-  %.pre12566 = load i64, ptr %.phi.trans.insert12565, align 8, !tbaa !113
-  %.phi.trans.insert12567 = inttoptr i64 %.pre12566 to ptr
-  %.phi.trans.insert12568 = getelementptr i8, ptr %.phi.trans.insert12567, i64 8
-  %.val10359.pre = load ptr, ptr %.phi.trans.insert12568, align 8, !tbaa !103
+  %.phi.trans.insert12568 = getelementptr %union._PyStackRef, ptr %2309, i64 %2257
+  %.pre12569 = load i64, ptr %.phi.trans.insert12568, align 8, !tbaa !113
+  %.phi.trans.insert12570 = inttoptr i64 %.pre12569 to ptr
+  %.phi.trans.insert12571 = getelementptr i8, ptr %.phi.trans.insert12570, i64 8
+  %.val10359.pre = load ptr, ptr %.phi.trans.insert12571, align 8, !tbaa !103
   br label %2310
 
 2310:                                             ; preds = %2308, %2280, %2271
-  %.pre-phi12579 = phi ptr [ %.phi.trans.insert12567, %2308 ], [ %2277, %2280 ], [ %2277, %2271 ]
+  %.pre-phi12582 = phi ptr [ %.phi.trans.insert12570, %2308 ], [ %2277, %2280 ], [ %2277, %2271 ]
   %.val10359 = phi ptr [ %.val10359.pre, %2308 ], [ @PyMethod_Type, %2280 ], [ %.val10361, %2271 ]
   %.208916 = phi ptr [ %2309, %2308 ], [ %.28898, %2280 ], [ %.28898, %2271 ]
   %2311 = getelementptr %union._PyStackRef, ptr %.208916, i64 %2275
@@ -6931,20 +6931,20 @@ _Py_NewRef.exit10624:                             ; preds = %_Py_NewRef.exit1062
   br i1 %2321, label %2322, label %2364
 
 2322:                                             ; preds = %2310
-  %2323 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2323 = load ptr, ptr %10244, align 8, !tbaa !9
   %2324 = getelementptr inbounds nuw i8, ptr %2323, i64 8472
   %2325 = load ptr, ptr %2324, align 8, !tbaa !126
   %2326 = icmp eq ptr %2325, null
   br i1 %2326, label %2327, label %2364
 
 2327:                                             ; preds = %2322
-  %2328 = getelementptr inbounds nuw i8, ptr %.pre-phi12579, i64 136
+  %2328 = getelementptr inbounds nuw i8, ptr %.pre-phi12582, i64 136
   %2329 = load ptr, ptr %2328, align 8, !tbaa !195
   %2330 = icmp eq ptr %2329, @_PyFunction_Vectorcall
   br i1 %2330, label %2331, label %2364
 
 2331:                                             ; preds = %2327
-  %2332 = getelementptr i8, ptr %.pre-phi12579, i64 48
+  %2332 = getelementptr i8, ptr %.pre-phi12582, i64 48
   %.val10519 = load ptr, ptr %2332, align 8, !tbaa !166
   %2333 = getelementptr inbounds nuw i8, ptr %.val10519, i64 48
   %2334 = load i32, ptr %2333, align 8, !tbaa !142
@@ -6953,7 +6953,7 @@ _Py_NewRef.exit10624:                             ; preds = %_Py_NewRef.exit1062
   br i1 %.not9733, label %2336, label %_Py_NewRef.exit10625
 
 2336:                                             ; preds = %2331
-  %2337 = getelementptr i8, ptr %.pre-phi12579, i64 16
+  %2337 = getelementptr i8, ptr %.pre-phi12582, i64 16
   %.val10533 = load ptr, ptr %2337, align 8, !tbaa !171
   %2338 = load i32, ptr %.val10533, align 8, !tbaa !113
   %2339 = icmp slt i32 %2338, 0
@@ -7005,7 +7005,7 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
   %2363 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %2363, align 8, !tbaa !139
   store ptr %2360, ptr %2344, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
 2364:                                             ; preds = %2327, %2322, %2310
   %2365 = getelementptr i8, ptr %.208916, i64 -8
@@ -7014,7 +7014,7 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
   store ptr %.208916, ptr %2366, align 8, !tbaa !136
   %2367 = sext i32 %2320 to i64
   %2368 = or i64 %2367, -9223372036854775808
-  %2369 = call ptr @PyObject_Vectorcall(ptr noundef nonnull %.pre-phi12579, ptr noundef %.08961, i64 noundef %2368, ptr noundef nonnull %2314) #15
+  %2369 = call ptr @PyObject_Vectorcall(ptr noundef nonnull %.pre-phi12582, ptr noundef %.08961, i64 noundef %2368, ptr noundef nonnull %2314) #15
   %2370 = load ptr, ptr %2366, align 8, !tbaa !136
   store ptr null, ptr %2366, align 8, !tbaa !136
   %2371 = load i64, ptr %2313, align 8, !tbaa !113
@@ -7065,22 +7065,22 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
 2393:                                             ; preds = %2381, %2386, %2389, %2383
   %2394 = add i32 %.08890, -1
   %2395 = icmp sgt i32 %2394, -1
-  br i1 %2395, label %.lr.ph11521.preheader, label %._crit_edge11522
+  br i1 %2395, label %.lr.ph11523.preheader, label %._crit_edge11524
 
-.lr.ph11521.preheader:                            ; preds = %2393
+.lr.ph11523.preheader:                            ; preds = %2393
   %2396 = zext nneg i32 %2394 to i64
-  br label %.lr.ph11521
+  br label %.lr.ph11523
 
-.lr.ph11521:                                      ; preds = %.lr.ph11521.preheader, %2408
-  %indvars.iv12517 = phi i64 [ %2396, %.lr.ph11521.preheader ], [ %indvars.iv.next12518, %2408 ]
-  %2397 = getelementptr %union._PyStackRef, ptr %2311, i64 %indvars.iv12517
+.lr.ph11523:                                      ; preds = %.lr.ph11523.preheader, %2408
+  %indvars.iv12520 = phi i64 [ %2396, %.lr.ph11523.preheader ], [ %indvars.iv.next12521, %2408 ]
+  %2397 = getelementptr %union._PyStackRef, ptr %2311, i64 %indvars.iv12520
   %2398 = load i64, ptr %2397, align 8, !tbaa !113
   %2399 = inttoptr i64 %2398 to ptr
   %2400 = load i32, ptr %2399, align 8, !tbaa !113
   %.not9732 = icmp sgt i32 %2400, -1
   br i1 %.not9732, label %2401, label %2408
 
-2401:                                             ; preds = %.lr.ph11521
+2401:                                             ; preds = %.lr.ph11523
   %2402 = add nsw i32 %2400, -1
   store i32 %2402, ptr %2399, align 8, !tbaa !113
   %2403 = icmp eq i32 %2402, 0
@@ -7094,17 +7094,17 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
   call void %2407(ptr noundef nonnull %2399) #15
   br label %2408
 
-2408:                                             ; preds = %2401, %2404, %.lr.ph11521
-  %indvars.iv.next12518 = add nsw i64 %indvars.iv12517, -1
-  %2409 = icmp sgt i64 %indvars.iv12517, 0
-  br i1 %2409, label %.lr.ph11521, label %._crit_edge11522, !llvm.loop !216
+2408:                                             ; preds = %2401, %2404, %.lr.ph11523
+  %indvars.iv.next12521 = add nsw i64 %indvars.iv12520, -1
+  %2409 = icmp sgt i64 %indvars.iv12520, 0
+  br i1 %2409, label %.lr.ph11523, label %._crit_edge11524, !llvm.loop !216
 
-._crit_edge11522:                                 ; preds = %2408, %2393
+._crit_edge11524:                                 ; preds = %2408, %2393
   %2410 = load i32, ptr %2314, align 8, !tbaa !113
   %.not9731 = icmp sgt i32 %2410, -1
   br i1 %.not9731, label %2411, label %2418
 
-2411:                                             ; preds = %._crit_edge11522
+2411:                                             ; preds = %._crit_edge11524
   %2412 = add nsw i32 %2410, -1
   store i32 %2412, ptr %2314, align 8, !tbaa !113
   %2413 = icmp eq i32 %2412, 0
@@ -7118,7 +7118,7 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
   call void %2417(ptr noundef nonnull %2314) #15
   br label %2418
 
-2418:                                             ; preds = %2411, %2414, %._crit_edge11522
+2418:                                             ; preds = %2411, %2414, %._crit_edge11524
   %2419 = icmp eq ptr %2369, null
   br i1 %2419, label %2420, label %2422
 
@@ -7142,7 +7142,7 @@ _Py_NewRef.exit10625:                             ; preds = %2340, %2336, %2331
   %2430 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %2430, align 8, !tbaa !133
   %2431 = getelementptr i8, ptr %.28893, i64 8
-  %2432 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2432 = load ptr, ptr %10244, align 8, !tbaa !9
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 8472
   %2434 = load ptr, ptr %2433, align 8, !tbaa !126
   %.not9460 = icmp eq ptr %2434, null
@@ -7310,9 +7310,9 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   store i16 4, ptr %2524, align 8, !tbaa !139
   store ptr %2521, ptr %2472, align 8, !tbaa !136
   store ptr %2508, ptr %49, align 8, !tbaa !140
-  %2525 = load i32, ptr %10249, align 4, !tbaa !95
+  %2525 = load i32, ptr %10246, align 4, !tbaa !95
   %2526 = add i32 %2525, -1
-  store i32 %2526, ptr %10249, align 4, !tbaa !95
+  store i32 %2526, ptr %10246, align 4, !tbaa !95
   %2527 = getelementptr inbounds nuw i8, ptr %2508, i64 64
   %2528 = load ptr, ptr %2527, align 8, !tbaa !136
   store ptr null, ptr %2527, align 8, !tbaa !136
@@ -7438,22 +7438,22 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
 2599:                                             ; preds = %2587, %2592, %2595, %2589
   %2600 = add i32 %.08890, -1
   %2601 = icmp sgt i32 %2600, -1
-  br i1 %2601, label %.lr.ph11484.preheader, label %._crit_edge11485
+  br i1 %2601, label %.lr.ph11486.preheader, label %._crit_edge11487
 
-.lr.ph11484.preheader:                            ; preds = %2599
+.lr.ph11486.preheader:                            ; preds = %2599
   %2602 = zext nneg i32 %2600 to i64
-  br label %.lr.ph11484
+  br label %.lr.ph11486
 
-.lr.ph11484:                                      ; preds = %.lr.ph11484.preheader, %2614
-  %indvars.iv12480 = phi i64 [ %2602, %.lr.ph11484.preheader ], [ %indvars.iv.next12481, %2614 ]
-  %2603 = getelementptr %union._PyStackRef, ptr %2550, i64 %indvars.iv12480
+.lr.ph11486:                                      ; preds = %.lr.ph11486.preheader, %2614
+  %indvars.iv12483 = phi i64 [ %2602, %.lr.ph11486.preheader ], [ %indvars.iv.next12484, %2614 ]
+  %2603 = getelementptr %union._PyStackRef, ptr %2550, i64 %indvars.iv12483
   %2604 = load i64, ptr %2603, align 8, !tbaa !113
   %2605 = inttoptr i64 %2604 to ptr
   %2606 = load i32, ptr %2605, align 8, !tbaa !113
   %.not9459 = icmp sgt i32 %2606, -1
   br i1 %.not9459, label %2607, label %2614
 
-2607:                                             ; preds = %.lr.ph11484
+2607:                                             ; preds = %.lr.ph11486
   %2608 = add nsw i32 %2606, -1
   store i32 %2608, ptr %2605, align 8, !tbaa !113
   %2609 = icmp eq i32 %2608, 0
@@ -7467,22 +7467,22 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   call void %2613(ptr noundef nonnull %2605) #15
   br label %2614
 
-2614:                                             ; preds = %2607, %2610, %.lr.ph11484
-  %indvars.iv.next12481 = add nsw i64 %indvars.iv12480, -1
-  %2615 = icmp sgt i64 %indvars.iv12480, 0
-  br i1 %2615, label %.lr.ph11484, label %._crit_edge11485, !llvm.loop !217
+2614:                                             ; preds = %2607, %2610, %.lr.ph11486
+  %indvars.iv.next12484 = add nsw i64 %indvars.iv12483, -1
+  %2615 = icmp sgt i64 %indvars.iv12483, 0
+  br i1 %2615, label %.lr.ph11486, label %._crit_edge11487, !llvm.loop !217
 
-._crit_edge11485:                                 ; preds = %2614, %2599
+._crit_edge11487:                                 ; preds = %2614, %2599
   %2616 = icmp eq ptr %2564, null
   br i1 %2616, label %2617, label %2619
 
-2617:                                             ; preds = %._crit_edge11485
+2617:                                             ; preds = %._crit_edge11487
   %2618 = getelementptr %union._PyStackRef, ptr %2576, i64 %2552
   br label %monitor_throw.exit
 
-2619:                                             ; preds = %._crit_edge11485
+2619:                                             ; preds = %._crit_edge11487
   %2620 = ptrtoint ptr %2564 to i64
-  %2621 = load atomic i64, ptr %10250 monotonic, align 8
+  %2621 = load atomic i64, ptr %10247 monotonic, align 8
   %2622 = and i64 %2621, 255
   %.not9457 = icmp eq i64 %2622, 0
   br i1 %.not9457, label %2631, label %2623
@@ -7519,7 +7519,7 @@ _Py_NewRef.exit10628:                             ; preds = %2503, %2499, %2480
   %2638 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %2638, align 8, !tbaa !133
   %2639 = getelementptr i8, ptr %.28893, i64 8
-  %2640 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2640 = load ptr, ptr %10244, align 8, !tbaa !9
   %2641 = getelementptr inbounds nuw i8, ptr %2640, i64 8472
   %2642 = load ptr, ptr %2641, align 8, !tbaa !126
   %.not9450 = icmp eq ptr %2642, null
@@ -7624,9 +7624,9 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
   store i16 4, ptr %2701, align 8, !tbaa !139
   store ptr %2698, ptr %2682, align 8, !tbaa !136
   store ptr %2685, ptr %49, align 8, !tbaa !140
-  %2702 = load i32, ptr %10249, align 4, !tbaa !95
+  %2702 = load i32, ptr %10246, align 4, !tbaa !95
   %2703 = add i32 %2702, -1
-  store i32 %2703, ptr %10249, align 4, !tbaa !95
+  store i32 %2703, ptr %10246, align 4, !tbaa !95
   %2704 = getelementptr inbounds nuw i8, ptr %2685, i64 64
   %2705 = load ptr, ptr %2704, align 8, !tbaa !136
   store ptr null, ptr %2704, align 8, !tbaa !136
@@ -7664,7 +7664,7 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
 2726:                                             ; preds = %2711
   %2727 = load i64, ptr %2722, align 8, !tbaa !113
   %2728 = inttoptr i64 %2727 to ptr
-  %2729 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2729 = load ptr, ptr %10244, align 8, !tbaa !9
   %2730 = getelementptr inbounds nuw i8, ptr %2729, i64 222944
   %2731 = load ptr, ptr %2730, align 8, !tbaa !218
   %.not9447 = icmp eq ptr %2731, %2728
@@ -7755,7 +7755,7 @@ _Py_NewRef.exit10629:                             ; preds = %2679, %2675, %2656
   %.sroa.03386.0.copyload = load i64, ptr %2775, align 8, !tbaa !113
   %2776 = inttoptr i64 %.sroa.03386.0.copyload to ptr
   %2777 = inttoptr i64 %.sroa.03384.0.copyload to ptr
-  %2778 = load ptr, ptr %10247, align 8, !tbaa !9
+  %2778 = load ptr, ptr %10244, align 8, !tbaa !9
   %2779 = getelementptr inbounds nuw i8, ptr %2778, i64 222952
   %2780 = load ptr, ptr %2779, align 8, !tbaa !219
   %.not9441 = icmp eq ptr %2780, %2776
@@ -7953,22 +7953,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 2889:                                             ; preds = %2877, %2882, %2885, %2879
   %2890 = add i32 %.08890, -1
   %2891 = icmp sgt i32 %2890, -1
-  br i1 %2891, label %.lr.ph11481.preheader, label %._crit_edge11482
+  br i1 %2891, label %.lr.ph11483.preheader, label %._crit_edge11484
 
-.lr.ph11481.preheader:                            ; preds = %2889
+.lr.ph11483.preheader:                            ; preds = %2889
   %2892 = zext nneg i32 %2890 to i64
-  br label %.lr.ph11481
+  br label %.lr.ph11483
 
-.lr.ph11481:                                      ; preds = %.lr.ph11481.preheader, %2904
-  %indvars.iv12477 = phi i64 [ %2892, %.lr.ph11481.preheader ], [ %indvars.iv.next12478, %2904 ]
-  %2893 = getelementptr %union._PyStackRef, ptr %2829, i64 %indvars.iv12477
+.lr.ph11483:                                      ; preds = %.lr.ph11483.preheader, %2904
+  %indvars.iv12480 = phi i64 [ %2892, %.lr.ph11483.preheader ], [ %indvars.iv.next12481, %2904 ]
+  %2893 = getelementptr %union._PyStackRef, ptr %2829, i64 %indvars.iv12480
   %2894 = load i64, ptr %2893, align 8, !tbaa !113
   %2895 = inttoptr i64 %2894 to ptr
   %2896 = load i32, ptr %2895, align 8, !tbaa !113
   %.not9440 = icmp sgt i32 %2896, -1
   br i1 %.not9440, label %2897, label %2904
 
-2897:                                             ; preds = %.lr.ph11481
+2897:                                             ; preds = %.lr.ph11483
   %2898 = add nsw i32 %2896, -1
   store i32 %2898, ptr %2895, align 8, !tbaa !113
   %2899 = icmp eq i32 %2898, 0
@@ -7982,22 +7982,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   call void %2903(ptr noundef nonnull %2895) #15
   br label %2904
 
-2904:                                             ; preds = %2897, %2900, %.lr.ph11481
-  %indvars.iv.next12478 = add nsw i64 %indvars.iv12477, -1
-  %2905 = icmp sgt i64 %indvars.iv12477, 0
-  br i1 %2905, label %.lr.ph11481, label %._crit_edge11482, !llvm.loop !225
+2904:                                             ; preds = %2897, %2900, %.lr.ph11483
+  %indvars.iv.next12481 = add nsw i64 %indvars.iv12480, -1
+  %2905 = icmp sgt i64 %indvars.iv12480, 0
+  br i1 %2905, label %.lr.ph11483, label %._crit_edge11484, !llvm.loop !225
 
-._crit_edge11482:                                 ; preds = %2904, %2889
+._crit_edge11484:                                 ; preds = %2904, %2889
   %2906 = icmp eq ptr %2865, null
   br i1 %2906, label %2907, label %2909
 
-2907:                                             ; preds = %._crit_edge11482
+2907:                                             ; preds = %._crit_edge11484
   %2908 = getelementptr %union._PyStackRef, ptr %2866, i64 %2834
   br label %monitor_throw.exit
 
-2909:                                             ; preds = %._crit_edge11482
+2909:                                             ; preds = %._crit_edge11484
   %2910 = ptrtoint ptr %2865 to i64
-  %2911 = load atomic i64, ptr %10250 monotonic, align 8
+  %2911 = load atomic i64, ptr %10247 monotonic, align 8
   %2912 = and i64 %2911, 255
   %.not9438 = icmp eq i64 %2912, 0
   br i1 %.not9438, label %2921, label %2913
@@ -8133,22 +8133,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 2992:                                             ; preds = %2980, %2985, %2988, %2982
   %2993 = add i32 %.08890, -1
   %2994 = icmp sgt i32 %2993, -1
-  br i1 %2994, label %.lr.ph11478.preheader, label %._crit_edge11479
+  br i1 %2994, label %.lr.ph11480.preheader, label %._crit_edge11481
 
-.lr.ph11478.preheader:                            ; preds = %2992
+.lr.ph11480.preheader:                            ; preds = %2992
   %2995 = zext nneg i32 %2993 to i64
-  br label %.lr.ph11478
+  br label %.lr.ph11480
 
-.lr.ph11478:                                      ; preds = %.lr.ph11478.preheader, %3007
-  %indvars.iv12474 = phi i64 [ %2995, %.lr.ph11478.preheader ], [ %indvars.iv.next12475, %3007 ]
-  %2996 = getelementptr %union._PyStackRef, ptr %2932, i64 %indvars.iv12474
+.lr.ph11480:                                      ; preds = %.lr.ph11480.preheader, %3007
+  %indvars.iv12477 = phi i64 [ %2995, %.lr.ph11480.preheader ], [ %indvars.iv.next12478, %3007 ]
+  %2996 = getelementptr %union._PyStackRef, ptr %2932, i64 %indvars.iv12477
   %2997 = load i64, ptr %2996, align 8, !tbaa !113
   %2998 = inttoptr i64 %2997 to ptr
   %2999 = load i32, ptr %2998, align 8, !tbaa !113
   %.not9434 = icmp sgt i32 %2999, -1
   br i1 %.not9434, label %3000, label %3007
 
-3000:                                             ; preds = %.lr.ph11478
+3000:                                             ; preds = %.lr.ph11480
   %3001 = add nsw i32 %2999, -1
   store i32 %3001, ptr %2998, align 8, !tbaa !113
   %3002 = icmp eq i32 %3001, 0
@@ -8162,22 +8162,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   call void %3006(ptr noundef nonnull %2998) #15
   br label %3007
 
-3007:                                             ; preds = %3000, %3003, %.lr.ph11478
-  %indvars.iv.next12475 = add nsw i64 %indvars.iv12474, -1
-  %3008 = icmp sgt i64 %indvars.iv12474, 0
-  br i1 %3008, label %.lr.ph11478, label %._crit_edge11479, !llvm.loop !226
+3007:                                             ; preds = %3000, %3003, %.lr.ph11480
+  %indvars.iv.next12478 = add nsw i64 %indvars.iv12477, -1
+  %3008 = icmp sgt i64 %indvars.iv12477, 0
+  br i1 %3008, label %.lr.ph11480, label %._crit_edge11481, !llvm.loop !226
 
-._crit_edge11479:                                 ; preds = %3007, %2992
+._crit_edge11481:                                 ; preds = %3007, %2992
   %3009 = icmp eq ptr %2968, null
   br i1 %3009, label %3010, label %3012
 
-3010:                                             ; preds = %._crit_edge11479
+3010:                                             ; preds = %._crit_edge11481
   %3011 = getelementptr %union._PyStackRef, ptr %2969, i64 %2937
   br label %monitor_throw.exit
 
-3012:                                             ; preds = %._crit_edge11479
+3012:                                             ; preds = %._crit_edge11481
   %3013 = ptrtoint ptr %2968 to i64
-  %3014 = load atomic i64, ptr %10250 monotonic, align 8
+  %3014 = load atomic i64, ptr %10247 monotonic, align 8
   %3015 = and i64 %3014, 255
   %.not9432 = icmp eq i64 %3015, 0
   br i1 %.not9432, label %3024, label %3016
@@ -8323,7 +8323,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 
 3097:                                             ; preds = %3094
   %3098 = ptrtoint ptr %3071 to i64
-  %3099 = load atomic i64, ptr %10250 monotonic, align 8
+  %3099 = load atomic i64, ptr %10247 monotonic, align 8
   %3100 = and i64 %3099, 255
   %.not9427 = icmp eq i64 %3100, 0
   br i1 %.not9427, label %3107, label %3101
@@ -8470,22 +8470,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 3181:                                             ; preds = %3169, %3174, %3177, %3171
   %3182 = add i32 %.08890, -1
   %3183 = icmp sgt i32 %3182, -1
-  br i1 %3183, label %.lr.ph11475.preheader, label %._crit_edge11476
+  br i1 %3183, label %.lr.ph11477.preheader, label %._crit_edge11478
 
-.lr.ph11475.preheader:                            ; preds = %3181
+.lr.ph11477.preheader:                            ; preds = %3181
   %3184 = zext nneg i32 %3182 to i64
-  br label %.lr.ph11475
+  br label %.lr.ph11477
 
-.lr.ph11475:                                      ; preds = %.lr.ph11475.preheader, %3196
-  %indvars.iv12471 = phi i64 [ %3184, %.lr.ph11475.preheader ], [ %indvars.iv.next12472, %3196 ]
-  %3185 = getelementptr %union._PyStackRef, ptr %3117, i64 %indvars.iv12471
+.lr.ph11477:                                      ; preds = %.lr.ph11477.preheader, %3196
+  %indvars.iv12474 = phi i64 [ %3184, %.lr.ph11477.preheader ], [ %indvars.iv.next12475, %3196 ]
+  %3185 = getelementptr %union._PyStackRef, ptr %3117, i64 %indvars.iv12474
   %3186 = load i64, ptr %3185, align 8, !tbaa !113
   %3187 = inttoptr i64 %3186 to ptr
   %3188 = load i32, ptr %3187, align 8, !tbaa !113
   %.not9422 = icmp sgt i32 %3188, -1
   br i1 %.not9422, label %3189, label %3196
 
-3189:                                             ; preds = %.lr.ph11475
+3189:                                             ; preds = %.lr.ph11477
   %3190 = add nsw i32 %3188, -1
   store i32 %3190, ptr %3187, align 8, !tbaa !113
   %3191 = icmp eq i32 %3190, 0
@@ -8499,22 +8499,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   call void %3195(ptr noundef nonnull %3187) #15
   br label %3196
 
-3196:                                             ; preds = %3189, %3192, %.lr.ph11475
-  %indvars.iv.next12472 = add nsw i64 %indvars.iv12471, -1
-  %3197 = icmp sgt i64 %indvars.iv12471, 0
-  br i1 %3197, label %.lr.ph11475, label %._crit_edge11476, !llvm.loop !227
+3196:                                             ; preds = %3189, %3192, %.lr.ph11477
+  %indvars.iv.next12475 = add nsw i64 %indvars.iv12474, -1
+  %3197 = icmp sgt i64 %indvars.iv12474, 0
+  br i1 %3197, label %.lr.ph11477, label %._crit_edge11478, !llvm.loop !227
 
-._crit_edge11476:                                 ; preds = %3196, %3181
+._crit_edge11478:                                 ; preds = %3196, %3181
   %3198 = icmp eq ptr %3155, null
   br i1 %3198, label %3199, label %3201
 
-3199:                                             ; preds = %._crit_edge11476
+3199:                                             ; preds = %._crit_edge11478
   %3200 = getelementptr %union._PyStackRef, ptr %3156, i64 %3122
   br label %monitor_throw.exit
 
-3201:                                             ; preds = %._crit_edge11476
+3201:                                             ; preds = %._crit_edge11478
   %3202 = ptrtoint ptr %3155 to i64
-  %3203 = load atomic i64, ptr %10250 monotonic, align 8
+  %3203 = load atomic i64, ptr %10247 monotonic, align 8
   %3204 = and i64 %3203, 255
   %.not9420 = icmp eq i64 %3204, 0
   br i1 %.not9420, label %3213, label %3205
@@ -8631,22 +8631,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
 3268:                                             ; preds = %3256, %3261, %3264, %3258
   %3269 = add i32 %.08890, -1
   %3270 = icmp sgt i32 %3269, -1
-  br i1 %3270, label %.lr.ph11472.preheader, label %._crit_edge11473
+  br i1 %3270, label %.lr.ph11474.preheader, label %._crit_edge11475
 
-.lr.ph11472.preheader:                            ; preds = %3268
+.lr.ph11474.preheader:                            ; preds = %3268
   %3271 = zext nneg i32 %3269 to i64
-  br label %.lr.ph11472
+  br label %.lr.ph11474
 
-.lr.ph11472:                                      ; preds = %.lr.ph11472.preheader, %3283
-  %indvars.iv12468 = phi i64 [ %3271, %.lr.ph11472.preheader ], [ %indvars.iv.next12469, %3283 ]
-  %3272 = getelementptr %union._PyStackRef, ptr %3234, i64 %indvars.iv12468
+.lr.ph11474:                                      ; preds = %.lr.ph11474.preheader, %3283
+  %indvars.iv12471 = phi i64 [ %3271, %.lr.ph11474.preheader ], [ %indvars.iv.next12472, %3283 ]
+  %3272 = getelementptr %union._PyStackRef, ptr %3234, i64 %indvars.iv12471
   %3273 = load i64, ptr %3272, align 8, !tbaa !113
   %3274 = inttoptr i64 %3273 to ptr
   %3275 = load i32, ptr %3274, align 8, !tbaa !113
   %.not9415 = icmp sgt i32 %3275, -1
   br i1 %.not9415, label %3276, label %3283
 
-3276:                                             ; preds = %.lr.ph11472
+3276:                                             ; preds = %.lr.ph11474
   %3277 = add nsw i32 %3275, -1
   store i32 %3277, ptr %3274, align 8, !tbaa !113
   %3278 = icmp eq i32 %3277, 0
@@ -8660,22 +8660,22 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   call void %3282(ptr noundef nonnull %3274) #15
   br label %3283
 
-3283:                                             ; preds = %3276, %3279, %.lr.ph11472
-  %indvars.iv.next12469 = add nsw i64 %indvars.iv12468, -1
-  %3284 = icmp sgt i64 %indvars.iv12468, 0
-  br i1 %3284, label %.lr.ph11472, label %._crit_edge11473, !llvm.loop !228
+3283:                                             ; preds = %3276, %3279, %.lr.ph11474
+  %indvars.iv.next12472 = add nsw i64 %indvars.iv12471, -1
+  %3284 = icmp sgt i64 %indvars.iv12471, 0
+  br i1 %3284, label %.lr.ph11474, label %._crit_edge11475, !llvm.loop !228
 
-._crit_edge11473:                                 ; preds = %3283, %3268
+._crit_edge11475:                                 ; preds = %3283, %3268
   %3285 = icmp eq ptr %3244, null
   br i1 %3285, label %3286, label %3288
 
-3286:                                             ; preds = %._crit_edge11473
+3286:                                             ; preds = %._crit_edge11475
   %3287 = getelementptr %union._PyStackRef, ptr %3245, i64 %3223
   br label %monitor_throw.exit
 
-3288:                                             ; preds = %._crit_edge11473
+3288:                                             ; preds = %._crit_edge11475
   %3289 = ptrtoint ptr %3244 to i64
-  %3290 = load atomic i64, ptr %10250 monotonic, align 8
+  %3290 = load atomic i64, ptr %10247 monotonic, align 8
   %3291 = and i64 %3290, 255
   %.not9413 = icmp eq i64 %3291, 0
   br i1 %.not9413, label %3300, label %3292
@@ -8712,7 +8712,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   %3307 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %3307, align 8, !tbaa !133
   %3308 = getelementptr i8, ptr %.28893, i64 8
-  %3309 = load ptr, ptr %10247, align 8, !tbaa !9
+  %3309 = load ptr, ptr %10244, align 8, !tbaa !9
   %3310 = getelementptr inbounds nuw i8, ptr %3309, i64 8472
   %3311 = load ptr, ptr %3310, align 8, !tbaa !126
   %.not9408 = icmp eq ptr %3311, null
@@ -8753,7 +8753,7 @@ _PyList_AppendTakeRef.exit:                       ; preds = %2791, %2795
   br i1 %.not9410, label %3337, label %_PyThreadState_HasStackSpace.exit10601.thread
 
 3337:                                             ; preds = %3325
-  %3338 = load ptr, ptr %10251, align 8, !tbaa !165
+  %3338 = load ptr, ptr %10248, align 8, !tbaa !165
   %.not.i10632 = icmp eq ptr %3338, null
   br i1 %.not.i10632, label %_PyThreadState_HasStackSpace.exit10601.thread, label %_PyThreadState_HasStackSpace.exit10633
 
@@ -8761,7 +8761,7 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
   %3339 = getelementptr inbounds nuw i8, ptr %3330, i64 76
   %3340 = load i32, ptr %3339, align 4, !tbaa !167
   %3341 = sext i32 %3340 to i64
-  %3342 = load ptr, ptr %10252, align 8, !tbaa !168
+  %3342 = load ptr, ptr %10249, align 8, !tbaa !168
   %3343 = ptrtoint ptr %3342 to i64
   %3344 = ptrtoint ptr %3338 to i64
   %3345 = sub i64 %3343, %3344
@@ -8770,7 +8770,7 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
   br i1 %3347, label %3348, label %_PyThreadState_HasStackSpace.exit10601.thread
 
 3348:                                             ; preds = %_PyThreadState_HasStackSpace.exit10633
-  %3349 = load i32, ptr %10249, align 4, !tbaa !95
+  %3349 = load i32, ptr %10246, align 4, !tbaa !95
   %3350 = icmp slt i32 %3349, 2
   br i1 %3350, label %_PyThreadState_HasStackSpace.exit10601.thread, label %3351
 
@@ -8785,31 +8785,31 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
   %3359 = load i64, ptr %3328, align 8, !tbaa !113
   store i64 %3359, ptr %3356, align 8, !tbaa !113
   %3360 = icmp sgt i32 %.08890, 0
-  br i1 %3360, label %.lr.ph11469.preheader, label %._crit_edge11470
+  br i1 %3360, label %.lr.ph11471.preheader, label %._crit_edge11472
 
-.lr.ph11469.preheader:                            ; preds = %3351
+.lr.ph11471.preheader:                            ; preds = %3351
   %wide.trip.count = zext nneg i32 %.08890 to i64
-  br label %.lr.ph11469
+  br label %.lr.ph11471
 
-.lr.ph11469:                                      ; preds = %.lr.ph11469.preheader, %.lr.ph11469
-  %indvars.iv = phi i64 [ 0, %.lr.ph11469.preheader ], [ %indvars.iv.next, %.lr.ph11469 ]
+.lr.ph11471:                                      ; preds = %.lr.ph11471.preheader, %.lr.ph11471
+  %indvars.iv = phi i64 [ 0, %.lr.ph11471.preheader ], [ %indvars.iv.next, %.lr.ph11471 ]
   %3361 = getelementptr %union._PyStackRef, ptr %3358, i64 %indvars.iv
   %3362 = getelementptr %union._PyStackRef, ptr %3354, i64 %indvars.iv
   %3363 = load i64, ptr %3362, align 8, !tbaa !113
   store i64 %3363, ptr %3361, align 8, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge11470, label %.lr.ph11469, !llvm.loop !229
+  br i1 %exitcond.not, label %._crit_edge11472, label %.lr.ph11471, !llvm.loop !229
 
-._crit_edge11470:                                 ; preds = %.lr.ph11469, %3351
+._crit_edge11472:                                 ; preds = %.lr.ph11471, %3351
   %3364 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %3364, align 8, !tbaa !139
   %3365 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %3315, ptr %3365, align 8, !tbaa !136
   store ptr %3355, ptr %49, align 8, !tbaa !140
-  %3366 = load i32, ptr %10249, align 4, !tbaa !95
+  %3366 = load i32, ptr %10246, align 4, !tbaa !95
   %3367 = add i32 %3366, -1
-  store i32 %3367, ptr %10249, align 4, !tbaa !95
+  store i32 %3367, ptr %10246, align 4, !tbaa !95
   %3368 = getelementptr inbounds nuw i8, ptr %3355, i64 64
   %3369 = load ptr, ptr %3368, align 8, !tbaa !136
   store ptr null, ptr %3368, align 8, !tbaa !136
@@ -8826,7 +8826,7 @@ _PyThreadState_HasStackSpace.exit10633:           ; preds = %3337
   %3376 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %3376, align 8, !tbaa !133
   %3377 = getelementptr i8, ptr %.28893, i64 8
-  %3378 = load ptr, ptr %10247, align 8, !tbaa !9
+  %3378 = load ptr, ptr %10244, align 8, !tbaa !9
   %3379 = getelementptr inbounds nuw i8, ptr %3378, i64 8472
   %3380 = load ptr, ptr %3379, align 8, !tbaa !126
   %.not9405 = icmp eq ptr %3380, null
@@ -8902,9 +8902,9 @@ _Py_NewRef.exit10634:                             ; preds = %3412, %3408, %3394
   store i16 4, ptr %3423, align 8, !tbaa !139
   store ptr %3420, ptr %3415, align 8, !tbaa !136
   store ptr %3418, ptr %49, align 8, !tbaa !140
-  %3424 = load i32, ptr %10249, align 4, !tbaa !95
+  %3424 = load i32, ptr %10246, align 4, !tbaa !95
   %3425 = add i32 %3424, -1
-  store i32 %3425, ptr %10249, align 4, !tbaa !95
+  store i32 %3425, ptr %10246, align 4, !tbaa !95
   %3426 = getelementptr inbounds nuw i8, ptr %3418, i64 64
   %3427 = load ptr, ptr %3426, align 8, !tbaa !136
   store ptr null, ptr %3426, align 8, !tbaa !136
@@ -8966,7 +8966,7 @@ _Py_NewRef.exit10634:                             ; preds = %3412, %3408, %3394
 
 3458:                                             ; preds = %3455
   %3459 = ptrtoint ptr %3444 to i64
-  %3460 = load atomic i64, ptr %10250 monotonic, align 8
+  %3460 = load atomic i64, ptr %10247 monotonic, align 8
   %3461 = and i64 %3460, 255
   %.not9403 = icmp eq i64 %3461, 0
   br i1 %.not9403, label %3468, label %3462
@@ -9045,7 +9045,7 @@ _Py_NewRef.exit10634:                             ; preds = %3412, %3408, %3394
 
 3498:                                             ; preds = %3495
   %3499 = ptrtoint ptr %3484 to i64
-  %3500 = load atomic i64, ptr %10250 monotonic, align 8
+  %3500 = load atomic i64, ptr %10247 monotonic, align 8
   %3501 = and i64 %3500, 255
   %.not9400 = icmp eq i64 %3501, 0
   br i1 %.not9400, label %3508, label %3502
@@ -9175,13 +9175,13 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
 3562:                                             ; preds = %3553, %3558, %3555
   %3563 = load i32, ptr %3548, align 8, !tbaa !113
   %.not9805 = icmp sgt i32 %3563, -1
-  br i1 %.not9805, label %3564, label %.loopexit10901
+  br i1 %.not9805, label %3564, label %.loopexit10903
 
 3564:                                             ; preds = %3562
   %3565 = add nsw i32 %3563, -1
   store i32 %3565, ptr %3548, align 8, !tbaa !113
   %3566 = icmp eq i32 %3565, 0
-  br i1 %3566, label %3567, label %.loopexit10901
+  br i1 %3566, label %3567, label %.loopexit10903
 
 3567:                                             ; preds = %3564
   %3568 = getelementptr i8, ptr %3548, i64 8
@@ -9189,7 +9189,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   %3569 = getelementptr inbounds nuw i8, ptr %.val10319, i64 48
   %3570 = load ptr, ptr %3569, align 8, !tbaa !114
   call void %3570(ptr noundef nonnull %3548) #15
-  br label %.loopexit10901
+  br label %.loopexit10903
 
 3571:                                             ; preds = %3542
   store ptr null, ptr %9, align 8, !tbaa !100
@@ -9240,7 +9240,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   %3593 = load ptr, ptr %9, align 8
   %3594 = icmp eq ptr %3593, null
   %or.cond7 = select i1 %3592, i1 true, i1 %3594
-  br i1 %or.cond7, label %.loopexit10901, label %3595
+  br i1 %or.cond7, label %.loopexit10903, label %3595
 
 3595:                                             ; preds = %3591
   %3596 = icmp eq ptr %3593, @_Py_NoneStruct
@@ -9294,7 +9294,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   %3621 = getelementptr i8, ptr %3615, i64 16
   %.val.i10637 = load i64, ptr %3621, align 8, !tbaa !101
   %3622 = icmp sgt i64 %.val.i10637, 0
-  br i1 %3622, label %.lr.ph.i, label %.loopexit10895
+  br i1 %3622, label %.lr.ph.i, label %.loopexit10897
 
 .lr.ph.i:                                         ; preds = %3620
   %3623 = getelementptr inbounds nuw i8, ptr %3615, i64 24
@@ -9303,7 +9303,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
 3624:                                             ; preds = %3632
   %3625 = add nuw nsw i64 %.01731.i, 1
   %exitcond.not.i = icmp eq i64 %3625, %.val.i10637
-  br i1 %exitcond.not.i, label %.loopexit10895, label %3626, !llvm.loop !230
+  br i1 %exitcond.not.i, label %.loopexit10897, label %3626, !llvm.loop !230
 
 3626:                                             ; preds = %3624, %.lr.ph.i
   %.01731.i = phi i64 [ 0, %.lr.ph.i ], [ %3625, %3624 ]
@@ -9334,7 +9334,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   %.val23.i = load i64, ptr %3638, align 8, !tbaa !104
   %3639 = and i64 %.val23.i, 1073741824
   %.not19.i = icmp eq i64 %3639, 0
-  br i1 %.not19.i, label %.loopexit, label %.loopexit10895
+  br i1 %.not19.i, label %.loopexit, label %.loopexit10897
 
 .loopexit:                                        ; preds = %3637, %3635, %3632, %3626
   %3640 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !100
@@ -9343,15 +9343,15 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   store ptr null, ptr %3616, align 8, !tbaa !136
   %3642 = load i32, ptr %3615, align 8, !tbaa !113
   %.not9801 = icmp sgt i32 %3642, -1
-  br i1 %.not9801, label %3643, label %.loopexit10902
+  br i1 %.not9801, label %3643, label %.loopexit10904
 
 3643:                                             ; preds = %.loopexit
   %3644 = add nsw i32 %3642, -1
   store i32 %3644, ptr %3615, align 8, !tbaa !113
   %3645 = icmp eq i32 %3644, 0
-  br i1 %3645, label %.loopexit10902.sink.split, label %.loopexit10902
+  br i1 %3645, label %.loopexit10904.sink.split, label %.loopexit10904
 
-.loopexit10895:                                   ; preds = %3624, %3637, %3620
+.loopexit10897:                                   ; preds = %3624, %3637, %3620
   %3646 = inttoptr i64 %.sroa.02993.0.copyload to ptr
   %3647 = call i32 @PyErr_GivenExceptionMatches(ptr noundef %3646, ptr noundef nonnull %3615) #15
   %3648 = load ptr, ptr %3616, align 8, !tbaa !136
@@ -9360,7 +9360,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   %.not9799 = icmp sgt i32 %3649, -1
   br i1 %.not9799, label %3650, label %3656
 
-3650:                                             ; preds = %.loopexit10895
+3650:                                             ; preds = %.loopexit10897
   %3651 = add nsw i32 %3649, -1
   store i32 %3651, ptr %3615, align 8, !tbaa !113
   %3652 = icmp eq i32 %3651, 0
@@ -9373,7 +9373,7 @@ _Py_NewRef.exit10635:                             ; preds = %3522, %3526
   call void %3655(ptr noundef nonnull %3615) #15
   br label %3656
 
-3656:                                             ; preds = %3650, %3653, %.loopexit10895
+3656:                                             ; preds = %3650, %3653, %.loopexit10897
   %.not9800 = icmp eq i32 %3647, 0
   %.9828 = select i1 %.not9800, i64 ptrtoint (ptr @_Py_FalseStruct to i64), i64 ptrtoint (ptr @_Py_TrueStruct to i64)
   %3657 = getelementptr i8, ptr %3648, i64 -8
@@ -9491,7 +9491,7 @@ _Py_NewRef.exit10638:                             ; preds = %3672, %3677
 
 _Py_NewRef.exit10639:                             ; preds = %3708, %3712
   call void @_PyErr_SetRaisedException(ptr noundef %0, ptr noundef nonnull %3667) #15
-  %.val.i10640 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10640 = load ptr, ptr %10244, align 8, !tbaa !9
   %3714 = getelementptr i8, ptr %.val.i10640, i64 223023
   %3715 = load i8, ptr %3714, align 1, !tbaa !113
   %3716 = icmp eq i8 %3715, 0
@@ -9538,7 +9538,7 @@ _Py_NewRef.exit10639:                             ; preds = %3708, %3712
 monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit10639, %3717, %3726, %3727, %3729, %3732
   %3736 = load ptr, ptr %3709, align 8, !tbaa !136
   store ptr null, ptr %3709, align 8, !tbaa !136
-  br label %.preheader10906
+  br label %.preheader10908
 
 3737:                                             ; preds = %3699, %3704, %3701
   %3738 = getelementptr i8, ptr %3671, i64 -24
@@ -9557,10 +9557,10 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
   %3745 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %3745, align 8, !tbaa !133
   %3746 = getelementptr i8, ptr %.28893, i64 4
-  %.phi.trans.insert12560 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.02930.0.copyload.pre = load i64, ptr %.phi.trans.insert12560, align 8, !tbaa !113
-  %.phi.trans.insert12562 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.02933.0.copyload.pre = load i64, ptr %.phi.trans.insert12562, align 8, !tbaa !113
+  %.phi.trans.insert12563 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.02930.0.copyload.pre = load i64, ptr %.phi.trans.insert12563, align 8, !tbaa !113
+  %.phi.trans.insert12565 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.02933.0.copyload.pre = load i64, ptr %.phi.trans.insert12565, align 8, !tbaa !113
   br label %3747
 
 3747:                                             ; preds = %3928, %3918, %3873, %3870, %3866, %3856, %3817, %3807, %3744
@@ -9632,7 +9632,7 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
 
 3780:                                             ; preds = %3773, %3776, %3771
   %3781 = icmp eq ptr %3761, null
-  br i1 %3781, label %.loopexit10901, label %3782
+  br i1 %3781, label %.loopexit10903, label %3782
 
 3782:                                             ; preds = %3780
   %3783 = and i32 %.08890, 16
@@ -9984,8 +9984,8 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
   %3962 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %3962, align 8, !tbaa !133
   %3963 = getelementptr i8, ptr %.28893, i64 4
-  %.phi.trans.insert12558 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.02777.0.copyload.pre = load i64, ptr %.phi.trans.insert12558, align 8, !tbaa !113
+  %.phi.trans.insert12561 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.02777.0.copyload.pre = load i64, ptr %.phi.trans.insert12561, align 8, !tbaa !113
   br label %3964
 
 3964:                                             ; preds = %4043, %4005, %3961
@@ -10057,7 +10057,7 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
 
 3997:                                             ; preds = %3990, %3993, %3988
   %3998 = icmp slt i32 %3978, 0
-  br i1 %3998, label %.loopexit10901, label %3999
+  br i1 %3998, label %.loopexit10903, label %3999
 
 3999:                                             ; preds = %3997
   %.not9722 = icmp eq i32 %3978, %.08890
@@ -10131,7 +10131,7 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
 
 4035:                                             ; preds = %4029, %4032, %4027
   %4036 = icmp slt i32 %4017, 0
-  br i1 %4036, label %.loopexit10901, label %4037
+  br i1 %4036, label %.loopexit10903, label %4037
 
 4037:                                             ; preds = %4035
   %.not9379 = icmp eq i32 %4017, %.08890
@@ -10207,7 +10207,7 @@ monitor_reraise.exit:                             ; preds = %_Py_NewRef.exit1063
 
 4074:                                             ; preds = %4068, %4071, %4066
   %4075 = icmp slt i32 %4056, 0
-  br i1 %4075, label %.loopexit10901, label %4076
+  br i1 %4075, label %.loopexit10903, label %4076
 
 4076:                                             ; preds = %4074
   %.not9376 = icmp eq i32 %4056, %.08890
@@ -10311,9 +10311,9 @@ _Py_NewRef.exit10645:                             ; preds = %4111, %4120
   %4131 = load i32, ptr %4130, align 8, !tbaa !174
   %4132 = sub i32 %4131, %.08890
   %4133 = icmp sgt i32 %.08890, 0
-  br i1 %4133, label %.lr.ph11518, label %._crit_edge11519
+  br i1 %4133, label %.lr.ph11520, label %._crit_edge11521
 
-.lr.ph11518:                                      ; preds = %4126
+.lr.ph11520:                                      ; preds = %4126
   %4134 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %4135 = load i64, ptr %4134, align 8, !tbaa !113
   %4136 = inttoptr i64 %4135 to ptr
@@ -10321,14 +10321,14 @@ _Py_NewRef.exit10645:                             ; preds = %4111, %4120
   %4138 = load ptr, ptr %4137, align 8, !tbaa !233
   %4139 = getelementptr inbounds nuw i8, ptr %4138, i64 24
   %4140 = getelementptr inbounds nuw i8, ptr %.2, i64 80
-  %wide.trip.count12515 = zext nneg i32 %.08890 to i64
+  %wide.trip.count12518 = zext nneg i32 %.08890 to i64
   br label %4141
 
-4141:                                             ; preds = %.lr.ph11518, %_Py_NewRef.exit10646
-  %indvars.iv12512 = phi i64 [ 0, %.lr.ph11518 ], [ %indvars.iv.next12513, %_Py_NewRef.exit10646 ]
-  %4142 = getelementptr [1 x ptr], ptr %4139, i64 0, i64 %indvars.iv12512
+4141:                                             ; preds = %.lr.ph11520, %_Py_NewRef.exit10646
+  %indvars.iv12515 = phi i64 [ 0, %.lr.ph11520 ], [ %indvars.iv.next12516, %_Py_NewRef.exit10646 ]
+  %4142 = getelementptr [1 x ptr], ptr %4139, i64 0, i64 %indvars.iv12515
   %4143 = load ptr, ptr %4142, align 8, !tbaa !100
-  %4144 = trunc nuw nsw i64 %indvars.iv12512 to i32
+  %4144 = trunc nuw nsw i64 %indvars.iv12515 to i32
   %4145 = add i32 %4132, %4144
   %4146 = sext i32 %4145 to i64
   %4147 = getelementptr [1 x %union._PyStackRef], ptr %4140, i64 0, i64 %4146
@@ -10344,11 +10344,11 @@ _Py_NewRef.exit10645:                             ; preds = %4111, %4120
 _Py_NewRef.exit10646:                             ; preds = %4141, %4150
   %4152 = ptrtoint ptr %4143 to i64
   store i64 %4152, ptr %4147, align 8, !tbaa !113
-  %indvars.iv.next12513 = add nuw nsw i64 %indvars.iv12512, 1
-  %exitcond12516.not = icmp eq i64 %indvars.iv.next12513, %wide.trip.count12515
-  br i1 %exitcond12516.not, label %._crit_edge11519, label %4141, !llvm.loop !234
+  %indvars.iv.next12516 = add nuw nsw i64 %indvars.iv12515, 1
+  %exitcond12519.not = icmp eq i64 %indvars.iv.next12516, %wide.trip.count12518
+  br i1 %exitcond12519.not, label %._crit_edge11521, label %4141, !llvm.loop !234
 
-._crit_edge11519:                                 ; preds = %_Py_NewRef.exit10646, %4126
+._crit_edge11521:                                 ; preds = %_Py_NewRef.exit10646, %4126
   %4153 = load i16, ptr %4128, align 2, !tbaa !143
   %.sroa.22676.0.extract.shift = lshr i16 %4153, 8
   %.sroa.22676.0.extract.trunc = zext nneg i16 %.sroa.22676.0.extract.shift to i32
@@ -10396,7 +10396,7 @@ _Py_NewRef.exit10646:                             ; preds = %4141, %4150
 
 4179:                                             ; preds = %4172, %4175, %4156
   %.not9718 = icmp eq i32 %4169, 0
-  br i1 %.not9718, label %4180, label %.loopexit10902
+  br i1 %.not9718, label %4180, label %.loopexit10904
 
 4180:                                             ; preds = %4179
   %4181 = getelementptr i8, ptr %4170, i64 -8
@@ -10427,7 +10427,7 @@ _Py_NewRef.exit10646:                             ; preds = %4141, %4150
 4197:                                             ; preds = %4185
   %.2.val10438 = load i64, ptr %.2, align 8, !tbaa !113
   %4198 = inttoptr i64 %.2.val10438 to ptr
-  %.val.i10647 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val.i10647 = load ptr, ptr %10255, align 8, !tbaa !112
   %4199 = icmp eq ptr %.val.i10647, null
   br i1 %4199, label %_PyErr_Occurred.exit.thread.i, label %_PyErr_Occurred.exit.i
 
@@ -10454,11 +10454,11 @@ _PyErr_Occurred.exit.thread.i:                    ; preds = %_PyErr_Occurred.exi
   %PyExc_NameError.val.i = load ptr, ptr @PyExc_NameError, align 8
   %4210 = select i1 %4209, ptr %PyExc_UnboundLocalError.val.i, ptr %PyExc_NameError.val.i
   call void @_PyEval_FormatExcCheckArg(ptr noundef nonnull %0, ptr noundef %4210, ptr noundef nonnull %.str.16..str.71.i, ptr noundef %4205)
-  %.pre12557 = load ptr, ptr %4196, align 8, !tbaa !136
+  %.pre12560 = load ptr, ptr %4196, align 8, !tbaa !136
   br label %_PyEval_FormatExcUnbound.exit
 
 _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exit.i, %_PyErr_Occurred.exit.thread.i
-  %4211 = phi ptr [ %.28898, %_PyErr_Occurred.exit.i ], [ %.pre12557, %_PyErr_Occurred.exit.thread.i ]
+  %4211 = phi ptr [ %.28898, %_PyErr_Occurred.exit.i ], [ %.pre12560, %_PyErr_Occurred.exit.thread.i ]
   store ptr null, ptr %4196, align 8, !tbaa !136
   br label %monitor_throw.exit
 
@@ -10692,7 +10692,7 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
 
 4337:                                             ; preds = %4330, %4333, %4328
   %.not9794 = icmp eq i32 %4318, 0
-  br i1 %.not9794, label %4338, label %.loopexit10901
+  br i1 %.not9794, label %4338, label %.loopexit10903
 
 4338:                                             ; preds = %4337
   %4339 = getelementptr i8, ptr %4319, i64 -16
@@ -10736,17 +10736,17 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   store ptr null, ptr %4360, align 8, !tbaa !136
   %4363 = load i32, ptr %4354, align 8, !tbaa !113
   %.not9713 = icmp sgt i32 %4363, -1
-  br i1 %.not9713, label %4364, label %.loopexit10902
+  br i1 %.not9713, label %4364, label %.loopexit10904
 
 4364:                                             ; preds = %4359
   %4365 = add nsw i32 %4363, -1
   store i32 %4365, ptr %4354, align 8, !tbaa !113
   %4366 = icmp eq i32 %4365, 0
-  br i1 %4366, label %4367, label %.loopexit10902
+  br i1 %4366, label %4367, label %.loopexit10904
 
 4367:                                             ; preds = %4364
   %4368 = getelementptr i8, ptr %4354, i64 8
-  br label %.loopexit10902.sink.split
+  br label %.loopexit10904.sink.split
 
 4369:                                             ; preds = %4343
   %4370 = load i32, ptr %4354, align 8, !tbaa !113
@@ -10822,17 +10822,17 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
   %.338929 = phi ptr [ %4407, %4401 ], [ %4400, %4396 ]
   %4409 = load i32, ptr %4391, align 8, !tbaa !113
   %.not9711 = icmp sgt i32 %4409, -1
-  br i1 %.not9711, label %4410, label %.loopexit10902
+  br i1 %.not9711, label %4410, label %.loopexit10904
 
 4410:                                             ; preds = %4408
   %4411 = add nsw i32 %4409, -1
   store i32 %4411, ptr %4391, align 8, !tbaa !113
   %4412 = icmp eq i32 %4411, 0
-  br i1 %4412, label %4413, label %.loopexit10902
+  br i1 %4412, label %4413, label %.loopexit10904
 
 4413:                                             ; preds = %4410
   %4414 = getelementptr i8, ptr %4391, i64 8
-  br label %.loopexit10902.sink.split
+  br label %.loopexit10904.sink.split
 
 4415:                                             ; preds = %4383
   %4416 = load i32, ptr %4391, align 8, !tbaa !113
@@ -10933,7 +10933,7 @@ _PyEval_FormatExcUnbound.exit:                    ; preds = %_PyErr_Occurred.exi
 Py_INCREF.exit10105:                              ; preds = %4458, %4462
   store ptr %4438, ptr %4459, align 8, !tbaa !136
   call void @_PyErr_SetRaisedException(ptr noundef %0, ptr noundef nonnull %4434) #15
-  %.val.i10650 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10650 = load ptr, ptr %10244, align 8, !tbaa !9
   %4464 = getelementptr i8, ptr %.val.i10650, i64 223023
   %4465 = load i8, ptr %4464, align 1, !tbaa !113
   %4466 = icmp eq i8 %4465, 0
@@ -10980,7 +10980,7 @@ Py_INCREF.exit10105:                              ; preds = %4458, %4462
 monitor_reraise.exit10655:                        ; preds = %Py_INCREF.exit10105, %4467, %4476, %4477, %4479, %4482
   %4486 = load ptr, ptr %4459, align 8, !tbaa !136
   store ptr null, ptr %4459, align 8, !tbaa !136
-  br label %.preheader10906
+  br label %.preheader10908
 
 4487:                                             ; preds = %4449, %4454, %4451
   %4488 = getelementptr i8, ptr %4438, i64 -16
@@ -11224,7 +11224,7 @@ monitor_reraise.exit10655:                        ; preds = %Py_INCREF.exit10105
 
 4615:                                             ; preds = %4608, %4611, %4606
   %4616 = icmp eq ptr %4596, null
-  br i1 %4616, label %.loopexit10901, label %4617
+  br i1 %4616, label %.loopexit10903, label %4617
 
 4617:                                             ; preds = %4615
   %4618 = ptrtoint ptr %4596 to i64
@@ -11280,7 +11280,7 @@ monitor_reraise.exit10655:                        ; preds = %Py_INCREF.exit10105
   br i1 %4645, label %4646, label %4684
 
 4646:                                             ; preds = %4636
-  %.val10423 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val10423 = load ptr, ptr %10255, align 8, !tbaa !112
   %4647 = icmp eq ptr %.val10423, null
   br i1 %4647, label %_PyErr_Occurred.exit.thread, label %_PyErr_Occurred.exit
 
@@ -11301,7 +11301,7 @@ _PyErr_Occurred.exit:                             ; preds = %4646
 
 4653:                                             ; preds = %4649
   store ptr %4652, ptr %4639, align 8, !tbaa !136
-  %.val.i10658 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10658 = load ptr, ptr %10244, align 8, !tbaa !9
   %4654 = getelementptr i8, ptr %.val.i10658, i64 223019
   %4655 = load i8, ptr %4654, align 1, !tbaa !113
   %4656 = icmp eq i8 %4655, 0
@@ -11379,7 +11379,7 @@ _PyErr_Occurred.exit.thread:                      ; preds = %4646, %_PyEval_Moni
   %4691 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %4691, align 8, !tbaa !133
   %4692 = getelementptr i8, ptr %.28893, i64 4
-  %4693 = load ptr, ptr %10247, align 8, !tbaa !9
+  %4693 = load ptr, ptr %10244, align 8, !tbaa !9
   %4694 = getelementptr inbounds nuw i8, ptr %4693, i64 8472
   %4695 = load ptr, ptr %4694, align 8, !tbaa !126
   %.not9372 = icmp eq ptr %4695, null
@@ -11409,11 +11409,11 @@ _PyErr_Occurred.exit.thread:                      ; preds = %4646, %_PyEval_Moni
   %4709 = getelementptr i8, ptr %4708, i64 8
   store ptr %4709, ptr %4706, align 8, !tbaa !136
   store i8 0, ptr %4701, align 1, !tbaa !241
-  %4710 = load ptr, ptr %10248, align 8, !tbaa !243
+  %4710 = load ptr, ptr %10245, align 8, !tbaa !243
   %4711 = getelementptr inbounds nuw i8, ptr %4698, i64 40
   %4712 = getelementptr inbounds nuw i8, ptr %4698, i64 48
   store ptr %4710, ptr %4712, align 8, !tbaa !244
-  store ptr %4711, ptr %10248, align 8, !tbaa !243
+  store ptr %4711, ptr %10245, align 8, !tbaa !243
   %4713 = getelementptr inbounds nuw i8, ptr %4698, i64 80
   store ptr %.2, ptr %4713, align 8, !tbaa !141
   %4714 = trunc i32 %.08890 to i16
@@ -11423,9 +11423,9 @@ _PyErr_Occurred.exit.thread:                      ; preds = %4646, %_PyEval_Moni
   %4717 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %4717, align 8, !tbaa !136
   store ptr %4705, ptr %49, align 8, !tbaa !140
-  %4718 = load i32, ptr %10249, align 4, !tbaa !95
+  %4718 = load i32, ptr %10246, align 4, !tbaa !95
   %4719 = add i32 %4718, -1
-  store i32 %4719, ptr %10249, align 4, !tbaa !95
+  store i32 %4719, ptr %10246, align 4, !tbaa !95
   %4720 = load ptr, ptr %4706, align 8, !tbaa !136
   store ptr null, ptr %4706, align 8, !tbaa !136
   %4721 = getelementptr inbounds nuw i8, ptr %4698, i64 128
@@ -11709,13 +11709,13 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
   store ptr null, ptr %4864, align 8, !tbaa !136
   %4870 = load i32, ptr %4856, align 8, !tbaa !113
   %.not9783 = icmp sgt i32 %4870, -1
-  br i1 %.not9783, label %4871, label %.loopexit10902
+  br i1 %.not9783, label %4871, label %.loopexit10904
 
 4871:                                             ; preds = %.thread10844
   %4872 = add nsw i32 %4870, -1
   store i32 %4872, ptr %4856, align 8, !tbaa !113
   %4873 = icmp eq i32 %4872, 0
-  br i1 %4873, label %.loopexit10902.sink.split, label %.loopexit10902
+  br i1 %4873, label %.loopexit10904.sink.split, label %.loopexit10904
 
 4874:                                             ; preds = %4860
   %4875 = getelementptr inbounds nuw i8, ptr %.2, i64 64
@@ -11742,7 +11742,7 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
 
 4885:                                             ; preds = %4879, %4882, %4874
   %4886 = icmp eq ptr %4876, null
-  br i1 %4886, label %.loopexit10902, label %4887
+  br i1 %4886, label %.loopexit10904, label %4887
 
 4887:                                             ; preds = %4885
   %4888 = getelementptr i8, ptr %4876, i64 8
@@ -11858,7 +11858,7 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
 
 4950:                                             ; preds = %4943, %4946, %4934
   %4951 = icmp eq ptr %4940, null
-  br i1 %4951, label %.loopexit10902, label %4952
+  br i1 %4951, label %.loopexit10904, label %4952
 
 4952:                                             ; preds = %4950
   %4953 = ptrtoint ptr %4940 to i64
@@ -11903,7 +11903,7 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
 
 4974:                                             ; preds = %4967, %4970, %4958
   %4975 = icmp eq ptr %4964, null
-  br i1 %4975, label %.loopexit10902, label %4976
+  br i1 %4975, label %.loopexit10904, label %4976
 
 4976:                                             ; preds = %4974
   %4977 = ptrtoint ptr %4964 to i64
@@ -12117,7 +12117,7 @@ _Py_NewRef.exit10664:                             ; preds = %4838, %4845
 
 5094:                                             ; preds = %5087, %5090, %5085
   %5095 = icmp eq ptr %5075, null
-  br i1 %5095, label %.loopexit10901, label %5096
+  br i1 %5095, label %.loopexit10903, label %5096
 
 5096:                                             ; preds = %5094
   %5097 = ptrtoint ptr %5075 to i64
@@ -12210,12 +12210,12 @@ _Py_NewRef.exit10666:                             ; preds = %_Py_NewRef.exit1066
   %5147 = load ptr, ptr %5136, align 8, !tbaa !136
   store ptr null, ptr %5136, align 8, !tbaa !136
   %.phi.trans.insert = getelementptr %union._PyStackRef, ptr %5147, i64 %5112
-  %.pre12547 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !113
-  %.pre12583 = inttoptr i64 %.pre12547 to ptr
+  %.pre12550 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !113
+  %.pre12586 = inttoptr i64 %.pre12550 to ptr
   br label %5148
 
 5148:                                             ; preds = %5146, %5118, %5103
-  %.pre-phi12584 = phi ptr [ %.pre12583, %5146 ], [ %5115, %5118 ], [ %5115, %5103 ]
+  %.pre-phi12587 = phi ptr [ %.pre12586, %5146 ], [ %5115, %5118 ], [ %5115, %5103 ]
   %.39 = phi ptr [ %5147, %5146 ], [ %.28898, %5118 ], [ %.28898, %5103 ]
   %5149 = getelementptr %union._PyStackRef, ptr %.39, i64 %5107
   %5150 = getelementptr %union._PyStackRef, ptr %.39, i64 %5109
@@ -12241,7 +12241,7 @@ _Py_NewRef.exit10666:                             ; preds = %_Py_NewRef.exit1066
   %.08995 = phi ptr [ %5154, %5153 ], [ %5158, %5156 ], [ @_PyInstrumentation_MISSING, %5155 ]
   %5160 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.39, ptr %5160, align 8, !tbaa !136
-  %5161 = call i32 @_Py_call_instrumentation_2args(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %.2, ptr noundef %.28893, ptr noundef %.pre-phi12584, ptr noundef %.08995) #15
+  %5161 = call i32 @_Py_call_instrumentation_2args(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %.2, ptr noundef %.28893, ptr noundef %.pre-phi12587, ptr noundef %.08995) #15
   %5162 = load ptr, ptr %5160, align 8, !tbaa !136
   store ptr null, ptr %5160, align 8, !tbaa !136
   %.not9611 = icmp eq i32 %5161, 0
@@ -12262,7 +12262,7 @@ _Py_NewRef.exit10666:                             ; preds = %_Py_NewRef.exit1066
   br i1 %5170, label %5171, label %5200
 
 5171:                                             ; preds = %5163
-  %5172 = load ptr, ptr %10247, align 8, !tbaa !9
+  %5172 = load ptr, ptr %10244, align 8, !tbaa !9
   %5173 = getelementptr inbounds nuw i8, ptr %5172, i64 8472
   %5174 = load ptr, ptr %5173, align 8, !tbaa !126
   %5175 = icmp eq ptr %5174, null
@@ -12311,7 +12311,7 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
   %5199 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %5199, align 8, !tbaa !139
   store ptr %5196, ptr %5160, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
 5200:                                             ; preds = %5176, %5171, %5163
   store ptr %5162, ptr %5160, align 8, !tbaa !136
@@ -12417,22 +12417,22 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
 5250:                                             ; preds = %5238, %5243, %5246, %5240
   %5251 = add i32 %.08890, -1
   %5252 = icmp sgt i32 %5251, -1
-  br i1 %5252, label %.lr.ph11511.preheader, label %._crit_edge11512
+  br i1 %5252, label %.lr.ph11513.preheader, label %._crit_edge11514
 
-.lr.ph11511.preheader:                            ; preds = %5250
+.lr.ph11513.preheader:                            ; preds = %5250
   %5253 = zext nneg i32 %5251 to i64
-  br label %.lr.ph11511
+  br label %.lr.ph11513
 
-.lr.ph11511:                                      ; preds = %.lr.ph11511.preheader, %5265
-  %indvars.iv12506 = phi i64 [ %5253, %.lr.ph11511.preheader ], [ %indvars.iv.next12507, %5265 ]
-  %5254 = getelementptr %union._PyStackRef, ptr %5149, i64 %indvars.iv12506
+.lr.ph11513:                                      ; preds = %.lr.ph11513.preheader, %5265
+  %indvars.iv12509 = phi i64 [ %5253, %.lr.ph11513.preheader ], [ %indvars.iv.next12510, %5265 ]
+  %5254 = getelementptr %union._PyStackRef, ptr %5149, i64 %indvars.iv12509
   %5255 = load i64, ptr %5254, align 8, !tbaa !113
   %5256 = inttoptr i64 %5255 to ptr
   %5257 = load i32, ptr %5256, align 8, !tbaa !113
   %.not9617 = icmp sgt i32 %5257, -1
   br i1 %.not9617, label %5258, label %5265
 
-5258:                                             ; preds = %.lr.ph11511
+5258:                                             ; preds = %.lr.ph11513
   %5259 = add nsw i32 %5257, -1
   store i32 %5259, ptr %5256, align 8, !tbaa !113
   %5260 = icmp eq i32 %5259, 0
@@ -12446,22 +12446,22 @@ _Py_NewRef.exit10667:                             ; preds = %5189, %5185, %5180
   call void %5264(ptr noundef nonnull %5256) #15
   br label %5265
 
-5265:                                             ; preds = %5258, %5261, %.lr.ph11511
-  %indvars.iv.next12507 = add nsw i64 %indvars.iv12506, -1
-  %5266 = icmp sgt i64 %indvars.iv12506, 0
-  br i1 %5266, label %.lr.ph11511, label %._crit_edge11512, !llvm.loop !255
+5265:                                             ; preds = %5258, %5261, %.lr.ph11513
+  %indvars.iv.next12510 = add nsw i64 %indvars.iv12509, -1
+  %5266 = icmp sgt i64 %indvars.iv12509, 0
+  br i1 %5266, label %.lr.ph11513, label %._crit_edge11514, !llvm.loop !255
 
-._crit_edge11512:                                 ; preds = %5265, %5250
+._crit_edge11514:                                 ; preds = %5265, %5250
   %5267 = icmp eq ptr %.09043, null
   br i1 %5267, label %5268, label %5270
 
-5268:                                             ; preds = %._crit_edge11512
+5268:                                             ; preds = %._crit_edge11514
   %5269 = getelementptr %union._PyStackRef, ptr %.40, i64 %5112
   br label %monitor_throw.exit
 
-5270:                                             ; preds = %._crit_edge11512
+5270:                                             ; preds = %._crit_edge11514
   %5271 = ptrtoint ptr %.09043 to i64
-  %5272 = load atomic i64, ptr %10250 monotonic, align 8
+  %5272 = load atomic i64, ptr %10247 monotonic, align 8
   %5273 = and i64 %5272, 255
   %.not9615 = icmp eq i64 %5273, 0
   br i1 %.not9615, label %5282, label %5274
@@ -12594,18 +12594,18 @@ _Py_Check_ArgsIterable.exit10675:                 ; preds = %5305, %5308, %5314,
   br label %5339
 
 5339:                                             ; preds = %5288, %5335
-  %.pre-phi12582 = phi ptr [ %5294, %5288 ], [ %5323, %5335 ]
+  %.pre-phi12585 = phi ptr [ %5294, %5288 ], [ %5323, %5335 ]
   %.sroa.02149.0 = phi i64 [ %.sroa.02152.0.copyload, %5288 ], [ %5337, %5335 ]
   %.42 = phi ptr [ %.28898, %5288 ], [ %5338, %5335 ]
   %5340 = inttoptr i64 %.sroa.02155.0.copyload to ptr
   %5341 = inttoptr i64 %.sroa.02150.0.copyload to ptr
-  %5342 = getelementptr i8, ptr %.pre-phi12582, i64 16
+  %5342 = getelementptr i8, ptr %.pre-phi12585, i64 16
   %.val10111 = load i64, ptr %5342, align 8, !tbaa !101
   %5343 = icmp sgt i64 %.val10111, 0
   br i1 %5343, label %5344, label %5347
 
 5344:                                             ; preds = %5339
-  %5345 = getelementptr inbounds nuw i8, ptr %.pre-phi12582, i64 24
+  %5345 = getelementptr inbounds nuw i8, ptr %.pre-phi12585, i64 24
   %5346 = load ptr, ptr %5345, align 8, !tbaa !100
   br label %5347
 
@@ -12625,7 +12625,7 @@ _Py_Check_ArgsIterable.exit10675:                 ; preds = %5305, %5308, %5314,
 
 5354:                                             ; preds = %5347
   store ptr %5353, ptr %5351, align 8, !tbaa !136
-  %5355 = call ptr @PyObject_Call(ptr noundef %5340, ptr noundef nonnull %.pre-phi12582, ptr noundef %5341) #15
+  %5355 = call ptr @PyObject_Call(ptr noundef %5340, ptr noundef nonnull %.pre-phi12585, ptr noundef %5341) #15
   %5356 = load ptr, ptr %5351, align 8, !tbaa !136
   store ptr null, ptr %5351, align 8, !tbaa !136
   %5357 = getelementptr inbounds nuw i8, ptr %5340, i64 8
@@ -12703,22 +12703,22 @@ _Py_Check_ArgsIterable.exit10675:                 ; preds = %5305, %5308, %5314,
   %5391 = load ptr, ptr %5351, align 8, !tbaa !136
   %5392 = getelementptr i8, ptr %5391, i64 -8
   store ptr %5392, ptr %5351, align 8, !tbaa !136
-  %5393 = load i32, ptr %.pre-phi12582, align 8, !tbaa !113
+  %5393 = load i32, ptr %.pre-phi12585, align 8, !tbaa !113
   %.not9634 = icmp sgt i32 %5393, -1
   br i1 %.not9634, label %5394, label %5401
 
 5394:                                             ; preds = %5390
   %5395 = add nsw i32 %5393, -1
-  store i32 %5395, ptr %.pre-phi12582, align 8, !tbaa !113
+  store i32 %5395, ptr %.pre-phi12585, align 8, !tbaa !113
   %5396 = icmp eq i32 %5395, 0
   br i1 %5396, label %5397, label %5401
 
 5397:                                             ; preds = %5394
-  %5398 = getelementptr i8, ptr %.pre-phi12582, i64 8
+  %5398 = getelementptr i8, ptr %.pre-phi12585, i64 8
   %.val10254 = load ptr, ptr %5398, align 8, !tbaa !103
   %5399 = getelementptr inbounds nuw i8, ptr %.val10254, i64 48
   %5400 = load ptr, ptr %5399, align 8, !tbaa !114
-  call void %5400(ptr noundef nonnull %.pre-phi12582) #15
+  call void %5400(ptr noundef nonnull %.pre-phi12585) #15
   br label %5401
 
 5401:                                             ; preds = %5394, %5397, %5390
@@ -12750,7 +12750,7 @@ _Py_Check_ArgsIterable.exit10675:                 ; preds = %5305, %5308, %5314,
 
 5414:                                             ; preds = %5411
   %5415 = ptrtoint ptr %.09044 to i64
-  %5416 = load atomic i64, ptr %10250 monotonic, align 8
+  %5416 = load atomic i64, ptr %10247 monotonic, align 8
   %5417 = and i64 %5416, 255
   %.not9636 = icmp eq i64 %5417, 0
   br i1 %.not9636, label %5424, label %5418
@@ -12918,7 +12918,7 @@ _Py_NewRef.exit10677:                             ; preds = %_Py_NewRef.exit1067
   br i1 %5505, label %5506, label %5547
 
 5506:                                             ; preds = %5491
-  %5507 = load ptr, ptr %10247, align 8, !tbaa !9
+  %5507 = load ptr, ptr %10244, align 8, !tbaa !9
   %5508 = getelementptr inbounds nuw i8, ptr %5507, i64 8472
   %5509 = load ptr, ptr %5508, align 8, !tbaa !126
   %5510 = icmp eq ptr %5509, null
@@ -12991,7 +12991,7 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
   %5546 = getelementptr inbounds nuw i8, ptr %.2, i64 72
   store i16 4, ptr %5546, align 8, !tbaa !139
   store ptr %5543, ptr %5451, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
 5547:                                             ; preds = %5511, %5506, %5491
   %5548 = getelementptr i8, ptr %.45, i64 -8
@@ -13099,22 +13099,22 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
 5598:                                             ; preds = %5586, %5591, %5594, %5588
   %5599 = add i32 %.08890, -1
   %5600 = icmp sgt i32 %5599, -1
-  br i1 %5600, label %.lr.ph11514.preheader, label %._crit_edge11515
+  br i1 %5600, label %.lr.ph11516.preheader, label %._crit_edge11517
 
-.lr.ph11514.preheader:                            ; preds = %5598
+.lr.ph11516.preheader:                            ; preds = %5598
   %5601 = zext nneg i32 %5599 to i64
-  br label %.lr.ph11514
+  br label %.lr.ph11516
 
-.lr.ph11514:                                      ; preds = %.lr.ph11514.preheader, %5613
-  %indvars.iv12509 = phi i64 [ %5601, %.lr.ph11514.preheader ], [ %indvars.iv.next12510, %5613 ]
-  %5602 = getelementptr %union._PyStackRef, ptr %5492, i64 %indvars.iv12509
+.lr.ph11516:                                      ; preds = %.lr.ph11516.preheader, %5613
+  %indvars.iv12512 = phi i64 [ %5601, %.lr.ph11516.preheader ], [ %indvars.iv.next12513, %5613 ]
+  %5602 = getelementptr %union._PyStackRef, ptr %5492, i64 %indvars.iv12512
   %5603 = load i64, ptr %5602, align 8, !tbaa !113
   %5604 = inttoptr i64 %5603 to ptr
   %5605 = load i32, ptr %5604, align 8, !tbaa !113
   %.not9627 = icmp sgt i32 %5605, -1
   br i1 %.not9627, label %5606, label %5613
 
-5606:                                             ; preds = %.lr.ph11514
+5606:                                             ; preds = %.lr.ph11516
   %5607 = add nsw i32 %5605, -1
   store i32 %5607, ptr %5604, align 8, !tbaa !113
   %5608 = icmp eq i32 %5607, 0
@@ -13128,17 +13128,17 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
   call void %5612(ptr noundef nonnull %5604) #15
   br label %5613
 
-5613:                                             ; preds = %5606, %5609, %.lr.ph11514
-  %indvars.iv.next12510 = add nsw i64 %indvars.iv12509, -1
-  %5614 = icmp sgt i64 %indvars.iv12509, 0
-  br i1 %5614, label %.lr.ph11514, label %._crit_edge11515, !llvm.loop !256
+5613:                                             ; preds = %5606, %5609, %.lr.ph11516
+  %indvars.iv.next12513 = add nsw i64 %indvars.iv12512, -1
+  %5614 = icmp sgt i64 %indvars.iv12512, 0
+  br i1 %5614, label %.lr.ph11516, label %._crit_edge11517, !llvm.loop !256
 
-._crit_edge11515:                                 ; preds = %5613, %5598
+._crit_edge11517:                                 ; preds = %5613, %5598
   %5615 = load i32, ptr %5497, align 8, !tbaa !113
   %.not9626 = icmp sgt i32 %5615, -1
   br i1 %.not9626, label %5616, label %5623
 
-5616:                                             ; preds = %._crit_edge11515
+5616:                                             ; preds = %._crit_edge11517
   %5617 = add nsw i32 %5615, -1
   store i32 %5617, ptr %5497, align 8, !tbaa !113
   %5618 = icmp eq i32 %5617, 0
@@ -13152,7 +13152,7 @@ _Py_NewRef.exit10678:                             ; preds = %5524, %5520, %5515
   call void %5622(ptr noundef nonnull %5497) #15
   br label %5623
 
-5623:                                             ; preds = %5616, %5619, %._crit_edge11515
+5623:                                             ; preds = %5616, %5619, %._crit_edge11517
   %5624 = icmp eq ptr %.09045, null
   br i1 %5624, label %5625, label %5627
 
@@ -13190,7 +13190,7 @@ PyStackRef_GenCheck.exit:                         ; preds = %5634
   br i1 %.not10888, label %PyStackRef_GenCheck.exit._crit_edge, label %PyStackRef_GenCheck.exit.thread
 
 PyStackRef_GenCheck.exit._crit_edge:              ; preds = %PyStackRef_GenCheck.exit
-  %.pre12593 = inttoptr i64 %.sroa.01939.0.copyload to ptr
+  %.pre12596 = inttoptr i64 %.sroa.01939.0.copyload to ptr
   br label %5645
 
 PyStackRef_GenCheck.exit.thread:                  ; preds = %5634, %PyStackRef_GenCheck.exit
@@ -13204,24 +13204,24 @@ PyStackRef_GenCheck.exit.thread:                  ; preds = %5634, %PyStackRef_G
   br i1 %.not9566, label %5645, label %monitor_throw.exit.loopexit
 
 5645:                                             ; preds = %PyStackRef_GenCheck.exit._crit_edge, %PyStackRef_GenCheck.exit.thread
-  %.pre-phi12594 = phi ptr [ %.pre12593, %PyStackRef_GenCheck.exit._crit_edge ], [ %5642, %PyStackRef_GenCheck.exit.thread ]
+  %.pre-phi12597 = phi ptr [ %.pre12596, %PyStackRef_GenCheck.exit._crit_edge ], [ %5642, %PyStackRef_GenCheck.exit.thread ]
   %.47 = phi ptr [ %.28898, %PyStackRef_GenCheck.exit._crit_edge ], [ %5644, %PyStackRef_GenCheck.exit.thread ]
-  %5646 = load i32, ptr %.pre-phi12594, align 8, !tbaa !113
+  %5646 = load i32, ptr %.pre-phi12597, align 8, !tbaa !113
   %.not9567 = icmp sgt i32 %5646, -1
   br i1 %.not9567, label %5647, label %5654
 
 5647:                                             ; preds = %5645
   %5648 = add nsw i32 %5646, -1
-  store i32 %5648, ptr %.pre-phi12594, align 8, !tbaa !113
+  store i32 %5648, ptr %.pre-phi12597, align 8, !tbaa !113
   %5649 = icmp eq i32 %5648, 0
   br i1 %5649, label %5650, label %5654
 
 5650:                                             ; preds = %5647
-  %5651 = getelementptr i8, ptr %.pre-phi12594, i64 8
+  %5651 = getelementptr i8, ptr %.pre-phi12597, i64 8
   %.val10243 = load ptr, ptr %5651, align 8, !tbaa !103
   %5652 = getelementptr inbounds nuw i8, ptr %.val10243, i64 48
   %5653 = load ptr, ptr %5652, align 8, !tbaa !114
-  call void %5653(ptr noundef nonnull %.pre-phi12594) #15
+  call void %5653(ptr noundef nonnull %.pre-phi12597) #15
   br label %5654
 
 5654:                                             ; preds = %5647, %5650, %5645
@@ -13324,7 +13324,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %5659, %5667, %PyObj
   %5702 = getelementptr i8, ptr %5700, i64 8
   %5703 = ptrtoint ptr %5699 to i64
   store i64 %5703, ptr %5700, align 8, !tbaa !113
-  %5704 = load i32, ptr %10257, align 4, !tbaa !257
+  %5704 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9576 = icmp eq i32 %5704, 0
   br i1 %.not9576, label %5705, label %5743
 
@@ -13337,7 +13337,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %5659, %5667, %PyObj
   br i1 %5708, label %monitor_throw.exit.loopexit, label %5743
 
 5709:                                             ; preds = %5690
-  %.val10422 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val10422 = load ptr, ptr %10255, align 8, !tbaa !112
   %5710 = icmp eq ptr %.val10422, null
   br i1 %5710, label %_PyErr_Occurred.exit10684.thread, label %_PyErr_Occurred.exit10684
 
@@ -13358,7 +13358,7 @@ _PyErr_Occurred.exit10684:                        ; preds = %5709
 
 5716:                                             ; preds = %5712
   store ptr %5715, ptr %5695, align 8, !tbaa !136
-  %.val.i10685 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10685 = load ptr, ptr %10244, align 8, !tbaa !9
   %5717 = getelementptr i8, ptr %.val.i10685, i64 223019
   %5718 = load i8, ptr %5717, align 1, !tbaa !113
   %5719 = icmp eq i8 %5718, 0
@@ -13459,7 +13459,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %5765 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %5765, align 8, !tbaa !133
   %5766 = getelementptr i8, ptr %.28893, i64 4
-  %5767 = load atomic i64, ptr %10250 monotonic, align 8
+  %5767 = load atomic i64, ptr %10247 monotonic, align 8
   %5768 = and i64 %5767, 255
   %.not9638 = icmp eq i64 %5768, 0
   br i1 %.not9638, label %5773, label %5769
@@ -13475,7 +13475,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 5773:                                             ; preds = %5764, %5769
   %.51 = phi ptr [ %5772, %5769 ], [ %.28898, %5764 ]
-  %5774 = load i32, ptr %10257, align 4, !tbaa !257
+  %5774 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9640 = icmp eq i32 %5774, 0
   br i1 %.not9640, label %5779, label %5775
 
@@ -13516,7 +13516,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %5795 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %5795, align 8, !tbaa !133
   %5796 = getelementptr i8, ptr %.28893, i64 2
-  %5797 = load i32, ptr %10257, align 4, !tbaa !257
+  %5797 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9578 = icmp eq i32 %5797, 0
   br i1 %.not9578, label %5801, label %5798
 
@@ -13555,7 +13555,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %5816 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   %5817 = load ptr, ptr %5816, align 8, !tbaa !133
   store ptr %.28893, ptr %5816, align 8, !tbaa !133
-  %5818 = load i32, ptr %10257, align 4, !tbaa !257
+  %5818 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9641 = icmp eq i32 %5818, 0
   br i1 %.not9641, label %5839, label %5819
 
@@ -13697,13 +13697,13 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 5895:                                             ; preds = %5886, %5891, %5888
   %5896 = load i32, ptr %5871, align 8, !tbaa !113
   %.not9607 = icmp sgt i32 %5896, -1
-  br i1 %.not9607, label %5897, label %.loopexit10900
+  br i1 %.not9607, label %5897, label %.loopexit10902
 
 5897:                                             ; preds = %5895
   %5898 = add nsw i32 %5896, -1
   store i32 %5898, ptr %5871, align 8, !tbaa !113
   %5899 = icmp eq i32 %5898, 0
-  br i1 %5899, label %5900, label %.loopexit10900
+  br i1 %5899, label %5900, label %.loopexit10902
 
 5900:                                             ; preds = %5897
   %5901 = getelementptr i8, ptr %5871, i64 8
@@ -13711,11 +13711,11 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %5902 = getelementptr inbounds nuw i8, ptr %.val10238, i64 48
   %5903 = load ptr, ptr %5902, align 8, !tbaa !114
   call void %5903(ptr noundef nonnull %5871) #15
-  br label %.loopexit10900
+  br label %.loopexit10902
 
 5904:                                             ; preds = %5863
   store ptr %5870, ptr %11, align 16, !tbaa !100
-  store ptr %5871, ptr %10259, align 8, !tbaa !100
+  store ptr %5871, ptr %10256, align 8, !tbaa !100
   store ptr %5876, ptr %5874, align 8, !tbaa !136
   %5905 = zext nneg i32 %5872 to i64
   %5906 = call ptr @PyObject_Vectorcall(ptr noundef %5869, ptr noundef nonnull %11, i64 noundef %5905, ptr noundef null) #15
@@ -13815,7 +13815,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 
 5950:                                             ; preds = %5943, %5946, %5941
   %5951 = icmp eq ptr %.09046, null
-  br i1 %5951, label %.loopexit10900, label %5952
+  br i1 %5951, label %.loopexit10902, label %5952
 
 5952:                                             ; preds = %5950
   %.2.val10446 = load i64, ptr %.2, align 8, !tbaa !113
@@ -13882,7 +13882,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %5988 = load ptr, ptr %5987, align 8, !tbaa !133
   store ptr %.28893, ptr %5987, align 8, !tbaa !133
   %5989 = getelementptr i8, ptr %.28893, i64 2
-  %5990 = load i32, ptr %10257, align 4, !tbaa !257
+  %5990 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9579 = icmp eq i32 %5990, 0
   br i1 %.not9579, label %5991, label %5996
 
@@ -13911,7 +13911,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   store ptr %.28893, ptr %6001, align 8, !tbaa !133
   %6003 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.01782.0.copyload = load i64, ptr %6003, align 8, !tbaa !113
-  %6004 = load i32, ptr %10257, align 4, !tbaa !257
+  %6004 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9568 = icmp eq i32 %6004, 0
   br i1 %.not9568, label %6007, label %6005
 
@@ -13984,7 +13984,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6036, label %6042, label %6057
 
 6042:                                             ; preds = %6032
-  %6043 = load i32, ptr %10257, align 4, !tbaa !257
+  %6043 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9581 = icmp eq i32 %6043, 0
   br i1 %.not9581, label %6047, label %6044
 
@@ -14036,7 +14036,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6066, label %6072, label %6087
 
 6072:                                             ; preds = %6061
-  %6073 = load i32, ptr %10257, align 4, !tbaa !257
+  %6073 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9583 = icmp eq i32 %6073, 0
   br i1 %.not9583, label %6077, label %6074
 
@@ -14137,7 +14137,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 6124:                                             ; preds = %6117, %6120, %6114
   %6125 = load ptr, ptr %6115, align 8, !tbaa !136
   store ptr null, ptr %6115, align 8, !tbaa !136
-  %6126 = load i32, ptr %10257, align 4, !tbaa !257
+  %6126 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9585 = icmp eq i32 %6126, 0
   br i1 %.not9585, label %6130, label %6127
 
@@ -14187,7 +14187,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6147, label %6153, label %6168
 
 6153:                                             ; preds = %6143
-  %6154 = load i32, ptr %10257, align 4, !tbaa !257
+  %6154 = load i32, ptr %10254, align 4, !tbaa !257
   %.not9580 = icmp eq i32 %6154, 0
   br i1 %.not9580, label %6158, label %6155
 
@@ -14226,12 +14226,12 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6173 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %6173, align 8, !tbaa !133
   %6174 = getelementptr i8, ptr %.28893, i64 2
-  %6175 = load i32, ptr %10257, align 4, !tbaa !257
+  %6175 = load i32, ptr %10254, align 4, !tbaa !257
   %6176 = icmp eq i32 %6175, 0
   br i1 %6176, label %6177, label %6192
 
 6177:                                             ; preds = %6172
-  %6178 = load atomic i64, ptr %10250 monotonic, align 8
+  %6178 = load atomic i64, ptr %10247 monotonic, align 8
   %6179 = and i64 %6178, -256
   %.2.val10447 = load i64, ptr %.2, align 8, !tbaa !113
   %6180 = inttoptr i64 %.2.val10447 to ptr
@@ -14243,7 +14243,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
 6183:                                             ; preds = %6177
   %6184 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %6184, align 8, !tbaa !136
-  %6185 = load ptr, ptr %10247, align 8, !tbaa !9
+  %6185 = load ptr, ptr %10244, align 8, !tbaa !9
   %6186 = call i32 @_Py_Instrument(ptr noundef nonnull %6180, ptr noundef %6185) #15
   %6187 = load ptr, ptr %6184, align 8, !tbaa !136
   store ptr null, ptr %6184, align 8, !tbaa !136
@@ -14264,7 +14264,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %.not9587.not, label %6194, label %6201
 
 6194:                                             ; preds = %6192
-  %6195 = load atomic i64, ptr %10250 monotonic, align 8
+  %6195 = load atomic i64, ptr %10247 monotonic, align 8
   %6196 = and i64 %6195, 255
   %.not9588 = icmp eq i64 %6196, 0
   br i1 %.not9588, label %6201, label %6197
@@ -14313,14 +14313,14 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6218 = load ptr, ptr %6215, align 8, !tbaa !136
   store ptr null, ptr %6215, align 8, !tbaa !136
   %.not9593 = icmp eq i32 %6217, 0
-  br i1 %.not9593, label %6219, label %.loopexit10899.split.loop.exit11780
+  br i1 %.not9593, label %6219, label %.loopexit10901.split.loop.exit11782
 
 6219:                                             ; preds = %6212
   %6220 = getelementptr i8, ptr %6218, i64 -8
   store ptr %6220, ptr %6215, align 8, !tbaa !136
-  %6221 = load i32, ptr %10249, align 4, !tbaa !95
+  %6221 = load i32, ptr %10246, align 4, !tbaa !95
   %6222 = add i32 %6221, 1
-  store i32 %6222, ptr %10249, align 4, !tbaa !95
+  store i32 %6222, ptr %10246, align 4, !tbaa !95
   %6223 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %6224 = load ptr, ptr %6223, align 8, !tbaa !141
   store ptr %6224, ptr %49, align 8, !tbaa !140
@@ -14355,7 +14355,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6243 = load ptr, ptr %6240, align 8, !tbaa !136
   store ptr null, ptr %6240, align 8, !tbaa !136
   %.not9594 = icmp eq i32 %6242, 0
-  br i1 %.not9594, label %6244, label %.loopexit10899.split.loop.exit11784
+  br i1 %.not9594, label %6244, label %.loopexit10901.split.loop.exit11786
 
 6244:                                             ; preds = %6237
   %6245 = load ptr, ptr %6238, align 8, !tbaa !133
@@ -14381,11 +14381,11 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   store ptr %6255, ptr %6240, align 8, !tbaa !136
   %6256 = getelementptr i8, ptr %.2, i64 -24
   %6257 = load ptr, ptr %6256, align 8, !tbaa !244
-  store ptr %6257, ptr %10248, align 8, !tbaa !243
+  store ptr %6257, ptr %10245, align 8, !tbaa !243
   store ptr null, ptr %6256, align 8, !tbaa !244
-  %6258 = load i32, ptr %10249, align 4, !tbaa !95
+  %6258 = load i32, ptr %10246, align 4, !tbaa !95
   %6259 = add i32 %6258, 1
-  store i32 %6259, ptr %10249, align 4, !tbaa !95
+  store i32 %6259, ptr %10246, align 4, !tbaa !95
   %6260 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %6261 = load ptr, ptr %6260, align 8, !tbaa !141
   store ptr %6261, ptr %49, align 8, !tbaa !140
@@ -14417,7 +14417,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6277 = add i32 %6276, 2
   store i32 %6277, ptr %24, align 4, !tbaa !99
   %6278 = inttoptr i64 %.sroa.01685.0.copyload to ptr
-  br label %10280
+  br label %10277
 
 6279:                                             ; preds = %.backedge
   %6280 = getelementptr inbounds nuw i8, ptr %.2, i64 56
@@ -14488,7 +14488,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br i1 %6313, label %6314, label %6320
 
 6314:                                             ; preds = %6309
-  %6315 = load ptr, ptr %10247, align 8, !tbaa !9
+  %6315 = load ptr, ptr %10244, align 8, !tbaa !9
   %6316 = getelementptr inbounds nuw i8, ptr %6315, i64 222968
   %6317 = load i8, ptr %6316, align 8, !tbaa !265, !range !266, !noundef !267
   %6318 = sub nuw nsw i8 -60, %6317
@@ -14497,7 +14497,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   br label %.backedge.backedge
 
 6320:                                             ; preds = %6309
-  %6321 = load atomic i64, ptr %10250 monotonic, align 8
+  %6321 = load atomic i64, ptr %10247 monotonic, align 8
   %6322 = and i64 %6321, 255
   %.not9699 = icmp eq i64 %6322, 0
   br i1 %.not9699, label %6327, label %6323
@@ -14527,7 +14527,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6335 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %6335, align 8, !tbaa !133
   %6336 = getelementptr i8, ptr %.28893, i64 4
-  %6337 = load atomic i64, ptr %10250 monotonic, align 8
+  %6337 = load atomic i64, ptr %10247 monotonic, align 8
   %6338 = and i64 %6337, 255
   %.not9361 = icmp eq i64 %6338, 0
   br i1 %.not9361, label %6343, label %6339
@@ -14571,7 +14571,7 @@ _PyErr_Occurred.exit10684.thread:                 ; preds = %5709, %_PyEval_Moni
   %6360 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %6360, align 8, !tbaa !133
   %6361 = getelementptr i8, ptr %.28893, i64 4
-  %6362 = load atomic i64, ptr %10250 monotonic, align 8
+  %6362 = load atomic i64, ptr %10247 monotonic, align 8
   %6363 = and i64 %6362, 255
   %.not9359 = icmp eq i64 %6363, 0
   br i1 %.not9359, label %6368, label %6364
@@ -14641,7 +14641,7 @@ _PyList_AppendTakeRef.exit10694.thread:           ; preds = %6383
 _PyList_AppendTakeRef.exit10694:                  ; preds = %6383
   %6399 = call i32 @_PyList_AppendTakeRefListResize(ptr noundef nonnull %6390, ptr noundef %6391) #15
   %6400 = icmp slt i32 %6399, 0
-  br i1 %6400, label %.loopexit10902, label %6401
+  br i1 %6400, label %.loopexit10904, label %6401
 
 6401:                                             ; preds = %_PyList_AppendTakeRef.exit10694.thread, %_PyList_AppendTakeRef.exit10694
   %6402 = load i16, ptr %6385, align 2, !tbaa !143
@@ -14710,17 +14710,17 @@ _PyList_AppendTakeRef.exit10694:                  ; preds = %6383
   %.68 = phi ptr [ %6422, %6428 ], [ %6435, %6430 ], [ %6422, %6423 ], [ %6422, %6418 ]
   %6437 = load i32, ptr %6413, align 8, !tbaa !113
   %.not9698 = icmp sgt i32 %6437, -1
-  br i1 %.not9698, label %6438, label %.loopexit10902
+  br i1 %.not9698, label %6438, label %.loopexit10904
 
 6438:                                             ; preds = %6436
   %6439 = add nsw i32 %6437, -1
   store i32 %6439, ptr %6413, align 8, !tbaa !113
   %6440 = icmp eq i32 %6439, 0
-  br i1 %6440, label %6441, label %.loopexit10902
+  br i1 %6440, label %6441, label %.loopexit10904
 
 6441:                                             ; preds = %6438
   %6442 = getelementptr i8, ptr %6413, i64 8
-  br label %.loopexit10902.sink.split
+  br label %.loopexit10904.sink.split
 
 6443:                                             ; preds = %6405
   %6444 = load i32, ptr %6413, align 8, !tbaa !113
@@ -14833,7 +14833,7 @@ _PyThreadState_HasStackSpace.exit10698.thread:    ; preds = %6927, %6621, %7033,
 6501:                                             ; preds = %6494, %6497, %6492
   %6502 = load ptr, ptr %12, align 8, !tbaa !100
   %6503 = icmp eq ptr %6502, null
-  br i1 %6503, label %.loopexit10902, label %.sink.split
+  br i1 %6503, label %.loopexit10904, label %.sink.split
 
 6504:                                             ; preds = %6476
   %6505 = getelementptr inbounds nuw i8, ptr %.2, i64 64
@@ -14851,7 +14851,7 @@ _PyThreadState_HasStackSpace.exit10698.thread:    ; preds = %6927, %6621, %7033,
   %6511 = add nsw i32 %6509, -1
   store i32 %6511, ptr %6506, align 8, !tbaa !113
   %6512 = icmp eq i32 %6511, 0
-  br i1 %6512, label %6513, label %thread-pre-split12607
+  br i1 %6512, label %6513, label %thread-pre-split12610
 
 6513:                                             ; preds = %6510
   %6514 = getelementptr i8, ptr %6506, i64 8
@@ -14859,16 +14859,16 @@ _PyThreadState_HasStackSpace.exit10698.thread:    ; preds = %6927, %6621, %7033,
   %6515 = getelementptr inbounds nuw i8, ptr %.val10223, i64 48
   %6516 = load ptr, ptr %6515, align 8, !tbaa !114
   call void %6516(ptr noundef nonnull %6506) #15
-  br label %thread-pre-split12607
+  br label %thread-pre-split12610
 
-thread-pre-split12607:                            ; preds = %6513, %6510
-  %.pr12608 = load ptr, ptr %12, align 8, !tbaa !100
+thread-pre-split12610:                            ; preds = %6513, %6510
+  %.pr12611 = load ptr, ptr %12, align 8, !tbaa !100
   br label %6517
 
-6517:                                             ; preds = %thread-pre-split12607, %6504
-  %6518 = phi ptr [ %.pr12608, %thread-pre-split12607 ], [ %6507, %6504 ]
+6517:                                             ; preds = %thread-pre-split12610, %6504
+  %6518 = phi ptr [ %.pr12611, %thread-pre-split12610 ], [ %6507, %6504 ]
   %6519 = icmp eq ptr %6518, null
-  br i1 %6519, label %.loopexit10902, label %6520
+  br i1 %6519, label %.loopexit10904, label %6520
 
 .sink.split:                                      ; preds = %6501, %6487
   %.sroa.01610.0.copyload.sink = phi i64 [ %.sroa.01610.0.copyload, %6487 ], [ 0, %6501 ]
@@ -15056,7 +15056,7 @@ _Py_NewRef.exit10696:                             ; preds = %6580, %6584
   %.val10550 = load i32, ptr %6607, align 2
   %6608 = getelementptr i8, ptr %.28893, i64 12
   %.val10508 = load ptr, ptr %6608, align 2
-  %6609 = load ptr, ptr %10247, align 8, !tbaa !9
+  %6609 = load ptr, ptr %10244, align 8, !tbaa !9
   %6610 = getelementptr inbounds nuw i8, ptr %6609, i64 8472
   %6611 = load ptr, ptr %6610, align 8, !tbaa !126
   %.not9347 = icmp eq ptr %6611, null
@@ -15080,7 +15080,7 @@ _Py_NewRef.exit10696:                             ; preds = %6580, %6584
   br i1 %.not9349, label %6621, label %_PyThreadState_HasStackSpace.exit10698.thread
 
 6621:                                             ; preds = %6618
-  %6622 = load ptr, ptr %10251, align 8, !tbaa !165
+  %6622 = load ptr, ptr %10248, align 8, !tbaa !165
   %.not.i10697 = icmp eq ptr %6622, null
   br i1 %.not.i10697, label %_PyThreadState_HasStackSpace.exit10698.thread, label %_PyThreadState_HasStackSpace.exit10698
 
@@ -15090,7 +15090,7 @@ _PyThreadState_HasStackSpace.exit10698:           ; preds = %6621
   %6625 = getelementptr inbounds nuw i8, ptr %6624, i64 76
   %6626 = load i32, ptr %6625, align 4, !tbaa !167
   %6627 = sext i32 %6626 to i64
-  %6628 = load ptr, ptr %10252, align 8, !tbaa !168
+  %6628 = load ptr, ptr %10249, align 8, !tbaa !168
   %6629 = ptrtoint ptr %6628 to i64
   %6630 = ptrtoint ptr %6622 to i64
   %6631 = sub i64 %6629, %6630
@@ -15140,7 +15140,7 @@ _Py_NewRef.exit10700:                             ; preds = %_Py_NewRef.exit1069
   store i16 10, ptr %6657, align 8, !tbaa !139
   %6658 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %6635, ptr %6658, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
 6659:                                             ; preds = %.backedge
   %6660 = getelementptr inbounds nuw i8, ptr %.2, i64 56
@@ -15606,7 +15606,7 @@ _Py_NewRef.exit10709:                             ; preds = %6892, %6895
   %6902 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %6902, align 8, !tbaa !133
   %6903 = getelementptr i8, ptr %.28893, i64 20
-  %6904 = load ptr, ptr %10247, align 8, !tbaa !9
+  %6904 = load ptr, ptr %10244, align 8, !tbaa !9
   %6905 = getelementptr inbounds nuw i8, ptr %6904, i64 8472
   %6906 = load ptr, ptr %6905, align 8, !tbaa !126
   %.not9322 = icmp eq ptr %6906, null
@@ -15649,7 +15649,7 @@ _Py_NewRef.exit10709:                             ; preds = %6892, %6895
   br i1 %.not9326, label %6927, label %_PyThreadState_HasStackSpace.exit10698.thread
 
 6927:                                             ; preds = %6924
-  %6928 = load ptr, ptr %10251, align 8, !tbaa !165
+  %6928 = load ptr, ptr %10248, align 8, !tbaa !165
   %.not.i10710 = icmp eq ptr %6928, null
   br i1 %.not.i10710, label %_PyThreadState_HasStackSpace.exit10698.thread, label %_PyThreadState_HasStackSpace.exit10711
 
@@ -15657,7 +15657,7 @@ _PyThreadState_HasStackSpace.exit10711:           ; preds = %6927
   %6929 = getelementptr inbounds nuw i8, ptr %6917, i64 76
   %6930 = load i32, ptr %6929, align 4, !tbaa !167
   %6931 = sext i32 %6930 to i64
-  %6932 = load ptr, ptr %10252, align 8, !tbaa !168
+  %6932 = load ptr, ptr %10249, align 8, !tbaa !168
   %6933 = ptrtoint ptr %6932 to i64
   %6934 = ptrtoint ptr %6928 to i64
   %6935 = sub i64 %6933, %6934
@@ -15685,9 +15685,9 @@ _Py_NewRef.exit10712:                             ; preds = %6938, %6941
   %6947 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %6908, ptr %6947, align 8, !tbaa !136
   store ptr %6944, ptr %49, align 8, !tbaa !140
-  %6948 = load i32, ptr %10249, align 4, !tbaa !95
+  %6948 = load i32, ptr %10246, align 4, !tbaa !95
   %6949 = add i32 %6948, -1
-  store i32 %6949, ptr %10249, align 4, !tbaa !95
+  store i32 %6949, ptr %10246, align 4, !tbaa !95
   %6950 = getelementptr inbounds nuw i8, ptr %6944, i64 64
   %6951 = load ptr, ptr %6950, align 8, !tbaa !136
   store ptr null, ptr %6950, align 8, !tbaa !136
@@ -16073,7 +16073,7 @@ PyCell_GetRef.exit:                               ; preds = %7149
   store ptr %.28898, ptr %7163, align 8, !tbaa !136
   %.2.val10456 = load i64, ptr %.2, align 8, !tbaa !113
   %7164 = inttoptr i64 %.2.val10456 to ptr
-  %.val.i10718 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val.i10718 = load ptr, ptr %10255, align 8, !tbaa !112
   %7165 = icmp eq ptr %.val.i10718, null
   br i1 %7165, label %_PyErr_Occurred.exit.thread.i10722, label %_PyErr_Occurred.exit.i10719
 
@@ -16100,11 +16100,11 @@ _PyErr_Occurred.exit.thread.i10722:               ; preds = %_PyErr_Occurred.exi
   %PyExc_NameError.val.i10727 = load ptr, ptr @PyExc_NameError, align 8
   %7176 = select i1 %7175, ptr %PyExc_UnboundLocalError.val.i10726, ptr %PyExc_NameError.val.i10727
   call void @_PyEval_FormatExcCheckArg(ptr noundef nonnull %0, ptr noundef %7176, ptr noundef nonnull %.str.16..str.71.i10725, ptr noundef %7171)
-  %.pre12556 = load ptr, ptr %7163, align 8, !tbaa !136
+  %.pre12559 = load ptr, ptr %7163, align 8, !tbaa !136
   br label %_PyEval_FormatExcUnbound.exit10728
 
 _PyEval_FormatExcUnbound.exit10728:               ; preds = %_PyErr_Occurred.exit.i10719, %_PyErr_Occurred.exit.thread.i10722
-  %7177 = phi ptr [ %.28898, %_PyErr_Occurred.exit.i10719 ], [ %.pre12556, %_PyErr_Occurred.exit.thread.i10722 ]
+  %7177 = phi ptr [ %.28898, %_PyErr_Occurred.exit.i10719 ], [ %.pre12559, %_PyErr_Occurred.exit.thread.i10722 ]
   store ptr null, ptr %7163, align 8, !tbaa !136
   br label %monitor_throw.exit
 
@@ -16394,7 +16394,7 @@ PyCell_GetRef.exit10734.thread:                   ; preds = %7286, %7289
 
 7335:                                             ; preds = %7328, %7331, %7312
   %7336 = icmp slt i32 %7325, 0
-  br i1 %7336, label %.loopexit10902, label %7337
+  br i1 %7336, label %.loopexit10904, label %7337
 
 7337:                                             ; preds = %7335
   %7338 = load ptr, ptr %15, align 8, !tbaa !100
@@ -16428,7 +16428,7 @@ PyCell_GetRef.exit10734.thread:                   ; preds = %7286, %7289
   br i1 %7356, label %7357, label %7382
 
 7357:                                             ; preds = %7352
-  %.val10421 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val10421 = load ptr, ptr %10255, align 8, !tbaa !112
   %7358 = icmp eq ptr %.val10421, null
   br i1 %7358, label %_PyErr_Occurred.exit10737.thread, label %_PyErr_Occurred.exit10737
 
@@ -16850,7 +16850,7 @@ _Py_NewRef.exit10738:                             ; preds = %7553, %7556
 
 7606:                                             ; preds = %7594
   %7607 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  %.val10420 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val10420 = load ptr, ptr %10255, align 8, !tbaa !112
   %7608 = icmp eq ptr %.val10420, null
   br i1 %7608, label %_PyErr_Occurred.exit10741.thread, label %_PyErr_Occurred.exit10741
 
@@ -16893,10 +16893,10 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7628 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %7628, align 8, !tbaa !133
   %7629 = getelementptr i8, ptr %.28893, i64 4
-  %.phi.trans.insert12552 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.01109.0.copyload.pre = load i64, ptr %.phi.trans.insert12552, align 8, !tbaa !113
-  %.phi.trans.insert12554 = getelementptr i8, ptr %.28898, i64 -24
-  %.sroa.01113.0.copyload.pre = load i64, ptr %.phi.trans.insert12554, align 8, !tbaa !113
+  %.phi.trans.insert12555 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.01109.0.copyload.pre = load i64, ptr %.phi.trans.insert12555, align 8, !tbaa !113
+  %.phi.trans.insert12557 = getelementptr i8, ptr %.28898, i64 -24
+  %.sroa.01113.0.copyload.pre = load i64, ptr %.phi.trans.insert12557, align 8, !tbaa !113
   br label %7630
 
 7630:                                             ; preds = %7776, %7768, %7719, %7711, %7627
@@ -16928,7 +16928,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7643 = inttoptr i64 %.sroa.01109.0.copyload to ptr
   %7644 = inttoptr i64 %.sroa.01106.0.copyload to ptr
   store ptr %7643, ptr %17, align 16, !tbaa !100
-  store ptr %7644, ptr %10262, align 8, !tbaa !100
+  store ptr %7644, ptr %10259, align 8, !tbaa !100
   %7645 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %7645, align 8, !tbaa !136
   %7646 = and i32 %.08890, 2
@@ -16994,7 +16994,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
 
 7676:                                             ; preds = %7669, %7672, %7667
   %7677 = icmp eq ptr %7648, null
-  br i1 %7677, label %.loopexit10900, label %7678
+  br i1 %7677, label %.loopexit10902, label %7678
 
 7678:                                             ; preds = %7676
   %.2.val10464 = load i64, ptr %.2, align 8, !tbaa !113
@@ -17150,7 +17150,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
 
 7759:                                             ; preds = %7752, %7755, %7750
   %7760 = icmp eq ptr %7733, null
-  br i1 %7760, label %.loopexit10900, label %7761
+  br i1 %7760, label %.loopexit10902, label %7761
 
 7761:                                             ; preds = %7759
   %7762 = ptrtoint ptr %7733 to i64
@@ -17418,7 +17418,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   %7905 = load ptr, ptr %7901, align 8, !tbaa !136
   store ptr null, ptr %7901, align 8, !tbaa !136
   %.not9677 = icmp eq i32 %7904, 0
-  br i1 %.not9677, label %7906, label %.loopexit10901
+  br i1 %.not9677, label %7906, label %.loopexit10903
 
 7906:                                             ; preds = %7892
   %7907 = getelementptr i8, ptr %7905, i64 -16
@@ -17513,7 +17513,7 @@ _PyErr_Occurred.exit10741.thread:                 ; preds = %7606, %_PyErr_Occur
   br label %_PyErr_Occurred.exit10744.thread
 
 7953:                                             ; preds = %7950
-  %.val10419 = load ptr, ptr %10258, align 8, !tbaa !112
+  %.val10419 = load ptr, ptr %10255, align 8, !tbaa !112
   %7954 = icmp eq ptr %.val10419, null
   br i1 %7954, label %_PyErr_Occurred.exit10744.thread, label %_PyErr_Occurred.exit10744
 
@@ -17521,7 +17521,7 @@ _PyErr_Occurred.exit10744:                        ; preds = %7953
   %7955 = getelementptr i8, ptr %.val10419, i64 8
   %.val.i10742 = load ptr, ptr %7955, align 8, !tbaa !103
   %.not9676 = icmp eq ptr %.val.i10742, null
-  br i1 %.not9676, label %_PyErr_Occurred.exit10744.thread, label %.loopexit10900
+  br i1 %.not9676, label %_PyErr_Occurred.exit10744.thread, label %.loopexit10902
 
 _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occurred.exit10744, %7951
   %.sroa.0922.0 = phi i64 [ %7952, %7951 ], [ ptrtoint (ptr @_Py_NoneStruct to i64), %_PyErr_Occurred.exit10744 ], [ ptrtoint (ptr @_Py_NoneStruct to i64), %7953 ]
@@ -17638,7 +17638,7 @@ _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occur
   %8018 = getelementptr i8, ptr %.28893, i64 2
   %8019 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.0873.0.copyload = load i64, ptr %8019, align 8, !tbaa !113
-  %8020 = load ptr, ptr %10248, align 8, !tbaa !243
+  %8020 = load ptr, ptr %10245, align 8, !tbaa !243
   %8021 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %8021, align 8, !tbaa !136
   %8022 = load ptr, ptr %8020, align 8, !tbaa !100
@@ -17931,7 +17931,7 @@ _PyErr_Occurred.exit10744.thread:                 ; preds = %7953, %_PyErr_Occur
   %8185 = getelementptr i8, ptr %.28893, i64 2
   %8186 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.0794.0.copyload = load i64, ptr %8186, align 8, !tbaa !113
-  %8187 = load ptr, ptr %10248, align 8, !tbaa !243
+  %8187 = load ptr, ptr %10245, align 8, !tbaa !243
   %8188 = load ptr, ptr %8187, align 8, !tbaa !289
   %.not9769 = icmp eq ptr %8188, null
   %8189 = ptrtoint ptr %8188 to i64
@@ -18351,7 +18351,7 @@ do_raise.exit:                                    ; preds = %8231, %8336, %8338,
 
 8373:                                             ; preds = %8233, %8236
   call void @_PyErr_SetRaisedException(ptr noundef %0, ptr noundef nonnull %8228) #15
-  %.val.i10749 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10749 = load ptr, ptr %10244, align 8, !tbaa !9
   %8374 = getelementptr i8, ptr %.val.i10749, i64 223023
   %8375 = load i8, ptr %8374, align 1, !tbaa !113
   %8376 = icmp eq i8 %8375, 0
@@ -18398,7 +18398,7 @@ do_raise.exit:                                    ; preds = %8231, %8336, %8338,
 monitor_reraise.exit10754:                        ; preds = %8373, %8377, %8386, %8387, %8389, %8392
   %8396 = load ptr, ptr %8226, align 8, !tbaa !136
   store ptr null, ptr %8226, align 8, !tbaa !136
-  br label %.preheader10906
+  br label %.preheader10908
 
 8397:                                             ; preds = %.backedge
   %8398 = getelementptr inbounds nuw i8, ptr %.2, i64 56
@@ -18470,7 +18470,7 @@ monitor_reraise.exit10754:                        ; preds = %8373, %8377, %8386,
   %8433 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %8432, ptr %8433, align 8, !tbaa !136
   call void @_PyErr_SetRaisedException(ptr noundef %0, ptr noundef %8401) #15
-  %.val.i10755 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10755 = load ptr, ptr %10244, align 8, !tbaa !9
   %8434 = getelementptr i8, ptr %.val.i10755, i64 223023
   %8435 = load i8, ptr %8434, align 1, !tbaa !113
   %8436 = icmp eq i8 %8435, 0
@@ -18517,7 +18517,7 @@ monitor_reraise.exit10754:                        ; preds = %8373, %8377, %8386,
 monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446, %8447, %8449, %8452
   %8456 = load ptr, ptr %8433, align 8, !tbaa !136
   store ptr null, ptr %8433, align 8, !tbaa !136
-  br label %.preheader10906
+  br label %.preheader10908
 
 8457:                                             ; preds = %.backedge
   %8458 = getelementptr inbounds nuw i8, ptr %.2, i64 56
@@ -18533,12 +18533,12 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
 
 8462:                                             ; preds = %8497, %8459
   %.27 = phi ptr [ %8461, %8459 ], [ %8499, %8497 ]
-  %8463 = load i32, ptr %10257, align 4, !tbaa !257
+  %8463 = load i32, ptr %10254, align 4, !tbaa !257
   %8464 = icmp eq i32 %8463, 0
   br i1 %8464, label %8465, label %8484
 
 8465:                                             ; preds = %8462
-  %8466 = load atomic i64, ptr %10250 monotonic, align 8
+  %8466 = load atomic i64, ptr %10247 monotonic, align 8
   %8467 = and i64 %8466, -256
   %.2.val10467 = load i64, ptr %.2, align 8, !tbaa !113
   %8468 = inttoptr i64 %.2.val10467 to ptr
@@ -18550,7 +18550,7 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
 8471:                                             ; preds = %8465
   %8472 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %.28898, ptr %8472, align 8, !tbaa !136
-  %8473 = load ptr, ptr %10247, align 8, !tbaa !9
+  %8473 = load ptr, ptr %10244, align 8, !tbaa !9
   %8474 = call i32 @_Py_Instrument(ptr noundef nonnull %8468, ptr noundef %8473) #15
   %8475 = load ptr, ptr %8472, align 8, !tbaa !136
   store ptr null, ptr %8472, align 8, !tbaa !136
@@ -18580,7 +18580,7 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
   br i1 %.not9550.not, label %8486, label %8493
 
 8486:                                             ; preds = %8484
-  %8487 = load atomic i64, ptr %10250 monotonic, align 8
+  %8487 = load atomic i64, ptr %10247 monotonic, align 8
   %8488 = and i64 %8487, 255
   %.not9551 = icmp eq i64 %8488, 0
   br i1 %.not9551, label %8493, label %8489
@@ -18607,7 +18607,7 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
   %8498 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %8498, align 8, !tbaa !133
   %8499 = getelementptr i8, ptr %.28893, i64 2
-  %8500 = load atomic i64, ptr %10250 monotonic, align 8
+  %8500 = load atomic i64, ptr %10247 monotonic, align 8
   %.2.val10469 = load i64, ptr %.2, align 8, !tbaa !113
   %8501 = inttoptr i64 %.2.val10469 to ptr
   %8502 = getelementptr inbounds nuw i8, ptr %8501, i64 168
@@ -18635,7 +18635,7 @@ monitor_reraise.exit10760:                        ; preds = %8431, %8437, %8446,
   %8515 = load ptr, ptr %8513, align 8, !tbaa !136
   store ptr null, ptr %8513, align 8, !tbaa !136
   %8516 = icmp eq ptr %8514, null
-  br i1 %8516, label %.loopexit10899.split.loop.exit11852, label %8517
+  br i1 %8516, label %.loopexit10901.split.loop.exit11854, label %8517
 
 8517:                                             ; preds = %8508
   store ptr %8515, ptr %8513, align 8, !tbaa !136
@@ -18681,9 +18681,9 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   store i8 -3, ptr %8537, align 1, !tbaa !241
   %8538 = getelementptr inbounds nuw i8, ptr %8514, i64 146
   store i8 1, ptr %8538, align 2, !tbaa !137
-  %8539 = load i32, ptr %10249, align 4, !tbaa !95
+  %8539 = load i32, ptr %10246, align 4, !tbaa !95
   %8540 = add i32 %8539, 1
-  store i32 %8540, ptr %10249, align 4, !tbaa !95
+  store i32 %8540, ptr %10246, align 4, !tbaa !95
   %8541 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %8542 = load ptr, ptr %8541, align 8, !tbaa !141
   call void @_PyThreadState_PopFrame(ptr noundef %0, ptr noundef nonnull %.2) #15
@@ -18714,9 +18714,9 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   %.sroa.0734.0.copyload = load i64, ptr %8558, align 8, !tbaa !113
   %8559 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %8558, ptr %8559, align 8, !tbaa !136
-  %8560 = load i32, ptr %10249, align 4, !tbaa !95
+  %8560 = load i32, ptr %10246, align 4, !tbaa !95
   %8561 = add i32 %8560, 1
-  store i32 %8561, ptr %10249, align 4, !tbaa !95
+  store i32 %8561, ptr %10246, align 4, !tbaa !95
   %8562 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %8563 = load ptr, ptr %8562, align 8, !tbaa !141
   store ptr %8563, ptr %49, align 8, !tbaa !140
@@ -18769,7 +18769,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   %8589 = getelementptr i8, ptr %.28898, i64 -8
   %.sroa.0715.0.copyload = load i64, ptr %8589, align 8, !tbaa !113
   %8590 = inttoptr i64 %.sroa.0720.0.copyload to ptr
-  %8591 = load ptr, ptr %10247, align 8, !tbaa !9
+  %8591 = load ptr, ptr %10244, align 8, !tbaa !9
   %8592 = getelementptr inbounds nuw i8, ptr %8591, i64 8472
   %8593 = load ptr, ptr %8592, align 8, !tbaa !126
   %8594 = icmp eq ptr %8593, null
@@ -18800,11 +18800,11 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   %8610 = getelementptr i8, ptr %8609, i64 8
   store ptr %8610, ptr %8607, align 8, !tbaa !136
   store i8 0, ptr %8605, align 1, !tbaa !241
-  %8611 = load ptr, ptr %10248, align 8, !tbaa !243
+  %8611 = load ptr, ptr %10245, align 8, !tbaa !243
   %8612 = getelementptr inbounds nuw i8, ptr %8590, i64 40
   %8613 = getelementptr inbounds nuw i8, ptr %8590, i64 48
   store ptr %8611, ptr %8613, align 8, !tbaa !244
-  store ptr %8612, ptr %10248, align 8, !tbaa !243
+  store ptr %8612, ptr %10245, align 8, !tbaa !243
   %8614 = trunc i32 %.08890 to i16
   %8615 = add i16 %8614, 2
   %8616 = getelementptr inbounds nuw i8, ptr %.2, i64 72
@@ -18813,7 +18813,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   store ptr %.2, ptr %8617, align 8, !tbaa !141
   %8618 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %8604, ptr %8618, align 8, !tbaa !136
-  br label %.sink.split13190
+  br label %.sink.split13193
 
 8619:                                             ; preds = %8595, %8599, %8587
   %8620 = inttoptr i64 %.sroa.0715.0.copyload to ptr
@@ -18825,7 +18825,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
   store ptr %.28898, ptr %8622, align 8, !tbaa !136
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   store ptr %8590, ptr %5, align 16, !tbaa !100
-  store ptr %8620, ptr %10260, align 8, !tbaa !100
+  store ptr %8620, ptr %10257, align 8, !tbaa !100
   %8623 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 69328), ptr noundef nonnull %5, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   br label %8634
@@ -18840,7 +18840,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
 .split9048:                                       ; preds = %8624
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   store ptr %8590, ptr %4, align 16, !tbaa !100
-  store ptr @_Py_NoneStruct, ptr %10261, align 8, !tbaa !100
+  store ptr @_Py_NoneStruct, ptr %10258, align 8, !tbaa !100
   %8627 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 69328), ptr noundef nonnull %4, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   br label %8634
@@ -18882,7 +18882,7 @@ _PyFrame_Copy.exit:                               ; preds = %.lr.ph.i10761, %851
 
 8645:                                             ; preds = %8640
   store ptr %8644, ptr %8641, align 8, !tbaa !136
-  %.val.i10763 = load ptr, ptr %10247, align 8, !tbaa !9
+  %.val.i10763 = load ptr, ptr %10244, align 8, !tbaa !9
   %8646 = getelementptr i8, ptr %.val.i10763, i64 223019
   %8647 = load i8, ptr %8646, align 1, !tbaa !113
   %8648 = icmp eq i8 %8647, 0
@@ -18948,17 +18948,17 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
 8676:                                             ; preds = %8669
   %8677 = load i32, ptr %8620, align 8, !tbaa !113
   %.not9664 = icmp sgt i32 %8677, -1
-  br i1 %.not9664, label %8678, label %.loopexit10902
+  br i1 %.not9664, label %8678, label %.loopexit10904
 
 8678:                                             ; preds = %8676
   %8679 = add nsw i32 %8677, -1
   store i32 %8679, ptr %8620, align 8, !tbaa !113
   %8680 = icmp eq i32 %8679, 0
-  br i1 %8680, label %8681, label %.loopexit10902
+  br i1 %8680, label %8681, label %.loopexit10904
 
 8681:                                             ; preds = %8678
   %8682 = getelementptr i8, ptr %8620, i64 8
-  br label %.loopexit10902.sink.split
+  br label %.loopexit10904.sink.split
 
 8683:                                             ; preds = %8673, %8637
   %.80 = phi ptr [ %8671, %8673 ], [ %.79, %8637 ]
@@ -19001,7 +19001,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
 8702:                                             ; preds = %.backedge
   %8703 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %8703, align 8, !tbaa !133
-  %8704 = load ptr, ptr %10247, align 8, !tbaa !9
+  %8704 = load ptr, ptr %10244, align 8, !tbaa !9
   %8705 = getelementptr inbounds nuw i8, ptr %8704, i64 8472
   %8706 = load ptr, ptr %8705, align 8, !tbaa !126
   %.not9293 = icmp eq ptr %8706, null
@@ -19035,11 +19035,11 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8721 = getelementptr i8, ptr %8720, i64 8
   store ptr %8721, ptr %8718, align 8, !tbaa !136
   store i8 0, ptr %8713, align 1, !tbaa !241
-  %8722 = load ptr, ptr %10248, align 8, !tbaa !243
+  %8722 = load ptr, ptr %10245, align 8, !tbaa !243
   %8723 = getelementptr inbounds nuw i8, ptr %8710, i64 40
   %8724 = getelementptr inbounds nuw i8, ptr %8710, i64 48
   store ptr %8722, ptr %8724, align 8, !tbaa !244
-  store ptr %8723, ptr %10248, align 8, !tbaa !243
+  store ptr %8723, ptr %10245, align 8, !tbaa !243
   %8725 = trunc i32 %.08890 to i16
   %8726 = add i16 %8725, 2
   %8727 = getelementptr inbounds nuw i8, ptr %.2, i64 72
@@ -19049,9 +19049,9 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8729 = getelementptr inbounds nuw i8, ptr %.2, i64 64
   store ptr %8708, ptr %8729, align 8, !tbaa !136
   store ptr %8717, ptr %49, align 8, !tbaa !140
-  %8730 = load i32, ptr %10249, align 4, !tbaa !95
+  %8730 = load i32, ptr %10246, align 4, !tbaa !95
   %8731 = add i32 %8730, -1
-  store i32 %8731, ptr %10249, align 4, !tbaa !95
+  store i32 %8731, ptr %10246, align 4, !tbaa !95
   %8732 = load ptr, ptr %8718, align 8, !tbaa !136
   store ptr null, ptr %8718, align 8, !tbaa !136
   %8733 = getelementptr inbounds nuw i8, ptr %8710, i64 128
@@ -19201,7 +19201,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
 
 8809:                                             ; preds = %8802, %8805, %8789
   %.not9661 = icmp eq i32 %8799, 0
-  br i1 %.not9661, label %8810, label %.loopexit10902
+  br i1 %.not9661, label %8810, label %.loopexit10904
 
 8810:                                             ; preds = %8809
   %8811 = getelementptr i8, ptr %8800, i64 -8
@@ -19272,7 +19272,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
 
 8849:                                             ; preds = %8842, %8845, %8829
   %8850 = icmp slt i32 %8839, 0
-  br i1 %8850, label %.loopexit10902, label %8851
+  br i1 %8850, label %.loopexit10904, label %8851
 
 8851:                                             ; preds = %8849
   %8852 = getelementptr i8, ptr %8840, i64 -8
@@ -19287,13 +19287,13 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8857 = getelementptr inbounds nuw i8, ptr %.2, i64 56
   store ptr %.28893, ptr %8857, align 8, !tbaa !133
   %8858 = getelementptr i8, ptr %.28893, i64 10
-  %.phi.trans.insert12550 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0611.0.copyload.pre = load i64, ptr %.phi.trans.insert12550, align 8, !tbaa !113
+  %.phi.trans.insert12553 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0611.0.copyload.pre = load i64, ptr %.phi.trans.insert12553, align 8, !tbaa !113
   br label %8859
 
-8859:                                             ; preds = %9054, %9045, %9028, %9042, %9024, %9015, %8976, %8921, %8923, %8912, %8856
-  %.sroa.0611.0.copyload = phi i64 [ %.sroa.0611.0.copyload.pre, %8856 ], [ %.sroa.0585.0.copyload, %8912 ], [ %.sroa.0585.0.copyload, %8921 ], [ %.sroa.0585.0.copyload, %8923 ], [ %.sroa.0549.0.copyload, %8976 ], [ %.sroa.0522.0.copyload, %9015 ], [ %.sroa.0522.0.copyload, %9024 ], [ %.sroa.0522.0.copyload, %9028 ], [ %.sroa.0522.0.copyload, %9045 ], [ %.sroa.0522.0.copyload, %9054 ], [ %.sroa.0522.0.copyload, %9042 ]
-  %.30 = phi ptr [ %8858, %8856 ], [ %8914, %8912 ], [ %8914, %8921 ], [ %8914, %8923 ], [ %8978, %8976 ], [ %9017, %9015 ], [ %9017, %9024 ], [ %9017, %9028 ], [ %9017, %9045 ], [ %9017, %9054 ], [ %9017, %9042 ]
+8859:                                             ; preds = %9051, %9042, %9025, %9039, %9021, %9012, %8973, %8921, %8923, %8912, %8856
+  %.sroa.0611.0.copyload = phi i64 [ %.sroa.0611.0.copyload.pre, %8856 ], [ %.sroa.0585.0.copyload, %8912 ], [ %.sroa.0585.0.copyload, %8921 ], [ %.sroa.0585.0.copyload, %8923 ], [ %.sroa.0549.0.copyload, %8973 ], [ %.sroa.0522.0.copyload, %9012 ], [ %.sroa.0522.0.copyload, %9021 ], [ %.sroa.0522.0.copyload, %9025 ], [ %.sroa.0522.0.copyload, %9042 ], [ %.sroa.0522.0.copyload, %9051 ], [ %.sroa.0522.0.copyload, %9039 ]
+  %.30 = phi ptr [ %8858, %8856 ], [ %8914, %8912 ], [ %8914, %8921 ], [ %8914, %8923 ], [ %8975, %8973 ], [ %9014, %9012 ], [ %9014, %9021 ], [ %9014, %9025 ], [ %9014, %9042 ], [ %9014, %9051 ], [ %9014, %9039 ]
   %8860 = getelementptr i8, ptr %.28893, i64 2
   %.val10497 = load i16, ptr %8860, align 2, !tbaa !143
   %8861 = icmp ult i16 %.val10497, 15
@@ -19376,7 +19376,7 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
 
 8906:                                             ; preds = %8899, %8902, %8897
   %.not9658 = icmp eq i32 %8887, 0
-  br i1 %.not9658, label %8907, label %.loopexit10901
+  br i1 %.not9658, label %8907, label %.loopexit10903
 
 8907:                                             ; preds = %8906
   %8908 = getelementptr i8, ptr %8888, i64 -16
@@ -19429,2662 +19429,2661 @@ _PyEval_MonitorRaise.exit10768:                   ; preds = %8645, %8649, %8658,
   %8935 = inttoptr i64 %.sroa.0584.0.copyload to ptr
   store ptr %8935, ptr %8933, align 8, !tbaa !100
   %8936 = icmp eq ptr %8934, null
-  br i1 %8936, label %8937, label %8952
+  br i1 %8936, label %8937, label %8949
 
 8937:                                             ; preds = %8929
   %8938 = getelementptr inbounds nuw i8, ptr %8926, i64 8
-  %8939 = ptrtoint ptr %8933 to i64
-  %8940 = ptrtoint ptr %8938 to i64
-  %8941 = sub i64 %8939, %8940
-  %8942 = lshr exact i64 %8941, 3
-  %8943 = getelementptr inbounds nuw i8, ptr %8926, i64 1
-  %8944 = load i8, ptr %8943, align 1, !tbaa !295
-  %8945 = load i8, ptr %8926, align 8, !tbaa !296
-  %8946 = zext i8 %8945 to i64
-  %8947 = getelementptr [1 x ptr], ptr %8938, i64 0, i64 %8946
-  %8948 = trunc i64 %8942 to i8
-  %8949 = zext i8 %8944 to i64
-  %8950 = getelementptr i8, ptr %8947, i64 %8949
-  store i8 %8948, ptr %8950, align 1, !tbaa !113
-  %8951 = add i8 %8944, 1
-  store i8 %8951, ptr %8943, align 1, !tbaa !295
-  br label %8952
+  %reass.sub11912 = sub i64 %8932, %8925
+  %gepdiff = add i64 %reass.sub11912, 2040
+  %8939 = lshr i64 %gepdiff, 3
+  %8940 = getelementptr inbounds nuw i8, ptr %8926, i64 1
+  %8941 = load i8, ptr %8940, align 1, !tbaa !295
+  %8942 = load i8, ptr %8926, align 8, !tbaa !296
+  %8943 = zext i8 %8942 to i64
+  %8944 = getelementptr [1 x ptr], ptr %8938, i64 0, i64 %8943
+  %8945 = trunc i64 %8939 to i8
+  %8946 = zext i8 %8941 to i64
+  %8947 = getelementptr i8, ptr %8944, i64 %8946
+  store i8 %8945, ptr %8947, align 1, !tbaa !113
+  %8948 = add i8 %8941, 1
+  store i8 %8948, ptr %8940, align 1, !tbaa !295
+  br label %8949
 
-8952:                                             ; preds = %8937, %8929
-  %8953 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %8930, ptr %8953, align 8, !tbaa !136
-  %8954 = load i32, ptr %8917, align 8, !tbaa !113
-  %.not9290 = icmp sgt i32 %8954, -1
-  br i1 %.not9290, label %8955, label %8961
+8949:                                             ; preds = %8937, %8929
+  %8950 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %8930, ptr %8950, align 8, !tbaa !136
+  %8951 = load i32, ptr %8917, align 8, !tbaa !113
+  %.not9290 = icmp sgt i32 %8951, -1
+  br i1 %.not9290, label %8952, label %8958
+
+8952:                                             ; preds = %8949
+  %8953 = add nsw i32 %8951, -1
+  store i32 %8953, ptr %8917, align 8, !tbaa !113
+  %8954 = icmp eq i32 %8953, 0
+  br i1 %8954, label %8955, label %8958
 
 8955:                                             ; preds = %8952
-  %8956 = add nsw i32 %8954, -1
-  store i32 %8956, ptr %8917, align 8, !tbaa !113
-  %8957 = icmp eq i32 %8956, 0
-  br i1 %8957, label %8958, label %8961
-
-8958:                                             ; preds = %8955
   %.val10159 = load ptr, ptr %8918, align 8, !tbaa !103
-  %8959 = getelementptr inbounds nuw i8, ptr %.val10159, i64 48
-  %8960 = load ptr, ptr %8959, align 8, !tbaa !114
-  call void %8960(ptr noundef nonnull %8917) #15
-  br label %8961
+  %8956 = getelementptr inbounds nuw i8, ptr %.val10159, i64 48
+  %8957 = load ptr, ptr %8956, align 8, !tbaa !114
+  call void %8957(ptr noundef nonnull %8917) #15
+  br label %8958
 
-8961:                                             ; preds = %8952, %8958, %8955
-  br i1 %8936, label %8971, label %8962
+8958:                                             ; preds = %8949, %8955, %8952
+  br i1 %8936, label %8968, label %8959
 
-8962:                                             ; preds = %8961
-  %8963 = load i32, ptr %8934, align 8, !tbaa !113
-  %.not9292 = icmp sgt i32 %8963, -1
-  br i1 %.not9292, label %8964, label %8971
+8959:                                             ; preds = %8958
+  %8960 = load i32, ptr %8934, align 8, !tbaa !113
+  %.not9292 = icmp sgt i32 %8960, -1
+  br i1 %.not9292, label %8961, label %8968
 
-8964:                                             ; preds = %8962
-  %8965 = add nsw i32 %8963, -1
-  store i32 %8965, ptr %8934, align 8, !tbaa !113
-  %8966 = icmp eq i32 %8965, 0
-  br i1 %8966, label %8967, label %8971
+8961:                                             ; preds = %8959
+  %8962 = add nsw i32 %8960, -1
+  store i32 %8962, ptr %8934, align 8, !tbaa !113
+  %8963 = icmp eq i32 %8962, 0
+  br i1 %8963, label %8964, label %8968
 
-8967:                                             ; preds = %8964
-  %8968 = getelementptr i8, ptr %8934, i64 8
-  %.val10158 = load ptr, ptr %8968, align 8, !tbaa !103
-  %8969 = getelementptr inbounds nuw i8, ptr %.val10158, i64 48
-  %8970 = load ptr, ptr %8969, align 8, !tbaa !114
-  call void %8970(ptr noundef nonnull %8934) #15
-  br label %8971
+8964:                                             ; preds = %8961
+  %8965 = getelementptr i8, ptr %8934, i64 8
+  %.val10158 = load ptr, ptr %8965, align 8, !tbaa !103
+  %8966 = getelementptr inbounds nuw i8, ptr %.val10158, i64 48
+  %8967 = load ptr, ptr %8966, align 8, !tbaa !114
+  call void %8967(ptr noundef nonnull %8934) #15
+  br label %8968
 
-8971:                                             ; preds = %8961, %8964, %8967, %8962
-  %8972 = load ptr, ptr %8953, align 8, !tbaa !136
-  store ptr null, ptr %8953, align 8, !tbaa !136
-  %8973 = load i16, ptr %8914, align 2, !tbaa !143
-  %.sroa.2555.0.extract.shift = lshr i16 %8973, 8
+8968:                                             ; preds = %8958, %8961, %8964, %8959
+  %8969 = load ptr, ptr %8950, align 8, !tbaa !136
+  store ptr null, ptr %8950, align 8, !tbaa !136
+  %8970 = load i16, ptr %8914, align 2, !tbaa !143
+  %.sroa.2555.0.extract.shift = lshr i16 %8970, 8
   %.sroa.2555.0.extract.trunc = zext nneg i16 %.sroa.2555.0.extract.shift to i32
-  %8974 = and i16 %8973, 255
-  %8975 = zext nneg i16 %8974 to i64
+  %8971 = and i16 %8970, 255
+  %8972 = zext nneg i16 %8971 to i64
   br label %.backedge.backedge
 
-8976:                                             ; preds = %.backedge
-  %8977 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %8977, align 8, !tbaa !133
-  %8978 = getelementptr i8, ptr %.28893, i64 10
-  %8979 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0549.0.copyload = load i64, ptr %8979, align 8, !tbaa !113
-  %8980 = getelementptr i8, ptr %.28893, i64 4
-  %.val10564 = load i32, ptr %8980, align 2
-  %8981 = inttoptr i64 %.sroa.0549.0.copyload to ptr
-  %8982 = getelementptr i8, ptr %8981, i64 8
-  %.val10157 = load ptr, ptr %8982, align 8, !tbaa !103
-  %8983 = getelementptr inbounds nuw i8, ptr %.val10157, i64 384
-  %8984 = load i32, ptr %8983, align 8, !tbaa !197
-  %.not9283 = icmp eq i32 %8984, %.val10564
-  br i1 %.not9283, label %8985, label %8859
+8973:                                             ; preds = %.backedge
+  %8974 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %8974, align 8, !tbaa !133
+  %8975 = getelementptr i8, ptr %.28893, i64 10
+  %8976 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0549.0.copyload = load i64, ptr %8976, align 8, !tbaa !113
+  %8977 = getelementptr i8, ptr %.28893, i64 4
+  %.val10564 = load i32, ptr %8977, align 2
+  %8978 = inttoptr i64 %.sroa.0549.0.copyload to ptr
+  %8979 = getelementptr i8, ptr %8978, i64 8
+  %.val10157 = load ptr, ptr %8979, align 8, !tbaa !103
+  %8980 = getelementptr inbounds nuw i8, ptr %.val10157, i64 384
+  %8981 = load i32, ptr %8980, align 8, !tbaa !197
+  %.not9283 = icmp eq i32 %8981, %.val10564
+  br i1 %.not9283, label %8982, label %8859
 
-8985:                                             ; preds = %8976
-  %8986 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0548.0.copyload = load i64, ptr %8986, align 8, !tbaa !113
-  %8987 = getelementptr i8, ptr %.28893, i64 8
-  %.val10499 = load i16, ptr %8987, align 2, !tbaa !143
-  %8988 = zext i16 %.val10499 to i64
-  %8989 = getelementptr i8, ptr %8981, i64 %8988
-  %8990 = load ptr, ptr %8989, align 8, !tbaa !100
-  %8991 = inttoptr i64 %.sroa.0548.0.copyload to ptr
-  store ptr %8991, ptr %8989, align 8, !tbaa !100
-  %8992 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %8986, ptr %8992, align 8, !tbaa !136
-  %8993 = load i32, ptr %8981, align 8, !tbaa !113
-  %.not9284 = icmp sgt i32 %8993, -1
-  br i1 %.not9284, label %8994, label %9000
+8982:                                             ; preds = %8973
+  %8983 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0548.0.copyload = load i64, ptr %8983, align 8, !tbaa !113
+  %8984 = getelementptr i8, ptr %.28893, i64 8
+  %.val10499 = load i16, ptr %8984, align 2, !tbaa !143
+  %8985 = zext i16 %.val10499 to i64
+  %8986 = getelementptr i8, ptr %8978, i64 %8985
+  %8987 = load ptr, ptr %8986, align 8, !tbaa !100
+  %8988 = inttoptr i64 %.sroa.0548.0.copyload to ptr
+  store ptr %8988, ptr %8986, align 8, !tbaa !100
+  %8989 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %8983, ptr %8989, align 8, !tbaa !136
+  %8990 = load i32, ptr %8978, align 8, !tbaa !113
+  %.not9284 = icmp sgt i32 %8990, -1
+  br i1 %.not9284, label %8991, label %8997
 
-8994:                                             ; preds = %8985
-  %8995 = add nsw i32 %8993, -1
-  store i32 %8995, ptr %8981, align 8, !tbaa !113
-  %8996 = icmp eq i32 %8995, 0
-  br i1 %8996, label %8997, label %9000
+8991:                                             ; preds = %8982
+  %8992 = add nsw i32 %8990, -1
+  store i32 %8992, ptr %8978, align 8, !tbaa !113
+  %8993 = icmp eq i32 %8992, 0
+  br i1 %8993, label %8994, label %8997
 
-8997:                                             ; preds = %8994
-  %8998 = getelementptr inbounds nuw i8, ptr %.val10157, i64 48
-  %8999 = load ptr, ptr %8998, align 8, !tbaa !114
-  call void %8999(ptr noundef nonnull %8981) #15
-  br label %9000
+8994:                                             ; preds = %8991
+  %8995 = getelementptr inbounds nuw i8, ptr %.val10157, i64 48
+  %8996 = load ptr, ptr %8995, align 8, !tbaa !114
+  call void %8996(ptr noundef nonnull %8978) #15
+  br label %8997
 
-9000:                                             ; preds = %8985, %8997, %8994
-  %.not9285 = icmp eq ptr %8990, null
-  br i1 %.not9285, label %9010, label %9001
+8997:                                             ; preds = %8982, %8994, %8991
+  %.not9285 = icmp eq ptr %8987, null
+  br i1 %.not9285, label %9007, label %8998
 
-9001:                                             ; preds = %9000
-  %9002 = load i32, ptr %8990, align 8, !tbaa !113
-  %.not9286 = icmp sgt i32 %9002, -1
-  br i1 %.not9286, label %9003, label %9010
+8998:                                             ; preds = %8997
+  %8999 = load i32, ptr %8987, align 8, !tbaa !113
+  %.not9286 = icmp sgt i32 %8999, -1
+  br i1 %.not9286, label %9000, label %9007
 
-9003:                                             ; preds = %9001
-  %9004 = add nsw i32 %9002, -1
-  store i32 %9004, ptr %8990, align 8, !tbaa !113
-  %9005 = icmp eq i32 %9004, 0
-  br i1 %9005, label %9006, label %9010
+9000:                                             ; preds = %8998
+  %9001 = add nsw i32 %8999, -1
+  store i32 %9001, ptr %8987, align 8, !tbaa !113
+  %9002 = icmp eq i32 %9001, 0
+  br i1 %9002, label %9003, label %9007
 
-9006:                                             ; preds = %9003
-  %9007 = getelementptr i8, ptr %8990, i64 8
-  %.val10155 = load ptr, ptr %9007, align 8, !tbaa !103
-  %9008 = getelementptr inbounds nuw i8, ptr %.val10155, i64 48
-  %9009 = load ptr, ptr %9008, align 8, !tbaa !114
-  call void %9009(ptr noundef nonnull %8990) #15
-  br label %9010
+9003:                                             ; preds = %9000
+  %9004 = getelementptr i8, ptr %8987, i64 8
+  %.val10155 = load ptr, ptr %9004, align 8, !tbaa !103
+  %9005 = getelementptr inbounds nuw i8, ptr %.val10155, i64 48
+  %9006 = load ptr, ptr %9005, align 8, !tbaa !114
+  call void %9006(ptr noundef nonnull %8987) #15
+  br label %9007
 
-9010:                                             ; preds = %9000, %9003, %9006, %9001
-  %9011 = load ptr, ptr %8992, align 8, !tbaa !136
-  store ptr null, ptr %8992, align 8, !tbaa !136
-  %9012 = load i16, ptr %8978, align 2, !tbaa !143
-  %.sroa.2528.0.extract.shift = lshr i16 %9012, 8
+9007:                                             ; preds = %8997, %9000, %9003, %8998
+  %9008 = load ptr, ptr %8989, align 8, !tbaa !136
+  store ptr null, ptr %8989, align 8, !tbaa !136
+  %9009 = load i16, ptr %8975, align 2, !tbaa !143
+  %.sroa.2528.0.extract.shift = lshr i16 %9009, 8
   %.sroa.2528.0.extract.trunc = zext nneg i16 %.sroa.2528.0.extract.shift to i32
-  %9013 = and i16 %9012, 255
-  %9014 = zext nneg i16 %9013 to i64
+  %9010 = and i16 %9009, 255
+  %9011 = zext nneg i16 %9010 to i64
   br label %.backedge.backedge
 
-9015:                                             ; preds = %.backedge
-  %9016 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9016, align 8, !tbaa !133
-  %9017 = getelementptr i8, ptr %.28893, i64 10
-  %9018 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0522.0.copyload = load i64, ptr %9018, align 8, !tbaa !113
-  %9019 = getelementptr i8, ptr %.28893, i64 4
-  %.val10565 = load i32, ptr %9019, align 2
-  %9020 = inttoptr i64 %.sroa.0522.0.copyload to ptr
-  %9021 = getelementptr i8, ptr %9020, i64 8
-  %.val10154 = load ptr, ptr %9021, align 8, !tbaa !103
-  %9022 = getelementptr inbounds nuw i8, ptr %.val10154, i64 384
-  %9023 = load i32, ptr %9022, align 8, !tbaa !197
-  %.not9277 = icmp eq i32 %9023, %.val10565
-  br i1 %.not9277, label %9024, label %8859
+9012:                                             ; preds = %.backedge
+  %9013 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9013, align 8, !tbaa !133
+  %9014 = getelementptr i8, ptr %.28893, i64 10
+  %9015 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0522.0.copyload = load i64, ptr %9015, align 8, !tbaa !113
+  %9016 = getelementptr i8, ptr %.28893, i64 4
+  %.val10565 = load i32, ptr %9016, align 2
+  %9017 = inttoptr i64 %.sroa.0522.0.copyload to ptr
+  %9018 = getelementptr i8, ptr %9017, i64 8
+  %.val10154 = load ptr, ptr %9018, align 8, !tbaa !103
+  %9019 = getelementptr inbounds nuw i8, ptr %.val10154, i64 384
+  %9020 = load i32, ptr %9019, align 8, !tbaa !197
+  %.not9277 = icmp eq i32 %9020, %.val10565
+  br i1 %.not9277, label %9021, label %8859
 
-9024:                                             ; preds = %9015
-  %9025 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0520.0.copyload = load i64, ptr %9025, align 8, !tbaa !113
-  %9026 = getelementptr i8, ptr %9020, i64 -24
-  %.val10589 = load ptr, ptr %9026, align 8, !tbaa !113
-  %9027 = icmp eq ptr %.val10589, null
-  br i1 %9027, label %8859, label %9028
+9021:                                             ; preds = %9012
+  %9022 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0520.0.copyload = load i64, ptr %9022, align 8, !tbaa !113
+  %9023 = getelementptr i8, ptr %9017, i64 -24
+  %.val10589 = load ptr, ptr %9023, align 8, !tbaa !113
+  %9024 = icmp eq ptr %.val10589, null
+  br i1 %9024, label %8859, label %9025
 
-9028:                                             ; preds = %9024
-  %9029 = getelementptr i8, ptr %.28893, i64 8
-  %.val10500 = load i16, ptr %9029, align 2, !tbaa !143
+9025:                                             ; preds = %9021
+  %9026 = getelementptr i8, ptr %.28893, i64 8
+  %.val10500 = load i16, ptr %9026, align 2, !tbaa !143
   %.2.val10472 = load i64, ptr %.2, align 8, !tbaa !113
-  %9030 = inttoptr i64 %.2.val10472 to ptr
-  %9031 = getelementptr inbounds nuw i8, ptr %9030, i64 32
-  %9032 = load ptr, ptr %9031, align 8, !tbaa !235
-  %9033 = getelementptr inbounds nuw i8, ptr %9032, i64 24
-  %9034 = sext i32 %.08890 to i64
-  %9035 = getelementptr [1 x ptr], ptr %9033, i64 0, i64 %9034
-  %9036 = load ptr, ptr %9035, align 8, !tbaa !100
-  %9037 = zext i16 %.val10500 to i64
-  %9038 = getelementptr inbounds nuw i8, ptr %.val10589, i64 32
-  %9039 = load ptr, ptr %9038, align 8, !tbaa !276
-  %9040 = getelementptr inbounds nuw i8, ptr %9039, i64 24
-  %9041 = load i64, ptr %9040, align 8, !tbaa !282
-  %.not9278 = icmp ugt i64 %9041, %9037
-  br i1 %.not9278, label %9042, label %8859
+  %9027 = inttoptr i64 %.2.val10472 to ptr
+  %9028 = getelementptr inbounds nuw i8, ptr %9027, i64 32
+  %9029 = load ptr, ptr %9028, align 8, !tbaa !235
+  %9030 = getelementptr inbounds nuw i8, ptr %9029, i64 24
+  %9031 = sext i32 %.08890 to i64
+  %9032 = getelementptr [1 x ptr], ptr %9030, i64 0, i64 %9031
+  %9033 = load ptr, ptr %9032, align 8, !tbaa !100
+  %9034 = zext i16 %.val10500 to i64
+  %9035 = getelementptr inbounds nuw i8, ptr %.val10589, i64 32
+  %9036 = load ptr, ptr %9035, align 8, !tbaa !276
+  %9037 = getelementptr inbounds nuw i8, ptr %9036, i64 24
+  %9038 = load i64, ptr %9037, align 8, !tbaa !282
+  %.not9278 = icmp ugt i64 %9038, %9034
+  br i1 %.not9278, label %9039, label %8859
 
-9042:                                             ; preds = %9028
-  %9043 = getelementptr inbounds nuw i8, ptr %9039, i64 10
-  %9044 = load i8, ptr %9043, align 2, !tbaa !113
-  %.not9279 = icmp eq i8 %9044, 0
-  br i1 %.not9279, label %8859, label %9045
+9039:                                             ; preds = %9025
+  %9040 = getelementptr inbounds nuw i8, ptr %9036, i64 10
+  %9041 = load i8, ptr %9040, align 2, !tbaa !113
+  %.not9279 = icmp eq i8 %9041, 0
+  br i1 %.not9279, label %8859, label %9042
 
-9045:                                             ; preds = %9042
-  %9046 = getelementptr inbounds nuw i8, ptr %9039, i64 32
-  %9047 = getelementptr inbounds nuw i8, ptr %9039, i64 9
-  %9048 = load i8, ptr %9047, align 1, !tbaa !113
-  %9049 = zext nneg i8 %9048 to i64
-  %9050 = shl nuw i64 1, %9049
-  %9051 = getelementptr i8, ptr %9046, i64 %9050
-  %9052 = getelementptr %struct.PyDictUnicodeEntry, ptr %9051, i64 %9037
-  %9053 = load ptr, ptr %9052, align 8, !tbaa !283
-  %.not9280 = icmp eq ptr %9053, %9036
-  br i1 %.not9280, label %9054, label %8859
+9042:                                             ; preds = %9039
+  %9043 = getelementptr inbounds nuw i8, ptr %9036, i64 32
+  %9044 = getelementptr inbounds nuw i8, ptr %9036, i64 9
+  %9045 = load i8, ptr %9044, align 1, !tbaa !113
+  %9046 = zext nneg i8 %9045 to i64
+  %9047 = shl nuw i64 1, %9046
+  %9048 = getelementptr i8, ptr %9043, i64 %9047
+  %9049 = getelementptr %struct.PyDictUnicodeEntry, ptr %9048, i64 %9034
+  %9050 = load ptr, ptr %9049, align 8, !tbaa !283
+  %.not9280 = icmp eq ptr %9050, %9033
+  br i1 %.not9280, label %9051, label %8859
 
-9054:                                             ; preds = %9045
-  %9055 = getelementptr inbounds nuw i8, ptr %9052, i64 8
-  %9056 = load ptr, ptr %9055, align 8, !tbaa !279
-  %9057 = icmp eq ptr %9056, null
-  br i1 %9057, label %8859, label %9058
+9051:                                             ; preds = %9042
+  %9052 = getelementptr inbounds nuw i8, ptr %9049, i64 8
+  %9053 = load ptr, ptr %9052, align 8, !tbaa !279
+  %9054 = icmp eq ptr %9053, null
+  br i1 %9054, label %8859, label %9055
 
-9058:                                             ; preds = %9054
-  %9059 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9059, align 8, !tbaa !136
-  %9060 = inttoptr i64 %.sroa.0520.0.copyload to ptr
-  %9061 = getelementptr inbounds nuw i8, ptr %.val10589, i64 24
-  %9062 = load i64, ptr %9061, align 8, !tbaa !297
-  %9063 = trunc i64 %9062 to i32
-  %9064 = and i32 %9063, 255
-  %.not.i10771 = icmp eq i32 %9064, 0
-  br i1 %.not.i10771, label %_PyDict_NotifyEvent.exit, label %9065
+9055:                                             ; preds = %9051
+  %9056 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9056, align 8, !tbaa !136
+  %9057 = inttoptr i64 %.sroa.0520.0.copyload to ptr
+  %9058 = getelementptr inbounds nuw i8, ptr %.val10589, i64 24
+  %9059 = load i64, ptr %9058, align 8, !tbaa !297
+  %9060 = trunc i64 %9059 to i32
+  %9061 = and i32 %9060, 255
+  %.not.i10771 = icmp eq i32 %9061, 0
+  br i1 %.not.i10771, label %_PyDict_NotifyEvent.exit, label %9062
 
-9065:                                             ; preds = %9058
-  call void @_PyDict_SendEvent(i32 noundef %9064, i32 noundef 1, ptr noundef nonnull %.val10589, ptr noundef %9036, ptr noundef %9060) #15
-  %.pre = load ptr, ptr %9059, align 8, !tbaa !136
+9062:                                             ; preds = %9055
+  call void @_PyDict_SendEvent(i32 noundef %9061, i32 noundef 1, ptr noundef nonnull %.val10589, ptr noundef %9033, ptr noundef %9057) #15
+  %.pre = load ptr, ptr %9056, align 8, !tbaa !136
   br label %_PyDict_NotifyEvent.exit
 
-_PyDict_NotifyEvent.exit:                         ; preds = %9058, %9065
-  %9066 = phi ptr [ %.28898, %9058 ], [ %.pre, %9065 ]
-  store ptr %9060, ptr %9055, align 8, !tbaa !279
-  %9067 = getelementptr i8, ptr %9066, i64 -16
-  store ptr %9067, ptr %9059, align 8, !tbaa !136
-  %9068 = load i32, ptr %9020, align 8, !tbaa !113
-  %.not9281 = icmp sgt i32 %9068, -1
-  br i1 %.not9281, label %9069, label %9075
+_PyDict_NotifyEvent.exit:                         ; preds = %9055, %9062
+  %9063 = phi ptr [ %.28898, %9055 ], [ %.pre, %9062 ]
+  store ptr %9057, ptr %9052, align 8, !tbaa !279
+  %9064 = getelementptr i8, ptr %9063, i64 -16
+  store ptr %9064, ptr %9056, align 8, !tbaa !136
+  %9065 = load i32, ptr %9017, align 8, !tbaa !113
+  %.not9281 = icmp sgt i32 %9065, -1
+  br i1 %.not9281, label %9066, label %9072
 
-9069:                                             ; preds = %_PyDict_NotifyEvent.exit
-  %9070 = add nsw i32 %9068, -1
-  store i32 %9070, ptr %9020, align 8, !tbaa !113
-  %9071 = icmp eq i32 %9070, 0
-  br i1 %9071, label %9072, label %9075
+9066:                                             ; preds = %_PyDict_NotifyEvent.exit
+  %9067 = add nsw i32 %9065, -1
+  store i32 %9067, ptr %9017, align 8, !tbaa !113
+  %9068 = icmp eq i32 %9067, 0
+  br i1 %9068, label %9069, label %9072
 
-9072:                                             ; preds = %9069
-  %.val10153 = load ptr, ptr %9021, align 8, !tbaa !103
-  %9073 = getelementptr inbounds nuw i8, ptr %.val10153, i64 48
-  %9074 = load ptr, ptr %9073, align 8, !tbaa !114
-  call void %9074(ptr noundef nonnull %9020) #15
-  br label %9075
+9069:                                             ; preds = %9066
+  %.val10153 = load ptr, ptr %9018, align 8, !tbaa !103
+  %9070 = getelementptr inbounds nuw i8, ptr %.val10153, i64 48
+  %9071 = load ptr, ptr %9070, align 8, !tbaa !114
+  call void %9071(ptr noundef nonnull %9017) #15
+  br label %9072
 
-9075:                                             ; preds = %9069, %9072, %_PyDict_NotifyEvent.exit
-  %9076 = load i32, ptr %9056, align 8, !tbaa !113
-  %.not9282 = icmp sgt i32 %9076, -1
-  br i1 %.not9282, label %9077, label %9084
+9072:                                             ; preds = %9066, %9069, %_PyDict_NotifyEvent.exit
+  %9073 = load i32, ptr %9053, align 8, !tbaa !113
+  %.not9282 = icmp sgt i32 %9073, -1
+  br i1 %.not9282, label %9074, label %9081
 
-9077:                                             ; preds = %9075
-  %9078 = add nsw i32 %9076, -1
-  store i32 %9078, ptr %9056, align 8, !tbaa !113
-  %9079 = icmp eq i32 %9078, 0
-  br i1 %9079, label %9080, label %9084
+9074:                                             ; preds = %9072
+  %9075 = add nsw i32 %9073, -1
+  store i32 %9075, ptr %9053, align 8, !tbaa !113
+  %9076 = icmp eq i32 %9075, 0
+  br i1 %9076, label %9077, label %9081
 
-9080:                                             ; preds = %9077
-  %9081 = getelementptr i8, ptr %9056, i64 8
-  %.val10152 = load ptr, ptr %9081, align 8, !tbaa !103
-  %9082 = getelementptr inbounds nuw i8, ptr %.val10152, i64 48
-  %9083 = load ptr, ptr %9082, align 8, !tbaa !114
-  call void %9083(ptr noundef nonnull %9056) #15
-  br label %9084
+9077:                                             ; preds = %9074
+  %9078 = getelementptr i8, ptr %9053, i64 8
+  %.val10152 = load ptr, ptr %9078, align 8, !tbaa !103
+  %9079 = getelementptr inbounds nuw i8, ptr %.val10152, i64 48
+  %9080 = load ptr, ptr %9079, align 8, !tbaa !114
+  call void %9080(ptr noundef nonnull %9053) #15
+  br label %9081
 
-9084:                                             ; preds = %9077, %9080, %9075
-  %9085 = load ptr, ptr %9059, align 8, !tbaa !136
-  store ptr null, ptr %9059, align 8, !tbaa !136
-  %9086 = load i16, ptr %9017, align 2, !tbaa !143
-  %.sroa.2490.0.extract.shift = lshr i16 %9086, 8
+9081:                                             ; preds = %9074, %9077, %9072
+  %9082 = load ptr, ptr %9056, align 8, !tbaa !136
+  store ptr null, ptr %9056, align 8, !tbaa !136
+  %9083 = load i16, ptr %9014, align 2, !tbaa !143
+  %.sroa.2490.0.extract.shift = lshr i16 %9083, 8
   %.sroa.2490.0.extract.trunc = zext nneg i16 %.sroa.2490.0.extract.shift to i32
-  %9087 = and i16 %9086, 255
-  %9088 = zext nneg i16 %9087 to i64
+  %9084 = and i16 %9083, 255
+  %9085 = zext nneg i16 %9084 to i64
   br label %.backedge.backedge
 
-9089:                                             ; preds = %.backedge
-  %9090 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9090, align 8, !tbaa !133
-  %9091 = getelementptr i8, ptr %.28893, i64 2
-  %9092 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0488.0.copyload = load i64, ptr %9092, align 8, !tbaa !113
-  %9093 = getelementptr inbounds nuw i8, ptr %.2, i64 80
-  %9094 = sext i32 %.08890 to i64
-  %9095 = getelementptr [1 x %union._PyStackRef], ptr %9093, i64 0, i64 %9094
-  %9096 = load i64, ptr %9095, align 8, !tbaa !113
-  %9097 = inttoptr i64 %9096 to ptr
-  %9098 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9098, align 8, !tbaa !136
-  %9099 = inttoptr i64 %.sroa.0488.0.copyload to ptr
-  %9100 = getelementptr inbounds nuw i8, ptr %9097, i64 16
-  %9101 = load ptr, ptr %9100, align 8, !tbaa !236
-  store ptr %9099, ptr %9100, align 8, !tbaa !236
-  %.not.i.i10772 = icmp eq ptr %9101, null
-  br i1 %.not.i.i10772, label %PyCell_SetTakeRef.exit, label %9102
+9086:                                             ; preds = %.backedge
+  %9087 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9087, align 8, !tbaa !133
+  %9088 = getelementptr i8, ptr %.28893, i64 2
+  %9089 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0488.0.copyload = load i64, ptr %9089, align 8, !tbaa !113
+  %9090 = getelementptr inbounds nuw i8, ptr %.2, i64 80
+  %9091 = sext i32 %.08890 to i64
+  %9092 = getelementptr [1 x %union._PyStackRef], ptr %9090, i64 0, i64 %9091
+  %9093 = load i64, ptr %9092, align 8, !tbaa !113
+  %9094 = inttoptr i64 %9093 to ptr
+  %9095 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9095, align 8, !tbaa !136
+  %9096 = inttoptr i64 %.sroa.0488.0.copyload to ptr
+  %9097 = getelementptr inbounds nuw i8, ptr %9094, i64 16
+  %9098 = load ptr, ptr %9097, align 8, !tbaa !236
+  store ptr %9096, ptr %9097, align 8, !tbaa !236
+  %.not.i.i10772 = icmp eq ptr %9098, null
+  br i1 %.not.i.i10772, label %PyCell_SetTakeRef.exit, label %9099
 
-9102:                                             ; preds = %9089
-  %9103 = load i32, ptr %9101, align 8, !tbaa !113
-  %.not.i.i.i10773 = icmp sgt i32 %9103, -1
-  br i1 %.not.i.i.i10773, label %9104, label %PyCell_SetTakeRef.exit
+9099:                                             ; preds = %9086
+  %9100 = load i32, ptr %9098, align 8, !tbaa !113
+  %.not.i.i.i10773 = icmp sgt i32 %9100, -1
+  br i1 %.not.i.i.i10773, label %9101, label %PyCell_SetTakeRef.exit
 
-9104:                                             ; preds = %9102
-  %9105 = add nsw i32 %9103, -1
-  store i32 %9105, ptr %9101, align 8, !tbaa !113
-  %9106 = icmp eq i32 %9105, 0
-  br i1 %9106, label %9107, label %PyCell_SetTakeRef.exit
+9101:                                             ; preds = %9099
+  %9102 = add nsw i32 %9100, -1
+  store i32 %9102, ptr %9098, align 8, !tbaa !113
+  %9103 = icmp eq i32 %9102, 0
+  br i1 %9103, label %9104, label %PyCell_SetTakeRef.exit
 
-9107:                                             ; preds = %9104
-  call void @_Py_Dealloc(ptr noundef nonnull %9101) #15
+9104:                                             ; preds = %9101
+  call void @_Py_Dealloc(ptr noundef nonnull %9098) #15
   br label %PyCell_SetTakeRef.exit
 
-PyCell_SetTakeRef.exit:                           ; preds = %9089, %9102, %9104, %9107
-  %9108 = load ptr, ptr %9098, align 8, !tbaa !136
-  store ptr null, ptr %9098, align 8, !tbaa !136
-  %9109 = getelementptr i8, ptr %9108, i64 -8
-  %9110 = load i16, ptr %9091, align 2, !tbaa !143
-  %.sroa.2486.0.extract.shift = lshr i16 %9110, 8
+PyCell_SetTakeRef.exit:                           ; preds = %9086, %9099, %9101, %9104
+  %9105 = load ptr, ptr %9095, align 8, !tbaa !136
+  store ptr null, ptr %9095, align 8, !tbaa !136
+  %9106 = getelementptr i8, ptr %9105, i64 -8
+  %9107 = load i16, ptr %9088, align 2, !tbaa !143
+  %.sroa.2486.0.extract.shift = lshr i16 %9107, 8
   %.sroa.2486.0.extract.trunc = zext nneg i16 %.sroa.2486.0.extract.shift to i32
-  %9111 = and i16 %9110, 255
-  %9112 = zext nneg i16 %9111 to i64
+  %9108 = and i16 %9107, 255
+  %9109 = zext nneg i16 %9108 to i64
   br label %.backedge.backedge
 
-9113:                                             ; preds = %.backedge
-  %9114 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9114, align 8, !tbaa !133
-  %9115 = getelementptr i8, ptr %.28893, i64 2
-  %9116 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0483.0.copyload = load i64, ptr %9116, align 8, !tbaa !113
-  %9117 = getelementptr inbounds nuw i8, ptr %.2, i64 80
-  %9118 = sext i32 %.08890 to i64
-  %9119 = getelementptr [1 x %union._PyStackRef], ptr %9117, i64 0, i64 %9118
-  %.sroa.0482.0.copyload = load i64, ptr %9119, align 8, !tbaa !113
-  store i64 %.sroa.0483.0.copyload, ptr %9119, align 8, !tbaa !113
-  %9120 = icmp eq i64 %.sroa.0482.0.copyload, 0
-  br i1 %9120, label %9131, label %9121
+9110:                                             ; preds = %.backedge
+  %9111 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9111, align 8, !tbaa !133
+  %9112 = getelementptr i8, ptr %.28893, i64 2
+  %9113 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0483.0.copyload = load i64, ptr %9113, align 8, !tbaa !113
+  %9114 = getelementptr inbounds nuw i8, ptr %.2, i64 80
+  %9115 = sext i32 %.08890 to i64
+  %9116 = getelementptr [1 x %union._PyStackRef], ptr %9114, i64 0, i64 %9115
+  %.sroa.0482.0.copyload = load i64, ptr %9116, align 8, !tbaa !113
+  store i64 %.sroa.0483.0.copyload, ptr %9116, align 8, !tbaa !113
+  %9117 = icmp eq i64 %.sroa.0482.0.copyload, 0
+  br i1 %9117, label %9128, label %9118
 
-9121:                                             ; preds = %9113
-  %9122 = inttoptr i64 %.sroa.0482.0.copyload to ptr
-  %9123 = load i32, ptr %9122, align 8, !tbaa !113
-  %.not9655 = icmp sgt i32 %9123, -1
-  br i1 %.not9655, label %9124, label %9131
+9118:                                             ; preds = %9110
+  %9119 = inttoptr i64 %.sroa.0482.0.copyload to ptr
+  %9120 = load i32, ptr %9119, align 8, !tbaa !113
+  %.not9655 = icmp sgt i32 %9120, -1
+  br i1 %.not9655, label %9121, label %9128
+
+9121:                                             ; preds = %9118
+  %9122 = add nsw i32 %9120, -1
+  store i32 %9122, ptr %9119, align 8, !tbaa !113
+  %9123 = icmp eq i32 %9122, 0
+  br i1 %9123, label %9124, label %9128
 
 9124:                                             ; preds = %9121
-  %9125 = add nsw i32 %9123, -1
-  store i32 %9125, ptr %9122, align 8, !tbaa !113
-  %9126 = icmp eq i32 %9125, 0
-  br i1 %9126, label %9127, label %9131
+  %9125 = getelementptr i8, ptr %9119, i64 8
+  %.val10151 = load ptr, ptr %9125, align 8, !tbaa !103
+  %9126 = getelementptr inbounds nuw i8, ptr %.val10151, i64 48
+  %9127 = load ptr, ptr %9126, align 8, !tbaa !114
+  call void %9127(ptr noundef nonnull %9119) #15
+  br label %9128
 
-9127:                                             ; preds = %9124
-  %9128 = getelementptr i8, ptr %9122, i64 8
-  %.val10151 = load ptr, ptr %9128, align 8, !tbaa !103
-  %9129 = getelementptr inbounds nuw i8, ptr %.val10151, i64 48
-  %9130 = load ptr, ptr %9129, align 8, !tbaa !114
-  call void %9130(ptr noundef nonnull %9122) #15
-  br label %9131
-
-9131:                                             ; preds = %9121, %9127, %9124, %9113
-  %9132 = load i16, ptr %9115, align 2, !tbaa !143
-  %.sroa.2474.0.extract.shift = lshr i16 %9132, 8
+9128:                                             ; preds = %9118, %9124, %9121, %9110
+  %9129 = load i16, ptr %9112, align 2, !tbaa !143
+  %.sroa.2474.0.extract.shift = lshr i16 %9129, 8
   %.sroa.2474.0.extract.trunc = zext nneg i16 %.sroa.2474.0.extract.shift to i32
-  %9133 = and i16 %9132, 255
-  %9134 = zext nneg i16 %9133 to i64
+  %9130 = and i16 %9129, 255
+  %9131 = zext nneg i16 %9130 to i64
   br label %.backedge.backedge
 
-9135:                                             ; preds = %.backedge
-  %9136 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9136, align 8, !tbaa !133
-  %9137 = getelementptr i8, ptr %.28893, i64 2
-  %9138 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0471.0.copyload = load i64, ptr %9138, align 8, !tbaa !113
-  %9139 = ashr i32 %.08890, 4
-  %9140 = and i32 %.08890, 15
-  %9141 = getelementptr inbounds nuw i8, ptr %.2, i64 80
-  %9142 = zext i32 %9139 to i64
-  %9143 = getelementptr [1 x %union._PyStackRef], ptr %9141, i64 0, i64 %9142
-  %.sroa.0466.0.copyload = load i64, ptr %9143, align 8, !tbaa !113
-  store i64 %.sroa.0471.0.copyload, ptr %9143, align 8, !tbaa !113
-  %9144 = icmp eq i64 %.sroa.0466.0.copyload, 0
-  br i1 %9144, label %9155, label %9145
+9132:                                             ; preds = %.backedge
+  %9133 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9133, align 8, !tbaa !133
+  %9134 = getelementptr i8, ptr %.28893, i64 2
+  %9135 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0471.0.copyload = load i64, ptr %9135, align 8, !tbaa !113
+  %9136 = ashr i32 %.08890, 4
+  %9137 = and i32 %.08890, 15
+  %9138 = getelementptr inbounds nuw i8, ptr %.2, i64 80
+  %9139 = zext i32 %9136 to i64
+  %9140 = getelementptr [1 x %union._PyStackRef], ptr %9138, i64 0, i64 %9139
+  %.sroa.0466.0.copyload = load i64, ptr %9140, align 8, !tbaa !113
+  store i64 %.sroa.0471.0.copyload, ptr %9140, align 8, !tbaa !113
+  %9141 = icmp eq i64 %.sroa.0466.0.copyload, 0
+  br i1 %9141, label %9152, label %9142
 
-9145:                                             ; preds = %9135
-  %9146 = inttoptr i64 %.sroa.0466.0.copyload to ptr
-  %9147 = load i32, ptr %9146, align 8, !tbaa !113
-  %.not9654 = icmp sgt i32 %9147, -1
-  br i1 %.not9654, label %9148, label %9155
+9142:                                             ; preds = %9132
+  %9143 = inttoptr i64 %.sroa.0466.0.copyload to ptr
+  %9144 = load i32, ptr %9143, align 8, !tbaa !113
+  %.not9654 = icmp sgt i32 %9144, -1
+  br i1 %.not9654, label %9145, label %9152
+
+9145:                                             ; preds = %9142
+  %9146 = add nsw i32 %9144, -1
+  store i32 %9146, ptr %9143, align 8, !tbaa !113
+  %9147 = icmp eq i32 %9146, 0
+  br i1 %9147, label %9148, label %9152
 
 9148:                                             ; preds = %9145
-  %9149 = add nsw i32 %9147, -1
-  store i32 %9149, ptr %9146, align 8, !tbaa !113
-  %9150 = icmp eq i32 %9149, 0
-  br i1 %9150, label %9151, label %9155
+  %9149 = getelementptr i8, ptr %9143, i64 8
+  %.val10150 = load ptr, ptr %9149, align 8, !tbaa !103
+  %9150 = getelementptr inbounds nuw i8, ptr %.val10150, i64 48
+  %9151 = load ptr, ptr %9150, align 8, !tbaa !114
+  call void %9151(ptr noundef nonnull %9143) #15
+  br label %9152
 
-9151:                                             ; preds = %9148
-  %9152 = getelementptr i8, ptr %9146, i64 8
-  %.val10150 = load ptr, ptr %9152, align 8, !tbaa !103
-  %9153 = getelementptr inbounds nuw i8, ptr %.val10150, i64 48
-  %9154 = load ptr, ptr %9153, align 8, !tbaa !114
-  call void %9154(ptr noundef nonnull %9146) #15
-  br label %9155
+9152:                                             ; preds = %9142, %9148, %9145, %9132
+  %9153 = zext nneg i32 %9137 to i64
+  %9154 = getelementptr [1 x %union._PyStackRef], ptr %9138, i64 0, i64 %9153
+  %9155 = load i64, ptr %9154, align 8, !tbaa !113
+  %9156 = inttoptr i64 %9155 to ptr
+  %9157 = load i32, ptr %9156, align 8, !tbaa !113
+  %9158 = icmp slt i32 %9157, 0
+  br i1 %9158, label %_Py_NewRef.exit10775, label %9159
 
-9155:                                             ; preds = %9145, %9151, %9148, %9135
-  %9156 = zext nneg i32 %9140 to i64
-  %9157 = getelementptr [1 x %union._PyStackRef], ptr %9141, i64 0, i64 %9156
-  %9158 = load i64, ptr %9157, align 8, !tbaa !113
-  %9159 = inttoptr i64 %9158 to ptr
-  %9160 = load i32, ptr %9159, align 8, !tbaa !113
-  %9161 = icmp slt i32 %9160, 0
-  br i1 %9161, label %_Py_NewRef.exit10775, label %9162
-
-9162:                                             ; preds = %9155
-  %9163 = add nuw i32 %9160, 1
-  store i32 %9163, ptr %9159, align 8, !tbaa !113
+9159:                                             ; preds = %9152
+  %9160 = add nuw i32 %9157, 1
+  store i32 %9160, ptr %9156, align 8, !tbaa !113
   br label %_Py_NewRef.exit10775
 
-_Py_NewRef.exit10775:                             ; preds = %9155, %9162
-  store i64 %9158, ptr %9138, align 8, !tbaa !113
-  %9164 = load i16, ptr %9137, align 2, !tbaa !143
-  %.sroa.2457.0.extract.shift = lshr i16 %9164, 8
+_Py_NewRef.exit10775:                             ; preds = %9152, %9159
+  store i64 %9155, ptr %9135, align 8, !tbaa !113
+  %9161 = load i16, ptr %9134, align 2, !tbaa !143
+  %.sroa.2457.0.extract.shift = lshr i16 %9161, 8
   %.sroa.2457.0.extract.trunc = zext nneg i16 %.sroa.2457.0.extract.shift to i32
-  %9165 = and i16 %9164, 255
-  %9166 = zext nneg i16 %9165 to i64
+  %9162 = and i16 %9161, 255
+  %9163 = zext nneg i16 %9162 to i64
   br label %.backedge.backedge
 
-9167:                                             ; preds = %.backedge
-  %9168 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9168, align 8, !tbaa !133
-  %9169 = getelementptr i8, ptr %.28893, i64 2
-  %9170 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0452.0.copyload = load i64, ptr %9170, align 8, !tbaa !113
-  %9171 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0454.0.copyload = load i64, ptr %9171, align 8, !tbaa !113
-  %9172 = ashr i32 %.08890, 4
-  %9173 = and i32 %.08890, 15
-  %9174 = getelementptr inbounds nuw i8, ptr %.2, i64 80
-  %9175 = zext i32 %9172 to i64
-  %9176 = getelementptr [1 x %union._PyStackRef], ptr %9174, i64 0, i64 %9175
-  %.sroa.0447.0.copyload = load i64, ptr %9176, align 8, !tbaa !113
-  store i64 %.sroa.0452.0.copyload, ptr %9176, align 8, !tbaa !113
-  %9177 = icmp eq i64 %.sroa.0447.0.copyload, 0
-  br i1 %9177, label %9188, label %9178
+9164:                                             ; preds = %.backedge
+  %9165 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9165, align 8, !tbaa !133
+  %9166 = getelementptr i8, ptr %.28893, i64 2
+  %9167 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0452.0.copyload = load i64, ptr %9167, align 8, !tbaa !113
+  %9168 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0454.0.copyload = load i64, ptr %9168, align 8, !tbaa !113
+  %9169 = ashr i32 %.08890, 4
+  %9170 = and i32 %.08890, 15
+  %9171 = getelementptr inbounds nuw i8, ptr %.2, i64 80
+  %9172 = zext i32 %9169 to i64
+  %9173 = getelementptr [1 x %union._PyStackRef], ptr %9171, i64 0, i64 %9172
+  %.sroa.0447.0.copyload = load i64, ptr %9173, align 8, !tbaa !113
+  store i64 %.sroa.0452.0.copyload, ptr %9173, align 8, !tbaa !113
+  %9174 = icmp eq i64 %.sroa.0447.0.copyload, 0
+  br i1 %9174, label %9185, label %9175
 
-9178:                                             ; preds = %9167
-  %9179 = inttoptr i64 %.sroa.0447.0.copyload to ptr
-  %9180 = load i32, ptr %9179, align 8, !tbaa !113
-  %.not9652 = icmp sgt i32 %9180, -1
-  br i1 %.not9652, label %9181, label %9188
+9175:                                             ; preds = %9164
+  %9176 = inttoptr i64 %.sroa.0447.0.copyload to ptr
+  %9177 = load i32, ptr %9176, align 8, !tbaa !113
+  %.not9652 = icmp sgt i32 %9177, -1
+  br i1 %.not9652, label %9178, label %9185
+
+9178:                                             ; preds = %9175
+  %9179 = add nsw i32 %9177, -1
+  store i32 %9179, ptr %9176, align 8, !tbaa !113
+  %9180 = icmp eq i32 %9179, 0
+  br i1 %9180, label %9181, label %9185
 
 9181:                                             ; preds = %9178
-  %9182 = add nsw i32 %9180, -1
-  store i32 %9182, ptr %9179, align 8, !tbaa !113
-  %9183 = icmp eq i32 %9182, 0
-  br i1 %9183, label %9184, label %9188
+  %9182 = getelementptr i8, ptr %9176, i64 8
+  %.val10149 = load ptr, ptr %9182, align 8, !tbaa !103
+  %9183 = getelementptr inbounds nuw i8, ptr %.val10149, i64 48
+  %9184 = load ptr, ptr %9183, align 8, !tbaa !114
+  call void %9184(ptr noundef nonnull %9176) #15
+  br label %9185
 
-9184:                                             ; preds = %9181
-  %9185 = getelementptr i8, ptr %9179, i64 8
-  %.val10149 = load ptr, ptr %9185, align 8, !tbaa !103
-  %9186 = getelementptr inbounds nuw i8, ptr %.val10149, i64 48
-  %9187 = load ptr, ptr %9186, align 8, !tbaa !114
-  call void %9187(ptr noundef nonnull %9179) #15
-  br label %9188
+9185:                                             ; preds = %9164, %9178, %9181, %9175
+  %9186 = zext nneg i32 %9170 to i64
+  %9187 = getelementptr [1 x %union._PyStackRef], ptr %9171, i64 0, i64 %9186
+  %.sroa.0439.0.copyload = load i64, ptr %9187, align 8, !tbaa !113
+  store i64 %.sroa.0454.0.copyload, ptr %9187, align 8, !tbaa !113
+  %9188 = icmp eq i64 %.sroa.0439.0.copyload, 0
+  br i1 %9188, label %9199, label %9189
 
-9188:                                             ; preds = %9167, %9181, %9184, %9178
-  %9189 = zext nneg i32 %9173 to i64
-  %9190 = getelementptr [1 x %union._PyStackRef], ptr %9174, i64 0, i64 %9189
-  %.sroa.0439.0.copyload = load i64, ptr %9190, align 8, !tbaa !113
-  store i64 %.sroa.0454.0.copyload, ptr %9190, align 8, !tbaa !113
-  %9191 = icmp eq i64 %.sroa.0439.0.copyload, 0
-  br i1 %9191, label %9202, label %9192
+9189:                                             ; preds = %9185
+  %9190 = inttoptr i64 %.sroa.0439.0.copyload to ptr
+  %9191 = load i32, ptr %9190, align 8, !tbaa !113
+  %.not9653 = icmp sgt i32 %9191, -1
+  br i1 %.not9653, label %9192, label %9199
 
-9192:                                             ; preds = %9188
-  %9193 = inttoptr i64 %.sroa.0439.0.copyload to ptr
-  %9194 = load i32, ptr %9193, align 8, !tbaa !113
-  %.not9653 = icmp sgt i32 %9194, -1
-  br i1 %.not9653, label %9195, label %9202
+9192:                                             ; preds = %9189
+  %9193 = add nsw i32 %9191, -1
+  store i32 %9193, ptr %9190, align 8, !tbaa !113
+  %9194 = icmp eq i32 %9193, 0
+  br i1 %9194, label %9195, label %9199
 
 9195:                                             ; preds = %9192
-  %9196 = add nsw i32 %9194, -1
-  store i32 %9196, ptr %9193, align 8, !tbaa !113
-  %9197 = icmp eq i32 %9196, 0
-  br i1 %9197, label %9198, label %9202
+  %9196 = getelementptr i8, ptr %9190, i64 8
+  %.val10148 = load ptr, ptr %9196, align 8, !tbaa !103
+  %9197 = getelementptr inbounds nuw i8, ptr %.val10148, i64 48
+  %9198 = load ptr, ptr %9197, align 8, !tbaa !114
+  call void %9198(ptr noundef nonnull %9190) #15
+  br label %9199
 
-9198:                                             ; preds = %9195
-  %9199 = getelementptr i8, ptr %9193, i64 8
-  %.val10148 = load ptr, ptr %9199, align 8, !tbaa !103
-  %9200 = getelementptr inbounds nuw i8, ptr %.val10148, i64 48
-  %9201 = load ptr, ptr %9200, align 8, !tbaa !114
-  call void %9201(ptr noundef nonnull %9193) #15
-  br label %9202
-
-9202:                                             ; preds = %9192, %9198, %9195, %9188
-  %9203 = load i16, ptr %9169, align 2, !tbaa !143
-  %.sroa.2431.0.extract.shift = lshr i16 %9203, 8
+9199:                                             ; preds = %9189, %9195, %9192, %9185
+  %9200 = load i16, ptr %9166, align 2, !tbaa !143
+  %.sroa.2431.0.extract.shift = lshr i16 %9200, 8
   %.sroa.2431.0.extract.trunc = zext nneg i16 %.sroa.2431.0.extract.shift to i32
-  %9204 = and i16 %9203, 255
-  %9205 = zext nneg i16 %9204 to i64
+  %9201 = and i16 %9200, 255
+  %9202 = zext nneg i16 %9201 to i64
   br label %.backedge.backedge
 
-9206:                                             ; preds = %.backedge
-  %9207 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9207, align 8, !tbaa !133
-  %9208 = getelementptr i8, ptr %.28893, i64 2
-  %9209 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0428.0.copyload = load i64, ptr %9209, align 8, !tbaa !113
+9203:                                             ; preds = %.backedge
+  %9204 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9204, align 8, !tbaa !133
+  %9205 = getelementptr i8, ptr %.28893, i64 2
+  %9206 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0428.0.copyload = load i64, ptr %9206, align 8, !tbaa !113
   %.2.val10473 = load i64, ptr %.2, align 8, !tbaa !113
-  %9210 = inttoptr i64 %.2.val10473 to ptr
-  %9211 = getelementptr inbounds nuw i8, ptr %9210, i64 32
-  %9212 = load ptr, ptr %9211, align 8, !tbaa !235
-  %9213 = getelementptr inbounds nuw i8, ptr %9212, i64 24
-  %9214 = sext i32 %.08890 to i64
-  %9215 = getelementptr [1 x ptr], ptr %9213, i64 0, i64 %9214
-  %9216 = load ptr, ptr %9215, align 8, !tbaa !100
-  %9217 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9217, align 8, !tbaa !136
-  %9218 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  %9219 = load ptr, ptr %9218, align 8, !tbaa !172
-  %9220 = inttoptr i64 %.sroa.0428.0.copyload to ptr
-  %9221 = call i32 @PyDict_SetItem(ptr noundef %9219, ptr noundef %9216, ptr noundef %9220) #15
-  %9222 = load ptr, ptr %9217, align 8, !tbaa !136
-  store ptr null, ptr %9217, align 8, !tbaa !136
-  %9223 = load i32, ptr %9220, align 8, !tbaa !113
-  %.not9650 = icmp sgt i32 %9223, -1
-  br i1 %.not9650, label %9224, label %9231
+  %9207 = inttoptr i64 %.2.val10473 to ptr
+  %9208 = getelementptr inbounds nuw i8, ptr %9207, i64 32
+  %9209 = load ptr, ptr %9208, align 8, !tbaa !235
+  %9210 = getelementptr inbounds nuw i8, ptr %9209, i64 24
+  %9211 = sext i32 %.08890 to i64
+  %9212 = getelementptr [1 x ptr], ptr %9210, i64 0, i64 %9211
+  %9213 = load ptr, ptr %9212, align 8, !tbaa !100
+  %9214 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9214, align 8, !tbaa !136
+  %9215 = getelementptr inbounds nuw i8, ptr %.2, i64 24
+  %9216 = load ptr, ptr %9215, align 8, !tbaa !172
+  %9217 = inttoptr i64 %.sroa.0428.0.copyload to ptr
+  %9218 = call i32 @PyDict_SetItem(ptr noundef %9216, ptr noundef %9213, ptr noundef %9217) #15
+  %9219 = load ptr, ptr %9214, align 8, !tbaa !136
+  store ptr null, ptr %9214, align 8, !tbaa !136
+  %9220 = load i32, ptr %9217, align 8, !tbaa !113
+  %.not9650 = icmp sgt i32 %9220, -1
+  br i1 %.not9650, label %9221, label %9228
 
-9224:                                             ; preds = %9206
-  %9225 = add nsw i32 %9223, -1
-  store i32 %9225, ptr %9220, align 8, !tbaa !113
-  %9226 = icmp eq i32 %9225, 0
-  br i1 %9226, label %9227, label %9231
+9221:                                             ; preds = %9203
+  %9222 = add nsw i32 %9220, -1
+  store i32 %9222, ptr %9217, align 8, !tbaa !113
+  %9223 = icmp eq i32 %9222, 0
+  br i1 %9223, label %9224, label %9228
 
-9227:                                             ; preds = %9224
-  %9228 = getelementptr i8, ptr %9220, i64 8
-  %.val10147 = load ptr, ptr %9228, align 8, !tbaa !103
-  %9229 = getelementptr inbounds nuw i8, ptr %.val10147, i64 48
-  %9230 = load ptr, ptr %9229, align 8, !tbaa !114
-  call void %9230(ptr noundef nonnull %9220) #15
-  br label %9231
+9224:                                             ; preds = %9221
+  %9225 = getelementptr i8, ptr %9217, i64 8
+  %.val10147 = load ptr, ptr %9225, align 8, !tbaa !103
+  %9226 = getelementptr inbounds nuw i8, ptr %.val10147, i64 48
+  %9227 = load ptr, ptr %9226, align 8, !tbaa !114
+  call void %9227(ptr noundef nonnull %9217) #15
+  br label %9228
 
-9231:                                             ; preds = %9224, %9227, %9206
-  %.not9651 = icmp eq i32 %9221, 0
-  br i1 %.not9651, label %9232, label %.loopexit10902
+9228:                                             ; preds = %9221, %9224, %9203
+  %.not9651 = icmp eq i32 %9218, 0
+  br i1 %.not9651, label %9229, label %.loopexit10904
 
-9232:                                             ; preds = %9231
-  %9233 = getelementptr i8, ptr %9222, i64 -8
-  %9234 = load i16, ptr %9208, align 2, !tbaa !143
-  %.sroa.2420.0.extract.shift = lshr i16 %9234, 8
+9229:                                             ; preds = %9228
+  %9230 = getelementptr i8, ptr %9219, i64 -8
+  %9231 = load i16, ptr %9205, align 2, !tbaa !143
+  %.sroa.2420.0.extract.shift = lshr i16 %9231, 8
   %.sroa.2420.0.extract.trunc = zext nneg i16 %.sroa.2420.0.extract.shift to i32
-  %9235 = and i16 %9234, 255
-  %9236 = zext nneg i16 %9235 to i64
+  %9232 = and i16 %9231, 255
+  %9233 = zext nneg i16 %9232 to i64
   br label %.backedge.backedge
 
-9237:                                             ; preds = %.backedge
-  %9238 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9238, align 8, !tbaa !133
-  %9239 = getelementptr i8, ptr %.28893, i64 2
-  %9240 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0415.0.copyload = load i64, ptr %9240, align 8, !tbaa !113
+9234:                                             ; preds = %.backedge
+  %9235 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9235, align 8, !tbaa !133
+  %9236 = getelementptr i8, ptr %.28893, i64 2
+  %9237 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0415.0.copyload = load i64, ptr %9237, align 8, !tbaa !113
   %.2.val10474 = load i64, ptr %.2, align 8, !tbaa !113
-  %9241 = inttoptr i64 %.2.val10474 to ptr
-  %9242 = getelementptr inbounds nuw i8, ptr %9241, i64 32
-  %9243 = load ptr, ptr %9242, align 8, !tbaa !235
-  %9244 = getelementptr inbounds nuw i8, ptr %9243, i64 24
-  %9245 = sext i32 %.08890 to i64
-  %9246 = getelementptr [1 x ptr], ptr %9244, i64 0, i64 %9245
-  %9247 = load ptr, ptr %9246, align 8, !tbaa !100
-  %9248 = getelementptr inbounds nuw i8, ptr %.2, i64 40
-  %9249 = load ptr, ptr %9248, align 8, !tbaa !173
-  %9250 = icmp eq ptr %9249, null
-  br i1 %9250, label %9251, label %9263
+  %9238 = inttoptr i64 %.2.val10474 to ptr
+  %9239 = getelementptr inbounds nuw i8, ptr %9238, i64 32
+  %9240 = load ptr, ptr %9239, align 8, !tbaa !235
+  %9241 = getelementptr inbounds nuw i8, ptr %9240, i64 24
+  %9242 = sext i32 %.08890 to i64
+  %9243 = getelementptr [1 x ptr], ptr %9241, i64 0, i64 %9242
+  %9244 = load ptr, ptr %9243, align 8, !tbaa !100
+  %9245 = getelementptr inbounds nuw i8, ptr %.2, i64 40
+  %9246 = load ptr, ptr %9245, align 8, !tbaa !173
+  %9247 = icmp eq ptr %9246, null
+  br i1 %9247, label %9248, label %9260
 
-9251:                                             ; preds = %9237
-  %9252 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9252, align 8, !tbaa !136
-  %9253 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !100
-  %9254 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %0, ptr noundef %9253, ptr noundef nonnull @.str.31, ptr noundef %9247) #15
-  %9255 = load ptr, ptr %9252, align 8, !tbaa !136
-  store ptr null, ptr %9252, align 8, !tbaa !136
-  %9256 = inttoptr i64 %.sroa.0415.0.copyload to ptr
-  %9257 = load i32, ptr %9256, align 8, !tbaa !113
-  %.not9649 = icmp sgt i32 %9257, -1
-  br i1 %.not9649, label %9258, label %.loopexit10902
+9248:                                             ; preds = %9234
+  %9249 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9249, align 8, !tbaa !136
+  %9250 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !100
+  %9251 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %0, ptr noundef %9250, ptr noundef nonnull @.str.31, ptr noundef %9244) #15
+  %9252 = load ptr, ptr %9249, align 8, !tbaa !136
+  store ptr null, ptr %9249, align 8, !tbaa !136
+  %9253 = inttoptr i64 %.sroa.0415.0.copyload to ptr
+  %9254 = load i32, ptr %9253, align 8, !tbaa !113
+  %.not9649 = icmp sgt i32 %9254, -1
+  br i1 %.not9649, label %9255, label %.loopexit10904
 
-9258:                                             ; preds = %9251
-  %9259 = add nsw i32 %9257, -1
-  store i32 %9259, ptr %9256, align 8, !tbaa !113
-  %9260 = icmp eq i32 %9259, 0
-  br i1 %9260, label %9261, label %.loopexit10902
+9255:                                             ; preds = %9248
+  %9256 = add nsw i32 %9254, -1
+  store i32 %9256, ptr %9253, align 8, !tbaa !113
+  %9257 = icmp eq i32 %9256, 0
+  br i1 %9257, label %9258, label %.loopexit10904
 
-9261:                                             ; preds = %9258
-  %9262 = getelementptr i8, ptr %9256, i64 8
-  br label %.loopexit10902.sink.split
+9258:                                             ; preds = %9255
+  %9259 = getelementptr i8, ptr %9253, i64 8
+  br label %.loopexit10904.sink.split
 
-9263:                                             ; preds = %9237
-  %9264 = getelementptr inbounds nuw i8, ptr %9249, i64 8
-  %9265 = load ptr, ptr %9264, align 8, !tbaa !103
-  %9266 = icmp eq ptr %9265, @PyDict_Type
-  %9267 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9267, align 8, !tbaa !136
-  %9268 = inttoptr i64 %.sroa.0415.0.copyload to ptr
-  br i1 %9266, label %9269, label %9271
+9260:                                             ; preds = %9234
+  %9261 = getelementptr inbounds nuw i8, ptr %9246, i64 8
+  %9262 = load ptr, ptr %9261, align 8, !tbaa !103
+  %9263 = icmp eq ptr %9262, @PyDict_Type
+  %9264 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9264, align 8, !tbaa !136
+  %9265 = inttoptr i64 %.sroa.0415.0.copyload to ptr
+  br i1 %9263, label %9266, label %9268
 
-9269:                                             ; preds = %9263
-  %9270 = call i32 @PyDict_SetItem(ptr noundef nonnull %9249, ptr noundef %9247, ptr noundef %9268) #15
-  br label %9273
+9266:                                             ; preds = %9260
+  %9267 = call i32 @PyDict_SetItem(ptr noundef nonnull %9246, ptr noundef %9244, ptr noundef %9265) #15
+  br label %9270
 
-9271:                                             ; preds = %9263
-  %9272 = call i32 @PyObject_SetItem(ptr noundef nonnull %9249, ptr noundef %9247, ptr noundef %9268) #15
-  br label %9273
+9268:                                             ; preds = %9260
+  %9269 = call i32 @PyObject_SetItem(ptr noundef nonnull %9246, ptr noundef %9244, ptr noundef %9265) #15
+  br label %9270
 
-9273:                                             ; preds = %9269, %9271
-  %.09005 = phi i32 [ %9270, %9269 ], [ %9272, %9271 ]
-  %9274 = load ptr, ptr %9267, align 8, !tbaa !136
-  store ptr null, ptr %9267, align 8, !tbaa !136
-  %9275 = load i32, ptr %9268, align 8, !tbaa !113
-  %.not9647 = icmp sgt i32 %9275, -1
-  br i1 %.not9647, label %9276, label %9283
+9270:                                             ; preds = %9266, %9268
+  %.09005 = phi i32 [ %9267, %9266 ], [ %9269, %9268 ]
+  %9271 = load ptr, ptr %9264, align 8, !tbaa !136
+  store ptr null, ptr %9264, align 8, !tbaa !136
+  %9272 = load i32, ptr %9265, align 8, !tbaa !113
+  %.not9647 = icmp sgt i32 %9272, -1
+  br i1 %.not9647, label %9273, label %9280
+
+9273:                                             ; preds = %9270
+  %9274 = add nsw i32 %9272, -1
+  store i32 %9274, ptr %9265, align 8, !tbaa !113
+  %9275 = icmp eq i32 %9274, 0
+  br i1 %9275, label %9276, label %9280
 
 9276:                                             ; preds = %9273
-  %9277 = add nsw i32 %9275, -1
-  store i32 %9277, ptr %9268, align 8, !tbaa !113
-  %9278 = icmp eq i32 %9277, 0
-  br i1 %9278, label %9279, label %9283
+  %9277 = getelementptr i8, ptr %9265, i64 8
+  %.val10145 = load ptr, ptr %9277, align 8, !tbaa !103
+  %9278 = getelementptr inbounds nuw i8, ptr %.val10145, i64 48
+  %9279 = load ptr, ptr %9278, align 8, !tbaa !114
+  call void %9279(ptr noundef nonnull %9265) #15
+  br label %9280
 
-9279:                                             ; preds = %9276
-  %9280 = getelementptr i8, ptr %9268, i64 8
-  %.val10145 = load ptr, ptr %9280, align 8, !tbaa !103
-  %9281 = getelementptr inbounds nuw i8, ptr %.val10145, i64 48
-  %9282 = load ptr, ptr %9281, align 8, !tbaa !114
-  call void %9282(ptr noundef nonnull %9268) #15
-  br label %9283
-
-9283:                                             ; preds = %9276, %9279, %9273
+9280:                                             ; preds = %9273, %9276, %9270
   %.not9648 = icmp eq i32 %.09005, 0
-  br i1 %.not9648, label %9284, label %.loopexit10902
+  br i1 %.not9648, label %9281, label %.loopexit10904
 
-9284:                                             ; preds = %9283
-  %9285 = getelementptr i8, ptr %9274, i64 -8
-  %9286 = load i16, ptr %9239, align 2, !tbaa !143
-  %.sroa.2396.0.extract.shift = lshr i16 %9286, 8
+9281:                                             ; preds = %9280
+  %9282 = getelementptr i8, ptr %9271, i64 -8
+  %9283 = load i16, ptr %9236, align 2, !tbaa !143
+  %.sroa.2396.0.extract.shift = lshr i16 %9283, 8
   %.sroa.2396.0.extract.trunc = zext nneg i16 %.sroa.2396.0.extract.shift to i32
-  %9287 = and i16 %9286, 255
-  %9288 = zext nneg i16 %9287 to i64
+  %9284 = and i16 %9283, 255
+  %9285 = zext nneg i16 %9284 to i64
   br label %.backedge.backedge
 
-9289:                                             ; preds = %.backedge
-  %9290 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9290, align 8, !tbaa !133
-  %9291 = getelementptr i8, ptr %.28893, i64 2
-  %9292 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0389.0.copyload = load i64, ptr %9292, align 8, !tbaa !113
-  %9293 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0390.0.copyload = load i64, ptr %9293, align 8, !tbaa !113
-  %9294 = getelementptr i8, ptr %.28898, i64 -24
-  %.sroa.0391.0.copyload = load i64, ptr %9294, align 8, !tbaa !113
-  %9295 = getelementptr i8, ptr %.28898, i64 -32
-  %.sroa.0393.0.copyload = load i64, ptr %9295, align 8, !tbaa !113
-  %9296 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9296, align 8, !tbaa !136
-  %9297 = inttoptr i64 %.sroa.0390.0.copyload to ptr
-  %9298 = inttoptr i64 %.sroa.0389.0.copyload to ptr
-  %9299 = call ptr @_PyBuildSlice_ConsumeRefs(ptr noundef %9297, ptr noundef %9298) #15
-  %9300 = load ptr, ptr %9296, align 8, !tbaa !136
-  store ptr null, ptr %9296, align 8, !tbaa !136
-  %9301 = icmp eq ptr %9299, null
-  br i1 %9301, label %._crit_edge12587, label %9302
+9286:                                             ; preds = %.backedge
+  %9287 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9287, align 8, !tbaa !133
+  %9288 = getelementptr i8, ptr %.28893, i64 2
+  %9289 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0389.0.copyload = load i64, ptr %9289, align 8, !tbaa !113
+  %9290 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0390.0.copyload = load i64, ptr %9290, align 8, !tbaa !113
+  %9291 = getelementptr i8, ptr %.28898, i64 -24
+  %.sroa.0391.0.copyload = load i64, ptr %9291, align 8, !tbaa !113
+  %9292 = getelementptr i8, ptr %.28898, i64 -32
+  %.sroa.0393.0.copyload = load i64, ptr %9292, align 8, !tbaa !113
+  %9293 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9293, align 8, !tbaa !136
+  %9294 = inttoptr i64 %.sroa.0390.0.copyload to ptr
+  %9295 = inttoptr i64 %.sroa.0389.0.copyload to ptr
+  %9296 = call ptr @_PyBuildSlice_ConsumeRefs(ptr noundef %9294, ptr noundef %9295) #15
+  %9297 = load ptr, ptr %9293, align 8, !tbaa !136
+  store ptr null, ptr %9293, align 8, !tbaa !136
+  %9298 = icmp eq ptr %9296, null
+  br i1 %9298, label %._crit_edge12590, label %9299
 
-._crit_edge12587:                                 ; preds = %9289
-  %.pre12591 = inttoptr i64 %.sroa.0393.0.copyload to ptr
-  br label %9319
+._crit_edge12590:                                 ; preds = %9286
+  %.pre12594 = inttoptr i64 %.sroa.0393.0.copyload to ptr
+  br label %9316
 
-9302:                                             ; preds = %9289
-  %9303 = getelementptr i8, ptr %9300, i64 -16
-  store ptr %9303, ptr %9296, align 8, !tbaa !136
-  %9304 = inttoptr i64 %.sroa.0391.0.copyload to ptr
-  %9305 = inttoptr i64 %.sroa.0393.0.copyload to ptr
-  %9306 = call i32 @PyObject_SetItem(ptr noundef %9304, ptr noundef nonnull %9299, ptr noundef %9305) #15
-  %9307 = load i32, ptr %9299, align 8, !tbaa !113
-  %.not9762 = icmp sgt i32 %9307, -1
-  br i1 %.not9762, label %9308, label %9315
+9299:                                             ; preds = %9286
+  %9300 = getelementptr i8, ptr %9297, i64 -16
+  store ptr %9300, ptr %9293, align 8, !tbaa !136
+  %9301 = inttoptr i64 %.sroa.0391.0.copyload to ptr
+  %9302 = inttoptr i64 %.sroa.0393.0.copyload to ptr
+  %9303 = call i32 @PyObject_SetItem(ptr noundef %9301, ptr noundef nonnull %9296, ptr noundef %9302) #15
+  %9304 = load i32, ptr %9296, align 8, !tbaa !113
+  %.not9762 = icmp sgt i32 %9304, -1
+  br i1 %.not9762, label %9305, label %9312
 
-9308:                                             ; preds = %9302
-  %9309 = add nsw i32 %9307, -1
-  store i32 %9309, ptr %9299, align 8, !tbaa !113
-  %9310 = icmp eq i32 %9309, 0
-  br i1 %9310, label %9311, label %9315
+9305:                                             ; preds = %9299
+  %9306 = add nsw i32 %9304, -1
+  store i32 %9306, ptr %9296, align 8, !tbaa !113
+  %9307 = icmp eq i32 %9306, 0
+  br i1 %9307, label %9308, label %9312
 
-9311:                                             ; preds = %9308
-  %9312 = getelementptr i8, ptr %9299, i64 8
-  %.val10144 = load ptr, ptr %9312, align 8, !tbaa !103
-  %9313 = getelementptr inbounds nuw i8, ptr %.val10144, i64 48
-  %9314 = load ptr, ptr %9313, align 8, !tbaa !114
-  call void %9314(ptr noundef nonnull %9299) #15
-  br label %9315
+9308:                                             ; preds = %9305
+  %9309 = getelementptr i8, ptr %9296, i64 8
+  %.val10144 = load ptr, ptr %9309, align 8, !tbaa !103
+  %9310 = getelementptr inbounds nuw i8, ptr %.val10144, i64 48
+  %9311 = load ptr, ptr %9310, align 8, !tbaa !114
+  call void %9311(ptr noundef nonnull %9296) #15
+  br label %9312
 
-9315:                                             ; preds = %9308, %9311, %9302
-  %9316 = load ptr, ptr %9296, align 8, !tbaa !136
-  store ptr null, ptr %9296, align 8, !tbaa !136
-  %9317 = getelementptr i8, ptr %9316, i64 16
-  %9318 = icmp eq i32 %9306, 0
-  br label %9319
+9312:                                             ; preds = %9305, %9308, %9299
+  %9313 = load ptr, ptr %9293, align 8, !tbaa !136
+  store ptr null, ptr %9293, align 8, !tbaa !136
+  %9314 = getelementptr i8, ptr %9313, i64 16
+  %9315 = icmp eq i32 %9303, 0
+  br label %9316
 
-9319:                                             ; preds = %._crit_edge12587, %9315
-  %.pre-phi12592 = phi ptr [ %.pre12591, %._crit_edge12587 ], [ %9305, %9315 ]
-  %.09006 = phi i1 [ false, %._crit_edge12587 ], [ %9318, %9315 ]
-  %.84 = phi ptr [ %9300, %._crit_edge12587 ], [ %9317, %9315 ]
-  %9320 = load i32, ptr %.pre-phi12592, align 8, !tbaa !113
-  %.not9763 = icmp sgt i32 %9320, -1
-  br i1 %.not9763, label %9321, label %9328
+9316:                                             ; preds = %._crit_edge12590, %9312
+  %.pre-phi12595 = phi ptr [ %.pre12594, %._crit_edge12590 ], [ %9302, %9312 ]
+  %.09006 = phi i1 [ false, %._crit_edge12590 ], [ %9315, %9312 ]
+  %.84 = phi ptr [ %9297, %._crit_edge12590 ], [ %9314, %9312 ]
+  %9317 = load i32, ptr %.pre-phi12595, align 8, !tbaa !113
+  %.not9763 = icmp sgt i32 %9317, -1
+  br i1 %.not9763, label %9318, label %9325
 
-9321:                                             ; preds = %9319
-  %9322 = add nsw i32 %9320, -1
-  store i32 %9322, ptr %.pre-phi12592, align 8, !tbaa !113
-  %9323 = icmp eq i32 %9322, 0
-  br i1 %9323, label %9324, label %9328
+9318:                                             ; preds = %9316
+  %9319 = add nsw i32 %9317, -1
+  store i32 %9319, ptr %.pre-phi12595, align 8, !tbaa !113
+  %9320 = icmp eq i32 %9319, 0
+  br i1 %9320, label %9321, label %9325
 
-9324:                                             ; preds = %9321
-  %9325 = getelementptr i8, ptr %.pre-phi12592, i64 8
-  %.val10143 = load ptr, ptr %9325, align 8, !tbaa !103
-  %9326 = getelementptr inbounds nuw i8, ptr %.val10143, i64 48
-  %9327 = load ptr, ptr %9326, align 8, !tbaa !114
-  call void %9327(ptr noundef nonnull %.pre-phi12592) #15
-  br label %9328
+9321:                                             ; preds = %9318
+  %9322 = getelementptr i8, ptr %.pre-phi12595, i64 8
+  %.val10143 = load ptr, ptr %9322, align 8, !tbaa !103
+  %9323 = getelementptr inbounds nuw i8, ptr %.val10143, i64 48
+  %9324 = load ptr, ptr %9323, align 8, !tbaa !114
+  call void %9324(ptr noundef nonnull %.pre-phi12595) #15
+  br label %9325
 
-9328:                                             ; preds = %9319, %9324, %9321
-  %9329 = inttoptr i64 %.sroa.0391.0.copyload to ptr
-  %9330 = load i32, ptr %9329, align 8, !tbaa !113
-  %.not9764 = icmp sgt i32 %9330, -1
-  br i1 %.not9764, label %9331, label %9338
+9325:                                             ; preds = %9316, %9321, %9318
+  %9326 = inttoptr i64 %.sroa.0391.0.copyload to ptr
+  %9327 = load i32, ptr %9326, align 8, !tbaa !113
+  %.not9764 = icmp sgt i32 %9327, -1
+  br i1 %.not9764, label %9328, label %9335
+
+9328:                                             ; preds = %9325
+  %9329 = add nsw i32 %9327, -1
+  store i32 %9329, ptr %9326, align 8, !tbaa !113
+  %9330 = icmp eq i32 %9329, 0
+  br i1 %9330, label %9331, label %9335
 
 9331:                                             ; preds = %9328
-  %9332 = add nsw i32 %9330, -1
-  store i32 %9332, ptr %9329, align 8, !tbaa !113
-  %9333 = icmp eq i32 %9332, 0
-  br i1 %9333, label %9334, label %9338
+  %9332 = getelementptr i8, ptr %9326, i64 8
+  %.val10142 = load ptr, ptr %9332, align 8, !tbaa !103
+  %9333 = getelementptr inbounds nuw i8, ptr %.val10142, i64 48
+  %9334 = load ptr, ptr %9333, align 8, !tbaa !114
+  call void %9334(ptr noundef nonnull %9326) #15
+  br label %9335
 
-9334:                                             ; preds = %9331
-  %9335 = getelementptr i8, ptr %9329, i64 8
-  %.val10142 = load ptr, ptr %9335, align 8, !tbaa !103
-  %9336 = getelementptr inbounds nuw i8, ptr %.val10142, i64 48
-  %9337 = load ptr, ptr %9336, align 8, !tbaa !114
-  call void %9337(ptr noundef nonnull %9329) #15
-  br label %9338
+9335:                                             ; preds = %9328, %9331, %9325
+  %9336 = getelementptr i8, ptr %.84, i64 -32
+  br i1 %.09006, label %9337, label %monitor_throw.exit.loopexit
 
-9338:                                             ; preds = %9331, %9334, %9328
-  %9339 = getelementptr i8, ptr %.84, i64 -32
-  br i1 %.09006, label %9340, label %monitor_throw.exit.loopexit
-
-9340:                                             ; preds = %9338
-  %9341 = load i16, ptr %9291, align 2, !tbaa !143
-  %.sroa.2369.0.extract.shift = lshr i16 %9341, 8
+9337:                                             ; preds = %9335
+  %9338 = load i16, ptr %9288, align 2, !tbaa !143
+  %.sroa.2369.0.extract.shift = lshr i16 %9338, 8
   %.sroa.2369.0.extract.trunc = zext nneg i16 %.sroa.2369.0.extract.shift to i32
-  %9342 = and i16 %9341, 255
-  %9343 = zext nneg i16 %9342 to i64
+  %9339 = and i16 %9338, 255
+  %9340 = zext nneg i16 %9339 to i64
   br label %.backedge.backedge
 
-9344:                                             ; preds = %.backedge
-  %9345 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9345, align 8, !tbaa !133
-  %9346 = getelementptr i8, ptr %.28893, i64 4
-  %.phi.trans.insert12577 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0361.0.copyload.pre = load i64, ptr %.phi.trans.insert12577, align 8, !tbaa !113
-  br label %9347
+9341:                                             ; preds = %.backedge
+  %9342 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9342, align 8, !tbaa !133
+  %9343 = getelementptr i8, ptr %.28893, i64 4
+  %.phi.trans.insert12580 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0361.0.copyload.pre = load i64, ptr %.phi.trans.insert12580, align 8, !tbaa !113
+  br label %9344
 
-9347:                                             ; preds = %9446, %9442, %9438, %9427, %9397, %9344
-  %.sroa.0361.0.copyload = phi i64 [ %.sroa.0361.0.copyload.pre, %9344 ], [ %.sroa.0332.0.copyload, %9397 ], [ %.sroa.0318.0.copyload, %9446 ], [ %.sroa.0318.0.copyload, %9442 ], [ %.sroa.0318.0.copyload, %9438 ], [ %.sroa.0318.0.copyload, %9427 ]
-  %.31 = phi ptr [ %9346, %9344 ], [ %9399, %9397 ], [ %9429, %9446 ], [ %9429, %9442 ], [ %9429, %9438 ], [ %9429, %9427 ]
-  %9348 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0358.0.copyload = load i64, ptr %9348, align 8, !tbaa !113
-  %9349 = getelementptr i8, ptr %.28893, i64 2
-  %.val10501 = load i16, ptr %9349, align 2, !tbaa !143
-  %9350 = icmp ult i16 %.val10501, 15
-  br i1 %9350, label %9351, label %9356
+9344:                                             ; preds = %9443, %9439, %9435, %9424, %9394, %9341
+  %.sroa.0361.0.copyload = phi i64 [ %.sroa.0361.0.copyload.pre, %9341 ], [ %.sroa.0332.0.copyload, %9394 ], [ %.sroa.0318.0.copyload, %9443 ], [ %.sroa.0318.0.copyload, %9439 ], [ %.sroa.0318.0.copyload, %9435 ], [ %.sroa.0318.0.copyload, %9424 ]
+  %.31 = phi ptr [ %9343, %9341 ], [ %9396, %9394 ], [ %9426, %9443 ], [ %9426, %9439 ], [ %9426, %9435 ], [ %9426, %9424 ]
+  %9345 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0358.0.copyload = load i64, ptr %9345, align 8, !tbaa !113
+  %9346 = getelementptr i8, ptr %.28893, i64 2
+  %.val10501 = load i16, ptr %9346, align 2, !tbaa !143
+  %9347 = icmp ult i16 %.val10501, 15
+  br i1 %9347, label %9348, label %9353
 
-9351:                                             ; preds = %9347
-  %9352 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9352, align 8, !tbaa !136
+9348:                                             ; preds = %9344
+  %9349 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9349, align 8, !tbaa !136
   call void @_Py_Specialize_StoreSubscr(i64 %.sroa.0361.0.copyload, i64 %.sroa.0358.0.copyload, ptr noundef nonnull %.28893) #15
-  %9353 = load ptr, ptr %9352, align 8, !tbaa !136
-  store ptr null, ptr %9352, align 8, !tbaa !136
-  %9354 = load i8, ptr %.28893, align 2, !tbaa !113
-  %9355 = zext i8 %9354 to i64
+  %9350 = load ptr, ptr %9349, align 8, !tbaa !136
+  store ptr null, ptr %9349, align 8, !tbaa !136
+  %9351 = load i8, ptr %.28893, align 2, !tbaa !113
+  %9352 = zext i8 %9351 to i64
   br label %.backedge.backedge
 
-9356:                                             ; preds = %9347
-  %9357 = add i16 %.val10501, -16
-  store i16 %9357, ptr %9349, align 2, !tbaa !143
-  %9358 = getelementptr i8, ptr %.28898, i64 -24
-  %.sroa.0356.0.copyload = load i64, ptr %9358, align 8, !tbaa !113
-  %9359 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9359, align 8, !tbaa !136
-  %9360 = inttoptr i64 %.sroa.0361.0.copyload to ptr
-  %9361 = inttoptr i64 %.sroa.0358.0.copyload to ptr
-  %9362 = inttoptr i64 %.sroa.0356.0.copyload to ptr
-  %9363 = call i32 @PyObject_SetItem(ptr noundef %9360, ptr noundef %9361, ptr noundef %9362) #15
-  %9364 = load ptr, ptr %9359, align 8, !tbaa !136
-  store ptr null, ptr %9359, align 8, !tbaa !136
-  %9365 = load i32, ptr %9362, align 8, !tbaa !113
-  %.not9758 = icmp sgt i32 %9365, -1
-  br i1 %.not9758, label %9366, label %9373
+9353:                                             ; preds = %9344
+  %9354 = add i16 %.val10501, -16
+  store i16 %9354, ptr %9346, align 2, !tbaa !143
+  %9355 = getelementptr i8, ptr %.28898, i64 -24
+  %.sroa.0356.0.copyload = load i64, ptr %9355, align 8, !tbaa !113
+  %9356 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9356, align 8, !tbaa !136
+  %9357 = inttoptr i64 %.sroa.0361.0.copyload to ptr
+  %9358 = inttoptr i64 %.sroa.0358.0.copyload to ptr
+  %9359 = inttoptr i64 %.sroa.0356.0.copyload to ptr
+  %9360 = call i32 @PyObject_SetItem(ptr noundef %9357, ptr noundef %9358, ptr noundef %9359) #15
+  %9361 = load ptr, ptr %9356, align 8, !tbaa !136
+  store ptr null, ptr %9356, align 8, !tbaa !136
+  %9362 = load i32, ptr %9359, align 8, !tbaa !113
+  %.not9758 = icmp sgt i32 %9362, -1
+  br i1 %.not9758, label %9363, label %9370
 
-9366:                                             ; preds = %9356
-  %9367 = add nsw i32 %9365, -1
-  store i32 %9367, ptr %9362, align 8, !tbaa !113
-  %9368 = icmp eq i32 %9367, 0
-  br i1 %9368, label %9369, label %9373
+9363:                                             ; preds = %9353
+  %9364 = add nsw i32 %9362, -1
+  store i32 %9364, ptr %9359, align 8, !tbaa !113
+  %9365 = icmp eq i32 %9364, 0
+  br i1 %9365, label %9366, label %9370
 
-9369:                                             ; preds = %9366
-  %9370 = getelementptr i8, ptr %9362, i64 8
-  %.val10141 = load ptr, ptr %9370, align 8, !tbaa !103
-  %9371 = getelementptr inbounds nuw i8, ptr %.val10141, i64 48
-  %9372 = load ptr, ptr %9371, align 8, !tbaa !114
-  call void %9372(ptr noundef nonnull %9362) #15
-  br label %9373
+9366:                                             ; preds = %9363
+  %9367 = getelementptr i8, ptr %9359, i64 8
+  %.val10141 = load ptr, ptr %9367, align 8, !tbaa !103
+  %9368 = getelementptr inbounds nuw i8, ptr %.val10141, i64 48
+  %9369 = load ptr, ptr %9368, align 8, !tbaa !114
+  call void %9369(ptr noundef nonnull %9359) #15
+  br label %9370
 
-9373:                                             ; preds = %9356, %9369, %9366
-  %9374 = load i32, ptr %9360, align 8, !tbaa !113
-  %.not9759 = icmp sgt i32 %9374, -1
-  br i1 %.not9759, label %9375, label %9382
+9370:                                             ; preds = %9353, %9366, %9363
+  %9371 = load i32, ptr %9357, align 8, !tbaa !113
+  %.not9759 = icmp sgt i32 %9371, -1
+  br i1 %.not9759, label %9372, label %9379
 
-9375:                                             ; preds = %9373
-  %9376 = add nsw i32 %9374, -1
-  store i32 %9376, ptr %9360, align 8, !tbaa !113
-  %9377 = icmp eq i32 %9376, 0
-  br i1 %9377, label %9378, label %9382
+9372:                                             ; preds = %9370
+  %9373 = add nsw i32 %9371, -1
+  store i32 %9373, ptr %9357, align 8, !tbaa !113
+  %9374 = icmp eq i32 %9373, 0
+  br i1 %9374, label %9375, label %9379
 
-9378:                                             ; preds = %9375
-  %9379 = getelementptr i8, ptr %9360, i64 8
-  %.val10140 = load ptr, ptr %9379, align 8, !tbaa !103
-  %9380 = getelementptr inbounds nuw i8, ptr %.val10140, i64 48
-  %9381 = load ptr, ptr %9380, align 8, !tbaa !114
-  call void %9381(ptr noundef nonnull %9360) #15
-  br label %9382
+9375:                                             ; preds = %9372
+  %9376 = getelementptr i8, ptr %9357, i64 8
+  %.val10140 = load ptr, ptr %9376, align 8, !tbaa !103
+  %9377 = getelementptr inbounds nuw i8, ptr %.val10140, i64 48
+  %9378 = load ptr, ptr %9377, align 8, !tbaa !114
+  call void %9378(ptr noundef nonnull %9357) #15
+  br label %9379
 
-9382:                                             ; preds = %9373, %9378, %9375
-  %9383 = load i32, ptr %9361, align 8, !tbaa !113
-  %.not9760 = icmp sgt i32 %9383, -1
-  br i1 %.not9760, label %9384, label %9391
+9379:                                             ; preds = %9370, %9375, %9372
+  %9380 = load i32, ptr %9358, align 8, !tbaa !113
+  %.not9760 = icmp sgt i32 %9380, -1
+  br i1 %.not9760, label %9381, label %9388
 
-9384:                                             ; preds = %9382
-  %9385 = add nsw i32 %9383, -1
-  store i32 %9385, ptr %9361, align 8, !tbaa !113
-  %9386 = icmp eq i32 %9385, 0
-  br i1 %9386, label %9387, label %9391
+9381:                                             ; preds = %9379
+  %9382 = add nsw i32 %9380, -1
+  store i32 %9382, ptr %9358, align 8, !tbaa !113
+  %9383 = icmp eq i32 %9382, 0
+  br i1 %9383, label %9384, label %9388
 
-9387:                                             ; preds = %9384
-  %9388 = getelementptr i8, ptr %9361, i64 8
-  %.val10139 = load ptr, ptr %9388, align 8, !tbaa !103
-  %9389 = getelementptr inbounds nuw i8, ptr %.val10139, i64 48
-  %9390 = load ptr, ptr %9389, align 8, !tbaa !114
-  call void %9390(ptr noundef nonnull %9361) #15
-  br label %9391
+9384:                                             ; preds = %9381
+  %9385 = getelementptr i8, ptr %9358, i64 8
+  %.val10139 = load ptr, ptr %9385, align 8, !tbaa !103
+  %9386 = getelementptr inbounds nuw i8, ptr %.val10139, i64 48
+  %9387 = load ptr, ptr %9386, align 8, !tbaa !114
+  call void %9387(ptr noundef nonnull %9358) #15
+  br label %9388
 
-9391:                                             ; preds = %9384, %9387, %9382
-  %.not9761 = icmp eq i32 %9363, 0
-  br i1 %.not9761, label %9392, label %.loopexit10900
+9388:                                             ; preds = %9381, %9384, %9379
+  %.not9761 = icmp eq i32 %9360, 0
+  br i1 %.not9761, label %9389, label %.loopexit10902
 
-9392:                                             ; preds = %9391
-  %9393 = getelementptr i8, ptr %9364, i64 -24
-  %9394 = load i16, ptr %.31, align 2, !tbaa !143
-  %.sroa.2336.0.extract.shift = lshr i16 %9394, 8
+9389:                                             ; preds = %9388
+  %9390 = getelementptr i8, ptr %9361, i64 -24
+  %9391 = load i16, ptr %.31, align 2, !tbaa !143
+  %.sroa.2336.0.extract.shift = lshr i16 %9391, 8
   %.sroa.2336.0.extract.trunc = zext nneg i16 %.sroa.2336.0.extract.shift to i32
-  %9395 = and i16 %9394, 255
-  %9396 = zext nneg i16 %9395 to i64
+  %9392 = and i16 %9391, 255
+  %9393 = zext nneg i16 %9392 to i64
   br label %.backedge.backedge
 
-9397:                                             ; preds = %.backedge
-  %9398 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9398, align 8, !tbaa !133
-  %9399 = getelementptr i8, ptr %.28893, i64 4
-  %9400 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0332.0.copyload = load i64, ptr %9400, align 8, !tbaa !113
-  %9401 = inttoptr i64 %.sroa.0332.0.copyload to ptr
-  %9402 = getelementptr inbounds nuw i8, ptr %9401, i64 8
-  %9403 = load ptr, ptr %9402, align 8, !tbaa !103
-  %9404 = icmp eq ptr %9403, @PyDict_Type
-  br i1 %9404, label %9405, label %9347
+9394:                                             ; preds = %.backedge
+  %9395 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9395, align 8, !tbaa !133
+  %9396 = getelementptr i8, ptr %.28893, i64 4
+  %9397 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0332.0.copyload = load i64, ptr %9397, align 8, !tbaa !113
+  %9398 = inttoptr i64 %.sroa.0332.0.copyload to ptr
+  %9399 = getelementptr inbounds nuw i8, ptr %9398, i64 8
+  %9400 = load ptr, ptr %9399, align 8, !tbaa !103
+  %9401 = icmp eq ptr %9400, @PyDict_Type
+  br i1 %9401, label %9402, label %9344
 
-9405:                                             ; preds = %9397
-  %9406 = getelementptr i8, ptr %.28898, i64 -24
-  %.sroa.0334.0.copyload = load i64, ptr %9406, align 8, !tbaa !113
-  %9407 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0331.0.copyload = load i64, ptr %9407, align 8, !tbaa !113
-  %9408 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9408, align 8, !tbaa !136
-  %9409 = inttoptr i64 %.sroa.0331.0.copyload to ptr
-  %9410 = inttoptr i64 %.sroa.0334.0.copyload to ptr
-  %9411 = call i32 @_PyDict_SetItem_Take2(ptr noundef nonnull %9401, ptr noundef %9409, ptr noundef %9410) #15
-  %9412 = load ptr, ptr %9408, align 8, !tbaa !136
-  %9413 = getelementptr i8, ptr %9412, i64 -24
-  store ptr %9413, ptr %9408, align 8, !tbaa !136
-  %9414 = load i32, ptr %9401, align 8, !tbaa !113
-  %.not9275 = icmp sgt i32 %9414, -1
-  br i1 %.not9275, label %9415, label %9421
+9402:                                             ; preds = %9394
+  %9403 = getelementptr i8, ptr %.28898, i64 -24
+  %.sroa.0334.0.copyload = load i64, ptr %9403, align 8, !tbaa !113
+  %9404 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0331.0.copyload = load i64, ptr %9404, align 8, !tbaa !113
+  %9405 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9405, align 8, !tbaa !136
+  %9406 = inttoptr i64 %.sroa.0331.0.copyload to ptr
+  %9407 = inttoptr i64 %.sroa.0334.0.copyload to ptr
+  %9408 = call i32 @_PyDict_SetItem_Take2(ptr noundef nonnull %9398, ptr noundef %9406, ptr noundef %9407) #15
+  %9409 = load ptr, ptr %9405, align 8, !tbaa !136
+  %9410 = getelementptr i8, ptr %9409, i64 -24
+  store ptr %9410, ptr %9405, align 8, !tbaa !136
+  %9411 = load i32, ptr %9398, align 8, !tbaa !113
+  %.not9275 = icmp sgt i32 %9411, -1
+  br i1 %.not9275, label %9412, label %9418
 
-9415:                                             ; preds = %9405
-  %9416 = add nsw i32 %9414, -1
-  store i32 %9416, ptr %9401, align 8, !tbaa !113
-  %9417 = icmp eq i32 %9416, 0
-  br i1 %9417, label %9418, label %9421
+9412:                                             ; preds = %9402
+  %9413 = add nsw i32 %9411, -1
+  store i32 %9413, ptr %9398, align 8, !tbaa !113
+  %9414 = icmp eq i32 %9413, 0
+  br i1 %9414, label %9415, label %9418
 
-9418:                                             ; preds = %9415
-  %.val10138 = load ptr, ptr %9402, align 8, !tbaa !103
-  %9419 = getelementptr inbounds nuw i8, ptr %.val10138, i64 48
-  %9420 = load ptr, ptr %9419, align 8, !tbaa !114
-  call void %9420(ptr noundef nonnull %9401) #15
-  br label %9421
+9415:                                             ; preds = %9412
+  %.val10138 = load ptr, ptr %9399, align 8, !tbaa !103
+  %9416 = getelementptr inbounds nuw i8, ptr %.val10138, i64 48
+  %9417 = load ptr, ptr %9416, align 8, !tbaa !114
+  call void %9417(ptr noundef nonnull %9398) #15
+  br label %9418
 
-9421:                                             ; preds = %9415, %9418, %9405
-  %9422 = load ptr, ptr %9408, align 8, !tbaa !136
-  store ptr null, ptr %9408, align 8, !tbaa !136
-  %.not9276 = icmp eq i32 %9411, 0
-  br i1 %.not9276, label %9423, label %monitor_throw.exit.loopexit
+9418:                                             ; preds = %9412, %9415, %9402
+  %9419 = load ptr, ptr %9405, align 8, !tbaa !136
+  store ptr null, ptr %9405, align 8, !tbaa !136
+  %.not9276 = icmp eq i32 %9408, 0
+  br i1 %.not9276, label %9420, label %monitor_throw.exit.loopexit
 
-9423:                                             ; preds = %9421
-  %9424 = load i16, ptr %9399, align 2, !tbaa !143
-  %.sroa.2322.0.extract.shift = lshr i16 %9424, 8
+9420:                                             ; preds = %9418
+  %9421 = load i16, ptr %9396, align 2, !tbaa !143
+  %.sroa.2322.0.extract.shift = lshr i16 %9421, 8
   %.sroa.2322.0.extract.trunc = zext nneg i16 %.sroa.2322.0.extract.shift to i32
-  %9425 = and i16 %9424, 255
-  %9426 = zext nneg i16 %9425 to i64
+  %9422 = and i16 %9421, 255
+  %9423 = zext nneg i16 %9422 to i64
   br label %.backedge.backedge
 
-9427:                                             ; preds = %.backedge
-  %9428 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9428, align 8, !tbaa !133
-  %9429 = getelementptr i8, ptr %.28893, i64 4
-  %9430 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0316.0.copyload = load i64, ptr %9430, align 8, !tbaa !113
-  %9431 = getelementptr i8, ptr %.28898, i64 -16
-  %.sroa.0318.0.copyload = load i64, ptr %9431, align 8, !tbaa !113
-  %9432 = getelementptr i8, ptr %.28898, i64 -24
-  %.sroa.0320.0.copyload = load i64, ptr %9432, align 8, !tbaa !113
-  %9433 = inttoptr i64 %.sroa.0316.0.copyload to ptr
-  %9434 = inttoptr i64 %.sroa.0318.0.copyload to ptr
-  %9435 = getelementptr inbounds nuw i8, ptr %9433, i64 8
-  %9436 = load ptr, ptr %9435, align 8, !tbaa !103
-  %9437 = icmp eq ptr %9436, @PyLong_Type
-  br i1 %9437, label %9438, label %9347
+9424:                                             ; preds = %.backedge
+  %9425 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9425, align 8, !tbaa !133
+  %9426 = getelementptr i8, ptr %.28893, i64 4
+  %9427 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0316.0.copyload = load i64, ptr %9427, align 8, !tbaa !113
+  %9428 = getelementptr i8, ptr %.28898, i64 -16
+  %.sroa.0318.0.copyload = load i64, ptr %9428, align 8, !tbaa !113
+  %9429 = getelementptr i8, ptr %.28898, i64 -24
+  %.sroa.0320.0.copyload = load i64, ptr %9429, align 8, !tbaa !113
+  %9430 = inttoptr i64 %.sroa.0316.0.copyload to ptr
+  %9431 = inttoptr i64 %.sroa.0318.0.copyload to ptr
+  %9432 = getelementptr inbounds nuw i8, ptr %9430, i64 8
+  %9433 = load ptr, ptr %9432, align 8, !tbaa !103
+  %9434 = icmp eq ptr %9433, @PyLong_Type
+  br i1 %9434, label %9435, label %9344
 
-9438:                                             ; preds = %9427
-  %9439 = getelementptr inbounds nuw i8, ptr %9434, i64 8
-  %9440 = load ptr, ptr %9439, align 8, !tbaa !103
-  %9441 = icmp eq ptr %9440, @PyList_Type
-  br i1 %9441, label %9442, label %9347
+9435:                                             ; preds = %9424
+  %9436 = getelementptr inbounds nuw i8, ptr %9431, i64 8
+  %9437 = load ptr, ptr %9436, align 8, !tbaa !103
+  %9438 = icmp eq ptr %9437, @PyList_Type
+  br i1 %9438, label %9439, label %9344
 
-9442:                                             ; preds = %9438
-  %9443 = getelementptr i8, ptr %9433, i64 16
-  %.val10528 = load i64, ptr %9443, align 8, !tbaa !177
-  %9444 = and i64 %.val10528, -5
-  %9445 = icmp ugt i64 %9444, 8
-  br i1 %9445, label %9347, label %9446
+9439:                                             ; preds = %9435
+  %9440 = getelementptr i8, ptr %9430, i64 16
+  %.val10528 = load i64, ptr %9440, align 8, !tbaa !177
+  %9441 = and i64 %.val10528, -5
+  %9442 = icmp ugt i64 %9441, 8
+  br i1 %9442, label %9344, label %9443
 
-9446:                                             ; preds = %9442
-  %9447 = getelementptr inbounds nuw i8, ptr %9433, i64 24
-  %9448 = load i32, ptr %9447, align 8, !tbaa !180
-  %9449 = zext i32 %9448 to i64
-  %9450 = getelementptr i8, ptr %9434, i64 16
-  %.val10433 = load i64, ptr %9450, align 8, !tbaa !101
-  %.not9270 = icmp sgt i64 %.val10433, %9449
-  br i1 %.not9270, label %9451, label %9347
+9443:                                             ; preds = %9439
+  %9444 = getelementptr inbounds nuw i8, ptr %9430, i64 24
+  %9445 = load i32, ptr %9444, align 8, !tbaa !180
+  %9446 = zext i32 %9445 to i64
+  %9447 = getelementptr i8, ptr %9431, i64 16
+  %.val10433 = load i64, ptr %9447, align 8, !tbaa !101
+  %.not9270 = icmp sgt i64 %.val10433, %9446
+  br i1 %.not9270, label %9448, label %9344
 
-9451:                                             ; preds = %9446
-  %9452 = getelementptr inbounds nuw i8, ptr %9434, i64 24
-  %9453 = load ptr, ptr %9452, align 8, !tbaa !181
-  %9454 = getelementptr ptr, ptr %9453, i64 %9449
-  %9455 = load ptr, ptr %9454, align 8, !tbaa !100
-  %9456 = inttoptr i64 %.sroa.0320.0.copyload to ptr
-  store ptr %9456, ptr %9454, align 8, !tbaa !100
-  %9457 = load i32, ptr %9433, align 8, !tbaa !113
-  %.not9271 = icmp sgt i32 %9457, -1
-  br i1 %.not9271, label %9458, label %9467
+9448:                                             ; preds = %9443
+  %9449 = getelementptr inbounds nuw i8, ptr %9431, i64 24
+  %9450 = load ptr, ptr %9449, align 8, !tbaa !181
+  %9451 = getelementptr ptr, ptr %9450, i64 %9446
+  %9452 = load ptr, ptr %9451, align 8, !tbaa !100
+  %9453 = inttoptr i64 %.sroa.0320.0.copyload to ptr
+  store ptr %9453, ptr %9451, align 8, !tbaa !100
+  %9454 = load i32, ptr %9430, align 8, !tbaa !113
+  %.not9271 = icmp sgt i32 %9454, -1
+  br i1 %.not9271, label %9455, label %9464
 
-9458:                                             ; preds = %9451
-  %9459 = add nsw i32 %9457, -1
-  store i32 %9459, ptr %9433, align 8, !tbaa !113
-  %9460 = icmp eq i32 %9459, 0
-  br i1 %9460, label %9461, label %9467
+9455:                                             ; preds = %9448
+  %9456 = add nsw i32 %9454, -1
+  store i32 %9456, ptr %9430, align 8, !tbaa !113
+  %9457 = icmp eq i32 %9456, 0
+  br i1 %9457, label %9458, label %9464
 
-9461:                                             ; preds = %9458
-  %9462 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10384), align 8, !tbaa !148
-  %.not9272 = icmp eq ptr %9462, null
-  br i1 %.not9272, label %9466, label %9463
+9458:                                             ; preds = %9455
+  %9459 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10384), align 8, !tbaa !148
+  %.not9272 = icmp eq ptr %9459, null
+  br i1 %.not9272, label %9463, label %9460
 
-9463:                                             ; preds = %9461
-  %9464 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10392), align 8, !tbaa !150
-  %9465 = call i32 %9462(ptr noundef nonnull %9433, i32 noundef 1, ptr noundef %9464) #15
-  br label %9466
+9460:                                             ; preds = %9458
+  %9461 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10392), align 8, !tbaa !150
+  %9462 = call i32 %9459(ptr noundef nonnull %9430, i32 noundef 1, ptr noundef %9461) #15
+  br label %9463
 
-9466:                                             ; preds = %9461, %9463
-  call void @_PyLong_ExactDealloc(ptr noundef nonnull %9433) #15
-  br label %9467
+9463:                                             ; preds = %9458, %9460
+  call void @_PyLong_ExactDealloc(ptr noundef nonnull %9430) #15
+  br label %9464
 
-9467:                                             ; preds = %9458, %9466, %9451
-  %9468 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %9432, ptr %9468, align 8, !tbaa !136
-  %9469 = load i32, ptr %9434, align 8, !tbaa !113
-  %.not9273 = icmp sgt i32 %9469, -1
-  br i1 %.not9273, label %9470, label %9476
+9464:                                             ; preds = %9455, %9463, %9448
+  %9465 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %9429, ptr %9465, align 8, !tbaa !136
+  %9466 = load i32, ptr %9431, align 8, !tbaa !113
+  %.not9273 = icmp sgt i32 %9466, -1
+  br i1 %.not9273, label %9467, label %9473
+
+9467:                                             ; preds = %9464
+  %9468 = add nsw i32 %9466, -1
+  store i32 %9468, ptr %9431, align 8, !tbaa !113
+  %9469 = icmp eq i32 %9468, 0
+  br i1 %9469, label %9470, label %9473
 
 9470:                                             ; preds = %9467
-  %9471 = add nsw i32 %9469, -1
-  store i32 %9471, ptr %9434, align 8, !tbaa !113
-  %9472 = icmp eq i32 %9471, 0
-  br i1 %9472, label %9473, label %9476
+  %.val10137 = load ptr, ptr %9436, align 8, !tbaa !103
+  %9471 = getelementptr inbounds nuw i8, ptr %.val10137, i64 48
+  %9472 = load ptr, ptr %9471, align 8, !tbaa !114
+  call void %9472(ptr noundef nonnull %9431) #15
+  br label %9473
 
-9473:                                             ; preds = %9470
-  %.val10137 = load ptr, ptr %9439, align 8, !tbaa !103
-  %9474 = getelementptr inbounds nuw i8, ptr %.val10137, i64 48
-  %9475 = load ptr, ptr %9474, align 8, !tbaa !114
-  call void %9475(ptr noundef nonnull %9434) #15
-  br label %9476
+9473:                                             ; preds = %9464, %9470, %9467
+  %9474 = load i32, ptr %9452, align 8, !tbaa !113
+  %.not9274 = icmp sgt i32 %9474, -1
+  br i1 %.not9274, label %9475, label %9482
 
-9476:                                             ; preds = %9467, %9473, %9470
-  %9477 = load i32, ptr %9455, align 8, !tbaa !113
-  %.not9274 = icmp sgt i32 %9477, -1
-  br i1 %.not9274, label %9478, label %9485
+9475:                                             ; preds = %9473
+  %9476 = add nsw i32 %9474, -1
+  store i32 %9476, ptr %9452, align 8, !tbaa !113
+  %9477 = icmp eq i32 %9476, 0
+  br i1 %9477, label %9478, label %9482
 
-9478:                                             ; preds = %9476
-  %9479 = add nsw i32 %9477, -1
-  store i32 %9479, ptr %9455, align 8, !tbaa !113
-  %9480 = icmp eq i32 %9479, 0
-  br i1 %9480, label %9481, label %9485
+9478:                                             ; preds = %9475
+  %9479 = getelementptr i8, ptr %9452, i64 8
+  %.val10136 = load ptr, ptr %9479, align 8, !tbaa !103
+  %9480 = getelementptr inbounds nuw i8, ptr %.val10136, i64 48
+  %9481 = load ptr, ptr %9480, align 8, !tbaa !114
+  call void %9481(ptr noundef nonnull %9452) #15
+  br label %9482
 
-9481:                                             ; preds = %9478
-  %9482 = getelementptr i8, ptr %9455, i64 8
-  %.val10136 = load ptr, ptr %9482, align 8, !tbaa !103
-  %9483 = getelementptr inbounds nuw i8, ptr %.val10136, i64 48
-  %9484 = load ptr, ptr %9483, align 8, !tbaa !114
-  call void %9484(ptr noundef nonnull %9455) #15
-  br label %9485
-
-9485:                                             ; preds = %9478, %9481, %9476
-  %9486 = load ptr, ptr %9468, align 8, !tbaa !136
-  store ptr null, ptr %9468, align 8, !tbaa !136
-  %9487 = load i16, ptr %9429, align 2, !tbaa !143
-  %.sroa.2285.0.extract.shift = lshr i16 %9487, 8
+9482:                                             ; preds = %9475, %9478, %9473
+  %9483 = load ptr, ptr %9465, align 8, !tbaa !136
+  store ptr null, ptr %9465, align 8, !tbaa !136
+  %9484 = load i16, ptr %9426, align 2, !tbaa !143
+  %.sroa.2285.0.extract.shift = lshr i16 %9484, 8
   %.sroa.2285.0.extract.trunc = zext nneg i16 %.sroa.2285.0.extract.shift to i32
-  %9488 = and i16 %9487, 255
-  %9489 = zext nneg i16 %9488 to i64
+  %9485 = and i16 %9484, 255
+  %9486 = zext nneg i16 %9485 to i64
   br label %.backedge.backedge
 
-9490:                                             ; preds = %.backedge
-  %9491 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9491, align 8, !tbaa !133
-  %9492 = getelementptr i8, ptr %.28893, i64 2
-  %9493 = getelementptr i8, ptr %.28898, i64 -8
-  %9494 = sub i32 0, %.08890
-  %9495 = sext i32 %9494 to i64
-  %9496 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9495
-  %.sroa.0278.0.copyload = load i64, ptr %9496, align 8, !tbaa !113
-  %9497 = load i64, ptr %9493, align 8, !tbaa !113
-  store i64 %9497, ptr %9496, align 8, !tbaa !113
-  store i64 %.sroa.0278.0.copyload, ptr %9493, align 8, !tbaa !113
-  %9498 = load i16, ptr %9492, align 2, !tbaa !143
-  %.sroa.2277.0.extract.shift = lshr i16 %9498, 8
+9487:                                             ; preds = %.backedge
+  %9488 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9488, align 8, !tbaa !133
+  %9489 = getelementptr i8, ptr %.28893, i64 2
+  %9490 = getelementptr i8, ptr %.28898, i64 -8
+  %9491 = sub i32 0, %.08890
+  %9492 = sext i32 %9491 to i64
+  %9493 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9492
+  %.sroa.0278.0.copyload = load i64, ptr %9493, align 8, !tbaa !113
+  %9494 = load i64, ptr %9490, align 8, !tbaa !113
+  store i64 %9494, ptr %9493, align 8, !tbaa !113
+  store i64 %.sroa.0278.0.copyload, ptr %9490, align 8, !tbaa !113
+  %9495 = load i16, ptr %9489, align 2, !tbaa !143
+  %.sroa.2277.0.extract.shift = lshr i16 %9495, 8
   %.sroa.2277.0.extract.trunc = zext nneg i16 %.sroa.2277.0.extract.shift to i32
-  %9499 = and i16 %9498, 255
-  %9500 = zext nneg i16 %9499 to i64
+  %9496 = and i16 %9495, 255
+  %9497 = zext nneg i16 %9496 to i64
   br label %.backedge.backedge
 
-9501:                                             ; preds = %.backedge
-  %9502 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9502, align 8, !tbaa !133
-  %9503 = getelementptr i8, ptr %.28893, i64 8
-  %.phi.trans.insert12575 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0269.0.copyload.pre = load i64, ptr %.phi.trans.insert12575, align 8, !tbaa !113
-  br label %9504
+9498:                                             ; preds = %.backedge
+  %9499 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9499, align 8, !tbaa !133
+  %9500 = getelementptr i8, ptr %.28893, i64 8
+  %.phi.trans.insert12578 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0269.0.copyload.pre = load i64, ptr %.phi.trans.insert12578, align 8, !tbaa !113
+  br label %9501
 
-9504:                                             ; preds = %9617, %9608, %9588, %9565, %9554, %9533, %9501
-  %.sroa.0269.0.copyload = phi i64 [ %.sroa.0269.0.copyload.pre, %9501 ], [ %.sroa.0201.0.copyload, %9617 ], [ %.sroa.0207.0.copyload, %9608 ], [ %.sroa.0220.0.copyload, %9588 ], [ %.sroa.0234.0.copyload, %9565 ], [ %.sroa.0238.0.copyload, %9554 ], [ %.sroa.0251.0.copyload, %9533 ]
-  %.32 = phi ptr [ %9503, %9501 ], [ %9619, %9617 ], [ %9610, %9608 ], [ %9590, %9588 ], [ %9567, %9565 ], [ %9556, %9554 ], [ %9535, %9533 ]
-  %9505 = getelementptr i8, ptr %.28893, i64 2
-  %.val10502 = load i16, ptr %9505, align 2, !tbaa !143
-  %9506 = icmp ult i16 %.val10502, 15
-  br i1 %9506, label %9507, label %9512
+9501:                                             ; preds = %9614, %9605, %9585, %9562, %9551, %9530, %9498
+  %.sroa.0269.0.copyload = phi i64 [ %.sroa.0269.0.copyload.pre, %9498 ], [ %.sroa.0201.0.copyload, %9614 ], [ %.sroa.0207.0.copyload, %9605 ], [ %.sroa.0220.0.copyload, %9585 ], [ %.sroa.0234.0.copyload, %9562 ], [ %.sroa.0238.0.copyload, %9551 ], [ %.sroa.0251.0.copyload, %9530 ]
+  %.32 = phi ptr [ %9500, %9498 ], [ %9616, %9614 ], [ %9607, %9605 ], [ %9587, %9585 ], [ %9564, %9562 ], [ %9553, %9551 ], [ %9532, %9530 ]
+  %9502 = getelementptr i8, ptr %.28893, i64 2
+  %.val10502 = load i16, ptr %9502, align 2, !tbaa !143
+  %9503 = icmp ult i16 %.val10502, 15
+  br i1 %9503, label %9504, label %9509
 
-9507:                                             ; preds = %9504
-  %9508 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9508, align 8, !tbaa !136
+9504:                                             ; preds = %9501
+  %9505 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9505, align 8, !tbaa !136
   call void @_Py_Specialize_ToBool(i64 %.sroa.0269.0.copyload, ptr noundef nonnull %.28893) #15
-  %9509 = load ptr, ptr %9508, align 8, !tbaa !136
-  store ptr null, ptr %9508, align 8, !tbaa !136
-  %9510 = load i8, ptr %.28893, align 2, !tbaa !113
-  %9511 = zext i8 %9510 to i64
+  %9506 = load ptr, ptr %9505, align 8, !tbaa !136
+  store ptr null, ptr %9505, align 8, !tbaa !136
+  %9507 = load i8, ptr %.28893, align 2, !tbaa !113
+  %9508 = zext i8 %9507 to i64
   br label %.backedge.backedge
 
-9512:                                             ; preds = %9504
-  %9513 = add i16 %.val10502, -16
-  store i16 %9513, ptr %9505, align 2, !tbaa !143
-  %9514 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9514, align 8, !tbaa !136
-  %9515 = inttoptr i64 %.sroa.0269.0.copyload to ptr
-  %9516 = call i32 @PyObject_IsTrue(ptr noundef %9515) #15
-  %9517 = load ptr, ptr %9514, align 8, !tbaa !136
-  store ptr null, ptr %9514, align 8, !tbaa !136
-  %9518 = load i32, ptr %9515, align 8, !tbaa !113
-  %.not9756 = icmp sgt i32 %9518, -1
-  br i1 %.not9756, label %9519, label %9526
+9509:                                             ; preds = %9501
+  %9510 = add i16 %.val10502, -16
+  store i16 %9510, ptr %9502, align 2, !tbaa !143
+  %9511 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9511, align 8, !tbaa !136
+  %9512 = inttoptr i64 %.sroa.0269.0.copyload to ptr
+  %9513 = call i32 @PyObject_IsTrue(ptr noundef %9512) #15
+  %9514 = load ptr, ptr %9511, align 8, !tbaa !136
+  store ptr null, ptr %9511, align 8, !tbaa !136
+  %9515 = load i32, ptr %9512, align 8, !tbaa !113
+  %.not9756 = icmp sgt i32 %9515, -1
+  br i1 %.not9756, label %9516, label %9523
 
-9519:                                             ; preds = %9512
-  %9520 = add nsw i32 %9518, -1
-  store i32 %9520, ptr %9515, align 8, !tbaa !113
-  %9521 = icmp eq i32 %9520, 0
-  br i1 %9521, label %9522, label %9526
+9516:                                             ; preds = %9509
+  %9517 = add nsw i32 %9515, -1
+  store i32 %9517, ptr %9512, align 8, !tbaa !113
+  %9518 = icmp eq i32 %9517, 0
+  br i1 %9518, label %9519, label %9523
 
-9522:                                             ; preds = %9519
-  %9523 = getelementptr i8, ptr %9515, i64 8
-  %.val10135 = load ptr, ptr %9523, align 8, !tbaa !103
-  %9524 = getelementptr inbounds nuw i8, ptr %.val10135, i64 48
-  %9525 = load ptr, ptr %9524, align 8, !tbaa !114
-  call void %9525(ptr noundef nonnull %9515) #15
-  br label %9526
+9519:                                             ; preds = %9516
+  %9520 = getelementptr i8, ptr %9512, i64 8
+  %.val10135 = load ptr, ptr %9520, align 8, !tbaa !103
+  %9521 = getelementptr inbounds nuw i8, ptr %.val10135, i64 48
+  %9522 = load ptr, ptr %9521, align 8, !tbaa !114
+  call void %9522(ptr noundef nonnull %9512) #15
+  br label %9523
 
-9526:                                             ; preds = %9519, %9522, %9512
-  %9527 = icmp slt i32 %9516, 0
-  br i1 %9527, label %.loopexit10902, label %9528
+9523:                                             ; preds = %9516, %9519, %9509
+  %9524 = icmp slt i32 %9513, 0
+  br i1 %9524, label %.loopexit10904, label %9525
 
-9528:                                             ; preds = %9526
-  %.not9757 = icmp eq i32 %9516, 0
+9525:                                             ; preds = %9523
+  %.not9757 = icmp eq i32 %9513, 0
   %.9843 = select i1 %.not9757, i64 ptrtoint (ptr @_Py_FalseStruct to i64), i64 ptrtoint (ptr @_Py_TrueStruct to i64)
-  %9529 = getelementptr i8, ptr %9517, i64 -8
-  store i64 %.9843, ptr %9529, align 8, !tbaa !113
-  %9530 = load i16, ptr %.32, align 2, !tbaa !143
-  %.sroa.2255.0.extract.shift = lshr i16 %9530, 8
+  %9526 = getelementptr i8, ptr %9514, i64 -8
+  store i64 %.9843, ptr %9526, align 8, !tbaa !113
+  %9527 = load i16, ptr %.32, align 2, !tbaa !143
+  %.sroa.2255.0.extract.shift = lshr i16 %9527, 8
   %.sroa.2255.0.extract.trunc = zext nneg i16 %.sroa.2255.0.extract.shift to i32
-  %9531 = and i16 %9530, 255
-  %9532 = zext nneg i16 %9531 to i64
+  %9528 = and i16 %9527, 255
+  %9529 = zext nneg i16 %9528 to i64
   br label %.backedge.backedge
 
-9533:                                             ; preds = %.backedge
-  %9534 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9534, align 8, !tbaa !133
-  %9535 = getelementptr i8, ptr %.28893, i64 8
-  %9536 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0251.0.copyload = load i64, ptr %9536, align 8, !tbaa !113
-  %9537 = getelementptr i8, ptr %.28893, i64 4
-  %.val10566 = load i32, ptr %9537, align 2
-  %9538 = inttoptr i64 %.sroa.0251.0.copyload to ptr
-  %9539 = getelementptr i8, ptr %9538, i64 8
-  %.val10134 = load ptr, ptr %9539, align 8, !tbaa !103
-  %9540 = getelementptr inbounds nuw i8, ptr %.val10134, i64 384
-  %9541 = load i32, ptr %9540, align 8, !tbaa !197
-  %.not9554 = icmp eq i32 %9541, %.val10566
-  br i1 %.not9554, label %9542, label %9504
+9530:                                             ; preds = %.backedge
+  %9531 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9531, align 8, !tbaa !133
+  %9532 = getelementptr i8, ptr %.28893, i64 8
+  %9533 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0251.0.copyload = load i64, ptr %9533, align 8, !tbaa !113
+  %9534 = getelementptr i8, ptr %.28893, i64 4
+  %.val10566 = load i32, ptr %9534, align 2
+  %9535 = inttoptr i64 %.sroa.0251.0.copyload to ptr
+  %9536 = getelementptr i8, ptr %9535, i64 8
+  %.val10134 = load ptr, ptr %9536, align 8, !tbaa !103
+  %9537 = getelementptr inbounds nuw i8, ptr %.val10134, i64 384
+  %9538 = load i32, ptr %9537, align 8, !tbaa !197
+  %.not9554 = icmp eq i32 %9538, %.val10566
+  br i1 %.not9554, label %9539, label %9501
 
-9542:                                             ; preds = %9533
-  %9543 = load i32, ptr %9538, align 8, !tbaa !113
-  %.not9555 = icmp sgt i32 %9543, -1
-  br i1 %.not9555, label %9544, label %9550
+9539:                                             ; preds = %9530
+  %9540 = load i32, ptr %9535, align 8, !tbaa !113
+  %.not9555 = icmp sgt i32 %9540, -1
+  br i1 %.not9555, label %9541, label %9547
 
-9544:                                             ; preds = %9542
-  %9545 = add nsw i32 %9543, -1
-  store i32 %9545, ptr %9538, align 8, !tbaa !113
-  %9546 = icmp eq i32 %9545, 0
-  br i1 %9546, label %9547, label %9550
+9541:                                             ; preds = %9539
+  %9542 = add nsw i32 %9540, -1
+  store i32 %9542, ptr %9535, align 8, !tbaa !113
+  %9543 = icmp eq i32 %9542, 0
+  br i1 %9543, label %9544, label %9547
 
-9547:                                             ; preds = %9544
-  %9548 = getelementptr inbounds nuw i8, ptr %.val10134, i64 48
-  %9549 = load ptr, ptr %9548, align 8, !tbaa !114
-  call void %9549(ptr noundef nonnull %9538) #15
-  br label %9550
+9544:                                             ; preds = %9541
+  %9545 = getelementptr inbounds nuw i8, ptr %.val10134, i64 48
+  %9546 = load ptr, ptr %9545, align 8, !tbaa !114
+  call void %9546(ptr noundef nonnull %9535) #15
+  br label %9547
 
-9550:                                             ; preds = %9544, %9547, %9542
-  store i64 ptrtoint (ptr @_Py_TrueStruct to i64), ptr %9536, align 8, !tbaa !113
-  %9551 = load i16, ptr %9535, align 2, !tbaa !143
-  %.sroa.2240.0.extract.shift = lshr i16 %9551, 8
+9547:                                             ; preds = %9541, %9544, %9539
+  store i64 ptrtoint (ptr @_Py_TrueStruct to i64), ptr %9533, align 8, !tbaa !113
+  %9548 = load i16, ptr %9532, align 2, !tbaa !143
+  %.sroa.2240.0.extract.shift = lshr i16 %9548, 8
   %.sroa.2240.0.extract.trunc = zext nneg i16 %.sroa.2240.0.extract.shift to i32
-  %9552 = and i16 %9551, 255
-  %9553 = zext nneg i16 %9552 to i64
+  %9549 = and i16 %9548, 255
+  %9550 = zext nneg i16 %9549 to i64
   br label %.backedge.backedge
 
-9554:                                             ; preds = %.backedge
-  %9555 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9555, align 8, !tbaa !133
-  %9556 = getelementptr i8, ptr %.28893, i64 8
-  %9557 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0238.0.copyload = load i64, ptr %9557, align 8, !tbaa !113
-  %9558 = inttoptr i64 %.sroa.0238.0.copyload to ptr
-  %9559 = getelementptr i8, ptr %9558, i64 8
-  %.val.i10776 = load ptr, ptr %9559, align 8, !tbaa !103
-  %9560 = icmp eq ptr %.val.i10776, @PyBool_Type
-  br i1 %9560, label %9561, label %9504
+9551:                                             ; preds = %.backedge
+  %9552 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9552, align 8, !tbaa !133
+  %9553 = getelementptr i8, ptr %.28893, i64 8
+  %9554 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0238.0.copyload = load i64, ptr %9554, align 8, !tbaa !113
+  %9555 = inttoptr i64 %.sroa.0238.0.copyload to ptr
+  %9556 = getelementptr i8, ptr %9555, i64 8
+  %.val.i10776 = load ptr, ptr %9556, align 8, !tbaa !103
+  %9557 = icmp eq ptr %.val.i10776, @PyBool_Type
+  br i1 %9557, label %9558, label %9501
 
-9561:                                             ; preds = %9554
-  %9562 = load i16, ptr %9556, align 2, !tbaa !143
-  %.sroa.2237.0.extract.shift = lshr i16 %9562, 8
+9558:                                             ; preds = %9551
+  %9559 = load i16, ptr %9553, align 2, !tbaa !143
+  %.sroa.2237.0.extract.shift = lshr i16 %9559, 8
   %.sroa.2237.0.extract.trunc = zext nneg i16 %.sroa.2237.0.extract.shift to i32
-  %9563 = and i16 %9562, 255
-  %9564 = zext nneg i16 %9563 to i64
+  %9560 = and i16 %9559, 255
+  %9561 = zext nneg i16 %9560 to i64
   br label %.backedge.backedge
 
-9565:                                             ; preds = %.backedge
-  %9566 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9566, align 8, !tbaa !133
-  %9567 = getelementptr i8, ptr %.28893, i64 8
-  %9568 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0234.0.copyload = load i64, ptr %9568, align 8, !tbaa !113
-  %9569 = inttoptr i64 %.sroa.0234.0.copyload to ptr
-  %9570 = getelementptr inbounds nuw i8, ptr %9569, i64 8
-  %9571 = load ptr, ptr %9570, align 8, !tbaa !103
-  %9572 = icmp eq ptr %9571, @PyLong_Type
-  br i1 %9572, label %9573, label %9504
+9562:                                             ; preds = %.backedge
+  %9563 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9563, align 8, !tbaa !133
+  %9564 = getelementptr i8, ptr %.28893, i64 8
+  %9565 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0234.0.copyload = load i64, ptr %9565, align 8, !tbaa !113
+  %9566 = inttoptr i64 %.sroa.0234.0.copyload to ptr
+  %9567 = getelementptr inbounds nuw i8, ptr %9566, i64 8
+  %9568 = load ptr, ptr %9567, align 8, !tbaa !103
+  %9569 = icmp eq ptr %9568, @PyLong_Type
+  br i1 %9569, label %9570, label %9501
 
-9573:                                             ; preds = %9565
-  %9574 = getelementptr i8, ptr %9569, i64 16
-  %.val10592 = load i64, ptr %9574, align 8, !tbaa !177
-  %9575 = and i64 %.val10592, 3
-  %9576 = icmp eq i64 %9575, 1
-  br i1 %9576, label %9584, label %9577
+9570:                                             ; preds = %9562
+  %9571 = getelementptr i8, ptr %9566, i64 16
+  %.val10592 = load i64, ptr %9571, align 8, !tbaa !177
+  %9572 = and i64 %.val10592, 3
+  %9573 = icmp eq i64 %9572, 1
+  br i1 %9573, label %9581, label %9574
 
-9577:                                             ; preds = %9573
-  %9578 = load i32, ptr %9569, align 8, !tbaa !113
-  %.not9556 = icmp sgt i32 %9578, -1
-  br i1 %.not9556, label %9579, label %9584
+9574:                                             ; preds = %9570
+  %9575 = load i32, ptr %9566, align 8, !tbaa !113
+  %.not9556 = icmp sgt i32 %9575, -1
+  br i1 %.not9556, label %9576, label %9581
 
-9579:                                             ; preds = %9577
-  %9580 = add nsw i32 %9578, -1
-  store i32 %9580, ptr %9569, align 8, !tbaa !113
-  %9581 = icmp eq i32 %9580, 0
-  br i1 %9581, label %9582, label %9584
+9576:                                             ; preds = %9574
+  %9577 = add nsw i32 %9575, -1
+  store i32 %9577, ptr %9566, align 8, !tbaa !113
+  %9578 = icmp eq i32 %9577, 0
+  br i1 %9578, label %9579, label %9581
 
-9582:                                             ; preds = %9579
-  %9583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 48), align 8, !tbaa !114
-  call void %9583(ptr noundef nonnull %9569) #15
-  br label %9584
+9579:                                             ; preds = %9576
+  %9580 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyLong_Type, i64 48), align 8, !tbaa !114
+  call void %9580(ptr noundef nonnull %9566) #15
+  br label %9581
 
-9584:                                             ; preds = %9577, %9582, %9579, %9573
-  %.sroa.0233.0 = phi i64 [ ptrtoint (ptr @_Py_FalseStruct to i64), %9573 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9579 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9582 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9577 ]
-  store i64 %.sroa.0233.0, ptr %9568, align 8, !tbaa !113
-  %9585 = load i16, ptr %9567, align 2, !tbaa !143
-  %.sroa.2223.0.extract.shift = lshr i16 %9585, 8
+9581:                                             ; preds = %9574, %9579, %9576, %9570
+  %.sroa.0233.0 = phi i64 [ ptrtoint (ptr @_Py_FalseStruct to i64), %9570 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9576 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9579 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9574 ]
+  store i64 %.sroa.0233.0, ptr %9565, align 8, !tbaa !113
+  %9582 = load i16, ptr %9564, align 2, !tbaa !143
+  %.sroa.2223.0.extract.shift = lshr i16 %9582, 8
   %.sroa.2223.0.extract.trunc = zext nneg i16 %.sroa.2223.0.extract.shift to i32
-  %9586 = and i16 %9585, 255
-  %9587 = zext nneg i16 %9586 to i64
+  %9583 = and i16 %9582, 255
+  %9584 = zext nneg i16 %9583 to i64
   br label %.backedge.backedge
 
-9588:                                             ; preds = %.backedge
-  %9589 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9589, align 8, !tbaa !133
-  %9590 = getelementptr i8, ptr %.28893, i64 8
-  %9591 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0220.0.copyload = load i64, ptr %9591, align 8, !tbaa !113
-  %9592 = inttoptr i64 %.sroa.0220.0.copyload to ptr
-  %9593 = getelementptr inbounds nuw i8, ptr %9592, i64 8
-  %9594 = load ptr, ptr %9593, align 8, !tbaa !103
-  %9595 = icmp eq ptr %9594, @PyList_Type
-  br i1 %9595, label %9596, label %9504
+9585:                                             ; preds = %.backedge
+  %9586 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9586, align 8, !tbaa !133
+  %9587 = getelementptr i8, ptr %.28893, i64 8
+  %9588 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0220.0.copyload = load i64, ptr %9588, align 8, !tbaa !113
+  %9589 = inttoptr i64 %.sroa.0220.0.copyload to ptr
+  %9590 = getelementptr inbounds nuw i8, ptr %9589, i64 8
+  %9591 = load ptr, ptr %9590, align 8, !tbaa !103
+  %9592 = icmp eq ptr %9591, @PyList_Type
+  br i1 %9592, label %9593, label %9501
 
-9596:                                             ; preds = %9588
-  %9597 = getelementptr i8, ptr %9592, i64 16
-  %.val10434 = load i64, ptr %9597, align 8, !tbaa !101
+9593:                                             ; preds = %9585
+  %9594 = getelementptr i8, ptr %9589, i64 16
+  %.val10434 = load i64, ptr %9594, align 8, !tbaa !101
   %.not9557 = icmp eq i64 %.val10434, 0
   %.9844 = select i1 %.not9557, i64 ptrtoint (ptr @_Py_FalseStruct to i64), i64 ptrtoint (ptr @_Py_TrueStruct to i64)
-  %9598 = load i32, ptr %9592, align 8, !tbaa !113
-  %.not9558 = icmp sgt i32 %9598, -1
-  br i1 %.not9558, label %9599, label %9604
+  %9595 = load i32, ptr %9589, align 8, !tbaa !113
+  %.not9558 = icmp sgt i32 %9595, -1
+  br i1 %.not9558, label %9596, label %9601
+
+9596:                                             ; preds = %9593
+  %9597 = add nsw i32 %9595, -1
+  store i32 %9597, ptr %9589, align 8, !tbaa !113
+  %9598 = icmp eq i32 %9597, 0
+  br i1 %9598, label %9599, label %9601
 
 9599:                                             ; preds = %9596
-  %9600 = add nsw i32 %9598, -1
-  store i32 %9600, ptr %9592, align 8, !tbaa !113
-  %9601 = icmp eq i32 %9600, 0
-  br i1 %9601, label %9602, label %9604
+  %9600 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyList_Type, i64 48), align 8, !tbaa !114
+  call void %9600(ptr noundef nonnull %9589) #15
+  br label %9601
 
-9602:                                             ; preds = %9599
-  %9603 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyList_Type, i64 48), align 8, !tbaa !114
-  call void %9603(ptr noundef nonnull %9592) #15
-  br label %9604
-
-9604:                                             ; preds = %9599, %9602, %9596
-  store i64 %.9844, ptr %9591, align 8, !tbaa !113
-  %9605 = load i16, ptr %9590, align 2, !tbaa !143
-  %.sroa.2209.0.extract.shift = lshr i16 %9605, 8
+9601:                                             ; preds = %9596, %9599, %9593
+  store i64 %.9844, ptr %9588, align 8, !tbaa !113
+  %9602 = load i16, ptr %9587, align 2, !tbaa !143
+  %.sroa.2209.0.extract.shift = lshr i16 %9602, 8
   %.sroa.2209.0.extract.trunc = zext nneg i16 %.sroa.2209.0.extract.shift to i32
-  %9606 = and i16 %9605, 255
-  %9607 = zext nneg i16 %9606 to i64
+  %9603 = and i16 %9602, 255
+  %9604 = zext nneg i16 %9603 to i64
   br label %.backedge.backedge
 
-9608:                                             ; preds = %.backedge
-  %9609 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9609, align 8, !tbaa !133
-  %9610 = getelementptr i8, ptr %.28893, i64 8
-  %9611 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0207.0.copyload = load i64, ptr %9611, align 8, !tbaa !113
-  %9612 = icmp eq i64 %.sroa.0207.0.copyload, ptrtoint (ptr @_Py_NoneStruct to i64)
-  br i1 %9612, label %9613, label %9504
+9605:                                             ; preds = %.backedge
+  %9606 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9606, align 8, !tbaa !133
+  %9607 = getelementptr i8, ptr %.28893, i64 8
+  %9608 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0207.0.copyload = load i64, ptr %9608, align 8, !tbaa !113
+  %9609 = icmp eq i64 %.sroa.0207.0.copyload, ptrtoint (ptr @_Py_NoneStruct to i64)
+  br i1 %9609, label %9610, label %9501
 
-9613:                                             ; preds = %9608
-  store i64 ptrtoint (ptr @_Py_FalseStruct to i64), ptr %9611, align 8, !tbaa !113
-  %9614 = load i16, ptr %9610, align 2, !tbaa !143
-  %.sroa.2204.0.extract.shift = lshr i16 %9614, 8
+9610:                                             ; preds = %9605
+  store i64 ptrtoint (ptr @_Py_FalseStruct to i64), ptr %9608, align 8, !tbaa !113
+  %9611 = load i16, ptr %9607, align 2, !tbaa !143
+  %.sroa.2204.0.extract.shift = lshr i16 %9611, 8
   %.sroa.2204.0.extract.trunc = zext nneg i16 %.sroa.2204.0.extract.shift to i32
-  %9615 = and i16 %9614, 255
-  %9616 = zext nneg i16 %9615 to i64
+  %9612 = and i16 %9611, 255
+  %9613 = zext nneg i16 %9612 to i64
   br label %.backedge.backedge
 
-9617:                                             ; preds = %.backedge
-  %9618 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9618, align 8, !tbaa !133
-  %9619 = getelementptr i8, ptr %.28893, i64 8
-  %9620 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0201.0.copyload = load i64, ptr %9620, align 8, !tbaa !113
-  %9621 = inttoptr i64 %.sroa.0201.0.copyload to ptr
-  %9622 = getelementptr inbounds nuw i8, ptr %9621, i64 8
-  %9623 = load ptr, ptr %9622, align 8, !tbaa !103
-  %9624 = icmp eq ptr %9623, @PyUnicode_Type
-  br i1 %9624, label %9625, label %9504
+9614:                                             ; preds = %.backedge
+  %9615 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9615, align 8, !tbaa !133
+  %9616 = getelementptr i8, ptr %.28893, i64 8
+  %9617 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0201.0.copyload = load i64, ptr %9617, align 8, !tbaa !113
+  %9618 = inttoptr i64 %.sroa.0201.0.copyload to ptr
+  %9619 = getelementptr inbounds nuw i8, ptr %9618, i64 8
+  %9620 = load ptr, ptr %9619, align 8, !tbaa !103
+  %9621 = icmp eq ptr %9620, @PyUnicode_Type
+  br i1 %9621, label %9622, label %9501
 
-9625:                                             ; preds = %9617
-  %9626 = icmp eq i64 %.sroa.0201.0.copyload, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376) to i64)
-  br i1 %9626, label %9634, label %9627
+9622:                                             ; preds = %9614
+  %9623 = icmp eq i64 %.sroa.0201.0.copyload, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376) to i64)
+  br i1 %9623, label %9631, label %9624
 
-9627:                                             ; preds = %9625
-  %9628 = load i32, ptr %9621, align 8, !tbaa !113
-  %.not9559 = icmp sgt i32 %9628, -1
-  br i1 %.not9559, label %9629, label %9634
+9624:                                             ; preds = %9622
+  %9625 = load i32, ptr %9618, align 8, !tbaa !113
+  %.not9559 = icmp sgt i32 %9625, -1
+  br i1 %.not9559, label %9626, label %9631
 
-9629:                                             ; preds = %9627
-  %9630 = add nsw i32 %9628, -1
-  store i32 %9630, ptr %9621, align 8, !tbaa !113
-  %9631 = icmp eq i32 %9630, 0
-  br i1 %9631, label %9632, label %9634
+9626:                                             ; preds = %9624
+  %9627 = add nsw i32 %9625, -1
+  store i32 %9627, ptr %9618, align 8, !tbaa !113
+  %9628 = icmp eq i32 %9627, 0
+  br i1 %9628, label %9629, label %9631
 
-9632:                                             ; preds = %9629
-  %9633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyUnicode_Type, i64 48), align 8, !tbaa !114
-  call void %9633(ptr noundef nonnull %9621) #15
-  br label %9634
+9629:                                             ; preds = %9626
+  %9630 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyUnicode_Type, i64 48), align 8, !tbaa !114
+  call void %9630(ptr noundef nonnull %9618) #15
+  br label %9631
 
-9634:                                             ; preds = %9627, %9632, %9629, %9625
-  %.sroa.0200.0 = phi i64 [ ptrtoint (ptr @_Py_FalseStruct to i64), %9625 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9629 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9632 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9627 ]
-  store i64 %.sroa.0200.0, ptr %9620, align 8, !tbaa !113
-  %9635 = load i16, ptr %9619, align 2, !tbaa !143
-  %.sroa.2190.0.extract.shift = lshr i16 %9635, 8
+9631:                                             ; preds = %9624, %9629, %9626, %9622
+  %.sroa.0200.0 = phi i64 [ ptrtoint (ptr @_Py_FalseStruct to i64), %9622 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9626 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9629 ], [ ptrtoint (ptr @_Py_TrueStruct to i64), %9624 ]
+  store i64 %.sroa.0200.0, ptr %9617, align 8, !tbaa !113
+  %9632 = load i16, ptr %9616, align 2, !tbaa !143
+  %.sroa.2190.0.extract.shift = lshr i16 %9632, 8
   %.sroa.2190.0.extract.trunc = zext nneg i16 %.sroa.2190.0.extract.shift to i32
-  %9636 = and i16 %9635, 255
-  %9637 = zext nneg i16 %9636 to i64
+  %9633 = and i16 %9632, 255
+  %9634 = zext nneg i16 %9633 to i64
   br label %.backedge.backedge
 
-9638:                                             ; preds = %.backedge
-  %9639 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9639, align 8, !tbaa !133
-  %9640 = getelementptr i8, ptr %.28893, i64 2
-  %9641 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0187.0.copyload = load i64, ptr %9641, align 8, !tbaa !113
-  %9642 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9642, align 8, !tbaa !136
-  %9643 = inttoptr i64 %.sroa.0187.0.copyload to ptr
-  %9644 = call ptr @PyNumber_Invert(ptr noundef %9643) #15
-  %9645 = load ptr, ptr %9642, align 8, !tbaa !136
-  store ptr null, ptr %9642, align 8, !tbaa !136
-  %9646 = load i32, ptr %9643, align 8, !tbaa !113
-  %.not9755 = icmp sgt i32 %9646, -1
-  br i1 %.not9755, label %9647, label %9654
+9635:                                             ; preds = %.backedge
+  %9636 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9636, align 8, !tbaa !133
+  %9637 = getelementptr i8, ptr %.28893, i64 2
+  %9638 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0187.0.copyload = load i64, ptr %9638, align 8, !tbaa !113
+  %9639 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9639, align 8, !tbaa !136
+  %9640 = inttoptr i64 %.sroa.0187.0.copyload to ptr
+  %9641 = call ptr @PyNumber_Invert(ptr noundef %9640) #15
+  %9642 = load ptr, ptr %9639, align 8, !tbaa !136
+  store ptr null, ptr %9639, align 8, !tbaa !136
+  %9643 = load i32, ptr %9640, align 8, !tbaa !113
+  %.not9755 = icmp sgt i32 %9643, -1
+  br i1 %.not9755, label %9644, label %9651
 
-9647:                                             ; preds = %9638
-  %9648 = add nsw i32 %9646, -1
-  store i32 %9648, ptr %9643, align 8, !tbaa !113
-  %9649 = icmp eq i32 %9648, 0
-  br i1 %9649, label %9650, label %9654
+9644:                                             ; preds = %9635
+  %9645 = add nsw i32 %9643, -1
+  store i32 %9645, ptr %9640, align 8, !tbaa !113
+  %9646 = icmp eq i32 %9645, 0
+  br i1 %9646, label %9647, label %9651
 
-9650:                                             ; preds = %9647
-  %9651 = getelementptr i8, ptr %9643, i64 8
-  %.val10129 = load ptr, ptr %9651, align 8, !tbaa !103
-  %9652 = getelementptr inbounds nuw i8, ptr %.val10129, i64 48
-  %9653 = load ptr, ptr %9652, align 8, !tbaa !114
-  call void %9653(ptr noundef nonnull %9643) #15
-  br label %9654
+9647:                                             ; preds = %9644
+  %9648 = getelementptr i8, ptr %9640, i64 8
+  %.val10129 = load ptr, ptr %9648, align 8, !tbaa !103
+  %9649 = getelementptr inbounds nuw i8, ptr %.val10129, i64 48
+  %9650 = load ptr, ptr %9649, align 8, !tbaa !114
+  call void %9650(ptr noundef nonnull %9640) #15
+  br label %9651
 
-9654:                                             ; preds = %9647, %9650, %9638
-  %9655 = icmp eq ptr %9644, null
-  br i1 %9655, label %.loopexit10902, label %9656
+9651:                                             ; preds = %9644, %9647, %9635
+  %9652 = icmp eq ptr %9641, null
+  br i1 %9652, label %.loopexit10904, label %9653
 
-9656:                                             ; preds = %9654
-  %9657 = ptrtoint ptr %9644 to i64
-  %9658 = getelementptr i8, ptr %9645, i64 -8
-  store i64 %9657, ptr %9658, align 8, !tbaa !113
-  %9659 = load i16, ptr %9640, align 2, !tbaa !143
-  %.sroa.2177.0.extract.shift = lshr i16 %9659, 8
+9653:                                             ; preds = %9651
+  %9654 = ptrtoint ptr %9641 to i64
+  %9655 = getelementptr i8, ptr %9642, i64 -8
+  store i64 %9654, ptr %9655, align 8, !tbaa !113
+  %9656 = load i16, ptr %9637, align 2, !tbaa !143
+  %.sroa.2177.0.extract.shift = lshr i16 %9656, 8
   %.sroa.2177.0.extract.trunc = zext nneg i16 %.sroa.2177.0.extract.shift to i32
-  %9660 = and i16 %9659, 255
-  %9661 = zext nneg i16 %9660 to i64
+  %9657 = and i16 %9656, 255
+  %9658 = zext nneg i16 %9657 to i64
   br label %.backedge.backedge
 
-9662:                                             ; preds = %.backedge
-  %9663 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9663, align 8, !tbaa !133
-  %9664 = getelementptr i8, ptr %.28893, i64 2
-  %9665 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0174.0.copyload = load i64, ptr %9665, align 8, !tbaa !113
-  %9666 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9666, align 8, !tbaa !136
-  %9667 = inttoptr i64 %.sroa.0174.0.copyload to ptr
-  %9668 = call ptr @PyNumber_Negative(ptr noundef %9667) #15
-  %9669 = load ptr, ptr %9666, align 8, !tbaa !136
-  store ptr null, ptr %9666, align 8, !tbaa !136
-  %9670 = load i32, ptr %9667, align 8, !tbaa !113
-  %.not9754 = icmp sgt i32 %9670, -1
-  br i1 %.not9754, label %9671, label %9678
+9659:                                             ; preds = %.backedge
+  %9660 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9660, align 8, !tbaa !133
+  %9661 = getelementptr i8, ptr %.28893, i64 2
+  %9662 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0174.0.copyload = load i64, ptr %9662, align 8, !tbaa !113
+  %9663 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9663, align 8, !tbaa !136
+  %9664 = inttoptr i64 %.sroa.0174.0.copyload to ptr
+  %9665 = call ptr @PyNumber_Negative(ptr noundef %9664) #15
+  %9666 = load ptr, ptr %9663, align 8, !tbaa !136
+  store ptr null, ptr %9663, align 8, !tbaa !136
+  %9667 = load i32, ptr %9664, align 8, !tbaa !113
+  %.not9754 = icmp sgt i32 %9667, -1
+  br i1 %.not9754, label %9668, label %9675
 
-9671:                                             ; preds = %9662
-  %9672 = add nsw i32 %9670, -1
-  store i32 %9672, ptr %9667, align 8, !tbaa !113
-  %9673 = icmp eq i32 %9672, 0
-  br i1 %9673, label %9674, label %9678
+9668:                                             ; preds = %9659
+  %9669 = add nsw i32 %9667, -1
+  store i32 %9669, ptr %9664, align 8, !tbaa !113
+  %9670 = icmp eq i32 %9669, 0
+  br i1 %9670, label %9671, label %9675
 
-9674:                                             ; preds = %9671
-  %9675 = getelementptr i8, ptr %9667, i64 8
-  %.val10128 = load ptr, ptr %9675, align 8, !tbaa !103
-  %9676 = getelementptr inbounds nuw i8, ptr %.val10128, i64 48
-  %9677 = load ptr, ptr %9676, align 8, !tbaa !114
-  call void %9677(ptr noundef nonnull %9667) #15
-  br label %9678
+9671:                                             ; preds = %9668
+  %9672 = getelementptr i8, ptr %9664, i64 8
+  %.val10128 = load ptr, ptr %9672, align 8, !tbaa !103
+  %9673 = getelementptr inbounds nuw i8, ptr %.val10128, i64 48
+  %9674 = load ptr, ptr %9673, align 8, !tbaa !114
+  call void %9674(ptr noundef nonnull %9664) #15
+  br label %9675
 
-9678:                                             ; preds = %9671, %9674, %9662
-  %9679 = icmp eq ptr %9668, null
-  br i1 %9679, label %.loopexit10902, label %9680
+9675:                                             ; preds = %9668, %9671, %9659
+  %9676 = icmp eq ptr %9665, null
+  br i1 %9676, label %.loopexit10904, label %9677
 
-9680:                                             ; preds = %9678
-  %9681 = ptrtoint ptr %9668 to i64
-  %9682 = getelementptr i8, ptr %9669, i64 -8
-  store i64 %9681, ptr %9682, align 8, !tbaa !113
-  %9683 = load i16, ptr %9664, align 2, !tbaa !143
-  %.sroa.2164.0.extract.shift = lshr i16 %9683, 8
+9677:                                             ; preds = %9675
+  %9678 = ptrtoint ptr %9665 to i64
+  %9679 = getelementptr i8, ptr %9666, i64 -8
+  store i64 %9678, ptr %9679, align 8, !tbaa !113
+  %9680 = load i16, ptr %9661, align 2, !tbaa !143
+  %.sroa.2164.0.extract.shift = lshr i16 %9680, 8
   %.sroa.2164.0.extract.trunc = zext nneg i16 %.sroa.2164.0.extract.shift to i32
-  %9684 = and i16 %9683, 255
-  %9685 = zext nneg i16 %9684 to i64
+  %9681 = and i16 %9680, 255
+  %9682 = zext nneg i16 %9681 to i64
   br label %.backedge.backedge
 
-9686:                                             ; preds = %.backedge
-  %9687 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9687, align 8, !tbaa !133
-  %9688 = getelementptr i8, ptr %.28893, i64 2
-  %9689 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0162.0.copyload = load i64, ptr %9689, align 8, !tbaa !113
-  %9690 = icmp eq i64 %.sroa.0162.0.copyload, ptrtoint (ptr @_Py_FalseStruct to i64)
-  %.9845 = select i1 %9690, i64 ptrtoint (ptr @_Py_TrueStruct to i64), i64 ptrtoint (ptr @_Py_FalseStruct to i64)
-  store i64 %.9845, ptr %9689, align 8, !tbaa !113
-  %9691 = load i16, ptr %9688, align 2, !tbaa !143
-  %.sroa.2158.0.extract.shift = lshr i16 %9691, 8
+9683:                                             ; preds = %.backedge
+  %9684 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9684, align 8, !tbaa !133
+  %9685 = getelementptr i8, ptr %.28893, i64 2
+  %9686 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0162.0.copyload = load i64, ptr %9686, align 8, !tbaa !113
+  %9687 = icmp eq i64 %.sroa.0162.0.copyload, ptrtoint (ptr @_Py_FalseStruct to i64)
+  %.9845 = select i1 %9687, i64 ptrtoint (ptr @_Py_TrueStruct to i64), i64 ptrtoint (ptr @_Py_FalseStruct to i64)
+  store i64 %.9845, ptr %9686, align 8, !tbaa !113
+  %9688 = load i16, ptr %9685, align 2, !tbaa !143
+  %.sroa.2158.0.extract.shift = lshr i16 %9688, 8
   %.sroa.2158.0.extract.trunc = zext nneg i16 %.sroa.2158.0.extract.shift to i32
-  %9692 = and i16 %9691, 255
-  %9693 = zext nneg i16 %9692 to i64
+  %9689 = and i16 %9688, 255
+  %9690 = zext nneg i16 %9689 to i64
   br label %.backedge.backedge
 
-9694:                                             ; preds = %.backedge
-  %9695 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9695, align 8, !tbaa !133
-  %9696 = getelementptr i8, ptr %.28893, i64 2
-  %9697 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0155.0.copyload = load i64, ptr %9697, align 8, !tbaa !113
-  %9698 = and i32 %.08890, 255
-  %9699 = zext nneg i32 %9698 to i64
-  %9700 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9699
-  %9701 = ashr i32 %.08890, 8
-  %9702 = sext i32 %9701 to i64
-  %9703 = getelementptr %union._PyStackRef, ptr %9700, i64 %9702
-  %9704 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9704, align 8, !tbaa !136
-  %9705 = call i32 @_PyEval_UnpackIterableStackRef(ptr noundef %0, i64 %.sroa.0155.0.copyload, i32 noundef %9698, i32 noundef %9701, ptr noundef %9703)
-  %9706 = load ptr, ptr %9704, align 8, !tbaa !136
-  store ptr null, ptr %9704, align 8, !tbaa !136
-  %9707 = inttoptr i64 %.sroa.0155.0.copyload to ptr
-  %9708 = load i32, ptr %9707, align 8, !tbaa !113
-  %.not9646 = icmp sgt i32 %9708, -1
-  br i1 %.not9646, label %9709, label %9716
+9691:                                             ; preds = %.backedge
+  %9692 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9692, align 8, !tbaa !133
+  %9693 = getelementptr i8, ptr %.28893, i64 2
+  %9694 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0155.0.copyload = load i64, ptr %9694, align 8, !tbaa !113
+  %9695 = and i32 %.08890, 255
+  %9696 = zext nneg i32 %9695 to i64
+  %9697 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9696
+  %9698 = ashr i32 %.08890, 8
+  %9699 = sext i32 %9698 to i64
+  %9700 = getelementptr %union._PyStackRef, ptr %9697, i64 %9699
+  %9701 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9701, align 8, !tbaa !136
+  %9702 = call i32 @_PyEval_UnpackIterableStackRef(ptr noundef %0, i64 %.sroa.0155.0.copyload, i32 noundef %9695, i32 noundef %9698, ptr noundef %9700)
+  %9703 = load ptr, ptr %9701, align 8, !tbaa !136
+  store ptr null, ptr %9701, align 8, !tbaa !136
+  %9704 = inttoptr i64 %.sroa.0155.0.copyload to ptr
+  %9705 = load i32, ptr %9704, align 8, !tbaa !113
+  %.not9646 = icmp sgt i32 %9705, -1
+  br i1 %.not9646, label %9706, label %9713
 
-9709:                                             ; preds = %9694
-  %9710 = add nsw i32 %9708, -1
-  store i32 %9710, ptr %9707, align 8, !tbaa !113
-  %9711 = icmp eq i32 %9710, 0
-  br i1 %9711, label %9712, label %9716
+9706:                                             ; preds = %9691
+  %9707 = add nsw i32 %9705, -1
+  store i32 %9707, ptr %9704, align 8, !tbaa !113
+  %9708 = icmp eq i32 %9707, 0
+  br i1 %9708, label %9709, label %9713
 
-9712:                                             ; preds = %9709
-  %9713 = getelementptr i8, ptr %9707, i64 8
-  %.val10127 = load ptr, ptr %9713, align 8, !tbaa !103
-  %9714 = getelementptr inbounds nuw i8, ptr %.val10127, i64 48
-  %9715 = load ptr, ptr %9714, align 8, !tbaa !114
-  call void %9715(ptr noundef nonnull %9707) #15
-  br label %9716
+9709:                                             ; preds = %9706
+  %9710 = getelementptr i8, ptr %9704, i64 8
+  %.val10127 = load ptr, ptr %9710, align 8, !tbaa !103
+  %9711 = getelementptr inbounds nuw i8, ptr %.val10127, i64 48
+  %9712 = load ptr, ptr %9711, align 8, !tbaa !114
+  call void %9712(ptr noundef nonnull %9704) #15
+  br label %9713
 
-9716:                                             ; preds = %9709, %9712, %9694
-  %9717 = icmp eq i32 %9705, 0
-  br i1 %9717, label %.loopexit10902, label %9718
+9713:                                             ; preds = %9706, %9709, %9691
+  %9714 = icmp eq i32 %9702, 0
+  br i1 %9714, label %.loopexit10904, label %9715
 
-9718:                                             ; preds = %9716
-  %9719 = add nsw i32 %9698, %9701
-  %9720 = sext i32 %9719 to i64
-  %9721 = getelementptr %union._PyStackRef, ptr %9706, i64 %9720
-  %9722 = load i16, ptr %9696, align 2, !tbaa !143
-  %.sroa.2146.0.extract.shift = lshr i16 %9722, 8
+9715:                                             ; preds = %9713
+  %9716 = add nsw i32 %9695, %9698
+  %9717 = sext i32 %9716 to i64
+  %9718 = getelementptr %union._PyStackRef, ptr %9703, i64 %9717
+  %9719 = load i16, ptr %9693, align 2, !tbaa !143
+  %.sroa.2146.0.extract.shift = lshr i16 %9719, 8
   %.sroa.2146.0.extract.trunc = zext nneg i16 %.sroa.2146.0.extract.shift to i32
-  %9723 = and i16 %9722, 255
-  %9724 = zext nneg i16 %9723 to i64
+  %9720 = and i16 %9719, 255
+  %9721 = zext nneg i16 %9720 to i64
   br label %.backedge.backedge
 
-9725:                                             ; preds = %.backedge
-  %9726 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9726, align 8, !tbaa !133
-  %9727 = getelementptr i8, ptr %.28893, i64 4
-  %.phi.trans.insert12548 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0138.0.copyload.pre = load i64, ptr %.phi.trans.insert12548, align 8, !tbaa !113
-  br label %9728
+9722:                                             ; preds = %.backedge
+  %9723 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9723, align 8, !tbaa !133
+  %9724 = getelementptr i8, ptr %.28893, i64 4
+  %.phi.trans.insert12551 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0138.0.copyload.pre = load i64, ptr %.phi.trans.insert12551, align 8, !tbaa !113
+  br label %9725
 
-9728:                                             ; preds = %9847, %9839, %9809, %9801, %9770, %9762, %9725
-  %.sroa.0138.0.copyload = phi i64 [ %.sroa.0138.0.copyload.pre, %9725 ], [ %.sroa.089.0.copyload, %9847 ], [ %.sroa.089.0.copyload, %9839 ], [ %.sroa.0106.0.copyload, %9809 ], [ %.sroa.0106.0.copyload, %9801 ], [ %.sroa.0123.0.copyload, %9770 ], [ %.sroa.0123.0.copyload, %9762 ]
-  %.33 = phi ptr [ %9727, %9725 ], [ %9841, %9847 ], [ %9841, %9839 ], [ %9803, %9809 ], [ %9803, %9801 ], [ %9764, %9770 ], [ %9764, %9762 ]
-  %9729 = getelementptr i8, ptr %.28893, i64 2
-  %.val10503 = load i16, ptr %9729, align 2, !tbaa !143
-  %9730 = icmp ult i16 %.val10503, 15
-  br i1 %9730, label %9731, label %9736
+9725:                                             ; preds = %9844, %9836, %9806, %9798, %9767, %9759, %9722
+  %.sroa.0138.0.copyload = phi i64 [ %.sroa.0138.0.copyload.pre, %9722 ], [ %.sroa.089.0.copyload, %9844 ], [ %.sroa.089.0.copyload, %9836 ], [ %.sroa.0106.0.copyload, %9806 ], [ %.sroa.0106.0.copyload, %9798 ], [ %.sroa.0123.0.copyload, %9767 ], [ %.sroa.0123.0.copyload, %9759 ]
+  %.33 = phi ptr [ %9724, %9722 ], [ %9838, %9844 ], [ %9838, %9836 ], [ %9800, %9806 ], [ %9800, %9798 ], [ %9761, %9767 ], [ %9761, %9759 ]
+  %9726 = getelementptr i8, ptr %.28893, i64 2
+  %.val10503 = load i16, ptr %9726, align 2, !tbaa !143
+  %9727 = icmp ult i16 %.val10503, 15
+  br i1 %9727, label %9728, label %9733
 
-9731:                                             ; preds = %9728
-  %9732 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9732, align 8, !tbaa !136
+9728:                                             ; preds = %9725
+  %9729 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9729, align 8, !tbaa !136
   call void @_Py_Specialize_UnpackSequence(i64 %.sroa.0138.0.copyload, ptr noundef nonnull %.28893, i32 noundef %.08890) #15
-  %9733 = load ptr, ptr %9732, align 8, !tbaa !136
-  store ptr null, ptr %9732, align 8, !tbaa !136
-  %9734 = load i8, ptr %.28893, align 2, !tbaa !113
-  %9735 = zext i8 %9734 to i64
+  %9730 = load ptr, ptr %9729, align 8, !tbaa !136
+  store ptr null, ptr %9729, align 8, !tbaa !136
+  %9731 = load i8, ptr %.28893, align 2, !tbaa !113
+  %9732 = zext i8 %9731 to i64
   br label %.backedge.backedge
 
-9736:                                             ; preds = %9728
-  %9737 = getelementptr i8, ptr %.28898, i64 -8
-  %9738 = add i16 %.val10503, -16
-  store i16 %9738, ptr %9729, align 2, !tbaa !143
-  %9739 = sext i32 %.08890 to i64
-  %9740 = getelementptr %union._PyStackRef, ptr %9737, i64 %9739
-  %9741 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9741, align 8, !tbaa !136
-  %9742 = call i32 @_PyEval_UnpackIterableStackRef(ptr noundef %0, i64 %.sroa.0138.0.copyload, i32 noundef %.08890, i32 noundef -1, ptr noundef %9740)
-  %9743 = load ptr, ptr %9741, align 8, !tbaa !136
-  store ptr null, ptr %9741, align 8, !tbaa !136
-  %9744 = inttoptr i64 %.sroa.0138.0.copyload to ptr
-  %9745 = load i32, ptr %9744, align 8, !tbaa !113
-  %.not9645 = icmp sgt i32 %9745, -1
-  br i1 %.not9645, label %9746, label %9753
+9733:                                             ; preds = %9725
+  %9734 = getelementptr i8, ptr %.28898, i64 -8
+  %9735 = add i16 %.val10503, -16
+  store i16 %9735, ptr %9726, align 2, !tbaa !143
+  %9736 = sext i32 %.08890 to i64
+  %9737 = getelementptr %union._PyStackRef, ptr %9734, i64 %9736
+  %9738 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9738, align 8, !tbaa !136
+  %9739 = call i32 @_PyEval_UnpackIterableStackRef(ptr noundef %0, i64 %.sroa.0138.0.copyload, i32 noundef %.08890, i32 noundef -1, ptr noundef %9737)
+  %9740 = load ptr, ptr %9738, align 8, !tbaa !136
+  store ptr null, ptr %9738, align 8, !tbaa !136
+  %9741 = inttoptr i64 %.sroa.0138.0.copyload to ptr
+  %9742 = load i32, ptr %9741, align 8, !tbaa !113
+  %.not9645 = icmp sgt i32 %9742, -1
+  br i1 %.not9645, label %9743, label %9750
 
-9746:                                             ; preds = %9736
-  %9747 = add nsw i32 %9745, -1
-  store i32 %9747, ptr %9744, align 8, !tbaa !113
-  %9748 = icmp eq i32 %9747, 0
-  br i1 %9748, label %9749, label %9753
+9743:                                             ; preds = %9733
+  %9744 = add nsw i32 %9742, -1
+  store i32 %9744, ptr %9741, align 8, !tbaa !113
+  %9745 = icmp eq i32 %9744, 0
+  br i1 %9745, label %9746, label %9750
 
-9749:                                             ; preds = %9746
-  %9750 = getelementptr i8, ptr %9744, i64 8
-  %.val10126 = load ptr, ptr %9750, align 8, !tbaa !103
-  %9751 = getelementptr inbounds nuw i8, ptr %.val10126, i64 48
-  %9752 = load ptr, ptr %9751, align 8, !tbaa !114
-  call void %9752(ptr noundef nonnull %9744) #15
-  br label %9753
+9746:                                             ; preds = %9743
+  %9747 = getelementptr i8, ptr %9741, i64 8
+  %.val10126 = load ptr, ptr %9747, align 8, !tbaa !103
+  %9748 = getelementptr inbounds nuw i8, ptr %.val10126, i64 48
+  %9749 = load ptr, ptr %9748, align 8, !tbaa !114
+  call void %9749(ptr noundef nonnull %9741) #15
+  br label %9750
 
-9753:                                             ; preds = %9746, %9749, %9736
-  %9754 = icmp eq i32 %9742, 0
-  br i1 %9754, label %.loopexit10902, label %9755
+9750:                                             ; preds = %9743, %9746, %9733
+  %9751 = icmp eq i32 %9739, 0
+  br i1 %9751, label %.loopexit10904, label %9752
 
-9755:                                             ; preds = %9753
-  %9756 = add i32 %.08890, -1
-  %9757 = sext i32 %9756 to i64
-  %9758 = getelementptr %union._PyStackRef, ptr %9743, i64 %9757
-  %9759 = load i16, ptr %.33, align 2, !tbaa !143
-  %.sroa.2126.0.extract.shift = lshr i16 %9759, 8
+9752:                                             ; preds = %9750
+  %9753 = add i32 %.08890, -1
+  %9754 = sext i32 %9753 to i64
+  %9755 = getelementptr %union._PyStackRef, ptr %9740, i64 %9754
+  %9756 = load i16, ptr %.33, align 2, !tbaa !143
+  %.sroa.2126.0.extract.shift = lshr i16 %9756, 8
   %.sroa.2126.0.extract.trunc = zext nneg i16 %.sroa.2126.0.extract.shift to i32
-  %9760 = and i16 %9759, 255
-  %9761 = zext nneg i16 %9760 to i64
+  %9757 = and i16 %9756, 255
+  %9758 = zext nneg i16 %9757 to i64
   br label %.backedge.backedge
 
-9762:                                             ; preds = %.backedge
-  %9763 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9763, align 8, !tbaa !133
-  %9764 = getelementptr i8, ptr %.28893, i64 4
-  %9765 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0123.0.copyload = load i64, ptr %9765, align 8, !tbaa !113
-  %9766 = inttoptr i64 %.sroa.0123.0.copyload to ptr
-  %9767 = getelementptr inbounds nuw i8, ptr %9766, i64 8
-  %9768 = load ptr, ptr %9767, align 8, !tbaa !103
-  %9769 = icmp eq ptr %9768, @PyList_Type
-  br i1 %9769, label %9770, label %9728
+9759:                                             ; preds = %.backedge
+  %9760 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9760, align 8, !tbaa !133
+  %9761 = getelementptr i8, ptr %.28893, i64 4
+  %9762 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0123.0.copyload = load i64, ptr %9762, align 8, !tbaa !113
+  %9763 = inttoptr i64 %.sroa.0123.0.copyload to ptr
+  %9764 = getelementptr inbounds nuw i8, ptr %9763, i64 8
+  %9765 = load ptr, ptr %9764, align 8, !tbaa !103
+  %9766 = icmp eq ptr %9765, @PyList_Type
+  br i1 %9766, label %9767, label %9725
 
-9770:                                             ; preds = %9762
-  %9771 = getelementptr i8, ptr %9766, i64 16
-  %.val10435 = load i64, ptr %9771, align 8, !tbaa !101
-  %9772 = sext i32 %.08890 to i64
-  %.not9560 = icmp eq i64 %.val10435, %9772
-  br i1 %.not9560, label %9773, label %9728
+9767:                                             ; preds = %9759
+  %9768 = getelementptr i8, ptr %9763, i64 16
+  %.val10435 = load i64, ptr %9768, align 8, !tbaa !101
+  %9769 = sext i32 %.08890 to i64
+  %.not9560 = icmp eq i64 %.val10435, %9769
+  br i1 %.not9560, label %9770, label %9725
 
-9773:                                             ; preds = %9770
-  %9774 = getelementptr inbounds nuw i8, ptr %9766, i64 24
-  %9775 = load ptr, ptr %9774, align 8, !tbaa !181
-  %9776 = add i32 %.08890, -1
-  %9777 = icmp sgt i32 %9776, -1
-  br i1 %9777, label %.lr.ph11504.preheader, label %._crit_edge11505
+9770:                                             ; preds = %9767
+  %9771 = getelementptr inbounds nuw i8, ptr %9763, i64 24
+  %9772 = load ptr, ptr %9771, align 8, !tbaa !181
+  %9773 = add i32 %.08890, -1
+  %9774 = icmp sgt i32 %9773, -1
+  br i1 %9774, label %.lr.ph11506.preheader, label %._crit_edge11507
 
-.lr.ph11504.preheader:                            ; preds = %9773
-  %9778 = zext nneg i32 %9776 to i64
-  br label %.lr.ph11504
+.lr.ph11506.preheader:                            ; preds = %9770
+  %9775 = zext nneg i32 %9773 to i64
+  br label %.lr.ph11506
 
-.lr.ph11504:                                      ; preds = %.lr.ph11504.preheader, %_Py_NewRef.exit10778
-  %indvars.iv12500 = phi i64 [ %9778, %.lr.ph11504.preheader ], [ %indvars.iv.next12501, %_Py_NewRef.exit10778 ]
-  %.0898511502 = phi ptr [ %9765, %.lr.ph11504.preheader ], [ %9779, %_Py_NewRef.exit10778 ]
-  %9779 = getelementptr i8, ptr %.0898511502, i64 8
-  %9780 = getelementptr ptr, ptr %9775, i64 %indvars.iv12500
-  %9781 = load ptr, ptr %9780, align 8, !tbaa !100
-  %9782 = load i32, ptr %9781, align 8, !tbaa !113
-  %9783 = icmp slt i32 %9782, 0
-  br i1 %9783, label %_Py_NewRef.exit10778, label %9784
+.lr.ph11506:                                      ; preds = %.lr.ph11506.preheader, %_Py_NewRef.exit10778
+  %indvars.iv12503 = phi i64 [ %9775, %.lr.ph11506.preheader ], [ %indvars.iv.next12504, %_Py_NewRef.exit10778 ]
+  %.0898511504 = phi ptr [ %9762, %.lr.ph11506.preheader ], [ %9776, %_Py_NewRef.exit10778 ]
+  %9776 = getelementptr i8, ptr %.0898511504, i64 8
+  %9777 = getelementptr ptr, ptr %9772, i64 %indvars.iv12503
+  %9778 = load ptr, ptr %9777, align 8, !tbaa !100
+  %9779 = load i32, ptr %9778, align 8, !tbaa !113
+  %9780 = icmp slt i32 %9779, 0
+  br i1 %9780, label %_Py_NewRef.exit10778, label %9781
 
-9784:                                             ; preds = %.lr.ph11504
-  %9785 = add nuw i32 %9782, 1
-  store i32 %9785, ptr %9781, align 8, !tbaa !113
+9781:                                             ; preds = %.lr.ph11506
+  %9782 = add nuw i32 %9779, 1
+  store i32 %9782, ptr %9778, align 8, !tbaa !113
   br label %_Py_NewRef.exit10778
 
-_Py_NewRef.exit10778:                             ; preds = %.lr.ph11504, %9784
-  %9786 = ptrtoint ptr %9781 to i64
-  store i64 %9786, ptr %.0898511502, align 8, !tbaa !113
-  %indvars.iv.next12501 = add nsw i64 %indvars.iv12500, -1
-  %9787 = icmp sgt i64 %indvars.iv12500, 0
-  br i1 %9787, label %.lr.ph11504, label %._crit_edge11505, !llvm.loop !298
+_Py_NewRef.exit10778:                             ; preds = %.lr.ph11506, %9781
+  %9783 = ptrtoint ptr %9778 to i64
+  store i64 %9783, ptr %.0898511504, align 8, !tbaa !113
+  %indvars.iv.next12504 = add nsw i64 %indvars.iv12503, -1
+  %9784 = icmp sgt i64 %indvars.iv12503, 0
+  br i1 %9784, label %.lr.ph11506, label %._crit_edge11507, !llvm.loop !298
 
-._crit_edge11505:                                 ; preds = %_Py_NewRef.exit10778, %9773
-  %9788 = load i32, ptr %9766, align 8, !tbaa !113
-  %.not9561 = icmp sgt i32 %9788, -1
-  br i1 %.not9561, label %9789, label %9795
+._crit_edge11507:                                 ; preds = %_Py_NewRef.exit10778, %9770
+  %9785 = load i32, ptr %9763, align 8, !tbaa !113
+  %.not9561 = icmp sgt i32 %9785, -1
+  br i1 %.not9561, label %9786, label %9792
 
-9789:                                             ; preds = %._crit_edge11505
-  %9790 = add nsw i32 %9788, -1
-  store i32 %9790, ptr %9766, align 8, !tbaa !113
-  %9791 = icmp eq i32 %9790, 0
-  br i1 %9791, label %9792, label %9795
+9786:                                             ; preds = %._crit_edge11507
+  %9787 = add nsw i32 %9785, -1
+  store i32 %9787, ptr %9763, align 8, !tbaa !113
+  %9788 = icmp eq i32 %9787, 0
+  br i1 %9788, label %9789, label %9792
 
-9792:                                             ; preds = %9789
-  %.val10125 = load ptr, ptr %9767, align 8, !tbaa !103
-  %9793 = getelementptr inbounds nuw i8, ptr %.val10125, i64 48
-  %9794 = load ptr, ptr %9793, align 8, !tbaa !114
-  call void %9794(ptr noundef nonnull %9766) #15
-  br label %9795
+9789:                                             ; preds = %9786
+  %.val10125 = load ptr, ptr %9764, align 8, !tbaa !103
+  %9790 = getelementptr inbounds nuw i8, ptr %.val10125, i64 48
+  %9791 = load ptr, ptr %9790, align 8, !tbaa !114
+  call void %9791(ptr noundef nonnull %9763) #15
+  br label %9792
 
-9795:                                             ; preds = %9789, %9792, %._crit_edge11505
-  %9796 = sext i32 %9776 to i64
-  %9797 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9796
-  %9798 = load i16, ptr %9764, align 2, !tbaa !143
-  %.sroa.2109.0.extract.shift = lshr i16 %9798, 8
+9792:                                             ; preds = %9786, %9789, %._crit_edge11507
+  %9793 = sext i32 %9773 to i64
+  %9794 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9793
+  %9795 = load i16, ptr %9761, align 2, !tbaa !143
+  %.sroa.2109.0.extract.shift = lshr i16 %9795, 8
   %.sroa.2109.0.extract.trunc = zext nneg i16 %.sroa.2109.0.extract.shift to i32
-  %9799 = and i16 %9798, 255
-  %9800 = zext nneg i16 %9799 to i64
+  %9796 = and i16 %9795, 255
+  %9797 = zext nneg i16 %9796 to i64
   br label %.backedge.backedge
 
-9801:                                             ; preds = %.backedge
-  %9802 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9802, align 8, !tbaa !133
-  %9803 = getelementptr i8, ptr %.28893, i64 4
-  %9804 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.0106.0.copyload = load i64, ptr %9804, align 8, !tbaa !113
-  %9805 = inttoptr i64 %.sroa.0106.0.copyload to ptr
-  %9806 = getelementptr inbounds nuw i8, ptr %9805, i64 8
-  %9807 = load ptr, ptr %9806, align 8, !tbaa !103
-  %9808 = icmp eq ptr %9807, @PyTuple_Type
-  br i1 %9808, label %9809, label %9728
+9798:                                             ; preds = %.backedge
+  %9799 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9799, align 8, !tbaa !133
+  %9800 = getelementptr i8, ptr %.28893, i64 4
+  %9801 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.0106.0.copyload = load i64, ptr %9801, align 8, !tbaa !113
+  %9802 = inttoptr i64 %.sroa.0106.0.copyload to ptr
+  %9803 = getelementptr inbounds nuw i8, ptr %9802, i64 8
+  %9804 = load ptr, ptr %9803, align 8, !tbaa !103
+  %9805 = icmp eq ptr %9804, @PyTuple_Type
+  br i1 %9805, label %9806, label %9725
 
-9809:                                             ; preds = %9801
-  %9810 = getelementptr i8, ptr %9805, i64 16
-  %.val10109 = load i64, ptr %9810, align 8, !tbaa !101
-  %9811 = sext i32 %.08890 to i64
-  %.not9562 = icmp eq i64 %.val10109, %9811
-  br i1 %.not9562, label %9812, label %9728
+9806:                                             ; preds = %9798
+  %9807 = getelementptr i8, ptr %9802, i64 16
+  %.val10109 = load i64, ptr %9807, align 8, !tbaa !101
+  %9808 = sext i32 %.08890 to i64
+  %.not9562 = icmp eq i64 %.val10109, %9808
+  br i1 %.not9562, label %9809, label %9725
 
-9812:                                             ; preds = %9809
-  %9813 = getelementptr inbounds nuw i8, ptr %9805, i64 24
-  %9814 = add i32 %.08890, -1
-  %9815 = icmp sgt i32 %9814, -1
-  br i1 %9815, label %.lr.ph11508.preheader, label %._crit_edge11509
+9809:                                             ; preds = %9806
+  %9810 = getelementptr inbounds nuw i8, ptr %9802, i64 24
+  %9811 = add i32 %.08890, -1
+  %9812 = icmp sgt i32 %9811, -1
+  br i1 %9812, label %.lr.ph11510.preheader, label %._crit_edge11511
 
-.lr.ph11508.preheader:                            ; preds = %9812
-  %9816 = zext nneg i32 %9814 to i64
-  br label %.lr.ph11508
+.lr.ph11510.preheader:                            ; preds = %9809
+  %9813 = zext nneg i32 %9811 to i64
+  br label %.lr.ph11510
 
-.lr.ph11508:                                      ; preds = %.lr.ph11508.preheader, %_Py_NewRef.exit10780
-  %indvars.iv12503 = phi i64 [ %9816, %.lr.ph11508.preheader ], [ %indvars.iv.next12504, %_Py_NewRef.exit10780 ]
-  %.0897511506 = phi ptr [ %9804, %.lr.ph11508.preheader ], [ %9817, %_Py_NewRef.exit10780 ]
-  %9817 = getelementptr i8, ptr %.0897511506, i64 8
-  %9818 = getelementptr ptr, ptr %9813, i64 %indvars.iv12503
-  %9819 = load ptr, ptr %9818, align 8, !tbaa !100
-  %9820 = load i32, ptr %9819, align 8, !tbaa !113
-  %9821 = icmp slt i32 %9820, 0
-  br i1 %9821, label %_Py_NewRef.exit10780, label %9822
+.lr.ph11510:                                      ; preds = %.lr.ph11510.preheader, %_Py_NewRef.exit10780
+  %indvars.iv12506 = phi i64 [ %9813, %.lr.ph11510.preheader ], [ %indvars.iv.next12507, %_Py_NewRef.exit10780 ]
+  %.0897511508 = phi ptr [ %9801, %.lr.ph11510.preheader ], [ %9814, %_Py_NewRef.exit10780 ]
+  %9814 = getelementptr i8, ptr %.0897511508, i64 8
+  %9815 = getelementptr ptr, ptr %9810, i64 %indvars.iv12506
+  %9816 = load ptr, ptr %9815, align 8, !tbaa !100
+  %9817 = load i32, ptr %9816, align 8, !tbaa !113
+  %9818 = icmp slt i32 %9817, 0
+  br i1 %9818, label %_Py_NewRef.exit10780, label %9819
 
-9822:                                             ; preds = %.lr.ph11508
-  %9823 = add nuw i32 %9820, 1
-  store i32 %9823, ptr %9819, align 8, !tbaa !113
+9819:                                             ; preds = %.lr.ph11510
+  %9820 = add nuw i32 %9817, 1
+  store i32 %9820, ptr %9816, align 8, !tbaa !113
   br label %_Py_NewRef.exit10780
 
-_Py_NewRef.exit10780:                             ; preds = %.lr.ph11508, %9822
-  %9824 = ptrtoint ptr %9819 to i64
-  store i64 %9824, ptr %.0897511506, align 8, !tbaa !113
-  %indvars.iv.next12504 = add nsw i64 %indvars.iv12503, -1
-  %9825 = icmp sgt i64 %indvars.iv12503, 0
-  br i1 %9825, label %.lr.ph11508, label %._crit_edge11509, !llvm.loop !299
+_Py_NewRef.exit10780:                             ; preds = %.lr.ph11510, %9819
+  %9821 = ptrtoint ptr %9816 to i64
+  store i64 %9821, ptr %.0897511508, align 8, !tbaa !113
+  %indvars.iv.next12507 = add nsw i64 %indvars.iv12506, -1
+  %9822 = icmp sgt i64 %indvars.iv12506, 0
+  br i1 %9822, label %.lr.ph11510, label %._crit_edge11511, !llvm.loop !299
 
-._crit_edge11509:                                 ; preds = %_Py_NewRef.exit10780, %9812
-  %9826 = load i32, ptr %9805, align 8, !tbaa !113
-  %.not9563 = icmp sgt i32 %9826, -1
-  br i1 %.not9563, label %9827, label %9833
+._crit_edge11511:                                 ; preds = %_Py_NewRef.exit10780, %9809
+  %9823 = load i32, ptr %9802, align 8, !tbaa !113
+  %.not9563 = icmp sgt i32 %9823, -1
+  br i1 %.not9563, label %9824, label %9830
 
-9827:                                             ; preds = %._crit_edge11509
-  %9828 = add nsw i32 %9826, -1
-  store i32 %9828, ptr %9805, align 8, !tbaa !113
-  %9829 = icmp eq i32 %9828, 0
-  br i1 %9829, label %9830, label %9833
+9824:                                             ; preds = %._crit_edge11511
+  %9825 = add nsw i32 %9823, -1
+  store i32 %9825, ptr %9802, align 8, !tbaa !113
+  %9826 = icmp eq i32 %9825, 0
+  br i1 %9826, label %9827, label %9830
 
-9830:                                             ; preds = %9827
-  %.val10124 = load ptr, ptr %9806, align 8, !tbaa !103
-  %9831 = getelementptr inbounds nuw i8, ptr %.val10124, i64 48
-  %9832 = load ptr, ptr %9831, align 8, !tbaa !114
-  call void %9832(ptr noundef nonnull %9805) #15
-  br label %9833
+9827:                                             ; preds = %9824
+  %.val10124 = load ptr, ptr %9803, align 8, !tbaa !103
+  %9828 = getelementptr inbounds nuw i8, ptr %.val10124, i64 48
+  %9829 = load ptr, ptr %9828, align 8, !tbaa !114
+  call void %9829(ptr noundef nonnull %9802) #15
+  br label %9830
 
-9833:                                             ; preds = %9827, %9830, %._crit_edge11509
-  %9834 = sext i32 %9814 to i64
-  %9835 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9834
-  %9836 = load i16, ptr %9803, align 2, !tbaa !143
-  %.sroa.292.0.extract.shift = lshr i16 %9836, 8
+9830:                                             ; preds = %9824, %9827, %._crit_edge11511
+  %9831 = sext i32 %9811 to i64
+  %9832 = getelementptr %union._PyStackRef, ptr %.28898, i64 %9831
+  %9833 = load i16, ptr %9800, align 2, !tbaa !143
+  %.sroa.292.0.extract.shift = lshr i16 %9833, 8
   %.sroa.292.0.extract.trunc = zext nneg i16 %.sroa.292.0.extract.shift to i32
-  %9837 = and i16 %9836, 255
-  %9838 = zext nneg i16 %9837 to i64
+  %9834 = and i16 %9833, 255
+  %9835 = zext nneg i16 %9834 to i64
   br label %.backedge.backedge
 
-9839:                                             ; preds = %.backedge
-  %9840 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9840, align 8, !tbaa !133
-  %9841 = getelementptr i8, ptr %.28893, i64 4
-  %9842 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.089.0.copyload = load i64, ptr %9842, align 8, !tbaa !113
-  %9843 = inttoptr i64 %.sroa.089.0.copyload to ptr
-  %9844 = getelementptr inbounds nuw i8, ptr %9843, i64 8
-  %9845 = load ptr, ptr %9844, align 8, !tbaa !103
-  %9846 = icmp eq ptr %9845, @PyTuple_Type
-  br i1 %9846, label %9847, label %9728
+9836:                                             ; preds = %.backedge
+  %9837 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9837, align 8, !tbaa !133
+  %9838 = getelementptr i8, ptr %.28893, i64 4
+  %9839 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.089.0.copyload = load i64, ptr %9839, align 8, !tbaa !113
+  %9840 = inttoptr i64 %.sroa.089.0.copyload to ptr
+  %9841 = getelementptr inbounds nuw i8, ptr %9840, i64 8
+  %9842 = load ptr, ptr %9841, align 8, !tbaa !103
+  %9843 = icmp eq ptr %9842, @PyTuple_Type
+  br i1 %9843, label %9844, label %9725
 
-9847:                                             ; preds = %9839
-  %9848 = getelementptr i8, ptr %9843, i64 16
-  %.val = load i64, ptr %9848, align 8, !tbaa !101
+9844:                                             ; preds = %9836
+  %9845 = getelementptr i8, ptr %9840, i64 16
+  %.val = load i64, ptr %9845, align 8, !tbaa !101
   %.not9564 = icmp eq i64 %.val, 2
-  br i1 %.not9564, label %9849, label %9728
+  br i1 %.not9564, label %9846, label %9725
 
-9849:                                             ; preds = %9847
-  %9850 = getelementptr inbounds nuw i8, ptr %9843, i64 24
-  %9851 = load ptr, ptr %9850, align 8, !tbaa !100
-  %9852 = load i32, ptr %9851, align 8, !tbaa !113
-  %9853 = icmp slt i32 %9852, 0
-  br i1 %9853, label %_Py_NewRef.exit10782, label %9854
+9846:                                             ; preds = %9844
+  %9847 = getelementptr inbounds nuw i8, ptr %9840, i64 24
+  %9848 = load ptr, ptr %9847, align 8, !tbaa !100
+  %9849 = load i32, ptr %9848, align 8, !tbaa !113
+  %9850 = icmp slt i32 %9849, 0
+  br i1 %9850, label %_Py_NewRef.exit10782, label %9851
 
-9854:                                             ; preds = %9849
-  %9855 = add nuw i32 %9852, 1
-  store i32 %9855, ptr %9851, align 8, !tbaa !113
+9851:                                             ; preds = %9846
+  %9852 = add nuw i32 %9849, 1
+  store i32 %9852, ptr %9848, align 8, !tbaa !113
   br label %_Py_NewRef.exit10782
 
-_Py_NewRef.exit10782:                             ; preds = %9849, %9854
-  %9856 = ptrtoint ptr %9851 to i64
-  %9857 = getelementptr i8, ptr %9843, i64 32
-  %9858 = load ptr, ptr %9857, align 8, !tbaa !100
-  %9859 = load i32, ptr %9858, align 8, !tbaa !113
-  %9860 = icmp slt i32 %9859, 0
-  br i1 %9860, label %_Py_NewRef.exit10784, label %9861
+_Py_NewRef.exit10782:                             ; preds = %9846, %9851
+  %9853 = ptrtoint ptr %9848 to i64
+  %9854 = getelementptr i8, ptr %9840, i64 32
+  %9855 = load ptr, ptr %9854, align 8, !tbaa !100
+  %9856 = load i32, ptr %9855, align 8, !tbaa !113
+  %9857 = icmp slt i32 %9856, 0
+  br i1 %9857, label %_Py_NewRef.exit10784, label %9858
 
-9861:                                             ; preds = %_Py_NewRef.exit10782
-  %9862 = add nuw i32 %9859, 1
-  store i32 %9862, ptr %9858, align 8, !tbaa !113
+9858:                                             ; preds = %_Py_NewRef.exit10782
+  %9859 = add nuw i32 %9856, 1
+  store i32 %9859, ptr %9855, align 8, !tbaa !113
   br label %_Py_NewRef.exit10784
 
-_Py_NewRef.exit10784:                             ; preds = %_Py_NewRef.exit10782, %9861
-  %9863 = ptrtoint ptr %9858 to i64
-  %9864 = load i32, ptr %9843, align 8, !tbaa !113
-  %.not9565 = icmp sgt i32 %9864, -1
-  br i1 %.not9565, label %9865, label %9871
+_Py_NewRef.exit10784:                             ; preds = %_Py_NewRef.exit10782, %9858
+  %9860 = ptrtoint ptr %9855 to i64
+  %9861 = load i32, ptr %9840, align 8, !tbaa !113
+  %.not9565 = icmp sgt i32 %9861, -1
+  br i1 %.not9565, label %9862, label %9868
 
-9865:                                             ; preds = %_Py_NewRef.exit10784
-  %9866 = add nsw i32 %9864, -1
-  store i32 %9866, ptr %9843, align 8, !tbaa !113
-  %9867 = icmp eq i32 %9866, 0
-  br i1 %9867, label %9868, label %9871
+9862:                                             ; preds = %_Py_NewRef.exit10784
+  %9863 = add nsw i32 %9861, -1
+  store i32 %9863, ptr %9840, align 8, !tbaa !113
+  %9864 = icmp eq i32 %9863, 0
+  br i1 %9864, label %9865, label %9868
 
-9868:                                             ; preds = %9865
-  %.val10123 = load ptr, ptr %9844, align 8, !tbaa !103
-  %9869 = getelementptr inbounds nuw i8, ptr %.val10123, i64 48
-  %9870 = load ptr, ptr %9869, align 8, !tbaa !114
-  call void %9870(ptr noundef nonnull %9843) #15
-  br label %9871
+9865:                                             ; preds = %9862
+  %.val10123 = load ptr, ptr %9841, align 8, !tbaa !103
+  %9866 = getelementptr inbounds nuw i8, ptr %.val10123, i64 48
+  %9867 = load ptr, ptr %9866, align 8, !tbaa !114
+  call void %9867(ptr noundef nonnull %9840) #15
+  br label %9868
 
-9871:                                             ; preds = %9865, %9868, %_Py_NewRef.exit10784
-  store i64 %9863, ptr %9842, align 8, !tbaa !113
-  store i64 %9856, ptr %.28898, align 8, !tbaa !113
-  %9872 = getelementptr i8, ptr %.28898, i64 8
-  %9873 = load i16, ptr %9841, align 2, !tbaa !143
-  %.sroa.275.0.extract.shift = lshr i16 %9873, 8
+9868:                                             ; preds = %9862, %9865, %_Py_NewRef.exit10784
+  store i64 %9860, ptr %9839, align 8, !tbaa !113
+  store i64 %9853, ptr %.28898, align 8, !tbaa !113
+  %9869 = getelementptr i8, ptr %.28898, i64 8
+  %9870 = load i16, ptr %9838, align 2, !tbaa !143
+  %.sroa.275.0.extract.shift = lshr i16 %9870, 8
   %.sroa.275.0.extract.trunc = zext nneg i16 %.sroa.275.0.extract.shift to i32
-  %9874 = and i16 %9873, 255
-  %9875 = zext nneg i16 %9874 to i64
+  %9871 = and i16 %9870, 255
+  %9872 = zext nneg i16 %9871 to i64
   br label %.backedge.backedge
 
-9876:                                             ; preds = %.backedge
-  %9877 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9877, align 8, !tbaa !133
-  %9878 = getelementptr i8, ptr %.28893, i64 2
-  %9879 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.069.0.copyload = load i64, ptr %9879, align 8, !tbaa !113
-  %9880 = getelementptr i8, ptr %.28898, i64 -32
-  %.sroa.071.0.copyload = load i64, ptr %9880, align 8, !tbaa !113
-  %9881 = getelementptr i8, ptr %.28898, i64 -40
-  %.sroa.073.0.copyload = load i64, ptr %9881, align 8, !tbaa !113
-  %9882 = inttoptr i64 %.sroa.069.0.copyload to ptr
-  %9883 = inttoptr i64 %.sroa.073.0.copyload to ptr
-  %9884 = getelementptr i8, ptr %9882, i64 8
-  %.val10122 = load ptr, ptr %9884, align 8, !tbaa !103
-  %9885 = call ptr @PyException_GetTraceback(ptr noundef %9882) #15
-  %9886 = icmp eq ptr %9885, null
-  br i1 %9886, label %9899, label %9887
+9873:                                             ; preds = %.backedge
+  %9874 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9874, align 8, !tbaa !133
+  %9875 = getelementptr i8, ptr %.28893, i64 2
+  %9876 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.069.0.copyload = load i64, ptr %9876, align 8, !tbaa !113
+  %9877 = getelementptr i8, ptr %.28898, i64 -32
+  %.sroa.071.0.copyload = load i64, ptr %9877, align 8, !tbaa !113
+  %9878 = getelementptr i8, ptr %.28898, i64 -40
+  %.sroa.073.0.copyload = load i64, ptr %9878, align 8, !tbaa !113
+  %9879 = inttoptr i64 %.sroa.069.0.copyload to ptr
+  %9880 = inttoptr i64 %.sroa.073.0.copyload to ptr
+  %9881 = getelementptr i8, ptr %9879, i64 8
+  %.val10122 = load ptr, ptr %9881, align 8, !tbaa !103
+  %9882 = call ptr @PyException_GetTraceback(ptr noundef %9879) #15
+  %9883 = icmp eq ptr %9882, null
+  br i1 %9883, label %9896, label %9884
 
-9887:                                             ; preds = %9876
-  %9888 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.28898, ptr %9888, align 8, !tbaa !136
-  %9889 = load i32, ptr %9885, align 8, !tbaa !113
-  %.not9752 = icmp sgt i32 %9889, -1
-  br i1 %.not9752, label %9890, label %9897
+9884:                                             ; preds = %9873
+  %9885 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.28898, ptr %9885, align 8, !tbaa !136
+  %9886 = load i32, ptr %9882, align 8, !tbaa !113
+  %.not9752 = icmp sgt i32 %9886, -1
+  br i1 %.not9752, label %9887, label %9894
+
+9887:                                             ; preds = %9884
+  %9888 = add nsw i32 %9886, -1
+  store i32 %9888, ptr %9882, align 8, !tbaa !113
+  %9889 = icmp eq i32 %9888, 0
+  br i1 %9889, label %9890, label %9894
 
 9890:                                             ; preds = %9887
-  %9891 = add nsw i32 %9889, -1
-  store i32 %9891, ptr %9885, align 8, !tbaa !113
-  %9892 = icmp eq i32 %9891, 0
-  br i1 %9892, label %9893, label %9897
+  %9891 = getelementptr i8, ptr %9882, i64 8
+  %.val10121 = load ptr, ptr %9891, align 8, !tbaa !103
+  %9892 = getelementptr inbounds nuw i8, ptr %.val10121, i64 48
+  %9893 = load ptr, ptr %9892, align 8, !tbaa !114
+  call void %9893(ptr noundef nonnull %9882) #15
+  br label %9894
 
-9893:                                             ; preds = %9890
-  %9894 = getelementptr i8, ptr %9885, i64 8
-  %.val10121 = load ptr, ptr %9894, align 8, !tbaa !103
-  %9895 = getelementptr inbounds nuw i8, ptr %.val10121, i64 48
-  %9896 = load ptr, ptr %9895, align 8, !tbaa !114
-  call void %9896(ptr noundef nonnull %9885) #15
-  br label %9897
+9894:                                             ; preds = %9887, %9890, %9884
+  %9895 = load ptr, ptr %9885, align 8, !tbaa !136
+  store ptr null, ptr %9885, align 8, !tbaa !136
+  br label %9896
 
-9897:                                             ; preds = %9890, %9893, %9887
-  %9898 = load ptr, ptr %9888, align 8, !tbaa !136
-  store ptr null, ptr %9888, align 8, !tbaa !136
-  br label %9899
-
-9899:                                             ; preds = %9876, %9897
-  %.08956 = phi ptr [ %9885, %9897 ], [ @_Py_NoneStruct, %9876 ]
-  %.85 = phi ptr [ %9898, %9897 ], [ %.28898, %9876 ]
+9896:                                             ; preds = %9873, %9894
+  %.08956 = phi ptr [ %9882, %9894 ], [ @_Py_NoneStruct, %9873 ]
+  %.85 = phi ptr [ %9895, %9894 ], [ %.28898, %9873 ]
   store ptr null, ptr %21, align 16, !tbaa !100
-  %9900 = inttoptr i64 %.sroa.071.0.copyload to ptr
-  store ptr %9900, ptr %10263, align 8, !tbaa !100
-  store ptr %.val10122, ptr %10264, align 16, !tbaa !100
-  store ptr %9882, ptr %10265, align 8, !tbaa !100
-  store ptr %.08956, ptr %10266, align 16, !tbaa !100
-  %9901 = icmp ne i64 %.sroa.071.0.copyload, 0
-  %9902 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %.85, ptr %9902, align 8, !tbaa !136
-  %.neg9753 = sext i1 %9901 to i64
-  %9903 = getelementptr ptr, ptr %10264, i64 %.neg9753
-  %9904 = select i1 %9901, i64 -9223372036854775804, i64 -9223372036854775805
-  %9905 = call ptr @PyObject_Vectorcall(ptr noundef %9883, ptr noundef %9903, i64 noundef %9904, ptr noundef null) #15
-  %9906 = load ptr, ptr %9902, align 8, !tbaa !136
-  store ptr null, ptr %9902, align 8, !tbaa !136
-  %9907 = icmp eq ptr %9905, null
-  br i1 %9907, label %monitor_throw.exit.loopexit, label %9908
+  %9897 = inttoptr i64 %.sroa.071.0.copyload to ptr
+  store ptr %9897, ptr %10260, align 8, !tbaa !100
+  store ptr %.val10122, ptr %10261, align 16, !tbaa !100
+  store ptr %9879, ptr %10262, align 8, !tbaa !100
+  store ptr %.08956, ptr %10263, align 16, !tbaa !100
+  %9898 = icmp ne i64 %.sroa.071.0.copyload, 0
+  %9899 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %.85, ptr %9899, align 8, !tbaa !136
+  %.neg9753 = sext i1 %9898 to i64
+  %9900 = getelementptr ptr, ptr %10261, i64 %.neg9753
+  %9901 = select i1 %9898, i64 -9223372036854775804, i64 -9223372036854775805
+  %9902 = call ptr @PyObject_Vectorcall(ptr noundef %9880, ptr noundef %9900, i64 noundef %9901, ptr noundef null) #15
+  %9903 = load ptr, ptr %9899, align 8, !tbaa !136
+  store ptr null, ptr %9899, align 8, !tbaa !136
+  %9904 = icmp eq ptr %9902, null
+  br i1 %9904, label %monitor_throw.exit.loopexit, label %9905
 
-9908:                                             ; preds = %9899
-  %9909 = ptrtoint ptr %9905 to i64
-  store i64 %9909, ptr %9906, align 8, !tbaa !113
-  %9910 = getelementptr i8, ptr %9906, i64 8
-  %9911 = load i16, ptr %9878, align 2, !tbaa !143
-  %.sroa.249.0.extract.shift = lshr i16 %9911, 8
+9905:                                             ; preds = %9896
+  %9906 = ptrtoint ptr %9902 to i64
+  store i64 %9906, ptr %9903, align 8, !tbaa !113
+  %9907 = getelementptr i8, ptr %9903, i64 8
+  %9908 = load i16, ptr %9875, align 2, !tbaa !143
+  %.sroa.249.0.extract.shift = lshr i16 %9908, 8
   %.sroa.249.0.extract.trunc = zext nneg i16 %.sroa.249.0.extract.shift to i32
-  %9912 = and i16 %9911, 255
-  %9913 = zext nneg i16 %9912 to i64
+  %9909 = and i16 %9908, 255
+  %9910 = zext nneg i16 %9909 to i64
   br label %.backedge.backedge
 
-9914:                                             ; preds = %.backedge
-  %9915 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %.28893, ptr %9915, align 8, !tbaa !133
-  %9916 = getelementptr i8, ptr %.28898, i64 -8
-  %.sroa.047.0.copyload = load i64, ptr %9916, align 8, !tbaa !113
-  %9917 = getelementptr i8, ptr %.28893, i64 2
-  store ptr %9917, ptr %9915, align 8, !tbaa !133
-  %9918 = trunc i32 %.08890 to i8
-  %9919 = add i8 %9918, -2
-  %9920 = getelementptr i8, ptr %.2, i64 -5
-  store i8 %9919, ptr %9920, align 1, !tbaa !241
-  %9921 = getelementptr inbounds nuw i8, ptr %.2, i64 64
-  store ptr %9916, ptr %9921, align 8, !tbaa !136
-  %9922 = getelementptr i8, ptr %.2, i64 -24
-  %9923 = load ptr, ptr %9922, align 8, !tbaa !244
-  store ptr %9923, ptr %10248, align 8, !tbaa !243
-  store ptr null, ptr %9922, align 8, !tbaa !244
-  %9924 = load i32, ptr %10249, align 4, !tbaa !95
-  %9925 = add i32 %9924, 1
-  store i32 %9925, ptr %10249, align 4, !tbaa !95
-  %9926 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %9927 = load ptr, ptr %9926, align 8, !tbaa !141
-  store ptr %9927, ptr %49, align 8, !tbaa !140
-  store ptr null, ptr %9926, align 8, !tbaa !141
-  %9928 = getelementptr inbounds nuw i8, ptr %9927, i64 64
-  %9929 = load ptr, ptr %9928, align 8, !tbaa !136
-  store ptr null, ptr %9928, align 8, !tbaa !136
-  %9930 = getelementptr inbounds nuw i8, ptr %9927, i64 56
-  %9931 = load ptr, ptr %9930, align 8, !tbaa !133
-  %9932 = getelementptr i8, ptr %9931, i64 4
-  store i64 %.sroa.047.0.copyload, ptr %9929, align 8, !tbaa !113
-  %9933 = getelementptr i8, ptr %9929, i64 8
-  %9934 = load i16, ptr %9932, align 2, !tbaa !143
-  %.sroa.239.0.extract.shift = lshr i16 %9934, 8
+9911:                                             ; preds = %.backedge
+  %9912 = getelementptr inbounds nuw i8, ptr %.2, i64 56
+  store ptr %.28893, ptr %9912, align 8, !tbaa !133
+  %9913 = getelementptr i8, ptr %.28898, i64 -8
+  %.sroa.047.0.copyload = load i64, ptr %9913, align 8, !tbaa !113
+  %9914 = getelementptr i8, ptr %.28893, i64 2
+  store ptr %9914, ptr %9912, align 8, !tbaa !133
+  %9915 = trunc i32 %.08890 to i8
+  %9916 = add i8 %9915, -2
+  %9917 = getelementptr i8, ptr %.2, i64 -5
+  store i8 %9916, ptr %9917, align 1, !tbaa !241
+  %9918 = getelementptr inbounds nuw i8, ptr %.2, i64 64
+  store ptr %9913, ptr %9918, align 8, !tbaa !136
+  %9919 = getelementptr i8, ptr %.2, i64 -24
+  %9920 = load ptr, ptr %9919, align 8, !tbaa !244
+  store ptr %9920, ptr %10245, align 8, !tbaa !243
+  store ptr null, ptr %9919, align 8, !tbaa !244
+  %9921 = load i32, ptr %10246, align 4, !tbaa !95
+  %9922 = add i32 %9921, 1
+  store i32 %9922, ptr %10246, align 4, !tbaa !95
+  %9923 = getelementptr inbounds nuw i8, ptr %.2, i64 8
+  %9924 = load ptr, ptr %9923, align 8, !tbaa !141
+  store ptr %9924, ptr %49, align 8, !tbaa !140
+  store ptr null, ptr %9923, align 8, !tbaa !141
+  %9925 = getelementptr inbounds nuw i8, ptr %9924, i64 64
+  %9926 = load ptr, ptr %9925, align 8, !tbaa !136
+  store ptr null, ptr %9925, align 8, !tbaa !136
+  %9927 = getelementptr inbounds nuw i8, ptr %9924, i64 56
+  %9928 = load ptr, ptr %9927, align 8, !tbaa !133
+  %9929 = getelementptr i8, ptr %9928, i64 4
+  store i64 %.sroa.047.0.copyload, ptr %9926, align 8, !tbaa !113
+  %9930 = getelementptr i8, ptr %9926, i64 8
+  %9931 = load i16, ptr %9929, align 2, !tbaa !143
+  %.sroa.239.0.extract.shift = lshr i16 %9931, 8
   %.sroa.239.0.extract.trunc = zext nneg i16 %.sroa.239.0.extract.shift to i32
-  %9935 = and i16 %9934, 255
-  %9936 = zext nneg i16 %9935 to i64
+  %9932 = and i16 %9931, 255
+  %9933 = zext nneg i16 %9932 to i64
   br label %.backedge.backedge
 
-9937:                                             ; preds = %.backedge
-  %9938 = load i8, ptr %.28893, align 2, !tbaa !113
-  %9939 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !100
+9934:                                             ; preds = %.backedge
+  %9935 = load i8, ptr %.28893, align 2, !tbaa !113
+  %9936 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !100
   %.2.val10475 = load i64, ptr %.2, align 8, !tbaa !113
-  %9940 = inttoptr i64 %.2.val10475 to ptr
-  %9941 = getelementptr inbounds nuw i8, ptr %9940, i64 112
-  %9942 = load ptr, ptr %9941, align 8, !tbaa !300
-  %9943 = call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %.2) #15
-  %9944 = zext i8 %9938 to i32
-  %9945 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %0, ptr noundef %9939, ptr noundef nonnull @.str.32, ptr noundef %9942, i32 noundef %9943, i32 noundef %9944) #15
+  %9937 = inttoptr i64 %.2.val10475 to ptr
+  %9938 = getelementptr inbounds nuw i8, ptr %9937, i64 112
+  %9939 = load ptr, ptr %9938, align 8, !tbaa !300
+  %9940 = call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %.2) #15
+  %9941 = zext i8 %9935 to i32
+  %9942 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %0, ptr noundef %9936, ptr noundef nonnull @.str.32, ptr noundef %9939, i32 noundef %9940, i32 noundef %9941) #15
   br label %monitor_throw.exit
 
-.loopexit10900:                                   ; preds = %9391, %_PyErr_Occurred.exit10744, %7759, %7676, %5950, %5895, %5900, %5897
-  %.56 = phi ptr [ %5876, %5895 ], [ %5876, %5900 ], [ %5876, %5897 ], [ %7734, %7759 ], [ %.57, %5950 ], [ %7923, %_PyErr_Occurred.exit10744 ], [ %7649, %7676 ], [ %9364, %9391 ]
-  %.16 = phi ptr [ %5865, %5895 ], [ %5865, %5900 ], [ %5865, %5897 ], [ %7713, %7759 ], [ %5865, %5950 ], [ %7913, %_PyErr_Occurred.exit10744 ], [ %.26, %7676 ], [ %.31, %9391 ]
-  %9946 = getelementptr i8, ptr %.56, i64 -24
+.loopexit10902:                                   ; preds = %9388, %_PyErr_Occurred.exit10744, %7759, %7676, %5950, %5895, %5900, %5897
+  %.56 = phi ptr [ %5876, %5895 ], [ %5876, %5900 ], [ %5876, %5897 ], [ %7734, %7759 ], [ %.57, %5950 ], [ %7923, %_PyErr_Occurred.exit10744 ], [ %7649, %7676 ], [ %9361, %9388 ]
+  %.16 = phi ptr [ %5865, %5895 ], [ %5865, %5900 ], [ %5865, %5897 ], [ %7713, %7759 ], [ %5865, %5950 ], [ %7913, %_PyErr_Occurred.exit10744 ], [ %.26, %7676 ], [ %.31, %9388 ]
+  %9943 = getelementptr i8, ptr %.56, i64 -24
   br label %monitor_throw.exit
 
-.loopexit10901:                                   ; preds = %8906, %7892, %5094, %4615, %4337, %4074, %4035, %3997, %3780, %3591, %2166, %626, %583, %494, %444, %423, %373, %351, %256, %212, %162, %139, %3562, %3567, %3564
+.loopexit10903:                                   ; preds = %8906, %7892, %5094, %4615, %4337, %4074, %4035, %3997, %3780, %3591, %2166, %626, %583, %494, %444, %423, %373, %351, %256, %212, %162, %139, %3562, %3567, %3564
   %.38899 = phi ptr [ %3551, %3562 ], [ %3551, %3567 ], [ %3551, %3564 ], [ %4057, %4074 ], [ %4018, %4035 ], [ %.58901, %626 ], [ %.28898, %494 ], [ %.28898, %444 ], [ %.28898, %423 ], [ %.28898, %373 ], [ %.28898, %256 ], [ %.28898, %212 ], [ %.28898, %162 ], [ %8888, %8906 ], [ %7905, %7892 ], [ %5076, %5094 ], [ %3979, %3997 ], [ %3762, %3780 ], [ %2148, %2166 ], [ %4597, %4615 ], [ %4319, %4337 ], [ %3573, %3591 ], [ %.28898, %351 ], [ %121, %139 ], [ %565, %583 ]
   %.38894 = phi ptr [ %3544, %3562 ], [ %3544, %3567 ], [ %3544, %3564 ], [ %4045, %4074 ], [ %4007, %4035 ], [ %594, %626 ], [ %459, %494 ], [ %432, %444 ], [ %388, %423 ], [ %361, %373 ], [ %221, %256 ], [ %177, %212 ], [ %150, %162 ], [ %.30, %8906 ], [ %7894, %7892 ], [ %5062, %5094 ], [ %.10, %3997 ], [ %.9, %3780 ], [ %2138, %2166 ], [ %4590, %4615 ], [ %4312, %4337 ], [ %3544, %3591 ], [ %306, %351 ], [ %.18892, %139 ], [ %.48895, %583 ]
-  %9947 = getelementptr i8, ptr %.38899, i64 -16
+  %9944 = getelementptr i8, ptr %.38899, i64 -16
   br label %monitor_throw.exit
 
-.loopexit10902.sink.split:                        ; preds = %4871, %3643, %4367, %4413, %6441, %8681, %9261
-  %.val10146.sink.in = phi ptr [ %9262, %9261 ], [ %8682, %8681 ], [ %6442, %6441 ], [ %4414, %4413 ], [ %4368, %4367 ], [ %3617, %3643 ], [ %4857, %4871 ]
-  %.sink13187 = phi ptr [ %9256, %9261 ], [ %8620, %8681 ], [ %6413, %6441 ], [ %4391, %4413 ], [ %4354, %4367 ], [ %3615, %3643 ], [ %4856, %4871 ]
-  %.198915.ph = phi ptr [ %9255, %9261 ], [ %8671, %8681 ], [ %.68, %6441 ], [ %.338929, %4413 ], [ %4362, %4367 ], [ %3641, %3643 ], [ %4869, %4871 ]
-  %.6.ph = phi ptr [ %9239, %9261 ], [ %.28, %8681 ], [ %6407, %6441 ], [ %4385, %4413 ], [ %4345, %4367 ], [ %3612, %3643 ], [ %4854, %4871 ]
+.loopexit10904.sink.split:                        ; preds = %4871, %3643, %4367, %4413, %6441, %8681, %9258
+  %.val10146.sink.in = phi ptr [ %9259, %9258 ], [ %8682, %8681 ], [ %6442, %6441 ], [ %4414, %4413 ], [ %4368, %4367 ], [ %3617, %3643 ], [ %4857, %4871 ]
+  %.sink13190 = phi ptr [ %9253, %9258 ], [ %8620, %8681 ], [ %6413, %6441 ], [ %4391, %4413 ], [ %4354, %4367 ], [ %3615, %3643 ], [ %4856, %4871 ]
+  %.198915.ph = phi ptr [ %9252, %9258 ], [ %8671, %8681 ], [ %.68, %6441 ], [ %.338929, %4413 ], [ %4362, %4367 ], [ %3641, %3643 ], [ %4869, %4871 ]
+  %.6.ph = phi ptr [ %9236, %9258 ], [ %.28, %8681 ], [ %6407, %6441 ], [ %4385, %4413 ], [ %4345, %4367 ], [ %3612, %3643 ], [ %4854, %4871 ]
   %.val10146.sink = load ptr, ptr %.val10146.sink.in, align 8, !tbaa !103
-  %9948 = getelementptr inbounds nuw i8, ptr %.val10146.sink, i64 48
-  %9949 = load ptr, ptr %9948, align 8, !tbaa !114
-  call void %9949(ptr noundef nonnull %.sink13187) #15
-  br label %.loopexit10902
+  %9945 = getelementptr inbounds nuw i8, ptr %.val10146.sink, i64 48
+  %9946 = load ptr, ptr %9945, align 8, !tbaa !114
+  call void %9946(ptr noundef nonnull %.sink13190) #15
+  br label %.loopexit10904
 
-.loopexit10902:                                   ; preds = %9753, %9716, %9678, %9654, %9526, %9283, %9231, %8849, %8809, %7335, %6517, %6501, %_PyList_AppendTakeRef.exit10694, %4974, %4950, %4885, %4179, %2128, %.loopexit10902.sink.split, %9251, %9258, %8676, %8678, %6436, %6438, %.thread10844, %4871, %4408, %4410, %4359, %4364, %.loopexit, %3643
-  %.198915 = phi ptr [ %3641, %.loopexit ], [ %3641, %3643 ], [ %4869, %.thread10844 ], [ %4869, %4871 ], [ %4362, %4359 ], [ %4362, %4364 ], [ %.338929, %4408 ], [ %.338929, %4410 ], [ %.68, %6436 ], [ %.68, %6438 ], [ %8671, %8676 ], [ %8671, %8678 ], [ %9255, %9251 ], [ %9255, %9258 ], [ %.198915.ph, %.loopexit10902.sink.split ], [ %9743, %9753 ], [ %9706, %9716 ], [ %9274, %9283 ], [ %9222, %9231 ], [ %8840, %8849 ], [ %8800, %8809 ], [ %7326, %7335 ], [ %6508, %6517 ], [ %6491, %6501 ], [ %.28898, %_PyList_AppendTakeRef.exit10694 ], [ %4941, %4950 ], [ %4170, %4179 ], [ %2119, %2128 ], [ %9669, %9678 ], [ %9645, %9654 ], [ %9517, %9526 ], [ %4965, %4974 ], [ %4877, %4885 ]
-  %.6 = phi ptr [ %3612, %.loopexit ], [ %3612, %3643 ], [ %4854, %.thread10844 ], [ %4854, %4871 ], [ %4345, %4359 ], [ %4345, %4364 ], [ %4385, %4408 ], [ %4385, %4410 ], [ %6407, %6436 ], [ %6407, %6438 ], [ %.28, %8676 ], [ %.28, %8678 ], [ %9239, %9251 ], [ %9239, %9258 ], [ %.6.ph, %.loopexit10902.sink.split ], [ %.33, %9753 ], [ %9696, %9716 ], [ %9239, %9283 ], [ %9208, %9231 ], [ %8831, %8849 ], [ %8791, %8809 ], [ %7314, %7335 ], [ %.24, %6517 ], [ %.24, %6501 ], [ %6385, %_PyList_AppendTakeRef.exit10694 ], [ %4936, %4950 ], [ %4158, %4179 ], [ %2111, %2128 ], [ %9664, %9678 ], [ %9640, %9654 ], [ %.32, %9526 ], [ %4960, %4974 ], [ %4854, %4885 ]
-  %9950 = getelementptr i8, ptr %.198915, i64 -8
+.loopexit10904:                                   ; preds = %9750, %9713, %9675, %9651, %9523, %9280, %9228, %8849, %8809, %7335, %6517, %6501, %_PyList_AppendTakeRef.exit10694, %4974, %4950, %4885, %4179, %2128, %.loopexit10904.sink.split, %9248, %9255, %8676, %8678, %6436, %6438, %.thread10844, %4871, %4408, %4410, %4359, %4364, %.loopexit, %3643
+  %.198915 = phi ptr [ %3641, %.loopexit ], [ %3641, %3643 ], [ %4869, %.thread10844 ], [ %4869, %4871 ], [ %4362, %4359 ], [ %4362, %4364 ], [ %.338929, %4408 ], [ %.338929, %4410 ], [ %.68, %6436 ], [ %.68, %6438 ], [ %8671, %8676 ], [ %8671, %8678 ], [ %9252, %9248 ], [ %9252, %9255 ], [ %.198915.ph, %.loopexit10904.sink.split ], [ %9740, %9750 ], [ %9703, %9713 ], [ %9271, %9280 ], [ %9219, %9228 ], [ %8840, %8849 ], [ %8800, %8809 ], [ %7326, %7335 ], [ %6508, %6517 ], [ %6491, %6501 ], [ %.28898, %_PyList_AppendTakeRef.exit10694 ], [ %4941, %4950 ], [ %4170, %4179 ], [ %2119, %2128 ], [ %9666, %9675 ], [ %9642, %9651 ], [ %9514, %9523 ], [ %4965, %4974 ], [ %4877, %4885 ]
+  %.6 = phi ptr [ %3612, %.loopexit ], [ %3612, %3643 ], [ %4854, %.thread10844 ], [ %4854, %4871 ], [ %4345, %4359 ], [ %4345, %4364 ], [ %4385, %4408 ], [ %4385, %4410 ], [ %6407, %6436 ], [ %6407, %6438 ], [ %.28, %8676 ], [ %.28, %8678 ], [ %9236, %9248 ], [ %9236, %9255 ], [ %.6.ph, %.loopexit10904.sink.split ], [ %.33, %9750 ], [ %9693, %9713 ], [ %9236, %9280 ], [ %9205, %9228 ], [ %8831, %8849 ], [ %8791, %8809 ], [ %7314, %7335 ], [ %.24, %6517 ], [ %.24, %6501 ], [ %6385, %_PyList_AppendTakeRef.exit10694 ], [ %4936, %4950 ], [ %4158, %4179 ], [ %2111, %2128 ], [ %9661, %9675 ], [ %9637, %9651 ], [ %.32, %9523 ], [ %4960, %4974 ], [ %4854, %4885 ]
+  %9947 = getelementptr i8, ptr %.198915, i64 -8
   br label %monitor_throw.exit
 
-.loopexit10899.split.loop.exit11780:              ; preds = %6212
-  %9951 = getelementptr i8, ptr %.28893, i64 2
+.loopexit10901.split.loop.exit11782:              ; preds = %6212
+  %9948 = getelementptr i8, ptr %.28893, i64 2
   br label %monitor_throw.exit
 
-.loopexit10899.split.loop.exit11784:              ; preds = %6237
-  %9952 = getelementptr i8, ptr %.28893, i64 2
+.loopexit10901.split.loop.exit11786:              ; preds = %6237
+  %9949 = getelementptr i8, ptr %.28893, i64 2
   br label %monitor_throw.exit
 
-.loopexit10899.split.loop.exit11852:              ; preds = %8508
-  %9953 = getelementptr i8, ptr %.28893, i64 2
+.loopexit10901.split.loop.exit11854:              ; preds = %8508
+  %9950 = getelementptr i8, ptr %.28893, i64 2
   br label %monitor_throw.exit
 
-monitor_throw.exit.loopexit:                      ; preds = %9338, %5991, %5705, %._crit_edge11528, %._crit_edge11531, %9899, %9421, %8772, %8756, %8749, %8489, %8471, %7961, %7881, %7835, %7780, %7697, %7563, %7415, %7370, %7362, %7262, %7059, %6364, %6339, %6323, %6201, %6197, %6183, %5971, %5769, %5747, %5712, %PyObject_TypeCheck.exit.thread, %PyStackRef_GenCheck.exit.thread, %5448, %5418, %5411, %5347, %5322, %5274, %5159, %5038, %5019, %4991, %4982, %4919, %4791, %4649, %4578, %4255, %4102, %3795, %3502, %3495, %3462, %3455, %_Py_NewRef.exit10634, %3292, %3205, %3101, %3094, %3016, %2913, %2817, %2738, %2732, %2696, %2623, %2519, %2196, %2098, %2091, %1998, %1953, %1946, %1875, %1785, %1695, %_Py_NewRef.exit10610, %1360, %1303, %1125, %915, %538
-  %.08896.ph = phi ptr [ %539, %538 ], [ %.28898, %915 ], [ %.28898, %1125 ], [ %1307, %1303 ], [ %1363, %1360 ], [ %1607, %_Py_NewRef.exit10610 ], [ %1699, %1695 ], [ %1789, %1785 ], [ %1879, %1875 ], [ %1947, %1946 ], [ %1956, %1953 ], [ %2000, %1998 ], [ %2092, %2091 ], [ %2101, %2098 ], [ %2202, %2196 ], [ %2521, %2519 ], [ %2627, %2623 ], [ %2698, %2696 ], [ %2736, %2732 ], [ %2736, %2738 ], [ %2818, %2817 ], [ %2917, %2913 ], [ %3020, %3016 ], [ %3095, %3094 ], [ %3104, %3101 ], [ %3209, %3205 ], [ %3296, %3292 ], [ %3420, %_Py_NewRef.exit10634 ], [ %3456, %3455 ], [ %3465, %3462 ], [ %3496, %3495 ], [ %3505, %3502 ], [ %3796, %3795 ], [ %4103, %4102 ], [ %4269, %4255 ], [ %4579, %4578 ], [ %4652, %4649 ], [ %.28898, %4791 ], [ %4926, %4919 ], [ %4989, %4982 ], [ %4989, %4991 ], [ %5022, %5019 ], [ %5052, %5038 ], [ %5162, %5159 ], [ %5278, %5274 ], [ %5324, %5322 ], [ %5353, %5347 ], [ %5412, %5411 ], [ %5421, %5418 ], [ %5453, %5448 ], [ %5644, %PyStackRef_GenCheck.exit.thread ], [ %5673, %PyObject_TypeCheck.exit.thread ], [ %5715, %5712 ], [ %5752, %5747 ], [ %5772, %5769 ], [ %5972, %5971 ], [ %6187, %6183 ], [ %6200, %6197 ], [ %6206, %6201 ], [ %6326, %6323 ], [ %6342, %6339 ], [ %6367, %6364 ], [ %7066, %7059 ], [ %7276, %7262 ], [ %7365, %7362 ], [ %7374, %7370 ], [ %7430, %7415 ], [ %7575, %7563 ], [ %7698, %7697 ], [ %7795, %7780 ], [ %.28898, %7835 ], [ %7882, %7881 ], [ %7970, %7961 ], [ %8475, %8471 ], [ %8492, %8489 ], [ %8751, %8749 ], [ %8758, %8756 ], [ %8773, %8772 ], [ %9422, %9421 ], [ %9906, %9899 ], [ %1051, %._crit_edge11531 ], [ %1097, %._crit_edge11528 ], [ %5707, %5705 ], [ %5994, %5991 ], [ %9339, %9338 ]
-  %.08891.ph = phi ptr [ %503, %538 ], [ %917, %915 ], [ %1127, %1125 ], [ %.5, %1303 ], [ %1319, %1360 ], [ %1531, %_Py_NewRef.exit10610 ], [ %1622, %1695 ], [ %1711, %1785 ], [ %1801, %1875 ], [ %1891, %1946 ], [ %1891, %1953 ], [ %1966, %1998 ], [ %1966, %2091 ], [ %1966, %2098 ], [ %2177, %2196 ], [ %2431, %2519 ], [ %2536, %2623 ], [ %2639, %2696 ], [ %2713, %2732 ], [ %2713, %2738 ], [ %2772, %2817 ], [ %2826, %2913 ], [ %2929, %3016 ], [ %3032, %3094 ], [ %3032, %3101 ], [ %3114, %3205 ], [ %3221, %3292 ], [ %3377, %_Py_NewRef.exit10634 ], [ %3435, %3455 ], [ %3435, %3462 ], [ %3475, %3495 ], [ %3475, %3502 ], [ %.9, %3795 ], [ %4084, %4102 ], [ %4257, %4255 ], [ %4560, %4578 ], [ %.11, %4649 ], [ %4776, %4791 ], [ %4921, %4919 ], [ %4984, %4982 ], [ %4984, %4991 ], [ %5002, %5019 ], [ %5040, %5038 ], [ %5105, %5159 ], [ %5105, %5274 ], [ %5290, %5322 ], [ %5290, %5347 ], [ %5290, %5411 ], [ %5290, %5418 ], [ %5431, %5448 ], [ %5635, %PyStackRef_GenCheck.exit.thread ], [ %5661, %PyObject_TypeCheck.exit.thread ], [ %5692, %5712 ], [ %5749, %5747 ], [ %5766, %5769 ], [ %5865, %5971 ], [ %6174, %6183 ], [ %6174, %6197 ], [ %6174, %6201 ], [ %6311, %6323 ], [ %6336, %6339 ], [ %6361, %6364 ], [ %7061, %7059 ], [ %7264, %7262 ], [ %7314, %7362 ], [ %7314, %7370 ], [ %.25, %7415 ], [ %7565, %7563 ], [ %.26, %7697 ], [ %7770, %7780 ], [ %7837, %7835 ], [ %7864, %7881 ], [ %7963, %7961 ], [ %.27, %8471 ], [ %.27, %8489 ], [ %8740, %8749 ], [ %8740, %8756 ], [ %8740, %8772 ], [ %9399, %9421 ], [ %9878, %9899 ], [ %1048, %._crit_edge11531 ], [ %1094, %._crit_edge11528 ], [ inttoptr (i64 2 to ptr), %5705 ], [ inttoptr (i64 2 to ptr), %5991 ], [ %9291, %9338 ]
+monitor_throw.exit.loopexit:                      ; preds = %9335, %5991, %5705, %._crit_edge11530, %._crit_edge11533, %9896, %9418, %8772, %8756, %8749, %8489, %8471, %7961, %7881, %7835, %7780, %7697, %7563, %7415, %7370, %7362, %7262, %7059, %6364, %6339, %6323, %6201, %6197, %6183, %5971, %5769, %5747, %5712, %PyObject_TypeCheck.exit.thread, %PyStackRef_GenCheck.exit.thread, %5448, %5418, %5411, %5347, %5322, %5274, %5159, %5038, %5019, %4991, %4982, %4919, %4791, %4649, %4578, %4255, %4102, %3795, %3502, %3495, %3462, %3455, %_Py_NewRef.exit10634, %3292, %3205, %3101, %3094, %3016, %2913, %2817, %2738, %2732, %2696, %2623, %2519, %2196, %2098, %2091, %1998, %1953, %1946, %1875, %1785, %1695, %_Py_NewRef.exit10610, %1360, %1303, %1125, %915, %538
+  %.08896.ph = phi ptr [ %539, %538 ], [ %.28898, %915 ], [ %.28898, %1125 ], [ %1307, %1303 ], [ %1363, %1360 ], [ %1607, %_Py_NewRef.exit10610 ], [ %1699, %1695 ], [ %1789, %1785 ], [ %1879, %1875 ], [ %1947, %1946 ], [ %1956, %1953 ], [ %2000, %1998 ], [ %2092, %2091 ], [ %2101, %2098 ], [ %2202, %2196 ], [ %2521, %2519 ], [ %2627, %2623 ], [ %2698, %2696 ], [ %2736, %2732 ], [ %2736, %2738 ], [ %2818, %2817 ], [ %2917, %2913 ], [ %3020, %3016 ], [ %3095, %3094 ], [ %3104, %3101 ], [ %3209, %3205 ], [ %3296, %3292 ], [ %3420, %_Py_NewRef.exit10634 ], [ %3456, %3455 ], [ %3465, %3462 ], [ %3496, %3495 ], [ %3505, %3502 ], [ %3796, %3795 ], [ %4103, %4102 ], [ %4269, %4255 ], [ %4579, %4578 ], [ %4652, %4649 ], [ %.28898, %4791 ], [ %4926, %4919 ], [ %4989, %4982 ], [ %4989, %4991 ], [ %5022, %5019 ], [ %5052, %5038 ], [ %5162, %5159 ], [ %5278, %5274 ], [ %5324, %5322 ], [ %5353, %5347 ], [ %5412, %5411 ], [ %5421, %5418 ], [ %5453, %5448 ], [ %5644, %PyStackRef_GenCheck.exit.thread ], [ %5673, %PyObject_TypeCheck.exit.thread ], [ %5715, %5712 ], [ %5752, %5747 ], [ %5772, %5769 ], [ %5972, %5971 ], [ %6187, %6183 ], [ %6200, %6197 ], [ %6206, %6201 ], [ %6326, %6323 ], [ %6342, %6339 ], [ %6367, %6364 ], [ %7066, %7059 ], [ %7276, %7262 ], [ %7365, %7362 ], [ %7374, %7370 ], [ %7430, %7415 ], [ %7575, %7563 ], [ %7698, %7697 ], [ %7795, %7780 ], [ %.28898, %7835 ], [ %7882, %7881 ], [ %7970, %7961 ], [ %8475, %8471 ], [ %8492, %8489 ], [ %8751, %8749 ], [ %8758, %8756 ], [ %8773, %8772 ], [ %9419, %9418 ], [ %9903, %9896 ], [ %1051, %._crit_edge11533 ], [ %1097, %._crit_edge11530 ], [ %5707, %5705 ], [ %5994, %5991 ], [ %9336, %9335 ]
+  %.08891.ph = phi ptr [ %503, %538 ], [ %917, %915 ], [ %1127, %1125 ], [ %.5, %1303 ], [ %1319, %1360 ], [ %1531, %_Py_NewRef.exit10610 ], [ %1622, %1695 ], [ %1711, %1785 ], [ %1801, %1875 ], [ %1891, %1946 ], [ %1891, %1953 ], [ %1966, %1998 ], [ %1966, %2091 ], [ %1966, %2098 ], [ %2177, %2196 ], [ %2431, %2519 ], [ %2536, %2623 ], [ %2639, %2696 ], [ %2713, %2732 ], [ %2713, %2738 ], [ %2772, %2817 ], [ %2826, %2913 ], [ %2929, %3016 ], [ %3032, %3094 ], [ %3032, %3101 ], [ %3114, %3205 ], [ %3221, %3292 ], [ %3377, %_Py_NewRef.exit10634 ], [ %3435, %3455 ], [ %3435, %3462 ], [ %3475, %3495 ], [ %3475, %3502 ], [ %.9, %3795 ], [ %4084, %4102 ], [ %4257, %4255 ], [ %4560, %4578 ], [ %.11, %4649 ], [ %4776, %4791 ], [ %4921, %4919 ], [ %4984, %4982 ], [ %4984, %4991 ], [ %5002, %5019 ], [ %5040, %5038 ], [ %5105, %5159 ], [ %5105, %5274 ], [ %5290, %5322 ], [ %5290, %5347 ], [ %5290, %5411 ], [ %5290, %5418 ], [ %5431, %5448 ], [ %5635, %PyStackRef_GenCheck.exit.thread ], [ %5661, %PyObject_TypeCheck.exit.thread ], [ %5692, %5712 ], [ %5749, %5747 ], [ %5766, %5769 ], [ %5865, %5971 ], [ %6174, %6183 ], [ %6174, %6197 ], [ %6174, %6201 ], [ %6311, %6323 ], [ %6336, %6339 ], [ %6361, %6364 ], [ %7061, %7059 ], [ %7264, %7262 ], [ %7314, %7362 ], [ %7314, %7370 ], [ %.25, %7415 ], [ %7565, %7563 ], [ %.26, %7697 ], [ %7770, %7780 ], [ %7837, %7835 ], [ %7864, %7881 ], [ %7963, %7961 ], [ %.27, %8471 ], [ %.27, %8489 ], [ %8740, %8749 ], [ %8740, %8756 ], [ %8740, %8772 ], [ %9396, %9418 ], [ %9875, %9896 ], [ %1048, %._crit_edge11533 ], [ %1094, %._crit_edge11530 ], [ inttoptr (i64 2 to ptr), %5705 ], [ inttoptr (i64 2 to ptr), %5991 ], [ %9288, %9335 ]
   br label %monitor_throw.exit
 
-monitor_throw.exit:                               ; preds = %monitor_throw.exit.loopexit, %.loopexit10899.split.loop.exit11780, %.loopexit10899.split.loop.exit11784, %.loopexit10899.split.loop.exit11852, %_PyErr_Occurred.exit10741, %_PyErr_Occurred.exit10741.thread, %_PyErr_Occurred.exit10737, %_PyErr_Occurred.exit10737.thread, %94, %91, %89, %88, %79, %67, %do_raise.exit, %_Py_Check_ArgsIterable.exit10675, %_Py_Check_ArgsIterable.exit, %5541, %_Py_NewRef.exit10667, %2358, %_Py_NewRef.exit10622, %_Py_NewRef.exit10599, %10220, %.loopexit10902, %.loopexit10901, %.loopexit10900, %9937, %8745, %8429, %7549, %7379, %7291, %7217, %_PyEval_FormatExcUnbound.exit10728, %7071, %6165, %6136, %6084, %6054, %6013, %5844, %5808, %5787, %5625, %5268, %5013, %4911, %4535, %4302, %4295, %4273, %4233, %_PyEval_FormatExcUnbound.exit, %3286, %3199, %3010, %2907, %2617, %2420, %1869, %1779, %1689, %1415, %1297, %1035, %._crit_edge11904, %961
-  %.08896 = phi ptr [ %10224, %10220 ], [ %9947, %.loopexit10901 ], [ %2047, %_Py_NewRef.exit10622 ], [ %1997, %_Py_Check_ArgsIterable.exit ], [ %9950, %.loopexit10902 ], [ %4543, %4535 ], [ %4912, %4911 ], [ %5016, %5013 ], [ %7074, %7071 ], [ %7552, %7549 ], [ %8748, %8745 ], [ %9946, %.loopexit10900 ], [ %962, %961 ], [ %999, %._crit_edge11904 ], [ %1036, %1035 ], [ %1243, %_Py_NewRef.exit10599 ], [ %1298, %1297 ], [ %2360, %2358 ], [ %2421, %2420 ], [ %4211, %_PyEval_FormatExcUnbound.exit ], [ %4240, %4233 ], [ %4276, %4273 ], [ %4298, %4295 ], [ %4305, %4302 ], [ %7177, %_PyEval_FormatExcUnbound.exit10728 ], [ %7224, %7217 ], [ %7293, %7291 ], [ %7381, %7379 ], [ %8372, %do_raise.exit ], [ %8430, %8429 ], [ %.28898, %9937 ], [ %5842, %5844 ], [ %5785, %5787 ], [ %5321, %_Py_Check_ArgsIterable.exit10675 ], [ %5543, %5541 ], [ %5626, %5625 ], [ %5196, %_Py_NewRef.exit10667 ], [ %5269, %5268 ], [ %6134, %6136 ], [ %6082, %6084 ], [ %6052, %6054 ], [ %6163, %6165 ], [ %5806, %5808 ], [ %6011, %6013 ], [ %1413, %1415 ], [ %1690, %1689 ], [ %1780, %1779 ], [ %1870, %1869 ], [ %2618, %2617 ], [ %2908, %2907 ], [ %3011, %3010 ], [ %3200, %3199 ], [ %3287, %3286 ], [ %75, %67 ], [ %75, %79 ], [ %75, %88 ], [ %75, %89 ], [ %75, %91 ], [ %75, %94 ], [ %7355, %_PyErr_Occurred.exit10737 ], [ %7361, %_PyErr_Occurred.exit10737.thread ], [ %7604, %_PyErr_Occurred.exit10741 ], [ %7617, %_PyErr_Occurred.exit10741.thread ], [ %6218, %.loopexit10899.split.loop.exit11780 ], [ %6243, %.loopexit10899.split.loop.exit11784 ], [ %8515, %.loopexit10899.split.loop.exit11852 ], [ %.08896.ph, %monitor_throw.exit.loopexit ]
-  %.08891 = phi ptr [ %10222, %10220 ], [ %.38894, %.loopexit10901 ], [ %1966, %_Py_NewRef.exit10622 ], [ %1966, %_Py_Check_ArgsIterable.exit ], [ %.6, %.loopexit10902 ], [ %4532, %4535 ], [ %4854, %4911 ], [ %5002, %5013 ], [ %7061, %7071 ], [ %7545, %7549 ], [ %8740, %8745 ], [ %.16, %.loopexit10900 ], [ %934, %961 ], [ %974, %._crit_edge11904 ], [ %974, %1035 ], [ %.5, %_Py_NewRef.exit10599 ], [ %.5, %1297 ], [ %.7, %2358 ], [ %.7, %2420 ], [ %4187, %_PyEval_FormatExcUnbound.exit ], [ %4228, %4233 ], [ %4257, %4273 ], [ %4283, %4295 ], [ %4283, %4302 ], [ %7151, %_PyEval_FormatExcUnbound.exit10728 ], [ %7212, %7217 ], [ %7264, %7291 ], [ %7314, %7379 ], [ %8208, %do_raise.exit ], [ %8399, %8429 ], [ %.28893, %9937 ], [ %5845, %5844 ], [ %5789, %5787 ], [ %5290, %_Py_Check_ArgsIterable.exit10675 ], [ %5431, %5541 ], [ %5431, %5625 ], [ %5105, %_Py_NewRef.exit10667 ], [ %5105, %5268 ], [ %6138, %6136 ], [ %6086, %6084 ], [ %6056, %6054 ], [ %6167, %6165 ], [ %5810, %5808 ], [ %6014, %6013 ], [ %1319, %1415 ], [ %1622, %1689 ], [ %1711, %1779 ], [ %1801, %1869 ], [ %2536, %2617 ], [ %2826, %2907 ], [ %2929, %3010 ], [ %3114, %3199 ], [ %3221, %3286 ], [ %73, %67 ], [ %73, %79 ], [ %73, %88 ], [ %73, %89 ], [ %73, %91 ], [ %73, %94 ], [ %7314, %_PyErr_Occurred.exit10737 ], [ %7314, %_PyErr_Occurred.exit10737.thread ], [ %7596, %_PyErr_Occurred.exit10741 ], [ %7596, %_PyErr_Occurred.exit10741.thread ], [ %9951, %.loopexit10899.split.loop.exit11780 ], [ %9952, %.loopexit10899.split.loop.exit11784 ], [ %9953, %.loopexit10899.split.loop.exit11852 ], [ %.08891.ph, %monitor_throw.exit.loopexit ]
-  %.08889 = phi ptr [ %10210, %10220 ], [ %.2, %.loopexit10901 ], [ %.2, %_Py_NewRef.exit10622 ], [ %.2, %_Py_Check_ArgsIterable.exit ], [ %.2, %.loopexit10902 ], [ %.2, %4535 ], [ %.2, %4911 ], [ %.2, %5013 ], [ %.2, %7071 ], [ %.2, %7549 ], [ %.2, %8745 ], [ %.2, %.loopexit10900 ], [ %.2, %961 ], [ %.2, %._crit_edge11904 ], [ %.2, %1035 ], [ %.2, %_Py_NewRef.exit10599 ], [ %.2, %1297 ], [ %.2, %2358 ], [ %.2, %2420 ], [ %.2, %_PyEval_FormatExcUnbound.exit ], [ %.2, %4233 ], [ %.2, %4273 ], [ %.2, %4295 ], [ %.2, %4302 ], [ %.2, %_PyEval_FormatExcUnbound.exit10728 ], [ %.2, %7217 ], [ %.2, %7291 ], [ %.2, %7379 ], [ %.2, %do_raise.exit ], [ %.2, %8429 ], [ %.2, %9937 ], [ %.2, %5844 ], [ %.2, %5787 ], [ %.2, %_Py_Check_ArgsIterable.exit10675 ], [ %.2, %5541 ], [ %.2, %5625 ], [ %.2, %_Py_NewRef.exit10667 ], [ %.2, %5268 ], [ %.2, %6136 ], [ %.2, %6084 ], [ %.2, %6054 ], [ %.2, %6165 ], [ %.2, %5808 ], [ %.2, %6013 ], [ %.2, %1415 ], [ %.2, %1689 ], [ %.2, %1779 ], [ %.2, %1869 ], [ %.2, %2617 ], [ %.2, %2907 ], [ %.2, %3010 ], [ %.2, %3199 ], [ %.2, %3286 ], [ %1, %67 ], [ %1, %79 ], [ %1, %88 ], [ %1, %89 ], [ %1, %91 ], [ %1, %94 ], [ %.2, %_PyErr_Occurred.exit10737 ], [ %.2, %_PyErr_Occurred.exit10737.thread ], [ %.2, %_PyErr_Occurred.exit10741 ], [ %.2, %_PyErr_Occurred.exit10741.thread ], [ %.2, %.loopexit10899.split.loop.exit11780 ], [ %.2, %.loopexit10899.split.loop.exit11784 ], [ %.2, %.loopexit10899.split.loop.exit11852 ], [ %.2, %monitor_throw.exit.loopexit ]
-  %9954 = getelementptr i8, ptr %0, i64 112
-  %.val10418 = load ptr, ptr %9954, align 8, !tbaa !112
-  %9955 = icmp eq ptr %.val10418, null
-  br i1 %9955, label %_PyErr_Occurred.exit10787.thread, label %_PyErr_Occurred.exit10787
+monitor_throw.exit:                               ; preds = %monitor_throw.exit.loopexit, %.loopexit10901.split.loop.exit11782, %.loopexit10901.split.loop.exit11786, %.loopexit10901.split.loop.exit11854, %_PyErr_Occurred.exit10741, %_PyErr_Occurred.exit10741.thread, %_PyErr_Occurred.exit10737, %_PyErr_Occurred.exit10737.thread, %94, %91, %89, %88, %79, %67, %do_raise.exit, %_Py_Check_ArgsIterable.exit10675, %_Py_Check_ArgsIterable.exit, %5541, %_Py_NewRef.exit10667, %2358, %_Py_NewRef.exit10622, %_Py_NewRef.exit10599, %10217, %.loopexit10904, %.loopexit10903, %.loopexit10902, %9934, %8745, %8429, %7549, %7379, %7291, %7217, %_PyEval_FormatExcUnbound.exit10728, %7071, %6165, %6136, %6084, %6054, %6013, %5844, %5808, %5787, %5625, %5268, %5013, %4911, %4535, %4302, %4295, %4273, %4233, %_PyEval_FormatExcUnbound.exit, %3286, %3199, %3010, %2907, %2617, %2420, %1869, %1779, %1689, %1415, %1297, %1035, %._crit_edge11906, %961
+  %.08896 = phi ptr [ %10221, %10217 ], [ %9944, %.loopexit10903 ], [ %2047, %_Py_NewRef.exit10622 ], [ %1997, %_Py_Check_ArgsIterable.exit ], [ %9947, %.loopexit10904 ], [ %4543, %4535 ], [ %4912, %4911 ], [ %5016, %5013 ], [ %7074, %7071 ], [ %7552, %7549 ], [ %8748, %8745 ], [ %9943, %.loopexit10902 ], [ %962, %961 ], [ %999, %._crit_edge11906 ], [ %1036, %1035 ], [ %1243, %_Py_NewRef.exit10599 ], [ %1298, %1297 ], [ %2360, %2358 ], [ %2421, %2420 ], [ %4211, %_PyEval_FormatExcUnbound.exit ], [ %4240, %4233 ], [ %4276, %4273 ], [ %4298, %4295 ], [ %4305, %4302 ], [ %7177, %_PyEval_FormatExcUnbound.exit10728 ], [ %7224, %7217 ], [ %7293, %7291 ], [ %7381, %7379 ], [ %8372, %do_raise.exit ], [ %8430, %8429 ], [ %.28898, %9934 ], [ %5842, %5844 ], [ %5785, %5787 ], [ %5321, %_Py_Check_ArgsIterable.exit10675 ], [ %5543, %5541 ], [ %5626, %5625 ], [ %5196, %_Py_NewRef.exit10667 ], [ %5269, %5268 ], [ %6134, %6136 ], [ %6082, %6084 ], [ %6052, %6054 ], [ %6163, %6165 ], [ %5806, %5808 ], [ %6011, %6013 ], [ %1413, %1415 ], [ %1690, %1689 ], [ %1780, %1779 ], [ %1870, %1869 ], [ %2618, %2617 ], [ %2908, %2907 ], [ %3011, %3010 ], [ %3200, %3199 ], [ %3287, %3286 ], [ %75, %67 ], [ %75, %79 ], [ %75, %88 ], [ %75, %89 ], [ %75, %91 ], [ %75, %94 ], [ %7355, %_PyErr_Occurred.exit10737 ], [ %7361, %_PyErr_Occurred.exit10737.thread ], [ %7604, %_PyErr_Occurred.exit10741 ], [ %7617, %_PyErr_Occurred.exit10741.thread ], [ %6218, %.loopexit10901.split.loop.exit11782 ], [ %6243, %.loopexit10901.split.loop.exit11786 ], [ %8515, %.loopexit10901.split.loop.exit11854 ], [ %.08896.ph, %monitor_throw.exit.loopexit ]
+  %.08891 = phi ptr [ %10219, %10217 ], [ %.38894, %.loopexit10903 ], [ %1966, %_Py_NewRef.exit10622 ], [ %1966, %_Py_Check_ArgsIterable.exit ], [ %.6, %.loopexit10904 ], [ %4532, %4535 ], [ %4854, %4911 ], [ %5002, %5013 ], [ %7061, %7071 ], [ %7545, %7549 ], [ %8740, %8745 ], [ %.16, %.loopexit10902 ], [ %934, %961 ], [ %974, %._crit_edge11906 ], [ %974, %1035 ], [ %.5, %_Py_NewRef.exit10599 ], [ %.5, %1297 ], [ %.7, %2358 ], [ %.7, %2420 ], [ %4187, %_PyEval_FormatExcUnbound.exit ], [ %4228, %4233 ], [ %4257, %4273 ], [ %4283, %4295 ], [ %4283, %4302 ], [ %7151, %_PyEval_FormatExcUnbound.exit10728 ], [ %7212, %7217 ], [ %7264, %7291 ], [ %7314, %7379 ], [ %8208, %do_raise.exit ], [ %8399, %8429 ], [ %.28893, %9934 ], [ %5845, %5844 ], [ %5789, %5787 ], [ %5290, %_Py_Check_ArgsIterable.exit10675 ], [ %5431, %5541 ], [ %5431, %5625 ], [ %5105, %_Py_NewRef.exit10667 ], [ %5105, %5268 ], [ %6138, %6136 ], [ %6086, %6084 ], [ %6056, %6054 ], [ %6167, %6165 ], [ %5810, %5808 ], [ %6014, %6013 ], [ %1319, %1415 ], [ %1622, %1689 ], [ %1711, %1779 ], [ %1801, %1869 ], [ %2536, %2617 ], [ %2826, %2907 ], [ %2929, %3010 ], [ %3114, %3199 ], [ %3221, %3286 ], [ %73, %67 ], [ %73, %79 ], [ %73, %88 ], [ %73, %89 ], [ %73, %91 ], [ %73, %94 ], [ %7314, %_PyErr_Occurred.exit10737 ], [ %7314, %_PyErr_Occurred.exit10737.thread ], [ %7596, %_PyErr_Occurred.exit10741 ], [ %7596, %_PyErr_Occurred.exit10741.thread ], [ %9948, %.loopexit10901.split.loop.exit11782 ], [ %9949, %.loopexit10901.split.loop.exit11786 ], [ %9950, %.loopexit10901.split.loop.exit11854 ], [ %.08891.ph, %monitor_throw.exit.loopexit ]
+  %.08889 = phi ptr [ %10207, %10217 ], [ %.2, %.loopexit10903 ], [ %.2, %_Py_NewRef.exit10622 ], [ %.2, %_Py_Check_ArgsIterable.exit ], [ %.2, %.loopexit10904 ], [ %.2, %4535 ], [ %.2, %4911 ], [ %.2, %5013 ], [ %.2, %7071 ], [ %.2, %7549 ], [ %.2, %8745 ], [ %.2, %.loopexit10902 ], [ %.2, %961 ], [ %.2, %._crit_edge11906 ], [ %.2, %1035 ], [ %.2, %_Py_NewRef.exit10599 ], [ %.2, %1297 ], [ %.2, %2358 ], [ %.2, %2420 ], [ %.2, %_PyEval_FormatExcUnbound.exit ], [ %.2, %4233 ], [ %.2, %4273 ], [ %.2, %4295 ], [ %.2, %4302 ], [ %.2, %_PyEval_FormatExcUnbound.exit10728 ], [ %.2, %7217 ], [ %.2, %7291 ], [ %.2, %7379 ], [ %.2, %do_raise.exit ], [ %.2, %8429 ], [ %.2, %9934 ], [ %.2, %5844 ], [ %.2, %5787 ], [ %.2, %_Py_Check_ArgsIterable.exit10675 ], [ %.2, %5541 ], [ %.2, %5625 ], [ %.2, %_Py_NewRef.exit10667 ], [ %.2, %5268 ], [ %.2, %6136 ], [ %.2, %6084 ], [ %.2, %6054 ], [ %.2, %6165 ], [ %.2, %5808 ], [ %.2, %6013 ], [ %.2, %1415 ], [ %.2, %1689 ], [ %.2, %1779 ], [ %.2, %1869 ], [ %.2, %2617 ], [ %.2, %2907 ], [ %.2, %3010 ], [ %.2, %3199 ], [ %.2, %3286 ], [ %1, %67 ], [ %1, %79 ], [ %1, %88 ], [ %1, %89 ], [ %1, %91 ], [ %1, %94 ], [ %.2, %_PyErr_Occurred.exit10737 ], [ %.2, %_PyErr_Occurred.exit10737.thread ], [ %.2, %_PyErr_Occurred.exit10741 ], [ %.2, %_PyErr_Occurred.exit10741.thread ], [ %.2, %.loopexit10901.split.loop.exit11782 ], [ %.2, %.loopexit10901.split.loop.exit11786 ], [ %.2, %.loopexit10901.split.loop.exit11854 ], [ %.2, %monitor_throw.exit.loopexit ]
+  %9951 = getelementptr i8, ptr %0, i64 112
+  %.val10418 = load ptr, ptr %9951, align 8, !tbaa !112
+  %9952 = icmp eq ptr %.val10418, null
+  br i1 %9952, label %_PyErr_Occurred.exit10787.thread, label %_PyErr_Occurred.exit10787
 
 _PyErr_Occurred.exit10787:                        ; preds = %monitor_throw.exit
-  %9956 = getelementptr i8, ptr %.val10418, i64 8
-  %.val.i10785 = load ptr, ptr %9956, align 8, !tbaa !103
+  %9953 = getelementptr i8, ptr %.val10418, i64 8
+  %.val.i10785 = load ptr, ptr %9953, align 8, !tbaa !103
   %.not9266 = icmp eq ptr %.val.i10785, null
-  br i1 %.not9266, label %_PyErr_Occurred.exit10787.thread, label %9958
+  br i1 %.not9266, label %_PyErr_Occurred.exit10787.thread, label %9955
 
 _PyErr_Occurred.exit10787.thread:                 ; preds = %monitor_throw.exit, %_PyErr_Occurred.exit10787
-  %9957 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !100
-  call void @_PyErr_SetString(ptr noundef nonnull %0, ptr noundef %9957, ptr noundef nonnull @.str.33) #15
-  br label %9958
+  %9954 = load ptr, ptr @PyExc_SystemError, align 8, !tbaa !100
+  call void @_PyErr_SetString(ptr noundef nonnull %0, ptr noundef %9954, ptr noundef nonnull @.str.33) #15
+  br label %9955
 
-9958:                                             ; preds = %_PyErr_Occurred.exit10787.thread, %_PyErr_Occurred.exit10787
-  %9959 = getelementptr inbounds nuw i8, ptr %.08889, i64 74
-  %9960 = load i8, ptr %9959, align 2, !tbaa !137
-  %9961 = icmp sgt i8 %9960, 2
-  br i1 %9961, label %_PyFrame_IsIncomplete.exit.thread, label %9962
+9955:                                             ; preds = %_PyErr_Occurred.exit10787.thread, %_PyErr_Occurred.exit10787
+  %9956 = getelementptr inbounds nuw i8, ptr %.08889, i64 74
+  %9957 = load i8, ptr %9956, align 2, !tbaa !137
+  %9958 = icmp sgt i8 %9957, 2
+  br i1 %9958, label %_PyFrame_IsIncomplete.exit.thread, label %9959
 
-9962:                                             ; preds = %9958
-  %.not.i10788 = icmp eq i8 %9960, 1
+9959:                                             ; preds = %9955
+  %.not.i10788 = icmp eq i8 %9957, 1
   br i1 %.not.i10788, label %_PyFrame_IsIncomplete.exit.thread10865, label %_PyFrame_IsIncomplete.exit
 
-_PyFrame_IsIncomplete.exit:                       ; preds = %9962
-  %9963 = getelementptr inbounds nuw i8, ptr %.08889, i64 56
-  %9964 = load ptr, ptr %9963, align 8, !tbaa !133
+_PyFrame_IsIncomplete.exit:                       ; preds = %9959
+  %9960 = getelementptr inbounds nuw i8, ptr %.08889, i64 56
+  %9961 = load ptr, ptr %9960, align 8, !tbaa !133
   %.val7.i = load i64, ptr %.08889, align 8, !tbaa !113
-  %9965 = inttoptr i64 %.val7.i to ptr
-  %9966 = getelementptr inbounds nuw i8, ptr %9965, i64 208
-  %9967 = getelementptr inbounds nuw i8, ptr %9965, i64 192
-  %9968 = load i32, ptr %9967, align 8, !tbaa !301
-  %9969 = sext i32 %9968 to i64
-  %9970 = getelementptr %union._Py_CODEUNIT, ptr %9966, i64 %9969
-  %9971 = icmp ult ptr %9964, %9970
-  br i1 %9971, label %_PyFrame_IsIncomplete.exit.thread, label %_PyFrame_IsIncomplete.exit.thread10865
+  %9962 = inttoptr i64 %.val7.i to ptr
+  %9963 = getelementptr inbounds nuw i8, ptr %9962, i64 208
+  %9964 = getelementptr inbounds nuw i8, ptr %9962, i64 192
+  %9965 = load i32, ptr %9964, align 8, !tbaa !301
+  %9966 = sext i32 %9965 to i64
+  %9967 = getelementptr %union._Py_CODEUNIT, ptr %9963, i64 %9966
+  %9968 = icmp ult ptr %9961, %9967
+  br i1 %9968, label %_PyFrame_IsIncomplete.exit.thread, label %_PyFrame_IsIncomplete.exit.thread10865
 
-_PyFrame_IsIncomplete.exit.thread10865:           ; preds = %9962, %_PyFrame_IsIncomplete.exit
-  %9972 = getelementptr inbounds nuw i8, ptr %.08889, i64 48
-  %9973 = load ptr, ptr %9972, align 8, !tbaa !175
-  %.not.i10790 = icmp eq ptr %9973, null
+_PyFrame_IsIncomplete.exit.thread10865:           ; preds = %9959, %_PyFrame_IsIncomplete.exit
+  %9969 = getelementptr inbounds nuw i8, ptr %.08889, i64 48
+  %9970 = load ptr, ptr %9969, align 8, !tbaa !175
+  %.not.i10790 = icmp eq ptr %9970, null
   br i1 %.not.i10790, label %_PyFrame_GetFrameObject.exit, label %_PyFrame_GetFrameObject.exit.thread
 
 _PyFrame_GetFrameObject.exit:                     ; preds = %_PyFrame_IsIncomplete.exit.thread10865
-  %9974 = call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %.08889) #15
-  %.not9267 = icmp eq ptr %9974, null
+  %9971 = call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %.08889) #15
+  %.not9267 = icmp eq ptr %9971, null
   br i1 %.not9267, label %_PyFrame_IsIncomplete.exit.thread, label %_PyFrame_GetFrameObject.exit.thread
 
 _PyFrame_GetFrameObject.exit.thread:              ; preds = %_PyFrame_IsIncomplete.exit.thread10865, %_PyFrame_GetFrameObject.exit
-  %.0.i1079110869 = phi ptr [ %9974, %_PyFrame_GetFrameObject.exit ], [ %9973, %_PyFrame_IsIncomplete.exit.thread10865 ]
-  %9975 = call i32 @PyTraceBack_Here(ptr noundef nonnull %.0.i1079110869) #15
+  %.0.i1079110869 = phi ptr [ %9971, %_PyFrame_GetFrameObject.exit ], [ %9970, %_PyFrame_IsIncomplete.exit.thread10865 ]
+  %9972 = call i32 @PyTraceBack_Here(ptr noundef nonnull %.0.i1079110869) #15
   br label %_PyFrame_IsIncomplete.exit.thread
 
-_PyFrame_IsIncomplete.exit.thread:                ; preds = %9958, %_PyFrame_GetFrameObject.exit, %_PyFrame_GetFrameObject.exit.thread, %_PyFrame_IsIncomplete.exit
-  %9976 = getelementptr i8, ptr %.08891, i64 -2
-  %9977 = getelementptr i8, ptr %0, i64 16
-  %.val.i10792 = load ptr, ptr %9977, align 8, !tbaa !9
-  %9978 = getelementptr i8, ptr %.val.i10792, i64 223019
-  %9979 = load i8, ptr %9978, align 1, !tbaa !113
-  %9980 = icmp eq i8 %9979, 0
-  br i1 %9980, label %.preheader10906, label %9981
+_PyFrame_IsIncomplete.exit.thread:                ; preds = %9955, %_PyFrame_GetFrameObject.exit, %_PyFrame_GetFrameObject.exit.thread, %_PyFrame_IsIncomplete.exit
+  %9973 = getelementptr i8, ptr %.08891, i64 -2
+  %9974 = getelementptr i8, ptr %0, i64 16
+  %.val.i10792 = load ptr, ptr %9974, align 8, !tbaa !9
+  %9975 = getelementptr i8, ptr %.val.i10792, i64 223019
+  %9976 = load i8, ptr %9975, align 1, !tbaa !113
+  %9977 = icmp eq i8 %9976, 0
+  br i1 %9977, label %.preheader10908, label %9978
 
-9981:                                             ; preds = %_PyFrame_IsIncomplete.exit.thread
+9978:                                             ; preds = %_PyFrame_IsIncomplete.exit.thread
   %.val16.i.i10793 = load i64, ptr %.08889, align 8, !tbaa !113
-  %9982 = inttoptr i64 %.val16.i.i10793 to ptr
-  %9983 = getelementptr inbounds nuw i8, ptr %9982, i64 48
-  %9984 = load i32, ptr %9983, align 8, !tbaa !142
-  %9985 = and i32 %9984, 33554432
-  %.not.i.i10794 = icmp eq i32 %9985, 0
-  br i1 %.not.i.i10794, label %9986, label %.preheader10906
+  %9979 = inttoptr i64 %.val16.i.i10793 to ptr
+  %9980 = getelementptr inbounds nuw i8, ptr %9979, i64 48
+  %9981 = load i32, ptr %9980, align 8, !tbaa !142
+  %9982 = and i32 %9981, 33554432
+  %.not.i.i10794 = icmp eq i32 %9982, 0
+  br i1 %.not.i.i10794, label %9983, label %.preheader10908
 
-9986:                                             ; preds = %9981
-  %9987 = call ptr @PyErr_GetRaisedException() #15
-  %9988 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull %.08889, ptr noundef %9976, ptr noundef %9987) #15
-  %9989 = icmp eq i32 %9988, 0
-  br i1 %9989, label %9990, label %9991
+9983:                                             ; preds = %9978
+  %9984 = call ptr @PyErr_GetRaisedException() #15
+  %9985 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull %.08889, ptr noundef %9973, ptr noundef %9984) #15
+  %9986 = icmp eq i32 %9985, 0
+  br i1 %9986, label %9987, label %9988
 
-9990:                                             ; preds = %9986
-  call void @PyErr_SetRaisedException(ptr noundef %9987) #15
-  br label %.preheader10906
+9987:                                             ; preds = %9983
+  call void @PyErr_SetRaisedException(ptr noundef %9984) #15
+  br label %.preheader10908
 
-9991:                                             ; preds = %9986
-  %9992 = load i32, ptr %9987, align 8, !tbaa !113
-  %.not15.i.i10795 = icmp sgt i32 %9992, -1
-  br i1 %.not15.i.i10795, label %9993, label %.preheader10906
+9988:                                             ; preds = %9983
+  %9989 = load i32, ptr %9984, align 8, !tbaa !113
+  %.not15.i.i10795 = icmp sgt i32 %9989, -1
+  br i1 %.not15.i.i10795, label %9990, label %.preheader10908
 
-9993:                                             ; preds = %9991
-  %9994 = add nsw i32 %9992, -1
-  store i32 %9994, ptr %9987, align 8, !tbaa !113
-  %9995 = icmp eq i32 %9994, 0
-  br i1 %9995, label %9996, label %.preheader10906
+9990:                                             ; preds = %9988
+  %9991 = add nsw i32 %9989, -1
+  store i32 %9991, ptr %9984, align 8, !tbaa !113
+  %9992 = icmp eq i32 %9991, 0
+  br i1 %9992, label %9993, label %.preheader10908
 
-9996:                                             ; preds = %9993
-  %9997 = getelementptr i8, ptr %9987, i64 8
-  %.val.i.i10796 = load ptr, ptr %9997, align 8, !tbaa !103
-  %9998 = getelementptr inbounds nuw i8, ptr %.val.i.i10796, i64 48
-  %9999 = load ptr, ptr %9998, align 8, !tbaa !114
-  call void %9999(ptr noundef nonnull %9987) #15
-  br label %.preheader10906
+9993:                                             ; preds = %9990
+  %9994 = getelementptr i8, ptr %9984, i64 8
+  %.val.i.i10796 = load ptr, ptr %9994, align 8, !tbaa !103
+  %9995 = getelementptr inbounds nuw i8, ptr %.val.i.i10796, i64 48
+  %9996 = load ptr, ptr %9995, align 8, !tbaa !114
+  call void %9996(ptr noundef nonnull %9984) #15
+  br label %.preheader10908
 
-.preheader10906:                                  ; preds = %9996, %9993, %9991, %9990, %9981, %_PyFrame_IsIncomplete.exit.thread, %monitor_reraise.exit, %monitor_reraise.exit10655, %monitor_reraise.exit10754, %monitor_reraise.exit10760
-  %.318927.ph = phi ptr [ %8456, %monitor_reraise.exit10760 ], [ %8396, %monitor_reraise.exit10754 ], [ %4486, %monitor_reraise.exit10655 ], [ %3736, %monitor_reraise.exit ], [ %.08896, %_PyFrame_IsIncomplete.exit.thread ], [ %.08896, %9981 ], [ %.08896, %9990 ], [ %.08896, %9991 ], [ %.08896, %9993 ], [ %.08896, %9996 ]
-  %.8.ph = phi ptr [ %8399, %monitor_reraise.exit10760 ], [ %8208, %monitor_reraise.exit10754 ], [ %4431, %monitor_reraise.exit10655 ], [ %3663, %monitor_reraise.exit ], [ %.08891, %_PyFrame_IsIncomplete.exit.thread ], [ %.08891, %9981 ], [ %.08891, %9990 ], [ %.08891, %9991 ], [ %.08891, %9993 ], [ %.08891, %9996 ]
-  %.3.ph = phi ptr [ %.2, %monitor_reraise.exit10760 ], [ %.2, %monitor_reraise.exit10754 ], [ %.2, %monitor_reraise.exit10655 ], [ %.2, %monitor_reraise.exit ], [ %.08889, %_PyFrame_IsIncomplete.exit.thread ], [ %.08889, %9981 ], [ %.08889, %9990 ], [ %.08889, %9991 ], [ %.08889, %9993 ], [ %.08889, %9996 ]
-  %10000 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 80
-  %10001 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 56
-  %10002 = getelementptr i8, ptr %0, i64 16
+.preheader10908:                                  ; preds = %9993, %9990, %9988, %9987, %9978, %_PyFrame_IsIncomplete.exit.thread, %monitor_reraise.exit, %monitor_reraise.exit10655, %monitor_reraise.exit10754, %monitor_reraise.exit10760
+  %.318927.ph = phi ptr [ %8456, %monitor_reraise.exit10760 ], [ %8396, %monitor_reraise.exit10754 ], [ %4486, %monitor_reraise.exit10655 ], [ %3736, %monitor_reraise.exit ], [ %.08896, %_PyFrame_IsIncomplete.exit.thread ], [ %.08896, %9978 ], [ %.08896, %9987 ], [ %.08896, %9988 ], [ %.08896, %9990 ], [ %.08896, %9993 ]
+  %.8.ph = phi ptr [ %8399, %monitor_reraise.exit10760 ], [ %8208, %monitor_reraise.exit10754 ], [ %4431, %monitor_reraise.exit10655 ], [ %3663, %monitor_reraise.exit ], [ %.08891, %_PyFrame_IsIncomplete.exit.thread ], [ %.08891, %9978 ], [ %.08891, %9987 ], [ %.08891, %9988 ], [ %.08891, %9990 ], [ %.08891, %9993 ]
+  %.3.ph = phi ptr [ %.2, %monitor_reraise.exit10760 ], [ %.2, %monitor_reraise.exit10754 ], [ %.2, %monitor_reraise.exit10655 ], [ %.2, %monitor_reraise.exit ], [ %.08889, %_PyFrame_IsIncomplete.exit.thread ], [ %.08889, %9978 ], [ %.08889, %9987 ], [ %.08889, %9988 ], [ %.08889, %9990 ], [ %.08889, %9993 ]
+  %9997 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 80
+  %9998 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 56
+  %9999 = getelementptr i8, ptr %0, i64 16
   br label %.outer
 
-.outer:                                           ; preds = %.preheader10906, %monitor_handled.exit
-  %.318927.ph10908 = phi ptr [ %.318927.ph, %.preheader10906 ], [ %10195, %monitor_handled.exit ]
-  %.8.ph10909 = phi ptr [ %.8.ph, %.preheader10906 ], [ %10200, %monitor_handled.exit ]
-  %10003 = ptrtoint ptr %.8.ph10909 to i64
-  br label %10004
+.outer:                                           ; preds = %.preheader10908, %monitor_handled.exit
+  %.318927.ph10910 = phi ptr [ %.318927.ph, %.preheader10908 ], [ %10192, %monitor_handled.exit ]
+  %.8.ph10911 = phi ptr [ %.8.ph, %.preheader10908 ], [ %10197, %monitor_handled.exit ]
+  %10000 = ptrtoint ptr %.8.ph10911 to i64
+  br label %10001
 
-10004:                                            ; preds = %.outer, %10184
-  %.318927 = phi ptr [ %.87.lcssa, %10184 ], [ %.318927.ph10908, %.outer ]
+10001:                                            ; preds = %.outer, %10181
+  %.318927 = phi ptr [ %.87.lcssa, %10181 ], [ %.318927.ph10910, %.outer ]
   %.3.val10584 = load i64, ptr %.3.ph, align 8, !tbaa !113
-  %10005 = inttoptr i64 %.3.val10584 to ptr
-  %10006 = getelementptr inbounds nuw i8, ptr %10005, i64 208
-  %10007 = ptrtoint ptr %10006 to i64
-  %10008 = sub i64 %10003, %10007
-  %10009 = lshr exact i64 %10008, 1
-  %10010 = trunc i64 %10009 to i32
-  %10011 = add i32 %10010, -1
-  %10012 = getelementptr i8, ptr %10005, i64 40
-  %.val10593 = load ptr, ptr %10012, align 8, !tbaa !302
-  %10013 = getelementptr inbounds nuw i8, ptr %.val10593, i64 32
-  %10014 = getelementptr i8, ptr %.val10593, i64 16
-  %.val.i10798 = load i64, ptr %10014, align 8, !tbaa !101
-  %10015 = getelementptr i8, ptr %10013, i64 %.val.i10798
-  %10016 = icmp sgt i64 %.val.i10798, 40
-  br i1 %10016, label %10017, label %.loopexit.i
+  %10002 = inttoptr i64 %.3.val10584 to ptr
+  %10003 = getelementptr inbounds nuw i8, ptr %10002, i64 208
+  %10004 = ptrtoint ptr %10003 to i64
+  %10005 = sub i64 %10000, %10004
+  %10006 = lshr exact i64 %10005, 1
+  %10007 = trunc i64 %10006 to i32
+  %10008 = add i32 %10007, -1
+  %10009 = getelementptr i8, ptr %10002, i64 40
+  %.val10593 = load ptr, ptr %10009, align 8, !tbaa !302
+  %10010 = getelementptr inbounds nuw i8, ptr %.val10593, i64 32
+  %10011 = getelementptr i8, ptr %.val10593, i64 16
+  %.val.i10798 = load i64, ptr %10011, align 8, !tbaa !101
+  %10012 = getelementptr i8, ptr %10010, i64 %.val.i10798
+  %10013 = icmp sgt i64 %.val.i10798, 40
+  br i1 %10013, label %10014, label %.loopexit.i
 
-10017:                                            ; preds = %10004
-  %10018 = load i8, ptr %10013, align 1, !tbaa !113
-  %10019 = and i8 %10018, 63
-  %10020 = zext nneg i8 %10019 to i32
-  %10021 = and i8 %10018, 64
-  %.not8.i.i = icmp eq i8 %10021, 0
+10014:                                            ; preds = %10001
+  %10015 = load i8, ptr %10010, align 1, !tbaa !113
+  %10016 = and i8 %10015, 63
+  %10017 = zext nneg i8 %10016 to i32
+  %10018 = and i8 %10015, 64
+  %.not8.i.i = icmp eq i8 %10018, 0
   br i1 %.not8.i.i, label %parse_varint.exit.i, label %.lr.ph.i.i10803
 
-.lr.ph.i.i10803:                                  ; preds = %10017, %.lr.ph.i.i10803
-  %.010.i.i = phi i32 [ %10027, %.lr.ph.i.i10803 ], [ %10020, %10017 ]
-  %.079.i.i = phi ptr [ %10022, %.lr.ph.i.i10803 ], [ %10013, %10017 ]
-  %10022 = getelementptr i8, ptr %.079.i.i, i64 1
-  %10023 = shl i32 %.010.i.i, 6
-  %10024 = load i8, ptr %10022, align 1, !tbaa !113
-  %10025 = and i8 %10024, 63
-  %10026 = zext nneg i8 %10025 to i32
-  %10027 = or disjoint i32 %10023, %10026
-  %10028 = and i8 %10024, 64
-  %.not.i.i10804 = icmp eq i8 %10028, 0
+.lr.ph.i.i10803:                                  ; preds = %10014, %.lr.ph.i.i10803
+  %.010.i.i = phi i32 [ %10024, %.lr.ph.i.i10803 ], [ %10017, %10014 ]
+  %.079.i.i = phi ptr [ %10019, %.lr.ph.i.i10803 ], [ %10010, %10014 ]
+  %10019 = getelementptr i8, ptr %.079.i.i, i64 1
+  %10020 = shl i32 %.010.i.i, 6
+  %10021 = load i8, ptr %10019, align 1, !tbaa !113
+  %10022 = and i8 %10021, 63
+  %10023 = zext nneg i8 %10022 to i32
+  %10024 = or disjoint i32 %10020, %10023
+  %10025 = and i8 %10021, 64
+  %.not.i.i10804 = icmp eq i8 %10025, 0
   br i1 %.not.i.i10804, label %parse_varint.exit.i, label %.lr.ph.i.i10803, !llvm.loop !303
 
-parse_varint.exit.i:                              ; preds = %.lr.ph.i.i10803, %10017
-  %.0.lcssa.i.i = phi i32 [ %10020, %10017 ], [ %10027, %.lr.ph.i.i10803 ]
-  %.not.i10805 = icmp sgt i32 %.0.lcssa.i.i, %10011
-  br i1 %.not.i10805, label %.loopexit10905, label %.preheader.i
+parse_varint.exit.i:                              ; preds = %.lr.ph.i.i10803, %10014
+  %.0.lcssa.i.i = phi i32 [ %10017, %10014 ], [ %10024, %.lr.ph.i.i10803 ]
+  %.not.i10805 = icmp sgt i32 %.0.lcssa.i.i, %10008
+  br i1 %.not.i10805, label %.loopexit10907, label %.preheader.i
 
 .preheader.i:                                     ; preds = %parse_varint.exit.i, %parse_varint.exit53.i
-  %.239.i = phi ptr [ %.239..i, %parse_varint.exit53.i ], [ %10013, %parse_varint.exit.i ]
-  %.2.i = phi ptr [ %..2.i, %parse_varint.exit53.i ], [ %10015, %parse_varint.exit.i ]
-  %10029 = ptrtoint ptr %.2.i to i64
-  %10030 = ptrtoint ptr %.239.i to i64
-  %10031 = sub i64 %10029, %10030
-  %10032 = ashr i64 %10031, 1
-  %10033 = getelementptr i8, ptr %.239.i, i64 %10032
-  br label %10034
+  %.239.i = phi ptr [ %.239..i, %parse_varint.exit53.i ], [ %10010, %parse_varint.exit.i ]
+  %.2.i = phi ptr [ %..2.i, %parse_varint.exit53.i ], [ %10012, %parse_varint.exit.i ]
+  %10026 = ptrtoint ptr %.2.i to i64
+  %10027 = ptrtoint ptr %.239.i to i64
+  %10028 = sub i64 %10026, %10027
+  %10029 = ashr i64 %10028, 1
+  %10030 = getelementptr i8, ptr %.239.i, i64 %10029
+  br label %10031
 
-10034:                                            ; preds = %10034, %.preheader.i
-  %.0.i.i10806 = phi ptr [ %10033, %.preheader.i ], [ %10037, %10034 ]
-  %10035 = load i8, ptr %.0.i.i10806, align 1, !tbaa !113
-  %10036 = icmp sgt i8 %10035, -1
-  %10037 = getelementptr i8, ptr %.0.i.i10806, i64 -1
-  br i1 %10036, label %10034, label %scan_back_to_entry_start.exit.i, !llvm.loop !304
+10031:                                            ; preds = %10031, %.preheader.i
+  %.0.i.i10806 = phi ptr [ %10030, %.preheader.i ], [ %10034, %10031 ]
+  %10032 = load i8, ptr %.0.i.i10806, align 1, !tbaa !113
+  %10033 = icmp sgt i8 %10032, -1
+  %10034 = getelementptr i8, ptr %.0.i.i10806, i64 -1
+  br i1 %10033, label %10031, label %scan_back_to_entry_start.exit.i, !llvm.loop !304
 
-scan_back_to_entry_start.exit.i:                  ; preds = %10034
-  %10038 = and i8 %10035, 63
-  %10039 = zext nneg i8 %10038 to i32
-  %10040 = and i8 %10035, 64
-  %.not8.i46.i = icmp eq i8 %10040, 0
+scan_back_to_entry_start.exit.i:                  ; preds = %10031
+  %10035 = and i8 %10032, 63
+  %10036 = zext nneg i8 %10035 to i32
+  %10037 = and i8 %10032, 64
+  %.not8.i46.i = icmp eq i8 %10037, 0
   br i1 %.not8.i46.i, label %parse_varint.exit53.i, label %.lr.ph.i47.i
 
 .lr.ph.i47.i:                                     ; preds = %scan_back_to_entry_start.exit.i, %.lr.ph.i47.i
-  %.010.i48.i = phi i32 [ %10046, %.lr.ph.i47.i ], [ %10039, %scan_back_to_entry_start.exit.i ]
-  %.079.i49.i = phi ptr [ %10041, %.lr.ph.i47.i ], [ %.0.i.i10806, %scan_back_to_entry_start.exit.i ]
-  %10041 = getelementptr i8, ptr %.079.i49.i, i64 1
-  %10042 = shl i32 %.010.i48.i, 6
-  %10043 = load i8, ptr %10041, align 1, !tbaa !113
-  %10044 = and i8 %10043, 63
-  %10045 = zext nneg i8 %10044 to i32
-  %10046 = or disjoint i32 %10042, %10045
-  %10047 = and i8 %10043, 64
-  %.not.i50.i = icmp eq i8 %10047, 0
+  %.010.i48.i = phi i32 [ %10043, %.lr.ph.i47.i ], [ %10036, %scan_back_to_entry_start.exit.i ]
+  %.079.i49.i = phi ptr [ %10038, %.lr.ph.i47.i ], [ %.0.i.i10806, %scan_back_to_entry_start.exit.i ]
+  %10038 = getelementptr i8, ptr %.079.i49.i, i64 1
+  %10039 = shl i32 %.010.i48.i, 6
+  %10040 = load i8, ptr %10038, align 1, !tbaa !113
+  %10041 = and i8 %10040, 63
+  %10042 = zext nneg i8 %10041 to i32
+  %10043 = or disjoint i32 %10039, %10042
+  %10044 = and i8 %10040, 64
+  %.not.i50.i = icmp eq i8 %10044, 0
   br i1 %.not.i50.i, label %parse_varint.exit53.i, label %.lr.ph.i47.i, !llvm.loop !303
 
 parse_varint.exit53.i:                            ; preds = %.lr.ph.i47.i, %scan_back_to_entry_start.exit.i
-  %.0.lcssa.i52.i = phi i32 [ %10039, %scan_back_to_entry_start.exit.i ], [ %10046, %.lr.ph.i47.i ]
-  %10048 = icmp sgt i32 %.0.lcssa.i52.i, %10011
-  %.239..i = select i1 %10048, ptr %.239.i, ptr %.0.i.i10806
-  %..2.i = select i1 %10048, ptr %.0.i.i10806, ptr %.2.i
-  %10049 = ptrtoint ptr %..2.i to i64
-  %10050 = ptrtoint ptr %.239..i to i64
-  %10051 = sub i64 %10049, %10050
-  %10052 = icmp sgt i64 %10051, 40
-  br i1 %10052, label %.preheader.i, label %.loopexit.i, !llvm.loop !305
+  %.0.lcssa.i52.i = phi i32 [ %10036, %scan_back_to_entry_start.exit.i ], [ %10043, %.lr.ph.i47.i ]
+  %10045 = icmp sgt i32 %.0.lcssa.i52.i, %10008
+  %.239..i = select i1 %10045, ptr %.239.i, ptr %.0.i.i10806
+  %..2.i = select i1 %10045, ptr %.0.i.i10806, ptr %.2.i
+  %10046 = ptrtoint ptr %..2.i to i64
+  %10047 = ptrtoint ptr %.239..i to i64
+  %10048 = sub i64 %10046, %10047
+  %10049 = icmp sgt i64 %10048, 40
+  br i1 %10049, label %.preheader.i, label %.loopexit.i, !llvm.loop !305
 
-.loopexit.i:                                      ; preds = %parse_varint.exit53.i, %10004
-  %.037.i = phi ptr [ %10013, %10004 ], [ %.239..i, %parse_varint.exit53.i ]
-  %.035.i = phi ptr [ %10015, %10004 ], [ %..2.i, %parse_varint.exit53.i ]
-  %10053 = icmp ult ptr %.037.i, %.035.i
-  br i1 %10053, label %.lr.ph.i10800, label %.loopexit10905
+.loopexit.i:                                      ; preds = %parse_varint.exit53.i, %10001
+  %.037.i = phi ptr [ %10010, %10001 ], [ %.239..i, %parse_varint.exit53.i ]
+  %.035.i = phi ptr [ %10012, %10001 ], [ %..2.i, %parse_varint.exit53.i ]
+  %10050 = icmp ult ptr %.037.i, %.035.i
+  br i1 %10050, label %.lr.ph.i10800, label %.loopexit10907
 
 .lr.ph.i10800:                                    ; preds = %.loopexit.i
-  %10054 = ptrtoint ptr %.035.i to i64
-  br label %10055
+  %10051 = ptrtoint ptr %.035.i to i64
+  br label %10052
 
-10055:                                            ; preds = %skip_to_next_entry.exit.i, %.lr.ph.i10800
+10052:                                            ; preds = %skip_to_next_entry.exit.i, %.lr.ph.i10800
   %.024.i = phi ptr [ %.037.i, %.lr.ph.i10800 ], [ %.1.i10801, %skip_to_next_entry.exit.i ]
-  %10056 = load i8, ptr %.024.i, align 1, !tbaa !113
-  %10057 = and i8 %10056, 63
-  %10058 = zext nneg i8 %10057 to i32
-  %10059 = and i8 %10056, 64
-  %.not8.i54.i = icmp eq i8 %10059, 0
+  %10053 = load i8, ptr %.024.i, align 1, !tbaa !113
+  %10054 = and i8 %10053, 63
+  %10055 = zext nneg i8 %10054 to i32
+  %10056 = and i8 %10053, 64
+  %.not8.i54.i = icmp eq i8 %10056, 0
   br i1 %.not8.i54.i, label %parse_varint.exit61.i, label %.lr.ph.i55.i
 
-.lr.ph.i55.i:                                     ; preds = %10055, %.lr.ph.i55.i
-  %.010.i56.i = phi i32 [ %10065, %.lr.ph.i55.i ], [ %10058, %10055 ]
-  %.079.i57.i = phi ptr [ %10060, %.lr.ph.i55.i ], [ %.024.i, %10055 ]
-  %10060 = getelementptr i8, ptr %.079.i57.i, i64 1
-  %10061 = shl i32 %.010.i56.i, 6
-  %10062 = load i8, ptr %10060, align 1, !tbaa !113
-  %10063 = and i8 %10062, 63
-  %10064 = zext nneg i8 %10063 to i32
-  %10065 = or disjoint i32 %10061, %10064
-  %10066 = and i8 %10062, 64
-  %.not.i58.i = icmp eq i8 %10066, 0
+.lr.ph.i55.i:                                     ; preds = %10052, %.lr.ph.i55.i
+  %.010.i56.i = phi i32 [ %10062, %.lr.ph.i55.i ], [ %10055, %10052 ]
+  %.079.i57.i = phi ptr [ %10057, %.lr.ph.i55.i ], [ %.024.i, %10052 ]
+  %10057 = getelementptr i8, ptr %.079.i57.i, i64 1
+  %10058 = shl i32 %.010.i56.i, 6
+  %10059 = load i8, ptr %10057, align 1, !tbaa !113
+  %10060 = and i8 %10059, 63
+  %10061 = zext nneg i8 %10060 to i32
+  %10062 = or disjoint i32 %10058, %10061
+  %10063 = and i8 %10059, 64
+  %.not.i58.i = icmp eq i8 %10063, 0
   br i1 %.not.i58.i, label %parse_varint.exit61.i, label %.lr.ph.i55.i, !llvm.loop !303
 
-parse_varint.exit61.i:                            ; preds = %.lr.ph.i55.i, %10055
-  %.07.lcssa.i59.i = phi ptr [ %.024.i, %10055 ], [ %10060, %.lr.ph.i55.i ]
-  %.0.lcssa.i60.i = phi i32 [ %10058, %10055 ], [ %10065, %.lr.ph.i55.i ]
-  %10067 = icmp sgt i32 %.0.lcssa.i60.i, %10011
-  br i1 %10067, label %.loopexit10905, label %10068
+parse_varint.exit61.i:                            ; preds = %.lr.ph.i55.i, %10052
+  %.07.lcssa.i59.i = phi ptr [ %.024.i, %10052 ], [ %10057, %.lr.ph.i55.i ]
+  %.0.lcssa.i60.i = phi i32 [ %10055, %10052 ], [ %10062, %.lr.ph.i55.i ]
+  %10064 = icmp sgt i32 %.0.lcssa.i60.i, %10008
+  br i1 %10064, label %.loopexit10907, label %10065
 
-10068:                                            ; preds = %parse_varint.exit61.i
-  %10069 = getelementptr i8, ptr %.07.lcssa.i59.i, i64 1
-  %10070 = load i8, ptr %10069, align 1, !tbaa !113
-  %10071 = and i8 %10070, 63
-  %10072 = zext nneg i8 %10071 to i32
-  %10073 = and i8 %10070, 64
-  %.not8.i62.i = icmp eq i8 %10073, 0
+10065:                                            ; preds = %parse_varint.exit61.i
+  %10066 = getelementptr i8, ptr %.07.lcssa.i59.i, i64 1
+  %10067 = load i8, ptr %10066, align 1, !tbaa !113
+  %10068 = and i8 %10067, 63
+  %10069 = zext nneg i8 %10068 to i32
+  %10070 = and i8 %10067, 64
+  %.not8.i62.i = icmp eq i8 %10070, 0
   br i1 %.not8.i62.i, label %parse_varint.exit69.i, label %.lr.ph.i63.i
 
-.lr.ph.i63.i:                                     ; preds = %10068, %.lr.ph.i63.i
-  %.010.i64.i = phi i32 [ %10079, %.lr.ph.i63.i ], [ %10072, %10068 ]
-  %.079.i65.i = phi ptr [ %10074, %.lr.ph.i63.i ], [ %10069, %10068 ]
-  %10074 = getelementptr i8, ptr %.079.i65.i, i64 1
-  %10075 = shl i32 %.010.i64.i, 6
-  %10076 = load i8, ptr %10074, align 1, !tbaa !113
-  %10077 = and i8 %10076, 63
-  %10078 = zext nneg i8 %10077 to i32
-  %10079 = or disjoint i32 %10075, %10078
-  %10080 = and i8 %10076, 64
-  %.not.i66.i = icmp eq i8 %10080, 0
+.lr.ph.i63.i:                                     ; preds = %10065, %.lr.ph.i63.i
+  %.010.i64.i = phi i32 [ %10076, %.lr.ph.i63.i ], [ %10069, %10065 ]
+  %.079.i65.i = phi ptr [ %10071, %.lr.ph.i63.i ], [ %10066, %10065 ]
+  %10071 = getelementptr i8, ptr %.079.i65.i, i64 1
+  %10072 = shl i32 %.010.i64.i, 6
+  %10073 = load i8, ptr %10071, align 1, !tbaa !113
+  %10074 = and i8 %10073, 63
+  %10075 = zext nneg i8 %10074 to i32
+  %10076 = or disjoint i32 %10072, %10075
+  %10077 = and i8 %10073, 64
+  %.not.i66.i = icmp eq i8 %10077, 0
   br i1 %.not.i66.i, label %parse_varint.exit69.i, label %.lr.ph.i63.i, !llvm.loop !303
 
-parse_varint.exit69.i:                            ; preds = %.lr.ph.i63.i, %10068
-  %10081 = phi ptr [ %.07.lcssa.i59.i, %10068 ], [ %.079.i65.i, %.lr.ph.i63.i ]
-  %.0.lcssa.i68.i = phi i32 [ %10072, %10068 ], [ %10079, %.lr.ph.i63.i ]
-  %10082 = getelementptr i8, ptr %10081, i64 2
-  %10083 = add i32 %.0.lcssa.i68.i, %.0.lcssa.i60.i
-  %10084 = icmp sgt i32 %10083, %10011
-  br i1 %10084, label %10085, label %10109
+parse_varint.exit69.i:                            ; preds = %.lr.ph.i63.i, %10065
+  %10078 = phi ptr [ %.07.lcssa.i59.i, %10065 ], [ %.079.i65.i, %.lr.ph.i63.i ]
+  %.0.lcssa.i68.i = phi i32 [ %10069, %10065 ], [ %10076, %.lr.ph.i63.i ]
+  %10079 = getelementptr i8, ptr %10078, i64 2
+  %10080 = add i32 %.0.lcssa.i68.i, %.0.lcssa.i60.i
+  %10081 = icmp sgt i32 %10080, %10008
+  br i1 %10081, label %10082, label %10106
 
-10085:                                            ; preds = %parse_varint.exit69.i
-  %10086 = load i8, ptr %10082, align 1, !tbaa !113
-  %10087 = and i8 %10086, 63
-  %10088 = zext nneg i8 %10087 to i32
-  %10089 = and i8 %10086, 64
-  %.not8.i70.i = icmp eq i8 %10089, 0
+10082:                                            ; preds = %parse_varint.exit69.i
+  %10083 = load i8, ptr %10079, align 1, !tbaa !113
+  %10084 = and i8 %10083, 63
+  %10085 = zext nneg i8 %10084 to i32
+  %10086 = and i8 %10083, 64
+  %.not8.i70.i = icmp eq i8 %10086, 0
   br i1 %.not8.i70.i, label %parse_varint.exit77.i, label %.lr.ph.i71.i
 
-.lr.ph.i71.i:                                     ; preds = %10085, %.lr.ph.i71.i
-  %.010.i72.i = phi i32 [ %10095, %.lr.ph.i71.i ], [ %10088, %10085 ]
-  %.079.i73.i = phi ptr [ %10090, %.lr.ph.i71.i ], [ %10082, %10085 ]
-  %10090 = getelementptr i8, ptr %.079.i73.i, i64 1
-  %10091 = shl i32 %.010.i72.i, 6
-  %10092 = load i8, ptr %10090, align 1, !tbaa !113
-  %10093 = and i8 %10092, 63
-  %10094 = zext nneg i8 %10093 to i32
-  %10095 = or disjoint i32 %10091, %10094
-  %10096 = and i8 %10092, 64
-  %.not.i74.i = icmp eq i8 %10096, 0
+.lr.ph.i71.i:                                     ; preds = %10082, %.lr.ph.i71.i
+  %.010.i72.i = phi i32 [ %10092, %.lr.ph.i71.i ], [ %10085, %10082 ]
+  %.079.i73.i = phi ptr [ %10087, %.lr.ph.i71.i ], [ %10079, %10082 ]
+  %10087 = getelementptr i8, ptr %.079.i73.i, i64 1
+  %10088 = shl i32 %.010.i72.i, 6
+  %10089 = load i8, ptr %10087, align 1, !tbaa !113
+  %10090 = and i8 %10089, 63
+  %10091 = zext nneg i8 %10090 to i32
+  %10092 = or disjoint i32 %10088, %10091
+  %10093 = and i8 %10089, 64
+  %.not.i74.i = icmp eq i8 %10093, 0
   br i1 %.not.i74.i, label %parse_varint.exit77.i, label %.lr.ph.i71.i, !llvm.loop !303
 
-parse_varint.exit77.i:                            ; preds = %.lr.ph.i71.i, %10085
-  %.07.lcssa.i75.i = phi ptr [ %10082, %10085 ], [ %10090, %.lr.ph.i71.i ]
-  %.0.lcssa.i76.i = phi i32 [ %10088, %10085 ], [ %10095, %.lr.ph.i71.i ]
-  %10097 = getelementptr i8, ptr %.07.lcssa.i75.i, i64 1
-  %10098 = load i8, ptr %10097, align 1, !tbaa !113
-  %10099 = and i8 %10098, 63
-  %10100 = zext nneg i8 %10099 to i32
-  %10101 = and i8 %10098, 64
-  %.not8.i78.i = icmp eq i8 %10101, 0
-  br i1 %.not8.i78.i, label %.loopexit10904, label %.lr.ph.i79.i
+parse_varint.exit77.i:                            ; preds = %.lr.ph.i71.i, %10082
+  %.07.lcssa.i75.i = phi ptr [ %10079, %10082 ], [ %10087, %.lr.ph.i71.i ]
+  %.0.lcssa.i76.i = phi i32 [ %10085, %10082 ], [ %10092, %.lr.ph.i71.i ]
+  %10094 = getelementptr i8, ptr %.07.lcssa.i75.i, i64 1
+  %10095 = load i8, ptr %10094, align 1, !tbaa !113
+  %10096 = and i8 %10095, 63
+  %10097 = zext nneg i8 %10096 to i32
+  %10098 = and i8 %10095, 64
+  %.not8.i78.i = icmp eq i8 %10098, 0
+  br i1 %.not8.i78.i, label %.loopexit10906, label %.lr.ph.i79.i
 
 .lr.ph.i79.i:                                     ; preds = %parse_varint.exit77.i, %.lr.ph.i79.i
-  %.010.i80.i = phi i32 [ %10107, %.lr.ph.i79.i ], [ %10100, %parse_varint.exit77.i ]
-  %.079.i81.i = phi ptr [ %10102, %.lr.ph.i79.i ], [ %10097, %parse_varint.exit77.i ]
-  %10102 = getelementptr i8, ptr %.079.i81.i, i64 1
-  %10103 = shl i32 %.010.i80.i, 6
-  %10104 = load i8, ptr %10102, align 1, !tbaa !113
-  %10105 = and i8 %10104, 63
-  %10106 = zext nneg i8 %10105 to i32
-  %10107 = or disjoint i32 %10103, %10106
-  %10108 = and i8 %10104, 64
-  %.not.i82.i = icmp eq i8 %10108, 0
-  br i1 %.not.i82.i, label %.loopexit10904, label %.lr.ph.i79.i, !llvm.loop !303
+  %.010.i80.i = phi i32 [ %10104, %.lr.ph.i79.i ], [ %10097, %parse_varint.exit77.i ]
+  %.079.i81.i = phi ptr [ %10099, %.lr.ph.i79.i ], [ %10094, %parse_varint.exit77.i ]
+  %10099 = getelementptr i8, ptr %.079.i81.i, i64 1
+  %10100 = shl i32 %.010.i80.i, 6
+  %10101 = load i8, ptr %10099, align 1, !tbaa !113
+  %10102 = and i8 %10101, 63
+  %10103 = zext nneg i8 %10102 to i32
+  %10104 = or disjoint i32 %10100, %10103
+  %10105 = and i8 %10101, 64
+  %.not.i82.i = icmp eq i8 %10105, 0
+  br i1 %.not.i82.i, label %.loopexit10906, label %.lr.ph.i79.i, !llvm.loop !303
 
-10109:                                            ; preds = %parse_varint.exit69.i
-  %10110 = icmp ult ptr %10082, %.035.i
-  br i1 %10110, label %.lr.ph.preheader.i.i10802, label %skip_to_next_entry.exit.i
+10106:                                            ; preds = %parse_varint.exit69.i
+  %10107 = icmp ult ptr %10079, %.035.i
+  br i1 %10107, label %.lr.ph.preheader.i.i10802, label %skip_to_next_entry.exit.i
 
-.lr.ph.preheader.i.i10802:                        ; preds = %10109
-  %10111 = ptrtoint ptr %10082 to i64
-  %10112 = sub i64 %10054, %10111
-  %scevgep.i.i = getelementptr i8, ptr %10082, i64 %10112
+.lr.ph.preheader.i.i10802:                        ; preds = %10106
+  %10108 = ptrtoint ptr %10079 to i64
+  %10109 = sub i64 %10051, %10108
+  %scevgep.i.i = getelementptr i8, ptr %10079, i64 %10109
   br label %.lr.ph.i87.i
 
-.lr.ph.i87.i:                                     ; preds = %10115, %.lr.ph.preheader.i.i10802
-  %.05.i.i = phi ptr [ %10116, %10115 ], [ %10082, %.lr.ph.preheader.i.i10802 ]
-  %10113 = load i8, ptr %.05.i.i, align 1, !tbaa !113
-  %10114 = icmp sgt i8 %10113, -1
-  br i1 %10114, label %10115, label %skip_to_next_entry.exit.i
+.lr.ph.i87.i:                                     ; preds = %10112, %.lr.ph.preheader.i.i10802
+  %.05.i.i = phi ptr [ %10113, %10112 ], [ %10079, %.lr.ph.preheader.i.i10802 ]
+  %10110 = load i8, ptr %.05.i.i, align 1, !tbaa !113
+  %10111 = icmp sgt i8 %10110, -1
+  br i1 %10111, label %10112, label %skip_to_next_entry.exit.i
 
-10115:                                            ; preds = %.lr.ph.i87.i
-  %10116 = getelementptr i8, ptr %.05.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %10116, %.035.i
+10112:                                            ; preds = %.lr.ph.i87.i
+  %10113 = getelementptr i8, ptr %.05.i.i, i64 1
+  %exitcond.not.i.i = icmp eq ptr %10113, %.035.i
   br i1 %exitcond.not.i.i, label %skip_to_next_entry.exit.i, label %.lr.ph.i87.i, !llvm.loop !306
 
-skip_to_next_entry.exit.i:                        ; preds = %10115, %.lr.ph.i87.i, %10109
-  %.1.i10801 = phi ptr [ %10082, %10109 ], [ %scevgep.i.i, %10115 ], [ %.05.i.i, %.lr.ph.i87.i ]
-  %10117 = icmp ult ptr %.1.i10801, %.035.i
-  br i1 %10117, label %10055, label %.loopexit10905
+skip_to_next_entry.exit.i:                        ; preds = %10112, %.lr.ph.i87.i, %10106
+  %.1.i10801 = phi ptr [ %10079, %10106 ], [ %scevgep.i.i, %10112 ], [ %.05.i.i, %.lr.ph.i87.i ]
+  %10114 = icmp ult ptr %.1.i10801, %.035.i
+  br i1 %10114, label %10052, label %.loopexit10907
 
-.loopexit10905:                                   ; preds = %parse_varint.exit.i, %.loopexit.i, %parse_varint.exit61.i, %skip_to_next_entry.exit.i
-  %10118 = getelementptr inbounds nuw i8, ptr %10005, i64 72
-  %10119 = load i32, ptr %10118, align 8, !tbaa !174
-  %10120 = sext i32 %10119 to i64
-  %10121 = getelementptr %union._PyStackRef, ptr %10000, i64 %10120
-  %10122 = icmp ugt ptr %.318927, %10121
-  br i1 %10122, label %.lr.ph11907, label %._crit_edge11908
+.loopexit10907:                                   ; preds = %parse_varint.exit.i, %.loopexit.i, %parse_varint.exit61.i, %skip_to_next_entry.exit.i
+  %10115 = getelementptr inbounds nuw i8, ptr %10002, i64 72
+  %10116 = load i32, ptr %10115, align 8, !tbaa !174
+  %10117 = sext i32 %10116 to i64
+  %10118 = getelementptr %union._PyStackRef, ptr %9997, i64 %10117
+  %10119 = icmp ugt ptr %.318927, %10118
+  br i1 %10119, label %.lr.ph11909, label %._crit_edge11910
 
-.lr.ph11907:                                      ; preds = %.loopexit10905, %10135
-  %.8611905 = phi ptr [ %10123, %10135 ], [ %.318927, %.loopexit10905 ]
-  %10123 = getelementptr i8, ptr %.8611905, i64 -8
-  %.sroa.032.0.copyload = load i64, ptr %10123, align 8, !tbaa !113
-  %10124 = icmp eq i64 %.sroa.032.0.copyload, 0
-  br i1 %10124, label %10135, label %10125
+.lr.ph11909:                                      ; preds = %.loopexit10907, %10132
+  %.8611907 = phi ptr [ %10120, %10132 ], [ %.318927, %.loopexit10907 ]
+  %10120 = getelementptr i8, ptr %.8611907, i64 -8
+  %.sroa.032.0.copyload = load i64, ptr %10120, align 8, !tbaa !113
+  %10121 = icmp eq i64 %.sroa.032.0.copyload, 0
+  br i1 %10121, label %10132, label %10122
 
-10125:                                            ; preds = %.lr.ph11907
-  %10126 = inttoptr i64 %.sroa.032.0.copyload to ptr
-  %10127 = load i32, ptr %10126, align 8, !tbaa !113
-  %.not9826 = icmp sgt i32 %10127, -1
-  br i1 %.not9826, label %10128, label %10135
+10122:                                            ; preds = %.lr.ph11909
+  %10123 = inttoptr i64 %.sroa.032.0.copyload to ptr
+  %10124 = load i32, ptr %10123, align 8, !tbaa !113
+  %.not9826 = icmp sgt i32 %10124, -1
+  br i1 %.not9826, label %10125, label %10132
+
+10125:                                            ; preds = %10122
+  %10126 = add nsw i32 %10124, -1
+  store i32 %10126, ptr %10123, align 8, !tbaa !113
+  %10127 = icmp eq i32 %10126, 0
+  br i1 %10127, label %10128, label %10132
 
 10128:                                            ; preds = %10125
-  %10129 = add nsw i32 %10127, -1
-  store i32 %10129, ptr %10126, align 8, !tbaa !113
-  %10130 = icmp eq i32 %10129, 0
-  br i1 %10130, label %10131, label %10135
+  %10129 = getelementptr i8, ptr %10123, i64 8
+  %.val10120 = load ptr, ptr %10129, align 8, !tbaa !103
+  %10130 = getelementptr inbounds nuw i8, ptr %.val10120, i64 48
+  %10131 = load ptr, ptr %10130, align 8, !tbaa !114
+  call void %10131(ptr noundef nonnull %10123) #15
+  br label %10132
 
-10131:                                            ; preds = %10128
-  %10132 = getelementptr i8, ptr %10126, i64 8
-  %.val10120 = load ptr, ptr %10132, align 8, !tbaa !103
-  %10133 = getelementptr inbounds nuw i8, ptr %.val10120, i64 48
-  %10134 = load ptr, ptr %10133, align 8, !tbaa !114
-  call void %10134(ptr noundef nonnull %10126) #15
-  br label %10135
+10132:                                            ; preds = %.lr.ph11909, %10125, %10128, %10122
+  %10133 = icmp ugt ptr %10120, %10118
+  br i1 %10133, label %.lr.ph11909, label %._crit_edge11910, !llvm.loop !307
 
-10135:                                            ; preds = %.lr.ph11907, %10128, %10131, %10125
-  %10136 = icmp ugt ptr %10123, %10121
-  br i1 %10136, label %.lr.ph11907, label %._crit_edge11908, !llvm.loop !307
+._crit_edge11910:                                 ; preds = %10132, %.loopexit10907
+  %.86.lcssa = phi ptr [ %.318927, %.loopexit10907 ], [ %10120, %10132 ]
+  %10134 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 64
+  store ptr %.86.lcssa, ptr %10134, align 8, !tbaa !136
+  %10135 = getelementptr i8, ptr %.8.ph10911, i64 -2
+  %.val.i10808 = load ptr, ptr %9999, align 8, !tbaa !9
+  %10136 = getelementptr i8, ptr %.val.i10808, i64 223021
+  %10137 = load i8, ptr %10136, align 1, !tbaa !113
+  %10138 = icmp eq i8 %10137, 0
+  br i1 %10138, label %monitor_unwind.exit, label %10139
 
-._crit_edge11908:                                 ; preds = %10135, %.loopexit10905
-  %.86.lcssa = phi ptr [ %.318927, %.loopexit10905 ], [ %10123, %10135 ]
-  %10137 = getelementptr inbounds nuw i8, ptr %.3.ph, i64 64
-  store ptr %.86.lcssa, ptr %10137, align 8, !tbaa !136
-  %10138 = getelementptr i8, ptr %.8.ph10909, i64 -2
-  %.val.i10808 = load ptr, ptr %10002, align 8, !tbaa !9
-  %10139 = getelementptr i8, ptr %.val.i10808, i64 223021
-  %10140 = load i8, ptr %10139, align 1, !tbaa !113
-  %10141 = icmp eq i8 %10140, 0
-  br i1 %10141, label %monitor_unwind.exit, label %10142
-
-10142:                                            ; preds = %._crit_edge11908
+10139:                                            ; preds = %._crit_edge11910
   %.val16.i.i10809 = load i64, ptr %.3.ph, align 8, !tbaa !113
-  %10143 = inttoptr i64 %.val16.i.i10809 to ptr
-  %10144 = getelementptr inbounds nuw i8, ptr %10143, i64 48
-  %10145 = load i32, ptr %10144, align 8, !tbaa !142
-  %10146 = and i32 %10145, 33554432
-  %.not.i.i10810 = icmp eq i32 %10146, 0
-  br i1 %.not.i.i10810, label %10147, label %monitor_unwind.exit
+  %10140 = inttoptr i64 %.val16.i.i10809 to ptr
+  %10141 = getelementptr inbounds nuw i8, ptr %10140, i64 48
+  %10142 = load i32, ptr %10141, align 8, !tbaa !142
+  %10143 = and i32 %10142, 33554432
+  %.not.i.i10810 = icmp eq i32 %10143, 0
+  br i1 %.not.i.i10810, label %10144, label %monitor_unwind.exit
 
-10147:                                            ; preds = %10142
-  %10148 = call ptr @PyErr_GetRaisedException() #15
-  %10149 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull %.3.ph, ptr noundef %10138, ptr noundef %10148) #15
-  %10150 = icmp eq i32 %10149, 0
-  br i1 %10150, label %10151, label %10152
+10144:                                            ; preds = %10139
+  %10145 = call ptr @PyErr_GetRaisedException() #15
+  %10146 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull %.3.ph, ptr noundef %10135, ptr noundef %10145) #15
+  %10147 = icmp eq i32 %10146, 0
+  br i1 %10147, label %10148, label %10149
 
-10151:                                            ; preds = %10147
-  call void @PyErr_SetRaisedException(ptr noundef %10148) #15
+10148:                                            ; preds = %10144
+  call void @PyErr_SetRaisedException(ptr noundef %10145) #15
   br label %monitor_unwind.exit
 
-10152:                                            ; preds = %10147
-  %10153 = load i32, ptr %10148, align 8, !tbaa !113
-  %.not15.i.i10811 = icmp sgt i32 %10153, -1
-  br i1 %.not15.i.i10811, label %10154, label %monitor_unwind.exit
+10149:                                            ; preds = %10144
+  %10150 = load i32, ptr %10145, align 8, !tbaa !113
+  %.not15.i.i10811 = icmp sgt i32 %10150, -1
+  br i1 %.not15.i.i10811, label %10151, label %monitor_unwind.exit
 
-10154:                                            ; preds = %10152
-  %10155 = add nsw i32 %10153, -1
-  store i32 %10155, ptr %10148, align 8, !tbaa !113
-  %10156 = icmp eq i32 %10155, 0
-  br i1 %10156, label %10157, label %monitor_unwind.exit
+10151:                                            ; preds = %10149
+  %10152 = add nsw i32 %10150, -1
+  store i32 %10152, ptr %10145, align 8, !tbaa !113
+  %10153 = icmp eq i32 %10152, 0
+  br i1 %10153, label %10154, label %monitor_unwind.exit
 
-10157:                                            ; preds = %10154
-  %10158 = getelementptr i8, ptr %10148, i64 8
-  %.val.i.i10812 = load ptr, ptr %10158, align 8, !tbaa !103
-  %10159 = getelementptr inbounds nuw i8, ptr %.val.i.i10812, i64 48
-  %10160 = load ptr, ptr %10159, align 8, !tbaa !114
-  call void %10160(ptr noundef nonnull %10148) #15
+10154:                                            ; preds = %10151
+  %10155 = getelementptr i8, ptr %10145, i64 8
+  %.val.i.i10812 = load ptr, ptr %10155, align 8, !tbaa !103
+  %10156 = getelementptr inbounds nuw i8, ptr %.val.i.i10812, i64 48
+  %10157 = load ptr, ptr %10156, align 8, !tbaa !114
+  call void %10157(ptr noundef nonnull %10145) #15
   br label %monitor_unwind.exit
 
-.loopexit10904:                                   ; preds = %.lr.ph.i79.i, %parse_varint.exit77.i
-  %.0.lcssa.i84.i = phi i32 [ %10100, %parse_varint.exit77.i ], [ %10107, %.lr.ph.i79.i ]
-  %10161 = ashr i32 %.0.lcssa.i84.i, 1
-  %10162 = and i32 %.0.lcssa.i84.i, 1
-  %10163 = getelementptr inbounds nuw i8, ptr %10005, i64 72
-  %10164 = load i32, ptr %10163, align 8, !tbaa !174
-  %10165 = sext i32 %10164 to i64
-  %10166 = getelementptr %union._PyStackRef, ptr %10000, i64 %10165
-  %10167 = sext i32 %10161 to i64
-  %10168 = getelementptr %union._PyStackRef, ptr %10166, i64 %10167
-  %10169 = icmp ugt ptr %.318927, %10168
-  br i1 %10169, label %.lr.ph, label %._crit_edge
+.loopexit10906:                                   ; preds = %.lr.ph.i79.i, %parse_varint.exit77.i
+  %.0.lcssa.i84.i = phi i32 [ %10097, %parse_varint.exit77.i ], [ %10104, %.lr.ph.i79.i ]
+  %10158 = ashr i32 %.0.lcssa.i84.i, 1
+  %10159 = and i32 %.0.lcssa.i84.i, 1
+  %10160 = getelementptr inbounds nuw i8, ptr %10002, i64 72
+  %10161 = load i32, ptr %10160, align 8, !tbaa !174
+  %10162 = sext i32 %10161 to i64
+  %10163 = getelementptr %union._PyStackRef, ptr %9997, i64 %10162
+  %10164 = sext i32 %10158 to i64
+  %10165 = getelementptr %union._PyStackRef, ptr %10163, i64 %10164
+  %10166 = icmp ugt ptr %.318927, %10165
+  br i1 %10166, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.loopexit10904, %10182
-  %.8711466 = phi ptr [ %10170, %10182 ], [ %.318927, %.loopexit10904 ]
-  %10170 = getelementptr i8, ptr %.8711466, i64 -8
-  %.sroa.024.0.copyload = load i64, ptr %10170, align 8, !tbaa !113
-  %10171 = icmp eq i64 %.sroa.024.0.copyload, 0
-  br i1 %10171, label %10182, label %10172
+.lr.ph:                                           ; preds = %.loopexit10906, %10179
+  %.8711468 = phi ptr [ %10167, %10179 ], [ %.318927, %.loopexit10906 ]
+  %10167 = getelementptr i8, ptr %.8711468, i64 -8
+  %.sroa.024.0.copyload = load i64, ptr %10167, align 8, !tbaa !113
+  %10168 = icmp eq i64 %.sroa.024.0.copyload, 0
+  br i1 %10168, label %10179, label %10169
 
-10172:                                            ; preds = %.lr.ph
-  %10173 = inttoptr i64 %.sroa.024.0.copyload to ptr
-  %10174 = load i32, ptr %10173, align 8, !tbaa !113
-  %.not9825 = icmp sgt i32 %10174, -1
-  br i1 %.not9825, label %10175, label %10182
+10169:                                            ; preds = %.lr.ph
+  %10170 = inttoptr i64 %.sroa.024.0.copyload to ptr
+  %10171 = load i32, ptr %10170, align 8, !tbaa !113
+  %.not9825 = icmp sgt i32 %10171, -1
+  br i1 %.not9825, label %10172, label %10179
+
+10172:                                            ; preds = %10169
+  %10173 = add nsw i32 %10171, -1
+  store i32 %10173, ptr %10170, align 8, !tbaa !113
+  %10174 = icmp eq i32 %10173, 0
+  br i1 %10174, label %10175, label %10179
 
 10175:                                            ; preds = %10172
-  %10176 = add nsw i32 %10174, -1
-  store i32 %10176, ptr %10173, align 8, !tbaa !113
-  %10177 = icmp eq i32 %10176, 0
-  br i1 %10177, label %10178, label %10182
+  %10176 = getelementptr i8, ptr %10170, i64 8
+  %.val10119 = load ptr, ptr %10176, align 8, !tbaa !103
+  %10177 = getelementptr inbounds nuw i8, ptr %.val10119, i64 48
+  %10178 = load ptr, ptr %10177, align 8, !tbaa !114
+  call void %10178(ptr noundef nonnull %10170) #15
+  br label %10179
 
-10178:                                            ; preds = %10175
-  %10179 = getelementptr i8, ptr %10173, i64 8
-  %.val10119 = load ptr, ptr %10179, align 8, !tbaa !103
-  %10180 = getelementptr inbounds nuw i8, ptr %.val10119, i64 48
-  %10181 = load ptr, ptr %10180, align 8, !tbaa !114
-  call void %10181(ptr noundef nonnull %10173) #15
-  br label %10182
+10179:                                            ; preds = %.lr.ph, %10172, %10175, %10169
+  %10180 = icmp ugt ptr %10167, %10165
+  br i1 %10180, label %.lr.ph, label %._crit_edge, !llvm.loop !308
 
-10182:                                            ; preds = %.lr.ph, %10175, %10178, %10172
-  %10183 = icmp ugt ptr %10170, %10168
-  br i1 %10183, label %.lr.ph, label %._crit_edge, !llvm.loop !308
+._crit_edge:                                      ; preds = %10179, %.loopexit10906
+  %.87.lcssa = phi ptr [ %.318927, %.loopexit10906 ], [ %10167, %10179 ]
+  %.not9268 = icmp eq i32 %10159, 0
+  br i1 %.not9268, label %.loopexit10913, label %10181
 
-._crit_edge:                                      ; preds = %10182, %.loopexit10904
-  %.87.lcssa = phi ptr [ %.318927, %.loopexit10904 ], [ %10170, %10182 ]
-  %.not9268 = icmp eq i32 %10162, 0
-  br i1 %.not9268, label %.loopexit10911, label %10184
-
-10184:                                            ; preds = %._crit_edge
-  %10185 = load ptr, ptr %10001, align 8, !tbaa !133
+10181:                                            ; preds = %._crit_edge
+  %10182 = load ptr, ptr %9998, align 8, !tbaa !133
   %.3.val10585 = load i64, ptr %.3.ph, align 8, !tbaa !113
-  %10186 = ptrtoint ptr %10185 to i64
-  %reass.sub = sub i64 %10186, %.3.val10585
-  %10187 = shl i64 %reass.sub, 31
-  %sext = add i64 %10187, -446676598784
-  %10188 = ashr i64 %sext, 32
-  %10189 = call ptr @PyLong_FromLong(i64 noundef %10188) #15
-  %10190 = icmp eq ptr %10189, null
-  br i1 %10190, label %10004, label %10191
+  %10183 = ptrtoint ptr %10182 to i64
+  %reass.sub = sub i64 %10183, %.3.val10585
+  %10184 = shl i64 %reass.sub, 31
+  %sext = add i64 %10184, -446676598784
+  %10185 = ashr i64 %sext, 32
+  %10186 = call ptr @PyLong_FromLong(i64 noundef %10185) #15
+  %10187 = icmp eq ptr %10186, null
+  br i1 %10187, label %10001, label %10188
 
-10191:                                            ; preds = %10184
-  %10192 = getelementptr i8, ptr %.87.lcssa, i64 8
-  %10193 = ptrtoint ptr %10189 to i64
-  store i64 %10193, ptr %.87.lcssa, align 8, !tbaa !113
-  br label %.loopexit10911
+10188:                                            ; preds = %10181
+  %10189 = getelementptr i8, ptr %.87.lcssa, i64 8
+  %10190 = ptrtoint ptr %10186 to i64
+  store i64 %10190, ptr %.87.lcssa, align 8, !tbaa !113
+  br label %.loopexit10913
 
-.loopexit10911:                                   ; preds = %._crit_edge, %10191
-  %.88 = phi ptr [ %10192, %10191 ], [ %.87.lcssa, %._crit_edge ]
-  %10194 = call ptr @_PyErr_GetRaisedException(ptr noundef %0) #15
-  %10195 = getelementptr i8, ptr %.88, i64 8
-  %10196 = ptrtoint ptr %10194 to i64
-  store i64 %10196, ptr %.88, align 8, !tbaa !113
+.loopexit10913:                                   ; preds = %._crit_edge, %10188
+  %.88 = phi ptr [ %10189, %10188 ], [ %.87.lcssa, %._crit_edge ]
+  %10191 = call ptr @_PyErr_GetRaisedException(ptr noundef %0) #15
+  %10192 = getelementptr i8, ptr %.88, i64 8
+  %10193 = ptrtoint ptr %10191 to i64
+  store i64 %10193, ptr %.88, align 8, !tbaa !113
   %.3.val10586 = load i64, ptr %.3.ph, align 8, !tbaa !113
-  %10197 = inttoptr i64 %.3.val10586 to ptr
-  %10198 = getelementptr inbounds nuw i8, ptr %10197, i64 208
-  %10199 = sext i32 %.0.lcssa.i76.i to i64
-  %10200 = getelementptr %union._Py_CODEUNIT, ptr %10198, i64 %10199
-  %.val.i10814 = load ptr, ptr %10002, align 8, !tbaa !9
-  %10201 = getelementptr i8, ptr %.val.i10814, i64 223020
-  %10202 = load i8, ptr %10201, align 1, !tbaa !113
-  %10203 = icmp eq i8 %10202, 0
-  br i1 %10203, label %.preheader10898, label %monitor_handled.exit
+  %10194 = inttoptr i64 %.3.val10586 to ptr
+  %10195 = getelementptr inbounds nuw i8, ptr %10194, i64 208
+  %10196 = sext i32 %.0.lcssa.i76.i to i64
+  %10197 = getelementptr %union._Py_CODEUNIT, ptr %10195, i64 %10196
+  %.val.i10814 = load ptr, ptr %9999, align 8, !tbaa !9
+  %10198 = getelementptr i8, ptr %.val.i10814, i64 223020
+  %10199 = load i8, ptr %10198, align 1, !tbaa !113
+  %10200 = icmp eq i8 %10199, 0
+  br i1 %10200, label %.preheader10900, label %monitor_handled.exit
 
-monitor_handled.exit:                             ; preds = %.loopexit10911
-  %10204 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %.3.ph, ptr noundef %10200, ptr noundef %10194) #15
-  %10205 = icmp slt i32 %10204, 0
-  br i1 %10205, label %.outer, label %.preheader10898
+monitor_handled.exit:                             ; preds = %.loopexit10913
+  %10201 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull %.3.ph, ptr noundef %10197, ptr noundef %10191) #15
+  %10202 = icmp slt i32 %10201, 0
+  br i1 %10202, label %.outer, label %.preheader10900
 
-monitor_unwind.exit:                              ; preds = %_Py_EnterRecursivePy.exit10817, %10157, %10154, %10152, %10151, %10142, %._crit_edge11908
-  %.4 = phi ptr [ %.1, %_Py_EnterRecursivePy.exit10817 ], [ %.3.ph, %._crit_edge11908 ], [ %.3.ph, %10142 ], [ %.3.ph, %10151 ], [ %.3.ph, %10152 ], [ %.3.ph, %10154 ], [ %.3.ph, %10157 ]
-  %10206 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %10207 = load i32, ptr %10206, align 4, !tbaa !95
-  %10208 = add i32 %10207, 1
-  store i32 %10208, ptr %10206, align 4, !tbaa !95
-  %10209 = getelementptr inbounds nuw i8, ptr %.4, i64 8
-  %10210 = load ptr, ptr %10209, align 8, !tbaa !141
-  store ptr %10210, ptr %49, align 8, !tbaa !140
+monitor_unwind.exit:                              ; preds = %_Py_EnterRecursivePy.exit10817, %10154, %10151, %10149, %10148, %10139, %._crit_edge11910
+  %.4 = phi ptr [ %.1, %_Py_EnterRecursivePy.exit10817 ], [ %.3.ph, %._crit_edge11910 ], [ %.3.ph, %10139 ], [ %.3.ph, %10148 ], [ %.3.ph, %10149 ], [ %.3.ph, %10151 ], [ %.3.ph, %10154 ]
+  %10203 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %10204 = load i32, ptr %10203, align 4, !tbaa !95
+  %10205 = add i32 %10204, 1
+  store i32 %10205, ptr %10203, align 4, !tbaa !95
+  %10206 = getelementptr inbounds nuw i8, ptr %.4, i64 8
+  %10207 = load ptr, ptr %10206, align 8, !tbaa !141
+  store ptr %10207, ptr %49, align 8, !tbaa !140
   call void @_PyEval_FrameClearAndPop(ptr noundef nonnull %0, ptr noundef nonnull %.4)
-  %10211 = getelementptr inbounds nuw i8, ptr %10210, i64 72
-  store i16 0, ptr %10211, align 8, !tbaa !139
-  %10212 = getelementptr inbounds nuw i8, ptr %10210, i64 74
-  %10213 = load i8, ptr %10212, align 2, !tbaa !137
-  %10214 = icmp eq i8 %10213, 3
-  br i1 %10214, label %10215, label %10220
+  %10208 = getelementptr inbounds nuw i8, ptr %10207, i64 72
+  store i16 0, ptr %10208, align 8, !tbaa !139
+  %10209 = getelementptr inbounds nuw i8, ptr %10207, i64 74
+  %10210 = load i8, ptr %10209, align 2, !tbaa !137
+  %10211 = icmp eq i8 %10210, 3
+  br i1 %10211, label %10212, label %10217
 
-10215:                                            ; preds = %monitor_unwind.exit
-  %10216 = getelementptr inbounds nuw i8, ptr %10210, i64 8
-  %10217 = load ptr, ptr %10216, align 8, !tbaa !141
-  store ptr %10217, ptr %49, align 8, !tbaa !140
-  %10218 = load i32, ptr %24, align 4, !tbaa !99
-  %10219 = add i32 %10218, 2
-  store i32 %10219, ptr %24, align 4, !tbaa !99
-  br label %10280
+10212:                                            ; preds = %monitor_unwind.exit
+  %10213 = getelementptr inbounds nuw i8, ptr %10207, i64 8
+  %10214 = load ptr, ptr %10213, align 8, !tbaa !141
+  store ptr %10214, ptr %49, align 8, !tbaa !140
+  %10215 = load i32, ptr %24, align 4, !tbaa !99
+  %10216 = add i32 %10215, 2
+  store i32 %10216, ptr %24, align 4, !tbaa !99
+  br label %10277
 
-10220:                                            ; preds = %monitor_unwind.exit
-  %10221 = getelementptr inbounds nuw i8, ptr %10210, i64 56
-  %10222 = load ptr, ptr %10221, align 8, !tbaa !133
-  %10223 = getelementptr inbounds nuw i8, ptr %10210, i64 64
-  %10224 = load ptr, ptr %10223, align 8, !tbaa !136
-  store ptr null, ptr %10223, align 8, !tbaa !136
+10217:                                            ; preds = %monitor_unwind.exit
+  %10218 = getelementptr inbounds nuw i8, ptr %10207, i64 56
+  %10219 = load ptr, ptr %10218, align 8, !tbaa !133
+  %10220 = getelementptr inbounds nuw i8, ptr %10207, i64 64
+  %10221 = load ptr, ptr %10220, align 8, !tbaa !136
+  store ptr null, ptr %10220, align 8, !tbaa !136
   br label %monitor_throw.exit
 
-.sink.split13190:                                 ; preds = %1245, %2049, %2362, %5198, %5545, %_Py_NewRef.exit10700, %8603
-  %.sink13191 = phi ptr [ %8606, %8603 ], [ %6649, %_Py_NewRef.exit10700 ], [ %5530, %5545 ], [ %5194, %5198 ], [ %2347, %2362 ], [ %2045, %2049 ], [ %1241, %1245 ]
-  store ptr %.sink13191, ptr %49, align 8, !tbaa !140
-  br label %10225
+.sink.split13193:                                 ; preds = %1245, %2049, %2362, %5198, %5545, %_Py_NewRef.exit10700, %8603
+  %.sink13194 = phi ptr [ %8606, %8603 ], [ %6649, %_Py_NewRef.exit10700 ], [ %5530, %5545 ], [ %5194, %5198 ], [ %2347, %2362 ], [ %2045, %2049 ], [ %1241, %1245 ]
+  store ptr %.sink13194, ptr %49, align 8, !tbaa !140
+  br label %10222
 
-10225:                                            ; preds = %.sink.split13190, %42
-  %.1 = phi ptr [ %1, %42 ], [ %.sink13191, %.sink.split13190 ]
-  %10226 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %10227 = load i32, ptr %10226, align 4, !tbaa !95
-  %10228 = add i32 %10227, -1
-  store i32 %10228, ptr %10226, align 4, !tbaa !95
-  %10229 = icmp slt i32 %10227, 1
-  br i1 %10229, label %10230, label %10242
+10222:                                            ; preds = %.sink.split13193, %42
+  %.1 = phi ptr [ %1, %42 ], [ %.sink13194, %.sink.split13193 ]
+  %10223 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %10224 = load i32, ptr %10223, align 4, !tbaa !95
+  %10225 = add i32 %10224, -1
+  store i32 %10225, ptr %10223, align 4, !tbaa !95
+  %10226 = icmp slt i32 %10224, 1
+  br i1 %10226, label %10227, label %10239
 
-10230:                                            ; preds = %10225
-  %10231 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10232 = load i32, ptr %10231, align 8, !tbaa !98
-  %.not.i.i10816 = icmp eq i32 %10232, 0
-  br i1 %.not.i.i10816, label %10236, label %10233
+10227:                                            ; preds = %10222
+  %10228 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10229 = load i32, ptr %10228, align 8, !tbaa !98
+  %.not.i.i10816 = icmp eq i32 %10229, 0
+  br i1 %.not.i.i10816, label %10233, label %10230
 
-10233:                                            ; preds = %10230
-  %10234 = icmp slt i32 %10228, -50
-  br i1 %10234, label %10235, label %10242
+10230:                                            ; preds = %10227
+  %10231 = icmp slt i32 %10225, -50
+  br i1 %10231, label %10232, label %10239
 
-10235:                                            ; preds = %10233
+10232:                                            ; preds = %10230
   call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._Py_CheckRecursiveCallPy, ptr noundef nonnull @.str.13) #16
   unreachable
 
-10236:                                            ; preds = %10230
-  %10237 = icmp slt i32 %10228, 1
-  br i1 %10237, label %_Py_EnterRecursivePy.exit10817, label %10242
+10233:                                            ; preds = %10227
+  %10234 = icmp slt i32 %10225, 1
+  br i1 %10234, label %_Py_EnterRecursivePy.exit10817, label %10239
 
-_Py_EnterRecursivePy.exit10817:                   ; preds = %10236
-  store i32 1, ptr %10231, align 8, !tbaa !98
-  %10238 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !100
-  %10239 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %0, ptr noundef %10238, ptr noundef nonnull @.str.14) #15
-  %10240 = load i32, ptr %10231, align 8, !tbaa !98
-  %10241 = add i32 %10240, -1
-  store i32 %10241, ptr %10231, align 8, !tbaa !98
+_Py_EnterRecursivePy.exit10817:                   ; preds = %10233
+  store i32 1, ptr %10228, align 8, !tbaa !98
+  %10235 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !100
+  %10236 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %0, ptr noundef %10235, ptr noundef nonnull @.str.14) #15
+  %10237 = load i32, ptr %10228, align 8, !tbaa !98
+  %10238 = add i32 %10237, -1
+  store i32 %10238, ptr %10228, align 8, !tbaa !98
   br label %monitor_unwind.exit
 
-10242:                                            ; preds = %10225, %10236, %10233
-  %10243 = getelementptr inbounds nuw i8, ptr %.1, i64 56
-  %10244 = load ptr, ptr %10243, align 8, !tbaa !133
-  %10245 = getelementptr inbounds nuw i8, ptr %.1, i64 64
-  %10246 = load ptr, ptr %10245, align 8, !tbaa !136
-  store ptr null, ptr %10245, align 8, !tbaa !136
-  br label %.preheader10898
+10239:                                            ; preds = %10222, %10233, %10230
+  %10240 = getelementptr inbounds nuw i8, ptr %.1, i64 56
+  %10241 = load ptr, ptr %10240, align 8, !tbaa !133
+  %10242 = getelementptr inbounds nuw i8, ptr %.1, i64 64
+  %10243 = load ptr, ptr %10242, align 8, !tbaa !136
+  store ptr null, ptr %10242, align 8, !tbaa !136
+  br label %.preheader10900
 
-.preheader10898:                                  ; preds = %monitor_handled.exit, %.loopexit10911, %10242
-  %.28898.ph = phi ptr [ %10246, %10242 ], [ %10195, %.loopexit10911 ], [ %10195, %monitor_handled.exit ]
-  %.28893.ph = phi ptr [ %10244, %10242 ], [ %10200, %.loopexit10911 ], [ %10200, %monitor_handled.exit ]
-  %.2.ph = phi ptr [ %.1, %10242 ], [ %.3.ph, %.loopexit10911 ], [ %.3.ph, %monitor_handled.exit ]
+.preheader10900:                                  ; preds = %monitor_handled.exit, %.loopexit10913, %10239
+  %.28898.ph = phi ptr [ %10243, %10239 ], [ %10192, %.loopexit10913 ], [ %10192, %monitor_handled.exit ]
+  %.28893.ph = phi ptr [ %10241, %10239 ], [ %10197, %.loopexit10913 ], [ %10197, %monitor_handled.exit ]
+  %.2.ph = phi ptr [ %.1, %10239 ], [ %.3.ph, %.loopexit10913 ], [ %.3.ph, %monitor_handled.exit ]
   %.08890.ph.in.in = load i16, ptr %.28893.ph, align 2, !tbaa !143
   %.pn.in = and i16 %.08890.ph.in.in, 255
   %.pn = zext nneg i16 %.pn.in to i64
   %.08890.ph.in = lshr i16 %.08890.ph.in.in, 8
   %.08890.ph = zext nneg i16 %.08890.ph.in to i32
-  %10247 = getelementptr i8, ptr %0, i64 16
-  %10248 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %10249 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %10250 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10251 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10252 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %10253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_InitCleanup, i64 76), align 4
-  %10254 = sext i32 %10253 to i64
-  %10255 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_InitCleanup, i64 72), align 8
-  %10256 = sext i32 %10255 to i64
-  %10257 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %10258 = getelementptr i8, ptr %0, i64 112
-  %10259 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %10260 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10261 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10262 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %10263 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %10264 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %10265 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %10266 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %10244 = getelementptr i8, ptr %0, i64 16
+  %10245 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %10246 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %10247 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10248 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %10249 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %10250 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_InitCleanup, i64 76), align 4
+  %10251 = sext i32 %10250 to i64
+  %10252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_Py_InitCleanup, i64 72), align 8
+  %10253 = sext i32 %10252 to i64
+  %10254 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %10255 = getelementptr i8, ptr %0, i64 112
+  %10256 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %10257 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10258 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10259 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %10260 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %10261 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %10262 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %10263 = getelementptr inbounds nuw i8, ptr %21, i64 32
   br label %.backedge
 
-10267:                                            ; preds = %65
+10264:                                            ; preds = %65
   store i32 1, ptr %60, align 8, !tbaa !98
-  %10268 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !100
-  %10269 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %0, ptr noundef %10268, ptr noundef nonnull @.str.14) #15
-  %10270 = load i32, ptr %60, align 8, !tbaa !98
-  %10271 = add i32 %10270, -1
-  store i32 %10271, ptr %60, align 8, !tbaa !98
-  %10272 = load i32, ptr %55, align 4, !tbaa !95
-  %10273 = add i32 %10272, 1
-  store i32 %10273, ptr %55, align 4, !tbaa !95
-  %10274 = load ptr, ptr %52, align 8, !tbaa !141
-  store ptr %10274, ptr %49, align 8, !tbaa !140
+  %10265 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !100
+  %10266 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef nonnull %0, ptr noundef %10265, ptr noundef nonnull @.str.14) #15
+  %10267 = load i32, ptr %60, align 8, !tbaa !98
+  %10268 = add i32 %10267, -1
+  store i32 %10268, ptr %60, align 8, !tbaa !98
+  %10269 = load i32, ptr %55, align 4, !tbaa !95
+  %10270 = add i32 %10269, 1
+  store i32 %10270, ptr %55, align 4, !tbaa !95
+  %10271 = load ptr, ptr %52, align 8, !tbaa !141
+  store ptr %10271, ptr %49, align 8, !tbaa !140
   call void @_PyEval_FrameClearAndPop(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  %10275 = getelementptr inbounds nuw i8, ptr %10274, i64 72
-  store i16 0, ptr %10275, align 8, !tbaa !139
-  %10276 = getelementptr inbounds nuw i8, ptr %10274, i64 8
-  %10277 = load ptr, ptr %10276, align 8, !tbaa !141
-  store ptr %10277, ptr %49, align 8, !tbaa !140
-  %10278 = load i32, ptr %24, align 4, !tbaa !99
-  %10279 = add i32 %10278, 2
-  store i32 %10279, ptr %24, align 4, !tbaa !99
-  br label %10280
+  %10272 = getelementptr inbounds nuw i8, ptr %10271, i64 72
+  store i16 0, ptr %10272, align 8, !tbaa !139
+  %10273 = getelementptr inbounds nuw i8, ptr %10271, i64 8
+  %10274 = load ptr, ptr %10273, align 8, !tbaa !141
+  store ptr %10274, ptr %49, align 8, !tbaa !140
+  %10275 = load i32, ptr %24, align 4, !tbaa !99
+  %10276 = add i32 %10275, 2
+  store i32 %10276, ptr %24, align 4, !tbaa !99
+  br label %10277
 
-10280:                                            ; preds = %10267, %10215, %6271, %35
-  %.0 = phi ptr [ null, %35 ], [ null, %10267 ], [ null, %10215 ], [ %6278, %6271 ]
+10277:                                            ; preds = %10264, %10212, %6271, %35
+  %.0 = phi ptr [ null, %35 ], [ null, %10264 ], [ null, %10212 ], [ %6278, %6271 ]
   ret ptr %.0
 
-.backedge:                                        ; preds = %.backedge.backedge, %.preheader10898
-  %.28898 = phi ptr [ %.28898.ph, %.preheader10898 ], [ %.28898.be, %.backedge.backedge ]
-  %.28893 = phi ptr [ %.28893.ph, %.preheader10898 ], [ %.28893.be, %.backedge.backedge ]
-  %.08890 = phi i32 [ %.08890.ph, %.preheader10898 ], [ %.08890.be, %.backedge.backedge ]
-  %.2 = phi ptr [ %.2.ph, %.preheader10898 ], [ %.2.be, %.backedge.backedge ]
-  %.pn.pn = phi i64 [ %.pn, %.preheader10898 ], [ %.pn.pn.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.preheader10900
+  %.28898 = phi ptr [ %.28898.ph, %.preheader10900 ], [ %.28898.be, %.backedge.backedge ]
+  %.28893 = phi ptr [ %.28893.ph, %.preheader10900 ], [ %.28893.be, %.backedge.backedge ]
+  %.08890 = phi i32 [ %.08890.ph, %.preheader10900 ], [ %.08890.be, %.backedge.backedge ]
+  %.2 = phi ptr [ %.2.ph, %.preheader10900 ], [ %.2.be, %.backedge.backedge ]
+  %.pn.pn = phi i64 [ %.pn, %.preheader10900 ], [ %.pn.pn.be, %.backedge.backedge ]
   %.in = getelementptr [256 x ptr], ptr @_PyEval_EvalFrameDefault.opcode_targets, i64 0, i64 %.pn.pn
-  %10281 = load ptr, ptr %.in, align 8, !tbaa !144
-  indirectbr ptr %10281, [label %1142, label %501, label %547, label %304, label %1964, label %3542, label %3610, label %3661, label %4310, label %4429, label %4492, label %4510, label %4530, label %4558, label %4588, label %4852, label %4919, label %8457, label %4958, label %4982, label %5000, label %6271, label %7059, label %7543, label %7862, label %7961, label %7978, label %7991, label %8004, label %8010, label %8016, label %8041, label %8166, label %8183, label %8199, label %8508, label %8556, label %8738, label %9289, label %9344, label %9501, label %9638, label %9662, label %9686, label %9876, label %98, label %915, label %932, label %972, label %1046, label %1092, label %1125, label %1144, label %2109, label %2136, label %2249, label %3744, label %3961, label %4082, label %4111, label %4126, label %4156, label %4185, label %4226, label %4255, label %4281, label %4343, label %4383, label %4548, label %4624, label %4934, label %5038, label %5060, label %6279, label %6309, label %6350, label %6375, label %6383, label %6405, label %6457, label %7081, label %7090, label %7149, label %7184, label %7200, label %7210, label %7235, label %7262, label %7312, label %7392, label %7563, label %7583, label %7594, label %7627, label %7835, label %7892, label %7911, label %8058, label %8079, label %8112, label %8145, label %8206, label %8397, label %8576, label %8789, label %8815, label %8829, label %8856, label %9089, label %9113, label %9135, label %9167, label %9206, label %9237, label %9490, label %9694, label %9725, label %9914, label %9937, label %4528, label %5815, label %5764, label %5288, label %5429, label %5103, label %5863, label %6237, label %6212, label %6172, label %6103, label %6061, label %6032, label %6143, label %5986, label %5794, label %5747, label %5690, label %5659, label %6000, label %5634, label %9839, label %9801, label %9762, label %9617, label %9608, label %9588, label %9565, label %9554, label %9533, label %8459, label %148, label %175, label %219, label %263, label %359, label %386, label %430, label %457, label %592, label %636, label %719, label %777, label %858, label %1317, label %1427, label %1529, label %1620, label %1709, label %1799, label %1889, label %2175, label %2429, label %2534, label %2637, label %2711, label %2770, label %2824, label %2927, label %3030, label %3112, label %3219, label %3306, label %3375, label %3433, label %3473, label %3513, label %3807, label %3856, label %3918, label %4005, label %4043, label %4690, label %4726, label %4774, label %4806, label %6334, label %6359, label %6529, label %6564, label %6603, label %6659, label %6704, label %6730, label %6750, label %6782, label %6835, label %6862, label %6901, label %6957, label %6994, label %7115, label %7130, label %7444, label %7500, label %7711, label %7768, label %8497, label %8702, label %8912, label %8976, label %9015, label %9397, label %9427]
+  %10278 = load ptr, ptr %.in, align 8, !tbaa !144
+  indirectbr ptr %10278, [label %1142, label %501, label %547, label %304, label %1964, label %3542, label %3610, label %3661, label %4310, label %4429, label %4492, label %4510, label %4530, label %4558, label %4588, label %4852, label %4919, label %8457, label %4958, label %4982, label %5000, label %6271, label %7059, label %7543, label %7862, label %7961, label %7978, label %7991, label %8004, label %8010, label %8016, label %8041, label %8166, label %8183, label %8199, label %8508, label %8556, label %8738, label %9286, label %9341, label %9498, label %9635, label %9659, label %9683, label %9873, label %98, label %915, label %932, label %972, label %1046, label %1092, label %1125, label %1144, label %2109, label %2136, label %2249, label %3744, label %3961, label %4082, label %4111, label %4126, label %4156, label %4185, label %4226, label %4255, label %4281, label %4343, label %4383, label %4548, label %4624, label %4934, label %5038, label %5060, label %6279, label %6309, label %6350, label %6375, label %6383, label %6405, label %6457, label %7081, label %7090, label %7149, label %7184, label %7200, label %7210, label %7235, label %7262, label %7312, label %7392, label %7563, label %7583, label %7594, label %7627, label %7835, label %7892, label %7911, label %8058, label %8079, label %8112, label %8145, label %8206, label %8397, label %8576, label %8789, label %8815, label %8829, label %8856, label %9086, label %9110, label %9132, label %9164, label %9203, label %9234, label %9487, label %9691, label %9722, label %9911, label %9934, label %4528, label %5815, label %5764, label %5288, label %5429, label %5103, label %5863, label %6237, label %6212, label %6172, label %6103, label %6061, label %6032, label %6143, label %5986, label %5794, label %5747, label %5690, label %5659, label %6000, label %5634, label %9836, label %9798, label %9759, label %9614, label %9605, label %9585, label %9562, label %9551, label %9530, label %8459, label %148, label %175, label %219, label %263, label %359, label %386, label %430, label %457, label %592, label %636, label %719, label %777, label %858, label %1317, label %1427, label %1529, label %1620, label %1709, label %1799, label %1889, label %2175, label %2429, label %2534, label %2637, label %2711, label %2770, label %2824, label %2927, label %3030, label %3112, label %3219, label %3306, label %3375, label %3433, label %3473, label %3513, label %3807, label %3856, label %3918, label %4005, label %4043, label %4690, label %4726, label %4774, label %4806, label %6334, label %6359, label %6529, label %6564, label %6603, label %6659, label %6704, label %6730, label %6750, label %6782, label %6835, label %6862, label %6901, label %6957, label %6994, label %7115, label %7130, label %7444, label %7500, label %7711, label %7768, label %8497, label %8702, label %8912, label %8973, label %9012, label %9394, label %9424]
 }
 
 ; Function Attrs: nounwind uwtable

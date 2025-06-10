@@ -2101,232 +2101,227 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase29recurse_fr
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %3 to i64
   %10 = select i1 %4, i64 0, i64 %9
-  %11 = getelementptr inbounds i64, ptr %8, i64 %10
+  %.idx36 = shl nsw i64 %10, 3
+  %11 = getelementptr inbounds i8, ptr %8, i64 %.idx36
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %8, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 178
-  %19 = load i16, ptr %18, align 2
-  %20 = add i16 %19, 1
-  %21 = and i16 %20, -2
-  %22 = zext i16 %21 to i32
-  %23 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
-  %24 = mul nsw i32 %23, %22
-  %25 = ashr i32 %24, 3
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i64, ptr %17, i64 %26
-  %28 = ptrtoint ptr %27 to i64
-  %29 = ptrtoint ptr %11 to i64
-  %30 = sub i64 %28, %29
-  %31 = lshr i64 %30, 3
-  %32 = trunc i64 %31 to i32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 178
+  %17 = load i16, ptr %16, align 2
+  %18 = add i16 %17, 1
+  %19 = and i16 %18, -2
+  %20 = zext i16 %19 to i32
+  %21 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
+  %22 = mul nsw i32 %21, %20
+  %23 = ashr i32 %22, 3
+  %24 = trunc nsw i64 %10 to i32
+  %25 = sub i32 %15, %24
+  %26 = add i32 %25, %23
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i32, ptr %33, align 8
-  %35 = add nsw i32 %34, %32
-  store i32 %35, ptr %33, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 44
-  %39 = load i32, ptr %38, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i64, ptr %36, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 -8
-  %.not.i = icmp ult ptr %41, %44
-  br i1 %.not.i, label %47, label %45
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = load i32, ptr %27, align 8
+  %29 = add nsw i32 %26, %28
+  store i32 %29, ptr %27, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 44
+  %33 = load i32, ptr %32, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i64, ptr %30, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 -8
+  %.not.i = icmp ult ptr %35, %38
+  br i1 %.not.i, label %41, label %39
 
-45:                                               ; preds = %5
-  %46 = tail call noundef i32 @_ZN10FreezeBase15finalize_freezeERK5frameRS0_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %25)
+39:                                               ; preds = %5
+  %40 = tail call noundef i32 @_ZN10FreezeBase15finalize_freezeERK5frameRS0_i(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %23)
   br label %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit
 
-47:                                               ; preds = %5
+41:                                               ; preds = %5
   call void @_ZN10FreezeBase6senderIN18ContinuationHelper13CompiledFrameEEE5frameRKS3_(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %48 = call noundef i32 @_ZN10FreezeBase14recurse_freezeER5frameS1_ibb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %25, i1 noundef zeroext false, i1 noundef zeroext false)
+  %42 = call noundef i32 @_ZN10FreezeBase14recurse_freezeER5frameS1_ibb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %23, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit
 
-_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %45, %47
-  %.0.i = phi i32 [ %46, %45 ], [ %48, %47 ]
+_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit: ; preds = %39, %41
+  %.0.i = phi i32 [ %40, %39 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %49 = icmp samesign ugt i32 %.0.i, 1
-  br i1 %49, label %152, label %50
+  %43 = icmp samesign ugt i32 %.0.i, 1
+  br i1 %43, label %146, label %44
 
-50:                                               ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit
-  %51 = icmp eq i32 %.0.i, 1
-  %52 = load ptr, ptr %1, align 8, !noalias !25
-  %53 = getelementptr inbounds i8, ptr %52, i64 -16
-  %54 = load ptr, ptr %53, align 8, !noalias !25
-  %55 = load ptr, ptr %12, align 8, !noalias !25
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 44
-  %57 = load i32, ptr %56, align 4, !noalias !25
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %59 = load ptr, ptr %58, align 8, !noalias !25
-  %60 = sext i32 %57 to i64
-  %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds i64, ptr %59, i64 %61
-  %63 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !25
-  %.not.i.i.i = icmp eq ptr %63, null
+44:                                               ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit
+  %45 = icmp eq i32 %.0.i, 1
+  %46 = load ptr, ptr %1, align 8, !noalias !25
+  %47 = getelementptr inbounds i8, ptr %46, i64 -16
+  %48 = load ptr, ptr %47, align 8, !noalias !25
+  %49 = load ptr, ptr %12, align 8, !noalias !25
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 44
+  %51 = load i32, ptr %50, align 4, !noalias !25
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %53 = load ptr, ptr %52, align 8, !noalias !25
+  %54 = sext i32 %51 to i64
+  %55 = sub nsw i64 0, %54
+  %56 = getelementptr inbounds i64, ptr %53, i64 %55
+  %57 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8, !noalias !25
+  %.not.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i, label %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i
 
-_ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %50
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %65 = load ptr, ptr %64, align 8, !noalias !25
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %67 = load ptr, ptr %66, align 8, !noalias !25
-  %.not.i.i.i.i = icmp ule ptr %67, %65
-  %68 = getelementptr inbounds nuw i8, ptr %63, i64 20
-  %69 = load i32, ptr %68, align 4, !noalias !25
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %67, i64 %70
-  %72 = icmp ult ptr %65, %71
-  %73 = select i1 %.not.i.i.i.i, i1 %72, i1 false
-  br i1 %73, label %74, label %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit
+_ZNK5frame20is_interpreted_frameEv.exit.i:        ; preds = %44
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %59 = load ptr, ptr %58, align 8, !noalias !25
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %61 = load ptr, ptr %60, align 8, !noalias !25
+  %.not.i.i.i.i = icmp ule ptr %61, %59
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 20
+  %63 = load i32, ptr %62, align 4, !noalias !25
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %61, i64 %64
+  %66 = icmp ult ptr %59, %65
+  %67 = select i1 %.not.i.i.i.i, i1 %66, i1 false
+  br i1 %67, label %68, label %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit
 
-74:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i
-  %75 = getelementptr inbounds nuw i8, ptr %55, i64 178
-  %76 = load i16, ptr %75, align 2, !noalias !25
-  %77 = add i16 %76, 1
-  %78 = and i16 %77, -2
-  %79 = zext i16 %78 to i32
-  %80 = mul nsw i32 %23, %79
-  %81 = ashr i32 %80, 3
-  %narrow.i = sub nsw i32 0, %81
-  %82 = sext i32 %narrow.i to i64
-  %83 = getelementptr inbounds i64, ptr %62, i64 %82
+68:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i
+  %69 = getelementptr inbounds nuw i8, ptr %49, i64 178
+  %70 = load i16, ptr %69, align 2, !noalias !25
+  %71 = add i16 %70, 1
+  %72 = and i16 %71, -2
+  %73 = zext i16 %72 to i32
+  %74 = mul nsw i32 %21, %73
+  %75 = ashr i32 %74, 3
+  %narrow.i = sub nsw i32 0, %75
+  %76 = sext i32 %narrow.i to i64
+  %77 = getelementptr inbounds i64, ptr %56, i64 %76
   br label %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit
 
-_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit: ; preds = %50, %_ZNK5frame20is_interpreted_frameEv.exit.i, %74
-  %.0.i29 = phi ptr [ %83, %74 ], [ %62, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ %62, %50 ]
-  %84 = getelementptr inbounds i64, ptr %.0.i29, i64 %60
-  store ptr %84, ptr %2, align 8, !noalias !25
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %86 = load ptr, ptr %85, align 8, !noalias !25
-  %87 = getelementptr inbounds i64, ptr %.0.i29, i64 %10
-  %88 = shl i32 %32, 3
-  %89 = sext i32 %88 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %11, i64 %89, i1 false)
-  %90 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  %.not.i.i = icmp eq ptr %90, null
+_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit: ; preds = %44, %_ZNK5frame20is_interpreted_frameEv.exit.i, %68
+  %.0.i29 = phi ptr [ %77, %68 ], [ %56, %_ZNK5frame20is_interpreted_frameEv.exit.i ], [ %56, %44 ]
+  %78 = getelementptr inbounds i64, ptr %.0.i29, i64 %54
+  store ptr %78, ptr %2, align 8, !noalias !25
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %80 = load ptr, ptr %79, align 8, !noalias !25
+  %81 = getelementptr inbounds i64, ptr %.0.i29, i64 %10
+  %82 = shl i32 %26, 3
+  %83 = sext i32 %82 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %81, ptr align 8 %11, i64 %83, i1 false)
+  %84 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %.not.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i, label %_ZNK5frame20is_interpreted_frameEv.exit.thread, label %_ZNK5frame20is_interpreted_frameEv.exit
 
 _ZNK5frame20is_interpreted_frameEv.exit:          ; preds = %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %.not.i.i.i30 = icmp ule ptr %94, %92
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 20
-  %96 = load i32, ptr %95, align 4
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %94, i64 %97
-  %99 = icmp ult ptr %92, %98
-  %100 = select i1 %.not.i.i.i30, i1 %99, i1 false
-  br i1 %100, label %101, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %.not.i.i.i30 = icmp ule ptr %88, %86
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 20
+  %90 = load i32, ptr %89, align 4
+  %91 = sext i32 %90 to i64
+  %92 = getelementptr inbounds i8, ptr %88, i64 %91
+  %93 = icmp ult ptr %86, %92
+  %94 = select i1 %.not.i.i.i30, i1 %93, i1 false
+  br i1 %94, label %95, label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
-101:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %103 = load i32, ptr %102, align 4
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %102, align 4
+95:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %97 = load i32, ptr %96, align 4
+  %98 = add nsw i32 %97, 1
+  store i32 %98, ptr %96, align 4
   br label %_ZNK5frame20is_interpreted_frameEv.exit.thread
 
-_ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit, %101, %_ZNK5frame20is_interpreted_frameEv.exit
-  br i1 %51, label %105, label %110
+_ZNK5frame20is_interpreted_frameEv.exit.thread:   ; preds = %_ZN10FreezeBase14new_heap_frameIN18ContinuationHelper13CompiledFrameEEE5frameRS3_S4_.exit, %95, %_ZNK5frame20is_interpreted_frameEv.exit
+  br i1 %45, label %99, label %104
 
-105:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = load ptr, ptr %106, align 8
-  %108 = load ptr, ptr %2, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 -8
-  store ptr %107, ptr %109, align 8
+99:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 -8
+  store ptr %101, ptr %103, align 8
   %.pre = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  br label %110
+  br label %104
 
-110:                                              ; preds = %105, %_ZNK5frame20is_interpreted_frameEv.exit.thread
-  %111 = phi ptr [ %.pre, %105 ], [ %90, %_ZNK5frame20is_interpreted_frameEv.exit.thread ]
-  %.not.i.i.i.i31 = icmp eq ptr %111, null
+104:                                              ; preds = %99, %_ZNK5frame20is_interpreted_frameEv.exit.thread
+  %105 = phi ptr [ %.pre, %99 ], [ %84, %_ZNK5frame20is_interpreted_frameEv.exit.thread ]
+  %.not.i.i.i.i31 = icmp eq ptr %105, null
   br i1 %.not.i.i.i.i31, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i
 
-_ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %110
-  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %115 = load ptr, ptr %114, align 8
-  %.not.i.i.i.i.i = icmp ule ptr %115, %113
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 20
-  %117 = load i32, ptr %116, align 4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %115, i64 %118
-  %120 = icmp ult ptr %113, %119
-  %121 = select i1 %.not.i.i.i.i.i, i1 %120, i1 false
-  br i1 %121, label %122, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i
+_ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %104
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %109 = load ptr, ptr %108, align 8
+  %.not.i.i.i.i.i = icmp ule ptr %109, %107
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 20
+  %111 = load i32, ptr %110, align 4
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr inbounds i8, ptr %109, i64 %112
+  %114 = icmp ult ptr %107, %113
+  %115 = select i1 %.not.i.i.i.i.i, i1 %114, i1 false
+  br i1 %115, label %116, label %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i
 
-122:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i
-  %123 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %124 = load ptr, ptr %123, align 8
-  %125 = load ptr, ptr %2, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 -16
-  %127 = ptrtoint ptr %124 to i64
-  %128 = ptrtoint ptr %126 to i64
-  %129 = sub i64 %127, %128
-  %130 = ashr exact i64 %129, 3
-  store i64 %130, ptr %126, align 8
+116:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %118 = load ptr, ptr %117, align 8
+  %119 = load ptr, ptr %2, align 8
+  %120 = getelementptr inbounds i8, ptr %119, i64 -16
+  %121 = ptrtoint ptr %118 to i64
+  %122 = ptrtoint ptr %120 to i64
+  %123 = sub i64 %121, %122
+  %124 = ashr exact i64 %123, 3
+  store i64 %124, ptr %120, align 8
   br label %_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i
 
-_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i: ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i, %110
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %2, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 -16
-  store ptr %132, ptr %134, align 8
+_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i: ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i, %104
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %127 = load ptr, ptr %2, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 -16
+  store ptr %126, ptr %128, align 8
   br label %_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i
 
-_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i:     ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i, %122
-  %135 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  %.not.i.i.i32 = icmp eq ptr %135, null
+_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i:     ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.thread.i.i, %116
+  %129 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %.not.i.i.i32 = icmp eq ptr %129, null
   br i1 %.not.i.i.i32, label %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i33
 
 _ZNK5frame20is_interpreted_frameEv.exit.i33:      ; preds = %_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i
-  %136 = load ptr, ptr %85, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %.not.i.i.i9.i = icmp ule ptr %138, %136
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 20
-  %140 = load i32, ptr %139, align 4
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %138, i64 %141
-  %143 = icmp ult ptr %136, %142
-  %144 = select i1 %.not.i.i.i9.i, i1 %143, i1 false
-  br i1 %144, label %145, label %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
+  %130 = load ptr, ptr %79, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %.not.i.i.i9.i = icmp ule ptr %132, %130
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 20
+  %134 = load i32, ptr %133, align 4
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i8, ptr %132, i64 %135
+  %137 = icmp ult ptr %130, %136
+  %138 = select i1 %.not.i.i.i9.i, i1 %137, i1 false
+  br i1 %138, label %139, label %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
 
-145:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i33
-  %146 = load ptr, ptr %58, align 8
-  %147 = getelementptr inbounds i8, ptr %54, i64 -8
-  %148 = ptrtoint ptr %146 to i64
-  %149 = ptrtoint ptr %54 to i64
-  %150 = sub i64 %148, %149
-  %151 = ashr exact i64 %150, 3
-  store i64 %151, ptr %147, align 8
+139:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i33
+  %140 = load ptr, ptr %52, align 8
+  %141 = getelementptr inbounds i8, ptr %48, i64 -8
+  %142 = ptrtoint ptr %140 to i64
+  %143 = ptrtoint ptr %48 to i64
+  %144 = sub i64 %142, %143
+  %145 = ashr exact i64 %144, 3
+  store i64 %145, ptr %141, align 8
   br label %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
 
-_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit:      ; preds = %_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i, %_ZNK5frame20is_interpreted_frameEv.exit.i33, %145
+_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit:      ; preds = %_ZN10FreezeBase8patch_pdER5frameRKS0_.exit.i, %_ZNK5frame20is_interpreted_frameEv.exit.i33, %139
   store ptr %.0.i29, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %86, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %80, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.3.0..sroa_idx, i8 0, i64 20, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %54, ptr %.sroa.634.0..sroa_idx, align 8
-  store ptr %.0.i29, ptr %58, align 8
-  br label %152
+  store ptr %48, ptr %.sroa.634.0..sroa_idx, align 8
+  store ptr %.0.i29, ptr %52, align 8
+  br label %146
 
-152:                                              ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit, %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
+146:                                              ; preds = %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit, %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit
   %.0 = phi i32 [ 0, %_ZN10FreezeBase5patchERK5frameRS0_S2_b.exit ], [ %.0.i, %_ZN10FreezeBase25recurse_freeze_java_frameIN18ContinuationHelper13CompiledFrameEEE13freeze_resultRK5frameRS4_ii.exit ]
   ret i32 %.0
 }

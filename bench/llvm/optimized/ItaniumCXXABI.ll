@@ -9117,9 +9117,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGet
   %46 = phi i32 [ %28, %42 ], [ %.pre11.i.i, %43 ]
   %47 = phi ptr [ %26, %42 ], [ %.pre.i.i, %43 ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %.idx = shl nuw nsw i64 %.pre-phi16.i.i, 3
-  %.ptr = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
-  %.add = add nsw i64 %.idx, -8
+  %.idx.i.i = shl nuw nsw i64 %.pre-phi16.i.i, 3
+  %.ptr = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i
+  %.add = add nsw i64 %.idx.i.i, -8
   %.ptr21 = getelementptr inbounds i8, ptr %47, i64 %.add
   %49 = load ptr, ptr %.ptr21, align 8, !tbaa !1477
   store ptr %49, ptr %.ptr, align 8, !tbaa !1477
@@ -9127,11 +9127,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGet
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i, label %50
 
 50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE28reserveForParamAndGetAddressERS4_m.exit.i.i
-  %gepdiff = add nsw i64 %.idx, -16
-  %51 = ashr exact i64 %gepdiff, 3
+  %gepdiff.i.i = add nsw i64 %.idx.i.i, -16
+  %51 = ashr exact i64 %gepdiff.i.i, 3
   %52 = sub nsw i64 0, %51
   %53 = getelementptr inbounds ptr, ptr %.ptr, i64 %52
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %48, i64 %gepdiff, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %48, i64 %gepdiff.i.i, i1 false)
   %.pre12.i.i = load i32, ptr %27, align 8, !tbaa !349
   br label %_ZSt13move_backwardIPPKN5clang7VarDeclES4_ET0_T_S6_S5_.exit.i.i
 

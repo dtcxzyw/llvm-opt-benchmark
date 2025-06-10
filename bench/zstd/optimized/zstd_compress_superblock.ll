@@ -851,7 +851,7 @@ define internal fastcc i64 @ZSTD_compressSubBlock(ptr noundef %0, ptr noundef no
   %19 = getelementptr i8, ptr %10, i64 %11
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %21 = ptrtoint ptr %19 to i64
-  %gepdiff = add nsw i64 %11, -3
+  %gepdiff = add i64 %11, -3
   %.not.i = icmp ne i32 %13, 0
   %22 = select i1 %.not.i, i64 200, i64 0
   %23 = sub nuw nsw i64 1024, %22
@@ -1019,145 +1019,143 @@ ZSTD_compressSubBlock_literal.exit:               ; preds = %37, %39, %63, %72, 
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %112 = ptrtoint ptr %109 to i64
-  %113 = sub i64 %21, %112
-  %114 = getelementptr i8, ptr %9, i64 4
-  %.val = load i32, ptr %114, align 4, !tbaa !76
-  %115 = icmp ugt i32 %.val, 57
-  %116 = zext i1 %115 to i32
+  %gepdiff96 = sub i64 %gepdiff, %.0.i
+  %113 = getelementptr i8, ptr %9, i64 4
+  %.val = load i32, ptr %113, align 4, !tbaa !76
+  %114 = icmp ugt i32 %.val, 57
+  %115 = zext i1 %114 to i32
   store i32 0, ptr %16, align 4, !tbaa !53
-  %117 = icmp slt i64 %113, 4
-  br i1 %117, label %.thread70, label %118
+  %116 = icmp slt i64 %gepdiff96, 4
+  br i1 %116, label %.thread70, label %117
 
-118:                                              ; preds = %108
-  %119 = icmp ult i64 %3, 128
-  br i1 %119, label %134, label %120
+117:                                              ; preds = %108
+  %118 = icmp ult i64 %3, 128
+  br i1 %118, label %133, label %119
 
-120:                                              ; preds = %118
-  %121 = icmp ult i64 %3, 32512
-  br i1 %121, label %122, label %129
+119:                                              ; preds = %117
+  %120 = icmp ult i64 %3, 32512
+  br i1 %120, label %121, label %128
 
-122:                                              ; preds = %120
-  %123 = lshr i64 %3, 8
-  %124 = trunc nuw nsw i64 %123 to i8
-  %125 = or disjoint i8 %124, -128
-  store i8 %125, ptr %109, align 1, !tbaa !55
-  %126 = trunc i64 %3 to i8
-  %127 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  store i8 %126, ptr %127, align 1, !tbaa !55
-  %128 = getelementptr inbounds nuw i8, ptr %109, i64 2
+121:                                              ; preds = %119
+  %122 = lshr i64 %3, 8
+  %123 = trunc nuw nsw i64 %122 to i8
+  %124 = or disjoint i8 %123, -128
+  store i8 %124, ptr %109, align 1, !tbaa !55
+  %125 = trunc i64 %3 to i8
+  %126 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  store i8 %125, ptr %126, align 1, !tbaa !55
+  %127 = getelementptr inbounds nuw i8, ptr %109, i64 2
   br label %.thread.i
 
-129:                                              ; preds = %120
+128:                                              ; preds = %119
   store i8 -1, ptr %109, align 1, !tbaa !55
-  %130 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  %131 = trunc i64 %3 to i16
-  %132 = add i16 %131, -32512
-  store i16 %132, ptr %130, align 1, !tbaa !71
-  %133 = getelementptr inbounds nuw i8, ptr %109, i64 3
+  %129 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  %130 = trunc i64 %3 to i16
+  %131 = add i16 %130, -32512
+  store i16 %131, ptr %129, align 1, !tbaa !71
+  %132 = getelementptr inbounds nuw i8, ptr %109, i64 3
   br label %.thread.i
 
-134:                                              ; preds = %118
-  %135 = trunc nuw nsw i64 %3 to i8
-  %136 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  store i8 %135, ptr %109, align 1, !tbaa !55
-  %137 = icmp eq i64 %3, 0
-  br i1 %137, label %ZSTD_compressSubBlock_sequences.exit.thread.thread92, label %.thread.i
+133:                                              ; preds = %117
+  %134 = trunc nuw nsw i64 %3 to i8
+  %135 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  store i8 %134, ptr %109, align 1, !tbaa !55
+  %136 = icmp eq i64 %3, 0
+  br i1 %136, label %ZSTD_compressSubBlock_sequences.exit.thread.thread92, label %.thread.i
 
-.thread.i:                                        ; preds = %134, %129, %122
-  %.0692.i = phi ptr [ %136, %134 ], [ %133, %129 ], [ %128, %122 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.0692.i, i64 1
+.thread.i:                                        ; preds = %133, %128, %121
+  %.0692.i = phi ptr [ %135, %133 ], [ %132, %128 ], [ %127, %121 ]
+  %137 = getelementptr inbounds nuw i8, ptr %.0692.i, i64 1
   %.not.i63 = icmp eq i32 %14, 0
-  br i1 %.not.i63, label %139, label %.thread8.i
+  br i1 %.not.i63, label %138, label %.thread8.i
 
-139:                                              ; preds = %.thread.i
+138:                                              ; preds = %.thread.i
   store i8 -4, ptr %.0692.i, align 1, !tbaa !55
-  %140 = ptrtoint ptr %138 to i64
-  %141 = sub i64 %21, %140
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 2836
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 4288
-  %144 = tail call i64 @ZSTD_encodeSequences(ptr noundef nonnull %138, i64 noundef %141, ptr noundef nonnull %142, ptr noundef %7, ptr noundef nonnull %110, ptr noundef %8, ptr noundef nonnull %143, ptr noundef %6, ptr noundef %2, i64 noundef %3, i32 noundef %116, i32 noundef %12) #5
-  %145 = icmp ult i64 %144, -119
-  br i1 %145, label %168, label %.thread70
+  %139 = ptrtoint ptr %137 to i64
+  %140 = sub i64 %21, %139
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 2836
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 4288
+  %143 = tail call i64 @ZSTD_encodeSequences(ptr noundef nonnull %137, i64 noundef %140, ptr noundef nonnull %141, ptr noundef %7, ptr noundef nonnull %110, ptr noundef %8, ptr noundef nonnull %142, ptr noundef %6, ptr noundef %2, i64 noundef %3, i32 noundef %115, i32 noundef %12) #5
+  %144 = icmp ult i64 %143, -119
+  br i1 %144, label %167, label %.thread70
 
 .thread8.i:                                       ; preds = %.thread.i
-  %146 = load i32, ptr %111, align 8, !tbaa !58
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %148 = load i32, ptr %147, align 4, !tbaa !54
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %150 = load i32, ptr %149, align 8, !tbaa !59
-  %151 = shl i32 %146, 6
-  %152 = shl i32 %148, 4
-  %153 = add i32 %152, %151
-  %154 = shl i32 %150, 2
-  %155 = add i32 %153, %154
-  %156 = trunc i32 %155 to i8
-  store i8 %156, ptr %.0692.i, align 1, !tbaa !55
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %159 = load i64, ptr %158, align 8, !tbaa !60
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %138, ptr nonnull readonly align 4 %157, i64 %159, i1 false)
-  %160 = load i64, ptr %158, align 8, !tbaa !60
-  %161 = getelementptr inbounds nuw i8, ptr %138, i64 %160
-  %162 = ptrtoint ptr %161 to i64
-  %163 = sub i64 %21, %162
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 2836
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4288
-  %166 = tail call i64 @ZSTD_encodeSequences(ptr noundef nonnull %161, i64 noundef %163, ptr noundef nonnull %164, ptr noundef %7, ptr noundef nonnull %110, ptr noundef %8, ptr noundef nonnull %165, ptr noundef %6, ptr noundef %2, i64 noundef %3, i32 noundef %116, i32 noundef %12) #5
-  %167 = icmp ult i64 %166, -119
-  br i1 %167, label %170, label %.thread70
+  %145 = load i32, ptr %111, align 8, !tbaa !58
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %147 = load i32, ptr %146, align 4, !tbaa !54
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %149 = load i32, ptr %148, align 8, !tbaa !59
+  %150 = shl i32 %145, 6
+  %151 = shl i32 %147, 4
+  %152 = add i32 %151, %150
+  %153 = shl i32 %149, 2
+  %154 = add i32 %152, %153
+  %155 = trunc i32 %154 to i8
+  store i8 %155, ptr %.0692.i, align 1, !tbaa !55
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 156
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %158 = load i64, ptr %157, align 8, !tbaa !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull readonly align 4 %156, i64 %158, i1 false)
+  %159 = load i64, ptr %157, align 8, !tbaa !60
+  %160 = getelementptr inbounds nuw i8, ptr %137, i64 %159
+  %161 = ptrtoint ptr %160 to i64
+  %162 = sub i64 %21, %161
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 2836
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 4288
+  %165 = tail call i64 @ZSTD_encodeSequences(ptr noundef nonnull %160, i64 noundef %162, ptr noundef nonnull %163, ptr noundef %7, ptr noundef nonnull %110, ptr noundef %8, ptr noundef nonnull %164, ptr noundef %6, ptr noundef %2, i64 noundef %3, i32 noundef %115, i32 noundef %12) #5
+  %166 = icmp ult i64 %165, -119
+  br i1 %166, label %169, label %.thread70
 
-168:                                              ; preds = %139
-  %169 = getelementptr inbounds nuw i8, ptr %138, i64 %144
-  br label %176
+167:                                              ; preds = %138
+  %168 = getelementptr inbounds nuw i8, ptr %137, i64 %143
+  br label %175
 
-170:                                              ; preds = %.thread8.i
-  %171 = getelementptr inbounds nuw i8, ptr %161, i64 %166
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %173 = load i64, ptr %172, align 8, !tbaa !77
-  %.not78.i = icmp ne i64 %173, 0
-  %174 = add i64 %173, %166
-  %175 = icmp ult i64 %174, 4
-  %or.cond.i65 = and i1 %.not78.i, %175
-  br i1 %or.cond.i65, label %.thread70, label %176
+169:                                              ; preds = %.thread8.i
+  %170 = getelementptr inbounds nuw i8, ptr %160, i64 %165
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %172 = load i64, ptr %171, align 8, !tbaa !77
+  %.not78.i = icmp ne i64 %172, 0
+  %173 = add i64 %172, %165
+  %174 = icmp ult i64 %173, 4
+  %or.cond.i65 = and i1 %.not78.i, %174
+  br i1 %or.cond.i65, label %.thread70, label %175
 
-176:                                              ; preds = %170, %168
-  %177 = phi ptr [ %169, %168 ], [ %171, %170 ]
-  %178 = ptrtoint ptr %177 to i64
-  %179 = ptrtoint ptr %.0692.i to i64
-  %180 = sub i64 %178, %179
-  %181 = icmp slt i64 %180, 4
-  br i1 %181, label %.thread70, label %ZSTD_compressSubBlock_sequences.exit
+175:                                              ; preds = %169, %167
+  %176 = phi ptr [ %168, %167 ], [ %170, %169 ]
+  %177 = ptrtoint ptr %176 to i64
+  %178 = ptrtoint ptr %.0692.i to i64
+  %179 = sub i64 %177, %178
+  %180 = icmp slt i64 %179, 4
+  br i1 %180, label %.thread70, label %ZSTD_compressSubBlock_sequences.exit
 
-ZSTD_compressSubBlock_sequences.exit:             ; preds = %176
+ZSTD_compressSubBlock_sequences.exit:             ; preds = %175
   store i32 1, ptr %16, align 4, !tbaa !53
-  %182 = sub i64 %178, %112
-  %183 = icmp ult i64 %182, -119
-  br i1 %183, label %ZSTD_compressSubBlock_sequences.exit.thread, label %.thread70
+  %181 = sub i64 %177, %112
+  %182 = icmp ult i64 %181, -119
+  br i1 %182, label %ZSTD_compressSubBlock_sequences.exit.thread, label %.thread70
 
 ZSTD_compressSubBlock_sequences.exit.thread:      ; preds = %ZSTD_compressSubBlock_sequences.exit
-  %184 = icmp eq i64 %182, 0
-  br i1 %184, label %.thread70, label %ZSTD_compressSubBlock_sequences.exit.thread.thread92
+  %183 = icmp eq i64 %181, 0
+  br i1 %183, label %.thread70, label %ZSTD_compressSubBlock_sequences.exit.thread.thread92
 
-ZSTD_compressSubBlock_sequences.exit.thread.thread92: ; preds = %134, %ZSTD_compressSubBlock_sequences.exit.thread
-  %.0.i647795 = phi i64 [ %182, %ZSTD_compressSubBlock_sequences.exit.thread ], [ 1, %134 ]
-  %185 = getelementptr inbounds nuw i8, ptr %109, i64 %.0.i647795
-  %186 = ptrtoint ptr %185 to i64
-  %187 = ptrtoint ptr %10 to i64
-  %188 = sub i64 %186, %187
-  %.tr = trunc i64 %188 to i32
-  %189 = shl i32 %.tr, 3
-  %190 = add i32 %17, -20
-  %191 = add i32 %190, %189
-  %192 = trunc i32 %191 to i16
-  store i16 %192, ptr %10, align 1, !tbaa !71
-  %193 = lshr i32 %191, 16
-  %194 = trunc i32 %193 to i8
-  %195 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %194, ptr %195, align 1, !tbaa !55
+ZSTD_compressSubBlock_sequences.exit.thread.thread92: ; preds = %133, %ZSTD_compressSubBlock_sequences.exit.thread
+  %.0.i647795 = phi i64 [ %181, %ZSTD_compressSubBlock_sequences.exit.thread ], [ 1, %133 ]
+  %184 = add nuw i64 %.0.i, 3
+  %185 = add i64 %184, %.0.i647795
+  %.tr = trunc i64 %185 to i32
+  %186 = shl i32 %.tr, 3
+  %187 = add i32 %17, -20
+  %188 = add i32 %187, %186
+  %189 = trunc i32 %188 to i16
+  store i16 %189, ptr %10, align 1, !tbaa !71
+  %190 = lshr i32 %188, 16
+  %191 = trunc i32 %190 to i8
+  %192 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 %191, ptr %192, align 1, !tbaa !55
   br label %.thread70
 
-.thread70:                                        ; preds = %.thread8.i, %139, %108, %176, %170, %ZSTD_compressSubBlock_sequences.exit.thread, %ZSTD_compressSubBlock_sequences.exit, %57, %106, %ZSTD_compressSubBlock_literal.exit, %ZSTD_compressSubBlock_sequences.exit.thread.thread92
-  %.2 = phi i64 [ %188, %ZSTD_compressSubBlock_sequences.exit.thread.thread92 ], [ 0, %106 ], [ %.0.i, %ZSTD_compressSubBlock_literal.exit ], [ 0, %57 ], [ 0, %ZSTD_compressSubBlock_sequences.exit.thread ], [ %182, %ZSTD_compressSubBlock_sequences.exit ], [ 0, %170 ], [ 0, %176 ], [ %166, %.thread8.i ], [ %144, %139 ], [ -70, %108 ]
+.thread70:                                        ; preds = %.thread8.i, %138, %108, %175, %169, %ZSTD_compressSubBlock_sequences.exit.thread, %ZSTD_compressSubBlock_sequences.exit, %57, %106, %ZSTD_compressSubBlock_literal.exit, %ZSTD_compressSubBlock_sequences.exit.thread.thread92
+  %.2 = phi i64 [ %185, %ZSTD_compressSubBlock_sequences.exit.thread.thread92 ], [ 0, %106 ], [ %.0.i, %ZSTD_compressSubBlock_literal.exit ], [ 0, %57 ], [ 0, %ZSTD_compressSubBlock_sequences.exit.thread ], [ %181, %ZSTD_compressSubBlock_sequences.exit ], [ 0, %169 ], [ 0, %175 ], [ %165, %.thread8.i ], [ %143, %138 ], [ -70, %108 ]
   ret i64 %.2
 }
 

@@ -6278,7 +6278,7 @@ if.then3:                                         ; preds = %if.then
 if.then10:                                        ; preds = %if.then3
   %idx.neg = sub i64 0, %n
   %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.neg
-  %add.ptr.idx.neg = shl i64 %n, 2
+  %add.ptr.idx.neg = shl nsw i64 %n, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr nonnull align 4 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
   %3 = load ptr, ptr %mpEnd, align 8
   %add.ptr17 = getelementptr inbounds i32, ptr %3, i64 %idx.neg
@@ -8988,7 +8988,7 @@ if.then3:                                         ; preds = %if.then
 if.then10:                                        ; preds = %if.then3
   %idx.neg = sub i64 0, %n
   %add.ptr = getelementptr inbounds %struct.Align64, ptr %1, i64 %idx.neg
-  %add.ptr.idx.neg = shl i64 %n, 6
+  %add.ptr.idx.neg = shl nsw i64 %n, 6
   tail call void @llvm.memmove.p0.p0.i64(ptr align 64 %1, ptr nonnull align 64 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
   %2 = load ptr, ptr %mpEnd, align 8
   %add.ptr17 = getelementptr inbounds %struct.Align64, ptr %2, i64 %idx.neg
@@ -16849,8 +16849,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %_ZN5eastl4moveIP20HasAddressOfOperatorS2_EET0_T_S4_S3_.exit.i.i, label %_ZN5eastl6vectorI20HasAddressOfOperatorNS_9allocatorEE5eraseENS_16reverse_iteratorIPKS1_EE.exit
 
 _ZN5eastl4moveIP20HasAddressOfOperatorS2_EET0_T_S4_S3_.exit.i.i: ; preds = %if.then
-  %diff.neg = sub i64 0, %.lcssa.i.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i, ptr nonnull align 1 %.lcssa.i, i64 %diff.neg, i1 false), !noalias !138
+  %gepdiff = sub i64 0, %.lcssa.i.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i, ptr nonnull align 1 %.lcssa.i, i64 %gepdiff, i1 false), !noalias !138
   %.pre.i.i = load ptr, ptr %mpEnd.i, align 8, !noalias !138
   br label %_ZN5eastl6vectorI20HasAddressOfOperatorNS_9allocatorEE5eraseENS_16reverse_iteratorIPKS1_EE.exit
 

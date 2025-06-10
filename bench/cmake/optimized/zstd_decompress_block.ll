@@ -2513,11 +2513,11 @@ ZSTD_decodeSequence.exit29.i:                     ; preds = %591, %BIT_reloadDSt
   br i1 %or.cond3.i.i, label %666, label %.lr.ph.i.i.preheader
 
 666:                                              ; preds = %662
-  %667 = ptrtoint ptr %663 to i64
-  %668 = sub i64 %667, %649
+  %667 = add nsw i64 %647, -32
+  %668 = getelementptr inbounds i8, ptr %.2204.i.i, i64 %667
   %.val35.i.i = load <2 x i64>, ptr %636, align 1, !tbaa !8
   store <2 x i64> %.val35.i.i, ptr %.2204.i.i, align 1, !tbaa !8
-  %669 = icmp slt i64 %668, 17
+  %669 = icmp samesign ult i64 %647, 49
   br i1 %669, label %.thread.i300.i, label %670
 
 670:                                              ; preds = %666
@@ -2535,11 +2535,11 @@ ZSTD_decodeSequence.exit29.i:                     ; preds = %591, %BIT_reloadDSt
   %.val.i299.i = load <2 x i64>, ptr %674, align 1, !tbaa !8
   store <2 x i64> %.val.i299.i, ptr %673, align 1, !tbaa !8
   %675 = getelementptr inbounds nuw i8, ptr %.130.i.i.i, i64 32
-  %676 = icmp ult ptr %675, %663
+  %676 = icmp ult ptr %675, %668
   br i1 %676, label %672, label %.thread.i300.i, !llvm.loop !96
 
 .thread.i300.i:                                   ; preds = %672, %666
-  %677 = getelementptr inbounds i8, ptr %636, i64 %668
+  %677 = getelementptr inbounds i8, ptr %636, i64 %667
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.thread.i300.i, %662
@@ -2644,9 +2644,9 @@ ZSTD_wildcopy.exit171.i:                          ; preds = %700, %694, %691
   br label %ZSTD_execSequence.exit.i
 
 717:                                              ; preds = %711
-  %diff.neg.i.i = sub i64 0, %713
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %684, ptr align 1 %714, i64 %diff.neg.i.i, i1 false)
-  %718 = getelementptr inbounds nuw i8, ptr %684, i64 %diff.neg.i.i
+  %gepdiff.i.i = sub nsw i64 0, %713
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %684, ptr align 1 %714, i64 %gepdiff.i.i, i1 false)
+  %718 = getelementptr inbounds nuw i8, ptr %684, i64 %gepdiff.i.i
   %719 = add i64 %713, %.sroa.6.0.copyload
   br label %720
 
@@ -2868,9 +2868,9 @@ ZSTD_wildcopy.exit87.i:                           ; preds = %806, %799, %796
   br label %ZSTD_execSequenceSplitLitBuffer.exit.i
 
 823:                                              ; preds = %817
-  %diff.neg.i53.i = sub i64 0, %819
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %789, ptr align 1 %820, i64 %diff.neg.i53.i, i1 false)
-  %824 = getelementptr inbounds nuw i8, ptr %789, i64 %diff.neg.i53.i
+  %gepdiff.i53.i = sub nsw i64 0, %819
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %789, ptr align 1 %820, i64 %gepdiff.i53.i, i1 false)
+  %824 = getelementptr inbounds nuw i8, ptr %789, i64 %gepdiff.i53.i
   %825 = add i64 %819, %.sroa.536.0.copyload
   br label %826
 
@@ -3076,9 +3076,9 @@ ZSTD_wildcopy.exit150.i:                          ; preds = %906, %899, %896
   br label %ZSTD_execSequenceSplitLitBuffer.exit.i
 
 923:                                              ; preds = %917
-  %diff.neg.i35.i = sub i64 0, %919
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %887, ptr align 1 %920, i64 %diff.neg.i35.i, i1 false)
-  %924 = getelementptr inbounds nuw i8, ptr %887, i64 %diff.neg.i35.i
+  %gepdiff.i35.i = sub nsw i64 0, %919
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %887, ptr align 1 %920, i64 %gepdiff.i35.i, i1 false)
+  %924 = getelementptr inbounds nuw i8, ptr %887, i64 %gepdiff.i35.i
   %925 = add i64 %919, %.sroa.5.0.copyload
   br label %926
 
@@ -3317,11 +3317,11 @@ ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %978, %.preheader582
   br i1 %or.cond3.i302.i, label %1040, label %.lr.ph.i306.i.preheader
 
 1040:                                             ; preds = %1036
-  %1041 = ptrtoint ptr %1037 to i64
-  %1042 = sub i64 %1041, %1023
+  %1041 = add nsw i64 %1021, -32
+  %1042 = getelementptr inbounds i8, ptr %.7209.i611.i, i64 %1041
   %.val35.i309.i = load <2 x i64>, ptr %1013, align 1, !tbaa !8
   store <2 x i64> %.val35.i309.i, ptr %.7209.i611.i, align 1, !tbaa !8
-  %1043 = icmp slt i64 %1042, 17
+  %1043 = icmp samesign ult i64 %1021, 49
   br i1 %1043, label %.thread.i315.i, label %1044
 
 1044:                                             ; preds = %1040
@@ -3339,11 +3339,11 @@ ZSTD_execSequenceSplitLitBuffer.exit.i:           ; preds = %978, %.preheader582
   %.val.i314.i = load <2 x i64>, ptr %1048, align 1, !tbaa !8
   store <2 x i64> %.val.i314.i, ptr %1047, align 1, !tbaa !8
   %1049 = getelementptr inbounds nuw i8, ptr %.130.i.i310.i, i64 32
-  %1050 = icmp ult ptr %1049, %1037
+  %1050 = icmp ult ptr %1049, %1042
   br i1 %1050, label %1046, label %.thread.i315.i, !llvm.loop !96
 
 .thread.i315.i:                                   ; preds = %1046, %1040
-  %1051 = getelementptr inbounds i8, ptr %1013, i64 %1042
+  %1051 = getelementptr inbounds i8, ptr %1013, i64 %1041
   br label %.lr.ph.i306.i.preheader
 
 .lr.ph.i306.i.preheader:                          ; preds = %.thread.i315.i, %1036
@@ -3448,9 +3448,9 @@ ZSTD_wildcopy.exit129.i:                          ; preds = %1074, %1068, %1065
   br label %.loopexit.i
 
 1091:                                             ; preds = %1085
-  %diff.neg.i41.i = sub i64 0, %1087
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1058, ptr align 1 %1088, i64 %diff.neg.i41.i, i1 false)
-  %1092 = getelementptr inbounds nuw i8, ptr %1058, i64 %diff.neg.i41.i
+  %gepdiff.i41.i = sub nsw i64 0, %1087
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1058, ptr align 1 %1088, i64 %gepdiff.i41.i, i1 false)
+  %1092 = getelementptr inbounds nuw i8, ptr %1058, i64 %gepdiff.i41.i
   %1093 = add i64 %1087, %.sroa.620.0.copyload
   br label %1094
 
@@ -3657,9 +3657,9 @@ ZSTD_wildcopy.exit.i:                             ; preds = %1172, %1165, %1162
   br label %ZSTD_execSequenceSplitLitBuffer.exit60.i
 
 1189:                                             ; preds = %1183
-  %diff.neg.i58.i = sub i64 0, %1185
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1186, i64 %diff.neg.i58.i, i1 false)
-  %1190 = getelementptr inbounds nuw i8, ptr %1155, i64 %diff.neg.i58.i
+  %gepdiff.i58.i = sub nsw i64 0, %1185
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1186, i64 %gepdiff.i58.i, i1 false)
+  %1190 = getelementptr inbounds nuw i8, ptr %1155, i64 %gepdiff.i58.i
   %1191 = add i64 %1185, %.sroa.544.0.copyload
   br label %1192
 
@@ -3862,9 +3862,9 @@ ZSTD_wildcopy.exit108.i:                          ; preds = %1269, %1262, %1259
   br label %ZSTD_execSequenceSplitLitBuffer.exit60.i
 
 1286:                                             ; preds = %1280
-  %diff.neg.i47.i = sub i64 0, %1282
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1250, ptr align 1 %1283, i64 %diff.neg.i47.i, i1 false)
-  %1287 = getelementptr inbounds nuw i8, ptr %1250, i64 %diff.neg.i47.i
+  %gepdiff.i47.i = sub nsw i64 0, %1282
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1250, ptr align 1 %1283, i64 %gepdiff.i47.i, i1 false)
+  %1287 = getelementptr inbounds nuw i8, ptr %1250, i64 %gepdiff.i47.i
   %1288 = add i64 %1282, %.sroa.528.0.copyload
   br label %1289
 
@@ -4815,9 +4815,9 @@ ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i:  ; preds = %413
   br label %ZSTD_execSequenceSplitLitBuffer.exit.i.i
 
 422:                                              ; preds = %416
-  %diff.neg.i239.i.i = sub i64 0, %418
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %388, ptr align 1 %419, i64 %diff.neg.i239.i.i, i1 false)
-  %423 = getelementptr inbounds nuw i8, ptr %388, i64 %diff.neg.i239.i.i
+  %gepdiff.i239.i.i = sub nsw i64 0, %418
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %388, ptr align 1 %419, i64 %gepdiff.i239.i.i, i1 false)
+  %423 = getelementptr inbounds nuw i8, ptr %388, i64 %gepdiff.i239.i.i
   %424 = add i64 %418, %.sroa.11.1337.i
   store i64 %424, ptr %.sroa.11.0..sroa_idx.i, align 8, !tbaa !108
   br label %425
@@ -5317,11 +5317,11 @@ BIT_reloadDStream.exit.i209.i.i:                  ; preds = %BIT_reloadDStream.e
   br i1 %or.cond3.i.i, label %718, label %.lr.ph.i.i.preheader
 
 718:                                              ; preds = %714
-  %719 = ptrtoint ptr %715 to i64
-  %720 = sub i64 %719, %701
+  %719 = add nsw i64 %698, -32
+  %720 = getelementptr inbounds i8, ptr %.2133.i.lcssa.i, i64 %719
   %.val35.i.i = load <2 x i64>, ptr %692, align 1, !tbaa !8
   store <2 x i64> %.val35.i.i, ptr %.2133.i.lcssa.i, align 1, !tbaa !8
-  %721 = icmp slt i64 %720, 17
+  %721 = icmp samesign ult i64 %698, 49
   br i1 %721, label %.thread.i90.i, label %722
 
 722:                                              ; preds = %718
@@ -5339,11 +5339,11 @@ BIT_reloadDStream.exit.i209.i.i:                  ; preds = %BIT_reloadDStream.e
   %.val.i89.i = load <2 x i64>, ptr %726, align 1, !tbaa !8
   store <2 x i64> %.val.i89.i, ptr %725, align 1, !tbaa !8
   %727 = getelementptr inbounds nuw i8, ptr %.130.i.i86.i, i64 32
-  %728 = icmp ult ptr %727, %715
+  %728 = icmp ult ptr %727, %720
   br i1 %728, label %724, label %.thread.i90.i, !llvm.loop !96
 
 .thread.i90.i:                                    ; preds = %724, %718
-  %729 = getelementptr inbounds i8, ptr %692, i64 %720
+  %729 = getelementptr inbounds i8, ptr %692, i64 %719
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.thread.i90.i, %714
@@ -5460,9 +5460,9 @@ ZSTD_execSequence.exit235.i.thread.i:             ; preds = %766
   br label %ZSTD_execSequence.exit235.i.i
 
 776:                                              ; preds = %770
-  %diff.neg.i233.i.i = sub i64 0, %772
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %738, ptr align 1 %773, i64 %diff.neg.i233.i.i, i1 false)
-  %777 = getelementptr inbounds nuw i8, ptr %738, i64 %diff.neg.i233.i.i
+  %gepdiff.i233.i.i = sub nsw i64 0, %772
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %738, ptr align 1 %773, i64 %gepdiff.i233.i.i, i1 false)
+  %777 = getelementptr inbounds nuw i8, ptr %738, i64 %gepdiff.i233.i.i
   %778 = add i64 %772, %.sroa.11.1.lcssa.i
   store i64 %778, ptr %.sroa.11.0..sroa_idx118.i, align 8, !tbaa !108
   br label %779
@@ -6002,9 +6002,9 @@ ZSTD_execSequence.exit.i.thread.i:                ; preds = %1076
   br label %ZSTD_execSequence.exit.i.i
 
 1085:                                             ; preds = %1079
-  %diff.neg.i.i.i = sub i64 0, %1081
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1049, ptr align 1 %1082, i64 %diff.neg.i.i.i, i1 false)
-  %1086 = getelementptr inbounds nuw i8, ptr %1049, i64 %diff.neg.i.i.i
+  %gepdiff.i.i.i = sub nsw i64 0, %1081
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1049, ptr align 1 %1082, i64 %gepdiff.i.i.i, i1 false)
+  %1086 = getelementptr inbounds nuw i8, ptr %1049, i64 %gepdiff.i.i.i
   %1087 = add i64 %1081, %.sroa.6.0.i
   store i64 %1087, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !108
   br label %1088
@@ -7044,9 +7044,9 @@ ZSTD_execSequence.exit.i.thread.i:                ; preds = %426
   br label %ZSTD_execSequence.exit.i.i
 
 435:                                              ; preds = %429
-  %diff.neg.i.i.i = sub i64 0, %431
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %399, ptr align 1 %432, i64 %diff.neg.i.i.i, i1 false)
-  %436 = getelementptr inbounds nuw i8, ptr %399, i64 %diff.neg.i.i.i
+  %gepdiff.i.i.i = sub nsw i64 0, %431
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %399, ptr align 1 %432, i64 %gepdiff.i.i.i, i1 false)
+  %436 = getelementptr inbounds nuw i8, ptr %399, i64 %gepdiff.i.i.i
   %437 = add i64 %431, %.sroa.6.0.i
   store i64 %437, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !108
   br label %438
@@ -7562,9 +7562,9 @@ ZSTD_safecopy.exit:                               ; preds = %42, %.lr.ph.i, %.lr
   br label %85
 
 80:                                               ; preds = %75
-  %diff.neg = sub i64 0, %.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %77, i64 %diff.neg, i1 false)
-  %81 = getelementptr inbounds nuw i8, ptr %10, i64 %diff.neg
+  %gepdiff = sub nsw i64 0, %.neg
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %10, ptr align 1 %77, i64 %gepdiff, i1 false)
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 %gepdiff
   %82 = add i64 %.neg, %12
   br label %83
 
@@ -7838,11 +7838,11 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
   br i1 %or.cond3.i, label %46, label %.lr.ph.i.preheader
 
 46:                                               ; preds = %42
-  %47 = ptrtoint ptr %43 to i64
-  %48 = sub i64 %47, %22
+  %47 = add nsw i64 %10, -32
+  %48 = getelementptr inbounds i8, ptr %0, i64 %47
   %.val35.i = load <2 x i64>, ptr %15, align 1, !tbaa !8
   store <2 x i64> %.val35.i, ptr %0, align 1, !tbaa !8
-  %49 = icmp slt i64 %48, 17
+  %49 = icmp samesign ult i64 %10, 49
   br i1 %49, label %.thread.i, label %50
 
 50:                                               ; preds = %46
@@ -7860,11 +7860,11 @@ define internal fastcc i64 @ZSTD_execSequenceEndSplitLitBuffer(ptr noundef %0, p
   %.val.i = load <2 x i64>, ptr %54, align 1, !tbaa !8
   store <2 x i64> %.val.i, ptr %53, align 1, !tbaa !8
   %55 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 32
-  %56 = icmp ult ptr %55, %43
+  %56 = icmp ult ptr %55, %48
   br i1 %56, label %52, label %.thread.i, !llvm.loop !96
 
 .thread.i:                                        ; preds = %52, %46
-  %57 = getelementptr inbounds i8, ptr %15, i64 %48
+  %57 = getelementptr inbounds i8, ptr %15, i64 %47
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %42, %.thread.i
@@ -7909,9 +7909,9 @@ ZSTD_safecopyDstBeforeSrc.exit:                   ; preds = %.lr.ph.i, %.lr.ph41
   br label %80
 
 75:                                               ; preds = %70
-  %diff.neg = sub i64 0, %.neg
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %11, ptr align 1 %72, i64 %diff.neg, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %11, i64 %diff.neg
+  %gepdiff = sub nsw i64 0, %.neg
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %11, ptr align 1 %72, i64 %gepdiff, i1 false)
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 %gepdiff
   %77 = add i64 %.neg, %13
   br label %78
 

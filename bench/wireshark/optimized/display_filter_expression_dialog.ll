@@ -14147,9 +14147,9 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN5QListIP15QTreeWidgetItemE8iterator
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %.sroa.048.0, align 8
-  %.idx = shl i64 %.0, 3
-  %31 = getelementptr i8, ptr %.sroa.048.0, i64 %.idx
-  %gepdiff = add i64 %.idx, -8
+  %.idx88 = shl i64 %.0, 3
+  %31 = getelementptr i8, ptr %.sroa.048.0, i64 %.idx88
+  %gepdiff = add i64 %.idx88, -8
   %32 = icmp sgt i64 %gepdiff, 0
   br i1 %32, label %.lr.ph.i.i.i.i.i.preheader, label %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit
 
@@ -14165,101 +14165,100 @@ _ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %
 
 34:                                               ; preds = %27
   %35 = icmp sgt i64 %25, 0
-  br i1 %35, label %.lr.ph100.preheader, label %._crit_edge101
+  br i1 %35, label %.lr.ph101.preheader, label %._crit_edge102
 
-.lr.ph100.preheader:                              ; preds = %34
+.lr.ph101.preheader:                              ; preds = %34
   %36 = getelementptr ptr, ptr %.sroa.048.0, i64 %.086
-  br label %.lr.ph100
+  br label %.lr.ph101
 
-._crit_edge101:                                   ; preds = %.lr.ph100, %34
-  %.sroa.048.1.lcssa = phi ptr [ %.sroa.048.0, %34 ], [ %40, %.lr.ph100 ]
+._crit_edge102:                                   ; preds = %.lr.ph101, %34
+  %.sroa.048.1.lcssa = phi ptr [ %.sroa.048.0, %34 ], [ %40, %.lr.ph101 ]
   %37 = srem i64 %.0, %.086
   %.not36 = icmp eq i64 %37, 0
   br i1 %.not36, label %_ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, label %43
 
-.lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
-  %.03398 = phi i64 [ %42, %.lr.ph100 ], [ 0, %.lr.ph100.preheader ]
-  %.sroa.048.197 = phi ptr [ %40, %.lr.ph100 ], [ %.sroa.048.0, %.lr.ph100.preheader ]
-  %.sroa.045.096 = phi ptr [ %41, %.lr.ph100 ], [ %36, %.lr.ph100.preheader ]
-  %38 = load ptr, ptr %.sroa.048.197, align 8
-  %39 = load ptr, ptr %.sroa.045.096, align 8
-  store ptr %39, ptr %.sroa.048.197, align 8
-  store ptr %38, ptr %.sroa.045.096, align 8
-  %40 = getelementptr i8, ptr %.sroa.048.197, i64 8
-  %41 = getelementptr i8, ptr %.sroa.045.096, i64 8
-  %42 = add nuw nsw i64 %.03398, 1
-  %exitcond109.not = icmp eq i64 %42, %25
-  br i1 %exitcond109.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !122
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
+  %.03399 = phi i64 [ %42, %.lr.ph101 ], [ 0, %.lr.ph101.preheader ]
+  %.sroa.048.198 = phi ptr [ %40, %.lr.ph101 ], [ %.sroa.048.0, %.lr.ph101.preheader ]
+  %.sroa.045.097 = phi ptr [ %41, %.lr.ph101 ], [ %36, %.lr.ph101.preheader ]
+  %38 = load ptr, ptr %.sroa.048.198, align 8
+  %39 = load ptr, ptr %.sroa.045.097, align 8
+  store ptr %39, ptr %.sroa.048.198, align 8
+  store ptr %38, ptr %.sroa.045.097, align 8
+  %40 = getelementptr i8, ptr %.sroa.048.198, i64 8
+  %41 = getelementptr i8, ptr %.sroa.045.097, i64 8
+  %42 = add nuw nsw i64 %.03399, 1
+  %exitcond110.not = icmp eq i64 %42, %25
+  br i1 %exitcond110.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !122
 
-43:                                               ; preds = %._crit_edge101
+43:                                               ; preds = %._crit_edge102
   %44 = sub i64 %.086, %37
   br label %.backedge
 
 45:                                               ; preds = %24
   %46 = icmp eq i64 %25, 1
   %47 = getelementptr ptr, ptr %.sroa.048.0, i64 %.0
-  br i1 %46, label %48, label %61
+  br i1 %46, label %48, label %59
 
 48:                                               ; preds = %45
   %49 = getelementptr i8, ptr %47, i64 -8
   %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %49 to i64
-  %52 = ptrtoint ptr %.sroa.048.0 to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 3
-  %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %.lr.ph.i.i.i.i.i40, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit
+  %.idx = shl i64 %.0, 3
+  %51 = add i64 %.idx, -8
+  %52 = ashr exact i64 %51, 3
+  %53 = icmp sgt i64 %52, 0
+  br i1 %53, label %.lr.ph.i.i.i.i.i40, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit
 
 .lr.ph.i.i.i.i.i40:                               ; preds = %48, %.lr.ph.i.i.i.i.i40
-  %.010.i.i.i.i.i = phi i64 [ %59, %.lr.ph.i.i.i.i.i40 ], [ %54, %48 ]
-  %.sroa.0.09.i.i.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i40 ], [ %47, %48 ]
-  %.sroa.05.08.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i40 ], [ %49, %48 ]
-  %56 = getelementptr i8, ptr %.sroa.05.08.i.i.i.i.i, i64 -8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
-  store ptr %57, ptr %58, align 8
-  %59 = add nsw i64 %.010.i.i.i.i.i, -1
-  %60 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
-  br i1 %60, label %.lr.ph.i.i.i.i.i40, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !115
+  %.010.i.i.i.i.i = phi i64 [ %57, %.lr.ph.i.i.i.i.i40 ], [ %52, %48 ]
+  %.sroa.0.09.i.i.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i40 ], [ %47, %48 ]
+  %.sroa.05.08.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i40 ], [ %49, %48 ]
+  %54 = getelementptr i8, ptr %.sroa.05.08.i.i.i.i.i, i64 -8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
+  store ptr %55, ptr %56, align 8
+  %57 = add nsw i64 %.010.i.i.i.i.i, -1
+  %58 = icmp samesign ugt i64 %.010.i.i.i.i.i, 1
+  br i1 %58, label %.lr.ph.i.i.i.i.i40, label %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, !llvm.loop !115
 
 _ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i40, %48
   store ptr %50, ptr %.sroa.048.0, align 8
   br label %_ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit
 
-61:                                               ; preds = %45
-  %62 = sub i64 0, %25
-  %63 = getelementptr ptr, ptr %47, i64 %62
-  %64 = icmp sgt i64 %.086, 0
-  br i1 %64, label %.lr.ph, label %._crit_edge
+59:                                               ; preds = %45
+  %60 = sub i64 0, %25
+  %61 = getelementptr ptr, ptr %47, i64 %60
+  %62 = icmp sgt i64 %.086, 0
+  br i1 %62, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %61
-  %.sroa.048.3.lcssa = phi ptr [ %63, %61 ], [ %.sroa.048.0, %.lr.ph ]
-  %65 = srem i64 %.0, %25
-  %.not = icmp eq i64 %65, 0
+._crit_edge:                                      ; preds = %.lr.ph, %59
+  %.sroa.048.3.lcssa = phi ptr [ %61, %59 ], [ %.sroa.048.0, %.lr.ph ]
+  %63 = srem i64 %.0, %25
+  %.not = icmp eq i64 %63, 0
   br i1 %.not, label %_ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %43
   %.sroa.048.0.be = phi ptr [ %.sroa.048.1.lcssa, %43 ], [ %.sroa.048.3.lcssa, %._crit_edge ]
-  %.086.be = phi i64 [ %44, %43 ], [ %65, %._crit_edge ]
+  %.086.be = phi i64 [ %44, %43 ], [ %63, %._crit_edge ]
   %.0.be = phi i64 [ %.086, %43 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !123
 
-.lr.ph:                                           ; preds = %61, %.lr.ph
-  %.03295 = phi i64 [ %70, %.lr.ph ], [ 0, %61 ]
-  %.sroa.0.094 = phi ptr [ %67, %.lr.ph ], [ %47, %61 ]
-  %.sroa.048.393 = phi ptr [ %66, %.lr.ph ], [ %63, %61 ]
-  %66 = getelementptr i8, ptr %.sroa.048.393, i64 -8
-  %67 = getelementptr i8, ptr %.sroa.0.094, i64 -8
-  %68 = load ptr, ptr %66, align 8
-  %69 = load ptr, ptr %67, align 8
-  store ptr %69, ptr %66, align 8
-  store ptr %68, ptr %67, align 8
-  %70 = add nuw nsw i64 %.03295, 1
-  %exitcond.not = icmp eq i64 %70, %.086
+.lr.ph:                                           ; preds = %59, %.lr.ph
+  %.03296 = phi i64 [ %68, %.lr.ph ], [ 0, %59 ]
+  %.sroa.0.095 = phi ptr [ %65, %.lr.ph ], [ %47, %59 ]
+  %.sroa.048.394 = phi ptr [ %64, %.lr.ph ], [ %61, %59 ]
+  %64 = getelementptr i8, ptr %.sroa.048.394, i64 -8
+  %65 = getelementptr i8, ptr %.sroa.0.095, i64 -8
+  %66 = load ptr, ptr %64, align 8
+  %67 = load ptr, ptr %65, align 8
+  store ptr %67, ptr %64, align 8
+  store ptr %66, ptr %65, align 8
+  %68 = add nuw nsw i64 %.03296, 1
+  %exitcond.not = icmp eq i64 %68, %.086
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 
-_ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge101, %.lr.ph.i, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %5, %3
-  %.sroa.029.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge101 ], [ %23, %._crit_edge ]
+_ZSt11swap_rangesIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit: ; preds = %._crit_edge, %._crit_edge102, %.lr.ph.i, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit, %5, %3
+  %.sroa.029.0 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt13move_backwardIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %23, %_ZSt4moveIN5QListIP15QTreeWidgetItemE8iteratorES4_ET0_T_S6_S5_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge102 ], [ %23, %._crit_edge ]
   ret ptr %.sroa.029.0
 }
 

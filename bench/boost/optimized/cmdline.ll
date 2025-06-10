@@ -797,12 +797,13 @@ define void @_ZN5boost15program_options6detail7cmdlineC2EiPKPKc(ptr noundef nonn
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = sext i32 %1 to i64
+  %.idx = shl nsw i64 %8, 3
   %.not = icmp eq i32 %1, 0
-  %9 = zext i1 %.not to i64
-  %.idx14 = add nsw i64 %9, %8
-  %.add = shl nsw i64 %.idx14, 3
-  %.ptr13 = getelementptr inbounds i8, ptr %2, i64 %.add
-  %gepdiff = add nsw i64 %.add, -8
+  %.idx12 = select i1 %.not, i64 8, i64 0
+  %.add = add nsw i64 %.idx, %.idx12
+  %.ptr14 = getelementptr inbounds i8, ptr %2, i64 %.add
+  %9 = add nsw i64 %.idx12, -8
+  %gepdiff = add nsw i64 %9, %.idx
   %10 = ashr exact i64 %gepdiff, 3
   %11 = icmp ugt i64 %10, 288230376151711743
   br i1 %11, label %12, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
@@ -815,7 +816,7 @@ define void @_ZN5boost15program_options6detail7cmdlineC2EiPKPKc(ptr noundef nonn
   unreachable
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i: ; preds = %3
-  %.not.i.i.i = icmp eq i64 %.idx14, 1
+  %.not.i.i.i = icmp eq i64 %.add, 8
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i, label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i
 
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
@@ -829,7 +830,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %10
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !36
-  %18 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SC_SB_(ptr noundef nonnull %7, ptr noundef nonnull %.ptr13, ptr noundef %15)
+  %18 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SC_SB_(ptr noundef nonnull %7, ptr noundef nonnull %.ptr14, ptr noundef %15)
           to label %21 unwind label %19
 
 .thread:                                          ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %12
@@ -844,8 +845,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %.not.i.i6.i, label %.body, label %20
 
 20:                                               ; preds = %19
-  %.idx = shl nuw nsw i64 %gepdiff, 2
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %.idx) #31
+  %.idx17 = shl nuw nsw i64 %gepdiff, 2
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %.idx17) #31
   br label %.body
 
 21:                                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i

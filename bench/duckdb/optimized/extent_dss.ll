@@ -176,7 +176,7 @@ atomic_store_p.exit.i:                            ; preds = %37
 
 69:                                               ; preds = %65
   %70 = sub i64 %3, %40
-  %71 = add i64 %70, %52
+  %71 = add i64 %70, %49
   %72 = tail call ptr @sbrk(i64 noundef %71) #6
   %73 = icmp eq ptr %72, %38
   br i1 %73, label %atomic_store_p.exit, label %102

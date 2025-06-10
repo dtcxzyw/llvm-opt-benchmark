@@ -27666,8 +27666,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSour
 
 if.end:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE19parseBareSourceNameEv.exit
   %sub.ptr.lhs.cast.i2.i = ptrtoint ptr %add.ptr.i.ptr to i64
-  %sub.ptr.sub.i4.i = sub i64 %sub.ptr.lhs.cast.i2.i, %sub.ptr.rhs.cast.i.i
-  %cmp.i8 = icmp ult i64 %sub.ptr.sub.i4.i, 9
+  %cmp.i8 = icmp ult i64 %add.i.i, 9
   br i1 %cmp.i8, label %if.end18, label %_ZNK10StringView10startsWithES_.exit
 
 _ZNK10StringView10startsWithES_.exit:             ; preds = %if.end

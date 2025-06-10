@@ -12717,56 +12717,57 @@ define linkonce_odr void @_ZZN22QtMetaContainerPrivate25QMetaSequenceForContaine
 ; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENUlS5_S7_E_8__invokeES5_S7_(ptr noundef %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.01.0.copyload.i = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %8, null
+  %3 = getelementptr i8, ptr %.sroa.01.0.copyload.i, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = ptrtoint ptr %.sroa.01.0.copyload.i to i64
+  %7 = ptrtoint ptr %5 to i64
+  %8 = sub i64 %6, %7
+  %9 = ptrtoint ptr %3 to i64
+  %10 = load ptr, ptr %0, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.i.i.i.i.i
 
 _ZNK17QArrayDataPointerIhE11needsDetachEv.exit.i.i.i.i.i: ; preds = %2
-  %9 = load atomic i32, ptr %8 monotonic, align 4
-  %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i
+  %11 = load atomic i32, ptr %10 monotonic, align 4
+  %12 = icmp sgt i32 %11, 1
+  br i1 %12, label %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i, label %_ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i
 
 _ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.i.i.i.i.i, %2
   tail call void @_ZN17QArrayDataPointerIhE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
-  %.pre.i.i.i = load ptr, ptr %3, align 8
+  %.pre.i.i.i = load ptr, ptr %4, align 8
   br label %_ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i
 
 _ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i, %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.i.i.i.i.i
-  %11 = phi ptr [ %.pre.i.i.i, %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.i.i.i.i.i ]
-  %12 = getelementptr i8, ptr %11, i64 %7
-  %13 = getelementptr i8, ptr %12, i64 1
-  %14 = icmp ne ptr %.sroa.01.0.copyload.i, %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr i8, ptr %11, i64 %16
-  %.not.i.i.i.i.i = icmp eq ptr %13, %17
-  %or.cond.i.i.i.i.i = select i1 %14, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %18
+  %13 = phi ptr [ %.pre.i.i.i, %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.thread.i.i.i.i.i ], [ %5, %_ZNK17QArrayDataPointerIhE11needsDetachEv.exit.i.i.i.i.i ]
+  %14 = getelementptr i8, ptr %13, i64 %8
+  %15 = getelementptr i8, ptr %14, i64 1
+  %16 = icmp ne ptr %.sroa.01.0.copyload.i, %5
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr i8, ptr %13, i64 %18
+  %.not.i.i.i.i.i = icmp eq ptr %15, %19
+  %or.cond.i.i.i.i.i = select i1 %16, i1 true, i1 %.not.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %20
 
-18:                                               ; preds = %_ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i
-  store ptr %13, ptr %3, align 8
+20:                                               ; preds = %_ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i
+  store ptr %15, ptr %4, align 8
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %_ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit, label %19
+  br i1 %.not.i.i.i.i.i, label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit, label %21
 
-19:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %20 = ptrtoint ptr %17 to i64
-  %21 = ptrtoint ptr %13 to i64
-  %22 = sub i64 %20, %21
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %12, ptr noundef align 1 %13, i64 noundef %22, i1 noundef false) #29
-  %.pre12.i.i.i.i.i = load i64, ptr %15, align 8
+21:                                               ; preds = %._crit_edge.i.i.i.i.i
+  %.neg.i.i.i = sub i64 %7, %9
+  %gepdiff.i.i.i.i = add i64 %.neg.i.i.i, %18
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %14, ptr noundef align 1 %15, i64 noundef %gepdiff.i.i.i.i, i1 noundef false) #29
+  %.pre12.i.i.i.i.i = load i64, ptr %17, align 8
   br label %_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit
 
-_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit: ; preds = %18, %._crit_edge.i.i.i.i.i, %19
-  %23 = phi i64 [ %16, %._crit_edge.i.i.i.i.i ], [ %.pre12.i.i.i.i.i, %19 ], [ %16, %18 ]
-  %24 = add i64 %23, -1
-  store i64 %24, ptr %15, align 8
+_ZZN22QtMetaContainerPrivate26QMetaContainerForContainerI5QListIhEE20getEraseAtIteratorFnIPFvPvPKvEEET_vENKUlS5_S7_E_clES5_S7_.exit: ; preds = %20, %._crit_edge.i.i.i.i.i, %21
+  %22 = phi i64 [ %18, %._crit_edge.i.i.i.i.i ], [ %.pre12.i.i.i.i.i, %21 ], [ %18, %20 ]
+  %23 = add i64 %22, -1
+  store i64 %23, ptr %17, align 8
   ret void
 }
 
@@ -12819,17 +12820,16 @@ _ZN17QArrayDataPointerIhE6detachEPS0_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIhE5eraseEPhx.exit.i.i.i, label %24
 
 24:                                               ; preds = %._crit_edge.i.i.i.i
-  %25 = ptrtoint ptr %22 to i64
-  %26 = ptrtoint ptr %18 to i64
-  %27 = sub i64 %25, %26
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %17, ptr noundef align 1 %18, i64 noundef %27, i1 noundef false) #29
+  %.neg.i.i = sub i64 %7, %9
+  %gepdiff.i.i.i = add i64 %.neg.i.i, %21
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %17, ptr noundef align 1 %18, i64 noundef %gepdiff.i.i.i, i1 noundef false) #29
   %.pre12.i.i.i.i = load i64, ptr %20, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIhE5eraseEPhx.exit.i.i.i
 
 _ZN9QtPrivate12QPodArrayOpsIhE5eraseEPhx.exit.i.i.i: ; preds = %24, %._crit_edge.i.i.i.i, %23
-  %28 = phi i64 [ %21, %._crit_edge.i.i.i.i ], [ %.pre12.i.i.i.i, %24 ], [ %21, %23 ]
-  %29 = sub i64 %28, %10
-  store i64 %29, ptr %20, align 8
+  %25 = phi i64 [ %21, %._crit_edge.i.i.i.i ], [ %.pre12.i.i.i.i, %24 ], [ %21, %23 ]
+  %26 = sub i64 %25, %10
+  store i64 %26, ptr %20, align 8
   br label %_ZZN22QtMetaContainerPrivate25QMetaSequenceForContainerI5QListIhEE25getEraseRangeAtIteratorFnEvENKUlPvPKvS6_E_clES4_S6_S6_.exit
 
 _ZZN22QtMetaContainerPrivate25QMetaSequenceForContainerI5QListIhEE25getEraseRangeAtIteratorFnEvENKUlPvPKvS6_E_clES4_S6_S6_.exit: ; preds = %3, %_ZN9QtPrivate12QPodArrayOpsIhE5eraseEPhx.exit.i.i.i

@@ -247,11 +247,11 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %15 = shl nuw nsw i64 %13, 1
   %.not = icmp eq i64 %2, %15
-  br i1 %.not, label %16, label %107
+  br i1 %.not, label %16, label %104
 
 16:                                               ; preds = %6
   %17 = icmp ugt i64 %12, 535
-  br i1 %17, label %107, label %18
+  br i1 %17, label %104, label %18
 
 18:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr align 1 %1, i64 %13, i1 false)
@@ -275,160 +275,157 @@ define hidden range(i32 -2147483648, 1) i32 @mbedtls_ecdsa_raw_to_der(i64 nounde
 
 27:                                               ; preds = %20
   %28 = trunc i64 %.025.i to i32
-  %29 = ptrtoint ptr %3 to i64
   %sext.i = shl i64 %.025.i, 32
-  %30 = ashr exact i64 %sext.i, 32
-  %31 = icmp slt i64 %4, %30
-  br i1 %31, label %convert_raw_to_der_single_int.exit.thread, label %32
+  %29 = ashr exact i64 %sext.i, 32
+  %30 = icmp slt i64 %4, %29
+  br i1 %30, label %convert_raw_to_der_single_int.exit.thread, label %31
 
-32:                                               ; preds = %27
-  %33 = sub nsw i64 0, %30
-  %34 = getelementptr inbounds i8, ptr %14, i64 %33
-  store ptr %34, ptr %8, align 8, !tbaa !15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %.024.i, i64 %30, i1 false)
-  %35 = load i8, ptr %34, align 1, !tbaa !13
-  %.not.i = icmp sgt i8 %35, -1
-  br i1 %.not.i, label %43, label %36
+31:                                               ; preds = %27
+  %32 = sub nsw i64 0, %29
+  %33 = getelementptr inbounds i8, ptr %14, i64 %32
+  store ptr %33, ptr %8, align 8, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr nonnull align 1 %.024.i, i64 %29, i1 false)
+  %34 = load i8, ptr %33, align 1, !tbaa !13
+  %.not.i = icmp sgt i8 %34, -1
+  br i1 %.not.i, label %41, label %35
 
-36:                                               ; preds = %32
-  %37 = ptrtoint ptr %34 to i64
-  %38 = sub i64 %37, %29
-  %39 = icmp slt i64 %38, 1
-  br i1 %39, label %convert_raw_to_der_single_int.exit.thread, label %40
+35:                                               ; preds = %31
+  %36 = sub i64 %4, %29
+  %37 = icmp slt i64 %36, 1
+  br i1 %37, label %convert_raw_to_der_single_int.exit.thread, label %38
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %34, i64 -1
-  store ptr %41, ptr %8, align 8, !tbaa !15
-  store i8 0, ptr %41, align 1, !tbaa !13
-  %42 = add nsw i32 %28, 1
-  br label %43
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %33, i64 -1
+  store ptr %39, ptr %8, align 8, !tbaa !15
+  store i8 0, ptr %39, align 1, !tbaa !13
+  %40 = add nsw i32 %28, 1
+  br label %41
 
-43:                                               ; preds = %40, %32
-  %.0.i = phi i32 [ %42, %40 ], [ %28, %32 ]
-  %44 = sext i32 %.0.i to i64
-  %45 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %8, ptr noundef nonnull %3, i64 noundef %44) #7
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %convert_raw_to_der_single_int.exit.thread, label %47
+41:                                               ; preds = %38, %31
+  %.0.i = phi i32 [ %40, %38 ], [ %28, %31 ]
+  %42 = sext i32 %.0.i to i64
+  %43 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %8, ptr noundef nonnull %3, i64 noundef %42) #7
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %convert_raw_to_der_single_int.exit.thread, label %45
 
-47:                                               ; preds = %43
-  %48 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %8, ptr noundef nonnull %3, i8 noundef zeroext 2) #7
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %convert_raw_to_der_single_int.exit.thread, label %convert_raw_to_der_single_int.exit
+45:                                               ; preds = %41
+  %46 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %8, ptr noundef nonnull %3, i8 noundef zeroext 2) #7
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %convert_raw_to_der_single_int.exit.thread, label %convert_raw_to_der_single_int.exit
 
-convert_raw_to_der_single_int.exit.thread:        ; preds = %23, %27, %36, %43, %47
-  %.023.i.ph = phi i32 [ %48, %47 ], [ %45, %43 ], [ -108, %36 ], [ -108, %27 ], [ -104, %23 ]
+convert_raw_to_der_single_int.exit.thread:        ; preds = %23, %27, %35, %41, %45
+  %.023.i.ph = phi i32 [ %46, %45 ], [ %43, %41 ], [ -108, %35 ], [ -108, %27 ], [ -104, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  br label %107
+  br label %104
 
-convert_raw_to_der_single_int.exit:               ; preds = %47
-  %50 = add nsw i32 %45, %.0.i
-  %51 = add nsw i32 %50, %48
+convert_raw_to_der_single_int.exit:               ; preds = %45
+  %48 = add nsw i32 %43, %.0.i
+  %49 = add nsw i32 %48, %46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  %52 = icmp slt i32 %51, 0
-  br i1 %52, label %107, label %53
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %104, label %51
 
-53:                                               ; preds = %convert_raw_to_der_single_int.exit
-  %54 = zext nneg i32 %51 to i64
-  %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds i8, ptr %14, i64 %55
+51:                                               ; preds = %convert_raw_to_der_single_int.exit
+  %52 = zext nneg i32 %49 to i64
+  %53 = sub nsw i64 0, %52
+  %54 = getelementptr inbounds i8, ptr %14, i64 %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  br label %57
+  br label %55
 
-57:                                               ; preds = %60, %53
-  %.025.i46 = phi i64 [ %13, %53 ], [ %62, %60 ]
-  %.024.i47 = phi ptr [ %9, %53 ], [ %61, %60 ]
-  %58 = load i8, ptr %.024.i47, align 1, !tbaa !13
-  %59 = icmp eq i8 %58, 0
-  br i1 %59, label %60, label %64
+55:                                               ; preds = %58, %51
+  %.025.i46 = phi i64 [ %13, %51 ], [ %60, %58 ]
+  %.024.i47 = phi ptr [ %9, %51 ], [ %59, %58 ]
+  %56 = load i8, ptr %.024.i47, align 1, !tbaa !13
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %58, label %62
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds nuw i8, ptr %.024.i47, i64 1
-  %62 = add i64 %.025.i46, -1
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %convert_raw_to_der_single_int.exit52.thread, label %57, !llvm.loop !14
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds nuw i8, ptr %.024.i47, i64 1
+  %60 = add i64 %.025.i46, -1
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %convert_raw_to_der_single_int.exit52.thread, label %55, !llvm.loop !14
 
-64:                                               ; preds = %57
-  %65 = trunc i64 %.025.i46 to i32
-  %66 = ptrtoint ptr %56 to i64
-  %67 = sub i64 %66, %29
+62:                                               ; preds = %55
+  %63 = trunc i64 %.025.i46 to i32
+  %64 = sub i64 %4, %52
   %sext.i48 = shl i64 %.025.i46, 32
-  %68 = ashr exact i64 %sext.i48, 32
-  %69 = icmp slt i64 %67, %68
-  br i1 %69, label %convert_raw_to_der_single_int.exit52.thread, label %70
+  %65 = ashr exact i64 %sext.i48, 32
+  %66 = icmp slt i64 %64, %65
+  br i1 %66, label %convert_raw_to_der_single_int.exit52.thread, label %67
 
-70:                                               ; preds = %64
-  %71 = sub nsw i64 0, %68
-  %72 = getelementptr inbounds i8, ptr %56, i64 %71
-  store ptr %72, ptr %7, align 8, !tbaa !15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %.024.i47, i64 %68, i1 false)
-  %73 = load i8, ptr %72, align 1, !tbaa !13
-  %.not.i49 = icmp sgt i8 %73, -1
-  br i1 %.not.i49, label %81, label %74
+67:                                               ; preds = %62
+  %68 = sub nsw i64 0, %65
+  %69 = getelementptr inbounds i8, ptr %54, i64 %68
+  store ptr %69, ptr %7, align 8, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr nonnull align 1 %.024.i47, i64 %65, i1 false)
+  %70 = load i8, ptr %69, align 1, !tbaa !13
+  %.not.i49 = icmp sgt i8 %70, -1
+  br i1 %.not.i49, label %78, label %71
 
-74:                                               ; preds = %70
-  %75 = ptrtoint ptr %72 to i64
-  %76 = sub i64 %75, %29
-  %77 = icmp slt i64 %76, 1
-  br i1 %77, label %convert_raw_to_der_single_int.exit52.thread, label %78
+71:                                               ; preds = %67
+  %72 = add nsw i64 %65, %52
+  %73 = sub i64 %4, %72
+  %74 = icmp slt i64 %73, 1
+  br i1 %74, label %convert_raw_to_der_single_int.exit52.thread, label %75
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %72, i64 -1
-  store ptr %79, ptr %7, align 8, !tbaa !15
-  store i8 0, ptr %79, align 1, !tbaa !13
-  %80 = add nsw i32 %65, 1
-  br label %81
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %69, i64 -1
+  store ptr %76, ptr %7, align 8, !tbaa !15
+  store i8 0, ptr %76, align 1, !tbaa !13
+  %77 = add nsw i32 %63, 1
+  br label %78
 
-81:                                               ; preds = %78, %70
-  %.0.i50 = phi i32 [ %80, %78 ], [ %65, %70 ]
-  %82 = sext i32 %.0.i50 to i64
-  %83 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef %82) #7
+78:                                               ; preds = %75, %67
+  %.0.i50 = phi i32 [ %77, %75 ], [ %63, %67 ]
+  %79 = sext i32 %.0.i50 to i64
+  %80 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %7, ptr noundef nonnull %3, i64 noundef %79) #7
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %convert_raw_to_der_single_int.exit52.thread, label %82
+
+82:                                               ; preds = %78
+  %83 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %7, ptr noundef nonnull %3, i8 noundef zeroext 2) #7
   %84 = icmp slt i32 %83, 0
-  br i1 %84, label %convert_raw_to_der_single_int.exit52.thread, label %85
+  br i1 %84, label %convert_raw_to_der_single_int.exit52.thread, label %convert_raw_to_der_single_int.exit52
 
-85:                                               ; preds = %81
-  %86 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %7, ptr noundef nonnull %3, i8 noundef zeroext 2) #7
+convert_raw_to_der_single_int.exit52.thread:      ; preds = %58, %62, %71, %78, %82
+  %.023.i51.ph = phi i32 [ %83, %82 ], [ %80, %78 ], [ -108, %71 ], [ -108, %62 ], [ -104, %58 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  br label %104
+
+convert_raw_to_der_single_int.exit52:             ; preds = %82
+  %85 = add nsw i32 %80, %.0.i50
+  %86 = add nsw i32 %85, %83
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %87 = icmp slt i32 %86, 0
-  br i1 %87, label %convert_raw_to_der_single_int.exit52.thread, label %convert_raw_to_der_single_int.exit52
+  br i1 %87, label %104, label %88
 
-convert_raw_to_der_single_int.exit52.thread:      ; preds = %60, %64, %74, %81, %85
-  %.023.i51.ph = phi i32 [ %86, %85 ], [ %83, %81 ], [ -108, %74 ], [ -108, %64 ], [ -104, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  br label %107
+88:                                               ; preds = %convert_raw_to_der_single_int.exit52
+  %89 = zext nneg i32 %86 to i64
+  %90 = sub nsw i64 0, %89
+  %91 = getelementptr inbounds i8, ptr %54, i64 %90
+  store ptr %91, ptr %11, align 8, !tbaa !15
+  %92 = add nuw nsw i64 %89, %52
+  %93 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %11, ptr noundef nonnull %3, i64 noundef %92) #7
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %104, label %95
 
-convert_raw_to_der_single_int.exit52:             ; preds = %85
-  %88 = add nsw i32 %83, %.0.i50
-  %89 = add nsw i32 %88, %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %107, label %91
-
-91:                                               ; preds = %convert_raw_to_der_single_int.exit52
-  %92 = zext nneg i32 %89 to i64
-  %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds i8, ptr %56, i64 %93
-  store ptr %94, ptr %11, align 8, !tbaa !15
-  %95 = add nuw nsw i64 %92, %54
-  %96 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %11, ptr noundef nonnull %3, i64 noundef %95) #7
+95:                                               ; preds = %88
+  %96 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %11, ptr noundef nonnull %3, i8 noundef zeroext 48) #7
   %97 = icmp slt i32 %96, 0
-  br i1 %97, label %107, label %98
+  br i1 %97, label %104, label %98
 
-98:                                               ; preds = %91
-  %99 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %11, ptr noundef nonnull %3, i8 noundef zeroext 48) #7
-  %100 = icmp slt i32 %99, 0
-  br i1 %100, label %107, label %101
+98:                                               ; preds = %95
+  %99 = zext nneg i32 %93 to i64
+  %100 = add nuw nsw i64 %92, %99
+  %101 = zext nneg i32 %96 to i64
+  %102 = add nuw nsw i64 %100, %101
+  %103 = load ptr, ptr %11, align 8, !tbaa !15
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %3, ptr align 1 %103, i64 %102, i1 false)
+  store i64 %102, ptr %5, align 8, !tbaa !11
+  br label %104
 
-101:                                              ; preds = %98
-  %102 = zext nneg i32 %96 to i64
-  %103 = add nuw nsw i64 %95, %102
-  %104 = zext nneg i32 %99 to i64
-  %105 = add nuw nsw i64 %103, %104
-  %106 = load ptr, ptr %11, align 8, !tbaa !15
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %3, ptr align 1 %106, i64 %105, i1 false)
-  store i64 %105, ptr %5, align 8, !tbaa !11
-  br label %107
-
-107:                                              ; preds = %convert_raw_to_der_single_int.exit52.thread, %convert_raw_to_der_single_int.exit.thread, %98, %91, %convert_raw_to_der_single_int.exit52, %convert_raw_to_der_single_int.exit, %16, %6, %101
-  %.0 = phi i32 [ 0, %101 ], [ -104, %6 ], [ -108, %16 ], [ %51, %convert_raw_to_der_single_int.exit ], [ %89, %convert_raw_to_der_single_int.exit52 ], [ %96, %91 ], [ %99, %98 ], [ %.023.i.ph, %convert_raw_to_der_single_int.exit.thread ], [ %.023.i51.ph, %convert_raw_to_der_single_int.exit52.thread ]
+104:                                              ; preds = %convert_raw_to_der_single_int.exit52.thread, %convert_raw_to_der_single_int.exit.thread, %95, %88, %convert_raw_to_der_single_int.exit52, %convert_raw_to_der_single_int.exit, %16, %6, %98
+  %.0 = phi i32 [ 0, %98 ], [ -104, %6 ], [ -108, %16 ], [ %49, %convert_raw_to_der_single_int.exit ], [ %86, %convert_raw_to_der_single_int.exit52 ], [ %93, %88 ], [ %96, %95 ], [ %.023.i.ph, %convert_raw_to_der_single_int.exit.thread ], [ %.023.i51.ph, %convert_raw_to_der_single_int.exit52.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %9) #7

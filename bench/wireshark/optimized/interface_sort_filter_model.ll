@@ -3842,7 +3842,8 @@ _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i:   ; preds = %_ZNK17QArrayDataPoi
   %95 = getelementptr i8, ptr %94, i64 %84
   %96 = icmp ugt i64 %87, 3
   %97 = load i64, ptr %5, align 8
-  %98 = getelementptr i32, ptr %93, i64 %97
+  %.idx.i.i = shl i64 %97, 2
+  %98 = getelementptr i8, ptr %93, i64 %.idx.i.i
   %.not.i.i.i = icmp eq ptr %95, %98
   %or.cond.i.i.i34 = select i1 %96, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %._crit_edge.i.i.i35, label %99
@@ -3855,17 +3856,16 @@ _ZN17QArrayDataPointerIiE6detachEPS0_.exit.i.i:   ; preds = %_ZNK17QArrayDataPoi
   br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIiE5eraseEPix.exit.i.i, label %100
 
 100:                                              ; preds = %._crit_edge.i.i.i35
-  %101 = ptrtoint ptr %98 to i64
-  %102 = ptrtoint ptr %95 to i64
-  %103 = sub i64 %101, %102
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %103, i1 noundef false) #19
+  %.neg.i = sub i64 %86, %82
+  %gepdiff.i.i = add i64 %.neg.i, %.idx.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %gepdiff.i.i, i1 noundef false) #19
   %.pre12.i.i.i = load i64, ptr %5, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIiE5eraseEPix.exit.i.i
 
 _ZN9QtPrivate12QPodArrayOpsIiE5eraseEPix.exit.i.i: ; preds = %100, %._crit_edge.i.i.i35, %99
-  %104 = phi i64 [ %97, %._crit_edge.i.i.i35 ], [ %.pre12.i.i.i, %100 ], [ %97, %99 ]
-  %105 = sub i64 %104, %85
-  store i64 %105, ptr %5, align 8
+  %101 = phi i64 [ %97, %._crit_edge.i.i.i35 ], [ %.pre12.i.i.i, %100 ], [ %97, %99 ]
+  %102 = sub i64 %101, %85
+  store i64 %102, ptr %5, align 8
   br label %_ZN5QListIiE5eraseENS0_14const_iteratorES1_.exit
 
 _ZN5QListIiE5eraseENS0_14const_iteratorES1_.exit: ; preds = %_ZN9QtPrivate12QPodArrayOpsIiE5eraseEPix.exit.i.i, %._crit_edge, %_ZSt7find_ifIN5QListIiE14const_iteratorEZN9QtPrivate16sequential_eraseIS1_iEEDaRT_RKT0_EUlS6_E_ES5_S5_S5_S7_.exit

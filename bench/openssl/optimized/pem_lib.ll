@@ -310,7 +310,7 @@ pem_free.exit31:                                  ; preds = %17, %21
 35:                                               ; preds = %31
   %36 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(16) @.str.20) #9
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %64
+  br i1 %37, label %38, label %59
 
 38:                                               ; preds = %35
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(22) @.str.21) #9
@@ -323,7 +323,7 @@ pem_free.exit31:                                  ; preds = %17, %21
   br i1 %43, label %check_pem.exit.thread, label %44
 
 44:                                               ; preds = %41
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #9
+  %45 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %32) #9
   %46 = trunc i64 %45 to i32
   %.not.i.i = icmp sgt i32 %46, 12
   br i1 %.not.i.i, label %47, label %.backedge.backedge
@@ -332,7 +332,7 @@ pem_free.exit31:                                  ; preds = %17, %21
   %sext.i.i = and i64 %45, 2147483647
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 %sext.i.i
   %49 = getelementptr inbounds i8, ptr %48, i64 -11
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(12) @.str.22) #9
+  %50 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %49, ptr noundef nonnull dereferenceable(12) @.str.22) #9
   %.not15.i.i = icmp eq i32 %50, 0
   br i1 %.not15.i.i, label %51, label %.backedge.backedge
 
@@ -343,222 +343,208 @@ pem_free.exit31:                                  ; preds = %17, %21
   br i1 %.not16.i.i, label %ossl_pem_check_suffix.exit.i, label %.backedge.backedge
 
 ossl_pem_check_suffix.exit.i:                     ; preds = %51
-  %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %32 to i64
-  %56 = sub i64 %54, %55
-  %57 = trunc i64 %56 to i32
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %59, label %.backedge.backedge
+  %54 = add nsw i32 %46, -12
+  %55 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %32, i32 noundef %54) #10
+  %.not45.i = icmp eq ptr %55, null
+  br i1 %.not45.i, label %.backedge.backedge, label %56
 
-59:                                               ; preds = %ossl_pem_check_suffix.exit.i
-  %60 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef nonnull %32, i32 noundef %57) #10
-  %.not45.i = icmp eq ptr %60, null
-  br i1 %.not45.i, label %.backedge.backedge, label %61
-
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %63 = load ptr, ptr %62, align 8, !tbaa !13
-  %.not46.i = icmp eq ptr %63, null
+56:                                               ; preds = %ossl_pem_check_suffix.exit.i
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 184
+  %58 = load ptr, ptr %57, align 8, !tbaa !13
+  %.not46.i = icmp eq ptr %58, null
   br i1 %.not46.i, label %.backedge.backedge, label %check_pem.exit.thread
 
-64:                                               ; preds = %35
-  %65 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(11) @.str.23) #9
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %88
+59:                                               ; preds = %35
+  %60 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(11) @.str.23) #9
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %78
 
-67:                                               ; preds = %64
-  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #9
-  %69 = trunc i64 %68 to i32
-  %.not.i47.i = icmp sgt i32 %69, 11
-  br i1 %.not.i47.i, label %70, label %.backedge.backedge
+62:                                               ; preds = %59
+  %63 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %32) #9
+  %64 = trunc i64 %63 to i32
+  %.not.i47.i = icmp sgt i32 %64, 11
+  br i1 %.not.i47.i, label %65, label %.backedge.backedge
 
-70:                                               ; preds = %67
-  %sext.i49.i = and i64 %68, 2147483647
-  %71 = getelementptr inbounds nuw i8, ptr %32, i64 %sext.i49.i
-  %72 = getelementptr inbounds i8, ptr %71, i64 -10
-  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(11) @.str.23) #9
-  %.not15.i51.i = icmp eq i32 %73, 0
-  br i1 %.not15.i51.i, label %74, label %.backedge.backedge
+65:                                               ; preds = %62
+  %sext.i49.i = and i64 %63, 2147483647
+  %66 = getelementptr inbounds nuw i8, ptr %32, i64 %sext.i49.i
+  %67 = getelementptr inbounds i8, ptr %66, i64 -10
+  %68 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %67, ptr noundef nonnull dereferenceable(11) @.str.23) #9
+  %.not15.i51.i = icmp eq i32 %68, 0
+  br i1 %.not15.i51.i, label %69, label %.backedge.backedge
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %71, i64 -11
-  %76 = load i8, ptr %75, align 1, !tbaa !3
-  %.not16.i52.i = icmp eq i8 %76, 32
+69:                                               ; preds = %65
+  %70 = getelementptr inbounds i8, ptr %66, i64 -11
+  %71 = load i8, ptr %70, align 1, !tbaa !3
+  %.not16.i52.i = icmp eq i8 %71, 32
   br i1 %.not16.i52.i, label %ossl_pem_check_suffix.exit53.i, label %.backedge.backedge
 
-ossl_pem_check_suffix.exit53.i:                   ; preds = %74
-  %77 = ptrtoint ptr %75 to i64
-  %78 = ptrtoint ptr %32 to i64
-  %79 = sub i64 %77, %78
-  %80 = trunc i64 %79 to i32
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %82, label %.backedge.backedge
-
-82:                                               ; preds = %ossl_pem_check_suffix.exit53.i
+ossl_pem_check_suffix.exit53.i:                   ; preds = %69
+  %72 = add nsw i32 %64, -11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  %83 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %9, ptr noundef nonnull %32, i32 noundef %80) #10
-  %.not.i33 = icmp eq ptr %83, null
+  %73 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef nonnull %9, ptr noundef nonnull %32, i32 noundef %72) #10
+  %.not.i33 = icmp eq ptr %73, null
   br i1 %.not.i33, label %.thread.i, label %check_pem.exit
 
-.thread.i:                                        ; preds = %82
+.thread.i:                                        ; preds = %ossl_pem_check_suffix.exit53.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.thread.i, %ossl_pem_check_suffix.exit53.i, %67, %70, %74, %61, %59, %ossl_pem_check_suffix.exit.i, %51, %47, %44, %133, %130, %check_pem.exit
+.backedge.backedge:                               ; preds = %.thread.i, %62, %65, %69, %56, %ossl_pem_check_suffix.exit.i, %51, %47, %44, %123, %120, %check_pem.exit
   br label %.backedge, !llvm.loop !16
 
-check_pem.exit:                                   ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 112
-  %85 = load ptr, ptr %84, align 8, !tbaa !17
-  %.not44.i.not = icmp eq ptr %85, null
-  %86 = load ptr, ptr %9, align 8, !tbaa !18
-  %87 = call i32 @ENGINE_finish(ptr noundef %86) #10
+check_pem.exit:                                   ; preds = %ossl_pem_check_suffix.exit53.i
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
+  %75 = load ptr, ptr %74, align 8, !tbaa !17
+  %.not44.i.not = icmp eq ptr %75, null
+  %76 = load ptr, ptr %9, align 8, !tbaa !18
+  %77 = call i32 @ENGINE_finish(ptr noundef %76) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   br i1 %.not44.i.not, label %.backedge.backedge, label %check_pem.exit.thread
 
-88:                                               ; preds = %64
-  %89 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(20) @.str.24) #9
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %94
+78:                                               ; preds = %59
+  %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(20) @.str.24) #9
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %84
 
-91:                                               ; preds = %88
-  %92 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(14) @.str.25) #9
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %check_pem.exit.thread, label %94
+81:                                               ; preds = %78
+  %82 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(14) @.str.25) #9
+  %83 = icmp eq i32 %82, 0
+  br i1 %83, label %check_pem.exit.thread, label %84
 
-94:                                               ; preds = %91, %88
-  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(17) @.str.26) #9
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %100
+84:                                               ; preds = %81, %78
+  %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(17) @.str.26) #9
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %90
 
-97:                                               ; preds = %94
-  %98 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(12) @.str.27) #9
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %check_pem.exit.thread, label %100
+87:                                               ; preds = %84
+  %88 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(12) @.str.27) #9
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %check_pem.exit.thread, label %90
 
-100:                                              ; preds = %97, %94
-  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(24) @.str.28) #9
-  %102 = icmp eq i32 %101, 0
-  br i1 %102, label %103, label %106
+90:                                               ; preds = %87, %84
+  %91 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(24) @.str.28) #9
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %96
 
-103:                                              ; preds = %100
-  %104 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.29) #9
+93:                                               ; preds = %90
+  %94 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.29) #9
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %check_pem.exit.thread, label %96
+
+96:                                               ; preds = %93, %90
+  %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(12) @.str.27) #9
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %102
+
+99:                                               ; preds = %96
+  %100 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.30) #9
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %check_pem.exit.thread, label %102
+
+102:                                              ; preds = %99, %96
+  br i1 %86, label %103, label %106
+
+103:                                              ; preds = %102
+  %104 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.30) #9
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %check_pem.exit.thread, label %106
 
-106:                                              ; preds = %103, %100
-  %107 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(12) @.str.27) #9
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %112
+106:                                              ; preds = %103, %102
+  br i1 %98, label %107, label %110
 
-109:                                              ; preds = %106
-  %110 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.30) #9
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %check_pem.exit.thread, label %112
+107:                                              ; preds = %106
+  %108 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.31) #9
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %check_pem.exit.thread, label %110
 
-112:                                              ; preds = %109, %106
-  br i1 %96, label %113, label %116
+110:                                              ; preds = %107, %106
+  %111 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(20) @.str.32) #9
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %116
 
-113:                                              ; preds = %112
-  %114 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(20) @.str.30) #9
+113:                                              ; preds = %110
+  %114 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.31) #9
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %check_pem.exit.thread, label %116
 
-116:                                              ; preds = %113, %112
-  br i1 %108, label %117, label %120
+116:                                              ; preds = %113, %110
+  br i1 %98, label %117, label %120
 
 117:                                              ; preds = %116
-  %118 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.31) #9
+  %118 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.33) #9
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %check_pem.exit.thread, label %120
 
 120:                                              ; preds = %117, %116
-  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(20) @.str.32) #9
+  %121 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.31) #9
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %126
+  br i1 %122, label %123, label %.backedge.backedge
 
 123:                                              ; preds = %120
-  %124 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(6) @.str.31) #9
+  %124 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.33) #9
   %125 = icmp eq i32 %124, 0
-  br i1 %125, label %check_pem.exit.thread, label %126
+  br i1 %125, label %check_pem.exit.thread, label %.backedge.backedge
 
-126:                                              ; preds = %123, %120
-  br i1 %108, label %127, label %130
+check_pem.exit.thread:                            ; preds = %123, %117, %113, %107, %103, %99, %93, %87, %81, %56, %41, %38, %31, %check_pem.exit
+  %126 = load ptr, ptr %12, align 8, !tbaa !8
+  %127 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %126, ptr noundef nonnull %10)
+  %.not24 = icmp eq i32 %127, 0
+  br i1 %.not24, label %.thread, label %128
 
-127:                                              ; preds = %126
-  %128 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.33) #9
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %check_pem.exit.thread, label %130
+128:                                              ; preds = %check_pem.exit.thread
+  %129 = load ptr, ptr %13, align 8, !tbaa !8
+  %130 = call i32 @PEM_do_header(ptr noundef nonnull %10, ptr noundef %129, ptr noundef nonnull %14, ptr noundef %5, ptr noundef %6)
+  %.not25 = icmp eq i32 %130, 0
+  br i1 %.not25, label %.thread, label %131
 
-130:                                              ; preds = %127, %126
-  %131 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(6) @.str.31) #9
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %.backedge.backedge
-
-133:                                              ; preds = %130
-  %134 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(4) @.str.33) #9
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %check_pem.exit.thread, label %.backedge.backedge
-
-check_pem.exit.thread:                            ; preds = %133, %127, %123, %117, %113, %109, %103, %97, %91, %61, %41, %38, %31, %check_pem.exit
-  %136 = load ptr, ptr %12, align 8, !tbaa !8
-  %137 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %136, ptr noundef nonnull %10)
-  %.not24 = icmp eq i32 %137, 0
-  br i1 %.not24, label %.thread, label %138
-
-138:                                              ; preds = %check_pem.exit.thread
-  %139 = load ptr, ptr %13, align 8, !tbaa !8
-  %140 = call i32 @PEM_do_header(ptr noundef nonnull %10, ptr noundef %139, ptr noundef nonnull %14, ptr noundef %5, ptr noundef %6)
-  %.not25 = icmp eq i32 %140, 0
-  br i1 %.not25, label %.thread, label %141
-
-141:                                              ; preds = %138
-  store ptr %139, ptr %0, align 8, !tbaa !8
-  %142 = load i64, ptr %14, align 8, !tbaa !11
-  store i64 %142, ptr %1, align 8, !tbaa !11
+131:                                              ; preds = %128
+  store ptr %129, ptr %0, align 8, !tbaa !8
+  %132 = load i64, ptr %14, align 8, !tbaa !11
+  store i64 %132, ptr %1, align 8, !tbaa !11
   %.not26 = icmp eq ptr %2, null
   br i1 %.not26, label %.thread, label %pem_free.exit35
 
-pem_free.exit35:                                  ; preds = %141
+pem_free.exit35:                                  ; preds = %131
   store ptr %32, ptr %2, align 8, !tbaa !8
   br i1 %.not.i, label %pem_free.exit37.thread, label %.thread58
 
-.thread:                                          ; preds = %141, %check_pem.exit.thread, %138
-  %.045 = phi i32 [ 1, %141 ], [ 0, %check_pem.exit.thread ], [ 0, %138 ]
-  %143 = phi i1 [ false, %141 ], [ true, %check_pem.exit.thread ], [ true, %138 ]
-  br i1 %.not.i, label %pem_free.exit37, label %144
+.thread:                                          ; preds = %131, %check_pem.exit.thread, %128
+  %.045 = phi i32 [ 1, %131 ], [ 0, %check_pem.exit.thread ], [ 0, %128 ]
+  %133 = phi i1 [ false, %131 ], [ true, %check_pem.exit.thread ], [ true, %128 ]
+  br i1 %.not.i, label %pem_free.exit37, label %134
 
 .thread58:                                        ; preds = %pem_free.exit35
-  call void @CRYPTO_secure_clear_free(ptr noundef %136, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 279) #10
+  call void @CRYPTO_secure_clear_free(ptr noundef %126, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 279) #10
   br label %pem_free.exit39
 
 pem_free.exit37.thread:                           ; preds = %pem_free.exit35
-  call void @CRYPTO_free(ptr noundef %136, ptr noundef nonnull @.str.1, i32 noundef 279) #10
+  call void @CRYPTO_free(ptr noundef %126, ptr noundef nonnull @.str.1, i32 noundef 279) #10
   br label %pem_free.exit39
 
-144:                                              ; preds = %.thread
+134:                                              ; preds = %.thread
   call void @CRYPTO_secure_clear_free(ptr noundef nonnull %32, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 278) #10
-  call void @CRYPTO_secure_clear_free(ptr noundef %136, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 279) #10
-  br i1 %143, label %145, label %pem_free.exit39
+  call void @CRYPTO_secure_clear_free(ptr noundef %126, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 279) #10
+  br i1 %133, label %135, label %pem_free.exit39
 
 pem_free.exit37:                                  ; preds = %.thread
   call void @CRYPTO_free(ptr noundef nonnull %32, ptr noundef nonnull @.str.1, i32 noundef 278) #10
-  call void @CRYPTO_free(ptr noundef %136, ptr noundef nonnull @.str.1, i32 noundef 279) #10
-  br i1 %143, label %148, label %pem_free.exit39
+  call void @CRYPTO_free(ptr noundef %126, ptr noundef nonnull @.str.1, i32 noundef 279) #10
+  br i1 %133, label %138, label %pem_free.exit39
 
-145:                                              ; preds = %144
-  %146 = load ptr, ptr %13, align 8, !tbaa !8
-  %147 = load i64, ptr %14, align 8, !tbaa !11
-  call void @CRYPTO_secure_clear_free(ptr noundef %146, i64 noundef %147, ptr noundef nonnull @.str.1, i32 noundef 281) #10
+135:                                              ; preds = %134
+  %136 = load ptr, ptr %13, align 8, !tbaa !8
+  %137 = load i64, ptr %14, align 8, !tbaa !11
+  call void @CRYPTO_secure_clear_free(ptr noundef %136, i64 noundef %137, ptr noundef nonnull @.str.1, i32 noundef 281) #10
   br label %pem_free.exit39
 
-148:                                              ; preds = %pem_free.exit37
-  %149 = load ptr, ptr %13, align 8, !tbaa !8
-  call void @CRYPTO_free(ptr noundef %149, ptr noundef nonnull @.str.1, i32 noundef 281) #10
+138:                                              ; preds = %pem_free.exit37
+  %139 = load ptr, ptr %13, align 8, !tbaa !8
+  call void @CRYPTO_free(ptr noundef %139, ptr noundef nonnull @.str.1, i32 noundef 281) #10
   br label %pem_free.exit39
 
-pem_free.exit39:                                  ; preds = %.thread58, %148, %145, %pem_free.exit37.thread, %144, %pem_free.exit37, %25, %30
-  %.021 = phi i32 [ 0, %30 ], [ 0, %25 ], [ %.045, %pem_free.exit37 ], [ %.045, %144 ], [ 1, %pem_free.exit37.thread ], [ %.045, %145 ], [ %.045, %148 ], [ 1, %.thread58 ]
+pem_free.exit39:                                  ; preds = %.thread58, %138, %135, %pem_free.exit37.thread, %134, %pem_free.exit37, %25, %30
+  %.021 = phi i32 [ 0, %30 ], [ 0, %25 ], [ %.045, %pem_free.exit37 ], [ %.045, %134 ], [ 1, %pem_free.exit37.thread ], [ %.045, %135 ], [ %.045, %138 ], [ 1, %.thread58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
@@ -2115,14 +2101,14 @@ define internal fastcc void @pem_free(ptr noundef %0, i32 noundef %1, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ossl_pem_check_suffix(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define i32 @ossl_pem_check_suffix(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %4 = trunc i64 %3 to i32
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %6 = trunc i64 %5 to i32
   %7 = add nsw i32 %6, 1
   %.not = icmp slt i32 %7, %4
-  br i1 %.not, label %8, label %23
+  br i1 %.not, label %8, label %22
 
 8:                                                ; preds = %2
   %sext = shl i64 %3, 32
@@ -2134,23 +2120,22 @@ define noundef i32 @ossl_pem_check_suffix(ptr noundef %0, ptr noundef readonly c
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %1) #9
   %.not15 = icmp eq i32 %14, 0
-  br i1 %.not15, label %15, label %23
+  br i1 %.not15, label %15, label %22
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds i8, ptr %13, i64 -1
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %.not16 = icmp eq i8 %17, 32
-  br i1 %.not16, label %18, label %23
+  br i1 %.not16, label %18, label %22
 
 18:                                               ; preds = %15
-  %19 = ptrtoint ptr %16 to i64
-  %20 = ptrtoint ptr %0 to i64
-  %21 = sub i64 %19, %20
-  %22 = trunc i64 %21 to i32
-  br label %23
+  %19 = xor i64 %5, -1
+  %20 = add i64 %3, %19
+  %21 = trunc i64 %20 to i32
+  br label %22
 
-23:                                               ; preds = %15, %8, %2, %18
-  %.0 = phi i32 [ %22, %18 ], [ 0, %2 ], [ 0, %8 ], [ 0, %15 ]
+22:                                               ; preds = %15, %8, %2, %18
+  %.0 = phi i32 [ %21, %18 ], [ 0, %2 ], [ 0, %8 ], [ 0, %15 ]
   ret i32 %.0
 }
 

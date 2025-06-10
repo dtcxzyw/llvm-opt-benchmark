@@ -47085,13 +47085,13 @@ define linkonce_odr noundef zeroext i1 @_ZN9QtPrivate20sequential_erase_oneI5QLi
   %21 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %11
-  br i1 %23, label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit24, label %24
+  br i1 %23, label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit25, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %11
-  br i1 %27, label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit26, label %28
+  br i1 %27, label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit27, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 32
@@ -47154,67 +47154,70 @@ _ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loop
   %49 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 8
   br label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit
 
-_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit24: ; preds = %20
+_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit25: ; preds = %20
   %50 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 16
   br label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit
 
-_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %24
+_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %24
   %51 = getelementptr i8, ptr %.sroa.034.051.i.i.i, i64 24
   br label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit
 
-_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit: ; preds = %13, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit24, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit26, %33, %39, %45
-  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit24 ], [ %51, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit26 ], [ %.sroa.034.051.i.i.i, %13 ]
+_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit: ; preds = %13, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit25, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit27, %33, %39, %45
+  %.sroa.010.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.034.0.lcssa.i.i.i, %33 ], [ %.sroa.034.1.i.i.i, %39 ], [ %spec.select.i.i.i, %45 ], [ %49, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit25 ], [ %51, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.loopexit.split.loop.exit27 ], [ %.sroa.034.051.i.i.i, %13 ]
   %52 = icmp eq ptr %.sroa.010.0.in.sroa.speculated.i.i.i, %7
   br i1 %52, label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.thread, label %53
 
 53:                                               ; preds = %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit
-  %54 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
-  %55 = sub i64 %54, %8
-  %56 = load ptr, ptr %0, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %56, null
+  %54 = getelementptr i8, ptr %.sroa.010.0.in.sroa.speculated.i.i.i, i64 8
+  %55 = ptrtoint ptr %.sroa.010.0.in.sroa.speculated.i.i.i to i64
+  %56 = sub i64 %55, %8
+  %57 = ptrtoint ptr %54 to i64
+  %58 = load ptr, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i.i, label %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i, label %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i
 
 _ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i: ; preds = %53
-  %57 = load atomic i32, ptr %56 monotonic, align 4
-  %58 = icmp sgt i32 %57, 1
-  br i1 %58, label %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i, label %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
+  %59 = load atomic i32, ptr %58 monotonic, align 4
+  %60 = icmp sgt i32 %59, 1
+  br i1 %60, label %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i, label %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
 
 _ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i, %53
   tail call void @_ZN17QArrayDataPointerIP14RtpAudioStreamE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS2_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef 0, i64 noundef 0, ptr noundef null)
   %.pre.i.i = load ptr, ptr %3, align 8
   %.pre = load i64, ptr %5, align 8
+  %.pre24 = shl i64 %.pre, 3
   br label %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
 
 _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i: ; preds = %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i
-  %59 = phi i64 [ %.pre, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %6, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
-  %60 = phi ptr [ %.pre.i.i, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
-  %61 = getelementptr i8, ptr %60, i64 %55
-  %62 = getelementptr i8, ptr %61, i64 8
-  %63 = icmp ugt i64 %55, 7
-  %64 = getelementptr ptr, ptr %60, i64 %59
-  %.not.i.i.i.i = icmp eq ptr %62, %64
-  %or.cond.i.i.i.i = select i1 %63, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %._crit_edge.i.i.i.i, label %65
+  %.idx.i.i.i.pre-phi = phi i64 [ %.pre24, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %.idx11, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
+  %61 = phi i64 [ %.pre, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %6, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
+  %62 = phi ptr [ %.pre.i.i, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i ], [ %4, %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i.i ]
+  %63 = getelementptr i8, ptr %62, i64 %56
+  %64 = getelementptr i8, ptr %63, i64 8
+  %65 = icmp ugt i64 %56, 7
+  %66 = getelementptr i8, ptr %62, i64 %.idx.i.i.i.pre-phi
+  %.not.i.i.i.i = icmp eq ptr %64, %66
+  %or.cond.i.i.i.i = select i1 %65, i1 true, i1 %.not.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %._crit_edge.i.i.i.i, label %67
 
-65:                                               ; preds = %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
-  store ptr %62, ptr %3, align 8
+67:                                               ; preds = %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
+  store ptr %64, ptr %3, align 8
   br label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i.i
-  br i1 %.not.i.i.i.i, label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit, label %66
+  br i1 %.not.i.i.i.i, label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit, label %68
 
-66:                                               ; preds = %._crit_edge.i.i.i.i
-  %67 = ptrtoint ptr %64 to i64
-  %68 = ptrtoint ptr %62 to i64
-  %69 = sub i64 %67, %68
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %61, ptr noundef align 1 %62, i64 noundef %69, i1 noundef false) #26
+68:                                               ; preds = %._crit_edge.i.i.i.i
+  %.neg.i.i = sub i64 %8, %57
+  %gepdiff.i.i.i = add i64 %.neg.i.i, %.idx.i.i.i.pre-phi
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %63, ptr noundef align 1 %64, i64 noundef %gepdiff.i.i.i, i1 noundef false) #26
   %.pre12.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit
 
-_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit: ; preds = %65, %._crit_edge.i.i.i.i, %66
-  %70 = phi i64 [ %59, %._crit_edge.i.i.i.i ], [ %.pre12.i.i.i.i, %66 ], [ %59, %65 ]
-  %71 = add i64 %70, -1
-  store i64 %71, ptr %5, align 8
+_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit: ; preds = %67, %._crit_edge.i.i.i.i, %68
+  %69 = phi i64 [ %61, %._crit_edge.i.i.i.i ], [ %.pre12.i.i.i.i, %68 ], [ %61, %67 ]
+  %70 = add i64 %69, -1
+  store i64 %70, ptr %5, align 8
   br label %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.thread
 
 _ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit.thread: ; preds = %._crit_edge.i.i.i, %_ZSt4findIN5QListIP14RtpAudioStreamE14const_iteratorES2_ET_S5_S5_RKT0_.exit, %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorE.exit
@@ -50139,7 +50142,8 @@ _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i: ; preds = %_ZNK1
   %95 = getelementptr i8, ptr %94, i64 %84
   %96 = icmp ugt i64 %87, 7
   %97 = load i64, ptr %5, align 8
-  %98 = getelementptr ptr, ptr %93, i64 %97
+  %.idx.i.i = shl i64 %97, 3
+  %98 = getelementptr i8, ptr %93, i64 %.idx.i.i
   %.not.i.i.i = icmp eq ptr %95, %98
   %or.cond.i.i.i34 = select i1 %96, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i34, label %._crit_edge.i.i.i35, label %99
@@ -50152,17 +50156,16 @@ _ZN17QArrayDataPointerIP14RtpAudioStreamE6detachEPS2_.exit.i.i: ; preds = %_ZNK1
   br i1 %.not.i.i.i, label %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i, label %100
 
 100:                                              ; preds = %._crit_edge.i.i.i35
-  %101 = ptrtoint ptr %98 to i64
-  %102 = ptrtoint ptr %95 to i64
-  %103 = sub i64 %101, %102
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %103, i1 noundef false) #26
+  %.neg.i = sub i64 %86, %82
+  %gepdiff.i.i = add i64 %.neg.i, %.idx.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %95, i64 noundef %gepdiff.i.i, i1 noundef false) #26
   %.pre12.i.i.i = load i64, ptr %5, align 8
   br label %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i
 
 _ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i: ; preds = %100, %._crit_edge.i.i.i35, %99
-  %104 = phi i64 [ %97, %._crit_edge.i.i.i35 ], [ %.pre12.i.i.i, %100 ], [ %97, %99 ]
-  %105 = sub i64 %104, %85
-  store i64 %105, ptr %5, align 8
+  %101 = phi i64 [ %97, %._crit_edge.i.i.i35 ], [ %.pre12.i.i.i, %100 ], [ %97, %99 ]
+  %102 = sub i64 %101, %85
+  store i64 %102, ptr %5, align 8
   br label %_ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorES3_.exit
 
 _ZN5QListIP14RtpAudioStreamE5eraseENS2_14const_iteratorES3_.exit: ; preds = %_ZN9QtPrivate12QPodArrayOpsIP14RtpAudioStreamE5eraseEPS2_x.exit.i.i, %._crit_edge, %_ZSt7find_ifIN5QListIP14RtpAudioStreamE14const_iteratorEZN9QtPrivate16sequential_eraseIS3_S2_EEDaRT_RKT0_EUlS8_E_ES7_S7_S7_S9_.exit

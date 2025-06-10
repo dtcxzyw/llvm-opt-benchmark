@@ -548,12 +548,9 @@ define hidden void @_ZN9CardTable15dirty_MemRegionE9MemRegion(ptr noundef nonnul
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = ptrtoint ptr %12 to i64
   %14 = lshr i64 %13, %8
-  %15 = getelementptr inbounds i8, ptr %5, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %17 = ptrtoint ptr %16 to i64
-  %18 = ptrtoint ptr %10 to i64
-  %19 = sub i64 %17, %18
-  tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %19, i1 false)
+  %15 = add i64 %14, 1
+  %gepdiff = sub i64 %15, %9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %gepdiff, i1 false)
   ret void
 }
 

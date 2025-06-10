@@ -733,13 +733,13 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   br label %47
 
 47:                                               ; preds = %46, %sz_size2index.exit
-  br i1 %43, label %63, label %48
+  br i1 %43, label %59, label %48
 
 48:                                               ; preds = %47
   %49 = load i8, ptr @duckdb_je_opt_cache_oblivious, align 1, !range !17
   %50 = trunc nuw i8 %49 to i1
   %or.cond = select i1 %3, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %62
+  br i1 %or.cond, label %51, label %58
 
 51:                                               ; preds = %48
   %52 = getelementptr i8, ptr %1, i64 8
@@ -748,19 +748,15 @@ sz_size2index.exit:                               ; preds = %26, %24, %18
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4096
   %55 = ptrtoint ptr %54 to i64
   %56 = and i64 %55, 4095
-  %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds i8, ptr %54, i64 %57
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %53 to i64
-  %61 = sub i64 %59, %60
-  call void @llvm.memset.p0.i64(ptr align 1 %53, i8 0, i64 %61, i1 false)
-  br label %62
+  %57 = sub nuw nsw i64 4096, %56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, i8 0, i64 %57, i1 false)
+  br label %58
 
-62:                                               ; preds = %51, %48
+58:                                               ; preds = %51, %48
   call void @duckdb_je_arena_extent_ralloc_large_expand(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull %1, i64 noundef %14) #11
-  br label %63
+  br label %59
 
-63:                                               ; preds = %47, %62
+59:                                               ; preds = %47, %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   ret i1 %43
 }

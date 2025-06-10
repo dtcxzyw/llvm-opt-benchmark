@@ -867,7 +867,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_close(ptr nounde
   %6 = load i64, ptr %5, align 8, !tbaa !32
   %7 = icmp eq i64 %6, 0
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %8, label %216
+  br i1 %.not, label %8, label %213
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -907,7 +907,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_writer_close(ptr nounde
 padded_write.exit.thread:                         ; preds = %18, %15
   %.1.i.ph = phi i32 [ -1, %15 ], [ %25, %18 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #12
-  br label %216
+  br label %213
 
 padded_write.exit:                                ; preds = %10, %27
   store i32 0, ptr %9, align 8, !tbaa !70
@@ -918,7 +918,7 @@ padded_write.exit:                                ; preds = %10, %27
   %32 = trunc i64 %31 to i32
   %33 = icmp slt i32 %32, 0
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #12
-  br i1 %33, label %216, label %34
+  br i1 %33, label %213, label %34
 
 34:                                               ; preds = %padded_write.exit, %8
   %35 = call fastcc i32 @writer_write_header(ptr noundef nonnull %0, ptr noundef nonnull %2)
@@ -1094,83 +1094,80 @@ padded_write.exit:                                ; preds = %10, %27
   %166 = getelementptr inbounds nuw i8, ptr %37, i64 39
   store i8 %165, ptr %166, align 1, !tbaa !11
   %167 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %168 = ptrtoint ptr %167 to i64
-  %169 = ptrtoint ptr %2 to i64
-  %170 = sub i64 %168, %169
-  %171 = trunc i64 %170 to i32
-  %172 = call i64 @crc32(i64 noundef 0, ptr noundef nonnull %2, i32 noundef %171) #12
-  %173 = lshr i64 %172, 24
-  %174 = trunc i64 %173 to i8
-  store i8 %174, ptr %167, align 1, !tbaa !11
-  %175 = lshr i64 %172, 16
+  %168 = add i32 %35, 40
+  %169 = call i64 @crc32(i64 noundef 0, ptr noundef nonnull %2, i32 noundef %168) #12
+  %170 = lshr i64 %169, 24
+  %171 = trunc i64 %170 to i8
+  store i8 %171, ptr %167, align 1, !tbaa !11
+  %172 = lshr i64 %169, 16
+  %173 = trunc i64 %172 to i8
+  %174 = getelementptr inbounds nuw i8, ptr %37, i64 41
+  store i8 %173, ptr %174, align 1, !tbaa !11
+  %175 = lshr i64 %169, 8
   %176 = trunc i64 %175 to i8
-  %177 = getelementptr inbounds nuw i8, ptr %37, i64 41
+  %177 = getelementptr inbounds nuw i8, ptr %37, i64 42
   store i8 %176, ptr %177, align 1, !tbaa !11
-  %178 = lshr i64 %172, 8
-  %179 = trunc i64 %178 to i8
-  %180 = getelementptr inbounds nuw i8, ptr %37, i64 42
-  store i8 %179, ptr %180, align 1, !tbaa !11
-  %181 = trunc i64 %172 to i8
-  %182 = getelementptr inbounds nuw i8, ptr %37, i64 43
-  store i8 %181, ptr %182, align 1, !tbaa !11
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !31
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %186 = load ptr, ptr %185, align 8, !tbaa !30
-  %187 = call i32 %184(ptr noundef %186) #12
-  %188 = icmp slt i32 %187, 0
-  br i1 %188, label %216, label %189
+  %178 = trunc i64 %169 to i8
+  %179 = getelementptr inbounds nuw i8, ptr %37, i64 43
+  store i8 %178, ptr %179, align 1, !tbaa !11
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %181 = load ptr, ptr %180, align 8, !tbaa !31
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %183 = load ptr, ptr %182, align 8, !tbaa !30
+  %184 = call i32 %181(ptr noundef %183) #12
+  %185 = icmp slt i32 %184, 0
+  br i1 %185, label %213, label %186
 
-189:                                              ; preds = %34
-  %190 = getelementptr i8, ptr %0, i64 116
-  %.val = load i32, ptr %190, align 4, !tbaa !34
-  %191 = icmp eq i32 %.val, 0
-  %192 = icmp eq i32 %.val, 89
-  %193 = or i1 %191, %192
-  %194 = select i1 %193, i32 1, i32 2
-  %195 = call i64 @footer_size(i32 noundef %194) #12
-  %196 = load i32, ptr %9, align 8, !tbaa !70
-  %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %198, label %210
+186:                                              ; preds = %34
+  %187 = getelementptr i8, ptr %0, i64 116
+  %.val = load i32, ptr %187, align 4, !tbaa !34
+  %188 = icmp eq i32 %.val, 0
+  %189 = icmp eq i32 %.val, 89
+  %190 = or i1 %188, %189
+  %191 = select i1 %190, i32 1, i32 2
+  %192 = call i64 @footer_size(i32 noundef %191) #12
+  %193 = load i32, ptr %9, align 8, !tbaa !70
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %195, label %207
 
-198:                                              ; preds = %189
-  %199 = zext nneg i32 %196 to i64
-  %200 = call ptr @reftable_calloc(i64 noundef %199, i64 noundef 1) #12
-  %.not.i46 = icmp eq ptr %200, null
-  br i1 %.not.i46, label %padded_write.exit47, label %201
+195:                                              ; preds = %186
+  %196 = zext nneg i32 %193 to i64
+  %197 = call ptr @reftable_calloc(i64 noundef %196, i64 noundef 1) #12
+  %.not.i46 = icmp eq ptr %197, null
+  br i1 %.not.i46, label %padded_write.exit47, label %198
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr %0, align 8, !tbaa !29
-  %203 = load ptr, ptr %185, align 8, !tbaa !30
-  %204 = load i32, ptr %9, align 8, !tbaa !70
-  %205 = sext i32 %204 to i64
-  %206 = call i64 %202(ptr noundef %203, ptr noundef nonnull %200, i64 noundef %205) #12
-  %207 = trunc i64 %206 to i32
-  %208 = icmp slt i32 %207, 0
-  br i1 %208, label %padded_write.exit47, label %209
+198:                                              ; preds = %195
+  %199 = load ptr, ptr %0, align 8, !tbaa !29
+  %200 = load ptr, ptr %182, align 8, !tbaa !30
+  %201 = load i32, ptr %9, align 8, !tbaa !70
+  %202 = sext i32 %201 to i64
+  %203 = call i64 %199(ptr noundef %200, ptr noundef nonnull %197, i64 noundef %202) #12
+  %204 = trunc i64 %203 to i32
+  %205 = icmp slt i32 %204, 0
+  br i1 %205, label %padded_write.exit47, label %206
 
-209:                                              ; preds = %201
+206:                                              ; preds = %198
   store i32 0, ptr %9, align 8, !tbaa !70
-  call void @reftable_free(ptr noundef nonnull %200) #12
-  br label %210
+  call void @reftable_free(ptr noundef nonnull %197) #12
+  br label %207
 
-210:                                              ; preds = %209, %189
+207:                                              ; preds = %206, %186
   store i32 0, ptr %9, align 8, !tbaa !70
-  %211 = load ptr, ptr %0, align 8, !tbaa !29
-  %212 = load ptr, ptr %185, align 8, !tbaa !30
-  %213 = call i64 %211(ptr noundef %212, ptr noundef nonnull %2, i64 noundef %195) #12
-  %214 = trunc i64 %213 to i32
-  %..i44 = call i32 @llvm.smin.i32(i32 %214, i32 0)
+  %208 = load ptr, ptr %0, align 8, !tbaa !29
+  %209 = load ptr, ptr %182, align 8, !tbaa !30
+  %210 = call i64 %208(ptr noundef %209, ptr noundef nonnull %2, i64 noundef %192) #12
+  %211 = trunc i64 %210 to i32
+  %..i44 = call i32 @llvm.smin.i32(i32 %211, i32 0)
   br label %padded_write.exit47
 
-padded_write.exit47:                              ; preds = %198, %201, %210
-  %.1.i45 = phi i32 [ %..i44, %210 ], [ %207, %201 ], [ -1, %198 ]
-  %215 = icmp sgt i32 %.1.i45, -1
-  %or.cond = select i1 %215, i1 %7, i1 false
+padded_write.exit47:                              ; preds = %195, %198, %207
+  %.1.i45 = phi i32 [ %..i44, %207 ], [ %204, %198 ], [ -1, %195 ]
+  %212 = icmp sgt i32 %.1.i45, -1
+  %or.cond = select i1 %212, i1 %7, i1 false
   %spec.store.select = select i1 %or.cond, i32 -8, i32 %.1.i45
-  br label %216
+  br label %213
 
-216:                                              ; preds = %padded_write.exit.thread, %padded_write.exit, %34, %padded_write.exit47, %1
+213:                                              ; preds = %padded_write.exit.thread, %padded_write.exit, %34, %padded_write.exit47, %1
   %.042 = phi i32 [ %4, %1 ], [ %spec.store.select, %padded_write.exit47 ], [ %32, %padded_write.exit ], [ -2, %34 ], [ %.1.i.ph, %padded_write.exit.thread ]
   call fastcc void @writer_release(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #12

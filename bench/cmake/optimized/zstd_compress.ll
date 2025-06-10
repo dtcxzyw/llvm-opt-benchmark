@@ -5257,7 +5257,7 @@ define dso_local i64 @ZSTD_loadCEntropy(ptr noundef initializes((2056, 2060)) %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #28
   store i32 1, ptr %8, align 4, !tbaa !49
   %19 = ptrtoint ptr %16 to i64
-  %gepdiff = add nsw i64 %3, -8
+  %gepdiff = add i64 %3, -8
   %20 = call i64 @HUF_readCTable(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %17, i64 noundef %gepdiff, ptr noundef nonnull %8) #28
   %21 = load i32, ptr %8, align 4, !tbaa !49
   %.not = icmp eq i32 %21, 0
@@ -5280,81 +5280,80 @@ define dso_local i64 @ZSTD_loadCEntropy(ptr noundef initializes((2056, 2060)) %0
 
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
-  %28 = ptrtoint ptr %spec.select106 to i64
-  %29 = sub i64 %19, %28
-  %30 = call i64 @FSE_readNCount(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %spec.select106, i64 noundef %29) #28
-  %31 = icmp ult i64 %30, -119
-  br i1 %31, label %32, label %.thread
+  %gepdiff134 = sub i64 %gepdiff, %20
+  %28 = call i64 @FSE_readNCount(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %spec.select106, i64 noundef %gepdiff134) #28
+  %29 = icmp ult i64 %28, -119
+  br i1 %29, label %30, label %.thread
 
-32:                                               ; preds = %27
-  %33 = load i32, ptr %9, align 4, !tbaa !49
-  %34 = icmp ugt i32 %33, 8
-  br i1 %34, label %.thread, label %35
+30:                                               ; preds = %27
+  %31 = load i32, ptr %9, align 4, !tbaa !49
+  %32 = icmp ugt i32 %31, 8
+  br i1 %32, label %.thread, label %33
 
-.thread:                                          ; preds = %27, %32
+.thread:                                          ; preds = %27, %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
   br label %.loopexit
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %37 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %36, ptr noundef nonnull %5, i32 noundef 31, i32 noundef %33, ptr noundef %1, i64 noundef 8704) #28
-  %38 = icmp ult i64 %37, -119
-  %39 = getelementptr inbounds nuw i8, ptr %spec.select106, i64 %30
-  %spec.select102 = select i1 %38, ptr %39, ptr %spec.select106
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  %35 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %34, ptr noundef nonnull %5, i32 noundef 31, i32 noundef %31, ptr noundef %1, i64 noundef 8704) #28
+  %36 = icmp ult i64 %35, -119
+  %37 = getelementptr inbounds nuw i8, ptr %spec.select106, i64 %28
+  %spec.select102 = select i1 %36, ptr %37, ptr %spec.select106
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
-  br i1 %38, label %40, label %.loopexit
+  br i1 %36, label %38, label %.loopexit
 
-40:                                               ; preds = %35
+38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %10) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #28
   store i32 52, ptr %11, align 4, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %19, %41
-  %43 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %39, i64 noundef %42) #28
-  %44 = icmp ult i64 %43, -119
-  br i1 %44, label %45, label %.thread125
+  %39 = add i64 %20, %28
+  %gepdiff135 = sub i64 %gepdiff, %39
+  %40 = call i64 @FSE_readNCount(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %37, i64 noundef %gepdiff135) #28
+  %41 = icmp ult i64 %40, -119
+  br i1 %41, label %42, label %.thread125
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %12, align 4, !tbaa !49
-  %47 = icmp ugt i32 %46, 9
-  br i1 %47, label %.thread125, label %48
+42:                                               ; preds = %38
+  %43 = load i32, ptr %12, align 4, !tbaa !49
+  %44 = icmp ugt i32 %43, 9
+  br i1 %44, label %.thread125, label %45
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 2836
-  %50 = load i32, ptr %11, align 4, !tbaa !49
-  %51 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %49, ptr noundef nonnull %10, i32 noundef %50, i32 noundef %46, ptr noundef %1, i64 noundef 8704) #28
-  %52 = icmp ult i64 %51, -119
-  br i1 %52, label %53, label %.thread125
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2836
+  %47 = load i32, ptr %11, align 4, !tbaa !49
+  %48 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %46, ptr noundef nonnull %10, i32 noundef %47, i32 noundef %43, ptr noundef %1, i64 noundef 8704) #28
+  %49 = icmp ult i64 %48, -119
+  br i1 %49, label %50, label %.thread125
 
-53:                                               ; preds = %48
-  %54 = load i32, ptr %11, align 4, !tbaa !49
-  %55 = icmp ult i32 %54, 52
-  br i1 %55, label %.loopexit135, label %.preheader.i
+50:                                               ; preds = %45
+  %51 = load i32, ptr %11, align 4, !tbaa !49
+  %52 = icmp ult i32 %51, 52
+  br i1 %52, label %.loopexit140, label %.preheader.i
 
-56:                                               ; preds = %.preheader.i
+53:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 53
-  br i1 %exitcond.not.i, label %.loopexit135, label %.preheader.i, !llvm.loop !254
+  br i1 %exitcond.not.i, label %.loopexit140, label %.preheader.i, !llvm.loop !254
 
-.preheader.i:                                     ; preds = %53, %56
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %53 ]
-  %57 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
-  %58 = load i16, ptr %57, align 2, !tbaa !224
-  %59 = icmp eq i16 %58, 0
-  br i1 %59, label %.loopexit135, label %56
+.preheader.i:                                     ; preds = %50, %53
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %50 ]
+  %54 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i
+  %55 = load i16, ptr %54, align 2, !tbaa !224
+  %56 = icmp eq i16 %55, 0
+  br i1 %56, label %.loopexit140, label %53
 
-.thread125:                                       ; preds = %40, %45, %48
+.thread125:                                       ; preds = %38, %42, %45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %10) #28
   br label %.loopexit
 
-.loopexit135:                                     ; preds = %56, %.preheader.i, %53
-  %.07.i = phi i32 [ 1, %53 ], [ 1, %.preheader.i ], [ 2, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 5608
-  store i32 %.07.i, ptr %60, align 8, !tbaa !158
-  %61 = getelementptr inbounds nuw i8, ptr %spec.select102, i64 %43
+.loopexit140:                                     ; preds = %53, %.preheader.i, %50
+  %.07.i = phi i32 [ 1, %50 ], [ 1, %.preheader.i ], [ 2, %53 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 5608
+  store i32 %.07.i, ptr %57, align 8, !tbaa !158
+  %58 = getelementptr inbounds nuw i8, ptr %spec.select102, i64 %40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %10) #28
@@ -5362,128 +5361,128 @@ define dso_local i64 @ZSTD_loadCEntropy(ptr noundef initializes((2056, 2060)) %0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #28
   store i32 35, ptr %14, align 4, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28
-  %62 = ptrtoint ptr %61 to i64
-  %63 = sub i64 %19, %62
-  %64 = call i64 @FSE_readNCount(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %61, i64 noundef %63) #28
-  %65 = icmp ult i64 %64, -119
-  br i1 %65, label %66, label %.thread129
+  %59 = ptrtoint ptr %58 to i64
+  %60 = sub i64 %19, %59
+  %61 = call i64 @FSE_readNCount(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %58, i64 noundef %60) #28
+  %62 = icmp ult i64 %61, -119
+  br i1 %62, label %63, label %.thread129
 
-66:                                               ; preds = %.loopexit135
-  %67 = load i32, ptr %15, align 4, !tbaa !49
-  %68 = icmp ugt i32 %67, 9
-  br i1 %68, label %.thread129, label %69
+63:                                               ; preds = %.loopexit140
+  %64 = load i32, ptr %15, align 4, !tbaa !49
+  %65 = icmp ugt i32 %64, 9
+  br i1 %65, label %.thread129, label %66
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4288
-  %71 = load i32, ptr %14, align 4, !tbaa !49
-  %72 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %70, ptr noundef nonnull %13, i32 noundef %71, i32 noundef %67, ptr noundef %1, i64 noundef 8704) #28
-  %73 = icmp ult i64 %72, -119
-  br i1 %73, label %74, label %.thread129
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4288
+  %68 = load i32, ptr %14, align 4, !tbaa !49
+  %69 = call i64 @FSE_buildCTable_wksp(ptr noundef nonnull %67, ptr noundef nonnull %13, i32 noundef %68, i32 noundef %64, ptr noundef %1, i64 noundef 8704) #28
+  %70 = icmp ult i64 %69, -119
+  br i1 %70, label %71, label %.thread129
 
-74:                                               ; preds = %69
-  %75 = load i32, ptr %14, align 4, !tbaa !49
-  %76 = icmp ult i32 %75, 35
-  br i1 %76, label %.loopexit134, label %.preheader.i109
+71:                                               ; preds = %66
+  %72 = load i32, ptr %14, align 4, !tbaa !49
+  %73 = icmp ult i32 %72, 35
+  br i1 %73, label %.loopexit139, label %.preheader.i109
 
-77:                                               ; preds = %.preheader.i109
+74:                                               ; preds = %.preheader.i109
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, 36
-  br i1 %exitcond.not.i112, label %.loopexit134, label %.preheader.i109, !llvm.loop !254
+  br i1 %exitcond.not.i112, label %.loopexit139, label %.preheader.i109, !llvm.loop !254
 
-.preheader.i109:                                  ; preds = %74, %77
-  %indvars.iv.i110 = phi i64 [ %indvars.iv.next.i111, %77 ], [ 0, %74 ]
-  %78 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv.i110
-  %79 = load i16, ptr %78, align 2, !tbaa !224
-  %80 = icmp eq i16 %79, 0
-  br i1 %80, label %.loopexit134, label %77
+.preheader.i109:                                  ; preds = %71, %74
+  %indvars.iv.i110 = phi i64 [ %indvars.iv.next.i111, %74 ], [ 0, %71 ]
+  %75 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv.i110
+  %76 = load i16, ptr %75, align 2, !tbaa !224
+  %77 = icmp eq i16 %76, 0
+  br i1 %77, label %.loopexit139, label %74
 
-.thread129:                                       ; preds = %.loopexit135, %66, %69
+.thread129:                                       ; preds = %.loopexit140, %63, %66
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #28
   br label %.loopexit
 
-.loopexit134:                                     ; preds = %77, %.preheader.i109, %74
-  %.07.i113 = phi i32 [ 1, %74 ], [ 1, %.preheader.i109 ], [ 2, %77 ]
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 5612
-  store i32 %.07.i113, ptr %81, align 4, !tbaa !159
-  %82 = getelementptr inbounds nuw i8, ptr %61, i64 %64
+.loopexit139:                                     ; preds = %74, %.preheader.i109, %71
+  %.07.i113 = phi i32 [ 1, %71 ], [ 1, %.preheader.i109 ], [ 2, %74 ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 5612
+  store i32 %.07.i113, ptr %78, align 4, !tbaa !159
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 %61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #28
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
-  %84 = icmp ugt ptr %83, %16
-  br i1 %84, label %.loopexit, label %85
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
+  %81 = icmp ugt ptr %80, %16
+  br i1 %81, label %.loopexit, label %82
 
-85:                                               ; preds = %.loopexit134
-  %.381.val = load i32, ptr %82, align 1, !tbaa !49
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 5616
-  store i32 %.381.val, ptr %86, align 8, !tbaa !49
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %.val = load i32, ptr %87, align 1, !tbaa !49
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 5620
-  store i32 %.val, ptr %88, align 4, !tbaa !49
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %.val107 = load i32, ptr %89, align 1, !tbaa !49
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 5624
-  store i32 %.val107, ptr %90, align 8, !tbaa !49
-  %91 = ptrtoint ptr %83 to i64
-  %92 = sub i64 %19, %91
-  %93 = icmp ult i64 %92, 4294836224
-  %94 = trunc nuw i64 %92 to i32
-  %95 = add nuw i32 %94, 131072
-  %96 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %95, i1 true)
-  %97 = xor i32 %96, 31
-  %.077 = select i1 %93, i32 %97, i32 31
-  %98 = load i32, ptr %6, align 4, !tbaa !49
-  %99 = icmp ult i32 %98, %.077
-  br i1 %99, label %ZSTD_dictNCountRepeat.exit121, label %.preheader.preheader.i115
+82:                                               ; preds = %.loopexit139
+  %.381.val = load i32, ptr %79, align 1, !tbaa !49
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 5616
+  store i32 %.381.val, ptr %83, align 8, !tbaa !49
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %.val = load i32, ptr %84, align 1, !tbaa !49
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 5620
+  store i32 %.val, ptr %85, align 4, !tbaa !49
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %.val107 = load i32, ptr %86, align 1, !tbaa !49
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 5624
+  store i32 %.val107, ptr %87, align 8, !tbaa !49
+  %88 = ptrtoint ptr %80 to i64
+  %89 = sub i64 %19, %88
+  %90 = icmp ult i64 %89, 4294836224
+  %91 = trunc nuw i64 %89 to i32
+  %92 = add nuw i32 %91, 131072
+  %93 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %92, i1 true)
+  %94 = xor i32 %93, 31
+  %.077 = select i1 %90, i32 %94, i32 31
+  %95 = load i32, ptr %6, align 4, !tbaa !49
+  %96 = icmp ult i32 %95, %.077
+  br i1 %96, label %ZSTD_dictNCountRepeat.exit121, label %.preheader.preheader.i115
 
-.preheader.preheader.i115:                        ; preds = %85
-  %100 = add nuw nsw i32 %.077, 1
-  %wide.trip.count.i = zext nneg i32 %100 to i64
+.preheader.preheader.i115:                        ; preds = %82
+  %97 = add nuw nsw i32 %.077, 1
+  %wide.trip.count.i = zext nneg i32 %97 to i64
   br label %.preheader.i116
 
-101:                                              ; preds = %.preheader.i116
+98:                                               ; preds = %.preheader.i116
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i117, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i
   br i1 %exitcond.not.i119, label %ZSTD_dictNCountRepeat.exit121, label %.preheader.i116, !llvm.loop !254
 
-.preheader.i116:                                  ; preds = %101, %.preheader.preheader.i115
-  %indvars.iv.i117 = phi i64 [ 0, %.preheader.preheader.i115 ], [ %indvars.iv.next.i118, %101 ]
-  %102 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i117
-  %103 = load i16, ptr %102, align 2, !tbaa !224
-  %104 = icmp eq i16 %103, 0
-  br i1 %104, label %ZSTD_dictNCountRepeat.exit121, label %101
+.preheader.i116:                                  ; preds = %98, %.preheader.preheader.i115
+  %indvars.iv.i117 = phi i64 [ 0, %.preheader.preheader.i115 ], [ %indvars.iv.next.i118, %98 ]
+  %99 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i117
+  %100 = load i16, ptr %99, align 2, !tbaa !224
+  %101 = icmp eq i16 %100, 0
+  br i1 %101, label %ZSTD_dictNCountRepeat.exit121, label %98
 
-ZSTD_dictNCountRepeat.exit121:                    ; preds = %101, %.preheader.i116, %85
-  %.07.i120 = phi i32 [ 1, %85 ], [ 1, %.preheader.i116 ], [ 2, %101 ]
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 5604
-  store i32 %.07.i120, ptr %105, align 4, !tbaa !157
-  br label %107
+ZSTD_dictNCountRepeat.exit121:                    ; preds = %98, %.preheader.i116, %82
+  %.07.i120 = phi i32 [ 1, %82 ], [ 1, %.preheader.i116 ], [ 2, %98 ]
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 5604
+  store i32 %.07.i120, ptr %102, align 4, !tbaa !157
+  br label %104
 
-106:                                              ; preds = %107
+103:                                              ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %.critedge, label %107, !llvm.loop !255
+  br i1 %exitcond, label %.critedge, label %104, !llvm.loop !255
 
-107:                                              ; preds = %ZSTD_dictNCountRepeat.exit121, %106
-  %indvars.iv = phi i64 [ 0, %ZSTD_dictNCountRepeat.exit121 ], [ %indvars.iv.next, %106 ]
-  %108 = getelementptr inbounds nuw [3 x i32], ptr %86, i64 0, i64 %indvars.iv
-  %109 = load i32, ptr %108, align 4, !tbaa !49
-  %110 = icmp eq i32 %109, 0
-  %111 = zext i32 %109 to i64
-  %112 = icmp ult i64 %92, %111
-  %or.cond104 = or i1 %110, %112
-  br i1 %or.cond104, label %.loopexit, label %106
+104:                                              ; preds = %ZSTD_dictNCountRepeat.exit121, %103
+  %indvars.iv = phi i64 [ 0, %ZSTD_dictNCountRepeat.exit121 ], [ %indvars.iv.next, %103 ]
+  %105 = getelementptr inbounds nuw [3 x i32], ptr %83, i64 0, i64 %indvars.iv
+  %106 = load i32, ptr %105, align 4, !tbaa !49
+  %107 = icmp eq i32 %106, 0
+  %108 = zext i32 %106 to i64
+  %109 = icmp ult i64 %89, %108
+  %or.cond104 = or i1 %107, %109
+  br i1 %or.cond104, label %.loopexit, label %103
 
-.critedge:                                        ; preds = %106
-  %113 = ptrtoint ptr %2 to i64
-  %114 = sub i64 %91, %113
+.critedge:                                        ; preds = %103
+  %110 = ptrtoint ptr %2 to i64
+  %111 = sub i64 %88, %110
   br label %.loopexit
 
-.loopexit:                                        ; preds = %107, %.thread129, %.thread125, %.thread, %.loopexit134, %35, %23, %.critedge
-  %.1 = phi i64 [ %114, %.critedge ], [ -30, %35 ], [ -30, %23 ], [ -30, %.loopexit134 ], [ -30, %.thread ], [ -30, %.thread125 ], [ -30, %.thread129 ], [ -30, %107 ]
+.loopexit:                                        ; preds = %104, %.thread129, %.thread125, %.thread, %.loopexit139, %33, %23, %.critedge
+  %.1 = phi i64 [ %111, %.critedge ], [ -30, %33 ], [ -30, %23 ], [ -30, %.loopexit139 ], [ -30, %.thread ], [ -30, %.thread125 ], [ -30, %.thread129 ], [ -30, %104 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #28
   ret i64 %.1
@@ -13900,7 +13899,7 @@ ZSTD_seqToCodes.exit:                             ; preds = %74, %77
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %94, ptr %100, align 8, !tbaa !402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  br label %147
+  br label %146
 
 101:                                              ; preds = %96, %98
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 %94
@@ -13937,7 +13936,7 @@ ZSTD_seqToCodes.exit:                             ; preds = %74, %77
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %115, ptr %121, align 8, !tbaa !402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28
-  br label %147
+  br label %146
 
 122:                                              ; preds = %117, %119
   %123 = getelementptr inbounds nuw i8, ptr %102, i64 %115
@@ -13973,18 +13972,17 @@ ZSTD_seqToCodes.exit:                             ; preds = %74, %77
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %135, ptr %141, align 8, !tbaa !402
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #28
-  br label %147
+  br label %146
 
 142:                                              ; preds = %137, %139
-  %143 = getelementptr inbounds nuw i8, ptr %123, i64 %135
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #28
-  %144 = ptrtoint ptr %143 to i64
-  %145 = sub i64 %144, %91
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %145, ptr %146, align 8, !tbaa !402
-  br label %147
+  %143 = add i64 %115, %94
+  %144 = add i64 %143, %135
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %144, ptr %145, align 8, !tbaa !402
+  br label %146
 
-147:                                              ; preds = %140, %120, %99, %142
+146:                                              ; preds = %140, %120, %99, %142
   ret void
 }
 

@@ -3999,7 +3999,8 @@ _ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i: ; preds = %_ZSt1
   %.01325.i.i = phi i64 [ 1254, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i.i ], [ %.2.i.i, %_ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ]
   %.024.i.i = phi ptr [ @_ZN4llvm13AArch64SysRegL11SysRegsListE, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ]
   %2 = lshr i64 %.01325.i.i, 1
-  %3 = getelementptr inbounds nuw %"struct.llvm::AArch64SysReg::SysReg", ptr %.024.i.i, i64 %2
+  %.idx23 = mul nuw nsw i64 %2, 80
+  %3 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 %.idx23
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i = load i32, ptr %4, align 8, !tbaa !98
   %5 = icmp ult i32 %.val.i.i, %1
@@ -4037,43 +4038,42 @@ _ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i.i: ; preds = %12,
 
 _ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i.i, %12
   %.0.lcssa.i.i.i = phi ptr [ %.024.i.i, %12 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i.i ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::AArch64SysReg::SysReg", ptr %.024.i.i, i64 %.01325.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %23 = ptrtoint ptr %21 to i64
-  %24 = ptrtoint ptr %22 to i64
-  %25 = sub i64 %23, %24
-  %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
+  %.idx = mul nuw nsw i64 %.01325.i.i, 80
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %22 = add nuw i64 %.idx23, 80
+  %gepdiff = sub nsw i64 %.idx, %22
+  %23 = icmp sgt i64 %gepdiff, 0
+  br i1 %23, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit
 
 _ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i: ; preds = %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i
-  %27 = udiv exact i64 %25, 80
+  %24 = udiv exact i64 %gepdiff, 80
   br label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i
 
 _ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i: ; preds = %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i
-  %.05.i25.i.i = phi ptr [ %22, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i ], [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ]
-  %.0114.i26.i.i = phi i64 [ %27, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i ], [ %.112.i29.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ]
-  %28 = lshr i64 %.0114.i26.i.i, 1
-  %29 = getelementptr inbounds nuw %"struct.llvm::AArch64SysReg::SysReg", ptr %.05.i25.i.i, i64 %28
-  %30 = getelementptr i8, ptr %29, i64 32
-  %.val13.i.i.i = load i32, ptr %30, align 8, !tbaa !98
-  %31 = icmp ugt i32 %.val13.i.i.i, %1
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 80
-  %33 = xor i64 %28, -1
-  %34 = add nsw i64 %.0114.i26.i.i, %33
-  %.112.i29.i.i = select i1 %31, i64 %28, i64 %34
-  %.1.i30.i.i = select i1 %31, ptr %.05.i25.i.i, ptr %32
-  %35 = icmp sgt i64 %.112.i29.i.i, 0
-  br i1 %35, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !102
+  %.05.i25.i.i = phi ptr [ %21, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i ], [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ]
+  %.0114.i26.i.i = phi i64 [ %24, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i ], [ %.112.i29.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ]
+  %25 = lshr i64 %.0114.i26.i.i, 1
+  %26 = getelementptr inbounds nuw %"struct.llvm::AArch64SysReg::SysReg", ptr %.05.i25.i.i, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 32
+  %.val13.i.i.i = load i32, ptr %27, align 8, !tbaa !98
+  %28 = icmp ugt i32 %.val13.i.i.i, %1
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  %30 = xor i64 %25, -1
+  %31 = add nsw i64 %.0114.i26.i.i, %30
+  %.112.i29.i.i = select i1 %28, i64 %25, i64 %31
+  %.1.i30.i.i = select i1 %28, ptr %.05.i25.i.i, ptr %29
+  %32 = icmp sgt i64 %.112.i29.i.i, 0
+  br i1 %32, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !102
 
 _ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i: ; preds = %10, %6
   %.1.i.i = phi ptr [ %7, %6 ], [ %.024.i.i, %10 ]
   %.2.i.i = phi i64 [ %9, %6 ], [ %2, %10 ]
-  %36 = icmp sgt i64 %.2.i.i, 0
-  br i1 %36, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !103
+  %33 = icmp sgt i64 %.2.i.i, 0
+  br i1 %33, label %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i.i, label %_ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit, !llvm.loop !103
 
 _ZSt11equal_rangeIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i
   %.sroa.0.2.i.i = phi ptr [ %.0.lcssa.i.i.i, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.0.lcssa.i.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %.1.i.i, %_ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ]
-  %.sroa.3.2.i.i = phi ptr [ %22, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %.1.i.i, %_ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ]
+  %.sroa.3.2.i.i = phi ptr [ %21, %_ZSt13__lower_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Iter_comp_valIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ], [ %.1.i30.i.i, %_ZSt7advanceIPKN4llvm13AArch64SysReg6SysRegElEvRT_T0_.exit.i24.i.i ], [ %.1.i.i, %_ZSt13__upper_boundIPKN4llvm13AArch64SysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_22lookupSysRegByEncodingEtE4CompEEET_SB_SB_RKT0_T1_.exit.i.i ]
   %.fca.0.insert.i.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.2.i.i, 0
   %.fca.1.insert.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i, ptr %.sroa.3.2.i.i, 1
   ret { ptr, ptr } %.fca.1.insert.i.i

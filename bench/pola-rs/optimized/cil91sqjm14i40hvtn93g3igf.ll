@@ -2700,46 +2700,38 @@ define hidden void @"_ZN12polars_arrow5array7binview31BinaryViewArrayGeneric$LT$
 
 10:                                               ; preds = %8
   %11 = icmp eq i64 %4, 0
-  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit", label %12
+  br i1 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit", label %.preheader
 
-12:                                               ; preds = %10
-  %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.idx = mul nuw nsw i64 %4, 24
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.ptr5 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %14 = ptrtoint ptr %.ptr5 to i64
-  %15 = ptrtoint ptr %.ptr to i64
-  %16 = sub nuw i64 %14, %15
-  %17 = udiv exact i64 %16, 24
-  %invariant.gep = getelementptr i8, ptr %3, i64 32
-  br label %18
+.preheader:                                       ; preds = %10
+  %12 = getelementptr i8, ptr %3, i64 32
+  br label %13
 
-18:                                               ; preds = %18, %12
-  %.sroa.07.0.i = phi i64 [ 0, %12 ], [ %19, %18 ]
-  %.sroa.09.0.i = phi i64 [ 0, %12 ], [ %20, %18 ]
-  %.idx6 = mul i64 %.sroa.09.0.i, 24
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx6
-  %.val.i = load i64, ptr %gep, align 8, !noundef !3
-  %19 = add i64 %.val.i, %.sroa.07.0.i
-  %20 = add nuw i64 %.sroa.09.0.i, 1
-  %21 = icmp eq i64 %20, %17
-  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit", label %18
+13:                                               ; preds = %.preheader, %13
+  %.sroa.07.0.i = phi i64 [ %15, %13 ], [ 0, %.preheader ]
+  %.sroa.09.0.i = phi i64 [ %16, %13 ], [ 0, %.preheader ]
+  %.idx = mul i64 %.sroa.09.0.i, 24
+  %14 = getelementptr i8, ptr %12, i64 %.idx
+  %.val.i = load i64, ptr %14, align 8, !noundef !3
+  %15 = add i64 %.val.i, %.sroa.07.0.i
+  %16 = add nuw i64 %.sroa.09.0.i, 1
+  %17 = icmp eq i64 %16, %4
+  br i1 %17, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit", label %13
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit": ; preds = %18, %10, %8
-  %.sroa.01.0 = phi i64 [ %7, %8 ], [ 0, %10 ], [ %19, %18 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h914063353a945ba8E.exit": ; preds = %13, %10, %8
+  %.sroa.01.0 = phi i64 [ %7, %8 ], [ 0, %10 ], [ %15, %13 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %3, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %4, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 -1, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %.sroa.01.0, ptr %27, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %3, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %4, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 -1, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %.sroa.01.0, ptr %23, align 8
   ret void
 }
 

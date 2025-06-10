@@ -354,12 +354,9 @@ define hidden void @_ZN11G1CardTable16g1_mark_as_youngERK9MemRegion(ptr noundef 
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = ptrtoint ptr %14 to i64
   %16 = lshr i64 %15, %8
-  %17 = getelementptr inbounds i8, ptr %5, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %19 = ptrtoint ptr %18 to i64
-  %20 = ptrtoint ptr %10 to i64
-  %21 = sub i64 %19, %20
-  tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 2, i64 %21, i1 false)
+  %reass.sub = sub i64 %16, %9
+  %gepdiff = add i64 %reass.sub, 1
+  tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 2, i64 %gepdiff, i1 false)
   ret void
 }
 

@@ -5133,7 +5133,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4ncnn27custom_layer_registry_entr
 _ZSt22__uninitialized_move_aIPN4ncnn27custom_layer_registry_entryES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %14
   %19 = sub i64 0, %2
   %20 = getelementptr inbounds %"struct.ncnn::custom_layer_registry_entry", ptr %9, i64 %19
-  %.idx.neg = shl i64 %2, 5
+  %.idx.neg = shl nsw i64 %2, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %20, i64 %.idx.neg, i1 false)
   %21 = load ptr, ptr %8, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw %"struct.ncnn::custom_layer_registry_entry", ptr %21, i64 %2

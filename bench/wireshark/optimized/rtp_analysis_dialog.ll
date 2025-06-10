@@ -3232,7 +3232,7 @@ define void @_ZN17RtpAnalysisDialog8closeTabEi(ptr noundef align 8 dereferenceab
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, %5
-  br i1 %.not, label %116, label %9
+  br i1 %.not, label %113, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3308,11 +3308,13 @@ _ZNK17QArrayDataPointerIP10tab_info_tE11needsDetachEv.exit.thread.i.i: ; preds =
 
 _ZN17QArrayDataPointerIP10tab_info_tE6detachEPS2_.exit.i: ; preds = %_ZNK17QArrayDataPointerIP10tab_info_tE11needsDetachEv.exit.thread.i.i, %_ZNK17QArrayDataPointerIP10tab_info_tE11needsDetachEv.exit.i.i
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %5
+  %.idx3.i = shl nsw i64 %5, 3
+  %38 = getelementptr i8, ptr %37, i64 %.idx3.i
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = icmp ne i32 %1, 0
   %41 = load i64, ptr %7, align 8
-  %42 = getelementptr ptr, ptr %37, i64 %41
+  %.idx.i = shl i64 %41, 3
+  %42 = getelementptr i8, ptr %37, i64 %.idx.i
   %.not.i.i = icmp eq ptr %39, %42
   %or.cond.i.i = select i1 %40, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %._crit_edge.i.i, label %43
@@ -3325,118 +3327,117 @@ _ZN17QArrayDataPointerIP10tab_info_tE6detachEPS2_.exit.i: ; preds = %_ZNK17QArra
   br i1 %.not.i.i, label %_ZN5QListIP10tab_info_tE6removeExx.exit, label %44
 
 44:                                               ; preds = %._crit_edge.i.i
-  %45 = ptrtoint ptr %42 to i64
-  %46 = ptrtoint ptr %39 to i64
-  %47 = sub i64 %45, %46
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %38, ptr noundef align 1 %39, i64 noundef %47, i1 noundef false) #25
+  %reass.sub = sub i64 %.idx.i, %.idx3.i
+  %gepdiff.i = add i64 %reass.sub, -8
+  call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 %38, ptr noundef align 1 %39, i64 noundef %gepdiff.i, i1 noundef false) #25
   %.pre12.i.i = load i64, ptr %7, align 8
   br label %_ZN5QListIP10tab_info_tE6removeExx.exit
 
 _ZN5QListIP10tab_info_tE6removeExx.exit:          ; preds = %43, %._crit_edge.i.i, %44
-  %48 = phi i64 [ %41, %._crit_edge.i.i ], [ %.pre12.i.i, %44 ], [ %41, %43 ]
-  %49 = add i64 %48, -1
-  store i64 %49, ptr %7, align 8
+  %45 = phi i64 [ %41, %._crit_edge.i.i ], [ %.pre12.i.i, %44 ], [ %41, %43 ]
+  %46 = add i64 %45, -1
+  store i64 %46, ptr %7, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
+  %49 = load ptr, ptr %48, align 8
+  call void @_ZN10QTabWidget9removeTabEi(ptr noundef align 8 dereferenceable_or_null(40) %49, i32 noundef %1)
   %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %52 = load ptr, ptr %51, align 8
-  call void @_ZN10QTabWidget9removeTabEi(ptr noundef align 8 dereferenceable_or_null(40) %52, i32 noundef %1)
-  %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %53 = load ptr, ptr %3, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 7352
   %55 = load ptr, ptr %54, align 8
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 7352
-  %58 = load ptr, ptr %57, align 8
-  %59 = call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513) %55, ptr noundef %58)
-  %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 128
+  %56 = call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513) %52, ptr noundef %55)
+  %57 = load ptr, ptr %10, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 7360
   %62 = load ptr, ptr %61, align 8
-  %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 7360
-  %65 = load ptr, ptr %64, align 8
-  %66 = call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513) %62, ptr noundef %65)
-  %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 128
+  %63 = call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513) %59, ptr noundef %62)
+  %64 = load ptr, ptr %10, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 7368
   %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 7368
-  %72 = load ptr, ptr %71, align 8
-  %73 = call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513) %69, ptr noundef %72)
-  %74 = load ptr, ptr %3, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 7376
-  %76 = load ptr, ptr %75, align 8
-  %.not.i7 = icmp eq ptr %76, null
+  %70 = call noundef zeroext i1 @_ZN11QCustomPlot11removeGraphEP8QCPGraph(ptr noundef align 8 dereferenceable_or_null(513) %66, ptr noundef %69)
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 7376
+  %73 = load ptr, ptr %72, align 8
+  %.not.i7 = icmp eq ptr %73, null
   br i1 %.not.i7, label %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN5QListIP10tab_info_tE6removeExx.exit
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 176
-  %79 = load ptr, ptr %78, align 8
-  %80 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable_or_null(28) %76, i32 noundef 0)
-  %.not911.i = icmp eq ptr %80, null
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 176
+  %76 = load ptr, ptr %75, align 8
+  %77 = call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable_or_null(28) %73, i32 noundef 0)
+  %.not911.i = icmp eq ptr %77, null
   br i1 %.not911.i, label %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %100
-  %81 = phi ptr [ %107, %100 ], [ %80, %.preheader.i ]
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 104
-  %84 = load ptr, ptr %83, align 8
-  %85 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable_or_null(12) %81)
-  %.not10.i = icmp eq ptr %85, null
-  br i1 %.not10.i, label %100, label %86
+.lr.ph.i:                                         ; preds = %.preheader.i, %97
+  %78 = phi ptr [ %104, %97 ], [ %77, %.preheader.i ]
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 104
+  %81 = load ptr, ptr %80, align 8
+  %82 = call noundef ptr %81(ptr noundef nonnull align 8 dereferenceable_or_null(12) %78)
+  %.not10.i = icmp eq ptr %82, null
+  br i1 %.not10.i, label %97, label %83
 
-86:                                               ; preds = %.lr.ph.i
-  %87 = load ptr, ptr %81, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 104
-  %89 = load ptr, ptr %88, align 8
-  %90 = call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable_or_null(12) %81)
-  call void @_ZN7QLayout12removeWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(28) %76, ptr noundef %90)
-  %91 = load ptr, ptr %81, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 104
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable_or_null(12) %81)
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %100, label %96
+83:                                               ; preds = %.lr.ph.i
+  %84 = load ptr, ptr %78, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 104
+  %86 = load ptr, ptr %85, align 8
+  %87 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable_or_null(12) %78)
+  call void @_ZN7QLayout12removeWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable_or_null(28) %73, ptr noundef %87)
+  %88 = load ptr, ptr %78, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 104
+  %90 = load ptr, ptr %89, align 8
+  %91 = call noundef ptr %90(ptr noundef nonnull align 8 dereferenceable_or_null(12) %78)
+  %92 = icmp eq ptr %91, null
+  br i1 %92, label %97, label %93
 
-96:                                               ; preds = %86
-  %97 = load ptr, ptr %94, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
-  %99 = load ptr, ptr %98, align 8
-  call void %99(ptr noundef nonnull align 8 dereferenceable_or_null(40) %94) #25
-  br label %100
+93:                                               ; preds = %83
+  %94 = load ptr, ptr %91, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable_or_null(40) %91) #25
+  br label %97
 
-100:                                              ; preds = %96, %86, %.lr.ph.i
-  %101 = load ptr, ptr %81, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+97:                                               ; preds = %93, %83, %.lr.ph.i
+  %98 = load ptr, ptr %78, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  call void %100(ptr noundef nonnull align 8 dereferenceable_or_null(12) %78) #25
+  %101 = load ptr, ptr %73, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 176
   %103 = load ptr, ptr %102, align 8
-  call void %103(ptr noundef nonnull align 8 dereferenceable_or_null(12) %81) #25
-  %104 = load ptr, ptr %76, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 176
-  %106 = load ptr, ptr %105, align 8
-  %107 = call noundef ptr %106(ptr noundef nonnull align 8 dereferenceable_or_null(28) %76, i32 noundef 0)
-  %.not9.i = icmp eq ptr %107, null
+  %104 = call noundef ptr %103(ptr noundef nonnull align 8 dereferenceable_or_null(28) %73, i32 noundef 0)
+  %.not9.i = icmp eq ptr %104, null
   br i1 %.not9.i, label %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit, label %.lr.ph.i, !llvm.loop !39
 
-_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit: ; preds = %100, %_ZN5QListIP10tab_info_tE6removeExx.exit, %.preheader.i
-  %108 = icmp eq ptr %.0.i, null
-  br i1 %108, label %113, label %109
+_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit: ; preds = %97, %_ZN5QListIP10tab_info_tE6removeExx.exit, %.preheader.i
+  %105 = icmp eq ptr %.0.i, null
+  br i1 %105, label %110, label %106
 
-109:                                              ; preds = %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit
-  %110 = load ptr, ptr %.0.i, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.0.i) #25
-  br label %113
+106:                                              ; preds = %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit
+  %107 = load ptr, ptr %.0.i, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
+  %109 = load ptr, ptr %108, align 8
+  call void %109(ptr noundef nonnull align 8 dereferenceable_or_null(40) %.0.i) #25
+  br label %110
 
-113:                                              ; preds = %109, %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit
-  %114 = load ptr, ptr %3, align 8
-  call void @_ZN17RtpAnalysisDialog13deleteTabInfoEP10tab_info_t(ptr align 8 poison, ptr noundef %114)
-  %115 = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %115)
+110:                                              ; preds = %106, %_ZN17RtpAnalysisDialog11clearLayoutEP7QLayout.exit
+  %111 = load ptr, ptr %3, align 8
+  call void @_ZN17RtpAnalysisDialog13deleteTabInfoEP10tab_info_t(ptr align 8 poison, ptr noundef %111)
+  %112 = load ptr, ptr %3, align 8
+  call void @g_free(ptr noundef %112)
   call void @_ZN17RtpAnalysisDialog11updateGraphEv(ptr noundef align 8 dereferenceable_or_null(336) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  br label %116
+  br label %113
 
-116:                                              ; preds = %113, %2
+113:                                              ; preds = %110, %2
   ret void
 }
 

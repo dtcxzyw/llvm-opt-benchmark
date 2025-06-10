@@ -50428,7 +50428,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3dnn14dnn4_v2024122310DataLayo
 _ZSt22__uninitialized_move_aIPN2cv3dnn14dnn4_v2024122310DataLayoutES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %14
   %20 = sub i64 0, %2
   %21 = getelementptr inbounds i32, ptr %9, i64 %20
-  %.idx.neg = shl i64 %2, 2
+  %.idx.neg = shl nsw i64 %2, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %9, ptr nonnull align 4 %21, i64 %.idx.neg, i1 false)
   %22 = load ptr, ptr %8, align 8, !tbaa !89
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %2

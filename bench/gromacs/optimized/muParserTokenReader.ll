@@ -4525,7 +4525,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EiRiPiSt15_Deque_ite
   %37 = getelementptr inbounds i32, ptr %.018.i, i64 %36
   %.idx.neg.i = shl nsw i64 %.sroa.speculated35.i, 2
   %38 = getelementptr inbounds i32, ptr %.0934.i, i64 %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %37, i64 %.idx.neg.i, i1 false), !noalias !446
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull align 4 %37, i64 %.idx.neg.i, i1 false), !noalias !446
   %39 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated35.i
   %40 = icmp sgt i64 %39, -1
   br i1 %40, label %41, label %47
@@ -4632,7 +4632,7 @@ _ZSt23__copy_move_backward_a1ILb1EPiiEN9__gnu_cxx11__enable_ifIXsr23__is_random_
   %87 = getelementptr inbounds i32, ptr %.018.i10, i64 %86
   %.idx.neg.i16 = shl nsw i64 %.sroa.speculated35.i14, 2
   %88 = getelementptr inbounds i32, ptr %.0934.i15, i64 %86
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %88, ptr nonnull align 4 %87, i64 %.idx.neg.i16, i1 false), !noalias !450
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %88, ptr nonnull align 4 %87, i64 %.idx.neg.i16, i1 false), !noalias !450
   %89 = sub nsw i64 %.pre28.i22.pre-phi, %.sroa.speculated35.i14
   %90 = icmp sgt i64 %89, -1
   br i1 %90, label %91, label %97
@@ -4719,7 +4719,7 @@ _ZNSt15_Deque_iteratorIiRiPiEmIEl.exit.i23:       ; preds = %99, %93
   %128 = getelementptr inbounds i32, ptr %.018.i32, i64 %127
   %.idx.neg.i38 = shl nsw i64 %.sroa.speculated35.i36, 2
   %129 = getelementptr inbounds i32, ptr %.0934.i37, i64 %127
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %129, ptr nonnull align 4 %128, i64 %.idx.neg.i38, i1 false), !noalias !453
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %129, ptr nonnull align 4 %128, i64 %.idx.neg.i38, i1 false), !noalias !453
   %130 = sub nsw i64 %.pre28.i44.pre-phi, %.sroa.speculated35.i36
   %131 = icmp sgt i64 %130, -1
   br i1 %131, label %132, label %138
@@ -4823,7 +4823,7 @@ _ZSt23__copy_move_backward_a1ILb1EPiiEN9__gnu_cxx11__enable_ifIXsr23__is_random_
   %178 = getelementptr inbounds i32, ptr %.018.i54, i64 %177
   %.idx.neg.i60 = shl nsw i64 %.sroa.speculated35.i58, 2
   %179 = getelementptr inbounds i32, ptr %.0934.i59, i64 %177
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %179, ptr nonnull align 4 %178, i64 %.idx.neg.i60, i1 false), !noalias !457
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %179, ptr nonnull align 4 %178, i64 %.idx.neg.i60, i1 false), !noalias !457
   %180 = sub nsw i64 %.pre28.i66.pre-phi, %.sroa.speculated35.i58
   %181 = icmp sgt i64 %180, -1
   br i1 %181, label %182, label %188
