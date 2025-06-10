@@ -1125,7 +1125,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  br label %95
+  br label %96
 
 .preheader94:                                     ; preds = %.preheader95, %82
   %indvars.iv125 = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next126, %82 ]
@@ -1172,7 +1172,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %85 = icmp samesign ult i64 %indvars.iv128, 30
   br i1 %85, label %.preheader95, label %.preheader93, !llvm.loop !80
 
-.preheader:                                       ; preds = %95
+.preheader:                                       ; preds = %96
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %87 = load i32, ptr %86, align 4, !tbaa !34
   %88 = sub nsw i32 %87, %2
@@ -1181,61 +1181,61 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
 
 .lr.ph112:                                        ; preds = %.preheader
   %.promoted = load ptr, ptr %4, align 16
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 512
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %.promoted113 = load ptr, ptr %91, align 8, !tbaa !66
-  %.promoted115 = load ptr, ptr %93, align 16, !tbaa !66
-  br label %112
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 256
+  %.promoted113 = load ptr, ptr %92, align 8, !tbaa !66
+  %.promoted115 = load ptr, ptr %94, align 16, !tbaa !66
+  br label %113
 
-95:                                               ; preds = %.preheader93, %95
+96:                                               ; preds = %.preheader93, %96
   %indvars.iv131 = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next132, %95 ]
-  %96 = getelementptr inbounds nuw [8 x ptr], ptr %55, i64 0, i64 %indvars.iv131
-  %97 = load ptr, ptr %96, align 8, !tbaa !66
-  %98 = getelementptr inbounds nuw [8 x i32], ptr %56, i64 0, i64 %indvars.iv131
-  %99 = load i32, ptr %98, align 4, !tbaa !65
-  %100 = icmp ne i64 %indvars.iv131, 0
-  %101 = zext i1 %100 to i32
-  %102 = lshr i32 %2, %101
-  %103 = mul nsw i32 %99, %102
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %97, i64 %104
-  %106 = lshr i32 %1, %101
-  %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %107
-  %109 = zext i1 %100 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 %109
-  %111 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv131
-  store ptr %110, ptr %111, align 8, !tbaa !66
+  %97 = getelementptr inbounds nuw [8 x ptr], ptr %55, i64 0, i64 %indvars.iv131
+  %98 = load ptr, ptr %97, align 8, !tbaa !66
+  %99 = getelementptr inbounds nuw [8 x i32], ptr %56, i64 0, i64 %indvars.iv131
+  %100 = load i32, ptr %99, align 4, !tbaa !65
+  %101 = icmp ne i64 %indvars.iv131, 0
+  %102 = zext i1 %101 to i32
+  %103 = lshr i32 %2, %102
+  %104 = mul nsw i32 %100, %103
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr inbounds i8, ptr %98, i64 %105
+  %107 = lshr i32 %1, %102
+  %108 = zext nneg i32 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 %108
+  %110 = zext i1 %101 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
+  %112 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %indvars.iv131
+  store ptr %111, ptr %112, align 8, !tbaa !66
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 3
-  br i1 %exitcond134.not, label %.preheader, label %95, !llvm.loop !81
+  br i1 %exitcond134.not, label %.preheader, label %96, !llvm.loop !81
 
-112:                                              ; preds = %.lr.ph112, %fic_alpha_blend.exit89
+113:                                              ; preds = %.lr.ph112, %fic_alpha_blend.exit89
   %indvars.iv157 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next158, %fic_alpha_blend.exit89 ]
-  %113 = phi ptr [ %.promoted115, %.lr.ph112 ], [ %203, %fic_alpha_blend.exit89 ]
-  %114 = phi ptr [ %.promoted113, %.lr.ph112 ], [ %199, %fic_alpha_blend.exit89 ]
-  %115 = phi ptr [ %.promoted, %.lr.ph112 ], [ %195, %fic_alpha_blend.exit89 ]
-  %116 = load i32, ptr %90, align 8, !tbaa !32
-  %117 = sub nsw i32 %116, %1
-  %spec.select83 = tail call i32 @llvm.smin.i32(i32 %117, i32 32)
-  %118 = sdiv i32 %spec.select83, 2
+  %114 = phi ptr [ %.promoted115, %.lr.ph112 ], [ %203, %fic_alpha_blend.exit89 ]
+  %115 = phi ptr [ %.promoted113, %.lr.ph112 ], [ %199, %fic_alpha_blend.exit89 ]
+  %116 = phi ptr [ %.promoted, %.lr.ph112 ], [ %195, %fic_alpha_blend.exit89 ]
+  %117 = load i32, ptr %91, align 8, !tbaa !32
+  %118 = sub nsw i32 %117, %1
+  %spec.select83 = tail call i32 @llvm.smin.i32(i32 %118, i32 32)
+  %119 = sdiv i32 %spec.select83, 2
   %119 = shl i64 %indvars.iv157, 5
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %12, i64 %119
   %122 = icmp sgt i32 %117, 0
   br i1 %122, label %.lr.ph.preheader, label %fic_alpha_blend.exit89
 
-.lr.ph.preheader:                                 ; preds = %112
+.lr.ph.preheader:; preds = %112
   %smax = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv135 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next136, %.lr.ph ]
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv135
+  %126 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv135
   %124 = load i8, ptr %123, align 1, !tbaa !43
   %125 = zext i8 %124 to i16
   %126 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv135
@@ -1256,22 +1256,22 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
 
 .lr.ph105.preheader:                              ; preds = %.lr.ph
   %.pre = load ptr, ptr %54, align 8, !tbaa !44
-  %137 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %138 = load i32, ptr %137, align 8, !tbaa !65
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i8, ptr %115, i64 %139
-  %141 = or disjoint i64 %119, 32
-  %142 = getelementptr inbounds i8, ptr %5, i64 %141
-  %143 = getelementptr inbounds i8, ptr %12, i64 %141
+  %140 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
+  %141 = load i32, ptr %140, align 8, !tbaa !65
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i8, ptr %116, i64 %142
+  %144 = or disjoint i64 %119, 32
+  %142 = getelementptr inbounds i8, ptr %5, i64 %144
+  %146 = getelementptr inbounds i8, ptr %12, i64 %141
   %smax142 = tail call i32 @llvm.smax.i32(i32 %spec.select83, i32 1)
   %wide.trip.count143 = zext nneg i32 %smax142 to i64
   br label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
   %indvars.iv139 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next140, %.lr.ph105 ]
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv139
-  %145 = load i8, ptr %144, align 1, !tbaa !43
-  %146 = zext i8 %145 to i16
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv139
+  %149 = load i8, ptr %148, align 1, !tbaa !43
+  %150 = zext i8 %149 to i16
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv139
   %148 = load i8, ptr %147, align 1, !tbaa !43
   %149 = zext i8 %148 to i16
@@ -1289,23 +1289,23 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   br i1 %exitcond144.not, label %fic_alpha_blend.exit85, label %.lr.ph105, !llvm.loop !82
 
 fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
-  %158 = shl nuw nsw i64 %indvars.iv157, 3
-  %159 = getelementptr inbounds nuw i8, ptr %6, i64 %158
-  %160 = getelementptr inbounds nuw i8, ptr %92, i64 %158
-  %.not = icmp eq i32 %117, 1
+  %162 = shl nuw nsw i64 %indvars.iv157, 3
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 %162
+  %164 = getelementptr inbounds nuw i8, ptr %93, i64 %162
+  %.not = icmp eq i32 %118, 1
   br i1 %.not, label %fic_alpha_blend.exit89, label %.lr.ph107.preheader
 
 .lr.ph107.preheader:                              ; preds = %fic_alpha_blend.exit85
-  %smax148 = tail call i32 @llvm.smax.i32(i32 %118, i32 1)
+  %smax148 = tail call i32 @llvm.smax.i32(i32 %119, i32 1)
   %wide.trip.count149 = zext nneg i32 %smax148 to i64
   br label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
   %indvars.iv145 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next146, %.lr.ph107 ]
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv145
-  %162 = load i8, ptr %161, align 1, !tbaa !43
-  %163 = zext i8 %162 to i16
-  %164 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv145
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %indvars.iv145
+  %166 = load i8, ptr %165, align 1, !tbaa !43
+  %167 = zext i8 %166 to i16
+  %168 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv145
   %165 = load i8, ptr %164, align 1, !tbaa !43
   %166 = zext i8 %165 to i16
   %167 = sub nsw i16 %163, %166
@@ -1322,17 +1322,17 @@ fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
   br i1 %exitcond150.not, label %.lr.ph109.preheader, label %.lr.ph107, !llvm.loop !82
 
 .lr.ph109.preheader:                              ; preds = %.lr.ph107
-  %175 = getelementptr inbounds nuw i8, ptr %94, i64 %158
-  %smax154 = tail call i32 @llvm.smax.i32(i32 %118, i32 1)
+  %179 = getelementptr inbounds nuw i8, ptr %95, i64 %162
+  %smax154 = tail call i32 @llvm.smax.i32(i32 %119, i32 1)
   %wide.trip.count155 = zext nneg i32 %smax154 to i64
   br label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
   %indvars.iv151 = phi i64 [ 0, %.lr.ph109.preheader ], [ %indvars.iv.next152, %.lr.ph109 ]
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 %indvars.iv151
-  %177 = load i8, ptr %176, align 1, !tbaa !43
-  %178 = zext i8 %177 to i16
-  %179 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv151
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 %indvars.iv151
+  %181 = load i8, ptr %180, align 1, !tbaa !43
+  %182 = zext i8 %181 to i16
+  %183 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv151
   %180 = load i8, ptr %179, align 1, !tbaa !43
   %181 = zext i8 %180 to i16
   %182 = sub nsw i16 %178, %181
@@ -1348,29 +1348,29 @@ fic_alpha_blend.exit85:                           ; preds = %.lr.ph105
   %exitcond156.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count155
   br i1 %exitcond156.not, label %fic_alpha_blend.exit89, label %.lr.ph109, !llvm.loop !82
 
-fic_alpha_blend.exit89:                           ; preds = %.lr.ph109, %112, %fic_alpha_blend.exit85
-  %190 = load ptr, ptr %54, align 8, !tbaa !44
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 64
-  %192 = load i32, ptr %191, align 8, !tbaa !65
-  %193 = shl nsw i32 %192, 1
+fic_alpha_blend.exit89:                           ; preds = %.lr.ph109, %113, %fic_alpha_blend.exit85
+  %194 = load ptr, ptr %54, align 8, !tbaa !44
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 64
+  %196 = load i32, ptr %195, align 8, !tbaa !65
+  %197 = shl nsw i32 %196, 1
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds i8, ptr %115, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %190, i64 68
   %197 = load i32, ptr %196, align 4, !tbaa !65
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds i8, ptr %114, i64 %198
-  %200 = getelementptr inbounds nuw i8, ptr %190, i64 72
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 72
   %201 = load i32, ptr %200, align 8, !tbaa !65
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %113, i64 %202
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 2
-  %204 = load i32, ptr %86, align 4, !tbaa !34
-  %205 = sub nsw i32 %204, %2
-  %206 = tail call i32 @llvm.smin.i32(i32 %205, i32 32)
-  %spec.select = add nsw i32 %206, -1
-  %207 = sext i32 %spec.select to i64
-  %208 = icmp slt i64 %indvars.iv.next158, %207
-  br i1 %208, label %112, label %._crit_edge, !llvm.loop !83
+  %208 = load i32, ptr %86, align 4, !tbaa !34
+  %209 = sub nsw i32 %208, %2
+  %210 = tail call i32 @llvm.smin.i32(i32 %209, i32 32)
+  %spec.select = add nsw i32 %210, -1
+  %211 = sext i32 %spec.select to i64
+  %212 = icmp slt i64 %indvars.iv.next158, %211
+  br i1 %212, label %113, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %fic_alpha_blend.exit89, %.preheader
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %6) #9
