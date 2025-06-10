@@ -2495,7 +2495,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %24 = tail call ptr @create_append_path(ptr noundef null, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %23, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #9
   tail call void @add_path(ptr noundef nonnull %1, ptr noundef %24) #9
   tail call void @set_cheapest(ptr noundef nonnull %1) #9
-  br label %763
+  br label %762
 
 25:                                               ; preds = %13, %4
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -2921,20 +2921,20 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
 
 set_append_rel_size.exit:                         ; preds = %261, %249, %._crit_edge99.thread
   call void @pfree(ptr noundef %62) #9
-  br label %763
+  br label %762
 
 278:                                              ; preds = %25
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %280 = load i32, ptr %279, align 8
-  switch i32 %280, label %759 [
+  switch i32 %280, label %758 [
     i32 0, label %281
     i32 1, label %291
-    i32 3, label %638
-    i32 4, label %639
-    i32 5, label %640
-    i32 6, label %641
-    i32 7, label %751
-    i32 8, label %755
+    i32 3, label %637
+    i32 4, label %638
+    i32 5, label %639
+    i32 6, label %640
+    i32 7, label %750
+    i32 8, label %754
   ]
 
 281:                                              ; preds = %278
@@ -2947,11 +2947,11 @@ set_append_rel_size.exit:                         ; preds = %261, %249, %._crit_
 
 284:                                              ; preds = %281
   tail call fastcc void @set_foreign_size(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
-  br label %763
+  br label %762
 
 285:                                              ; preds = %281
   tail call fastcc void @set_dummy_rel_pathlist(ptr noundef nonnull %1)
-  br label %763
+  br label %762
 
 286:                                              ; preds = %281
   %287 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2961,12 +2961,12 @@ set_append_rel_size.exit:                         ; preds = %261, %249, %._crit_
 
 289:                                              ; preds = %286
   tail call fastcc void @set_tablesample_rel_size(ptr noundef %0, ptr noundef nonnull %1, ptr nonnull %288)
-  br label %763
+  br label %762
 
 290:                                              ; preds = %286
   tail call void @check_index_predicates(ptr noundef %0, ptr noundef nonnull %1) #9
   tail call void @set_baserel_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
-  br label %763
+  br label %762
 
 291:                                              ; preds = %278
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3549,337 +3549,336 @@ list_length.exit160.i:                            ; preds = %572, %list_length.e
 590:                                              ; preds = %587
   %591 = getelementptr inbounds nuw i8, ptr %584, i64 8
   %592 = load i16, ptr %591, align 8
-  %593 = sext i16 %592 to i64
   %indvars.iv.next227.i = add nuw nsw i64 %indvars.iv226.i, 1
-  %594 = and i64 %593, 4294967295
-  %.not143.i = icmp eq i64 %indvars.iv.next227.i, %594
+  %593 = sext i16 %592 to i64
+  %.not143.i = icmp eq i64 %indvars.iv.next227.i, %593
   br i1 %.not143.i, label %581, label %.thread172.i
 
 .thread172.i:                                     ; preds = %590, %587, %582, %581, %.lr.ph196.i, %.preheader.i, %list_length.exit160.i
   %.0.i48 = phi i1 [ false, %list_length.exit160.i ], [ true, %.preheader.i ], [ true, %.lr.ph196.i ], [ false, %590 ], [ true, %581 ], [ false, %582 ], [ false, %587 ]
-  %595 = getelementptr inbounds nuw i8, ptr %551, i64 40
-  %596 = load ptr, ptr %595, align 8
-  %597 = getelementptr inbounds nuw i8, ptr %596, i64 4
-  %.not144.i = icmp eq ptr %596, null
+  %594 = getelementptr inbounds nuw i8, ptr %551, i64 40
+  %595 = load ptr, ptr %594, align 8
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 4
+  %.not144.i = icmp eq ptr %595, null
   br i1 %.not144.i, label %._crit_edge215.i, label %.lr.ph214.i
 
 .lr.ph214.i:                                      ; preds = %.thread172.i
-  %598 = getelementptr inbounds nuw i8, ptr %596, i64 16
-  %599 = load i32, ptr %597, align 4
-  %600 = icmp sgt i32 %599, 0
-  br i1 %600, label %.lr.ph218.i, label %._crit_edge215.i
+  %597 = getelementptr inbounds nuw i8, ptr %595, i64 16
+  %598 = load i32, ptr %596, align 4
+  %599 = icmp sgt i32 %598, 0
+  br i1 %599, label %.lr.ph218.i, label %._crit_edge215.i
 
 ._crit_edge215.i:                                 ; preds = %.lr.ph218.i, %.lr.ph214.i, %.thread172.i
-  %601 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %602 = load i8, ptr %601, align 2, !range !4, !noundef !5
-  %603 = trunc nuw i8 %602 to i1
-  %604 = icmp eq ptr %298, null
-  %or.cond.i = select i1 %603, i1 %604, i1 false
-  br i1 %or.cond.i, label %618, label %set_subquery_pathlist.exit
+  %600 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %601 = load i8, ptr %600, align 2, !range !4, !noundef !5
+  %602 = trunc nuw i8 %601 to i1
+  %603 = icmp eq ptr %298, null
+  %or.cond.i = select i1 %602, i1 %603, i1 false
+  br i1 %or.cond.i, label %617, label %set_subquery_pathlist.exit
 
 .lr.ph218.i:                                      ; preds = %.lr.ph214.i, %.lr.ph218.i
   %indvars.iv229.i = phi i64 [ %indvars.iv.next230.i, %.lr.ph218.i ], [ 0, %.lr.ph214.i ]
-  %605 = load ptr, ptr %598, align 8
-  %606 = getelementptr inbounds nuw %union.ListCell, ptr %605, i64 %indvars.iv229.i
-  %607 = load ptr, ptr %606, align 8
-  %608 = getelementptr inbounds nuw i8, ptr %607, i64 72
-  %609 = load ptr, ptr %608, align 8
-  %610 = getelementptr inbounds nuw i8, ptr %607, i64 16
-  %611 = load ptr, ptr %610, align 8
-  %612 = call ptr @make_tlist_from_pathtarget(ptr noundef %611) #9
-  %613 = call ptr @convert_subquery_pathkeys(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %609, ptr noundef %612) #9
-  %614 = call ptr @create_subqueryscan_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %607, i1 noundef zeroext %.0.i48, ptr noundef %613, ptr noundef %298) #9
-  call void @add_path(ptr noundef nonnull %1, ptr noundef %614) #9
+  %604 = load ptr, ptr %597, align 8
+  %605 = getelementptr inbounds nuw %union.ListCell, ptr %604, i64 %indvars.iv229.i
+  %606 = load ptr, ptr %605, align 8
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 72
+  %608 = load ptr, ptr %607, align 8
+  %609 = getelementptr inbounds nuw i8, ptr %606, i64 16
+  %610 = load ptr, ptr %609, align 8
+  %611 = call ptr @make_tlist_from_pathtarget(ptr noundef %610) #9
+  %612 = call ptr @convert_subquery_pathkeys(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %608, ptr noundef %611) #9
+  %613 = call ptr @create_subqueryscan_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %606, i1 noundef zeroext %.0.i48, ptr noundef %612, ptr noundef %298) #9
+  call void @add_path(ptr noundef nonnull %1, ptr noundef %613) #9
   %indvars.iv.next230.i = add nuw nsw i64 %indvars.iv229.i, 1
-  %615 = load i32, ptr %597, align 4
-  %616 = sext i32 %615 to i64
-  %617 = icmp slt i64 %indvars.iv.next230.i, %616
-  br i1 %617, label %.lr.ph218.i, label %._crit_edge215.i
+  %614 = load i32, ptr %596, align 4
+  %615 = sext i32 %614 to i64
+  %616 = icmp slt i64 %indvars.iv.next230.i, %615
+  br i1 %616, label %.lr.ph218.i, label %._crit_edge215.i
 
-618:                                              ; preds = %._crit_edge215.i
-  %619 = getelementptr inbounds nuw i8, ptr %551, i64 56
-  %620 = load ptr, ptr %619, align 8
-  %621 = getelementptr inbounds nuw i8, ptr %620, i64 4
-  %.not146.i49 = icmp eq ptr %620, null
+617:                                              ; preds = %._crit_edge215.i
+  %618 = getelementptr inbounds nuw i8, ptr %551, i64 56
+  %619 = load ptr, ptr %618, align 8
+  %620 = getelementptr inbounds nuw i8, ptr %619, i64 4
+  %.not146.i49 = icmp eq ptr %619, null
   br i1 %.not146.i49, label %set_subquery_pathlist.exit, label %.lr.ph221.i
 
-.lr.ph221.i:                                      ; preds = %618
-  %622 = getelementptr inbounds nuw i8, ptr %620, i64 16
-  %623 = load i32, ptr %621, align 4
-  %624 = icmp sgt i32 %623, 0
-  br i1 %624, label %.lr.ph224.i, label %set_subquery_pathlist.exit
+.lr.ph221.i:                                      ; preds = %617
+  %621 = getelementptr inbounds nuw i8, ptr %619, i64 16
+  %622 = load i32, ptr %620, align 4
+  %623 = icmp sgt i32 %622, 0
+  br i1 %623, label %.lr.ph224.i, label %set_subquery_pathlist.exit
 
 .lr.ph224.i:                                      ; preds = %.lr.ph221.i, %.lr.ph224.i
   %indvars.iv232.i = phi i64 [ %indvars.iv.next233.i, %.lr.ph224.i ], [ 0, %.lr.ph221.i ]
-  %625 = load ptr, ptr %622, align 8
-  %626 = getelementptr inbounds nuw %union.ListCell, ptr %625, i64 %indvars.iv232.i
-  %627 = load ptr, ptr %626, align 8
-  %628 = getelementptr inbounds nuw i8, ptr %627, i64 72
-  %629 = load ptr, ptr %628, align 8
-  %630 = getelementptr inbounds nuw i8, ptr %627, i64 16
-  %631 = load ptr, ptr %630, align 8
-  %632 = call ptr @make_tlist_from_pathtarget(ptr noundef %631) #9
-  %633 = call ptr @convert_subquery_pathkeys(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %629, ptr noundef %632) #9
-  %634 = call ptr @create_subqueryscan_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %627, i1 noundef zeroext %.0.i48, ptr noundef %633, ptr noundef null) #9
-  call void @add_partial_path(ptr noundef nonnull %1, ptr noundef %634) #9
+  %624 = load ptr, ptr %621, align 8
+  %625 = getelementptr inbounds nuw %union.ListCell, ptr %624, i64 %indvars.iv232.i
+  %626 = load ptr, ptr %625, align 8
+  %627 = getelementptr inbounds nuw i8, ptr %626, i64 72
+  %628 = load ptr, ptr %627, align 8
+  %629 = getelementptr inbounds nuw i8, ptr %626, i64 16
+  %630 = load ptr, ptr %629, align 8
+  %631 = call ptr @make_tlist_from_pathtarget(ptr noundef %630) #9
+  %632 = call ptr @convert_subquery_pathkeys(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %628, ptr noundef %631) #9
+  %633 = call ptr @create_subqueryscan_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %626, i1 noundef zeroext %.0.i48, ptr noundef %632, ptr noundef null) #9
+  call void @add_partial_path(ptr noundef nonnull %1, ptr noundef %633) #9
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
-  %635 = load i32, ptr %621, align 4
-  %636 = sext i32 %635 to i64
-  %637 = icmp slt i64 %indvars.iv.next233.i, %636
-  br i1 %637, label %.lr.ph224.i, label %set_subquery_pathlist.exit
+  %634 = load i32, ptr %620, align 4
+  %635 = sext i32 %634 to i64
+  %636 = icmp slt i64 %indvars.iv.next233.i, %635
+  br i1 %636, label %.lr.ph224.i, label %set_subquery_pathlist.exit
 
-set_subquery_pathlist.exit:                       ; preds = %.lr.ph224.i, %553, %._crit_edge215.i, %618, %.lr.ph221.i
+set_subquery_pathlist.exit:                       ; preds = %.lr.ph224.i, %553, %._crit_edge215.i, %617, %.lr.ph221.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
-  br label %763
+  br label %762
+
+637:                                              ; preds = %278
+  tail call void @set_function_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
+  br label %762
 
 638:                                              ; preds = %278
-  tail call void @set_function_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
-  br label %763
+  tail call void @set_tablefunc_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
+  br label %762
 
 639:                                              ; preds = %278
-  tail call void @set_tablefunc_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
-  br label %763
+  tail call void @set_values_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
+  br label %762
 
 640:                                              ; preds = %278
-  tail call void @set_values_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
-  br label %763
+  %641 = getelementptr inbounds nuw i8, ptr %3, i64 156
+  %642 = load i8, ptr %641, align 4, !range !4, !noundef !5
+  %643 = trunc nuw i8 %642 to i1
+  %644 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %645 = load i32, ptr %644, align 8
+  br i1 %643, label %646, label %.preheader
 
-641:                                              ; preds = %278
-  %642 = getelementptr inbounds nuw i8, ptr %3, i64 156
-  %643 = load i8, ptr %642, align 4, !range !4, !noundef !5
-  %644 = trunc nuw i8 %643 to i1
-  %645 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %646 = load i32, ptr %645, align 8
-  br i1 %644, label %647, label %.preheader
+646:                                              ; preds = %640
+  %647 = icmp eq i32 %645, 0
+  br i1 %647, label %648, label %.preheader.i50
 
-647:                                              ; preds = %641
-  %648 = icmp eq i32 %646, 0
-  br i1 %648, label %649, label %.preheader.i50
-
-649:                                              ; preds = %647
-  %650 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %650)
-  %651 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %652 = load ptr, ptr %651, align 8
-  %653 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %652) #9
+648:                                              ; preds = %646
+  %649 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %649)
+  %650 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %651 = load ptr, ptr %650, align 8
+  %652 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %651) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3026, ptr noundef nonnull @__func__.set_worktable_pathlist) #9
   unreachable
 
-.preheader.i50:                                   ; preds = %647, %654
-  %.019.in.i = phi i32 [ %.019.i, %654 ], [ %646, %647 ]
-  %.0.i51 = phi ptr [ %656, %654 ], [ %0, %647 ]
+.preheader.i50:                                   ; preds = %646, %653
+  %.019.in.i = phi i32 [ %.019.i, %653 ], [ %645, %646 ]
+  %.0.i51 = phi ptr [ %655, %653 ], [ %0, %646 ]
   %.019.i = add i32 %.019.in.i, -1
   %.not.i52 = icmp eq i32 %.019.i, 0
-  br i1 %.not.i52, label %662, label %654
+  br i1 %.not.i52, label %661, label %653
 
-654:                                              ; preds = %.preheader.i50
-  %655 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 32
-  %656 = load ptr, ptr %655, align 8
-  %.not24.i = icmp eq ptr %656, null
-  br i1 %.not24.i, label %657, label %.preheader.i50, !llvm.loop !20
+653:                                              ; preds = %.preheader.i50
+  %654 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 32
+  %655 = load ptr, ptr %654, align 8
+  %.not24.i = icmp eq ptr %655, null
+  br i1 %.not24.i, label %656, label %.preheader.i50, !llvm.loop !20
 
-657:                                              ; preds = %654
-  %658 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %658)
-  %659 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %660 = load ptr, ptr %659, align 8
-  %661 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %660) #9
+656:                                              ; preds = %653
+  %657 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %657)
+  %658 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %659 = load ptr, ptr %658, align 8
+  %660 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %659) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3033, ptr noundef nonnull @__func__.set_worktable_pathlist) #9
   unreachable
 
-662:                                              ; preds = %.preheader.i50
-  %663 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 640
-  %664 = load ptr, ptr %663, align 8
-  %.not23.i = icmp eq ptr %664, null
-  br i1 %.not23.i, label %665, label %set_worktable_pathlist.exit
+661:                                              ; preds = %.preheader.i50
+  %662 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 640
+  %663 = load ptr, ptr %662, align 8
+  %.not23.i = icmp eq ptr %663, null
+  br i1 %.not23.i, label %664, label %set_worktable_pathlist.exit
 
-665:                                              ; preds = %662
-  %666 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %666)
-  %667 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %668 = load ptr, ptr %667, align 8
-  %669 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %668) #9
+664:                                              ; preds = %661
+  %665 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %665)
+  %666 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %667 = load ptr, ptr %666, align 8
+  %668 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %667) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3037, ptr noundef nonnull @__func__.set_worktable_pathlist) #9
   unreachable
 
-set_worktable_pathlist.exit:                      ; preds = %662
-  %670 = getelementptr inbounds nuw i8, ptr %664, i64 40
-  %671 = load double, ptr %670, align 8
-  tail call void @set_cte_size_estimates(ptr noundef %0, ptr noundef %1, double noundef %671) #9
-  %672 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %673 = load ptr, ptr %672, align 8
-  %674 = tail call ptr @create_worktablescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %673) #9
-  tail call void @add_path(ptr noundef %1, ptr noundef %674) #9
-  br label %763
+set_worktable_pathlist.exit:                      ; preds = %661
+  %669 = getelementptr inbounds nuw i8, ptr %663, i64 40
+  %670 = load double, ptr %669, align 8
+  tail call void @set_cte_size_estimates(ptr noundef %0, ptr noundef %1, double noundef %670) #9
+  %671 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %672 = load ptr, ptr %671, align 8
+  %673 = tail call ptr @create_worktablescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %672) #9
+  tail call void @add_path(ptr noundef %1, ptr noundef %673) #9
+  br label %762
 
-.preheader:                                       ; preds = %641, %675
-  %.042.i = phi i32 [ %676, %675 ], [ %646, %641 ]
-  %.0.i53 = phi ptr [ %678, %675 ], [ %0, %641 ]
+.preheader:                                       ; preds = %640, %674
+  %.042.i = phi i32 [ %675, %674 ], [ %645, %640 ]
+  %.0.i53 = phi ptr [ %677, %674 ], [ %0, %640 ]
   %.not.i54 = icmp eq i32 %.042.i, 0
-  br i1 %.not.i54, label %684, label %675
+  br i1 %.not.i54, label %683, label %674
 
-675:                                              ; preds = %.preheader
-  %676 = add i32 %.042.i, -1
-  %677 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 32
-  %678 = load ptr, ptr %677, align 8
-  %.not52.i = icmp eq ptr %678, null
-  br i1 %.not52.i, label %679, label %.preheader, !llvm.loop !21
+674:                                              ; preds = %.preheader
+  %675 = add i32 %.042.i, -1
+  %676 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 32
+  %677 = load ptr, ptr %676, align 8
+  %.not52.i = icmp eq ptr %677, null
+  br i1 %.not52.i, label %678, label %.preheader, !llvm.loop !21
 
-679:                                              ; preds = %675
-  %680 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %680)
-  %681 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %682 = load ptr, ptr %681, align 8
-  %683 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %682) #9
+678:                                              ; preds = %674
+  %679 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %679)
+  %680 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %681 = load ptr, ptr %680, align 8
+  %682 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %681) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2901, ptr noundef nonnull @__func__.set_cte_pathlist) #9
   unreachable
 
-684:                                              ; preds = %.preheader
-  %685 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 8
-  %686 = load ptr, ptr %685, align 8
-  %687 = getelementptr inbounds nuw i8, ptr %686, i64 56
-  %688 = load ptr, ptr %687, align 8
-  %.not48.i = icmp eq ptr %688, null
+683:                                              ; preds = %.preheader
+  %684 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 8
+  %685 = load ptr, ptr %684, align 8
+  %686 = getelementptr inbounds nuw i8, ptr %685, i64 56
+  %687 = load ptr, ptr %686, align 8
+  %.not48.i = icmp eq ptr %687, null
   br i1 %.not48.i, label %.thread58.i, label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %684
-  %689 = getelementptr inbounds nuw i8, ptr %688, i64 4
-  %690 = load i32, ptr %689, align 4
-  %691 = icmp sgt i32 %690, 0
-  br i1 %691, label %.lr.ph68.i, label %.thread58.i
+.lr.ph.i55:                                       ; preds = %683
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 4
+  %689 = load i32, ptr %688, align 4
+  %690 = icmp sgt i32 %689, 0
+  br i1 %690, label %.lr.ph68.i, label %.thread58.i
 
 .lr.ph68.i:                                       ; preds = %.lr.ph.i55
-  %692 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %693 = getelementptr inbounds nuw i8, ptr %688, i64 16
-  %694 = load ptr, ptr %693, align 8
-  %695 = load ptr, ptr %692, align 8
-  %wide.trip.count.i56 = zext nneg i32 %690 to i64
-  br label %696
+  %691 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %692 = getelementptr inbounds nuw i8, ptr %687, i64 16
+  %693 = load ptr, ptr %692, align 8
+  %694 = load ptr, ptr %691, align 8
+  %wide.trip.count.i56 = zext nneg i32 %689 to i64
+  br label %695
 
-696:                                              ; preds = %702, %.lr.ph68.i
-  %indvars.iv.i57 = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next.i58, %702 ]
-  %697 = getelementptr inbounds nuw %union.ListCell, ptr %694, i64 %indvars.iv.i57
-  %698 = load ptr, ptr %697, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %698, i64 8
-  %700 = load ptr, ptr %699, align 8
-  %701 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %700, ptr noundef nonnull dereferenceable(1) %695) #11
-  %.not50.i = icmp eq i32 %701, 0
-  br i1 %.not50.i, label %.split.i, label %702
+695:                                              ; preds = %701, %.lr.ph68.i
+  %indvars.iv.i57 = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next.i58, %701 ]
+  %696 = getelementptr inbounds nuw %union.ListCell, ptr %693, i64 %indvars.iv.i57
+  %697 = load ptr, ptr %696, align 8
+  %698 = getelementptr inbounds nuw i8, ptr %697, i64 8
+  %699 = load ptr, ptr %698, align 8
+  %700 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %699, ptr noundef nonnull dereferenceable(1) %694) #11
+  %.not50.i = icmp eq i32 %700, 0
+  br i1 %.not50.i, label %.split.i, label %701
 
-702:                                              ; preds = %696
+701:                                              ; preds = %695
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i56
-  br i1 %exitcond.not.i59, label %.thread58.i, label %696
+  br i1 %exitcond.not.i59, label %.thread58.i, label %695
 
-.thread58.i:                                      ; preds = %702, %.lr.ph.i55, %684
-  %703 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %703)
-  %704 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %705 = load ptr, ptr %704, align 8
-  %706 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %705) #9
+.thread58.i:                                      ; preds = %701, %.lr.ph.i55, %683
+  %702 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %702)
+  %703 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %704 = load ptr, ptr %703, align 8
+  %705 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %704) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2919, ptr noundef nonnull @__func__.set_cte_pathlist) #9
   unreachable
 
-.split.i:                                         ; preds = %696
+.split.i:                                         ; preds = %695
   %indvars71.le.i = trunc i64 %indvars.iv.i57 to i32
-  %707 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 152
-  %708 = load ptr, ptr %707, align 8
-  %.not.i.i60 = icmp eq ptr %708, null
-  br i1 %.not.i.i60, label %list_length.exit.i61, label %709
+  %706 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 152
+  %707 = load ptr, ptr %706, align 8
+  %.not.i.i60 = icmp eq ptr %707, null
+  br i1 %.not.i.i60, label %list_length.exit.i61, label %708
 
-709:                                              ; preds = %.split.i
-  %710 = getelementptr inbounds nuw i8, ptr %708, i64 4
-  %711 = load i32, ptr %710, align 4
+708:                                              ; preds = %.split.i
+  %709 = getelementptr inbounds nuw i8, ptr %707, i64 4
+  %710 = load i32, ptr %709, align 4
   br label %list_length.exit.i61
 
-list_length.exit.i61:                             ; preds = %709, %.split.i
-  %712 = phi i32 [ %711, %709 ], [ 0, %.split.i ]
-  %.not51.i = icmp sgt i32 %712, %indvars71.le.i
-  br i1 %.not51.i, label %717, label %713
+list_length.exit.i61:                             ; preds = %708, %.split.i
+  %711 = phi i32 [ %710, %708 ], [ 0, %.split.i ]
+  %.not51.i = icmp sgt i32 %711, %indvars71.le.i
+  br i1 %.not51.i, label %716, label %712
 
-713:                                              ; preds = %list_length.exit.i61
-  %714 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %714)
-  %715 = load ptr, ptr %692, align 8
-  %716 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %715) #9
+712:                                              ; preds = %list_length.exit.i61
+  %713 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %713)
+  %714 = load ptr, ptr %691, align 8
+  %715 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %714) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2921, ptr noundef nonnull @__func__.set_cte_pathlist) #9
   unreachable
 
-717:                                              ; preds = %list_length.exit.i61
-  %718 = getelementptr i8, ptr %708, i64 16
-  %.val54.i = load ptr, ptr %718, align 8
+716:                                              ; preds = %list_length.exit.i61
+  %717 = getelementptr i8, ptr %707, i64 16
+  %.val54.i = load ptr, ptr %717, align 8
   %sext.i = shl i64 %indvars.iv.i57, 32
-  %719 = ashr exact i64 %sext.i, 29
-  %720 = getelementptr inbounds i8, ptr %.val54.i, i64 %719
-  %721 = load i32, ptr %720, align 8
-  %722 = icmp slt i32 %721, 1
-  br i1 %722, label %723, label %set_cte_pathlist.exit
+  %718 = ashr exact i64 %sext.i, 29
+  %719 = getelementptr inbounds i8, ptr %.val54.i, i64 %718
+  %720 = load i32, ptr %719, align 8
+  %721 = icmp slt i32 %720, 1
+  br i1 %721, label %722, label %set_cte_pathlist.exit
 
-723:                                              ; preds = %717
-  %724 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %724)
-  %725 = load ptr, ptr %692, align 8
-  %726 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %725) #9
+722:                                              ; preds = %716
+  %723 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %723)
+  %724 = load ptr, ptr %691, align 8
+  %725 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %724) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2924, ptr noundef nonnull @__func__.set_cte_pathlist) #9
   unreachable
 
-set_cte_pathlist.exit:                            ; preds = %717
-  %727 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %728 = load ptr, ptr %727, align 8
-  %729 = getelementptr inbounds nuw i8, ptr %728, i64 24
-  %730 = load ptr, ptr %729, align 8
-  %731 = add nsw i32 %721, -1
-  %732 = getelementptr i8, ptr %730, i64 16
-  %.val.i = load ptr, ptr %732, align 8
-  %733 = zext nneg i32 %731 to i64
-  %734 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i, i64 %733
-  %735 = load ptr, ptr %734, align 8
-  %736 = getelementptr inbounds nuw i8, ptr %728, i64 16
-  %737 = load ptr, ptr %736, align 8
-  %738 = getelementptr i8, ptr %737, i64 16
-  %.val53.i = load ptr, ptr %738, align 8
-  %739 = getelementptr inbounds nuw %union.ListCell, ptr %.val53.i, i64 %733
-  %740 = load ptr, ptr %739, align 8
-  %741 = getelementptr inbounds nuw i8, ptr %740, i64 24
-  %742 = load double, ptr %741, align 8
-  tail call void @set_cte_size_estimates(ptr noundef %0, ptr noundef %1, double noundef %742) #9
-  %743 = getelementptr inbounds nuw i8, ptr %735, i64 72
-  %744 = load ptr, ptr %743, align 8
-  %745 = getelementptr inbounds nuw i8, ptr %740, i64 48
-  %746 = load ptr, ptr %745, align 8
-  %747 = tail call ptr @convert_subquery_pathkeys(ptr noundef %0, ptr noundef %1, ptr noundef %744, ptr noundef %746) #9
-  %748 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %749 = load ptr, ptr %748, align 8
-  %750 = tail call ptr @create_ctescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %747, ptr noundef %749) #9
-  tail call void @add_path(ptr noundef %1, ptr noundef %750) #9
-  br label %763
+set_cte_pathlist.exit:                            ; preds = %716
+  %726 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %727 = load ptr, ptr %726, align 8
+  %728 = getelementptr inbounds nuw i8, ptr %727, i64 24
+  %729 = load ptr, ptr %728, align 8
+  %730 = add nsw i32 %720, -1
+  %731 = getelementptr i8, ptr %729, i64 16
+  %.val.i = load ptr, ptr %731, align 8
+  %732 = zext nneg i32 %730 to i64
+  %733 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i, i64 %732
+  %734 = load ptr, ptr %733, align 8
+  %735 = getelementptr inbounds nuw i8, ptr %727, i64 16
+  %736 = load ptr, ptr %735, align 8
+  %737 = getelementptr i8, ptr %736, i64 16
+  %.val53.i = load ptr, ptr %737, align 8
+  %738 = getelementptr inbounds nuw %union.ListCell, ptr %.val53.i, i64 %732
+  %739 = load ptr, ptr %738, align 8
+  %740 = getelementptr inbounds nuw i8, ptr %739, i64 24
+  %741 = load double, ptr %740, align 8
+  tail call void @set_cte_size_estimates(ptr noundef %0, ptr noundef %1, double noundef %741) #9
+  %742 = getelementptr inbounds nuw i8, ptr %734, i64 72
+  %743 = load ptr, ptr %742, align 8
+  %744 = getelementptr inbounds nuw i8, ptr %739, i64 48
+  %745 = load ptr, ptr %744, align 8
+  %746 = tail call ptr @convert_subquery_pathkeys(ptr noundef %0, ptr noundef %1, ptr noundef %743, ptr noundef %745) #9
+  %747 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %748 = load ptr, ptr %747, align 8
+  %749 = tail call ptr @create_ctescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %746, ptr noundef %748) #9
+  tail call void @add_path(ptr noundef %1, ptr noundef %749) #9
+  br label %762
 
-751:                                              ; preds = %278
+750:                                              ; preds = %278
   tail call void @set_namedtuplestore_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
-  %752 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %753 = load ptr, ptr %752, align 8
-  %754 = tail call ptr @create_namedtuplestorescan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %753) #9
-  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %754) #9
-  br label %763
+  %751 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %752 = load ptr, ptr %751, align 8
+  %753 = tail call ptr @create_namedtuplestorescan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %752) #9
+  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %753) #9
+  br label %762
 
-755:                                              ; preds = %278
+754:                                              ; preds = %278
   tail call void @set_result_size_estimates(ptr noundef %0, ptr noundef nonnull %1) #9
-  %756 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %757 = load ptr, ptr %756, align 8
-  %758 = tail call ptr @create_resultscan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %757) #9
-  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %758) #9
-  br label %763
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %756 = load ptr, ptr %755, align 8
+  %757 = tail call ptr @create_resultscan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %756) #9
+  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %757) #9
+  br label %762
 
-759:                                              ; preds = %278
-  %760 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %760)
-  %761 = load i32, ptr %279, align 8
-  %762 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %761) #9
+758:                                              ; preds = %278
+  %759 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  tail call void @llvm.assume(i1 %759)
+  %760 = load i32, ptr %279, align 8
+  %761 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %760) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 453, ptr noundef nonnull @__func__.set_rel_size) #9
   unreachable
 
-763:                                              ; preds = %set_append_rel_size.exit, %set_worktable_pathlist.exit, %set_cte_pathlist.exit, %284, %289, %290, %285, %755, %751, %640, %639, %638, %set_subquery_pathlist.exit, %15
+762:                                              ; preds = %set_append_rel_size.exit, %set_worktable_pathlist.exit, %set_cte_pathlist.exit, %284, %289, %290, %285, %754, %750, %639, %638, %637, %set_subquery_pathlist.exit, %15
   ret void
 }
 

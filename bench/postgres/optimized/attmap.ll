@@ -230,8 +230,8 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   %wide.trip.count.i = zext nneg i32 %88 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %119, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %119 ]
+.lr.ph.i:                                         ; preds = %118, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %118 ]
   %90 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %87, i64 0, i64 %indvars.iv.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i8, ptr %91, align 4, !range !4, !noundef !5
@@ -241,50 +241,49 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 94:                                               ; preds = %.lr.ph.i
   %95 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
   %96 = load i16, ptr %95, align 2
-  %97 = sext i16 %96 to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %98 = and i64 %97, 4294967295
-  %99 = icmp eq i64 %indvars.iv.next.i, %98
-  br i1 %99, label %119, label %100
+  %97 = sext i16 %96 to i64
+  %98 = icmp eq i64 %indvars.iv.next.i, %97
+  br i1 %98, label %118, label %99
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %invariant.gep80, i64 0, i64 %indvars.iv.i
-  %102 = icmp eq i16 %96, 0
-  br i1 %102, label %103, label %check_attrmap_match.exit.thread
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %invariant.gep80, i64 0, i64 %indvars.iv.i
+  %101 = icmp eq i16 %96, 0
+  br i1 %101, label %102, label %check_attrmap_match.exit.thread
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %90, i64 9
-  %105 = load i8, ptr %104, align 1, !range !4, !noundef !5
-  %106 = trunc nuw i8 %105 to i1
-  br i1 %106, label %107, label %check_attrmap_match.exit.thread
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %90, i64 9
+  %104 = load i8, ptr %103, align 1, !range !4, !noundef !5
+  %105 = trunc nuw i8 %104 to i1
+  br i1 %105, label %106, label %check_attrmap_match.exit.thread
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %109 = load i16, ptr %108, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %111 = load i16, ptr %110, align 4
-  %112 = icmp eq i16 %109, %111
-  br i1 %112, label %113, label %check_attrmap_match.exit.thread
+106:                                              ; preds = %102
+  %107 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %108 = load i16, ptr %107, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %100, i64 4
+  %110 = load i16, ptr %109, align 4
+  %111 = icmp eq i16 %108, %110
+  br i1 %111, label %112, label %check_attrmap_match.exit.thread
 
-113:                                              ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %115 = load i8, ptr %114, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %117 = load i8, ptr %116, align 4
-  %118 = icmp eq i8 %115, %117
-  br i1 %118, label %119, label %check_attrmap_match.exit.thread
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %114 = load i8, ptr %113, align 4
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %116 = load i8, ptr %115, align 4
+  %117 = icmp eq i8 %114, %116
+  br i1 %117, label %118, label %check_attrmap_match.exit.thread
 
-119:                                              ; preds = %113, %94
+118:                                              ; preds = %112, %94
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !10
 
-check_attrmap_match.exit:                         ; preds = %119, %.preheader.i
+check_attrmap_match.exit:                         ; preds = %118, %.preheader.i
   tail call void @pfree(ptr noundef %11) #5
   tail call void @pfree(ptr noundef nonnull %5) #5
   br label %check_attrmap_match.exit.thread
 
-check_attrmap_match.exit.thread:                  ; preds = %100, %103, %107, %113, %.lr.ph.i, %85, %check_attrmap_match.exit
-  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %5, %85 ], [ %5, %.lr.ph.i ], [ %5, %113 ], [ %5, %107 ], [ %5, %103 ], [ %5, %100 ]
+check_attrmap_match.exit.thread:                  ; preds = %99, %102, %106, %112, %.lr.ph.i, %85, %check_attrmap_match.exit
+  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %5, %85 ], [ %5, %.lr.ph.i ], [ %5, %112 ], [ %5, %106 ], [ %5, %102 ], [ %5, %99 ]
   ret ptr %.0
 }
 
@@ -588,8 +587,8 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
   %wide.trip.count.i = zext nneg i32 %10 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %42 ]
+.lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
   %12 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %8, i64 0, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i8, ptr %13, align 4, !range !4, !noundef !5
@@ -600,51 +599,50 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2
-  %20 = sext i16 %19 to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %21 = and i64 %20, 4294967295
-  %22 = icmp eq i64 %indvars.iv.next.i, %21
-  br i1 %22, label %42, label %23
+  %20 = sext i16 %19 to i64
+  %21 = icmp eq i64 %indvars.iv.next.i, %20
+  br i1 %21, label %41, label %22
 
-23:                                               ; preds = %16
-  %24 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %7, i64 0, i64 %indvars.iv.i
-  %25 = icmp eq i16 %19, 0
-  br i1 %25, label %26, label %check_attrmap_match.exit.thread
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %7, i64 0, i64 %indvars.iv.i
+  %24 = icmp eq i16 %19, 0
+  br i1 %24, label %25, label %check_attrmap_match.exit.thread
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 9
-  %28 = load i8, ptr %27, align 1, !range !4, !noundef !5
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %check_attrmap_match.exit.thread
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 9
+  %27 = load i8, ptr %26, align 1, !range !4, !noundef !5
+  %28 = trunc nuw i8 %27 to i1
+  br i1 %28, label %29, label %check_attrmap_match.exit.thread
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %32 = load i16, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %34 = load i16, ptr %33, align 4
-  %35 = icmp eq i16 %32, %34
-  br i1 %35, label %36, label %check_attrmap_match.exit.thread
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %31 = load i16, ptr %30, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %33 = load i16, ptr %32, align 4
+  %34 = icmp eq i16 %31, %33
+  br i1 %34, label %35, label %check_attrmap_match.exit.thread
 
-36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %38 = load i8, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %40 = load i8, ptr %39, align 4
-  %41 = icmp eq i8 %38, %40
-  br i1 %41, label %42, label %check_attrmap_match.exit.thread
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %37 = load i8, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %39 = load i8, ptr %38, align 4
+  %40 = icmp eq i8 %37, %39
+  br i1 %40, label %41, label %check_attrmap_match.exit.thread
 
-42:                                               ; preds = %36, %16
+41:                                               ; preds = %35, %16
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !10
 
-check_attrmap_match.exit:                         ; preds = %42, %.preheader.i.check_attrmap_match.exit_crit_edge
-  %43 = phi ptr [ %.pre, %.preheader.i.check_attrmap_match.exit_crit_edge ], [ %17, %42 ]
-  tail call void @pfree(ptr noundef %43) #5
+check_attrmap_match.exit:                         ; preds = %41, %.preheader.i.check_attrmap_match.exit_crit_edge
+  %42 = phi ptr [ %.pre, %.preheader.i.check_attrmap_match.exit_crit_edge ], [ %17, %41 ]
+  tail call void @pfree(ptr noundef %42) #5
   tail call void @pfree(ptr noundef nonnull %4) #5
   br label %check_attrmap_match.exit.thread
 
-check_attrmap_match.exit.thread:                  ; preds = %23, %26, %30, %36, %.lr.ph.i, %3, %check_attrmap_match.exit
-  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %4, %3 ], [ %4, %.lr.ph.i ], [ %4, %36 ], [ %4, %30 ], [ %4, %26 ], [ %4, %23 ]
+check_attrmap_match.exit.thread:                  ; preds = %22, %25, %29, %35, %.lr.ph.i, %3, %check_attrmap_match.exit
+  %.0 = phi ptr [ null, %check_attrmap_match.exit ], [ %4, %3 ], [ %4, %.lr.ph.i ], [ %4, %35 ], [ %4, %29 ], [ %4, %25 ], [ %4, %22 ]
   ret ptr %.0
 }
 

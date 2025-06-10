@@ -10101,8 +10101,8 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
   %163 = mul nsw i32 %162, %142
   %164 = sext i32 %163 to i64
   %165 = sext i32 %160 to i64
-  %166 = zext i32 %153 to i64
-  %167 = zext i32 %156 to i64
+  %166 = sext i8 %152 to i64
+  %167 = sext i8 %155 to i64
   %invariant.gep = getelementptr i32, ptr %145, i64 %164
   %invariant.gep337 = getelementptr i32, ptr %145, i64 %165
   %invariant.gep341.sink = getelementptr inbounds nuw i32, ptr %145, i64 %161
@@ -10156,15 +10156,15 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
 
 .lr.ph249.split.us.split.us259.preheader:         ; preds = %.lr.ph249.split.us.us
   %184 = sext i32 %160 to i64
-  %185 = zext i32 %153 to i64
-  %186 = zext i32 %156 to i64
+  %185 = sext i8 %152 to i64
+  %186 = sext i8 %155 to i64
   %invariant.gep343 = getelementptr i32, ptr %145, i64 %184
   %invariant.gep347.sink = getelementptr inbounds nuw i32, ptr %145, i64 %161
   br label %.lr.ph249.split.us.split.us259
 
 .lr.ph249.split.us.split.us.us.preheader:         ; preds = %.lr.ph249.split.us.us
-  %187 = zext i32 %153 to i64
-  %188 = zext i32 %156 to i64
+  %187 = sext i8 %152 to i64
+  %188 = sext i8 %155 to i64
   %189 = and i64 %161, 4294967295
   %invariant.gep349 = getelementptr inbounds nuw i32, ptr %145, i64 %189
   br label %.lr.ph249.split.us.split.us.us

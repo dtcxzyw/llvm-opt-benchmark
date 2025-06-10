@@ -16310,7 +16310,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i.i:   ; preds = %170, %_ZN3vcg4face3
   %182 = icmp eq ptr %.0.i.i.i.i.i, %162
   %spec.select.i = select i1 %182, i8 1, i8 %.04.i
   %.not.i.i.i38 = icmp ne ptr %162, %.sroa.047.292
-  %183 = zext i32 %165 to i64
+  %183 = sext i8 %164 to i64
   %.not4.i.i.i = icmp ne i64 %indvars.iv102, %183
   %or.cond.not11.i.i = select i1 %.not.i.i.i38, i1 true, i1 %.not4.i.i.i
   br i1 %or.cond.not11.i.i, label %_ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.i.i, label %184, !llvm.loop !93

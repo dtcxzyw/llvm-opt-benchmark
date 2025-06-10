@@ -9483,7 +9483,7 @@ _ZNSt8_Rb_treeISt4pairIP8MeshFaceiES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_
   %117 = load i8, ptr %116, align 1
   %118 = sext i8 %117 to i32
   %.not.i = icmp eq ptr %114, %.sroa.0140.0178
-  %119 = zext i32 %118 to i64
+  %119 = sext i8 %117 to i64
   %.not4.i = icmp eq i64 %indvars.iv, %119
   %or.cond150 = select i1 %.not.i, i1 %.not4.i, i1 false
   br i1 %or.cond150, label %120, label %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit, !llvm.loop !101
@@ -23277,7 +23277,7 @@ _ZN3vcg4face3PosI8MeshFaceE5NextEEv.exit.i.i:     ; preds = %127, %_ZNK3vcg4face
   %141 = icmp eq ptr %140, %132
   %spec.select.i = select i1 %141, i8 1, i8 %.04.i
   %.not.i.i.i38 = icmp ne ptr %132, %.sroa.047.292
-  %142 = zext i32 %136 to i64
+  %142 = sext i8 %135 to i64
   %.not4.i.i.i = icmp ne i64 %indvars.iv102, %142
   %or.cond.not11.i.i = or i1 %.not.i.i.i38, %.not4.i.i.i
   br i1 %or.cond.not11.i.i, label %_ZNK3vcg4face3PosI8MeshFaceEneERKS3_.exit.i.i, label %143, !llvm.loop !391

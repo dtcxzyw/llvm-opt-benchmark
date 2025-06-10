@@ -16578,7 +16578,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i.i:   ; preds = %170, %_ZN3vcg4face3
   %182 = icmp eq ptr %.0.i.i.i.i.i, %162
   %spec.select.i = select i1 %182, i8 1, i8 %.04.i
   %.not.i.i.i38 = icmp ne ptr %162, %.sroa.047.292
-  %183 = zext i32 %165 to i64
+  %183 = sext i8 %164 to i64
   %.not4.i.i.i = icmp ne i64 %indvars.iv102, %183
   %or.cond.not11.i.i = select i1 %.not.i.i.i38, i1 true, i1 %.not4.i.i.i
   br i1 %or.cond.not11.i.i, label %_ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.i.i, label %184, !llvm.loop !77
@@ -54315,7 +54315,7 @@ _ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i.i.us.u
   %136 = icmp eq ptr %135, %127
   %spec.select.i.us.us = select i1 %136, i8 1, i8 %.04.i.us.us
   %.not.i.i.i38.us.us = icmp ne ptr %127, %.sroa.047.292.us
-  %137 = zext i32 %131 to i64
+  %137 = sext i8 %130 to i64
   %.not4.i.i.i.us.us = icmp ne i64 %indvars.iv110, %137
   %or.cond.not11.i.i.us.us = or i1 %.not.i.i.i38.us.us, %.not4.i.i.i.us.us
   br i1 %or.cond.not11.i.i.us.us, label %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit.i.i.us.us, label %138, !llvm.loop !561
@@ -54411,7 +54411,7 @@ _ZN3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEE5NextEEv.exit.i.i: ; p
   %187 = icmp eq ptr %186, %178
   %spec.select.i = select i1 %187, i8 1, i8 %.04.i
   %.not.i.i.i38 = icmp ne ptr %178, %.sroa.047.292
-  %188 = zext i32 %182 to i64
+  %188 = sext i8 %181 to i64
   %.not4.i.i.i = icmp ne i64 %indvars.iv106, %188
   %or.cond.not11.i.i = or i1 %.not.i.i.i38, %.not4.i.i.i
   br i1 %or.cond.not11.i.i, label %_ZNK3vcg4face3PosINS_3tri12VoronoiAtlasI6CMeshOE8VoroFaceEEneERKS7_.exit.i.i, label %189, !llvm.loop !561

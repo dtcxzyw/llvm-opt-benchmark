@@ -875,9 +875,9 @@ list_head.exit.i:                                 ; preds = %9, %3
   %wide.trip.count.i = zext i32 %17 to i64
   br label %18
 
-18:                                               ; preds = %51, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %.0265.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %51 ]
+18:                                               ; preds = %50, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
+  %.0265.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %50 ]
   %19 = getelementptr %struct.FormData_pg_attribute, ptr %gep.i, i64 %indvars.iv.i
   %20 = icmp eq ptr %.0265.i, null
   br i1 %20, label %tlist_matches_tupdesc.exit.thread, label %21
@@ -898,105 +898,104 @@ list_head.exit.i:                                 ; preds = %9, %3
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load i16, ptr %29, align 8
   %31 = sext i16 %30 to i64
-  %32 = and i64 %31, 4294967295
-  %.not32.i = icmp eq i64 %indvars.iv.i, %32
-  br i1 %.not32.i, label %33, label %tlist_matches_tupdesc.exit.thread
+  %.not32.i = icmp eq i64 %indvars.iv.i, %31
+  br i1 %.not32.i, label %32, label %tlist_matches_tupdesc.exit.thread
 
-33:                                               ; preds = %28
-  %34 = getelementptr i8, ptr %19, i64 -9
-  %35 = load i8, ptr %34, align 1, !range !8, !noundef !9
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %tlist_matches_tupdesc.exit.thread, label %37
+32:                                               ; preds = %28
+  %33 = getelementptr i8, ptr %19, i64 -9
+  %34 = load i8, ptr %33, align 1, !range !8, !noundef !9
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %tlist_matches_tupdesc.exit.thread, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr i8, ptr %19, i64 -12
-  %39 = load i8, ptr %38, align 4, !range !8, !noundef !9
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %tlist_matches_tupdesc.exit.thread, label %41
+36:                                               ; preds = %32
+  %37 = getelementptr i8, ptr %19, i64 -12
+  %38 = load i8, ptr %37, align 4, !range !8, !noundef !9
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %tlist_matches_tupdesc.exit.thread, label %40
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr i8, ptr %19, i64 -32
-  %45 = load i32, ptr %44, align 4
-  %.not33.i = icmp eq i32 %43, %45
-  br i1 %.not33.i, label %46, label %tlist_matches_tupdesc.exit.thread
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr i8, ptr %19, i64 -32
+  %44 = load i32, ptr %43, align 4
+  %.not33.i = icmp eq i32 %42, %44
+  br i1 %.not33.i, label %45, label %tlist_matches_tupdesc.exit.thread
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %48 = load i32, ptr %47, align 8
-  %49 = getelementptr i8, ptr %19, i64 -24
-  %50 = load i32, ptr %49, align 4
-  %.not34.i = icmp eq i32 %48, %50
-  %.not35.i = icmp eq i32 %48, -1
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = getelementptr i8, ptr %19, i64 -24
+  %49 = load i32, ptr %48, align 4
+  %.not34.i = icmp eq i32 %47, %49
+  %.not35.i = icmp eq i32 %47, -1
   %or.cond.i = or i1 %.not35.i, %.not34.i
-  br i1 %or.cond.i, label %51, label %tlist_matches_tupdesc.exit.thread
+  br i1 %or.cond.i, label %50, label %tlist_matches_tupdesc.exit.thread
 
-51:                                               ; preds = %46
+50:                                               ; preds = %45
   %.val.i = load i32, ptr %15, align 4
   %.val36.i = load ptr, ptr %16, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.0265.i, i64 8
-  %53 = sext i32 %.val.i to i64
-  %54 = getelementptr inbounds %union.ListCell, ptr %.val36.i, i64 %53
-  %55 = icmp ult ptr %52, %54
-  %..i.i = select i1 %55, ptr %52, ptr null
+  %51 = getelementptr inbounds nuw i8, ptr %.0265.i, i64 8
+  %52 = sext i32 %.val.i to i64
+  %53 = getelementptr inbounds %union.ListCell, ptr %.val36.i, i64 %52
+  %54 = icmp ult ptr %51, %53
+  %..i.i = select i1 %54, ptr %51, ptr null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %tlist_matches_tupdesc.exit, label %18, !llvm.loop !11
 
-tlist_matches_tupdesc.exit:                       ; preds = %51, %list_head.exit.i
-  %.026.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %51 ]
+tlist_matches_tupdesc.exit:                       ; preds = %50, %list_head.exit.i
+  %.026.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %50 ]
   %.not30.i = icmp eq ptr %.026.lcssa.i, null
-  br i1 %.not30.i, label %56, label %tlist_matches_tupdesc.exit.thread
+  br i1 %.not30.i, label %55, label %tlist_matches_tupdesc.exit.thread
 
-56:                                               ; preds = %tlist_matches_tupdesc.exit
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr null, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %59 = load i8, ptr %58, align 4, !range !8, !noundef !9
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  store i8 %59, ptr %60, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %62 = load i8, ptr %61, align 8, !range !8, !noundef !9
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 195
-  store i8 %62, ptr %63, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %65 = load ptr, ptr %64, align 8
-  br label %78
+55:                                               ; preds = %tlist_matches_tupdesc.exit
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr null, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %58 = load i8, ptr %57, align 4, !range !8, !noundef !9
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 199
+  store i8 %58, ptr %59, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %61 = load i8, ptr %60, align 8, !range !8, !noundef !9
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 195
+  store i8 %61, ptr %62, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %64 = load ptr, ptr %63, align 8
+  br label %77
 
-tlist_matches_tupdesc.exit.thread:                ; preds = %41, %46, %37, %33, %28, %21, %25, %18, %tlist_matches_tupdesc.exit
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %67 = load ptr, ptr %66, align 8
-  %.not = icmp eq ptr %67, null
-  br i1 %.not, label %68, label %72
+tlist_matches_tupdesc.exit.thread:                ; preds = %40, %45, %36, %32, %28, %21, %25, %18, %tlist_matches_tupdesc.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %66 = load ptr, ptr %65, align 8
+  %.not = icmp eq ptr %66, null
+  br i1 %.not, label %67, label %71
 
-68:                                               ; preds = %tlist_matches_tupdesc.exit.thread
+67:                                               ; preds = %tlist_matches_tupdesc.exit.thread
   tail call void @ExecInitResultSlot(ptr noundef nonnull %0, ptr noundef nonnull @TTSOpsVirtual) #12
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr @TTSOpsVirtual, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 195
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr @TTSOpsVirtual, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 195
+  store i8 1, ptr %69, align 1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 199
   store i8 1, ptr %70, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 199
-  store i8 1, ptr %71, align 1
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre19 = load ptr, ptr %66, align 8
-  br label %72
+  %.pre19 = load ptr, ptr %65, align 8
+  br label %71
 
-72:                                               ; preds = %68, %tlist_matches_tupdesc.exit.thread
-  %73 = phi ptr [ %.pre19, %68 ], [ %67, %tlist_matches_tupdesc.exit.thread ]
-  %74 = phi ptr [ %.pre18, %68 ], [ %7, %tlist_matches_tupdesc.exit.thread ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @ExecBuildProjectionInfo(ptr noundef %74, ptr noundef %76, ptr noundef %73, ptr noundef nonnull %0, ptr noundef nonnull %1) #12
-  br label %78
+71:                                               ; preds = %67, %tlist_matches_tupdesc.exit.thread
+  %72 = phi ptr [ %.pre19, %67 ], [ %66, %tlist_matches_tupdesc.exit.thread ]
+  %73 = phi ptr [ %.pre18, %67 ], [ %7, %tlist_matches_tupdesc.exit.thread ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call ptr @ExecBuildProjectionInfo(ptr noundef %73, ptr noundef %75, ptr noundef %72, ptr noundef nonnull %0, ptr noundef nonnull %1) #12
+  br label %77
 
-78:                                               ; preds = %72, %56
-  %.sink21 = phi i64 [ 136, %72 ], [ 184, %56 ]
-  %.sink = phi ptr [ %77, %72 ], [ %65, %56 ]
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
-  store ptr %.sink, ptr %79, align 8
+77:                                               ; preds = %71, %55
+  %.sink21 = phi i64 [ 136, %71 ], [ 184, %55 ]
+  %.sink = phi ptr [ %76, %71 ], [ %64, %55 ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
+  store ptr %.sink, ptr %78, align 8
   ret void
 }
 

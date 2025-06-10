@@ -4491,7 +4491,7 @@ _ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %._crit_edge, %59
   br i1 %75, label %.lr.ph63.preheader, label %._crit_edge64
 
 .lr.ph63.preheader:                               ; preds = %73
-  %76 = zext i32 %65 to i64
+  %76 = sext i1 %.not1.i to i64
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %88
@@ -4738,7 +4738,7 @@ define hidden void @_ZN12Dependencies19write_dependency_toEP9xmlStreamNS_7DepTyp
   %5 = alloca %class.HandleMark, align 8
   %6 = alloca [12 x i8], align 1
   %7 = icmp eq ptr %0, null
-  br i1 %7, label %85, label %8
+  br i1 %7, label %83, label %8
 
 8:                                                ; preds = %4
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -4750,171 +4750,169 @@ define hidden void @_ZN12Dependencies19write_dependency_toEP9xmlStreamNS_7DepTyp
   %13 = and i32 %12, 252
   %14 = icmp eq i32 %13, 0
   %.not1.i = select i1 %or.cond.i.i.i, i1 true, i1 %14
-  %15 = sext i1 %.not1.i to i32
   %.not = icmp eq ptr %3, null
   %.str.23..str.22 = select i1 %.not, ptr @.str.23, ptr @.str.22
   call void (ptr, ptr, ...) @_ZN9xmlStream10begin_elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %.str.23..str.22) #19
   %or.cond.i.i = icmp ult i32 %1, 9
-  %16 = and i32 %12, 510
-  %17 = icmp ne i32 %16, 0
-  %18 = select i1 %or.cond.i.i, i1 %17, i1 false
-  br i1 %18, label %19, label %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
+  %15 = and i32 %12, 510
+  %16 = icmp ne i32 %15, 0
+  %17 = select i1 %or.cond.i.i, i1 %16, i1 false
+  br i1 %17, label %18, label %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
 
-19:                                               ; preds = %8
-  %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN12Dependencies9_dep_nameE, i64 0, i64 %20
-  %22 = load ptr, ptr %21, align 8
+18:                                               ; preds = %8
+  %19 = zext nneg i32 %1 to i64
+  %20 = getelementptr inbounds nuw [9 x ptr], ptr @_ZN12Dependencies9_dep_nameE, i64 0, i64 %19
+  %21 = load ptr, ptr %20, align 8
   br label %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
 
-_ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %8, %19
-  %.0.i = phi ptr [ %22, %19 ], [ @.str.15, %8 ]
+_ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %8, %18
+  %.0.i = phi ptr [ %21, %18 ], [ @.str.15, %8 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, ptr noundef %.0.i) #19
-  br i1 %.not1.i, label %29, label %23
+  br i1 %.not1.i, label %27, label %22
 
-23:                                               ; preds = %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = zext nneg i32 %15 to i64
-  %27 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %25, i64 %26, i32 2
-  %28 = load ptr, ptr %27, align 8
-  call void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.29, ptr noundef %28) #19
-  br label %29
+22:                                               ; preds = %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  call void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.29, ptr noundef %26) #19
+  br label %27
 
-29:                                               ; preds = %23, %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
-  %30 = load i32, ptr %2, align 4
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %._crit_edge
+27:                                               ; preds = %22, %_ZN12Dependencies8dep_nameENS_7DepTypeE.exit
+  %28 = load i32, ptr %2, align 4
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %29
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %10, i64 808
-  %34 = zext i32 %15 to i64
-  br label %35
+.lr.ph:                                           ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 808
+  %32 = sext i1 %.not1.i to i64
+  br label %33
 
-35:                                               ; preds = %.lr.ph, %79
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %36 = icmp eq i64 %indvars.iv, %34
-  br i1 %36, label %79, label %37
+33:                                               ; preds = %.lr.ph, %77
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
+  %34 = icmp eq i64 %indvars.iv, %32
+  br i1 %34, label %77, label %35
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %32, align 8
-  %39 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %38, i64 %indvars.iv
-  %.sroa.040.0.copyload = load i8, ptr %39, align 8
-  %.sroa.342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %30, align 8
+  %37 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %36, i64 %indvars.iv
+  %.sroa.040.0.copyload = load i8, ptr %37, align 8
+  %.sroa.342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.342.0.copyload = load ptr, ptr %.sroa.342.0..sroa_idx, align 8
-  %40 = icmp eq i64 %indvars.iv, 1
-  br i1 %40, label %41, label %59
+  %38 = icmp eq i64 %indvars.iv, 1
+  br i1 %38, label %39, label %57
 
-41:                                               ; preds = %37
-  %42 = trunc i8 %.sroa.040.0.copyload to i1
-  br i1 %42, label %43, label %58
+39:                                               ; preds = %35
+  %40 = trunc i8 %.sroa.040.0.copyload to i1
+  br i1 %40, label %41, label %56
+
+41:                                               ; preds = %39
+  %42 = icmp eq ptr %.sroa.342.0.copyload, null
+  br i1 %42, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp eq ptr %.sroa.342.0.copyload, null
-  br i1 %44, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %45
-
-45:                                               ; preds = %43
-  %46 = load ptr, ptr %33, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %44 = load ptr, ptr %31, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %48 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %.not.i.i.i.i = icmp ult i64 %53, 8
-  br i1 %.not.i.i.i.i, label %56, label %54
+  %49 = ptrtoint ptr %46 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %.not.i.i.i.i = icmp ult i64 %51, 8
+  br i1 %.not.i.i.i.i, label %54, label %52
 
-54:                                               ; preds = %45
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %55, ptr %49, align 8
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %53, ptr %47, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
-56:                                               ; preds = %45
-  %57 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %46, i64 noundef 8, i32 noundef 0) #19
+54:                                               ; preds = %43
+  %55 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %44, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
 
-_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %56, %54
-  %.0.i.i.i.i = phi ptr [ %50, %54 ], [ %57, %56 ]
+_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %54, %52
+  %.0.i.i.i.i = phi ptr [ %48, %52 ], [ %55, %54 ]
   store ptr %.sroa.342.0.copyload, ptr %.0.i.i.i.i, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %43, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
-  %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %43 ]
+_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %41, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
+  %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %41 ]
   call void @_ZN9xmlStream6objectEPKc6Handle(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.30, ptr %storemerge.i) #19
-  br label %79
+  br label %77
 
-58:                                               ; preds = %41
+56:                                               ; preds = %39
   call void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.30, ptr noundef %.sroa.342.0.copyload) #19
-  br label %79
+  br label %77
 
-59:                                               ; preds = %37
-  %60 = trunc nuw nsw i64 %indvars.iv to i32
-  %61 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %6, i64 noundef 12, ptr noundef nonnull @.str.31, i32 noundef %60) #19
-  %62 = trunc i8 %.sroa.040.0.copyload to i1
-  br i1 %62, label %63, label %78
+57:                                               ; preds = %35
+  %58 = trunc nuw nsw i64 %indvars.iv to i32
+  %59 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %6, i64 noundef 12, ptr noundef nonnull @.str.31, i32 noundef %58) #19
+  %60 = trunc i8 %.sroa.040.0.copyload to i1
+  br i1 %60, label %61, label %76
 
-63:                                               ; preds = %59
-  %64 = icmp eq ptr %.sroa.342.0.copyload, null
-  br i1 %64, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit38, label %65
+61:                                               ; preds = %57
+  %62 = icmp eq ptr %.sroa.342.0.copyload, null
+  br i1 %62, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit38, label %63
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %33, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %31, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %68 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %.not.i.i.i.i34 = icmp ult i64 %73, 8
-  br i1 %.not.i.i.i.i34, label %76, label %74
+  %69 = ptrtoint ptr %66 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %.not.i.i.i.i34 = icmp ult i64 %71, 8
+  br i1 %.not.i.i.i.i34, label %74, label %72
 
-74:                                               ; preds = %65
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store ptr %75, ptr %69, align 8
+72:                                               ; preds = %63
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %73, ptr %67, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35
 
-76:                                               ; preds = %65
-  %77 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %66, i64 noundef 8, i32 noundef 0) #19
+74:                                               ; preds = %63
+  %75 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %64, i64 noundef 8, i32 noundef 0) #19
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35
 
-_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35: ; preds = %76, %74
-  %.0.i.i.i.i36 = phi ptr [ %70, %74 ], [ %77, %76 ]
+_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35: ; preds = %74, %72
+  %.0.i.i.i.i36 = phi ptr [ %68, %72 ], [ %75, %74 ]
   store ptr %.sroa.342.0.copyload, ptr %.0.i.i.i.i36, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit38
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit38:            ; preds = %63, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35
-  %storemerge.i37 = phi ptr [ %.0.i.i.i.i36, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35 ], [ null, %63 ]
+_ZN6HandleC2EP6ThreadP7oopDesc.exit38:            ; preds = %61, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35
+  %storemerge.i37 = phi ptr [ %.0.i.i.i.i36, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i35 ], [ null, %61 ]
   call void @_ZN9xmlStream6objectEPKc6Handle(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %6, ptr %storemerge.i37) #19
-  br label %79
+  br label %77
 
-78:                                               ; preds = %59
+76:                                               ; preds = %57
   call void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %6, ptr noundef %.sroa.342.0.copyload) #19
-  br label %79
+  br label %77
 
-79:                                               ; preds = %58, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %78, %_ZN6HandleC2EP6ThreadP7oopDesc.exit38, %35
+77:                                               ; preds = %56, %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %76, %_ZN6HandleC2EP6ThreadP7oopDesc.exit38, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = load i32, ptr %2, align 4
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %35, label %._crit_edge, !llvm.loop !43
+  %78 = load i32, ptr %2, align 4
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next, %79
+  br i1 %80, label %33, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %79, %29
-  br i1 %.not, label %84, label %83
+._crit_edge:                                      ; preds = %77, %27
+  br i1 %.not, label %82, label %81
 
-83:                                               ; preds = %._crit_edge
+81:                                               ; preds = %._crit_edge
   call void @_ZN9xmlStream6objectEPKcP8Metadata(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #19
   call void @_ZN9xmlStream5stampEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
-  br label %84
+  br label %82
 
-84:                                               ; preds = %83, %._crit_edge
+82:                                               ; preds = %81, %._crit_edge
   call void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
   call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %11) #19
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
-  br label %85
+  br label %83
 
-85:                                               ; preds = %4, %84
+83:                                               ; preds = %4, %82
   ret void
 }
 
@@ -4968,7 +4966,7 @@ _ZN12Dependencies8dep_nameENS_7DepTypeE.exit:     ; preds = %4, %24
   %31 = icmp eq i32 %30, 0
   %.not1.i = select i1 %or.cond.i.i.i, i1 true, i1 %31
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = select i1 %.not1.i, i64 4294967295, i64 0
+  %33 = sext i1 %.not1.i to i64
   br label %34
 
 34:                                               ; preds = %.lr.ph, %75
