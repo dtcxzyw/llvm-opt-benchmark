@@ -5747,12 +5747,12 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull wri
 .preheader:                                       ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !30
-  %10 = add i64 %5, 1
+  %10 = add nuw nsw i64 %5, 1
   %11 = icmp ult i64 %10, %9
   br i1 %11, label %.lr.ph.preheader, label %.thread108
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %invariant.op = add i64 %5, 1
+  %invariant.op = add nuw nsw i64 %5, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
@@ -5767,7 +5767,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull wri
   ]
 
 13:                                               ; preds = %.lr.ph
-  %.reass = add i64 %.063121.idx, %invariant.op
+  %.reass = add nuw nsw i64 %.063121.idx, %invariant.op
   %.not75 = icmp ult i64 %.reass, %9
   br i1 %.not75, label %14, label %.thread108
 
@@ -5781,7 +5781,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull wri
   %.160 = phi i64 [ %15, %14 ], [ %.059122, %.lr.ph ]
   %.164.add = add nuw nsw i64 %.164.idx, 1
   %.ptr129 = getelementptr inbounds nuw i8, ptr %6, i64 %.164.add
-  %17 = add i64 %5, %.164.add
+  %17 = add nuw nsw i64 %5, %.164.add
   %18 = icmp ult i64 %17, %9
   br i1 %18, label %.lr.ph, label %.thread108
 

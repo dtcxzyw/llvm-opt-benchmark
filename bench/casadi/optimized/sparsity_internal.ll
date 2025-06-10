@@ -1736,7 +1736,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIxSaI
 
 27:                                               ; preds = %_ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread.i
   %.idx = shl nsw i64 %2, 3
-  %28 = add i64 %.idx, 8
+  %28 = add nsw i64 %.idx, 8
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %3, i64 %28, i1 false)
   br label %_ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_.exit
@@ -2180,7 +2180,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %40, 
   %53 = load i64, ptr %52, align 8, !tbaa !3, !noalias !100
   store i64 0, ptr %7, align 8
   %.idx.i = shl nsw i64 %53, 3
-  %54 = add i64 %.idx.i, 8
+  %54 = add nsw i64 %.idx.i, 8
   %55 = icmp ugt i64 %54, 9223372036854775800
   br i1 %55, label %.noexc.i.i, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -3091,7 +3091,7 @@ define void @_ZNK6casadi16SparsityInternal10get_colindEv(ptr dead_on_unwind noal
   %6 = load i64, ptr %5, align 8, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.idx = shl nsw i64 %6, 3
-  %7 = add i64 %.idx, 8
+  %7 = add nsw i64 %.idx, 8
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %.noexc.i, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i
 
@@ -16004,7 +16004,7 @@ _ZNSt6vectorIxSaIxEE7reserveEm.exit:              ; preds = %418, %_ZNSt12_Vecto
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 8
   store i64 0, ptr %31, align 8
   %.idx.i = shl nsw i64 %437, 3
-  %441 = add i64 %.idx.i, 8
+  %441 = add nsw i64 %.idx.i, 8
   %442 = icmp ugt i64 %441, 9223372036854775800
   br i1 %442, label %.noexc.i.i205, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -26401,7 +26401,7 @@ _ZNK6casadi16SparsityInternal8is_emptyEb.exit.thread: ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !387
   %.idx.i = shl nsw i64 %8, 3
-  %19 = add i64 %.idx.i, 8
+  %19 = add nsw i64 %.idx.i, 8
   %20 = icmp ugt i64 %19, 9223372036854775800
   br i1 %20, label %.noexc.i.i, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -28736,7 +28736,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt12_Vector_base
   %205 = load i64, ptr %204, align 8, !tbaa !3, !noalias !413
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false), !alias.scope !413
   %.idx.i95 = shl nsw i64 %205, 3
-  %206 = add i64 %.idx.i95, 8
+  %206 = add nsw i64 %.idx.i95, 8
   %207 = icmp ugt i64 %206, 9223372036854775800
   br i1 %207, label %.noexc.i.i100, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i96
 
@@ -29928,7 +29928,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit174:                 ; preds = %324, %326
   %333 = load i64, ptr %332, align 8, !tbaa !3, !noalias !421
   store i64 0, ptr %29, align 8
   %.idx.i = shl nsw i64 %333, 3
-  %334 = add i64 %.idx.i, 8
+  %334 = add nsw i64 %.idx.i, 8
   %335 = icmp ugt i64 %334, 9223372036854775800
   br i1 %335, label %.noexc.i.i176, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -31461,7 +31461,7 @@ _ZNK6casadi16SparsityInternal7get_rowEv.exit:     ; preds = %_ZNSt6vectorIxSaIxE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false), !alias.scope !439
   %.idx.i204 = shl nsw i64 %435, 3
-  %449 = add i64 %.idx.i204, 8
+  %449 = add nsw i64 %.idx.i204, 8
   %450 = icmp ugt i64 %449, 9223372036854775800
   br i1 %450, label %.noexc.i.i209, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i205
 
@@ -34297,7 +34297,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
   store i64 0, ptr %14, align 8
   %.idx.i = shl nsw i64 %37, 3
-  %131 = add i64 %.idx.i, 8
+  %131 = add nsw i64 %.idx.i, 8
   %132 = icmp ugt i64 %131, 9223372036854775800
   br i1 %132, label %.noexc.i.i, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -38432,7 +38432,7 @@ define void @_ZNK6casadi16SparsityInternal13largest_firstEv(ptr dead_on_unwind n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !3, !noalias !515
   %.idx.i = shl nsw i64 %6, 3
-  %7 = add i64 %.idx.i, 8
+  %7 = add nsw i64 %.idx.i, 8
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %.noexc.i.i, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
@@ -41300,7 +41300,7 @@ define void @_ZNK6casadi16SparsityInternal3spyERSo(ptr noundef nonnull readonly 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !3, !noalias !562
   %.idx.i = shl nsw i64 %6, 3
-  %7 = add i64 %.idx.i, 8
+  %7 = add nsw i64 %.idx.i, 8
   %8 = icmp ugt i64 %7, 9223372036854775800
   br i1 %8, label %.noexc.i.i, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 

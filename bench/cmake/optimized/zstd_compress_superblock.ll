@@ -690,8 +690,8 @@ ZSTD_compressSubBlock_sequences.exit.thread.i.i:  ; preds = %ZSTD_compressSubBlo
 ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlock_sequences.exit.thread.i.i, %310
   %.not207.i = phi i32 [ %.0190.ph.i, %310 ], [ 0, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ]
   %.0.i647795.i.i = phi i64 [ 1, %310 ], [ %348, %ZSTD_compressSubBlock_sequences.exit.thread.i.i ]
-  %351 = add nuw i64 %.0.i.i216.i, 3
-  %352 = add i64 %351, %.0.i647795.i.i
+  %351 = add nuw nsw i64 %.0.i.i216.i, 3
+  %352 = add nuw nsw i64 %351, %.0.i647795.i.i
   %.tr.i.i = trunc i64 %352 to i32
   %353 = shl i32 %.tr.i.i, 3
   %354 = add i32 %353, -24
@@ -706,10 +706,8 @@ ZSTD_compressSubBlock.exit.i:                     ; preds = %ZSTD_compressSubBlo
   br i1 %360, label %361, label %ZSTD_compressSubBlock_multi.exit
 
 361:                                              ; preds = %ZSTD_compressSubBlock.exit.i
-  %.not205.i = icmp ne i64 %352, 0
   %362 = icmp ult i64 %352, %213
-  %or.cond212.i = select i1 %.not205.i, i1 %362, i1 false
-  br i1 %or.cond212.i, label %363, label %.thread255.i
+  br i1 %362, label %363, label %.thread255.i
 
 363:                                              ; preds = %361
   %364 = getelementptr inbounds nuw i8, ptr %.0145.ph.i, i64 %213

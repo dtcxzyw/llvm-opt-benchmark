@@ -9353,7 +9353,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %231, %234
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit180
 
 240:                                              ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
-  %241 = add i64 %159, 8
+  %241 = add nsw i64 %159, 8
   %242 = icmp eq i64 %241, 9223372036854775800
   br i1 %242, label %243, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i172
 
@@ -9380,7 +9380,7 @@ _ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i172: ; preds = %240
 .noexc179:                                        ; preds = %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i.i172
   %251 = getelementptr inbounds i8, ptr %250, i64 %241
   store ptr @.str.38, ptr %251, align 8, !tbaa !213
-  %252 = icmp sgt i64 %241, 0
+  %252 = icmp sgt i64 %159, -8
   br i1 %252, label %253, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i177
 
 253:                                              ; preds = %.noexc179

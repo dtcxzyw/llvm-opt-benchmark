@@ -6715,7 +6715,7 @@ define dso_local void @tcg_gen_extr_i128_i64(ptr noundef %0, ptr noundef %1, ptr
 
 tcg_gen_mov_i64.exit:                             ; preds = %.tcg_gen_mov_i64.exit_crit_edge, %5
   %.pre-phi = phi i64 [ %.pre, %.tcg_gen_mov_i64.exit_crit_edge ], [ %11, %5 ]
-  %15 = add i64 %.pre-phi, 56
+  %15 = add nuw nsw i64 %.pre-phi, 56
   %16 = inttoptr i64 %15 to ptr
   %17 = icmp eq ptr %1, %16
   br i1 %17, label %tcg_gen_mov_i64.exit4, label %18
@@ -6758,7 +6758,7 @@ define dso_local void @tcg_gen_concat_i64_i128(ptr noundef %0, ptr noundef %1, p
 
 tcg_gen_mov_i64.exit:                             ; preds = %.tcg_gen_mov_i64.exit_crit_edge, %5
   %.pre-phi = phi i64 [ %.pre, %.tcg_gen_mov_i64.exit_crit_edge ], [ %8, %5 ]
-  %15 = add i64 %.pre-phi, 56
+  %15 = add nuw nsw i64 %.pre-phi, 56
   %16 = inttoptr i64 %15 to ptr
   %17 = icmp eq ptr %2, %16
   br i1 %17, label %tcg_gen_mov_i64.exit4, label %18
@@ -6794,11 +6794,11 @@ tcg_gen_mov_i64.exit:                             ; preds = %2
   %10 = ptrtoint ptr %9 to i64
   %11 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %7, i64 noundef %10)
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr i8, ptr %12, i64 %5
-  %14 = getelementptr i8, ptr %13, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %5
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr i8, ptr %12, i64 %8
-  %17 = getelementptr i8, ptr %16, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 %8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = ptrtoint ptr %17 to i64
   %19 = tail call ptr @tcg_gen_op2(i32 noundef 63, i32 noundef 1, i64 noundef %15, i64 noundef %18)
   br label %tcg_gen_mov_i64.exit7
@@ -6820,8 +6820,8 @@ define dso_local void @tcg_gen_ld_i128(ptr noundef %0, ptr noundef %1, i64 nound
   %12 = tail call ptr @tcg_gen_op3(i32 noundef 73, i32 noundef 1, i64 noundef %8, i64 noundef %11, i64 noundef %2)
   %13 = add i64 %2, 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr i8, ptr %14, i64 %6
-  %16 = getelementptr i8, ptr %15, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = ptrtoint ptr %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %9
   %19 = ptrtoint ptr %18 to i64
@@ -6842,8 +6842,8 @@ define dso_local void @tcg_gen_st_i128(ptr noundef %0, ptr noundef %1, i64 nound
   %12 = tail call ptr @tcg_gen_op3(i32 noundef 77, i32 noundef 1, i64 noundef %8, i64 noundef %11, i64 noundef %2)
   %13 = add i64 %2, 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr i8, ptr %14, i64 %6
-  %16 = getelementptr i8, ptr %15, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = ptrtoint ptr %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %9
   %19 = ptrtoint ptr %18 to i64

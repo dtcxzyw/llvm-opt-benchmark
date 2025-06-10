@@ -2288,8 +2288,8 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit259:        ; preds = %_ZNSt6vectorIcSaIcE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52) #26
   %596 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZN11OpenImageIO6v3_1_09JpgOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_9ImageSpecENS0_11ImageOutput8OpenModeEE9photoshop) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
-  %597 = add i64 %596, 1
-  %598 = icmp slt i64 %597, 0
+  %597 = add nuw nsw i64 %596, 1
+  %598 = icmp slt i64 %596, -1
   br i1 %598, label %599, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 599:                                              ; preds = %595
@@ -2320,7 +2320,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 %597
   %607 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %606, ptr %607, align 8, !tbaa !170
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %605, ptr nonnull align 1 @_ZZN11OpenImageIO6v3_1_09JpgOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_9ImageSpecENS0_11ImageOutput8OpenModeEE9photoshop, i64 %597, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %605, ptr noundef nonnull align 1 dereferenceable(1) @_ZZN11OpenImageIO6v3_1_09JpgOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_9ImageSpecENS0_11ImageOutput8OpenModeEE9photoshop, i64 %597, i1 false)
   br label %611
 
 608:                                              ; preds = %604, %599
@@ -3070,8 +3070,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %845, %847
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54) #26
   %900 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_ZZN11OpenImageIO6v3_1_09JpgOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_9ImageSpecENS0_11ImageOutput8OpenModeEE6prefix) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
-  %901 = add i64 %900, 1
-  %902 = icmp slt i64 %901, 0
+  %901 = add nuw nsw i64 %900, 1
+  %902 = icmp slt i64 %900, -1
   br i1 %902, label %903, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i359
 
 903:                                              ; preds = %899
@@ -3102,7 +3102,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i364: ; preds = %_ZNSt6
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 %901
   %911 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %910, ptr %911, align 8, !tbaa !170
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %909, ptr nonnull align 16 @_ZZN11OpenImageIO6v3_1_09JpgOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_9ImageSpecENS0_11ImageOutput8OpenModeEE6prefix, i64 %901, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %909, ptr noundef nonnull align 16 dereferenceable(1) @_ZZN11OpenImageIO6v3_1_09JpgOutput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_9ImageSpecENS0_11ImageOutput8OpenModeEE6prefix, i64 %901, i1 false)
   br label %915
 
 912:                                              ; preds = %908, %903
