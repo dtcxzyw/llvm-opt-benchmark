@@ -444,7 +444,7 @@ _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
   %__first.addr.0.lcssa.i.i32.i = phi ptr [ %__first.addr.093.i.i, %if.else6.i.i ], [ %23, %.thread.i.i.i ]
   %add.ptr.i.i33.i.i.idx = shl nuw nsw i64 %__len.094.i.i, 3
   %incdec.ptr8.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i26.i, i64 8
-  %24 = add nuw i64 %add.ptr.i.i.i26.i.idx, 8
+  %24 = add nuw nsw i64 %add.ptr.i.i.i26.i.idx, 8
   %gepdiff = sub nsw i64 %add.ptr.i.i33.i.i.idx, %24
   %sub.ptr.div.i.i.i41.i.i = ashr exact i64 %gepdiff, 3
   %cmp23.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i41.i.i, 0
@@ -863,7 +863,7 @@ _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
   %__first.addr.0.lcssa.i.i.i95 = phi ptr [ %__first.addr.093.i.i66, %if.else6.i.i88 ], [ %76, %.thread.i.i.i186 ]
   %add.ptr.i.i33.i.i98.idx = shl nuw nsw i64 %__len.094.i.i65, 3
   %incdec.ptr8.i.i100 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i22.i, i64 8
-  %77 = add nuw i64 %add.ptr.i.i.i22.i.idx, 8
+  %77 = add nuw nsw i64 %add.ptr.i.i.i22.i.idx, 8
   %gepdiff264 = sub nsw i64 %add.ptr.i.i33.i.i98.idx, %77
   %sub.ptr.div.i.i.i41.i.i104 = ashr exact i64 %gepdiff264, 3
   %cmp23.i.i.i105 = icmp sgt i64 %sub.ptr.div.i.i.i41.i.i104, 0

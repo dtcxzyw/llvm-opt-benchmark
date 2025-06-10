@@ -10286,7 +10286,7 @@ define hidden void @_ZN4cvc58internal6theory7strings10CoreSolver13checkFlatFormE
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %.idx = shl nsw i64 %2, 3
-  %115 = add i64 %.idx, 8
+  %115 = add nsw i64 %.idx, 8
   %116 = icmp ugt i64 %115, 9223372036854775800
   br i1 %116, label %117, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 

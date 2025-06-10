@@ -6620,9 +6620,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %.sink = phi double [ %61, %55 ], [ %54, %52 ]
   %63 = fmul double %.sink, %51
   %storemerge57 = fptosi double %63 to i32
-  %.not58 = icmp sgt i32 %10, %storemerge57
-  %64 = add i32 %storemerge57, 1
-  %65 = select i1 %.not58, i32 %64, i32 %10
+  %64 = add nsw i32 %10, -1
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %storemerge57, i32 %64)
+  %65 = add nsw i32 %spec.select, 1
   br label %103
 
 66:                                               ; preds = %33
@@ -6676,9 +6676,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   %.sink64 = phi double [ %94, %88 ], [ %87, %85 ]
   %96 = fmul double %.sink64, %84
   %storemerge = fptosi double %96 to i32
-  %.not = icmp sgt i32 %10, %storemerge
-  %97 = add i32 %storemerge, 1
-  %98 = select i1 %.not, i32 %97, i32 %10
+  %97 = add nsw i32 %10, -1
+  %spec.select63 = tail call i32 @llvm.smin.i32(i32 %storemerge, i32 %97)
+  %98 = add nsw i32 %spec.select63, 1
   br label %103
 
 99:                                               ; preds = %66
@@ -6711,6 +6711,9 @@ declare double @llvm.log.f64(double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log10.f64(double) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 attributes #0 = { cold noinline noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

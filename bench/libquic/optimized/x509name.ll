@@ -71,9 +71,8 @@ X509_NAME_get_entry.exit:                         ; preds = %X509_NAME_get_index
   br i1 %27, label %X509_NAME_get_index_by_OBJ.exit.thread, label %28
 
 28:                                               ; preds = %X509_NAME_get_entry.exit
-  %.not = icmp slt i32 %26, %3
   %29 = add nsw i32 %3, -1
-  %30 = select i1 %.not, i32 %26, i32 %29
+  %30 = tail call i32 @llvm.smin.i32(i32 %26, i32 %29)
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %33 = sext i32 %30 to i64

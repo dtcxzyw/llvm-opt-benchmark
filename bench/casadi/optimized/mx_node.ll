@@ -34371,8 +34371,8 @@ define void @_ZNK6casadi6MXNode13get_horzsplitERKSt6vectorIxSaIxEE(ptr dead_on_u
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not117 = icmp eq ptr %18, %19
-  br i1 %.not117, label %.loopexit, label %.lr.ph115
+  %.not116 = icmp eq ptr %18, %19
+  br i1 %.not116, label %.loopexit, label %.lr.ph115
 
 .thread:                                          ; preds = %12
   %20 = landingpad { ptr, i32 }
@@ -34481,8 +34481,8 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadi13Generic
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !287
   %60 = load ptr, ptr %2, align 8, !tbaa !289
-  %.not116 = icmp eq ptr %59, %60
-  br i1 %.not116, label %.loopexit, label %.preheader.lr.ph
+  %.not = icmp eq ptr %59, %60
+  br i1 %.not, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader84
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -34579,9 +34579,8 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc58
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = ashr exact i64 %94, 3
-  %.not = icmp slt i64 %.1.lcssa, %95
   %96 = add nsw i64 %95, -1
-  %spec.select = select i1 %.not, i64 %.1.lcssa, i64 %96
+  %spec.select = call i64 @llvm.smin.i64(i64 %.1.lcssa, i64 %96)
   %97 = icmp eq i64 %.lcssa, %.135.lcssa
   %98 = add nuw nsw i64 %.0112, 1
   br i1 %97, label %99, label %_ZN6casadi2MXaSERKS0_.exit71
@@ -34606,18 +34605,18 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc58
 
 ._ZNK6casadi6MXNode5size2Ev.exit_crit_edge:       ; preds = %109
   %.pre = load ptr, ptr %62, align 8, !tbaa !24
-  %.pre134 = load ptr, ptr %61, align 8, !tbaa !23
-  %.pre135 = ptrtoint ptr %.pre to i64
-  %.pre136 = ptrtoint ptr %.pre134 to i64
-  %.pre138 = sub i64 %.pre135, %.pre136
-  %.pre140 = ashr exact i64 %.pre138, 3
+  %.pre133 = load ptr, ptr %61, align 8, !tbaa !23
+  %.pre134 = ptrtoint ptr %.pre to i64
+  %.pre135 = ptrtoint ptr %.pre133 to i64
+  %.pre137 = sub i64 %.pre134, %.pre135
+  %.pre139 = ashr exact i64 %.pre137, 3
   br label %_ZNK6casadi6MXNode5size2Ev.exit
 
 _ZNK6casadi6MXNode5size2Ev.exit:                  ; preds = %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge, %106
-  %.pre-phi141 = phi i64 [ %.pre140, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %95, %106 ]
-  %111 = phi ptr [ %.pre134, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %91, %106 ]
+  %.pre-phi140 = phi i64 [ %.pre139, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %95, %106 ]
+  %111 = phi ptr [ %.pre133, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %91, %106 ]
   %112 = phi i64 [ %110, %._ZNK6casadi6MXNode5size2Ev.exit_crit_edge ], [ %108, %106 ]
-  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi141
+  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi140
   br i1 %.not.i.i.i61, label %113, label %.invoke
 
 113:                                              ; preds = %_ZNK6casadi6MXNode5size2Ev.exit
@@ -34646,7 +34645,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit66: ; preds = %.noexc64
 
 .invoke:                                          ; preds = %119, %_ZNK6casadi6MXNode5size2Ev.exit, %.lr.ph
   %126 = phi i64 [ %.1106, %.lr.ph ], [ %spec.select, %_ZNK6casadi6MXNode5size2Ev.exit ], [ %spec.select, %119 ]
-  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi141, %_ZNK6casadi6MXNode5size2Ev.exit ]
+  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size2Ev.exit ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.100, i64 noundef %126, i64 noundef %127) #37
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -36047,8 +36046,8 @@ define void @_ZNK6casadi6MXNode13get_vertsplitERKSt6vectorIxSaIxEE(ptr dead_on_u
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not117 = icmp eq ptr %18, %19
-  br i1 %.not117, label %.loopexit, label %.lr.ph115
+  %.not116 = icmp eq ptr %18, %19
+  br i1 %.not116, label %.loopexit, label %.lr.ph115
 
 .thread:                                          ; preds = %12
   %20 = landingpad { ptr, i32 }
@@ -36157,8 +36156,8 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadi13Generic
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !287
   %60 = load ptr, ptr %2, align 8, !tbaa !289
-  %.not116 = icmp eq ptr %59, %60
-  br i1 %.not116, label %.loopexit, label %.preheader.lr.ph
+  %.not = icmp eq ptr %59, %60
+  br i1 %.not, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader84
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -36255,9 +36254,8 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit: ; preds = %.noexc58
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = ashr exact i64 %94, 3
-  %.not = icmp slt i64 %.1.lcssa, %95
   %96 = add nsw i64 %95, -1
-  %spec.select = select i1 %.not, i64 %.1.lcssa, i64 %96
+  %spec.select = call i64 @llvm.smin.i64(i64 %.1.lcssa, i64 %96)
   %97 = icmp eq i64 %.lcssa, %.135.lcssa
   %98 = add nuw nsw i64 %.0112, 1
   br i1 %97, label %99, label %_ZN6casadi2MXaSERKS0_.exit71
@@ -36282,18 +36280,18 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit: ; preds = %.noexc58
 
 ._ZNK6casadi6MXNode5size1Ev.exit_crit_edge:       ; preds = %109
   %.pre = load ptr, ptr %62, align 8, !tbaa !24
-  %.pre134 = load ptr, ptr %61, align 8, !tbaa !23
-  %.pre135 = ptrtoint ptr %.pre to i64
-  %.pre136 = ptrtoint ptr %.pre134 to i64
-  %.pre138 = sub i64 %.pre135, %.pre136
-  %.pre140 = ashr exact i64 %.pre138, 3
+  %.pre133 = load ptr, ptr %61, align 8, !tbaa !23
+  %.pre134 = ptrtoint ptr %.pre to i64
+  %.pre135 = ptrtoint ptr %.pre133 to i64
+  %.pre137 = sub i64 %.pre134, %.pre135
+  %.pre139 = ashr exact i64 %.pre137, 3
   br label %_ZNK6casadi6MXNode5size1Ev.exit
 
 _ZNK6casadi6MXNode5size1Ev.exit:                  ; preds = %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge, %106
-  %.pre-phi141 = phi i64 [ %.pre140, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %95, %106 ]
-  %111 = phi ptr [ %.pre134, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %91, %106 ]
+  %.pre-phi140 = phi i64 [ %.pre139, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %95, %106 ]
+  %111 = phi ptr [ %.pre133, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %91, %106 ]
   %112 = phi i64 [ %110, %._ZNK6casadi6MXNode5size1Ev.exit_crit_edge ], [ %108, %106 ]
-  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi141
+  %.not.i.i.i61 = icmp ult i64 %spec.select, %.pre-phi140
   br i1 %.not.i.i.i61, label %113, label %.invoke
 
 113:                                              ; preds = %_ZNK6casadi6MXNode5size1Ev.exit
@@ -36322,7 +36320,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev.exit66: ; preds = %.noexc64
 
 .invoke:                                          ; preds = %119, %_ZNK6casadi6MXNode5size1Ev.exit, %.lr.ph
   %126 = phi i64 [ %.1106, %.lr.ph ], [ %spec.select, %_ZNK6casadi6MXNode5size1Ev.exit ], [ %spec.select, %119 ]
-  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi141, %_ZNK6casadi6MXNode5size1Ev.exit ]
+  %127 = phi i64 [ %79, %.lr.ph ], [ %125, %119 ], [ %.pre-phi140, %_ZNK6casadi6MXNode5size1Ev.exit ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.100, i64 noundef %126, i64 noundef %127) #37
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -134349,10 +134347,10 @@ declare i64 @llvm.umax.i64(i64, i64) #31
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #31
+declare i64 @llvm.smin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #31
+declare i64 @llvm.smax.i64(i64, i64) #31
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

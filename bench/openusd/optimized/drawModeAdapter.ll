@@ -13314,7 +13314,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE17_M_realloc_
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE9push_backEOS3_.exit62
 
 74:                                               ; preds = %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i49
-  %75 = add i64 %55, 8
+  %75 = add nsw i64 %55, 8
   %76 = icmp eq i64 %75, 9223372036854775800
   br i1 %76, label %77, label %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i54
 
@@ -13341,7 +13341,7 @@ _ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE12_M_check_l
 .noexc61:                                         ; preds = %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i54
   %85 = getelementptr inbounds i8, ptr %84, i64 %75
   store ptr %71, ptr %85, align 8
-  %86 = icmp sgt i64 %75, 0
+  %86 = icmp sgt i64 %55, -8
   br i1 %86, label %87, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i59
 
 87:                                               ; preds = %.noexc61

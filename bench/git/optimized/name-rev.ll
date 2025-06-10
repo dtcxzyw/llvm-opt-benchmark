@@ -1601,8 +1601,7 @@ skip_prefix.exit16._crit_edge.i:                  ; preds = %skip_prefix.exit16.
   %92 = mul i32 %89, 3
   %93 = add i32 %92, 48
   %94 = sdiv i32 %93, 2
-  %.not11.i = icmp sgt i32 %94, %88
-  %..i = select i1 %.not11.i, i32 %94, i32 %91
+  %..i = tail call i32 @llvm.smax.i32(i32 %94, i32 %91)
   store i32 %..i, ptr @tip_table.2, align 4, !tbaa !119
   %95 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -2007,6 +2006,9 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

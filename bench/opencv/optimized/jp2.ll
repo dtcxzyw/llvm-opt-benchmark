@@ -692,8 +692,7 @@ opj_jp2_free_pclr.exit:                           ; preds = %130, %141
   %244 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv171.i
   %245 = load i32, ptr %244, align 4, !tbaa !46
   %246 = icmp slt i32 %245, 0
-  %.not123.i = icmp slt i32 %245, %214
-  %spec.select.i = select i1 %.not123.i, i32 %245, i32 %215
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %245, i32 %215)
   %.0111.i = select i1 %246, i32 0, i32 %spec.select.i
   %247 = mul nsw i32 %.0111.i, %151
   %248 = add nsw i32 %247, %242
@@ -4016,6 +4015,9 @@ define internal ptr @opj_jp2_write_cdef(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

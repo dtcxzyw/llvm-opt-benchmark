@@ -3390,7 +3390,7 @@ _ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10Hea
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = sext i32 %2 to i64
-  %26 = add i64 %24, %25
+  %26 = add nsw i64 %24, %25
   %27 = ashr exact i64 %26, 3
   %28 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32

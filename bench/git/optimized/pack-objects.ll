@@ -5803,7 +5803,7 @@ compute_write_order.exit.i:                       ; preds = %._crit_edge60.i.i, 
   %.not.i.i189 = icmp ne i32 %2348, 0
   %.not.i.i54.i = icmp eq i32 %2344, 0
   %or.cond.i.i190 = select i1 %.not.i.i189, i1 %.not.i.i54.i, i1 false
-  %.pre102.i.i = load ptr, ptr @reuse_packfile_bitmap, align 8, !tbaa !141
+  %.pre101.i.i = load ptr, ptr @reuse_packfile_bitmap, align 8, !tbaa !141
   br i1 %or.cond.i.i190, label %2349, label %write_reused_pack_verbatim.exit.i.i
 
 2349:                                             ; preds = %2339
@@ -5811,7 +5811,7 @@ compute_write_order.exit.i:                       ; preds = %._crit_edge60.i.i, 
   %2351 = load i32, ptr %2350, align 4, !tbaa !240
   %2352 = lshr i32 %2351, 6
   %2353 = zext nneg i32 %2352 to i64
-  %2354 = getelementptr inbounds nuw i8, ptr %.pre102.i.i, i64 8
+  %2354 = getelementptr inbounds nuw i8, ptr %.pre101.i.i, i64 8
   %2355 = load i64, ptr %2354, align 8, !tbaa !241
   %2356 = icmp ult i64 %2355, %2353
   br i1 %2356, label %2358, label %.preheader.i.i60.i
@@ -5821,7 +5821,7 @@ compute_write_order.exit.i:                       ; preds = %._crit_edge60.i.i, 
   br i1 %.not25.i.i.i, label %write_reused_pack_verbatim.exit.i.i, label %.lr.ph.i.i61.i
 
 .lr.ph.i.i61.i:                                   ; preds = %.preheader.i.i60.i
-  %2357 = load ptr, ptr %.pre102.i.i, align 8, !tbaa !243
+  %2357 = load ptr, ptr %.pre101.i.i, align 8, !tbaa !243
   br label %2359
 
 2358:                                             ; preds = %2349
@@ -5879,8 +5879,7 @@ compute_write_order.exit.i:                       ; preds = %._crit_edge60.i.i, 
   %2381 = mul i32 %2378, 3
   %2382 = add i32 %2381, 48
   %2383 = sdiv i32 %2382, 2
-  %.not7.i.i.i.i = icmp sgt i32 %2383, %2369
-  %..i.i.i.i = select i1 %.not7.i.i.i.i, i32 %2383, i32 %2380
+  %..i.i.i.i = call i32 @llvm.smax.i32(i32 %2383, i32 %2380)
   store i32 %..i.i.i.i, ptr @reused_chunks_alloc, align 4, !tbaa !30
   %2384 = sext i32 %..i.i.i.i to i64
   %mul.ov.i.i.i.i.i = icmp slt i32 %..i.i.i.i, 0
@@ -5949,7 +5948,7 @@ copy_pack_data.exit.i.i.i:                        ; preds = %2401, %record_reuse
   br label %write_reused_pack_verbatim.exit.i.i
 
 write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit.i.i.i, %.critedge.i.i.i, %.preheader.i.i60.i, %2339
-  %2410 = phi ptr [ %.pre102.i.i, %2339 ], [ %.pre.i64.i, %copy_pack_data.exit.i.i.i ], [ %.pre102.i.i, %.critedge.i.i.i ], [ %.pre102.i.i, %.preheader.i.i60.i ]
+  %2410 = phi ptr [ %.pre101.i.i, %2339 ], [ %.pre.i64.i, %copy_pack_data.exit.i.i.i ], [ %.pre101.i.i, %.critedge.i.i.i ], [ %.pre101.i.i, %.preheader.i.i60.i ]
   %.0.i55.i = phi i64 [ %2346, %2339 ], [ %.017.lcssa31.i.i.i, %copy_pack_data.exit.i.i.i ], [ 0, %.critedge.i.i.i ], [ 0, %.preheader.i.i60.i ]
   %2411 = getelementptr inbounds nuw i8, ptr %2410, i64 8
   %2412 = load i64, ptr %2411, align 8, !tbaa !241
@@ -5965,16 +5964,16 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
 
 2416:                                             ; preds = %.loopexit.i.i206, %.lr.ph.i56.i
   %2417 = phi ptr [ %2410, %.lr.ph.i56.i ], [ %2610, %.loopexit.i.i206 ]
-  %.192.i.i = phi i64 [ %.0.i55.i, %.lr.ph.i56.i ], [ %2609, %.loopexit.i.i206 ]
+  %.191.i.i = phi i64 [ %.0.i55.i, %.lr.ph.i56.i ], [ %2609, %.loopexit.i.i206 ]
   %2418 = load ptr, ptr %2417, align 8, !tbaa !243
-  %2419 = getelementptr inbounds nuw i64, ptr %2418, i64 %.192.i.i
+  %2419 = getelementptr inbounds nuw i64, ptr %2418, i64 %.191.i.i
   %2420 = load i64, ptr %2419, align 8, !tbaa !28
-  %2421 = shl i64 %.192.i.i, 6
+  %2421 = shl i64 %.191.i.i, 6
   br label %2422
 
 2422:                                             ; preds = %2605, %2416
-  %.04091.i.i = phi i32 [ 0, %2416 ], [ %2606, %2605 ]
-  %2423 = zext nneg i32 %.04091.i.i to i64
+  %.04090.i.i = phi i32 [ 0, %2416 ], [ %2606, %2605 ]
+  %2423 = zext nneg i32 %.04090.i.i to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #25
   %2424 = lshr i64 %2420, %2423
   %2425 = icmp eq i64 %2424, 0
@@ -5983,7 +5982,7 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
 2426:                                             ; preds = %2422
   %2427 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %2424, i1 true)
   %2428 = trunc nuw nsw i64 %2427 to i32
-  %2429 = add nuw nsw i32 %.04091.i.i, %2428
+  %2429 = add nuw nsw i32 %.04090.i.i, %2428
   %2430 = zext nneg i32 %2429 to i64
   %2431 = add i64 %2421, %2430
   %2432 = load i32, ptr %2343, align 8, !tbaa !234
@@ -6021,7 +6020,7 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
   br i1 %2449, label %2450, label %._crit_edge.i57.i
 
 ._crit_edge.i57.i:                                ; preds = %2443
-  %.pre103.i.i = load i32, ptr %16, align 4, !tbaa !30
+  %.pre102.i.i = load i32, ptr %16, align 4, !tbaa !30
   br label %2455
 
 2450:                                             ; preds = %2443
@@ -6036,7 +6035,7 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
   br label %2455
 
 2455:                                             ; preds = %2453, %._crit_edge.i57.i
-  %2456 = phi i32 [ %.pre103.i.i, %._crit_edge.i57.i ], [ %2454, %2453 ]
+  %2456 = phi i32 [ %.pre102.i.i, %._crit_edge.i57.i ], [ %2454, %2453 ]
   %2457 = load ptr, ptr %2342, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
@@ -6046,9 +6045,9 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
   %.val.i.i58.i = load i32, ptr %2337, align 8, !tbaa !237
   %.val64.i.i.i = load i64, ptr %2338, align 8, !tbaa !239
   %2461 = zext i32 %.val.i.i58.i to i64
-  %.neg80.i.i = add i64 %.neg80.i, %2458
+  %.neg79.i.i = add i64 %.neg80.i, %2458
   %2462 = add i64 %.val64.i.i.i, %2461
-  %2463 = sub i64 %.neg80.i.i, %2462
+  %2463 = sub i64 %.neg79.i.i, %2462
   %2464 = load i32, ptr @reused_chunks_nr, align 4, !tbaa !30
   %.not.i.i52.i.i = icmp eq i32 %2464, 0
   br i1 %.not.i.i52.i.i, label %2472, label %2465
@@ -6060,15 +6059,15 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
   %2469 = getelementptr i8, ptr %2468, i64 -8
   %2470 = load i64, ptr %2469, align 8, !tbaa !248
   %2471 = icmp eq i64 %2470, %2463
-  br i1 %2471, label %record_reused_object.exit.i59.i.i, label %2472
+  br i1 %2471, label %record_reused_object.exit.i58.i.i, label %2472
 
 2472:                                             ; preds = %2465, %2455
   %2473 = load i32, ptr @reused_chunks_alloc, align 4, !tbaa !30
   %.not6.i.i53.i.i = icmp slt i32 %2464, %2473
-  br i1 %.not6.i.i53.i.i, label %._crit_edge.i.i68.i.i, label %2474
+  br i1 %.not6.i.i53.i.i, label %._crit_edge.i.i67.i.i, label %2474
 
-._crit_edge.i.i68.i.i:                            ; preds = %2472
-  %.pre.i.i69.i.i = load ptr, ptr @reused_chunks, align 8, !tbaa !246
+._crit_edge.i.i67.i.i:                            ; preds = %2472
+  %.pre.i.i68.i.i = load ptr, ptr @reused_chunks, align 8, !tbaa !246
   br label %2484
 
 2474:                                             ; preds = %2472
@@ -6076,28 +6075,27 @@ write_reused_pack_verbatim.exit.i.i:              ; preds = %copy_pack_data.exit
   %2476 = mul i32 %2473, 3
   %2477 = add i32 %2476, 48
   %2478 = sdiv i32 %2477, 2
-  %.not7.i.i54.i.i = icmp sgt i32 %2478, %2464
-  %..i.i55.i.i = select i1 %.not7.i.i54.i.i, i32 %2478, i32 %2475
-  store i32 %..i.i55.i.i, ptr @reused_chunks_alloc, align 4, !tbaa !30
-  %2479 = sext i32 %..i.i55.i.i to i64
-  %mul.ov.i.i.i56.i.i = icmp slt i32 %..i.i55.i.i, 0
-  br i1 %mul.ov.i.i.i56.i.i, label %2480, label %st_mult.exit.i.i57.i.i
+  %..i.i54.i.i = call i32 @llvm.smax.i32(i32 %2478, i32 %2475)
+  store i32 %..i.i54.i.i, ptr @reused_chunks_alloc, align 4, !tbaa !30
+  %2479 = sext i32 %..i.i54.i.i to i64
+  %mul.ov.i.i.i55.i.i = icmp slt i32 %..i.i54.i.i, 0
+  br i1 %mul.ov.i.i.i55.i.i, label %2480, label %st_mult.exit.i.i56.i.i
 
 2480:                                             ; preds = %2474
   call void (ptr, ...) @die(ptr noundef nonnull @.str.148, i64 noundef 16, i64 noundef %2479) #26
   unreachable
 
-st_mult.exit.i.i57.i.i:                           ; preds = %2474
+st_mult.exit.i.i56.i.i:                           ; preds = %2474
   %2481 = load ptr, ptr @reused_chunks, align 8, !tbaa !246
   %2482 = shl nuw nsw i64 %2479, 4
   %2483 = call ptr @xrealloc(ptr noundef %2481, i64 noundef %2482) #25
   store ptr %2483, ptr @reused_chunks, align 8, !tbaa !246
-  %.pre8.i.i58.i.i = load i32, ptr @reused_chunks_nr, align 4, !tbaa !30
+  %.pre8.i.i57.i.i = load i32, ptr @reused_chunks_nr, align 4, !tbaa !30
   br label %2484
 
-2484:                                             ; preds = %st_mult.exit.i.i57.i.i, %._crit_edge.i.i68.i.i
-  %2485 = phi i32 [ %2464, %._crit_edge.i.i68.i.i ], [ %.pre8.i.i58.i.i, %st_mult.exit.i.i57.i.i ]
-  %2486 = phi ptr [ %.pre.i.i69.i.i, %._crit_edge.i.i68.i.i ], [ %2483, %st_mult.exit.i.i57.i.i ]
+2484:                                             ; preds = %st_mult.exit.i.i56.i.i, %._crit_edge.i.i67.i.i
+  %2485 = phi i32 [ %2464, %._crit_edge.i.i67.i.i ], [ %.pre8.i.i57.i.i, %st_mult.exit.i.i56.i.i ]
+  %2486 = phi ptr [ %.pre.i.i68.i.i, %._crit_edge.i.i67.i.i ], [ %2483, %st_mult.exit.i.i56.i.i ]
   %2487 = sext i32 %2485 to i64
   %2488 = getelementptr inbounds %struct.reused_chunk, ptr %2486, i64 %2487
   store i64 %2458, ptr %2488, align 8, !tbaa !250
@@ -6105,20 +6103,20 @@ st_mult.exit.i.i57.i.i:                           ; preds = %2474
   store i64 %2463, ptr %2489, align 8, !tbaa !248
   %2490 = add nsw i32 %2485, 1
   store i32 %2490, ptr @reused_chunks_nr, align 4, !tbaa !30
-  br label %record_reused_object.exit.i59.i.i
+  br label %record_reused_object.exit.i58.i.i
 
-record_reused_object.exit.i59.i.i:                ; preds = %2484, %2465
+record_reused_object.exit.i58.i.i:                ; preds = %2484, %2465
   store i64 %2458, ptr %8, align 8, !tbaa !28
   %2491 = call i32 @unpack_object_header(ptr noundef %2457, ptr noundef nonnull %15, ptr noundef nonnull %8, ptr noundef nonnull %9) #25
   %2492 = icmp eq i32 %2491, 6
   br i1 %2492, label %2493, label %2588
 
-2493:                                             ; preds = %record_reused_object.exit.i59.i.i
+2493:                                             ; preds = %record_reused_object.exit.i58.i.i
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #25
   %2494 = call i64 @get_delta_base(ptr noundef %2457, ptr noundef nonnull %15, ptr noundef nonnull %8, i32 noundef 6, i64 noundef %2458) #25
   %2495 = load i32, ptr @allow_ofs_delta, align 4, !tbaa !30
-  %.not.i60.i.i = icmp eq i32 %2495, 0
-  br i1 %.not.i60.i.i, label %2496, label %2526
+  %.not.i59.i.i = icmp eq i32 %2495, 0
+  br i1 %.not.i59.i.i, label %2496, label %2526
 
 2496:                                             ; preds = %2493
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #25
@@ -6150,36 +6148,36 @@ record_reused_object.exit.i59.i.i:                ; preds = %2484, %2465
   %2514 = load i64, ptr %8, align 8, !tbaa !28
   %2515 = sub nsw i64 %2460, %2514
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
-  %.not10.i.i63.i.i = icmp eq i64 %2515, 0
-  br i1 %.not10.i.i63.i.i, label %copy_pack_data.exit.i67.i.i, label %.lr.ph.i.i64.i.i
+  %.not10.i.i62.i.i = icmp eq i64 %2515, 0
+  br i1 %.not10.i.i62.i.i, label %copy_pack_data.exit.i66.i.i, label %.lr.ph.i.i63.i.i
 
-.lr.ph.i.i64.i.i:                                 ; preds = %2502, %2520
-  %.012.i.i65.i.i = phi i64 [ %2524, %2520 ], [ %2514, %2502 ]
-  %.0911.i.i66.i.i = phi i64 [ %2525, %2520 ], [ %2515, %2502 ]
-  %2516 = call ptr @use_pack(ptr noundef %2457, ptr noundef nonnull %15, i64 noundef %.012.i.i65.i.i, ptr noundef nonnull %7) #25
+.lr.ph.i.i63.i.i:                                 ; preds = %2502, %2520
+  %.012.i.i64.i.i = phi i64 [ %2524, %2520 ], [ %2514, %2502 ]
+  %.0911.i.i65.i.i = phi i64 [ %2525, %2520 ], [ %2515, %2502 ]
+  %2516 = call ptr @use_pack(ptr noundef %2457, ptr noundef nonnull %15, i64 noundef %.012.i.i64.i.i, ptr noundef nonnull %7) #25
   %2517 = load i64, ptr %7, align 8, !tbaa !28
-  %2518 = icmp ugt i64 %2517, %.0911.i.i66.i.i
+  %2518 = icmp ugt i64 %2517, %.0911.i.i65.i.i
   br i1 %2518, label %2519, label %2520
 
-2519:                                             ; preds = %.lr.ph.i.i64.i.i
-  store i64 %.0911.i.i66.i.i, ptr %7, align 8, !tbaa !28
+2519:                                             ; preds = %.lr.ph.i.i63.i.i
+  store i64 %.0911.i.i65.i.i, ptr %7, align 8, !tbaa !28
   br label %2520
 
-2520:                                             ; preds = %2519, %.lr.ph.i.i64.i.i
-  %2521 = phi i64 [ %.0911.i.i66.i.i, %2519 ], [ %2517, %.lr.ph.i.i64.i.i ]
+2520:                                             ; preds = %2519, %.lr.ph.i.i63.i.i
+  %2521 = phi i64 [ %.0911.i.i65.i.i, %2519 ], [ %2517, %.lr.ph.i.i63.i.i ]
   %2522 = trunc i64 %2521 to i32
   call void @hashwrite(ptr noundef nonnull %.032.i186, ptr noundef %2516, i32 noundef %2522) #25
   %2523 = load i64, ptr %7, align 8, !tbaa !28
-  %2524 = add i64 %2523, %.012.i.i65.i.i
-  %2525 = sub i64 %.0911.i.i66.i.i, %2523
+  %2524 = add i64 %2523, %.012.i.i64.i.i
+  %2525 = sub i64 %.0911.i.i65.i.i, %2523
   %.not.i65.i.i.i = icmp eq i64 %2525, 0
-  br i1 %.not.i65.i.i.i, label %copy_pack_data.exit.i67.i.i, label %.lr.ph.i.i64.i.i, !llvm.loop !251
+  br i1 %.not.i65.i.i.i, label %copy_pack_data.exit.i66.i.i, label %.lr.ph.i.i63.i.i, !llvm.loop !251
 
-copy_pack_data.exit.i67.i.i:                      ; preds = %2520, %2502
+copy_pack_data.exit.i66.i.i:                      ; preds = %2520, %2502
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #25
-  br label %.critedge.i62.i.i
+  br label %.critedge.i61.i.i
 
 2526:                                             ; preds = %2493
   %2527 = load i32, ptr @reused_chunks_nr, align 4, !tbaa !30
@@ -6277,11 +6275,11 @@ find_reused_offset.exit84.i.i.i:                  ; preds = %._crit_edge.i72.i.i
   %2563 = and i8 %2562, 127
   store i8 %2563, ptr %2320, align 1, !tbaa !29
   %.not63104.i.i.i = icmp ult i64 %2559, 128
-  br i1 %.not63104.i.i.i, label %._crit_edge.i.i59.i, label %.lr.ph.i61.i.i
+  br i1 %.not63104.i.i.i, label %._crit_edge.i.i59.i, label %.lr.ph.i60.i.i
 
-.lr.ph.i61.i.i:                                   ; preds = %2557, %.lr.ph.i61.i.i
-  %.0106.i.i.i = phi i64 [ %2565, %.lr.ph.i61.i.i ], [ %2559, %2557 ]
-  %.056105.i.i.i = phi i32 [ %2568, %.lr.ph.i61.i.i ], [ 9, %2557 ]
+.lr.ph.i60.i.i:                                   ; preds = %2557, %.lr.ph.i60.i.i
+  %.0106.i.i.i = phi i64 [ %2565, %.lr.ph.i60.i.i ], [ %2559, %2557 ]
+  %.056105.i.i.i = phi i32 [ %2568, %.lr.ph.i60.i.i ], [ 9, %2557 ]
   %2564 = ashr i64 %.0106.i.i.i, 7
   %2565 = add nsw i64 %2564, -1
   %2566 = trunc i64 %2565 to i8
@@ -6291,9 +6289,9 @@ find_reused_offset.exit84.i.i.i:                  ; preds = %._crit_edge.i72.i.i
   %2570 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 0, i64 %2569
   store i8 %2567, ptr %2570, align 1, !tbaa !29
   %.not63.i.i.i = icmp ult i64 %2565, 128
-  br i1 %.not63.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i61.i.i, !llvm.loop !253
+  br i1 %.not63.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i60.i.i, !llvm.loop !253
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i61.i.i
+._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i60.i.i
   %2571 = sub i32 11, %.056105.i.i.i
   br label %._crit_edge.i.i59.i
 
@@ -6335,13 +6333,13 @@ find_reused_offset.exit84.i.i.i:                  ; preds = %._crit_edge.i72.i.i
 copy_pack_data.exit91.i.i.i:                      ; preds = %2581, %._crit_edge.i.i59.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %13) #25
-  br label %.critedge.i62.i.i
+  br label %.critedge.i61.i.i
 
 2587:                                             ; preds = %find_reused_offset.exit84.i.i.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #25
   br label %2588
 
-2588:                                             ; preds = %2587, %record_reused_object.exit.i59.i.i
+2588:                                             ; preds = %2587, %record_reused_object.exit.i58.i.i
   %2589 = sub nsw i64 %2460, %2458
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
   %.not10.i92.i.i.i = icmp eq i64 %2589, 0
@@ -6373,11 +6371,11 @@ copy_pack_data.exit98.i.i.i:                      ; preds = %2594, %2588
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   br label %write_reused_pack_one.exit.i.i
 
-.critedge.i62.i.i:                                ; preds = %copy_pack_data.exit91.i.i.i, %copy_pack_data.exit.i67.i.i
+.critedge.i61.i.i:                                ; preds = %copy_pack_data.exit91.i.i.i, %copy_pack_data.exit.i66.i.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #25
   br label %write_reused_pack_one.exit.i.i
 
-write_reused_pack_one.exit.i.i:                   ; preds = %.critedge.i62.i.i, %copy_pack_data.exit98.i.i.i
+write_reused_pack_one.exit.i.i:                   ; preds = %.critedge.i61.i.i, %copy_pack_data.exit98.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
   %2600 = load ptr, ptr @progress_state, align 8, !tbaa !76
@@ -6403,7 +6401,7 @@ write_reused_pack_one.exit.i.i:                   ; preds = %.critedge.i62.i.i, 
   br label %write_reused_pack.exit.i
 
 .loopexit.i.i206:                                 ; preds = %2605, %2604
-  %2609 = add nuw i64 %.192.i.i, 1
+  %2609 = add nuw i64 %.191.i.i, 1
   %2610 = load ptr, ptr @reuse_packfile_bitmap, align 8, !tbaa !141
   %2611 = getelementptr inbounds nuw i8, ptr %2610, i64 8
   %2612 = load i64, ptr %2611, align 8, !tbaa !241
@@ -7758,8 +7756,7 @@ done_pbase_path_pos.exit.i:                       ; preds = %22, %31
   %39 = mul i32 %36, 3
   %40 = add i32 %39, 48
   %41 = sdiv i32 %40, 2
-  %.not16.i = icmp sgt i32 %41, %18
-  %..i = select i1 %.not16.i, i32 %41, i32 %38
+  %..i = tail call i32 @llvm.smax.i32(i32 %41, i32 %38)
   store i32 %..i, ptr @done_pbase_paths_alloc, align 4, !tbaa !30
   %42 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -12855,6 +12852,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #23

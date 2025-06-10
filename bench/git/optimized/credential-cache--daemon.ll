@@ -793,8 +793,7 @@ define internal fastcc void @cache_credential(ptr noundef nonnull captures(none)
   %8 = mul i32 %5, 3
   %9 = add i32 %8, 48
   %10 = sdiv i32 %9, 2
-  %.not6 = icmp sgt i32 %10, %4
-  %. = select i1 %.not6, i32 %10, i32 %7
+  %. = tail call i32 @llvm.smax.i32(i32 %10, i32 %7)
   store i32 %., ptr @entries_alloc, align 4, !tbaa !4
   %11 = sext i32 %. to i64
   %12 = icmp slt i32 %., 0
@@ -862,6 +861,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

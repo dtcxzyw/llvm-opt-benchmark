@@ -440,9 +440,8 @@ splittingStep_SetCoefficients.exit:               ; preds = %59
   %64 = load i32, ptr %63, align 4, !tbaa !56
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %66 = load i32, ptr %65, align 4, !tbaa !60
-  %.not34 = icmp sgt i32 %64, %66
   %67 = add nsw i32 %64, -1
-  %68 = select i1 %.not34, i32 %66, i32 %67
+  %68 = tail call i32 @llvm.smin.i32(i32 %66, i32 %67)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %68, i32 1)
   store i32 %spec.select, ptr %65, align 4, !tbaa !60
   br label %69
@@ -1159,6 +1158,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

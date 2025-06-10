@@ -1359,8 +1359,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347.i: ; preds = %
   %503 = add nsw i64 %reass.add530, %485
   %504 = add nsw i64 %503, %496
   %505 = shl nsw i64 %504, 3
-  %506 = add nsw i64 %505, %500
-  %507 = add nsw i64 %506, %486
+  %506 = add nuw nsw i64 %505, %500
+  %507 = add nuw nsw i64 %506, %486
   %gepdiff = sub nsw i64 %316, %507
   call void @llvm.memset.p0.i64(ptr align 1 %502, i8 0, i64 %gepdiff, i1 false)
   %508 = getelementptr inbounds nuw i8, ptr %502, i64 %486

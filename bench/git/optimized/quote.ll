@@ -855,8 +855,7 @@ sq_dequote_step.exit.thread51:                    ; preds = %58
   %84 = mul i32 %81, 3
   %85 = add i32 %84, 48
   %86 = sdiv i32 %85, 2
-  %.not40 = icmp sgt i32 %86, %80
-  %. = select i1 %.not40, i32 %86, i32 %83
+  %. = tail call i32 @llvm.smax.i32(i32 %86, i32 %83)
   store i32 %., ptr %3, align 4, !tbaa !21
   %87 = sext i32 %. to i64
   %88 = icmp slt i32 %., 0
@@ -2729,6 +2728,9 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #11

@@ -1067,7 +1067,7 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
 
 42:                                               ; preds = %40
   %43 = ptrtoint ptr %0 to i64
-  %44 = add i64 %43, 56
+  %44 = add nuw nsw i64 %43, 56
   %45 = inttoptr i64 %44 to ptr
   %46 = and i32 %34, -272
   %47 = or i32 %46, %33
@@ -1075,7 +1075,7 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
 
 48:                                               ; preds = %40, %38
   %49 = ptrtoint ptr %0 to i64
-  %50 = add i64 %49, 56
+  %50 = add nuw nsw i64 %49, 56
   %51 = inttoptr i64 %50 to ptr
   br label %gen_ldst.exit
 
@@ -1186,7 +1186,7 @@ canonicalize_memop_i128_as_i64.exit:              ; preds = %82, %84, %86
   %94 = icmp eq i32 %93, 0
   %.77 = select i1 %94, i32 137, i32 141
   %95 = ptrtoint ptr %0 to i64
-  %96 = add i64 %95, 56
+  %96 = add nuw nsw i64 %95, 56
   %97 = inttoptr i64 %96 to ptr
   %.064 = select i1 %.not.i81, ptr %0, ptr %97
   %.063 = select i1 %.not.i81, ptr %97, ptr %0
@@ -1302,10 +1302,10 @@ canonicalize_memop_i128_as_i64.exit:              ; preds = %82, %84, %86
   %172 = load ptr, ptr @tcg_env, align 8
   tail call void @tcg_gen_st_i64(ptr noundef %0, ptr noundef %172, i64 noundef -24) #6
   %173 = ptrtoint ptr %0 to i64
-  %174 = add i64 %173, 56
+  %174 = add nuw nsw i64 %173, 56
   %175 = inttoptr i64 %174 to ptr
   %176 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %175, ptr noundef %176, i64 noundef -16) #6
+  tail call void @tcg_gen_st_i64(ptr noundef nonnull %175, ptr noundef %176, i64 noundef -16) #6
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %.072, ptr noundef %.0, i32 noundef %35, i32 noundef 1)
   br label %plugin_gen_mem_callbacks_i128.exit
 
@@ -1415,9 +1415,9 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
   %43 = tail call ptr @tcg_temp_ebb_new_i64() #6
   %44 = tail call ptr @tcg_temp_ebb_new_i64() #6
   %45 = ptrtoint ptr %0 to i64
-  %46 = add i64 %45, 56
+  %46 = add nuw nsw i64 %45, 56
   %47 = inttoptr i64 %46 to ptr
-  tail call void @tcg_gen_bswap64_i64(ptr noundef %43, ptr noundef %47) #6
+  tail call void @tcg_gen_bswap64_i64(ptr noundef %43, ptr noundef nonnull %47) #6
   tail call void @tcg_gen_bswap64_i64(ptr noundef %44, ptr noundef %0) #6
   %48 = and i32 %34, -272
   %49 = or i32 %48, %33
@@ -1426,7 +1426,7 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
 
 50:                                               ; preds = %40, %38
   %51 = ptrtoint ptr %0 to i64
-  %52 = add i64 %51, 56
+  %52 = add nuw nsw i64 %51, 56
   %53 = inttoptr i64 %52 to ptr
   br label %gen_ldst.exit
 
@@ -1528,7 +1528,7 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   %94 = icmp eq i32 %93, 0
   %.8596 = select i1 %94, i32 138, i32 142
   %95 = ptrtoint ptr %0 to i64
-  %96 = add i64 %95, 56
+  %96 = add nuw nsw i64 %95, 56
   %97 = inttoptr i64 %96 to ptr
   br label %105
 
@@ -1538,7 +1538,7 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   %101 = icmp eq i32 %100, 0
   %.85 = select i1 %101, i32 138, i32 142
   %102 = ptrtoint ptr %0 to i64
-  %103 = add i64 %102, 56
+  %103 = add nuw nsw i64 %102, 56
   %104 = inttoptr i64 %103 to ptr
   br label %105
 
@@ -1686,10 +1686,10 @@ default.unreachable:                              ; preds = %use_two_i64_for_i12
   %196 = load ptr, ptr @tcg_env, align 8
   tail call void @tcg_gen_st_i64(ptr noundef %0, ptr noundef %196, i64 noundef -24) #6
   %197 = ptrtoint ptr %0 to i64
-  %198 = add i64 %197, 56
+  %198 = add nuw nsw i64 %197, 56
   %199 = inttoptr i64 %198 to ptr
   %200 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st_i64(ptr noundef %199, ptr noundef %200, i64 noundef -16) #6
+  tail call void @tcg_gen_st_i64(ptr noundef nonnull %199, ptr noundef %200, i64 noundef -16) #6
   tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %.079, ptr noundef %.0, i32 noundef %35, i32 noundef 2)
   br label %plugin_gen_mem_callbacks_i128.exit
 
@@ -2204,21 +2204,21 @@ define internal fastcc void @tcg_gen_nonatomic_cmpxchg_i128_int(ptr noundef %0, 
   tail call fastcc void @tcg_gen_qemu_ld_i128_int(ptr noundef %7, ptr noundef %1, i64 noundef %4, i32 noundef %5)
   tail call void @tcg_gen_xor_i64(ptr noundef %9, ptr noundef %7, ptr noundef %2) #6
   %12 = ptrtoint ptr %7 to i64
-  %13 = add i64 %12, 56
+  %13 = add nuw nsw i64 %12, 56
   %14 = inttoptr i64 %13 to ptr
   %15 = ptrtoint ptr %2 to i64
-  %16 = add i64 %15, 56
+  %16 = add nuw nsw i64 %15, 56
   %17 = inttoptr i64 %16 to ptr
-  tail call void @tcg_gen_xor_i64(ptr noundef %10, ptr noundef %14, ptr noundef %17) #6
+  tail call void @tcg_gen_xor_i64(ptr noundef %10, ptr noundef nonnull %14, ptr noundef nonnull %17) #6
   tail call void @tcg_gen_or_i64(ptr noundef %9, ptr noundef %9, ptr noundef %10) #6
   tail call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %8, ptr noundef %9, ptr noundef %11, ptr noundef %3, ptr noundef %7) #6
   %18 = ptrtoint ptr %8 to i64
-  %19 = add i64 %18, 56
+  %19 = add nuw nsw i64 %18, 56
   %20 = inttoptr i64 %19 to ptr
   %21 = ptrtoint ptr %3 to i64
-  %22 = add i64 %21, 56
+  %22 = add nuw nsw i64 %21, 56
   %23 = inttoptr i64 %22 to ptr
-  tail call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef %20, ptr noundef %9, ptr noundef %11, ptr noundef %23, ptr noundef %14) #6
+  tail call void @tcg_gen_movcond_i64(i32 noundef 8, ptr noundef nonnull %20, ptr noundef %9, ptr noundef %11, ptr noundef nonnull %23, ptr noundef nonnull %14) #6
   tail call fastcc void @tcg_gen_qemu_st_i128_int(ptr noundef %8, ptr noundef %1, i64 noundef %4, i32 noundef %5)
   tail call void @tcg_gen_mov_i128(ptr noundef %0, ptr noundef %7) #6
   tail call void @tcg_temp_free_i64(ptr noundef %9) #6

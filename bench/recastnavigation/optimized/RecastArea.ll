@@ -990,13 +990,11 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
 
 61:                                               ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
-  %.not82 = icmp sgt i32 %18, %48
   %62 = add nsw i32 %18, -1
-  %spec.select = select i1 %.not82, i32 %48, i32 %62
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %48, i32 %62)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %44, i32 0)
-  %.not83 = icmp sgt i32 %20, %58
   %63 = add nsw i32 %20, -1
-  %.072 = select i1 %.not83, i32 %58, i32 %63
+  %.072 = tail call i32 @llvm.smin.i32(i32 %58, i32 %63)
   %.not84101 = icmp sgt i32 %spec.store.select1, %.072
   br i1 %.not84101, label %.loopexit, label %.preheader.lr.ph
 
@@ -1009,11 +1007,11 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
   %67 = zext nneg i32 %spec.store.select to i64
-  %68 = add nuw i32 %spec.select, 1
+  %68 = add nuw nsw i32 %spec.select, 1
   %69 = zext nneg i32 %spec.store.select1 to i64
   %70 = sext i32 %18 to i64
-  %71 = add nuw i32 %.072, 1
-  %wide.trip.count112 = zext i32 %71 to i64
+  %71 = add nuw nsw i32 %.072, 1
+  %wide.trip.count112 = zext nneg i32 %71 to i64
   %wide.trip.count = zext i32 %68 to i64
   br label %.preheader
 
@@ -1206,13 +1204,11 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
 
 69:                                               ; preds = %._crit_edge
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
-  %.not99 = icmp sgt i32 %20, %60
   %70 = add nsw i32 %20, -1
-  %spec.select = select i1 %.not99, i32 %60, i32 %70
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %60, i32 %70)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %57, i32 0)
-  %.not100 = icmp sgt i32 %22, %66
   %71 = add nsw i32 %22, -1
-  %.087 = select i1 %.not100, i32 %66, i32 %71
+  %.087 = tail call i32 @llvm.smin.i32(i32 %66, i32 %71)
   %.not101146 = icmp sgt i32 %spec.store.select1, %.087
   br i1 %.not101146, label %.loopexit, label %.preheader.lr.ph
 
@@ -1229,11 +1225,11 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %12, %16
 
 .preheader.us148.preheader:                       ; preds = %.preheader.lr.ph
   %77 = zext nneg i32 %spec.store.select to i64
-  %78 = add nuw i32 %spec.select, 1
+  %78 = add nuw nsw i32 %spec.select, 1
   %79 = zext nneg i32 %spec.store.select1 to i64
   %80 = sext i32 %20 to i64
-  %81 = add nuw i32 %.087, 1
-  %wide.trip.count173 = zext i32 %81 to i64
+  %81 = add nuw nsw i32 %.087, 1
+  %wide.trip.count173 = zext nneg i32 %81 to i64
   %wide.trip.count168 = zext i32 %78 to i64
   br label %.preheader.us148
 
@@ -1637,13 +1633,11 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
 
 62:                                               ; preds = %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
-  %.not105 = icmp sgt i32 %19, %53
   %63 = add nsw i32 %19, -1
-  %spec.select = select i1 %.not105, i32 %53, i32 %63
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %53, i32 %63)
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
-  %.not106 = icmp sgt i32 %21, %59
   %64 = add nsw i32 %21, -1
-  %.093 = select i1 %.not106, i32 %59, i32 %64
+  %.093 = tail call i32 @llvm.smin.i32(i32 %59, i32 %64)
   %65 = fmul float %2, %2
   %.not107127 = icmp sgt i32 %spec.store.select1, %.093
   br i1 %.not107127, label %.loopexit122, label %.preheader121.lr.ph
@@ -1657,11 +1651,11 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %11, %15
 
 .preheader121.preheader:                          ; preds = %.preheader121.lr.ph
   %69 = zext nneg i32 %spec.store.select to i64
-  %70 = add nuw i32 %spec.select, 1
+  %70 = add nuw nsw i32 %spec.select, 1
   %71 = zext nneg i32 %spec.store.select1 to i64
   %72 = sext i32 %19 to i64
-  %73 = add nuw i32 %.093, 1
-  %wide.trip.count138 = zext i32 %73 to i64
+  %73 = add nuw nsw i32 %.093, 1
+  %wide.trip.count138 = zext nneg i32 %73 to i64
   %wide.trip.count = zext i32 %70 to i64
   br label %.preheader121
 
@@ -1781,6 +1775,9 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 declare noundef float @_Z6rcSqrtf(float noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

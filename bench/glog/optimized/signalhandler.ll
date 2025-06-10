@@ -754,7 +754,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i: ; preds = 
 _ZN6google12_GLOBAL__N_112DumpTimeInfoEv.exit:    ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i, %._ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit31_crit_edge.i
   %.0.lcssa.i29.i = phi i64 [ 32, %._ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit31_crit_edge.i ], [ %.010.i28.i, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit27.i ]
   %65 = load ptr, ptr @_ZN6google12_GLOBAL__N_116g_failure_writerE, align 8, !tbaa !41
-  %66 = add i64 %.0.lcssa.i29.i, %.ptr55.add.pre-phi.i
+  %66 = add nuw nsw i64 %.0.lcssa.i29.i, %.ptr55.add.pre-phi.i
   call void %65(ptr noundef nonnull %8, i64 noundef %66)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #23
   %.not.i = icmp eq ptr %2, null
@@ -1450,7 +1450,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit144.i: ; preds 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit149.i: ; preds = %290, %._ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit149_crit_edge.i
   %.0.lcssa.i147.i = phi i64 [ 17, %._ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit149_crit_edge.i ], [ %.010.i146.i, %290 ]
   %297 = load ptr, ptr @_ZN6google12_GLOBAL__N_116g_failure_writerE, align 8, !tbaa !41
-  %298 = add i64 %.0.lcssa.i147.i, %.ptr245.add.i
+  %298 = add nuw nsw i64 %.0.lcssa.i147.i, %.ptr245.add.i
   invoke void %297(ptr noundef nonnull %5, i64 noundef %298)
           to label %299 unwind label %317
 
@@ -1773,7 +1773,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20: ; preds = %
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25: ; preds = %61, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20
   %.0.lcssa.i23 = phi i64 [ 1, %61 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20 ]
   %62 = load ptr, ptr @_ZN6google12_GLOBAL__N_116g_failure_writerE, align 8, !tbaa !41
-  %63 = add i64 %.0.lcssa.i23, %.ptr.add57
+  %63 = add nuw nsw i64 %.0.lcssa.i23, %.ptr.add57
   call void %62(ptr noundef nonnull %4, i64 noundef %63)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #23

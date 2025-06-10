@@ -277,8 +277,7 @@ define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, p
   %80 = mul i32 %77, 3
   %81 = add i32 %80, 48
   %82 = sdiv i32 %81, 2
-  %.not3.i = icmp sgt i32 %82, %76
-  %..i = select i1 %.not3.i, i32 %82, i32 %79
+  %..i = tail call i32 @llvm.smax.i32(i32 %82, i32 %79)
   store i32 %..i, ptr @rename_dst_alloc, align 4, !tbaa !81
   %83 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -2574,8 +2573,7 @@ define internal fastcc void @register_rename_src(ptr noundef %0) unnamed_addr #0
   %24 = mul i32 %21, 3
   %25 = add i32 %24, 48
   %26 = sdiv i32 %25, 2
-  %.not8 = icmp sgt i32 %26, %20
-  %. = select i1 %.not8, i32 %26, i32 %23
+  %. = tail call i32 @llvm.smax.i32(i32 %26, i32 %23)
   store i32 %., ptr @rename_src_alloc, align 4, !tbaa !81
   %27 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0

@@ -33,8 +33,7 @@ define dso_local void @add_entry_to_dir(ptr noundef captures(none) %0, ptr nound
   %8 = mul i32 %5, 3
   %9 = add i32 %8, 48
   %10 = sdiv i32 %9, 2
-  %.not26 = icmp sgt i32 %10, %3
-  %. = select i1 %.not26, i32 %10, i32 %7
+  %. = tail call i32 @llvm.smax.i32(i32 %10, i32 %7)
   store i32 %., ptr %4, align 4, !tbaa !12
   %11 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -1204,6 +1203,9 @@ declare void @base_ref_iterator_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9

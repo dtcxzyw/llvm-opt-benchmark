@@ -9254,9 +9254,8 @@ sw.epilog:                                        ; preds = %sw.bb30, %sw.bb28, 
 if.then40:                                        ; preds = %sw.epilog
   %add = add nsw i32 %17, %offset.0
   %cmp42 = icmp slt i32 %add, 0
-  %cmp46.not = icmp slt i32 %add, %conv38
   %sub45 = add nsw i32 %conv38, -1
-  %spec.select359 = select i1 %cmp46.not, i32 %add, i32 %sub45
+  %spec.select359 = tail call i32 @llvm.smin.i32(i32 %add, i32 %sub45)
   %cond53 = select i1 %cmp42, i32 0, i32 %spec.select359
   store i32 %cond53, ptr %m_selected, align 4, !tbaa !61
   %cmp.i = icmp sgt i32 %cond53, -1

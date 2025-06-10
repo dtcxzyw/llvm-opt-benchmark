@@ -897,9 +897,8 @@ _select_topo_bitmap.exit.i.i:                     ; preds = %266, %264, %260, %2
 
 _guess_job_end.exit.i.i:                          ; preds = %361, %359, %355, %348
   %.017.i.i.i = phi i64 [ %351, %348 ], [ %358, %355 ], [ %360, %359 ], [ %367, %361 ]
-  %.not26.i.i.i = icmp sgt i64 %.017.i.i.i, %166
   %368 = add nsw i64 %166, 1
-  %spec.select.i.i.i = select i1 %.not26.i.i.i, i64 %.017.i.i.i, i64 %368
+  %spec.select.i.i.i = call range(i64 -9223372036854775807, -9223372036854775808) i64 @llvm.smax.i64(i64 %.017.i.i.i, i64 %368)
   br label %.thread28.sink.split.i.i
 
 .critedge.i.i:                                    ; preds = %299, %.preheader.split.split.us.i.i, %.preheader.split.split.preheader.i.i, %.preheader.split.us.i.i

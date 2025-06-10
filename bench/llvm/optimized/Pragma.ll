@@ -2930,7 +2930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
   br i1 %139, label %142, label %140
 
 140:                                              ; preds = %._crit_edge
-  %141 = add i64 %138, -1
+  %141 = add nsw i64 %138, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %141, i64 noundef 1) #22
   br label %142
 

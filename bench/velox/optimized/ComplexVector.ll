@@ -19430,7 +19430,7 @@ if.then38:                                        ; preds = %if.else35
 
 if.then.i.i.i.i.i40:                              ; preds = %if.then38
   %add.ptr40.idx = shl nsw i64 %__n.0, 2
-  %sub.ptr.sub.i.i.i.i.i43 = add i64 %add.ptr40.idx, -4
+  %sub.ptr.sub.i.i.i.i.i43 = add nsw i64 %add.ptr40.idx, -4
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i43, 2
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i44 = getelementptr inbounds i32, ptr %add.ptr40, i64 %idx.neg.i.i.i.i.i

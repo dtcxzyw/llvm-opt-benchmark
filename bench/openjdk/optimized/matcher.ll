@@ -7494,9 +7494,8 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %222, %225
 234:                                              ; preds = %.loopexit196
   %235 = sub i32 %182, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %236 = add nsw i32 %235, %136
-  %.not.i162 = icmp slt i32 %236, %.2203
   %237 = add nsw i32 %236, 1
-  %spec.select = select i1 %.not.i162, i32 %.2203, i32 %237
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.2203, i32 %237)
   %238 = icmp slt i32 %236, 688
   br i1 %238, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit, label %239
 
@@ -7564,9 +7563,8 @@ _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %243, %
 266:                                              ; preds = %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread
   %267 = sub i32 %186, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
   %268 = add nsw i32 %267, %136
-  %.not.i166 = icmp slt i32 %268, %.5183
   %269 = add nsw i32 %268, 1
-  %spec.select191 = select i1 %.not.i166, i32 %.5183, i32 %269
+  %spec.select191 = tail call i32 @llvm.smax.i32(i32 %.5183, i32 %269)
   %270 = icmp slt i32 %268, 688
   br i1 %270, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169, label %271
 

@@ -8497,9 +8497,8 @@ record_ieot.exit:                                 ; preds = %115
 128:                                              ; preds = %125
   %129 = udiv i32 %127, 10000
   %130 = call i32 @online_cpus() #30
-  %.not210 = icmp slt i32 %129, %130
   %131 = add nsw i32 %130, -1
-  %spec.select241 = select i1 %.not210, i32 %129, i32 %131
+  %spec.select241 = call i32 @llvm.smin.i32(i32 %129, i32 %131)
   br label %133
 
 132:                                              ; preds = %125

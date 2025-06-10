@@ -526,7 +526,7 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
   %.not95.us.us = icmp slt i32 %64, %0
   %.084.us.us = select nsz i1 %.not95.us.us, float %66, float 1.000000e+00
   %.083.us.us = select nsz i1 %.not95.us.us, float %68, float 0.000000e+00
-  %.082.us.us = select i1 %.not95.us.us, i32 %64, i32 %18
+  %.082.us.us = tail call i32 @llvm.smin.i32(i32 %64, i32 %18)
   %69 = mul nsw i32 %1, %63
   %70 = mul nsw i32 %.082.us.us, %1
   %71 = sext i32 %.2142.us.us to i64
@@ -549,7 +549,7 @@ define linkonce_odr hidden void @_ZN4ncnn42original_pre_calc_for_bilinear_interp
   %.not.us.us = icmp slt i32 %79, %1
   %.086.us.us = select nsz i1 %.not.us.us, float %81, float 1.000000e+00
   %.085.us.us = select nsz i1 %.not.us.us, float %83, float 0.000000e+00
-  %.081.us.us = select i1 %.not.us.us, i32 %79, i32 %17
+  %.081.us.us = tail call i32 @llvm.smin.i32(i32 %79, i32 %17)
   %84 = add nsw i32 %69, %78
   %85 = add nsw i32 %.081.us.us, %69
   %86 = add nsw i32 %70, %78

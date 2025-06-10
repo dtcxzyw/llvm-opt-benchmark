@@ -1935,7 +1935,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7Co
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.037.052, %28 ], [ %.sroa.011.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIA_jN4Luau7CodeGen26NativeProtoExecDataDeleterEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i ]
   %.idx = shl nuw nsw i64 %.02153, 3
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %42 = add nuw i64 %.idx67, 8
+  %42 = add nuw nsw i64 %.idx67, 8
   %gepdiff = sub nsw i64 %.idx, %42
   %43 = ashr exact i64 %gepdiff, 3
   %44 = icmp sgt i64 %43, 0

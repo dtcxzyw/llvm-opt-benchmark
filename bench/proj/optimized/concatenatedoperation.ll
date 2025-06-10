@@ -12512,7 +12512,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.ex
   %.pre-phi439 = phi i64 [ %407, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i ], [ 0, %404 ]
   %408 = getelementptr inbounds i8, ptr %252, i64 %.pre-phi439
   %.idx = shl nuw nsw i64 %.053, 3
-  %409 = add i64 %.idx, %.pre-phi439
+  %409 = add nsw i64 %.idx, %.pre-phi439
   %410 = icmp ult i64 %409, 17
   br i1 %410, label %select.unfold.loopexit383, label %.critedge110
 

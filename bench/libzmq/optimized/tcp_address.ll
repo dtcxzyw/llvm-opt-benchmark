@@ -376,8 +376,8 @@ define noundef i32 @_ZNK3zmq13tcp_address_t9to_stringERNSt7__cxx1112basic_string
 
 42:                                               ; preds = %37, %27
   %43 = sext i32 %34 to i64
-  %44 = add i64 %30, 9
-  %45 = add i64 %44, %43
+  %44 = add nsw i64 %30, 9
+  %45 = add nsw i64 %44, %43
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %46, ptr %8, align 8, !tbaa !15, !alias.scope !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19, !noalias !24
@@ -548,8 +548,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 108:                                              ; preds = %103, %93
   %109 = sext i32 %100 to i64
-  %110 = add i64 %96, 7
-  %111 = add i64 %110, %109
+  %110 = add nsw i64 %96, 7
+  %111 = add nsw i64 %110, %109
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %112, ptr %9, align 8, !tbaa !15, !alias.scope !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !27

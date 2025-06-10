@@ -3881,8 +3881,7 @@ find_cached_object.exit._crit_edge:               ; preds = %find_cached_object.
   %40 = mul i32 %37, 3
   %41 = add i32 %40, 48
   %42 = sdiv i32 %41, 2
-  %.not22 = icmp sgt i32 %42, %26
-  %. = select i1 %.not22, i32 %42, i32 %39
+  %. = call i32 @llvm.smax.i32(i32 %42, i32 %39)
   store i32 %., ptr @cached_object_alloc, align 4, !tbaa !44
   %43 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -7814,6 +7813,9 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #25
 
 attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

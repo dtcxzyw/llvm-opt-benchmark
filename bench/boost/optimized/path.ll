@@ -5049,7 +5049,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %5
-  %12 = add i64 %3, -1
+  %12 = add nsw i64 %3, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %12, i64 noundef 1)
   br label %13
 

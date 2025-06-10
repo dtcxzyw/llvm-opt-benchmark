@@ -15941,7 +15941,7 @@ _ZN7testing15AssertionResultD2Ev.exit1024:        ; preds = %1069, %_ZNKSt14defa
 
 1082:                                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit1024
   %1083 = load i64, ptr %980, align 8, !tbaa !45
-  %1084 = add i64 %1083, -2
+  %1084 = add nsw i64 %1083, -2
   %1085 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %62, i64 noundef %1084, i64 noundef 0, i64 noundef 1, i8 noundef signext 58)
           to label %.noexc509 unwind label %1104
 

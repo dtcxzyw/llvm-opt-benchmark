@@ -2620,8 +2620,7 @@ Vec_IntSetEntry.exit:                             ; preds = %46, %Vec_IntGrow.ex
 
 Vec_IntGrow.exit.sink.split.i.i121:               ; preds = %115
   %117 = shl nsw i32 %116, 1
-  %.not.i118 = icmp sgt i32 %117, %108
-  %. = select i1 %.not.i118, i32 %117, i32 %114
+  %. = tail call i32 @llvm.smax.i32(i32 %117, i32 %114)
   %118 = sext i32 %. to i64
   %119 = shl nsw i64 %118, 2
   %120 = tail call ptr @realloc(ptr noundef nonnull %.val90, i64 noundef %119) #23
@@ -2697,8 +2696,7 @@ Gia_ObjFaninNum.exit.thread:                      ; preds = %Gia_ObjIsMux.exit.i
 
 Vec_IntGrow.exit.sink.split.i.i137:               ; preds = %147
   %149 = shl nsw i32 %148, 1
-  %.not.i134 = icmp sgt i32 %149, %141
-  %.264 = select i1 %.not.i134, i32 %149, i32 %146
+  %.264 = tail call i32 @llvm.smax.i32(i32 %149, i32 %146)
   %150 = sext i32 %.264 to i64
   %151 = shl nsw i64 %150, 2
   %152 = tail call ptr @realloc(ptr noundef nonnull %.val90, i64 noundef %151) #23
@@ -2795,8 +2793,7 @@ Gia_ObjFaninNum.exit160.thread:                   ; preds = %Gia_ObjIsMux.exit.t
 
 Vec_IntGrow.exit.sink.split.i.i165:               ; preds = %187
   %189 = shl nsw i32 %188, 1
-  %.not.i162 = icmp sgt i32 %189, %181
-  %.265 = select i1 %.not.i162, i32 %189, i32 %186
+  %.265 = tail call i32 @llvm.smax.i32(i32 %189, i32 %186)
   %190 = sext i32 %.265 to i64
   %191 = shl nsw i64 %190, 2
   %192 = tail call ptr @realloc(ptr noundef nonnull %.val.i145, i64 noundef %191) #23
@@ -2943,8 +2940,7 @@ define range(i32 0, 2) i32 @Bnd_CheckFlagRec(ptr noundef readonly captures(none)
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %18
   %20 = shl nsw i32 %19, 1
-  %.not.i = icmp sgt i32 %20, %9
-  %. = select i1 %.not.i, i32 %20, i32 %15
+  %. = tail call i32 @llvm.smax.i32(i32 %20, i32 %15)
   %21 = sext i32 %. to i64
   %22 = shl nsw i64 %21, 2
   %23 = tail call ptr @realloc(ptr noundef nonnull %.val19, i64 noundef %22) #23
@@ -3817,8 +3813,7 @@ thread-pre-split:                                 ; preds = %.preheader495, %.th
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %264
   %266 = shl nsw i32 %265, 1
-  %.not.i302 = icmp sgt i32 %266, %256
-  %. = select i1 %.not.i302, i32 %266, i32 %262
+  %. = tail call i32 @llvm.smax.i32(i32 %266, i32 %262)
   %267 = sext i32 %. to i64
   %268 = shl nsw i64 %267, 2
   %269 = tail call ptr @realloc(ptr noundef nonnull %.val231, i64 noundef %268) #23
@@ -4256,8 +4251,7 @@ Vec_PtrPush.exit337:                              ; preds = %.Vec_PtrGrow.exit11
 
 Vec_IntGrow.exit.sink.split.i.i342:               ; preds = %458
   %460 = shl nsw i32 %459, 1
-  %.not.i339 = icmp slt i32 %456, %460
-  %.712 = select i1 %.not.i339, i32 %460, i32 %457
+  %.712 = tail call i32 @llvm.smax.i32(i32 %460, i32 %457)
   %461 = sext i32 %.712 to i64
   %462 = shl nsw i64 %461, 2
   %463 = tail call ptr @realloc(ptr noundef nonnull %.val.i350664, i64 noundef %462) #23
@@ -4352,8 +4346,7 @@ Vec_IntSetEntry.exit352:                          ; preds = %.lr.ph533, %Vec_Int
 
 Vec_IntGrow.exit.sink.split.i.i357:               ; preds = %500
   %502 = shl nsw i32 %501, 1
-  %.not.i354 = icmp sgt i32 %502, %491
-  %.713 = select i1 %.not.i354, i32 %502, i32 %499
+  %.713 = tail call i32 @llvm.smax.i32(i32 %502, i32 %499)
   %503 = sext i32 %.713 to i64
   %504 = shl nsw i64 %503, 2
   %505 = tail call ptr @realloc(ptr noundef nonnull %.val228, i64 noundef %504) #23
@@ -9038,6 +9031,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

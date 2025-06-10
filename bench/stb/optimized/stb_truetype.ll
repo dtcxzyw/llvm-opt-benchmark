@@ -14424,8 +14424,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store float %127, ptr %128, align 4, !tbaa !152
   %129 = add nsw i32 %117, 1
-  %.not76 = icmp slt i32 %102, %.07097
-  %spec.select78 = select i1 %.not76, i32 %.07097, i32 %103
+  %spec.select78 = call i32 @llvm.smax.i32(i32 %.07097, i32 %103)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %stbtt_GetGlyphHMetrics.exit, !llvm.loop !153

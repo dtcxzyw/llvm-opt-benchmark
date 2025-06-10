@@ -515,7 +515,7 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #2
   br label %31
 
 31:                                               ; preds = %28, %23
-  %32 = add i64 %13, -1
+  %32 = add nsw i64 %13, -1
   %33 = and i64 %32, -4096
   %34 = load i64, ptr %0, align 8
   %35 = sub i64 1, %34
@@ -564,7 +564,7 @@ define internal fastcc i64 @FreePageBtreeCleanup(ptr noundef %0) unnamed_addr #2
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %54
-  %65 = add i64 %13, -1
+  %65 = add nsw i64 %13, -1
   %66 = lshr i64 %65, 12
   %67 = icmp eq i64 %59, %66
   br i1 %67, label %68, label %.thread

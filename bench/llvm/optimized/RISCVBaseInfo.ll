@@ -591,7 +591,7 @@ _ZSt13__lower_boundIPKN4llvm11RISCVSysReg6SysRegEZNS1_22lookupSysRegByEncodingEt
   %.0.lcssa.i.i.i = phi ptr [ %.024.i.i, %12 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.i.i.i ]
   %.idx = mul nuw nsw i64 %.01325.i.i, 88
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %22 = add nuw i64 %.idx23, 88
+  %22 = add nuw nsw i64 %.idx23, 88
   %gepdiff = sub nsw i64 %.idx, %22
   %23 = icmp sgt i64 %gepdiff, 0
   br i1 %23, label %_ZSt7advanceIPKN4llvm11RISCVSysReg6SysRegElEvRT_T0_.exit.lr.ph.i23.i.i, label %_ZSt11equal_rangeIPKN4llvm11RISCVSysReg6SysRegEZNS1_22lookupSysRegByEncodingEtE7KeyTypeZNS1_22lookupSysRegByEncodingEtE4CompESt4pairIT_S8_ES8_S8_RKT0_T1_.exit

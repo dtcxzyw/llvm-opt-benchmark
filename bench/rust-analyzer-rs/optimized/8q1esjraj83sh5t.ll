@@ -21661,7 +21661,7 @@ define internal fastcc noundef nonnull ptr @_ZN6hir_ty6layout29struct_tail_erasi
 
 48:                                               ; preds = %39
   %.idx = mul nsw i64 %.val7, 80
-  %49 = add i64 %.idx, -80
+  %49 = add nsw i64 %.idx, -80
   %50 = udiv exact i64 %49, 80
   %51 = trunc i64 %50 to i32
   %52 = extractvalue { i32, i32 } %40, 0
@@ -72016,7 +72016,7 @@ default.unreachable315:                           ; preds = %312, %242, %61
 
 98:                                               ; preds = %95
   %.idx = mul nsw i64 %.val127, 80
-  %99 = add i64 %.idx, -80
+  %99 = add nsw i64 %.idx, -80
   %100 = udiv exact i64 %99, 80
   %101 = trunc i64 %100 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13379)

@@ -3532,8 +3532,8 @@ define internal range(i32 -2147483608, 2147483638) i32 @mpegts_probe(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !184
   %7 = sdiv i32 %6, 204
-  %or.cond114 = icmp sgt i32 %6, 203
-  br i1 %or.cond114, label %.lr.ph.i.lr.ph, label %.thread111
+  %or.cond112 = icmp sgt i32 %6, 203
+  br i1 %or.cond112, label %.lr.ph.i.lr.ph, label %.thread109
 
 .lr.ph.i.lr.ph:                                   ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3541,10 +3541,10 @@ define internal range(i32 -2147483608, 2147483638) i32 @mpegts_probe(ptr noundef
   %10 = zext nneg i32 %7 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %analyze.exit94.loopexit
-  %indvars.iv = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %indvars.iv.next, %analyze.exit94.loopexit ]
-  %.05397 = phi i32 [ 0, %.lr.ph.i.lr.ph ], [ %103, %analyze.exit94.loopexit ]
-  %.05496 = phi i32 [ 0, %.lr.ph.i.lr.ph ], [ %102, %analyze.exit94.loopexit ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %analyze.exit92.loopexit
+  %indvars.iv = phi i64 [ 0, %.lr.ph.i.lr.ph ], [ %indvars.iv.next, %analyze.exit92.loopexit ]
+  %.05395 = phi i32 [ 0, %.lr.ph.i.lr.ph ], [ %103, %analyze.exit92.loopexit ]
+  %.05494 = phi i32 [ 0, %.lr.ph.i.lr.ph ], [ %102, %analyze.exit92.loopexit ]
   %11 = trunc i64 %indvars.iv to i32
   %12 = sub i32 %7, %11
   %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 100)
@@ -3587,8 +3587,7 @@ define internal range(i32 -2147483608, 2147483638) i32 @mpegts_probe(ptr noundef
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !107
   %37 = add nsw i32 %.033.i, 1
-  %.not.i = icmp slt i32 %35, %.02731.i
-  %spec.select.i = select i1 %.not.i, i32 %.02731.i, i32 %36
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.02731.i, i32 %36)
   br label %38
 
 38:                                               ; preds = %30, %22, %.lr.ph.split.i
@@ -3639,18 +3638,17 @@ analyze.exit.loopexit:                            ; preds = %38
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !107
   %62 = add nsw i32 %.033.i68, 1
-  %.not.i75 = icmp slt i32 %60, %.02731.i69
-  %spec.select.i76 = select i1 %.not.i75, i32 %.02731.i69, i32 %61
+  %spec.select.i75 = tail call i32 @llvm.smax.i32(i32 %.02731.i69, i32 %61)
   br label %63
 
 63:                                               ; preds = %55, %47, %.lr.ph.split.i66
-  %.3.i70 = phi i32 [ %.02731.i69, %.lr.ph.split.i66 ], [ %spec.select.i76, %55 ], [ %.02731.i69, %47 ]
+  %.3.i70 = phi i32 [ %.02731.i69, %.lr.ph.split.i66 ], [ %spec.select.i75, %55 ], [ %.02731.i69, %47 ]
   %.2.i71 = phi i32 [ %.033.i68, %.lr.ph.split.i66 ], [ %62, %55 ], [ %.033.i68, %47 ]
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count41.i65
-  br i1 %exitcond.not.i73, label %analyze.exit77.loopexit, label %.lr.ph.split.i66, !llvm.loop !186
+  br i1 %exitcond.not.i73, label %analyze.exit76.loopexit, label %.lr.ph.split.i66, !llvm.loop !186
 
-analyze.exit77.loopexit:                          ; preds = %63
+analyze.exit76.loopexit:                          ; preds = %63
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %3) #12
   %64 = mul nuw nsw i64 %indvars.iv, 204
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 %64
@@ -3659,19 +3657,19 @@ analyze.exit77.loopexit:                          ; preds = %63
   %66 = mul nsw i32 %13, 204
   %67 = add nsw i32 %66, -3
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %wide.trip.count41.i82 = zext nneg i32 %67 to i64
-  br label %.lr.ph.split.i83
+  %wide.trip.count41.i81 = zext nneg i32 %67 to i64
+  br label %.lr.ph.split.i82
 
-.lr.ph.split.i83:                                 ; preds = %88, %analyze.exit77.loopexit
-  %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i89, %88 ], [ 0, %analyze.exit77.loopexit ]
-  %.033.i85 = phi i32 [ %.2.i88, %88 ], [ 0, %analyze.exit77.loopexit ]
-  %.02731.i86 = phi i32 [ %.3.i87, %88 ], [ 0, %analyze.exit77.loopexit ]
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.i84
+.lr.ph.split.i82:                                 ; preds = %88, %analyze.exit76.loopexit
+  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i88, %88 ], [ 0, %analyze.exit76.loopexit ]
+  %.033.i84 = phi i32 [ %.2.i87, %88 ], [ 0, %analyze.exit76.loopexit ]
+  %.02731.i85 = phi i32 [ %.3.i86, %88 ], [ 0, %analyze.exit76.loopexit ]
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv.i83
   %70 = load i8, ptr %69, align 1, !tbaa !9
   %71 = icmp eq i8 %70, 71
   br i1 %71, label %72, label %88
 
-72:                                               ; preds = %.lr.ph.split.i83
+72:                                               ; preds = %.lr.ph.split.i82
   %73 = load i16, ptr %68, align 1, !tbaa !9
   %74 = and i16 %73, -225
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 3
@@ -3679,30 +3677,29 @@ analyze.exit77.loopexit:                          ; preds = %63
   %77 = and i8 %76, 48
   %78 = icmp eq i16 %74, -225
   %79 = icmp ne i8 %77, 0
-  %or.cond3.i91 = select i1 %78, i1 true, i1 %79
-  br i1 %or.cond3.i91, label %80, label %88
+  %or.cond3.i90 = select i1 %78, i1 true, i1 %79
+  br i1 %or.cond3.i90, label %80, label %88
 
 80:                                               ; preds = %72
-  %81 = trunc nuw nsw i64 %indvars.iv.i84 to i32
+  %81 = trunc nuw nsw i64 %indvars.iv.i83 to i32
   %82 = urem i32 %81, 204
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw [204 x i32], ptr %2, i64 0, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !107
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %84, align 4, !tbaa !107
-  %87 = add nsw i32 %.033.i85, 1
-  %.not.i92 = icmp slt i32 %85, %.02731.i86
-  %spec.select.i93 = select i1 %.not.i92, i32 %.02731.i86, i32 %86
+  %87 = add nsw i32 %.033.i84, 1
+  %spec.select.i91 = tail call i32 @llvm.smax.i32(i32 %.02731.i85, i32 %86)
   br label %88
 
-88:                                               ; preds = %80, %72, %.lr.ph.split.i83
-  %.3.i87 = phi i32 [ %.02731.i86, %.lr.ph.split.i83 ], [ %spec.select.i93, %80 ], [ %.02731.i86, %72 ]
-  %.2.i88 = phi i32 [ %.033.i85, %.lr.ph.split.i83 ], [ %87, %80 ], [ %.033.i85, %72 ]
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i84, 1
-  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count41.i82
-  br i1 %exitcond.not.i90, label %analyze.exit94.loopexit, label %.lr.ph.split.i83, !llvm.loop !186
+88:                                               ; preds = %80, %72, %.lr.ph.split.i82
+  %.3.i86 = phi i32 [ %.02731.i85, %.lr.ph.split.i82 ], [ %spec.select.i91, %80 ], [ %.02731.i85, %72 ]
+  %.2.i87 = phi i32 [ %.033.i84, %.lr.ph.split.i82 ], [ %87, %80 ], [ %.033.i84, %72 ]
+  %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i83, 1
+  %exitcond.not.i89 = icmp eq i64 %indvars.iv.next.i88, %wide.trip.count41.i81
+  br i1 %exitcond.not.i89, label %analyze.exit92.loopexit, label %.lr.ph.split.i82, !llvm.loop !186
 
-analyze.exit94.loopexit:                          ; preds = %88
+analyze.exit92.loopexit:                          ; preds = %88
   %.neg.i = mul i32 %.3.i, -10
   %89 = add i32 %.2.i, %.neg.i
   %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
@@ -3713,21 +3710,21 @@ analyze.exit94.loopexit:                          ; preds = %88
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %95 = udiv i32 %94, 10
   %96 = sub nsw i32 %.3.i70, %95
-  %.neg.i80 = mul i32 %.3.i87, -10
-  %97 = add i32 %.2.i88, %.neg.i80
+  %.neg.i79 = mul i32 %.3.i86, -10
+  %97 = add i32 %.2.i87, %.neg.i79
   %98 = tail call i32 @llvm.smax.i32(i32 %97, i32 0)
   %99 = udiv i32 %98, 10
-  %100 = sub nsw i32 %.3.i87, %99
+  %100 = sub nsw i32 %.3.i86, %99
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %2) #12
   %101 = tail call i32 @llvm.smax.i32(i32 %92, i32 %96)
   %. = tail call i32 @llvm.smax.i32(i32 %101, i32 %100)
-  %102 = add nsw i32 %., %.05496
-  %103 = tail call i32 @llvm.smax.i32(i32 %.05397, i32 %.)
+  %102 = add nsw i32 %., %.05494
+  %103 = tail call i32 @llvm.smax.i32(i32 %.05395, i32 %.)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 100
   %104 = icmp samesign ult i64 %indvars.iv.next, %10
   br i1 %104, label %.lr.ph.i, label %._crit_edge, !llvm.loop !187
 
-._crit_edge:                                      ; preds = %analyze.exit94.loopexit
+._crit_edge:                                      ; preds = %analyze.exit92.loopexit
   %105 = mul nsw i32 %102, 10
   %106 = icmp sgt i32 %103, 69
   %107 = sdiv i32 %105, %7
@@ -3739,7 +3736,7 @@ analyze.exit94.loopexit:                          ; preds = %88
 
 110:                                              ; preds = %._crit_edge
   %111 = add nuw nsw i32 %.fr, 90
-  br label %.thread111
+  br label %.thread109
 
 112:                                              ; preds = %._crit_edge
   %113 = icmp sgt i32 %6, 2039
@@ -3748,7 +3745,7 @@ analyze.exit94.loopexit:                          ; preds = %88
 
 114:                                              ; preds = %112
   %115 = add nuw nsw i32 %.fr, 40
-  br label %.thread111
+  br label %.thread109
 
 116:                                              ; preds = %112
   %or.cond5 = select i1 %113, i1 %106, i1 false
@@ -3756,13 +3753,13 @@ analyze.exit94.loopexit:                          ; preds = %88
 
 117:                                              ; preds = %116
   %118 = add nsw i32 %.fr, 40
-  br label %.thread111
+  br label %.thread109
 
 119:                                              ; preds = %116
   %spec.select = select i1 %109, i32 2, i32 0
-  br label %.thread111
+  br label %.thread109
 
-.thread111:                                       ; preds = %119, %1, %117, %114, %110
+.thread109:                                       ; preds = %119, %1, %117, %114, %110
   %.0 = phi i32 [ %111, %110 ], [ %115, %114 ], [ %118, %117 ], [ 0, %1 ], [ %spec.select, %119 ]
   ret i32 %.0
 }
@@ -8345,8 +8342,7 @@ define internal fastcc range(i32 -1094995529, 205) i32 @get_packet_size(ptr noun
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4, !tbaa !107
   %32 = add nsw i32 %.033.us.i, 1
-  %.not.us.i = icmp slt i32 %30, %.02731.us.i
-  %spec.select.us.i = select i1 %.not.us.i, i32 %.02731.us.i, i32 %31
+  %spec.select.us.i = call i32 @llvm.smax.i32(i32 %.02731.us.i, i32 %31)
   br label %33
 
 33:                                               ; preds = %25, %.lr.ph.split.us.i
@@ -8367,7 +8363,7 @@ analyze.exit:                                     ; preds = %33, %18
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 816, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %3, i8 0, i64 768, i1 false)
-  br i1 %20, label %.lr.ph.i34, label %analyze.exit46
+  br i1 %20, label %.lr.ph.i34, label %analyze.exit45
 
 .lr.ph.i34:                                       ; preds = %analyze.exit
   %38 = add nsw i32 %19, -3
@@ -8392,18 +8388,17 @@ analyze.exit:                                     ; preds = %33, %18
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 4, !tbaa !107
   %49 = add nsw i32 %.033.us.i38, 1
-  %.not.us.i44 = icmp slt i32 %47, %.02731.us.i39
-  %spec.select.us.i45 = select i1 %.not.us.i44, i32 %.02731.us.i39, i32 %48
+  %spec.select.us.i44 = call i32 @llvm.smax.i32(i32 %.02731.us.i39, i32 %48)
   br label %50
 
 50:                                               ; preds = %42, %.lr.ph.split.us.i36
-  %.3.us.i40 = phi i32 [ %.02731.us.i39, %.lr.ph.split.us.i36 ], [ %spec.select.us.i45, %42 ]
+  %.3.us.i40 = phi i32 [ %.02731.us.i39, %.lr.ph.split.us.i36 ], [ %spec.select.us.i44, %42 ]
   %.2.us.i41 = phi i32 [ %.033.us.i38, %.lr.ph.split.us.i36 ], [ %49, %42 ]
   %indvars.iv.next39.i42 = add nuw nsw i64 %indvars.iv38.i37, 1
   %exitcond42.not.i43 = icmp eq i64 %indvars.iv.next39.i42, %wide.trip.count41.i35
-  br i1 %exitcond42.not.i43, label %analyze.exit46, label %.lr.ph.split.us.i36, !llvm.loop !186
+  br i1 %exitcond42.not.i43, label %analyze.exit45, label %.lr.ph.split.us.i36, !llvm.loop !186
 
-analyze.exit46:                                   ; preds = %50, %analyze.exit
+analyze.exit45:                                   ; preds = %50, %analyze.exit
   %.027.lcssa.i31 = phi i32 [ 0, %analyze.exit ], [ %.3.us.i40, %50 ]
   %.0.lcssa.i32 = phi i32 [ 0, %analyze.exit ], [ %.2.us.i41, %50 ]
   %.neg.i33 = mul i32 %.027.lcssa.i31, -10
@@ -8414,56 +8409,55 @@ analyze.exit46:                                   ; preds = %50, %analyze.exit
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 816, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(816) %2, i8 0, i64 816, i1 false)
-  br i1 %20, label %.lr.ph.i50, label %analyze.exit62
+  br i1 %20, label %.lr.ph.i49, label %analyze.exit60
 
-.lr.ph.i50:                                       ; preds = %analyze.exit46
+.lr.ph.i49:                                       ; preds = %analyze.exit45
   %55 = add nsw i32 %19, -3
-  %wide.trip.count41.i51 = zext nneg i32 %55 to i64
-  br label %.lr.ph.split.us.i52
+  %wide.trip.count41.i50 = zext nneg i32 %55 to i64
+  br label %.lr.ph.split.us.i51
 
-.lr.ph.split.us.i52:                              ; preds = %67, %.lr.ph.i50
-  %indvars.iv38.i53 = phi i64 [ %indvars.iv.next39.i58, %67 ], [ 0, %.lr.ph.i50 ]
-  %.033.us.i54 = phi i32 [ %.2.us.i57, %67 ], [ 0, %.lr.ph.i50 ]
-  %.02731.us.i55 = phi i32 [ %.3.us.i56, %67 ], [ 0, %.lr.ph.i50 ]
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv38.i53
+.lr.ph.split.us.i51:                              ; preds = %67, %.lr.ph.i49
+  %indvars.iv38.i52 = phi i64 [ %indvars.iv.next39.i57, %67 ], [ 0, %.lr.ph.i49 ]
+  %.033.us.i53 = phi i32 [ %.2.us.i56, %67 ], [ 0, %.lr.ph.i49 ]
+  %.02731.us.i54 = phi i32 [ %.3.us.i55, %67 ], [ 0, %.lr.ph.i49 ]
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv38.i52
   %57 = load i8, ptr %56, align 1, !tbaa !9
   %58 = icmp eq i8 %57, 71
   br i1 %58, label %59, label %67
 
-59:                                               ; preds = %.lr.ph.split.us.i52
-  %60 = trunc nuw nsw i64 %indvars.iv38.i53 to i32
+59:                                               ; preds = %.lr.ph.split.us.i51
+  %60 = trunc nuw nsw i64 %indvars.iv38.i52 to i32
   %61 = urem i32 %60, 204
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw [204 x i32], ptr %2, i64 0, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !107
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %63, align 4, !tbaa !107
-  %66 = add nsw i32 %.033.us.i54, 1
-  %.not.us.i60 = icmp slt i32 %64, %.02731.us.i55
-  %spec.select.us.i61 = select i1 %.not.us.i60, i32 %.02731.us.i55, i32 %65
+  %66 = add nsw i32 %.033.us.i53, 1
+  %spec.select.us.i59 = call i32 @llvm.smax.i32(i32 %.02731.us.i54, i32 %65)
   br label %67
 
-67:                                               ; preds = %59, %.lr.ph.split.us.i52
-  %.3.us.i56 = phi i32 [ %.02731.us.i55, %.lr.ph.split.us.i52 ], [ %spec.select.us.i61, %59 ]
-  %.2.us.i57 = phi i32 [ %.033.us.i54, %.lr.ph.split.us.i52 ], [ %66, %59 ]
-  %indvars.iv.next39.i58 = add nuw nsw i64 %indvars.iv38.i53, 1
-  %exitcond42.not.i59 = icmp eq i64 %indvars.iv.next39.i58, %wide.trip.count41.i51
-  br i1 %exitcond42.not.i59, label %analyze.exit62, label %.lr.ph.split.us.i52, !llvm.loop !186
+67:                                               ; preds = %59, %.lr.ph.split.us.i51
+  %.3.us.i55 = phi i32 [ %.02731.us.i54, %.lr.ph.split.us.i51 ], [ %spec.select.us.i59, %59 ]
+  %.2.us.i56 = phi i32 [ %.033.us.i53, %.lr.ph.split.us.i51 ], [ %66, %59 ]
+  %indvars.iv.next39.i57 = add nuw nsw i64 %indvars.iv38.i52, 1
+  %exitcond42.not.i58 = icmp eq i64 %indvars.iv.next39.i57, %wide.trip.count41.i50
+  br i1 %exitcond42.not.i58, label %analyze.exit60, label %.lr.ph.split.us.i51, !llvm.loop !186
 
-analyze.exit62:                                   ; preds = %67, %analyze.exit46
-  %.027.lcssa.i47 = phi i32 [ 0, %analyze.exit46 ], [ %.3.us.i56, %67 ]
-  %.0.lcssa.i48 = phi i32 [ 0, %analyze.exit46 ], [ %.2.us.i57, %67 ]
-  %.neg.i49 = mul i32 %.027.lcssa.i47, -10
-  %68 = add i32 %.0.lcssa.i48, %.neg.i49
+analyze.exit60:                                   ; preds = %67, %analyze.exit45
+  %.027.lcssa.i46 = phi i32 [ 0, %analyze.exit45 ], [ %.3.us.i55, %67 ]
+  %.0.lcssa.i47 = phi i32 [ 0, %analyze.exit45 ], [ %.2.us.i56, %67 ]
+  %.neg.i48 = mul i32 %.027.lcssa.i46, -10
+  %68 = add i32 %.0.lcssa.i47, %.neg.i48
   %69 = call i32 @llvm.smax.i32(i32 %68, i32 0)
   %70 = udiv i32 %69, 10
-  %71 = sub nsw i32 %.027.lcssa.i47, %70
+  %71 = sub nsw i32 %.027.lcssa.i46, %70
   call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %2) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.91, i32 noundef %19, i32 noundef %37, i32 noundef %54, i32 noundef %71) #12
   %72 = icmp sgt i32 %37, %71
   br i1 %72, label %73, label %76
 
-73:                                               ; preds = %analyze.exit62
+73:                                               ; preds = %analyze.exit60
   %74 = icmp sgt i32 %54, %71
   br i1 %74, label %75, label %mid_pred.exit
 
@@ -8471,7 +8465,7 @@ analyze.exit62:                                   ; preds = %67, %analyze.exit46
   %..i = call i32 @llvm.smin.i32(i32 range(i32 -214748364, -2147483648) %54, i32 range(i32 -214748364, -2147483648) %37)
   br label %mid_pred.exit
 
-76:                                               ; preds = %analyze.exit62
+76:                                               ; preds = %analyze.exit60
   %77 = icmp sgt i32 %71, %54
   br i1 %77, label %78, label %mid_pred.exit
 

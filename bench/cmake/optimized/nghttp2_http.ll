@@ -1334,7 +1334,7 @@ sf_parse_params.exit:                             ; preds = %9, %40, %6
   %42 = ptrtoint ptr %7 to i64
   %43 = sub i64 %41, %42
   %44 = icmp slt i64 %43, 0
-  %45 = add nuw i64 %43, %.fr23
+  %45 = add nuw nsw i64 %43, %.fr23
   br i1 %44, label %sf_parse_params.exit.thread, label %46
 
 sf_parse_params.exit.thread:                      ; preds = %15, %35, %32, %sf_parse_key.exit.i, %.preheader.i, %sf_parse_params.exit

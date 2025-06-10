@@ -23,7 +23,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   %4 = alloca %struct.object_id, align 4
   %5 = alloca %struct.object_id, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %6 = tail call ptr @xstrdup(ptr noundef %1) #13
+  %6 = tail call ptr @xstrdup(ptr noundef %1) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %7, align 8, !tbaa !4
   %8 = load i8, ptr %1, align 1, !tbaa !11
@@ -46,7 +46,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 ._crit_edge.i:                                    ; preds = %._crit_edge.sink.split.i, %3
   %12 = phi i8 [ %.pre.i, %3 ], [ %10, %._crit_edge.sink.split.i ]
   %.087.i = phi ptr [ %1, %3 ], [ %11, %._crit_edge.sink.split.i ]
-  %13 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.087.i, i32 noundef 58) #14
+  %13 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.087.i, i32 noundef 58) #15
   %14 = and i8 %12, 16
   %15 = icmp ne i8 %14, 0
   %16 = icmp ne ptr %13, null
@@ -75,19 +75,19 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 
 .thread.i:                                        ; preds = %26, %20
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #14
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #15
   %.not.i = icmp eq i64 %28, 0
   br i1 %.not.i, label %33, label %29
 
 29:                                               ; preds = %.thread.i
-  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 42) #14
+  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 42) #15
   %31 = icmp ne ptr %30, null
   %32 = zext i1 %31 to i32
   br label %33
 
 33:                                               ; preds = %29, %.thread.i
   %34 = phi i32 [ 0, %.thread.i ], [ %32, %29 ]
-  %35 = tail call ptr @xstrndup(ptr noundef nonnull %27, i64 noundef %28) #13
+  %35 = tail call ptr @xstrndup(ptr noundef nonnull %27, i64 noundef %28) #14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %35, ptr %36, align 8, !tbaa !12
   %37 = ptrtoint ptr %27 to i64
@@ -99,7 +99,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 41:                                               ; preds = %26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %42, align 8, !tbaa !12
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.087.i) #14
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.087.i) #15
   br label %44
 
 44:                                               ; preds = %41, %33
@@ -111,7 +111,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %.not94.i, label %55, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call ptr @memchr(ptr noundef nonnull %.087.i, i32 noundef 42, i64 noundef %46) #14
+  %48 = tail call ptr @memchr(ptr noundef nonnull %.087.i, i32 noundef 42, i64 noundef %46) #15
   %.not95.i = icmp eq ptr %48, null
   br i1 %.not95.i, label %55, label %49
 
@@ -156,11 +156,11 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
-  %68 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #13
+  %68 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #14
   br label %71
 
 69:                                               ; preds = %64, %57
-  %70 = tail call ptr @xstrndup(ptr noundef nonnull %.087.i, i64 noundef %46) #13
+  %70 = tail call ptr @xstrndup(ptr noundef nonnull %.087.i, i64 noundef %46) #14
   br label %71
 
 71:                                               ; preds = %69, %67
@@ -175,7 +175,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %.not96.i, label %92, label %77
 
 77:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #14
   %78 = load i8, ptr %.sink.i, align 1, !tbaa !11
   %.not108.i = icmp eq i8 %78, 0
   br i1 %.not108.i, label %91, label %79
@@ -190,7 +190,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %79
-  %87 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %4) #13
+  %87 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %4) #14
   %.not109.i = icmp eq i32 %87, 0
   br i1 %.not109.i, label %91, label %._crit_edge124.i
 
@@ -200,21 +200,21 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 
 88:                                               ; preds = %._crit_edge124.i, %79
   %89 = phi ptr [ %.pre125.i, %._crit_edge124.i ], [ %.sink.i, %79 ]
-  %90 = call i32 @check_refname_format(ptr noundef %89, i32 noundef %74) #13
+  %90 = call i32 @check_refname_format(ptr noundef %89, i32 noundef %74) #14
   %.not110.i = icmp eq i32 %90, 0
   %..i = zext i1 %.not110.i to i32
   br label %91
 
 91:                                               ; preds = %88, %86, %77
   %.1.i = phi i32 [ 0, %77 ], [ 0, %86 ], [ %..i, %88 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #14
   br label %parse_refspec.exit
 
 92:                                               ; preds = %71
   br i1 %18, label %93, label %118
 
 93:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #14
   %94 = load i8, ptr %.sink.i, align 1, !tbaa !11
   %.not102.i = icmp eq i8 %94, 0
   br i1 %.not102.i, label %110, label %95
@@ -229,7 +229,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %95
-  %103 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %5) #13
+  %103 = call i32 @get_oid_hex(ptr noundef nonnull %.sink.i, ptr noundef nonnull %5) #14
   %.not103.i = icmp eq i32 %103, 0
   br i1 %.not103.i, label %104, label %._crit_edge126.i
 
@@ -245,7 +245,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 
 107:                                              ; preds = %._crit_edge126.i, %95
   %108 = phi ptr [ %.pre127.i, %._crit_edge126.i ], [ %.sink.i, %95 ]
-  %109 = call i32 @check_refname_format(ptr noundef %108, i32 noundef %74) #13
+  %109 = call i32 @check_refname_format(ptr noundef %108, i32 noundef %74) #14
   %.not104.i = icmp eq i32 %109, 0
   br i1 %.not104.i, label %110, label %117
 
@@ -261,16 +261,16 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %.not106.i, label %.critedge.i, label %115
 
 115:                                              ; preds = %113
-  %116 = call i32 @check_refname_format(ptr noundef nonnull %112, i32 noundef %74) #13
+  %116 = call i32 @check_refname_format(ptr noundef nonnull %112, i32 noundef %74) #14
   %.not107.i = icmp eq i32 %116, 0
   br i1 %.not107.i, label %.critedge.i, label %117
 
 .critedge.i:                                      ; preds = %115, %113, %110
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #14
   br label %133
 
 117:                                              ; preds = %115, %107
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #14
   br label %parse_refspec.exit
 
 118:                                              ; preds = %92
@@ -280,7 +280,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %or.cond9.i, label %121, label %123
 
 121:                                              ; preds = %118
-  %122 = tail call i32 @check_refname_format(ptr noundef nonnull %.sink.i, i32 noundef 3) #13
+  %122 = tail call i32 @check_refname_format(ptr noundef nonnull %.sink.i, i32 noundef 3) #14
   %.not97.i = icmp eq i32 %122, 0
   br i1 %.not97.i, label %123, label %parse_refspec.exit
 
@@ -292,7 +292,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %72, align 8, !tbaa !13
-  %128 = tail call i32 @check_refname_format(ptr noundef %127, i32 noundef %74) #13
+  %128 = tail call i32 @check_refname_format(ptr noundef %127, i32 noundef %74) #14
   %.not99.i = icmp eq i32 %128, 0
   br i1 %.not99.i, label %133, label %parse_refspec.exit
 
@@ -302,7 +302,7 @@ define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr noundef captures(non
   br i1 %.not100.i, label %parse_refspec.exit, label %131
 
 131:                                              ; preds = %129
-  %132 = tail call i32 @check_refname_format(ptr noundef nonnull %125, i32 noundef %74) #13
+  %132 = tail call i32 @check_refname_format(ptr noundef nonnull %125, i32 noundef %74) #14
   %.not101.i = icmp eq i32 %132, 0
   br i1 %.not101.i, label %133, label %parse_refspec.exit
 
@@ -327,7 +327,7 @@ define dso_local void @refspec_item_init_or_die(ptr noundef captures(none) initi
 
 5:                                                ; preds = %3
   %6 = tail call fastcc ptr @_()
-  tail call void (ptr, ...) @die(ptr noundef %6, ptr noundef %1) #15
+  tail call void (ptr, ...) @die(ptr noundef %6, ptr noundef %1) #16
   unreachable
 
 7:                                                ; preds = %3
@@ -344,7 +344,7 @@ define internal fastcc ptr @_() unnamed_addr #4 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #13
+  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #14
   br label %4
 
 4:                                                ; preds = %0, %2
@@ -356,15 +356,15 @@ define internal fastcc ptr @_() unnamed_addr #4 {
 define dso_local void @refspec_item_clear(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !13
-  tail call void @free(ptr noundef %3) #13
+  tail call void @free(ptr noundef %3) #14
   store ptr null, ptr %2, align 8, !tbaa !13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !12
-  tail call void @free(ptr noundef %5) #13
+  tail call void @free(ptr noundef %5) #14
   store ptr null, ptr %4, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  tail call void @free(ptr noundef %7) #13
+  tail call void @free(ptr noundef %7) #14
   store ptr null, ptr %6, align 8, !tbaa !4
   %8 = load i8, ptr %0, align 8
   %9 = and i8 %8, -16
@@ -386,7 +386,7 @@ define dso_local void @refspec_init(ptr noundef writeonly captures(none) initial
 ; Function Attrs: nounwind uwtable
 define dso_local void @refspec_append(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.refspec_item, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = call i32 @refspec_item_init(ptr noundef nonnull %3, ptr noundef %1, i32 noundef %5)
@@ -395,7 +395,7 @@ define dso_local void @refspec_append(ptr noundef captures(none) %0, ptr noundef
 
 7:                                                ; preds = %2
   %8 = tail call fastcc ptr @_()
-  tail call void (ptr, ...) @die(ptr noundef %8, ptr noundef %1) #15
+  tail call void (ptr, ...) @die(ptr noundef %8, ptr noundef %1) #16
   unreachable
 
 refspec_item_init_or_die.exit:                    ; preds = %2
@@ -415,21 +415,20 @@ refspec_item_init_or_die.exit._crit_edge:         ; preds = %refspec_item_init_o
   %15 = mul i32 %12, 3
   %16 = add i32 %15, 48
   %17 = sdiv i32 %16, 2
-  %.not18 = icmp sgt i32 %17, %10
-  %. = select i1 %.not18, i32 %17, i32 %14
+  %. = tail call i32 @llvm.smax.i32(i32 %17, i32 %14)
   store i32 %., ptr %11, align 8, !tbaa !43
   %18 = sext i32 %. to i64
   %19 = icmp slt i32 %., 0
   br i1 %19, label %20, label %st_mult.exit
 
 20:                                               ; preds = %13
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 32, i64 noundef range(i64 -2147483648, 2147483648) %18) #15
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i64 noundef 32, i64 noundef range(i64 -2147483648, 2147483648) %18) #16
   unreachable
 
 st_mult.exit:                                     ; preds = %13
   %21 = load ptr, ptr %0, align 8, !tbaa !44
   %22 = shl nuw nsw i64 %18, 5
-  %23 = tail call ptr @xrealloc(ptr noundef %21, i64 noundef %22) #13
+  %23 = tail call ptr @xrealloc(ptr noundef %21, i64 noundef %22) #14
   store ptr %23, ptr %0, align 8, !tbaa !44
   %.pre19 = load i32, ptr %9, align 4, !tbaa !42
   br label %24
@@ -443,7 +442,7 @@ st_mult.exit:                                     ; preds = %13
   %29 = load i32, ptr %9, align 4, !tbaa !42
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %9, align 4, !tbaa !42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
   ret void
 }
 
@@ -461,13 +460,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 ; Function Attrs: nounwind uwtable
 define dso_local void @refspec_appendf(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call ptr @xstrvfmt(ptr noundef %1, ptr noundef nonnull %3) #13
+  %4 = call ptr @xstrvfmt(ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @refspec_append(ptr noundef %0, ptr noundef %4)
-  call void @free(ptr noundef %4) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @free(ptr noundef %4) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
   ret void
 }
 
@@ -514,15 +513,15 @@ define dso_local void @refspec_clear(ptr noundef captures(none) %0) local_unname
   %6 = getelementptr inbounds nuw %struct.refspec_item, ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !13
-  tail call void @free(ptr noundef %8) #13
+  tail call void @free(ptr noundef %8) #14
   store ptr null, ptr %7, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  tail call void @free(ptr noundef %10) #13
+  tail call void @free(ptr noundef %10) #14
   store ptr null, ptr %9, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  tail call void @free(ptr noundef %12) #13
+  tail call void @free(ptr noundef %12) #14
   store ptr null, ptr %11, align 8, !tbaa !4
   %13 = load i8, ptr %6, align 8
   %14 = and i8 %13, -16
@@ -535,7 +534,7 @@ define dso_local void @refspec_clear(ptr noundef captures(none) %0) local_unname
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %18 = load ptr, ptr %0, align 8, !tbaa !44
-  tail call void @free(ptr noundef %18) #13
+  tail call void @free(ptr noundef %18) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   ret void
 }
@@ -543,18 +542,18 @@ define dso_local void @refspec_clear(ptr noundef captures(none) %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @valid_fetch_refspec(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.refspec_item, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   %3 = call i32 @refspec_item_init(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 1)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !13
-  tail call void @free(ptr noundef %5) #13
+  tail call void @free(ptr noundef %5) #14
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !12
-  tail call void @free(ptr noundef %7) #13
+  tail call void @free(ptr noundef %7) #14
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !4
-  tail call void @free(ptr noundef %9) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
+  tail call void @free(ptr noundef %9) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
   ret i32 %3
 }
 
@@ -562,25 +561,25 @@ define dso_local range(i32 0, 2) i32 @valid_fetch_refspec(ptr noundef %0) local_
 define dso_local range(i32 0, 2) i32 @valid_remote_name(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.refspec_item, align 8
   %3 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.valid_remote_name.refspec, i64 24, i1 false)
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %0) #13
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %0) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   %6 = call i32 @refspec_item_init(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 1)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !13
-  call void @free(ptr noundef %8) #13
+  call void @free(ptr noundef %8) #14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  call void @free(ptr noundef %10) #13
+  call void @free(ptr noundef %10) #14
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  call void @free(ptr noundef %12) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  call void @strbuf_release(ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @free(ptr noundef %12) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
+  call void @strbuf_release(ptr noundef nonnull %3) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
   ret i32 %6
 }
 
@@ -632,16 +631,16 @@ define dso_local void @refspec_ref_prefixes(ptr noundef readonly captures(none) 
   br i1 %.not29, label %27, label %20
 
 20:                                               ; preds = %.thread
-  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02232, i32 noundef 42) #14
+  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02232, i32 noundef 42) #15
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %.02232 to i64
   %24 = sub i64 %22, %23
   %25 = trunc i64 %24 to i32
-  %26 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %25, ptr noundef nonnull %.02232) #13
+  %26 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %25, ptr noundef nonnull %.02232) #14
   br label %28
 
 27:                                               ; preds = %.thread
-  tail call void @expand_ref_prefix(ptr noundef %1, ptr noundef nonnull %.02232) #13
+  tail call void @expand_ref_prefix(ptr noundef %1, ptr noundef nonnull %.02232) #14
   br label %28
 
 28:                                               ; preds = %20, %27, %18, %7
@@ -680,6 +679,9 @@ declare i32 @check_refname_format(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #12
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -693,9 +695,10 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn nounwind }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

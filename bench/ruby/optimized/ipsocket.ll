@@ -1464,8 +1464,7 @@ any_addrinfos.exit637.thread:                     ; preds = %any_addrinfos.exit6
 
 462:                                              ; preds = %459
   call void @rb_fd_set(i32 noundef %.0458, ptr noundef nonnull %210) #19
-  %.not554 = icmp slt i32 %.0458, %.0459
-  %spec.select588 = select i1 %.not554, i32 %.0459, i32 %211
+  %spec.select588 = call i32 @llvm.smax.i32(i32 %.0459, i32 %211)
   br label %463
 
 463:                                              ; preds = %462, %459

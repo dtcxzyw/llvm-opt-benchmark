@@ -63380,7 +63380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %496
   store i8 0, ptr %504, align 1, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #31
   %505 = add nuw nsw i64 %.idx459, 4
-  %506 = add i64 %505, %491
+  %506 = add nsw i64 %505, %491
   %507 = ashr exact i64 %506, 2
   %508 = trunc i64 %507 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !841)

@@ -32015,7 +32015,7 @@ _ZSt13__lower_boundIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordEmN9__g
   %.0.lcssa.i.i.i = phi ptr [ %.048.i.i, %47 ], [ %.1.i.i.i, %_ZSt7advanceIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordElEvRT_T0_.exit.i.i.i ]
   %.idx = mul nuw nsw i64 %.01249.i.i, 40
   %57 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %58 = add nuw i64 %.idx849, 40
+  %58 = add nuw nsw i64 %.idx849, 40
   %gepdiff = sub nsw i64 %.idx, %58
   %59 = icmp sgt i64 %gepdiff, 0
   br i1 %59, label %_ZSt7advanceIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordElEvRT_T0_.exit.lr.ph.i17.i.i, label %_ZSt11equal_rangeIPN15LiveDebugValues16InstrRefBasedLDV14DebugPHIRecordEmESt4pairIT_S5_ES5_S5_RKT0_.exit

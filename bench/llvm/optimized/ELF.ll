@@ -101996,7 +101996,7 @@ _ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb0EEE
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55
@@ -106079,7 +106079,7 @@ _ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb0EEE
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55
@@ -108606,7 +108606,7 @@ _ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE1ELb1EEE
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55
@@ -111161,7 +111161,7 @@ _ZSt4moveIPPN4llvm6object13Elf_Phdr_ImplINS1_7ELFTypeILNS0_10endiannessE0ELb1EEE
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55

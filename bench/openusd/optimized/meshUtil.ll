@@ -19796,7 +19796,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrRe
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.036.049, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclIKNS3_5_EdgeENS_17__normal_iteratorIPS8_St6vectorIS7_SaIS7_EEEEEEbRT_T0_.exit.thread43 ], [ %.sroa.011.1.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable20_CompareEdgeVerticesEEclINS_17__normal_iteratorIPKNS3_5_EdgeESt6vectorIS8_SaIS8_EEEES9_EEbT_RT0_.exit.thread12.i ]
   %.idx = mul nuw nsw i64 %.050, 12
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %42 = add nuw i64 %.idx64, 12
+  %42 = add nuw nsw i64 %.idx64, 12
   %gepdiff = sub nsw i64 %.idx, %42
   %43 = icmp sgt i64 %gepdiff, 0
   br i1 %43, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i24, label %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__20HdMeshEdgeIndexTable5_EdgeESt6vectorIS4_SaIS4_EEEES4_NS0_5__ops14_Val_comp_iterINS3_20_CompareEdgeVerticesEEEET_SF_SF_RKT0_T1_.exit

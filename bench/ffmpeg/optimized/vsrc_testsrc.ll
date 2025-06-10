@@ -3591,14 +3591,12 @@ define internal fastcc void @draw_bar(ptr noundef readonly captures(none) %0, pt
   %10 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %9) #20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !36
-  %.not = icmp slt i32 %2, %12
   %13 = add nsw i32 %12, -1
-  %14 = select i1 %.not, i32 %2, i32 %13
+  %14 = tail call i32 @llvm.smin.i32(i32 %2, i32 %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !37
-  %.not103 = icmp slt i32 %3, %16
   %17 = add nsw i32 %16, -1
-  %18 = select i1 %.not103, i32 %3, i32 %17
+  %18 = tail call i32 @llvm.smin.i32(i32 %3, i32 %17)
   %19 = sub nsw i32 %12, %14
   %20 = tail call i32 @llvm.smin.i32(i32 %4, i32 %19)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %20, i32 0)

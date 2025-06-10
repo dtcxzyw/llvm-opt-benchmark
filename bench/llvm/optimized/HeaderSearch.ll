@@ -8802,8 +8802,8 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %31
   store i64 0, ptr %49, align 8, !tbaa !374
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 1024, ptr %50, align 8, !tbaa !375
-  %51 = add i64 %39, 11
-  %52 = icmp ugt i64 %51, 1024
+  %51 = add nuw nsw i64 %39, 11
+  %52 = icmp ugt i64 %39, 1013
   br i1 %52, label %53, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
 
 53:                                               ; preds = %46
@@ -8819,7 +8819,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %53, %46
 54:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
   %55 = load ptr, ptr %23, align 8, !tbaa !372
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.pre8.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr nonnull align 1 %42, i64 %51, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %42, i64 %51, i1 false)
   %.pre.i.i.i = load i64, ptr %49, align 8, !tbaa !374
   br label %_ZN4llvm11SmallStringILj1024EEC2IPKcEET_S5_.exit
 

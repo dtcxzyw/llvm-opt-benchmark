@@ -6475,7 +6475,7 @@ define internal fastcc float @wv_get_value_float(ptr noundef captures(none) %0, 
   %.not78 = icmp sgt i32 %5, %57
   %58 = add nsw i32 %5, -1
   %spec.select88 = select i1 %.not78, i32 %5, i32 %58
-  %spec.select89 = select i1 %.not78, i32 %57, i32 %58
+  %spec.select89 = tail call i32 @llvm.smin.i32(i32 %57, i32 %58)
   %59 = sub nsw i32 %spec.select88, %spec.select89
   %.not79 = icmp eq i32 %spec.select89, 0
   br i1 %.not79, label %106, label %60

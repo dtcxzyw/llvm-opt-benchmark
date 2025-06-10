@@ -4588,7 +4588,7 @@ _ZSt4moveIPiS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %32
 
 53:                                               ; preds = %50
   %.idx = shl nsw i64 %.076, 2
-  %54 = add i64 %.idx, -4
+  %54 = add nsw i64 %.idx, -4
   %55 = ashr exact i64 %54, 2
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds i32, ptr %49, i64 %56

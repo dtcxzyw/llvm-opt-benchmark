@@ -36841,8 +36841,8 @@ magic_comment_marker.exit.i:                      ; preds = %1153, %1144
 
 magic_comment_marker.exit231.i:                   ; preds = %1178, %1169
   %.sink2614 = phi i64 [ 1, %1169 ], [ 2, %1178 ]
-  %reass.sub = add nuw i64 %.028.i226.i, %.sink2614
-  %1184 = add i64 %reass.sub, -3
+  %reass.sub = add nuw nsw i64 %.028.i226.i, %.sink2614
+  %1184 = add nsw i64 %reass.sub, -3
   br label %magic_comment_marker.exit.thread.i
 
 magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic_comment_marker.exit231.i

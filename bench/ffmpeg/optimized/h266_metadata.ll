@@ -101,9 +101,8 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %33 = load i8, ptr %32, align 1, !tbaa !31
   %34 = zext i8 %33 to i32
-  %.not87 = icmp slt i32 %.070132, %34
   %35 = add nsw i32 %34, -1
-  %spec.select = select i1 %.not87, i32 %.070132, i32 %35
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.070132, i32 %35)
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !32
   switch i8 %37, label %53 [
@@ -168,8 +167,8 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
 
 54:                                               ; preds = %._crit_edge
   %55 = trunc nuw nsw i32 %.268.ph to i8
-  %56 = trunc i32 %.272.ph to i8
-  %57 = add i8 %56, 1
+  %56 = trunc nsw i32 %.272.ph to i8
+  %57 = add nsw i8 %56, 1
   store i8 %.279.ph, ptr %24, align 1, !tbaa !44
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 81
   store i8 20, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !44
@@ -203,6 +202,9 @@ declare i32 @ff_cbs_insert_unit_content(ptr noundef, i32 noundef, i32 noundef, p
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

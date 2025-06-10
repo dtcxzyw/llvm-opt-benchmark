@@ -147,7 +147,7 @@ _ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit.thread: ; preds = %62, %
 
 _ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit: ; preds = %67
   %70 = icmp eq i64 %68, 0
-  %71 = add i64 %68, %59
+  %71 = add nuw nsw i64 %68, %59
   %spec.select.i = select i1 %70, i64 0, i64 %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   %72 = icmp ult i64 %spec.select.i, -119

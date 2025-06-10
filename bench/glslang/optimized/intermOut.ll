@@ -7095,8 +7095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   store i32 %55, ptr %8, align 4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i32, ptr %56, align 8
-  %.not.i = icmp sgt i32 %57, %54
-  %58 = select i1 %.not.i, i32 %57, i32 %55
+  %58 = call i32 @llvm.smax.i32(i32 %57, i32 %55)
   store i32 %58, ptr %56, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40

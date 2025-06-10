@@ -18965,7 +18965,7 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %22 = add nsw i32 %21, -1
   %23 = shl nuw i32 1, %22
   %24 = sub nsw i32 0, %23
-  %25 = add nuw i32 %23, 65535
+  %25 = add nsw i32 %23, -1
   %26 = icmp sgt i32 %5, 0
   br i1 %26, label %.lr.ph200, label %.loopexit
 
@@ -18983,8 +18983,7 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv213
   %34 = load i32, ptr %33, align 4, !tbaa !19
   %35 = icmp slt i32 %34, %24
-  %.not190 = icmp slt i32 %34, %23
-  %. = select i1 %.not190, i32 %34, i32 %25
+  %. = tail call i32 @llvm.smin.i32(i32 %34, i32 %25)
   %36 = select i1 %35, i32 %24, i32 %.
   %37 = trunc i32 %36 to i16
   %.idx = shl i64 %indvars.iv213, 2

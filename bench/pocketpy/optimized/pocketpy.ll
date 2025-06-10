@@ -25635,7 +25635,7 @@ _ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 
 53:                                               ; preds = %50
   %.idx = shl nsw i64 %.076, 3
-  %54 = add i64 %.idx, -8
+  %54 = add nsw i64 %.idx, -8
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds ptr, ptr %49, i64 %56

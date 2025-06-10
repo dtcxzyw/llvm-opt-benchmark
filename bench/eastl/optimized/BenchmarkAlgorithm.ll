@@ -5015,7 +5015,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmNS0_5_
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %__first.sroa.0.056.i.i.i, %if.else15.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i1275 ]
   %add.ptr.i.i.i15.i.i.i.idx = shl nuw nsw i64 %__len.057.i.i.i, 3
   %incdec.ptr.i20.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1271, i64 8
-  %343 = add nuw i64 %add.ptr.i.i.i.i.i.i1271.idx, 8
+  %343 = add nuw nsw i64 %add.ptr.i.i.i.i.i.i1271.idx, 8
   %gepdiff = sub nsw i64 %add.ptr.i.i.i15.i.i.i.idx, %343
   %sub.ptr.div.i.i.i.i24.i.i.i = ashr exact i64 %gepdiff, 3
   %cmp6.i25.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i24.i.i.i, 0
@@ -11282,7 +11282,7 @@ if.then64.i.i.i:                                  ; preds = %if.else61.i.i.i
 
 if.then.i.i.i.i.i43.i.i.i:                        ; preds = %if.then64.i.i.i
   %add.ptr.i37.idx.i.i.i = shl nsw i64 %__n.0.i.i.i, 5
-  %sub.ptr.sub.i.i.i.i.i46.i.i.i = add i64 %add.ptr.i37.idx.i.i.i, -32
+  %sub.ptr.sub.i.i.i.i.i46.i.i.i = add nsw i64 %add.ptr.i37.idx.i.i.i, -32
   %sub.ptr.div.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i46.i.i.i, 5
   %idx.neg.i.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i47.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SizedPOD", ptr %add.ptr.i37.i.i.i, i64 %idx.neg.i.i.i.i.i.i.i.i
@@ -18746,7 +18746,7 @@ if.then64:                                        ; preds = %if.else61
 
 if.then.i.i.i.i.i26:                              ; preds = %if.then64
   %add.ptr.i20.idx = shl nsw i64 %__n.0, 2
-  %sub.ptr.sub.i.i.i.i.i29 = add i64 %add.ptr.i20.idx, -4
+  %sub.ptr.sub.i.i.i.i.i29 = add nsw i64 %add.ptr.i20.idx, -4
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i29, 2
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
   %add.ptr.i.i.i.i.i30 = getelementptr inbounds i32, ptr %add.ptr.i20, i64 %idx.neg.i.i.i.i.i

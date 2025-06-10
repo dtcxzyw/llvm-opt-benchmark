@@ -4704,7 +4704,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %85, %.no
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit37
 
 92:                                               ; preds = %88
-  %93 = add i64 %73, 4
+  %93 = add nsw i64 %73, 4
   %94 = icmp eq i64 %93, 9223372036854775804
   br i1 %94, label %95, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i29
 
@@ -4731,7 +4731,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i29: ; preds = %92
 .noexc36:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i29
   %103 = getelementptr inbounds i8, ptr %102, i64 %93
   store i32 0, ptr %103, align 4, !tbaa !102
-  %104 = icmp sgt i64 %93, 0
+  %104 = icmp sgt i64 %73, -4
   br i1 %104, label %105, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i34
 
 105:                                              ; preds = %.noexc36

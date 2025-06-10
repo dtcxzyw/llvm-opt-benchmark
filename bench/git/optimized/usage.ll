@@ -682,7 +682,7 @@ _.exit:                                           ; preds = %14, %17
 .critedge.loopexit:                               ; preds = %30, %.lr.ph
   %.0.idx.lcssa.ph = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %30 ]
   %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr35, %.lr.ph ], [ %.0.ptr, %30 ]
-  %31 = add nuw i64 %.0.idx.lcssa.ph, 1
+  %31 = add nuw nsw i64 %.0.idx.lcssa.ph, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %20

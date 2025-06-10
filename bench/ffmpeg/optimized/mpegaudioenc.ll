@@ -1921,8 +1921,7 @@ put_bits.exit158.i:                               ; preds = %759, %743, %737, %7
   %847 = mul i32 %spec.store.select.i.us.i, %827
   %848 = lshr i32 %847, 16
   %849 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv522.i
-  %.not87.i.us.i = icmp slt i32 %848, %827
-  %spec.select.us.i = select i1 %.not87.i.us.i, i32 %848, i32 %839
+  %spec.select.us.i = call i32 @llvm.smin.i32(i32 %848, i32 %839)
   store i32 %spec.select.us.i, ptr %849, align 4, !tbaa !44
   %indvars.iv.next523.i = add nuw nsw i64 %indvars.iv522.i, 1
   %exitcond525.not.i = icmp eq i64 %indvars.iv.next523.i, 3
@@ -1949,8 +1948,7 @@ put_bits.exit158.i:                               ; preds = %759, %743, %737, %7
   %862 = mul i32 %spec.store.select.i.i, %827
   %863 = lshr i32 %862, 16
   %864 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv519.i
-  %.not87.i.i = icmp slt i32 %863, %827
-  %spec.select.i62 = select i1 %.not87.i.i, i32 %863, i32 %839
+  %spec.select.i62 = call i32 @llvm.smin.i32(i32 %863, i32 %839)
   store i32 %spec.select.i62, ptr %864, align 4, !tbaa !44
   %indvars.iv.next520.i = add nuw nsw i64 %indvars.iv519.i, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next520.i, 3
@@ -2265,8 +2263,7 @@ put_bits.exit170.i:                               ; preds = %947, %931, %889, %8
   %1019 = fmul nsz double %1018, 5.000000e-01
   %1020 = fptosi double %1019 to i32
   %1021 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv539.i
-  %.not87.i97.i = icmp sgt i32 %996, %1020
-  %spec.select339.i = select i1 %.not87.i97.i, i32 %1020, i32 %1003
+  %spec.select339.i = call i32 @llvm.smin.i32(i32 %1020, i32 %1003)
   store i32 %spec.select339.i, ptr %1021, align 4, !tbaa !44
   %indvars.iv.next540.i = add nuw nsw i64 %indvars.iv539.i, 1
   %exitcond542.not.i = icmp eq i64 %indvars.iv.next540.i, 3
@@ -2580,6 +2577,9 @@ declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

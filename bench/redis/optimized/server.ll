@@ -2914,9 +2914,8 @@ define dso_local void @clientsCron() local_unnamed_addr #0 {
 29:                                               ; preds = %26
   %30 = load i32, ptr @clientsCron.start, align 4, !tbaa !50
   %31 = add nsw i32 %30, 7
-  %.not26 = icmp slt i32 %31, %24
   %32 = add nsw i32 %24, -1
-  %spec.select = select i1 %.not26, i32 %31, i32 %32
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %31, i32 %32)
   store i32 %spec.select, ptr @clientsCron.end, align 4, !tbaa !50
   tail call void @pauseIOThreadsRange(i32 noundef %30, i32 noundef %spec.select) #43
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !120

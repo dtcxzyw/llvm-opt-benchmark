@@ -983,8 +983,7 @@ new_ref_array_item.exit:                          ; preds = %st_add.exit.i
   %21 = mul i32 %18, 3
   %22 = add i32 %21, 48
   %23 = sdiv i32 %22, 2
-  %.not16.i = icmp sgt i32 %23, %16
-  %..i = select i1 %.not16.i, i32 %23, i32 %20
+  %..i = tail call i32 @llvm.smax.i32(i32 %23, i32 %20)
   store i32 %..i, ptr %17, align 4, !tbaa !65
   %24 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -1785,8 +1784,7 @@ define internal noundef i32 @filter_one(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = mul i32 %13, 3
   %17 = add i32 %16, 48
   %18 = sdiv i32 %17, 2
-  %.not16.i = icmp sgt i32 %18, %11
-  %..i = select i1 %.not16.i, i32 %18, i32 %15
+  %..i = tail call i32 @llvm.smax.i32(i32 %18, i32 %15)
   store i32 %..i, ptr %12, align 4, !tbaa !65
   %19 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -9602,6 +9600,9 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

@@ -2478,7 +2478,7 @@ _ZNSt6vectorIPK5BlockSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8, !tbaa !45
   %.not = icmp eq ptr %41, null
-  %.pre = add i64 %23, 8
+  %.pre = add nsw i64 %23, 8
   br i1 %.not, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit, label %42
 
 42:                                               ; preds = %38

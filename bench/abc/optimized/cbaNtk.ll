@@ -4408,8 +4408,7 @@ Cba_ObjCopy.exit:                                 ; preds = %7, %._crit_edge.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i38:              ; preds = %52
   %54 = shl nsw i32 %53, 1
-  %.not.i.i35 = icmp slt i32 %1, %54
-  %. = select i1 %.not.i.i35, i32 %54, i32 %9
+  %. = tail call i32 @llvm.smax.i32(i32 %54, i32 %9)
   %55 = sext i32 %. to i64
   %56 = shl nsw i64 %55, 2
   %57 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i, i64 noundef %56) #27
@@ -4458,8 +4457,7 @@ Cba_ObjCopy.exit49:                               ; preds = %51, %._crit_edge.i.
 
 Vec_IntGrow.exit.sink.split.i.i.i54:              ; preds = %68
   %70 = shl nsw i32 %69, 1
-  %.not.i.i51 = icmp slt i32 %1, %70
-  %.79 = select i1 %.not.i.i51, i32 %70, i32 %9
+  %.79 = tail call i32 @llvm.smax.i32(i32 %70, i32 %9)
   %71 = sext i32 %.79 to i64
   %72 = shl nsw i64 %71, 2
   %73 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i47, i64 noundef %72) #27
@@ -4944,8 +4942,7 @@ Cba_ObjCopy.exit:                                 ; preds = %3, %._crit_edge.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i28:              ; preds = %48
   %50 = shl nsw i32 %49, 1
-  %.not.i.i25 = icmp slt i32 %1, %50
-  %. = select i1 %.not.i.i25, i32 %50, i32 %5
+  %. = tail call i32 @llvm.smax.i32(i32 %50, i32 %5)
   %51 = sext i32 %. to i64
   %52 = shl nsw i64 %51, 2
   %53 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i, i64 noundef %52) #27
@@ -15387,8 +15384,7 @@ Cba_FonName.exit:                                 ; preds = %Cba_FonCopy.exit167
 
 Vec_IntGrow.exit.sink.split.i.i.i187:             ; preds = %297
   %299 = shl nsw i32 %298, 1
-  %.not.i.i184 = icmp slt i32 %262, %299
-  %. = select i1 %.not.i.i184, i32 %299, i32 %296
+  %. = tail call i32 @llvm.smax.i32(i32 %299, i32 %296)
   %300 = zext nneg i32 %. to i64
   %301 = shl nuw nsw i64 %300, 2
   %302 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i181, i64 noundef %301) #27
@@ -15435,8 +15431,7 @@ Cba_FonSetName.exit:                              ; preds = %Cba_FonName.exit, %
 
 Vec_IntGrow.exit.sink.split.i.i.i201:             ; preds = %314
   %316 = shl nsw i32 %315, 1
-  %.not.i.i198 = icmp slt i32 %311, %316
-  %.283 = select i1 %.not.i.i198, i32 %316, i32 %312
+  %.283 = tail call i32 @llvm.smax.i32(i32 %316, i32 %312)
   %317 = sext i32 %.283 to i64
   %318 = shl nsw i64 %317, 2
   %319 = tail call ptr @realloc(ptr noundef nonnull %.val.i.i195, i64 noundef %318) #27
@@ -17709,6 +17704,9 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #24
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

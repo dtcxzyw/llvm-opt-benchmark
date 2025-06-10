@@ -3577,7 +3577,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_
 "_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN7rocksdb12_GLOBAL__N_19VectorRep8Iterator4SeekERKNSB_5SliceES3_E3$_0EEET_SK_SK_RKT0_T1_.exit.i.i": ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i, %39
   %.sroa.013.0.lcssa.i.i.i = phi ptr [ %.sroa.045.062.i.i, %39 ], [ %.sroa.013.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02163.i.i, 3
-  %52 = add nuw i64 %.idx27, 8
+  %52 = add nuw nsw i64 %.idx27, 8
   %gepdiff = sub nsw i64 %.idx, %52
   %53 = ashr exact i64 %gepdiff, 3
   %54 = icmp sgt i64 %53, 0

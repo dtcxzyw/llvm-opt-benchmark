@@ -15859,7 +15859,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_116UnqualUsingEntryEPKN5clang11DeclContextEN
   %.0.lcssa.i.i.i.i = phi ptr [ %.018.i.i.i, %20 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.idx = shl nuw nsw i64 %.01319.i.i.i, 4
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %30 = add nuw i64 %.idx27, 16
+  %30 = add nuw nsw i64 %.idx27, 16
   %gepdiff = sub nsw i64 %.idx, %30
   %31 = ashr exact i64 %gepdiff, 4
   %32 = icmp sgt i64 %31, 0
@@ -53892,7 +53892,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_116UnqualUsingEntryEPKN5clang11DeclContextEN
   %.0.lcssa.i.i.i.i = phi ptr [ %.018.i.i.i, %231 ], [ %.1.i.i.i.i, %.lr.ph.i.i.i.i133 ]
   %.idx = shl nuw nsw i64 %.01319.i.i.i, 4
   %240 = getelementptr inbounds nuw i8, ptr %222, i64 16
-  %241 = add nuw i64 %.idx215, 16
+  %241 = add nuw nsw i64 %.idx215, 16
   %gepdiff = sub nsw i64 %.idx, %241
   %242 = ashr exact i64 %gepdiff, 4
   %243 = icmp sgt i64 %242, 0

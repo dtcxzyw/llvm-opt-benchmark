@@ -40,9 +40,9 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = ptrtoint ptr %17 to i64
-  %19 = add i64 %13, 1
-  %20 = tail call i64 @llvm.smin.i64(i64 %19, i64 256)
-  %21 = trunc i64 %20 to i32
+  %19 = tail call i64 @llvm.smin.i64(i64 %13, i64 255)
+  %20 = trunc i64 %19 to i32
+  %21 = add i32 %20, 1
   %22 = tail call ptr @fgets(ptr noundef %15, i32 noundef %21, ptr noundef nonnull %4)
   %.not6590 = icmp eq ptr %22, null
   br i1 %.not6590, label %.thread72, label %.preheader

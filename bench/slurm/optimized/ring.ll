@@ -107,9 +107,8 @@ define dso_local noundef i32 @pmix_ring_init(ptr noundef readonly captures(none)
   %27 = add nsw i32 %26, 1
   %28 = add nsw i32 %26, %25
   %spec.select = tail call i32 @llvm.smin.i32(i32 %27, i32 %22)
-  %.not28 = icmp slt i32 %28, %22
   %29 = add nsw i32 %22, -1
-  %.0 = select i1 %.not28, i32 %28, i32 %29
+  %.0 = tail call i32 @llvm.smin.i32(i32 %28, i32 %29)
   %30 = sub nsw i32 %.0, %spec.select
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr @pmix_stepd_children, align 4

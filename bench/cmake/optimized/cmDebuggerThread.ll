@@ -3622,7 +3622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %234 = load i64, ptr %64, align 8, !tbaa !38
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 %234
   %236 = getelementptr inbounds i8, ptr %235, i64 -2
-  %237 = add i64 %234, -2
+  %237 = add nsw i64 %234, -2
   store i64 %237, ptr %64, align 8, !tbaa !38
   store i8 0, ptr %236, align 1, !tbaa !39
   br label %238

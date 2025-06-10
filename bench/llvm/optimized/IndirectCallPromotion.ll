@@ -15462,7 +15462,7 @@ _ZSt4moveIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit: ; preds = %32, %34
 
 51:                                               ; preds = %48
   %.idx = shl nsw i64 %.085, 4
-  %52 = add i64 %.idx, -16
+  %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53
   %55 = getelementptr inbounds %struct.InstrProfValueData, ptr %49, i64 %54

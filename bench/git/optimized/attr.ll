@@ -976,8 +976,7 @@ define dso_local noundef ptr @attr_check_append(ptr noundef captures(none) %0, p
   %8 = mul i32 %5, 3
   %9 = add i32 %8, 48
   %10 = sdiv i32 %9, 2
-  %.not18 = icmp sgt i32 %10, %3
-  %. = select i1 %.not18, i32 %10, i32 %7
+  %. = tail call i32 @llvm.smax.i32(i32 %10, i32 %7)
   store i32 %., ptr %4, align 4, !tbaa !50
   %11 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -2254,8 +2253,7 @@ define dso_local void @git_all_attrs(ptr noundef %0, ptr noundef %1, ptr noundef
   %28 = mul i32 %25, 3
   %29 = add i32 %28, 48
   %30 = sdiv i32 %29, 2
-  %.not18.i = icmp sgt i32 %30, %24
-  %..i = select i1 %.not18.i, i32 %30, i32 %27
+  %..i = tail call i32 @llvm.smax.i32(i32 %30, i32 %27)
   store i32 %..i, ptr %9, align 4, !tbaa !50
   %31 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -3049,6 +3047,9 @@ define internal range(i32 0, 2) i32 @attr_hash_entry_cmp(ptr readnone captures(n
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

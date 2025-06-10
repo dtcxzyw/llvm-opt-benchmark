@@ -8174,7 +8174,7 @@ _ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %29, %32
 
 53:                                               ; preds = %50
   %.idx = shl nsw i64 %.076, 2
-  %54 = add i64 %.idx, -4
+  %54 = add nsw i64 %.idx, -4
   %55 = ashr exact i64 %54, 2
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds i32, ptr %49, i64 %56

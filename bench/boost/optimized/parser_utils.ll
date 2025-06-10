@@ -1016,7 +1016,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit68: ; preds = 
   %.0.i67 = phi i32 [ %88, %87 ], [ %spec.select.i66, %89 ], [ %77, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit ]
   %92 = or i32 %.0.i67, %85
   store i32 %92, ptr %56, align 4, !tbaa !19
-  %93 = add i64 %53, 4
+  %93 = add nuw nsw i64 %53, 4
   %94 = ashr exact i64 %93, 2
   %95 = icmp eq ptr %73, %68
   br i1 %95, label %96, label %97
@@ -1230,7 +1230,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit108: ; preds =
   %.0.i107 = phi i32 [ %147, %146 ], [ %spec.select.i106, %148 ], [ %120, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit102 ]
   %151 = or i32 %144, %.0.i107
   store i32 %151, ptr %56, align 4, !tbaa !19
-  %152 = add i64 %53, 4
+  %152 = add nuw nsw i64 %53, 4
   %153 = ashr exact i64 %152, 2
   %154 = icmp eq ptr %112, %103
   br i1 %154, label %155, label %156
@@ -1665,7 +1665,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190: ; preds =
   %.sroa.0198.1 = phi ptr [ %274, %272 ], [ %268, %266 ], [ %262, %261 ]
   %.1 = phi i32 [ %276, %272 ], [ %270, %266 ], [ %263, %261 ]
   store i32 %.1, ptr %56, align 4, !tbaa !19
-  %277 = add i64 %53, 4
+  %277 = add nuw nsw i64 %53, 4
   %278 = ashr exact i64 %277, 2
   %279 = load i64, ptr %2, align 8, !tbaa !24
   %280 = getelementptr inbounds nuw i32, ptr %55, i64 %279

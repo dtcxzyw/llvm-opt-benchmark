@@ -370,9 +370,8 @@ bytestream2_get_le32.exit.i:                      ; preds = %45, %44
 149:                                              ; preds = %133
   %150 = load i32, ptr %62, align 8, !tbaa !35
   %151 = sdiv i32 %150, 2
-  %.not128.i = icmp slt i32 %147, %151
   %152 = add nsw i32 %151, -1
-  %153 = select i1 %.not128.i, i32 %147, i32 %152
+  %153 = tail call i32 @llvm.smin.i32(i32 %147, i32 %152)
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %.lr.ph164.preheader.i, label %.loopexit136.i
 

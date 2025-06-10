@@ -49007,7 +49007,7 @@ _ZZN8pybind116detail16vector_modifiersIN6open3d4core10SizeVectorENS_6class_IS4_J
   %25 = load i64, ptr %24, align 8, !tbaa !124
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.idx = shl nuw nsw i64 %14, 3
-  %27 = add nuw i64 %.idx3, 8
+  %27 = add nuw nsw i64 %.idx3, 8
   %gepdiff = sub nsw i64 %.idx, %27
   %28 = icmp sgt i64 %gepdiff, 8
   br i1 %28, label %29, label %30, !prof !785
@@ -64826,7 +64826,7 @@ _ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6clas
 _ZN6open3d7utility8optionalIlEC2EOS2_.exit.i:     ; preds = %28, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i
   %.sroa.59.0.i = phi i64 [ %30, %28 ], [ 0, %_ZZN8pybind116detail16vector_modifiersIN6open3d4core17DynamicSizeVectorENS_6class_IS4_JSt10unique_ptrIS4_St14default_deleteIS4_EEEEEEEvRNSt9enable_ifIXsr21is_copy_constructibleINT_10value_typeEEE5valueET0_E4typeEENKUllmE_clElm.exit.i ]
   %.idx = shl nuw nsw i64 %15, 4
-  %31 = add nuw i64 %.idx3, 16
+  %31 = add nuw nsw i64 %.idx3, 16
   %gepdiff = sub nsw i64 %.idx, %31
   %32 = ashr exact i64 %gepdiff, 4
   %33 = icmp sgt i64 %32, 0

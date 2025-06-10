@@ -11583,7 +11583,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIP18InstrProfValueDataSt6vectorIS2_SaIS2
 
 51:                                               ; preds = %48
   %.idx = shl nsw i64 %.0, 4
-  %52 = add i64 %.idx, -16
+  %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53
   %55 = getelementptr inbounds %struct.InstrProfValueData, ptr %49, i64 %54

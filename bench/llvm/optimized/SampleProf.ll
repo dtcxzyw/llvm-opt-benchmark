@@ -9694,7 +9694,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = add i64 %.086, -1
+  %51 = add nsw i64 %.086, -1
   %52 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %.058, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit
@@ -10973,7 +10973,7 @@ _ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationENS2_12SampleRecordEES9_ET
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55
@@ -12262,7 +12262,7 @@ _ZSt4moveIPPKSt4pairIKN4llvm10sampleprof12LineLocationESt3mapINS2_10FunctionIdEN
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55

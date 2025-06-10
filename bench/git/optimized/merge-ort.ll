@@ -5854,8 +5854,7 @@ define internal noundef i32 @traverse_trees_wrapper_callback(i32 %0, i64 noundef
   %34 = mul i32 %31, 3
   %35 = add i32 %34, 48
   %36 = sdiv i32 %35, 2
-  %.not37 = icmp sgt i32 %36, %29
-  %. = select i1 %.not37, i32 %36, i32 %33
+  %. = tail call i32 @llvm.smax.i32(i32 %36, i32 %33)
   store i32 %., ptr %30, align 4, !tbaa !266
   %37 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -8907,6 +8906,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #17

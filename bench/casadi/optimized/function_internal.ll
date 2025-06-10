@@ -27457,7 +27457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %_ZN
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %113, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
-  %114 = add i64 %111, -2
+  %114 = add nsw i64 %111, -2
   store i64 %114, ptr %7, align 8, !tbaa !9
   %115 = icmp ugt i64 %114, 15
   br i1 %115, label %.noexc.i96, label %._crit_edge.i.i95

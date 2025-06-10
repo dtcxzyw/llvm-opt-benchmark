@@ -464,8 +464,7 @@ define dso_local range(i32 0, 2) i32 @register_commit_graft(ptr noundef %0, ptr 
   %35 = mul i32 %32, 3
   %36 = add i32 %35, 48
   %37 = sdiv i32 %36, 2
-  %.not42 = icmp sgt i32 %37, %30
-  %. = select i1 %.not42, i32 %37, i32 %34
+  %. = tail call i32 @llvm.smax.i32(i32 %37, i32 %34)
   store i32 %., ptr %31, align 8, !tbaa !53
   %38 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -3896,8 +3895,7 @@ lookup_commit.exit:                               ; preds = %6, %9
   %24 = mul i32 %21, 3
   %25 = add i32 %24, 48
   %26 = sdiv i32 %25, 2
-  %.not27 = icmp sgt i32 %26, %19
-  %. = select i1 %.not27, i32 %26, i32 %23
+  %. = tail call i32 @llvm.smax.i32(i32 %26, i32 %23)
   store i32 %., ptr %20, align 4, !tbaa !146
   %27 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -6180,6 +6178,9 @@ declare i32 @convert_object_file(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #23

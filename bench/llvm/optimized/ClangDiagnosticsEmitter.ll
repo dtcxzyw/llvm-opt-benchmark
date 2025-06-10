@@ -21414,7 +21414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %75
   %86 = load ptr, ptr %60, align 8, !tbaa !558
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !16
-  %89 = add i64 %88, -1
+  %89 = add nsw i64 %88, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %86, i64 noundef %89, i64 noundef 1) #24
   br label %_ZN12_GLOBAL__N_115DiagTextPrinter11VisitPluralEPNS_11PluralPieceE.exit
 
@@ -21967,7 +21967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %63 = load ptr, ptr %3, align 8, !tbaa !558
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !16
-  %66 = add i64 %65, -1
+  %66 = add nsw i64 %65, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %66, i64 noundef 1) #24
   br label %._crit_edge.thread
 

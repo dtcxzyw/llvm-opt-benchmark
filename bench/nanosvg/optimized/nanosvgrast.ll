@@ -6878,9 +6878,8 @@ nsvg__fillActiveEdges.exit:                       ; preds = %nsvg__fillScanline.
 277:                                              ; preds = %nsvg__fillActiveEdges.exit
   %spec.select134 = tail call i32 @llvm.smax.i32(i32 %.1124, i32 0)
   %278 = load i32, ptr %12, align 8, !tbaa !114
-  %.not = icmp slt i32 %.1121, %278
   %279 = add nsw i32 %278, -1
-  %.2122 = select i1 %.not, i32 %.1121, i32 %279
+  %.2122 = tail call i32 @llvm.smin.i32(i32 %.1121, i32 %279)
   %.not105 = icmp sgt i32 %spec.select134, %.2122
   br i1 %.not105, label %nsvg__scanlineSolid.exit, label %280
 

@@ -67,20 +67,16 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store ptr %8, ptr %34, align 8, !tbaa !29
   %35 = add nsw i64 %1, -1
   %36 = call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not166 = icmp sgt i64 %1, %36
-  %. = select i1 %.not166, i64 %36, i64 %35
+  %. = call i64 @llvm.smin.i64(i64 %36, i64 %35)
   store i64 %., ptr %28, align 8, !tbaa !30
   %37 = call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not167 = icmp sgt i64 %1, %37
-  %38 = select i1 %.not167, i64 %37, i64 %35
+  %38 = call i64 @llvm.smin.i64(i64 %37, i64 %35)
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %38, ptr %39, align 8, !tbaa !31
   %40 = call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %.not168 = icmp sgt i64 %1, %40
-  %41 = select i1 %.not168, i64 %40, i64 %35
+  %41 = call i64 @llvm.smin.i64(i64 %40, i64 %35)
   %42 = call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.not169 = icmp sgt i64 %1, %42
-  %43 = select i1 %.not169, i64 %42, i64 %35
+  %43 = call i64 @llvm.smin.i64(i64 %42, i64 %35)
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %41, ptr %44, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -100,8 +96,7 @@ define i32 @ARKBBDPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 52:                                               ; preds = %31
   %53 = add nsw i64 %43, %41
-  %.not170 = icmp sgt i64 %1, %53
-  %.180 = select i1 %.not170, i64 %53, i64 %35
+  %.180 = call i64 @llvm.smin.i64(i64 %53, i64 %35)
   %54 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store ptr null, ptr %54, align 8, !tbaa !36
   %55 = load ptr, ptr %10, align 8, !tbaa !3
@@ -986,12 +981,10 @@ define i32 @ARKBBDPrecReInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, dou
   %17 = load i64, ptr %16, align 8, !tbaa !46
   %18 = add nsw i64 %17, -1
   %19 = call i64 @llvm.smax.i64(i64 %1, i64 0)
-  %.not29 = icmp sgt i64 %17, %19
-  %. = select i1 %.not29, i64 %19, i64 %18
+  %. = call i64 @llvm.smin.i64(i64 %19, i64 %18)
   store i64 %., ptr %11, align 8, !tbaa !30
   %20 = call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not30 = icmp sgt i64 %17, %20
-  %21 = select i1 %.not30, i64 %20, i64 %18
+  %21 = call i64 @llvm.smin.i64(i64 %20, i64 %18)
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %21, ptr %22, align 8, !tbaa !31
   %23 = fcmp ogt double %3, 0.000000e+00

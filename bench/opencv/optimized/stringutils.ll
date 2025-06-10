@@ -738,8 +738,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i235, %
 159:                                              ; preds = %157
   %160 = add nsw i32 %.0175326, 1
   %161 = add nsw i32 %.0173327, 1
-  %.not206 = icmp slt i32 %.0173327, %.0169329
-  %spec.select = select i1 %.not206, i32 %.0169329, i32 %161
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0169329, i32 %161)
   br label %166
 
 162:                                              ; preds = %157
@@ -748,8 +747,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i235, %
 
 164:                                              ; preds = %162
   %165 = add nsw i32 %.0171328, 1
-  %.not205 = icmp slt i32 %.0171328, %.0167330
-  %spec.select207 = select i1 %.not205, i32 %.0167330, i32 %165
+  %spec.select207 = tail call i32 @llvm.smax.i32(i32 %.0167330, i32 %165)
   br label %166
 
 166:                                              ; preds = %164, %159, %162, %154, %150, %148

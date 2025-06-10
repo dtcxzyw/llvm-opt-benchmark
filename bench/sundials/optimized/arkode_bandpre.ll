@@ -55,13 +55,11 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
   store i64 %1, ptr %19, align 8, !tbaa !28
   %24 = add nsw i64 %1, -1
   %25 = call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not84 = icmp sgt i64 %1, %25
-  %. = select i1 %.not84, i64 %25, i64 %24
+  %. = call i64 @llvm.smin.i64(i64 %25, i64 %24)
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %., ptr %26, align 8, !tbaa !29
   %27 = call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not85 = icmp sgt i64 %1, %27
-  %28 = select i1 %.not85, i64 %27, i64 %24
+  %28 = call i64 @llvm.smin.i64(i64 %27, i64 %24)
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %28, ptr %29, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 64
@@ -81,8 +79,7 @@ define i32 @ARKBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 
 
 37:                                               ; preds = %22
   %38 = add nsw i64 %28, %.
-  %.not86 = icmp sgt i64 %1, %38
-  %.91 = select i1 %.not86, i64 %38, i64 %24
+  %.91 = call i64 @llvm.smin.i64(i64 %38, i64 %24)
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %40 = load ptr, ptr %5, align 8, !tbaa !3
   %41 = load ptr, ptr %40, align 8, !tbaa !32

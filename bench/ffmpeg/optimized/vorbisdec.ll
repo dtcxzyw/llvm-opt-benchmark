@@ -5227,8 +5227,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_flo
   %445 = tail call nsz double @llvm.floor.f64(double %444)
   %446 = fptosi double %445 to i32
   %447 = getelementptr inbounds nuw i32, ptr %402, i64 %indvars.iv.i
-  %.not61.i = icmp sgt i32 %424, %446
-  %spec.select.i = select i1 %.not61.i, i32 %446, i32 %425
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %446, i32 %425)
   store i32 %spec.select.i, ptr %447, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -7193,6 +7192,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10

@@ -4997,7 +4997,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backERKS1_.exit357: ; preds = %_ZNSt6v
   %1009 = sdiv exact i64 %1008, 24
   %1010 = urem i64 %1003, %1009
   %.idx = mul nuw nsw i64 %.0152, 40
-  %1011 = add i64 %.idx, %.pre-phi1084
+  %1011 = add nsw i64 %.idx, %.pre-phi1084
   %1012 = sdiv exact i64 %1011, 40
   %.not985 = icmp eq ptr %884, %.sroa.0610.2.lcssa
   br label %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit

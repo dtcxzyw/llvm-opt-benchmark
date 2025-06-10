@@ -847,7 +847,7 @@ declare i64 @ZSTD_buildBlockEntropyStats(ptr noundef, ptr noundef, ptr noundef, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ZSTD_compressSubBlock(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef %10, i64 noundef %11, i32 noundef %12, i32 noundef range(i32 0, 2) %13, i32 noundef range(i32 0, 2) %14, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %15, ptr noundef nonnull writeonly captures(none) %16, i32 noundef %17) unnamed_addr #0 {
+define internal fastcc range(i64 5, 1) i64 @ZSTD_compressSubBlock(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef %10, i64 noundef %11, i32 noundef %12, i32 noundef range(i32 0, 2) %13, i32 noundef range(i32 0, 2) %14, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %15, ptr noundef nonnull writeonly captures(none) %16, i32 noundef %17) unnamed_addr #0 {
   %19 = getelementptr i8, ptr %10, i64 %11
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %21 = ptrtoint ptr %19 to i64
@@ -1140,8 +1140,8 @@ ZSTD_compressSubBlock_sequences.exit.thread:      ; preds = %ZSTD_compressSubBlo
 
 ZSTD_compressSubBlock_sequences.exit.thread.thread92: ; preds = %133, %ZSTD_compressSubBlock_sequences.exit.thread
   %.0.i647795 = phi i64 [ %181, %ZSTD_compressSubBlock_sequences.exit.thread ], [ 1, %133 ]
-  %184 = add nuw i64 %.0.i, 3
-  %185 = add i64 %184, %.0.i647795
+  %184 = add nuw nsw i64 %.0.i, 3
+  %185 = add nuw nsw i64 %184, %.0.i647795
   %.tr = trunc i64 %185 to i32
   %186 = shl i32 %.tr, 3
   %187 = add i32 %17, -20

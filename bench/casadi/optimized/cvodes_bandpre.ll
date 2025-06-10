@@ -66,13 +66,11 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store i64 %1, ptr %22, align 8, !tbaa !27
   %27 = add nsw i64 %1, -1
   %28 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp sgt i64 %1, %28
-  %. = select i1 %.not, i64 %28, i64 %27
+  %. = tail call i64 @llvm.smin.i64(i64 %28, i64 %27)
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %., ptr %29, align 8, !tbaa !28
   %30 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not73 = icmp sgt i64 %1, %30
-  %31 = select i1 %.not73, i64 %30, i64 %27
+  %31 = tail call i64 @llvm.smin.i64(i64 %30, i64 %27)
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %31, ptr %32, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -90,8 +88,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 38:                                               ; preds = %25
   %39 = add nsw i64 %31, %.
-  %.not74 = icmp sgt i64 %1, %39
-  %.75 = select i1 %.not74, i64 %39, i64 %27
+  %.75 = tail call i64 @llvm.smin.i64(i64 %39, i64 %27)
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %41 = tail call ptr @NewBandMat(i64 noundef %1, i64 noundef %., i64 noundef %31, i64 noundef %.75) #5
   store ptr %41, ptr %40, align 8, !tbaa !32
@@ -462,9 +459,8 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !29
   %22 = add nsw i64 %21, %19
-  %.not = icmp sgt i64 %17, %22
   %23 = add nsw i64 %17, -1
-  %24 = select i1 %.not, i64 %22, i64 %23
+  %24 = tail call i64 @llvm.smin.i64(i64 %22, i64 %23)
   store i64 %17, ptr %2, align 8, !tbaa !54
   %25 = shl nsw i64 %21, 1
   %26 = add i64 %19, 2

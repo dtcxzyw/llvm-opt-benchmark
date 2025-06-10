@@ -5250,7 +5250,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit151.i.i:             ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %1275, label %1276, label %1280
 
 1276:                                             ; preds = %1271
-  %1277 = add i64 %.032180.i, %.031181.i
+  %1277 = add nsw i64 %.032180.i, %.031181.i
   %1278 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %85, i64 noundef %1277, i64 noundef 0, i64 noundef 1, i8 noundef signext 61), !noalias !229
   %1279 = add i64 %.031181.i, 1
   %.val44.pre.i = load ptr, ptr %24, align 8, !tbaa !85, !noalias !229

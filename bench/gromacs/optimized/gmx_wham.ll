@@ -6839,9 +6839,8 @@ define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOption
   %37 = fdiv float %35, %36
   %38 = fptosi float %37 to i32
   %39 = icmp slt i32 %38, 0
-  %.not = icmp sgt i32 %3, %38
   %40 = add nsw i32 %3, -1
-  %spec.select = select i1 %.not, i32 %38, i32 %40
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %38, i32 %40)
   %.035 = select i1 %39, i32 0, i32 %spec.select
   %41 = sext i32 %.035 to i64
   %42 = getelementptr inbounds double, ptr %0, i64 %41

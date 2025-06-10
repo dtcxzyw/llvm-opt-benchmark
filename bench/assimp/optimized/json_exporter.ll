@@ -832,7 +832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20.i: ; preds = %_
   %210 = load i64, ptr %136, align 8
   %211 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %209, i64 noundef %210)
   %212 = load i64, ptr %140, align 8
-  %213 = add i64 %212, -1
+  %213 = add nsw i64 %212, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %213, i64 noundef 1)
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %215 = load i32, ptr %214, align 4
@@ -1104,7 +1104,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge:                                      ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit
   %352 = load i64, ptr %140, align 8
-  %353 = add i64 %352, -1
+  %353 = add nsw i64 %352, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %353, i64 noundef 1)
   %354 = load i32, ptr %214, align 4
   %355 = and i32 %354, 5
@@ -1396,7 +1396,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i:      ; preds = %460, %_ZNKSt7__cxx1
 
 ._crit_edge.i:                                    ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit432, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i
   %468 = load i64, ptr %140, align 8
-  %469 = add i64 %468, -1
+  %469 = add nsw i64 %468, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %469, i64 noundef 1)
   %470 = load i32, ptr %214, align 4
   %471 = and i32 %470, 5
@@ -1757,7 +1757,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit250.i:   ; preds = %628, %_ZNKSt7__cxx1
 
 ._crit_edge480.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit417, %_ZN6Assimp10JSONWriter10StartArrayEb.exit250.i
   %634 = load i64, ptr %140, align 8
-  %635 = add i64 %634, -1
+  %635 = add nsw i64 %634, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %635, i64 noundef 1)
   %636 = load i32, ptr %214, align 4
   %637 = and i32 %636, 5
@@ -2057,7 +2057,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit266.i:   ; preds = %771, %_ZNKSt7__cxx1
 
 ._crit_edge483.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit402, %_ZN6Assimp10JSONWriter10StartArrayEb.exit266.i
   %777 = load i64, ptr %140, align 8
-  %778 = add i64 %777, -1
+  %778 = add nsw i64 %777, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %778, i64 noundef 1)
   %779 = load i32, ptr %214, align 4
   %780 = and i32 %779, 5
@@ -2340,7 +2340,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit281.i:   ; preds = %907, %_ZNKSt7__cxx1
 
 ._crit_edge486.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit281.i
   %913 = load i64, ptr %140, align 8
-  %914 = add i64 %913, -1
+  %914 = add nsw i64 %913, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %914, i64 noundef 1)
   %915 = load i32, ptr %214, align 4
   %916 = and i32 %915, 5
@@ -2666,7 +2666,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit304.i:        ; preds = %1055
 
 1061:                                             ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit304.i
   %1062 = load i64, ptr %140, align 8
-  %1063 = add i64 %1062, -1
+  %1063 = add nsw i64 %1062, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1063, i64 noundef 1)
   %1064 = load i32, ptr %214, align 4
   %1065 = and i32 %1064, 5
@@ -2853,7 +2853,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit326.i:        ; preds = %1137
 
 1143:                                             ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit326.i
   %1144 = load i64, ptr %140, align 8
-  %1145 = add i64 %1144, -1
+  %1145 = add nsw i64 %1144, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1145, i64 noundef 1)
   %1146 = load i32, ptr %214, align 4
   %1147 = and i32 %1146, 5
@@ -2992,7 +2992,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit379:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge489.i:                                 ; preds = %1218, %_ZN6Assimp10JSONWriter10StartArrayEb.exit379
   %1206 = load i64, ptr %140, align 8
-  %1207 = add i64 %1206, -1
+  %1207 = add nsw i64 %1206, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1207, i64 noundef 1)
   %1208 = load i32, ptr %214, align 4
   %1209 = and i32 %1208, 5
@@ -3209,7 +3209,7 @@ _ZNK6aiMesh19GetNumColorChannelsEv.exit355.i:     ; preds = %1292, %.critedge.sp
 
 1295:                                             ; preds = %_ZNK6aiMesh19GetNumColorChannelsEv.exit355.i
   %1296 = load i64, ptr %140, align 8
-  %1297 = add i64 %1296, -1
+  %1297 = add nsw i64 %1296, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1297, i64 noundef 1)
   %1298 = load i32, ptr %214, align 4
   %1299 = and i32 %1298, 5
@@ -3339,7 +3339,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit372:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge501.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit384.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit372
   %1355 = load i64, ptr %140, align 8
-  %1356 = add i64 %1355, -1
+  %1356 = add nsw i64 %1355, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1356, i64 noundef 1)
   %1357 = load i32, ptr %214, align 4
   %1358 = and i32 %1357, 5
@@ -3668,7 +3668,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit394.i:   ; preds = %1510, %_ZNKSt7__cxx
 
 ._crit_edge510.i:                                 ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiBoneb.exit.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit394.i
   %1517 = load i64, ptr %140, align 8
-  %1518 = add i64 %1517, -1
+  %1518 = add nsw i64 %1517, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1518, i64 noundef 1)
   %1519 = load i32, ptr %214, align 4
   %1520 = and i32 %1519, 5
@@ -3926,7 +3926,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i.i:    ; preds = %1617, %_ZNKSt7__cxx
 
 ._crit_edge.i.i145:                               ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit60.i.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i.i
   %1625 = load i64, ptr %140, align 8
-  %1626 = add i64 %1625, -1
+  %1626 = add nsw i64 %1625, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1626, i64 noundef 1)
   %1627 = load i32, ptr %214, align 4
   %1628 = and i32 %1627, 5
@@ -3946,7 +3946,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit.i.i:       ; preds = %1629, %._crit_edge.
   %1636 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %1634, i64 noundef %1635)
   store i8 0, ptr %131, align 8
   %1637 = load i64, ptr %140, align 8
-  %1638 = add i64 %1637, -1
+  %1638 = add nsw i64 %1637, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1638, i64 noundef 1)
   %1639 = load i32, ptr %214, align 4
   %1640 = and i32 %1639, 5
@@ -4216,7 +4216,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit433.i: ; preds = %1754, %_ZStlsISt11
   %1762 = load i64, ptr %136, align 8
   %1763 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1760, ptr noundef %1761, i64 noundef %1762)
   %1764 = load i64, ptr %140, align 8
-  %1765 = add i64 %1764, -1
+  %1765 = add nsw i64 %1764, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1765, i64 noundef 1)
   %1766 = load i32, ptr %214, align 4
   %1767 = and i32 %1766, 5
@@ -4327,7 +4327,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit413.i:   ; preds = %1806, %_ZNKSt7__cxx
 
 ._crit_edge515.i:                                 ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiFaceb.exit.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit413.i
   %1814 = load i64, ptr %140, align 8
-  %1815 = add i64 %1814, -1
+  %1815 = add nsw i64 %1814, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1815, i64 noundef 1)
   %1816 = load i32, ptr %214, align 4
   %1817 = and i32 %1816, 5
@@ -4347,7 +4347,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit416.i:      ; preds = %1818, %._crit_edge5
   %1825 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %1823, i64 noundef %1824)
   store i8 0, ptr %131, align 8
   %1826 = load i64, ptr %140, align 8
-  %1827 = add i64 %1826, -1
+  %1827 = add nsw i64 %1826, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1827, i64 noundef 1)
   %1828 = load i32, ptr %214, align 4
   %1829 = and i32 %1828, 5
@@ -4472,7 +4472,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit358:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge.i426.i:                               ; preds = %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit447.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit358
   %1883 = load i64, ptr %140, align 8
-  %1884 = add i64 %1883, -1
+  %1884 = add nsw i64 %1883, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1884, i64 noundef 1)
   %1885 = load i32, ptr %214, align 4
   %1886 = and i32 %1885, 5
@@ -4679,7 +4679,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit158:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge1100:                                  ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiMaterialb.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit158
   %1995 = load i64, ptr %140, align 8
-  %1996 = add i64 %1995, -1
+  %1996 = add nsw i64 %1995, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %1996, i64 noundef 1)
   %1997 = load i32, ptr %214, align 4
   %1998 = and i32 %1997, 5
@@ -4798,7 +4798,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i167:   ; preds = %2039, %_ZNKSt7__cxx
 
 ._crit_edge226.i:                                 ; preds = %_ZN6Assimp10JSONWriter6EndObjEv.exit179.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i167
   %2046 = load i64, ptr %140, align 8
-  %2047 = add i64 %2046, -1
+  %2047 = add nsw i64 %2046, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2047, i64 noundef 1)
   %2048 = load i32, ptr %214, align 4
   %2049 = and i32 %2048, 5
@@ -4818,7 +4818,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit.i171:      ; preds = %2050, %._crit_edge2
   %2057 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %2055, i64 noundef %2056)
   store i8 0, ptr %131, align 8
   %2058 = load i64, ptr %140, align 8
-  %2059 = add i64 %2058, -1
+  %2059 = add nsw i64 %2058, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2059, i64 noundef 1)
   %2060 = load i32, ptr %214, align 4
   %2061 = and i32 %2060, 5
@@ -5270,7 +5270,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit153.i:   ; preds = %2232, %_ZNKSt7__cxx
 
 ._crit_edge224.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i180, %_ZN6Assimp10JSONWriter10StartArrayEb.exit153.i
   %2239 = load i64, ptr %140, align 8
-  %2240 = add i64 %2239, -1
+  %2240 = add nsw i64 %2239, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2240, i64 noundef 1)
   %2241 = load i32, ptr %214, align 4
   %2242 = and i32 %2241, 5
@@ -5418,7 +5418,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit159.i:   ; preds = %2312, %_ZNKSt7__cxx
 
 ._crit_edge219.i:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit159.i
   %2319 = load i64, ptr %140, align 8
-  %2320 = add i64 %2319, -1
+  %2320 = add nsw i64 %2319, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2320, i64 noundef 1)
   %2321 = load i32, ptr %214, align 4
   %2322 = and i32 %2321, 5
@@ -5564,7 +5564,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit169.i:   ; preds = %2390, %_ZNKSt7__cxx
 
 ._crit_edge.i176:                                 ; preds = %_ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit169.i
   %2397 = load i64, ptr %140, align 8
-  %2398 = add i64 %2397, -1
+  %2398 = add nsw i64 %2397, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2398, i64 noundef 1)
   %2399 = load i32, ptr %214, align 4
   %2400 = and i32 %2399, 5
@@ -5684,7 +5684,7 @@ _ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i:   ; preds = %2429, %_ZStlsISt11c
 
 2466:                                             ; preds = %2460, %2450, %2442, %_ZN6Assimp10JSONWriter8EndArrayEv.exit172.i, %2364, %_ZN6Assimp10JSONWriter8EndArrayEv.exit162.i, %2285, %_ZN6Assimp10JSONWriter8EndArrayEv.exit155.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135.i
   %2467 = load i64, ptr %140, align 8
-  %2468 = add i64 %2467, -1
+  %2468 = add nsw i64 %2467, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2468, i64 noundef 1)
   %2469 = load i32, ptr %214, align 4
   %2470 = and i32 %2469, 5
@@ -5840,7 +5840,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit193:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge1105:                                  ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK11aiAnimationb.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit193
   %2558 = load i64, ptr %140, align 8
-  %2559 = add i64 %2558, -1
+  %2559 = add nsw i64 %2558, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2559, i64 noundef 1)
   %2560 = load i32, ptr %214, align 4
   %2561 = and i32 %2560, 5
@@ -6061,7 +6061,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i204:   ; preds = %2640, %_ZNKSt7__cxx
 
 ._crit_edge.i235:                                 ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiNodeAnimb.exit.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i204
   %2648 = load i64, ptr %140, align 8
-  %2649 = add i64 %2648, -1
+  %2649 = add nsw i64 %2648, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2649, i64 noundef 1)
   %2650 = load i32, ptr %214, align 4
   %2651 = and i32 %2650, 5
@@ -6081,7 +6081,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit.i237:      ; preds = %2652, %._crit_edge.
   %2659 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %2657, i64 noundef %2658)
   store i8 0, ptr %131, align 8
   %2660 = load i64, ptr %140, align 8
-  %2661 = add i64 %2660, -1
+  %2661 = add nsw i64 %2660, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2661, i64 noundef 1)
   %2662 = load i32, ptr %214, align 4
   %2663 = and i32 %2662, 5
@@ -6442,7 +6442,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i.i213: ; preds = %2800, %_ZNKSt7__cxx
 
 ._crit_edge.i.i223:                               ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit116.i.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i.i213
   %2807 = load i64, ptr %140, align 8
-  %2808 = add i64 %2807, -1
+  %2808 = add nsw i64 %2807, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %2808, i64 noundef 1)
   %2809 = load i32, ptr %214, align 4
   %2810 = and i32 %2809, 5
@@ -6924,7 +6924,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit157.i: ; preds = %3026, %_ZStlsISt11
   %3034 = load i64, ptr %136, align 8
   %3035 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3032, ptr noundef %3033, i64 noundef %3034)
   %3036 = load i64, ptr %140, align 8
-  %3037 = add i64 %3036, -1
+  %3037 = add nsw i64 %3036, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3037, i64 noundef 1)
   %3038 = load i32, ptr %214, align 4
   %3039 = and i32 %3038, 5
@@ -6944,7 +6944,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb.exit118.i: ; preds = %3040
   %3047 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %3045, i64 noundef %3046)
   store i8 0, ptr %131, align 8
   %3048 = load i64, ptr %140, align 8
-  %3049 = add i64 %3048, -1
+  %3049 = add nsw i64 %3048, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3049, i64 noundef 1)
   %3050 = load i32, ptr %214, align 4
   %3051 = and i32 %3050, 5
@@ -7048,7 +7048,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit126.i.i: ; preds = %3086, %_ZNKSt7__cxx
 
 ._crit_edge160.i.i:                               ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit133.i.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit126.i.i
   %3093 = load i64, ptr %140, align 8
-  %3094 = add i64 %3093, -1
+  %3094 = add nsw i64 %3093, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3094, i64 noundef 1)
   %3095 = load i32, ptr %214, align 4
   %3096 = and i32 %3095, 5
@@ -7515,7 +7515,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i227: ; preds = %3316, %_ZStlsISt11
   %3324 = load i64, ptr %136, align 8
   %3325 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3322, ptr noundef %3323, i64 noundef %3324)
   %3326 = load i64, ptr %140, align 8
-  %3327 = add i64 %3326, -1
+  %3327 = add nsw i64 %3326, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3327, i64 noundef 1)
   %3328 = load i32, ptr %214, align 4
   %3329 = and i32 %3328, 5
@@ -7535,7 +7535,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK13aiQuaterniontIfEb.exit.i.i: ; preds = %33
   %3337 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %3335, i64 noundef %3336)
   store i8 0, ptr %131, align 8
   %3338 = load i64, ptr %140, align 8
-  %3339 = add i64 %3338, -1
+  %3339 = add nsw i64 %3338, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3339, i64 noundef 1)
   %3340 = load i32, ptr %214, align 4
   %3341 = and i32 %3340, 5
@@ -7639,7 +7639,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit143.i.i: ; preds = %3376, %_ZNKSt7__cxx
 
 ._crit_edge163.i.i:                               ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit150.i.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit143.i.i
   %3383 = load i64, ptr %140, align 8
-  %3384 = add i64 %3383, -1
+  %3384 = add nsw i64 %3383, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3384, i64 noundef 1)
   %3385 = load i32, ptr %214, align 4
   %3386 = and i32 %3385, 5
@@ -8052,7 +8052,7 @@ _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit135.i: ; preds = %3578, %_ZStlsISt11
   %3586 = load i64, ptr %136, align 8
   %3587 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3584, ptr noundef %3585, i64 noundef %3586)
   %3588 = load i64, ptr %140, align 8
-  %3589 = add i64 %3588, -1
+  %3589 = add nsw i64 %3588, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3589, i64 noundef 1)
   %3590 = load i32, ptr %214, align 4
   %3591 = and i32 %3590, 5
@@ -8072,7 +8072,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb.exit.i: ; preds = %3592, %
   %3599 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %3597, i64 noundef %3598)
   store i8 0, ptr %131, align 8
   %3600 = load i64, ptr %140, align 8
-  %3601 = add i64 %3600, -1
+  %3601 = add nsw i64 %3600, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3601, i64 noundef 1)
   %3602 = load i32, ptr %214, align 4
   %3603 = and i32 %3602, 5
@@ -8099,7 +8099,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit150.i.i:    ; preds = %3604, %_ZN6AssimpL5
 
 3615:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit145.i.i, %3353
   %3616 = load i64, ptr %140, align 8
-  %3617 = add i64 %3616, -1
+  %3617 = add nsw i64 %3616, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3617, i64 noundef 1)
   %3618 = load i32, ptr %214, align 4
   %3619 = and i32 %3618, 5
@@ -8255,7 +8255,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit252:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge1108:                                  ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK7aiLightb.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit252
   %3708 = load i64, ptr %140, align 8
-  %3709 = add i64 %3708, -1
+  %3709 = add nsw i64 %3708, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3709, i64 noundef 1)
   %3710 = load i32, ptr %214, align 4
   %3711 = and i32 %3710, 5
@@ -9039,7 +9039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit195.i: ; preds = %
 
 3984:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit192.i, %3966
   %3985 = load i64, ptr %140, align 8
-  %3986 = add i64 %3985, -1
+  %3986 = add nsw i64 %3985, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %3986, i64 noundef 1)
   %3987 = load i32, ptr %214, align 4
   %3988 = and i32 %3987, 5
@@ -9171,7 +9171,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit276:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge1111:                                  ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK8aiCamerab.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit276
   %4058 = load i64, ptr %140, align 8
-  %4059 = add i64 %4058, -1
+  %4059 = add nsw i64 %4058, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4059, i64 noundef 1)
   %4060 = load i32, ptr %214, align 4
   %4061 = and i32 %4060, 5
@@ -9448,7 +9448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i: ; preds = %_
   %4165 = getelementptr inbounds nuw i8, ptr %4081, i64 1052
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 4 dereferenceable(12) %4165, i1 noundef zeroext false)
   %4166 = load i64, ptr %140, align 8
-  %4167 = add i64 %4166, -1
+  %4167 = add nsw i64 %4166, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4167, i64 noundef 1)
   %4168 = load i32, ptr %214, align 4
   %4169 = and i32 %4168, 5
@@ -9738,7 +9738,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit311:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge1116:                                  ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiTextureb.exit, %_ZN6Assimp10JSONWriter10StartArrayEb.exit311
   %4291 = load i64, ptr %140, align 8
-  %4292 = add i64 %4291, -1
+  %4292 = add nsw i64 %4291, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4292, i64 noundef 1)
   %4293 = load i32, ptr %214, align 4
   %4294 = and i32 %4293, 5
@@ -10174,7 +10174,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i330:   ; preds = %4448, %_ZNKSt7__cxx
 
 ._crit_edge152.i:                                 ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit107.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i330
   %4455 = load i64, ptr %140, align 8
-  %4456 = add i64 %4455, -1
+  %4456 = add nsw i64 %4455, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4456, i64 noundef 1)
   %4457 = load i32, ptr %214, align 4
   %4458 = and i32 %4457, 5
@@ -10278,7 +10278,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit463:     ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge.i346:                                 ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit131.i, %_ZN6Assimp10JSONWriter10StartArrayEb.exit463
   %4505 = load i64, ptr %140, align 8
-  %4506 = add i64 %4505, -1
+  %4506 = add nsw i64 %4505, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4506, i64 noundef 1)
   %4507 = load i32, ptr %214, align 4
   %4508 = and i32 %4507, 5
@@ -10601,7 +10601,7 @@ _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit128.i: ; preds = %4664, %_ZStlsISt11
   %4671 = load i64, ptr %136, align 8
   %4672 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %4670, i64 noundef %4671)
   %4673 = load i64, ptr %140, align 8
-  %4674 = add i64 %4673, -1
+  %4674 = add nsw i64 %4673, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4674, i64 noundef 1)
   %4675 = load i32, ptr %214, align 4
   %4676 = and i32 %4675, 5
@@ -10627,7 +10627,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit131.i:      ; preds = %4677, %_ZN6Assimp10
 
 4688:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i348, %4387
   %4689 = load i64, ptr %140, align 8
-  %4690 = add i64 %4689, -1
+  %4690 = add nsw i64 %4689, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4690, i64 noundef 1)
   %4691 = load i32, ptr %214, align 4
   %4692 = and i32 %4691, 5
@@ -10654,7 +10654,7 @@ _ZN6AssimpL5WriteERNS_10JSONWriterERK9aiTextureb.exit: ; preds = %4688, %4693
 
 4704:                                             ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit313, %4237
   %4705 = load i64, ptr %140, align 8
-  %4706 = add i64 %4705, -1
+  %4706 = add nsw i64 %4705, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %139, i64 noundef %4706, i64 noundef 1)
   %4707 = load i32, ptr %214, align 4
   %4708 = and i32 %4707, 5
@@ -11329,7 +11329,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge:                                      ; preds = %110, %_ZN6Assimp10JSONWriter10StartArrayEb.exit
   %73 = load i64, ptr %55, align 8
-  %74 = add i64 %73, -1
+  %74 = add nsw i64 %73, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %74, i64 noundef 1)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %76 = load i32, ptr %75, align 4
@@ -11518,7 +11518,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit78:      ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge91:                                    ; preds = %175, %_ZN6Assimp10JSONWriter10StartArrayEb.exit78
   %154 = load i64, ptr %136, align 8
-  %155 = add i64 %154, -1
+  %155 = add nsw i64 %154, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %135, i64 noundef %155, i64 noundef 1)
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %157 = load i32, ptr %156, align 4
@@ -11579,7 +11579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %185 = load i64, ptr %184, align 8
-  %186 = add i64 %185, -1
+  %186 = add nsw i64 %185, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %183, i64 noundef %186, i64 noundef 1)
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %188 = load i32, ptr %187, align 4
@@ -11850,7 +11850,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %_ZNKSt7__cxx1112bas
 
 36:                                               ; preds = %49
   %37 = load i64, ptr %13, align 8
-  %38 = add i64 %37, -1
+  %38 = add nsw i64 %37, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %38, i64 noundef 1)
   %39 = load i32, ptr %32, align 4
   %40 = and i32 %39, 5
@@ -12575,7 +12575,7 @@ define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIf
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = add i64 %8, -1
+  %9 = add nsw i64 %8, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %9, i64 noundef 1)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %11 = load i32, ptr %10, align 4
@@ -12653,7 +12653,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %_ZNKSt7__cxx1112bas
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN6Assimp10JSONWriter7ElementIfEEvRKT_(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 4 dereferenceable(4) %29)
   %30 = load i64, ptr %12, align 8
-  %31 = add i64 %30, -1
+  %31 = add nsw i64 %30, -1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %31, i64 noundef 1)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %33 = load i32, ptr %32, align 4

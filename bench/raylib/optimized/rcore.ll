@@ -38420,11 +38420,10 @@ define i32 @GetCurrentMonitor() local_unnamed_addr #0 {
 
 48:                                               ; preds = %36, %47
   %49 = icmp slt i32 %46, %37
-  %spec.select = select i1 %.not57.not, i32 %46, i32 %40
+  %spec.select = call i32 @llvm.smin.i32(i32 %46, i32 %40)
   %.037 = select i1 %49, i32 %37, i32 %spec.select
   %50 = icmp slt i32 %.pre, %41
-  %.not61 = icmp slt i32 %.pre, %44
-  %spec.select63 = select i1 %.not61, i32 %.pre, i32 %45
+  %spec.select63 = call i32 @llvm.smin.i32(i32 %.pre, i32 %45)
   %.036 = select i1 %50, i32 %41, i32 %spec.select63
   %51 = sub nsw i32 %46, %.037
   %52 = sub nsw i32 %.pre, %.036

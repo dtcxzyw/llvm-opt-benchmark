@@ -13491,7 +13491,7 @@ _ZSt13__lower_boundIPN6hermes14CodePointRangeES1_N9__gnu_cxx5__ops14_Iter_comp_v
   %__first.addr.0.lcssa.i = phi ptr [ %__first.addr.093, %if.else6 ], [ %6, %.thread.i ]
   %add.ptr.i.i33.idx = shl nuw nsw i64 %__len.094, 3
   %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
-  %7 = add nuw i64 %add.ptr.i.i.idx, 8
+  %7 = add nuw nsw i64 %add.ptr.i.i.idx, 8
   %gepdiff = sub nsw i64 %add.ptr.i.i33.idx, %7
   %sub.ptr.div.i.i.i41 = ashr exact i64 %gepdiff, 3
   %cmp23.i = icmp sgt i64 %sub.ptr.div.i.i.i41, 0

@@ -5209,7 +5209,7 @@ if.end:                                           ; preds = %if.then
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i
   %add.ptr.i14 = getelementptr inbounds i8, ptr %add.ptr.i, i64 -16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %argTypes, i8 0, i64 24, i1 false)
-  %sub.ptr.sub.i.i.i.i.i = add i64 %sub.ptr.sub.i, -16
+  %sub.ptr.sub.i.i.i.i.i = add nsw i64 %sub.ptr.sub.i, -16
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775792
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
 

@@ -1766,8 +1766,7 @@ Aig_ObjSetReverseLevel.exit:                      ; preds = %Aig_ObjReverseLevel
 
 Vec_IntGrow.exit.sink.split.i.i106:               ; preds = %271
   %273 = shl nsw i32 %272, 1
-  %.not.i103 = icmp slt i32 %267, %273
-  %. = select i1 %.not.i103, i32 %273, i32 %268
+  %. = tail call i32 @llvm.smax.i32(i32 %273, i32 %268)
   %274 = sext i32 %. to i64
   %275 = shl nsw i64 %274, 2
   %276 = tail call ptr @realloc(ptr noundef nonnull %.val.i100, i64 noundef %275) #12
@@ -1845,8 +1844,7 @@ Aig_ObjReverseLevel.exit118:                      ; preds = %Aig_ObjSetReverseLe
 
 Vec_IntGrow.exit.sink.split.i.i123:               ; preds = %309
   %311 = shl nsw i32 %310, 1
-  %.not.i120 = icmp slt i32 %305, %311
-  %.207 = select i1 %.not.i120, i32 %311, i32 %306
+  %.207 = tail call i32 @llvm.smax.i32(i32 %311, i32 %306)
   %312 = sext i32 %.207 to i64
   %313 = shl nsw i64 %312, 2
   %314 = tail call ptr @realloc(ptr noundef nonnull %285, i64 noundef %313) #12

@@ -68,13 +68,11 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
   store i64 %1, ptr %22, align 8, !tbaa !30
   %27 = add nsw i64 %1, -1
   %28 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %.not = icmp sgt i64 %1, %28
-  %. = select i1 %.not, i64 %28, i64 %27
+  %. = tail call i64 @llvm.smin.i64(i64 %28, i64 %27)
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %., ptr %29, align 8, !tbaa !31
   %30 = tail call i64 @llvm.smax.i64(i64 %3, i64 0)
-  %.not109 = icmp sgt i64 %1, %30
-  %31 = select i1 %.not109, i64 %30, i64 %27
+  %31 = tail call i64 @llvm.smin.i64(i64 %30, i64 %27)
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %31, ptr %32, align 8, !tbaa !32
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 64
@@ -93,8 +91,7 @@ define i32 @CVBandPrecInit(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 n
 
 39:                                               ; preds = %25
   %40 = add nsw i64 %31, %.
-  %.not110 = icmp sgt i64 %1, %40
-  %.113 = select i1 %.not110, i64 %40, i64 %27
+  %.113 = tail call i64 @llvm.smin.i64(i64 %40, i64 %27)
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %42 = load ptr, ptr %0, align 8, !tbaa !34
   %43 = tail call ptr @SUNBandMatrixStorage(i64 noundef %1, i64 noundef %., i64 noundef %31, i64 noundef %.113, ptr noundef %42) #8

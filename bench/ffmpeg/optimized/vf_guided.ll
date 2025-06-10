@@ -1259,8 +1259,7 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
   %.170.us = phi float [ %.05873.us, %.preheader.us ], [ %51, %42 ]
   %43 = add nsw i32 %.071.us, %41
   %44 = icmp slt i32 %43, 0
-  %.not67.us = icmp slt i32 %43, %7
-  %45 = select i1 %.not67.us, i32 %43, i32 %32
+  %45 = tail call i32 @llvm.smin.i32(i32 %43, i32 %32)
   %46 = select i1 %44, i32 0, i32 %45
   %47 = add nsw i32 %46, %57
   %48 = sext i32 %47 to i64
@@ -1276,8 +1275,7 @@ define internal noundef i32 @box_slice(ptr noundef readonly captures(none) %0, p
   %.05873.us = phi float [ 0.000000e+00, %.preheader.lr.ph.us ], [ %51, %._crit_edge.us ]
   %53 = add nsw i32 %.05774.us, %40
   %54 = icmp slt i32 %53, 0
-  %.not66.us = icmp slt i32 %53, %9
-  %55 = select i1 %.not66.us, i32 %53, i32 %31
+  %55 = tail call i32 @llvm.smin.i32(i32 %53, i32 %31)
   %56 = select i1 %54, i32 0, i32 %55
   %57 = mul nsw i32 %56, %11
   br label %42

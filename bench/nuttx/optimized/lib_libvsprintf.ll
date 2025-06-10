@@ -469,7 +469,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %203 = zext i16 %.9450 to i32
   %.not571 = icmp sgt i16 %.9450, -1
   %204 = call i32 @llvm.smax.i32(i32 %141, i32 0)
-  %205 = add nuw i32 %204, 1
+  %205 = add nuw nsw i32 %204, 1
   %.0436 = select i1 %.not571, i32 5, i32 %205
   %not..not572 = xor i1 %.not572, true
   %206 = zext i1 %not..not572 to i32

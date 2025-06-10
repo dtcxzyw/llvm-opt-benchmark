@@ -265,8 +265,7 @@ cache_tree_subtree_pos.exit:                      ; preds = %subtree_name_cmp.ex
   %43 = mul i32 %40, 3
   %44 = add i32 %43, 48
   %45 = sdiv i32 %44, 2
-  %.not47 = icmp sgt i32 %45, %8
-  %. = select i1 %.not47, i32 %45, i32 %42
+  %. = tail call i32 @llvm.smax.i32(i32 %45, i32 %42)
   store i32 %., ptr %39, align 4, !tbaa !22
   %46 = sext i32 %. to i64
   %47 = icmp slt i32 %., 0
@@ -2853,6 +2852,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #17

@@ -1512,9 +1512,8 @@ define linkonce_odr dso_local noundef i64 @_ZN7Spectra11SymEigsBaseINS_21SymGEig
 
 _ZN7Spectra11SymEigsBaseINS_21SymGEigsShiftInvertOpIZN3igl7spectra4eigsIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS6_IdLin1ELi1ELi0ELin1ELi1EEENS5_8SparseLUINS5_12SparseMatrixIdLi0EiEENS5_14COLAMDOrderingIiEEEEEEbRKNSA_IT_Li0EiEESI_iSF_RNS5_15PlainObjectBaseIT0_EERNSJ_IT1_EEE11ShiftInvertZNS4_IdS7_S8_SE_EEbSI_SI_iSF_SM_SP_E13SparseMatProdEESR_E12nev_adjustedEl.exit: ; preds = %._crit_edge.i, %34, %36
   %.2.i = phi i64 [ %35, %34 ], [ %spec.select.i, %36 ], [ %23, %._crit_edge.i ]
-  %.not.i = icmp slt i64 %.2.i, %18
   %38 = add nsw i64 %18, -1
-  %spec.select15.i = select i1 %.not.i, i64 %.2.i, i64 %38
+  %spec.select15.i = call noundef i64 @llvm.smin.i64(i64 %.2.i, i64 %38)
   call void @_ZN7Spectra11SymEigsBaseINS_21SymGEigsShiftInvertOpIZN3igl7spectra4eigsIdN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS6_IdLin1ELi1ELi0ELin1ELi1EEENS5_8SparseLUINS5_12SparseMatrixIdLi0EiEENS5_14COLAMDOrderingIiEEEEEEbRKNSA_IT_Li0EiEESI_iSF_RNS5_15PlainObjectBaseIT0_EERNSJ_IT1_EEE11ShiftInvertZNS4_IdS7_S8_SE_EEbSI_SI_iSF_SM_SP_E13SparseMatProdEESR_E7restartElNS_8SortRuleE(ptr noundef nonnull align 8 dereferenceable(292) %0, i64 noundef %spec.select15.i, i32 noundef %1)
   %39 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %39, %2
@@ -3068,7 +3067,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !163
   %.idx = shl nsw i64 %54, 2
-  %61 = add i64 %.idx, 4
+  %61 = add nsw i64 %.idx, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %52, i64 %61, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 

@@ -138,9 +138,8 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %22, %26, %34, %37
   %58 = sitofp i64 %57 to double
   %59 = fmul double %.0.i, %58
   %60 = fptosi double %59 to i64
-  %.not = icmp slt i64 %57, %60
   %61 = add nsw i64 %57, 1
-  %spec.select = select i1 %.not, i64 %60, i64 %61
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %60, i64 %61)
   br label %62
 
 62:                                               ; preds = %48, %44

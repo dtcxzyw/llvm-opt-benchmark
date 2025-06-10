@@ -45421,7 +45421,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i374: ;
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i376: ; preds = %545, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i374
   %546 = getelementptr inbounds nuw ptr, ptr %540, i64 %538
-  %547 = add i64 %531, 8
+  %547 = add nsw i64 %531, 8
   %.not.i.i.i.i380 = icmp eq ptr %544, %540
   br i1 %.not.i.i.i.i380, label %.noexc382.thread, label %549
 

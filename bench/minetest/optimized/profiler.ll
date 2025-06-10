@@ -321,7 +321,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %sw.bb7
 invoke.cont.i:                                    ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
   %3 = load i32, ptr %call.i, align 4, !tbaa !24
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
-  %spec.select.i = add nuw i32 %4, 1
+  %spec.select.i = add nuw nsw i32 %4, 1
   store i32 %spec.select.i, ptr %call.i, align 4, !tbaa !24
   %m_data.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %call3.i = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt4pairIKS5_fEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %m_data.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name9)
@@ -674,7 +674,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 invoke.cont:                                      ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %0 = load i32, ptr %call, align 4, !tbaa !24
   %1 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
-  %spec.select = add nuw i32 %1, 1
+  %spec.select = add nuw nsw i32 %1, 1
   store i32 %spec.select, ptr %call, align 4, !tbaa !24
   %m_data = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call3 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfSt4lessIS5_ESaISt4pairIKS5_fEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %m_data, ptr noundef nonnull align 8 dereferenceable(32) %name)

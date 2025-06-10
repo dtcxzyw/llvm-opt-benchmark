@@ -8059,8 +8059,8 @@ define internal fastcc ptr @parse_ident(ptr noundef %0) unnamed_addr #0 {
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %26 = add i64 %5, 3
-  %27 = add i64 %26, %16
+  %26 = add nuw nsw i64 %5, 3
+  %27 = add nuw nsw i64 %26, %16
   call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %spec.select, i64 noundef %27) #24
   %28 = load i32, ptr @whenspec, align 4, !tbaa !11
   switch i32 %28, label %default.unreachable [

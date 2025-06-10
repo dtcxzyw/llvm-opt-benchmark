@@ -46,7 +46,7 @@ define internal range(i32 -12, 1) i32 @g722_encode_init(ptr noundef %0) #0 {
 12:                                               ; preds = %9
   %13 = icmp eq i32 %8, 1
   %14 = tail call i32 @llvm.smin.i32(i32 %8, i32 32769)
-  %spec.select = add i32 %14, -1
+  %spec.select = add nsw i32 %14, -1
   %.052 = select i1 %13, i32 2, i32 %spec.select
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.3, i32 noundef %.052, i32 noundef %8) #8
   br label %.sink.split

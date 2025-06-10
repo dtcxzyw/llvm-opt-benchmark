@@ -197,9 +197,8 @@ _ZN3tbb6detail2r122threading_control_impl23calc_workers_soft_limitEj.exit: ; pre
   %..i = tail call i32 @llvm.umax.i32(i32 %38, i32 %35)
   %..i3 = tail call i32 @llvm.umax.i32(i32 %..i, i32 256)
   %39 = add i32 %.in.i, -1
-  %.not9.i = icmp ult i32 %39, %..i3
   %40 = add i32 %..i3, -1
-  %spec.select.i = select i1 %.not9.i, i32 %39, i32 %40
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %40)
   %.sroa.2.0.insert.ext.i = zext i32 %..i3 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %spec.select.i to i64
@@ -2793,6 +2792,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21

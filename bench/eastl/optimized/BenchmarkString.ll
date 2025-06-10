@@ -5145,7 +5145,7 @@ while.end.i.i.i1388:                              ; preds = %while.cond23.i.i.i
 
 if.then16.i.i1396:                                ; preds = %if.then29.i.i.i
   %add.ptr.i.idx.i = shl nuw nsw i64 %cond.i13.i.i1377, 1
-  %sub.ptr.sub.i.i1397 = add i64 %pCurrent1.0.i.i.add.i, %add.ptr.i.idx.i
+  %sub.ptr.sub.i.i1397 = add nsw i64 %pCurrent1.0.i.i.add.i, %add.ptr.i.idx.i
   %sub.ptr.div.i.i1398 = ashr exact i64 %sub.ptr.sub.i.i1397, 1
   br label %_ZNK5eastl12basic_stringIDsNS_9allocatorEE5rfindEPKDsmm.exit.i
 

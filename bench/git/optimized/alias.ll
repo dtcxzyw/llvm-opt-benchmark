@@ -468,8 +468,7 @@ st_mult.exit114:                                  ; preds = %67
   %69 = mul nuw nsw i64 %.4, 3
   %70 = add nuw nsw i64 %69, 48
   %71 = lshr i64 %70, 1
-  %.not105 = icmp samesign ugt i64 %71, %.283
-  %.113 = select i1 %.not105, i64 %71, i64 %68
+  %.113 = tail call i64 @llvm.umax.i64(i64 %71, i64 %68)
   %72 = shl nuw nsw i64 %.113, 3
   %73 = tail call ptr @xrealloc(ptr noundef %.pre138, i64 noundef %72) #9
   store ptr %73, ptr %1, align 8, !tbaa !26

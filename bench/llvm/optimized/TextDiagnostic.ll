@@ -2580,7 +2580,7 @@ _ZL17findLinesForRangeRKN5clang15CharSourceRangeENS_6FileIDERKNS_13SourceManager
 .lr.ph.i:                                         ; preds = %127, %130
   %.011.i = phi i32 [ %131, %130 ], [ 10, %127 ]
   %.0510.i = phi i32 [ %129, %130 ], [ 1, %127 ]
-  %129 = add nuw nsw i32 %.0510.i, 1
+  %129 = add nuw i32 %.0510.i, 1
   %.not8.i = icmp eq i32 %129, 10
   br i1 %.not8.i, label %_ZL18getNumDisplayWidthj.exit.thread265, label %130
 
@@ -2590,8 +2590,7 @@ _ZL17findLinesForRangeRKN5clang15CharSourceRangeENS_6FileIDERKNS_13SourceManager
   br i1 %.not.i125, label %_ZL18getNumDisplayWidthj.exit, label %.lr.ph.i, !llvm.loop !159
 
 _ZL18getNumDisplayWidthj.exit:                    ; preds = %130
-  %.inv = icmp samesign ult i32 %.0510.i, 4
-  %spec.select = select i1 %.inv, i32 4, i32 %129
+  %spec.select = call i32 @llvm.umax.i32(i32 %129, i32 4)
   br label %_ZL18getNumDisplayWidthj.exit.thread265
 
 _ZL18getNumDisplayWidthj.exit.thread265:          ; preds = %.lr.ph.i, %_ZL18getNumDisplayWidthj.exit, %127, %._crit_edge

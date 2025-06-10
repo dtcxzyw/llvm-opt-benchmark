@@ -545,8 +545,7 @@ st_add.exit23._crit_edge:                         ; preds = %st_add.exit23
   %17 = mul i32 %14, 3
   %18 = add i32 %17, 48
   %19 = sdiv i32 %18, 2
-  %.not22 = icmp sgt i32 %19, %13
-  %. = select i1 %.not22, i32 %19, i32 %16
+  %. = tail call i32 @llvm.smax.i32(i32 %19, i32 %16)
   store i32 %., ptr %0, align 8, !tbaa !13
   %20 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0

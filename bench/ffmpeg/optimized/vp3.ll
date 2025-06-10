@@ -4109,8 +4109,7 @@ vp4_get_mv.exit250.i:                             ; preds = %1802, %vp4_get_mv.e
   %.neg.us.i = sext i1 %2213 to i32
   %2214 = add i32 %2209, %.neg.us.i
   %2215 = or disjoint i32 %2209, 3
-  %.not273.us.i = icmp slt i32 %2215, %2195
-  %2216 = select i1 %.not273.us.i, i32 %2215, i32 %2207
+  %2216 = call i32 @llvm.smin.i32(i32 %2215, i32 %2207)
   call fastcc void @apply_loop_filter(ptr noundef nonnull %17, i32 noundef %2208, i32 noundef %2214, i32 noundef %2216)
   br label %2217
 
@@ -4733,8 +4732,7 @@ vp3_dequant.exit.us.i:                            ; preds = %2477, %.thread64.i.
   %.neg.i332 = sext i1 %2539 to i32
   %2540 = add i32 %2538, %.neg.i332
   %2541 = or disjoint i32 %2538, 3
-  %.not273.i = icmp slt i32 %2541, %2195
-  %2542 = select i1 %.not273.i, i32 %2541, i32 %2207
+  %2542 = call i32 @llvm.smin.i32(i32 %2541, i32 %2207)
   call fastcc void @apply_loop_filter(ptr noundef nonnull %17, i32 noundef %2532, i32 noundef %2540, i32 noundef %2542)
   br label %2543
 

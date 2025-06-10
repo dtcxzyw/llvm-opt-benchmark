@@ -13698,9 +13698,8 @@ lpad1236:                                         ; preds = %if.then.i4797, %inv
 
 if.end1247:                                       ; preds = %if.then.i4797, %invoke.cont1243, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4786
   %frame_count1201.0 = phi i32 [ %conv.i.i4760, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4786 ], [ 1, %if.then.i4797 ], [ 1, %invoke.cont1243 ]
-  %cmp1248.not = icmp ugt i32 %frame_count1201.0, %conv.i.i4774
   %sub1250 = add i32 %frame_count1201.0, -1
-  %spec.select = select i1 %cmp1248.not, i32 %conv.i.i4774, i32 %sub1250
+  %spec.select = call i32 @llvm.umin.i32(i32 %conv.i.i4774, i32 %sub1250)
   %668 = load ptr, ptr %baseimg, align 8, !tbaa !28
   %Size.i4819 = getelementptr inbounds nuw i8, ptr %668, i64 12
   %669 = load i32, ptr %Size.i4819, align 4, !tbaa !190
@@ -22348,9 +22347,8 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %tile_size, align 8
   %div = udiv i32 %strip_size.sroa.7.0.extract.trunc, %strip_size.sroa.0.0.extract.trunc
-  %cmp7.not = icmp sgt i32 %div, %frame_index
   %sub = add nsw i32 %div, -1
-  %spec.select = select i1 %cmp7.not, i32 %frame_index, i32 %sub
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %frame_index, i32 %sub)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %frame) #15
   %mul = mul i32 %spec.select, %strip_size.sroa.0.0.extract.trunc
   %ref.tmp10.sroa.5.0.insert.ext = zext i32 %mul to i64

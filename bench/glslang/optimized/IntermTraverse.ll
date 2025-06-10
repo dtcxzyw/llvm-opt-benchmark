@@ -299,8 +299,7 @@ define void @_ZN7glslang13TIntermBinary8traverseEPNS_16TIntermTraverserE(ptr nou
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %.not.i = icmp sgt i32 %15, %12
-  %16 = select i1 %.not.i, i32 %15, i32 %13
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -497,8 +496,7 @@ define void @_ZN7glslang12TIntermUnary8traverseEPNS_16TIntermTraverserE(ptr noun
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %.not.i = icmp sgt i32 %15, %12
-  %16 = select i1 %.not.i, i32 %15, i32 %13
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -614,8 +612,7 @@ define void @_ZN7glslang16TIntermAggregate8traverseEPNS_16TIntermTraverserE(ptr 
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %.not.i = icmp sgt i32 %15, %12
-  %16 = select i1 %.not.i, i32 %15, i32 %13
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -846,8 +843,7 @@ define void @_ZN7glslang16TIntermSelection8traverseEPNS_16TIntermTraverserE(ptr 
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %.not.i = icmp sgt i32 %15, %12
-  %16 = select i1 %.not.i, i32 %15, i32 %13
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1027,8 +1023,7 @@ define void @_ZN7glslang11TIntermLoop8traverseEPNS_16TIntermTraverserE(ptr nound
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %.not.i = icmp sgt i32 %15, %12
-  %16 = select i1 %.not.i, i32 %15, i32 %13
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1222,8 +1217,7 @@ define void @_ZN7glslang13TIntermBranch8traverseEPNS_16TIntermTraverserE(ptr nou
   store i32 %16, ptr %14, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4
-  %.not.i = icmp sgt i32 %18, %15
-  %19 = select i1 %.not.i, i32 %18, i32 %16
+  %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 %16)
   store i32 %19, ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1341,8 +1335,7 @@ define void @_ZN7glslang13TIntermSwitch8traverseEPNS_16TIntermTraverserE(ptr nou
   store i32 %13, ptr %11, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %.not.i = icmp sgt i32 %15, %12
-  %16 = select i1 %.not.i, i32 %15, i32 %13
+  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2302,6 +2295,9 @@ declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

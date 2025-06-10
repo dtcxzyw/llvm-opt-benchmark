@@ -23193,7 +23193,7 @@ _ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i.i:        ; preds = %547
   ]
 
 556:                                              ; preds = %549, %549, %549, %549
-  %557 = add i64 %546, -2
+  %557 = add nsw i64 %546, -2
   %.not.i2.i = icmp slt i64 %557, %555
   br i1 %.not.i2.i, label %.thread612, label %558
 

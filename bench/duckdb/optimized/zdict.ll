@@ -1691,8 +1691,7 @@ _ZN11duckdb_zstdL20ZDICT_removeDictItemEPNS_8dictItemEj.exit.i.i.i: ; preds = %.
 
 352:                                              ; preds = %_ZN11duckdb_zstdL16ZDICT_analyzePosEPhPKijPKvjj.exit.i.i
   %353 = load i32, ptr %31, align 4, !tbaa !57
-  %.not45.i.i.i = icmp ult i32 %353, %..i
-  %spec.select.i.i.i = select i1 %.not45.i.i.i, i32 %353, i32 %110
+  %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %353, i32 %110)
   %.03849.i.i.i = add i32 %spec.select.i.i.i, -1
   %354 = zext i32 %.03849.i.i.i to i64
   %355 = getelementptr inbounds nuw %"struct.duckdb_zstd::dictItem", ptr %31, i64 %354
@@ -1723,7 +1722,7 @@ _ZN11duckdb_zstdL20ZDICT_removeDictItemEPNS_8dictItemEj.exit.i.i.i: ; preds = %.
   store i64 %.sroa.0190.sroa.0.0.insert.insert.i.i.i, ptr %368, align 4
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %368, i64 8
   store i32 %311, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4, !tbaa !3
-  %369 = add i32 %spec.select.i.i.i, 1
+  %369 = add nuw i32 %spec.select.i.i.i, 1
   store i32 %369, ptr %31, align 4, !tbaa !57
   br label %_ZN11duckdb_zstdL20ZDICT_insertDictItemEPNS_8dictItemEjS0_PKv.exit.i.i
 

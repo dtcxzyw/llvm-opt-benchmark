@@ -21736,9 +21736,8 @@ _ZNK5osgeo4proj12ExtentAndRes18fullWorldLongitudeEv.exit176: ; preds = %103
   %121 = add nsw i32 %106, 1
   %122 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %123 = load i32, ptr %122, align 4, !tbaa !34
-  %.not174 = icmp slt i32 %121, %123
   %124 = add nsw i32 %123, -1
-  %spec.select = select i1 %.not174, i32 %121, i32 %124
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %121, i32 %124)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #34
   store float 0.000000e+00, ptr %5, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #34

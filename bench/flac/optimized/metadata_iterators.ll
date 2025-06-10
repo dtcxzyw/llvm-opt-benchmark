@@ -4917,29 +4917,28 @@ chain_calculate_length_.exit:                     ; preds = %.lr.ph.i, %2
 
 ._crit_edge:                                      ; preds = %74, %66, %84, %47
   %.052.lcssa = phi i64 [ 0, %47 ], [ %87, %84 ], [ %.153.ph.us, %66 ], [ %77, %74 ]
-  br i1 %48, label %88, label %95
+  br i1 %48, label %88, label %94
 
 88:                                               ; preds = %._crit_edge
   %89 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4, !tbaa !4
-  %90 = shl nuw i32 1, %89
-  %.not75 = icmp ult i32 %.056, %90
-  %91 = add i32 %90, -1
-  %spec.select = select i1 %.not75, i32 %.056, i32 %91
-  %92 = add i32 %spec.select, 4
-  %93 = zext i32 %92 to i64
-  %94 = add nsw i64 %.052.lcssa, %93
-  br label %95
+  %notmask = shl nsw i32 -1, %89
+  %90 = xor i32 %notmask, -1
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %.056, i32 %90)
+  %91 = add nuw i32 %spec.select, 4
+  %92 = zext i32 %91 to i64
+  %93 = add nsw i64 %.052.lcssa, %92
+  br label %94
 
-95:                                               ; preds = %88, %._crit_edge
-  %.254.ph = phi i64 [ %.052.lcssa, %._crit_edge ], [ %94, %88 ]
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %97 = load i64, ptr %96, align 8, !tbaa !110
-  %98 = icmp ne i64 %.254.ph, %97
-  %99 = zext i1 %98 to i32
+94:                                               ; preds = %88, %._crit_edge
+  %.254.ph = phi i64 [ %.052.lcssa, %._crit_edge ], [ %93, %88 ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %96 = load i64, ptr %95, align 8, !tbaa !110
+  %97 = icmp ne i64 %.254.ph, %96
+  %98 = zext i1 %97 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %71, %59, %81, %95
-  %.3 = phi i32 [ %99, %95 ], [ 0, %81 ], [ 0, %59 ], [ 0, %71 ]
+.loopexit:                                        ; preds = %71, %59, %81, %94
+  %.3 = phi i32 [ %98, %94 ], [ 0, %81 ], [ 0, %59 ], [ 0, %71 ]
   ret i32 %.3
 }
 

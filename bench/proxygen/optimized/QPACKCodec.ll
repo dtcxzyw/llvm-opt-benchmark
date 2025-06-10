@@ -3131,7 +3131,7 @@ invoke.cont:                                      ; preds = %sw.bb.i
   store i64 %7, ptr %size_13, align 8
   %8 = load ptr, ptr %this, align 8
   %9 = load ptr, ptr %nascent, align 8
-  %sub.ptr.sub.i = add i64 %7, 1
+  %sub.ptr.sub.i = add nsw i64 %7, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %8, i64 %sub.ptr.sub.i, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %t.i, ptr noundef nonnull align 8 dereferenceable(24) %nascent, i64 24, i1 false)
@@ -3213,7 +3213,7 @@ if.then:                                          ; preds = %entry
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %size_.i, align 8
   %data_6.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 8
-  %sub.ptr.sub.i.i = add i64 %5, 1
+  %sub.ptr.sub.i.i = add nsw i64 %5, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data_6.i, ptr align 1 %4, i64 %sub.ptr.sub.i.i, i1 false)
   %6 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8

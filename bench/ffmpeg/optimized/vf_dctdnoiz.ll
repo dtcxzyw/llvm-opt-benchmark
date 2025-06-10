@@ -695,7 +695,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %17 = load i32, ptr %16, align 8, !tbaa !24
   %18 = sub nsw i32 %12, %17
   %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 -1)
-  %spec.select = add i32 %19, 1
+  %spec.select = add nsw i32 %19, 1
   %20 = add i32 %10, 1
   %21 = sub i32 %20, %17
   %22 = tail call i32 @llvm.smin.i32(i32 %15, i32 %21)

@@ -76,9 +76,8 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
   %9 = add nsw i64 %8, 2147483648
   %10 = lshr i64 %9, 32
   %11 = trunc nuw i64 %10 to i32
-  %.not55 = icmp slt i32 %.04863, %11
   %12 = add nsw i32 %.04863, 1
-  %spec.select = select i1 %.not55, i32 %11, i32 %12
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %11, i32 %12)
   %13 = icmp eq i32 %.04863, 0
   %14 = icmp sgt i32 %.04863, 255
   %or.cond.not61 = or i1 %13, %14
@@ -113,8 +112,8 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
   %29 = add i32 %2, 1
   br label %30
 
-30:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next.pre-phi, %48 ]
+30:                                               ; preds = %.lr.ph, %47
+  %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next.pre-phi, %47 ]
   %31 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1, !tbaa !17
   %.not53 = icmp eq i8 %32, 0
@@ -123,7 +122,7 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
 ._crit_edge:                                      ; preds = %30
   %.pre = add nsw i64 %indvars.iv, 1
   %.pre74 = trunc i64 %.pre to i32
-  br label %48
+  br label %47
 
 33:                                               ; preds = %30
   %34 = shl nsw i64 %indvars.iv, 24
@@ -136,38 +135,36 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
   %41 = add nsw i64 %40, 2147483648
   %42 = lshr i64 %41, 32
   %43 = trunc nuw i64 %42 to i32
-  %44 = ashr i64 %41, 32
-  %.not54 = icmp slt i64 %indvars.iv, %44
-  %45 = add nsw i64 %indvars.iv, 1
-  %46 = trunc i64 %45 to i32
-  %spec.select58 = select i1 %.not54, i32 %43, i32 %46
+  %44 = add nsw i64 %indvars.iv, 1
+  %45 = trunc i64 %44 to i32
+  %spec.select58 = tail call i32 @llvm.smax.i32(i32 %43, i32 %45)
   %.247 = tail call i32 @llvm.smin.i32(i32 %spec.select58, i32 %2)
-  %47 = trunc i32 %.247 to i8
-  store i8 %47, ptr %31, align 1, !tbaa !17
-  br label %48
+  %46 = trunc i32 %.247 to i8
+  store i8 %46, ptr %31, align 1, !tbaa !17
+  br label %47
 
-48:                                               ; preds = %._crit_edge, %33
-  %lftr.wideiv.pre-phi = phi i32 [ %.pre74, %._crit_edge ], [ %46, %33 ]
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %45, %33 ]
+47:                                               ; preds = %._crit_edge, %33
+  %lftr.wideiv.pre-phi = phi i32 [ %.pre74, %._crit_edge ], [ %45, %33 ]
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %44, %33 ]
   %exitcond69.not = icmp eq i32 %lftr.wideiv.pre-phi, %29
   br i1 %exitcond69.not, label %.preheader.preheader, label %30, !llvm.loop !21
 
-.preheader.preheader:                             ; preds = %48, %26
+.preheader.preheader:                             ; preds = %47, %26
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 1, %.preheader.preheader ]
-  %49 = sub nuw nsw i64 256, %indvars.iv70
-  %50 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !17
-  %52 = sub i8 0, %51
-  %53 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv70
-  store i8 %52, ptr %53, align 1, !tbaa !17
+  %48 = sub nuw nsw i64 256, %indvars.iv70
+  %49 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !17
+  %51 = sub i8 0, %50
+  %52 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv70
+  store i8 %51, ptr %52, align 1, !tbaa !17
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 255
-  br i1 %exitcond73.not, label %54, label %.preheader, !llvm.loop !22
+  br i1 %exitcond73.not, label %53, label %.preheader, !llvm.loop !22
 
-54:                                               ; preds = %.preheader
+53:                                               ; preds = %.preheader
   ret void
 }
 
@@ -374,6 +371,9 @@ renorm_encoder.exit:                              ; preds = %._crit_edge.i, %74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

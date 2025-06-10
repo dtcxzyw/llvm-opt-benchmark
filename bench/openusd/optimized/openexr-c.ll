@@ -26017,7 +26017,7 @@ libdeflate_adler32.exit.i:                        ; preds = %206, %203
   %.0.i40.i = phi i32 [ %208, %206 ], [ 1, %203 ]
   %209 = call i32 @llvm.bswap.i32(i32 %.0.i40.i)
   store i32 %209, ptr %204, align 1
-  %210 = add i64 %.0.i44.i, 6
+  %210 = add nsw i64 %.0.i44.i, 6
   br label %libdeflate_zlib_compress.exit
 
 libdeflate_zlib_compress.exit:                    ; preds = %136, %libdeflate_deflate_compress.exit.thread.i, %libdeflate_deflate_compress.exit.i, %libdeflate_adler32.exit.i
@@ -47320,7 +47320,7 @@ internal_rle_decompress.exit.i:                   ; preds = %57, %50, %46, %41, 
   br i1 %or.cond50.i.i.i.i, label %113, label %libdeflate_zlib_decompress_ex.exit.i.i.i
 
 113:                                              ; preds = %105
-  %gepdiff.i.i.i.i = add i64 %4, -6
+  %gepdiff.i.i.i.i = add nsw i64 %4, -6
   %114 = load volatile ptr, ptr @decompress_impl, align 8
   %115 = call i32 %114(ptr noundef nonnull %101, ptr noundef nonnull %107, i64 noundef %gepdiff.i.i.i.i, ptr noundef %88, i64 noundef %89, ptr noundef nonnull %12, ptr noundef nonnull %13) #51
   %.not46.i.i.i.i = icmp eq i32 %115, 0
@@ -47343,7 +47343,7 @@ libdeflate_adler32.exit.i.i.i.i:                  ; preds = %120, %116
   %.0.copyload.i.i.i.i = load i32, ptr %118, align 1
   %124 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i)
   %.not48.i.not.i.i.i = icmp eq i32 %.0.i.i.i.i.i, %124
-  %125 = add i64 %117, 6
+  %125 = add nsw i64 %117, 6
   %spec.select20.i.i.i = select i1 %.not48.i.not.i.i.i, i64 %125, i64 undef
   br label %libdeflate_zlib_decompress_ex.exit.i.i.i
 
@@ -48037,7 +48037,7 @@ applyLut.exit.i:                                  ; preds = %.lr.ph.i168.i, %._c
   br i1 %or.cond50.i.i.i.i84, label %440, label %libdeflate_zlib_decompress_ex.exit.i.i.i85
 
 440:                                              ; preds = %432
-  %gepdiff.i.i.i.i95 = add i64 %4, -6
+  %gepdiff.i.i.i.i95 = add nsw i64 %4, -6
   %441 = load volatile ptr, ptr @decompress_impl, align 8
   %442 = call i32 %441(ptr noundef nonnull %428, ptr noundef nonnull %434, i64 noundef %gepdiff.i.i.i.i95, ptr noundef %415, i64 noundef %6, ptr noundef nonnull %10, ptr noundef nonnull %11) #51
   %.not46.i.i.i.i96 = icmp eq i32 %442, 0
@@ -48060,7 +48060,7 @@ libdeflate_adler32.exit.i.i.i.i97:                ; preds = %447, %443
   %.0.copyload.i.i.i.i99 = load i32, ptr %445, align 1
   %451 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i99)
   %.not48.i.not.i.i.i100 = icmp eq i32 %.0.i.i.i.i.i98, %451
-  %452 = add i64 %444, 6
+  %452 = add nsw i64 %444, 6
   %spec.select20.i.i.i101 = select i1 %.not48.i.not.i.i.i100, i64 %452, i64 undef
   br label %libdeflate_zlib_decompress_ex.exit.i.i.i85
 
@@ -48593,7 +48593,7 @@ define internal fastcc range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef r
   br i1 %or.cond50.i, label %27, label %libdeflate_zlib_decompress_ex.exit
 
 27:                                               ; preds = %19
-  %gepdiff.i = add i64 %2, -6
+  %gepdiff.i = add nsw i64 %2, -6
   %28 = load volatile ptr, ptr @decompress_impl, align 8
   %29 = call i32 %28(ptr noundef nonnull %15, ptr noundef nonnull %21, i64 noundef %gepdiff.i, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7, ptr noundef %5) #51
   %.not46.i = icmp eq i32 %29, 0
@@ -48624,7 +48624,7 @@ libdeflate_adler32.exit.i:                        ; preds = %37, %33
   %.0.copyload.i = load i32, ptr %35, align 1
   %40 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %.not48.i.not = icmp eq i32 %.0.i.i, %40
-  %41 = add i64 %34, 6
+  %41 = add nsw i64 %34, 6
   %spec.select20 = select i1 %.not48.i.not, i64 %41, i64 undef
   br label %libdeflate_zlib_decompress_ex.exit
 

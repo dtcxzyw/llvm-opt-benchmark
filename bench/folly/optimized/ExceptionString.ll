@@ -1282,8 +1282,8 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallo
   store i64 %40, ptr %41, align 8, !tbaa !21
   %42 = load ptr, ptr %0, align 8, !tbaa !21
   %43 = load ptr, ptr %5, align 8, !tbaa !21
-  %44 = add i64 %40, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %42, i64 %44, i1 false)
+  %44 = add nuw nsw i64 %40, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %42, i64 %44, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !22
@@ -1433,8 +1433,8 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE7unshareEm(ptr noundef nonn
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = add i64 %10, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %8, i64 %12, i1 false)
+  %12 = add nuw nsw i64 %10, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 %12, i1 false)
   %13 = load ptr, ptr %0, align 8, !tbaa !21
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = atomicrmw sub ptr %14, i64 1 acq_rel, align 8

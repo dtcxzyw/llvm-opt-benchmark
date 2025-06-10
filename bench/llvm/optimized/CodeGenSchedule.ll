@@ -27496,7 +27496,7 @@ _ZSt13__lower_boundIPKPKN4llvm18CodeGenInstructionENS0_9StringRefEN9__gnu_cxx5__
   %.0.lcssa.i.i = phi ptr [ %.028.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_111InstRegexOp5applyERN4llvm9SetTheoryEPKNS4_7DagInitERNS4_14SmallSetVectorIPKNS4_6RecordELj16EEENS4_8ArrayRefINS4_5SMLocEEEE4CompEclIKNS4_9StringRefEPKPKNS4_18CodeGenInstructionEEEbRT_T0_.exit.thread.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_111InstRegexOp5applyERN4llvm9SetTheoryEPKNS4_7DagInitERNS4_14SmallSetVectorIPKNS4_6RecordELj16EEENS4_8ArrayRefINS4_5SMLocEEEE4CompEclIPKPKNS4_18CodeGenInstructionEKNS4_9StringRefEEEbT_RT0_.exit.i.i ]
   %.idx = shl nuw nsw i64 %.01329.i, 3
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %41 = add nuw i64 %.idx24, 8
+  %41 = add nuw nsw i64 %.idx24, 8
   %gepdiff = sub nsw i64 %.idx, %41
   %42 = ashr exact i64 %gepdiff, 3
   %43 = icmp sgt i64 %42, 0

@@ -411,10 +411,10 @@ createShortZone.exit:                             ; preds = %48, %51, %54, %60, 
   %102 = load i64, ptr %101, align 1
   store i64 %102, ptr %4, align 64
   %103 = ptrtoint ptr %98 to i64
-  %104 = add i64 %31, 16
-  %105 = call i64 @llvm.umin.i64(i64 %104, i64 24)
+  %104 = call i64 @llvm.umin.i64(i64 %31, i64 8)
+  %105 = or disjoint i64 %104, 16
   %106 = load i8, ptr %98, align 1
-  %107 = add nuw nsw i64 %105, 8
+  %107 = add nuw nsw i64 %104, 24
   %108 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %107
   store i8 %106, ptr %108, align 1
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -473,7 +473,7 @@ createShortZone.exit:                             ; preds = %48, %51, %54, %60, 
   %140 = sub i8 16, %139
   store i8 %140, ptr %133, align 64
   %141 = getelementptr inbounds i8, ptr %132, i64 %spec.select40.i.neg
-  %142 = add i64 %spec.select40.i.neg, %24
+  %142 = add nsw i64 %spec.select40.i.neg, %24
   %143 = call i64 @llvm.umin.i64(i64 %142, i64 24)
   %144 = add nuw nsw i64 %143, %spec.select40.i
   %145 = getelementptr inbounds nuw [64 x i8], ptr %.036.i.sroa.phi, i64 0, i64 %144

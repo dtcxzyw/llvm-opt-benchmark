@@ -16,19 +16,19 @@ define internal void @lv_animimg_constructor(ptr readnone captures(none) %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i8 -1, ptr %4, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  tail call void @lv_anim_init(ptr noundef nonnull %5) #4
-  tail call void @lv_anim_set_var(ptr noundef nonnull %5, ptr noundef %1) #4
-  tail call void @lv_anim_set_duration(ptr noundef nonnull %5, i32 noundef 30) #4
-  tail call void @lv_anim_set_exec_cb(ptr noundef nonnull %5, ptr noundef nonnull @index_change) #4
-  tail call void @lv_anim_set_values(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1) #4
-  tail call void @lv_anim_set_repeat_count(ptr noundef nonnull %5, i32 noundef -1) #4
+  tail call void @lv_anim_init(ptr noundef nonnull %5) #5
+  tail call void @lv_anim_set_var(ptr noundef nonnull %5, ptr noundef %1) #5
+  tail call void @lv_anim_set_duration(ptr noundef nonnull %5, i32 noundef 30) #5
+  tail call void @lv_anim_set_exec_cb(ptr noundef nonnull %5, ptr noundef nonnull @index_change) #5
+  tail call void @lv_anim_set_values(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1) #5
+  tail call void @lv_anim_set_repeat_count(ptr noundef nonnull %5, i32 noundef -1) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_animimg_create(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_animimg_class, ptr noundef %0) #4
-  tail call void @lv_obj_class_init_obj(ptr noundef %2) #4
+  %2 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_animimg_class, ptr noundef %0) #5
+  tail call void @lv_obj_class_init_obj(ptr noundef %2) #5
   ret ptr %2
 }
 
@@ -52,7 +52,7 @@ define void @lv_animimg_set_src(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   store i8 %6, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = trunc i64 %2 to i32
-  tail call void @lv_anim_set_values(ptr noundef nonnull %8, i32 noundef 0, i32 noundef %9) #4
+  tail call void @lv_anim_set_values(ptr noundef nonnull %8, i32 noundef 0, i32 noundef %9) #5
   ret void
 }
 
@@ -68,7 +68,7 @@ define void @lv_animimg_start(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = tail call ptr @lv_anim_start(ptr noundef nonnull %3) #4
+  %4 = tail call ptr @lv_anim_start(ptr noundef nonnull %3) #5
   ret void
 }
 
@@ -84,8 +84,8 @@ define void @lv_animimg_set_duration(ptr noundef %0, i32 noundef %1) local_unnam
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @lv_anim_set_duration(ptr noundef nonnull %4, i32 noundef %1) #4
-  tail call void @lv_anim_set_reverse_delay(ptr noundef nonnull %4, i32 noundef %1) #4
+  tail call void @lv_anim_set_duration(ptr noundef nonnull %4, i32 noundef %1) #5
+  tail call void @lv_anim_set_reverse_delay(ptr noundef nonnull %4, i32 noundef %1) #5
   ret void
 }
 
@@ -103,7 +103,7 @@ define void @lv_animimg_set_repeat_count(ptr noundef %0, i32 noundef %1) local_u
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @lv_anim_set_repeat_count(ptr noundef nonnull %4, i32 noundef %1) #4
+  tail call void @lv_anim_set_repeat_count(ptr noundef nonnull %4, i32 noundef %1) #5
   ret void
 }
 
@@ -147,7 +147,7 @@ define i32 @lv_animimg_get_duration(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = tail call i32 @lv_anim_get_time(ptr noundef nonnull %3) #4
+  %4 = tail call i32 @lv_anim_get_time(ptr noundef nonnull %3) #5
   ret i32 %4
 }
 
@@ -163,7 +163,7 @@ define i32 @lv_animimg_get_repeat_count(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = tail call i32 @lv_anim_get_repeat_count(ptr noundef nonnull %3) #4
+  %4 = tail call i32 @lv_anim_get_repeat_count(ptr noundef nonnull %3) #5
   ret i32 %4
 }
 
@@ -199,13 +199,12 @@ define internal void @index_change(ptr noundef %0, i32 noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i8, ptr %7, align 8, !tbaa !19
   %9 = sext i8 %8 to i32
-  %.not = icmp slt i32 %1, %9
   %10 = add nsw i32 %9, -1
-  %spec.select = select i1 %.not, i32 %1, i32 %10
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %10)
   %11 = sext i32 %spec.select to i64
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  tail call void @lv_image_set_src(ptr noundef nonnull %0, ptr noundef %13) #4
+  tail call void @lv_image_set_src(ptr noundef nonnull %0, ptr noundef %13) #5
   br label %14
 
 14:                                               ; preds = %2, %6
@@ -214,11 +213,15 @@ define internal void @index_change(ptr noundef %0, i32 noundef %1) #0 {
 
 declare void @lv_image_set_src(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -275,9 +275,8 @@ define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly captures(non
   tail call void @BIO_clear_retry_flags(ptr noundef %0) #9
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = trunc i64 %6 to i32
-  %.not = icmp sgt i32 %2, %7
   %8 = add nsw i32 %2, -1
-  %spec.select = select i1 %.not, i32 %7, i32 %8
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %7, i32 %8)
   %9 = icmp slt i32 %spec.select, 1
   br i1 %9, label %10, label %13
 

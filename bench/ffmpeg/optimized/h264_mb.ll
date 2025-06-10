@@ -10305,8 +10305,7 @@ get_lowest_part_y.exit:                           ; preds = %get_lowest_part_y.e
   %979 = xor i32 %978, 1
   %980 = sub nsw i32 %977, %979
   %981 = add nsw i32 %968, -1
-  %.not150 = icmp slt i32 %980, %968
-  %. = select i1 %.not150, i32 %980, i32 %981
+  %. = tail call i32 @llvm.smin.i32(i32 %980, i32 %981)
   tail call void @ff_thread_await_progress(ptr noundef nonnull %976, i32 noundef %., i32 noundef 1) #7
   %982 = load ptr, ptr %962, align 8, !tbaa !193
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 8
@@ -10322,9 +10321,8 @@ get_lowest_part_y.exit:                           ; preds = %get_lowest_part_y.e
 987:                                              ; preds = %985
   %988 = shl nsw i32 %970, 1
   %989 = add nsw i32 %988, %961
-  %.not147 = icmp slt i32 %989, %968
   %990 = add nsw i32 %968, -1
-  %991 = select i1 %.not147, i32 %989, i32 %990
+  %991 = tail call i32 @llvm.smin.i32(i32 %989, i32 %990)
   tail call void @ff_thread_await_progress(ptr noundef nonnull %986, i32 noundef %991, i32 noundef 0) #7
   br label %997
 

@@ -1280,7 +1280,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit: ;
   %88 = load i64, ptr %87, align 8, !tbaa !75
   %89 = select i1 %86, i64 %88, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %83, i64 %89
-  %91 = add i64 %89, 16
+  %91 = add nuw nsw i64 %89, 16
   %92 = ashr exact i64 %91, 4
   %93 = getelementptr inbounds %"struct.duckdb_yyjson::yyjson_mut_val", ptr %.079108, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %.079108, i64 24

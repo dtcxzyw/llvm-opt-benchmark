@@ -3318,9 +3318,8 @@ if.end27:                                         ; preds = %if.end23
   %3 = trunc nuw i32 %shl to i8
   %conv31 = or i8 %2, %3
   store i8 %conv31, ptr %arrayidx29, align 1
-  %cmp32.not = icmp ult i32 %1, %maxcpu.0.ph
   %add = add nuw nsw i32 %1, 1
-  %spec.select = select i1 %cmp32.not, i32 %maxcpu.0.ph, i32 %add
+  %spec.select = call i32 @llvm.umax.i32(i32 %maxcpu.0.ph, i32 %add)
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.preheader, %if.end27
@@ -6096,6 +6095,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15

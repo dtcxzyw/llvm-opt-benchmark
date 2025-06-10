@@ -1200,16 +1200,15 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   %114 = lshr i32 %113, 8
   %115 = and i32 %114, 65535
   store i32 %115, ptr %112, align 4, !tbaa !6
-  %.not84.i = icmp slt i32 %115, %.268.i133
   %116 = add nuw nsw i32 %115, 1
-  %spec.select.i = select i1 %.not84.i, i32 %.268.i133, i32 %116
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %.268.i133, i32 %116)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %111, %107
   %.268.i.lcssa = phi i32 [ 1, %107 ], [ %spec.select.i, %111 ]
-  %117 = icmp sgt i32 %.268.i.lcssa, 1000
+  %117 = icmp samesign ugt i32 %.268.i.lcssa, 1000
   %118 = mul nsw i32 %.1, %1
   %119 = icmp sgt i32 %.268.i.lcssa, %118
   %or.cond.i = select i1 %117, i1 true, i1 %119

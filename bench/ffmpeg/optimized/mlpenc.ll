@@ -6499,7 +6499,7 @@ copy_restart_frame_params.exit.i:                 ; preds = %.split.us.i97.i
   %3083 = add nsw i32 %3073, %.0.i90.i.i
   %3084 = getelementptr inbounds nuw i8, ptr %3058, i64 16
   %3085 = call i32 @llvm.smax.i32(i32 %3081, i32 -16385)
-  %3086 = add i32 %3085, 1
+  %3086 = add nsw i32 %3085, 1
   store i32 %3086, ptr %3082, align 4, !tbaa !225
   %3087 = call i32 @llvm.smin.i32(i32 %3083, i32 16383)
   store i32 %3087, ptr %3084, align 4, !tbaa !226

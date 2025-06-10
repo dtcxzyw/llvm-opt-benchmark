@@ -425,7 +425,7 @@ _ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit: ; preds = %_
   %145 = load i64, ptr %91, align 8, !noalias !10
   %146 = add i64 %145, 63
   %147 = and i64 %146, -64
-  %148 = add i64 %147, %90
+  %148 = add nuw nsw i64 %147, %90
   %.not.i.i66.i = icmp ult i64 %148, 4294967296
   br i1 %.not.i.i66.i, label %154, label %149
 

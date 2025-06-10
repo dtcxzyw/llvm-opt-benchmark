@@ -82177,7 +82177,7 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %6
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %3, i64 %11
   %43 = getelementptr inbounds i8, ptr %42, i64 %38
-  %.pre186 = add i64 %11, %38
+  %.pre186 = add nsw i64 %11, %38
   br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
 
 44:                                               ; preds = %34
@@ -82190,7 +82190,7 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %6
 49:                                               ; preds = %44
   %50 = getelementptr inbounds i8, ptr %1, i64 %14
   %51 = getelementptr inbounds i8, ptr %50, i64 %46
-  %.pre182 = add i64 %14, %46
+  %.pre182 = add nsw i64 %14, %46
   br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit
 
 _ZN19duckdb_jaro_winkler6detail11jaro_boundsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES5_EElT_RSD_T0_RSF_.exit: ; preds = %36, %41, %44, %49
@@ -83473,7 +83473,7 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %5
   %43 = getelementptr inbounds i8, ptr %2, i64 %12
   %44 = getelementptr inbounds i8, ptr %43, i64 %39
   %.pre220 = ptrtoint ptr %44 to i64
-  %.pre222 = add i64 %12, %39
+  %.pre222 = add nsw i64 %12, %39
   br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIPKcS3_EElT_RS4_T0_RS6_.exit
 
 45:                                               ; preds = %35
@@ -83487,7 +83487,7 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %5
   %51 = getelementptr inbounds i8, ptr %0, i64 %15
   %52 = getelementptr inbounds i8, ptr %51, i64 %47
   %.pre217 = ptrtoint ptr %52 to i64
-  %.pre218 = add i64 %15, %47
+  %.pre218 = add nsw i64 %15, %47
   br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIPKcS3_EElT_RS4_T0_RS6_.exit
 
 _ZN19duckdb_jaro_winkler6detail11jaro_boundsIPKcS3_EElT_RS4_T0_RS6_.exit: ; preds = %37, %42, %45, %50

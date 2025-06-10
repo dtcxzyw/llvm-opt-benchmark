@@ -5155,7 +5155,7 @@ locale_getKeywordsStart_77.exit:                  ; preds = %13
   br i1 %.not77.not, label %.thread114, label %100
 
 100:                                              ; preds = %locale_getKeywordsStart_77.exit
-  %101 = add nuw i64 %99, 1
+  %101 = add nuw nsw i64 %99, 1
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 %101
   %103 = sub i64 %0, %101
   %.not153 = icmp eq i64 %103, 0

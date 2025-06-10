@@ -835,7 +835,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   %73 = getelementptr inbounds i8, ptr %68, i64 -8
   store i64 %spec.store.select56, ptr %73, align 8, !tbaa !62
   store ptr %69, ptr %23, align 8, !tbaa !53
-  %74 = add i64 %.035, -32
+  %74 = add nsw i64 %.035, -32
   %75 = icmp ugt i64 %1, %74
   br i1 %75, label %_ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__chunk_footerEEEPvRT0_mm.exit48, label %76
 

@@ -1319,7 +1319,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   store ptr %47, ptr %.sroa.19.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 64
   store ptr %53, ptr %.sroa.20.0..sroa_idx, align 8
-  %62 = add i64 %11, 30
+  %62 = add nsw i64 %11, 30
   %63 = add i64 %62, %56
   %64 = add i64 %63, %44
   %65 = add i64 %64, %50
@@ -1814,7 +1814,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8Iterator13_Ite
   store ptr %43, ptr %.sroa.19.0..sroa_idx, align 8
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 64
   store ptr %49, ptr %.sroa.20.0..sroa_idx, align 8
-  %59 = add i64 %2, 30
+  %59 = add nsw i64 %2, 30
   %60 = add i64 %59, %52
   %61 = add i64 %60, %40
   %62 = add i64 %61, %46

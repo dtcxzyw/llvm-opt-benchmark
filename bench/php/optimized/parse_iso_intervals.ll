@@ -163,7 +163,7 @@ add_error.exit:                                   ; preds = %.loopexit208
   %92 = ptrtoint ptr %59 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   store ptr null, ptr %8, align 8, !tbaa !44
-  %93 = icmp ugt i64 %55, 9223372036854775787
+  %93 = icmp slt i64 %55, 0
   br i1 %93, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %52

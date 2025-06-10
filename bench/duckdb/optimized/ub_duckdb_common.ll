@@ -270676,7 +270676,7 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %5
   %42 = getelementptr inbounds i8, ptr %2, i64 %11
   %43 = getelementptr inbounds i8, ptr %42, i64 %38
   %.pre245 = ptrtoint ptr %43 to i64
-  %.pre247 = add i64 %11, %38
+  %.pre247 = add nsw i64 %11, %38
   br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIPKcS3_EElT_RS4_T0_RS6_.exit
 
 44:                                               ; preds = %34
@@ -270690,7 +270690,7 @@ _ZN19duckdb_jaro_winkler6detailL18jaro_length_filterElld.exit: ; preds = %5
   %50 = getelementptr inbounds i8, ptr %0, i64 %14
   %51 = getelementptr inbounds i8, ptr %50, i64 %46
   %.pre242 = ptrtoint ptr %51 to i64
-  %.pre243 = add i64 %14, %46
+  %.pre243 = add nsw i64 %14, %46
   br label %_ZN19duckdb_jaro_winkler6detail11jaro_boundsIPKcS3_EElT_RS4_T0_RS6_.exit
 
 _ZN19duckdb_jaro_winkler6detail11jaro_boundsIPKcS3_EElT_RS4_T0_RS6_.exit: ; preds = %36, %41, %44, %49

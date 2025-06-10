@@ -121,7 +121,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %15 = load i32, ptr %14, align 8, !tbaa !27
   %16 = sub nsw i32 %13, %15
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
-  %spec.select = add nuw i32 %17, 1
+  %spec.select = add nuw nsw i32 %17, 1
   %18 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %6) #11
   %spec.select37 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %18)
   %19 = tail call i32 @ff_filter_execute(ptr noundef nonnull %6, ptr noundef nonnull @extract_lines, ptr noundef %1, ptr noundef null, i32 noundef %spec.select37) #10

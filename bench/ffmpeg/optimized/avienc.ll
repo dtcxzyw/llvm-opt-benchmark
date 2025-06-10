@@ -247,9 +247,8 @@ avi_start_new_riff.exit:                          ; preds = %37, %._crit_edge.th
   %94 = fptosi double %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %96 = load i32, ptr %95, align 8, !tbaa !63
-  %.not318 = icmp sgt i32 %96, %94
   %97 = add nsw i32 %94, 1
-  %98 = select i1 %.not318, i32 %96, i32 %97
+  %98 = tail call i32 @llvm.smax.i32(i32 %96, i32 %97)
   store i32 %98, ptr %95, align 8, !tbaa !63
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.16, double noundef %.0301, double noundef %92, i32 noundef %98) #10
   br label %99

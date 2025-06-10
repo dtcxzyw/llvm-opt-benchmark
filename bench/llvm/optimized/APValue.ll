@@ -8761,7 +8761,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %27, %30
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = add i64 %.086, -1
+  %51 = add nsw i64 %.086, -1
   %52 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %.058, i64 %51, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit

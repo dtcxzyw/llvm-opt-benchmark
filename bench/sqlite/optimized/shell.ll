@@ -44363,7 +44363,7 @@ define internal fastcc i32 @zipfileSerializeCDS(ptr noundef nonnull captures(non
 186:                                              ; preds = %168, %162
   %.sink = phi i64 [ 9, %168 ], [ %167, %162 ]
   %187 = add nuw nsw i64 %159, 46
-  %188 = add nsw i64 %187, %.sink
+  %188 = add nuw nsw i64 %187, %.sink
   %189 = trunc nsw i64 %188 to i32
   ret i32 %189
 }

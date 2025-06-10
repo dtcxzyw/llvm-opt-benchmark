@@ -28464,7 +28464,7 @@ _ZN4Luau19EqSatSimplification5QueryINS0_8NegationEE5beginEv.exit: ; preds = %154
 
 .lr.ph:                                           ; preds = %_ZN4Luau19EqSatSimplification5QueryINS0_8NegationEE5beginEv.exit
   %.idx = shl nsw i64 %.082807, 2
-  %162 = add i64 %.idx, 4
+  %162 = add nsw i64 %.idx, 4
   %gepdiff = sub i64 %108, %162
   br label %163
 
@@ -31762,7 +31762,7 @@ _ZN4Luau19EqSatSimplification5QueryINS0_6TBoundEE5beginEv.exit: ; preds = %161, 
 
 .lr.ph397:                                        ; preds = %_ZN4Luau19EqSatSimplification5QueryINS0_6TBoundEE5beginEv.exit
   %.idx = shl nsw i64 %.0398, 2
-  %169 = add i64 %.idx, 4
+  %169 = add nsw i64 %.idx, 4
   %gepdiff = sub i64 %111, %169
   br label %170
 
@@ -33259,7 +33259,7 @@ _ZN4Luau19EqSatSimplification5QueryINS0_6TBoundEE5beginEv.exit: ; preds = %169, 
 
 .lr.ph541:                                        ; preds = %_ZN4Luau19EqSatSimplification5QueryINS0_6TBoundEE5beginEv.exit
   %.idx621 = shl nsw i64 %.0542, 2
-  %177 = add i64 %.idx621, 4
+  %177 = add nsw i64 %.idx621, 4
   %gepdiff622 = sub i64 %114, %177
   br label %178
 
@@ -33991,7 +33991,7 @@ _ZN4Luau19EqSatSimplification13QueryIteratorINS0_12IntersectionEEppEv.exit: ; pr
   br i1 %.not.i.i102, label %478, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4Luau5EqSat2IdESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4Luau5EqSat2IdESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %477 = add i64 %.idx, 4
+  %477 = add nsw i64 %.idx, 4
   %gepdiff = sub i64 %411, %477
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %475, ptr nonnull align 4 %476, i64 %gepdiff, i1 false)
   br label %478

@@ -147252,7 +147252,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
 
 46:                                               ; preds = %43
   %.idx = shl nsw i64 %.0, 4
-  %47 = add i64 %.idx, -16
+  %47 = add nsw i64 %.idx, -16
   %48 = ashr exact i64 %47, 4
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds %"class.boost::geometry::model::point", ptr %44, i64 %49
@@ -150726,7 +150726,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
 
 46:                                               ; preds = %43
   %.idx = shl nsw i64 %.0, 4
-  %47 = add i64 %.idx, -16
+  %47 = add nsw i64 %.idx, -16
   %48 = ashr exact i64 %47, 4
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds %"class.boost::geometry::model::point.1058", ptr %44, i64 %49
@@ -155275,7 +155275,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry5model5pointIdLm2ENS3_
 
 46:                                               ; preds = %43
   %.idx = shl nsw i64 %.0, 4
-  %47 = add i64 %.idx, -16
+  %47 = add nsw i64 %.idx, -16
   %48 = ashr exact i64 %47, 4
   %49 = sub nsw i64 0, %48
   %50 = getelementptr inbounds %"class.boost::geometry::model::point.1085", ptr %44, i64 %49

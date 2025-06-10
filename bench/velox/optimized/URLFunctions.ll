@@ -35065,7 +35065,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %__first.sroa.0.059.i.i.i, %if.else15.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i16.i.i.i.idx = shl nuw nsw i64 %__len.060.i.i.i, 3
   %incdec.ptr.i21.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %10 = add nuw i64 %add.ptr.i.i.i.i.i.i.idx, 8
+  %10 = add nuw nsw i64 %add.ptr.i.i.i.i.i.i.idx, 8
   %gepdiff = sub nsw i64 %add.ptr.i.i.i16.i.i.i.idx, %10
   %sub.ptr.div.i.i.i.i25.i.i.i = ashr exact i64 %gepdiff, 3
   %cmp7.i26.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i25.i.i.i, 0
@@ -37070,7 +37070,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020
   %__first.sroa.0.0.lcssa.i.i.i.i = phi ptr [ %__first.sroa.0.059.i.i.i, %if.else15.i.i.i ], [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i16.i.i.i.idx = shl nuw nsw i64 %__len.060.i.i.i, 3
   %incdec.ptr.i21.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
-  %10 = add nuw i64 %add.ptr.i.i.i.i.i.i.idx, 8
+  %10 = add nuw nsw i64 %add.ptr.i.i.i.i.i.i.idx, 8
   %gepdiff190 = sub nsw i64 %add.ptr.i.i.i16.i.i.i.idx, %10
   %sub.ptr.div.i.i.i.i25.i.i.i = ashr exact i64 %gepdiff190, 3
   %cmp7.i26.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i25.i.i.i, 0
@@ -37290,7 +37290,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost16re_detail_10740020
   %__first.sroa.0.0.lcssa.i.i.i.i70 = phi ptr [ %__first.sroa.0.059.i.i.i53, %if.else15.i.i.i64 ], [ %__first.sroa.0.1.i.i.i.i110, %while.body.i.i.i.i97 ]
   %add.ptr.i.i.i16.i.i.i73.idx = shl nuw nsw i64 %__len.060.i.i.i52, 3
   %incdec.ptr.i21.i.i.i75 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i57, i64 8
-  %39 = add nuw i64 %add.ptr.i.i.i.i.i.i57.idx, 8
+  %39 = add nuw nsw i64 %add.ptr.i.i.i.i.i.i57.idx, 8
   %gepdiff = sub nsw i64 %add.ptr.i.i.i16.i.i.i73.idx, %39
   %sub.ptr.div.i.i.i.i25.i.i.i79 = ashr exact i64 %gepdiff, 3
   %cmp7.i26.i.i.i80 = icmp sgt i64 %sub.ptr.div.i.i.i.i25.i.i.i79, 0

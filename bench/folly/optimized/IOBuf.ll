@@ -869,7 +869,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly5IOBuf17go
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.0.i.i
   %27 = getelementptr inbounds i8, ptr %26, i64 -32
   call void @_ZN5folly5IOBuf10SharedInfoC1EPFvPvS2_ES2_NS1_11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(31) %27, ptr noundef null, ptr noundef null, i8 noundef zeroext 3)
-  %28 = add i64 %.0.i.i, -32
+  %28 = add nsw i64 %.0.i.i, -32
   store i64 %28, ptr %3, align 8, !tbaa !60
   store ptr %27, ptr %2, align 8, !tbaa !67
   %29 = inttoptr i64 %.0.i.i to ptr
@@ -4096,7 +4096,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly5IOBuf17go
   %131 = getelementptr inbounds nuw i8, ptr %.4, i64 %.1
   %132 = getelementptr inbounds i8, ptr %131, i64 -32
   call void @_ZN5folly5IOBuf10SharedInfoC1EPFvPvS2_ES2_NS1_11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(31) %132, ptr noundef null, ptr noundef null, i8 noundef zeroext 3)
-  %133 = add i64 %.1, -32
+  %133 = add nsw i64 %.1, -32
   %.not67 = icmp eq i8 %130, 0
   br i1 %.not67, label %_ZN5folly5IOBuf10SharedInfo14releaseStorageEPS0_NS1_11StorageTypeEPS1_.exit, label %134
 
@@ -4151,7 +4151,7 @@ define void @_ZN5folly5IOBuf13initExtBufferEPhmPPNS0_10SharedInfoEPm(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %6 = getelementptr inbounds i8, ptr %5, i64 -32
   tail call void @_ZN5folly5IOBuf10SharedInfoC1EPFvPvS2_ES2_NS1_11StorageTypeE(ptr noundef nonnull align 8 dereferenceable(31) %6, ptr noundef null, ptr noundef null, i8 noundef zeroext 3)
-  %7 = add i64 %1, -32
+  %7 = add nsw i64 %1, -32
   store i64 %7, ptr %3, align 8, !tbaa !60
   store ptr %6, ptr %2, align 8, !tbaa !67
   ret void

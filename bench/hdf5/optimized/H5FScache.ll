@@ -2509,7 +2509,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %28, %34, %40, %46, 
   br label %106
 
 106:                                              ; preds = %105, %._crit_edge
-  %107 = add i64 %2, -4
+  %107 = add nsw i64 %2, -4
   %108 = call i32 @H5_checksum_metadata(ptr noundef nonnull %1, i64 noundef %107, i32 noundef 0) #7
   %109 = trunc i32 %108 to i8
   store i8 %109, ptr %99, align 1, !tbaa !35

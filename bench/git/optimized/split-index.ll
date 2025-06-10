@@ -917,8 +917,7 @@ compare_ce_content.exit:                          ; preds = %69
   %112 = mul i32 %.195164, 3
   %113 = add i32 %112, 48
   %114 = sdiv i32 %113, 2
-  %.not127 = icmp sgt i32 %114, %.1102163
-  %. = select i1 %.not127, i32 %114, i32 %110
+  %. = tail call i32 @llvm.smax.i32(i32 %114, i32 %110)
   %115 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
   br i1 %mul.ov.i, label %116, label %st_mult.exit
@@ -1007,8 +1006,7 @@ st_mult.exit:                                     ; preds = %111
   %149 = mul i32 %.599171, 3
   %150 = add i32 %149, 48
   %151 = sdiv i32 %150, 2
-  %.not122 = icmp sgt i32 %151, %.3104170
-  %.140 = select i1 %.not122, i32 %151, i32 %147
+  %.140 = tail call i32 @llvm.smax.i32(i32 %151, i32 %147)
   %152 = sext i32 %.140 to i64
   %mul.ov.i145 = icmp slt i32 %.140, 0
   br i1 %mul.ov.i145, label %153, label %st_mult.exit146
@@ -1369,6 +1367,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

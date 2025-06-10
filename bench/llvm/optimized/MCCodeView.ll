@@ -169,7 +169,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext7addFileERNS_10MCS
   br i1 %20, label %21, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
 
 21:                                               ; preds = %7
-  %22 = add i64 %19, 1
+  %22 = add nuw nsw i64 %19, 1
   %23 = load i64, ptr %13, align 8, !tbaa !47, !noalias !58
   %24 = add i64 %23, %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -191,7 +191,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %28, %21
 30:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
   %31 = load ptr, ptr %12, align 8, !tbaa !46, !noalias !58
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.pre8.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %.ptr.i, i64 %22, i1 false), !noalias !58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 1 dereferenceable(1) %.ptr.i, i64 %22, i1 false), !noalias !58
   %.pre.i.i = load i64, ptr %13, align 8, !tbaa !47, !noalias !58
   br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i
 
@@ -282,7 +282,7 @@ _ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit: ; preds
   br i1 %69, label %70, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit29
 
 70:                                               ; preds = %59
-  %71 = add i64 %66, 1
+  %71 = add nuw nsw i64 %66, 1
   %72 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
   %73 = add i64 %72, %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -303,7 +303,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23: ; preds = %77, %70
 78:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i23
   %79 = load ptr, ptr %12, align 8, !tbaa !46, !noalias !66
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.pre8.i.i24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 1 %.ptr.i21, i64 %71, i1 false), !noalias !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull align 1 dereferenceable(1) %.ptr.i21, i64 %71, i1 false), !noalias !66
   %.pre.i.i26 = load i64, ptr %13, align 8, !tbaa !47, !noalias !66
   br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit.i27
 
@@ -377,7 +377,7 @@ define dso_local void @_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRef
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %4
-  %20 = add i64 %14, 1
+  %20 = add nuw nsw i64 %14, 1
   %21 = load i64, ptr %8, align 8, !tbaa !47
   %22 = add i64 %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -399,7 +399,7 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i:    ; preds = %26, %19
 28:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i
   %29 = load ptr, ptr %7, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.pre8.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %.ptr, i64 %20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %.ptr, i64 %20, i1 false)
   %.pre.i = load i64, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit
 

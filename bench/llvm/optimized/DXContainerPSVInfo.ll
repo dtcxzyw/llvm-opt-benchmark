@@ -1529,7 +1529,7 @@ _ZSt4moveIPN4llvm4dxbc23ProgramSignatureElementES3_ET0_T_S5_S4_.exit: ; preds = 
 
 51:                                               ; preds = %48
   %.idx = shl nsw i64 %.085, 5
-  %52 = add i64 %.idx, -32
+  %52 = add nsw i64 %.idx, -32
   %53 = ashr exact i64 %52, 5
   %54 = sub nsw i64 0, %53
   %55 = getelementptr inbounds %"struct.llvm::dxbc::ProgramSignatureElement", ptr %49, i64 %54

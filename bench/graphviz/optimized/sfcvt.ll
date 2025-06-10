@@ -534,8 +534,8 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
 
 250:                                              ; preds = %248
   %251 = tail call i32 @llvm.smax.i32(i32 %.promoted, i32 0)
-  %narrow389 = add nuw i32 %251, 1
-  %252 = zext i32 %narrow389 to i64
+  %narrow389 = add nuw nsw i32 %251, 1
+  %252 = zext nneg i32 %narrow389 to i64
   %253 = sub nsw i64 %252, %.5276
   %narrow = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %254 = zext nneg i32 %narrow to i64

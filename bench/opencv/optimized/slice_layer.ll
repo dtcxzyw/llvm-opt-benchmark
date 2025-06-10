@@ -1668,7 +1668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %.body
 
 300:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit524, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit524
-  %spec.select = add nuw i32 %288, 1
+  %spec.select = add nuw nsw i32 %288, 1
   %301 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %302 = load ptr, ptr %301, align 8, !tbaa !75
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8

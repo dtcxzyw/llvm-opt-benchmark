@@ -12684,7 +12684,7 @@ define noundef nonnull align 8 dereferenceable(80) ptr @_ZN10tokenizers9tokenize
 
 "_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha29890bd0b704817E.exit.thread39": ; preds = %28
   %38 = zext nneg i8 %30 to i32
-  %39 = add i64 %25, -1
+  %39 = add nsw i64 %25, -1
   br label %70
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h787856fec0661374E.exit19.i.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h787856fec0661374E.exit17.i.i.i"

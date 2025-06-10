@@ -6048,7 +6048,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.sroa.038.054.i.i.i, %184 ], [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i.i, 4
   %193 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %194 = add nuw i64 %.idx159, 16
+  %194 = add nuw nsw i64 %.idx159, 16
   %gepdiff = sub nsw i64 %.idx, %194
   %195 = ashr exact i64 %gepdiff, 4
   %196 = icmp sgt i64 %195, 0
@@ -8678,7 +8678,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4cvc58internal12No
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.sroa.038.054.i.i.i, %216 ], [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4cvc58internal12NodeTemplateILb0EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i.i, 4
   %225 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %226 = add nuw i64 %.idx159, 16
+  %226 = add nuw nsw i64 %.idx159, 16
   %gepdiff = sub nsw i64 %.idx, %226
   %227 = ashr exact i64 %gepdiff, 4
   %228 = icmp sgt i64 %227, 0
@@ -11615,7 +11615,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4cvc58internal12No
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.054.i.i, %40 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i, 4
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %50 = add nuw i64 %.idx47, 16
+  %50 = add nuw nsw i64 %.idx47, 16
   %gepdiff = sub nsw i64 %.idx, %50
   %51 = ashr exact i64 %gepdiff, 4
   %52 = icmp sgt i64 %51, 0
@@ -16265,7 +16265,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4cvc58internal8Typ
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.054.i.i, %40 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImN4cvc58internal8TypeNodeEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i, 4
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %50 = add nuw i64 %.idx47, 16
+  %50 = add nuw nsw i64 %.idx47, 16
   %gepdiff = sub nsw i64 %.idx, %50
   %51 = ashr exact i64 %gepdiff, 4
   %52 = icmp sgt i64 %51, 0
@@ -20846,7 +20846,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairImNSt7__cxx1112basic_
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.054.i.i, %38 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = mul nuw nsw i64 %.02155.i.i, 40
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %48 = add nuw i64 %.idx50, 40
+  %48 = add nuw nsw i64 %.idx50, 40
   %gepdiff = sub nsw i64 %.idx, %48
   %49 = icmp sgt i64 %gepdiff, 0
   br i1 %49, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.lr.ph.i26.i.i, label %.loopexit

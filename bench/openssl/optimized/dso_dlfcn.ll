@@ -28,16 +28,16 @@ define noundef nonnull ptr @DSO_METHOD_openssl() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dlfcn_load(ptr noundef %0) #1 {
-  %2 = tail call ptr @DSO_convert_filename(ptr noundef %0, ptr noundef null) #9
-  %3 = tail call ptr @__errno_location() #10
+  %2 = tail call ptr @DSO_convert_filename(ptr noundef %0, ptr noundef null) #10
+  %3 = tail call ptr @__errno_location() #11
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.dlfcn_load) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 111, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.dlfcn_load) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 111, ptr noundef null) #10
   br label %.thread
 
 7:                                                ; preds = %1
@@ -46,22 +46,22 @@ define internal range(i32 0, 2) i32 @dlfcn_load(ptr noundef %0) #1 {
   %10 = and i32 %9, 32
   %.not = icmp eq i32 %10, 0
   %spec.select = select i1 %.not, i32 2, i32 258
-  %11 = tail call ptr @dlopen(ptr noundef nonnull %2, i32 noundef %spec.select) #9
+  %11 = tail call ptr @dlopen(ptr noundef nonnull %2, i32 noundef %spec.select) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %7
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.dlfcn_load) #9
-  %14 = tail call ptr @dlerror() #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 103, ptr noundef nonnull @.str.2, ptr noundef nonnull %2, ptr noundef %14) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.dlfcn_load) #10
+  %14 = tail call ptr @dlerror() #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 103, ptr noundef nonnull @.str.2, ptr noundef nonnull %2, ptr noundef %14) #10
   br label %.thread
 
 15:                                               ; preds = %7
   store i32 %4, ptr %3, align 4, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !16
-  %18 = tail call i32 @OPENSSL_sk_push(ptr noundef %17, ptr noundef nonnull %11) #9
+  %18 = tail call i32 @OPENSSL_sk_push(ptr noundef %17, ptr noundef nonnull %11) #10
   %.not20 = icmp eq i32 %18, 0
   br i1 %.not20, label %21, label %19
 
@@ -71,15 +71,15 @@ define internal range(i32 0, 2) i32 @dlfcn_load(ptr noundef %0) #1 {
   br label %23
 
 .thread:                                          ; preds = %6, %13
-  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 136) #9
+  tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 136) #10
   br label %23
 
 21:                                               ; preds = %15
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.dlfcn_load) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 105, ptr noundef null) #9
-  tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 136) #9
-  %22 = tail call i32 @dlclose(ptr noundef nonnull %11) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.dlfcn_load) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 105, ptr noundef null) #10
+  tail call void @CRYPTO_free(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 136) #10
+  %22 = tail call i32 @dlclose(ptr noundef nonnull %11) #10
   br label %23
 
 23:                                               ; preds = %.thread, %21, %19
@@ -93,34 +93,34 @@ define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly captures(
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.dlfcn_unload) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 786690, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.dlfcn_unload) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 786690, ptr noundef null) #10
   br label %18
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !16
-  %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #9
+  %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %6) #10
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8, !tbaa !16
-  %11 = tail call ptr @OPENSSL_sk_pop(ptr noundef %10) #9
+  %11 = tail call ptr @OPENSSL_sk_pop(ptr noundef %10) #10
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @__func__.dlfcn_unload) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 104, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @__func__.dlfcn_unload) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 104, ptr noundef null) #10
   %14 = load ptr, ptr %5, align 8, !tbaa !16
-  %15 = tail call i32 @OPENSSL_sk_push(ptr noundef %14, ptr noundef null) #9
+  %15 = tail call i32 @OPENSSL_sk_push(ptr noundef %14, ptr noundef null) #10
   br label %18
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @dlclose(ptr noundef nonnull %11) #9
+  %17 = tail call i32 @dlclose(ptr noundef nonnull %11) #10
   br label %18
 
 18:                                               ; preds = %4, %16, %13, %3
@@ -136,48 +136,48 @@ define internal ptr @dlfcn_bind_func(ptr noundef readonly captures(address_is_nu
   br i1 %or.cond, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @__func__.dlfcn_bind_func) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 786690, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 174, ptr noundef nonnull @__func__.dlfcn_bind_func) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 786690, ptr noundef null) #10
   br label %24
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !16
-  %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #9
+  %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #10
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %6
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.dlfcn_bind_func) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 105, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.dlfcn_bind_func) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 105, ptr noundef null) #10
   br label %24
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %7, align 8, !tbaa !16
-  %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #9
+  %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #10
   %15 = add nsw i32 %14, -1
-  %16 = tail call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %15) #9
+  %16 = tail call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %15) #10
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %12
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.dlfcn_bind_func) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 104, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.dlfcn_bind_func) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 104, ptr noundef null) #10
   br label %24
 
 19:                                               ; preds = %12
-  %20 = tail call ptr @dlsym(ptr noundef nonnull %16, ptr noundef nonnull %1) #9
+  %20 = tail call ptr @dlsym(ptr noundef nonnull %16, ptr noundef nonnull %1) #10
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.dlfcn_bind_func) #9
-  %23 = tail call ptr @dlerror() #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 106, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef %23) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.dlfcn_bind_func) #10
+  %23 = tail call ptr @dlerror() #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 106, ptr noundef nonnull @.str.3, ptr noundef nonnull %1, ptr noundef %23) #10
   br label %24
 
 24:                                               ; preds = %19, %22, %18, %11, %5
@@ -187,14 +187,14 @@ define internal ptr @dlfcn_bind_func(ptr noundef readonly captures(address_is_nu
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @dlfcn_name_converter(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = add i64 %3, 1
-  %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #11
+  %5 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @DSO_flags(ptr noundef %0) #9
+  %8 = tail call i32 @DSO_flags(ptr noundef %0) #10
   %9 = and i32 %8, 2
   %10 = icmp eq i32 %9, 0
   %spec.select.v = select i1 %10, i64 7, i64 4
@@ -205,35 +205,35 @@ define internal ptr @dlfcn_name_converter(ptr noundef %0, ptr noundef %1) #1 {
   %.021 = phi i64 [ %4, %2 ], [ %spec.select, %7 ]
   %sext = shl i64 %.021, 32
   %12 = ashr exact i64 %sext, 32
-  %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str.1, i32 noundef 261) #9
+  %13 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %12, ptr noundef nonnull @.str.1, i32 noundef 261) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.dlfcn_name_converter) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 109, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.dlfcn_name_converter) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 109, ptr noundef null) #10
   br label %27
 
 16:                                               ; preds = %11
   br i1 %6, label %17, label %25
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @DSO_flags(ptr noundef %0) #9
+  %18 = tail call i32 @DSO_flags(ptr noundef %0) #10
   %19 = and i32 %18, 2
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #9
+  %22 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #10
   br label %27
 
 23:                                               ; preds = %17
-  %24 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #9
+  %24 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #10
   br label %27
 
 25:                                               ; preds = %16
-  %26 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull %1) #9
+  %26 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef nonnull @.str.6, ptr noundef nonnull %1) #10
   br label %27
 
 27:                                               ; preds = %25, %23, %21, %15
@@ -248,9 +248,9 @@ define internal ptr @dlfcn_merger(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %or.cond, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.dlfcn_merger) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 786690, ptr noundef null) #9
+  tail call void @ERR_new() #10
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.dlfcn_merger) #10
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 37, i32 noundef 786690, ptr noundef null) #10
   br label %.critedge44
 
 7:                                                ; preds = %3
@@ -265,18 +265,18 @@ define internal ptr @dlfcn_merger(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9, %7
-  %13 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 209) #9
+  %13 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 209) #10
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge44, label %41
 
 .critedge:                                        ; preds = %8
-  %15 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 217) #9
+  %15 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef 217) #10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.critedge44, label %41
 
 17:                                               ; preds = %9
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #12
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %20 = add i64 %19, %18
   %21 = and i64 %18, 4294967295
   %.not = icmp eq i64 %21, 0
@@ -302,18 +302,18 @@ define internal ptr @dlfcn_merger(ptr readnone captures(none) %0, ptr noundef %1
   %32 = shl i64 %.0, 32
   %sext41 = add i64 %32, 8589934592
   %33 = ashr exact i64 %sext41, 32
-  %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %33, ptr noundef nonnull @.str.1, i32 noundef 237) #9
+  %34 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %33, ptr noundef nonnull @.str.1, i32 noundef 237) #10
   %.not42 = icmp eq ptr %34, null
   br i1 %.not42, label %.critedge44, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %2) #9
+  %36 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %2) #10
   %sext45 = shl i64 %.030, 32
   %37 = ashr exact i64 %sext45, 32
   %38 = getelementptr inbounds i8, ptr %34, i64 %37
   store i8 47, ptr %38, align 1, !tbaa !18
   %39 = getelementptr i8, ptr %38, i64 1
-  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %1) #9
+  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %1) #10
   br label %41
 
 41:                                               ; preds = %35, %.critedge, %12
@@ -328,16 +328,16 @@ define internal ptr @dlfcn_merger(ptr readnone captures(none) %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @dlfcn_pathbyaddr(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #1 {
   %4 = alloca %struct.Dl_info, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %5 = icmp eq ptr %0, null
   %spec.select = select i1 %5, ptr @dlfcn_pathbyaddr, ptr %0
-  %6 = call i32 @dladdr(ptr noundef nonnull %spec.select, ptr noundef nonnull %4) #9
+  %6 = call i32 @dladdr(ptr noundef nonnull %spec.select, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !19
-  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
+  %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #12
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %2, 1
   br i1 %11, label %12, label %14
@@ -347,9 +347,8 @@ define internal range(i32 -2147483647, -2147483648) i32 @dlfcn_pathbyaddr(ptr no
   br label %21
 
 14:                                               ; preds = %7
-  %.not17 = icmp sgt i32 %2, %10
   %15 = add nsw i32 %2, -1
-  %spec.select18 = select i1 %.not17, i32 %10, i32 %15
+  %spec.select18 = call i32 @llvm.smin.i32(i32 %10, i32 %15)
   %16 = sext i32 %spec.select18 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %8, i64 %16, i1 false)
   %17 = add nsw i32 %spec.select18, 1
@@ -358,25 +357,25 @@ define internal range(i32 -2147483647, -2147483648) i32 @dlfcn_pathbyaddr(ptr no
   br label %21
 
 19:                                               ; preds = %3
-  %20 = call ptr @dlerror() #9
-  call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %20) #9
+  %20 = call ptr @dlerror() #10
+  call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef %20) #10
   br label %21
 
 21:                                               ; preds = %19, %14, %12
   %.0 = phi i32 [ %13, %12 ], [ %17, %14 ], [ -1, %19 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @dlfcn_globallookup(ptr noundef %0) #1 {
-  %2 = tail call ptr @dlopen(ptr noundef null, i32 noundef 1) #9
+  %2 = tail call ptr @dlopen(ptr noundef null, i32 noundef 1) #10
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @dlsym(ptr noundef nonnull %2, ptr noundef %0) #9
-  %5 = tail call i32 @dlclose(ptr noundef nonnull %2) #9
+  %4 = tail call ptr @dlsym(ptr noundef nonnull %2, ptr noundef %0) #10
+  %5 = tail call i32 @dlclose(ptr noundef nonnull %2) #10
   br label %6
 
 6:                                                ; preds = %3, %1
@@ -448,6 +447,9 @@ declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #9
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -457,9 +459,10 @@ attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

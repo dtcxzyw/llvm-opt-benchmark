@@ -1066,8 +1066,7 @@ define internal void @unpremultiply16yuv(ptr noundef readonly captures(none) %0,
   %28 = sub nsw i32 %27, %8
   %29 = mul nsw i32 %28, %9
   %30 = sdiv i32 %29, %22
-  %.not66.us = icmp slt i32 %30, %8
-  %..us = select i1 %.not66.us, i32 %30, i32 %14
+  %..us = tail call i32 @llvm.smin.i32(i32 %30, i32 %14)
   %spec.select.us = tail call i32 @llvm.smax.i32(i32 %..us, i32 %15)
   %31 = add nsw i32 %spec.select.us, %8
   %32 = trunc i32 %31 to i16
@@ -1893,13 +1892,13 @@ declare i32 @ff_framesync_activate(ptr noundef) local_unnamed_addr #3
 declare void @ff_avfilter_link_set_in_status(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #10

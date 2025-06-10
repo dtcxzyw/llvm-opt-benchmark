@@ -438,7 +438,7 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %.not51.i.us.us.us.us = icmp slt i32 %113, %50
   %.045.i.us.us.us.us = select nsz i1 %.not51.i.us.us.us.us, float %115, float 1.000000e+00
   %.044.i.us.us.us.us = select nsz i1 %.not51.i.us.us.us.us, float %117, float 0.000000e+00
-  %.042.i.us.us.us.us = select i1 %.not51.i.us.us.us.us, i32 %113, i32 %55
+  %.042.i.us.us.us.us = call i32 @llvm.smin.i32(i32 %113, i32 %55)
   %118 = mul nsw i32 %52, %112
   %119 = mul nsw i32 %.042.i.us.us.us.us, %52
   br label %120
@@ -460,7 +460,7 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %.not.i82.us.us.us.us = icmp slt i32 %127, %52
   %.046.i.us.us.us.us = select nsz i1 %.not.i82.us.us.us.us, float %131, float 0.000000e+00
   %.043.i.us.us.us.us = select nsz i1 %.not.i82.us.us.us.us, float %129, float 1.000000e+00
-  %.0.i.us.us.us.us = select i1 %.not.i82.us.us.us.us, i32 %127, i32 %54
+  %.0.i.us.us.us.us = call i32 @llvm.smin.i32(i32 %127, i32 %54)
   %132 = add nsw i32 %118, %126
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds float, ptr %48, i64 %133
@@ -722,11 +722,11 @@ define internal void @_ZNK4ncnn8ROIAlign7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %.not.i77.us.us.us.us.us.us.us = icmp slt i32 %102, %80
   %.046.i.us.us.us.us.us.us.us = select nsz i1 %.not.i77.us.us.us.us.us.us.us, float %108, float 0.000000e+00
   %.043.i.us.us.us.us.us.us.us = select nsz i1 %.not.i77.us.us.us.us.us.us.us, float %106, float 1.000000e+00
-  %.0.i.us.us.us.us.us.us.us = select i1 %.not.i77.us.us.us.us.us.us.us, i32 %102, i32 %82
+  %.0.i.us.us.us.us.us.us.us = call i32 @llvm.smin.i32(i32 %102, i32 %82)
   %.not51.i.us.us.us.us.us.us.us = icmp slt i32 %104, %78
   %.045.i.us.us.us.us.us.us.us = select nsz i1 %.not51.i.us.us.us.us.us.us.us, float %110, float 1.000000e+00
   %.044.i.us.us.us.us.us.us.us = select nsz i1 %.not51.i.us.us.us.us.us.us.us, float %112, float 0.000000e+00
-  %.042.i.us.us.us.us.us.us.us = select i1 %.not51.i.us.us.us.us.us.us.us, i32 %104, i32 %83
+  %.042.i.us.us.us.us.us.us.us = call i32 @llvm.smin.i32(i32 %104, i32 %83)
   %113 = mul nsw i32 %80, %103
   %114 = add nsw i32 %113, %101
   %115 = sext i32 %114 to i64

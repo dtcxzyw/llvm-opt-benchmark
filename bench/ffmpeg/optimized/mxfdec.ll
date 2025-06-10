@@ -6705,9 +6705,8 @@ define internal i32 @mxf_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
 110:                                              ; preds = %80
   %111 = getelementptr inbounds nuw i8, ptr %.096, i64 88
   %112 = load i64, ptr %111, align 8, !tbaa !136
-  %.not120 = icmp slt i64 %82, %112
   %113 = add nsw i64 %112, -1
-  %114 = select i1 %.not120, i64 %82, i64 %113
+  %114 = tail call i64 @llvm.smin.i64(i64 %82, i64 %113)
   br label %115
 
 115:                                              ; preds = %110, %102

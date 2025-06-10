@@ -88,9 +88,8 @@ X509_NAME_ENTRY_get_data.exit:                    ; preds = %17, %X509_NAME_get_
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %.0.i24, align 8, !tbaa !19
-  %.not = icmp slt i32 %32, %3
   %33 = add nsw i32 %3, -1
-  %34 = select i1 %.not, i32 %32, i32 %33
+  %34 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
   %35 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !22
   %37 = sext i32 %34 to i64

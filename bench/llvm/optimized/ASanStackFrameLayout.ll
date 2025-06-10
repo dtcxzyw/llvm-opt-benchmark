@@ -1185,7 +1185,7 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: ; preds = 
 
 51:                                               ; preds = %48
   %.idx = mul nsw i64 %.085, 56
-  %52 = add i64 %.idx, -56
+  %52 = add nsw i64 %.idx, -56
   %.neg.i.i.i.i.i = sdiv exact i64 %52, -56
   %53 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %49, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %.054, i64 %52, i1 false)

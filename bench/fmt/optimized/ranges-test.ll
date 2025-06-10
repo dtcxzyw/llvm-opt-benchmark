@@ -27522,7 +27522,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   store ptr %336, ptr %303, align 8, !tbaa !84
   %337 = load i32, ptr %331, align 4, !tbaa !295
   %338 = ptrtoint ptr %334 to i64
-  %339 = add i64 %321, 4
+  %339 = add nsw i64 %321, 4
   %340 = ashr exact i64 %339, 2
   %341 = add nsw i64 %340, -1
   %342 = icmp sgt i64 %340, 1

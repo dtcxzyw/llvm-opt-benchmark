@@ -29270,7 +29270,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.0, 2
-  %53 = add i64 %.idx, -4
+  %53 = add nsw i64 %.idx, -4
   %54 = ashr exact i64 %53, 2
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds i32, ptr %48, i64 %55

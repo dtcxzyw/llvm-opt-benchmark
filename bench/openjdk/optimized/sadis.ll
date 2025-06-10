@@ -167,7 +167,7 @@ define void @Java_sun_jvm_hotspot_asm_Disassembler_decode(ptr noundef %0, ptr no
 
 73:                                               ; preds = %57
   %74 = inttoptr i64 %6 to ptr
-  %75 = add i64 %3, %22
+  %75 = add nsw i64 %3, %22
   %76 = call ptr %74(i64 noundef %3, i64 noundef %75, ptr noundef %12, i64 noundef %22, ptr noundef nonnull @event_to_env, ptr noundef nonnull %8, ptr noundef nonnull @printf_to_env, ptr noundef nonnull %8, ptr noundef %26, i32 noundef 0) #6
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1536

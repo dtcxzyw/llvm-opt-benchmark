@@ -6002,7 +6002,7 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
 
 96:                                               ; preds = %94
   %.not232.not = icmp samesign ugt i64 %18, %2
-  %97 = select i1 %.not232.not, i64 %2, i64 %19
+  %97 = tail call i64 @llvm.umin.i64(i64 %2, i64 %19)
   %98 = trunc i32 %90 to i16
   br i1 %.not232.not, label %99, label %103
 
@@ -9294,6 +9294,9 @@ declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

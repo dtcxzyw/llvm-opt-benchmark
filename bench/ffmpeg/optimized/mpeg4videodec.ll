@@ -10063,9 +10063,8 @@ define internal fastcc i32 @get_amv(ptr noundef readonly captures(none) %0, i32 
   %.080 = phi i32 [ %38, %31 ], [ %51, %39 ], [ %97, %95 ], [ %101, %98 ]
   %103 = sub nsw i32 0, %.076
   %104 = icmp slt i32 %.080, %103
-  %.not89 = icmp slt i32 %.080, %.076
   %105 = add nsw i32 %.076, -1
-  %spec.select = select i1 %.not89, i32 %.080, i32 %105
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.080, i32 %105)
   %.3 = select i1 %104, i32 %103, i32 %spec.select
   ret i32 %.3
 }

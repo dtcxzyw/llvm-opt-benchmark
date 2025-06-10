@@ -2939,12 +2939,10 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %545 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %544)
   %spec.select.i = call i32 @llvm.smax.i32(i32 %541, i32 0)
   %.sroa.8.0.i = call i32 @llvm.smax.i32(i32 %545, i32 0)
-  %.not.i = icmp slt i32 %spec.select.i, %533
   %546 = add nsw i32 %533, -1
-  %.sroa.0.1.i = select i1 %.not.i, i32 %spec.select.i, i32 %546
-  %.not23.i = icmp slt i32 %.sroa.8.0.i, %534
+  %.sroa.0.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %546)
   %547 = add nsw i32 %534, -1
-  %.sroa.8.1.i = select i1 %.not23.i, i32 %.sroa.8.0.i, i32 %547
+  %.sroa.8.1.i = call i32 @llvm.smin.i32(i32 %.sroa.8.0.i, i32 %547)
   %548 = icmp sgt i32 %532, 0
   br i1 %548, label %.lr.ph.i, label %._crit_edge.i
 
@@ -6254,12 +6252,10 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; p
   %568 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %567)
   %spec.select.i = call i32 @llvm.smax.i32(i32 %564, i32 0)
   %.sroa.8.0.i = call i32 @llvm.smax.i32(i32 %568, i32 0)
-  %.not.i = icmp slt i32 %spec.select.i, %555
   %569 = add nsw i32 %555, -1
-  %.sroa.0.1.i = select i1 %.not.i, i32 %spec.select.i, i32 %569
-  %.not23.i = icmp slt i32 %.sroa.8.0.i, %556
+  %.sroa.0.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %569)
   %570 = add nsw i32 %556, -1
-  %.sroa.8.1.i = select i1 %.not23.i, i32 %.sroa.8.0.i, i32 %570
+  %.sroa.8.1.i = call i32 @llvm.smin.i32(i32 %.sroa.8.0.i, i32 %570)
   %571 = icmp sgt i32 %554, 0
   br i1 %571, label %.lr.ph.i, label %._crit_edge.i
 
@@ -8688,6 +8684,9 @@ declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #27

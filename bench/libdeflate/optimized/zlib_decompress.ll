@@ -28,7 +28,7 @@ define i32 @libdeflate_zlib_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %or.cond42, label %18, label %31
 
 18:                                               ; preds = %10
-  %gepdiff = add i64 %2, -6
+  %gepdiff = add nsw i64 %2, -6
   %19 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %gepdiff, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %8, ptr noundef %6) #4
   %.not37 = icmp eq i32 %19, 0
   br i1 %.not37, label %20, label %31
@@ -56,7 +56,7 @@ define i32 @libdeflate_zlib_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not40, label %31, label %29
 
 29:                                               ; preds = %28
-  %30 = add i64 %24, 6
+  %30 = add nuw nsw i64 %24, 6
   store i64 %30, ptr %5, align 8, !tbaa !4
   br label %31
 
@@ -101,7 +101,7 @@ define i32 @libdeflate_zlib_decompress(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %or.cond42.i, label %17, label %libdeflate_zlib_decompress_ex.exit
 
 17:                                               ; preds = %9
-  %gepdiff.i = add i64 %2, -6
+  %gepdiff.i = add nsw i64 %2, -6
   %18 = call i32 @libdeflate_deflate_decompress_ex(ptr noundef %0, ptr noundef nonnull %11, i64 noundef %gepdiff.i, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7, ptr noundef %5) #4
   %.not37.i = icmp eq i32 %18, 0
   br i1 %.not37.i, label %19, label %libdeflate_zlib_decompress_ex.exit

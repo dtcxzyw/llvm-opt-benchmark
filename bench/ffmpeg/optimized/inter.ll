@@ -2280,13 +2280,11 @@ define internal fastcc void @emulated_edge(ptr noundef readonly captures(none) %
 121:                                              ; preds = %117
   %122 = add nsw i32 %54, %57
   %..i.i = tail call i32 @llvm.smax.i32(i32 %74, i32 %122)
-  %.not76.i.i = icmp samesign ult i32 %..i.i, %86
   %123 = add nsw i32 %86, -1
-  %spec.select.i.i = select i1 %.not76.i.i, i32 %..i.i, i32 %123
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %..i.i, i32 %123)
   %.79.i.i = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
-  %.not77.i.i = icmp samesign ult i32 %.79.i.i, %93
   %124 = add nsw i32 %93, -1
-  %.ph86.i.i = select i1 %.not77.i.i, i32 %.79.i.i, i32 %124
+  %.ph86.i.i = tail call i32 @llvm.smin.i32(i32 %.79.i.i, i32 %124)
   %.81.i.i = tail call i32 @llvm.smin.i32(i32 %86, i32 %54)
   %125 = add nuw nsw i32 %74, 1
   %.ph89.i.i = tail call i32 @llvm.smax.i32(i32 %.81.i.i, i32 %125)
@@ -2320,29 +2318,27 @@ emulated_half.exit:                               ; preds = %117, %121
   %147 = load i64, ptr %3, align 8, !tbaa !113
   %148 = add nsw i32 %113, %36
   %.val170 = load ptr, ptr %120, align 8, !tbaa !4
-  br i1 %29, label %149, label %emulated_half.exit184
+  br i1 %29, label %149, label %emulated_half.exit182
 
 149:                                              ; preds = %emulated_half.exit
-  %.not76.i.i175.not = icmp eq i32 %85, 0
   %150 = add nsw i32 %86, -1
-  %spec.select.i.i176 = select i1 %.not76.i.i175.not, i32 %150, i32 %74
-  %.79.i.i177 = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
-  %.not77.i.i178 = icmp samesign ult i32 %.79.i.i177, %93
+  %spec.select.i.i175 = tail call i32 @llvm.smin.i32(i32 %74, i32 %150)
+  %.79.i.i176 = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
   %151 = add nsw i32 %93, -1
-  %.ph86.i.i179 = select i1 %.not77.i.i178, i32 %.79.i.i177, i32 %151
-  %.81.i.i180 = tail call i32 @llvm.smin.i32(i32 %86, i32 %61)
+  %.ph86.i.i177 = tail call i32 @llvm.smin.i32(i32 %.79.i.i176, i32 %151)
+  %.81.i.i178 = tail call i32 @llvm.smin.i32(i32 %86, i32 %61)
   %152 = add nuw nsw i32 %74, 1
-  %.ph89.i.i181 = tail call i32 @llvm.smax.i32(i32 %.81.i.i180, i32 %152)
-  %.83.i.i182 = tail call i32 @llvm.smin.i32(i32 %93, i32 %64)
+  %.ph89.i.i179 = tail call i32 @llvm.smax.i32(i32 %.81.i.i178, i32 %152)
+  %.83.i.i180 = tail call i32 @llvm.smin.i32(i32 %93, i32 %64)
   %153 = add nuw nsw i32 %79, 1
-  %spec.select91.i.i183 = tail call i32 @llvm.smax.i32(i32 %.83.i.i182, i32 %153)
-  br label %emulated_half.exit184
+  %spec.select91.i.i181 = tail call i32 @llvm.smax.i32(i32 %.83.i.i180, i32 %153)
+  br label %emulated_half.exit182
 
-emulated_half.exit184:                            ; preds = %emulated_half.exit, %149
-  %154 = phi i32 [ %.ph89.i.i181, %149 ], [ %86, %emulated_half.exit ]
-  %155 = phi i32 [ %spec.select.i.i176, %149 ], [ %74, %emulated_half.exit ]
-  %156 = phi i32 [ %.ph86.i.i179, %149 ], [ %79, %emulated_half.exit ]
-  %157 = phi i32 [ %spec.select91.i.i183, %149 ], [ %93, %emulated_half.exit ]
+emulated_half.exit182:                            ; preds = %emulated_half.exit, %149
+  %154 = phi i32 [ %.ph89.i.i179, %149 ], [ %86, %emulated_half.exit ]
+  %155 = phi i32 [ %spec.select.i.i175, %149 ], [ %74, %emulated_half.exit ]
+  %156 = phi i32 [ %.ph86.i.i177, %149 ], [ %79, %emulated_half.exit ]
+  %157 = phi i32 [ %spec.select91.i.i181, %149 ], [ %93, %emulated_half.exit ]
   %158 = mul nsw i64 %147, %131
   %159 = getelementptr i8, ptr %146, i64 %158
   %160 = sub nsw i32 0, %155
@@ -2358,30 +2354,28 @@ emulated_half.exit184:                            ; preds = %emulated_half.exit,
   %167 = sub nsw i32 %46, %36
   %168 = getelementptr i8, ptr %0, i64 4580552
   %.val171 = load ptr, ptr %168, align 8, !tbaa !4
-  br i1 %29, label %169, label %emulated_half.exit196
+  br i1 %29, label %169, label %emulated_half.exit192
 
 169:                                              ; preds = %166
-  %..i.i186 = tail call i32 @llvm.smax.i32(i32 %74, i32 %57)
-  %.not76.i.i187 = icmp samesign ult i32 %..i.i186, %86
+  %..i.i184 = tail call i32 @llvm.smax.i32(i32 %74, i32 %57)
   %170 = add nsw i32 %86, -1
-  %spec.select.i.i188 = select i1 %.not76.i.i187, i32 %..i.i186, i32 %170
-  %.79.i.i189 = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
-  %.not77.i.i190 = icmp samesign ult i32 %.79.i.i189, %93
+  %spec.select.i.i185 = tail call i32 @llvm.smin.i32(i32 %..i.i184, i32 %170)
+  %.79.i.i186 = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
   %171 = add nsw i32 %93, -1
-  %.ph86.i.i191 = select i1 %.not77.i.i190, i32 %.79.i.i189, i32 %171
+  %.ph86.i.i187 = tail call i32 @llvm.smin.i32(i32 %.79.i.i186, i32 %171)
   %172 = tail call i32 @llvm.umin.i32(i32 %86, i32 %46)
   %173 = add nuw nsw i32 %74, 1
   %174 = tail call i32 @llvm.umax.i32(i32 %172, i32 %173)
-  %.83.i.i194 = tail call i32 @llvm.smin.i32(i32 %93, i32 %64)
+  %.83.i.i190 = tail call i32 @llvm.smin.i32(i32 %93, i32 %64)
   %175 = add nuw nsw i32 %79, 1
-  %spec.select91.i.i195 = tail call i32 @llvm.smax.i32(i32 %.83.i.i194, i32 %175)
-  br label %emulated_half.exit196
+  %spec.select91.i.i191 = tail call i32 @llvm.smax.i32(i32 %.83.i.i190, i32 %175)
+  br label %emulated_half.exit192
 
-emulated_half.exit196:                            ; preds = %166, %169
+emulated_half.exit192:                            ; preds = %166, %169
   %176 = phi i32 [ %174, %169 ], [ %86, %166 ]
-  %177 = phi i32 [ %spec.select.i.i188, %169 ], [ %74, %166 ]
-  %178 = phi i32 [ %.ph86.i.i191, %169 ], [ %79, %166 ]
-  %179 = phi i32 [ %spec.select91.i.i195, %169 ], [ %93, %166 ]
+  %177 = phi i32 [ %spec.select.i.i185, %169 ], [ %74, %166 ]
+  %178 = phi i32 [ %.ph86.i.i187, %169 ], [ %79, %166 ]
+  %179 = phi i32 [ %spec.select91.i.i191, %169 ], [ %93, %166 ]
   %180 = sext i32 %37 to i64
   %181 = mul nsw i64 %116, %180
   %182 = getelementptr i8, ptr %115, i64 %181
@@ -2403,31 +2397,29 @@ emulated_half.exit196:                            ; preds = %166, %169
   %197 = load i64, ptr %3, align 8, !tbaa !113
   %198 = sub nsw i32 %113, %167
   %.val172 = load ptr, ptr %168, align 8, !tbaa !4
-  br i1 %29, label %199, label %emulated_half.exit208
+  br i1 %29, label %199, label %emulated_half.exit202
 
-199:                                              ; preds = %emulated_half.exit196
+199:                                              ; preds = %emulated_half.exit192
   %200 = sub nsw i32 %61, %54
-  %..i.i198 = tail call i32 @llvm.smax.i32(i32 %74, i32 %192)
-  %.not76.i.i199 = icmp samesign ult i32 %..i.i198, %86
+  %..i.i194 = tail call i32 @llvm.smax.i32(i32 %74, i32 %192)
   %201 = add nsw i32 %86, -1
-  %spec.select.i.i200 = select i1 %.not76.i.i199, i32 %..i.i198, i32 %201
-  %.79.i.i201 = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
-  %.not77.i.i202 = icmp samesign ult i32 %.79.i.i201, %93
+  %spec.select.i.i195 = tail call i32 @llvm.smin.i32(i32 %..i.i194, i32 %201)
+  %.79.i.i196 = tail call i32 @llvm.smax.i32(i32 %79, i32 %59)
   %202 = add nsw i32 %93, -1
-  %.ph86.i.i203 = select i1 %.not77.i.i202, i32 %.79.i.i201, i32 %202
-  %.81.i.i204 = tail call i32 @llvm.smin.i32(i32 %86, i32 %200)
+  %.ph86.i.i197 = tail call i32 @llvm.smin.i32(i32 %.79.i.i196, i32 %202)
+  %.81.i.i198 = tail call i32 @llvm.smin.i32(i32 %86, i32 %200)
   %203 = add nuw nsw i32 %74, 1
-  %.ph89.i.i205 = tail call i32 @llvm.smax.i32(i32 %.81.i.i204, i32 %203)
-  %.83.i.i206 = tail call i32 @llvm.smin.i32(i32 %93, i32 %64)
+  %.ph89.i.i199 = tail call i32 @llvm.smax.i32(i32 %.81.i.i198, i32 %203)
+  %.83.i.i200 = tail call i32 @llvm.smin.i32(i32 %93, i32 %64)
   %204 = add nuw nsw i32 %79, 1
-  %spec.select91.i.i207 = tail call i32 @llvm.smax.i32(i32 %.83.i.i206, i32 %204)
-  br label %emulated_half.exit208
+  %spec.select91.i.i201 = tail call i32 @llvm.smax.i32(i32 %.83.i.i200, i32 %204)
+  br label %emulated_half.exit202
 
-emulated_half.exit208:                            ; preds = %emulated_half.exit196, %199
-  %205 = phi i32 [ %.ph89.i.i205, %199 ], [ %86, %emulated_half.exit196 ]
-  %206 = phi i32 [ %spec.select.i.i200, %199 ], [ %74, %emulated_half.exit196 ]
-  %207 = phi i32 [ %.ph86.i.i203, %199 ], [ %79, %emulated_half.exit196 ]
-  %208 = phi i32 [ %spec.select91.i.i207, %199 ], [ %93, %emulated_half.exit196 ]
+emulated_half.exit202:                            ; preds = %emulated_half.exit192, %199
+  %205 = phi i32 [ %.ph89.i.i199, %199 ], [ %86, %emulated_half.exit192 ]
+  %206 = phi i32 [ %spec.select.i.i195, %199 ], [ %74, %emulated_half.exit192 ]
+  %207 = phi i32 [ %.ph86.i.i197, %199 ], [ %79, %emulated_half.exit192 ]
+  %208 = phi i32 [ %spec.select91.i.i201, %199 ], [ %93, %emulated_half.exit192 ]
   %209 = mul nsw i64 %197, %180
   %210 = getelementptr i8, ptr %196, i64 %209
   %211 = shl i32 %192, %19
@@ -2442,7 +2434,7 @@ emulated_half.exit208:                            ; preds = %emulated_half.exit1
   tail call void %219(ptr noundef %195, ptr noundef %213, i64 noundef range(i64 -2147483648, 2147483648) %56, i64 noundef %197, i32 noundef %198, i32 noundef range(i32 -2147483647, -2147483648) %114, i32 noundef %214, i32 noundef %215, i32 noundef %216, i32 noundef %217) #6
   br label %220
 
-220:                                              ; preds = %emulated_half.exit208, %emulated_half.exit184
+220:                                              ; preds = %emulated_half.exit202, %emulated_half.exit182
   %221 = zext nneg i32 %12 to i64
   %222 = mul nsw i64 %56, %221
   %223 = getelementptr inbounds i8, ptr %1, i64 %222
@@ -2485,9 +2477,8 @@ define internal fastcc void @emulated_edge_no_wrap(ptr readonly captures(none) %
 clip_to_subpic.exit:                              ; preds = %12
   %30 = load i32, ptr %10, align 4, !tbaa !185
   %..i = tail call i32 @llvm.smax.i32(i32 %27, i32 %30)
-  %.not76.i = icmp slt i32 %..i, %29
   %31 = add nsw i32 %29, -1
-  %spec.select.i = select i1 %.not76.i, i32 %..i, i32 %31
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %..i, i32 %31)
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !187
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2495,9 +2486,8 @@ clip_to_subpic.exit:                              ; preds = %12
   %.79.i = tail call i32 @llvm.smax.i32(i32 %33, i32 %35)
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %37 = load i32, ptr %36, align 4, !tbaa !189
-  %.not77.i = icmp slt i32 %.79.i, %37
   %38 = add nsw i32 %37, -1
-  %.ph86.i = select i1 %.not77.i, i32 %.79.i, i32 %38
+  %.ph86.i = tail call i32 @llvm.smin.i32(i32 %.79.i, i32 %38)
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %40 = load i32, ptr %39, align 4, !tbaa !188
   %.81.i = tail call i32 @llvm.smin.i32(i32 %29, i32 %40)

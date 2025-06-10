@@ -1199,7 +1199,7 @@ ssl_tls13_write_encrypted_extensions_body.exit.thread: ; preds = %10, %14
 
 18:                                               ; preds = %14
   %19 = load i64, ptr %2, align 8, !tbaa !39
-  %20 = add i64 %19, 2
+  %20 = add nuw nsw i64 %19, 2
   %21 = trunc i64 %19 to i16
   %22 = call i16 @llvm.bswap.i16(i16 %21)
   store i16 %22, ptr %11, align 1
@@ -1305,7 +1305,7 @@ ssl_tls13_write_certificate_request_body.exit.thread: ; preds = %18, %22
   %29 = trunc i64 %28 to i16
   %30 = call i16 @llvm.bswap.i16(i16 %29)
   store i16 %30, ptr %27, align 1
-  %31 = add i64 %28, 3
+  %31 = add nuw nsw i64 %28, 3
   %32 = load ptr, ptr %5, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 3272
   %34 = load i32, ptr %33, align 8, !tbaa !77
@@ -1865,7 +1865,7 @@ ssl_tls13_write_new_session_ticket_body.exit.thread: ; preds = %91, %95, %74, %9
 
 114:                                              ; preds = %96
   store i16 0, ptr %109, align 1
-  %115 = add i64 %108, 45
+  %115 = add nuw nsw i64 %108, 45
   call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 3390, ptr noundef nonnull @.str.145, ptr noundef nonnull %75, i64 noundef %115) #9
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3391, ptr noundef nonnull @.str.146) #9
   %116 = load ptr, ptr %18, align 8, !tbaa !16
@@ -3708,7 +3708,7 @@ ssl_tls13_generate_and_write_key_share.exit:      ; preds = %mbedtls_ssl_tls13_n
   %31 = add i16 %28, 4
   %32 = call i16 @llvm.bswap.i16(i16 %31)
   store i16 %32, ptr %30, align 1
-  %33 = add i64 %26, 8
+  %33 = add nuw nsw i64 %26, 8
   store i64 %33, ptr %3, align 8, !tbaa !39
   %34 = call i32 @mbedtls_ssl_get_extension_mask(i32 noundef 51) #9
   %35 = load ptr, ptr %6, align 8, !tbaa !16

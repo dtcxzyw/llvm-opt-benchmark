@@ -4950,7 +4950,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_123RISCVSupportedExtensionEN4llvm9StringRefE
   %.0.lcssa.i.i.i = phi ptr [ %.026.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_111LessExtNameEEclIKN4llvm9StringRefEPKNS2_23RISCVSupportedExtensionEEEbRT_T0_.exit.thread.i.i ], [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_111LessExtNameEEclIPKNS2_23RISCVSupportedExtensionEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.01327.i.i, 4
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %43 = add nuw i64 %.idx68, 16
+  %43 = add nuw nsw i64 %.idx68, 16
   %gepdiff = sub nsw i64 %.idx, %43
   %44 = ashr exact i64 %gepdiff, 4
   %45 = icmp sgt i64 %44, 0
@@ -16948,7 +16948,7 @@ _ZSt13__lower_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Ite
   %.0.lcssa.i = phi ptr [ %.082, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN4llvm9StringRefEPK16ImpliedExtsEntryEEbRT_T0_.exit.thread ], [ %.1.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPK16ImpliedExtsEntryKN4llvm9StringRefEEEbT_RT0_.exit.i ]
   %.idx = mul nuw nsw i64 %.01283, 24
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %38 = add nuw i64 %.idx98, 24
+  %38 = add nuw nsw i64 %.idx98, 24
   %gepdiff = sub nsw i64 %.idx, %38
   %39 = icmp sgt i64 %gepdiff, 0
   br i1 %39, label %_ZSt7advanceIPK16ImpliedExtsEntrylEvRT_T0_.exit.lr.ph.i30, label %_ZSt13__upper_boundIPK16ImpliedExtsEntryN4llvm9StringRefEN9__gnu_cxx5__ops14_Val_less_iterEET_S8_S8_RKT0_T1_.exit.thread

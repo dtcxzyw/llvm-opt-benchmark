@@ -67196,7 +67196,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx
   %139 = load i64, ptr %60, align 8, !tbaa !19
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 %139
   %141 = getelementptr inbounds i8, ptr %140, i64 -4
-  %142 = add i64 %139, -4
+  %142 = add nsw i64 %139, -4
   store i64 %142, ptr %60, align 8, !tbaa !19
   store i8 0, ptr %141, align 1, !tbaa !22
   %143 = getelementptr inbounds nuw i8, ptr %92, i64 28

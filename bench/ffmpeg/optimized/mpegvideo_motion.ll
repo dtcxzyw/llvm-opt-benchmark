@@ -2314,7 +2314,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   %101 = add nuw nsw i32 %14, %12
   %102 = sub i32 %31, %101
   %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 -1)
-  %spec.select171 = add i32 %103, 1
+  %spec.select171 = add nsw i32 %103, 1
   %.not167 = icmp ult i32 %28, %spec.select171
   br i1 %.not167, label %135, label %104
 
@@ -2535,7 +2535,7 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %84 = add nuw nsw i32 %21, %9
   %85 = sub i32 %16, %84
   %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 -1)
-  %spec.select192.i = add i32 %86, 1
+  %spec.select192.i = add nsw i32 %86, 1
   %.not188.i = icmp ult i32 %33, %spec.select192.i
   br i1 %.not188.i, label %90, label %87
 
@@ -2638,7 +2638,7 @@ define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr nou
   %156 = add nuw nsw i32 %21, %9
   %157 = sub i32 %16, %156
   %158 = tail call i32 @llvm.smax.i32(i32 %157, i32 -1)
-  %spec.select192.i33 = add i32 %158, 1
+  %spec.select192.i33 = add nsw i32 %158, 1
   %.not188.i34 = icmp ult i32 %33, %spec.select192.i33
   br i1 %.not188.i34, label %189, label %159
 

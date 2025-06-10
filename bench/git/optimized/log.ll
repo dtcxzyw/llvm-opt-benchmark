@@ -4685,8 +4685,7 @@ commit_base_at.exit52.i:                          ; preds = %1131, %._crit_edge4
   %1146 = mul i32 %1143, 3
   %1147 = add i32 %1146, 48
   %1148 = sdiv i32 %1147, 2
-  %.not39.i = icmp sgt i32 %1148, %1142
-  %..i = select i1 %.not39.i, i32 %1148, i32 %1145
+  %..i = call i32 @llvm.smax.i32(i32 %1148, i32 %1145)
   store i32 %..i, ptr %1081, align 8, !tbaa !269
   %1149 = sext i32 %..i to i64
   %mul.ov.i.i288 = icmp slt i32 %..i, 0

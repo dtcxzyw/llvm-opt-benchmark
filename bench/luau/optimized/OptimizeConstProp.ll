@@ -7026,8 +7026,8 @@ _ZN4Luau7CodeGen14ConstPropState14invalidateHeapEv.exit: ; preds = %118, %_ZN4Lu
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4Luau7CodeGen14ConstPropState21getMaxInternalOverlapERSt6vectorINS0_19NumberedInstructionESaIS3_EEm(ptr noundef nonnull align 8 dereferenceable(5464) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.not66 = icmp eq i64 %2, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = load ptr, ptr %1, align 8, !tbaa !82
@@ -7079,12 +7079,12 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %._crit_edge, %11
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !181
 
 ._crit_edge57.loopexit:                           ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.pre70 = load ptr, ptr %7, align 8, !tbaa !149
+  %.pre69 = load ptr, ptr %7, align 8, !tbaa !149
   br label %._crit_edge57
 
 ._crit_edge57:                                    ; preds = %._crit_edge57.loopexit, %_ZNSt6vectorIjSaIjEE5clearEv.exit
   %28 = phi ptr [ %119, %._crit_edge57.loopexit ], [ %12, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
-  %29 = phi ptr [ %.pre70, %._crit_edge57.loopexit ], [ %8, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
+  %29 = phi ptr [ %.pre69, %._crit_edge57.loopexit ], [ %8, %_ZNSt6vectorIjSaIjEE5clearEv.exit ]
   %.not.i.i50 = icmp eq ptr %29, %28
   br i1 %.not.i.i50, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit, label %30
 
@@ -7230,8 +7230,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEEvT_S7_.exit: ; pr
   br label %126
 
 85:                                               ; preds = %.lr.ph56, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.pre6974 = phi ptr [ %16, %.lr.ph56 ], [ %.pre6975, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.pre6871 = phi ptr [ %15, %.lr.ph56 ], [ %.pre6872, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.pre6873 = phi ptr [ %16, %.lr.ph56 ], [ %.pre6874, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.pre6770 = phi ptr [ %15, %.lr.ph56 ], [ %.pre6771, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %86 = phi ptr [ %16, %.lr.ph56 ], [ %115, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %87 = phi ptr [ %15, %.lr.ph56 ], [ %116, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %88 = phi ptr [ %8, %.lr.ph56 ], [ %117, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
@@ -7288,13 +7288,13 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %111, %_ZNK
 
 113:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %88, i64 noundef %98) #20
-  %.pre68.pre = load ptr, ptr %14, align 8, !tbaa !83
-  %.pre69.pre = load ptr, ptr %1, align 8, !tbaa !82
+  %.pre67.pre = load ptr, ptr %14, align 8, !tbaa !83
+  %.pre68.pre = load ptr, ptr %1, align 8, !tbaa !82
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %113, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %.pre69 = phi ptr [ %.pre69.pre, %113 ], [ %.pre6974, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
-  %.pre68 = phi ptr [ %.pre68.pre, %113 ], [ %.pre6871, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
+  %.pre68 = phi ptr [ %.pre68.pre, %113 ], [ %.pre6873, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
+  %.pre67 = phi ptr [ %.pre67.pre, %113 ], [ %.pre6770, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   store ptr %107, ptr %7, align 8, !tbaa !74
   store ptr %112, ptr %9, align 8, !tbaa !75
   %114 = getelementptr inbounds nuw i32, ptr %107, i64 %105
@@ -7302,10 +7302,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %92, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
-  %.pre6975 = phi ptr [ %.pre6974, %92 ], [ %.pre69, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %.pre6872 = phi ptr [ %.pre6871, %92 ], [ %.pre68, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %115 = phi ptr [ %86, %92 ], [ %.pre69, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %116 = phi ptr [ %87, %92 ], [ %.pre68, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %.pre6874 = phi ptr [ %.pre6873, %92 ], [ %.pre68, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %.pre6771 = phi ptr [ %.pre6770, %92 ], [ %.pre67, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %115 = phi ptr [ %86, %92 ], [ %.pre68, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %116 = phi ptr [ %87, %92 ], [ %.pre67, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %117 = phi ptr [ %88, %92 ], [ %107, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %118 = phi ptr [ %89, %92 ], [ %114, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %119 = phi ptr [ %94, %92 ], [ %112, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
@@ -7354,8 +7354,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %92, %_ZNSt6vectorIj
 142:                                              ; preds = %137
   %143 = add nsw i32 %.259, 1
   %144 = add nuw i64 %.03660, 1
-  %.not = icmp slt i32 %.259, %.04258
-  %spec.select49 = select i1 %.not, i32 %.04258, i32 %143
+  %spec.select49 = tail call i32 @llvm.smax.i32(i32 %.04258, i32 %143)
   br label %145
 
 145:                                              ; preds = %142, %139, %134

@@ -1053,9 +1053,8 @@ define internal void @_ZL21evaluate_insolidangleRKN3gmx20SelMethodEvalContextEP1
   %52 = call noundef float @llvm.floor.f32(float %51)
   %53 = fptosi float %52 to i32
   %54 = load i32, ptr %13, align 8, !tbaa !28
-  %.not.i.i.i = icmp sgt i32 %54, %53
   %55 = add nsw i32 %54, -1
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %53, i32 %55
+  %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %53, i32 %55)
   %56 = load ptr, ptr %14, align 8, !tbaa !32
   %57 = sext i32 %spec.select.i.i.i to i64
   %58 = getelementptr inbounds %struct.partition, ptr %56, i64 %57
@@ -2169,6 +2168,9 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

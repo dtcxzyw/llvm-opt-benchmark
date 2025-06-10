@@ -5525,7 +5525,7 @@ define linkonce_odr hidden void @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef n
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocation4pushEP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull @.str.65)
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
-  %gepdiff.i = sub i64 1024, %8
+  %gepdiff.i = sub nsw i64 1024, %8
   %10 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %9, i64 noundef %gepdiff.i, ptr noundef %2, ptr noundef nonnull %4) #19
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void
@@ -9108,7 +9108,7 @@ define linkonce_odr hidden void @_ZN14RecordLocation4pushEP5ciEnvPKcz(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
-  %gepdiff.i = sub i64 1024, %6
+  %gepdiff.i = sub nsw i64 1024, %6
   %8 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %7, i64 noundef %gepdiff.i, ptr noundef %2, ptr noundef nonnull %4) #19
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret void

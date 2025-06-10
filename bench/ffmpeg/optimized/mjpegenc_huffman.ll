@@ -452,7 +452,7 @@ define void @ff_mjpeg_encode_huffman_close(ptr noundef readonly captures(none) %
 
 201:                                              ; preds = %199
   %202 = load i32, ptr %.0203285.i, align 4, !tbaa !10
-  %203 = call i32 @llvm.smin.i32(i32 %.1, i32 %202)
+  %203 = call i32 @llvm.smin.i32(i32 %202, i32 %.1)
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds [515 x i32], ptr %114, i64 0, i64 %204
   %206 = load i32, ptr %205, align 4, !tbaa !12

@@ -4115,7 +4115,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %19 = load i64, ptr %12, align 8, !tbaa !31
   %20 = and i64 %19, 255
   %.idx = shl nuw i64 64, %20
-  %21 = add i64 %.idx, -64
+  %21 = add nsw i64 %.idx, -64
   %22 = lshr exact i64 %21, 6
   br label %23
 

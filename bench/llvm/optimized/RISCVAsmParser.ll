@@ -9945,7 +9945,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_117OperandMatchEntryEN4llvm9StringRefEN9__gn
   %.0.lcssa.i.i.i.i = phi ptr [ %.026.i.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_117LessOpcodeOperandEEclIKN4llvm9StringRefEPKNS2_17OperandMatchEntryEEEbRT_T0_.exit.thread.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_117LessOpcodeOperandEEclIPKNS2_17OperandMatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i.i ]
   %.idx = mul nuw nsw i64 %.01327.i.i.i, 6
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 6
-  %52 = add nuw i64 %.idx40, 6
+  %52 = add nuw nsw i64 %.idx40, 6
   %gepdiff = sub nsw i64 %.idx, %52
   %53 = icmp sgt i64 %gepdiff, 0
   br i1 %53, label %.lr.ph.preheader.i38.i.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_117OperandMatchEntryEN4llvm9StringRefENS0_17LessOpcodeOperandEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit.i
@@ -21722,7 +21722,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5_
   %.0.lcssa.i.i.i = phi ptr [ %.026.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.thread.i.i ], [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ]
   %.idx = mul nuw nsw i64 %.01327.i.i, 14
   %171 = getelementptr inbounds nuw i8, ptr %136, i64 14
-  %172 = add nuw i64 %.idx28, 14
+  %172 = add nuw nsw i64 %.idx28, 14
   %gepdiff = sub nsw i64 %.idx, %172
   %173 = icmp sgt i64 %gepdiff, 0
   br i1 %173, label %.lr.ph.preheader.i38.i.i, label %_ZSt11equal_rangeIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefENS0_10LessOpcodeEESt4pairIT_S8_ES8_S8_RKT0_T1_.exit

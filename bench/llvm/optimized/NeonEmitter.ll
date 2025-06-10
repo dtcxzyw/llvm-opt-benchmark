@@ -41960,7 +41960,7 @@ _ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i: ; preds = %76, %
 
 96:                                               ; preds = %93
   %.idx.i.i = shl nsw i64 %.086.i.i, 3
-  %97 = add i64 %.idx.i.i, -8
+  %97 = add nsw i64 %.idx.i.i, -8
   %98 = ashr exact i64 %97, 3
   %99 = sub nsw i64 0, %98
   %100 = getelementptr inbounds ptr, ptr %92, i64 %99
@@ -42545,7 +42545,7 @@ _ZSt4moveIPPN12_GLOBAL__N_19IntrinsicES3_ET0_T_S5_S4_.exit.i.i.i: ; preds = %142
 
 162:                                              ; preds = %159
   %.idx.i.i.i = shl nsw i64 %.086.i.i.i, 3
-  %163 = add i64 %.idx.i.i.i, -8
+  %163 = add nsw i64 %.idx.i.i.i, -8
   %164 = ashr exact i64 %163, 3
   %165 = sub nsw i64 0, %164
   %166 = getelementptr inbounds ptr, ptr %158, i64 %165

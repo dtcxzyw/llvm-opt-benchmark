@@ -5692,7 +5692,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEE
 
 53:                                               ; preds = %50
   %.idx = shl nsw i64 %.0, 3
-  %54 = add i64 %.idx, -8
+  %54 = add nsw i64 %.idx, -8
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds ptr, ptr %49, i64 %56

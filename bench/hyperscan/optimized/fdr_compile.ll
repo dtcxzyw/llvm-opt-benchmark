@@ -5426,7 +5426,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %693 = load i64, ptr %555, align 8, !noalias !118
   %694 = add i64 %693, 63
   %695 = and i64 %694, -64
-  %696 = add i64 %695, %554
+  %696 = add nuw nsw i64 %695, %554
   %.not.i.i46.i.i.i = icmp ult i64 %696, 4294967296
   br i1 %.not.i.i46.i.i.i, label %702, label %697
 

@@ -17505,7 +17505,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLO
   %.sroa.010.0.lcssa.i.i = phi ptr [ %.sroa.036.056.i, %_ZNK9__gnu_cxx5__ops14_Val_less_iterclIKN3gmx15analysismodules12_GLOBAL__N_15HBondENS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEEEbRT_T0_.exit.thread44.i ], [ %.sroa.010.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS7_SaIS7_EEEEKS7_EEbT_RT0_.exit.thread12.i.i ]
   %.idx = shl nuw nsw i64 %.01957.i, 4
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %58 = add nuw i64 %.idx24, 16
+  %58 = add nuw nsw i64 %.idx24, 16
   %gepdiff = sub nsw i64 %.idx, %58
   %59 = ashr exact i64 %gepdiff, 4
   %60 = icmp sgt i64 %59, 0

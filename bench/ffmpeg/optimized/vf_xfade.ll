@@ -15145,7 +15145,7 @@ define internal double @a0(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 1)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15206,7 +15206,7 @@ define internal double @a1(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 2)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15267,7 +15267,7 @@ define internal double @a2(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 3)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15328,7 +15328,7 @@ define internal double @a3(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 4)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15389,7 +15389,7 @@ define internal double @b0(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 1)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15450,7 +15450,7 @@ define internal double @b1(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 2)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15511,7 +15511,7 @@ define internal double @b2(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 3)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89
@@ -15572,7 +15572,7 @@ define internal double @b3(ptr noundef readonly captures(none) %0, double nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !77
   %8 = tail call i32 @llvm.smin.i32(i32 %7, i32 4)
-  %9 = add i32 %8, -1
+  %9 = add nsw i32 %8, -1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x ptr], ptr %5, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !89

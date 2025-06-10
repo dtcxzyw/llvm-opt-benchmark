@@ -12747,7 +12747,7 @@ define linkonce_odr noundef i32 @_ZN3pxr9rapidjson8internal18CheckWithinHalfULPE
   %24 = select i1 %22, i32 0, i32 %18
   %.147 = sub nsw i32 %.045, %24
   %25 = icmp sgt i32 %18, 0
-  %26 = select i1 %25, i32 0, i32 %19
+  %26 = tail call i32 @llvm.smin.i32(i32 %19, i32 0)
   %.252 = sub i32 %.151, %26
   %27 = select i1 %25, i32 %19, i32 0
   %.248 = add nuw nsw i32 %.147, %27

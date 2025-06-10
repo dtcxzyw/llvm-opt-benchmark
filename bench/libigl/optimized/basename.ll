@@ -244,7 +244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %112, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  %113 = add i64 %9, -1
+  %113 = add nsw i64 %9, -1
   store i64 %113, ptr %4, align 8, !tbaa !27
   %114 = icmp ugt i64 %113, 15
   br i1 %114, label %.noexc.i33, label %._crit_edge.i.i32

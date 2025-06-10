@@ -383,8 +383,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
   %44 = fadd reassoc nsz arcp contract afn float %36, %18
   %45 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %44)
   %46 = fptosi float %45 to i32
-  %.not122.us = icmp sgt i32 %23, %46
-  %47 = select i1 %.not122.us, i32 %46, i32 %24
+  %47 = tail call i32 @llvm.smin.i32(i32 %46, i32 %24)
   %indvars.iv192.tr = trunc i64 %indvars.iv192 to i32
   %48 = shl i32 %indvars.iv192.tr, 1
   %49 = and i32 %48, 14
@@ -416,8 +415,7 @@ define void @dt_iop_clip_and_zoom_mosaic_half_size(ptr noundef writeonly capture
   %60 = fadd reassoc nsz arcp contract afn float %.0109158.us.us, %18
   %61 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %60)
   %62 = fptosi float %61 to i32
-  %.not123.us.us = icmp sgt i32 %29, %62
-  %63 = select i1 %.not123.us.us, i32 %62, i32 %30
+  %63 = tail call i32 @llvm.smin.i32(i32 %62, i32 %30)
   %64 = and i32 %.0108159.us.us, 1
   %65 = or disjoint i32 %64, %49
   %66 = shl nuw nsw i32 %65, 1
@@ -1404,8 +1402,7 @@ FCxtrans.exit.lr.ph.us:                           ; preds = %._crit_edge.us, %.l
   %35 = fadd reassoc nsz arcp contract afn float %31, %10
   %36 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %35)
   %37 = fptosi float %36 to i32
-  %.not.us = icmp sgt i32 %15, %37
-  %38 = select i1 %.not.us, i32 %37, i32 %16
+  %38 = tail call i32 @llvm.smin.i32(i32 %37, i32 %16)
   %.reass = add i32 %invariant.op, %29
   %39 = srem i32 %.reass, 6
   %40 = sext i32 %39 to i64
@@ -1416,7 +1413,7 @@ FCxtrans.exit.us119.preheader:                    ; preds = %FCxtrans.exit.lr.ph
   %41 = mul nsw i64 %indvars.iv154, %28
   %42 = getelementptr inbounds i16, ptr %0, i64 %41
   %43 = zext nneg i32 %spec.select.us to i64
-  %44 = add nuw i32 %38, 1
+  %44 = add nuw nsw i32 %38, 1
   %wide.trip.count141 = zext i32 %44 to i64
   %wide.trip.count151 = zext i32 %44 to i64
   br label %FCxtrans.exit.us119
@@ -1432,8 +1429,7 @@ FCxtrans.exit.us119:                              ; preds = %FCxtrans.exit.us119
   %48 = fadd reassoc nsz arcp contract afn float %.068109.us122, %10
   %49 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %48)
   %50 = fptosi float %49 to i32
-  %.not75.us = icmp sgt i32 %23, %50
-  %51 = select i1 %.not75.us, i32 %50, i32 %24
+  %51 = tail call i32 @llvm.smin.i32(i32 %50, i32 %24)
   %.reass113.us = add i32 %.067110.us121, %invariant.op112.us
   %52 = srem i32 %.reass113.us, 6
   %53 = sext i32 %52 to i64
@@ -1492,7 +1488,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
 
 .preheader.us98.us.preheader:                     ; preds = %.preheader.lr.ph.split.us127
   %72 = zext nneg i32 %spec.select78.us to i64
-  %73 = add nuw i32 %51, 1
+  %73 = add nuw nsw i32 %51, 1
   %wide.trip.count146 = zext i32 %73 to i64
   br label %.preheader.us98.us
 
@@ -1509,7 +1505,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   %76 = load i32, ptr %3, align 4, !tbaa !20
   %invariant.op.us = add i32 %76, 600
   %77 = zext nneg i32 %spec.select78.us to i64
-  %78 = add nuw i32 %51, 1
+  %78 = add nuw nsw i32 %51, 1
   %wide.trip.count = zext i32 %78 to i64
   br label %.preheader.us123
 
@@ -1630,8 +1626,7 @@ FCxtrans.exit.lr.ph.us:                           ; preds = %._crit_edge.us, %.l
   %37 = fadd reassoc nsz arcp contract afn float %33, %10
   %38 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %37)
   %39 = fptosi float %38 to i32
-  %.not.us = icmp sgt i32 %15, %39
-  %40 = select i1 %.not.us, i32 %39, i32 %16
+  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 %16)
   %.reass = add i32 %invariant.op, %31
   %41 = srem i32 %.reass, 6
   %42 = sext i32 %41 to i64
@@ -1640,7 +1635,7 @@ FCxtrans.exit.lr.ph.us:                           ; preds = %._crit_edge.us, %.l
 
 FCxtrans.exit.us119.preheader:                    ; preds = %FCxtrans.exit.lr.ph.us
   %43 = zext nneg i32 %spec.select.us to i64
-  %44 = add nuw i32 %40, 1
+  %44 = add nuw nsw i32 %40, 1
   %wide.trip.count140 = zext i32 %44 to i64
   %wide.trip.count150 = zext i32 %44 to i64
   br label %FCxtrans.exit.us119
@@ -1656,8 +1651,7 @@ FCxtrans.exit.us119:                              ; preds = %FCxtrans.exit.us119
   %48 = fadd reassoc nsz arcp contract afn float %.068109.us122, %10
   %49 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %48)
   %50 = fptosi float %49 to i32
-  %.not75.us = icmp sgt i32 %23, %50
-  %51 = select i1 %.not75.us, i32 %50, i32 %24
+  %51 = tail call i32 @llvm.smin.i32(i32 %50, i32 %24)
   %.reass113.us = add i32 %.067110.us121, %invariant.op112.us
   %52 = srem i32 %.reass113.us, 6
   %53 = sext i32 %52 to i64
@@ -1715,7 +1709,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
 
 .preheader.us98.us.preheader:                     ; preds = %.preheader.lr.ph.split.us127
   %71 = zext nneg i32 %spec.select78.us to i64
-  %72 = add nuw i32 %51, 1
+  %72 = add nuw nsw i32 %51, 1
   %wide.trip.count145 = zext i32 %72 to i64
   br label %.preheader.us98.us
 
@@ -1736,7 +1730,7 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   %78 = load i32, ptr %3, align 4, !tbaa !20
   %invariant.op.us = add i32 %78, 600
   %79 = zext nneg i32 %spec.select78.us to i64
-  %80 = add nuw i32 %51, 1
+  %80 = add nuw nsw i32 %51, 1
   %wide.trip.count = zext i32 %80 to i64
   br label %.preheader.us123
 

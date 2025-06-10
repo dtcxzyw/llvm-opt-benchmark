@@ -80,7 +80,7 @@ if.end:                                           ; preds = %land.lhs.true
   %sub13 = fsub double %pixelY.0, %conv12
   %cmp15.not = icmp slt i32 %add, %5
   %b.0 = select i1 %cmp15.not, i32 %conv11, i32 %sub3
-  %t.0 = select i1 %cmp15.not, i32 %add, i32 %sub3
+  %t.0 = tail call i32 @llvm.smin.i32(i32 %add, i32 %sub3)
   %bt.0 = select i1 %cmp15.not, double %sub13, double 1.000000e+00
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %intersections, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %sdf, align 8
@@ -379,7 +379,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %sub13 = fsub double %pixelY.0, %conv12
   %cmp15.not = icmp slt i32 %add, %5
   %b.0 = select i1 %cmp15.not, i32 %conv11, i32 %sub3
-  %t.0 = select i1 %cmp15.not, i32 %add, i32 %sub3
+  %t.0 = tail call i32 @llvm.smin.i32(i32 %add, i32 %sub3)
   %bt.0 = select i1 %cmp15.not, double %sub13, double 1.000000e+00
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %intersections, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %sdf, align 8
@@ -893,7 +893,7 @@ invoke.cont49:                                    ; preds = %land.lhs.true
   %sub13 = fsub double %pixelY.0, %conv12
   %cmp15.not = icmp slt i32 %add, %5
   %b.0 = select i1 %cmp15.not, i32 %conv11, i32 %sub3
-  %t.0 = select i1 %cmp15.not, i32 %add, i32 %sub3
+  %t.0 = tail call i32 @llvm.smin.i32(i32 %add, i32 %sub3)
   %bt.0 = select i1 %cmp15.not, double %sub13, double 1.000000e+00
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %intersections, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %sdf, align 8
@@ -1881,6 +1881,9 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4075,7 +4075,7 @@ if.else.i214:                                     ; preds = %if.then.i
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.else.i214
-  %sub.ptr.sub.i.i.i.i.i.i.i = add i64 %sub.ptr.sub.i.i, -8
+  %sub.ptr.sub.i.i.i.i.i.i.i = add nsw i64 %sub.ptr.sub.i.i, -8
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %add.ptr72.i1352, i64 %idx.neg.i.i.i.i.i.i.i

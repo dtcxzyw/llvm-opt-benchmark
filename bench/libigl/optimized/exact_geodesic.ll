@@ -13204,7 +13204,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPN3igl8geodesic21SurfacePoin
   %.sroa.011.0.lcssa.i = phi ptr [ %.sroa.059.082, %63 ], [ %.sroa.011.1.i, %93 ]
   %.idx = shl nuw nsw i64 %.02183, 3
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %96 = add nuw i64 %.idx106, 8
+  %96 = add nuw nsw i64 %.idx106, 8
   %gepdiff = sub nsw i64 %.idx, %96
   %97 = ashr exact i64 %gepdiff, 3
   %98 = icmp sgt i64 %97, 0

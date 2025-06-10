@@ -14088,8 +14088,8 @@ ZSTD_seqToCodes.exit:                             ; preds = %74, %77
 
 142:                                              ; preds = %137, %139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #28
-  %143 = add i64 %115, %94
-  %144 = add i64 %143, %135
+  %143 = add nuw nsw i64 %115, %94
+  %144 = add nuw nsw i64 %143, %135
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %144, ptr %145, align 8, !tbaa !414
   br label %146
@@ -17525,7 +17525,7 @@ ZSTD_wildcopy.exit:                               ; preds = %145, %.lr.ph.i, %ZS
   br label %218
 
 218:                                              ; preds = %206, %.critedge
-  %219 = sub i64 %5, %203
+  %219 = sub nsw i64 %5, %203
   br label %.thread190
 
 .thread190:                                       ; preds = %124, %104, %ZSTD_validateSequence.exit, %218

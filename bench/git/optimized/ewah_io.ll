@@ -231,7 +231,7 @@ ewah_serialize_to.exit:                           ; preds = %._crit_edge.i, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 12, 5) i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %2, 4
   br i1 %4, label %5, label %7
 
@@ -367,7 +367,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %92 = getelementptr inbounds nuw i64, ptr %91, i64 %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %92, ptr %93, align 8, !tbaa !22
-  %94 = add i64 %56, 12
+  %94 = add nuw nsw i64 %56, 12
   br label %95
 
 95:                                               ; preds = %76, %74, %58, %28, %5

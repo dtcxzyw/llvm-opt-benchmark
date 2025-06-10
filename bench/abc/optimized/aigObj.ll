@@ -675,8 +675,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
 
 Vec_IntGrow.exit.sink.split.i.i:                  ; preds = %92
   %94 = shl nsw i32 %93, 1
-  %.not.i34 = icmp slt i32 %87, %94
-  %. = select i1 %.not.i34, i32 %94, i32 %89
+  %. = tail call i32 @llvm.smax.i32(i32 %94, i32 %89)
   %95 = sext i32 %. to i64
   %96 = shl nsw i64 %95, 2
   %97 = tail call ptr @realloc(ptr noundef nonnull %.val28, i64 noundef %96) #12

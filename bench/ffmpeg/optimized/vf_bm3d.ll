@@ -1042,7 +1042,7 @@ search_boundary.exit96.i.i.us:                    ; preds = %151, %.loopexit.loo
 
 212:                                              ; preds = %206, %203
   %213 = add nsw i32 %205, -1
-  %spec.select.i.i.i.us = select i1 %.not.i.i.i.us, i32 %.056.i.i.i.us, i32 %213
+  %spec.select.i.i.i.us = call i32 @llvm.smin.i32(i32 %.056.i.i.i.us, i32 %213)
   %214 = sext i32 %spec.select.i.i.i.us to i64
   %215 = getelementptr inbounds [256 x %struct.PosPairCode], ptr %67, i64 0, i64 %214
   store double %204, ptr %215, align 8, !tbaa !100

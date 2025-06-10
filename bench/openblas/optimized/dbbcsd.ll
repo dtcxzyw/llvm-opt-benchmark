@@ -1905,9 +1905,8 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1063:                                             ; preds = %.preheader1945, %1061
   %.21835 = phi i32 [ 1, %1061 ], [ %1060, %.preheader1945 ]
-  %.not1899 = icmp slt i32 %.218412162, %.21835
   %1064 = add nsw i32 %.21835, -1
-  %spec.select = select i1 %.not1899, i32 %.218412162, i32 %1064
+  %spec.select = call i32 @llvm.smin.i32(i32 %.218412162, i32 %1064)
   %1065 = icmp sgt i32 %spec.select, 1
   br i1 %1065, label %.preheader.preheader, label %.loopexit1944
 
@@ -2187,6 +2186,9 @@ declare void @dswap_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #5

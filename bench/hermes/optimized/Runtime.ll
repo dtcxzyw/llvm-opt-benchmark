@@ -16617,7 +16617,7 @@ if.then36:                                        ; preds = %if.else33
   br i1 %tobool.not.i.i.i.i.i39, label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i40
 
 if.then.i.i.i.i.i40:                              ; preds = %if.then36
-  %sub.ptr.sub.i.i.i.i.i43 = add i64 %__n.0, -1
+  %sub.ptr.sub.i.i.i.i.i43 = add nsw i64 %__n.0, -1
   %add.ptr.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %__p.0, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.i44, ptr nonnull align 1 %__p.0, i64 %sub.ptr.sub.i.i.i.i.i43, i1 false)
   br label %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit

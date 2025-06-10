@@ -2685,8 +2685,7 @@ VP8LClearBackwardRefs.exit:                       ; preds = %5, %9
 
 26:                                               ; preds = %19
   %27 = add nsw i32 %24, %.099
-  %.not70 = icmp slt i32 %27, %6
-  %28 = select i1 %.not70, i32 %27, i32 %17
+  %28 = tail call i32 @llvm.smin.i32(i32 %27, i32 %17)
   %29 = tail call i32 @llvm.smax.i32(i32 %.099, i32 %.05498)
   %.not71.not92 = icmp slt i32 %29, %28
   br i1 %.not71.not92, label %.lr.ph.preheader, label %.thread.thread

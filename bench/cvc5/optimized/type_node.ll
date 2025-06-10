@@ -9914,7 +9914,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaI
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.sroa.038.054.i.i.i, %63 ], [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i.i, 4
   %72 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %73 = add nuw i64 %.idx50, 16
+  %73 = add nuw nsw i64 %.idx50, 16
   %gepdiff = sub nsw i64 %.idx, %73
   %74 = ashr exact i64 %gepdiff, 4
   %75 = icmp sgt i64 %74, 0
@@ -11356,7 +11356,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.sroa.038.054.i.i.i, %63 ], [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.i.i.i.i ]
   %.idx = mul nuw nsw i64 %.02155.i.i.i, 40
   %72 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  %73 = add nuw i64 %.idx53, 40
+  %73 = add nuw nsw i64 %.idx53, 40
   %gepdiff = sub nsw i64 %.idx, %73
   %74 = icmp sgt i64 %gepdiff, 0
   br i1 %74, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElEvRT_T0_.exit.lr.ph.i26.i.i.i, label %_ZNK4cvc58internal4expr4attr8AttrHashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5IdMap4findEm.exit

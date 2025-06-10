@@ -7562,10 +7562,10 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
 ZSTDv07_loadEntropy.exit.i:                       ; preds = %89
   store i32 1, ptr %17, align 4, !tbaa !69
   store i32 1, ptr %18, align 8, !tbaa !70
-  %94 = add nuw i64 %39, 12
-  %95 = add i64 %94, %43
-  %96 = add i64 %95, %56
-  %97 = add i64 %96, %69
+  %94 = add nuw nsw i64 %39, 12
+  %95 = add nuw nsw i64 %94, %43
+  %96 = add nuw nsw i64 %95, %56
+  %97 = add nuw nsw i64 %96, %69
   %98 = icmp ult i64 %97, -119
   br i1 %98, label %99, label %ZSTDv07_decompress_insertDictionary.exit.thread
 

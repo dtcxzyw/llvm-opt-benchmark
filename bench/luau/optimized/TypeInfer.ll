@@ -82653,7 +82653,7 @@ _ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Ty
 _ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18TypeGuardPredicateENS0_11EqPredicateENS0_12AndPredicateENS0_11OrPredicateENS0_12NotPredicateEEEES9_EvT_SB_RSaIT0_E.exit.i.i, %274
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #37
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #37
-  %279 = add i64 %245, 8
+  %279 = add nsw i64 %245, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %.not.i.i.i.i158 = icmp eq ptr %261, %254
   br i1 %.not.i.i.i.i158, label %.noexc163.thread, label %281

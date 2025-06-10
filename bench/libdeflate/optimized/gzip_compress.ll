@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i64 19, 18) i64 @libdeflate_gzip_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i64 19, 1) i64 @libdeflate_gzip_compress(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ult i64 %4, 19
   br i1 %6, label %27, label %7
 
@@ -40,7 +40,7 @@ define range(i64 19, 18) i64 @libdeflate_gzip_compress(ptr noundef %0, ptr nound
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = trunc i64 %2 to i32
   store i32 %25, ptr %24, align 1
-  %26 = add i64 %19, 18
+  %26 = add nuw nsw i64 %19, 18
   br label %27
 
 27:                                               ; preds = %7, %5, %21

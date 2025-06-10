@@ -4061,8 +4061,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %16 = load ptr, ptr %9, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !26
-  %19 = add i64 %18, 1
-  %20 = icmp slt i64 %19, 0
+  %19 = add nuw nsw i64 %18, 1
+  %20 = icmp slt i64 %18, -1
   br i1 %20, label %21, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 21:                                               ; preds = %7
@@ -4088,7 +4088,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 
 .noexc4.i:                                        ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %16, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %16, i64 %19, i1 false)
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit.i:           ; preds = %21, %25
@@ -10755,8 +10755,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost6locale4util15base_num_formatI
   %16 = load ptr, ptr %9, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !26
-  %19 = add i64 %18, 1
-  %20 = icmp slt i64 %19, 0
+  %19 = add nuw nsw i64 %18, 1
+  %20 = icmp slt i64 %18, -1
   br i1 %20, label %21, label %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 21:                                               ; preds = %7
@@ -10782,7 +10782,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 
 .noexc4.i:                                        ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %19
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %16, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %16, i64 %19, i1 false)
   br label %_ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit
 
 _ZNSt12_Vector_baseIcSaIcEED2Ev.exit.i:           ; preds = %21, %25

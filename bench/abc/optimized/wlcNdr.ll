@@ -4460,7 +4460,7 @@ Ndr_ObjReadBody.exit68.thread:                    ; preds = %Ndr_DataSize.exit.i
   br label %145
 
 61:                                               ; preds = %Ndr_ObjReadBody.exit
-  %62 = add nuw nsw i32 %43, 1
+  %62 = add nsw i32 %43, 1
   %.not.i.not.i = icmp slt i32 %43, %20
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %63
 
@@ -4552,8 +4552,7 @@ Vec_IntGetEntry.exit:                             ; preds = %61, %Vec_IntGrow.ex
 
 Vec_IntGrow.exit.sink.split.i.i73:                ; preds = %101
   %102 = shl nsw i32 %93, 1
-  %.not.i70 = icmp slt i32 %43, %102
-  %. = select i1 %.not.i70, i32 %102, i32 %62
+  %. = tail call i32 @llvm.smax.i32(i32 %102, i32 %62)
   %103 = sext i32 %. to i64
   %104 = shl nsw i64 %103, 2
   %105 = tail call ptr @realloc(ptr noundef nonnull %.val.i, i64 noundef %104) #25
@@ -4606,8 +4605,7 @@ Vec_IntGetEntry.exit83:                           ; preds = %100, %Vec_IntGrow.e
 
 Vec_IntGrow.exit.sink.split.i.i88:                ; preds = %127
   %128 = shl nsw i32 %123, 1
-  %.not.i85 = icmp slt i32 %43, %128
-  %.232 = select i1 %.not.i85, i32 %128, i32 %62
+  %.232 = tail call i32 @llvm.smax.i32(i32 %128, i32 %62)
   %129 = sext i32 %.232 to i64
   %130 = shl nsw i64 %129, 2
   %131 = tail call ptr @realloc(ptr noundef nonnull %122, i64 noundef %130) #25

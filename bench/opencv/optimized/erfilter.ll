@@ -36312,7 +36312,7 @@ _ZSt4moveIPN2cv4text4nodeES3_ET0_T_S5_S4_.exit:   ; preds = %32, %34
 
 51:                                               ; preds = %48
   %.idx = mul nsw i64 %.085, 24
-  %52 = add i64 %.idx, -24
+  %52 = add nsw i64 %.idx, -24
   %.neg.i.i.i.i.i = sdiv exact i64 %52, -24
   %53 = getelementptr inbounds %"struct.cv::text::node", ptr %49, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %.054, i64 %52, i1 false)

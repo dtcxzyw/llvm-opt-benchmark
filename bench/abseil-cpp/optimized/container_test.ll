@@ -27550,7 +27550,7 @@ _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_less_valEET_S4_S4_RKT0_T1_.exit.
   %.0.lcssa.i.i.i.i = phi ptr [ %.048.i.i.i, %22 ], [ %.1.i.i.i.i, %_ZSt7advanceIPilEvRT_T0_.exit.i.i.i.i ]
   %.idx = shl nuw nsw i64 %.01249.i.i.i, 2
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %32 = add nuw i64 %.idx52, 4
+  %32 = add nuw nsw i64 %.idx52, 4
   %gepdiff = sub nsw i64 %.idx, %32
   %33 = ashr exact i64 %gepdiff, 2
   %34 = icmp sgt i64 %33, 0
@@ -28171,7 +28171,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiNS0_5__
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.sroa.038.054.i.i.i, %75 ], [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElEvRT_T0_.exit.i.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i.i, 2
   %84 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %85 = add nuw i64 %.idx95, 4
+  %85 = add nuw nsw i64 %.idx95, 4
   %gepdiff = sub nsw i64 %.idx, %85
   %86 = ashr exact i64 %gepdiff, 2
   %87 = icmp sgt i64 %86, 0
@@ -54493,7 +54493,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.0, 2
-  %53 = add i64 %.idx, -4
+  %53 = add nsw i64 %.idx, -4
   %54 = ashr exact i64 %53, 2
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds i32, ptr %48, i64 %55
@@ -80449,7 +80449,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 
 98:                                               ; preds = %95
   %.idx.i.i = shl nsw i64 %.0.i.i, 3
-  %99 = add i64 %.idx.i.i, -8
+  %99 = add nsw i64 %.idx.i.i, -8
   %100 = ashr exact i64 %99, 3
   %101 = sub nsw i64 0, %100
   %102 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %94, i64 %101
@@ -81298,7 +81298,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 
 87:                                               ; preds = %84
   %.idx.i.i = shl nsw i64 %.0.i.i, 3
-  %88 = add i64 %.idx.i.i, -8
+  %88 = add nsw i64 %.idx.i.i, -8
   %89 = ashr exact i64 %88, 3
   %90 = sub nsw i64 0, %89
   %91 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %83, i64 %90
@@ -85073,7 +85073,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 
 98:                                               ; preds = %95
   %.idx.i.i = shl nsw i64 %.0.i.i, 3
-  %99 = add i64 %.idx.i.i, -8
+  %99 = add nsw i64 %.idx.i.i, -8
   %100 = ashr exact i64 %99, 3
   %101 = sub nsw i64 0, %100
   %102 = getelementptr inbounds %"struct.(anonymous namespace)::Element", ptr %94, i64 %101

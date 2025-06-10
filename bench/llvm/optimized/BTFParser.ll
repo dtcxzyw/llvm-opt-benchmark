@@ -8053,7 +8053,7 @@ _ZSt4moveIPN4llvm3BTF11BPFLineInfoES3_ET0_T_S5_S4_.exit: ; preds = %32, %34
 
 51:                                               ; preds = %48
   %.idx = shl nsw i64 %.085, 4
-  %52 = add i64 %.idx, -16
+  %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53
   %55 = getelementptr inbounds %"struct.llvm::BTF::BPFLineInfo", ptr %49, i64 %54
@@ -9571,7 +9571,7 @@ _ZSt4moveIPN4llvm3BTF13BPFFieldRelocES3_ET0_T_S5_S4_.exit: ; preds = %32, %34
 
 51:                                               ; preds = %48
   %.idx = shl nsw i64 %.085, 4
-  %52 = add i64 %.idx, -16
+  %52 = add nsw i64 %.idx, -16
   %53 = ashr exact i64 %52, 4
   %54 = sub nsw i64 0, %53
   %55 = getelementptr inbounds %"struct.llvm::BTF::BPFFieldReloc", ptr %49, i64 %54

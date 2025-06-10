@@ -31216,7 +31216,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN4mold6ElfRelINS2_6X86_64EEESt4spanIS5
 
 52:                                               ; preds = %49
   %.idx = mul nsw i64 %.0, 24
-  %53 = add i64 %.idx, -24
+  %53 = add nsw i64 %.idx, -24
   %.neg.i.i.i.i.i = sdiv exact i64 %53, -24
   %54 = getelementptr inbounds %"struct.mold::ElfRel", ptr %50, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %.sroa.041.0, i64 %53, i1 false)
@@ -93033,7 +93033,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN4mold14sort_init_finiINS2_6X86_64EEE
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.0, 4
-  %53 = add i64 %.idx, -16
+  %53 = add nsw i64 %.idx, -16
   %54 = ashr exact i64 %53, 4
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds %struct.Entry, ptr %50, i64 %55
@@ -94269,7 +94269,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPZN4mold14sort_ctor_dtorINS2_6X86_64EEE
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.0, 4
-  %53 = add i64 %.idx, -16
+  %53 = add nsw i64 %.idx, -16
   %54 = ashr exact i64 %53, 4
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds %struct.Entry.553, ptr %50, i64 %55
@@ -98287,7 +98287,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold5ChunkINS2_6X86_64EEESt6vectorI
 
 53:                                               ; preds = %50
   %.idx = shl nsw i64 %.0, 3
-  %54 = add i64 %.idx, -8
+  %54 = add nsw i64 %.idx, -8
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds ptr, ptr %49, i64 %56
@@ -108868,7 +108868,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold6SymbolINS2_6X86_64EEESt4spanIS
 
 53:                                               ; preds = %50
   %.idx = shl nsw i64 %.0, 3
-  %54 = add i64 %.idx, -8
+  %54 = add nsw i64 %.idx, -8
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
   %57 = getelementptr inbounds ptr, ptr %49, i64 %56

@@ -10366,8 +10366,7 @@ Vec_IntGetEntry.exit:                             ; preds = %Gla_ManObj.exit, %.
 
 Vec_IntGrow.exit.sink.split.i.i18:                ; preds = %60
   %62 = shl nsw i32 %61, 1
-  %.not.i15 = icmp slt i32 %2, %62
-  %. = select i1 %.not.i15, i32 %62, i32 %11
+  %. = tail call i32 @llvm.smax.i32(i32 %62, i32 %11)
   %63 = sext i32 %. to i64
   %64 = shl nsw i64 %63, 2
   %65 = tail call ptr @realloc(ptr noundef nonnull %.val.i, i64 noundef %64) #28

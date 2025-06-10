@@ -18099,9 +18099,8 @@ sbuf_len.exit165.thread:                          ; preds = %230, %sbuf_len.exit
 term_set_buffer_mode.exit:                        ; preds = %287, %290
   call fastcc void @term_write_n(ptr noundef nonnull %278, ptr noundef nonnull @.str.269, i64 noundef 1)
   %291 = load i64, ptr %275, align 8, !tbaa !262
-  %.not138 = icmp slt i64 %291, %.val149
   %292 = add nsw i64 %.val149, -1
-  %293 = select i1 %.not138, i64 %291, i64 %292
+  %293 = call i64 @llvm.smin.i64(i64 %291, i64 %292)
   %294 = icmp slt i64 %293, 1
   br i1 %294, label %term_up.exit, label %295
 

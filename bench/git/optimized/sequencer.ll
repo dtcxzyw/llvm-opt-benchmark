@@ -2731,8 +2731,7 @@ rebase_path_done.exit:                            ; preds = %4, %7
   %32 = mul i32 %29, 3
   %33 = add i32 %32, 48
   %34 = sdiv i32 %33, 2
-  %.not15.i = icmp sgt i32 %34, %28
-  %..i = select i1 %.not15.i, i32 %34, i32 %31
+  %..i = call i32 @llvm.smax.i32(i32 %34, i32 %31)
   store i32 %..i, ptr %15, align 4, !tbaa !121
   %35 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -10776,8 +10775,7 @@ prepare_revs.exit.i:                              ; preds = %97, %95
   %114 = mul i32 %111, 3
   %115 = add i32 %114, 48
   %116 = sdiv i32 %115, 2
-  %.not15.i.i = icmp sgt i32 %116, %110
-  %..i.i = select i1 %.not15.i.i, i32 %116, i32 %113
+  %..i.i = call i32 @llvm.smax.i32(i32 %116, i32 %113)
   store i32 %..i.i, ptr %105, align 4, !tbaa !121
   %117 = sext i32 %..i.i to i64
   %mul.ov.i.i.i = icmp slt i32 %..i.i, 0
@@ -13117,8 +13115,7 @@ rebase_path_todo.exit:                            ; preds = %11, %24
   %40 = mul i32 %37, 3
   %41 = add i32 %40, 48
   %42 = sdiv i32 %41, 2
-  %.not15.i = icmp sgt i32 %42, %35
-  %..i = select i1 %.not15.i, i32 %42, i32 %39
+  %..i = call i32 @llvm.smax.i32(i32 %42, i32 %39)
   store i32 %..i, ptr %36, align 4, !tbaa !121
   %43 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
@@ -13581,8 +13578,7 @@ copy_array.exit.i:                                ; preds = %st_mult.exit.i.i76,
   %243 = mul i32 %.396.i, 3
   %244 = add i32 %243, 48
   %245 = sdiv i32 %244, 2
-  %.not113.i = icmp sgt i32 %245, %.1100.i
-  %..i78 = select i1 %.not113.i, i32 %245, i32 %241
+  %..i78 = call i32 @llvm.smax.i32(i32 %245, i32 %241)
   %246 = sext i32 %..i78 to i64
   %mul.ov.i116.i = icmp slt i32 %..i78, 0
   br i1 %mul.ov.i116.i, label %247, label %st_mult.exit117.i

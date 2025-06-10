@@ -674,8 +674,7 @@ max_nbits.exit:                                   ; preds = %9, %3
   br i1 %.not.i15, label %18, label %15, !llvm.loop !80
 
 18:                                               ; preds = %15
-  %.not14.i16 = icmp slt i32 %.013.i13, %.0
-  %spec.select = select i1 %.not14.i16, i32 %.0, i32 %16
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.0, i32 %16)
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %18, %max_nbits.exit
@@ -798,33 +797,24 @@ put_bits.exit33:                                  ; preds = %56, %60
   %68 = shl i32 %.026.i.i31, %.0.i.i32
   br label %69
 
-69:                                               ; preds = %71, %.lr.ph.i
-  %.sroa.36.10.idx = phi i64 [ %.sroa.36.9.idx, %.lr.ph.i ], [ %.sroa.36.10.add, %71 ]
-  %.sroa.19.0 = phi i32 [ %.0.i.i32, %.lr.ph.i ], [ %75, %71 ]
-  %.sroa.0.0 = phi i32 [ %68, %.lr.ph.i ], [ %74, %71 ]
-  %exitcond.not = icmp eq i64 %.sroa.36.10.idx, 256
-  br i1 %exitcond.not, label %70, label %71
-
-70:                                               ; preds = %69
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 150) #6
-  call void @abort() #8
-  unreachable
-
-71:                                               ; preds = %69
+69:                                               ; preds = %.lr.ph.i, %69
+  %.sroa.36.10.idx = phi i64 [ %.sroa.36.9.idx, %.lr.ph.i ], [ %.sroa.36.10.add, %69 ]
+  %.sroa.19.0 = phi i32 [ %.0.i.i32, %.lr.ph.i ], [ %73, %69 ]
+  %.sroa.0.0 = phi i32 [ %68, %.lr.ph.i ], [ %72, %69 ]
   %.sroa.36.10.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.36.10.idx
-  %72 = lshr i32 %.sroa.0.0, 24
-  %73 = trunc nuw i32 %72 to i8
+  %70 = lshr i32 %.sroa.0.0, 24
+  %71 = trunc nuw i32 %70 to i8
   %.sroa.36.10.add = add nuw nsw i64 %.sroa.36.10.idx, 1
-  store i8 %73, ptr %.sroa.36.10.ptr, align 1, !tbaa !70
-  %74 = shl i32 %.sroa.0.0, 8
-  %75 = add nsw i32 %.sroa.19.0, 8
-  %76 = icmp slt i32 %.sroa.19.0, 24
-  br i1 %76, label %69, label %flush_put_bits.exit, !llvm.loop !71
+  store i8 %71, ptr %.sroa.36.10.ptr, align 1, !tbaa !70
+  %72 = shl i32 %.sroa.0.0, 8
+  %73 = add nsw i32 %.sroa.19.0, 8
+  %74 = icmp slt i32 %.sroa.19.0, 24
+  br i1 %74, label %69, label %flush_put_bits.exit, !llvm.loop !71
 
-flush_put_bits.exit:                              ; preds = %71, %put_bits.exit33
-  %.sroa.36.9.idx.pn = phi i64 [ %.sroa.36.9.idx, %put_bits.exit33 ], [ %.sroa.36.10.add, %71 ]
-  %77 = trunc i64 %.sroa.36.9.idx.pn to i32
-  call void @avio_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %77) #6
+flush_put_bits.exit:                              ; preds = %69, %put_bits.exit33
+  %.sroa.36.9.idx.pn = phi i64 [ %.sroa.36.9.idx, %put_bits.exit33 ], [ %.sroa.36.10.add, %69 ]
+  %75 = trunc i64 %.sroa.36.9.idx.pn to i32
+  call void @avio_write(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %75) #6
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
   ret void
 }
@@ -1251,8 +1241,7 @@ put_bits.exit27:                                  ; preds = %43, %51, %31
   br i1 %.not.i, label %59, label %56, !llvm.loop !80
 
 59:                                               ; preds = %56
-  %.not14.i = icmp samesign ult i32 %.013.i, 2
-  %spec.select = select i1 %.not14.i, i32 2, i32 %57
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %57, i32 2)
   br label %max_nbits.exit
 
 max_nbits.exit:                                   ; preds = %59, %put_bits.exit27
@@ -1273,8 +1262,7 @@ max_nbits.exit:                                   ; preds = %59, %put_bits.exit2
   br i1 %.not.i30, label %66, label %63, !llvm.loop !80
 
 66:                                               ; preds = %63
-  %.not14.i31 = icmp slt i32 %.013.i28, %.0
-  %spec.select79 = select i1 %.not14.i31, i32 %.0, i32 %64
+  %spec.select79 = tail call i32 @llvm.smax.i32(i32 %.0, i32 %64)
   br label %max_nbits.exit32
 
 max_nbits.exit32:                                 ; preds = %66, %max_nbits.exit
@@ -1991,6 +1979,12 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

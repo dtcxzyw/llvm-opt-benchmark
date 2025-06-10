@@ -26725,7 +26725,7 @@ _ZN5Eigen12SparseMatrixIdLi0EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8
   %.idx = shl nsw i64 %54, 2
-  %61 = add i64 %.idx, 4
+  %61 = add nsw i64 %.idx, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %52, i64 %61, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 
@@ -44263,7 +44263,7 @@ _ZN5Eigen12SparseMatrixIdLi1EiE14initAssignmentIS1_EEvRKT_.exit: ; preds = %39, 
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8
   %.idx = shl nsw i64 %54, 2
-  %61 = add i64 %.idx, 4
+  %61 = add nsw i64 %.idx, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %60, ptr align 4 %52, i64 %61, i1 false)
   br label %_ZN5Eigen8internal10smart_copyIiEEvPKT_S4_PS2_.exit
 

@@ -17581,7 +17581,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listIN
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.054.i.i, %24 ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESt6vectorISD_SaISD_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02155.i.i, 4
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %34 = add nuw i64 %.idx34, 16
+  %34 = add nuw nsw i64 %.idx34, 16
   %gepdiff = sub nsw i64 %.idx, %34
   %35 = ashr exact i64 %gepdiff, 4
   %36 = icmp sgt i64 %35, 0

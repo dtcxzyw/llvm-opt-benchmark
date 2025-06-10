@@ -20782,7 +20782,7 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %104, %
 
 124:                                              ; preds = %121
   %.idx.i.i = shl nsw i64 %.086.i.i, 3
-  %125 = add i64 %.idx.i.i, -8
+  %125 = add nsw i64 %.idx.i.i, -8
   %126 = ashr exact i64 %125, 3
   %127 = sub nsw i64 0, %126
   %128 = getelementptr inbounds ptr, ptr %120, i64 %127
@@ -22691,7 +22691,7 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i: ; preds = %79, %7
 
 99:                                               ; preds = %96
   %.idx.i.i = shl nsw i64 %.086.i.i, 3
-  %100 = add i64 %.idx.i.i, -8
+  %100 = add nsw i64 %.idx.i.i, -8
   %101 = ashr exact i64 %100, 3
   %102 = sub nsw i64 0, %101
   %103 = getelementptr inbounds ptr, ptr %95, i64 %102
@@ -23535,7 +23535,7 @@ _ZSt4moveIPPN12_GLOBAL__N_18CHRScopeES3_ET0_T_S5_S4_.exit.i.i.i: ; preds = %146,
 
 166:                                              ; preds = %163
   %.idx.i.i.i = shl nsw i64 %.086.i.i.i, 3
-  %167 = add i64 %.idx.i.i.i, -8
+  %167 = add nsw i64 %.idx.i.i.i, -8
   %168 = ashr exact i64 %167, 3
   %169 = sub nsw i64 0, %168
   %170 = getelementptr inbounds ptr, ptr %162, i64 %169

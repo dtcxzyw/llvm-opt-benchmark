@@ -2985,9 +2985,8 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   %45 = trunc nuw i32 %40 to i8
   %46 = or i8 %44, %45
   store i8 %46, ptr %43, align 1
-  %.not77 = icmp ult i32 %34, %.066.ph
   %47 = add nuw nsw i32 %34, 1
-  %spec.select = select i1 %.not77, i32 %.066.ph, i32 %47
+  %spec.select = call i32 @llvm.umax.i32(i32 %.066.ph, i32 %47)
   br label %.outer
 
 .outer:                                           ; preds = %.preheader88, %36
@@ -5913,6 +5912,9 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15

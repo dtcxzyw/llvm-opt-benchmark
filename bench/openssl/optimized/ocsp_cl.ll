@@ -444,7 +444,7 @@ define range(i32 -1, 2147483647) i32 @OCSP_resp_find(ptr noundef readonly captur
 
 9:                                                ; preds = %12, %5
   %.014.in = phi i32 [ %6, %5 ], [ %.014, %12 ]
-  %.014 = add i32 %.014.in, 1
+  %.014 = add nsw i32 %.014.in, 1
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #8
   %11 = icmp slt i32 %.014, %10
   br i1 %11, label %12, label %.loopexit

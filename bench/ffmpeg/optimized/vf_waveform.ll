@@ -4116,8 +4116,7 @@ define internal noundef i32 @lowpass16_column_mirror(ptr noundef readonly captur
   %.0230.i21 = phi ptr [ %98, %104 ], [ %85, %.lr.ph.preheader ]
   %92 = load i16, ptr %.0223.i22, align 2, !tbaa !72
   %93 = zext i16 %92 to i32
-  %.not255.i = icmp sgt i32 %42, %93
-  %..i = select i1 %.not255.i, i32 %93, i32 %43
+  %..i = tail call i32 @llvm.smin.i32(i32 %93, i32 %43)
   %94 = mul i32 %40, %..i
   %95 = sub i32 0, %94
   %96 = sext i32 %95 to i64
@@ -4434,8 +4433,7 @@ define internal noundef i32 @lowpass16_row_mirror(ptr noundef readonly captures(
   %.0223.i16 = phi ptr [ %107, %106 ], [ %.0221.i19, %92 ]
   %94 = load i16, ptr %.0223.i16, align 2, !tbaa !72
   %95 = zext i16 %94 to i32
-  %.not255.i = icmp sgt i32 %42, %95
-  %..i = select i1 %.not255.i, i32 %95, i32 %43
+  %..i = tail call i32 @llvm.smin.i32(i32 %95, i32 %43)
   %96 = sext i32 %..i to i64
   %97 = sub nsw i64 0, %96
   br label %98
@@ -4674,8 +4672,7 @@ define internal noundef i32 @lowpass16_column(ptr noundef readonly captures(none
   %.0230.i21 = phi ptr [ %92, %98 ], [ %80, %.lr.ph.preheader ]
   %87 = load i16, ptr %.0223.i22, align 2, !tbaa !72
   %88 = zext i16 %87 to i32
-  %.not255.i = icmp sgt i32 %42, %88
-  %..i = select i1 %.not255.i, i32 %88, i32 %43
+  %..i = tail call i32 @llvm.smin.i32(i32 %88, i32 %43)
   %89 = mul nsw i32 %..i, %40
   %90 = sext i32 %89 to i64
   br label %91
@@ -4987,8 +4984,7 @@ define internal noundef i32 @lowpass16_row(ptr noundef readonly captures(none) %
   %.0223.i16 = phi ptr [ %101, %100 ], [ %.0221.i19, %88 ]
   %90 = load i16, ptr %.0223.i16, align 2, !tbaa !72
   %91 = zext i16 %90 to i32
-  %.not255.i = icmp sgt i32 %42, %91
-  %..i = select i1 %.not255.i, i32 %91, i32 %43
+  %..i = tail call i32 @llvm.smin.i32(i32 %91, i32 %43)
   %92 = sext i32 %..i to i64
   br label %93
 
@@ -6132,8 +6128,7 @@ define internal noundef i32 @flat16_column_mirror(ptr noundef readonly captures(
   %126 = getelementptr inbounds i16, ptr %.0374.i23.us, i64 %118
   %127 = load i16, ptr %126, align 2, !tbaa !72
   %128 = zext i16 %127 to i32
-  %.not421.i.us = icmp sgt i32 %50, %128
-  %..i.us = select i1 %.not421.i.us, i32 %128, i32 %51
+  %..i.us = tail call i32 @llvm.smin.i32(i32 %128, i32 %51)
   %129 = add nsw i32 %..i.us, %50
   %130 = getelementptr inbounds i16, ptr %.0376.i22.us, i64 %120
   %131 = load i16, ptr %130, align 2, !tbaa !72
@@ -6146,8 +6141,7 @@ define internal noundef i32 @flat16_column_mirror(ptr noundef readonly captures(
   %138 = sub nsw i32 %137, %53
   %139 = tail call i32 @llvm.abs.i32(i32 %138, i1 true)
   %140 = add nuw nsw i32 %139, %134
-  %.not422.i.us = icmp slt i32 %140, %50
-  %spec.select.us = select i1 %.not422.i.us, i32 %140, i32 %51
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %140, i32 %51)
   %141 = mul i32 %67, %129
   %142 = sub i32 0, %141
   %143 = sext i32 %142 to i64
@@ -6366,8 +6360,7 @@ define internal noundef i32 @flat16_row_mirror(ptr noundef readonly captures(non
   %132 = getelementptr inbounds nuw i16, ptr %.0372.i22.us, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !72
   %134 = zext i16 %133 to i32
-  %.not415.i.us = icmp sgt i32 %36, %134
-  %.431.i.us = select i1 %.not415.i.us, i32 %134, i32 %37
+  %.431.i.us = tail call i32 @llvm.smin.i32(i32 %134, i32 %37)
   %135 = add nsw i32 %.431.i.us, %36
   %136 = lshr i32 %.1.i21.us, %22
   %137 = zext nneg i32 %136 to i64
@@ -6384,8 +6377,7 @@ define internal noundef i32 @flat16_row_mirror(ptr noundef readonly captures(non
   %148 = sub nsw i32 %147, %39
   %149 = tail call i32 @llvm.abs.i32(i32 %148, i1 true)
   %150 = add nuw nsw i32 %149, %142
-  %.not416.i.us = icmp slt i32 %150, %36
-  %spec.select.us = select i1 %.not416.i.us, i32 %150, i32 %37
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %150, i32 %37)
   %151 = sext i32 %135 to i64
   %152 = sub nsw i64 0, %151
   %153 = getelementptr inbounds i16, ptr %.1367.i25.us, i64 %152
@@ -6587,8 +6579,7 @@ define internal noundef i32 @flat16_column(ptr noundef readonly captures(none) %
   %119 = getelementptr inbounds i16, ptr %.0374.i23.us, i64 %111
   %120 = load i16, ptr %119, align 2, !tbaa !72
   %121 = zext i16 %120 to i32
-  %.not421.i.us = icmp sgt i32 %54, %121
-  %..i.us = select i1 %.not421.i.us, i32 %121, i32 %55
+  %..i.us = tail call i32 @llvm.smin.i32(i32 %121, i32 %55)
   %122 = add nsw i32 %..i.us, %54
   %123 = getelementptr inbounds i16, ptr %.0376.i22.us, i64 %113
   %124 = load i16, ptr %123, align 2, !tbaa !72
@@ -6601,8 +6592,7 @@ define internal noundef i32 @flat16_column(ptr noundef readonly captures(none) %
   %131 = sub nsw i32 %130, %57
   %132 = tail call i32 @llvm.abs.i32(i32 %131, i1 true)
   %133 = add nuw nsw i32 %132, %127
-  %.not422.i.us = icmp slt i32 %133, %54
-  %spec.select.us = select i1 %.not422.i.us, i32 %133, i32 %55
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %133, i32 %55)
   %134 = mul nsw i32 %122, %49
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i16, ptr %116, i64 %135
@@ -6813,8 +6803,7 @@ define internal noundef i32 @flat16_row(ptr noundef readonly captures(none) %0, 
   %126 = getelementptr inbounds nuw i16, ptr %.0372.i22.us, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !72
   %128 = zext i16 %127 to i32
-  %.not415.i.us = icmp sgt i32 %36, %128
-  %.431.i.us = select i1 %.not415.i.us, i32 %128, i32 %37
+  %.431.i.us = tail call i32 @llvm.smin.i32(i32 %128, i32 %37)
   %129 = add nsw i32 %.431.i.us, %36
   %130 = lshr i32 %.1.i21.us, %22
   %131 = zext nneg i32 %130 to i64
@@ -6831,8 +6820,7 @@ define internal noundef i32 @flat16_row(ptr noundef readonly captures(none) %0, 
   %142 = sub nsw i32 %141, %39
   %143 = tail call i32 @llvm.abs.i32(i32 %142, i1 true)
   %144 = add nuw nsw i32 %143, %136
-  %.not416.i.us = icmp slt i32 %144, %36
-  %spec.select.us = select i1 %.not416.i.us, i32 %144, i32 %37
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %144, i32 %37)
   %145 = sext i32 %129 to i64
   %146 = getelementptr inbounds i16, ptr %.1367.i25.us, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !72
@@ -8471,19 +8459,16 @@ define internal noundef i32 @aflat16_column_mirror(ptr noundef readonly captures
   %140 = getelementptr inbounds i16, ptr %.0176212.us, i64 %131
   %141 = load i16, ptr %140, align 2, !tbaa !72
   %142 = zext i16 %141 to i32
-  %.not.us = icmp sgt i32 %48, %142
-  %..us = select i1 %.not.us, i32 %142, i32 %49
+  %..us = tail call i32 @llvm.smin.i32(i32 %142, i32 %49)
   %.neg208.us = sub i32 %.neg, %..us
   %143 = getelementptr inbounds i16, ptr %.0177211.us, i64 %133
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i32
-  %.not192.us = icmp sgt i32 %48, %145
-  %146 = select i1 %.not192.us, i32 %145, i32 %49
+  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 %49)
   %147 = getelementptr inbounds i16, ptr %.0179210.us, i64 %135
   %148 = load i16, ptr %147, align 2, !tbaa !72
   %149 = zext i16 %148 to i32
-  %.not193.us = icmp sgt i32 %48, %149
-  %150 = select i1 %.not193.us, i32 %149, i32 %49
+  %150 = tail call i32 @llvm.smin.i32(i32 %149, i32 %49)
   %.neg209.us = mul i32 %.neg208.us, %46
   %151 = sext i32 %.neg209.us to i64
   %152 = getelementptr inbounds i16, ptr %136, i64 %151
@@ -8714,23 +8699,20 @@ define internal noundef i32 @aflat16_row_mirror(ptr noundef readonly captures(no
   %143 = getelementptr inbounds nuw i16, ptr %.0173211.us, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i32
-  %.not194.us = icmp sgt i32 %36, %145
-  %..us = select i1 %.not194.us, i32 %145, i32 %37
+  %..us = tail call i32 @llvm.smin.i32(i32 %145, i32 %37)
   %146 = add nsw i32 %..us, %39
   %147 = lshr i32 %.0205.us, %22
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds nuw i16, ptr %.0174210.us, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !72
   %151 = zext i16 %150 to i32
-  %.not195.us = icmp sgt i32 %36, %151
-  %152 = select i1 %.not195.us, i32 %151, i32 %37
+  %152 = tail call i32 @llvm.smin.i32(i32 %151, i32 %37)
   %153 = lshr i32 %.0205.us, %27
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw i16, ptr %.0179206.us, i64 %154
   %156 = load i16, ptr %155, align 2, !tbaa !72
   %157 = zext i16 %156 to i32
-  %.not196.us = icmp sgt i32 %36, %157
-  %158 = select i1 %.not196.us, i32 %157, i32 %37
+  %158 = tail call i32 @llvm.smin.i32(i32 %157, i32 %37)
   %159 = sext i32 %146 to i64
   %160 = sub nsw i64 0, %159
   %161 = getelementptr inbounds i16, ptr %.0178207.us, i64 %160
@@ -8943,19 +8925,16 @@ define internal noundef i32 @aflat16_column(ptr noundef readonly captures(none) 
   %129 = getelementptr inbounds i16, ptr %.0176210.us, i64 %120
   %130 = load i16, ptr %129, align 2, !tbaa !72
   %131 = zext i16 %130 to i32
-  %.not.us = icmp sgt i32 %60, %131
-  %..us = select i1 %.not.us, i32 %131, i32 %61
+  %..us = tail call i32 @llvm.smin.i32(i32 %131, i32 %61)
   %132 = add nsw i32 %..us, %63
   %133 = getelementptr inbounds i16, ptr %.0177209.us, i64 %122
   %134 = load i16, ptr %133, align 2, !tbaa !72
   %135 = zext i16 %134 to i32
-  %.not192.us = icmp sgt i32 %60, %135
-  %136 = select i1 %.not192.us, i32 %135, i32 %61
+  %136 = tail call i32 @llvm.smin.i32(i32 %135, i32 %61)
   %137 = getelementptr inbounds i16, ptr %.0179208.us, i64 %124
   %138 = load i16, ptr %137, align 2, !tbaa !72
   %139 = zext i16 %138 to i32
-  %.not193.us = icmp sgt i32 %60, %139
-  %140 = select i1 %.not193.us, i32 %139, i32 %61
+  %140 = tail call i32 @llvm.smin.i32(i32 %139, i32 %61)
   %141 = mul nsw i32 %132, %52
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i16, ptr %125, i64 %142
@@ -9177,23 +9156,20 @@ define internal noundef i32 @aflat16_row(ptr noundef readonly captures(none) %0,
   %136 = getelementptr inbounds nuw i16, ptr %.0167205.us, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !72
   %138 = zext i16 %137 to i32
-  %.not188.us = icmp sgt i32 %36, %138
-  %..us = select i1 %.not188.us, i32 %138, i32 %37
+  %..us = tail call i32 @llvm.smin.i32(i32 %138, i32 %37)
   %139 = add nsw i32 %..us, %39
   %140 = lshr i32 %.0199.us, %22
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw i16, ptr %.0168204.us, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !72
   %144 = zext i16 %143 to i32
-  %.not189.us = icmp sgt i32 %36, %144
-  %145 = select i1 %.not189.us, i32 %144, i32 %37
+  %145 = tail call i32 @llvm.smin.i32(i32 %144, i32 %37)
   %146 = lshr i32 %.0199.us, %27
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw i16, ptr %.0173200.us, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !72
   %150 = zext i16 %149 to i32
-  %.not190.us = icmp sgt i32 %36, %150
-  %151 = select i1 %.not190.us, i32 %150, i32 %37
+  %151 = tail call i32 @llvm.smin.i32(i32 %150, i32 %37)
   %152 = sext i32 %139 to i64
   %153 = getelementptr inbounds i16, ptr %.0172201.us, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !72
@@ -10213,7 +10189,7 @@ define internal noundef i32 @chroma16_column_mirror(ptr noundef readonly capture
   %.fr = freeze i32 %32
   %33 = getelementptr inbounds [4 x i32], ptr %30, i64 0, i64 %27
   %34 = load i32, ptr %33, align 4, !tbaa !44
-  %.fr51 = freeze i32 %34
+  %.fr49 = freeze i32 %34
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 108
   %36 = load i32, ptr %35, align 4, !tbaa !111
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -10278,75 +10254,74 @@ define internal noundef i32 @chroma16_column_mirror(ptr noundef readonly capture
   %92 = xor i32 %18, -1
   %93 = sub nsw i32 0, %57
   %94 = sext i32 %70 to i64
-  %.not292.i = icmp ne i32 %.fr51, 0
+  %.not292.i = icmp ne i32 %.fr49, 0
   %95 = sext i32 %64 to i64
   br i1 %91, label %.lr.ph20.split.us, label %chroma16.exit
 
 .lr.ph20.split.us:                                ; preds = %.lr.ph20
   %.not290.i.not = icmp eq i32 %.fr, 0
   %96 = sext i32 %40 to i64
-  %wide.trip.count67 = sext i32 %43 to i64
+  %wide.trip.count65 = sext i32 %43 to i64
   br i1 %.not290.i.not, label %.lr.ph.us, label %.lr.ph20.split.us.split.us
 
 .lr.ph20.split.us.split.us:                       ; preds = %.lr.ph20.split.us
   br i1 %.not292.i, label %.lr.ph.us.us.us, label %.lr.ph.us.us
 
-.lr.ph.us.us.us:                                  ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us29.us.split.us45
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.split.us29.us.split.us45 ], [ %96, %.lr.ph20.split.us.split.us ]
-  %97 = trunc nsw i64 %indvars.iv58 to i32
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us28.us.split.us43
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.split.us28.us.split.us43 ], [ %96, %.lr.ph20.split.us.split.us ]
+  %97 = trunc nsw i64 %indvars.iv56 to i32
   %98 = ashr i32 %97, %24
   %99 = sext i32 %98 to i64
   %100 = ashr i32 %97, %29
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv58
+  %102 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv56
   br label %103
 
 103:                                              ; preds = %.lr.ph.us.us.us, %103
-  %.0252.i17.us21.us.us36 = phi i32 [ 0, %.lr.ph.us.us.us ], [ %123, %103 ]
-  %.0254.i16.us22.us.us37 = phi ptr [ %76, %.lr.ph.us.us.us ], [ %.1255.i.us30.us.us47, %103 ]
-  %.0256.i15.us23.us.us38 = phi ptr [ %78, %.lr.ph.us.us.us ], [ %.1257.i.us34.us.us48, %103 ]
-  %104 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us37, i64 %99
+  %.0252.i17.us21.us.us35 = phi i32 [ 0, %.lr.ph.us.us.us ], [ %123, %103 ]
+  %.0254.i16.us22.us.us36 = phi ptr [ %76, %.lr.ph.us.us.us ], [ %.1255.i.us29.us.us45, %103 ]
+  %.0256.i15.us23.us.us37 = phi ptr [ %78, %.lr.ph.us.us.us ], [ %.1257.i.us33.us.us46, %103 ]
+  %104 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us36, i64 %99
   %105 = load i16, ptr %104, align 2, !tbaa !72
   %106 = zext i16 %105 to i32
   %107 = sub nsw i32 %106, %18
   %108 = tail call i32 @llvm.abs.i32(i32 %107, i1 true)
-  %109 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us38, i64 %101
+  %109 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us37, i64 %101
   %110 = load i16, ptr %109, align 2, !tbaa !72
   %111 = zext i16 %110 to i32
   %112 = add nsw i32 %111, %92
   %113 = tail call i32 @llvm.abs.i32(i32 %112, i1 true)
   %114 = add nuw nsw i32 %113, %108
-  %.not289.i.us24.us.us39 = icmp slt i32 %114, %15
-  %spec.select.us25.us.us40 = select i1 %.not289.i.us24.us.us39, i32 %114, i32 %16
-  %115 = mul i32 %spec.select.us25.us.us40, %93
+  %spec.select.us24.us.us38 = tail call i32 @llvm.smin.i32(i32 %114, i32 %16)
+  %115 = mul i32 %spec.select.us24.us.us38, %93
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i16, ptr %102, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !72
   %119 = zext i16 %118 to i32
-  %.not.i.us26.us.us41 = icmp slt i32 %17, %119
+  %.not.i.us25.us.us39 = icmp slt i32 %17, %119
   %120 = add nsw i32 %11, %119
-  %storemerge.in.i.us27.us.us42 = select i1 %.not.i.us26.us.us41, i32 %16, i32 %120
-  %storemerge.i.us28.us.us43 = trunc i32 %storemerge.in.i.us27.us.us42 to i16
-  store i16 %storemerge.i.us28.us.us43, ptr %117, align 2, !tbaa !72
-  %121 = and i32 %.0252.i17.us21.us.us36, %.fr
-  %.not291.i.us.us.us44 = icmp eq i32 %121, 0
-  %spec.select = select i1 %.not291.i.us.us.us44, i64 0, i64 %94
-  %.1255.i.us30.us.us47 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us37, i64 %spec.select
-  %122 = and i32 %.0252.i17.us21.us.us36, %.fr51
-  %.not293.i.us31.us.us = icmp eq i32 %122, 0
-  %unswitched.select.us = select i1 %.not293.i.us31.us.us, i64 0, i64 %95
-  %.1257.i.us34.us.us48 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us38, i64 %unswitched.select.us
-  %123 = add nuw nsw i32 %.0252.i17.us21.us.us36, 1
-  %exitcond57.not = icmp eq i32 %123, %36
-  br i1 %exitcond57.not, label %._crit_edge.split.us29.us.split.us45, label %103, !llvm.loop !187
+  %storemerge.in.i.us26.us.us40 = select i1 %.not.i.us25.us.us39, i32 %16, i32 %120
+  %storemerge.i.us27.us.us41 = trunc i32 %storemerge.in.i.us26.us.us40 to i16
+  store i16 %storemerge.i.us27.us.us41, ptr %117, align 2, !tbaa !72
+  %121 = and i32 %.0252.i17.us21.us.us35, %.fr
+  %.not291.i.us.us.us42 = icmp eq i32 %121, 0
+  %spec.select = select i1 %.not291.i.us.us.us42, i64 0, i64 %94
+  %.1255.i.us29.us.us45 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us36, i64 %spec.select
+  %122 = and i32 %.0252.i17.us21.us.us35, %.fr49
+  %.not293.i.us30.us.us = icmp eq i32 %122, 0
+  %unswitched.select.us = select i1 %.not293.i.us30.us.us, i64 0, i64 %95
+  %.1257.i.us33.us.us46 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us37, i64 %unswitched.select.us
+  %123 = add nuw nsw i32 %.0252.i17.us21.us.us35, 1
+  %exitcond55.not = icmp eq i32 %123, %36
+  br i1 %exitcond55.not, label %._crit_edge.split.us28.us.split.us43, label %103, !llvm.loop !187
 
-._crit_edge.split.us29.us.split.us45:             ; preds = %103
-  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count67
-  br i1 %exitcond62.not, label %chroma16.exit, label %.lr.ph.us.us.us, !llvm.loop !188
+._crit_edge.split.us28.us.split.us43:             ; preds = %103
+  %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count65
+  br i1 %exitcond60.not, label %chroma16.exit, label %.lr.ph.us.us.us, !llvm.loop !188
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us29.us.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us29.us.split.us ], [ %96, %.lr.ph20.split.us.split.us ]
+.lr.ph.us.us:                                     ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us28.us.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us28.us.split.us ], [ %96, %.lr.ph20.split.us.split.us ]
   %124 = trunc nsw i64 %indvars.iv to i32
   %125 = ashr i32 %124, %24
   %126 = sext i32 %125 to i64
@@ -10357,8 +10332,8 @@ define internal noundef i32 @chroma16_column_mirror(ptr noundef readonly capture
 
 130:                                              ; preds = %130, %.lr.ph.us.us
   %.0252.i17.us21.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %149, %130 ]
-  %.0254.i16.us22.us.us = phi ptr [ %76, %.lr.ph.us.us ], [ %.1255.i.us30.us.us, %130 ]
-  %.0256.i15.us23.us.us = phi ptr [ %78, %.lr.ph.us.us ], [ %.1257.i.us34.us.us, %130 ]
+  %.0254.i16.us22.us.us = phi ptr [ %76, %.lr.ph.us.us ], [ %.1255.i.us29.us.us, %130 ]
+  %.0256.i15.us23.us.us = phi ptr [ %78, %.lr.ph.us.us ], [ %.1257.i.us33.us.us, %130 ]
   %131 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us, i64 %126
   %132 = load i16, ptr %131, align 2, !tbaa !72
   %133 = zext i16 %132 to i32
@@ -10370,40 +10345,39 @@ define internal noundef i32 @chroma16_column_mirror(ptr noundef readonly capture
   %139 = add nsw i32 %138, %92
   %140 = tail call i32 @llvm.abs.i32(i32 %139, i1 true)
   %141 = add nuw nsw i32 %140, %135
-  %.not289.i.us24.us.us = icmp slt i32 %141, %15
-  %spec.select.us25.us.us = select i1 %.not289.i.us24.us.us, i32 %141, i32 %16
-  %142 = mul i32 %spec.select.us25.us.us, %93
+  %spec.select.us24.us.us = tail call i32 @llvm.smin.i32(i32 %141, i32 %16)
+  %142 = mul i32 %spec.select.us24.us.us, %93
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i16, ptr %129, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !72
   %146 = zext i16 %145 to i32
-  %.not.i.us26.us.us = icmp slt i32 %17, %146
+  %.not.i.us25.us.us = icmp slt i32 %17, %146
   %147 = add nsw i32 %11, %146
-  %storemerge.in.i.us27.us.us = select i1 %.not.i.us26.us.us, i32 %16, i32 %147
-  %storemerge.i.us28.us.us = trunc i32 %storemerge.in.i.us27.us.us to i16
-  store i16 %storemerge.i.us28.us.us, ptr %144, align 2, !tbaa !72
+  %storemerge.in.i.us26.us.us = select i1 %.not.i.us25.us.us, i32 %16, i32 %147
+  %storemerge.i.us27.us.us = trunc i32 %storemerge.in.i.us26.us.us to i16
+  store i16 %storemerge.i.us27.us.us, ptr %144, align 2, !tbaa !72
   %148 = and i32 %.0252.i17.us21.us.us, %.fr
   %.not291.i.us.us.us = icmp eq i32 %148, 0
-  %spec.select50 = select i1 %.not291.i.us.us.us, i64 0, i64 %94
-  %.1255.i.us30.us.us = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us, i64 %spec.select50
-  %.1257.i.us34.us.us = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us, i64 %95
+  %spec.select48 = select i1 %.not291.i.us.us.us, i64 0, i64 %94
+  %.1255.i.us29.us.us = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us, i64 %spec.select48
+  %.1257.i.us33.us.us = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us, i64 %95
   %149 = add nuw nsw i32 %.0252.i17.us21.us.us, 1
   %exitcond.not = icmp eq i32 %149, %36
-  br i1 %exitcond.not, label %._crit_edge.split.us29.us.split.us, label %130, !llvm.loop !187
+  br i1 %exitcond.not, label %._crit_edge.split.us28.us.split.us, label %130, !llvm.loop !187
 
-._crit_edge.split.us29.us.split.us:               ; preds = %130
+._crit_edge.split.us28.us.split.us:               ; preds = %130
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count67
-  br i1 %exitcond56.not, label %chroma16.exit, label %.lr.ph.us.us, !llvm.loop !188
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count65
+  br i1 %exitcond54.not, label %chroma16.exit, label %.lr.ph.us.us, !llvm.loop !188
 
 .lr.ph.us:                                        ; preds = %.lr.ph20.split.us, %._crit_edge.split.us.us
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %._crit_edge.split.us.us ], [ %96, %.lr.ph20.split.us ]
-  %150 = trunc nsw i64 %indvars.iv64 to i32
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %._crit_edge.split.us.us ], [ %96, %.lr.ph20.split.us ]
+  %150 = trunc nsw i64 %indvars.iv62 to i32
   %151 = ashr i32 %150, %24
   %152 = sext i32 %151 to i64
   %153 = ashr i32 %150, %29
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv64
+  %155 = getelementptr inbounds i16, ptr %90, i64 %indvars.iv62
   br label %156
 
 156:                                              ; preds = %156, %.lr.ph.us
@@ -10421,8 +10395,7 @@ define internal noundef i32 @chroma16_column_mirror(ptr noundef readonly capture
   %165 = add nsw i32 %164, %92
   %166 = tail call i32 @llvm.abs.i32(i32 %165, i1 true)
   %167 = add nuw nsw i32 %166, %161
-  %.not289.i.us.us = icmp slt i32 %167, %15
-  %spec.select.us.us = select i1 %.not289.i.us.us, i32 %167, i32 %16
+  %spec.select.us.us = tail call i32 @llvm.smin.i32(i32 %167, i32 %16)
   %168 = mul i32 %spec.select.us.us, %93
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds i16, ptr %155, i64 %169
@@ -10434,21 +10407,21 @@ define internal noundef i32 @chroma16_column_mirror(ptr noundef readonly capture
   %storemerge.i.us.us = trunc i32 %storemerge.in.i.us.us to i16
   store i16 %storemerge.i.us.us, ptr %170, align 2, !tbaa !72
   %.1255.i.us.us = getelementptr inbounds i16, ptr %.0254.i16.us.us, i64 %94
-  %174 = and i32 %.0252.i17.us.us, %.fr51
+  %174 = and i32 %.0252.i17.us.us, %.fr49
   %.not293.i.us.us = icmp eq i32 %174, 0
   %or.cond294.i.us.us = and i1 %.not292.i, %.not293.i.us.us
   %.1257.i.idx.us.us = select i1 %or.cond294.i.us.us, i64 0, i64 %95
   %.1257.i.us.us = getelementptr inbounds i16, ptr %.0256.i15.us.us, i64 %.1257.i.idx.us.us
   %175 = add nuw nsw i32 %.0252.i17.us.us, 1
-  %exitcond63.not = icmp eq i32 %175, %36
-  br i1 %exitcond63.not, label %._crit_edge.split.us.us, label %156, !llvm.loop !187
+  %exitcond61.not = icmp eq i32 %175, %36
+  br i1 %exitcond61.not, label %._crit_edge.split.us.us, label %156, !llvm.loop !187
 
 ._crit_edge.split.us.us:                          ; preds = %156
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %chroma16.exit, label %.lr.ph.us, !llvm.loop !188
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
+  br i1 %exitcond66.not, label %chroma16.exit, label %.lr.ph.us, !llvm.loop !188
 
-chroma16.exit:                                    ; preds = %._crit_edge.split.us29.us.split.us, %._crit_edge.split.us29.us.split.us45, %._crit_edge.split.us.us, %.lr.ph20, %4
+chroma16.exit:                                    ; preds = %._crit_edge.split.us28.us.split.us, %._crit_edge.split.us28.us.split.us43, %._crit_edge.split.us.us, %.lr.ph20, %4
   ret i32 0
 }
 
@@ -10590,8 +10563,7 @@ define internal noundef i32 @chroma16_row_mirror(ptr noundef readonly captures(n
   %118 = add nsw i32 %117, %72
   %119 = tail call i32 @llvm.abs.i32(i32 %118, i1 true)
   %120 = add nuw nsw i32 %119, %112
-  %.not286.i.us = icmp slt i32 %120, %15
-  %spec.select.us = select i1 %.not286.i.us, i32 %120, i32 %16
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %120, i32 %16)
   %121 = sext i32 %spec.select.us to i64
   %122 = sub nsw i64 0, %121
   %123 = getelementptr inbounds i16, ptr %.1247.i19.us, i64 %122
@@ -10672,7 +10644,7 @@ define internal noundef i32 @chroma16_column(ptr noundef readonly captures(none)
   %.fr = freeze i32 %45
   %46 = getelementptr inbounds [4 x i32], ptr %43, i64 0, i64 %40
   %47 = load i32, ptr %46, align 4, !tbaa !44
-  %.fr51 = freeze i32 %47
+  %.fr49 = freeze i32 %47
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 108
   %49 = load i32, ptr %48, align 4, !tbaa !111
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -10717,75 +10689,74 @@ define internal noundef i32 @chroma16_column(ptr noundef readonly captures(none)
   %86 = icmp sgt i32 %49, 0
   %87 = xor i32 %31, -1
   %88 = sext i32 %70 to i64
-  %.not292.i = icmp ne i32 %.fr51, 0
+  %.not292.i = icmp ne i32 %.fr49, 0
   %89 = sext i32 %64 to i64
   br i1 %86, label %.lr.ph20.split.us, label %chroma16.exit
 
 .lr.ph20.split.us:                                ; preds = %.lr.ph20
   %.not290.i.not = icmp eq i32 %.fr, 0
   %90 = sext i32 %53 to i64
-  %wide.trip.count67 = sext i32 %56 to i64
+  %wide.trip.count65 = sext i32 %56 to i64
   br i1 %.not290.i.not, label %.lr.ph.us, label %.lr.ph20.split.us.split.us
 
 .lr.ph20.split.us.split.us:                       ; preds = %.lr.ph20.split.us
   br i1 %.not292.i, label %.lr.ph.us.us.us, label %.lr.ph.us.us
 
-.lr.ph.us.us.us:                                  ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us29.us.split.us45
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.split.us29.us.split.us45 ], [ %90, %.lr.ph20.split.us.split.us ]
-  %91 = trunc nsw i64 %indvars.iv58 to i32
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us28.us.split.us43
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.split.us28.us.split.us43 ], [ %90, %.lr.ph20.split.us.split.us ]
+  %91 = trunc nsw i64 %indvars.iv56 to i32
   %92 = ashr i32 %91, %37
   %93 = sext i32 %92 to i64
   %94 = ashr i32 %91, %42
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv58
+  %96 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv56
   br label %97
 
 97:                                               ; preds = %.lr.ph.us.us.us, %97
-  %.0252.i17.us21.us.us36 = phi i32 [ 0, %.lr.ph.us.us.us ], [ %117, %97 ]
-  %.0254.i16.us22.us.us37 = phi ptr [ %76, %.lr.ph.us.us.us ], [ %.1255.i.us30.us.us47, %97 ]
-  %.0256.i15.us23.us.us38 = phi ptr [ %78, %.lr.ph.us.us.us ], [ %.1257.i.us34.us.us48, %97 ]
-  %98 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us37, i64 %93
+  %.0252.i17.us21.us.us35 = phi i32 [ 0, %.lr.ph.us.us.us ], [ %117, %97 ]
+  %.0254.i16.us22.us.us36 = phi ptr [ %76, %.lr.ph.us.us.us ], [ %.1255.i.us29.us.us45, %97 ]
+  %.0256.i15.us23.us.us37 = phi ptr [ %78, %.lr.ph.us.us.us ], [ %.1257.i.us33.us.us46, %97 ]
+  %98 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us36, i64 %93
   %99 = load i16, ptr %98, align 2, !tbaa !72
   %100 = zext i16 %99 to i32
   %101 = sub nsw i32 %100, %31
   %102 = tail call i32 @llvm.abs.i32(i32 %101, i1 true)
-  %103 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us38, i64 %95
+  %103 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us37, i64 %95
   %104 = load i16, ptr %103, align 2, !tbaa !72
   %105 = zext i16 %104 to i32
   %106 = add nsw i32 %105, %87
   %107 = tail call i32 @llvm.abs.i32(i32 %106, i1 true)
   %108 = add nuw nsw i32 %107, %102
-  %.not289.i.us24.us.us39 = icmp slt i32 %108, %28
-  %spec.select.us25.us.us40 = select i1 %.not289.i.us24.us.us39, i32 %108, i32 %29
-  %109 = mul nsw i32 %spec.select.us25.us.us40, %26
+  %spec.select.us24.us.us38 = tail call i32 @llvm.smin.i32(i32 %108, i32 %29)
+  %109 = mul nsw i32 %spec.select.us24.us.us38, %26
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i16, ptr %96, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !72
   %113 = zext i16 %112 to i32
-  %.not.i.us26.us.us41 = icmp slt i32 %30, %113
+  %.not.i.us25.us.us39 = icmp slt i32 %30, %113
   %114 = add nsw i32 %13, %113
-  %storemerge.in.i.us27.us.us42 = select i1 %.not.i.us26.us.us41, i32 %29, i32 %114
-  %storemerge.i.us28.us.us43 = trunc i32 %storemerge.in.i.us27.us.us42 to i16
-  store i16 %storemerge.i.us28.us.us43, ptr %111, align 2, !tbaa !72
-  %115 = and i32 %.0252.i17.us21.us.us36, %.fr
-  %.not291.i.us.us.us44 = icmp eq i32 %115, 0
-  %spec.select = select i1 %.not291.i.us.us.us44, i64 0, i64 %88
-  %.1255.i.us30.us.us47 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us37, i64 %spec.select
-  %116 = and i32 %.0252.i17.us21.us.us36, %.fr51
-  %.not293.i.us31.us.us = icmp eq i32 %116, 0
-  %unswitched.select.us = select i1 %.not293.i.us31.us.us, i64 0, i64 %89
-  %.1257.i.us34.us.us48 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us38, i64 %unswitched.select.us
-  %117 = add nuw nsw i32 %.0252.i17.us21.us.us36, 1
-  %exitcond57.not = icmp eq i32 %117, %49
-  br i1 %exitcond57.not, label %._crit_edge.split.us29.us.split.us45, label %97, !llvm.loop !187
+  %storemerge.in.i.us26.us.us40 = select i1 %.not.i.us25.us.us39, i32 %29, i32 %114
+  %storemerge.i.us27.us.us41 = trunc i32 %storemerge.in.i.us26.us.us40 to i16
+  store i16 %storemerge.i.us27.us.us41, ptr %111, align 2, !tbaa !72
+  %115 = and i32 %.0252.i17.us21.us.us35, %.fr
+  %.not291.i.us.us.us42 = icmp eq i32 %115, 0
+  %spec.select = select i1 %.not291.i.us.us.us42, i64 0, i64 %88
+  %.1255.i.us29.us.us45 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us36, i64 %spec.select
+  %116 = and i32 %.0252.i17.us21.us.us35, %.fr49
+  %.not293.i.us30.us.us = icmp eq i32 %116, 0
+  %unswitched.select.us = select i1 %.not293.i.us30.us.us, i64 0, i64 %89
+  %.1257.i.us33.us.us46 = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us37, i64 %unswitched.select.us
+  %117 = add nuw nsw i32 %.0252.i17.us21.us.us35, 1
+  %exitcond55.not = icmp eq i32 %117, %49
+  br i1 %exitcond55.not, label %._crit_edge.split.us28.us.split.us43, label %97, !llvm.loop !187
 
-._crit_edge.split.us29.us.split.us45:             ; preds = %97
-  %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count67
-  br i1 %exitcond62.not, label %chroma16.exit, label %.lr.ph.us.us.us, !llvm.loop !188
+._crit_edge.split.us28.us.split.us43:             ; preds = %97
+  %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count65
+  br i1 %exitcond60.not, label %chroma16.exit, label %.lr.ph.us.us.us, !llvm.loop !188
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us29.us.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us29.us.split.us ], [ %90, %.lr.ph20.split.us.split.us ]
+.lr.ph.us.us:                                     ; preds = %.lr.ph20.split.us.split.us, %._crit_edge.split.us28.us.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us28.us.split.us ], [ %90, %.lr.ph20.split.us.split.us ]
   %118 = trunc nsw i64 %indvars.iv to i32
   %119 = ashr i32 %118, %37
   %120 = sext i32 %119 to i64
@@ -10796,8 +10767,8 @@ define internal noundef i32 @chroma16_column(ptr noundef readonly captures(none)
 
 124:                                              ; preds = %124, %.lr.ph.us.us
   %.0252.i17.us21.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %143, %124 ]
-  %.0254.i16.us22.us.us = phi ptr [ %76, %.lr.ph.us.us ], [ %.1255.i.us30.us.us, %124 ]
-  %.0256.i15.us23.us.us = phi ptr [ %78, %.lr.ph.us.us ], [ %.1257.i.us34.us.us, %124 ]
+  %.0254.i16.us22.us.us = phi ptr [ %76, %.lr.ph.us.us ], [ %.1255.i.us29.us.us, %124 ]
+  %.0256.i15.us23.us.us = phi ptr [ %78, %.lr.ph.us.us ], [ %.1257.i.us33.us.us, %124 ]
   %125 = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us, i64 %120
   %126 = load i16, ptr %125, align 2, !tbaa !72
   %127 = zext i16 %126 to i32
@@ -10809,40 +10780,39 @@ define internal noundef i32 @chroma16_column(ptr noundef readonly captures(none)
   %133 = add nsw i32 %132, %87
   %134 = tail call i32 @llvm.abs.i32(i32 %133, i1 true)
   %135 = add nuw nsw i32 %134, %129
-  %.not289.i.us24.us.us = icmp slt i32 %135, %28
-  %spec.select.us25.us.us = select i1 %.not289.i.us24.us.us, i32 %135, i32 %29
-  %136 = mul nsw i32 %spec.select.us25.us.us, %26
+  %spec.select.us24.us.us = tail call i32 @llvm.smin.i32(i32 %135, i32 %29)
+  %136 = mul nsw i32 %spec.select.us24.us.us, %26
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i16, ptr %123, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !72
   %140 = zext i16 %139 to i32
-  %.not.i.us26.us.us = icmp slt i32 %30, %140
+  %.not.i.us25.us.us = icmp slt i32 %30, %140
   %141 = add nsw i32 %13, %140
-  %storemerge.in.i.us27.us.us = select i1 %.not.i.us26.us.us, i32 %29, i32 %141
-  %storemerge.i.us28.us.us = trunc i32 %storemerge.in.i.us27.us.us to i16
-  store i16 %storemerge.i.us28.us.us, ptr %138, align 2, !tbaa !72
+  %storemerge.in.i.us26.us.us = select i1 %.not.i.us25.us.us, i32 %29, i32 %141
+  %storemerge.i.us27.us.us = trunc i32 %storemerge.in.i.us26.us.us to i16
+  store i16 %storemerge.i.us27.us.us, ptr %138, align 2, !tbaa !72
   %142 = and i32 %.0252.i17.us21.us.us, %.fr
   %.not291.i.us.us.us = icmp eq i32 %142, 0
-  %spec.select50 = select i1 %.not291.i.us.us.us, i64 0, i64 %88
-  %.1255.i.us30.us.us = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us, i64 %spec.select50
-  %.1257.i.us34.us.us = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us, i64 %89
+  %spec.select48 = select i1 %.not291.i.us.us.us, i64 0, i64 %88
+  %.1255.i.us29.us.us = getelementptr inbounds i16, ptr %.0254.i16.us22.us.us, i64 %spec.select48
+  %.1257.i.us33.us.us = getelementptr inbounds i16, ptr %.0256.i15.us23.us.us, i64 %89
   %143 = add nuw nsw i32 %.0252.i17.us21.us.us, 1
   %exitcond.not = icmp eq i32 %143, %49
-  br i1 %exitcond.not, label %._crit_edge.split.us29.us.split.us, label %124, !llvm.loop !187
+  br i1 %exitcond.not, label %._crit_edge.split.us28.us.split.us, label %124, !llvm.loop !187
 
-._crit_edge.split.us29.us.split.us:               ; preds = %124
+._crit_edge.split.us28.us.split.us:               ; preds = %124
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count67
-  br i1 %exitcond56.not, label %chroma16.exit, label %.lr.ph.us.us, !llvm.loop !188
+  %exitcond54.not = icmp eq i64 %indvars.iv.next, %wide.trip.count65
+  br i1 %exitcond54.not, label %chroma16.exit, label %.lr.ph.us.us, !llvm.loop !188
 
 .lr.ph.us:                                        ; preds = %.lr.ph20.split.us, %._crit_edge.split.us.us
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %._crit_edge.split.us.us ], [ %90, %.lr.ph20.split.us ]
-  %144 = trunc nsw i64 %indvars.iv64 to i32
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %._crit_edge.split.us.us ], [ %90, %.lr.ph20.split.us ]
+  %144 = trunc nsw i64 %indvars.iv62 to i32
   %145 = ashr i32 %144, %37
   %146 = sext i32 %145 to i64
   %147 = ashr i32 %144, %42
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv64
+  %149 = getelementptr inbounds i16, ptr %85, i64 %indvars.iv62
   br label %150
 
 150:                                              ; preds = %150, %.lr.ph.us
@@ -10860,8 +10830,7 @@ define internal noundef i32 @chroma16_column(ptr noundef readonly captures(none)
   %159 = add nsw i32 %158, %87
   %160 = tail call i32 @llvm.abs.i32(i32 %159, i1 true)
   %161 = add nuw nsw i32 %160, %155
-  %.not289.i.us.us = icmp slt i32 %161, %28
-  %spec.select.us.us = select i1 %.not289.i.us.us, i32 %161, i32 %29
+  %spec.select.us.us = tail call i32 @llvm.smin.i32(i32 %161, i32 %29)
   %162 = mul nsw i32 %spec.select.us.us, %26
   %163 = sext i32 %162 to i64
   %164 = getelementptr inbounds i16, ptr %149, i64 %163
@@ -10873,21 +10842,21 @@ define internal noundef i32 @chroma16_column(ptr noundef readonly captures(none)
   %storemerge.i.us.us = trunc i32 %storemerge.in.i.us.us to i16
   store i16 %storemerge.i.us.us, ptr %164, align 2, !tbaa !72
   %.1255.i.us.us = getelementptr inbounds i16, ptr %.0254.i16.us.us, i64 %88
-  %168 = and i32 %.0252.i17.us.us, %.fr51
+  %168 = and i32 %.0252.i17.us.us, %.fr49
   %.not293.i.us.us = icmp eq i32 %168, 0
   %or.cond294.i.us.us = and i1 %.not292.i, %.not293.i.us.us
   %.1257.i.idx.us.us = select i1 %or.cond294.i.us.us, i64 0, i64 %89
   %.1257.i.us.us = getelementptr inbounds i16, ptr %.0256.i15.us.us, i64 %.1257.i.idx.us.us
   %169 = add nuw nsw i32 %.0252.i17.us.us, 1
-  %exitcond63.not = icmp eq i32 %169, %49
-  br i1 %exitcond63.not, label %._crit_edge.split.us.us, label %150, !llvm.loop !187
+  %exitcond61.not = icmp eq i32 %169, %49
+  br i1 %exitcond61.not, label %._crit_edge.split.us.us, label %150, !llvm.loop !187
 
 ._crit_edge.split.us.us:                          ; preds = %150
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %chroma16.exit, label %.lr.ph.us, !llvm.loop !188
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
+  %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
+  br i1 %exitcond66.not, label %chroma16.exit, label %.lr.ph.us, !llvm.loop !188
 
-chroma16.exit:                                    ; preds = %._crit_edge.split.us29.us.split.us, %._crit_edge.split.us29.us.split.us45, %._crit_edge.split.us.us, %.lr.ph20, %4
+chroma16.exit:                                    ; preds = %._crit_edge.split.us28.us.split.us, %._crit_edge.split.us28.us.split.us43, %._crit_edge.split.us.us, %.lr.ph20, %4
   ret i32 0
 }
 
@@ -11024,8 +10993,7 @@ define internal noundef i32 @chroma16_row(ptr noundef readonly captures(none) %0
   %113 = add nsw i32 %112, %72
   %114 = tail call i32 @llvm.abs.i32(i32 %113, i1 true)
   %115 = add nuw nsw i32 %114, %107
-  %.not286.i.us = icmp slt i32 %115, %15
-  %spec.select.us = select i1 %.not286.i.us, i32 %115, i32 %16
+  %spec.select.us = tail call i32 @llvm.smin.i32(i32 %115, i32 %16)
   %116 = sext i32 %spec.select.us to i64
   %117 = getelementptr inbounds i16, ptr %.1247.i19.us, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !72
@@ -11987,8 +11955,7 @@ define internal noundef i32 @color16_column_mirror(ptr noundef readonly captures
   %127 = getelementptr inbounds i16, ptr %.0.i19.us, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !72
   %129 = zext i16 %128 to i32
-  %.not309.i.us = icmp sgt i32 %23, %129
-  %..i.us = select i1 %.not309.i.us, i32 %129, i32 %24
+  %..i.us = tail call i32 @llvm.smin.i32(i32 %129, i32 %24)
   %130 = ashr i32 %124, %70
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds i16, ptr %.0258.i18.us, i64 %131
@@ -12208,8 +12175,7 @@ define internal noundef i32 @color16_row_mirror(ptr noundef readonly captures(no
   %139 = getelementptr inbounds nuw i16, ptr %.2.i22.us, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !72
   %141 = zext i16 %140 to i32
-  %.not296.i.us = icmp sgt i32 %12, %141
-  %.312.i.us = select i1 %.not296.i.us, i32 %141, i32 %13
+  %.312.i.us = tail call i32 @llvm.smin.i32(i32 %141, i32 %13)
   %142 = lshr i32 %.1273.i15.us, %42
   %143 = zext nneg i32 %142 to i64
   %144 = getelementptr inbounds nuw i16, ptr %.2260.i21.us, i64 %143
@@ -12399,8 +12365,7 @@ define internal noundef i32 @color16_column(ptr noundef readonly captures(none) 
   %118 = getelementptr inbounds i16, ptr %.0.i19.us, i64 %117
   %119 = load i16, ptr %118, align 2, !tbaa !72
   %120 = zext i16 %119 to i32
-  %.not309.i.us = icmp sgt i32 %23, %120
-  %..i.us = select i1 %.not309.i.us, i32 %120, i32 %24
+  %..i.us = tail call i32 @llvm.smin.i32(i32 %120, i32 %24)
   %121 = ashr i32 %115, %70
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds i16, ptr %.0258.i18.us, i64 %122
@@ -12610,8 +12575,7 @@ define internal noundef i32 @color16_row(ptr noundef readonly captures(none) %0,
   %132 = getelementptr inbounds nuw i16, ptr %.2.i22.us, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !72
   %134 = zext i16 %133 to i32
-  %.not296.i.us = icmp sgt i32 %12, %134
-  %.312.i.us = select i1 %.not296.i.us, i32 %134, i32 %13
+  %.312.i.us = tail call i32 @llvm.smin.i32(i32 %134, i32 %13)
   %135 = lshr i32 %.1273.i15.us, %42
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr inbounds nuw i16, ptr %.2260.i21.us, i64 %136
@@ -13626,8 +13590,7 @@ define internal noundef i32 @acolor16_column_mirror(ptr noundef readonly capture
   %130 = getelementptr inbounds i16, ptr %.0.i19.us, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !72
   %132 = zext i16 %131 to i32
-  %.not317.i.us = icmp sgt i32 %25, %132
-  %..i.us = select i1 %.not317.i.us, i32 %132, i32 %26
+  %..i.us = tail call i32 @llvm.smin.i32(i32 %132, i32 %26)
   %133 = ashr i32 %127, %73
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i16, ptr %.0266.i18.us, i64 %134
@@ -13855,8 +13818,7 @@ define internal noundef i32 @acolor16_row_mirror(ptr noundef readonly captures(n
   %142 = getelementptr inbounds nuw i16, ptr %.2.i22.us, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !72
   %144 = zext i16 %143 to i32
-  %.not304.i.us = icmp sgt i32 %14, %144
-  %.320.i.us = select i1 %.not304.i.us, i32 %144, i32 %15
+  %.320.i.us = tail call i32 @llvm.smin.i32(i32 %144, i32 %15)
   %145 = lshr i32 %.1281.i15.us, %45
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i16, ptr %.2268.i21.us, i64 %146
@@ -14054,8 +14016,7 @@ define internal noundef i32 @acolor16_column(ptr noundef readonly captures(none)
   %121 = getelementptr inbounds i16, ptr %.0.i19.us, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !72
   %123 = zext i16 %122 to i32
-  %.not317.i.us = icmp sgt i32 %25, %123
-  %..i.us = select i1 %.not317.i.us, i32 %123, i32 %26
+  %..i.us = tail call i32 @llvm.smin.i32(i32 %123, i32 %26)
   %124 = ashr i32 %118, %73
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i16, ptr %.0266.i18.us, i64 %125
@@ -14273,8 +14234,7 @@ define internal noundef i32 @acolor16_row(ptr noundef readonly captures(none) %0
   %135 = getelementptr inbounds nuw i16, ptr %.2.i22.us, i64 %134
   %136 = load i16, ptr %135, align 2, !tbaa !72
   %137 = zext i16 %136 to i32
-  %.not304.i.us = icmp sgt i32 %14, %137
-  %.320.i.us = select i1 %.not304.i.us, i32 %137, i32 %15
+  %.320.i.us = tail call i32 @llvm.smin.i32(i32 %137, i32 %15)
   %138 = lshr i32 %.1281.i15.us, %45
   %139 = zext nneg i32 %138 to i64
   %140 = getelementptr inbounds nuw i16, ptr %.2268.i21.us, i64 %139
@@ -15906,19 +15866,16 @@ define internal noundef i32 @xflat16_column_mirror(ptr noundef readonly captures
   %140 = getelementptr inbounds i16, ptr %.0176210.us, i64 %131
   %141 = load i16, ptr %140, align 2, !tbaa !72
   %142 = zext i16 %141 to i32
-  %.not.us = icmp sgt i32 %48, %142
-  %..us = select i1 %.not.us, i32 %142, i32 %49
+  %..us = tail call i32 @llvm.smin.i32(i32 %142, i32 %49)
   %.neg206.us = sub i32 %.neg, %..us
   %143 = getelementptr inbounds i16, ptr %.0177209.us, i64 %133
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i32
-  %.not192.us = icmp sgt i32 %48, %145
-  %146 = select i1 %.not192.us, i32 %145, i32 %49
+  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 %49)
   %147 = getelementptr inbounds i16, ptr %.0179208.us, i64 %135
   %148 = load i16, ptr %147, align 2, !tbaa !72
   %149 = zext i16 %148 to i32
-  %.not193.us = icmp sgt i32 %48, %149
-  %150 = select i1 %.not193.us, i32 %149, i32 %49
+  %150 = tail call i32 @llvm.smin.i32(i32 %149, i32 %49)
   %.neg207.us = mul i32 %.neg206.us, %46
   %151 = sext i32 %.neg207.us to i64
   %152 = getelementptr inbounds i16, ptr %136, i64 %151
@@ -16148,23 +16105,20 @@ define internal noundef i32 @xflat16_row_mirror(ptr noundef readonly captures(no
   %143 = getelementptr inbounds nuw i16, ptr %.0173209.us, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i32
-  %.not194.us = icmp sgt i32 %36, %145
-  %..us = select i1 %.not194.us, i32 %145, i32 %37
+  %..us = tail call i32 @llvm.smin.i32(i32 %145, i32 %37)
   %146 = add nsw i32 %..us, %39
   %147 = lshr i32 %.0203.us, %22
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds nuw i16, ptr %.0174208.us, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !72
   %151 = zext i16 %150 to i32
-  %.not195.us = icmp sgt i32 %36, %151
-  %152 = select i1 %.not195.us, i32 %151, i32 %37
+  %152 = tail call i32 @llvm.smin.i32(i32 %151, i32 %37)
   %153 = lshr i32 %.0203.us, %27
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw i16, ptr %.0179204.us, i64 %154
   %156 = load i16, ptr %155, align 2, !tbaa !72
   %157 = zext i16 %156 to i32
-  %.not196.us = icmp sgt i32 %36, %157
-  %158 = select i1 %.not196.us, i32 %157, i32 %37
+  %158 = tail call i32 @llvm.smin.i32(i32 %157, i32 %37)
   %159 = sext i32 %146 to i64
   %160 = sub nsw i64 0, %159
   %161 = getelementptr inbounds i16, ptr %.0178205.us, i64 %160
@@ -16376,19 +16330,16 @@ define internal noundef i32 @xflat16_column(ptr noundef readonly captures(none) 
   %129 = getelementptr inbounds i16, ptr %.0176208.us, i64 %120
   %130 = load i16, ptr %129, align 2, !tbaa !72
   %131 = zext i16 %130 to i32
-  %.not.us = icmp sgt i32 %60, %131
-  %..us = select i1 %.not.us, i32 %131, i32 %61
+  %..us = tail call i32 @llvm.smin.i32(i32 %131, i32 %61)
   %132 = add nsw i32 %..us, %63
   %133 = getelementptr inbounds i16, ptr %.0177207.us, i64 %122
   %134 = load i16, ptr %133, align 2, !tbaa !72
   %135 = zext i16 %134 to i32
-  %.not192.us = icmp sgt i32 %60, %135
-  %136 = select i1 %.not192.us, i32 %135, i32 %61
+  %136 = tail call i32 @llvm.smin.i32(i32 %135, i32 %61)
   %137 = getelementptr inbounds i16, ptr %.0179206.us, i64 %124
   %138 = load i16, ptr %137, align 2, !tbaa !72
   %139 = zext i16 %138 to i32
-  %.not193.us = icmp sgt i32 %60, %139
-  %140 = select i1 %.not193.us, i32 %139, i32 %61
+  %140 = tail call i32 @llvm.smin.i32(i32 %139, i32 %61)
   %141 = mul nsw i32 %132, %52
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i16, ptr %125, i64 %142
@@ -16609,23 +16560,20 @@ define internal noundef i32 @xflat16_row(ptr noundef readonly captures(none) %0,
   %136 = getelementptr inbounds nuw i16, ptr %.0167203.us, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !72
   %138 = zext i16 %137 to i32
-  %.not188.us = icmp sgt i32 %36, %138
-  %..us = select i1 %.not188.us, i32 %138, i32 %37
+  %..us = tail call i32 @llvm.smin.i32(i32 %138, i32 %37)
   %139 = add nsw i32 %..us, %39
   %140 = lshr i32 %.0197.us, %22
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw i16, ptr %.0168202.us, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !72
   %144 = zext i16 %143 to i32
-  %.not189.us = icmp sgt i32 %36, %144
-  %145 = select i1 %.not189.us, i32 %144, i32 %37
+  %145 = tail call i32 @llvm.smin.i32(i32 %144, i32 %37)
   %146 = lshr i32 %.0197.us, %27
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw i16, ptr %.0173198.us, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !72
   %150 = zext i16 %149 to i32
-  %.not190.us = icmp sgt i32 %36, %150
-  %151 = select i1 %.not190.us, i32 %150, i32 %37
+  %151 = tail call i32 @llvm.smin.i32(i32 %150, i32 %37)
   %152 = sext i32 %139 to i64
   %153 = getelementptr inbounds i16, ptr %.0172199.us, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !72
@@ -18264,19 +18212,16 @@ define internal noundef i32 @yflat16_column_mirror(ptr noundef readonly captures
   %140 = getelementptr inbounds i16, ptr %.0176209.us, i64 %131
   %141 = load i16, ptr %140, align 2, !tbaa !72
   %142 = zext i16 %141 to i32
-  %.not.us = icmp sgt i32 %48, %142
-  %..us = select i1 %.not.us, i32 %142, i32 %49
+  %..us = tail call i32 @llvm.smin.i32(i32 %142, i32 %49)
   %.neg205.us = sub i32 %.neg, %..us
   %143 = getelementptr inbounds i16, ptr %.0177208.us, i64 %133
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i32
-  %.not192.us = icmp sgt i32 %48, %145
-  %146 = select i1 %.not192.us, i32 %145, i32 %49
+  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 %49)
   %147 = getelementptr inbounds i16, ptr %.0179207.us, i64 %135
   %148 = load i16, ptr %147, align 2, !tbaa !72
   %149 = zext i16 %148 to i32
-  %.not193.us = icmp sgt i32 %48, %149
-  %150 = select i1 %.not193.us, i32 %149, i32 %49
+  %150 = tail call i32 @llvm.smin.i32(i32 %149, i32 %49)
   %.neg206.us = mul i32 %.neg205.us, %46
   %151 = sext i32 %.neg206.us to i64
   %152 = getelementptr inbounds i16, ptr %136, i64 %151
@@ -18505,23 +18450,20 @@ define internal noundef i32 @yflat16_row_mirror(ptr noundef readonly captures(no
   %143 = getelementptr inbounds nuw i16, ptr %.0173208.us, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !72
   %145 = zext i16 %144 to i32
-  %.not194.us = icmp sgt i32 %36, %145
-  %..us = select i1 %.not194.us, i32 %145, i32 %37
+  %..us = tail call i32 @llvm.smin.i32(i32 %145, i32 %37)
   %146 = add nsw i32 %..us, %39
   %147 = lshr i32 %.0202.us, %22
   %148 = zext nneg i32 %147 to i64
   %149 = getelementptr inbounds nuw i16, ptr %.0174207.us, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !72
   %151 = zext i16 %150 to i32
-  %.not195.us = icmp sgt i32 %36, %151
-  %152 = select i1 %.not195.us, i32 %151, i32 %37
+  %152 = tail call i32 @llvm.smin.i32(i32 %151, i32 %37)
   %153 = lshr i32 %.0202.us, %27
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw i16, ptr %.0179203.us, i64 %154
   %156 = load i16, ptr %155, align 2, !tbaa !72
   %157 = zext i16 %156 to i32
-  %.not196.us = icmp sgt i32 %36, %157
-  %158 = select i1 %.not196.us, i32 %157, i32 %37
+  %158 = tail call i32 @llvm.smin.i32(i32 %157, i32 %37)
   %159 = sext i32 %146 to i64
   %160 = sub nsw i64 0, %159
   %161 = getelementptr inbounds i16, ptr %.0178204.us, i64 %160
@@ -18732,19 +18674,16 @@ define internal noundef i32 @yflat16_column(ptr noundef readonly captures(none) 
   %129 = getelementptr inbounds i16, ptr %.0176207.us, i64 %120
   %130 = load i16, ptr %129, align 2, !tbaa !72
   %131 = zext i16 %130 to i32
-  %.not.us = icmp sgt i32 %60, %131
-  %..us = select i1 %.not.us, i32 %131, i32 %61
+  %..us = tail call i32 @llvm.smin.i32(i32 %131, i32 %61)
   %132 = add nsw i32 %..us, %63
   %133 = getelementptr inbounds i16, ptr %.0177206.us, i64 %122
   %134 = load i16, ptr %133, align 2, !tbaa !72
   %135 = zext i16 %134 to i32
-  %.not192.us = icmp sgt i32 %60, %135
-  %136 = select i1 %.not192.us, i32 %135, i32 %61
+  %136 = tail call i32 @llvm.smin.i32(i32 %135, i32 %61)
   %137 = getelementptr inbounds i16, ptr %.0179205.us, i64 %124
   %138 = load i16, ptr %137, align 2, !tbaa !72
   %139 = zext i16 %138 to i32
-  %.not193.us = icmp sgt i32 %60, %139
-  %140 = select i1 %.not193.us, i32 %139, i32 %61
+  %140 = tail call i32 @llvm.smin.i32(i32 %139, i32 %61)
   %141 = mul nsw i32 %132, %52
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i16, ptr %125, i64 %142
@@ -18964,23 +18903,20 @@ define internal noundef i32 @yflat16_row(ptr noundef readonly captures(none) %0,
   %136 = getelementptr inbounds nuw i16, ptr %.0167202.us, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !72
   %138 = zext i16 %137 to i32
-  %.not188.us = icmp sgt i32 %36, %138
-  %..us = select i1 %.not188.us, i32 %138, i32 %37
+  %..us = tail call i32 @llvm.smin.i32(i32 %138, i32 %37)
   %139 = add nsw i32 %..us, %39
   %140 = lshr i32 %.0196.us, %22
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw i16, ptr %.0168201.us, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !72
   %144 = zext i16 %143 to i32
-  %.not189.us = icmp sgt i32 %36, %144
-  %145 = select i1 %.not189.us, i32 %144, i32 %37
+  %145 = tail call i32 @llvm.smin.i32(i32 %144, i32 %37)
   %146 = lshr i32 %.0196.us, %27
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw i16, ptr %.0173197.us, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !72
   %150 = zext i16 %149 to i32
-  %.not190.us = icmp sgt i32 %36, %150
-  %151 = select i1 %.not190.us, i32 %150, i32 %37
+  %151 = tail call i32 @llvm.smin.i32(i32 %150, i32 %37)
   %152 = sext i32 %139 to i64
   %153 = getelementptr inbounds i16, ptr %.0172198.us, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !72

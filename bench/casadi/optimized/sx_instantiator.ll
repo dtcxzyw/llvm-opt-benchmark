@@ -76792,7 +76792,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %57 = icmp sgt i64 %47, 6
   %58 = and i1 %57, %spec.select
   %.idx = shl nsw i64 %47, 3
-  %59 = add i64 %.idx, 8
+  %59 = add nsw i64 %.idx, 8
   %60 = icmp ugt i64 %59, 9223372036854775800
   br i1 %60, label %61, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i
 

@@ -3080,9 +3080,8 @@ define hidden void @_ZN15ClassListParser21print_diagnostic_infoEP12outputStreamP
   %12 = trunc i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %14 = load i32, ptr %13, align 8
-  %.not = icmp sgt i32 %14, %12
-  %15 = add nsw i32 %14, -1
-  %spec.select = select i1 %.not, i32 %12, i32 %15
+  %15 = add i32 %14, -1
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 0)
   %16 = load i8, ptr @DisplayVMOutputToStdout, align 1
   %17 = trunc i8 %16 to i1
@@ -5433,6 +5432,9 @@ declare i32 @llvm.ctpop.i32(i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18

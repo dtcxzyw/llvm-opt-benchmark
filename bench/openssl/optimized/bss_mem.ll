@@ -273,9 +273,8 @@ define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly captures(add
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #7
   %9 = load i64, ptr %.0, align 8, !tbaa !22
   %10 = trunc i64 %9 to i32
-  %.not32 = icmp sgt i32 %2, %10
   %11 = add nsw i32 %2, -1
-  %.028 = select i1 %.not32, i32 %10, i32 %11
+  %.028 = tail call i32 @llvm.smin.i32(i32 %10, i32 %11)
   %12 = icmp slt i32 %.028, 1
   br i1 %12, label %13, label %14
 
@@ -726,6 +725,9 @@ define internal range(i32 0, 2) i32 @secmem_new(ptr noundef writeonly captures(n
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

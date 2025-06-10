@@ -35934,8 +35934,7 @@ define noundef double @_ZN6open3d9pipelines11integration18ScalableTSDFVolume9Get
   %73 = fptosi double %72 to i32
   %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %spec.store.select = call i32 @llvm.smax.i32(i32 %73, i32 0)
-  %.not30 = icmp slt i32 %spec.store.select, %57
-  %spec.store.select96 = select i1 %.not30, i32 %spec.store.select, i32 %58
+  %spec.store.select96 = call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %58)
   store i32 %spec.store.select96, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

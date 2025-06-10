@@ -132,8 +132,7 @@ define dso_local void @register_archiver(ptr noundef %0) local_unnamed_addr #0 {
   %6 = mul i32 %3, 3
   %7 = add i32 %6, 48
   %8 = sdiv i32 %7, 2
-  %.not3 = icmp sgt i32 %8, %2
-  %. = select i1 %.not3, i32 %8, i32 %5
+  %. = tail call i32 @llvm.smax.i32(i32 %8, i32 %5)
   store i32 %., ptr @alloc_archivers, align 4, !tbaa !4
   %9 = sext i32 %. to i64
   %10 = icmp slt i32 %., 0
@@ -2511,6 +2510,9 @@ declare i32 @match_pathspec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #17

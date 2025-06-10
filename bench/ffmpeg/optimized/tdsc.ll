@@ -1072,15 +1072,13 @@ bytestream2_get_le32.exit._crit_edge.i.i108:      ; preds = %bytestream2_get_le3
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.20, i32 noundef %.0.i175.i.i, i32 noundef %.0.i173.i.i) #7
   %462 = load i32, ptr %416, align 4, !tbaa !71
   %463 = load i32, ptr %432, align 4, !tbaa !73
-  %.not166.i.i = icmp slt i32 %462, %463
   %464 = add nsw i32 %463, -1
-  %465 = select i1 %.not166.i.i, i32 %462, i32 %464
+  %465 = call i32 @llvm.smin.i32(i32 %462, i32 %464)
   store i32 %465, ptr %416, align 4, !tbaa !71
   %466 = load i32, ptr %424, align 8, !tbaa !72
   %467 = load i32, ptr %440, align 8, !tbaa !74
-  %.not167.i.i = icmp slt i32 %466, %467
   %468 = add nsw i32 %467, -1
-  %469 = select i1 %.not167.i.i, i32 %466, i32 %468
+  %469 = call i32 @llvm.smin.i32(i32 %466, i32 %468)
   store i32 %469, ptr %424, align 8, !tbaa !72
   %.pre250.i.i = load i32, ptr %444, align 8, !tbaa !75
   br label %470

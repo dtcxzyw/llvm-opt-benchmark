@@ -2727,8 +2727,7 @@ JsonbArraySize.exit:                              ; preds = %253, %259
   %298 = phi i32 [ %.pre891, %._crit_edge ], [ %287, %286 ]
   %spec.store.select = call i32 @llvm.smax.i32(i32 %.pre890, i32 0)
   store i32 %spec.store.select, ptr %33, align 4
-  %.not668 = icmp slt i32 %298, %spec.select
-  %spec.store.select873 = select i1 %.not668, i32 %298, i32 %264
+  %spec.store.select873 = call i32 @llvm.smin.i32(i32 %298, i32 %264)
   store i32 %spec.store.select873, ptr %34, align 4
   %.not669869 = icmp sgt i32 %spec.store.select, %spec.store.select873
   br i1 %.not669869, label %.thread711.thread855.thread, label %.lr.ph

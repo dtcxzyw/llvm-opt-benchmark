@@ -2508,8 +2508,7 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   %303 = mul i32 %.sroa.7.029.i, 3
   %304 = add i32 %303, 48
   %305 = sdiv i32 %304, 2
-  %.not22.i = icmp sgt i32 %305, %.sroa.13.030.i
-  %..i = select i1 %.not22.i, i32 %305, i32 %301
+  %..i = call i32 @llvm.smax.i32(i32 %305, i32 %301)
   %306 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
   br i1 %mul.ov.i.i, label %307, label %st_mult.exit.i
@@ -4301,8 +4300,7 @@ define internal range(i32 0, 2) i32 @module_init(i32 noundef %0, ptr noundef %1,
   %38 = mul i32 %.sroa.7.029.i, 3
   %39 = add i32 %38, 48
   %40 = sdiv i32 %39, 2
-  %.not22.i = icmp sgt i32 %40, %.sroa.13.030.i
-  %..i = select i1 %.not22.i, i32 %40, i32 %36
+  %..i = call i32 @llvm.smax.i32(i32 %40, i32 %36)
   %41 = sext i32 %..i to i64
   %mul.ov.i.i = icmp slt i32 %..i, 0
   br i1 %mul.ov.i.i, label %42, label %st_mult.exit.i
@@ -7635,8 +7633,7 @@ define internal fastcc range(i32 -1, 1) i32 @module_list_compute(ptr noundef %0,
   %41 = mul i32 %38, 3
   %42 = add i32 %41, 48
   %43 = sdiv i32 %42, 2
-  %.not46 = icmp sgt i32 %43, %37
-  %. = select i1 %.not46, i32 %43, i32 %40
+  %. = tail call i32 @llvm.smax.i32(i32 %43, i32 %40)
   store i32 %., ptr %19, align 8, !tbaa !275
   %44 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -8142,8 +8139,7 @@ strbuf_addch.exit._crit_edge:                     ; preds = %strbuf_addch.exit
   %39 = mul i32 %36, 3
   %40 = add i32 %39, 48
   %41 = sdiv i32 %40, 2
-  %.not40 = icmp sgt i32 %41, %34
-  %. = select i1 %.not40, i32 %41, i32 %38
+  %. = tail call i32 @llvm.smax.i32(i32 %41, i32 %38)
   store i32 %., ptr %35, align 4, !tbaa !283
   %42 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -8545,8 +8541,7 @@ strbuf_setlen.exit163._crit_edge:                 ; preds = %strbuf_setlen.exit1
   %130 = mul i32 %127, 3
   %131 = add i32 %130, 48
   %132 = sdiv i32 %131, 2
-  %.not131 = icmp sgt i32 %132, %125
-  %. = select i1 %.not131, i32 %132, i32 %129
+  %. = call i32 @llvm.smax.i32(i32 %132, i32 %129)
   store i32 %., ptr %126, align 4, !tbaa !284
   %133 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -9432,8 +9427,7 @@ define internal void @submodule_summary_callback(ptr noundef readonly captures(n
   %41 = mul i32 %38, 3
   %42 = add i32 %41, 48
   %43 = sdiv i32 %42, 2
-  %.not36 = icmp sgt i32 %43, %37
-  %. = select i1 %.not36, i32 %43, i32 %40
+  %. = tail call i32 @llvm.smax.i32(i32 %43, i32 %40)
   store i32 %., ptr %8, align 8, !tbaa !317
   %44 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -9979,6 +9973,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

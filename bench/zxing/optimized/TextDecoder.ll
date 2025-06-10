@@ -630,8 +630,7 @@ switch.early.test:                                ; preds = %73
 77:                                               ; preds = %75
   %78 = add nsw i32 %.0138183, 1
   %79 = add nsw i32 %.0136184, 1
-  %.not161 = icmp slt i32 %.0136184, %.0132186
-  %spec.select162 = select i1 %.not161, i32 %.0132186, i32 %79
+  %spec.select162 = tail call i32 @llvm.smax.i32(i32 %.0132186, i32 %79)
   br label %84
 
 80:                                               ; preds = %75
@@ -640,8 +639,7 @@ switch.early.test:                                ; preds = %73
 
 82:                                               ; preds = %80
   %83 = add nsw i32 %.0134185, 1
-  %.not160 = icmp slt i32 %.0134185, %.0130187
-  %spec.select163 = select i1 %.not160, i32 %.0130187, i32 %83
+  %spec.select163 = tail call i32 @llvm.smax.i32(i32 %.0130187, i32 %83)
   br label %84
 
 84:                                               ; preds = %.thread171, %82, %77, %80, %switch.early.test, %70, %66, %64
@@ -1012,6 +1010,9 @@ declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

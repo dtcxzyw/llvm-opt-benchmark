@@ -1159,7 +1159,7 @@ _ZNK6casadi6MXNode3depEx.exit16:                  ; preds = %_ZNK6casadi6MXNode3
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit16
   %.idx = shl nsw i64 %20, 3
-  %26 = add i64 %.idx, 8
+  %26 = add nsw i64 %.idx, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %19, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
@@ -1301,7 +1301,7 @@ _ZNK6casadi6MXNode3depEx.exit16:                  ; preds = %_ZNK6casadi6MXNode3
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit16
   %.idx = shl nsw i64 %20, 3
-  %26 = add i64 %.idx, 8
+  %26 = add nsw i64 %.idx, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %19, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
@@ -1428,7 +1428,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
   %.idx = shl nsw i64 %22, 3
-  %26 = add i64 %.idx, 8
+  %26 = add nsw i64 %.idx, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %21, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 
@@ -1495,7 +1495,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
 
 25:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
   %.idx = shl nsw i64 %22, 3
-  %26 = add i64 %.idx, 8
+  %26 = add nsw i64 %.idx, 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %21, i64 %26, i1 false)
   br label %_ZSt4copyIPKxPxET0_T_S4_S3_.exit
 

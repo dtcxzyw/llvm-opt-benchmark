@@ -9472,7 +9472,7 @@ sane_tz_len.exit.i:                               ; preds = %31, %61, %54, %47, 
   %.0.i = phi i64 [ 0, %40 ], [ 0, %46 ], [ 0, %43 ], [ 0, %54 ], [ 0, %47 ], [ 0, %21 ], [ %spec.select.i, %61 ], [ 6, %31 ]
   %68 = sub nsw i64 0, %.0.i
   %69 = getelementptr inbounds i8, ptr %14, i64 %68
-  %70 = sub i64 %13, %.0.i
+  %70 = sub nsw i64 %13, %.0.i
   %71 = icmp ult i64 %70, 9
   br i1 %71, label %124, label %72
 

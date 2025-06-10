@@ -859,8 +859,7 @@ define internal noundef i32 @read_one_reflog(ptr noundef readonly captures(none)
   %14 = mul i32 %11, 3
   %15 = add i32 %14, 48
   %16 = sdiv i32 %15, 2
-  %.not28 = icmp sgt i32 %16, %9
-  %. = select i1 %.not28, i32 %16, i32 %13
+  %. = tail call i32 @llvm.smax.i32(i32 %16, i32 %13)
   store i32 %., ptr %10, align 4, !tbaa !55
   %17 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
@@ -916,6 +915,9 @@ declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #1
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

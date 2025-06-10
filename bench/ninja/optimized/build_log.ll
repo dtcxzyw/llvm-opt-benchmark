@@ -2068,7 +2068,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN10LineReader8ReadLineEPPcS1
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
   store ptr %32, ptr %6, align 8, !tbaa !83
   store ptr %27, ptr %4, align 8, !tbaa !84
-  %33 = add i64 %31, %23
+  %33 = add nuw nsw i64 %31, %23
   %34 = tail call noundef ptr @memchr(ptr noundef nonnull %27, i32 noundef 10, i64 noundef %33) #33
   store ptr %34, ptr %25, align 8, !tbaa !85
   br label %35

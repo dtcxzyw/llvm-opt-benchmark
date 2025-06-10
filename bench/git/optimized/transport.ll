@@ -2381,8 +2381,7 @@ define dso_local i32 @transport_fetch_refs(ptr noundef %0, ptr noundef %1) local
   %14 = mul i32 %.03559, 3
   %15 = add i32 %14, 48
   %16 = sdiv i32 %15, 2
-  %.not51 = icmp sgt i32 %16, %.03958
-  %. = select i1 %.not51, i32 %16, i32 %12
+  %. = tail call i32 @llvm.smax.i32(i32 %16, i32 %12)
   %17 = sext i32 %. to i64
   %18 = icmp slt i32 %., 0
   br i1 %18, label %19, label %st_mult.exit

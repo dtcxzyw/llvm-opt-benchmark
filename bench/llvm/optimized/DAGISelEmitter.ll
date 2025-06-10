@@ -1671,7 +1671,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN4llvm14PatternToMatchESt6vectorIS5_
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.0, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55

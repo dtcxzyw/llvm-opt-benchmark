@@ -110524,7 +110524,7 @@ _ZSt4moveIPPKN5clang14DiagnoseIfAttrES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55
@@ -112463,7 +112463,7 @@ _ZSt4moveIPPN5clang17OverloadCandidateES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 
 52:                                               ; preds = %49
   %.idx = shl nsw i64 %.086, 3
-  %53 = add i64 %.idx, -8
+  %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55

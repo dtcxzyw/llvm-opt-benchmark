@@ -33758,7 +33758,7 @@ _ZSt13__lower_boundIPKN12_GLOBAL__N_110MatchEntryEN4llvm9StringRefEN9__gnu_cxx5_
   %.0.lcssa.i.i.i = phi ptr [ %.026.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN12_GLOBAL__N_110LessOpcodeEEclIKN4llvm9StringRefEPKNS2_10MatchEntryEEEbRT_T0_.exit.thread.i.i ], [ %.1.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_110LessOpcodeEEclIPKNS2_10MatchEntryEKN4llvm9StringRefEEEbT_RT0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.01327.i.i, 4
   %926 = getelementptr inbounds nuw i8, ptr %891, i64 16
-  %927 = add nuw i64 %.idx759, 16
+  %927 = add nuw nsw i64 %.idx759, 16
   %gepdiff = sub nsw i64 %.idx, %927
   %928 = ashr exact i64 %gepdiff, 4
   %929 = icmp sgt i64 %928, 0

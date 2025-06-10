@@ -565,9 +565,8 @@ define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noun
   %spec.select = tail call i64 @llvm.smax.i64(i64 %36, i64 0)
   %37 = load i64, ptr %31, align 8, !tbaa !19
   %38 = add nsw i64 %37, %.161
-  %.not = icmp sgt i64 %34, %38
   %39 = add nsw i64 %34, -1
-  %40 = select i1 %.not, i64 %38, i64 %39
+  %40 = tail call i64 @llvm.smin.i64(i64 %38, i64 %39)
   %41 = icmp sgt i64 %36, 0
   br i1 %41, label %.lr.ph, label %.preheader56
 
@@ -622,6 +621,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #11
 
 attributes #0 = { nounwind memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

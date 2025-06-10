@@ -222,7 +222,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @is_gitmodules_unmerged(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @index_name_pos(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 11) #17
+  %2 = tail call i32 @index_name_pos(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 11) #18
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %20
 
@@ -245,7 +245,7 @@ define dso_local range(i32 0, 2) i32 @is_gitmodules_unmerged(ptr noundef %0) loc
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 108
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(12) @.str) #18
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(12) @.str) #19
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %.critedge
 
@@ -271,26 +271,26 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @is_writing_gitmodules_ok() local_unnamed_addr #0 {
   %1 = alloca %struct.object_id, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %1) #17
-  %2 = tail call i32 @file_exists(ptr noundef nonnull @.str) #17
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %1) #18
+  %2 = tail call i32 @file_exists(ptr noundef nonnull @.str) #18
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %10
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %5 = call i32 @repo_get_oid(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #17
+  %5 = call i32 @repo_get_oid(ptr noundef %4, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #18
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %9 = call i32 @repo_get_oid(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #17
+  %9 = call i32 @repo_get_oid(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #18
   %.lobit = lshr i32 %9, 31
   br label %10
 
 10:                                               ; preds = %3, %7, %0
   %11 = phi i32 [ 1, %0 ], [ 0, %3 ], [ %.lobit, %7 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %1) #18
   ret i32 %11
 }
 
@@ -301,7 +301,7 @@ declare i32 @repo_get_oid(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @is_staging_gitmodules_ok(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
-  %3 = tail call i32 @index_name_pos(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 11) #17
+  %3 = tail call i32 @index_name_pos(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 11) #18
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %19
 
@@ -312,8 +312,8 @@ define dso_local range(i32 0, 2) i32 @is_staging_gitmodules_ok(ptr noundef %0) l
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #17
-  %10 = call i32 @lstat64(ptr noundef nonnull @.str, ptr noundef nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #18
+  %10 = call i32 @lstat64(ptr noundef nonnull @.str, ptr noundef nonnull %2) #18
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.sink.split
 
@@ -322,7 +322,7 @@ define dso_local range(i32 0, 2) i32 @is_staging_gitmodules_ok(ptr noundef %0) l
   %14 = zext nneg i32 %3 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !26
-  %17 = call i32 @ie_modified(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull %2, i32 noundef 0) #17
+  %17 = call i32 @ie_modified(ptr noundef nonnull %0, ptr noundef %16, ptr noundef nonnull %2, i32 noundef 0) #18
   %18 = lshr i32 %17, 5
   %.lobit = and i32 %18, 1
   %spec.select = xor i32 %.lobit, 1
@@ -330,7 +330,7 @@ define dso_local range(i32 0, 2) i32 @is_staging_gitmodules_ok(ptr noundef %0) l
 
 .sink.split:                                      ; preds = %12, %9
   %.1.ph = phi i32 [ 1, %9 ], [ %spec.select, %12 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #18
   br label %19
 
 19:                                               ; preds = %.sink.split, %1, %5
@@ -346,9 +346,9 @@ declare i32 @ie_modified(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @update_path_in_gitmodules(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  %4 = tail call i32 @file_exists(ptr noundef nonnull @.str) #17
+  %4 = tail call i32 @file_exists(ptr noundef nonnull @.str) #18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %44, label %5
 
@@ -356,7 +356,7 @@ define dso_local i32 @update_path_in_gitmodules(ptr noundef %0, ptr noundef %1) 
   %6 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
   %8 = load ptr, ptr %7, align 8, !tbaa !30
-  %9 = tail call i32 @index_name_pos(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 11) #17
+  %9 = tail call i32 @index_name_pos(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 11) #18
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %.critedge.i
 
@@ -379,19 +379,19 @@ define dso_local i32 @update_path_in_gitmodules(ptr noundef %0, ptr noundef %1) 
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 108
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(12) @.str) #18
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(12) @.str) #19
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %is_gitmodules_unmerged.exit, label %.critedge.i
 
 is_gitmodules_unmerged.exit:                      ; preds = %24
   %27 = tail call fastcc ptr @_(ptr noundef nonnull @.str.3)
-  tail call void (ptr, ...) @die(ptr noundef %27) #19
+  tail call void (ptr, ...) @die(ptr noundef %27) #20
   unreachable
 
 .critedge.i:                                      ; preds = %16, %24, %11, %5
   %28 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %29 = tail call ptr @null_oid() #17
-  %30 = tail call ptr @submodule_from_path(ptr noundef %28, ptr noundef %29, ptr noundef %0) #17
+  %29 = tail call ptr @null_oid() #18
+  %30 = tail call ptr @submodule_from_path(ptr noundef %28, ptr noundef %29, ptr noundef %0) #18
   %.not9 = icmp eq ptr %30, null
   br i1 %.not9, label %34, label %31
 
@@ -407,29 +407,29 @@ is_gitmodules_unmerged.exit:                      ; preds = %24
   br i1 %.not4.i, label %_.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #17
+  %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %34, %36
   %.0.i = phi ptr [ %37, %36 ], [ @.str.4, %34 ]
-  tail call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %0) #17
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %0) #18
   br label %44
 
 38:                                               ; preds = %31
-  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i64 noundef 10) #17
+  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i64 noundef 10) #18
   %39 = load ptr, ptr %32, align 8, !tbaa !46
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #18
-  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %40) #17
-  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i64 noundef 5) #17
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #19
+  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %40) #18
+  call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i64 noundef 5) #18
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !49
-  %43 = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %42, ptr noundef %1) #17
-  call void @strbuf_release(ptr noundef nonnull %3) #17
+  %43 = call i32 @config_set_in_gitmodules_file_gently(ptr noundef %42, ptr noundef %1) #18
+  call void @strbuf_release(ptr noundef nonnull %3) #18
   br label %44
 
 44:                                               ; preds = %2, %38, %_.exit
   %.0 = phi i32 [ %43, %38 ], [ -1, %_.exit ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   ret i32 %.0
 }
 
@@ -451,7 +451,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #7 {
   br i1 %.not4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #17
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %0, i32 noundef 5) #18
   br label %7
 
 7:                                                ; preds = %3, %1, %5
@@ -472,9 +472,9 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @remove_path_from_gitmodules(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  %3 = tail call i32 @file_exists(ptr noundef nonnull @.str) #17
+  %3 = tail call i32 @file_exists(ptr noundef nonnull @.str) #18
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %50, label %4
 
@@ -482,7 +482,7 @@ define dso_local range(i32 -1, 1) i32 @remove_path_from_gitmodules(ptr noundef %
   %5 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %7 = load ptr, ptr %6, align 8, !tbaa !30
-  %8 = tail call i32 @index_name_pos(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 11) #17
+  %8 = tail call i32 @index_name_pos(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 11) #18
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %.critedge.i
 
@@ -505,19 +505,19 @@ define dso_local range(i32 -1, 1) i32 @remove_path_from_gitmodules(ptr noundef %
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 108
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(12) @.str) #18
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(12) @.str) #19
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %is_gitmodules_unmerged.exit, label %.critedge.i
 
 is_gitmodules_unmerged.exit:                      ; preds = %23
   %26 = tail call fastcc ptr @_(ptr noundef nonnull @.str.3)
-  tail call void (ptr, ...) @die(ptr noundef %26) #19
+  tail call void (ptr, ...) @die(ptr noundef %26) #20
   unreachable
 
 .critedge.i:                                      ; preds = %15, %23, %10, %4
   %27 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %28 = tail call ptr @null_oid() #17
-  %29 = tail call ptr @submodule_from_path(ptr noundef %27, ptr noundef %28, ptr noundef %0) #17
+  %28 = tail call ptr @null_oid() #18
+  %29 = tail call ptr @submodule_from_path(ptr noundef %27, ptr noundef %28, ptr noundef %0) #18
   %.not8 = icmp eq ptr %29, null
   br i1 %.not8, label %33, label %30
 
@@ -533,23 +533,23 @@ is_gitmodules_unmerged.exit:                      ; preds = %23
   br i1 %.not4.i, label %_.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #17
+  %36 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %33, %35
   %.0.i = phi ptr [ %36, %35 ], [ @.str.4, %33 ]
-  tail call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %0) #17
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %0) #18
   br label %50
 
 37:                                               ; preds = %30
-  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef 10) #17
+  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef 10) #18
   %38 = load ptr, ptr %31, align 8, !tbaa !46
-  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #18
-  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %38, i64 noundef %39) #17
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #19
+  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %38, i64 noundef %39) #18
   %40 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !49
-  %43 = call i32 @repo_config_rename_section_in_file(ptr noundef %40, ptr noundef nonnull @.str, ptr noundef %42, ptr noundef null) #17
+  %43 = call i32 @repo_config_rename_section_in_file(ptr noundef %40, ptr noundef nonnull @.str, ptr noundef %42, ptr noundef null) #18
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %49
 
@@ -559,22 +559,22 @@ _.exit:                                           ; preds = %33, %35
   br i1 %.not4.i10, label %_.exit12, label %47
 
 47:                                               ; preds = %45
-  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #17
+  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #18
   br label %_.exit12
 
 _.exit12:                                         ; preds = %45, %47
   %.0.i11 = phi ptr [ %48, %47 ], [ @.str.7, %45 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i11, ptr noundef %0) #17
-  call void @strbuf_release(ptr noundef nonnull %2) #17
+  call void (ptr, ...) @warning(ptr noundef %.0.i11, ptr noundef %0) #18
+  call void @strbuf_release(ptr noundef nonnull %2) #18
   br label %50
 
 49:                                               ; preds = %37
-  call void @strbuf_release(ptr noundef nonnull %2) #17
+  call void @strbuf_release(ptr noundef nonnull %2) #18
   br label %50
 
 50:                                               ; preds = %1, %49, %_.exit12, %_.exit
   %.0 = phi i32 [ -1, %_.exit12 ], [ 0, %49 ], [ -1, %_.exit ], [ -1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #18
   ret i32 %.0
 }
 
@@ -582,13 +582,13 @@ declare i32 @repo_config_rename_section_in_file(ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @stage_updated_gitmodules(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @add_file_to_index(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 0) #17
+  %2 = tail call i32 @add_file_to_index(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 0) #18
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
   %4 = tail call fastcc ptr @_(ptr noundef nonnull @.str.8)
-  tail call void (ptr, ...) @die(ptr noundef %4) #19
+  tail call void (ptr, ...) @die(ptr noundef %4) #20
   unreachable
 
 5:                                                ; preds = %1
@@ -599,7 +599,7 @@ declare i32 @add_file_to_index(ptr noundef, ptr noundef, i32 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_submodule_odb_by_path(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @string_list_insert(ptr noundef nonnull @added_submodule_odb_paths, ptr noundef %0) #17
+  %2 = tail call ptr @string_list_insert(ptr noundef nonnull @added_submodule_odb_paths, ptr noundef %0) #18
   ret void
 }
 
@@ -617,7 +617,7 @@ define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_a
   %3 = load ptr, ptr @added_submodule_odb_paths, align 8, !tbaa !55
   %4 = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !56
-  tail call void @add_to_alternates_memory(ptr noundef %5) #17
+  tail call void @add_to_alternates_memory(ptr noundef %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @added_submodule_odb_paths, i64 8), align 8, !tbaa !52
   %7 = icmp ugt i64 %6, %indvars.iv.next
@@ -628,17 +628,17 @@ define dso_local i32 @register_all_submodule_odb_as_alternates() local_unnamed_a
   br i1 %.not, label %._crit_edge.thread, label %8
 
 8:                                                ; preds = %._crit_edge
-  tail call void @string_list_clear(ptr noundef nonnull @added_submodule_odb_paths, i32 noundef 0) #17
+  tail call void @string_list_clear(ptr noundef nonnull @added_submodule_odb_paths, i32 noundef 0) #18
   %9 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %sext = shl i64 %1, 32
   %10 = ashr exact i64 %sext, 32
-  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.9, i32 noundef 196, ptr noundef nonnull @.str.10, ptr noundef %9, ptr noundef nonnull @.str.11, i64 noundef %10) #17
-  %11 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.12, i32 noundef 0) #17
+  tail call void @trace2_data_intmax_fl(ptr noundef nonnull @.str.9, i32 noundef 196, ptr noundef nonnull @.str.10, ptr noundef %9, ptr noundef nonnull @.str.11, i64 noundef %10) #18
+  %11 = tail call i32 @git_env_bool(ptr noundef nonnull @.str.12, i32 noundef 0) #18
   %.not8 = icmp eq i32 %11, 0
   br i1 %.not8, label %._crit_edge.thread, label %12
 
 12:                                               ; preds = %8
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 198, ptr noundef nonnull @.str.13) #19
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 198, ptr noundef nonnull @.str.13) #20
   unreachable
 
 ._crit_edge.thread:                               ; preds = %0, %8, %._crit_edge
@@ -660,18 +660,18 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define dso_local void @set_diffopt_flags_from_submodule_config(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %5 = tail call ptr @null_oid() #17
-  %6 = tail call ptr @submodule_from_path(ptr noundef %4, ptr noundef %5, ptr noundef %1) #17
+  %5 = tail call ptr @null_oid() #18
+  %6 = tail call ptr @submodule_from_path(ptr noundef %4, ptr noundef %5, ptr noundef %1) #18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !46
-  %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.14, ptr noundef %9) #17
+  %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.14, ptr noundef %9) #18
   %11 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %12 = call i32 @repo_config_get_string_tmp(ptr noundef %11, ptr noundef %10, ptr noundef nonnull %3) #17
+  %12 = call i32 @repo_config_get_string_tmp(ptr noundef %11, ptr noundef %10, ptr noundef nonnull %3) #18
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %._crit_edge, label %13
 
@@ -687,7 +687,7 @@ define dso_local void @set_diffopt_flags_from_submodule_config(ptr noundef write
 
 16:                                               ; preds = %._crit_edge, %13
   %17 = phi ptr [ %.pre, %._crit_edge ], [ %15, %13 ]
-  call void @free(ptr noundef %10) #17
+  call void @free(ptr noundef %10) #18
   %.not10 = icmp eq ptr %17, null
   br i1 %.not10, label %19, label %18
 
@@ -699,7 +699,7 @@ define dso_local void @set_diffopt_flags_from_submodule_config(ptr noundef write
   %20 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 384
   %22 = load ptr, ptr %21, align 8, !tbaa !30
-  %23 = call i32 @index_name_pos(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 11) #17
+  %23 = call i32 @index_name_pos(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 11) #18
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %is_gitmodules_unmerged.exit.thread
 
@@ -722,7 +722,7 @@ define dso_local void @set_diffopt_flags_from_submodule_config(ptr noundef write
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 108
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(12) @.str) #18
+  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(12) @.str) #19
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %is_gitmodules_unmerged.exit, label %is_gitmodules_unmerged.exit.thread
 
@@ -732,7 +732,7 @@ is_gitmodules_unmerged.exit:                      ; preds = %38
   br label %is_gitmodules_unmerged.exit.thread
 
 is_gitmodules_unmerged.exit.thread:               ; preds = %30, %38, %19, %25, %is_gitmodules_unmerged.exit, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   br label %42
 
 42:                                               ; preds = %is_gitmodules_unmerged.exit.thread, %2
@@ -756,7 +756,7 @@ define dso_local void @handle_ignore_submodules_arg(ptr noundef writeonly captur
   store i32 0, ptr %5, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %6, align 8, !tbaa !75
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.28) #18
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.28) #19
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %9
 
@@ -765,7 +765,7 @@ define dso_local void @handle_ignore_submodules_arg(ptr noundef writeonly captur
   br label %19
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.29) #18
+  %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.29) #19
   %.not12 = icmp eq i32 %10, 0
   br i1 %.not12, label %11, label %12
 
@@ -774,7 +774,7 @@ define dso_local void @handle_ignore_submodules_arg(ptr noundef writeonly captur
   br label %19
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.30) #18
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.30) #19
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %14, label %15
 
@@ -783,13 +783,13 @@ define dso_local void @handle_ignore_submodules_arg(ptr noundef writeonly captur
   br label %19
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.22) #18
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.22) #19
   %.not14 = icmp eq i32 %16, 0
   br i1 %.not14, label %19, label %17
 
 17:                                               ; preds = %15
   %18 = tail call fastcc ptr @_(ptr noundef nonnull @.str.31)
-  tail call void (ptr, ...) @die(ptr noundef %18, ptr noundef nonnull %1) #19
+  tail call void (ptr, ...) @die(ptr noundef %18, ptr noundef nonnull %1) #20
   unreachable
 
 19:                                               ; preds = %11, %15, %14, %8
@@ -798,12 +798,12 @@ define dso_local void @handle_ignore_submodules_arg(ptr noundef writeonly captur
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @git_default_submodule_config(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.15) #18
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(18) @.str.15) #19
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #17
+  %6 = tail call i32 @git_config_bool(ptr noundef nonnull %0, ptr noundef %1) #18
   %.not3 = icmp eq i32 %6, 0
   %7 = select i1 %.not3, i32 0, i32 2
   store i32 %7, ptr @config_update_recurse_submodules, align 4, !tbaa !28
@@ -827,7 +827,7 @@ define dso_local noundef i32 @option_parse_recurse_submodules_worktree_updater(p
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !76
-  %8 = tail call i32 @parse_update_recurse_submodules_arg(ptr noundef %7, ptr noundef nonnull %1) #17
+  %8 = tail call i32 @parse_update_recurse_submodules_arg(ptr noundef %7, ptr noundef nonnull %1) #18
   br label %9
 
 9:                                                ; preds = %5, %4, %3
@@ -845,22 +845,22 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
   %6 = alloca ptr, align 8
   %7 = alloca %struct.pathspec, align 8
   %8 = alloca %struct.strvec, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   store i32 0, ptr %4, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store ptr null, ptr %5, align 8, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  %9 = tail call ptr @submodule_from_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  %9 = tail call ptr @submodule_from_path(ptr noundef %0, ptr noundef %1, ptr noundef %2) #18
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %51, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !46
-  %13 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.16, ptr noundef %12) #17
-  %14 = call i32 @repo_config_get_bool(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %4) #17
+  %13 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.16, ptr noundef %12) #18
+  %14 = call i32 @repo_config_get_bool(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %4) #18
   %.not23 = icmp eq i32 %14, 0
-  call void @free(ptr noundef %13) #17
+  call void @free(ptr noundef %13) #18
   br i1 %.not23, label %15, label %17
 
 15:                                               ; preds = %10
@@ -868,13 +868,13 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
   br label %51
 
 17:                                               ; preds = %10
-  %18 = call i32 @repo_config_get_string_multi(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #17
+  %18 = call i32 @repo_config_get_string_multi(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #18
   %.not24 = icmp eq i32 %18, 0
   br i1 %.not24, label %19, label %44
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.calculate_changed_submodule_paths.argv, i64 24, i1 false)
   %20 = load ptr, ptr %6, align 8, !tbaa !78
   %21 = load ptr, ptr %20, align 8, !tbaa !55
@@ -893,7 +893,7 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02830 = phi ptr [ %30, %.lr.ph ], [ %21, %.lr.ph.preheader ]
   %28 = load ptr, ptr %.02830, align 8, !tbaa !56
-  %29 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %28) #17
+  %29 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %28) #18
   %30 = getelementptr inbounds nuw i8, ptr %.02830, i64 16
   %31 = load ptr, ptr %6, align 8, !tbaa !78
   %32 = load ptr, ptr %31, align 8, !tbaa !55
@@ -909,38 +909,38 @@ define dso_local i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %1, p
 
 .critedge:                                        ; preds = %.critedge.loopexit, %19
   %37 = phi ptr [ %.pre, %.critedge.loopexit ], [ @empty_strvec, %19 ]
-  call void @parse_pathspec(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef %37) #17
+  call void @parse_pathspec(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef %37) #18
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %39 = load ptr, ptr %38, align 8, !tbaa !30
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %41 = trunc i64 %40 to i32
-  %42 = call i32 @match_pathspec(ptr noundef %39, ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %41, i32 noundef 0, ptr noundef null, i32 noundef 1) #17
+  %42 = call i32 @match_pathspec(ptr noundef %39, ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %41, i32 noundef 0, ptr noundef null, i32 noundef 1) #18
   store i32 %42, ptr %4, align 4, !tbaa !28
-  call void @strvec_clear(ptr noundef nonnull %8) #17
-  call void @clear_pathspec(ptr noundef nonnull %7) #17
+  call void @strvec_clear(ptr noundef nonnull %8) #18
+  call void @clear_pathspec(ptr noundef nonnull %7) #18
   %43 = load i32, ptr %4, align 4, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
   br label %51
 
 44:                                               ; preds = %17
   %45 = load ptr, ptr %11, align 8, !tbaa !46
-  %46 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.18, ptr noundef %45) #17
-  %47 = call i32 @repo_config_get_string(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %5) #17
+  %46 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.18, ptr noundef %45) #18
+  %47 = call i32 @repo_config_get_string(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %5) #18
   %.not26 = icmp eq i32 %47, 0
   %48 = zext i1 %.not26 to i32
   store i32 %48, ptr %4, align 4, !tbaa !28
   %49 = load ptr, ptr %5, align 8, !tbaa !60
-  call void @free(ptr noundef %49) #17
-  call void @free(ptr noundef %46) #17
+  call void @free(ptr noundef %49) #18
+  call void @free(ptr noundef %46) #18
   %50 = load i32, ptr %4, align 4, !tbaa !28
   br label %51
 
 51:                                               ; preds = %3, %44, %.critedge, %15
   %.021 = phi i32 [ %50, %44 ], [ %43, %.critedge ], [ %16, %15 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   ret i32 %.021
 }
 
@@ -965,18 +965,18 @@ declare i32 @repo_config_get_string(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @is_submodule_active(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @null_oid() #17
+  %3 = tail call ptr @null_oid() #18
   %4 = tail call i32 @is_tree_submodule_active(ptr noundef %0, ptr noundef %3, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @is_submodule_populated_gently(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #17
-  %4 = tail call ptr @resolve_gitdir_gently(ptr noundef %3, ptr noundef %1) #17
+  %3 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #18
+  %4 = tail call ptr @resolve_gitdir_gently(ptr noundef %3, ptr noundef %1) #18
   %.not = icmp ne ptr %4, null
   %spec.select = zext i1 %.not to i32
-  tail call void @free(ptr noundef %3) #17
+  tail call void @free(ptr noundef %3) #18
   ret i32 %spec.select
 }
 
@@ -988,7 +988,7 @@ define dso_local void @die_in_unpopulated_submodule(ptr noundef readonly capture
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !4
@@ -1017,7 +1017,7 @@ define dso_local void @die_in_unpopulated_submodule(ptr noundef readonly capture
 18:                                               ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %20 = sext i32 %13 to i64
-  %21 = tail call i32 @strncmp(ptr noundef nonnull %19, ptr noundef nonnull %1, i64 noundef %20) #18
+  %21 = tail call i32 @strncmp(ptr noundef nonnull %19, ptr noundef nonnull %1, i64 noundef %20) #19
   %.not19 = icmp eq i32 %21, 0
   br i1 %.not19, label %22, label %27
 
@@ -1029,7 +1029,7 @@ define dso_local void @die_in_unpopulated_submodule(ptr noundef readonly capture
 
 25:                                               ; preds = %22
   %26 = tail call fastcc ptr @_(ptr noundef nonnull @.str.20)
-  tail call void (ptr, ...) @die(ptr noundef %26, ptr noundef nonnull %19) #19
+  tail call void (ptr, ...) @die(ptr noundef %26, ptr noundef nonnull %19) #20
   unreachable
 
 27:                                               ; preds = %22, %18, %9
@@ -1098,7 +1098,7 @@ define dso_local void @die_path_inside_submodule(ptr noundef readonly captures(n
   br i1 %.not26, label %30, label %37
 
 30:                                               ; preds = %26
-  %31 = tail call i32 @strncmp(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %19) #18
+  %31 = tail call i32 @strncmp(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %19) #19
   %.not27 = icmp ne i32 %31, 0
   %32 = icmp eq i32 %25, %21
   %or.cond = select i1 %.not27, i1 true, i1 %32
@@ -1108,7 +1108,7 @@ define dso_local void @die_path_inside_submodule(ptr noundef readonly captures(n
   %34 = tail call fastcc ptr @_(ptr noundef nonnull @.str.21)
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !89
-  tail call void (ptr, ...) @die(ptr noundef %34, ptr noundef %36, i32 noundef %11, ptr noundef nonnull %20) #19
+  tail call void (ptr, ...) @die(ptr noundef %34, ptr noundef %36, i32 noundef %11, ptr noundef nonnull %20) #20
   unreachable
 
 37:                                               ; preds = %30, %26, %22
@@ -1127,22 +1127,22 @@ define dso_local void @die_path_inside_submodule(ptr noundef readonly captures(n
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 6) i32 @parse_submodule_update_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.22) #18
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.22) #19
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.23) #18
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.23) #19
   %.not5 = icmp eq i32 %4, 0
   br i1 %.not5, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.24) #18
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.24) #19
   %.not6 = icmp eq i32 %6, 0
   br i1 %.not6, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.25) #18
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.25) #19
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %12, label %9
 
@@ -1161,24 +1161,24 @@ define dso_local range(i32 0, 6) i32 @parse_submodule_update_type(ptr noundef re
 define dso_local range(i32 -1, 1) i32 @parse_submodule_update_strategy(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !92
-  tail call void @free(ptr noundef %4) #17
+  tail call void @free(ptr noundef %4) #18
   store ptr null, ptr %3, align 8, !tbaa !92
-  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.22) #18
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.22) #19
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.23) #18
+  %7 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.23) #19
   %.not5.i = icmp eq i32 %7, 0
   br i1 %.not5.i, label %.thread, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.24) #18
+  %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.24) #19
   %.not6.i = icmp eq i32 %9, 0
   br i1 %.not6.i, label %.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.25) #18
+  %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.25) #19
   %.not7.i = icmp eq i32 %11, 0
   br i1 %.not7.i, label %.thread, label %12
 
@@ -1195,7 +1195,7 @@ define dso_local range(i32 -1, 1) i32 @parse_submodule_update_strategy(ptr nound
 15:                                               ; preds = %12
   store i32 5, ptr %1, align 8, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %17 = tail call ptr @xstrdup(ptr noundef nonnull %16) #17
+  %17 = tail call ptr @xstrdup(ptr noundef nonnull %16) #18
   store ptr %17, ptr %3, align 8, !tbaa !92
   br label %parse_submodule_update_type.exit
 
@@ -1210,7 +1210,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 define dso_local void @submodule_update_strategy_release(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !92
-  tail call void @free(ptr noundef %3) #17
+  tail call void @free(ptr noundef %3) #18
   ret void
 }
 
@@ -1235,11 +1235,11 @@ define dso_local noundef nonnull ptr @submodule_update_type_to_string(i32 nounde
   br label %7
 
 5:                                                ; preds = %1, %1
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 446, ptr noundef nonnull @.str.26, i32 noundef %0) #19
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 446, ptr noundef nonnull @.str.26, i32 noundef %0) #20
   unreachable
 
 6:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 448, ptr noundef nonnull @.str.27, i32 noundef %0) #19
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 448, ptr noundef nonnull @.str.27, i32 noundef %0) #20
   unreachable
 
 7:                                                ; preds = %1, %4, %3, %2
@@ -1249,7 +1249,7 @@ define dso_local noundef nonnull ptr @submodule_update_type_to_string(i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @prepare_submodule_repo_env(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @prepare_other_repo_env(ptr noundef %0, ptr noundef nonnull @.str.32) #17
+  tail call void @prepare_other_repo_env(ptr noundef %0, ptr noundef nonnull @.str.32) #18
   ret void
 }
 
@@ -1263,7 +1263,7 @@ define dso_local void @show_submodule_diff_summary(ptr noundef %0, ptr noundef %
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %8) #18
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3008) %8, i8 0, i64 3008, i1 false)
   store i64 132, ptr %12, align 8
@@ -1284,11 +1284,11 @@ define dso_local void @show_submodule_diff_summary(ptr noundef %0, ptr noundef %
   store i32 1, ptr %20, align 8, !tbaa !130
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 2200
   store i32 1, ptr %21, align 8, !tbaa !131
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
   store ptr null, ptr %9, align 8, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
   store ptr null, ptr %10, align 8, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #18
   store ptr null, ptr %11, align 8, !tbaa !134
   %22 = tail call fastcc ptr @open_submodule(ptr noundef %1)
   call fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %22, ptr noundef %9, ptr noundef %10, ptr noundef %11)
@@ -1303,16 +1303,16 @@ define dso_local void @show_submodule_diff_summary(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %5
   %29 = load ptr, ptr %11, align 8, !tbaa !134
-  call void @repo_init_revisions(ptr noundef nonnull %22, ptr noundef nonnull %8, ptr noundef null) #17
-  %30 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %8, ptr noundef null) #17
+  call void @repo_init_revisions(ptr noundef nonnull %22, ptr noundef nonnull %8, ptr noundef null) #18
+  %30 = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %8, ptr noundef null) #18
   %31 = load i64, ptr %12, align 8
   %32 = or i64 %31, 274911461376
   store i64 %32, ptr %12, align 8
   %33 = load i32, ptr %23, align 8
   %34 = or i32 %33, 4096
   store i32 %34, ptr %23, align 8
-  call void @add_pending_object(ptr noundef nonnull %8, ptr noundef nonnull %23, ptr noundef %1) #17
-  call void @add_pending_object(ptr noundef nonnull %8, ptr noundef nonnull %25, ptr noundef %1) #17
+  call void @add_pending_object(ptr noundef nonnull %8, ptr noundef nonnull %23, ptr noundef %1) #18
+  call void @add_pending_object(ptr noundef nonnull %8, ptr noundef nonnull %25, ptr noundef %1) #18
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %prepare_submodule_diff_summary.exit, label %.lr.ph.i
 
@@ -1324,26 +1324,26 @@ define dso_local void @show_submodule_diff_summary(ptr noundef %0, ptr noundef %
   store i32 %37, ptr %35, align 8
   %38 = load ptr, ptr %.021.i, align 8, !tbaa !135
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %40 = call ptr @oid_to_hex(ptr noundef nonnull %39) #17
-  call void @add_pending_object(ptr noundef nonnull %8, ptr noundef %38, ptr noundef %40) #17
+  %40 = call ptr @oid_to_hex(ptr noundef nonnull %39) #18
+  call void @add_pending_object(ptr noundef nonnull %8, ptr noundef %38, ptr noundef %40) #18
   %41 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !137
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %prepare_submodule_diff_summary.exit, label %.lr.ph.i, !llvm.loop !138
 
 prepare_submodule_diff_summary.exit:              ; preds = %.lr.ph.i, %28
-  %43 = call i32 @prepare_revision_walk(ptr noundef nonnull %8) #17
+  %43 = call i32 @prepare_revision_walk(ptr noundef nonnull %8) #18
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %45, label %44
 
 44:                                               ; preds = %prepare_submodule_diff_summary.exit
-  call void @diff_emit_submodule_error(ptr noundef %0, ptr noundef nonnull @.str.33) #17
+  call void @diff_emit_submodule_error(ptr noundef %0, ptr noundef nonnull @.str.33) #18
   br label %72
 
 45:                                               ; preds = %prepare_submodule_diff_summary.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  %46 = call ptr @get_revision(ptr noundef nonnull %8) #17
+  %46 = call ptr @get_revision(ptr noundef nonnull %8) #18
   %.not8.i = icmp eq ptr %46, null
   br i1 %.not8.i, label %print_submodule_diff_summary.exit, label %.lr.ph.i20
 
@@ -1357,10 +1357,10 @@ prepare_submodule_diff_summary.exit:              ; preds = %.lr.ph.i, %28
 
 52:                                               ; preds = %70, %.lr.ph.i20
   %53 = phi ptr [ %46, %.lr.ph.i20 ], [ %71, %70 ]
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %7, i8 0, i64 176, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !139
-  %54 = call ptr @get_log_output_encoding() #17
+  %54 = call ptr @get_log_output_encoding() #18
   store ptr %54, ptr %49, align 8, !tbaa !140
   store i64 0, ptr %50, align 8, !tbaa !145
   %55 = load ptr, ptr %51, align 8, !tbaa !49
@@ -1372,7 +1372,7 @@ prepare_submodule_diff_summary.exit:              ; preds = %.lr.ph.i, %28
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %56, %52
-  call void @repo_format_commit_message(ptr noundef nonnull %22, ptr noundef nonnull %53, ptr noundef nonnull @print_submodule_diff_summary.format, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  call void @repo_format_commit_message(ptr noundef nonnull %22, ptr noundef nonnull %53, ptr noundef nonnull @print_submodule_diff_summary.format, ptr noundef nonnull %6, ptr noundef nonnull %7) #18
   %57 = load i64, ptr %6, align 8, !tbaa !146
   %.not.i.i.i = icmp eq i64 %57, 0
   br i1 %.not.i.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_avail.exit.i.i
@@ -1384,7 +1384,7 @@ strbuf_avail.exit.i.i:                            ; preds = %strbuf_setlen.exit.
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_addch.exit.i
 
 strbuf_avail.exit.thread.i.i:                     ; preds = %strbuf_avail.exit.i.i, %strbuf_setlen.exit.i
-  call void @strbuf_grow(ptr noundef nonnull %6, i64 noundef 1) #17
+  call void @strbuf_grow(ptr noundef nonnull %6, i64 noundef 1) #18
   %.pre.i.i = load i64, ptr %50, align 8, !tbaa !145
   %.pre7.i.i = add i64 %.pre.i.i, 1
   br label %strbuf_addch.exit.i
@@ -1407,42 +1407,42 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   br i1 %.not7.i, label %69, label %68
 
 68:                                               ; preds = %strbuf_addch.exit.i
-  call void @diff_emit_submodule_del(ptr noundef %0, ptr noundef %67) #17
+  call void @diff_emit_submodule_del(ptr noundef %0, ptr noundef %67) #18
   br label %70
 
 69:                                               ; preds = %strbuf_addch.exit.i
-  call void @diff_emit_submodule_add(ptr noundef %0, ptr noundef %67) #17
+  call void @diff_emit_submodule_add(ptr noundef %0, ptr noundef %67) #18
   br label %70
 
 70:                                               ; preds = %69, %68
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7) #17
-  %71 = call ptr @get_revision(ptr noundef nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7) #18
+  %71 = call ptr @get_revision(ptr noundef nonnull %8) #18
   %.not.i21 = icmp eq ptr %71, null
   br i1 %.not.i21, label %print_submodule_diff_summary.exit, label %52, !llvm.loop !147
 
 print_submodule_diff_summary.exit:                ; preds = %70, %45
-  call void @strbuf_release(ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @strbuf_release(ptr noundef nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
   br label %72
 
 72:                                               ; preds = %5, %print_submodule_diff_summary.exit, %44
   %73 = load ptr, ptr %11, align 8, !tbaa !134
-  call void @free_commit_list(ptr noundef %73) #17
-  call void @release_revisions(ptr noundef nonnull %8) #17
-  call void @clear_commit_marks(ptr noundef %23, i32 noundef -1) #17
-  call void @clear_commit_marks(ptr noundef %25, i32 noundef -1) #17
+  call void @free_commit_list(ptr noundef %73) #18
+  call void @release_revisions(ptr noundef nonnull %8) #18
+  call void @clear_commit_marks(ptr noundef %23, i32 noundef -1) #18
+  call void @clear_commit_marks(ptr noundef %25, i32 noundef -1) #18
   br i1 %27, label %74, label %75
 
 74:                                               ; preds = %72
-  call void @repo_clear(ptr noundef nonnull %22) #17
-  call void @free(ptr noundef nonnull %22) #17
+  call void @repo_clear(ptr noundef nonnull %22) #18
+  call void @free(ptr noundef nonnull %22) #18
   br label %75
 
 75:                                               ; preds = %74, %72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 3008, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 3008, ptr nonnull %8) #18
   ret void
 }
 
@@ -1452,9 +1452,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @open_submodule(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  %3 = tail call ptr @xmalloc(i64 noundef 464) #17
+  %3 = tail call ptr @xmalloc(i64 noundef 464) #18
   %4 = call i32 @submodule_to_gitdir(ptr noundef nonnull %2, ptr noundef %0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1462,39 +1462,39 @@ define internal fastcc ptr @open_submodule(ptr noundef %0) unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !49
-  %8 = call i32 @repo_init(ptr noundef %3, ptr noundef %7, ptr noundef null) #17
+  %8 = call i32 @repo_init(ptr noundef %3, ptr noundef %7, ptr noundef null) #18
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %10, label %9
 
 9:                                                ; preds = %5, %1
-  call void @strbuf_release(ptr noundef nonnull %2) #17
-  call void @free(ptr noundef %3) #17
+  call void @strbuf_release(ptr noundef nonnull %2) #18
+  call void @free(ptr noundef %3) #18
   br label %13
 
 10:                                               ; preds = %5
-  %11 = call ptr @xstrdup(ptr noundef %0) #17
+  %11 = call ptr @xstrdup(ptr noundef %0) #18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 248
   store ptr %11, ptr %12, align 8, !tbaa !148
-  call void @strbuf_release(ptr noundef nonnull %2) #17
+  call void @strbuf_release(ptr noundef nonnull %2) #18
   br label %13
 
 13:                                               ; preds = %10, %9
   %.0 = phi ptr [ null, %9 ], [ %3, %10 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #18
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %11 = and i32 %4, 1
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @diff_emit_submodule_untracked(ptr noundef %0, ptr noundef %1) #17
+  tail call void @diff_emit_submodule_untracked(ptr noundef %0, ptr noundef %1) #18
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -1503,7 +1503,7 @@ define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %
   br i1 %.not47, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @diff_emit_submodule_modified(ptr noundef %0, ptr noundef %1) #17
+  tail call void @diff_emit_submodule_modified(ptr noundef %0, ptr noundef %1) #18
   br label %16
 
 16:                                               ; preds = %15, %13
@@ -1525,9 +1525,9 @@ define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %
   br i1 %.not50, label %40, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call ptr @lookup_commit_reference(ptr noundef nonnull %5, ptr noundef nonnull %2) #17
+  %20 = tail call ptr @lookup_commit_reference(ptr noundef nonnull %5, ptr noundef nonnull %2) #18
   store ptr %20, ptr %6, align 8, !tbaa !132
-  %21 = tail call ptr @lookup_commit_reference(ptr noundef nonnull %5, ptr noundef %3) #17
+  %21 = tail call ptr @lookup_commit_reference(ptr noundef nonnull %5, ptr noundef %3) #18
   store ptr %21, ptr %7, align 8, !tbaa !132
   %bcmp.i65 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %2, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i66.not = icmp eq i32 %bcmp.i65, 0
@@ -1552,7 +1552,7 @@ define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %
   %.2 = phi ptr [ %.042, %24 ], [ @.str.115, %25 ]
   store ptr null, ptr %8, align 8, !tbaa !134
   %27 = load ptr, ptr %6, align 8, !tbaa !132
-  %28 = tail call i32 @repo_get_merge_bases(ptr noundef nonnull %5, ptr noundef %27, ptr noundef %21, ptr noundef nonnull %8) #17
+  %28 = tail call i32 @repo_get_merge_bases(ptr noundef nonnull %5, ptr noundef %27, ptr noundef %21, ptr noundef nonnull %8) #18
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %40, label %30
 
@@ -1584,38 +1584,38 @@ define internal fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %
   %.143 = phi ptr [ %.2, %39 ], [ %.not51, %18 ], [ @.str.116, %26 ]
   %.040 = phi i32 [ %.141, %39 ], [ 0, %18 ], [ 0, %26 ]
   %.0 = phi i32 [ %.1, %39 ], [ 0, %18 ], [ 0, %26 ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.117, ptr noundef %1) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.117, ptr noundef %1) #18
   %41 = load i32, ptr @default_abbrev, align 4, !tbaa !28
-  call void @strbuf_add_unique_abbrev(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef %41) #17
+  call void @strbuf_add_unique_abbrev(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef %41) #18
   %42 = or i32 %.0, %.040
   %.not58 = icmp eq i32 %42, 0
   %43 = select i1 %.not58, ptr @.str.118, ptr @.str.102
   %44 = select i1 %.not58, i64 3, i64 2
-  call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull %43, i64 noundef %44) #17
+  call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull %43, i64 noundef %44) #18
   %45 = load i32, ptr @default_abbrev, align 4, !tbaa !28
-  call void @strbuf_add_unique_abbrev(ptr noundef nonnull %10, ptr noundef %3, i32 noundef %45) #17
+  call void @strbuf_add_unique_abbrev(ptr noundef nonnull %10, ptr noundef %3, i32 noundef %45) #18
   %.not60 = icmp eq ptr %.143, null
   br i1 %.not60, label %47, label %46
 
 46:                                               ; preds = %40
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.119, ptr noundef nonnull %.143) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.119, ptr noundef nonnull %.143) #18
   br label %49
 
 47:                                               ; preds = %40
   %.not59 = icmp eq i32 %.0, 0
   %48 = select i1 %.not59, ptr @.str.86, ptr @.str.121
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.120, ptr noundef nonnull %48) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %10, ptr noundef nonnull @.str.120, ptr noundef nonnull %48) #18
   br label %49
 
 49:                                               ; preds = %47, %46
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !49
-  call void @diff_emit_submodule_header(ptr noundef %0, ptr noundef %51) #17
+  call void @diff_emit_submodule_header(ptr noundef %0, ptr noundef %51) #18
   br label %52
 
 52:                                               ; preds = %39, %49
-  call void @strbuf_release(ptr noundef nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
+  call void @strbuf_release(ptr noundef nonnull %10) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
   ret void
 }
 
@@ -1641,15 +1641,15 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   %13 = load ptr, ptr %12, align 8, !tbaa !149
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   store ptr null, ptr %6, align 8, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   store ptr null, ptr %7, align 8, !tbaa !132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
   store ptr null, ptr %8, align 8, !tbaa !134
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %16 = tail call fastcc ptr @open_submodule(ptr noundef %1)
   call fastcc void @show_submodule_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %16, ptr noundef %6, ptr noundef %7, ptr noundef %8)
@@ -1681,13 +1681,13 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 84
   store i32 -1, ptr %25, align 4, !tbaa !154
   store i16 9, ptr %23, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %9, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %9, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef null) #18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %27 = load i32, ptr %26, align 4, !tbaa !155
-  %28 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %27) #17
+  %28 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %27) #18
   %.not42 = icmp eq i32 %28, 0
   %29 = select i1 %.not42, ptr @.str.38, ptr @.str.37
-  %30 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.36, ptr noundef nonnull %29) #17
+  %30 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.36, ptr noundef nonnull %29) #18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %32 = load i32, ptr %31, align 8, !tbaa !156
   %.not43 = icmp eq i32 %32, 0
@@ -1695,25 +1695,25 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   %.60 = select i1 %.not43, i64 80, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %34 = load ptr, ptr %33, align 8, !tbaa !60
-  %35 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.39, ptr noundef %34, ptr noundef %1) #17
+  %35 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.39, ptr noundef %34, ptr noundef %1) #18
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.60
   %37 = load ptr, ptr %36, align 8, !tbaa !60
-  %38 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.40, ptr noundef %37, ptr noundef %1) #17
-  %39 = call ptr @oid_to_hex(ptr noundef %spec.select) #17
-  %40 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %39) #17
+  %38 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.40, ptr noundef %37, ptr noundef %1) #18
+  %39 = call ptr @oid_to_hex(ptr noundef %spec.select) #18
+  %40 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %39) #18
   %41 = and i32 %4, 2
   %.not44 = icmp eq i32 %41, 0
   br i1 %.not44, label %42, label %45
 
 42:                                               ; preds = %22
-  %43 = call ptr @oid_to_hex(ptr noundef %.033) #17
-  %44 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %43) #17
+  %43 = call ptr @oid_to_hex(ptr noundef %.033) #18
+  %44 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef %43) #18
   br label %45
 
 45:                                               ; preds = %42, %22
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %46, ptr noundef nonnull @.str.32) #17
-  %47 = call i32 @is_directory(ptr noundef %1) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %46, ptr noundef nonnull @.str.32) #18
+  %47 = call i32 @is_directory(ptr noundef %1) #18
   %.not45 = icmp eq i32 %47, 0
   br i1 %.not45, label %48, label %53
 
@@ -1724,18 +1724,18 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
 49:                                               ; preds = %48
   %50 = load ptr, ptr %16, align 8, !tbaa !157
   store ptr %50, ptr %24, align 8, !tbaa !152
-  %51 = call ptr @strvec_push(ptr noundef nonnull %46, ptr noundef nonnull @.str.41) #17
-  %52 = call ptr @strvec_push(ptr noundef nonnull %46, ptr noundef nonnull @.str.42) #17
+  %51 = call ptr @strvec_push(ptr noundef nonnull %46, ptr noundef nonnull @.str.41) #18
+  %52 = call ptr @strvec_push(ptr noundef nonnull %46, ptr noundef nonnull @.str.42) #18
   br label %53
 
 53:                                               ; preds = %49, %45
-  %54 = call i32 @start_command(ptr noundef nonnull %9) #17
+  %54 = call i32 @start_command(ptr noundef nonnull %9) #18
   %.not47 = icmp eq i32 %54, 0
   br i1 %.not47, label %.preheader, label %.sink.split
 
 .preheader:                                       ; preds = %53
   %55 = load i32, ptr %25, align 4, !tbaa !154
-  %56 = call i32 @strbuf_getwholeline_fd(ptr noundef nonnull %10, i32 noundef %55, i32 noundef 10) #17
+  %56 = call i32 @strbuf_getwholeline_fd(ptr noundef nonnull %10, i32 noundef %55, i32 noundef 10) #18
   %.not4855 = icmp eq i32 %56, -1
   br i1 %.not4855, label %._crit_edge, label %.lr.ph
 
@@ -1748,29 +1748,29 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   %60 = load ptr, ptr %57, align 8, !tbaa !49
   %61 = load i64, ptr %58, align 8, !tbaa !145
   %62 = trunc i64 %61 to i32
-  call void @diff_emit_submodule_pipethrough(ptr noundef nonnull %0, ptr noundef %60, i32 noundef %62) #17
+  call void @diff_emit_submodule_pipethrough(ptr noundef nonnull %0, ptr noundef %60, i32 noundef %62) #18
   %63 = load i32, ptr %25, align 4, !tbaa !154
-  %64 = call i32 @strbuf_getwholeline_fd(ptr noundef nonnull %10, i32 noundef %63, i32 noundef 10) #17
+  %64 = call i32 @strbuf_getwholeline_fd(ptr noundef nonnull %10, i32 noundef %63, i32 noundef 10) #18
   %.not48 = icmp eq i32 %64, -1
   br i1 %.not48, label %._crit_edge, label %59, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %59, %.preheader
-  %65 = call i32 @finish_command(ptr noundef nonnull %9) #17
+  %65 = call i32 @finish_command(ptr noundef nonnull %9) #18
   %.not49 = icmp eq i32 %65, 0
   br i1 %.not49, label %66, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %53
-  call void @diff_emit_submodule_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #17
+  call void @diff_emit_submodule_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #18
   br label %66
 
 66:                                               ; preds = %.sink.split, %._crit_edge, %48, %18, %21
-  call void @strbuf_release(ptr noundef nonnull %10) #17
+  call void @strbuf_release(ptr noundef nonnull %10) #18
   %67 = load ptr, ptr %8, align 8, !tbaa !134
-  call void @free_commit_list(ptr noundef %67) #17
+  call void @free_commit_list(ptr noundef %67) #18
   br i1 %.not, label %69, label %68
 
 68:                                               ; preds = %66
-  call void @clear_commit_marks(ptr noundef nonnull %17, i32 noundef -1) #17
+  call void @clear_commit_marks(ptr noundef nonnull %17, i32 noundef -1) #18
   br label %69
 
 69:                                               ; preds = %68, %66
@@ -1779,7 +1779,7 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   br i1 %.not51, label %72, label %71
 
 71:                                               ; preds = %69
-  call void @clear_commit_marks(ptr noundef nonnull %70, i32 noundef -1) #17
+  call void @clear_commit_marks(ptr noundef nonnull %70, i32 noundef -1) #18
   br label %72
 
 72:                                               ; preds = %71, %69
@@ -1787,16 +1787,16 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   br i1 %.not52, label %74, label %73
 
 73:                                               ; preds = %72
-  call void @repo_clear(ptr noundef nonnull %16) #17
-  call void @free(ptr noundef nonnull %16) #17
+  call void @repo_clear(ptr noundef nonnull %16) #18
+  call void @free(ptr noundef nonnull %16) #18
   br label %74
 
 74:                                               ; preds = %73, %72
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   ret void
 }
 
@@ -1839,9 +1839,9 @@ define dso_local ptr @submodule_from_ce(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %9 = tail call ptr @null_oid() #17
+  %9 = tail call ptr @null_oid() #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %11 = tail call ptr @submodule_from_path(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %10) #17
+  %11 = tail call ptr @submodule_from_path(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %10) #18
   br label %12
 
 12:                                               ; preds = %1, %7
@@ -1856,16 +1856,16 @@ define dso_local i32 @find_unpushed_submodules(ptr noundef %0, ptr noundef %1, p
   %7 = alloca i32, align 4
   %8 = alloca %struct.string_list, align 8
   %9 = alloca %struct.strvec, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i8 1, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.calculate_changed_submodule_paths.argv, i64 24, i1 false)
-  %11 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef nonnull @.str.44) #17
-  %12 = call i32 @oid_array_for_each_unique(ptr noundef %1, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %9) #17
-  %13 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef nonnull @.str.45) #17
-  %14 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.46, ptr noundef %2) #17
+  %11 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef nonnull @.str.44) #18
+  %12 = call i32 @oid_array_for_each_unique(ptr noundef %1, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %9) #18
+  %13 = call ptr @strvec_push(ptr noundef nonnull %9, ptr noundef nonnull @.str.45) #18
+  %14 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %9, ptr noundef nonnull @.str.46, ptr noundef %2) #18
   call fastcc void @collect_changed_submodules(ptr noundef %0, ptr noundef %8, ptr noundef %9)
   %15 = load ptr, ptr %8, align 8, !tbaa !55
   %.not29 = icmp eq ptr %15, null
@@ -1887,9 +1887,9 @@ define dso_local i32 @find_unpushed_submodules(ptr noundef %0, ptr noundef %1, p
   %.0193039 = phi ptr [ %67, %.thread ], [ %15, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %.0193039, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !159
-  %27 = call ptr @null_oid() #17
+  %27 = call ptr @null_oid() #18
   %28 = load ptr, ptr %.0193039, align 8, !tbaa !56
-  %29 = call ptr @submodule_from_name(ptr noundef %0, ptr noundef %27, ptr noundef %28) #17
+  %29 = call ptr @submodule_from_name(ptr noundef %0, ptr noundef %27, ptr noundef %28) #18
   %.not21 = icmp eq ptr %29, null
   br i1 %.not21, label %32, label %30
 
@@ -1899,12 +1899,12 @@ define dso_local i32 @find_unpushed_submodules(ptr noundef %0, ptr noundef %1, p
 
 32:                                               ; preds = %.lr.ph40
   %33 = load ptr, ptr %.0193039, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  %34 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %33) #17
-  %35 = call ptr @resolve_gitdir_gently(ptr noundef %34, ptr noundef nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
+  %34 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %33) #18
+  %35 = call ptr @resolve_gitdir_gently(ptr noundef %34, ptr noundef nonnull %7) #18
   %.not.i.not.i = icmp eq ptr %35, null
-  call void @free(ptr noundef %34) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @free(ptr noundef %34) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #18
   br i1 %.not.i.not.i, label %.thread, label %36
 
 36:                                               ; preds = %32, %30
@@ -1914,39 +1914,39 @@ define dso_local i32 @find_unpushed_submodules(ptr noundef %0, ptr noundef %1, p
 
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %39 = call ptr @null_oid() #17
+  %39 = call ptr @null_oid() #18
   %40 = call fastcc i32 @submodule_has_commits(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef %39, ptr noundef nonnull %38)
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %.thread, label %41
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %43 = call ptr @repo_get_submodule_ref_store(ptr noundef %42, ptr noundef nonnull %.0) #17
-  %44 = call i32 @refs_for_each_remote_ref(ptr noundef %43, ptr noundef nonnull @has_remote, ptr noundef null) #17
+  %43 = call ptr @repo_get_submodule_ref_store(ptr noundef %42, ptr noundef nonnull %.0) #18
+  %44 = call i32 @refs_for_each_remote_ref(ptr noundef %43, ptr noundef nonnull @has_remote, ptr noundef null) #18
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  %47 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull @.str.124) #17
-  %48 = call i32 @oid_array_for_each_unique(ptr noundef nonnull %38, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %5) #17
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.126, ptr noundef null) #17
-  call void @prepare_other_repo_env(ptr noundef nonnull %17, ptr noundef nonnull @.str.32) #17
+  %47 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull @.str.124) #18
+  %48 = call i32 @oid_array_for_each_unique(ptr noundef nonnull %38, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %5) #18
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.126, ptr noundef null) #18
+  call void @prepare_other_repo_env(ptr noundef nonnull %17, ptr noundef nonnull @.str.32) #18
   %49 = load i16, ptr %18, align 8
   %50 = or i16 %49, 9
   store i16 %50, ptr %18, align 8
   store i32 -1, ptr %19, align 4, !tbaa !154
   store ptr %.0, ptr %20, align 8, !tbaa !152
-  %51 = call i32 @start_command(ptr noundef nonnull %5) #17
+  %51 = call i32 @start_command(ptr noundef nonnull %5) #18
   %.not9.i = icmp eq i32 %51, 0
   br i1 %.not9.i, label %submodule_needs_pushing.exit, label %52
 
 52:                                               ; preds = %46
   %53 = call fastcc ptr @_(ptr noundef nonnull @.str.127)
-  call void (ptr, ...) @die(ptr noundef %53, ptr noundef nonnull %.0) #19
+  call void (ptr, ...) @die(ptr noundef %53, ptr noundef nonnull %.0) #20
   unreachable
 
 submodule_needs_pushing.exit:                     ; preds = %46
@@ -1957,18 +1957,18 @@ submodule_needs_pushing.exit:                     ; preds = %46
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i64, ptr %58, align 8, !tbaa !161
   %60 = add i64 %59, 1
-  %61 = call i64 @strbuf_read(ptr noundef nonnull %6, i32 noundef %54, i64 noundef %60) #17
+  %61 = call i64 @strbuf_read(ptr noundef nonnull %6, i32 noundef %54, i64 noundef %60) #18
   %.not10.i.not = icmp eq i64 %61, 0
-  %62 = call i32 @finish_command(ptr noundef nonnull %5) #17
+  %62 = call i32 @finish_command(ptr noundef nonnull %5) #18
   %63 = load i32, ptr %19, align 4, !tbaa !154
-  %64 = call i32 @close(i32 noundef %63) #17
-  call void @strbuf_release(ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #17
+  %64 = call i32 @close(i32 noundef %63) #18
+  call void @strbuf_release(ptr noundef nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #18
   br i1 %.not10.i.not, label %.thread, label %65
 
 65:                                               ; preds = %submodule_needs_pushing.exit
-  %66 = call ptr @string_list_insert(ptr noundef %3, ptr noundef nonnull %.0) #17
+  %66 = call ptr @string_list_insert(ptr noundef %3, ptr noundef nonnull %.0) #18
   br label %.thread
 
 .thread:                                          ; preds = %41, %37, %32, %submodule_needs_pushing.exit, %65, %36
@@ -1995,10 +1995,10 @@ submodule_needs_pushing.exit:                     ; preds = %46
   %74 = getelementptr inbounds nuw i8, ptr %.09.i31, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !159
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  call void @oid_array_clear(ptr noundef nonnull %76) #17
+  call void @oid_array_clear(ptr noundef nonnull %76) #18
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !162
-  call void @free(ptr noundef %78) #17
+  call void @free(ptr noundef %78) #18
   %79 = getelementptr inbounds nuw i8, ptr %.09.i31, i64 16
   %80 = load ptr, ptr %8, align 8, !tbaa !55
   %81 = load i64, ptr %72, align 8, !tbaa !52
@@ -2007,13 +2007,13 @@ submodule_needs_pushing.exit:                     ; preds = %46
   br i1 %83, label %.lr.ph32, label %free_submodules_data.exit
 
 free_submodules_data.exit:                        ; preds = %.lr.ph32, %4, %.lr.ph.i, %.critedge
-  call void @string_list_clear(ptr noundef nonnull %8, i32 noundef 1) #17
-  call void @strvec_clear(ptr noundef nonnull %9) #17
+  call void @string_list_clear(ptr noundef nonnull %8, i32 noundef 1) #18
+  call void @strvec_clear(ptr noundef nonnull %9) #18
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %85 = load i64, ptr %84, align 8, !tbaa !52
   %86 = trunc i64 %85 to i32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #18
   ret i32 %86
 }
 
@@ -2021,8 +2021,8 @@ declare i32 @oid_array_for_each_unique(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @append_oid_to_argv(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @oid_to_hex(ptr noundef %0) #17
-  %4 = tail call ptr @strvec_push(ptr noundef %1, ptr noundef %3) #17
+  %3 = tail call ptr @oid_to_hex(ptr noundef %0) #18
+  %4 = tail call ptr @strvec_push(ptr noundef %1, ptr noundef %3) #18
   ret i32 0
 }
 
@@ -2032,24 +2032,24 @@ define internal fastcc void @collect_changed_submodules(ptr noundef %0, ptr noun
   %5 = alloca %struct.setup_revision_opt, align 8
   %6 = alloca %struct.rev_info, align 8
   %7 = alloca %struct.collect_changed_submodules_cb_data, align 8
-  call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.collect_changed_submodules.s_r_opt, i64 24, i1 false)
   %8 = load i32, ptr @warn_on_object_refname_ambiguity, align 4, !tbaa !28
   store i32 0, ptr @warn_on_object_refname_ambiguity, align 4, !tbaa !28
-  call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #17
+  call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %4, ptr noundef null) #18
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !165
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %2, align 8, !tbaa !79
-  %13 = call i32 @setup_revisions(i32 noundef %11, ptr noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
+  %13 = call i32 @setup_revisions(i32 noundef %11, ptr noundef %12, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   store i32 %8, ptr @warn_on_object_refname_ambiguity, align 4, !tbaa !28
-  %14 = call i32 @prepare_revision_walk(ptr noundef nonnull %4) #17
+  %14 = call i32 @prepare_revision_walk(ptr noundef nonnull %4) #18
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.preheader, label %22
 
 .preheader:                                       ; preds = %3
-  %15 = call ptr @get_revision(ptr noundef nonnull %4) #17
+  %15 = call ptr @get_revision(ptr noundef nonnull %4) #18
   %.not89 = icmp eq ptr %15, null
   br i1 %.not89, label %._crit_edge, label %.lr.ph
 
@@ -2064,18 +2064,18 @@ define internal fastcc void @collect_changed_submodules(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %3
   %23 = call fastcc ptr @_(ptr noundef nonnull @.str.122)
-  call void (ptr, ...) @die(ptr noundef %23) #19
+  call void (ptr, ...) @die(ptr noundef %23) #20
   unreachable
 
 24:                                               ; preds = %.lr.ph, %24
   %25 = phi ptr [ %15, %.lr.ph ], [ %31, %24 ]
-  call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
   store ptr %0, ptr %7, align 8, !tbaa !166
   store ptr %1, ptr %16, align 8, !tbaa !168
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store ptr %26, ptr %17, align 8, !tbaa !169
-  call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null) #17
+  call void @repo_init_revisions(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null) #18
   %27 = load i32, ptr %18, align 4, !tbaa !170
   %28 = or i32 %27, 4096
   store i32 %28, ptr %18, align 4, !tbaa !170
@@ -2084,19 +2084,19 @@ define internal fastcc void @collect_changed_submodules(ptr noundef %0, ptr noun
   %29 = load i64, ptr %21, align 8
   %30 = or i64 %29, 144115188075855872
   store i64 %30, ptr %21, align 8
-  call void @diff_tree_combined_merge(ptr noundef nonnull %25, ptr noundef nonnull %6) #17
-  call void @release_revisions(ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 3008, ptr nonnull %6) #17
-  %31 = call ptr @get_revision(ptr noundef nonnull %4) #17
+  call void @diff_tree_combined_merge(ptr noundef nonnull %25, ptr noundef nonnull %6) #18
+  call void @release_revisions(ptr noundef nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 3008, ptr nonnull %6) #18
+  %31 = call ptr @get_revision(ptr noundef nonnull %4) #18
   %.not8 = icmp eq ptr %31, null
   br i1 %.not8, label %._crit_edge, label %24, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %24, %.preheader
-  call void @reset_revision_walk() #17
-  call void @release_revisions(ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 3008, ptr nonnull %4) #17
+  call void @reset_revision_walk() #18
+  call void @release_revisions(ptr noundef nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 3008, ptr nonnull %4) #18
   ret void
 }
 
@@ -2108,7 +2108,7 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
   %8 = alloca %struct.child_process, align 8
   %9 = alloca %struct.string_list, align 8
   %10 = alloca %struct.object_id, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 1, ptr %11, align 8
@@ -2125,10 +2125,10 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
   br i1 %.not29, label %60, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #18
   %19 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %20 = call ptr @get_main_ref_store(ptr noundef %19) #17
-  %21 = call ptr @refs_resolve_refdup(ptr noundef %20, ptr noundef nonnull @.str.47, i32 noundef 0, ptr noundef nonnull %10, ptr noundef null) #17
+  %20 = call ptr @get_main_ref_store(ptr noundef %19) #18
+  %21 = call ptr @refs_resolve_refdup(ptr noundef %20, ptr noundef nonnull @.str.47, i32 noundef 0, ptr noundef nonnull %10, ptr noundef null) #18
   %.not30 = icmp eq ptr %21, null
   br i1 %.not30, label %28, label %.preheader
 
@@ -2147,7 +2147,7 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
 
 28:                                               ; preds = %18
   %29 = call fastcc ptr @_(ptr noundef nonnull @.str.48)
-  call void (ptr, ...) @die(ptr noundef %29) #19
+  call void (ptr, ...) @die(ptr noundef %29) #20
   unreachable
 
 30:                                               ; preds = %.lr.ph, %submodule_push_check.exit
@@ -2155,23 +2155,23 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
   %31 = load ptr, ptr %9, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
   %34 = call i32 @validate_submodule_path(ptr noundef %33)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %30
-  %37 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1206, i32 noundef 128) #17
-  call void @exit(i32 noundef %37) #19
+  %37 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1206, i32 noundef 128) #18
+  call void @exit(i32 noundef %37) #20
   unreachable
 
 38:                                               ; preds = %30
-  %39 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull @.str.130) #17
-  %40 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull @.str.131) #17
-  %41 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull %21) #17
+  %39 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull @.str.130) #18
+  %40 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull @.str.131) #18
+  %41 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull %21) #18
   %42 = load ptr, ptr %12, align 8, !tbaa !174
-  %43 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %42) #17
+  %43 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %42) #18
   %44 = load i32, ptr %24, align 4, !tbaa !181
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i
@@ -2181,7 +2181,7 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
   %46 = load ptr, ptr %3, align 8, !tbaa !182
   %47 = getelementptr inbounds nuw %struct.refspec_item, ptr %46, i64 %indvars.iv.i, i32 3
   %48 = load ptr, ptr %47, align 8, !tbaa !183
-  %49 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %48) #17
+  %49 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %48) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = load i32, ptr %24, align 4, !tbaa !181
   %51 = sext i32 %50 to i64
@@ -2189,30 +2189,30 @@ define dso_local range(i32 0, 2) i32 @push_unpushed_submodules(ptr noundef %0, p
   br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !185
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %38
-  call void @prepare_other_repo_env(ptr noundef nonnull %25, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %25, ptr noundef nonnull @.str.32) #18
   %53 = load i16, ptr %26, align 8
   %54 = or i16 %53, 11
   store i16 %54, ptr %26, align 8
   store ptr %33, ptr %27, align 8, !tbaa !152
-  %55 = call i32 @run_command(ptr noundef nonnull %8) #17
+  %55 = call i32 @run_command(ptr noundef nonnull %8) #18
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %submodule_push_check.exit, label %56
 
 56:                                               ; preds = %._crit_edge.i
   %57 = call fastcc ptr @_(ptr noundef nonnull @.str.132)
-  call void (ptr, ...) @die(ptr noundef %57, ptr noundef %33) #19
+  call void (ptr, ...) @die(ptr noundef %57, ptr noundef %33) #20
   unreachable
 
 submodule_push_check.exit:                        ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i64, ptr %22, align 8, !tbaa !52
   %59 = icmp ugt i64 %58, %indvars.iv.next
   br i1 %59, label %30, label %._crit_edge, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %submodule_push_check.exit, %.preheader
-  call void @free(ptr noundef nonnull %21) #17
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #17
+  call void @free(ptr noundef nonnull %21) #18
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #18
   br label %60
 
 60:                                               ; preds = %._crit_edge, %15
@@ -2244,37 +2244,37 @@ submodule_push_check.exit:                        ; preds = %._crit_edge.i
   br i1 %.not4.i, label %_.exit, label %75
 
 75:                                               ; preds = %69
-  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #17
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %69, %75
   %.0.i = phi ptr [ %76, %75 ], [ @.str.49, %69 ]
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef %.0.i, ptr noundef %72) #20
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef %.0.i, ptr noundef %72) #21
   %78 = call i32 @validate_submodule_path(ptr noundef %72)
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %_.exit
-  %81 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1154, i32 noundef 128) #17
-  call void @exit(i32 noundef %81) #19
+  %81 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1154, i32 noundef 128) #18
+  call void @exit(i32 noundef %81) #20
   unreachable
 
 82:                                               ; preds = %_.exit
   %83 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %84 = call ptr @repo_get_submodule_ref_store(ptr noundef %83, ptr noundef %72) #17
-  %85 = call i32 @refs_for_each_remote_ref(ptr noundef %84, ptr noundef nonnull @has_remote, ptr noundef null) #17
+  %84 = call ptr @repo_get_submodule_ref_store(ptr noundef %83, ptr noundef %72) #18
+  %85 = call i32 @refs_for_each_remote_ref(ptr noundef %84, ptr noundef nonnull @has_remote, ptr noundef null) #18
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %push_submodule.exit.thread
 
 87:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  %88 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.133) #17
-  %89 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.134) #17
+  %88 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.133) #18
+  %89 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.134) #18
   br i1 %.not.i32, label %92, label %90
 
 90:                                               ; preds = %87
-  %91 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.135) #17
+  %91 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef nonnull @.str.135) #18
   br label %92
 
 92:                                               ; preds = %90, %87
@@ -2293,7 +2293,7 @@ _.exit:                                           ; preds = %69, %75
 .lr.ph.i33:                                       ; preds = %95, %.lr.ph.i33
   %.02232.i47 = phi ptr [ %99, %.lr.ph.i33 ], [ %96, %95 ]
   %97 = load ptr, ptr %.02232.i47, align 8, !tbaa !56
-  %98 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %7, ptr noundef nonnull @.str.136, ptr noundef %97) #17
+  %98 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %7, ptr noundef nonnull @.str.136, ptr noundef %97) #18
   %99 = getelementptr inbounds nuw i8, ptr %.02232.i47, i64 16
   %100 = load ptr, ptr %4, align 8, !tbaa !55
   %101 = load i64, ptr %63, align 8, !tbaa !52
@@ -2308,7 +2308,7 @@ _.exit:                                           ; preds = %69, %75
 
 105:                                              ; preds = %.critedge.i
   %106 = load ptr, ptr %12, align 8, !tbaa !174
-  %107 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %106) #17
+  %107 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %106) #18
   %108 = load i32, ptr %64, align 4, !tbaa !181
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %.lr.ph35.i, label %.loopexit.i
@@ -2318,7 +2318,7 @@ _.exit:                                           ; preds = %69, %75
   %110 = load ptr, ptr %3, align 8, !tbaa !182
   %111 = getelementptr inbounds nuw %struct.refspec_item, ptr %110, i64 %indvars.iv.i34, i32 3
   %112 = load ptr, ptr %111, align 8, !tbaa !183
-  %113 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %112) #17
+  %113 = call ptr @strvec_push(ptr noundef nonnull %7, ptr noundef %112) #18
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %114 = load i32, ptr %64, align 4, !tbaa !181
   %115 = sext i32 %114 to i64
@@ -2326,35 +2326,35 @@ _.exit:                                           ; preds = %69, %75
   br i1 %116, label %.lr.ph35.i, label %.loopexit.i, !llvm.loop !188
 
 .loopexit.i:                                      ; preds = %.lr.ph35.i, %105, %.critedge.i
-  call void @prepare_other_repo_env(ptr noundef nonnull %65, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %65, ptr noundef nonnull @.str.32) #18
   %117 = load i16, ptr %66, align 8
   %118 = or i16 %117, 9
   store i16 %118, ptr %66, align 8
   store ptr %72, ptr %67, align 8, !tbaa !152
-  %119 = call i32 @run_command(ptr noundef nonnull %7) #17
+  %119 = call i32 @run_command(ptr noundef nonnull %7) #18
   %.not29.not.i = icmp eq i32 %119, 0
   br i1 %.not29.not.i, label %push_submodule.exit, label %122
 
 push_submodule.exit:                              ; preds = %.loopexit.i
   %120 = load i32, ptr %68, align 4, !tbaa !154
-  %121 = call i32 @close(i32 noundef %120) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
+  %121 = call i32 @close(i32 noundef %120) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #18
   br label %push_submodule.exit.thread
 
 122:                                              ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #18
   %123 = load ptr, ptr @stderr, align 8, !tbaa !187
   %124 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
   %.not4.i36 = icmp eq i32 %124, 0
   br i1 %.not4.i36, label %_.exit38, label %125
 
 125:                                              ; preds = %122
-  %126 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #17
+  %126 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef 5) #18
   br label %_.exit38
 
 _.exit38:                                         ; preds = %122, %125
   %.0.i37 = phi ptr [ %126, %125 ], [ @.str.50, %122 ]
-  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef %.0.i37, ptr noundef %72) #20
+  %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef %.0.i37, ptr noundef %72) #21
   br label %push_submodule.exit.thread
 
 push_submodule.exit.thread:                       ; preds = %82, %push_submodule.exit, %_.exit38
@@ -2366,12 +2366,12 @@ push_submodule.exit.thread:                       ; preds = %82, %push_submodule
 
 ._crit_edge53:                                    ; preds = %push_submodule.exit.thread, %60
   %.024.lcssa = phi i32 [ 1, %60 ], [ %.125, %push_submodule.exit.thread ]
-  call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #17
+  call void @string_list_clear(ptr noundef nonnull %9, i32 noundef 0) #18
   br label %130
 
 130:                                              ; preds = %6, %._crit_edge53
   %.0 = phi i32 [ %.024.lcssa, %._crit_edge53 ], [ 1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #18
   ret i32 %.0
 }
 
@@ -2389,13 +2389,13 @@ define dso_local void @check_for_new_submodule_commits(ptr noundef %0) local_unn
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %4 = tail call ptr @get_main_ref_store(ptr noundef %3) #17
-  %5 = tail call i32 @refs_for_each_ref(ptr noundef %4, ptr noundef nonnull @append_oid_to_array, ptr noundef nonnull @ref_tips_before_fetch) #17
+  %4 = tail call ptr @get_main_ref_store(ptr noundef %3) #18
+  %5 = tail call i32 @refs_for_each_ref(ptr noundef %4, ptr noundef nonnull @append_oid_to_array, ptr noundef nonnull @ref_tips_before_fetch) #18
   store i1 true, ptr @initialized_fetch_ref_tips, align 4
   br label %6
 
 6:                                                ; preds = %2, %1
-  tail call void @oid_array_append(ptr noundef nonnull @ref_tips_after_fetch, ptr noundef %0) #17
+  tail call void @oid_array_append(ptr noundef nonnull @ref_tips_after_fetch, ptr noundef %0) #18
   ret void
 }
 
@@ -2403,7 +2403,7 @@ declare i32 @refs_for_each_ref(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @append_oid_to_array(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, ptr noundef %4) #0 {
-  tail call void @oid_array_append(ptr noundef %4, ptr noundef %2) #17
+  tail call void @oid_array_append(ptr noundef %4, ptr noundef %2) #18
   ret i32 0
 }
 
@@ -2413,28 +2413,28 @@ declare void @oid_array_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local i32 @submodule_touches_in_range(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.string_list, align 8
   %5 = alloca %struct.strvec, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 1, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.calculate_changed_submodule_paths.argv, i64 24, i1 false)
-  %7 = tail call ptr @submodule_from_path(ptr noundef %0, ptr noundef null, ptr noundef null) #17
+  %7 = tail call ptr @submodule_from_path(ptr noundef %0, ptr noundef null, ptr noundef null) #18
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %32, label %8
 
 8:                                                ; preds = %3
-  %9 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull @.str.51) #17
-  %10 = call ptr @oid_to_hex(ptr noundef %2) #17
-  %11 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef %10) #17
+  %9 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull @.str.51) #18
+  %10 = call ptr @oid_to_hex(ptr noundef %2) #18
+  %11 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef %10) #18
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %1, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i.not = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i.not, label %16, label %12
 
 12:                                               ; preds = %8
-  %13 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #17
-  %14 = call ptr @oid_to_hex(ptr noundef nonnull %1) #17
-  %15 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef %14) #17
+  %13 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #18
+  %14 = call ptr @oid_to_hex(ptr noundef nonnull %1) #18
+  %15 = call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef %14) #18
   br label %16
 
 16:                                               ; preds = %12, %8
@@ -2442,7 +2442,7 @@ define dso_local i32 @submodule_touches_in_range(ptr noundef %0, ptr noundef %1,
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !52
   %19 = trunc i64 %18 to i32
-  call void @strvec_clear(ptr noundef nonnull %5) #17
+  call void @strvec_clear(ptr noundef nonnull %5) #18
   %20 = load ptr, ptr %4, align 8, !tbaa !55
   %.not8.i = icmp eq ptr %20, null
   %21 = load i64, ptr %17, align 8
@@ -2455,10 +2455,10 @@ define dso_local i32 @submodule_touches_in_range(ptr noundef %0, ptr noundef %1,
   %22 = getelementptr inbounds nuw i8, ptr %.09.i7, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !159
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  call void @oid_array_clear(ptr noundef nonnull %24) #17
+  call void @oid_array_clear(ptr noundef nonnull %24) #18
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !162
-  call void @free(ptr noundef %26) #17
+  call void @free(ptr noundef %26) #18
   %27 = getelementptr inbounds nuw i8, ptr %.09.i7, i64 16
   %28 = load ptr, ptr %4, align 8, !tbaa !55
   %29 = load i64, ptr %17, align 8, !tbaa !52
@@ -2467,13 +2467,13 @@ define dso_local i32 @submodule_touches_in_range(ptr noundef %0, ptr noundef %1,
   br i1 %31, label %.lr.ph.i, label %free_submodules_data.exit
 
 free_submodules_data.exit:                        ; preds = %.lr.ph.i, %16
-  call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 1) #17
+  call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 1) #18
   br label %32
 
 32:                                               ; preds = %3, %free_submodules_data.exit
   %.0 = phi i32 [ %19, %free_submodules_data.exit ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #18
   ret i32 %.0
 }
 
@@ -2484,9 +2484,9 @@ define dso_local i32 @fetch_submodules(ptr noundef %0, ptr noundef readonly capt
   %10 = alloca %struct.strvec, align 8
   %11 = alloca %struct.submodule_parallel_fetch, align 8
   %12 = alloca %struct.run_process_parallel_opts, align 8
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %11, ptr noundef nonnull align 8 dereferenceable(184) @__const.fetch_submodules.spf, i64 184, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #18
   store ptr @.str.10, ptr %12, align 8, !tbaa !190
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.52, ptr %13, align 8, !tbaa !192
@@ -2523,18 +2523,18 @@ define dso_local i32 @fetch_submodules(ptr noundef %0, ptr noundef readonly capt
   br label %free_submodules_data.exit
 
 29:                                               ; preds = %7
-  %30 = call i32 @repo_read_index(ptr noundef nonnull %0) #17
+  %30 = call i32 @repo_read_index(ptr noundef nonnull %0) #18
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
   %33 = call fastcc ptr @_(ptr noundef nonnull @.str.53)
-  call void (ptr, ...) @die(ptr noundef %33) #19
+  call void (ptr, ...) @die(ptr noundef %33) #20
   unreachable
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %36 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef nonnull @.str.54) #17
+  %36 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef nonnull @.str.54) #18
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !165
   %.not23 = icmp eq i64 %38, 0
@@ -2545,49 +2545,49 @@ define dso_local i32 @fetch_submodules(ptr noundef %0, ptr noundef readonly capt
   %39 = load ptr, ptr %1, align 8, !tbaa !79
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !60
-  %42 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef %41) #17
+  %42 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef %41) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i64, ptr %37, align 8, !tbaa !165
   %44 = icmp ugt i64 %43, %indvars.iv.next
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
-  %45 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef nonnull @.str.55) #17
+  %45 = call ptr @strvec_push(ptr noundef nonnull %35, ptr noundef nonnull @.str.55) #18
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.calculate_changed_submodule_paths.argv, i64 24, i1 false)
-  %47 = call ptr @submodule_from_path(ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #17
+  %47 = call ptr @submodule_from_path(ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #18
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %48, label %54
 
 48:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %9, ptr noundef nonnull %0, ptr noundef nonnull @.str.111) #17
+  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %9, ptr noundef nonnull %0, ptr noundef nonnull @.str.111) #18
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !49
-  %51 = call i32 @file_exists(ptr noundef %50) #17
+  %51 = call i32 @file_exists(ptr noundef %50) #18
   %.not.i.i = icmp eq i32 %51, 0
   br i1 %.not.i.i, label %repo_has_absorbed_submodules.exit.thread.i, label %repo_has_absorbed_submodules.exit.i
 
 repo_has_absorbed_submodules.exit.thread.i:       ; preds = %48
-  call void @strbuf_release(ptr noundef nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
+  call void @strbuf_release(ptr noundef nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
   br label %calculate_changed_submodule_paths.exit
 
 repo_has_absorbed_submodules.exit.i:              ; preds = %48
   %52 = load ptr, ptr %49, align 8, !tbaa !49
-  %53 = call i32 @is_empty_dir(ptr noundef %52) #17
+  %53 = call i32 @is_empty_dir(ptr noundef %52) #18
   %.not1.i.not.i = icmp eq i32 %53, 0
-  call void @strbuf_release(ptr noundef nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #17
+  call void @strbuf_release(ptr noundef nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
   br i1 %.not1.i.not.i, label %54, label %calculate_changed_submodule_paths.exit
 
 54:                                               ; preds = %repo_has_absorbed_submodules.exit.i, %._crit_edge
-  %55 = call ptr @strvec_push(ptr noundef nonnull %10, ptr noundef nonnull @.str.51) #17
-  %56 = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_after_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %10) #17
-  %57 = call ptr @strvec_push(ptr noundef nonnull %10, ptr noundef nonnull @.str.45) #17
-  %58 = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_before_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %10) #17
+  %55 = call ptr @strvec_push(ptr noundef nonnull %10, ptr noundef nonnull @.str.51) #18
+  %56 = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_after_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %10) #18
+  %57 = call ptr @strvec_push(ptr noundef nonnull %10, ptr noundef nonnull @.str.45) #18
+  %58 = call i32 @oid_array_for_each_unique(ptr noundef nonnull @ref_tips_before_fetch, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %10) #18
   call fastcc void @collect_changed_submodules(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %10)
   %59 = load ptr, ptr %46, align 8, !tbaa !55
   %.not2633.i = icmp eq ptr %59, null
@@ -2603,9 +2603,9 @@ repo_has_absorbed_submodules.exit.i:              ; preds = %48
   %.02334.i19 = phi ptr [ %82, %.thread.i ], [ %59, %.lr.ph.i ]
   %62 = getelementptr inbounds nuw i8, ptr %.02334.i19, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !159
-  %64 = call ptr @null_oid() #17
+  %64 = call ptr @null_oid() #18
   %65 = load ptr, ptr %.02334.i19, align 8, !tbaa !56
-  %66 = call ptr @submodule_from_name(ptr noundef nonnull %0, ptr noundef %64, ptr noundef %65) #17
+  %66 = call ptr @submodule_from_name(ptr noundef nonnull %0, ptr noundef %64, ptr noundef %65) #18
   %.not27.i = icmp eq ptr %66, null
   br i1 %.not27.i, label %69, label %67
 
@@ -2615,12 +2615,12 @@ repo_has_absorbed_submodules.exit.i:              ; preds = %48
 
 69:                                               ; preds = %.lr.ph20
   %70 = load ptr, ptr %.02334.i19, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  %71 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %70) #17
-  %72 = call ptr @resolve_gitdir_gently(ptr noundef %71, ptr noundef nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #18
+  %71 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %70) #18
+  %72 = call ptr @resolve_gitdir_gently(ptr noundef %71, ptr noundef nonnull %8) #18
   %.not.i.not.i.i = icmp eq ptr %72, null
-  call void @free(ptr noundef %71) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @free(ptr noundef %71) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #18
   br i1 %.not.i.not.i.i, label %.thread.i, label %73
 
 73:                                               ; preds = %69, %67
@@ -2629,17 +2629,17 @@ repo_has_absorbed_submodules.exit.i:              ; preds = %48
   br i1 %.not28.i, label %.thread.i, label %74
 
 74:                                               ; preds = %73
-  %75 = call ptr @null_oid() #17
+  %75 = call ptr @null_oid() #18
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %77 = call fastcc i32 @submodule_has_commits(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef %75, ptr noundef nonnull %76)
   %.not29.i = icmp eq i32 %77, 0
   br i1 %.not29.i, label %.thread.i, label %78
 
 78:                                               ; preds = %74
-  call void @oid_array_clear(ptr noundef nonnull %76) #17
+  call void @oid_array_clear(ptr noundef nonnull %76) #18
   %79 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !162
-  call void @free(ptr noundef %80) #17
+  call void @free(ptr noundef %80) #18
   %81 = load ptr, ptr %.02334.i19, align 8, !tbaa !56
   store i8 0, ptr %81, align 1, !tbaa !51
   br label %.thread.i
@@ -2653,17 +2653,17 @@ repo_has_absorbed_submodules.exit.i:              ; preds = %48
   br i1 %86, label %.lr.ph20, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.thread.i, %.lr.ph.i, %54
-  call void @string_list_remove_empty_items(ptr noundef nonnull %46, i32 noundef 1) #17
-  call void @strvec_clear(ptr noundef nonnull %10) #17
-  call void @oid_array_clear(ptr noundef nonnull @ref_tips_before_fetch) #17
-  call void @oid_array_clear(ptr noundef nonnull @ref_tips_after_fetch) #17
+  call void @string_list_remove_empty_items(ptr noundef nonnull %46, i32 noundef 1) #18
+  call void @strvec_clear(ptr noundef nonnull %10) #18
+  call void @oid_array_clear(ptr noundef nonnull @ref_tips_before_fetch) #18
+  call void @oid_array_clear(ptr noundef nonnull @ref_tips_after_fetch) #18
   store i1 false, ptr @initialized_fetch_ref_tips, align 4
   br label %calculate_changed_submodule_paths.exit
 
 calculate_changed_submodule_paths.exit:           ; preds = %repo_has_absorbed_submodules.exit.thread.i, %repo_has_absorbed_submodules.exit.i, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  call void @string_list_sort(ptr noundef nonnull %46) #17
-  call void @run_processes_parallel(ptr noundef nonnull %12) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
+  call void @string_list_sort(ptr noundef nonnull %46) #18
+  call void @run_processes_parallel(ptr noundef nonnull %12) #18
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %88 = load i64, ptr %87, align 8, !tbaa !207
   %.not14 = icmp eq i64 %88, 0
@@ -2676,18 +2676,18 @@ calculate_changed_submodule_paths.exit:           ; preds = %repo_has_absorbed_s
   br i1 %.not4.i, label %_.exit, label %92
 
 92:                                               ; preds = %89
-  %93 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #17
+  %93 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %89, %92
   %.0.i15 = phi ptr [ %93, %92 ], [ @.str.56, %89 ]
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 176
   %95 = load ptr, ptr %94, align 8, !tbaa !208
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef %.0.i15, ptr noundef %95) #20
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef %.0.i15, ptr noundef %95) #21
   br label %97
 
 97:                                               ; preds = %calculate_changed_submodule_paths.exit, %_.exit
-  call void @strvec_clear(ptr noundef nonnull %35) #17
+  call void @strvec_clear(ptr noundef nonnull %35) #18
   %.pre = load ptr, ptr %46, align 8, !tbaa !55
   %98 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %.not8.i = icmp eq ptr %.pre, null
@@ -2706,10 +2706,10 @@ _.exit:                                           ; preds = %89, %92
   %104 = getelementptr inbounds nuw i8, ptr %.09.i21, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !159
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  call void @oid_array_clear(ptr noundef nonnull %106) #17
+  call void @oid_array_clear(ptr noundef nonnull %106) #18
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !162
-  call void @free(ptr noundef %108) #17
+  call void @free(ptr noundef %108) #18
   %109 = getelementptr inbounds nuw i8, ptr %.09.i21, i64 16
   %110 = load ptr, ptr %98, align 8, !tbaa !55
   %111 = load i64, ptr %99, align 8, !tbaa !52
@@ -2719,18 +2719,18 @@ _.exit:                                           ; preds = %89, %92
 
 free_submodules_data.exit:                        ; preds = %.lr.ph22, %.thread, %.lr.ph.i16, %97
   %114 = phi ptr [ %28, %.thread ], [ %98, %.lr.ph.i16 ], [ %98, %97 ], [ %98, %.lr.ph22 ]
-  call void @string_list_clear(ptr noundef nonnull %114, i32 noundef 1) #17
+  call void @string_list_clear(ptr noundef nonnull %114, i32 noundef 1) #18
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  call void @string_list_clear(ptr noundef nonnull %115, i32 noundef 0) #17
+  call void @string_list_clear(ptr noundef nonnull %115, i32 noundef 0) #18
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 160
-  call void @strbuf_release(ptr noundef nonnull %116) #17
+  call void @strbuf_release(ptr noundef nonnull %116) #18
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %118 = load ptr, ptr %117, align 8, !tbaa !209
-  call void @free(ptr noundef %118) #17
+  call void @free(ptr noundef %118) #18
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %120 = load i32, ptr %119, align 4, !tbaa !210
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11) #18
   ret i32 %120
 }
 
@@ -2767,7 +2767,7 @@ define internal range(i32 0, 2) i32 @get_next_submodule(ptr noundef %0, ptr noun
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 108
-  %29 = call ptr @null_oid() #17
+  %29 = call ptr @null_oid() #18
   %30 = call fastcc ptr @fetch_task_create(ptr noundef nonnull %2, ptr noundef nonnull %28, ptr noundef %29)
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %71, label %31
@@ -2789,18 +2789,18 @@ define internal range(i32 0, 2) i32 @get_next_submodule(ptr noundef %0, ptr noun
   br i1 %.not4.i.i, label %_.exit.i, label %38
 
 38:                                               ; preds = %36
-  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.140, i32 noundef 5) #17
+  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.140, i32 noundef 5) #18
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %38, %36
   %.0.i.i = phi ptr [ %39, %38 ], [ @.str.140, %36 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !204
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i.i, ptr noundef %41, ptr noundef nonnull %28) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i.i, ptr noundef %41, ptr noundef nonnull %28) #18
   br label %get_fetch_task_from_index.exit
 
 42:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %44 = load i8, ptr %43, align 8
@@ -2811,7 +2811,7 @@ _.exit.i:                                         ; preds = %38, %36
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !216
-  call void @free(ptr noundef %48) #17
+  call void @free(ptr noundef %48) #18
   %.pre.i.i = load i8, ptr %43, align 8
   br label %49
 
@@ -2826,21 +2826,21 @@ _.exit.i:                                         ; preds = %38, %36
   br i1 %.not10.i.i, label %fetch_task_free.exit.i, label %54
 
 54:                                               ; preds = %49
-  call void @repo_clear(ptr noundef nonnull %53) #17
+  call void @repo_clear(ptr noundef nonnull %53) #18
   %.pre11.i.i = load ptr, ptr %30, align 8, !tbaa !212
   br label %fetch_task_free.exit.i
 
 fetch_task_free.exit.i:                           ; preds = %54, %49
   %55 = phi ptr [ null, %49 ], [ %.pre11.i.i, %54 ]
-  call void @free(ptr noundef %55) #17
+  call void @free(ptr noundef %55) #18
   store ptr null, ptr %30, align 8, !tbaa !212
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  call void @strvec_clear(ptr noundef nonnull %56) #17
-  call void @free(ptr noundef nonnull %30) #17
+  call void @strvec_clear(ptr noundef nonnull %56) #18
+  call void @free(ptr noundef nonnull %30) #18
   %57 = load ptr, ptr %6, align 8, !tbaa !198
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 240
   %59 = load ptr, ptr %58, align 8, !tbaa !205
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.141, ptr noundef %59, ptr noundef nonnull %28) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %5, ptr noundef nonnull @.str.141, ptr noundef %59, ptr noundef nonnull %28) #18
   %60 = load i32, ptr %23, align 4, !tbaa !28
   %61 = and i32 %60, 61440
   %62 = icmp eq i32 %61, 57344
@@ -2848,7 +2848,7 @@ fetch_task_free.exit.i:                           ; preds = %54, %49
 
 63:                                               ; preds = %fetch_task_free.exit.i
   %64 = load ptr, ptr %14, align 8, !tbaa !49
-  %65 = call i32 @is_empty_dir(ptr noundef %64) #17
+  %65 = call i32 @is_empty_dir(ptr noundef %64) #18
   %.not28.i = icmp eq i32 %65, 0
   br i1 %.not28.i, label %66, label %70
 
@@ -2859,17 +2859,17 @@ fetch_task_free.exit.i:                           ; preds = %54, %49
   br i1 %.not4.i30.i, label %_.exit32.i, label %68
 
 68:                                               ; preds = %66
-  %69 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.142, i32 noundef 5) #17
+  %69 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.142, i32 noundef 5) #18
   br label %_.exit32.i
 
 _.exit32.i:                                       ; preds = %68, %66
   %.0.i31.i = phi ptr [ %69, %68 ], [ @.str.142, %66 ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i31.i, ptr noundef nonnull %28) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i31.i, ptr noundef nonnull %28) #18
   br label %70
 
 70:                                               ; preds = %_.exit32.i, %63, %fetch_task_free.exit.i
-  call void @strbuf_release(ptr noundef nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #17
+  call void @strbuf_release(ptr noundef nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
   br label %71
 
 71:                                               ; preds = %70, %27, %16
@@ -2934,7 +2934,7 @@ get_fetch_task_from_index.exit:                   ; preds = %33, %_.exit.i
   br i1 %.not4.i.i58, label %_.exit.i59, label %105
 
 105:                                              ; preds = %103
-  %106 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef 5) #17
+  %106 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef 5) #18
   br label %_.exit.i59
 
 _.exit.i59:                                       ; preds = %105, %103
@@ -2943,8 +2943,8 @@ _.exit.i59:                                       ; preds = %105, %103
   %108 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %109 = load ptr, ptr %.sroa.3.0.copyload.i, align 8, !tbaa !222
   %110 = load i32, ptr @default_abbrev, align 4, !tbaa !28
-  %111 = call ptr @repo_find_unique_abbrev(ptr noundef %108, ptr noundef %109, i32 noundef %110) #17
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i.i60, ptr noundef %107, ptr noundef %111) #17
+  %111 = call ptr @repo_find_unique_abbrev(ptr noundef %108, ptr noundef %109, i32 noundef %110) #18
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i.i60, ptr noundef %107, ptr noundef %111) #18
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %113 = load i8, ptr %112, align 8
   %114 = and i8 %113, 1
@@ -2954,7 +2954,7 @@ _.exit.i59:                                       ; preds = %105, %103
 115:                                              ; preds = %_.exit.i59
   %116 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !216
-  call void @free(ptr noundef %117) #17
+  call void @free(ptr noundef %117) #18
   %.pre.i.i62 = load i8, ptr %112, align 8
   br label %118
 
@@ -2969,17 +2969,17 @@ _.exit.i59:                                       ; preds = %105, %103
   br i1 %.not10.i.i63, label %fetch_task_free.exit.i65, label %123
 
 123:                                              ; preds = %118
-  call void @repo_clear(ptr noundef nonnull %122) #17
+  call void @repo_clear(ptr noundef nonnull %122) #18
   %.pre11.i.i64 = load ptr, ptr %100, align 8, !tbaa !212
   br label %fetch_task_free.exit.i65
 
 fetch_task_free.exit.i65:                         ; preds = %123, %118
   %124 = phi ptr [ null, %118 ], [ %.pre11.i.i64, %123 ]
-  call void @free(ptr noundef %124) #17
+  call void @free(ptr noundef %124) #18
   store ptr null, ptr %100, align 8, !tbaa !212
   %125 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  call void @strvec_clear(ptr noundef nonnull %125) #17
-  call void @free(ptr noundef nonnull %100) #17
+  call void @strvec_clear(ptr noundef nonnull %125) #18
+  call void @free(ptr noundef nonnull %100) #18
   br label %147
 
 126:                                              ; preds = %101
@@ -2994,7 +2994,7 @@ fetch_task_free.exit.i65:                         ; preds = %123, %118
   br i1 %.not4.i32.i, label %_.exit34.i, label %131
 
 131:                                              ; preds = %129
-  %132 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.146, i32 noundef 5) #17
+  %132 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.146, i32 noundef 5) #18
   br label %_.exit34.i
 
 _.exit34.i:                                       ; preds = %131, %129
@@ -3007,8 +3007,8 @@ _.exit34.i:                                       ; preds = %131, %129
   %138 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %139 = load ptr, ptr %.sroa.3.0.copyload.i, align 8, !tbaa !222
   %140 = load i32, ptr @default_abbrev, align 4, !tbaa !28
-  %141 = call ptr @repo_find_unique_abbrev(ptr noundef %138, ptr noundef %139, i32 noundef %140) #17
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i33.i, ptr noundef %134, ptr noundef %137, ptr noundef %141) #17
+  %141 = call ptr @repo_find_unique_abbrev(ptr noundef %138, ptr noundef %139, i32 noundef %140) #18
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %1, ptr noundef %.0.i33.i, ptr noundef %134, ptr noundef %137, ptr noundef %141) #18
   br label %142
 
 142:                                              ; preds = %_.exit34.i, %126
@@ -3016,7 +3016,7 @@ _.exit34.i:                                       ; preds = %131, %129
   %144 = add nsw i32 %143, 1
   store i32 %144, ptr %82, align 4, !tbaa !218
   %145 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %146 = call ptr @strvec_push(ptr noundef nonnull %145, ptr noundef nonnull @.str.147) #17
+  %146 = call ptr @strvec_push(ptr noundef nonnull %145, ptr noundef nonnull @.str.147) #18
   br label %get_fetch_task_from_changed.exit
 
 147:                                              ; preds = %fetch_task_free.exit.i65, %97, %89
@@ -3030,18 +3030,18 @@ _.exit34.i:                                       ; preds = %131, %129
 
 get_fetch_task_from_changed.exit:                 ; preds = %get_fetch_task_from_index.exit, %142
   %.048 = phi ptr [ %30, %get_fetch_task_from_index.exit ], [ %100, %142 ]
-  call void @child_process_init(ptr noundef %0) #17
+  call void @child_process_init(ptr noundef %0) #18
   %153 = load ptr, ptr %.048, align 8, !tbaa !212
   %154 = load ptr, ptr %153, align 8, !tbaa !157
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %154, ptr %155, align 8, !tbaa !152
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %156, ptr noundef nonnull @.str.148) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %156, ptr noundef nonnull @.str.148) #18
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %158 = load i16, ptr %157, align 8
   %159 = or i16 %158, 8
   store i16 %159, ptr %157, align 8
-  call void @strvec_init(ptr noundef %0) #17
+  call void @strvec_init(ptr noundef %0) #18
   %160 = getelementptr inbounds nuw i8, ptr %.048, i64 40
   %161 = load i64, ptr %160, align 8, !tbaa !224
   %.not53 = icmp eq i64 %161, 0
@@ -3050,28 +3050,28 @@ get_fetch_task_from_changed.exit:                 ; preds = %get_fetch_task_from
 162:                                              ; preds = %get_fetch_task_from_changed.exit
   %163 = getelementptr inbounds nuw i8, ptr %.048, i64 32
   %164 = load ptr, ptr %163, align 8, !tbaa !225
-  call void @strvec_pushv(ptr noundef nonnull %0, ptr noundef %164) #17
+  call void @strvec_pushv(ptr noundef nonnull %0, ptr noundef %164) #18
   br label %165
 
 165:                                              ; preds = %162, %get_fetch_task_from_changed.exit
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !226
-  call void @strvec_pushv(ptr noundef nonnull %0, ptr noundef %167) #17
+  call void @strvec_pushv(ptr noundef nonnull %0, ptr noundef %167) #18
   %168 = getelementptr inbounds nuw i8, ptr %.048, i64 24
   %169 = load ptr, ptr %168, align 8, !tbaa !227
-  %170 = call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %169) #17
+  %170 = call ptr @strvec_push(ptr noundef nonnull %0, ptr noundef %169) #18
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %172 = load ptr, ptr %171, align 8, !tbaa !204
   %173 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !216
   %175 = load ptr, ptr %174, align 8, !tbaa !160
-  %176 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %0, ptr noundef nonnull @.str.137, ptr noundef %172, ptr noundef %175) #17
+  %176 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %0, ptr noundef nonnull @.str.137, ptr noundef %172, ptr noundef %175) #18
   store ptr %.048, ptr %3, align 8, !tbaa !221
   %177 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %178 = load ptr, ptr %173, align 8, !tbaa !216
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !46
-  %181 = call ptr @string_list_insert(ptr noundef nonnull %177, ptr noundef %180) #17
+  %181 = call ptr @string_list_insert(ptr noundef nonnull %177, ptr noundef %180) #18
   br label %212
 
 .loopexit:                                        ; preds = %147, %.loopexit70
@@ -3089,9 +3089,9 @@ get_fetch_task_from_changed.exit:                 ; preds = %get_fetch_task_from
   %190 = load ptr, ptr %189, align 8, !tbaa !229
   %191 = add nsw i32 %183, -1
   store i32 %191, ptr %182, align 8, !tbaa !228
-  call void @child_process_init(ptr noundef %0) #17
+  call void @child_process_init(ptr noundef %0) #18
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %192, ptr noundef nonnull @.str.148) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %192, ptr noundef nonnull @.str.148) #18
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %194 = load i16, ptr %193, align 8
   %195 = or i16 %194, 8
@@ -3100,21 +3100,21 @@ get_fetch_task_from_changed.exit:                 ; preds = %get_fetch_task_from
   %197 = load ptr, ptr %196, align 8, !tbaa !157
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %197, ptr %198, align 8, !tbaa !152
-  call void @strvec_init(ptr noundef %0) #17
+  call void @strvec_init(ptr noundef %0) #18
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !226
-  call void @strvec_pushv(ptr noundef %0, ptr noundef %200) #17
-  %201 = call ptr @strvec_push(ptr noundef %0, ptr noundef nonnull @.str.138) #17
+  call void @strvec_pushv(ptr noundef %0, ptr noundef %200) #18
+  %201 = call ptr @strvec_push(ptr noundef %0, ptr noundef nonnull @.str.138) #18
   %202 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %203 = load ptr, ptr %202, align 8, !tbaa !204
   %204 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %205 = load ptr, ptr %204, align 8, !tbaa !216
   %206 = load ptr, ptr %205, align 8, !tbaa !160
-  %207 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %0, ptr noundef nonnull @.str.137, ptr noundef %203, ptr noundef %206) #17
-  %208 = call ptr @strvec_push(ptr noundef %0, ptr noundef nonnull @.str.139) #17
+  %207 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %0, ptr noundef nonnull @.str.137, ptr noundef %203, ptr noundef %206) #18
+  %208 = call ptr @strvec_push(ptr noundef %0, ptr noundef nonnull @.str.139) #18
   %209 = getelementptr inbounds nuw i8, ptr %190, i64 56
   %210 = load ptr, ptr %209, align 8, !tbaa !231
-  %211 = call i32 @oid_array_for_each_unique(ptr noundef %210, ptr noundef nonnull @append_oid_to_argv, ptr noundef %0) #17
+  %211 = call i32 @oid_array_for_each_unique(ptr noundef %210, ptr noundef nonnull @append_oid_to_argv, ptr noundef %0) #18
   store ptr %190, ptr %3, align 8, !tbaa !221
   br label %212
 
@@ -3136,7 +3136,7 @@ define internal noundef i32 @fetch_start_failure(ptr readnone captures(none) %0,
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !216
-  tail call void @free(ptr noundef %10) #17
+  tail call void @free(ptr noundef %10) #18
   %.pre.i = load i8, ptr %5, align 8
   br label %11
 
@@ -3151,17 +3151,17 @@ define internal noundef i32 @fetch_start_failure(ptr readnone captures(none) %0,
   br i1 %.not10.i, label %fetch_task_free.exit, label %16
 
 16:                                               ; preds = %11
-  tail call void @repo_clear(ptr noundef nonnull %15) #17
+  tail call void @repo_clear(ptr noundef nonnull %15) #18
   %.pre11.i = load ptr, ptr %2, align 8, !tbaa !212
   br label %fetch_task_free.exit
 
 fetch_task_free.exit:                             ; preds = %11, %16
   %17 = phi ptr [ null, %11 ], [ %.pre11.i, %16 ]
-  tail call void @free(ptr noundef %17) #17
+  tail call void @free(ptr noundef %17) #18
   store ptr null, ptr %2, align 8, !tbaa !212
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  tail call void @strvec_clear(ptr noundef nonnull %18) #17
-  tail call void @free(ptr noundef nonnull %2) #17
+  tail call void @strvec_clear(ptr noundef nonnull %18) #18
+  tail call void @free(ptr noundef nonnull %2) #18
   ret i32 0
 }
 
@@ -3177,7 +3177,7 @@ define internal noundef i32 @fetch_finish(i32 noundef %0, ptr readnone captures(
   br i1 %.not38, label %8, label %9
 
 8:                                                ; preds = %5, %4
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 1795, ptr noundef nonnull @.str.149) #19
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 1795, ptr noundef nonnull @.str.149) #20
   unreachable
 
 9:                                                ; preds = %5
@@ -3190,7 +3190,7 @@ define internal noundef i32 @fetch_finish(i32 noundef %0, ptr readnone captures(
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !46
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %12, ptr noundef nonnull @.str.150, ptr noundef %14) #17
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %12, ptr noundef nonnull @.str.150, ptr noundef %14) #18
   br label %15
 
 15:                                               ; preds = %10, %9
@@ -3204,7 +3204,7 @@ define internal noundef i32 @fetch_finish(i32 noundef %0, ptr readnone captures(
   %20 = load ptr, ptr %6, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !46
-  %23 = tail call ptr @string_list_lookup(ptr noundef nonnull %19, ptr noundef %22) #17
+  %23 = tail call ptr @string_list_lookup(ptr noundef nonnull %19, ptr noundef %22) #18
   %.not41 = icmp eq ptr %23, null
   br i1 %.not41, label %54, label %24
 
@@ -3213,7 +3213,7 @@ define internal noundef i32 @fetch_finish(i32 noundef %0, ptr readnone captures(
   %26 = load ptr, ptr %25, align 8, !tbaa !159
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %3, align 8, !tbaa !212
-  tail call void @oid_array_filter(ptr noundef nonnull %27, ptr noundef nonnull @commit_missing_in_sub, ptr noundef %28) #17
+  tail call void @oid_array_filter(ptr noundef nonnull %27, ptr noundef nonnull @commit_missing_in_sub, ptr noundef %28) #18
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !232
   %.not42 = icmp eq i64 %30, 0
@@ -3238,22 +3238,21 @@ define internal noundef i32 @fetch_finish(i32 noundef %0, ptr readnone captures(
   %38 = mul i32 %35, 3
   %39 = add i32 %38, 48
   %40 = sdiv i32 %39, 2
-  %.not44 = icmp sgt i32 %40, %33
-  %. = select i1 %.not44, i32 %40, i32 %37
+  %. = tail call i32 @llvm.smax.i32(i32 %40, i32 %37)
   store i32 %., ptr %34, align 4, !tbaa !233
   %41 = sext i32 %. to i64
   %42 = icmp slt i32 %., 0
   br i1 %42, label %43, label %st_mult.exit
 
 43:                                               ; preds = %36
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.151, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %41) #19
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.151, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %41) #20
   unreachable
 
 st_mult.exit:                                     ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %45 = load ptr, ptr %44, align 8, !tbaa !209
   %46 = shl nuw nsw i64 %41, 3
-  %47 = tail call ptr @xrealloc(ptr noundef %45, i64 noundef %46) #17
+  %47 = tail call ptr @xrealloc(ptr noundef %45, i64 noundef %46) #18
   store ptr %47, ptr %44, align 8, !tbaa !209
   %.pre45 = load i32, ptr %32, align 8, !tbaa !228
   br label %48
@@ -3277,7 +3276,7 @@ st_mult.exit:                                     ; preds = %36
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %6, align 8, !tbaa !216
-  tail call void @free(ptr noundef %59) #17
+  tail call void @free(ptr noundef %59) #18
   %.pre.i = load i8, ptr %55, align 8
   br label %60
 
@@ -3291,17 +3290,17 @@ st_mult.exit:                                     ; preds = %36
   br i1 %.not10.i, label %fetch_task_free.exit, label %64
 
 64:                                               ; preds = %60
-  tail call void @repo_clear(ptr noundef nonnull %63) #17
+  tail call void @repo_clear(ptr noundef nonnull %63) #18
   %.pre11.i = load ptr, ptr %3, align 8, !tbaa !212
   br label %fetch_task_free.exit
 
 fetch_task_free.exit:                             ; preds = %60, %64
   %65 = phi ptr [ null, %60 ], [ %.pre11.i, %64 ]
-  tail call void @free(ptr noundef %65) #17
+  tail call void @free(ptr noundef %65) #18
   store ptr null, ptr %3, align 8, !tbaa !212
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @strvec_clear(ptr noundef nonnull %66) #17
-  tail call void @free(ptr noundef nonnull %3) #17
+  tail call void @strvec_clear(ptr noundef nonnull %66) #18
+  tail call void @free(ptr noundef nonnull %3) #18
   br label %67
 
 67:                                               ; preds = %fetch_task_free.exit, %48
@@ -3318,39 +3317,39 @@ declare void @run_processes_parallel(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 0, 4) i32 @is_submodule_modified(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.child_process, align 8
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %5 = tail call i32 @validate_submodule_path(ptr noundef %0)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1907, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %8) #19
+  %8 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1907, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %8) #20
   unreachable
 
 9:                                                ; preds = %2
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, ptr noundef %0) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, ptr noundef %0) #18
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !49
-  %12 = call ptr @read_gitfile_gently(ptr noundef %11, ptr noundef null) #17
+  %12 = call ptr @read_gitfile_gently(ptr noundef %11, ptr noundef null) #18
   %.not = icmp eq ptr %12, null
   %13 = load ptr, ptr %10, align 8
   %spec.select = select i1 %.not, ptr %13, ptr %12
-  %14 = call i32 @is_git_directory(ptr noundef %spec.select) #17
+  %14 = call i32 @is_git_directory(ptr noundef %spec.select) #18
   %.not29 = icmp eq i32 %14, 0
   br i1 %.not29, label %15, label %19
 
 15:                                               ; preds = %9
-  %16 = call i32 @is_directory(ptr noundef %spec.select) #17
+  %16 = call i32 @is_directory(ptr noundef %spec.select) #18
   %.not30 = icmp eq i32 %16, 0
   br i1 %.not30, label %71, label %17
 
 17:                                               ; preds = %15
   %18 = call fastcc ptr @_(ptr noundef nonnull @.str.57)
-  call void (ptr, ...) @die(ptr noundef %18, ptr noundef %spec.select) #19
+  call void (ptr, ...) @die(ptr noundef %18, ptr noundef %spec.select) #20
   unreachable
 
 19:                                               ; preds = %9
@@ -3365,17 +3364,17 @@ define dso_local range(i32 0, 4) i32 @is_submodule_modified(ptr noundef %0, i32 
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %19, %22
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef null) #18
   %.not35 = icmp eq i32 %1, 0
   br i1 %.not35, label %25, label %23
 
 23:                                               ; preds = %strbuf_setlen.exit
-  %24 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #17
+  %24 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull @.str.60) #18
   br label %25
 
 25:                                               ; preds = %23, %strbuf_setlen.exit
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %26, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %26, ptr noundef nonnull @.str.32) #18
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %28 = load i16, ptr %27, align 8
   %29 = or i16 %28, 9
@@ -3384,19 +3383,19 @@ strbuf_setlen.exit:                               ; preds = %19, %22
   store i32 -1, ptr %30, align 4, !tbaa !154
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %0, ptr %31, align 8, !tbaa !152
-  %32 = call i32 @start_command(ptr noundef nonnull %3) #17
+  %32 = call i32 @start_command(ptr noundef nonnull %3) #18
   %.not31 = icmp eq i32 %32, 0
   br i1 %.not31, label %35, label %33
 
 33:                                               ; preds = %25
   %34 = call fastcc ptr @_(ptr noundef nonnull @.str.61)
-  call void (ptr, ...) @die(ptr noundef %34, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %34, ptr noundef %0) #20
   unreachable
 
 35:                                               ; preds = %25
   %36 = load i32, ptr %30, align 4, !tbaa !154
-  %37 = call ptr @xfdopen(i32 noundef %36, ptr noundef nonnull @.str.62) #17
-  %38 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %37, i32 noundef 10) #17
+  %37 = call ptr @xfdopen(i32 noundef %36, ptr noundef nonnull @.str.62) #18
+  %38 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %37, i32 noundef 10) #18
   %.not3239.not = icmp eq i32 %38, -1
   br i1 %.not3239.not, label %._crit_edge, label %.lr.ph
 
@@ -3419,7 +3418,7 @@ strbuf_setlen.exit:                               ; preds = %19, %22
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %43
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 1946, ptr noundef nonnull @.str.63, ptr noundef nonnull %39) #19
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 1946, ptr noundef nonnull @.str.63, ptr noundef nonnull %39) #20
   unreachable
 
 47:                                               ; preds = %43
@@ -3464,7 +3463,7 @@ strbuf_setlen.exit:                               ; preds = %19, %22
   br i1 %or.cond.not, label %64, label %._crit_edge
 
 64:                                               ; preds = %61, %59
-  %65 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %37, i32 noundef 10) #17
+  %65 = call i32 @strbuf_getwholeline(ptr noundef nonnull %4, ptr noundef %37, i32 noundef 10) #18
   %.not32.not = icmp eq i32 %65, -1
   br i1 %.not32.not, label %._crit_edge, label %.lr.ph, !llvm.loop !234
 
@@ -3472,29 +3471,29 @@ strbuf_setlen.exit:                               ; preds = %19, %22
   %.not32.lcssa = phi i1 [ false, %35 ], [ true, %61 ], [ false, %64 ]
   %.1 = phi i32 [ 0, %35 ], [ %.3, %61 ], [ %.3, %64 ]
   %66 = call i32 @fclose(ptr noundef %37)
-  %67 = call i32 @finish_command(ptr noundef nonnull %3) #17
+  %67 = call i32 @finish_command(ptr noundef nonnull %3) #18
   %68 = icmp eq i32 %67, 0
   %or.cond3 = or i1 %.not32.lcssa, %68
   br i1 %or.cond3, label %71, label %69
 
 69:                                               ; preds = %._crit_edge
   %70 = call fastcc ptr @_(ptr noundef nonnull @.str.65)
-  call void (ptr, ...) @die(ptr noundef %70, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %70, ptr noundef %0) #20
   unreachable
 
 71:                                               ; preds = %._crit_edge, %15
   %.025 = phi i32 [ 0, %15 ], [ %.1, %._crit_edge ]
-  call void @strbuf_release(ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #17
+  call void @strbuf_release(ptr noundef nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #18
   ret i32 %.025
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @validate_submodule_path(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
-  %3 = tail call ptr @xstrdup(ptr noundef %0) #17
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #17
+  %3 = tail call ptr @xstrdup(ptr noundef %0) #18
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #18
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %5
 
@@ -3509,7 +3508,7 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_path(ptr noundef %0) l
 
 8:                                                ; preds = %5
   store i8 0, ptr %6, align 1, !tbaa !51
-  %9 = call i32 @lstat64(ptr noundef nonnull %3, ptr noundef nonnull %2) #17
+  %9 = call i32 @lstat64(ptr noundef nonnull %3, ptr noundef nonnull %2) #18
   %10 = icmp eq i32 %9, 0
   %11 = load i32, ptr %4, align 8
   %12 = and i32 %11, 61440
@@ -3524,13 +3523,13 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_path(ptr noundef %0) l
   br i1 %.not4.i, label %.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #17
+  %17 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #18
   br label %.thread
 
 .thread:                                          ; preds = %16, %14
   %.0.i = phi ptr [ %17, %16 ], [ @.str.96, %14 ]
   %18 = trunc nuw nsw i64 %indvars.iv to i32
-  %19 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i, i32 noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %3) #17
+  %19 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i, i32 noundef %18, ptr noundef nonnull %3, ptr noundef nonnull %3) #18
   br label %.critedge
 
 20:                                               ; preds = %5, %8
@@ -3539,7 +3538,7 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_path(ptr noundef %0) l
 
 .critedge:                                        ; preds = %5, %.thread
   %.022.lcssa = phi i32 [ -1, %.thread ], [ 0, %5 ]
-  %21 = call i32 @lstat64(ptr noundef nonnull %3, ptr noundef nonnull %2) #17
+  %21 = call i32 @lstat64(ptr noundef nonnull %3, ptr noundef nonnull %2) #18
   %.not31 = icmp eq i32 %21, 0
   br i1 %.not31, label %22, label %31
 
@@ -3555,18 +3554,18 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_path(ptr noundef %0) l
   br i1 %.not4.i32, label %_.exit34, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef 5) #17
+  %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef 5) #18
   br label %_.exit34
 
 _.exit34:                                         ; preds = %26, %28
   %.0.i33 = phi ptr [ %29, %28 ], [ @.str.97, %26 ]
-  %30 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i33, ptr noundef nonnull %3) #17
+  %30 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i33, ptr noundef nonnull %3) #18
   br label %31
 
 31:                                               ; preds = %_.exit34, %22, %.critedge
   %.2 = phi i32 [ %.022.lcssa, %.critedge ], [ -1, %_.exit34 ], [ %.022.lcssa, %22 ]
-  tail call void @free(ptr noundef nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #17
+  tail call void @free(ptr noundef nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #18
   ret i32 %.2
 }
 
@@ -3592,47 +3591,47 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 define dso_local range(i32 0, 2) i32 @submodule_uses_gitfile(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.child_process, align 8
   %3 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %4 = tail call i32 @validate_submodule_path(ptr noundef %0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1986, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %7) #19
+  %7 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1986, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %7) #20
   unreachable
 
 8:                                                ; preds = %1
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef %0) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef %0) #18
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !49
-  %11 = call ptr @read_gitfile_gently(ptr noundef %10, ptr noundef null) #17
+  %11 = call ptr @read_gitfile_gently(ptr noundef %10, ptr noundef null) #18
   %.not = icmp eq ptr %11, null
-  call void @strbuf_release(ptr noundef nonnull %3) #17
+  call void @strbuf_release(ptr noundef nonnull %3) #18
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef null) #18
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %13, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %13, ptr noundef nonnull @.str.32) #18
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %15 = load i16, ptr %14, align 8
   %16 = or i16 %15, 15
   store i16 %16, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %0, ptr %17, align 8, !tbaa !152
-  %18 = call i32 @run_command(ptr noundef nonnull %2) #17
+  %18 = call i32 @run_command(ptr noundef nonnull %2) #18
   %.not4 = icmp eq i32 %18, 0
   %. = zext i1 %.not4 to i32
   br label %19
 
 19:                                               ; preds = %8, %12
   %.0 = phi i32 [ %., %12 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #18
   ret i32 %.0
 }
 
@@ -3642,26 +3641,26 @@ declare i32 @run_command(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 -1, 2) i32 @bad_to_remove_submodule(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.child_process, align 8
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %5 = tail call i32 @validate_submodule_path(ptr noundef %0)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2028, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %8) #19
+  %8 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2028, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %8) #20
   unreachable
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @file_exists(ptr noundef %0) #17
+  %10 = tail call i32 @file_exists(ptr noundef %0) #18
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %45, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @is_empty_dir(ptr noundef %0) #17
+  %12 = tail call i32 @is_empty_dir(ptr noundef %0) #18
   %.not14 = icmp eq i32 %12, 0
   br i1 %.not14, label %13, label %45
 
@@ -3671,22 +3670,22 @@ define dso_local range(i32 -1, 2) i32 @bad_to_remove_submodule(ptr noundef %0, i
   br i1 %.not15, label %45, label %15
 
 15:                                               ; preds = %13
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, ptr noundef null) #18
   %16 = and i32 %1, 2
   %.not16 = icmp eq i32 %16, 0
   %.str.72..str.60 = select i1 %.not16, ptr @.str.72, ptr @.str.60
-  %17 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull %.str.72..str.60) #17
+  %17 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull %.str.72..str.60) #18
   %18 = and i32 %1, 4
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull @.str.73) #17
+  %20 = call ptr @strvec_push(ptr noundef nonnull %3, ptr noundef nonnull @.str.73) #18
   br label %21
 
 21:                                               ; preds = %19, %15
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %22, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %22, ptr noundef nonnull @.str.32) #18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %24 = load i16, ptr %23, align 8
   %25 = or i16 %24, 9
@@ -3695,7 +3694,7 @@ define dso_local range(i32 -1, 2) i32 @bad_to_remove_submodule(ptr noundef %0, i
   store i32 -1, ptr %26, align 4, !tbaa !154
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %0, ptr %27, align 8, !tbaa !152
-  %28 = call i32 @start_command(ptr noundef nonnull %3) #17
+  %28 = call i32 @start_command(ptr noundef nonnull %3) #18
   %.not18 = icmp eq i32 %28, 0
   br i1 %.not18, label %33, label %29
 
@@ -3706,17 +3705,17 @@ define dso_local range(i32 -1, 2) i32 @bad_to_remove_submodule(ptr noundef %0, i
 
 31:                                               ; preds = %29
   %32 = call fastcc ptr @_(ptr noundef nonnull @.str.74)
-  call void (ptr, ...) @die(ptr noundef %32, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %32, ptr noundef %0) #20
   unreachable
 
 33:                                               ; preds = %21
   %34 = load i32, ptr %26, align 4, !tbaa !154
-  %35 = call i64 @strbuf_read(ptr noundef nonnull %4, i32 noundef %34, i64 noundef 1024) #17
+  %35 = call i64 @strbuf_read(ptr noundef nonnull %4, i32 noundef %34, i64 noundef 1024) #18
   %36 = icmp sgt i64 %35, 2
   %spec.select = zext i1 %36 to i32
   %37 = load i32, ptr %26, align 4, !tbaa !154
-  %38 = call i32 @close(i32 noundef %37) #17
-  %39 = call i32 @finish_command(ptr noundef nonnull %3) #17
+  %38 = call i32 @close(i32 noundef %37) #18
+  %39 = call i32 @finish_command(ptr noundef nonnull %3) #18
   %.not19 = icmp eq i32 %39, 0
   br i1 %.not19, label %44, label %40
 
@@ -3727,18 +3726,18 @@ define dso_local range(i32 -1, 2) i32 @bad_to_remove_submodule(ptr noundef %0, i
 
 42:                                               ; preds = %40
   %43 = call fastcc ptr @_(ptr noundef nonnull @.str.75)
-  call void (ptr, ...) @die(ptr noundef %43, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %43, ptr noundef %0) #20
   unreachable
 
 44:                                               ; preds = %40, %29, %33
   %.0 = phi i32 [ %spec.select, %33 ], [ -1, %29 ], [ -1, %40 ]
-  call void @strbuf_release(ptr noundef nonnull %4) #17
+  call void @strbuf_release(ptr noundef nonnull %4) #18
   br label %45
 
 45:                                               ; preds = %13, %9, %11, %44
   %.013 = phi i32 [ %.0, %44 ], [ 0, %11 ], [ 0, %9 ], [ 1, %13 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #18
   ret i32 %.013
 }
 
@@ -3751,7 +3750,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @submodule_unset_core_worktree(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %3 = load ptr, ptr %0, align 8, !tbaa !160
   %4 = tail call i32 @validate_submodule_path(ptr noundef %3)
@@ -3759,22 +3758,22 @@ define dso_local void @submodule_unset_core_worktree(ptr noundef readonly captur
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2081, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %7) #19
+  %7 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2081, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %7) #20
   unreachable
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !46
-  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %2, ptr noundef %9, ptr noundef nonnull @.str.111) #17
-  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #18
-  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %11, i64 noundef %12) #17
-  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull @.str.76, i64 noundef 7) #17
+  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %2, ptr noundef %9, ptr noundef nonnull @.str.111) #18
+  %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #19
+  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull %11, i64 noundef %12) #18
+  call void @strbuf_add(ptr noundef nonnull %2, ptr noundef nonnull @.str.76, i64 noundef 7) #18
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %16 = call i32 @repo_config_set_in_file_gently(ptr noundef %15, ptr noundef %14, ptr noundef nonnull @.str.77, ptr noundef null, ptr noundef null) #17
+  %16 = call i32 @repo_config_set_in_file_gently(ptr noundef %15, ptr noundef %14, ptr noundef nonnull @.str.77, ptr noundef null, ptr noundef null) #18
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %22, label %17
 
@@ -3784,26 +3783,26 @@ define dso_local void @submodule_unset_core_worktree(ptr noundef readonly captur
   br i1 %.not4.i, label %_.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.78, i32 noundef 5) #17
+  %20 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.78, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %17, %19
   %.0.i = phi ptr [ %20, %19 ], [ @.str.78, %17 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !160
-  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %21) #17
+  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %21) #18
   br label %22
 
 22:                                               ; preds = %_.exit, %8
-  call void @strbuf_release(ptr noundef nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
+  call void @strbuf_release(ptr noundef nonnull %2) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @submodule_name_to_gitdir(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  tail call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.111) #17
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %4) #17
+  tail call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.111) #18
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
+  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %4) #18
   ret void
 }
 
@@ -3816,11 +3815,11 @@ define dso_local range(i32 -1, 1) i32 @submodule_move_head(ptr noundef %0, ptr n
   %10 = alloca %struct.strbuf, align 8
   %11 = alloca %struct.strbuf, align 8
   %12 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
   %13 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %14 = tail call ptr @null_oid() #17
+  %14 = tail call ptr @null_oid() #18
   %15 = tail call i32 @is_tree_submodule_active(ptr noundef %13, ptr noundef %14, ptr noundef %0)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %158, label %16
@@ -3833,21 +3832,21 @@ define dso_local range(i32 -1, 1) i32 @submodule_move_head(ptr noundef %0, ptr n
 
 18:                                               ; preds = %16
   %. = select i1 %.not59, ptr %9, ptr null
-  %19 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #17
-  %20 = call ptr @resolve_gitdir_gently(ptr noundef %19, ptr noundef %.) #17
+  %19 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #18
+  %20 = call ptr @resolve_gitdir_gently(ptr noundef %19, ptr noundef %.) #18
   %.not.i.not = icmp eq ptr %20, null
-  call void @free(ptr noundef %19) #17
+  call void @free(ptr noundef %19) #18
   br i1 %.not.i.not, label %158, label %21
 
 21:                                               ; preds = %18, %16
   %22 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %23 = call ptr @null_oid() #17
-  %24 = call ptr @submodule_from_path(ptr noundef %22, ptr noundef %23, ptr noundef %0) #17
+  %23 = call ptr @null_oid() #18
+  %24 = call ptr @submodule_from_path(ptr noundef %22, ptr noundef %23, ptr noundef %0) #18
   %.not62 = icmp eq ptr %24, null
   br i1 %.not62, label %25, label %26
 
 25:                                               ; preds = %21
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 2171, ptr noundef nonnull @.str.79, ptr noundef %0) #19
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 2171, ptr noundef nonnull @.str.79, ptr noundef %0) #20
   unreachable
 
 26:                                               ; preds = %21
@@ -3855,7 +3854,7 @@ define dso_local range(i32 -1, 1) i32 @submodule_move_head(ptr noundef %0, ptr n
   br i1 %brmerge, label %52, label %27
 
 27:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
   %28 = load ptr, ptr %24, align 8, !tbaa !160
   %29 = call i32 @validate_submodule_path(ptr noundef %28)
@@ -3863,37 +3862,37 @@ define dso_local range(i32 -1, 1) i32 @submodule_move_head(ptr noundef %0, ptr n
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2098, i32 noundef 128) #17
-  call void @exit(i32 noundef %32) #19
+  %32 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2098, i32 noundef 128) #18
+  call void @exit(i32 noundef %32) #20
   unreachable
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %34, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %34, ptr noundef nonnull @.str.32) #18
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %36 = load i16, ptr %35, align 8
   %37 = or i16 %36, 8
   store i16 %37, ptr %35, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %7, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.47, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %7, ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.47, ptr noundef null) #18
   %38 = load i16, ptr %35, align 8
   %39 = or i16 %38, 3
   store i16 %39, ptr %35, align 8
   %40 = load ptr, ptr %24, align 8, !tbaa !160
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %40, ptr %41, align 8, !tbaa !152
-  %42 = call i32 @start_command(ptr noundef nonnull %7) #17
+  %42 = call i32 @start_command(ptr noundef nonnull %7) #18
   %.not.i72 = icmp eq i32 %42, 0
   br i1 %.not.i72, label %submodule_has_dirty_index.exit, label %43
 
 43:                                               ; preds = %33
   %44 = call fastcc ptr @_(ptr noundef nonnull @.str.156)
   %45 = load ptr, ptr %24, align 8, !tbaa !160
-  call void (ptr, ...) @die(ptr noundef %44, ptr noundef %45) #19
+  call void (ptr, ...) @die(ptr noundef %44, ptr noundef %45) #20
   unreachable
 
 submodule_has_dirty_index.exit:                   ; preds = %33
-  %46 = call i32 @finish_command(ptr noundef nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #17
+  %46 = call i32 @finish_command(ptr noundef nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7) #18
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %52, label %47
 
@@ -3903,12 +3902,12 @@ submodule_has_dirty_index.exit:                   ; preds = %33
   br i1 %.not4.i, label %_.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #17
+  %50 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %47, %49
   %.0.i = phi ptr [ %50, %49 ], [ @.str.80, %47 ]
-  %51 = call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef %0) #17
+  %51 = call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef %0) #18
   br label %158
 
 52:                                               ; preds = %26, %submodule_has_dirty_index.exit
@@ -3929,10 +3928,10 @@ _.exit:                                           ; preds = %47, %49
   br label %104
 
 58:                                               ; preds = %55
-  %59 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #17
-  %60 = call ptr @read_gitfile_gently(ptr noundef %59, ptr noundef null) #17
-  %61 = call ptr @xstrdup(ptr noundef %60) #17
-  call void @free(ptr noundef %59) #17
+  %59 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #18
+  %60 = call ptr @read_gitfile_gently(ptr noundef %59, ptr noundef null) #18
+  %61 = call ptr @xstrdup(ptr noundef %60) #18
+  call void @free(ptr noundef %59) #18
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !46
   %64 = call i32 @validate_submodule_git_dir(ptr noundef %61, ptr noundef %63)
@@ -3941,22 +3940,22 @@ _.exit:                                           ; preds = %47, %49
 
 66:                                               ; preds = %58
   %67 = call fastcc ptr @_(ptr noundef nonnull @.str.81)
-  call void (ptr, ...) @die(ptr noundef %67, ptr noundef %61) #19
+  call void (ptr, ...) @die(ptr noundef %67, ptr noundef %61) #20
   unreachable
 
 68:                                               ; preds = %58
-  call void @free(ptr noundef %61) #17
+  call void @free(ptr noundef %61) #18
   br label %104
 
 69:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %70 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %71 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !46
-  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %10, ptr noundef %70, ptr noundef nonnull @.str.111) #17
-  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #18
-  call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull %72, i64 noundef %73) #17
+  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %10, ptr noundef %70, ptr noundef nonnull @.str.111) #18
+  %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #19
+  call void @strbuf_add(ptr noundef nonnull %10, ptr noundef nonnull %72, i64 noundef %73) #18
   %74 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !49
   %76 = load ptr, ptr %71, align 8, !tbaa !46
@@ -3967,106 +3966,106 @@ _.exit:                                           ; preds = %47, %49
 79:                                               ; preds = %69
   %80 = call fastcc ptr @_(ptr noundef nonnull @.str.81)
   %81 = load ptr, ptr %74, align 8, !tbaa !49
-  call void (ptr, ...) @die(ptr noundef %80, ptr noundef %81) #19
+  call void (ptr, ...) @die(ptr noundef %80, ptr noundef %81) #20
   unreachable
 
 82:                                               ; preds = %69
   %83 = load ptr, ptr %74, align 8, !tbaa !49
-  call void @connect_work_tree_and_git_dir(ptr noundef %0, ptr noundef %83, i32 noundef 0) #17
-  call void @strbuf_release(ptr noundef nonnull %10) #17
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #17
+  call void @connect_work_tree_and_git_dir(ptr noundef %0, ptr noundef %83, i32 noundef 0) #18
+  call void @strbuf_release(ptr noundef nonnull %10) #18
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
   %84 = call i32 @validate_submodule_path(ptr noundef %0)
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2119, i32 noundef 128) #17
-  call void @exit(i32 noundef %87) #19
+  %87 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2119, i32 noundef 128) #18
+  call void @exit(i32 noundef %87) #20
   unreachable
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %89, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %89, ptr noundef nonnull @.str.32) #18
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %91 = load i16, ptr %90, align 8
   %92 = or i16 %91, 9
   store i16 %92, ptr %90, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %0, ptr %93, align 8, !tbaa !152
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %6, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %6, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef null) #18
   %.not.i73 = icmp eq ptr %1, null
   %94 = select i1 %.not.i73, ptr @.str.86, ptr %1
-  %95 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %6, ptr noundef nonnull @.str.85, ptr noundef nonnull %94, ptr noundef %0) #17
+  %95 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %6, ptr noundef nonnull @.str.85, ptr noundef nonnull %94, ptr noundef %0) #18
   %96 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 400
   %98 = load ptr, ptr %97, align 8, !tbaa !149
-  %99 = call ptr @empty_tree_oid_hex(ptr noundef %98) #17
-  %100 = call ptr @strvec_push(ptr noundef nonnull %6, ptr noundef %99) #17
-  %101 = call i32 @run_command(ptr noundef nonnull %6) #17
+  %99 = call ptr @empty_tree_oid_hex(ptr noundef %98) #18
+  %100 = call ptr @strvec_push(ptr noundef nonnull %6, ptr noundef %99) #18
+  %101 = call i32 @run_command(ptr noundef nonnull %6) #18
   %.not5.i = icmp eq i32 %101, 0
   br i1 %.not5.i, label %.thread, label %102
 
 102:                                              ; preds = %88
   %103 = call fastcc ptr @_(ptr noundef nonnull @.str.157)
-  call void (ptr, ...) @die(ptr noundef %103) #19
+  call void (ptr, ...) @die(ptr noundef %103) #20
   unreachable
 
 .thread:                                          ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #18
   br label %112
 
 104:                                              ; preds = %57, %68
   br i1 %.not59, label %105, label %112
 
 105:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %106 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %107 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !46
-  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %11, ptr noundef %106, ptr noundef nonnull @.str.111) #17
-  %109 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #18
-  call void @strbuf_add(ptr noundef nonnull %11, ptr noundef nonnull %108, i64 noundef %109) #17
+  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %11, ptr noundef %106, ptr noundef nonnull @.str.111) #18
+  %109 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %108) #19
+  call void @strbuf_add(ptr noundef nonnull %11, ptr noundef nonnull %108, i64 noundef %109) #18
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !49
-  call void @connect_work_tree_and_git_dir(ptr noundef %0, ptr noundef %111, i32 noundef 1) #17
-  call void @strbuf_release(ptr noundef nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
+  call void @connect_work_tree_and_git_dir(ptr noundef %0, ptr noundef %111, i32 noundef 1) #18
+  call void @strbuf_release(ptr noundef nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
   br label %112
 
 112:                                              ; preds = %.thread, %104, %105, %52
   %.str.88..str.87 = phi ptr [ @.str.88, %.thread ], [ @.str.88, %104 ], [ @.str.88, %105 ], [ @.str.87, %52 ]
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %113, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %113, ptr noundef nonnull @.str.32) #18
   %114 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %115 = load i16, ptr %114, align 8
   %116 = or i16 %115, 9
   store i16 %116, ptr %114, align 8
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %0, ptr %117, align 8, !tbaa !152
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %8, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %8, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, ptr noundef null) #18
   %.not66 = icmp eq ptr %1, null
   %118 = select i1 %.not66, ptr @.str.86, ptr %1
-  %119 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %8, ptr noundef nonnull @.str.85, ptr noundef nonnull %118, ptr noundef %0) #17
-  %120 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull %.str.88..str.87) #17
+  %119 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %8, ptr noundef nonnull @.str.85, ptr noundef nonnull %118, ptr noundef %0) #18
+  %120 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull %.str.88..str.87) #18
   br i1 %.not59, label %128, label %121
 
 121:                                              ; preds = %112
-  %122 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull @.str.90) #17
+  %122 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef nonnull @.str.90) #18
   br i1 %.not60, label %123, label %128
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 400
   %126 = load ptr, ptr %125, align 8, !tbaa !149
-  %127 = call ptr @empty_tree_oid_hex(ptr noundef %126) #17
+  %127 = call ptr @empty_tree_oid_hex(ptr noundef %126) #18
   br label %128
 
 128:                                              ; preds = %123, %121, %112
   %.str.89.sink = phi ptr [ @.str.89, %112 ], [ %127, %123 ], [ %2, %121 ]
-  %129 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %.str.89.sink) #17
+  %129 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %.str.89.sink) #18
   %.not67 = icmp eq ptr %3, null
   br i1 %.not67, label %130, label %135
 
@@ -4074,13 +4073,13 @@ _.exit:                                           ; preds = %47, %49
   %131 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 400
   %133 = load ptr, ptr %132, align 8, !tbaa !149
-  %134 = call ptr @empty_tree_oid_hex(ptr noundef %133) #17
+  %134 = call ptr @empty_tree_oid_hex(ptr noundef %133) #18
   br label %135
 
 135:                                              ; preds = %128, %130
   %136 = phi ptr [ %134, %130 ], [ %3, %128 ]
-  %137 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %136) #17
-  %138 = call i32 @run_command(ptr noundef nonnull %8) #17
+  %137 = call ptr @strvec_push(ptr noundef nonnull %8, ptr noundef %136) #18
+  %138 = call i32 @run_command(ptr noundef nonnull %8) #18
   %.not68 = icmp eq i32 %138, 0
   br i1 %.not68, label %144, label %139
 
@@ -4090,12 +4089,12 @@ _.exit:                                           ; preds = %47, %49
   br i1 %.not4.i74, label %_.exit76, label %141
 
 141:                                              ; preds = %139
-  %142 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 5) #17
+  %142 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 5) #18
   br label %_.exit76
 
 _.exit76:                                         ; preds = %139, %141
   %.0.i75 = phi ptr [ %142, %141 ], [ @.str.91, %139 ]
-  %143 = call i32 (ptr, ...) @error(ptr noundef %.0.i75, ptr noundef %0) #17
+  %143 = call i32 (ptr, ...) @error(ptr noundef %.0.i75, ptr noundef %0) #18
   br label %158
 
 144:                                              ; preds = %135
@@ -4105,43 +4104,43 @@ _.exit76:                                         ; preds = %139, %141
   br i1 %.not67, label %150, label %146
 
 146:                                              ; preds = %145
-  call void @child_process_init(ptr noundef nonnull %8) #17
+  call void @child_process_init(ptr noundef nonnull %8) #18
   %147 = load i16, ptr %114, align 8
   %148 = or i16 %147, 9
   store i16 %148, ptr %114, align 8
   store ptr %0, ptr %117, align 8, !tbaa !152
-  call void @prepare_other_repo_env(ptr noundef nonnull %113, ptr noundef nonnull @.str.32) #17
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %8, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.93, ptr noundef nonnull %3, ptr noundef null) #17
-  %149 = call i32 @run_command(ptr noundef nonnull %8) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %113, ptr noundef nonnull @.str.32) #18
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %8, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.93, ptr noundef nonnull %3, ptr noundef null) #18
+  %149 = call i32 @run_command(ptr noundef nonnull %8) #18
   %.not70 = icmp ne i32 %149, 0
   %spec.select = sext i1 %.not70 to i32
   br label %158
 
 150:                                              ; preds = %145
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %12, ptr noundef nonnull @.str.19, ptr noundef %0) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %12, ptr noundef nonnull @.str.19, ptr noundef %0) #18
   %151 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !49
-  %153 = call i32 @unlink_or_warn(ptr noundef %152) #17
-  call void @strbuf_release(ptr noundef nonnull %12) #17
-  %154 = call i32 @is_empty_dir(ptr noundef %0) #17
+  %153 = call i32 @unlink_or_warn(ptr noundef %152) #18
+  call void @strbuf_release(ptr noundef nonnull %12) #18
+  %154 = call i32 @is_empty_dir(ptr noundef %0) #18
   %.not69 = icmp eq i32 %154, 0
   br i1 %.not69, label %157, label %155
 
 155:                                              ; preds = %150
-  %156 = call i32 @rmdir_or_warn(ptr noundef %0) #17
+  %156 = call i32 @rmdir_or_warn(ptr noundef %0) #18
   br label %157
 
 157:                                              ; preds = %155, %150
   call void @submodule_unset_core_worktree(ptr noundef nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #18
   br label %158
 
 158:                                              ; preds = %146, %_.exit76, %157, %144, %18, %5, %_.exit
   %.0 = phi i32 [ -1, %_.exit ], [ 0, %5 ], [ 0, %18 ], [ -1, %_.exit76 ], [ 0, %144 ], [ 0, %157 ], [ %spec.select, %146 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #18
   ret i32 %.0
 }
 
@@ -4154,28 +4153,28 @@ define dso_local void @absorb_git_dir_into_superproject(ptr noundef %0, ptr noun
   %5 = alloca i32, align 4
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %8 = tail call i32 @validate_submodule_path(ptr noundef %0)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2437, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %11) #19
+  %11 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2437, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %11) #20
   unreachable
 
 12:                                               ; preds = %2
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, ptr noundef %0) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.19, ptr noundef %0) #18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !49
-  %15 = call ptr @resolve_gitdir_gently(ptr noundef %14, ptr noundef nonnull %5) #17
+  %15 = call ptr @resolve_gitdir_gently(ptr noundef %14, ptr noundef nonnull %5) #18
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %32
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %17 = load i32, ptr %5, align 4, !tbaa !28
   switch i32 %17, label %18 [
@@ -4184,97 +4183,97 @@ define dso_local void @absorb_git_dir_into_superproject(ptr noundef %0, ptr noun
   ]
 
 .thread:                                          ; preds = %16
-  call void @strbuf_release(ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @strbuf_release(ptr noundef nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
   br label %100
 
 18:                                               ; preds = %16
-  call void @read_gitfile_error_die(i32 noundef %17, ptr noundef %0, ptr noundef null) #17
+  call void @read_gitfile_error_die(i32 noundef %17, ptr noundef %0, ptr noundef null) #18
   br label %19
 
 19:                                               ; preds = %16, %18
   %20 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %21 = call ptr @null_oid() #17
-  %22 = call ptr @submodule_from_path(ptr noundef %20, ptr noundef %21, ptr noundef %0) #17
+  %21 = call ptr @null_oid() #18
+  %22 = call ptr @submodule_from_path(ptr noundef %20, ptr noundef %21, ptr noundef %0) #18
   %.not22 = icmp eq ptr %22, null
   br i1 %.not22, label %23, label %25
 
 23:                                               ; preds = %19
   %24 = call fastcc ptr @_(ptr noundef nonnull @.str.98)
-  call void (ptr, ...) @die(ptr noundef %24, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %24, ptr noundef %0) #20
   unreachable
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !46
-  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %7, ptr noundef %26, ptr noundef nonnull @.str.111) #17
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #18
-  call void @strbuf_add(ptr noundef nonnull %7, ptr noundef nonnull %28, i64 noundef %29) #17
+  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %7, ptr noundef %26, ptr noundef nonnull @.str.111) #18
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #19
+  call void @strbuf_add(ptr noundef nonnull %7, ptr noundef nonnull %28, i64 noundef %29) #18
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !49
-  call void @connect_work_tree_and_git_dir(ptr noundef %0, ptr noundef %31, i32 noundef 0) #17
-  call void @strbuf_release(ptr noundef nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
+  call void @connect_work_tree_and_git_dir(ptr noundef %0, ptr noundef %31, i32 noundef 0) #18
+  call void @strbuf_release(ptr noundef nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
   br label %86
 
 32:                                               ; preds = %12
-  %33 = call ptr @real_pathdup(ptr noundef nonnull %15, i32 noundef 1) #17
+  %33 = call ptr @real_pathdup(ptr noundef nonnull %15, i32 noundef 1) #18
   %34 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %35 = call ptr @repo_get_common_dir(ptr noundef %34) #17
-  %36 = call ptr @real_pathdup(ptr noundef %35, i32 noundef 1) #17
-  %37 = call i32 @starts_with(ptr noundef %33, ptr noundef %36) #17
+  %35 = call ptr @repo_get_common_dir(ptr noundef %34) #18
+  %36 = call ptr @real_pathdup(ptr noundef %35, i32 noundef 1) #18
+  %37 = call i32 @starts_with(ptr noundef %33, ptr noundef %36) #18
   %.not24 = icmp eq i32 %37, 0
   br i1 %.not24, label %38, label %85
 
 38:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
   %39 = call i32 @validate_submodule_path(ptr noundef %0)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2365, i32 noundef 128) #17
-  call void @exit(i32 noundef %42) #19
+  %42 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2365, i32 noundef 128) #18
+  call void @exit(i32 noundef %42) #20
   unreachable
 
 43:                                               ; preds = %38
-  %44 = call i32 @submodule_uses_worktrees(ptr noundef %0) #17
+  %44 = call i32 @submodule_uses_worktrees(ptr noundef %0) #18
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %47, label %45
 
 45:                                               ; preds = %43
   %46 = call fastcc ptr @_(ptr noundef nonnull @.str.158)
-  call void (ptr, ...) @die(ptr noundef %46, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %46, ptr noundef %0) #20
   unreachable
 
 47:                                               ; preds = %43
-  %48 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #17
-  %49 = call ptr @read_gitfile_gently(ptr noundef %48, ptr noundef null) #17
+  %48 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %0) #18
+  %49 = call ptr @read_gitfile_gently(ptr noundef %48, ptr noundef null) #18
   %.not23.i = icmp eq ptr %49, null
   br i1 %.not23.i, label %50, label %relocate_single_git_dir_into_superproject.exit
 
 50:                                               ; preds = %47
-  %51 = call ptr @real_pathdup(ptr noundef %48, i32 noundef 1) #17
+  %51 = call ptr @real_pathdup(ptr noundef %48, i32 noundef 1) #18
   %52 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %53 = call ptr @null_oid() #17
-  %54 = call ptr @submodule_from_path(ptr noundef %52, ptr noundef %53, ptr noundef %0) #17
+  %53 = call ptr @null_oid() #18
+  %54 = call ptr @submodule_from_path(ptr noundef %52, ptr noundef %53, ptr noundef %0) #18
   %.not24.i = icmp eq ptr %54, null
   br i1 %.not24.i, label %55, label %57
 
 55:                                               ; preds = %50
   %56 = call fastcc ptr @_(ptr noundef nonnull @.str.98)
-  call void (ptr, ...) @die(ptr noundef %56, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %56, ptr noundef %0) #20
   unreachable
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !46
-  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %4, ptr noundef %58, ptr noundef nonnull @.str.111) #17
-  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #18
-  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %60, i64 noundef %61) #17
+  call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %4, ptr noundef %58, ptr noundef nonnull @.str.111) #18
+  %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #19
+  call void @strbuf_add(ptr noundef nonnull %4, ptr noundef nonnull %60, i64 noundef %61) #18
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !49
   %64 = load ptr, ptr %59, align 8, !tbaa !46
@@ -4284,65 +4283,65 @@ define dso_local void @absorb_git_dir_into_superproject(ptr noundef %0, ptr noun
 
 67:                                               ; preds = %57
   %68 = call fastcc ptr @_(ptr noundef nonnull @.str.159)
-  call void (ptr, ...) @die(ptr noundef %68, ptr noundef %51) #19
+  call void (ptr, ...) @die(ptr noundef %68, ptr noundef %51) #20
   unreachable
 
 69:                                               ; preds = %57
   %70 = load ptr, ptr %62, align 8, !tbaa !49
-  %71 = call i32 @safe_create_leading_directories_const(ptr noundef %70) #17
+  %71 = call i32 @safe_create_leading_directories_const(ptr noundef %70) #18
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %69
   %74 = call fastcc ptr @_(ptr noundef nonnull @.str.160)
   %75 = load ptr, ptr %62, align 8, !tbaa !49
-  call void (ptr, ...) @die(ptr noundef %74, ptr noundef %75) #19
+  call void (ptr, ...) @die(ptr noundef %74, ptr noundef %75) #20
   unreachable
 
 76:                                               ; preds = %69
   %77 = load ptr, ptr %62, align 8, !tbaa !49
-  %78 = call ptr @real_pathdup(ptr noundef %77, i32 noundef 1) #17
+  %78 = call ptr @real_pathdup(ptr noundef %77, i32 noundef 1) #18
   %79 = load ptr, ptr @stderr, align 8, !tbaa !187
   %80 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !28
   %.not4.i.i = icmp eq i32 %80, 0
   br i1 %.not4.i.i, label %_.exit.i, label %81
 
 81:                                               ; preds = %76
-  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.161, i32 noundef 5) #17
+  %82 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.161, i32 noundef 5) #18
   br label %_.exit.i
 
 _.exit.i:                                         ; preds = %81, %76
   %.0.i.i = phi ptr [ %82, %81 ], [ @.str.161, %76 ]
   %.not25.i = icmp eq ptr %1, null
   %83 = select i1 %.not25.i, ptr @.str.86, ptr %1
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef %.0.i.i, ptr noundef nonnull %83, ptr noundef %0, ptr noundef %51, ptr noundef %78) #20
-  call void @relocate_gitdir(ptr noundef %0, ptr noundef %51, ptr noundef %78) #17
-  call void @free(ptr noundef %48) #17
-  call void @free(ptr noundef %51) #17
-  call void @free(ptr noundef %78) #17
-  call void @strbuf_release(ptr noundef nonnull %4) #17
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef %.0.i.i, ptr noundef nonnull %83, ptr noundef %0, ptr noundef %51, ptr noundef %78) #21
+  call void @relocate_gitdir(ptr noundef %0, ptr noundef %51, ptr noundef %78) #18
+  call void @free(ptr noundef %48) #18
+  call void @free(ptr noundef %51) #18
+  call void @free(ptr noundef %78) #18
+  call void @strbuf_release(ptr noundef nonnull %4) #18
   br label %relocate_single_git_dir_into_superproject.exit
 
 relocate_single_git_dir_into_superproject.exit:   ; preds = %47, %_.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   br label %85
 
 85:                                               ; preds = %relocate_single_git_dir_into_superproject.exit, %32
-  call void @free(ptr noundef %33) #17
-  call void @free(ptr noundef %36) #17
+  call void @free(ptr noundef %33) #18
+  call void @free(ptr noundef %36) #18
   br label %86
 
 86:                                               ; preds = %25, %85
-  call void @strbuf_release(ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #17
+  call void @strbuf_release(ptr noundef nonnull %6) #18
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
   %87 = call i32 @validate_submodule_path(ptr noundef %0)
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2409, i32 noundef 128) #17
-  call void @exit(i32 noundef %90) #19
+  %90 = call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2409, i32 noundef 128) #18
+  call void @exit(i32 noundef %90) #20
   unreachable
 
 91:                                               ; preds = %86
@@ -4350,35 +4349,35 @@ relocate_single_git_dir_into_superproject.exit:   ; preds = %47, %_.exit.i
   store ptr %0, ptr %92, align 8, !tbaa !152
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i16 9, ptr %93, align 8
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.162, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %3, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.162, ptr noundef null) #18
   %.not.i25 = icmp eq ptr %1, null
   %94 = select i1 %.not.i25, ptr @.str.86, ptr %1
-  %95 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, ptr noundef nonnull %94, ptr noundef %0) #17
+  %95 = call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %3, ptr noundef nonnull @.str.85, ptr noundef nonnull %94, ptr noundef %0) #18
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %96, ptr noundef nonnull @.str.32) #17
-  %97 = call i32 @run_command(ptr noundef nonnull %3) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %96, ptr noundef nonnull @.str.32) #18
+  %97 = call i32 @run_command(ptr noundef nonnull %3) #18
   %.not6.i = icmp eq i32 %97, 0
   br i1 %.not6.i, label %absorb_git_dir_into_superproject_recurse.exit, label %98
 
 98:                                               ; preds = %91
   %99 = call fastcc ptr @_(ptr noundef nonnull @.str.156)
-  call void (ptr, ...) @die(ptr noundef %99, ptr noundef %0) #19
+  call void (ptr, ...) @die(ptr noundef %99, ptr noundef %0) #20
   unreachable
 
 absorb_git_dir_into_superproject_recurse.exit:    ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #18
   br label %100
 
 100:                                              ; preds = %.thread, %absorb_git_dir_into_superproject_recurse.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @validate_submodule_git_dir(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
-  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %.not = icmp ugt i64 %3, %4
   br i1 %.not, label %5, label %13
 
@@ -4392,12 +4391,12 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_git_dir(ptr noundef %0
   br i1 %.not33, label %11, label %13
 
 11:                                               ; preds = %5
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1) #18
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1) #19
   %.not34 = icmp eq i32 %12, 0
   br i1 %.not34, label %.preheader, label %13
 
 13:                                               ; preds = %11, %5, %2
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 2293, ptr noundef nonnull @.str.94, ptr noundef nonnull %1, ptr noundef nonnull %0) #19
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 2293, ptr noundef nonnull @.str.94, ptr noundef nonnull %1, ptr noundef nonnull %0) #20
   unreachable
 
 .preheader:                                       ; preds = %11, %.critedge
@@ -4410,7 +4409,7 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_git_dir(ptr noundef %0
 
 15:                                               ; preds = %.preheader
   store i8 0, ptr %.029, align 1, !tbaa !51
-  %16 = tail call i32 @is_git_directory(ptr noundef nonnull %0) #17
+  %16 = tail call i32 @is_git_directory(ptr noundef nonnull %0) #18
   %.not37.not = icmp eq i32 %16, 0
   store i8 47, ptr %.029, align 1, !tbaa !51
   br i1 %.not37.not, label %.critedge, label %17
@@ -4421,7 +4420,7 @@ define dso_local range(i32 -1, 1) i32 @validate_submodule_git_dir(ptr noundef %0
   br i1 %.not4.i, label %_.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef 5) #17
+  %20 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %17, %19
@@ -4430,7 +4429,7 @@ _.exit:                                           ; preds = %17, %19
   %22 = ptrtoint ptr %0 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef nonnull %0, i32 noundef %24, ptr noundef nonnull %0) #17
+  %25 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef nonnull %0, i32 noundef %24, ptr noundef nonnull %0) #18
   br label %.loopexit
 
 .critedge:                                        ; preds = %.preheader, %15
@@ -4465,31 +4464,31 @@ define dso_local range(i32 0, 2) i32 @get_superproject_working_tree(ptr noundef 
   %2 = alloca %struct.child_process, align 8
   %3 = alloca %struct.strbuf, align 8
   %4 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  %5 = tail call ptr @xgetcwd() #17
-  %6 = tail call i32 @is_inside_work_tree() #17
+  %5 = tail call ptr @xgetcwd() #18
+  %6 = tail call i32 @is_inside_work_tree() #18
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %59, label %7
 
 7:                                                ; preds = %1
-  %8 = call ptr @strbuf_realpath(ptr noundef nonnull %4, ptr noundef nonnull @.str.99, i32 noundef 0) #17
+  %8 = call ptr @strbuf_realpath(ptr noundef nonnull %4, ptr noundef nonnull @.str.99, i32 noundef 0) #18
   %.not29 = icmp eq ptr %8, null
   br i1 %.not29, label %59, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !49
-  %12 = call ptr @relative_path(ptr noundef %5, ptr noundef %11, ptr noundef nonnull %3) #17
-  call void @strbuf_release(ptr noundef nonnull %4) #17
+  %12 = call ptr @relative_path(ptr noundef %5, ptr noundef %11, ptr noundef nonnull %3) #18
+  call void @strbuf_release(ptr noundef nonnull %4) #18
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %13, ptr noundef nonnull @.str.32) #17
-  call void @strvec_pop(ptr noundef nonnull %13) #17
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %2, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.51, ptr noundef %12, ptr noundef null) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %13, ptr noundef nonnull @.str.32) #18
+  call void @strvec_pop(ptr noundef nonnull %13) #18
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %2, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.51, ptr noundef %12, ptr noundef null) #18
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %14, align 8, !tbaa !145
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4508,32 +4507,32 @@ strbuf_setlen.exit:                               ; preds = %9, %17
   store i32 -1, ptr %20, align 4, !tbaa !154
   %21 = or i16 %19, 13
   store i16 %21, ptr %18, align 8
-  %22 = call i32 @start_command(ptr noundef nonnull %2) #17
+  %22 = call i32 @start_command(ptr noundef nonnull %2) #18
   %.not30 = icmp eq i32 %22, 0
   br i1 %.not30, label %25, label %23
 
 23:                                               ; preds = %strbuf_setlen.exit
   %24 = call fastcc ptr @_(ptr noundef nonnull @.str.107)
-  call void (ptr, ...) @die(ptr noundef %24) #19
+  call void (ptr, ...) @die(ptr noundef %24) #20
   unreachable
 
 25:                                               ; preds = %strbuf_setlen.exit
   %26 = load i32, ptr %20, align 4, !tbaa !154
-  %27 = call i64 @strbuf_read(ptr noundef nonnull %3, i32 noundef %26, i64 noundef 4096) #17
+  %27 = call i64 @strbuf_read(ptr noundef nonnull %3, i32 noundef %26, i64 noundef 4096) #18
   %28 = load i32, ptr %20, align 4, !tbaa !154
-  %29 = call i32 @close(i32 noundef %28) #17
+  %29 = call i32 @close(i32 noundef %28) #18
   %30 = load ptr, ptr %15, align 8, !tbaa !49
-  %31 = call i32 @starts_with(ptr noundef %30, ptr noundef nonnull @.str.108) #17
+  %31 = call i32 @starts_with(ptr noundef %30, ptr noundef nonnull @.str.108) #18
   %.not31 = icmp eq i32 %31, 0
   br i1 %.not31, label %51, label %32
 
 32:                                               ; preds = %25
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #19
   %34 = trunc i64 %33 to i32
   %35 = load ptr, ptr %15, align 8, !tbaa !49
-  %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 9) #18
+  %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 9) #19
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #18
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #19
   %39 = trunc i64 %38 to i32
   %40 = icmp sgt i32 %39, %34
   br i1 %40, label %46, label %41
@@ -4543,27 +4542,27 @@ strbuf_setlen.exit:                               ; preds = %9, %17
   %sext = shl i64 %42, 32
   %43 = ashr exact i64 %sext, 32
   %44 = getelementptr inbounds i8, ptr %5, i64 %43
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %37) #18
+  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %37) #19
   %.not32 = icmp eq i32 %45, 0
   br i1 %.not32, label %47, label %46
 
 46:                                               ; preds = %41, %32
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 2545, ptr noundef nonnull @.str.109) #19
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.9, i32 noundef 2545, ptr noundef nonnull @.str.109) #20
   unreachable
 
 47:                                               ; preds = %41
-  %48 = call ptr @xstrdup(ptr noundef nonnull %5) #17
+  %48 = call ptr @xstrdup(ptr noundef nonnull %5) #18
   %49 = getelementptr inbounds i8, ptr %48, i64 %43
   store i8 0, ptr %49, align 1, !tbaa !51
-  %50 = call ptr @strbuf_realpath(ptr noundef %0, ptr noundef %48, i32 noundef 1) #17
-  call void @free(ptr noundef %48) #17
+  %50 = call ptr @strbuf_realpath(ptr noundef %0, ptr noundef %48, i32 noundef 1) #18
+  call void @free(ptr noundef %48) #18
   br label %51
 
 51:                                               ; preds = %47, %25
   %.025 = phi i32 [ 1, %47 ], [ 0, %25 ]
-  call void @free(ptr noundef %5) #17
-  call void @strbuf_release(ptr noundef nonnull %3) #17
-  %52 = call i32 @finish_command(ptr noundef nonnull %2) #17
+  call void @free(ptr noundef %5) #18
+  call void @strbuf_release(ptr noundef nonnull %3) #18
+  %52 = call i32 @finish_command(ptr noundef nonnull %2) #18
   %53 = icmp eq i32 %52, 128
   br i1 %53, label %59, label %54
 
@@ -4576,14 +4575,14 @@ strbuf_setlen.exit:                               ; preds = %9, %17
 
 57:                                               ; preds = %54
   %58 = call fastcc ptr @_(ptr noundef nonnull @.str.110)
-  call void (ptr, ...) @die(ptr noundef %58, i32 noundef %52) #19
+  call void (ptr, ...) @die(ptr noundef %58, i32 noundef %52) #20
   unreachable
 
 59:                                               ; preds = %54, %51, %7, %1
   %.0 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %51 ], [ %.mux, %54 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #18
   ret i32 %.0
 }
 
@@ -4607,8 +4606,8 @@ define dso_local range(i32 -1, 1) i32 @submodule_to_gitdir(ptr noundef %0, ptr n
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2582, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %6) #19
+  %6 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 2582, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %6) #20
   unreachable
 
 7:                                                ; preds = %2
@@ -4624,8 +4623,8 @@ define dso_local range(i32 -1, 1) i32 @submodule_to_gitdir(ptr noundef %0, ptr n
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %7, %11
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %12) #17
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
+  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %12) #18
   %13 = load i64, ptr %8, align 8, !tbaa !145
   %.not.i = icmp eq i64 %13, 0
   br i1 %.not.i, label %strbuf_complete.exit, label %14
@@ -4647,7 +4646,7 @@ strbuf_setlen.exit:                               ; preds = %7, %11
   br i1 %or.cond.i, label %strbuf_avail.exit.thread.i.i, label %strbuf_addch.exit.i
 
 strbuf_avail.exit.thread.i.i:                     ; preds = %19
-  tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #17
+  tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #18
   %.pre.i.i = load i64, ptr %8, align 8, !tbaa !145
   %.pre7.i.i = add i64 %.pre.i.i, 1
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !49
@@ -4667,9 +4666,9 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   br label %strbuf_complete.exit
 
 strbuf_complete.exit:                             ; preds = %strbuf_setlen.exit, %14, %strbuf_addch.exit.i
-  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef 4) #17
+  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i64 noundef 4) #18
   %27 = load ptr, ptr %9, align 8, !tbaa !49
-  %28 = tail call ptr @read_gitfile_gently(ptr noundef %27, ptr noundef null) #17
+  %28 = tail call ptr @read_gitfile_gently(ptr noundef %27, ptr noundef null) #18
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %33, label %29
 
@@ -4684,20 +4683,20 @@ strbuf_complete.exit:                             ; preds = %strbuf_setlen.exit,
   br label %strbuf_setlen.exit22
 
 strbuf_setlen.exit22:                             ; preds = %29, %31
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #18
-  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef %32) #17
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #19
+  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %28, i64 noundef %32) #18
   br label %33
 
 33:                                               ; preds = %strbuf_setlen.exit22, %strbuf_complete.exit
   %34 = load ptr, ptr %9, align 8, !tbaa !49
-  %35 = tail call i32 @is_git_directory(ptr noundef %34) #17
+  %35 = tail call i32 @is_git_directory(ptr noundef %34) #18
   %.not19 = icmp eq i32 %35, 0
   br i1 %.not19, label %36, label %47
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr @the_repository, align 8, !tbaa !29
-  %38 = tail call ptr @null_oid() #17
-  %39 = tail call ptr @submodule_from_path(ptr noundef %37, ptr noundef %38, ptr noundef nonnull %1) #17
+  %38 = tail call ptr @null_oid() #18
+  %39 = tail call ptr @submodule_from_path(ptr noundef %37, ptr noundef %38, ptr noundef nonnull %1) #18
   %.not20 = icmp eq ptr %39, null
   br i1 %.not20, label %47, label %40
 
@@ -4715,9 +4714,9 @@ strbuf_setlen.exit24:                             ; preds = %40, %42
   %43 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !46
-  tail call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %0, ptr noundef %43, ptr noundef nonnull @.str.111) #17
-  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #18
-  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %45, i64 noundef %46) #17
+  tail call void (ptr, ptr, ptr, ...) @strbuf_repo_git_path(ptr noundef nonnull %0, ptr noundef %43, ptr noundef nonnull @.str.111) #18
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #19
+  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %45, i64 noundef %46) #18
   br label %47
 
 47:                                               ; preds = %36, %33, %strbuf_setlen.exit24
@@ -4797,7 +4796,7 @@ define internal void @collect_changed_submodules_cb(ptr noundef readonly capture
   %22 = load ptr, ptr %2, align 8, !tbaa !166
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !253
-  %25 = call ptr @submodule_from_path(ptr noundef %22, ptr noundef %8, ptr noundef %24) #17
+  %25 = call ptr @submodule_from_path(ptr noundef %22, ptr noundef %8, ptr noundef %24) #18
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %.critedge
 
@@ -4805,19 +4804,19 @@ define internal void @collect_changed_submodules_cb(ptr noundef readonly capture
   %27 = load ptr, ptr %15, align 8, !tbaa !246
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !253
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  %30 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %29) #17
-  %31 = call ptr @resolve_gitdir_gently(ptr noundef %30, ptr noundef nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
+  %30 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %29) #18
+  %31 = call ptr @resolve_gitdir_gently(ptr noundef %30, ptr noundef nonnull %4) #18
   %.not.i.not.i = icmp eq ptr %31, null
-  call void @free(ptr noundef %30) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @free(ptr noundef %30) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
   %.not4050 = icmp eq ptr %29, null
   %.not40 = or i1 %.not4050, %.not.i.not.i
   br i1 %.not40, label %.critedge.thread, label %32
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %2, align 8, !tbaa !166
-  %34 = call ptr @submodule_from_name(ptr noundef %33, ptr noundef %8, ptr noundef nonnull %29) #17
+  %34 = call ptr @submodule_from_name(ptr noundef %33, ptr noundef %8, ptr noundef nonnull %29) #18
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.critedge.thread46, label %36
 
@@ -4827,16 +4826,16 @@ define internal void @collect_changed_submodules_cb(ptr noundef readonly capture
   br i1 %.not4.i, label %_.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #17
+  %39 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.123, i32 noundef 5) #18
   br label %_.exit
 
 _.exit:                                           ; preds = %36, %38
   %.0.i = phi ptr [ %39, %38 ], [ @.str.123, %36 ]
-  %40 = call ptr @oid_to_hex(ptr noundef %8) #17
+  %40 = call ptr @oid_to_hex(ptr noundef %8) #18
   %41 = load ptr, ptr %15, align 8, !tbaa !246
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !253
-  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %40, ptr noundef %43) #17
+  call void (ptr, ...) @warning(ptr noundef %.0.i, ptr noundef %40, ptr noundef %43) #18
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %21
@@ -4847,20 +4846,20 @@ _.exit:                                           ; preds = %36, %38
 
 .critedge.thread46:                               ; preds = %32, %.critedge
   %.03549 = phi ptr [ %45, %.critedge ], [ %29, %32 ]
-  %46 = call ptr @string_list_insert(ptr noundef %6, ptr noundef nonnull %.03549) #17
+  %46 = call ptr @string_list_insert(ptr noundef %6, ptr noundef nonnull %.03549) #18
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !159
   %.not43 = icmp eq ptr %48, null
   br i1 %.not43, label %49, label %56
 
 49:                                               ; preds = %.critedge.thread46
-  %50 = call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #17
+  %50 = call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #18
   store ptr %50, ptr %47, align 8, !tbaa !159
   store ptr %8, ptr %50, align 8, !tbaa !222
   %51 = load ptr, ptr %15, align 8, !tbaa !246
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !253
-  %54 = call ptr @xstrdup(ptr noundef %53) #17
+  %54 = call ptr @xstrdup(ptr noundef %53) #18
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %54, ptr %55, align 8, !tbaa !162
   br label %56
@@ -4869,7 +4868,7 @@ _.exit:                                           ; preds = %36, %38
   %.0 = phi ptr [ %50, %49 ], [ %48, %.critedge.thread46 ]
   %57 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %58 = load ptr, ptr %15, align 8, !tbaa !246
-  call void @oid_array_append(ptr noundef nonnull %57, ptr noundef %58) #17
+  call void @oid_array_append(ptr noundef nonnull %57, ptr noundef %58) #18
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %26, %_.exit, %.critedge, %.lr.ph, %56
@@ -4894,7 +4893,7 @@ define internal fastcc i32 @submodule_has_commits(ptr noundef %0, ptr noundef no
   %5 = alloca %struct.has_commit_data, align 8
   %6 = alloca %struct.child_process, align 8
   %7 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #18
   store ptr %0, ptr %5, align 8, !tbaa !255
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %8, align 8, !tbaa !257
@@ -4909,33 +4908,33 @@ define internal fastcc i32 @submodule_has_commits(ptr noundef %0, ptr noundef no
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1029, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %15) #19
+  %15 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1029, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %15) #20
   unreachable
 
 16:                                               ; preds = %4
-  %17 = call i32 @oid_array_for_each_unique(ptr noundef %3, ptr noundef nonnull @check_has_commit, ptr noundef nonnull %5) #17
+  %17 = call i32 @oid_array_for_each_unique(ptr noundef %3, ptr noundef nonnull @check_has_commit, ptr noundef nonnull %5) #18
   %18 = load i32, ptr %8, align 8, !tbaa !257
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) @__const.absorb_git_dir_into_superproject_recurse.cp, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.relocate_single_git_dir_into_superproject.new_gitdir, i64 24, i1 false)
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %6, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.126, ptr noundef null) #17
-  %20 = call i32 @oid_array_for_each_unique(ptr noundef %3, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %6) #17
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %6, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.128, ptr noundef null) #17
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %6, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.126, ptr noundef null) #18
+  %20 = call i32 @oid_array_for_each_unique(ptr noundef %3, ptr noundef nonnull @append_oid_to_argv, ptr noundef nonnull %6) #18
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %6, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.128, ptr noundef null) #18
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @prepare_other_repo_env(ptr noundef nonnull %21, ptr noundef nonnull @.str.32) #17
+  call void @prepare_other_repo_env(ptr noundef nonnull %21, ptr noundef nonnull @.str.32) #18
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %23 = load i16, ptr %22, align 8
   %24 = or i16 %23, 9
   store i16 %24, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %1, ptr %25, align 8, !tbaa !152
-  %26 = call i32 @pipe_command(ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef 65, ptr noundef null, i64 noundef 0) #17
+  %26 = call i32 @pipe_command(ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7, i64 noundef 65, ptr noundef null, i64 noundef 0) #18
   %27 = icmp ne i32 %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i64, ptr %28, align 8
@@ -4948,15 +4947,15 @@ define internal fastcc i32 @submodule_has_commits(ptr noundef %0, ptr noundef no
   br label %32
 
 32:                                               ; preds = %19, %31
-  call void @strbuf_release(ptr noundef nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #17
+  call void @strbuf_release(ptr noundef nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #18
   %.pre = load i32, ptr %8, align 8, !tbaa !257
   br label %33
 
 33:                                               ; preds = %32, %16
   %34 = phi i32 [ %.pre, %32 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   ret i32 %34
 }
 
@@ -4968,13 +4967,13 @@ define internal noundef i32 @has_remote(ptr readnone captures(none) %0, ptr read
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @check_has_commit(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct.repository, align 8
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %3) #18
   %4 = load ptr, ptr %1, align 8, !tbaa !255
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !258
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !259
-  %9 = call i32 @repo_submodule_init(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %6, ptr noundef %8) #17
+  %9 = call i32 @repo_submodule_init(ptr noundef nonnull %3, ptr noundef %4, ptr noundef %6, ptr noundef %8) #18
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
 
@@ -4984,7 +4983,7 @@ define internal noundef i32 @check_has_commit(ptr noundef %0, ptr noundef captur
   br label %22
 
 12:                                               ; preds = %2
-  %13 = call i32 @oid_object_info(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null) #17
+  %13 = call i32 @oid_object_info(ptr noundef nonnull %3, ptr noundef %0, ptr noundef null) #18
   switch i32 %13, label %16 [
     i32 1, label %21
     i32 -1, label %14
@@ -4998,17 +4997,17 @@ define internal noundef i32 @check_has_commit(ptr noundef %0, ptr noundef captur
 16:                                               ; preds = %12
   %17 = call fastcc ptr @_(ptr noundef nonnull @.str.129)
   %18 = load ptr, ptr %5, align 8, !tbaa !258
-  %19 = call ptr @oid_to_hex(ptr noundef %0) #17
-  %20 = call ptr @type_name(i32 noundef %13) #17
-  call void (ptr, ...) @die(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20) #19
+  %19 = call ptr @oid_to_hex(ptr noundef %0) #18
+  %20 = call ptr @type_name(i32 noundef %13) #18
+  call void (ptr, ...) @die(ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20) #20
   unreachable
 
 21:                                               ; preds = %12, %14
-  call void @repo_clear(ptr noundef nonnull %3) #17
+  call void @repo_clear(ptr noundef nonnull %3) #18
   br label %22
 
 22:                                               ; preds = %21, %10
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3) #18
   ret i32 0
 }
 
@@ -5034,32 +5033,32 @@ declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @fetch_task_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #17
+  %6 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #18
   %7 = tail call i32 @validate_submodule_path(ptr noundef %1)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1544, i32 noundef 128) #17
-  tail call void @exit(i32 noundef %10) #19
+  %10 = tail call i32 @common_exit(ptr noundef nonnull @.str.9, i32 noundef 1544, i32 noundef 128) #18
+  tail call void @exit(i32 noundef %10) #20
   unreachable
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !198
-  %14 = tail call ptr @submodule_from_path(ptr noundef %13, ptr noundef %2, ptr noundef %1) #17
+  %14 = tail call ptr @submodule_from_path(ptr noundef %13, ptr noundef %2, ptr noundef %1) #18
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !216
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %25
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  %17 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %1) #17
-  %18 = call ptr @resolve_gitdir_gently(ptr noundef %17, ptr noundef nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
+  %17 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.19, ptr noundef %1) #18
+  %18 = call ptr @resolve_gitdir_gently(ptr noundef %17, ptr noundef nonnull %5) #18
   %.not.i.not.i.i = icmp eq ptr %18, null
-  call void @free(ptr noundef %17) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @free(ptr noundef %17) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
   %.not9.i = icmp eq ptr %1, null
   %.not.i = or i1 %.not9.i, %.not.i.not.i.i
   br i1 %.not.i, label %get_non_gitmodules_submodule.exit.thread, label %19
@@ -5069,7 +5068,7 @@ get_non_gitmodules_submodule.exit.thread:         ; preds = %16
   br label %64
 
 19:                                               ; preds = %16
-  %20 = call ptr @xcalloc(i64 noundef 1, i64 noundef 104) #17
+  %20 = call ptr @xcalloc(i64 noundef 1, i64 noundef 104) #18
   store ptr %1, ptr %20, align 8, !tbaa !160
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %1, ptr %21, align 8, !tbaa !46
@@ -5085,7 +5084,7 @@ get_non_gitmodules_submodule.exit.thread:         ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !46
-  %30 = call ptr @string_list_lookup(ptr noundef nonnull %27, ptr noundef %29) #17
+  %30 = call ptr @string_list_lookup(ptr noundef nonnull %27, ptr noundef %29) #18
   %.not28 = icmp eq ptr %30, null
   br i1 %.not28, label %31, label %64
 
@@ -5101,27 +5100,27 @@ get_non_gitmodules_submodule.exit.thread:         ; preds = %16
   br i1 %.not17.i, label %48, label %36
 
 36:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !260
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !46
-  %41 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.144, ptr noundef %40) #17
+  %41 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.144, ptr noundef %40) #18
   %42 = load ptr, ptr %12, align 8, !tbaa !198
-  %43 = call i32 @repo_config_get_string_tmp(ptr noundef %42, ptr noundef %41, ptr noundef nonnull %4) #17
+  %43 = call i32 @repo_config_get_string_tmp(ptr noundef %42, ptr noundef %41, ptr noundef nonnull %4) #18
   %.not18.i = icmp eq i32 %43, 0
   br i1 %.not18.i, label %44, label %47
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %4, align 8, !tbaa !60
-  %46 = call i32 @parse_fetch_recurse_submodules_arg(ptr noundef %41, ptr noundef %45) #17
+  %46 = call i32 @parse_fetch_recurse_submodules_arg(ptr noundef %41, ptr noundef %45) #18
   br label %47
 
 47:                                               ; preds = %44, %36
   %.013.i = phi i32 [ %38, %36 ], [ %46, %44 ]
-  call void @free(ptr noundef %41) #17
+  call void @free(ptr noundef %41) #18
   %.not19.not.i = icmp eq i32 %.013.i, -2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   br i1 %.not19.not.i, label %48, label %get_fetch_recurse_config.exit
 
 48:                                               ; preds = %47, %35
@@ -5145,7 +5144,7 @@ get_fetch_recurse_config.exit:                    ; preds = %31, %47, %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !46
-  %57 = call ptr @string_list_lookup(ptr noundef nonnull %54, ptr noundef %56) #17
+  %57 = call ptr @string_list_lookup(ptr noundef nonnull %54, ptr noundef %56) #18
   %.not30 = icmp eq ptr %57, null
   br i1 %.not30, label %64, label %58
 
@@ -5154,13 +5153,13 @@ get_fetch_recurse_config.exit:                    ; preds = %31, %47, %48
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.str.143.sink, ptr %59, align 8, !tbaa !227
   %60 = load ptr, ptr %12, align 8, !tbaa !198
-  %61 = call ptr @xmalloc(i64 noundef 464) #17
-  %62 = call i32 @repo_submodule_init(ptr noundef %61, ptr noundef %60, ptr noundef %1, ptr noundef %2) #17
+  %61 = call ptr @xmalloc(i64 noundef 464) #18
+  %62 = call i32 @repo_submodule_init(ptr noundef %61, ptr noundef %60, ptr noundef %1, ptr noundef %2) #18
   %.not.i32 = icmp eq i32 %62, 0
   br i1 %.not.i32, label %get_submodule_repo_for.exit, label %63
 
 63:                                               ; preds = %58
-  call void @free(ptr noundef %61) #17
+  call void @free(ptr noundef %61) #18
   br label %get_submodule_repo_for.exit
 
 get_submodule_repo_for.exit:                      ; preds = %58, %63
@@ -5177,7 +5176,7 @@ get_submodule_repo_for.exit:                      ; preds = %58, %63
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %15, align 8, !tbaa !216
-  call void @free(ptr noundef %69) #17
+  call void @free(ptr noundef %69) #18
   %.pre.i = load i8, ptr %65, align 8
   br label %70
 
@@ -5191,17 +5190,17 @@ get_submodule_repo_for.exit:                      ; preds = %58, %63
   br i1 %.not10.i, label %fetch_task_free.exit, label %74
 
 74:                                               ; preds = %70
-  call void @repo_clear(ptr noundef nonnull %73) #17
+  call void @repo_clear(ptr noundef nonnull %73) #18
   %.pre11.i = load ptr, ptr %6, align 8, !tbaa !212
   br label %fetch_task_free.exit
 
 fetch_task_free.exit:                             ; preds = %70, %74
   %75 = phi ptr [ null, %70 ], [ %.pre11.i, %74 ]
-  call void @free(ptr noundef %75) #17
+  call void @free(ptr noundef %75) #18
   store ptr null, ptr %6, align 8, !tbaa !212
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @strvec_clear(ptr noundef nonnull %76) #17
-  call void @free(ptr noundef nonnull %6) #17
+  call void @strvec_clear(ptr noundef nonnull %76) #18
+  call void @free(ptr noundef nonnull %6) #18
   br label %77
 
 77:                                               ; preds = %fetch_task_free.exit, %get_submodule_repo_for.exit
@@ -5219,7 +5218,7 @@ declare void @oid_array_filter(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @commit_missing_in_sub(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call i32 @oid_object_info(ptr noundef %1, ptr noundef %0, ptr noundef null) #17
+  %3 = tail call i32 @oid_object_info(ptr noundef %1, ptr noundef %0, ptr noundef null) #18
   %4 = icmp ne i32 %3, 1
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -5240,6 +5239,9 @@ declare void @relocate_gitdir(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -5257,10 +5259,11 @@ attributes #13 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-pro
 attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { cold nounwind }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

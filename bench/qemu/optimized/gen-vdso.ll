@@ -976,8 +976,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not.i130, label %.preheader175.i131, label %460
 
 .preheader175.i131:                               ; preds = %._crit_edge.i129
-  %436 = add i64 %360, 16
-  %.offs174.i132 = add i64 %360, 24
+  %436 = add nuw nsw i64 %360, 16
+  %.offs174.i132 = add nuw nsw i64 %360, 24
   br label %461
 
 437:                                              ; preds = %459, %.preheader176.i114
@@ -1041,16 +1041,16 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not205.i89, label %._crit_edge200.i148, label %.lr.ph199.i141
 
 .lr.ph199.i141:                                   ; preds = %.preheader.i138
-  %.offs171.i142 = add i64 %365, 16
+  %.offs171.i142 = add nuw nsw i64 %365, 16
   %wide.trip.count230.i143 = zext i16 %363 to i64
   br label %466
 
 461:                                              ; preds = %461, %.preheader175.i131
   %indvars.iv222.i134 = phi i64 [ 0, %.preheader175.i131 ], [ %indvars.iv.next223.i136, %461 ]
   %.idx172.i135 = mul nuw nsw i64 %indvars.iv222.i134, 56
-  %462 = add i64 %436, %.idx172.i135
+  %462 = add nuw nsw i64 %436, %.idx172.i135
   %463 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.38, i64 noundef %462) #11
-  %464 = add i64 %.offs174.i132, %.idx172.i135
+  %464 = add nuw nsw i64 %.offs174.i132, %.idx172.i135
   %465 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.38, i64 noundef %464) #11
   %indvars.iv.next223.i136 = add nuw nsw i64 %indvars.iv222.i134, 1
   %exitcond226.not.i137 = icmp eq i64 %indvars.iv.next223.i136, %369
@@ -1062,7 +1062,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 466:                                              ; preds = %466, %.lr.ph199.i141
   %indvars.iv227.i144 = phi i64 [ 0, %.lr.ph199.i141 ], [ %indvars.iv.next228.i146, %466 ]
   %.idx170.i145 = shl nuw nsw i64 %indvars.iv227.i144, 6
-  %467 = add i64 %.offs171.i142, %.idx170.i145
+  %467 = add nuw nsw i64 %.offs171.i142, %.idx170.i145
   %468 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.38, i64 noundef %467) #11
   %indvars.iv.next228.i146 = add nuw nsw i64 %indvars.iv227.i144, 1
   %exitcond231.not.i147 = icmp eq i64 %indvars.iv.next228.i146, %wide.trip.count230.i143
@@ -1198,13 +1198,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 .lr.ph203.i158:                                   ; preds = %508
   %515 = getelementptr inbounds nuw i8, ptr %510, i64 24
   %516 = load i64, ptr %515, align 8, !tbaa !79
-  %.offs.i159 = add i64 %516, 8
+  %.offs.i159 = add nuw nsw i64 %516, 8
   br label %517
 
 517:                                              ; preds = %517, %.lr.ph203.i158
   %indvars.iv232.i161 = phi i64 [ 0, %.lr.ph203.i158 ], [ %indvars.iv.next233.i163, %517 ]
   %.idx.i162 = mul nuw nsw i64 %indvars.iv232.i161, 24
-  %518 = add i64 %.offs.i159, %.idx.i162
+  %518 = add nuw nsw i64 %.offs.i159, %.idx.i162
   %519 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.38, i64 noundef %518) #11
   %indvars.iv.next233.i163 = add nuw nsw i64 %indvars.iv232.i161, 1
   %exitcond236.not.i164 = icmp eq i64 %indvars.iv.next233.i163, %514

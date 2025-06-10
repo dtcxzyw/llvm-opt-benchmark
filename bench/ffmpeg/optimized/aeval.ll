@@ -670,9 +670,8 @@ define internal double @val(ptr noundef readonly captures(none) %0, double nound
   %5 = fptosi double %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4, !tbaa !82
-  %.not = icmp sgt i32 %7, %5
   %8 = add nsw i32 %7, -1
-  %9 = select i1 %.not, i32 %5, i32 %8
+  %9 = tail call i32 @llvm.smin.i32(i32 %5, i32 %8)
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds double, ptr %4, i64 %10
   %12 = load double, ptr %11, align 8, !tbaa !59

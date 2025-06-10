@@ -3833,14 +3833,12 @@ define internal fastcc i64 @"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbb
   %79 = load i32, ptr %78, align 4, !tbaa !186
   %80 = add nsw i32 %79, -1
   %81 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.i19, i32 0)
-  %.not = icmp sgt i32 %79, %81
-  %.sroa.speculated30 = select i1 %.not, i32 %81, i32 %80
+  %.sroa.speculated30 = tail call i32 @llvm.smin.i32(i32 %81, i32 %80)
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %83 = load i32, ptr %82, align 8, !tbaa !189
   %84 = add nsw i32 %83, -1
   %85 = tail call i32 @llvm.smax.i32(i32 %.sroa.5.0.i18, i32 0)
-  %.not45 = icmp sgt i32 %83, %85
-  %.sroa.speculated = select i1 %.not45, i32 %85, i32 %84
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %85, i32 %84)
   br label %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit"
 
 "_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit": ; preds = %42, %34, %29, %21, %"_ZZN5ZXing6Pdf417L8DoDecodeERKNS_12BinaryBitmapEbbbENK3$_0clENS_6PointTIiEE.exit24"

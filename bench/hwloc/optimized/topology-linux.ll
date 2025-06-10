@@ -949,9 +949,8 @@ define range(i32 -1, 1) i32 @hwloc_linux_get_tid_cpubind(ptr noundef readonly ca
 
 hwloc__alloc_read_path_as_cpulist.exit.i:         ; preds = %17
   %20 = tail call i32 @hwloc_bitmap_last(ptr noundef nonnull %16) #31
-  %.not34.i = icmp sgt i32 %spec.store.select.i, %20
   %21 = add nsw i32 %20, 1
-  %spec.select.i = select i1 %.not34.i, i32 %spec.store.select.i, i32 %21
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 %21)
   br label %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i
 
 hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i: ; preds = %hwloc__alloc_read_path_as_cpulist.exit.i, %17
@@ -961,7 +960,7 @@ hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i: ; preds = %hwloc__al
 
 hwloc__alloc_read_path_as_cpulist.exit.thread.i:  ; preds = %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i, %15
   %.123.i = phi i32 [ %spec.store.select.i, %15 ], [ %.123.ph.i, %hwloc__alloc_read_path_as_cpulist.exit.thread.sink.split.i ]
-  %22 = sext i32 %.123.i to i64
+  %22 = zext nneg i32 %.123.i to i64
   %23 = tail call ptr @__sched_cpualloc(i64 noundef %22) #28
   %.not3542.i = icmp eq ptr %23, null
   br i1 %.not3542.i, label %hwloc_linux_find_kernel_nr_cpus.exit.thread, label %.lr.ph.i
