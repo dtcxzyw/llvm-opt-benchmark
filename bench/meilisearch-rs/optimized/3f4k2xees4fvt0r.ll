@@ -74590,9 +74590,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
           to label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$jsonwebtoken..validation..Audience$C$serde_json..error..Error$GT$$GT$17h166aeab434d394c5E.exit.i.i.i.i" unwind label %30, !noalias !14250
 
 39:                                               ; preds = %32
-  %.sroa.445.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.445.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !14246
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.13.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.445.0..sroa_idx.i.i.i.i, i64 40, i1 false), !noalias !14244
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !14244
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !14246
   br label %71
 
@@ -74844,9 +74842,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
           to label %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$jsonwebtoken..validation..Issuer$C$serde_json..error..Error$GT$$GT$17h4f0b5e0f06a0a242E.exit.i.i.i.i" unwind label %30, !noalias !14310
 
 39:                                               ; preds = %32
-  %.sroa.445.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.445.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !14306
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.13.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.445.0..sroa_idx.i.i.i.i, i64 40, i1 false), !noalias !14304
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !14304
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8), !noalias !14306
   br label %71
 

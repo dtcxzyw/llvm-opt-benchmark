@@ -19395,9 +19395,8 @@ _ZN3exr5block6reader12ChunksReader21parallel_decompressor17h15132c0d5f419b90E.ex
   br i1 %156, label %.thread, label %157
 
 .thread:                                          ; preds = %155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i.i, i64 32, i1 false), !noalias !4212
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15), !noalias !4216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.857.i, ptr noundef nonnull align 8 dereferenceable(72) %145, i64 72, i1 false), !noalias !4194
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.857.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i.i, i64 32, i1 false), !noalias !4194
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16), !noalias !4212
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17), !noalias !4212
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !4194
@@ -20266,9 +20265,8 @@ _ZN3exr5block6reader12ChunksReader21parallel_decompressor17ha09ee0bf42ed211bE.ex
   br i1 %156, label %.thread, label %157
 
 .thread:                                          ; preds = %155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i.i, i64 32, i1 false), !noalias !4386
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15), !noalias !4389
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.857.i, ptr noundef nonnull align 8 dereferenceable(72) %145, i64 72, i1 false), !noalias !4368
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.857.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i.i, i64 32, i1 false), !noalias !4368
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16), !noalias !4386
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17), !noalias !4386
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18), !noalias !4368
@@ -20760,9 +20758,8 @@ define hidden void @_ZN3exr5block6reader12ChunksReader21decompress_sequential17h
   br i1 %26, label %.thread62, label %27
 
 .thread62:                                        ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i, i64 32, i1 false), !noalias !4483
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7), !noalias !4485
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.857, ptr noundef nonnull align 8 dereferenceable(72) %14, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.857, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !4483
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9), !noalias !4483
   br label %35
@@ -20965,9 +20962,8 @@ define hidden void @_ZN3exr5block6reader12ChunksReader21decompress_sequential17h
   br i1 %26, label %.thread62, label %27
 
 .thread62:                                        ; preds = %25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i, i64 32, i1 false), !noalias !4520
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7), !noalias !4522
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.857, ptr noundef nonnull align 8 dereferenceable(72) %14, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.857, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.42.0..sroa_idx.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !4520
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9), !noalias !4520
   br label %35

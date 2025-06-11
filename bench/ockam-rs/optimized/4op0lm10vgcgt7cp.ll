@@ -1333,7 +1333,6 @@ define hidden void @"_ZN178_$LT$futures_util..future..try_future..try_flatten..T
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = alloca { i64, [5 x i64] }, align 8
-  %.sroa.0 = alloca [179 x i8], align 8
   %7 = alloca { i64, [5 x i64] }, align 8
   %.sroa.7 = alloca [5 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.7)
@@ -1384,12 +1383,11 @@ default.unreachable:                              ; preds = %9
 22:                                               ; preds = %32, %33
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(179) %1, ptr noundef nonnull align 8 dereferenceable(179) %.sroa.0, i64 179, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   store i8 3, ptr %8, align 1, !noalias !381
   br label %common.resume
 
 24:                                               ; preds = %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   %25 = load i8, ptr %8, align 1, !range !379, !noalias !381, !noundef !5
   %26 = add nsw i8 %25, -3
   %27 = icmp ult i8 %26, 2
@@ -1418,7 +1416,7 @@ common.resume:                                    ; preds = %.body, %.body25, %2
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3pin12Pin$LT$P$GT$3set17hc6f638d6114fbc33E.exit": ; preds = %31, %24, %32, %33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(179) %1, ptr noundef nonnull align 8 dereferenceable(179) %.sroa.0, i64 179, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   store i8 3, ptr %8, align 1, !noalias !381
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %9
