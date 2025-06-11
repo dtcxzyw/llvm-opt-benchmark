@@ -5470,14 +5470,14 @@ sub_0:
   %2 = load i8, ptr %.16.val, align 1
   switch i8 %2, label %.tail3.thread [
     i8 112, label %.tail
-    i8 114, label %.tail3
+    i8 114, label %.tail2
   ]
 
 .tail:                                            ; preds = %sub_0
   %3 = getelementptr inbounds nuw i8, ptr %.16.val, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %.tail3.thread
+  br i1 %5, label %6, label %.tail2.thread
 
 6:                                                ; preds = %.tail
   %7 = load volatile i8, ptr @is_paused, align 1, !tbaa !86, !range !37, !noundef !38
@@ -5488,13 +5488,13 @@ sub_0:
   store volatile i8 1, ptr @is_paused, align 1, !tbaa !86
   br label %26
 
-.tail3:                                           ; preds = %sub_0
+.tail2:                                           ; preds = %sub_0
   %10 = getelementptr inbounds nuw i8, ptr %.16.val, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %.tail3.thread
+  br i1 %12, label %13, label %.tail2.thread
 
-13:                                               ; preds = %.tail3
+13:                                               ; preds = %.tail2
   %14 = load volatile i8, ptr @is_paused, align 1, !tbaa !86, !range !37, !noundef !38
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %26
@@ -5503,13 +5503,13 @@ sub_0:
   store volatile i8 0, ptr @is_paused, align 1, !tbaa !86
   br label %26
 
-.tail3.thread:                                    ; preds = %sub_0, %.tail, %.tail3
+.tail2.thread:                                    ; preds = %sub_0, %.tail, %.tail2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
   store i64 0, ptr %1, align 8, !tbaa !40
   %17 = call zeroext i1 @safe_strtoll(ptr noundef nonnull %.16.val, ptr noundef nonnull %1) #13
   br i1 %17, label %.thread, label %25
 
-.thread:                                          ; preds = %.tail3.thread
+.thread:                                          ; preds = %.tail2.thread
   %18 = load i64, ptr %1, align 8, !tbaa !40
   %19 = load volatile i64, ptr @delta, align 8, !tbaa !40
   %20 = add nsw i64 %19, %18
@@ -5522,7 +5522,7 @@ sub_0:
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
   br label %26
 
-25:                                               ; preds = %.tail3.thread
+25:                                               ; preds = %.tail2.thread
   call void @out_string(ptr noundef %0, ptr noundef nonnull @.str.15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
   br label %27

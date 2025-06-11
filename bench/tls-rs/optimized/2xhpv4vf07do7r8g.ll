@@ -5673,14 +5673,14 @@ _ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE.exit: ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
   %.val.i.i = load ptr, ptr %36, align 8, !alias.scope !1433, !noalias !1434
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %12), !noalias !1438
-  %38 = getelementptr inbounds i8, ptr %5, i64 %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %12, ptr noundef nonnull readonly align 1 dereferenceable(16) %38, i64 16, i1 false), !alias.scope !1443, !noalias !1447
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %39, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
-  %40 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_AEAD_CTX_open_gather"(ptr noundef %.val.i.i, ptr noundef nonnull align 1 %5, ptr noundef null, i64 noundef 0, ptr noundef nonnull align 1 %5, i64 noundef %26, ptr noundef nonnull %12, i64 noundef 28, ptr noundef nonnull readonly align 1 %3, i64 noundef %4)
+  %40 = getelementptr inbounds i8, ptr %5, i64 %26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %12, ptr noundef nonnull readonly align 1 dereferenceable(16) %40, i64 16, i1 false), !alias.scope !1443, !noalias !1447
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false)
+  %42 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_AEAD_CTX_open_gather"(ptr noundef %.val.i.i, ptr noundef nonnull align 1 %5, ptr noundef null, i64 noundef 0, ptr noundef nonnull align 1 %5, i64 noundef %26, ptr noundef nonnull %12, i64 noundef 28, ptr noundef nonnull readonly align 1 %3, i64 noundef %4)
           to label %.noexc.i.i unwind label %41, !noalias !1449
 
-41:                                               ; preds = %37
+.noexc.i.i:                                       ; preds = %37
   %42 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE"(ptr noalias noundef nonnull align 1 dereferenceable(12) %14) #30
@@ -5717,7 +5717,7 @@ _ZN6rustls6crypto6cipher5Nonce3new17hcf7a0216ca69e30dE.exit: ; preds = %20
   br label %52
 
 52:                                               ; preds = %.loopexit48.i.i, %.loopexit.i.i
-  %.029.in.in.i.i = phi i32 [ %54, %.loopexit48.i.i ], [ %40, %.loopexit.i.i ]
+  %.029.in.in.i.i = phi i32 [ %54, %.loopexit48.i.i ], [ %42, %.loopexit.i.i ]
   %.029.in.not.i.i = icmp eq i32 %.029.in.in.i.i, 1
   br i1 %.029.in.not.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.exit", label %80
 

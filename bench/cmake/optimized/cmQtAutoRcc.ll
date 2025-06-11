@@ -3690,12 +3690,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125.i: ; preds = %
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.i:                    ; preds = %.noexc104.i, %.lr.ph.i101.i
-  %lpad.loopexit236.i = landingpad { ptr, i32 }
+  %lpad.loopexit235.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.i:  ; preds = %.noexc83.i, %.lr.ph.i.i
-  %lpad.loopexit239.i = landingpad { ptr, i32 }
+  %lpad.loopexit238.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i
 
@@ -3711,7 +3711,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125.i: ; preds = %
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %232, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %233, %232 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit236.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit239.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn.i = phi { ptr, i32 } [ %233, %232 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit235.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit238.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZN12cmCryptoHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %94) #21
   br label %common.resume
@@ -4143,18 +4143,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178.i: ; preds = %
 
 392:                                              ; preds = %386
   %393 = icmp eq i64 %388, 0
-  %.pre241.i = load ptr, ptr %105, align 8, !tbaa !36
+  %.pre240.i = load ptr, ptr %105, align 8, !tbaa !36
   br i1 %393, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i, label %394
 
 394:                                              ; preds = %392
   %395 = load ptr, ptr %151, align 8, !tbaa !36
-  %bcmp.i.i.i = call i32 @bcmp(ptr %395, ptr %.pre241.i, i64 %388)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %395, ptr %.pre240.i, i64 %388)
   %396 = icmp ne i32 %bcmp.i.i.i, 0
   %397 = zext i1 %396 to i8
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i: ; preds = %394, %392, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge.i
-  %398 = phi ptr [ %.pre.i, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge.i ], [ %.pre241.i, %394 ], [ %.pre241.i, %392 ]
+  %398 = phi ptr [ %.pre.i, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge.i ], [ %.pre240.i, %394 ], [ %.pre240.i, %392 ]
   %399 = phi i8 [ 1, %._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge.i ], [ %397, %394 ], [ 0, %392 ]
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 952
   store i8 %399, ptr %400, align 8, !tbaa !38
@@ -4171,11 +4171,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   %404 = load i64, ptr %401, align 8, !tbaa !35
   %405 = add i64 %404, 1
   call void @_ZdlPvm(ptr noundef %398, i64 noundef %405) #22
-  %.pre242.i = load i8, ptr %400, align 8, !tbaa !38, !range !47
+  %.pre241.i = load i8, ptr %400, align 8, !tbaa !38, !range !47
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i182.i
-  %406 = phi i8 [ %399, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i182.i ], [ %.pre242.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181.i ]
+  %406 = phi i8 [ %399, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i182.i ], [ %.pre241.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i181.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %105) #21
   %407 = trunc nuw i8 %406 to i1
   br i1 %407, label %._crit_edge.i.i.i, label %507

@@ -17997,76 +17997,76 @@ define internal fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceB
     i64 -9223372036854775801, label %17
   ]
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder26infer_nested_match_pattern17heff6dc522ab70fe2E(ptr noalias noundef align 8 dereferenceable(392) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %1)
   br label %.loopexit
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !59, !align !61, !noundef !59
-  call void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_standalone_expression17hb4426abab54df70cE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 %9)
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !59, !align !61, !noundef !59
+  call void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_standalone_expression17hb4426abab54df70cE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %.loopexit
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !nonnull !59, !noundef !59
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !noundef !59
-  %15 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %12, i64 %14
-  %16 = icmp eq i64 %14, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph13
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8, !nonnull !59, !noundef !59
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = load i64, ptr %14, align 8, !noundef !59
+  %16 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %13, i64 %15
+  %17 = icmp eq i64 %15, 0
+  br i1 %17, label %._crit_edge, label %.lr.ph13
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load ptr, ptr %18, align 8, !nonnull !59, !noundef !59
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i64, ptr %20, align 8, !noundef !59
-  %22 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %19, i64 %21
-  %23 = icmp eq i64 %21, 0
-  br i1 %23, label %.loopexit, label %.lr.ph
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load ptr, ptr %19, align 8, !nonnull !59, !noundef !59
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %22 = load i64, ptr %21, align 8, !noundef !59
+  %23 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %20, i64 %22
+  %24 = icmp eq i64 %22, 0
+  br i1 %24, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %._crit_edge17, %7, %6
+.loopexit:                                        ; preds = %.lr.ph, %18, %._crit_edge17, %8, %7
   ret void
 
-.lr.ph13:                                         ; preds = %10, %.lr.ph13
-  %.sroa.05.012 = phi ptr [ %24, %.lr.ph13 ], [ %12, %10 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 88
+.lr.ph13:                                         ; preds = %11, %.lr.ph13
+  %.sroa.05.012 = phi ptr [ %25, %.lr.ph13 ], [ %13, %10 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 88
   tail call fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder26infer_nested_match_pattern17heff6dc522ab70fe2E(ptr noalias noundef align 8 dereferenceable(392) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %.sroa.05.012)
-  %25 = icmp eq ptr %24, %15
-  br i1 %25, label %._crit_edge, label %.lr.ph13
+  %26 = icmp eq ptr %25, %16
+  br i1 %26, label %._crit_edge, label %.lr.ph13
 
-._crit_edge:                                      ; preds = %.lr.ph13, %10
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !nonnull !59, !noundef !59
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %29 = load i64, ptr %28, align 8, !noundef !59
-  %30 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %27, i64 %29
-  %31 = icmp eq i64 %29, 0
-  br i1 %31, label %._crit_edge17, label %.lr.ph16
+._crit_edge:                                      ; preds = %.lr.ph13, %11
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %28 = load ptr, ptr %27, align 8, !nonnull !59, !noundef !59
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %30 = load i64, ptr %29, align 8, !noundef !59
+  %31 = getelementptr inbounds nuw { { i64, [10 x i64] }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } }, { i32, i32 } }, ptr %28, i64 %30
+  %32 = icmp eq i64 %30, 0
+  br i1 %32, label %._crit_edge17, label %.lr.ph16
 
 .lr.ph16:                                         ; preds = %._crit_edge, %.lr.ph16
-  %.sroa.06.014 = phi ptr [ %.sroa.06.1, %.lr.ph16 ], [ %27, %._crit_edge ]
+  %.sroa.06.014 = phi ptr [ %.sroa.06.1, %.lr.ph16 ], [ %28, %._crit_edge ]
   %.sroa.06.1 = getelementptr inbounds nuw i8, ptr %.sroa.06.014, i64 128
   tail call fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder26infer_nested_match_pattern17heff6dc522ab70fe2E(ptr noalias noundef align 8 dereferenceable(392) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %.sroa.06.014)
-  %32 = icmp eq ptr %.sroa.06.1, %30
-  br i1 %32, label %._crit_edge17, label %.lr.ph16
+  %33 = icmp eq ptr %.sroa.06.1, %31
+  br i1 %33, label %._crit_edge17, label %.lr.ph16
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %34 = load ptr, ptr %33, align 8, !nonnull !59, !align !61, !noundef !59
-  call void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_standalone_expression17hb4426abab54df70cE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 %34)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %35 = load ptr, ptr %34, align 8, !nonnull !59, !align !61, !noundef !59
+  call void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder27infer_standalone_expression17hb4426abab54df70cE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 8 %35)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %17, %.lr.ph
-  %.sroa.07.011 = phi ptr [ %.sroa.07.1, %.lr.ph ], [ %19, %17 ]
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.sroa.07.011 = phi ptr [ %.sroa.07.1, %.lr.ph ], [ %20, %17 ]
   %.sroa.07.1 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 88
   tail call fastcc void @_ZN18ty_python_semantic5types5infer20TypeInferenceBuilder19infer_match_pattern17ha01742c303296a37E(ptr noalias noundef align 8 dereferenceable(392) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %.sroa.07.011)
-  %35 = icmp eq ptr %.sroa.07.1, %22
-  br i1 %35, label %.loopexit, label %.lr.ph
+  %36 = icmp eq ptr %.sroa.07.1, %23
+  br i1 %36, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

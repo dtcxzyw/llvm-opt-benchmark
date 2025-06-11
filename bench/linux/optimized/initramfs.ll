@@ -910,7 +910,7 @@ define internal noundef i32 @do_name() #1 section ".init.text" align 16 {
 
 5:                                                ; preds = %0
   tail call fastcc void @free_hash() #23
-  br label %67
+  br label %68
 
 6:                                                ; preds = %0
   %7 = load i16, ptr @mode, align 2
@@ -921,96 +921,96 @@ define internal noundef i32 @do_name() #1 section ".init.text" align 16 {
     i16 8, label %10
     i16 4, label %34
     i16 6, label %46
-    i16 2, label %46
-    i16 1, label %46
-    i16 12, label %46
+    i16 2, label %47
+    i16 1, label %47
+    i16 12, label %47
   ]
 
-10:                                               ; preds = %6
-  %11 = tail call fastcc i32 @maybe_link() #23
-  %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %67
+11:                                               ; preds = %6
+  %12 = tail call fastcc i32 @maybe_link() #23
+  %13 = icmp sgt i32 %12, -1
+  br i1 %13, label %14, label %68
 
-13:                                               ; preds = %10
-  %14 = icmp eq i32 %11, 1
-  %15 = select i1 %14, i32 65, i32 577
-  %16 = load ptr, ptr @collected, align 8
-  %17 = load i16, ptr @mode, align 2
-  %18 = tail call ptr @filp_open(ptr noundef %16, i32 noundef %15, i16 noundef zeroext %17) #21
-  store ptr %18, ptr @wfile, align 8
-  %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %67, label %20
+14:                                               ; preds = %11
+  %15 = icmp eq i32 %12, 1
+  %16 = select i1 %15, i32 65, i32 577
+  %17 = load ptr, ptr @collected, align 8
+  %18 = load i16, ptr @mode, align 2
+  %19 = tail call ptr @filp_open(ptr noundef %17, i32 noundef %16, i16 noundef zeroext %18) #21
+  store ptr %19, ptr @wfile, align 8
+  %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
+  br i1 %20, label %68, label %21
 
-20:                                               ; preds = %13
+21:                                               ; preds = %14
   store i64 0, ptr @wfile_pos, align 8
   store i32 0, ptr @io_csum, align 4
-  %21 = load i32, ptr @uid, align 4
-  %22 = load i32, ptr @gid, align 4
-  %23 = tail call i32 @vfs_fchown(ptr noundef %18, i32 noundef %21, i32 noundef %22) #21
-  %24 = load ptr, ptr @wfile, align 8
-  %25 = load i16, ptr @mode, align 2
-  %26 = tail call i32 @vfs_fchmod(ptr noundef %24, i16 noundef zeroext %25) #21
-  %27 = load i64, ptr @body_len, align 8
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %33, label %29
+  %22 = load i32, ptr @uid, align 4
+  %23 = load i32, ptr @gid, align 4
+  %24 = tail call i32 @vfs_fchown(ptr noundef %19, i32 noundef %22, i32 noundef %23) #21
+  %25 = load ptr, ptr @wfile, align 8
+  %26 = load i16, ptr @mode, align 2
+  %27 = tail call i32 @vfs_fchmod(ptr noundef %25, i16 noundef zeroext %26) #21
+  %28 = load i64, ptr @body_len, align 8
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %34, label %30
 
-29:                                               ; preds = %20
-  %30 = load ptr, ptr @wfile, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 152
-  %32 = tail call i64 @vfs_truncate(ptr noundef nonnull %31, i64 noundef %27) #21
-  br label %33
+30:                                               ; preds = %21
+  %31 = load ptr, ptr @wfile, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 152
+  %33 = tail call i64 @vfs_truncate(ptr noundef nonnull %32, i64 noundef %28) #21
+  br label %34
 
-33:                                               ; preds = %29, %20
+34:                                               ; preds = %30, %21
   store i32 5, ptr @state, align 4
-  br label %67
+  br label %68
 
-34:                                               ; preds = %6
-  %35 = load ptr, ptr @collected, align 8
-  %36 = tail call i32 @init_mkdir(ptr noundef %35, i16 noundef zeroext %8) #22
-  %37 = load ptr, ptr @collected, align 8
-  %38 = load i32, ptr @uid, align 4
-  %39 = load i32, ptr @gid, align 4
-  %40 = tail call i32 @init_chown(ptr noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef 0) #22
-  %41 = load ptr, ptr @collected, align 8
-  %42 = load i16, ptr @mode, align 2
-  %43 = tail call i32 @init_chmod(ptr noundef %41, i16 noundef zeroext %42) #22
-  %44 = load ptr, ptr @collected, align 8
-  %45 = load i64, ptr @mtime, align 8
-  tail call fastcc void @dir_add(ptr noundef %44, i64 noundef %45) #23
-  br label %67
+35:                                               ; preds = %6
+  %36 = load ptr, ptr @collected, align 8
+  %37 = tail call i32 @init_mkdir(ptr noundef %36, i16 noundef zeroext %8) #22
+  %38 = load ptr, ptr @collected, align 8
+  %39 = load i32, ptr @uid, align 4
+  %40 = load i32, ptr @gid, align 4
+  %41 = tail call i32 @init_chown(ptr noundef %38, i32 noundef %39, i32 noundef %40, i32 noundef 0) #22
+  %42 = load ptr, ptr @collected, align 8
+  %43 = load i16, ptr @mode, align 2
+  %44 = tail call i32 @init_chmod(ptr noundef %42, i16 noundef zeroext %43) #22
+  %45 = load ptr, ptr @collected, align 8
+  %46 = load i64, ptr @mtime, align 8
+  tail call fastcc void @dir_add(ptr noundef %45, i64 noundef %46) #23
+  br label %68
 
-46:                                               ; preds = %6, %6, %6, %6
-  %47 = tail call fastcc i32 @maybe_link() #23
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %67
+47:                                               ; preds = %6, %6, %6, %6
+  %48 = tail call fastcc i32 @maybe_link() #23
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %68
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr @collected, align 8
-  %51 = load i16, ptr @mode, align 2
-  %52 = load i32, ptr @rdev, align 4
-  %53 = tail call i32 @init_mknod(ptr noundef %50, i16 noundef zeroext %51, i32 noundef %52) #22
-  %54 = load ptr, ptr @collected, align 8
-  %55 = load i32, ptr @uid, align 4
-  %56 = load i32, ptr @gid, align 4
-  %57 = tail call i32 @init_chown(ptr noundef %54, i32 noundef %55, i32 noundef %56, i32 noundef 0) #22
-  %58 = load ptr, ptr @collected, align 8
-  %59 = load i16, ptr @mode, align 2
-  %60 = tail call i32 @init_chmod(ptr noundef %58, i16 noundef zeroext %59) #22
-  %61 = load ptr, ptr @collected, align 8
-  %62 = load i64, ptr @mtime, align 8
+50:                                               ; preds = %47
+  %51 = load ptr, ptr @collected, align 8
+  %52 = load i16, ptr @mode, align 2
+  %53 = load i32, ptr @rdev, align 4
+  %54 = tail call i32 @init_mknod(ptr noundef %51, i16 noundef zeroext %52, i32 noundef %53) #22
+  %55 = load ptr, ptr @collected, align 8
+  %56 = load i32, ptr @uid, align 4
+  %57 = load i32, ptr @gid, align 4
+  %58 = tail call i32 @init_chown(ptr noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef 0) #22
+  %59 = load ptr, ptr @collected, align 8
+  %60 = load i16, ptr @mode, align 2
+  %61 = tail call i32 @init_chmod(ptr noundef %59, i16 noundef zeroext %60) #22
+  %62 = load ptr, ptr @collected, align 8
+  %63 = load i64, ptr @mtime, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #21
-  store i64 %62, ptr %1, align 16
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %62, ptr %64, align 16
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %65, align 8
-  %66 = call i32 @init_utimes(ptr noundef %61, ptr noundef nonnull %1) #22
+  store i64 %63, ptr %1, align 16
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 0, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %63, ptr %65, align 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 0, ptr %66, align 8
+  %67 = call i32 @init_utimes(ptr noundef %62, ptr noundef nonnull %1) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #21
-  br label %67
+  br label %68
 
-67:                                               ; preds = %49, %46, %34, %33, %13, %10, %6, %5
+68:                                               ; preds = %50, %47, %35, %34, %14, %11, %6, %5
   ret i32 0
 }
 

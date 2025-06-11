@@ -22234,7 +22234,7 @@ default.unreachable7:                             ; preds = %3
 10:                                               ; preds = %3
   br label %12
 
-11:                                               ; preds = %17, %19, %5
+11:                                               ; preds = %18, %20, %5
   %storemerge6 = phi i64 [ 0, %5 ], [ 0, %19 ], [ 1, %17 ]
   store i64 %storemerge6, ptr %0, align 8
   ret void
@@ -22248,20 +22248,20 @@ default.unreachable7:                             ; preds = %3
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.05, i64 %.0)
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = icmp slt i64 %.0, 0
-  %switch = xor i1 %16, %15
-  br i1 %switch, label %17, label %19
+  %17 = xor i1 %16, %15
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.225.llvm.98706352026558795, ptr %18, align 8
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.225.llvm.98706352026558795, ptr %19, align 8
   br label %11
 
-19:                                               ; preds = %12
-  %20 = extractvalue { i64, i1 } %14, 0
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %22, align 8
+20:                                               ; preds = %12
+  %21 = extractvalue { i64, i1 } %14, 0
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %21, ptr %23, align 8
   br label %11
 }
 
@@ -22289,7 +22289,7 @@ default.unreachable7:                             ; preds = %3
 10:                                               ; preds = %3
   br label %12
 
-11:                                               ; preds = %17, %19, %5
+11:                                               ; preds = %18, %20, %5
   %storemerge6 = phi i64 [ 0, %5 ], [ 0, %19 ], [ 1, %17 ]
   store i64 %storemerge6, ptr %0, align 8
   ret void
@@ -22303,20 +22303,20 @@ default.unreachable7:                             ; preds = %3
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.05, i64 %.0)
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = icmp slt i64 %.0, 0
-  %switch = xor i1 %16, %15
-  br i1 %switch, label %17, label %19
+  %17 = xor i1 %16, %15
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.225.llvm.98706352026558795, ptr %18, align 8
+18:                                               ; preds = %12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @anon.1fb7ff8ae5a2b866dafd4482df872917.225.llvm.98706352026558795, ptr %19, align 8
   br label %11
 
-19:                                               ; preds = %12
-  %20 = extractvalue { i64, i1 } %14, 0
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %22, align 8
+20:                                               ; preds = %12
+  %21 = extractvalue { i64, i1 } %14, 0
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %21, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %21, ptr %23, align 8
   br label %11
 }
 
@@ -23396,8 +23396,8 @@ define { i16, i16 } @_ZN5image6codecs3gif6Repeat11to_gif_enum17hec37d9fa9a5d5aab
 define i48 @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$14gif_dimensions16inner_dimensions17hd3657403bd0340d1E"(i32 noundef %0, i32 noundef %1) unnamed_addr #17 {
   %3 = or i32 %0, %1
   %4 = icmp ult i32 %3, 65536
-  %narrow18 = select i1 %4, i32 %1, i32 0
-  %.sroa.5.0.insert.ext = zext nneg i32 %narrow18 to i48
+  %narrow19 = select i1 %4, i32 %1, i32 0
+  %.sroa.5.0.insert.ext = zext nneg i32 %narrow19 to i48
   %.sroa.5.0.insert.shift = shl nuw i48 %.sroa.5.0.insert.ext, 32
   %5 = tail call i32 @llvm.umin.i32(i32 %0, i32 65536)
   %6 = shl i32 %5, 16

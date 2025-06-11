@@ -17981,7 +17981,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePa
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %6, ptr noundef %2)
   %9 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.thread7
 
 10:                                               ; preds = %5
   %11 = call { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -17990,12 +17990,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePa
   %14 = trunc nuw i8 %13 to i1
   %.not.i.i = icmp ne ptr %12, null
   %or.cond.not = select i1 %14, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not, label %15, label %.thread
+  br i1 %or.cond.not, label %15, label %.thread7
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %12, align 8, !tbaa !375
   %17 = icmp eq i32 %16, 5
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.thread7
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -18004,7 +18004,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer16unionOfTypePa
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2)
   %21 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  br i1 %21, label %.lr.ph, label %.thread
+  br i1 %21, label %.lr.ph, label %.thread7
 
 .lr.ph:                                           ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
@@ -18098,9 +18098,9 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %34, %_ZNSt6
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2)
   %56 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  br i1 %56, label %24, label %.thread, !llvm.loop !380
+  br i1 %56, label %24, label %.thread7, !llvm.loop !380
 
-.thread:                                          ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit, %18, %5, %10, %15
+.thread7:                                         ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit, %18, %5, %10, %15
   %.2 = phi i1 [ false, %15 ], [ false, %10 ], [ true, %5 ], [ true, %18 ], [ true, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
   ret i1 %.2
 }
@@ -27632,7 +27632,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionO
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %6, ptr noundef %2)
   %9 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #32
-  br i1 %9, label %10, label %.thread
+  br i1 %9, label %10, label %.thread7
 
 10:                                               ; preds = %5
   %11 = call { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -27641,12 +27641,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionO
   %14 = trunc nuw i8 %13 to i1
   %.not.i.i = icmp ne ptr %12, null
   %or.cond.not = select i1 %14, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not, label %15, label %.thread
+  br i1 %or.cond.not, label %15, label %.thread7
 
 15:                                               ; preds = %10
   %16 = load i32, ptr %12, align 8, !tbaa !375
   %17 = icmp eq i32 %16, 5
-  br i1 %17, label %18, label %.thread
+  br i1 %17, label %18, label %.thread7
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -27655,7 +27655,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4Luau10Normalizer23intersectionO
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2)
   %21 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  br i1 %21, label %.lr.ph, label %.thread
+  br i1 %21, label %.lr.ph, label %.thread7
 
 .lr.ph:                                           ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
@@ -27749,9 +27749,9 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit: ; preds = %34, %_ZNSt6
   call void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePackIterator") align 8 %7, ptr noundef %2)
   %56 = call noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #32
-  br i1 %56, label %24, label %.thread, !llvm.loop !450
+  br i1 %56, label %24, label %.thread7, !llvm.loop !450
 
-.thread:                                          ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit, %18, %5, %10, %15
+.thread7:                                         ; preds = %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit, %18, %5, %10, %15
   %.2 = phi i1 [ false, %15 ], [ false, %10 ], [ true, %5 ], [ true, %18 ], [ true, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backERKS3_.exit ]
   ret i1 %.2
 }

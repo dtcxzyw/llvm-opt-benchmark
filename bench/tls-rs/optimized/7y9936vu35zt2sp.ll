@@ -10997,14 +10997,14 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %13, ptr noundef nonnull align 1 dereferenceable(12) %2, i64 12, i1 false)
   %.val.i.i = load ptr, ptr %37, align 8, !alias.scope !3393, !noalias !3394
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11), !noalias !3398
-  %39 = getelementptr inbounds i8, ptr %25, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, ptr noundef nonnull readonly align 1 dereferenceable(16) %39, i64 16, i1 false), !alias.scope !3403, !noalias !3407
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %40, ptr noundef nonnull align 1 dereferenceable(12) %2, i64 12, i1 false)
-  %41 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_AEAD_CTX_open_gather"(ptr noundef %.val.i.i, ptr noundef nonnull align 1 %25, ptr noundef null, i64 noundef 0, ptr noundef nonnull align 1 %25, i64 noundef %27, ptr noundef nonnull %11, i64 noundef 28, ptr noundef nonnull readonly align 1 %5, i64 noundef 0)
+  %41 = getelementptr inbounds i8, ptr %25, i64 %27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, ptr noundef nonnull readonly align 1 dereferenceable(16) %41, i64 16, i1 false), !alias.scope !3403, !noalias !3407
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %42, ptr noundef nonnull align 1 dereferenceable(12) %2, i64 12, i1 false)
+  %43 = invoke noundef i32 @"\01aws_lc_0_13_2_EVP_AEAD_CTX_open_gather"(ptr noundef %.val.i.i, ptr noundef nonnull align 1 %25, ptr noundef null, i64 noundef 0, ptr noundef nonnull align 1 %25, i64 noundef %27, ptr noundef nonnull %11, i64 noundef 28, ptr noundef nonnull readonly align 1 %5, i64 noundef 0)
           to label %.noexc.i.i unwind label %42, !noalias !3409
 
-42:                                               ; preds = %38
+.noexc.i.i:                                       ; preds = %38
   %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE"(ptr noalias noundef nonnull align 1 dereferenceable(12) %13) #49
@@ -11047,7 +11047,7 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   br label %53
 
 53:                                               ; preds = %.loopexit48.i.i, %.loopexit.i.i
-  %.029.in.in.i.i = phi i32 [ %55, %.loopexit48.i.i ], [ %41, %.loopexit.i.i ]
+  %.029.in.in.i.i = phi i32 [ %55, %.loopexit48.i.i ], [ %43, %.loopexit.i.i ]
   %.029.in.not.i.i = icmp eq i32 %.029.in.in.i.i, 1
   br i1 %.029.in.not.i.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.403688954652204928.exit.i.i", label %.noexc49
 
@@ -11139,12 +11139,12 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %lpad.loopexit64 = landingpad { ptr, i32 }
+  %lpad.loopexit61 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %.lr.ph.i.i.i.i.i.i43.i.i
-  %lpad.loopexit67 = landingpad { ptr, i32 }
+  %lpad.loopexit64 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -11154,7 +11154,7 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %42, %56
-  %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %43, %42 ], [ %57, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit61, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #49
           to label %.thread53 unwind label %91
 
@@ -11213,9 +11213,9 @@ define void @"_ZN114_$LT$rustls..crypto..aws_lc_rs..ticketer..AeadTicketer$u20$a
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #48
   unreachable
 
-.thread53:                                        ; preds = %.body, %93
-  %.pn56 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %eh.lpad-body, %.body ]
-  resume { ptr, i32 } %.pn56
+.thread:                                          ; preds = %.body, %93
+  %.pn53 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %93 ], [ %eh.lpad-body, %.body ]
+  resume { ptr, i32 } %.pn53
 
 93:                                               ; preds = %19
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }

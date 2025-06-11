@@ -247,13 +247,13 @@ declare void @_ZN6hermes2vm17sampling_profiler7Sampler25platformUnregisterRuntim
 define hidden noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler12sampleStacksEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %__begin2.sroa.0.015 = load ptr, ptr %_M_before_begin.i.i.i, align 8
-  %cmp.i.not16 = icmp eq ptr %__begin2.sroa.0.015, null
-  br i1 %cmp.i.not16, label %return, label %for.body
+  %__begin2.sroa.0.014 = load ptr, ptr %_M_before_begin.i.i.i, align 8
+  %cmp.i.not15 = icmp eq ptr %__begin2.sroa.0.014, null
+  br i1 %cmp.i.not15, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.sroa.0.017 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.015, %entry ]
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 8
+  %__begin2.sroa.0.016 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.014, %entry ]
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.016, i64 8
   %0 = load ptr, ptr %add.ptr.i, align 8
   %runtimeDataLock_ = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #15
@@ -274,14 +274,14 @@ cleanup:                                          ; preds = %_ZNSt10lock_guardIS
 
 for.inc:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   tail call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformPostSampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %0) #15
-  %call1.i.i.i47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #15
-  %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.017, align 8
+  %call1.i.i.i48 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_) #15
+  %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.016, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
   br i1 %cmp.i.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %entry, %cleanup
-  %cmp.i.not12 = phi i1 [ false, %cleanup ], [ true, %entry ], [ true, %for.inc ]
-  ret i1 %cmp.i.not12
+  %cmp.i.not11 = phi i1 [ false, %cleanup ], [ true, %entry ], [ true, %for.inc ]
+  ret i1 %cmp.i.not11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -584,13 +584,13 @@ if.then.i.i.i:                                    ; preds = %_ZNSt23mersenne_twi
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %"_ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000EEZN6hermes2vm17sampling_profiler7Sampler9timerLoopEvE3$_0EEbRSt11unique_lockISt5mutexERKNSt6chrono8durationIT_T0_EET1_.exit"
-  %__begin2.sroa.0.015.i = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
-  %cmp.i.not16.i = icmp eq ptr %__begin2.sroa.0.015.i, null
-  br i1 %cmp.i.not16.i, label %if.end, label %for.body.i
+  %__begin2.sroa.0.014.i = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
+  %cmp.i.not15.i = icmp eq ptr %__begin2.sroa.0.014.i, null
+  br i1 %cmp.i.not15.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %while.body, %for.inc.i
-  %__begin2.sroa.0.017.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.015.i, %while.body ]
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017.i, i64 8
+  %__begin2.sroa.0.016.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.014.i, %while.body ]
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.016.i, i64 8
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   %runtimeDataLock_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %call1.i.i.i.i1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_.i) #15
@@ -607,8 +607,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
   call void @_ZN6hermes2vm17sampling_profiler7Sampler23platformPostSampleStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %2) #15
-  %call1.i.i.i47.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_.i) #15
-  %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.017.i, align 8
+  %call1.i.i.i48.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %runtimeDataLock_.i) #15
+  %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.016.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i
 

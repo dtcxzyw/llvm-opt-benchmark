@@ -8202,82 +8202,82 @@ define noundef zeroext i1 @_ZN9uv_client5error5Error34is_http_range_requests_uns
     i64 -9223372036854775791, label %11
   ]
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !range !64, !noundef !4
-  %trunc = trunc nuw i64 %6 to i1
-  br i1 %trunc, label %15, label %25
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = load i64, ptr %6, align 8, !range !64, !noundef !4
+  %trunc = trunc nuw i64 %7 to i1
+  br i1 %trunc, label %16, label %26
 
 switch.lookup:                                    ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %8 = load i64, ptr %7, align 8, !range !1398, !noundef !4
-  %9 = xor i64 %8, -9223372036854775808
-  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 7)
-  %switch.cast = trunc nuw nsw i64 %10 to i8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %9 = load i64, ptr %8, align 8, !range !1398, !noundef !4
+  %10 = xor i64 %9, -9223372036854775808
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 7)
+  %switch.cast = trunc nuw nsw i64 %11 to i8
   %switch.downshift = lshr i8 49, %switch.cast
   %switch.masked = trunc i8 %switch.downshift to i1
-  br label %25
+  br label %26
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load i8, ptr %12, align 8, !range !232, !noundef !4
-  %14 = icmp eq i8 %13, 13
-  br i1 %14, label %26, label %25
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %14 = load i8, ptr %13, align 8, !range !232, !noundef !4
+  %15 = icmp eq i8 %14, 13
+  br i1 %15, label %27, label %26
 
-15:                                               ; preds = %4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %19 = load i16, ptr %18, align 8, !range !1742, !noundef !4
-  %20 = icmp eq i16 %19, 3
-  br i1 %20, label %21, label %25
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %20 = load i16, ptr %19, align 8, !range !1742, !noundef !4
+  %21 = icmp eq i16 %20, 3
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 106
-  %23 = load i16, ptr %22, align 2, !range !1743, !noundef !4
-  %switch.tableidx = add i16 %23, -400
-  %24 = icmp ult i16 %switch.tableidx, 6
-  br i1 %24, label %switch.lookup13, label %25
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 106
+  %24 = load i16, ptr %23, align 2, !range !1743, !noundef !4
+  %switch.tableidx = add i16 %24, -400
+  %25 = icmp ult i16 %switch.tableidx, 6
+  br i1 %25, label %switch.lookup13, label %26
 
-switch.lookup13:                                  ; preds = %21
+switch.lookup13:                                  ; preds = %22
   %switch.cast14 = trunc nuw i16 %switch.tableidx to i6
   %switch.downshift16 = lshr i6 -7, %switch.cast14
   %switch.masked17 = trunc i6 %switch.downshift16 to i1
-  br label %25
+  br label %26
 
-25:                                               ; preds = %21, %switch.lookup13, %switch.lookup, %26, %43, %31, %15, %4, %1, %11
-  %.sroa.0.0 = phi i1 [ false, %11 ], [ false, %1 ], [ false, %4 ], [ false, %15 ], [ false, %31 ], [ %45, %43 ], [ false, %26 ], [ %switch.masked, %switch.lookup ], [ %switch.masked17, %switch.lookup13 ], [ false, %21 ]
+26:                                               ; preds = %22, %switch.lookup13, %switch.lookup, %27, %44, %32, %16, %5, %1, %12
+  %.sroa.0.0 = phi i1 [ false, %11 ], [ false, %1 ], [ false, %4 ], [ false, %15 ], [ false, %31 ], [ %46, %43 ], [ false, %26 ], [ %switch.masked, %switch.lookup ], [ %switch.masked17, %switch.lookup13 ], [ false, %21 ]
   ret i1 %.sroa.0.0
 
-26:                                               ; preds = %11
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
-  %29 = ptrtoint ptr %28 to i64
-  %30 = and i64 %29, 3
-  %switch = icmp eq i64 %30, 1
-  br i1 %switch, label %31, label %25
+27:                                               ; preds = %12
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %29 = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
+  %30 = ptrtoint ptr %29 to i64
+  %31 = and i64 %30, 3
+  %switch = icmp eq i64 %31, 1
+  br i1 %switch, label %32, label %26
 
-31:                                               ; preds = %26
-  %32 = getelementptr i8, ptr %28, i64 -1
-  %33 = icmp ne ptr %32, null
-  tail call void @llvm.assume(i1 %33)
-  %34 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
-  %35 = getelementptr i8, ptr %28, i64 7
-  %36 = load ptr, ptr %35, align 8, !nonnull !4, !align !53, !noundef !4
-  %37 = getelementptr i8, ptr %36, i64 56
-  %.val = load ptr, ptr %37, align 8
-  %38 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %34)
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  %41 = icmp eq i64 %39, -3340731804825391017
-  %42 = icmp eq i64 %40, -7905390133271275446
-  %.sroa.0.0.i = select i1 %41, i1 %42, i1 false
-  br i1 %.sroa.0.0.i, label %43, label %25
+32:                                               ; preds = %27
+  %33 = getelementptr i8, ptr %29, i64 -1
+  %34 = icmp ne ptr %33, null
+  tail call void @llvm.assume(i1 %34)
+  %35 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
+  %36 = getelementptr i8, ptr %29, i64 7
+  %37 = load ptr, ptr %36, align 8, !nonnull !4, !align !53, !noundef !4
+  %38 = getelementptr i8, ptr %37, i64 56
+  %.val = load ptr, ptr %38, align 8
+  %39 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %35)
+  %40 = extractvalue { i64, i64 } %39, 0
+  %41 = extractvalue { i64, i64 } %39, 1
+  %42 = icmp eq i64 %40, -3340731804825391017
+  %43 = icmp eq i64 %41, -7905390133271275446
+  %.sroa.0.0.i = select i1 %42, i1 %43, i1 false
+  br i1 %.sroa.0.0.i, label %44, label %26
 
-43:                                               ; preds = %31
-  %44 = load i64, ptr %34, align 8, !range !1398, !noundef !4
-  %45 = icmp eq i64 %44, -9223372036854775808
-  br label %25
+44:                                               ; preds = %32
+  %45 = load i64, ptr %35, align 8, !range !1398, !noundef !4
+  %46 = icmp eq i64 %45, -9223372036854775808
+  br label %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

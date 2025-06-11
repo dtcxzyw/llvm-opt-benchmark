@@ -17949,53 +17949,53 @@ define internal fastcc void @_ZN18ty_python_semantic14semantic_index7builder20Se
     i64 -9223372036854775801, label %21
   ]
 
-6:                                                ; preds = %3
-  store i64 -9223372036854775804, ptr %0, align 8
-  br label %27
-
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
-  %10 = tail call fastcc noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder30add_standalone_expression_impl17h4e3a890e51a8f662E(ptr noalias noundef align 8 dereferenceable(584) %1, ptr noundef nonnull align 8 %9, i1 noundef zeroext false, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %10, ptr %11, align 8
+  store i64 -9223372036854775804, ptr %0, align 8
+  br label %28
+
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !5, !noundef !3
+  %11 = tail call fastcc noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder30add_standalone_expression_impl17h4e3a890e51a8f662E(ptr noalias noundef align 8 dereferenceable(584) %1, ptr noundef nonnull align 8 %10, i1 noundef zeroext false, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %11, ptr %12, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %27
+  br label %28
 
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load i8, ptr %13, align 8, !range !1555, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %14, ptr %15, align 8
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = load i8, ptr %14, align 8, !range !1555, !noundef !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %15, ptr %16, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %27
+  br label %28
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %18 = load ptr, ptr %17, align 8, !nonnull !3, !align !5, !noundef !3
-  %19 = tail call fastcc noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder30add_standalone_expression_impl17h4e3a890e51a8f662E(ptr noalias noundef align 8 dereferenceable(584) %1, ptr noundef nonnull align 8 %18, i1 noundef zeroext false, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %19, ptr %20, align 8
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !5, !noundef !3
+  %20 = tail call fastcc noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index7builder20SemanticIndexBuilder30add_standalone_expression_impl17h4e3a890e51a8f662E(ptr noalias noundef align 8 dereferenceable(584) %1, ptr noundef nonnull align 8 %19, i1 noundef zeroext false, ptr noalias noundef readonly align 8 dereferenceable_or_null(40) null)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %20, ptr %21, align 8
   store i64 -9223372036854775805, ptr %0, align 8
-  br label %27
+  br label %28
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %23 = load ptr, ptr %22, align 8, !nonnull !3, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %25 = load i64, ptr %24, align 8, !noundef !3
-  %26 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %23, i64 %25
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %26 = load i64, ptr %25, align 8, !noundef !3
+  %27 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %24, i64 %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !2671
-  store ptr %23, ptr %4, align 8, !alias.scope !2678, !noalias !2682
+  store ptr %24, ptr %4, align 8, !alias.scope !2678, !noalias !2682
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %26, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2678, !noalias !2682
+  store ptr %27, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2678, !noalias !2682
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2678, !noalias !2682
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h1baa5d0827d65a6dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3236b2e65fd54976a9b08f2ff4a1c818.33)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !2671
-  br label %27
+  br label %28
 
-27:                                               ; preds = %21, %16, %12, %7, %6
+28:                                               ; preds = %22, %17, %13, %8, %7
   ret void
 }
 

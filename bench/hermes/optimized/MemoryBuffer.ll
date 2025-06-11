@@ -754,18 +754,18 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt
   store ptr %add.ptr.i21.i, ptr %BufferEnd.i.i.i, align 8, !noalias !29
   %.pr.i = load i32, ptr %EC19.i, align 8, !noalias !29
   %cmp.i22.not.i = icmp eq i32 %.pr.i, 0
-  br i1 %cmp.i22.not.i, label %cleanup.i, label %_ZNKSt14default_deleteIN4llvh20WritableMemoryBufferEEclEPS1_.exit.i.i
+  br i1 %cmp.i22.not.i, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i, label %_ZNKSt14default_deleteIN4llvh20WritableMemoryBufferEEclEPS1_.exit.i.i
 
-cleanup.i:                                        ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i
+_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i
   %HasError.i23.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %bf.load.i24.i = load i8, ptr %HasError.i23.i, align 8, !alias.scope !29
   %bf.clear.i.i = and i8 %bf.load.i24.i, -2
   store i8 %bf.clear.i.i, ptr %HasError.i23.i, align 8, !alias.scope !29
-  %16 = ptrtoint ptr %call3.i.i to i64
-  store i64 %16, ptr %agg.result, align 8, !alias.scope !29
+  %17 = ptrtoint ptr %call3.i.i to i64
+  store i64 %17, ptr %agg.result, align 8, !alias.scope !29
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
-_ZNKSt14default_deleteIN4llvh20WritableMemoryBufferEEclEPS1_.exit.i.i: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
+if.end25.i:                                       ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEC2EbimmRSt10error_code.exit.i, %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
   %vtable.i.i.i = load ptr, ptr %call3.i.i, align 8, !noalias !29
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !29
@@ -838,8 +838,8 @@ if.then27.i:                                      ; preds = %_ZN4llvh20WritableM
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 if.end30.i:                                       ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
-  %tobool33.not94.i = icmp eq i64 %MapSize.addr.0.i, 0
-  br i1 %tobool33.not94.i, label %while.end.i, label %while.body.lr.ph.i
+  %tobool33.not96.i = icmp eq i64 %MapSize.addr.0.i, 0
+  br i1 %tobool33.not96.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end30.i
   %BufferStart.i.i45.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 8
@@ -849,14 +849,14 @@ while.body.lr.ph.i:                               ; preds = %if.end30.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end45.i, %while.body.lr.ph.i
-  %BufPtr.096.i = phi ptr [ %21, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end45.i ]
-  %BytesLeft.095.i = phi i64 [ %MapSize.addr.0.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end45.i ]
-  %add.i = sub i64 %sub.i, %BytesLeft.095.i
+  %BufPtr.098.i = phi ptr [ %21, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end45.i ]
+  %BytesLeft.097.i = phi i64 [ %MapSize.addr.0.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end45.i ]
+  %add.i = sub i64 %sub.i, %BytesLeft.097.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %while.body.i
   store i32 0, ptr %call.i46.i, align 4, !noalias !29
-  %call7.i.i = call noundef i64 @pread(i32 noundef %2, ptr noundef %BufPtr.096.i, i64 noundef %BytesLeft.095.i, i64 noundef %add.i) #22, !noalias !29
+  %call7.i.i = call noundef i64 @pread(i32 noundef %2, ptr noundef %BufPtr.098.i, i64 noundef %BytesLeft.097.i, i64 noundef %add.i) #22, !noalias !29
   switch i64 %call7.i.i, label %if.end45.i [
     i64 -1, label %land.rhs.i.i
     i64 0, label %if.then44.i
@@ -868,12 +868,12 @@ land.rhs.i.i:                                     ; preds = %do.body.i.i
   br i1 %cmp9.i.i, label %do.body.i.i, label %cleanup47.i, !llvm.loop !36
 
 if.then44.i:                                      ; preds = %do.body.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.096.i, i8 0, i64 %BytesLeft.095.i, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.098.i, i8 0, i64 %BytesLeft.097.i, i1 false), !noalias !29
   br label %while.end.i
 
 if.end45.i:                                       ; preds = %do.body.i.i
-  %sub46.i = sub i64 %BytesLeft.095.i, %call7.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %BufPtr.096.i, i64 %call7.i.i
+  %sub46.i = sub i64 %BytesLeft.097.i, %call7.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %BufPtr.098.i, i64 %call7.i.i
   %tobool33.not.i = icmp eq i64 %sub46.i, 0
   br i1 %tobool33.not.i, label %while.end.i, label %while.body.i, !llvm.loop !38
 
@@ -901,7 +901,7 @@ cleanup47.i:                                      ; preds = %land.rhs.i.i
   call void %24(ptr noundef nonnull align 8 dereferenceable(24) %call6.i.i) #22, !noalias !29
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
-_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit: ; preds = %if.then6.i, %if.then10.i, %cleanup.i, %if.then27.i, %while.end.i, %cleanup47.i
+_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit: ; preds = %if.then6.i, %if.then10.i, %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i, %if.then27.i, %while.end.i, %cleanup47.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %EC19.i)
   %25 = load i32, ptr %FD, align 4
@@ -1468,18 +1468,18 @@ _ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_
   store ptr %add.ptr.i27, ptr %BufferEnd.i.i, align 8
   %.pr = load i32, ptr %EC19, align 8
   %cmp.i28.not = icmp eq i32 %.pr, 0
-  br i1 %cmp.i28.not, label %cleanup, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
+  br i1 %cmp.i28.not, label %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i
 
-cleanup:                                          ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit
+_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit
   %HasError.i29 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %bf.load.i30 = load i8, ptr %HasError.i29, align 8
   %bf.clear.i = and i8 %bf.load.i30, -2
   store i8 %bf.clear.i, ptr %HasError.i29, align 8
-  %17 = ptrtoint ptr %call3.i to i64
-  store i64 %17, ptr %agg.result, align 8
+  %18 = ptrtoint ptr %call3.i to i64
+  store i64 %18, ptr %agg.result, align 8
   br label %return
 
-_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i: ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit
+if.end26:                                        ; preds = %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit, %_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEC2EbimmRSt10error_code.exit
   %vtable.i.i = load ptr, ptr %call3.i, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %18 = load ptr, ptr %vfn.i.i, align 8
@@ -1552,8 +1552,8 @@ if.then28:                                        ; preds = %_ZN4llvh20WritableM
   br label %return
 
 if.end31:                                         ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
-  %tobool34.not99 = icmp eq i64 %MapSize.addr.0, 0
-  br i1 %tobool34.not99, label %while.end, label %while.body.lr.ph
+  %tobool34.not101 = icmp eq i64 %MapSize.addr.0, 0
+  br i1 %tobool34.not101, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end31
   %BufferStart.i.i51 = getelementptr inbounds nuw i8, ptr %call6.i, i64 8
@@ -1563,14 +1563,14 @@ while.body.lr.ph:                                 ; preds = %if.end31
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end46
-  %BufPtr.0101 = phi ptr [ %22, %while.body.lr.ph ], [ %add.ptr, %if.end46 ]
-  %BytesLeft.0100 = phi i64 [ %MapSize.addr.0, %while.body.lr.ph ], [ %sub47, %if.end46 ]
-  %add = sub i64 %sub, %BytesLeft.0100
+  %BufPtr.0103 = phi ptr [ %22, %while.body.lr.ph ], [ %add.ptr, %if.end46 ]
+  %BytesLeft.0102 = phi i64 [ %MapSize.addr.0, %while.body.lr.ph ], [ %sub47, %if.end46 ]
+  %add = sub i64 %sub, %BytesLeft.0102
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %while.body
   store i32 0, ptr %call.i52, align 4
-  %call7.i = call noundef i64 @pread(i32 noundef %FD, ptr noundef %BufPtr.0101, i64 noundef %BytesLeft.0100, i64 noundef %add) #22
+  %call7.i = call noundef i64 @pread(i32 noundef %FD, ptr noundef %BufPtr.0103, i64 noundef %BytesLeft.0102, i64 noundef %add) #22
   switch i64 %call7.i, label %if.end46 [
     i64 -1, label %land.rhs.i
     i64 0, label %if.then45
@@ -1582,12 +1582,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %cmp9.i, label %do.body.i, label %cleanup48, !llvm.loop !36
 
 if.then45:                                        ; preds = %do.body.i
-  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.0101, i8 0, i64 %BytesLeft.0100, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.0103, i8 0, i64 %BytesLeft.0102, i1 false)
   br label %while.end
 
 if.end46:                                         ; preds = %do.body.i
-  %sub47 = sub i64 %BytesLeft.0100, %call7.i
-  %add.ptr = getelementptr inbounds i8, ptr %BufPtr.0101, i64 %call7.i
+  %sub47 = sub i64 %BytesLeft.0102, %call7.i
+  %add.ptr = getelementptr inbounds i8, ptr %BufPtr.0103, i64 %call7.i
   %tobool34.not = icmp eq i64 %sub47, 0
   br i1 %tobool34.not, label %while.end, label %while.body, !llvm.loop !45
 
@@ -1614,7 +1614,7 @@ cleanup48:                                        ; preds = %land.rhs.i
   call void %24(ptr noundef nonnull align 8 dereferenceable(24) %call6.i) #22
   br label %return
 
-return:                                           ; preds = %cleanup, %if.then28, %while.end, %cleanup48, %if.then.i, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit.thread, %if.then6
+return:                                           ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit, %if.then28, %while.end, %cleanup48, %if.then.i, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit.thread, %if.then6
   ret void
 }
 

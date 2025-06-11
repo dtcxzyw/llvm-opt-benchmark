@@ -112934,48 +112934,48 @@ define hidden void @"_ZN83_$LT$assistant..assistant_panel..ContextEditor$u20$as$
     i64 -9223372036854775794, label %25
   ]
 
-5:                                                ; preds = %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit", %25, %2
+6:                                                ; preds = %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit", %26, %2
   ret void
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31609)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
-  %11 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !31609
-  %12 = tail call noundef align 8 dereferenceable(80) ptr @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$18workspace_settings17h079243b4de1b8039E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %11), !noalias !31609
-  %13 = load i64, ptr %12, align 8, !range !1384, !noalias !31609, !noundef !5
-  %14 = icmp eq i64 %13, 1
-  br i1 %14, label %15, label %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit"
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
+  %12 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !noalias !31609
+  %13 = tail call noundef align 8 dereferenceable(80) ptr @"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$18workspace_settings17h079243b4de1b8039E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %12), !noalias !31609
+  %14 = load i64, ptr %13, align 8, !range !1384, !noalias !31609, !noundef !5
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %16, label %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit"
 
-15:                                               ; preds = %6
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load i64, ptr %16, align 8, !noalias !31609
-  %18 = udiv i64 %17, 1000
-  %19 = urem i64 %17, 1000
-  %20 = trunc nuw nsw i64 %19 to i32
-  %21 = mul nuw nsw i32 %20, 1000000
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %18 = load i64, ptr %17, align 8, !noalias !31609
+  %19 = udiv i64 %18, 1000
+  %20 = urem i64 %18, 1000
+  %21 = trunc nuw nsw i64 %20 to i32
+  %22 = mul nuw nsw i32 %21, 1000000
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !31609
-  call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8), !noalias !31609
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
-  call void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17h452861f92f228234E(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %18, i32 noundef %21, ptr noalias noundef nonnull align 8 dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3), !noalias !31609
+  call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9), !noalias !31609
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
+  call void @_ZN9workspace26DelayedDebouncedEditAction8fire_new17h452861f92f228234E(ptr noalias noundef nonnull align 8 dereferenceable(24) %24, i64 noundef %19, i32 noundef %22, ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3), !noalias !31609
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !31609
   br label %"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit"
 
-"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit": ; preds = %6, %15
-  %24 = load ptr, ptr %1, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
-  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17he468509db8751d52E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8), !noalias !31609
-  br label %5
+"_ZN73_$LT$gpui..view..View$LT$T$GT$$u20$as$u20$workspace..item..ItemHandle$GT$13added_to_pane28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06e7265a5c217637E.llvm.13457682623898008968.exit": ; preds = %7, %16
+  %25 = load ptr, ptr %1, align 8, !alias.scope !31609, !nonnull !5, !align !94, !noundef !5
+  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17he468509db8751d52E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9), !noalias !31609
+  br label %6
 
-25:                                               ; preds = %2
+26:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31612)
-  %26 = load ptr, ptr %1, align 8, !alias.scope !31612, !nonnull !5, !align !94, !noundef !5
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8, !alias.scope !31612, !nonnull !5, !align !94, !noundef !5
-  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hac66fbf074184c51E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26), !noalias !31612
-  br label %5
+  %27 = load ptr, ptr %1, align 8, !alias.scope !31612, !nonnull !5, !align !94, !noundef !5
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load ptr, ptr %28, align 8, !alias.scope !31612, !nonnull !5, !align !94, !noundef !5
+  tail call void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hac66fbf074184c51E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27), !noalias !31612
+  br label %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112986,20 +112986,20 @@ define hidden void @"_ZN83_$LT$assistant..assistant_panel..ContextEditor$u20$as$
     i64 -9223372036854775794, label %11
   ]
 
-.sink.split:                                      ; preds = %3, %11
-  %.sink3 = phi i8 [ 1, %11 ], [ 3, %3 ]
-  %5 = load ptr, ptr %1, align 8, !noalias !5, !nonnull !5, !align !1381, !noundef !5
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !noalias !5, !nonnull !5, !align !94, !noundef !5
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %9 = load ptr, ptr %8, align 8, !invariant.load !5, !noalias !5, !nonnull !5
-  tail call void %9(ptr noundef nonnull align 1 %5, i8 noundef %.sink3, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !5
-  br label %10
+.sink.split:                                      ; preds = %3, %12
+  %.sink3 = phi i8 [ 1, %12 ], [ 3, %3 ]
+  %6 = load ptr, ptr %1, align 8, !noalias !5, !nonnull !5, !align !1381, !noundef !5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8, !noalias !5, !nonnull !5, !align !94, !noundef !5
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = load ptr, ptr %9, align 8, !invariant.load !5, !noalias !5, !nonnull !5
+  tail call void %9(ptr noundef nonnull align 1 %6, i8 noundef %.sink3, ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !5
+  br label %11
 
-10:                                               ; preds = %.sink.split, %3
+11:                                               ; preds = %.sink.split, %3
   ret void
 
-11:                                               ; preds = %3
+12:                                               ; preds = %3
   br label %.sink.split
 }
 

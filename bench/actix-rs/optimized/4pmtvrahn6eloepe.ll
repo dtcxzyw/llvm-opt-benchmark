@@ -3873,13 +3873,13 @@ define hidden void @_ZN6brotli3enc17compress_fragment26BrotliCompressFragmentFas
 27:                                               ; preds = %.sink.split, %35
   ret void
 
-switch.lookup:                                    ; preds = %21
+.sink.split2:                                     ; preds = %21
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN6brotli3enc17compress_fragment26BrotliCompressFragmentFast17hcd5548c609f0d180E, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
   tail call void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFastImpl17h24e109efb8be68e4E.llvm.2002727345234535996(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, i64 noundef %switch.load, ptr noalias noundef nonnull align 1 %8, i64 noundef %9, ptr noalias noundef nonnull align 2 %10, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   br label %28
 
-28:                                               ; preds = %21, %switch.lookup
+28:                                               ; preds = %21, %.sink.split2
   %29 = load i64, ptr %15, align 8, !noundef !13
   %30 = sub i64 %29, %19
   %31 = shl i64 %3, 3

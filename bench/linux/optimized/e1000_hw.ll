@@ -6451,7 +6451,7 @@ define dso_local void @e1000_get_bus_info(ptr noundef captures(none) initializes
   store i32 1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %8, align 4
-  br label %41
+  br label %42
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8
@@ -6471,7 +6471,7 @@ define dso_local void @e1000_get_bus_info(ptr noundef captures(none) initializes
   %21 = select i1 %14, i32 2, i32 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %21, ptr %22, align 4
-  br label %37
+  br label %38
 
 23:                                               ; preds = %9
   br i1 %14, label %24, label %29
@@ -6482,7 +6482,7 @@ define dso_local void @e1000_get_bus_info(ptr noundef captures(none) initializes
   %27 = select i1 %26, i32 1, i32 2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %27, ptr %28, align 4
-  br label %37
+  br label %38
 
 29:                                               ; preds = %23
   %30 = trunc i32 %12 to i16
@@ -6495,35 +6495,35 @@ define dso_local void @e1000_get_bus_info(ptr noundef captures(none) initializes
     i16 3, label %36
   ]
 
-33:                                               ; preds = %29
-  store i32 2, ptr %31, align 4
-  br label %37
-
 34:                                               ; preds = %29
-  store i32 3, ptr %31, align 4
-  br label %37
+  store i32 2, ptr %31, align 4
+  br label %38
 
 35:                                               ; preds = %29
+  store i32 3, ptr %31, align 4
+  br label %38
+
+36:                                               ; preds = %29
   store i32 5, ptr %31, align 4
-  br label %37
+  br label %38
 
 default.unreachable:                              ; preds = %29
   unreachable
 
-36:                                               ; preds = %29
+37:                                               ; preds = %29
   store i32 6, ptr %31, align 4
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %35, %34, %33, %24, %20
-  %38 = and i32 %12, 4096
-  %39 = icmp eq i32 %38, 0
-  %40 = select i1 %39, i32 1, i32 2
-  br label %41
+38:                                               ; preds = %37, %36, %35, %34, %24, %20
+  %39 = and i32 %12, 4096
+  %40 = icmp eq i32 %39, 0
+  %41 = select i1 %40, i32 1, i32 2
+  br label %42
 
-41:                                               ; preds = %37, %6
-  %42 = phi i32 [ %40, %37 ], [ 0, %6 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %42, ptr %43, align 8
+42:                                               ; preds = %38, %6
+  %43 = phi i32 [ %41, %37 ], [ 0, %6 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %43, ptr %44, align 8
   ret void
 }
 

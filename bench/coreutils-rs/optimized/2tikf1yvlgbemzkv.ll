@@ -217,7 +217,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %_ZN5alloc6stri
   br i1 %.not.i125, label %72, label %..lr.ph49.i_crit_edge.i.i.preheader
 
 ..lr.ph49.i_crit_edge.i.i.preheader:              ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
-  br i1 %71, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %.critedge.i.i
+  br i1 %71, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %.loopexit.i.i
 
 72:                                               ; preds = %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
   br i1 %71, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %73
@@ -260,7 +260,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %_ZN5alloc6stri
   %98 = icmp samesign ugt i8 %75, -17
   br i1 %98, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread"
 
-.critedge.i.i:                                    ; preds = %..lr.ph49.i_crit_edge.i.i.preheader
+.loopexit.i.i:                                    ; preds = %..lr.ph49.i_crit_edge.i.i.preheader
   %99 = ptrtoint ptr %.sroa.0184.0 to i64
   %100 = sub nuw i64 %70, %99
   %101 = load i8, ptr %.sroa.0184.0, align 1, !noalias !19, !noundef !4
@@ -274,7 +274,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %_ZN5alloc6stri
   %108 = icmp eq ptr %106, %69
   br i1 %108, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %109
 
-109:                                              ; preds = %.critedge.i.i
+109:                                              ; preds = %.loopexit.i.i
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %111 = load i8, ptr %106, align 1, !noalias !24, !noundef !4
   %112 = icmp sgt i8 %111, -1
@@ -346,7 +346,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit: ; preds = %_ZN5alloc6stri
   %144 = icmp eq i32 %143, 1114112
   br i1 %144, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread"
 
-"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260": ; preds = %148, %148, %148, %148, %148, %.critedge.i.i, %72, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit", %..lr.ph49.i_crit_edge.i.i.preheader
+"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit.thread260": ; preds = %148, %148, %148, %148, %148, %.loopexit.i.i, %72, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0af2a89c75b5633E.exit", %..lr.ph49.i_crit_edge.i.i.preheader
   %145 = load i64, ptr %.sroa.585.0..sroa_idx, align 8, !noundef !4
   %146 = icmp eq i64 %145, 0
   br i1 %146, label %242, label %240

@@ -6011,8 +6011,8 @@ define linkonce_odr void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0E
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %7, %8
   %10 = tail call noundef ptr @memchr(ptr noundef %1, i32 noundef 125, i64 noundef %9) #26
-  %.not2528 = icmp eq ptr %10, null
-  br i1 %.not2528, label %._crit_edge, label %.lr.ph
+  %.not2427 = icmp eq ptr %10, null
+  br i1 %.not2427, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %60, %.preheader
   %.013.lcssa = phi ptr [ %1, %.preheader ], [ %61, %60 ]
@@ -6053,7 +6053,7 @@ _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds
 .lr.ph:                                           ; preds = %.preheader, %60
   %26 = phi ptr [ %64, %60 ], [ %10, %.preheader ]
   %27 = phi i64 [ %62, %60 ], [ %8, %.preheader ]
-  %.01329 = phi ptr [ %61, %60 ], [ %1, %.preheader ]
+  %.01328 = phi ptr [ %61, %60 ], [ %1, %.preheader ]
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %29 = icmp eq ptr %28, %2
   br i1 %29, label %32, label %30
@@ -6117,14 +6117,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIcEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18: ; preds = %53, %42
   store i64 %49, ptr %47, align 8, !tbaa !8
-  %56 = icmp eq ptr %28, %.01329
+  %56 = icmp eq ptr %28, %.01328
   br i1 %56, label %60, label %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i19
 
 _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i19: ; preds = %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIcEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i17, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !17
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %48
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %59, ptr align 1 %.01329, i64 %45, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %59, ptr align 1 %.01328, i64 %45, i1 false)
   br label %60
 
 60:                                               ; preds = %_ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i19, %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIcEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18
@@ -6133,8 +6133,8 @@ _ZSt8__copy_nIPKcmPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i19: ; pre
   %62 = ptrtoint ptr %61 to i64
   %63 = sub i64 %7, %62
   %64 = tail call noundef ptr @memchr(ptr noundef nonnull %61, i32 noundef 125, i64 noundef %63) #26
-  %.not25 = icmp eq ptr %64, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq ptr %64, null
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 65:                                               ; preds = %.thread, %3
   ret void
@@ -39024,9 +39024,9 @@ define linkonce_odr void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0E
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = icmp eq ptr %1, %2
-  br i1 %6, label %.loopexit26, label %.preheader
+  br i1 %6, label %.loopexit26, label %.lr.ph.i.preheader
 
-.preheader:                                       ; preds = %3
+.lr.ph.i.preheader:                               ; preds = %3
   %7 = ptrtoint ptr %2 to i64
   br label %.lr.ph.i.preheader
 
@@ -39034,24 +39034,24 @@ define linkonce_odr void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0E
   %.01347 = phi ptr [ %1, %.preheader ], [ %61, %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %12
-  %storemerge9.i = phi ptr [ %10, %12 ], [ %.01347, %.lr.ph.i.preheader ]
-  %8 = load i32, ptr %storemerge9.i, align 4, !tbaa !117
-  %9 = icmp eq i32 %8, 125
-  %10 = getelementptr inbounds nuw i8, ptr %storemerge9.i, i64 4
-  %11 = icmp eq ptr %10, %2
-  br i1 %9, label %_ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit, label %12
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %11
+  %storemerge9.i = phi ptr [ %9, %12 ], [ %.01347, %.lr.ph.i.preheader ]
+  %7 = load i32, ptr %storemerge9.i, align 4, !tbaa !117
+  %8 = icmp eq i32 %7, 125
+  %9 = getelementptr inbounds nuw i8, ptr %storemerge9.i, i64 4
+  %10 = icmp eq ptr %9, %2
+  br i1 %8, label %_ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit, label %11
 
-12:                                               ; preds = %.lr.ph.i
-  br i1 %11, label %.loopexit, label %.lr.ph.i, !llvm.loop !701
+11:                                               ; preds = %.lr.ph.i
+  br i1 %10, label %.loopexit, label %.lr.ph.i, !llvm.loop !701
 
-.loopexit:                                        ; preds = %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18, %12
-  %.01346 = phi ptr [ %.01347, %12 ], [ %61, %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18 ]
-  %13 = load ptr, ptr %0, align 8, !tbaa !716
-  %14 = ptrtoint ptr %.01346 to i64
+.loopexit:                                        ; preds = %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18, %11
+  %.01336 = phi ptr [ %.01347, %12 ], [ %61, %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i18 ]
+  %12 = load ptr, ptr %0, align 8, !tbaa !716
+  %13 = ptrtoint ptr %.01346 to i64
   %15 = sub i64 %7, %14
   %16 = ashr exact i64 %15, 2
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.0.0.copyload.i.i = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !94
@@ -39069,20 +39069,20 @@ define linkonce_odr void @_ZZN10duckdb_fmt2v68internal19parse_format_stringILb0E
 
 _ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i: ; preds = %24, %.loopexit
   store i64 %20, ptr %18, align 8, !tbaa !94
-  br i1 %9, label %.loopexit26.loopexit, label %_ZSt8__copy_nIPKwmPwET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
+  br i1 %8, label %62, label %_ZSt8__copy_nIPKwmPwET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKwmPwET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !98
   %29 = getelementptr inbounds nuw i32, ptr %28, i64 %19
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %29, ptr align 4 %.01346, i64 %15, i1 false)
-  br label %.loopexit26.loopexit
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %29, ptr align 4 %.01336, i64 %15, i1 false)
+  br label %62
 
 _ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit: ; preds = %.lr.ph.i
-  br i1 %11, label %32, label %30
+  br i1 %10, label %32, label %30
 
 30:                                               ; preds = %_ZN10duckdb_fmt2v68internal4findILb0EcPKwEEbT1_S5_T0_RS5_.exit
-  %31 = load i32, ptr %10, align 4, !tbaa !117
+  %31 = load i32, ptr %9, align 4, !tbaa !117
   %.not = icmp eq i32 %31, 125
   br i1 %.not, label %42, label %32
 
@@ -39120,7 +39120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 42:                                               ; preds = %30
   %43 = load ptr, ptr %0, align 8, !tbaa !716
-  %44 = ptrtoint ptr %10 to i64
+  %44 = ptrtoint ptr %9 to i64
   %45 = ptrtoint ptr %.01347 to i64
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 2
@@ -39151,7 +39151,7 @@ _ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_conti
   %.not8.not.i = icmp eq ptr %61, %2
   br i1 %.not8.not.i, label %.loopexit, label %.lr.ph.i.preheader
 
-.loopexit26.loopexit:                             ; preds = %_ZSt8__copy_nIPKwmPwET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i
+62:                                               ; preds = %_ZSt8__copy_nIPKwmPwET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %_ZN10duckdb_fmt2v68internal7reserveINS1_6bufferIwEETnNSt9enable_ifIXsr13is_contiguousIT_EE5valueEiE4typeELi0EEEPNS6_10value_typeERSt20back_insert_iteratorIS6_Em.exit.i
   store ptr %.sroa.0.0.copyload.i.i, ptr %17, align 8
   br label %.loopexit26
 

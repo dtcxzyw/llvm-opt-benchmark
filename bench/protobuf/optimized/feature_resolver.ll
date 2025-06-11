@@ -272,8 +272,8 @@ terminate.lpad.i48:                               ; preds = %if.then.i.i47
 do.body:                                          ; preds = %if.end
   call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118ValidateDescriptorERKNS0_10DescriptorE(ptr noalias align 8 %_status, ptr noundef nonnull align 8 dereferenceable(152) %feature_set)
   %8 = load i64, ptr %_status, align 8
-  %cmp.i.not = icmp eq i64 %8, 0
-  br i1 %cmp.i.not, label %cleanup, label %if.then9
+  %cmp.i = icmp eq i64 %8, 0
+  br i1 %cmp.i, label %cleanup, label %if.then9
 
 if.then9:                                         ; preds = %do.body
   store i64 %8, ptr %agg.result, align 8
@@ -318,7 +318,7 @@ terminate.lpad.i57:                               ; preds = %if.then.i.i56
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit58:         ; preds = %cleanup, %if.then.i.i56
-  br i1 %cmp.i.not, label %do.end, label %return
+  br i1 %cmp.i, label %do.end, label %return
 
 do.end:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit58
   %add.ptr.i = getelementptr inbounds ptr, ptr %extensions.coerce0, i64 %extensions.coerce1
@@ -597,7 +597,7 @@ lpad.i.i70:                                       ; preds = %if.then.i.i.i69
   br label %common.resume
 
 cleanup24:                                        ; preds = %if.then21, %if.then.i.i.i69, %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i67, %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit.thread, %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit
-  %switch38 = phi i1 [ true, %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit.thread ], [ true, %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit ], [ false, %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i67 ], [ false, %if.then.i.i.i69 ], [ false, %if.then21 ]
+  %cmp.i61248 = phi i1 [ true, %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit.thread ], [ true, %_ZN6google8protobuf12_GLOBAL__N_117ValidateExtensionERKNS0_10DescriptorEPKNS0_15FieldDescriptorE.exit ], [ false, %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i67 ], [ false, %if.then.i.i.i69 ], [ false, %if.then21 ]
   %54 = load i64, ptr %_status16, align 8
   %and.i.i.i73 = and i64 %54, 1
   %cmp.i.i.i74 = icmp eq i64 %and.i.i.i73, 0
@@ -615,14 +615,14 @@ terminate.lpad.i76:                               ; preds = %if.then.i.i75
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit78:         ; preds = %cleanup24, %if.then.i.i75
-  br i1 %switch38, label %do.body28, label %return
+  br i1 %cmp.i61248, label %do.body28, label %return
 
 do.body28:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit78
   %call30 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %22)
   call fastcc void @_ZN6google8protobuf12_GLOBAL__N_118ValidateDescriptorERKNS0_10DescriptorE(ptr noalias align 8 %_status29, ptr noundef nonnull align 8 dereferenceable(152) %call30)
   %57 = load i64, ptr %_status29, align 8
-  %cmp.i79.not = icmp eq i64 %57, 0
-  br i1 %cmp.i79.not, label %cleanup38, label %if.then35
+  %cmp.i79 = icmp eq i64 %57, 0
+  br i1 %cmp.i79, label %cleanup38, label %if.then35
 
 if.then35:                                        ; preds = %do.body28
   store i64 %57, ptr %agg.result, align 8
@@ -667,7 +667,7 @@ terminate.lpad.i94:                               ; preds = %if.then.i.i93
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit96:         ; preds = %cleanup38, %if.then.i.i93
-  br i1 %cmp.i79.not, label %for.cond, label %return
+  br i1 %cmp.i79, label %for.cond, label %return
 
 for.end:                                          ; preds = %for.cond, %do.end
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10set_paramsIN6google8protobuf7EditionESt4lessIS6_ESaIS6_ELi256ELb0EEEE9EmptyNodeEvE10empty_node, ptr %editions, align 8
@@ -2989,8 +2989,8 @@ do.body:                                          ; preds = %if.end23
   %cond-lvalue.i.i = select i1 %cmp.not.i.i, ptr @_ZN6google8protobuf29_FeatureSet_default_instance_E, ptr %56
   call fastcc void @_ZN6google8protobuf12_GLOBAL__N_122ValidateMergedFeaturesERKNS0_10FeatureSetE(ptr noalias align 8 %_status, ptr noundef nonnull align 8 dereferenceable(72) %cond-lvalue.i.i)
   %57 = load i64, ptr %_status, align 8
-  %cmp.i73.not = icmp eq i64 %57, 0
-  br i1 %cmp.i73.not, label %cleanup, label %if.then39
+  %cmp.i73 = icmp eq i64 %57, 0
+  br i1 %cmp.i73, label %cleanup, label %if.then39
 
 if.then39:                                        ; preds = %do.body
   store i64 %57, ptr %agg.result, align 8
@@ -3035,7 +3035,7 @@ terminate.lpad.i82:                               ; preds = %if.then.i.i81
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit83:         ; preds = %cleanup, %if.then.i.i81
-  br i1 %cmp.i73.not, label %do.end, label %return
+  br i1 %cmp.i73, label %do.end, label %return
 
 do.end:                                           ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit83
   %64 = load i32, ptr %edition_.i.i, align 8

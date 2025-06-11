@@ -18124,7 +18124,7 @@ define linkonce_odr dso_local void @_ZN8PlanTest14FindWorkSortedEPSt5dequeIP4Edg
   br label %35
 
 35:                                               ; preds = %.lr.ph, %150
-  %.031269 = phi i32 [ 0, %.lr.ph ], [ %151, %150 ]
+  %.031268 = phi i32 [ 0, %.lr.ph ], [ %151, %150 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #28
   %36 = load i32, ptr %28, align 4, !tbaa !93
   %37 = icmp sgt i32 %36, 0
@@ -18465,7 +18465,7 @@ _ZN7testing15AssertionResultD2Ev.exit86:          ; preds = %91
 
 150:                                              ; preds = %149, %147
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #28
-  %151 = add nuw nsw i32 %.031269, 1
+  %151 = add nuw nsw i32 %.031268, 1
   %exitcond.not = icmp eq i32 %151, %2
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !292
 
@@ -18733,7 +18733,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %259, %261
   br i1 %269, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit159, label %270
 
 270:                                              ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i
-  %storemerge.i.i.i265 = phi ptr [ %258, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread ], [ %268, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i ]
+  %storemerge.i.i.i264 = phi ptr [ %258, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread ], [ %268, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i ]
   %271 = add nsw i64 %252, 1
   %272 = icmp sgt i64 %252, -2
   br i1 %272, label %273, label %279
@@ -18769,7 +18769,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i122: ; preds = %281, %275
   %.sroa.19.1.i124 = phi ptr [ %211, %275 ], [ %285, %281 ]
   %.sroa.27.1.i125 = phi ptr [ %213, %275 ], [ %283, %281 ]
   %storemerge.i.i.i126 = phi ptr [ %276, %275 ], [ %288, %281 ]
-  %.not45.i127 = icmp eq ptr %storemerge.i.i.i126, %storemerge.i.i.i265
+  %.not45.i127 = icmp eq ptr %storemerge.i.i.i126, %storemerge.i.i.i264
   br i1 %.not45.i127, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit159, label %.lr.ph.i128
 
 .lr.ph.i128:                                      ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i122
@@ -18999,7 +18999,7 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i139: ; preds = %380, %_ZSt25__u
   %.sroa.12.2.i141 = phi ptr [ %382, %380 ], [ %.sroa.12.049.i131, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i137 ]
   %.sroa.19.2.i142 = phi ptr [ %383, %380 ], [ %.sroa.19.050.i130, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i137 ]
   %.sroa.27.2.i143 = phi ptr [ %381, %380 ], [ %.sroa.27.051.i129, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i137 ]
-  %.not.i144 = icmp eq ptr %.sroa.026.1.i140, %storemerge.i.i.i265
+  %.not.i144 = icmp eq ptr %.sroa.026.1.i140, %storemerge.i.i.i264
   br i1 %.not.i144, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit159, label %298, !llvm.loop !318
 
 _ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit159: ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i139, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i122

@@ -48,12 +48,12 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %5 = sub i64 %1, %3
-  %.not.not.i = icmp ult i64 %1, %3
-  br i1 %.not.not.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit", label %.critedge39.preheader.i.i
+  %.not.i = icmp ult i64 %1, %3
+  br i1 %.not.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit", label %.critedge39.preheader.i.i
 
 .critedge39.preheader.i.i:                        ; preds = %4
-  %.not.i = icmp eq i64 %1, %3
-  br i1 %.not.i, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit33.i.i", label %.lr.ph.i.i
+  %.not17.i = icmp eq i64 %1, %3
+  br i1 %.not17.i, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit33.i.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge39.preheader.i.i, %.critedge39.backedge.i.i
   %6 = phi i64 [ %7, %.critedge39.backedge.i.i ], [ 0, %.critedge39.preheader.i.i ]
@@ -97,12 +97,12 @@ define noundef zeroext i1 @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_le
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = sub i64 %1, %3
-  %.not.not = icmp ult i64 %1, %3
-  br i1 %.not.not, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hc513fe91b33fbdd8E.exit", label %.critedge39.preheader.i
+  %.not = icmp ult i64 %1, %3
+  br i1 %.not, label %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$13spec_try_fold17hc513fe91b33fbdd8E.exit", label %.critedge39.preheader.i
 
 .critedge39.preheader.i:                          ; preds = %4
-  %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit33.i", label %.lr.ph.i
+  %.not17 = icmp eq i64 %5, 0
+  br i1 %.not17, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc5cf0d6b5803a3bbE.exit33.i", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge39.preheader.i, %.critedge39.backedge.i
   %6 = phi i64 [ %7, %.critedge39.backedge.i ], [ 0, %.critedge39.preheader.i ]
@@ -216,12 +216,12 @@ define void @"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %6 = sub i64 %2, %4
-  %.not.not.i = icmp ult i64 %2, %4
-  br i1 %.not.not.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread", label %.critedge39.preheader.i.i
+  %.not.i = icmp ult i64 %2, %4
+  br i1 %.not.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit.thread", label %.critedge39.preheader.i.i
 
 .critedge39.preheader.i.i:                        ; preds = %5
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit", label %.lr.ph.i.i
+  %.not17.i = icmp eq i64 %6, 0
+  br i1 %.not17.i, label %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$4find17h7c8b5932dcb2a7d0E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge39.preheader.i.i, %.critedge39.backedge.i.i
   %7 = phi i64 [ %8, %.critedge39.backedge.i.i ], [ 0, %.critedge39.preheader.i.i ]

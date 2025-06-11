@@ -2051,64 +2051,64 @@ define internal void @topology_moder_print(ptr noundef %0, i16 noundef zeroext %
   %5 = lshr i16 %1, 14
   %.not35 = icmp eq i16 %4, 0
   switch i16 %5, label %default.unreachable [
-    i16 3, label %6
-    i16 1, label %12
-    i16 2, label %18
-    i16 0, label %24
+    i16 3, label %7
+    i16 1, label %13
+    i16 2, label %19
+    i16 0, label %25
   ]
 
-6:                                                ; preds = %2
-  br i1 %.not35, label %10, label %7
+7:                                                ; preds = %2
+  br i1 %.not35, label %11, label %8
 
-7:                                                ; preds = %6
-  %8 = zext nneg i16 %4 to i32
-  %9 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.884, i32 noundef %8, i32 noundef %3)
-  br label %30
+8:                                                ; preds = %7
+  %9 = zext nneg i16 %4 to i32
+  %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.884, i32 noundef %9, i32 noundef %3)
+  br label %31
 
-10:                                               ; preds = %6
-  %11 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.885, i32 noundef %3)
-  br label %30
+11:                                               ; preds = %7
+  %12 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.885, i32 noundef %3)
+  br label %31
 
-12:                                               ; preds = %2
-  br i1 %.not35, label %16, label %13
+13:                                               ; preds = %2
+  br i1 %.not35, label %17, label %14
 
-13:                                               ; preds = %12
-  %14 = zext nneg i16 %4 to i32
-  %15 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.886, i32 noundef %14, i32 noundef %3)
-  br label %30
+14:                                               ; preds = %13
+  %15 = zext nneg i16 %4 to i32
+  %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.886, i32 noundef %15, i32 noundef %3)
+  br label %31
 
-16:                                               ; preds = %12
-  %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.887, i32 noundef %3)
-  br label %30
+17:                                               ; preds = %13
+  %18 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.887, i32 noundef %3)
+  br label %31
 
-18:                                               ; preds = %2
-  br i1 %.not35, label %22, label %19
+19:                                               ; preds = %2
+  br i1 %.not35, label %23, label %20
 
-19:                                               ; preds = %18
-  %20 = zext nneg i16 %4 to i32
-  %21 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.888, i32 noundef %20, i32 noundef %3)
-  br label %30
+20:                                               ; preds = %19
+  %21 = zext nneg i16 %4 to i32
+  %22 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.888, i32 noundef %21, i32 noundef %3)
+  br label %31
 
-22:                                               ; preds = %18
-  %23 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.889, i32 noundef %3)
-  br label %30
+23:                                               ; preds = %19
+  %24 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.889, i32 noundef %3)
+  br label %31
 
 default.unreachable:                              ; preds = %2
   unreachable
 
-24:                                               ; preds = %2
-  br i1 %.not35, label %28, label %25
+25:                                               ; preds = %2
+  br i1 %.not35, label %29, label %26
 
-25:                                               ; preds = %24
-  %26 = zext nneg i16 %4 to i32
-  %27 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.890, i32 noundef %26, i32 noundef %3)
-  br label %30
+26:                                               ; preds = %25
+  %27 = zext nneg i16 %4 to i32
+  %28 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.890, i32 noundef %27, i32 noundef %3)
+  br label %31
 
-28:                                               ; preds = %24
-  %29 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.891, i32 noundef %3)
-  br label %30
+29:                                               ; preds = %25
+  %30 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.891, i32 noundef %3)
+  br label %31
 
-30:                                               ; preds = %25, %28, %19, %22, %13, %16, %7, %10
+31:                                               ; preds = %26, %29, %20, %23, %14, %17, %8, %11
   ret void
 }
 

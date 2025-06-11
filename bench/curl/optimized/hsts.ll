@@ -986,7 +986,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
   br label %12
 
 12:                                               ; preds = %47, %.preheader.i
-  %13 = phi ptr [ %7, %.preheader.i ], [ %.pre44.i, %47 ]
+  %13 = phi ptr [ %7, %.preheader.i ], [ %.pre48.i, %47 ]
   %14 = phi i8 [ undef, %.preheader.i ], [ %.pre.i, %47 ]
   call void @llvm.lifetime.start.p0(i64 2049, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #9
@@ -1000,14 +1000,14 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
   %17 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %16) #9
   switch i32 %17, label %.sink.split.i.loopexit [
     i32 0, label %18
-    i32 2, label %.sink.split.i
+    i32 2, label %.thread45.sink.split.i
   ]
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %4, align 8, !tbaa !110
   %20 = load i8, ptr %19, align 1, !tbaa !24
   %.not21.i = icmp eq i8 %20, 0
-  br i1 %.not21.i, label %.sink.split.i, label %21
+  br i1 %.not21.i, label %.thread45.sink.split.i, label %21
 
 21:                                               ; preds = %18
   %22 = load i8, ptr %10, align 1, !tbaa !24
@@ -1016,11 +1016,11 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
 
 23:                                               ; preds = %21
   %24 = call i64 @Curl_getdate_capped(ptr noundef nonnull %10) #9
-  %.pre45.i = load ptr, ptr %4, align 8, !tbaa !110
+  %.pre49.i = load ptr, ptr %4, align 8, !tbaa !110
   br label %25
 
 25:                                               ; preds = %23, %21
-  %26 = phi ptr [ %.pre45.i, %23 ], [ %19, %21 ]
+  %26 = phi ptr [ %.pre49.i, %23 ], [ %19, %21 ]
   %.018.i = phi i64 [ %24, %23 ], [ 9223372036854775807, %21 ]
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #10
   %28 = load i8, ptr %9, align 8
@@ -1045,7 +1045,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
   %37 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !3
   %38 = call ptr %37(i64 noundef 1, i64 noundef 56) #9
   %.not27.i.i = icmp eq ptr %38, null
-  br i1 %.not27.i.i, label %.sink.split.i, label %39
+  br i1 %.not27.i.i, label %.thread45.sink.split.i, label %39
 
 39:                                               ; preds = %.thread31.i.i
   %40 = call ptr @Curl_memdup0(ptr noundef nonnull %26, i64 noundef %.02134.i.i) #9
@@ -1055,7 +1055,7 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
 41:                                               ; preds = %39
   %42 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   call void %42(ptr noundef nonnull %38) #9
-  br label %.sink.split.i
+  br label %.thread45.sink.split.i
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -1071,19 +1071,19 @@ define hidden range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 2049, ptr nonnull %3) #9
   %.pre.i = load i8, ptr %9, align 8
-  %.pre44.i = load ptr, ptr %6, align 8, !tbaa !120
+  %.pre48.i = load ptr, ptr %6, align 8, !tbaa !120
   br label %12
 
-.sink.split.i.loopexit:                           ; preds = %12
-  br label %.sink.split.i
+.thread45.sink.split.i.loopexit:                  ; preds = %12
+  br label %.thread45.sink.split.i
 
-.sink.split.i:                                    ; preds = %.thread31.i.i, %18, %12, %.sink.split.i.loopexit, %41
+.thread45.sink.split.i:                           ; preds = %.thread31.i.i, %18, %12, %.thread45.sink.split.i.loopexit, %41
   %.4.ph.i = phi i32 [ 27, %41 ], [ 42, %12 ], [ 43, %18 ], [ 27, %.thread31.i.i ], [ 0, %.sink.split.i.loopexit ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 2049, ptr nonnull %3) #9
   br label %hsts_pull.exit
 
-hsts_pull.exit:                                   ; preds = %.sink.split.i, %5, %2
+hsts_pull.exit:                                   ; preds = %.thread45.sink.split.i, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.4.ph.i, %.sink.split.i ]
   ret i32 %.0
 }
