@@ -862,26 +862,26 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
 20:                                               ; preds = %16
   %21 = load i32, ptr %11, align 8, !tbaa !34
   %22 = icmp eq i32 %21, 1
-  br i1 %22, label %.preheader49, label %.loopexit
+  br i1 %22, label %.preheader50, label %.loopexit
 
-.preheader49:                                     ; preds = %20
+.preheader50:                                     ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !14
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %.preheader48
+  br i1 %25, label %.lr.ph, label %.preheader49
 
-.lr.ph:                                           ; preds = %.preheader49
+.lr.ph:                                           ; preds = %.preheader50
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !19
   br label %33
 
-.preheader48:                                     ; preds = %33, %.preheader49
+.preheader49:                                     ; preds = %33, %.preheader50
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = load i32, ptr %28, align 8, !tbaa !23
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph52, label %.preheader47
+  br i1 %30, label %.lr.ph53, label %.preheader48
 
-.lr.ph52:                                         ; preds = %.preheader48
+.lr.ph53:                                         ; preds = %.preheader49
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   br label %45
@@ -896,64 +896,64 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
   %37 = load i32, ptr %23, align 8, !tbaa !14
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %33, label %.preheader48, !llvm.loop !35
+  br i1 %39, label %33, label %.preheader49, !llvm.loop !35
 
-.preheader47:                                     ; preds = %45, %.preheader48
+.preheader48:                                     ; preds = %45, %.preheader49
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %41 = load i32, ptr %40, align 8, !tbaa !25
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %.lr.ph54, label %.preheader
+  br i1 %42, label %.lr.ph55, label %.preheader
 
-.lr.ph54:                                         ; preds = %.preheader47
+.lr.ph55:                                         ; preds = %.preheader48
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   br label %57
 
-45:                                               ; preds = %.lr.ph52, %45
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next68, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv67
+45:                                               ; preds = %.lr.ph53, %45
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next69, %45 ]
+  %46 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv68
   %47 = load i32, ptr %46, align 4, !tbaa !29
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %46, align 4, !tbaa !29
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %49 = load i32, ptr %28, align 8, !tbaa !23
   %50 = sext i32 %49 to i64
-  %51 = icmp slt i64 %indvars.iv.next68, %50
-  br i1 %51, label %45, label %.preheader47, !llvm.loop !36
+  %51 = icmp slt i64 %indvars.iv.next69, %50
+  br i1 %51, label %45, label %.preheader48, !llvm.loop !36
 
-.preheader:                                       ; preds = %57, %.preheader47
+.preheader:                                       ; preds = %57, %.preheader48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = load i32, ptr %52, align 8, !tbaa !27
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph56, label %.loopexit
+  br i1 %54, label %.lr.ph57, label %.loopexit
 
-.lr.ph56:                                         ; preds = %.preheader
+.lr.ph57:                                         ; preds = %.preheader
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %56 = load ptr, ptr %55, align 8, !tbaa !28
   br label %64
 
-57:                                               ; preds = %.lr.ph54, %57
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next71, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv70
+57:                                               ; preds = %.lr.ph55, %57
+  %indvars.iv71 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next72, %57 ]
+  %58 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv71
   %59 = load i32, ptr %58, align 4, !tbaa !29
   %60 = add nsw i32 %59, -1
   store i32 %60, ptr %58, align 4, !tbaa !29
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %61 = load i32, ptr %40, align 8, !tbaa !25
   %62 = sext i32 %61 to i64
-  %63 = icmp slt i64 %indvars.iv.next71, %62
+  %63 = icmp slt i64 %indvars.iv.next72, %62
   br i1 %63, label %57, label %.preheader, !llvm.loop !37
 
-64:                                               ; preds = %.lr.ph56, %64
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next74, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv73
+64:                                               ; preds = %.lr.ph57, %64
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next75, %64 ]
+  %65 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv74
   %66 = load i32, ptr %65, align 4, !tbaa !29
   %67 = add nsw i32 %66, -1
   store i32 %67, ptr %65, align 4, !tbaa !29
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %68 = load i32, ptr %52, align 8, !tbaa !27
   %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next74, %69
+  %70 = icmp slt i64 %indvars.iv.next75, %69
   br i1 %70, label %64, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %64, %.preheader, %20
@@ -967,9 +967,9 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
   store ptr %76, ptr %77, align 8, !tbaa !20
   store i32 0, ptr %17, align 8, !tbaa !21
   %78 = icmp sgt i32 %71, 0
-  br i1 %78, label %.lr.ph59, label %._crit_edge
+  br i1 %78, label %.lr.ph60, label %._crit_edge
 
-.lr.ph59:                                         ; preds = %.loopexit
+.lr.ph60:                                         ; preds = %.loopexit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load ptr, ptr %79, align 8, !tbaa !19
   %wide.trip.count = zext nneg i32 %71 to i64
@@ -991,19 +991,19 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
   %93 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(12) %88, i32 noundef %89, ptr noundef null, i1 noundef zeroext false, i32 noundef %71, i32 noundef %81, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef null)
   br i1 %93, label %108, label %.thread
 
-94:                                               ; preds = %.lr.ph59, %105
-  %indvars.iv76 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next77, %105 ]
-  %.04157 = phi i32 [ 0, %.lr.ph59 ], [ %.142, %105 ]
-  %95 = phi i32 [ 0, %.lr.ph59 ], [ %106, %105 ]
-  %96 = sext i32 %.04157 to i64
+94:                                               ; preds = %.lr.ph60, %105
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next78, %105 ]
+  %.04158 = phi i32 [ 0, %.lr.ph60 ], [ %.142, %105 ]
+  %95 = phi i32 [ 0, %.lr.ph60 ], [ %106, %105 ]
+  %96 = sext i32 %.04158 to i64
   %97 = getelementptr inbounds i32, ptr %80, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !29
   %99 = zext i32 %98 to i64
-  %100 = icmp eq i64 %indvars.iv76, %99
+  %100 = icmp eq i64 %indvars.iv77, %99
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %94
-  %102 = add nsw i32 %.04157, 1
+  %102 = add nsw i32 %.04158, 1
   br label %105
 
 103:                                              ; preds = %94
@@ -1014,11 +1014,11 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
 105:                                              ; preds = %101, %103
   %.sink = phi i32 [ -1, %101 ], [ %95, %103 ]
   %106 = phi i32 [ %95, %101 ], [ %104, %103 ]
-  %.142 = phi i32 [ %102, %101 ], [ %.04157, %103 ]
-  %107 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv76
+  %.142 = phi i32 [ %102, %101 ], [ %.04158, %103 ]
+  %107 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv77
   store i32 %.sink, ptr %107, align 4, !tbaa !29
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %94, !llvm.loop !41
 
 .thread:                                          ; preds = %._crit_edge
@@ -1033,18 +1033,18 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
   store i32 0, ptr %110, align 8, !tbaa !43
   %111 = load i32, ptr %10, align 4, !tbaa !40
   %112 = icmp sgt i32 %111, 0
-  br i1 %112, label %.lr.ph64, label %._crit_edge65
+  br i1 %112, label %.lr.ph65, label %._crit_edge66
 
-.lr.ph64:                                         ; preds = %108
+.lr.ph65:                                         ; preds = %108
   %113 = load ptr, ptr %77, align 8, !tbaa !20
-  %wide.trip.count82 = zext nneg i32 %111 to i64
+  %wide.trip.count83 = zext nneg i32 %111 to i64
   br label %114
 
-114:                                              ; preds = %.lr.ph64, %126
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next80, %126 ]
-  %115 = phi i32 [ 0, %.lr.ph64 ], [ %128, %126 ]
-  %116 = phi i32 [ 0, %.lr.ph64 ], [ %127, %126 ]
-  %117 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv79
+114:                                              ; preds = %.lr.ph65, %126
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next81, %126 ]
+  %115 = phi i32 [ 0, %.lr.ph65 ], [ %128, %126 ]
+  %116 = phi i32 [ 0, %.lr.ph65 ], [ %127, %126 ]
+  %117 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv80
   %118 = load i32, ptr %117, align 4, !tbaa !29
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i32, ptr %113, i64 %119
@@ -1065,18 +1065,18 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer12get_nlp_infoERiS1_S1_S1_RNS_4
 126:                                              ; preds = %122, %124
   %127 = phi i32 [ %116, %122 ], [ %125, %124 ]
   %128 = phi i32 [ %123, %122 ], [ %115, %124 ]
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge65, label %114, !llvm.loop !44
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
+  br i1 %exitcond84.not, label %._crit_edge66, label %114, !llvm.loop !44
 
-._crit_edge65:                                    ; preds = %126, %108
+._crit_edge66:                                    ; preds = %126, %108
   tail call void @_ZdaPv(ptr noundef nonnull %86) #10
   tail call void @_ZdaPv(ptr noundef nonnull %87) #10
   %.pre = load i32, ptr %17, align 8, !tbaa !21
   br label %129
 
-129:                                              ; preds = %._crit_edge65, %16
-  %130 = phi i32 [ %.pre, %._crit_edge65 ], [ %18, %16 ]
+129:                                              ; preds = %._crit_edge66, %16
+  %130 = phi i32 [ %.pre, %._crit_edge66 ], [ %18, %16 ]
   store i32 %130, ptr %2, align 4, !tbaa !29
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %132 = load i32, ptr %131, align 4, !tbaa !42

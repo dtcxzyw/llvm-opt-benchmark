@@ -27774,9 +27774,9 @@ define linkonce_odr noundef i32 @_ZNK5boost16re_detail_10740031cpp_regex_traits_
   br i1 %.not, label %..thread_crit_edge, label %7
 
 ..thread_crit_edge:                               ; preds = %3
-  %.pre23 = ptrtoint ptr %2 to i64
-  %.pre24 = ptrtoint ptr %1 to i64
-  %.pre26 = sub i64 %.pre23, %.pre24
+  %.pre24 = ptrtoint ptr %2 to i64
+  %.pre25 = ptrtoint ptr %1 to i64
+  %.pre27 = sub i64 %.pre24, %.pre25
   br label %.thread
 
 7:                                                ; preds = %3
@@ -27936,7 +27936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %101
 
 .thread:                                          ; preds = %..thread_crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pre-phi27 = phi i64 [ %.pre26, %..thread_crit_edge ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pre-phi28 = phi i64 [ %.pre27, %..thread_crit_edge ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   br label %_ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i: ; preds = %.thread26.i.i.i, %.thread
@@ -27950,8 +27950,8 @@ _ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.e
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %59 to i64
   %64 = sub i64 %62, %63
-  %65 = icmp slt i64 %.pre-phi27, %64
-  %66 = getelementptr inbounds i8, ptr %59, i64 %.pre-phi27
+  %65 = icmp slt i64 %.pre-phi28, %64
+  %66 = getelementptr inbounds i8, ptr %59, i64 %.pre-phi28
   %67 = select i1 %65, ptr %66, ptr %61
   %.not22.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %59, %67
   br i1 %.not22.i.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
@@ -28014,7 +28014,7 @@ _ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_
   %91 = ptrtoint ptr %89 to i64
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
-  %94 = icmp eq i64 %.pre-phi27, %93
+  %94 = icmp eq i64 %.pre-phi28, %93
   br i1 %94, label %95, label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
 
 95:                                               ; preds = %87
@@ -28022,7 +28022,7 @@ _ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i, label %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i
 
 _ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i: ; preds = %95
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %1, ptr %90, i64 %.pre-phi27)
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %1, ptr %90, i64 %.pre-phi28)
   %.not9.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i, label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
 
@@ -46742,9 +46742,9 @@ define linkonce_odr void @_ZNK5boost16re_detail_10740031cpp_regex_traits_impleme
   br i1 %.not, label %..thread_crit_edge, label %10
 
 ..thread_crit_edge:                               ; preds = %4
-  %.pre60 = ptrtoint ptr %3 to i64
-  %.pre61 = ptrtoint ptr %2 to i64
-  %.pre63 = sub i64 %.pre60, %.pre61
+  %.pre61 = ptrtoint ptr %3 to i64
+  %.pre62 = ptrtoint ptr %2 to i64
+  %.pre64 = sub i64 %.pre61, %.pre62
   br label %.thread
 
 10:                                               ; preds = %4
@@ -46956,17 +46956,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i25: 
   br label %179
 
 .thread:                                          ; preds = %..thread_crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pre-phi64 = phi i64 [ %.pre63, %..thread_crit_edge ], [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pre-phi65 = phi i64 [ %.pre64, %..thread_crit_edge ], [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #33
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %78, ptr %6, align 8, !tbaa !9
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %79, align 8, !tbaa !19
-  %80 = icmp ugt i64 %.pre-phi64, 15
+  %80 = icmp ugt i64 %.pre-phi65, 15
   br i1 %80, label %81, label %._crit_edge.i.i30
 
 81:                                               ; preds = %.thread
-  %82 = icmp slt i64 %.pre-phi64, 0
+  %82 = icmp slt i64 %.pre-phi65, 0
   br i1 %82, label %.noexc.i33, label %83
 
 .noexc.i33:                                       ; preds = %81
@@ -46974,7 +46974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i25: 
   unreachable
 
 83:                                               ; preds = %81
-  %84 = add nuw i64 %.pre-phi64, 1
+  %84 = add nuw i64 %.pre-phi65, 1
   %85 = icmp slt i64 %84, 0
   br i1 %85, label %.noexc4.i32, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i31, !prof !14
 
@@ -46985,12 +46985,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i25: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i31: ; preds = %83
   %86 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #35
   store ptr %86, ptr %6, align 8, !tbaa !15
-  store i64 %.pre-phi64, ptr %78, align 8, !tbaa !18
+  store i64 %.pre-phi65, ptr %78, align 8, !tbaa !18
   br label %._crit_edge.i.i30
 
 ._crit_edge.i.i30:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i31, %.thread
   %87 = phi ptr [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i31 ], [ %78, %.thread ]
-  switch i64 %.pre-phi64, label %90 [
+  switch i64 %.pre-phi65, label %90 [
     i64 1, label %88
     i64 0, label %91
   ]
@@ -47001,12 +47001,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i31: 
   br label %91
 
 90:                                               ; preds = %._crit_edge.i.i30
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %2, i64 %.pre-phi64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %87, ptr align 1 %2, i64 %.pre-phi65, i1 false)
   br label %91
 
 91:                                               ; preds = %90, %88, %._crit_edge.i.i30
-  store i64 %.pre-phi64, ptr %79, align 8, !tbaa !19
-  %92 = getelementptr inbounds nuw i8, ptr %87, i64 %.pre-phi64
+  store i64 %.pre-phi65, ptr %79, align 8, !tbaa !19
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 %.pre-phi65
   store i8 0, ptr %92, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #33
   invoke void @_ZN5boost16re_detail_10740027lookup_default_collate_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -47192,7 +47192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i42: 
   br label %172
 
 156:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40
-  %157 = icmp eq i64 %.pre-phi64, 1
+  %157 = icmp eq i64 %.pre-phi65, 1
   br i1 %157, label %158, label %163
 
 158:                                              ; preds = %156

@@ -1780,7 +1780,7 @@ $_ZTVN4llvm2cl11OptionValueIjEE = comdat any
 @switch.table._ZL17IsSVECntIntrinsicN4llvm7SDValueE = private unnamed_addr constant [9 x i64] [i64 8, i64 64, i64 16, i64 0, i64 0, i64 0, i64 0, i64 0, i64 32], align 8
 @switch.table._ZL17IsSVECntIntrinsicN4llvm7SDValueE.216 = private unnamed_addr constant [9 x i64] [i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296], align 8
 @switch.table._ZL18emitConjunctionRecRN4llvm12SelectionDAGENS_7SDValueERNS_9AArch64CC8CondCodeEbS2_S4_ = private unnamed_addr constant [13 x i32] [i32 8, i32 2, i32 3, i32 9, i32 poison, i32 poison, i32 poison, i32 0, i32 12, i32 10, i32 11, i32 13, i32 1], align 4
-@switch.table._ZL25emitConditionalComparisonN4llvm7SDValueES0_NS_3ISD8CondCodeES0_NS_9AArch64CC8CondCodeES4_RKNS_5SDLocERNS_12SelectionDAGE = private unnamed_addr constant [14 x i64] [i64 4, i64 0, i64 2, i64 0, i64 8, i64 0, i64 1, i64 0, i64 2, i64 0, i64 0, i64 8, i64 0, i64 4], align 8
+@switch.table._ZL25emitConditionalComparisonN4llvm7SDValueES0_NS_3ISD8CondCodeES0_NS_9AArch64CC8CondCodeES4_RKNS_5SDLocERNS_12SelectionDAGE = private unnamed_addr constant [14 x i64] [i64 0, i64 4, i64 0, i64 2, i64 0, i64 8, i64 0, i64 1, i64 0, i64 2, i64 8, i64 0, i64 4, i64 0], align 8
 @switch.table._ZN4llvm9AArch64CCL24getNZCVToSatisfyCondCodeENS0_8CondCodeE = private unnamed_addr constant [14 x i32] [i32 4, i32 0, i32 2, i32 0, i32 8, i32 0, i32 1, i32 0, i32 2, i32 0, i32 0, i32 8, i32 0, i32 4], align 4
 @switch.table._ZL32isConstantSplatVectorMaskForTypePN4llvm6SDNodeENS_3EVTE = private unnamed_addr constant [3 x i64] [i64 255, i64 65535, i64 4294967295], align 8
 @switch.table._ZL22combineSVEReductionIntPN4llvm6SDNodeEjRNS_12SelectionDAGE = private unnamed_addr constant [9 x i16] [i16 149, i16 155, i16 160, i16 165, i16 poison, i16 179, i16 173, i16 184, i16 188], align 2
@@ -164487,15 +164487,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   %124 = phi i32 [ 587, %120 ], [ 587, %107 ], [ 588, %_ZNK4llvm3EVTeqES0_.exit84 ], [ 588, %_ZNK4llvm3EVTeqES0_.exit ], [ 586, %119 ], [ 586, %115 ], [ 586, %111 ], [ 588, %38 ], [ %spec.select169, %123 ], [ 588, %35 ]
   %125 = zext i32 %6 to i64
   %126 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %9, i64 noundef %125, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #35
-  %127 = xor i32 %7, 1
-  %128 = sext i32 %127 to i64
-  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZL25emitConditionalComparisonN4llvm7SDValueES0_NS_3ISD8CondCodeES0_NS_9AArch64CC8CondCodeES4_RKNS_5SDLocERNS_12SelectionDAGE, i64 0, i64 %128
+  %127 = sext i32 %7 to i64
+  %switch.gep = getelementptr inbounds [14 x i64], ptr @switch.table._ZL25emitConditionalComparisonN4llvm7SDValueES0_NS_3ISD8CondCodeES0_NS_9AArch64CC8CondCodeES4_RKNS_5SDLocERNS_12SelectionDAGE, i64 0, i64 %127
   %switch.load = load i64, ptr %switch.gep, align 8
   %.fca.1.extract10 = extractvalue { ptr, i32 } %126, 1
   %.fca.0.extract9 = extractvalue { ptr, i32 } %126, 0
-  %129 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %9, i64 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #35
-  %.fca.0.extract3 = extractvalue { ptr, i32 } %129, 0
-  %.fca.1.extract4 = extractvalue { ptr, i32 } %129, 1
+  %128 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %9, i64 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #35
+  %.fca.0.extract3 = extractvalue { ptr, i32 } %128, 0
+  %.fca.1.extract4 = extractvalue { ptr, i32 } %128, 1
   store ptr %.sroa.0115.0146, ptr %16, align 8, !tbaa !359
   %.sroa.11.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %.sroa.11.0147, ptr %.sroa.11.0..sroa_idx123, align 8, !tbaa !68
@@ -164508,8 +164507,8 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt12ge
   store ptr %.fca.0.extract9, ptr %19, align 8, !tbaa !359
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %.fca.1.extract10, ptr %.sroa.415.0..sroa_idx, align 8, !tbaa !68
-  %130 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(952) %9, i32 noundef %124, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 7, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %17, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %18, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %19, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %5) #35
-  ret { ptr, i32 } %130
+  %129 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueES5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(952) %9, i32 noundef %124, ptr noundef nonnull align 8 dereferenceable(12) %8, i16 7, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %16, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %17, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %18, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %19, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %5) #35
+  ret { ptr, i32 } %129
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -23706,8 +23706,8 @@ define linkonce_odr void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10v
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %5, %6
   %8 = tail call noundef ptr @memchr(ptr noundef %1, i32 noundef 125, i64 noundef %7) #32
-  %.not1619 = icmp eq ptr %8, null
-  br i1 %.not1619, label %.thread, label %.lr.ph
+  %.not1720 = icmp eq ptr %8, null
+  br i1 %.not1720, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %20, %.preheader
   %.09.lcssa = phi ptr [ %1, %.preheader ], [ %27, %20 ]
@@ -23723,7 +23723,7 @@ define linkonce_odr void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10v
 .lr.ph:                                           ; preds = %.preheader, %20
   %13 = phi ptr [ %30, %20 ], [ %8, %.preheader ]
   %14 = phi i64 [ %28, %20 ], [ %6, %.preheader ]
-  %.0920 = phi ptr [ %27, %20 ], [ %1, %.preheader ]
+  %.0921 = phi ptr [ %27, %20 ], [ %1, %.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %19, label %17
@@ -23743,15 +23743,15 @@ define linkonce_odr void @_ZZN3fmt3v106detail19parse_format_stringILb0EcZNS1_10v
   %23 = sub i64 %22, %14
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %.sroa.0.0.copyload.i.i12 = load ptr, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.0920, i64 %23
-  %26 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.0920, ptr noundef %25, ptr %.sroa.0.0.copyload.i.i12)
+  %25 = getelementptr inbounds nuw i8, ptr %.0921, i64 %23
+  %26 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef %.0921, ptr noundef %25, ptr %.sroa.0.0.copyload.i.i12)
   store ptr %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %5, %28
   %30 = tail call noundef ptr @memchr(ptr noundef nonnull %27, i32 noundef 125, i64 noundef %29) #32
-  %.not16 = icmp eq ptr %30, null
-  br i1 %.not16, label %.thread, label %.lr.ph
+  %.not17 = icmp eq ptr %30, null
+  br i1 %.not17, label %.thread, label %.lr.ph
 
 31:                                               ; preds = %.thread, %3
   ret void

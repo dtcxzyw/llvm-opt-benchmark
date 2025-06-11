@@ -592,9 +592,9 @@ define void @_ZN5arrow8internal11TrieBuilder15AppendChildNodeEPNS0_4Trie4NodeEhO
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 1
   %22 = icmp ugt i64 %21, 8388607
-  br i1 %22, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit10.thread
+  br i1 %22, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit.thread
 
-_ZN5arrow6StatusD2Ev.exit10.thread:               ; preds = %13
+_ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %13
   %23 = lshr i64 %21, 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #17, !noalias !64
   store i16 -1, ptr %7, align 2, !tbaa !26, !noalias !64
@@ -615,7 +615,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %13
   %25 = icmp eq ptr %.pr, null
   br i1 %25, label %26, label %90
 
-26:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10.thread, %_ZN5arrow6StatusD2Ev.exit, %5
+26:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit.thread, %_ZN5arrow6StatusD2Ev.exit, %5
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = load ptr, ptr %1, align 8, !tbaa !9

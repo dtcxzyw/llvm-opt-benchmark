@@ -9300,7 +9300,7 @@ parse_digits.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i
 define internal fastcc range(i32 -4, 1) i32 @iso_to_ymd(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #4 {
   %7 = add i32 %0, -10000
   %or.cond = icmp ult i32 %7, -9999
-  br i1 %or.cond, label %.thread, label %8
+  br i1 %or.cond, label %.critedge, label %8
 
 8:                                                ; preds = %6
   %9 = add i32 %1, -53
@@ -9309,23 +9309,23 @@ define internal fastcc range(i32 -4, 1) i32 @iso_to_ymd(i32 noundef %0, i32 noun
 
 10:                                               ; preds = %8
   %11 = icmp eq i32 %1, 53
-  br i1 %11, label %12, label %.thread
+  br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %10
   %13 = add nsw i32 %0, -1
   %14 = mul nuw nsw i32 %13, 365
   %15 = lshr i32 %13, 2
-  %.neg.i.i.i39.lhs.trunc = trunc nuw nsw i32 %13 to i16
-  %.neg.i.i.i3940 = udiv i16 %.neg.i.i.i39.lhs.trunc, 100
-  %.neg.i.i.i39.zext = zext nneg i16 %.neg.i.i.i3940 to i32
-  %16 = udiv i16 %.neg.i.i.i39.lhs.trunc, 400
-  %.zext42 = zext nneg i16 %16 to i32
+  %.neg.i.i.i37.lhs.trunc = trunc nuw nsw i32 %13 to i16
+  %.neg.i.i.i3738 = udiv i16 %.neg.i.i.i37.lhs.trunc, 100
+  %.neg.i.i.i37.zext = zext nneg i16 %.neg.i.i.i3738 to i32
+  %16 = udiv i16 %.neg.i.i.i37.lhs.trunc, 400
+  %.zext40 = zext nneg i16 %16 to i32
   %17 = add nuw nsw i32 %14, 7
   %18 = add nuw nsw i32 %17, %15
-  %19 = sub nsw i32 %18, %.neg.i.i.i39.zext
-  %20 = add nsw i32 %19, %.zext42
+  %19 = sub nsw i32 %18, %.neg.i.i.i37.zext
+  %20 = add nsw i32 %19, %.zext40
   %21 = srem i32 %20, 7
-  switch i32 %21, label %.thread [
+  switch i32 %21, label %.critedge [
     i32 3, label %is_leap.exit.thread35
     i32 2, label %22
   ]
@@ -9333,34 +9333,34 @@ define internal fastcc range(i32 -4, 1) i32 @iso_to_ymd(i32 noundef %0, i32 noun
 22:                                               ; preds = %12
   %23 = and i32 %0, 3
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %.thread
+  br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %22
-  %.lhs.trunc50 = trunc nuw nsw i32 %0 to i16
-  %26 = urem i16 %.lhs.trunc50, 100
+  %.lhs.trunc48 = trunc nuw nsw i32 %0 to i16
+  %26 = urem i16 %.lhs.trunc48, 100
   %.not.i = icmp ne i16 %26, 0
-  %27 = urem i16 %.lhs.trunc50, 400
+  %27 = urem i16 %.lhs.trunc48, 400
   %.not = icmp eq i16 %27, 0
-  %or.cond54 = or i1 %.not.i, %.not
-  br i1 %or.cond54, label %is_leap.exit.thread35, label %.thread
+  %or.cond52 = or i1 %.not.i, %.not
+  br i1 %or.cond52, label %is_leap.exit.thread35, label %.critedge
 
 is_leap.exit.thread35:                            ; preds = %12, %25, %8
   %28 = add i32 %2, -8
   %or.cond5 = icmp ult i32 %28, -7
-  br i1 %or.cond5, label %.thread, label %29
+  br i1 %or.cond5, label %.critedge, label %29
 
 29:                                               ; preds = %is_leap.exit.thread35
   %30 = add nsw i32 %0, -1
   %31 = mul nuw nsw i32 %30, 365
   %32 = lshr i32 %30, 2
   %33 = add nuw nsw i32 %32, %31
-  %.neg.i.i.i3346.lhs.trunc = trunc nuw nsw i32 %30 to i16
-  %.neg.i.i.i334647 = udiv i16 %.neg.i.i.i3346.lhs.trunc, 100
-  %.neg.i.i.i3346.zext = zext nneg i16 %.neg.i.i.i334647 to i32
-  %34 = sub nsw i32 %33, %.neg.i.i.i3346.zext
-  %35 = udiv i16 %.neg.i.i.i3346.lhs.trunc, 400
-  %.zext49 = zext nneg i16 %35 to i32
-  %36 = add nsw i32 %34, %.zext49
+  %.neg.i.i.i3344.lhs.trunc = trunc nuw nsw i32 %30 to i16
+  %.neg.i.i.i334445 = udiv i16 %.neg.i.i.i3344.lhs.trunc, 100
+  %.neg.i.i.i3344.zext = zext nneg i16 %.neg.i.i.i334445 to i32
+  %34 = sub nsw i32 %33, %.neg.i.i.i3344.zext
+  %35 = udiv i16 %.neg.i.i.i3344.lhs.trunc, 400
+  %.zext47 = zext nneg i16 %35 to i32
+  %36 = add nsw i32 %34, %.zext47
   %37 = add nsw i32 %36, 1
   %38 = add nsw i32 %36, 7
   %39 = srem i32 %38, 7
@@ -9373,10 +9373,10 @@ is_leap.exit.thread35:                            ; preds = %12, %25, %8
   %45 = add nsw i32 %44, %2
   %46 = add nsw i32 %45, %spec.select.i
   tail call fastcc void @ord_to_ymd(i32 noundef %46, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %25, %22, %12, %10, %is_leap.exit.thread35, %6, %29
-  %.0 = phi i32 [ 0, %29 ], [ -4, %6 ], [ -3, %is_leap.exit.thread35 ], [ -2, %10 ], [ -2, %12 ], [ -2, %22 ], [ -2, %25 ]
+.critedge:                                        ; preds = %10, %12, %22, %25, %is_leap.exit.thread35, %6, %29
+  %.0 = phi i32 [ 0, %29 ], [ -4, %6 ], [ -3, %is_leap.exit.thread35 ], [ -2, %25 ], [ -2, %22 ], [ -2, %12 ], [ -2, %10 ]
   ret i32 %.0
 }
 

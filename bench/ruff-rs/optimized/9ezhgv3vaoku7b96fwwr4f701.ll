@@ -56694,107 +56694,106 @@ define void @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generat
   %4 = alloca [24 x i8], align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %9, %2
-  %.tr10 = phi ptr [ %1, %2 ], [ %11, %9 ]
+tailrecurse:                                      ; preds = %8, %2
+  %.tr10 = phi ptr [ %1, %2 ], [ %10, %8 ]
   %5 = load i64, ptr %.tr10, align 8, !range !2051, !noundef !3
-  %6 = xor i64 %5, -9223372036854775808
-  switch i64 %6, label %7 [
-    i64 6, label %9
-    i64 7, label %12
+  switch i64 %5, label %6 [
+    i64 -9223372036854775802, label %8
+    i64 -9223372036854775801, label %11
   ]
 
-7:                                                ; preds = %tailrecurse
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 -37, ptr %8, align 1
+6:                                                ; preds = %tailrecurse
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 31
+  store i8 -37, ptr %7, align 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit"
 
-9:                                                ; preds = %tailrecurse
-  %10 = getelementptr inbounds nuw i8, ptr %.tr10, i64 16
-  %11 = load ptr, ptr %10, align 8, !align !135, !noundef !3
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %26, label %tailrecurse
+8:                                                ; preds = %tailrecurse
+  %9 = getelementptr inbounds nuw i8, ptr %.tr10, i64 16
+  %10 = load ptr, ptr %9, align 8, !align !135, !noundef !3
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %25, label %tailrecurse
 
-12:                                               ; preds = %tailrecurse
-  %13 = getelementptr inbounds nuw i8, ptr %.tr10, i64 16
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %.tr10, i64 24
-  %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %14, i64 %16
+11:                                               ; preds = %tailrecurse
+  %12 = getelementptr inbounds nuw i8, ptr %.tr10, i64 16
+  %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
+  %14 = getelementptr inbounds nuw i8, ptr %.tr10, i64 24
+  %15 = load i64, ptr %14, align 8, !noundef !3
+  %16 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %13, i64 %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7833)
-  %18 = icmp eq i64 %16, 0
-  br i1 %18, label %._crit_edge, label %.lr.ph
+  %17 = icmp eq i64 %15, 0
+  br i1 %17, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 31
-  br label %20
+.lr.ph:                                           ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 31
+  br label %19
 
-20:                                               ; preds = %.lr.ph, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit"
-  %.sroa.0.013 = phi ptr [ %14, %.lr.ph ], [ %24, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit" ]
+19:                                               ; preds = %.lr.ph, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit"
+  %.sroa.0.013 = phi ptr [ %13, %.lr.ph ], [ %23, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !7836
   call void @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generated..Pattern$GT$19irrefutable_pattern17hc810dcc5cf3b3556E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.013), !noalias !7836
-  %21 = load i8, ptr %19, align 1, !range !3395, !noalias !7836, !noundef !3
-  %.not3.i = icmp eq i8 %21, -37
-  br i1 %.not3.i, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit", label %23
+  %20 = load i8, ptr %18, align 1, !range !3395, !noalias !7836, !noundef !3
+  %.not3.i = icmp eq i8 %20, -37
+  br i1 %.not3.i, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit", label %22
 
-._crit_edge:                                      ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit", %12
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  store i8 -37, ptr %22, align 1, !alias.scope !7833, !noalias !7838
+._crit_edge:                                      ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit", %11
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 31
+  store i8 -37, ptr %21, align 1, !alias.scope !7833, !noalias !7838
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit"
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !7838
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !7836
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit"
 
-"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit": ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 88
+"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$ruff_python_ast..nodes..IrrefutablePattern$GT$$GT$17h358eefd1bf4c40f4E.exit": ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 88
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !7836
-  %25 = icmp eq ptr %24, %17
-  br i1 %25, label %._crit_edge, label %20
+  %24 = icmp eq ptr %23, %16
+  br i1 %24, label %._crit_edge, label %19
 
-26:                                               ; preds = %9
-  %27 = getelementptr inbounds nuw i8, ptr %.tr10, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %.tr10, i64 55
-  %29 = load i8, ptr %28, align 1, !range !1145, !noundef !3
-  %.not5 = icmp eq i8 %29, -38
-  br i1 %.not5, label %33, label %30
+25:                                               ; preds = %8
+  %26 = getelementptr inbounds nuw i8, ptr %.tr10, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.tr10, i64 55
+  %28 = load i8, ptr %27, align 1, !range !1145, !noundef !3
+  %.not5 = icmp eq i8 %28, -38
+  br i1 %.not5, label %32, label %29
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.tr10, i64 32
-  %32 = icmp eq i8 %29, -40
-  br i1 %32, label %38, label %37
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %.tr10, i64 32
+  %31 = icmp eq i8 %28, -40
+  br i1 %31, label %37, label %36
 
-33:                                               ; preds = %26
-  %34 = load i32, ptr %27, align 8, !noundef !3
-  %35 = getelementptr inbounds nuw i8, ptr %.tr10, i64 12
-  %36 = load i32, ptr %35, align 4, !noundef !3
-  store i32 %34, ptr %0, align 8
+32:                                               ; preds = %25
+  %33 = load i32, ptr %26, align 8, !noundef !3
+  %34 = getelementptr inbounds nuw i8, ptr %.tr10, i64 12
+  %35 = load i32, ptr %34, align 4, !noundef !3
+  store i32 %33, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %36, ptr %.sroa.42.0..sroa_idx, align 4
+  store i32 %35, ptr %.sroa.42.0..sroa_idx, align 4
   %.sroa.53.sroa.4.0..sroa.53.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 -38, ptr %.sroa.53.sroa.4.0..sroa.53.0..sroa_idx.sroa_idx, align 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit"
 
-37:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
-  br label %39
+36:                                               ; preds = %29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
+  br label %38
 
-38:                                               ; preds = %30
-  call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hae991380be28290bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31)
-  br label %39
+37:                                               ; preds = %29
+  call void @"_ZN62_$LT$compact_str..repr..Repr$u20$as$u20$core..clone..Clone$GT$5clone10clone_heap17hae991380be28290bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
+  br label %38
 
-39:                                               ; preds = %38, %37
-  %40 = load i32, ptr %27, align 8, !noundef !3
-  %41 = getelementptr inbounds nuw i8, ptr %.tr10, i64 12
-  %42 = load i32, ptr %41, align 4, !noundef !3
-  store i32 %40, ptr %0, align 8
+38:                                               ; preds = %37, %36
+  %39 = load i32, ptr %26, align 8, !noundef !3
+  %40 = getelementptr inbounds nuw i8, ptr %.tr10, i64 12
+  %41 = load i32, ptr %40, align 4, !noundef !3
+  store i32 %39, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %42, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 %41, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit": ; preds = %23, %._crit_edge, %33, %39, %7
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17hfdcefa8e0845fdc7E.exit": ; preds = %22, %._crit_edge, %32, %38, %6
   ret void
 }
 
@@ -56802,41 +56801,40 @@ tailrecurse:                                      ; preds = %9, %2
 define noundef zeroext i1 @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generated..Pattern$GT$11is_wildcard17hb45faedb9faa20cbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #27 personality ptr @rust_eh_personality {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %4, %1
-  %.tr = phi ptr [ %0, %1 ], [ %6, %4 ]
+tailrecurse:                                      ; preds = %3, %1
+  %.tr = phi ptr [ %0, %1 ], [ %5, %3 ]
   %2 = load i64, ptr %.tr, align 8, !range !2051, !noundef !3
-  %3 = xor i64 %2, -9223372036854775808
-  switch i64 %3, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit" [
-    i64 6, label %4
-    i64 7, label %7
+  switch i64 %2, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit" [
+    i64 -9223372036854775802, label %3
+    i64 -9223372036854775801, label %6
   ]
 
-4:                                                ; preds = %tailrecurse
-  %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %6 = load ptr, ptr %5, align 8, !align !135, !noundef !3
-  %.not = icmp eq ptr %6, null
+3:                                                ; preds = %tailrecurse
+  %4 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %5 = load ptr, ptr %4, align 8, !align !135, !noundef !3
+  %.not = icmp eq ptr %5, null
   br i1 %.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit", label %tailrecurse
 
-7:                                                ; preds = %tailrecurse
-  %8 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %9, i64 %11
-  br label %13
+6:                                                ; preds = %tailrecurse
+  %7 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
+  %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %10 = load i64, ptr %9, align 8, !noundef !3
+  %11 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %8, i64 %10
+  br label %12
 
-13:                                               ; preds = %15, %7
-  %.sroa.0.02 = phi ptr [ %9, %7 ], [ %16, %15 ]
-  %14 = icmp eq ptr %.sroa.0.02, %12
-  br i1 %14, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit", label %15
+12:                                               ; preds = %14, %6
+  %.sroa.0.02 = phi ptr [ %8, %6 ], [ %15, %14 ]
+  %13 = icmp eq ptr %.sroa.0.02, %11
+  br i1 %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit", label %14
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.02, i64 88
-  %17 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generated..Pattern$GT$11is_wildcard17hb45faedb9faa20cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.02), !noalias !7839
-  br i1 %17, label %13, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit"
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.02, i64 88
+  %16 = tail call noundef zeroext i1 @"_ZN15ruff_python_ast5nodes53_$LT$impl$u20$ruff_python_ast..generated..Pattern$GT$11is_wildcard17hb45faedb9faa20cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.0.02), !noalias !7839
+  br i1 %16, label %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit": ; preds = %4, %tailrecurse, %13, %15
-  %.sroa.0.0 = phi i1 [ %14, %15 ], [ %14, %13 ], [ true, %4 ], [ false, %tailrecurse ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h41cbb515de7d1db8E.exit": ; preds = %3, %tailrecurse, %12, %14
+  %.sroa.0.0 = phi i1 [ %13, %14 ], [ %13, %12 ], [ true, %3 ], [ false, %tailrecurse ]
   ret i1 %.sroa.0.0
 }
 

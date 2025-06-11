@@ -169,8 +169,8 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   call void @_ZN15FieldStreamBaseC2EPK5ArrayIhEP12ConstantPoolii(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull %48, ptr noundef %50, i32 noundef 0, i32 noundef %.0.i.i.i.i.i.i)
   %73 = load i32, ptr %35, align 8
   %74 = load i32, ptr %36, align 4
-  %.not2023 = icmp slt i32 %73, %74
-  br i1 %.not2023, label %.lr.ph, label %._crit_edge
+  %.not20.not23 = icmp slt i32 %73, %74
+  br i1 %.not20.not23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit, %_ZN15FieldStreamBase4nextEv.exit
   %75 = phi i32 [ %92, %_ZN15FieldStreamBase4nextEv.exit ], [ %74, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit ]
@@ -211,8 +211,8 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
 _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %89, %91
   %92 = phi i32 [ %75, %89 ], [ %.pre25, %91 ]
   %93 = phi i32 [ %90, %89 ], [ %.pre, %91 ]
-  %.not20 = icmp slt i32 %93, %92
-  br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %.not20.not = icmp slt i32 %93, %92
+  br i1 %.not20.not, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN15FieldStreamBase4nextEv.exit, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit
   %94 = getelementptr inbounds nuw i8, ptr %.117, i64 120
@@ -220,12 +220,12 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %89, %91
   br label %96
 
 96:                                               ; preds = %._crit_edge, %79
-  %.not2022 = phi i1 [ true, %79 ], [ false, %._crit_edge ]
+  %.not20.not22 = phi i1 [ true, %79 ], [ false, %._crit_edge ]
   %.218 = phi ptr [ %.117, %79 ], [ %95, %._crit_edge ]
   %.1 = phi ptr [ %.0.i.i, %79 ], [ %.015, %._crit_edge ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #8
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #8
-  br i1 %.not2022, label %.loopexit, label %45
+  br i1 %.not20.not22, label %.loopexit, label %45
 
 97:                                               ; preds = %45
   store i16 0, ptr %1, align 2

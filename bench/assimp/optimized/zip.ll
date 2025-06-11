@@ -18989,7 +18989,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %11
 mz_zip_array_reserve.exit:                        ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 16, ptr %22, align 4
-  br label %.thread35
+  br label %.thread27
 
 23:                                               ; preds = %mz_zip_array_ensure_capacity.exit, %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19056,8 +19056,8 @@ mz_zip_array_reserve.exit:                        ; preds = %11
   %51 = trunc i64 %50 to i8
   %.18..18..18..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i8 %51, ptr %.18..18..18..sroa_idx, align 2
-  %sum.shift37 = lshr i64 %.0.val, 56
-  %52 = trunc nuw i64 %sum.shift37 to i8
+  %sum.shift35 = lshr i64 %.0.val, 56
+  %52 = trunc nuw i64 %sum.shift35 to i8
   %.19..19..19..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 19
   store i8 %52, ptr %.19..19..19..sroa_idx, align 1
   %53 = trunc i64 %.0.val3 to i8
@@ -19087,8 +19087,8 @@ mz_zip_array_reserve.exit:                        ; preds = %11
   %65 = trunc i64 %64 to i8
   %.26..26..26..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 26
   store i8 %65, ptr %.26..26..26..sroa_idx, align 2
-  %sum.shift38 = lshr i64 %.0.val3, 56
-  %66 = trunc nuw i64 %sum.shift38 to i8
+  %sum.shift36 = lshr i64 %.0.val3, 56
+  %66 = trunc nuw i64 %sum.shift36 to i8
   %.27..27..27..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 27
   store i8 %66, ptr %.27..27..27..sroa_idx, align 1
   %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -19135,7 +19135,7 @@ mz_zip_array_ensure_capacity.exit107:             ; preds = %.loopexit.i
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 16, ptr %84, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %.thread35
+  br label %.thread27
 
 85:                                               ; preds = %._crit_edge, %mz_zip_array_ensure_capacity.exit107
   %86 = phi ptr [ %.pre, %._crit_edge ], [ %81, %mz_zip_array_ensure_capacity.exit107 ]
@@ -19147,23 +19147,23 @@ mz_zip_array_ensure_capacity.exit107:             ; preds = %.loopexit.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr nonnull align 16 %5, i64 %90, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   %.not88 = icmp eq i32 %3, 0
-  br i1 %.not88, label %.thread35, label %.preheader
+  br i1 %.not88, label %.thread27, label %.preheader
 
 .preheader:                                       ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 64
   br label %93
 
-93:                                               ; preds = %.preheader, %._crit_edge42
-  %.078 = phi i32 [ %132, %._crit_edge42 ], [ %3, %.preheader ]
-  %.076 = phi ptr [ %131, %._crit_edge42 ], [ %2, %.preheader ]
+93:                                               ; preds = %.preheader, %._crit_edge40
+  %.078 = phi i32 [ %132, %._crit_edge40 ], [ %3, %.preheader ]
+  %.076 = phi ptr [ %131, %._crit_edge40 ], [ %2, %.preheader ]
   %94 = icmp ult i32 %.078, 4
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 9, ptr %96, align 4
-  br label %.thread35
+  br label %.thread27
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %.076, i64 2
@@ -19176,23 +19176,23 @@ mz_zip_array_ensure_capacity.exit107:             ; preds = %.loopexit.i
 103:                                              ; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 9, ptr %104, align 4
-  br label %.thread35
+  br label %.thread27
 
 105:                                              ; preds = %97
   %106 = load i16, ptr %.076, align 1
   %.not89 = icmp eq i16 %106, 1
-  %.pre43 = zext nneg i32 %101 to i64
-  br i1 %.not89, label %._crit_edge42, label %107
+  %.pre41 = zext nneg i32 %101 to i64
+  br i1 %.not89, label %._crit_edge40, label %107
 
 107:                                              ; preds = %105
   %108 = load i64, ptr %24, align 8
-  %109 = add i64 %108, %.pre43
+  %109 = add i64 %108, %.pre41
   %110 = load i64, ptr %8, align 8
   %111 = icmp ugt i64 %109, %110
   br i1 %111, label %112, label %.mz_zip_array_push_back.exit99_crit_edge
 
 .mz_zip_array_push_back.exit99_crit_edge:         ; preds = %107
-  %.pre41 = load ptr, ptr %0, align 8
+  %.pre39 = load ptr, ptr %0, align 8
   br label %mz_zip_array_push_back.exit99
 
 112:                                              ; preds = %107
@@ -19221,29 +19221,29 @@ mz_zip_array_ensure_capacity.exit114:             ; preds = %.loopexit.i112
   br label %mz_zip_array_push_back.exit99
 
 mz_zip_array_push_back.exit99:                    ; preds = %.mz_zip_array_push_back.exit99_crit_edge, %mz_zip_array_ensure_capacity.exit114
-  %123 = phi ptr [ %.pre41, %.mz_zip_array_push_back.exit99_crit_edge ], [ %121, %mz_zip_array_ensure_capacity.exit114 ]
+  %123 = phi ptr [ %.pre39, %.mz_zip_array_push_back.exit99_crit_edge ], [ %121, %mz_zip_array_ensure_capacity.exit114 ]
   store i64 %109, ptr %24, align 8
   %124 = load i32, ptr %87, align 8
   %125 = zext i32 %124 to i64
   %126 = mul i64 %108, %125
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
-  %128 = mul nuw nsw i64 %125, %.pre43
+  %128 = mul nuw nsw i64 %125, %.pre41
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr nonnull align 1 %.076, i64 %128, i1 false)
-  br label %._crit_edge42
+  br label %._crit_edge40
 
 129:                                              ; preds = %.loopexit.i112
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 16, ptr %130, align 4
-  br label %.thread35
+  br label %.thread27
 
-._crit_edge42:                                    ; preds = %105, %mz_zip_array_push_back.exit99
-  %131 = getelementptr inbounds nuw i8, ptr %.076, i64 %.pre43
+._crit_edge40:                                    ; preds = %105, %mz_zip_array_push_back.exit99
+  %131 = getelementptr inbounds nuw i8, ptr %.076, i64 %.pre41
   %132 = sub i32 %.078, %101
   %.not91 = icmp eq i32 %132, 0
-  br i1 %.not91, label %.thread35, label %93
+  br i1 %.not91, label %.thread27, label %93
 
-.thread35:                                        ; preds = %._crit_edge42, %85, %129, %103, %95, %83, %mz_zip_array_reserve.exit
-  %.0 = phi i32 [ 0, %83 ], [ 0, %mz_zip_array_reserve.exit ], [ 0, %95 ], [ 0, %103 ], [ 0, %129 ], [ 1, %85 ], [ 1, %._crit_edge42 ]
+.thread27:                                        ; preds = %._crit_edge40, %85, %95, %103, %129, %83, %mz_zip_array_reserve.exit
+  %.0 = phi i32 [ 0, %83 ], [ 0, %mz_zip_array_reserve.exit ], [ 0, %129 ], [ 0, %103 ], [ 0, %95 ], [ 1, %85 ], [ 1, %._crit_edge40 ]
   ret i32 %.0
 }
 

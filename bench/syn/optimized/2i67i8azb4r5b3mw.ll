@@ -2669,13 +2669,13 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(328) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h228daba2e3e74ce7E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !797
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !797
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !797
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !802
@@ -2707,24 +2707,24 @@ define internal noundef align 8 dereferenceable_or_null(328) ptr @_ZN4core4iter6
   %13 = phi ptr [ null, %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69a84b552adbbd70E.exit.i" ], [ %7, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfada663b563c8f7bE.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69a84b552adbbd70E.exit.i" ], [ %11, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfada663b563c8f7bE.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit: ; preds = %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69a84b552adbbd70E.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread, label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69a84b552adbbd70E.exit"
+  br i1 %15, label %.critedge, label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69a84b552adbbd70E.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfada663b563c8f7bE.exit.i"
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfada663b563c8f7bE.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread
+"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfada663b563c8f7bE.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 336
   store ptr %19, ptr %0, align 8, !alias.scope !797
   br label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h69a84b552adbbd70E.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !817, !noalias !822, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !817, !noalias !822
@@ -2738,13 +2738,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17ha44f9281ab54f8b4E.exit.thre
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h2462f6e7505ce7eeE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !825
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !825
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !825
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !830
@@ -2776,24 +2776,24 @@ define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6t
   %13 = phi ptr [ null, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbea6854c5f786b0E.exit.i" ], [ %7, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb45a96cafd11234fE.llvm.14145919710250835280.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbea6854c5f786b0E.exit.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb45a96cafd11234fE.llvm.14145919710250835280.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit: ; preds = %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbea6854c5f786b0E.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbea6854c5f786b0E.exit"
+  br i1 %15, label %.critedge, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbea6854c5f786b0E.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb45a96cafd11234fE.llvm.14145919710250835280.exit.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb45a96cafd11234fE.llvm.14145919710250835280.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb45a96cafd11234fE.llvm.14145919710250835280.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 104
   store ptr %19, ptr %0, align 8, !alias.scope !825
   br label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcbea6854c5f786b0E.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !845, !noalias !850, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !845, !noalias !850
@@ -2807,13 +2807,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h98fba6c10ea623fbE.exit.thre
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(328) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h7ba80481813a5653E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !852
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !852
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !852
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !857
@@ -2845,24 +2845,24 @@ define internal noundef align 8 dereferenceable_or_null(328) ptr @_ZN4core4iter6
   %13 = phi ptr [ null, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a492c3fb8780e84E.exit.i" ], [ %7, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3381c3fbb46b8985E.llvm.14145919710250835280.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a492c3fb8780e84E.exit.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3381c3fbb46b8985E.llvm.14145919710250835280.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit: ; preds = %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a492c3fb8780e84E.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a492c3fb8780e84E.exit"
+  br i1 %15, label %.critedge, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a492c3fb8780e84E.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3381c3fbb46b8985E.llvm.14145919710250835280.exit.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3381c3fbb46b8985E.llvm.14145919710250835280.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3381c3fbb46b8985E.llvm.14145919710250835280.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 336
   store ptr %19, ptr %0, align 8, !alias.scope !852
   br label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a492c3fb8780e84E.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !872, !noalias !877, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !872, !noalias !877
@@ -2876,13 +2876,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hcca3ef85b4749fffE.exit.thre
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h7bd4498a63107abdE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !879
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !879
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !879
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !884
@@ -2914,24 +2914,24 @@ define internal noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter6t
   %13 = phi ptr [ null, %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7866b37b660b7fceE.exit.i" ], [ %7, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h198fbe8fb7bea1d4E.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7866b37b660b7fceE.exit.i" ], [ %11, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h198fbe8fb7bea1d4E.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit: ; preds = %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7866b37b660b7fceE.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread, label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7866b37b660b7fceE.exit"
+  br i1 %15, label %.critedge, label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7866b37b660b7fceE.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h198fbe8fb7bea1d4E.exit.i"
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h198fbe8fb7bea1d4E.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread
+"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h198fbe8fb7bea1d4E.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 104
   store ptr %19, ptr %0, align 8, !alias.scope !879
   br label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7866b37b660b7fceE.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !899, !noalias !904, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !899, !noalias !904
@@ -2945,13 +2945,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h596ff6c7970d7ef2E.exit.thre
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(120) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h86a909d54a274db2E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !906
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !906
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !906
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !911
@@ -2983,24 +2983,24 @@ define internal noundef align 8 dereferenceable_or_null(120) ptr @_ZN4core4iter6
   %13 = phi ptr [ null, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1ebaa882505f4e4E.exit.i" ], [ %7, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44ce5b3bf94e122bE.llvm.14145919710250835280.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1ebaa882505f4e4E.exit.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44ce5b3bf94e122bE.llvm.14145919710250835280.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit: ; preds = %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1ebaa882505f4e4E.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1ebaa882505f4e4E.exit"
+  br i1 %15, label %.critedge, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1ebaa882505f4e4E.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44ce5b3bf94e122bE.llvm.14145919710250835280.exit.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44ce5b3bf94e122bE.llvm.14145919710250835280.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44ce5b3bf94e122bE.llvm.14145919710250835280.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 128
   store ptr %19, ptr %0, align 8, !alias.scope !906
   br label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1ebaa882505f4e4E.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !926, !noalias !931, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !926, !noalias !931
@@ -3014,13 +3014,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h40ad5f8ab59779caE.exit.thre
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(480) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hdda3467438b2e2f9E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !933
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !933
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !933
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !938
@@ -3052,24 +3052,24 @@ define internal noundef align 8 dereferenceable_or_null(480) ptr @_ZN4core4iter6
   %13 = phi ptr [ null, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he95bbf4728f1cdfcE.exit.i" ], [ %7, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22e4171a4978fba1E.llvm.14145919710250835280.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he95bbf4728f1cdfcE.exit.i" ], [ %11, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22e4171a4978fba1E.llvm.14145919710250835280.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit: ; preds = %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he95bbf4728f1cdfcE.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he95bbf4728f1cdfcE.exit"
+  br i1 %15, label %.critedge, label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he95bbf4728f1cdfcE.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22e4171a4978fba1E.llvm.14145919710250835280.exit.i"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22e4171a4978fba1E.llvm.14145919710250835280.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22e4171a4978fba1E.llvm.14145919710250835280.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 488
   store ptr %19, ptr %0, align 8, !alias.scope !933
   br label %"_ZN100_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he95bbf4728f1cdfcE.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !953, !noalias !958, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !953, !noalias !958
@@ -3083,13 +3083,13 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h31b8df911f85e50fE.exit.thre
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define internal noundef align 8 dereferenceable_or_null(480) ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hec26a8e66f082cc7E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread_crit_edge, label %.lr.ph.i
+  br i1 %.not.i, label %..critedge_crit_edge, label %.lr.ph.i
 
-._ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread_crit_edge: ; preds = %2
+..critedge_crit_edge:                             ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !960
-  %.pre9 = load ptr, ptr %0, align 8, !alias.scope !960
-  br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread
+  %.pre7 = load ptr, ptr %0, align 8, !alias.scope !960
+  br label %.critedge
 
 .lr.ph.i:                                         ; preds = %2
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !965
@@ -3121,24 +3121,24 @@ define internal noundef align 8 dereferenceable_or_null(480) ptr @_ZN4core4iter6
   %13 = phi ptr [ null, %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747784c3c5c41dd8E.exit.i" ], [ %7, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1061c6edd27f876E.exit.i.i" ]
   %14 = phi ptr [ %8, %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747784c3c5c41dd8E.exit.i" ], [ %11, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1061c6edd27f876E.exit.i.i" ]
   %exitcond.not.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread, label %6
+  br i1 %exitcond.not.i, label %.critedge, label %6
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit: ; preds = %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747784c3c5c41dd8E.exit.i"
   %15 = icmp eq i64 %1, %.sroa.01.010.i
-  br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread, label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747784c3c5c41dd8E.exit"
+  br i1 %15, label %.critedge, label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747784c3c5c41dd8E.exit"
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread: ; preds = %.backedge.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit
-  %16 = phi ptr [ %.pre9, %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit ], [ %14, %.backedge.i ]
-  %17 = phi ptr [ %.pre, %._ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit ], [ %4, %.backedge.i ]
+.critedge:                                        ; preds = %.backedge.i, %..critedge_crit_edge, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit
+  %16 = phi ptr [ %.pre7, %..critedge_crit_edge ], [ %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit ], [ %14, %.backedge.i ]
+  %17 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %4, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit ], [ %4, %.backedge.i ]
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %20, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1061c6edd27f876E.exit.i"
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1061c6edd27f876E.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread
+"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1061c6edd27f876E.exit.i": ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 488
   store ptr %19, ptr %0, align 8, !alias.scope !960
   br label %"_ZN103_$LT$syn..punctuated..PrivateIterMut$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h747784c3c5c41dd8E.exit"
 
-20:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbb328c02cb4b573E.exit.thread
+20:                                               ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !alias.scope !980, !noalias !985, !align !824, !noundef !64
   store ptr null, ptr %21, align 8, !alias.scope !980, !noalias !985

@@ -71,10 +71,9 @@ for.end:                                          ; preds = %for.inc, %_ZL9is_ba
   %6 = trunc i64 %i.0.lcssa to i32
   %7 = add i32 %6, 3
   %8 = and i32 %7, 3
-  %conv = xor i32 %8, 3
-  switch i32 %conv, label %lor.lhs.false16 [
-    i32 1, label %land.lhs.true
-    i32 2, label %land.lhs.true11
+  switch i32 %8, label %lor.lhs.false16 [
+    i32 2, label %land.lhs.true
+    i32 1, label %land.lhs.true11
   ]
 
 land.lhs.true:                                    ; preds = %for.end
@@ -97,11 +96,13 @@ land.lhs.true11:                                  ; preds = %for.end
   br i1 %cmp15, label %cleanup41, label %if.end20
 
 lor.lhs.false16:                                  ; preds = %for.end
+  %conv = xor i32 %8, 3
   %14 = and i32 %6, 3
   %cmp18.old.old = icmp eq i32 %14, 1
   br i1 %cmp18.old.old, label %cleanup41, label %if.end20
 
 if.end20:                                         ; preds = %lor.lhs.false16, %land.lhs.true11, %land.lhs.true
+  %conv78 = phi i32 [ 1, %land.lhs.true ], [ 2, %land.lhs.true11 ], [ %conv, %lor.lhs.false16 ]
   %sub22 = sub i64 %s.coerce0, %i.0.lcssa
   %conv23 = trunc i64 %sub22 to i32
   %cmp24 = icmp eq i32 %conv23, 0
@@ -124,7 +125,7 @@ for.body30:                                       ; preds = %for.cond27.preheade
   br i1 %cmp33.not, label %for.cond27, label %cleanup41
 
 for.end38:                                        ; preds = %for.cond27, %for.cond27.preheader
-  %cmp40 = icmp eq i32 %conv, %conv23
+  %cmp40 = icmp eq i32 %conv78, %conv23
   br label %cleanup41
 
 cleanup41:                                        ; preds = %for.body30, %for.end38, %if.end20, %lor.lhs.false16, %land.lhs.true11, %land.lhs.true, %entry

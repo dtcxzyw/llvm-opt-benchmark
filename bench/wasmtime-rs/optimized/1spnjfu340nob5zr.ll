@@ -3930,8 +3930,8 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hceedbacc4195eaf3E.exit.i.i: ; 
   br i1 %121, label %225, label %230
 
 122:                                              ; preds = %118
-  %.sroa.8.1.i = load i64, ptr %.sroa.8.1.in.i, align 8, !noalias !438
   %.sroa.9.1.i = load i64, ptr %.sroa.9.1.in.i, align 8, !noalias !438
+  %.sroa.8.1.i = load i64, ptr %.sroa.8.1.in.i, align 8, !noalias !438
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)

@@ -2532,9 +2532,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit27
 
 _ZNSt6vectorIhSaIhEED2Ev.exit27:                  ; preds = %37, %60, %62
-  %.merged36 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged37 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged36
+  resume { ptr, i32 } %.merged37
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #29
@@ -2730,9 +2730,9 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIaSaIaEED2Ev.exit27
 
 _ZNSt6vectorIaSaIaEED2Ev.exit27:                  ; preds = %37, %60, %62
-  %.merged36 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged37 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged36
+  resume { ptr, i32 } %.merged37
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #29
@@ -2929,9 +2929,9 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorItSaItEED2Ev.exit29
 
 _ZNSt6vectorItSaItEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #29
@@ -3128,9 +3128,9 @@ _ZNSt6vectorIsSaIsEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIsSaIsEED2Ev.exit29
 
 _ZNSt6vectorIsSaIsEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #29
@@ -3327,9 +3327,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit29
 
 _ZNSt6vectorIjSaIjEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #29
@@ -3526,9 +3526,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
 _ZNSt6vectorIiSaIiEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #29
@@ -3725,9 +3725,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit29
 
 _ZNSt6vectorIfSaIfEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #29
@@ -4182,7 +4182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_EEERS0_DpOT_.exit unwind label %81
 
 _ZNSt6vectorI7gguf_kvSaIS0_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_EEERS0_DpOT_.exit: ; preds = %97, %.noexc30, %.thread, %74
-  %.0.i36 = phi i1 [ false, %.thread ], [ false, %74 ], [ true, %.noexc30 ], [ true, %97 ]
+  %switch24 = phi i1 [ false, %.thread ], [ false, %74 ], [ true, %.noexc30 ], [ true, %97 ]
   %98 = load ptr, ptr %8, align 8, !tbaa !60
   %99 = icmp eq ptr %98, %67
   br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
@@ -4201,7 +4201,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #29
-  br i1 %.0.i36, label %104, label %105
+  br i1 %switch24, label %104, label %105
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
   br label %105
@@ -4367,9 +4367,9 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorImSaImEED2Ev.exit29
 
 _ZNSt6vectorImSaImEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29
@@ -4566,9 +4566,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit29
 
 _ZNSt6vectorIlSaIlEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29
@@ -4765,9 +4765,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNK11gguf_reader4r
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit29
 
 _ZNSt6vectorIdSaIdEED2Ev.exit29:                  ; preds = %37, %60, %62
-  %.merged41 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
+  %.merged42 = phi { ptr, i32 } [ %61, %60 ], [ %61, %62 ], [ %27, %37 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #29
-  resume { ptr, i32 } %.merged41
+  resume { ptr, i32 } %.merged42
 
 68:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #29

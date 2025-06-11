@@ -1955,9 +1955,9 @@ thread-pre-split.i:                               ; preds = %.noexc48, %50
   br label %_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit
 
 _ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit: ; preds = %58, %77
-  %storemerge37.i = phi ptr [ %59, %58 ], [ %81, %77 ]
+  %storemerge38.i = phi ptr [ %59, %58 ], [ %81, %77 ]
   %storemerge.i = phi i64 [ %56, %58 ], [ %.sroa.speculated.i, %77 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %storemerge37.i, ptr align 1 %2, i64 %storemerge.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %storemerge38.i, ptr align 1 %2, i64 %storemerge.i, i1 false)
   br label %_ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit.thread
 
 82:                                               ; preds = %136, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i, %46, %137
