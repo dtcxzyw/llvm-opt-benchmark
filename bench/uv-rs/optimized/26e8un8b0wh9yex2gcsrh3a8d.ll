@@ -35623,8 +35623,8 @@ common.resume.i:                                  ; preds = %.body.i.i, %46, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !12596
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %.sroa.1025.i.i)
   store i8 28, ptr %9, align 8, !noalias !12604
-  %.sroa.513.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %23, ptr %.sroa.513.0..sroa_idx.i, align 8, !noalias !12604
+  %.sroa.412.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %23, ptr %.sroa.412.0..sroa_idx.i, align 8, !noalias !12604
   %42 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !12615
   %43 = call noalias noundef align 8 dereferenceable_or_null(336) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 336, i64 noundef range(i64 1, -9223372036854775807) 8) #54, !noalias !12615
   %44 = icmp eq ptr %43, null

@@ -89991,7 +89991,7 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   %36 = icmp eq i64 %35, 6
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.717, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
-  br i1 %36, label %45, label %48
+  br i1 %36, label %44, label %47
 
 38:                                               ; preds = %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit"
   %39 = ptrtoint ptr %.sroa.556.8.copyload59 to i64
@@ -89999,10 +89999,10 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   %41 = trunc nuw i64 %40 to i32
   %42 = trunc i64 %39 to i32
   %.sroa.430.sroa.5.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 3, ptr %44, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 3, ptr %43, align 8
   %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %42, ptr %.sroa.243.0..sroa_idx, align 8
   %.sroa.243.sroa.2.0..sroa.243.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -90012,28 +90012,28 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   %.sroa.344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.344.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %43, i64 12, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %59
+  br label %58
 
-45:                                               ; preds = %30
+44:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %47 = load i64, ptr %46, align 8, !noundef !16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %46 = load i64, ptr %45, align 8, !noundef !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.717, i64 24, i1 false)
   %.sroa.011.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %.sroa.011.sroa.5.0..sroa_idx, align 8
   %.sroa.011.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %.sroa.011.sroa.7.0..sroa_idx, align 8
   %.sroa.712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %47, ptr %.sroa.712.0..sroa_idx, align 8
+  store i64 %46, ptr %.sroa.712.0..sroa_idx, align 8
   %.sroa.813.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %.sroa.0.082, ptr %.sroa.813.0..sroa_idx, align 8
   %.sroa.813.sroa.5.0..sroa.813.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.sroa.753.0, ptr %.sroa.813.sroa.5.0..sroa.813.0..sroa_idx.sroa_idx, align 4
   %.sroa.813.sroa.6.0..sroa.813.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %.sroa.854.0, ptr %.sroa.813.sroa.6.0..sroa.813.0..sroa_idx.sroa_idx, align 8
-  br label %59
+  br label %58
 
-48:                                               ; preds = %30
+47:                                               ; preds = %30
   %.sroa.551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
@@ -90042,49 +90042,49 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.222.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.717, i64 24, i1 false)
   store i64 %35, ptr %4, align 8
-  %49 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.3801596959246744488(ptr noalias noundef nonnull readonly align 1 @anon.17e6648beb32e5ba8aca87ae4c53798e.29.llvm.3801596959246744488, i64 noundef 8, i64 noundef 80, i1 noundef zeroext false)
-          to label %.noexc.i unwind label %53, !noalias !10906
+  %48 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.3801596959246744488(ptr noalias noundef nonnull readonly align 1 @anon.17e6648beb32e5ba8aca87ae4c53798e.29.llvm.3801596959246744488, i64 noundef 8, i64 noundef 80, i1 noundef zeroext false)
+          to label %.noexc.i unwind label %52, !noalias !10906
 
-.noexc.i:                                         ; preds = %48
-  %50 = extractvalue { ptr, i64 } %49, 0
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %"_ZN112_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$object_store..path..Error$GT$$GT$4from17h7e120a5f2a95f5fcE.exit"
+.noexc.i:                                         ; preds = %47
+  %49 = extractvalue { ptr, i64 } %48, 0
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %"_ZN112_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$object_store..path..Error$GT$$GT$4from17h7e120a5f2a95f5fcE.exit"
 
-52:                                               ; preds = %.noexc.i
+51:                                               ; preds = %.noexc.i
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 80) #39
-          to label %.noexc1.i unwind label %53, !noalias !10906
+          to label %.noexc1.i unwind label %52, !noalias !10906
 
-.noexc1.i:                                        ; preds = %52
+.noexc1.i:                                        ; preds = %51
   unreachable
 
-53:                                               ; preds = %52, %48
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %51, %47
+  %53 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$object_store..path..Error$GT$17h2da1ea3d8e5507f6E.llvm.3801596959246744488"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4) #40
-          to label %57 unwind label %55, !noalias !10910
+          to label %57 unwind label %54, !noalias !10910
 
-55:                                               ; preds = %53
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %52
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41, !noalias !10910
   unreachable
 
-57:                                               ; preds = %53
-  resume { ptr, i32 } %54
+56:                                               ; preds = %52
+  resume { ptr, i32 } %53
 
 "_ZN112_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$object_store..path..Error$GT$$GT$4from17h7e120a5f2a95f5fcE.exit": ; preds = %.noexc.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %50, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !noalias !10910
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 41, ptr %58, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !noalias !10910
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 41, ptr %57, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %50, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %49, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @anon.17e6648beb32e5ba8aca87ae4c53798e.321.llvm.3801596959246744488, ptr %.sroa.581.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %"_ZN112_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$object_store..path..Error$GT$$GT$4from17h7e120a5f2a95f5fcE.exit", %45, %38
+58:                                               ; preds = %"_ZN112_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$object_store..path..Error$GT$$GT$4from17h7e120a5f2a95f5fcE.exit", %44, %38
   ret void
 }
 

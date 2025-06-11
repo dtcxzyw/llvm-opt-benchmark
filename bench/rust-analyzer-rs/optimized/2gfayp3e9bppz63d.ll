@@ -11747,8 +11747,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h12797c11c0be9e
   call void @llvm.experimental.noalias.scope.decl(metadata !4513)
   %26 = getelementptr inbounds { { { i32, [1 x i32] }, i32 }, [1 x i32], { ptr, ptr } }, ptr %13, i64 %18
   store i32 %.sroa.0.0.copyload2, ptr %26, align 8, !noalias !4505
-  %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i64 %.sroa.7.0.copyload4, ptr %.sroa.5.0..sroa_idx8, align 4, !noalias !4505
+  %.sroa.0.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i64 %.sroa.7.0.copyload4, ptr %.sroa.0.sroa.0.i.sroa.4.0..sroa_idx, align 4, !noalias !4505
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %24, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !4516
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -13249,8 +13249,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17he50b3e3e6e1b52
   call void @llvm.experimental.noalias.scope.decl(metadata !5288)
   %26 = getelementptr inbounds { { { i32, [1 x i32] }, i32 }, [1 x i32], { ptr, ptr } }, ptr %13, i64 %18
   store i32 %.sroa.0.0.copyload2, ptr %26, align 8, !noalias !5280
-  %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i64 %.sroa.7.0.copyload4, ptr %.sroa.5.0..sroa_idx8, align 4, !noalias !5280
+  %.sroa.0.sroa.0.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i64 %.sroa.7.0.copyload4, ptr %.sroa.0.sroa.0.i.sroa.4.0..sroa_idx, align 4, !noalias !5280
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %24, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !5291
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 24

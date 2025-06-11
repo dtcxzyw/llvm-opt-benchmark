@@ -81853,7 +81853,7 @@ define hidden void @"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$
 
 9:                                                ; preds = %3
   %10 = icmp eq i8 %7, 13
-  br i1 %10, label %45, label %"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17hf0d378d8f0c43066E.exit"
+  br i1 %10, label %44, label %"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17hf0d378d8f0c43066E.exit"
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -81906,7 +81906,7 @@ define hidden void @"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$
           cleanup
   %32 = load i8, ptr %6, align 8, !range !2344
   %33 = icmp eq i8 %32, 11
-  br i1 %33, label %41, label %42
+  br i1 %33, label %40, label %41
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h77a7456c95bcfae9E.llvm.6955530683240799244.exit": ; preds = %20
   %.pre = load i8, ptr %6, align 8, !range !2344
@@ -81916,7 +81916,7 @@ define hidden void @"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$
 
 35:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h77a7456c95bcfae9E.llvm.6955530683240799244.exit.thread", %37, %36, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h77a7456c95bcfae9E.llvm.6955530683240799244.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %40
+  br label %39
 
 36:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h77a7456c95bcfae9E.llvm.6955530683240799244.exit"
   call fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$17hb391a9fd797fcf46E"(ptr noalias noundef align 8 dereferenceable(40) %6)
@@ -81926,9 +81926,9 @@ define hidden void @"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.sroa.733.sroa.5.sroa.4.0..sroa.733.sroa.5.0..sroa.733.0..sroa_idx34.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.733.sroa.5.sroa.4.0..sroa.733.sroa.5.0..sroa.733.0..sroa_idx34.sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %38, i64 23, i1 false)
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.668.sroa.4.24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.9.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.668.sroa.4.24..sroa_idx, i64 16, i1 false)
   store i8 17, ptr %0, align 8
   %.sroa.733.sroa.4.0..sroa.733.0..sroa_idx34.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.733.sroa.4.0..sroa.733.0..sroa_idx34.sroa_idx, align 8
@@ -81936,29 +81936,29 @@ define hidden void @"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$
   store i8 %12, ptr %.sroa.733.sroa.5.0..sroa.733.0..sroa_idx34.sroa_idx, align 8
   br label %35
 
-40:                                               ; preds = %35, %45, %"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17hf0d378d8f0c43066E.exit"
+39:                                               ; preds = %35, %44, %"_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17hf0d378d8f0c43066E.exit"
   ret void
 
-41:                                               ; preds = %42, %30
+40:                                               ; preds = %41, %30
   resume { ptr, i32 } %31
 
-42:                                               ; preds = %30
+41:                                               ; preds = %30
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$17hb391a9fd797fcf46E"(ptr noalias noundef align 8 dereferenceable(40) %6) #69
-          to label %41 unwind label %43
+          to label %41 unwind label %42
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %41
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #70
   unreachable
 
 "_ZN90_$LT$meilisearch..extractors..payload..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next28_$u7b$$u7b$closure$u7d$$u7d$17hf0d378d8f0c43066E.exit": ; preds = %9
   store i8 23, ptr %0, align 8
-  br label %40
+  br label %39
 
-45:                                               ; preds = %9
+44:                                               ; preds = %9
   store i8 24, ptr %0, align 8
-  br label %40
+  br label %39
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

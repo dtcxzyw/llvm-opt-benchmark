@@ -8640,12 +8640,12 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   store ptr %.sroa.23.0, ptr %.sroa.6394.0..sroa_idx, align 8
   %986 = load i32, ptr %1, align 8
   %987 = and i32 %986, 2097152
-  %.not56.i = icmp eq i32 %987, 0
-  %988 = select i1 %.not56.i, i32 1, i32 2
+  %.not57.i = icmp eq i32 %987, 0
+  %988 = select i1 %.not57.i, i32 1, i32 2
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 6144
   %990 = load ptr, ptr %989, align 8, !tbaa !1338
-  %.not57.i = icmp eq ptr %990, null
-  br i1 %.not57.i, label %991, label %1027
+  %.not58.i = icmp eq ptr %990, null
+  br i1 %.not58.i, label %991, label %1027
 
 991:                                              ; preds = %985
   %992 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -8689,17 +8689,17 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i: ; pre
   %1015 = getelementptr inbounds nuw i8, ptr %1006, i64 40
   store i64 %.sroa.0407.0, ptr %1015, align 8, !tbaa !313
   %1016 = load i32, ptr %993, align 4, !tbaa !3
-  %.not62.i = icmp eq i32 %1016, 0
-  br i1 %.not62.i, label %_ZL21EnterNewDeleteCleanupRN5clang7CodeGen15CodeGenFunctionEPKNS_10CXXNewExprENS0_7AddressEPN4llvm5ValueENS_9CharUnitsERKNS0_11CallArgListE.exit, label %.lr.ph64.i
+  %.not63.i = icmp eq i32 %1016, 0
+  br i1 %.not63.i, label %_ZL21EnterNewDeleteCleanupRN5clang7CodeGen15CodeGenFunctionEPKNS_10CXXNewExprENS0_7AddressEPN4llvm5ValueENS_9CharUnitsERKNS0_11CallArgListE.exit, label %.lr.ph65.i
 
-.lr.ph64.i:                                       ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i
+.lr.ph65.i:                                       ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit.i
   %1017 = getelementptr inbounds nuw i8, ptr %1006, i64 48
   %1018 = zext i32 %1016 to i64
   br label %1019
 
-1019:                                             ; preds = %1019, %.lr.ph64.i
-  %indvars.iv66.i = phi i64 [ 0, %.lr.ph64.i ], [ %indvars.iv.next67.i, %1019 ]
-  %1020 = trunc nuw i64 %indvars.iv66.i to i32
+1019:                                             ; preds = %1019, %.lr.ph65.i
+  %indvars.iv67.i = phi i64 [ 0, %.lr.ph64.i ], [ %indvars.iv.next67.i, %1019 ]
+  %1020 = trunc nuw i64 %indvars.iv67.i to i32
   %1021 = add i32 %988, %1020
   %1022 = zext i32 %1021 to i64
   %1023 = load ptr, ptr %69, align 8, !tbaa !13
@@ -8740,10 +8740,10 @@ _ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
   store ptr %.0.i.i.i176, ptr %11, align 8
-  %.sroa.252.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %.sroa.252.0..sroa_idx.i, align 8
-  %.sroa.354.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i8 0, ptr %.sroa.354.0..sroa_idx.i, align 8
+  %.sroa.253.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 0, ptr %.sroa.253.0..sroa_idx.i, align 8
+  %.sroa.355.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store i8 0, ptr %.sroa.355.0..sroa_idx.i, align 8
   call void @_ZN5clang7CodeGen15DominatingValueINS0_6RValueEE10saved_type4saveERNS0_15CodeGenFunctionES2_(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::DominatingValue<clang::CodeGen::RValue>::saved_type") align 8 %14, ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %11) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15) #16
@@ -8751,8 +8751,8 @@ _ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i: ; pred
   store ptr %.0.i, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.350.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i8 0, ptr %.sroa.350.0..sroa_idx.i, align 8
+  %.sroa.351.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i8 0, ptr %.sroa.351.0..sroa_idx.i, align 8
   call void @_ZN5clang7CodeGen15DominatingValueINS0_6RValueEE10saved_type4saveERNS0_15CodeGenFunctionES2_(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::DominatingValue<clang::CodeGen::RValue>::saved_type") align 8 %15, ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %10) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   %1036 = getelementptr inbounds nuw i8, ptr %0, i64 2224
@@ -8786,8 +8786,8 @@ _ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i: ; pred
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   %1054 = load i32, ptr %1037, align 4, !tbaa !3
-  %.not4760.i = icmp eq i32 %1054, 0
-  br i1 %.not4760.i, label %._crit_edge.i179, label %.lr.ph.i177
+  %.not4761.i = icmp eq i32 %1054, 0
+  br i1 %.not4761.i, label %._crit_edge.i179, label %.lr.ph.i177
 
 .lr.ph.i177:                                      ; preds = %_ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i
   %1055 = getelementptr inbounds nuw i8, ptr %1044, i64 128
@@ -8816,8 +8816,8 @@ _ZN5clang7CodeGen6RValue3getENS0_7AddressERNS0_15CodeGenFunctionE.exit.i: ; pred
   %.sroa.0.0.copyload.i178 = load i64, ptr %1063, align 8, !tbaa !3
   %1064 = getelementptr inbounds nuw %"struct.(anonymous namespace)::CallDeleteDuringNew<ConditionalCleanupTraits>::PlacementArg", ptr %1055, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %1064, ptr noundef nonnull align 8 dereferenceable(41) %16, i64 41, i1 false)
-  %.sroa.4.0..sroa_idx.i48.i = getelementptr inbounds nuw i8, ptr %1064, i64 48
-  store i64 %.sroa.0.0.copyload.i178, ptr %.sroa.4.0..sroa_idx.i48.i, align 8, !tbaa !3
+  %.sroa.4.0..sroa_idx.i49.i = getelementptr inbounds nuw i8, ptr %1064, i64 48
+  store i64 %.sroa.0.0.copyload.i178, ptr %.sroa.4.0..sroa_idx.i49.i, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not47.i = icmp eq i64 %indvars.iv.next.i, %1056
   br i1 %.not47.i, label %._crit_edge.i179, label %1057, !llvm.loop !1351

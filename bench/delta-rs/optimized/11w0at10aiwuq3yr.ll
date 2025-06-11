@@ -118726,7 +118726,7 @@ default.unreachable98:                            ; preds = %3
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !30141, !noalias !30146
   %.phi.trans.insert96 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.pre97 = load ptr, ptr %.phi.trans.insert96, align 8, !alias.scope !30141, !noalias !30146
-  br label %66
+  br label %68
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 273
@@ -118757,7 +118757,7 @@ default.unreachable98:                            ; preds = %3
           cleanup
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %7)
   invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$deltalake_core..operations..convert_to_delta..ConvertToDeltaBuilder..into_create_builder..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba9fd7fb97b57c7eE"(ptr noundef nonnull align 8 %19) #45
-          to label %.body unwind label %63
+          to label %.body unwind label %64
 
 22:                                               ; preds = %18
   %23 = load i64, ptr %7, align 8, !range !1849, !noundef !22
@@ -118779,7 +118779,7 @@ default.unreachable98:                            ; preds = %3
   invoke fastcc void @"_ZN4core3ptr138drop_in_place$LT$deltalake_core..operations..convert_to_delta..ConvertToDeltaBuilder..into_create_builder..$u7b$$u7b$closure$u7d$$u7d$$GT$17hba9fd7fb97b57c7eE"(ptr noundef nonnull align 8 %19)
           to label %29 unwind label %27
 
-common.ret:                                       ; preds = %90, %85, %26
+common.ret:                                       ; preds = %90, %87, %26
   %.sink = phi i8 [ 1, %90 ], [ 4, %85 ], [ 3, %26 ]
   store i8 %.sink, ptr %9, align 8
   ret void
@@ -118924,54 +118924,54 @@ common.ret:                                       ; preds = %90, %85, %26
   store ptr %51, ptr %19, align 8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr @anon.ee42cc83d0486e413260d7ca4d417329.674.llvm.8226331118977765550, ptr %59, align 8
-  br label %66
+  br label %68
 
-.body15:                                          ; preds = %54, %86, %81, %73
-  %.pn8 = phi { ptr, i32 } [ %74, %73 ], [ %87, %86 ], [ %82, %81 ], [ %55, %54 ]
+.body15:                                          ; preds = %54, %88, %83, %75
+  %.pn8 = phi { ptr, i32 } [ %76, %73 ], [ %89, %86 ], [ %84, %81 ], [ %55, %54 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 273
   %61 = load i8, ptr %60, align 1, !range !802, !noundef !22
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %92, label %.body
+  br i1 %62, label %92, label %66
 
-63:                                               ; preds = %92, %73, %20
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %92, %75, %20
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #46
   unreachable
 
-.body:                                            ; preds = %20, %27, %39, %92, %.body15
+66:                                               ; preds = %20, %27, %39, %92, %.body15
   %.pn10.pn = phi { ptr, i32 } [ %.pn8, %92 ], [ %.pn8, %.body15 ], [ %21, %20 ], [ %28, %27 ], [ %40, %39 ]
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 273
-  store i8 0, ptr %65, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 273
+  store i8 0, ptr %67, align 1
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %8)
   store i8 2, ptr %9, align 8
   resume { ptr, i32 } %.pn10.pn
 
-66:                                               ; preds = %12, %58
-  %67 = phi ptr [ %.pre97, %12 ], [ @anon.ee42cc83d0486e413260d7ca4d417329.674.llvm.8226331118977765550, %58 ]
-  %68 = phi ptr [ %.pre, %12 ], [ %51, %58 ]
+68:                                               ; preds = %12, %58
+  %69 = phi ptr [ %.pre97, %12 ], [ @anon.ee42cc83d0486e413260d7ca4d417329.674.llvm.8226331118977765550, %58 ]
+  %70 = phi ptr [ %.pre, %12 ], [ %51, %58 ]
   call void @llvm.lifetime.start.p0(i64 632, ptr nonnull %6)
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 280
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30163)
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %72 = load ptr, ptr %71, align 8, !invariant.load !22, !noalias !30164, !nonnull !22
-  invoke void %72(ptr noalias noundef nonnull sret({ i64, [78 x i64] }) align 8 captures(none) dereferenceable(632) %6, ptr noundef nonnull align 1 %68, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit" unwind label %73
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %74 = load ptr, ptr %73, align 8, !invariant.load !22, !noalias !30164, !nonnull !22
+  invoke void %72(ptr noalias noundef nonnull sret({ i64, [78 x i64] }) align 8 captures(none) dereferenceable(632) %6, ptr noundef nonnull align 1 %70, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+          to label %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit" unwind label %75
 
-73:                                               ; preds = %66
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %68
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %6)
-  invoke void @"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %69) #45
-          to label %.body15 unwind label %63
+  invoke void @"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71) #45
+          to label %.body15 unwind label %64
 
-"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit": ; preds = %66
-  %75 = load i64, ptr %6, align 8, !range !9728, !noundef !22
-  %76 = icmp eq i64 %75, 4
-  br i1 %76, label %85, label %77
+"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit": ; preds = %68
+  %77 = load i64, ptr %6, align 8, !range !9728, !noundef !22
+  %78 = icmp eq i64 %77, 4
+  br i1 %78, label %87, label %79
 
-77:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit"
+79:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit"
   %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.351.sroa.0.0.copyload = load i64, ptr %.sroa.351.0..sroa_idx, align 8
   %.sroa.351.sroa.3.0..sroa.351.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -118985,50 +118985,50 @@ common.ret:                                       ; preds = %90, %85, %26
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30168)
-  %78 = load ptr, ptr %69, align 8, !alias.scope !30171, !noundef !22
-  %79 = load ptr, ptr %70, align 8, !alias.scope !30171, !nonnull !22, !align !58, !noundef !22
-  %80 = load ptr, ptr %79, align 8, !invariant.load !22, !noalias !30171, !nonnull !22
-  invoke void %80(ptr noundef nonnull align 1 %78)
-          to label %"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i" unwind label %81, !noalias !30171
+  %80 = load ptr, ptr %71, align 8, !alias.scope !30171, !noundef !22
+  %81 = load ptr, ptr %72, align 8, !alias.scope !30171, !nonnull !22, !align !58, !noundef !22
+  %82 = load ptr, ptr %81, align 8, !invariant.load !22, !noalias !30171, !nonnull !22
+  invoke void %80(ptr noundef nonnull align 1 %80)
+          to label %"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i" unwind label %83, !noalias !30171
 
-81:                                               ; preds = %77
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3eb25b1cbcfe5878E.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(16) %69) #45
-          to label %.body15 unwind label %83
-
-83:                                               ; preds = %81
+83:                                               ; preds = %79
   %84 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3eb25b1cbcfe5878E.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71) #45
+          to label %.body15 unwind label %85
+
+85:                                               ; preds = %83
+  %86 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #46
   unreachable
 
-"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i": ; preds = %77
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3eb25b1cbcfe5878E.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(16) %69)
-          to label %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" unwind label %86
+"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i": ; preds = %79
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3eb25b1cbcfe5878E.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(16) %71)
+          to label %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" unwind label %88
 
-85:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit"
+87:                                               ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7125916455f0cc56E.exit"
   call void @llvm.lifetime.end.p0(i64 632, ptr nonnull %6)
   store i64 4, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %8)
   br label %common.ret
 
-86:                                               ; preds = %"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i"
-  %87 = landingpad { ptr, i32 }
+88:                                               ; preds = %"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i"
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %.body15
 
 "_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit": ; preds = %"_ZN4core3ptr234drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$17h74119af677e6de04E.llvm.4057250340930679409.exit.i"
-  %88 = icmp eq i64 %75, 3
-  br i1 %88, label %90, label %89
+  %90 = icmp eq i64 %77, 3
+  br i1 %90, label %90, label %91
 
-89:                                               ; preds = %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit"
+91:                                               ; preds = %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %.sroa.1065, ptr noundef nonnull align 8 dereferenceable(536) %.sroa.552, i64 536, i1 false)
   br label %90
 
 90:                                               ; preds = %46, %45, %44, %43, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i", %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit", %89
   %.sroa.13.i.sink = phi ptr [ %.sroa.351.sroa.7, %89 ], [ %.sroa.351.sroa.7, %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" ], [ %.sroa.13.i, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i" ], [ %.sroa.13.i, %43 ], [ %.sroa.13.i, %44 ], [ %.sroa.13.i, %45 ], [ %.sroa.13.i, %46 ]
-  %.sroa.057.1 = phi i64 [ %75, %89 ], [ 3, %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" ], [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i" ], [ 3, %43 ], [ 3, %44 ], [ 3, %45 ], [ 3, %46 ]
+  %.sroa.057.1 = phi i64 [ %77, %89 ], [ 3, %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" ], [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i" ], [ 3, %43 ], [ 3, %44 ], [ 3, %45 ], [ 3, %46 ]
   %.sroa.458.1 = phi i64 [ %.sroa.351.sroa.0.0.copyload, %89 ], [ %.sroa.351.sroa.0.0.copyload, %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" ], [ 41, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i" ], [ 13, %43 ], [ 15, %44 ], [ 14, %45 ], [ %.sroa.3.0.copyload, %46 ]
   %.sroa.760.1 = phi ptr [ %.sroa.351.sroa.3.0.copyload, %89 ], [ %.sroa.351.sroa.3.0.copyload, %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" ], [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i" ], [ %.sroa.534.0.copyload, %43 ], [ %.sroa.534.0.copyload, %44 ], [ %.sroa.534.0.copyload, %45 ], [ %.sroa.534.0.copyload, %46 ]
   %.sroa.862.1 = phi ptr [ %.sroa.351.sroa.5.0.copyload, %89 ], [ %.sroa.351.sroa.5.0.copyload, %"_ZN4core3ptr256drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$deltalake_core..table..DeltaTable$C$deltalake_core..errors..DeltaTableError$GT$$u2b$core..marker..Send$GT$$GT$$GT$17he8a2beb1c6eeeac3E.exit" ], [ @anon.17e6648beb32e5ba8aca87ae4c53798e.1580.llvm.3801596959246744488, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h51231140651505efE.llvm.3801596959246744488.exit.i.i" ], [ %.sroa.7.0.copyload, %43 ], [ %.sroa.7.0.copyload, %44 ], [ %.sroa.7.0.copyload, %45 ], [ %.sroa.7.0.copyload, %46 ]
@@ -119049,9 +119049,9 @@ common.ret:                                       ; preds = %90, %85, %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %.sroa.1065.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(536) %.sroa.1065, i64 536, i1 false)
   br label %common.ret
 
-92:                                               ; preds = %.body15
+94:                                               ; preds = %.body15
   invoke void @"_ZN4core3ptr70drop_in_place$LT$deltalake_core..operations..create..CreateBuilder$GT$17h1246145595cb186eE"(ptr noalias noundef nonnull align 8 dereferenceable(312) %8) #45
-          to label %.body unwind label %63
+          to label %.body unwind label %64
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

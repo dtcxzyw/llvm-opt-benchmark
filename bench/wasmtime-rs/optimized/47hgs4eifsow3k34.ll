@@ -4995,8 +4995,8 @@ define noundef nonnull ptr @_ZN16wasmtime_runtime9component22OwnedComponentInsta
 .noexc.i:                                         ; preds = %99, %44
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %31, ptr noundef nonnull align 4 dereferenceable(72) %11, i64 72, i1 false)
-  %.sroa.4.0...sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
-  store i32 %28, ptr %.sroa.4.0...sroa_idx, align 8, !noalias !843
+  %.sroa.06.i.sroa.4.0...sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 72
+  store i32 %28, ptr %.sroa.06.i.sroa.4.0...sroa_idx, align 8, !noalias !843
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 80
   store ptr %47, ptr %.sroa.47.0..sroa_idx.i, align 16, !noalias !838
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 88

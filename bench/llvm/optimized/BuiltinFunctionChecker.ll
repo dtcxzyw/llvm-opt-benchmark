@@ -2173,8 +2173,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i: ; 
   %514 = zext i1 %narrow.i.i to i8
   %515 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   store ptr %.fca.0.extract46.i, ptr %515, align 16
-  %.sroa.430.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %515, i64 8
-  store i8 %.fca.1.extract47.i, ptr %.sroa.430.0..sroa_idx.i, align 8
+  %.sroa.0.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %515, i64 8
+  store i8 %.fca.1.extract47.i, ptr %.sroa.0.i.sroa.4.0..sroa_idx.i, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %515, i64 16
   store ptr %.fca.0.extract80.i, ptr %.sroa.4.0..sroa_idx.i.i, align 16, !tbaa !3
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %515, i64 24
@@ -2203,8 +2203,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit143.i: ; 
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNS7_14CheckerContext10getNoteTagEOSt8functionIFvS9_RN4llvm11raw_ostreamEEEbEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_, ptr %523, align 8, !tbaa !347
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 16
   store ptr %516, ptr %522, align 8
-  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %522, i64 8
-  store i64 0, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !tbaa !10
+  %.sroa.44.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %522, i64 8
+  store i64 0, ptr %.sroa.44.0..sroa_idx.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNS7_14CheckerContext10getNoteTagEOSt8functionIFvS9_RN4llvm11raw_ostreamEEEbEUlS9_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %524, align 8, !tbaa !346
   %525 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %526 = getelementptr inbounds nuw i8, ptr %9, i64 16
