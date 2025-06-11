@@ -1847,7 +1847,7 @@ define void @_ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegis
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %160, i8 0, i64 20, i1 false)
   %161 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %162 = getelementptr inbounds nuw i8, ptr %122, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %161, i8 0, i64 40, i1 false)
+  store i64 0, ptr %161, align 8
   store i32 2, ptr %162, align 8, !tbaa !62
   %163 = getelementptr inbounds nuw i8, ptr %122, i64 124
   store i32 1, ptr %163, align 4, !tbaa !67
@@ -1860,8 +1860,8 @@ define void @_ZN5arrow7compute8internal18RegisterVectorHashEPNS0_16FunctionRegis
   store ptr @_ZN5arrow7compute8internal12_GLOBAL__N_18HashExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr %167, align 8, !tbaa !70
   %168 = getelementptr inbounds nuw i8, ptr %122, i64 88
   store ptr @_ZN5arrow7compute8internal12_GLOBAL__N_114UniqueFinalizeEPNS0_13KernelContextEPSt6vectorINS_5DatumESaIS6_EE, ptr %168, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 96
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !39
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 96
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %169 = getelementptr inbounds nuw i8, ptr %122, i64 104
   store ptr @_ZNSt17_Function_handlerIFN5arrow6StatusEPNS0_7compute13KernelContextEPSt6vectorINS0_5DatumESaIS6_EEEPSA_E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation, ptr %169, align 8, !tbaa !71
   %170 = getelementptr inbounds nuw i8, ptr %122, i64 112

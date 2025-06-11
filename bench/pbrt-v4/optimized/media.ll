@@ -789,7 +789,6 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt12ForAllQueuedIZNS1_2
   %155 = alloca %"class.pbrt::SampledSpectrum", align 8
   %156 = alloca %"class.pbrt::SampledSpectrum", align 8
   %157 = alloca %"class.pbrt::SampledSpectrum", align 8
-  %.sroa.38.i.i.i.i = alloca [28 x i8], align 8
   %158 = alloca %"class.pbrt::Interaction", align 8
   %159 = alloca %"class.pbrt::Ray", align 8
   %160 = alloca %"class.pbrt::RayDifferential", align 8
@@ -4119,7 +4118,6 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit102.i.i.i.i:  ; preds = %.preheader.i.i.i.i
   %1519 = getelementptr inbounds nuw i8, ptr %162, i64 312
   %.sroa.218.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %162, i64 320
   %1520 = getelementptr inbounds nuw i8, ptr %162, i64 348
-  %.sroa.38.208..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.38.i.i.i.i, i64 16
   %.sroa.2119.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 12
   %.sroa.4120.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -4144,7 +4142,6 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit102.i.i.i.i:  ; preds = %.preheader.i.i.i.i
 1524:                                             ; preds = %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %.0321.in.i.i.i.i = phi i64 [ %1514, %.lr.ph.i.i.i.i ], [ %1600, %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit.i.i.i.i ]
   %.0321.i.i.i.i = inttoptr i64 %.0321.in.i.i.i.i to ptr
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %.sroa.38.i.i.i.i)
   %.sroa.0133.sroa.0.0.copyload.i.i.i.i = load float, ptr %1515, align 8
   %.sroa.0133.sroa.2.0.copyload.i.i.i.i = load float, ptr %.sroa.0133.sroa.2.0..sroa_idx.i.i.i.i, align 4
   %.sroa.0133.sroa.3.0.copyload.i.i.i.i = load float, ptr %.sroa.0133.sroa.3.0..sroa_idx.i.i.i.i, align 8
@@ -4205,7 +4202,6 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit102.i.i.i.i:  ; preds = %.preheader.i.i.i.i
   %1559 = fdiv float %.sroa.222.0.copyload.i.i.i.i, %sqrt.i.i.i.i.i.i.i.i
   %.sroa.0.0.vec.insert.i.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %1557, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i.i.i.i, float %1558, i64 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %.sroa.38.i.i.i.i, i8 0, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4120.0..sroa_idx.i.i.i.i, i8 0, i64 12, i1 false)
   %1560 = load i32, ptr %1520, align 4, !tbaa !208
@@ -4221,7 +4217,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit102.i.i.i.i:  ; preds = %.preheader.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   store <2 x float> %.sroa.01.4.vec.insert.i.i.i.i.i.i.i, ptr %31, align 8
   store float %1566, ptr %.sroa.2119.0..sroa_idx.i.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.38.208..sroa_idx.i.i.i.i, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.3.0..sroa_idx.i.i.i.i, i8 0, i64 12, i1 false)
   store <2 x float> %.sroa.0.4.vec.insert.i103.i.i.i.i, ptr %.sroa.5121.0..sroa_idx.i.i.i.i, align 4
   store float %1550, ptr %.sroa.5121.sroa.2.0..sroa.5121.0..sroa_idx.sroa_idx.i.i.i.i, align 4
   store i64 %.sroa.023.0.copyload256.i.i.i.i, ptr %.sroa.6122.0..sroa_idx.i.i.i.i, align 8
@@ -4304,7 +4300,6 @@ _ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8Material
   %.mask.i.i106.i.i.i.i = and i64 %.sink.i.i.i.i.i, -144115188075855872
   %1599 = icmp ne i64 %.mask.i.i106.i.i.i.i, 1585267068834414592
   %1600 = and i64 %.sink.i.i.i.i.i, 144115188075855871
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %.sroa.38.i.i.i.i)
   %.not444.i.i.i.i = icmp eq i64 %1600, 0
   %.not.i.i.i.i = or i1 %1599, %.not444.i.i.i.i
   br i1 %.not.i.i.i.i, label %select.unfold._crit_edge.i.i.i.i, label %1524

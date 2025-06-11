@@ -2085,11 +2085,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_118UsageReportingTestC2Ev(ptr nound
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEEaSIPS8_EENSt9enable_ifIXsr9_CallableIT_EE5valueERS9_E4typeEOSD_.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %2, i8 0, i64 160, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %2, i8 0, i64 128, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr @_ZN12_GLOBAL__N_117NormalizeFileNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr %5, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !21
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 136
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_EEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %6, align 8, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 152

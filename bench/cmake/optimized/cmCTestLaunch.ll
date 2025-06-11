@@ -2067,8 +2067,8 @@ define internal fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %5, ptr %.sroa.8.0..sroa_idx, align 16, !tbaa !116, !noalias !103
   store ptr %15, ptr %17, align 8, !noalias !103
-  %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !49, !noalias !103
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i64 0, ptr %.sroa.418.0..sroa_idx, align 8, !noalias !103
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSF_iEUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %18, align 8, !tbaa !118, !noalias !103
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -2088,8 +2088,8 @@ define internal fastcc void @"_ZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_
   %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i32 %7, ptr %.sroa.715.0..sroa_idx, align 16, !tbaa !81, !noalias !103
   store ptr %20, ptr %22, align 8, !noalias !103
-  %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store i64 0, ptr %.sroa.0.i.i.i6.i.sroa.4.0..sroa_idx, align 8, !tbaa !49, !noalias !103
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 64
+  store i64 0, ptr %.sroa.421.0..sroa_idx, align 8, !noalias !103
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZZN13cmCTestLaunch8RunChildEvENK3$_0clERN2cm11uv_pipe_ptrEiRSoRSt14basic_ofstreamIcSt11char_traitsIcEERbSC_iEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %23, align 8, !tbaa !118, !noalias !103
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 80

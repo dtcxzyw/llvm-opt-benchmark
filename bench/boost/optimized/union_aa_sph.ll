@@ -169709,11 +169709,11 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay12get_clusters
   %24 = shl nuw nsw i64 %23, 1
   %25 = xor i64 %24, 126
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEElNS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISD_NS3_13segment_ratioIdEEEESaISR_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSV_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS14_RKS16_E_EEEvS14_S14_S16_S18_(ptr %.sroa.0132.1, ptr %.sroa.10.1, i64 noundef %25)
-          to label %.noexc unwind label %80
+          to label %.noexc unwind label %79
 
 .noexc:                                           ; preds = %18
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs20spherical_equatorialINS3_6degreeEEEEEEESt6vectorISE_SaISE_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISt5dequeINS5_19traversal_turn_infoISD_NS3_13segment_ratioIdEEEESaISR_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlSV_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS14_RKS16_E_EEEvS14_S14_S16_(ptr %.sroa.0132.1, ptr %.sroa.10.1)
-          to label %.lr.ph190 unwind label %80
+          to label %.lr.ph190 unwind label %79
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt15_Deque_iteratorIN5boost8geometry6detail7overlay19traversal_turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEEEERSE_PSE_EppEv.exit
   %.0175 = phi i64 [ %54, %_ZNSt15_Deque_iteratorIN5boost8geometry6detail7overlay19traversal_turn_infoINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEENS1_13segment_ratioIdEEEERSE_PSE_EppEv.exit ], [ 0, %.lr.ph.preheader ]
@@ -169801,12 +169801,12 @@ _ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointId
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %314
+  br label %313
 
 .loopexit.split-lp:                               ; preds = %40
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %314
+  br label %313
 
 _ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EE9push_backEOSC_.exit: ; preds = %33, %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i, %.lr.ph
   %.sroa.17.1 = phi ptr [ %.sroa.17.0172, %.lr.ph ], [ %53, %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i ], [ %.sroa.17.0172, %33 ]
@@ -169851,216 +169851,215 @@ _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0132.1, i64 24
-  %.not148183263 = icmp eq ptr %76, %.sroa.10.1
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0132.1, i64 24
+  %.not148183263 = icmp eq ptr %75, %.sroa.10.1
   br i1 %.not148183263, label %._crit_edge191, label %.lr.ph186
 
 ._crit_edge191:                                   ; preds = %.critedge, %.lr.ph190
   %.pre209 = load ptr, ptr %6, align 8, !tbaa !174
   %.pre211 = load ptr, ptr %61, align 8, !tbaa !174
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not147192 = icmp eq ptr %.pre209, %.pre211
   br i1 %.not147192, label %._crit_edge197, label %.lr.ph196
 
 .lr.ph196:                                        ; preds = %._crit_edge191
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %292
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %291
 
-80:                                               ; preds = %.noexc, %18
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %.noexc, %18
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %314
+  br label %313
 
 .lr.ph186:                                        ; preds = %.lr.ph190, %.critedge
-  %82 = phi ptr [ %272, %.critedge ], [ %76, %.lr.ph190 ]
-  %.sroa.0113.0189264 = phi ptr [ %82, %.critedge ], [ %.sroa.0132.1, %.lr.ph190 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0189264, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0189264, i64 16
-  br label %85
+  %81 = phi ptr [ %271, %.critedge ], [ %75, %.lr.ph190 ]
+  %.sroa.0113.0189264 = phi ptr [ %81, %.critedge ], [ %.sroa.0132.1, %.lr.ph190 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0189264, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0189264, i64 16
+  br label %84
 
-85:                                               ; preds = %.lr.ph186, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
-  %.sroa.0107.0184 = phi ptr [ %82, %.lr.ph186 ], [ %271, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread ]
-  %86 = load double, ptr %84, align 8, !tbaa !1472
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0184, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0184, i64 16
-  %89 = load double, ptr %88, align 8, !tbaa !1472
-  %90 = fsub double %86, %89
-  %91 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance acquire, align 8
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %97, !prof !101
+84:                                               ; preds = %.lr.ph186, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
+  %.sroa.0107.0184 = phi ptr [ %81, %.lr.ph186 ], [ %270, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread ]
+  %85 = load double, ptr %83, align 8, !tbaa !1472
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0184, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0184, i64 16
+  %88 = load double, ptr %87, align 8, !tbaa !1472
+  %89 = fsub double %85, %88
+  %90 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance acquire, align 8
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %92, label %96, !prof !101
 
-93:                                               ; preds = %85
-  %94 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance) #56
-  %.not.i = icmp eq i32 %94, 0
-  br i1 %.not.i, label %97, label %95
+92:                                               ; preds = %84
+  %93 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance) #56
+  %.not.i = icmp eq i32 %93, 0
+  br i1 %.not.i, label %96, label %94
 
-95:                                               ; preds = %93
+94:                                               ; preds = %92
   store double 1.000000e+02, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance, align 8, !tbaa !1472
-  %96 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance)
+  %95 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance) #56
-  br label %97
+  br label %96
 
-97:                                               ; preds = %95, %93, %85
-  %98 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance, align 8, !tbaa !1472
-  %99 = fdiv double 1.000000e+00, %98
-  %100 = fcmp ogt double %90, %99
-  br i1 %100, label %.critedge, label %101
+96:                                               ; preds = %94, %92, %84
+  %97 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance, align 8, !tbaa !1472
+  %98 = fdiv double 1.000000e+00, %97
+  %99 = fcmp ogt double %89, %98
+  br i1 %99, label %.critedge, label %100
 
-101:                                              ; preds = %97
-  %102 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance acquire, align 8
-  %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %108, !prof !101
+100:                                              ; preds = %96
+  %101 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance acquire, align 8
+  %102 = icmp eq i8 %101, 0
+  br i1 %102, label %103, label %107, !prof !101
 
-104:                                              ; preds = %101
-  %105 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance) #56
-  %.not.i50 = icmp eq i32 %105, 0
-  br i1 %.not.i50, label %108, label %106
+103:                                              ; preds = %100
+  %104 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance) #56
+  %.not.i50 = icmp eq i32 %104, 0
+  br i1 %.not.i50, label %107, label %105
 
-106:                                              ; preds = %104
+105:                                              ; preds = %103
   store double 1.000000e+02, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance, align 8, !tbaa !1472
-  %107 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance)
+  %106 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance) #56
-  br label %108
+  br label %107
 
-108:                                              ; preds = %106, %104, %101
-  %109 = load double, ptr %83, align 8, !tbaa !1472
-  %110 = load double, ptr %87, align 8, !tbaa !1472
-  %111 = load double, ptr %84, align 8, !tbaa !1472
-  %112 = load double, ptr %88, align 8, !tbaa !1472
+107:                                              ; preds = %105, %103, %100
+  %108 = load double, ptr %82, align 8, !tbaa !1472
+  %109 = load double, ptr %86, align 8, !tbaa !1472
+  %110 = load double, ptr %83, align 8, !tbaa !1472
+  %111 = load double, ptr %87, align 8, !tbaa !1472
+  %112 = call double @llvm.fabs.f64(double %108)
   %113 = call double @llvm.fabs.f64(double %109)
   %114 = call double @llvm.fabs.f64(double %110)
   %115 = call double @llvm.fabs.f64(double %111)
-  %116 = call double @llvm.fabs.f64(double %112)
-  %117 = fcmp olt double %113, %114
-  %118 = select i1 %117, double %114, double %113
-  %119 = fcmp olt double %118, %115
-  %.sroa.speculated6.i.i.i = select i1 %119, double %115, double %118
-  %120 = fcmp olt double %.sroa.speculated6.i.i.i, %116
-  %121 = select i1 %120, double %116, double %.sroa.speculated6.i.i.i
-  %122 = fcmp olt double %121, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %122, double 1.000000e+00, double %121
-  %123 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance, align 8, !tbaa !1472
-  %124 = fmul double %123, %.sroa.speculated.i.i.i
-  %125 = fcmp oeq double %109, %110
-  br i1 %125, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i, label %126
+  %116 = fcmp olt double %112, %113
+  %117 = select i1 %116, double %113, double %112
+  %118 = fcmp olt double %117, %114
+  %.sroa.speculated6.i.i.i = select i1 %118, double %114, double %117
+  %119 = fcmp olt double %.sroa.speculated6.i.i.i, %115
+  %120 = select i1 %119, double %115, double %.sroa.speculated6.i.i.i
+  %121 = fcmp olt double %120, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %121, double 1.000000e+00, double %120
+  %122 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance, align 8, !tbaa !1472
+  %123 = fmul double %122, %.sroa.speculated.i.i.i
+  %124 = fcmp oeq double %108, %109
+  br i1 %124, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i, label %125
 
-126:                                              ; preds = %108
+125:                                              ; preds = %107
+  %126 = fcmp one double %112, 0x7FF0000000000000
   %127 = fcmp one double %113, 0x7FF0000000000000
-  %128 = fcmp one double %114, 0x7FF0000000000000
-  %or.cond.i.i.i.i = and i1 %127, %128
+  %or.cond.i.i.i.i = and i1 %126, %127
   br i1 %or.cond.i.i.i.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i: ; preds = %126
-  %129 = fsub double %109, %110
-  %130 = call noundef double @llvm.fabs.f64(double %129)
-  %131 = fmul double %124, 0x3CB0000000000000
-  %132 = fcmp ugt double %130, %131
-  br i1 %132, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i: ; preds = %125
+  %128 = fsub double %108, %109
+  %129 = call noundef double @llvm.fabs.f64(double %128)
+  %130 = fmul double %123, 0x3CB0000000000000
+  %131 = fcmp ugt double %129, %130
+  br i1 %131, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %108
-  %133 = fcmp oeq double %111, %112
-  br i1 %133, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143, label %134
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %107
+  %132 = fcmp oeq double %110, %111
+  br i1 %132, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143, label %133
 
-134:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
+133:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
+  %134 = fcmp one double %114, 0x7FF0000000000000
   %135 = fcmp one double %115, 0x7FF0000000000000
-  %136 = fcmp one double %116, 0x7FF0000000000000
-  %or.cond.i.i13.i.i = and i1 %135, %136
+  %or.cond.i.i13.i.i = and i1 %134, %135
   br i1 %or.cond.i.i13.i.i, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit: ; preds = %134
-  %137 = fsub double %111, %112
-  %138 = call noundef double @llvm.fabs.f64(double %137)
-  %139 = fmul double %124, 0x3CB0000000000000
-  %140 = fcmp ugt double %138, %139
-  br i1 %140, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit: ; preds = %133
+  %136 = fsub double %110, %111
+  %137 = call noundef double @llvm.fabs.f64(double %136)
+  %138 = fmul double %123, 0x3CB0000000000000
+  %139 = fcmp ugt double %137, %138
+  br i1 %139, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143
 
 _ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit
-  %141 = load ptr, ptr %6, align 8, !tbaa !174
-  %142 = load ptr, ptr %61, align 8, !tbaa !174
-  %.not149178 = icmp eq ptr %141, %142
+  %140 = load ptr, ptr %6, align 8, !tbaa !174
+  %141 = load ptr, ptr %61, align 8, !tbaa !174
+  %.not149178 = icmp eq ptr %140, %141
   br i1 %.not149178, label %._crit_edge182, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread
-  %.034180 = phi i64 [ %184, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread ], [ 0, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
-  %.sroa.0103.0179 = phi ptr [ %185, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread ], [ %141, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0179, i64 64
-  %144 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance acquire, align 8
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %146, label %150, !prof !101
+  %.034180 = phi i64 [ %183, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread ], [ 0, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
+  %.sroa.0103.0179 = phi ptr [ %184, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread ], [ %140, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0179, i64 64
+  %143 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance acquire, align 8
+  %144 = icmp eq i8 %143, 0
+  br i1 %144, label %145, label %149, !prof !101
 
-146:                                              ; preds = %.lr.ph181
-  %147 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance) #56
-  %.not.i57 = icmp eq i32 %147, 0
-  br i1 %.not.i57, label %150, label %148
+145:                                              ; preds = %.lr.ph181
+  %146 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance) #56
+  %.not.i57 = icmp eq i32 %146, 0
+  br i1 %.not.i57, label %149, label %147
 
-148:                                              ; preds = %146
+147:                                              ; preds = %145
   store double 1.000000e+02, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance, align 8, !tbaa !1472
-  %149 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance)
+  %148 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance) #56
-  br label %150
+  br label %149
 
-150:                                              ; preds = %148, %146, %.lr.ph181
-  %151 = load double, ptr %143, align 8, !tbaa !1472
-  %152 = load double, ptr %83, align 8, !tbaa !1472
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0179, i64 72
-  %154 = load double, ptr %153, align 8, !tbaa !1472
-  %155 = load double, ptr %84, align 8, !tbaa !1472
+149:                                              ; preds = %147, %145, %.lr.ph181
+  %150 = load double, ptr %142, align 8, !tbaa !1472
+  %151 = load double, ptr %82, align 8, !tbaa !1472
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0179, i64 72
+  %153 = load double, ptr %152, align 8, !tbaa !1472
+  %154 = load double, ptr %83, align 8, !tbaa !1472
+  %155 = call double @llvm.fabs.f64(double %150)
   %156 = call double @llvm.fabs.f64(double %151)
-  %157 = call double @llvm.fabs.f64(double %152)
+  %157 = call double @llvm.fabs.f64(double %153)
   %158 = call double @llvm.fabs.f64(double %154)
-  %159 = call double @llvm.fabs.f64(double %155)
-  %160 = fcmp olt double %156, %157
-  %161 = select i1 %160, double %157, double %156
-  %162 = fcmp olt double %161, %158
-  %.sroa.speculated6.i.i.i51 = select i1 %162, double %158, double %161
-  %163 = fcmp olt double %.sroa.speculated6.i.i.i51, %159
-  %164 = select i1 %163, double %159, double %.sroa.speculated6.i.i.i51
-  %165 = fcmp olt double %164, 1.000000e+00
-  %.sroa.speculated.i.i.i52 = select i1 %165, double 1.000000e+00, double %164
-  %166 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance, align 8, !tbaa !1472
-  %167 = fmul double %166, %.sroa.speculated.i.i.i52
-  %168 = fcmp oeq double %151, %152
-  br i1 %168, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55, label %169
+  %159 = fcmp olt double %155, %156
+  %160 = select i1 %159, double %156, double %155
+  %161 = fcmp olt double %160, %157
+  %.sroa.speculated6.i.i.i51 = select i1 %161, double %157, double %160
+  %162 = fcmp olt double %.sroa.speculated6.i.i.i51, %158
+  %163 = select i1 %162, double %158, double %.sroa.speculated6.i.i.i51
+  %164 = fcmp olt double %163, 1.000000e+00
+  %.sroa.speculated.i.i.i52 = select i1 %164, double 1.000000e+00, double %163
+  %165 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_E9tolerance, align 8, !tbaa !1472
+  %166 = fmul double %165, %.sroa.speculated.i.i.i52
+  %167 = fcmp oeq double %150, %151
+  br i1 %167, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55, label %168
 
-169:                                              ; preds = %150
+168:                                              ; preds = %149
+  %169 = fcmp one double %155, 0x7FF0000000000000
   %170 = fcmp one double %156, 0x7FF0000000000000
-  %171 = fcmp one double %157, 0x7FF0000000000000
-  %or.cond.i.i.i.i53 = and i1 %170, %171
+  %or.cond.i.i.i.i53 = and i1 %169, %170
   br i1 %or.cond.i.i.i.i53, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54: ; preds = %169
-  %172 = fsub double %151, %152
-  %173 = call noundef double @llvm.fabs.f64(double %172)
-  %174 = fmul double %167, 0x3CB0000000000000
-  %175 = fcmp ugt double %173, %174
-  br i1 %175, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54: ; preds = %168
+  %171 = fsub double %150, %151
+  %172 = call noundef double @llvm.fabs.f64(double %171)
+  %173 = fmul double %166, 0x3CB0000000000000
+  %174 = fcmp ugt double %172, %173
+  br i1 %174, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %150
-  %176 = fcmp oeq double %154, %155
-  br i1 %176, label %.thread, label %177
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %149
+  %175 = fcmp oeq double %153, %154
+  br i1 %175, label %.thread, label %176
 
-177:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
+176:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
+  %177 = fcmp one double %157, 0x7FF0000000000000
   %178 = fcmp one double %158, 0x7FF0000000000000
-  %179 = fcmp one double %159, 0x7FF0000000000000
-  %or.cond.i.i13.i.i56 = and i1 %178, %179
+  %or.cond.i.i13.i.i56 = and i1 %177, %178
   br i1 %or.cond.i.i13.i.i56, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58: ; preds = %177
-  %180 = fsub double %154, %155
-  %181 = call noundef double @llvm.fabs.f64(double %180)
-  %182 = fmul double %167, 0x3CB0000000000000
-  %183 = fcmp ugt double %181, %182
-  br i1 %183, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread, label %.thread
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58: ; preds = %176
+  %179 = fsub double %153, %154
+  %180 = call noundef double @llvm.fabs.f64(double %179)
+  %181 = fmul double %166, 0x3CB0000000000000
+  %182 = fcmp ugt double %180, %181
+  br i1 %182, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread, label %.thread
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread: ; preds = %169, %177, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58
-  %184 = add i64 %.034180, 1
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0179, i64 80
-  %186 = load ptr, ptr %61, align 8, !tbaa !174
-  %.not149 = icmp eq ptr %185, %186
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread: ; preds = %168, %176, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58
+  %183 = add i64 %.034180, 1
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0179, i64 80
+  %185 = load ptr, ptr %61, align 8, !tbaa !174
+  %.not149 = icmp eq ptr %184, %185
   br i1 %.not149, label %._crit_edge182.loopexit, label %.lr.ph181, !llvm.loop !3464
 
 ._crit_edge182.loopexit:                          ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58.thread
@@ -170068,12 +170067,12 @@ _ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_ta
   br label %._crit_edge182
 
 ._crit_edge182:                                   ; preds = %._crit_edge182.loopexit, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143
-  %187 = phi ptr [ %.pre, %._crit_edge182.loopexit ], [ %141, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
-  %188 = phi ptr [ %186, %._crit_edge182.loopexit ], [ %142, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
-  %189 = ptrtoint ptr %188 to i64
-  %190 = ptrtoint ptr %187 to i64
-  %191 = sub i64 %189, %190
-  %192 = sdiv exact i64 %191, 80
+  %186 = phi ptr [ %.pre, %._crit_edge182.loopexit ], [ %140, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
+  %187 = phi ptr [ %185, %._crit_edge182.loopexit ], [ %141, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread143 ]
+  %188 = ptrtoint ptr %187 to i64
+  %189 = ptrtoint ptr %186 to i64
+  %190 = sub i64 %188, %189
+  %191 = sdiv exact i64 %190, 80
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #56
   store i32 0, ptr %62, align 8, !tbaa !473
   store ptr null, ptr %63, align 8, !tbaa !148
@@ -170085,263 +170084,262 @@ _ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_ta
   store ptr null, ptr %68, align 8, !tbaa !148
   store ptr %67, ptr %69, align 8, !tbaa !149
   store ptr %67, ptr %70, align 8, !tbaa !150
-  store i64 0, ptr %71, align 8, !tbaa !151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !1829
-  %193 = load ptr, ptr %75, align 8, !tbaa !3467
-  %.not.i.i60 = icmp eq ptr %188, %193
-  br i1 %.not.i.i60, label %202, label %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !1829
+  %192 = load ptr, ptr %74, align 8, !tbaa !3467
+  %.not.i.i60 = icmp eq ptr %187, %192
+  br i1 %.not.i.i60, label %201, label %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit.i.i: ; preds = %._crit_edge182
-  %194 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %195 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store ptr null, ptr %195, align 8, !tbaa !148
-  %196 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store ptr %194, ptr %196, align 8, !tbaa !149
-  %197 = getelementptr inbounds nuw i8, ptr %188, i64 32
-  store ptr %194, ptr %197, align 8, !tbaa !150
-  %198 = getelementptr inbounds nuw i8, ptr %188, i64 40
-  store i64 0, ptr %198, align 8, !tbaa !151
-  store i32 0, ptr %194, align 8, !tbaa !473
-  %199 = getelementptr inbounds nuw i8, ptr %188, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
-  %200 = getelementptr inbounds nuw i8, ptr %188, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false), !tbaa.struct !1829
-  %201 = getelementptr inbounds nuw i8, ptr %188, i64 80
-  store ptr %201, ptr %61, align 8, !tbaa !3468
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  store ptr null, ptr %194, align 8, !tbaa !148
+  %195 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  store ptr %193, ptr %195, align 8, !tbaa !149
+  %196 = getelementptr inbounds nuw i8, ptr %187, i64 32
+  store ptr %193, ptr %196, align 8, !tbaa !150
+  %197 = getelementptr inbounds nuw i8, ptr %187, i64 40
+  store i64 0, ptr %197, align 8, !tbaa !151
+  store i32 0, ptr %193, align 8, !tbaa !473
+  %198 = getelementptr inbounds nuw i8, ptr %187, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
+  %199 = getelementptr inbounds nuw i8, ptr %187, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !1829
+  %200 = getelementptr inbounds nuw i8, ptr %187, i64 80
+  store ptr %200, ptr %61, align 8, !tbaa !3468
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit
 
-202:                                              ; preds = %._crit_edge182
-  invoke void @_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %188, ptr noundef nonnull align 8 dereferenceable(80) %8)
-          to label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit unwind label %211
+201:                                              ; preds = %._crit_edge182
+  invoke void @_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %187, ptr noundef nonnull align 8 dereferenceable(80) %8)
+          to label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit unwind label %210
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit: ; preds = %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit.i.i, %202
-  %203 = load ptr, ptr %68, align 8, !tbaa !148
-  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %203)
-          to label %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev.exit unwind label %204
+_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit: ; preds = %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEE9constructISD_JSD_EEEvRSE_PT_DpOT0_.exit.i.i, %201
+  %202 = load ptr, ptr %68, align 8, !tbaa !148
+  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %202)
+          to label %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev.exit unwind label %203
 
-204:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit
-  %205 = landingpad { ptr, i32 }
+203:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit
+  %204 = landingpad { ptr, i32 }
           catch ptr null
-  %206 = extractvalue { ptr, i32 } %205, 0
-  call void @__clang_call_terminate(ptr %206) #57
+  %205 = extractvalue { ptr, i32 } %204, 0
+  call void @__clang_call_terminate(ptr %205) #57
   unreachable
 
 _ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EE9push_backEOSD_.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #56
-  %207 = load ptr, ptr %63, align 8, !tbaa !148
-  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %207)
-          to label %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit unwind label %208
+  %206 = load ptr, ptr %63, align 8, !tbaa !148
+  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %206)
+          to label %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit unwind label %207
 
-208:                                              ; preds = %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev.exit
-  %209 = landingpad { ptr, i32 }
+207:                                              ; preds = %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev.exit
+  %208 = landingpad { ptr, i32 }
           catch ptr null
-  %210 = extractvalue { ptr, i32 } %209, 0
-  call void @__clang_call_terminate(ptr %210) #57
+  %209 = extractvalue { ptr, i32 } %208, 0
+  call void @__clang_call_terminate(ptr %209) #57
   unreachable
 
 _ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit: ; preds = %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #56
   br label %.thread
 
-211:                                              ; preds = %202
-  %212 = landingpad { ptr, i32 }
+210:                                              ; preds = %201
+  %211 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #56
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #56
   call void @_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #56
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #56
-  br label %313
+  br label %312
 
 .thread:                                          ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58, %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit
-  %.135 = phi i64 [ %192, %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit ], [ %.034180, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58 ], [ %.034180, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55 ]
-  %213 = load ptr, ptr %6, align 8, !tbaa !3465
-  %214 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %213, i64 %.135
-  %215 = load i64, ptr %.sroa.0113.0189264, align 8, !tbaa !3469
-  %216 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %217 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %.02022.i.i.i = load ptr, ptr %216, align 8, !tbaa !174
+  %.135 = phi i64 [ %191, %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit ], [ %.034180, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit58 ], [ %.034180, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55 ]
+  %212 = load ptr, ptr %6, align 8, !tbaa !3465
+  %213 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %212, i64 %.135
+  %214 = load i64, ptr %.sroa.0113.0189264, align 8, !tbaa !3469
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %.02022.i.i.i = load ptr, ptr %215, align 8, !tbaa !174
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.thread, %.lr.ph.i.i.i
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %.thread ]
-  %218 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
-  %219 = load i64, ptr %218, align 8, !tbaa !93
-  %220 = icmp slt i64 %215, %219
-  %.in.v.i.i.i = select i1 %220, i64 16, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
+  %218 = load i64, ptr %217, align 8, !tbaa !93
+  %219 = icmp slt i64 %214, %218
+  %.in.v.i.i.i = select i1 %219, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !174
   %.not.i.i.i62 = icmp eq ptr %.020.i.i.i, null
   br i1 %.not.i.i.i62, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !3471
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  br i1 %220, label %._crit_edge.thread.i.i.i, label %226
+  br i1 %219, label %._crit_edge.thread.i.i.i, label %225
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.thread
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %217, %.thread ]
-  %221 = getelementptr inbounds nuw i8, ptr %214, i64 24
-  %222 = load ptr, ptr %221, align 8, !tbaa !149
-  %223 = icmp eq ptr %.019.lcssa28.i.i.i, %222
-  br i1 %223, label %select.unfold.i.i, label %224
+  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %216, %.thread ]
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %221 = load ptr, ptr %220, align 8, !tbaa !149
+  %222 = icmp eq ptr %.019.lcssa28.i.i.i, %221
+  br i1 %222, label %select.unfold.i.i, label %223
 
-224:                                              ; preds = %._crit_edge.thread.i.i.i
-  %225 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #64
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %225, i64 32
+223:                                              ; preds = %._crit_edge.thread.i.i.i
+  %224 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #64
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %224, i64 32
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !93
-  br label %226
+  br label %225
 
-226:                                              ; preds = %224, %._crit_edge.i.i.i
-  %227 = phi i64 [ %.pre.i.i, %224 ], [ %219, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %224 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
-  %228 = icmp slt i64 %227, %215
-  br i1 %228, label %select.unfold.i.i, label %240
+225:                                              ; preds = %223, %._crit_edge.i.i.i
+  %226 = phi i64 [ %.pre.i.i, %223 ], [ %218, %._crit_edge.i.i.i ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %223 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %227 = icmp slt i64 %226, %214
+  br i1 %227, label %select.unfold.i.i, label %239
 
-select.unfold.i.i:                                ; preds = %226, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %226 ]
-  %229 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %217
-  br i1 %229, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %230
+select.unfold.i.i:                                ; preds = %225, %._crit_edge.thread.i.i.i
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %225 ]
+  %228 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %216
+  br i1 %228, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %229
 
-230:                                              ; preds = %select.unfold.i.i
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
-  %232 = load i64, ptr %231, align 8, !tbaa !93
-  %233 = icmp slt i64 %215, %232
+229:                                              ; preds = %select.unfold.i.i
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
+  %231 = load i64, ptr %230, align 8, !tbaa !93
+  %232 = icmp slt i64 %214, %231
   br label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %230, %select.unfold.i.i
-  %234 = phi i1 [ true, %select.unfold.i.i ], [ %233, %230 ]
-  %235 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
-          to label %.noexc63 unwind label %267
+_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %229, %select.unfold.i.i
+  %233 = phi i1 [ true, %select.unfold.i.i ], [ %232, %229 ]
+  %234 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
+          to label %.noexc63 unwind label %266
 
 .noexc63:                                         ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 32
-  store i64 %215, ptr %236, align 8, !tbaa !93
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %234, ptr noundef nonnull %235, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %217) #56
-  %237 = getelementptr inbounds nuw i8, ptr %214, i64 40
-  %238 = load i64, ptr %237, align 8, !tbaa !151
-  %239 = add i64 %238, 1
-  store i64 %239, ptr %237, align 8, !tbaa !151
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 32
+  store i64 %214, ptr %235, align 8, !tbaa !93
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %233, ptr noundef nonnull %234, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %216) #56
+  %236 = getelementptr inbounds nuw i8, ptr %213, i64 40
+  %237 = load i64, ptr %236, align 8, !tbaa !151
+  %238 = add i64 %237, 1
+  store i64 %238, ptr %236, align 8, !tbaa !151
   %.pre206 = load ptr, ptr %6, align 8, !tbaa !3465
   %.phi.trans.insert207 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %.pre206, i64 %.135, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
   %.02022.i.i.i64.pre = load ptr, ptr %.phi.trans.insert207, align 8, !tbaa !174
-  br label %240
+  br label %239
 
-240:                                              ; preds = %.noexc63, %226
-  %.02022.i.i.i64 = phi ptr [ %.02022.i.i.i64.pre, %.noexc63 ], [ %.02022.i.i.i, %226 ]
-  %241 = phi ptr [ %.pre206, %.noexc63 ], [ %213, %226 ]
-  %242 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %241, i64 %.135
-  %243 = load i64, ptr %.sroa.0107.0184, align 8, !tbaa !3469
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 8
+239:                                              ; preds = %.noexc63, %225
+  %.02022.i.i.i64 = phi ptr [ %.02022.i.i.i64.pre, %.noexc63 ], [ %.02022.i.i.i, %225 ]
+  %240 = phi ptr [ %.pre206, %.noexc63 ], [ %212, %225 ]
+  %241 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %240, i64 %.135
+  %242 = load i64, ptr %.sroa.0107.0184, align 8, !tbaa !3469
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %.not23.i.i.i65 = icmp eq ptr %.02022.i.i.i64, null
   br i1 %.not23.i.i.i65, label %._crit_edge.thread.i.i.i83, label %.lr.ph.i.i.i67
 
-.lr.ph.i.i.i67:                                   ; preds = %240, %.lr.ph.i.i.i67
-  %.02024.i.i.i68 = phi ptr [ %.020.i.i.i71, %.lr.ph.i.i.i67 ], [ %.02022.i.i.i64, %240 ]
-  %245 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i68, i64 32
-  %246 = load i64, ptr %245, align 8, !tbaa !93
-  %247 = icmp slt i64 %243, %246
-  %.in.v.i.i.i69 = select i1 %247, i64 16, i64 24
+.lr.ph.i.i.i67:                                   ; preds = %239, %.lr.ph.i.i.i67
+  %.02024.i.i.i68 = phi ptr [ %.020.i.i.i71, %.lr.ph.i.i.i67 ], [ %.02022.i.i.i64, %239 ]
+  %244 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i68, i64 32
+  %245 = load i64, ptr %244, align 8, !tbaa !93
+  %246 = icmp slt i64 %242, %245
+  %.in.v.i.i.i69 = select i1 %246, i64 16, i64 24
   %.in.i.i.i70 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i68, i64 %.in.v.i.i.i69
   %.020.i.i.i71 = load ptr, ptr %.in.i.i.i70, align 8, !tbaa !174
   %.not.i.i.i72 = icmp eq ptr %.020.i.i.i71, null
   br i1 %.not.i.i.i72, label %._crit_edge.i.i.i73, label %.lr.ph.i.i.i67, !llvm.loop !3471
 
 ._crit_edge.i.i.i73:                              ; preds = %.lr.ph.i.i.i67
-  br i1 %247, label %._crit_edge.thread.i.i.i83, label %253
+  br i1 %246, label %._crit_edge.thread.i.i.i83, label %252
 
-._crit_edge.thread.i.i.i83:                       ; preds = %._crit_edge.i.i.i73, %240
-  %.019.lcssa28.i.i.i84 = phi ptr [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ], [ %244, %240 ]
-  %248 = getelementptr inbounds nuw i8, ptr %242, i64 24
-  %249 = load ptr, ptr %248, align 8, !tbaa !149
-  %250 = icmp eq ptr %.019.lcssa28.i.i.i84, %249
-  br i1 %250, label %select.unfold.i.i80, label %251
+._crit_edge.thread.i.i.i83:                       ; preds = %._crit_edge.i.i.i73, %239
+  %.019.lcssa28.i.i.i84 = phi ptr [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ], [ %243, %239 ]
+  %247 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %248 = load ptr, ptr %247, align 8, !tbaa !149
+  %249 = icmp eq ptr %.019.lcssa28.i.i.i84, %248
+  br i1 %249, label %select.unfold.i.i80, label %250
 
-251:                                              ; preds = %._crit_edge.thread.i.i.i83
-  %252 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i84) #64
-  %.phi.trans.insert.i.i85 = getelementptr inbounds nuw i8, ptr %252, i64 32
+250:                                              ; preds = %._crit_edge.thread.i.i.i83
+  %251 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i84) #64
+  %.phi.trans.insert.i.i85 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %.pre.i.i86 = load i64, ptr %.phi.trans.insert.i.i85, align 8, !tbaa !93
-  br label %253
+  br label %252
 
-253:                                              ; preds = %251, %._crit_edge.i.i.i73
-  %254 = phi i64 [ %.pre.i.i86, %251 ], [ %246, %._crit_edge.i.i.i73 ]
-  %.019.lcssa29.i.i.i74 = phi ptr [ %.019.lcssa28.i.i.i84, %251 ], [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ]
-  %255 = icmp slt i64 %254, %243
-  br i1 %255, label %select.unfold.i.i80, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
+252:                                              ; preds = %250, %._crit_edge.i.i.i73
+  %253 = phi i64 [ %.pre.i.i86, %250 ], [ %245, %._crit_edge.i.i.i73 ]
+  %.019.lcssa29.i.i.i74 = phi ptr [ %.019.lcssa28.i.i.i84, %250 ], [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ]
+  %254 = icmp slt i64 %253, %242
+  br i1 %254, label %select.unfold.i.i80, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
 
-select.unfold.i.i80:                              ; preds = %253, %._crit_edge.thread.i.i.i83
-  %.sroa.4.0.i.ph.i.i81 = phi ptr [ %.019.lcssa28.i.i.i84, %._crit_edge.thread.i.i.i83 ], [ %.019.lcssa29.i.i.i74, %253 ]
-  %256 = icmp eq ptr %.sroa.4.0.i.ph.i.i81, %244
-  br i1 %256, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82, label %257
+select.unfold.i.i80:                              ; preds = %252, %._crit_edge.thread.i.i.i83
+  %.sroa.4.0.i.ph.i.i81 = phi ptr [ %.019.lcssa28.i.i.i84, %._crit_edge.thread.i.i.i83 ], [ %.019.lcssa29.i.i.i74, %252 ]
+  %255 = icmp eq ptr %.sroa.4.0.i.ph.i.i81, %243
+  br i1 %255, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82, label %256
 
-257:                                              ; preds = %select.unfold.i.i80
-  %258 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i81, i64 32
-  %259 = load i64, ptr %258, align 8, !tbaa !93
-  %260 = icmp slt i64 %243, %259
+256:                                              ; preds = %select.unfold.i.i80
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i81, i64 32
+  %258 = load i64, ptr %257, align 8, !tbaa !93
+  %259 = icmp slt i64 %242, %258
   br label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
 
-_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82: ; preds = %257, %select.unfold.i.i80
-  %261 = phi i1 [ true, %select.unfold.i.i80 ], [ %260, %257 ]
-  %262 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
-          to label %.noexc87 unwind label %269
+_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82: ; preds = %256, %select.unfold.i.i80
+  %260 = phi i1 [ true, %select.unfold.i.i80 ], [ %259, %256 ]
+  %261 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
+          to label %.noexc87 unwind label %268
 
 .noexc87:                                         ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
-  store i64 %243, ptr %263, align 8, !tbaa !93
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %261, ptr noundef nonnull %262, ptr noundef nonnull %.sroa.4.0.i.ph.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %244) #56
-  %264 = getelementptr inbounds nuw i8, ptr %242, i64 40
-  %265 = load i64, ptr %264, align 8, !tbaa !151
-  %266 = add i64 %265, 1
-  store i64 %266, ptr %264, align 8, !tbaa !151
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 32
+  store i64 %242, ptr %262, align 8, !tbaa !93
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %260, ptr noundef nonnull %261, ptr noundef nonnull %.sroa.4.0.i.ph.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %243) #56
+  %263 = getelementptr inbounds nuw i8, ptr %241, i64 40
+  %264 = load i64, ptr %263, align 8, !tbaa !151
+  %265 = add i64 %264, 1
+  store i64 %265, ptr %263, align 8, !tbaa !151
   br label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread
 
-267:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
-  %268 = landingpad { ptr, i32 }
+266:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
+  %267 = landingpad { ptr, i32 }
           cleanup
-  br label %313
+  br label %312
 
-269:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
-  %270 = landingpad { ptr, i32 }
+268:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
+  %269 = landingpad { ptr, i32 }
           cleanup
-  br label %313
+  br label %312
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread: ; preds = %253, %.noexc87, %126, %134, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit
-  %271 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0184, i64 24
-  %.not148 = icmp eq ptr %271, %.sroa.10.1
-  br i1 %.not148, label %.critedge, label %85, !llvm.loop !3472
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread: ; preds = %252, %.noexc87, %125, %133, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit
+  %270 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0184, i64 24
+  %.not148 = icmp eq ptr %270, %.sroa.10.1
+  br i1 %.not148, label %.critedge, label %84, !llvm.loop !3472
 
-.critedge:                                        ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread, %97
-  %272 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %.not148183 = icmp eq ptr %272, %.sroa.10.1
+.critedge:                                        ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEEbRKT_SG_.exit.thread, %96
+  %271 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  %.not148183 = icmp eq ptr %271, %.sroa.10.1
   br i1 %.not148183, label %._crit_edge191, label %.lr.ph186, !llvm.loop !3473
 
-._crit_edge197.loopexit:                          ; preds = %307
+._crit_edge197.loopexit:                          ; preds = %306
   %.pre212 = load ptr, ptr %6, align 8, !tbaa !3465
-  %.pre213 = load ptr, ptr %77, align 8, !tbaa !3468
+  %.pre213 = load ptr, ptr %76, align 8, !tbaa !3468
   br label %._crit_edge197
 
 ._crit_edge197:                                   ; preds = %._crit_edge197.loopexit, %._crit_edge191
-  %273 = phi ptr [ %.pre213, %._crit_edge197.loopexit ], [ %.pre211, %._crit_edge191 ]
-  %274 = phi ptr [ %.pre212, %._crit_edge197.loopexit ], [ %.pre209, %._crit_edge191 ]
-  %.not4.i.i.i.i = icmp eq ptr %274, %273
+  %272 = phi ptr [ %.pre213, %._crit_edge197.loopexit ], [ %.pre211, %._crit_edge191 ]
+  %273 = phi ptr [ %.pre212, %._crit_edge197.loopexit ], [ %.pre209, %._crit_edge191 ]
+  %.not4.i.i.i.i = icmp eq ptr %273, %272
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge197, %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %280, %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i ], [ %274, %._crit_edge197 ]
-  %275 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %276 = load ptr, ptr %275, align 8, !tbaa !148
-  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i.i, ptr noundef %276)
-          to label %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i unwind label %277
+  %.05.i.i.i.i = phi ptr [ %279, %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i ], [ %273, %._crit_edge197 ]
+  %274 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %275 = load ptr, ptr %274, align 8, !tbaa !148
+  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i.i, ptr noundef %275)
+          to label %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i unwind label %276
 
-277:                                              ; preds = %.lr.ph.i.i.i.i
-  %278 = landingpad { ptr, i32 }
+276:                                              ; preds = %.lr.ph.i.i.i.i
+  %277 = landingpad { ptr, i32 }
           catch ptr null
-  %279 = extractvalue { ptr, i32 } %278, 0
-  call void @__clang_call_terminate(ptr %279) #57
+  %278 = extractvalue { ptr, i32 } %277, 0
+  call void @__clang_call_terminate(ptr %278) #57
   unreachable
 
 _ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %280 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
-  %.not.i.i.i.i89 = icmp eq ptr %280, %273
+  %279 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
+  %.not.i.i.i.i89 = icmp eq ptr %279, %272
   br i1 %.not.i.i.i.i89, label %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !3474
 
 _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEEEvPT_.exit.i.i.i.i
@@ -170349,124 +170347,124 @@ _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster
   br label %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exitthread-pre-split.i, %._crit_edge197
-  %281 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exitthread-pre-split.i ], [ %274, %._crit_edge197 ]
-  %.not.i.i.i90 = icmp eq ptr %281, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit, label %282
+  %280 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exitthread-pre-split.i ], [ %273, %._crit_edge197 ]
+  %.not.i.i.i90 = icmp eq ptr %280, null
+  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit, label %281
 
-282:                                              ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i
-  %283 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %284 = load ptr, ptr %283, align 8, !tbaa !3467
-  %285 = ptrtoint ptr %284 to i64
-  %286 = ptrtoint ptr %281 to i64
-  %287 = sub i64 %285, %286
-  call void @_ZdlPvm(ptr noundef nonnull %281, i64 noundef %287) #58
+281:                                              ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i
+  %282 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %283 = load ptr, ptr %282, align 8, !tbaa !3467
+  %284 = ptrtoint ptr %283 to i64
+  %285 = ptrtoint ptr %280 to i64
+  %286 = sub i64 %284, %285
+  call void @_ZdlPvm(ptr noundef nonnull %280, i64 noundef %286) #58
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i, %282
-  %.sroa.0132.0.lcssa221228234238244 = phi ptr [ %.sroa.0132.0.lcssa221.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i.thread ], [ %.sroa.0132.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i ], [ %.sroa.0132.1, %282 ]
-  %.sroa.17.0.lcssa218229233239243 = phi ptr [ %.sroa.17.0.lcssa218.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i.thread ], [ %.sroa.17.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i ], [ %.sroa.17.1, %282 ]
+_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i, %281
+  %.sroa.0132.0.lcssa221228234238244 = phi ptr [ %.sroa.0132.0.lcssa221.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i.thread ], [ %.sroa.0132.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i ], [ %.sroa.0132.1, %281 ]
+  %.sroa.17.0.lcssa218229233239243 = phi ptr [ %.sroa.17.0.lcssa218.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i.thread ], [ %.sroa.17.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESD_EvT_SF_RSaIT0_E.exit.i ], [ %.sroa.17.1, %281 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #56
   %.not.i.i.i91 = icmp eq ptr %.sroa.0132.0.lcssa221228234238244, null
-  br i1 %.not.i.i.i91, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit, label %288
+  br i1 %.not.i.i.i91, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit, label %287
 
-288:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit
-  %289 = ptrtoint ptr %.sroa.17.0.lcssa218229233239243 to i64
-  %290 = ptrtoint ptr %.sroa.0132.0.lcssa221228234238244 to i64
-  %291 = sub i64 %289, %290
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0132.0.lcssa221228234238244, i64 noundef %291) #58
+287:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit
+  %288 = ptrtoint ptr %.sroa.17.0.lcssa218229233239243 to i64
+  %289 = ptrtoint ptr %.sroa.0132.0.lcssa221228234238244 to i64
+  %290 = sub i64 %288, %289
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0132.0.lcssa221228234238244, i64 noundef %290) #58
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit, %288
+_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev.exit, %287
   ret void
 
-292:                                              ; preds = %.lr.ph196, %307
-  %.026194 = phi i64 [ 1, %.lr.ph196 ], [ %293, %307 ]
-  %.sroa.098.0193 = phi ptr [ %.pre209, %.lr.ph196 ], [ %310, %307 ]
+291:                                              ; preds = %.lr.ph196, %306
+  %.026194 = phi i64 [ 1, %.lr.ph196 ], [ %292, %306 ]
+  %.sroa.098.0193 = phi ptr [ %.pre209, %.lr.ph196 ], [ %309, %306 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #56
-  %293 = add nuw nsw i64 %.026194, 1
+  %292 = add nuw nsw i64 %.026194, 1
   store i64 %.026194, ptr %9, align 8, !tbaa !93
-  %294 = load ptr, ptr %78, align 8, !tbaa !148
-  %.not10.i.i.i.i = icmp eq ptr %294, null
+  %293 = load ptr, ptr %77, align 8, !tbaa !148
+  %.not10.i.i.i.i = icmp eq ptr %293, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i92
 
-.lr.ph.i.i.i.i92:                                 ; preds = %292, %.lr.ph.i.i.i.i92
-  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %294, %292 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %79, %292 ]
-  %295 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %296 = load i64, ptr %295, align 8, !tbaa !93
-  %297 = icmp slt i64 %296, %.026194
-  %.19.i.i.i.i = select i1 %297, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %297, i64 24, i64 16
+.lr.ph.i.i.i.i92:                                 ; preds = %291, %.lr.ph.i.i.i.i92
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %293, %291 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %78, %291 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %295 = load i64, ptr %294, align 8, !tbaa !93
+  %296 = icmp slt i64 %295, %.026194
+  %.19.i.i.i.i = select i1 %296, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %296, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !174
   %.not.i.i.i.i93 = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i93, label %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, label %.lr.ph.i.i.i.i92, !llvm.loop !3475
 
 _ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i: ; preds = %.lr.ph.i.i.i.i92
-  %298 = icmp eq ptr %.19.i.i.i.i, %79
-  br i1 %298, label %.critedge.i, label %299
+  %297 = icmp eq ptr %.19.i.i.i.i, %78
+  br i1 %297, label %.critedge.i, label %298
 
-299:                                              ; preds = %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i
-  %300 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %301 = load i64, ptr %300, align 8, !tbaa !93
-  %302 = icmp slt i64 %.026194, %301
-  br i1 %302, label %.critedge.i, label %304
+298:                                              ; preds = %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i
+  %299 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %300 = load i64, ptr %299, align 8, !tbaa !93
+  %301 = icmp slt i64 %.026194, %300
+  br i1 %301, label %.critedge.i, label %303
 
-.critedge.i:                                      ; preds = %299, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %292
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %299 ], [ %.19.i.i.i.i, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %79, %292 ]
+.critedge.i:                                      ; preds = %298, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %291
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %298 ], [ %.19.i.i.i.i, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %78, %291 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #56
   store ptr %9, ptr %4, align 8, !tbaa !174, !alias.scope !3476
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #56
-  %303 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN5boost8geometry6detail7overlay12cluster_infoEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOlEESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %.noexc94 unwind label %311
+  %302 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN5boost8geometry6detail7overlay12cluster_infoEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOlEESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %.noexc94 unwind label %310
 
 .noexc94:                                         ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #56
-  br label %304
+  br label %303
 
-304:                                              ; preds = %.noexc94, %299
-  %.sroa.06.0.i = phi ptr [ %303, %.noexc94 ], [ %.19.i.i.i.i, %299 ]
-  %305 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
-  %306 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %305, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.098.0193)
-          to label %307 unwind label %311
+303:                                              ; preds = %.noexc94, %298
+  %.sroa.06.0.i = phi ptr [ %302, %.noexc94 ], [ %.19.i.i.i.i, %298 ]
+  %304 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
+  %305 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %304, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.098.0193)
+          to label %306 unwind label %310
 
-307:                                              ; preds = %304
-  %308 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 88
-  %309 = getelementptr inbounds nuw i8, ptr %.sroa.098.0193, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, ptr noundef nonnull align 8 dereferenceable(16) %309, i64 16, i1 false)
+306:                                              ; preds = %303
+  %307 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 88
+  %308 = getelementptr inbounds nuw i8, ptr %.sroa.098.0193, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %307, ptr noundef nonnull align 8 dereferenceable(16) %308, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #56
-  %310 = getelementptr inbounds nuw i8, ptr %.sroa.098.0193, i64 80
-  %.not147 = icmp eq ptr %310, %.pre211
-  br i1 %.not147, label %._crit_edge197.loopexit, label %292
+  %309 = getelementptr inbounds nuw i8, ptr %.sroa.098.0193, i64 80
+  %.not147 = icmp eq ptr %309, %.pre211
+  br i1 %.not147, label %._crit_edge197.loopexit, label %291
 
-311:                                              ; preds = %304, %.critedge.i
-  %312 = landingpad { ptr, i32 }
+310:                                              ; preds = %303, %.critedge.i
+  %311 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #56
-  br label %313
+  br label %312
 
-313:                                              ; preds = %269, %267, %211, %311
-  %.pn39.pn.pn = phi { ptr, i32 } [ %312, %311 ], [ %270, %269 ], [ %268, %267 ], [ %212, %211 ]
+312:                                              ; preds = %268, %266, %210, %310
+  %.pn39.pn.pn = phi { ptr, i32 } [ %311, %310 ], [ %269, %268 ], [ %267, %266 ], [ %211, %210 ]
   call void @_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #56
-  br label %314
+  br label %313
 
-314:                                              ; preds = %.loopexit, %.loopexit.split-lp, %313, %80
-  %.sroa.17.0165 = phi ptr [ %.sroa.17.1, %313 ], [ %.sroa.17.1, %80 ], [ %.sroa.10.0173, %.loopexit ], [ %.sroa.10.0173, %.loopexit.split-lp ]
-  %.sroa.0132.0158 = phi ptr [ %.sroa.0132.1, %313 ], [ %.sroa.0132.1, %80 ], [ %.sroa.0132.0174, %.loopexit ], [ %.sroa.0132.0174, %.loopexit.split-lp ]
-  %.pn43.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %313 ], [ %81, %80 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+313:                                              ; preds = %.loopexit, %.loopexit.split-lp, %312, %79
+  %.sroa.17.0165 = phi ptr [ %.sroa.17.1, %312 ], [ %.sroa.17.1, %79 ], [ %.sroa.10.0173, %.loopexit ], [ %.sroa.10.0173, %.loopexit.split-lp ]
+  %.sroa.0132.0158 = phi ptr [ %.sroa.0132.1, %312 ], [ %.sroa.0132.1, %79 ], [ %.sroa.0132.0174, %.loopexit ], [ %.sroa.0132.0174, %.loopexit.split-lp ]
+  %.pn43.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %312 ], [ %80, %79 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i96 = icmp eq ptr %.sroa.0132.0158, null
-  br i1 %.not.i.i.i96, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit97, label %315
+  br i1 %.not.i.i.i96, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit97, label %314
 
-315:                                              ; preds = %314
-  %316 = ptrtoint ptr %.sroa.17.0165 to i64
-  %317 = ptrtoint ptr %.sroa.0132.0158 to i64
-  %318 = sub i64 %316, %317
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0132.0158, i64 noundef %318) #58
+314:                                              ; preds = %313
+  %315 = ptrtoint ptr %.sroa.17.0165 to i64
+  %316 = ptrtoint ptr %.sroa.0132.0158 to i64
+  %317 = sub i64 %315, %316
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0132.0158, i64 noundef %317) #58
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit97
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit97: ; preds = %314, %315
+_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEEEESaISC_EED2Ev.exit97: ; preds = %313, %314
   resume { ptr, i32 } %.pn43.pn
 }
 

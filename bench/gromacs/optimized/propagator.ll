@@ -16125,7 +16125,7 @@ _ZN3gmxL13getConnectionILNS_16IntegrationStageE1EEENS_20PropagatorConnectionEPNS
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %68 = ptrtoint ptr %21 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %69, i8 0, i64 192, i1 false), !alias.scope !560
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !560
   store i64 %68, ptr %62, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
@@ -22537,7 +22537,7 @@ _ZN3gmxL13getConnectionILNS_16IntegrationStageE2EEENS_20PropagatorConnectionEPNS
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %68 = ptrtoint ptr %21 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %69, i8 0, i64 192, i1 false), !alias.scope !863
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !863
   store i64 %68, ptr %62, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311
@@ -28969,7 +28969,7 @@ _ZN3gmxL13getConnectionILNS_16IntegrationStageE3EEENS_20PropagatorConnectionEPNS
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %68 = ptrtoint ptr %21 to i64
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %69, i8 0, i64 192, i1 false), !alias.scope !1163
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %69, i8 0, i64 192, i1 false), !alias.scope !1163
   store i64 %68, ptr %62, align 8
   %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %.sroa.0.i.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !311

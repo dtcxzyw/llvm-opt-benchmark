@@ -40751,7 +40751,7 @@ _ZN4fish4proc7Process15get_wait_handle17h17bdbc635f4f0a68E.exit: ; preds = %46, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4fish4proc3Job3new17h6109bc2e2519bbb6E(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) initializes((0, 83)) %0, i24 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
+define void @_ZN4fish4proc3Job3new17h6109bc2e2519bbb6E(ptr dead_on_unwind noalias noundef writable writeonly sret([88 x i8]) align 8 captures(none) dereferenceable(88) initializes((0, 77), (80, 83)) %0, i24 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #1 {
   %4 = alloca [88 x i8], align 8
   %5 = atomicrmw add ptr @_ZN4fish4proc3Job3new20NEXT_INTERNAL_JOB_ID17hb031edae22ba0f4bE, i64 1 monotonic, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
@@ -40770,19 +40770,18 @@ define void @_ZN4fish4proc3Job3new17h6109bc2e2519bbb6E(ptr dead_on_unwind noalia
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.515.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %.sroa.56.0..sroa_idx, i8 0, i64 37, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i24 %1, ptr %9, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i24 %1, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %5, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %5, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %12, i8 0, i64 13, i1 false)
   call void @"_ZN4core3ptr55drop_in_place$LT$widestring..utfstring..Utf32String$GT$17ha7bfb33de0f2dd54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void

@@ -175028,11 +175028,11 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail7overlay12get_clusters
   %19 = shl nuw nsw i64 %18, 1
   %20 = xor i64 %19, 126
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEElNS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS4_6buffer16buffer_turn_infoISB_NS3_13segment_ratioIdEEEESaISP_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlST_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS12_RKS14_E_EEEvS12_S12_S14_S16_(ptr %.sroa.0131.1, ptr %.sroa.10.1, i64 noundef %20)
-          to label %.noexc unwind label %70
+          to label %.noexc unwind label %69
 
 .noexc:                                           ; preds = %13
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay15turn_with_pointINS3_5model5pointIdLm2ENS3_2cs9cartesianEEEEESt6vectorISC_SaISC_EEEENS0_5__ops15_Iter_comp_iterIZNS5_12get_clustersISE_INS4_6buffer16buffer_turn_infoISB_NS3_13segment_ratioIdEEEESaISP_EESt3mapIlNS5_12cluster_infoESt4lessIlESaISt4pairIKlST_EEENS4_17no_rescale_policyEEEvRT_RT0_RKT1_EUlRKS12_RKS14_E_EEEvS12_S12_S14_(ptr %.sroa.0131.1, ptr %.sroa.10.1)
-          to label %.lr.ph187 unwind label %70
+          to label %.lr.ph187 unwind label %69
 
 .lr.ph:                                           ; preds = %3, %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EE9push_backEOSA_.exit
   %.0172 = phi i64 [ %49, %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EE9push_backEOSA_.exit ], [ 0, %3 ]
@@ -175118,12 +175118,12 @@ _ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointId
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %304
+  br label %303
 
 .loopexit.split-lp:                               ; preds = %35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %304
+  br label %303
 
 _ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EE9push_backEOSA_.exit: ; preds = %28, %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i, %.lr.ph
   %.sroa.17.1 = phi ptr [ %.sroa.17.0169, %.lr.ph ], [ %48, %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i ], [ %.sroa.17.0169, %28 ]
@@ -175155,216 +175155,215 @@ _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0131.1, i64 24
-  %.not147180260 = icmp eq ptr %66, %.sroa.10.1
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0131.1, i64 24
+  %.not147180260 = icmp eq ptr %65, %.sroa.10.1
   br i1 %.not147180260, label %._crit_edge188, label %.lr.ph183
 
 ._crit_edge188:                                   ; preds = %.critedge, %.lr.ph187
   %.pre206 = load ptr, ptr %6, align 8, !tbaa !174
   %.pre208 = load ptr, ptr %51, align 8, !tbaa !174
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not146189 = icmp eq ptr %.pre206, %.pre208
   br i1 %.not146189, label %._crit_edge194, label %.lr.ph193
 
 .lr.ph193:                                        ; preds = %._crit_edge188
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %282
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %281
 
-70:                                               ; preds = %.noexc, %13
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %.noexc, %13
+  %70 = landingpad { ptr, i32 }
           cleanup
-  br label %304
+  br label %303
 
 .lr.ph183:                                        ; preds = %.lr.ph187, %.critedge
-  %72 = phi ptr [ %262, %.critedge ], [ %66, %.lr.ph187 ]
-  %.sroa.0113.0186261 = phi ptr [ %72, %.critedge ], [ %.sroa.0131.1, %.lr.ph187 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0186261, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0186261, i64 16
-  br label %75
+  %71 = phi ptr [ %261, %.critedge ], [ %65, %.lr.ph187 ]
+  %.sroa.0113.0186261 = phi ptr [ %71, %.critedge ], [ %.sroa.0131.1, %.lr.ph187 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0186261, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0186261, i64 16
+  br label %74
 
-75:                                               ; preds = %.lr.ph183, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
-  %.sroa.0107.0181 = phi ptr [ %72, %.lr.ph183 ], [ %261, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread ]
-  %76 = load double, ptr %74, align 8, !tbaa !2337
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0181, i64 8
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0181, i64 16
-  %79 = load double, ptr %78, align 8, !tbaa !2337
-  %80 = fsub double %76, %79
-  %81 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance acquire, align 8
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %87, !prof !101
+74:                                               ; preds = %.lr.ph183, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
+  %.sroa.0107.0181 = phi ptr [ %71, %.lr.ph183 ], [ %260, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread ]
+  %75 = load double, ptr %73, align 8, !tbaa !2337
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0181, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0181, i64 16
+  %78 = load double, ptr %77, align 8, !tbaa !2337
+  %79 = fsub double %75, %78
+  %80 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance acquire, align 8
+  %81 = icmp eq i8 %80, 0
+  br i1 %81, label %82, label %86, !prof !101
 
-83:                                               ; preds = %75
-  %84 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance) #56
-  %.not.i = icmp eq i32 %84, 0
-  br i1 %.not.i, label %87, label %85
+82:                                               ; preds = %74
+  %83 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance) #56
+  %.not.i = icmp eq i32 %83, 0
+  br i1 %.not.i, label %86, label %84
 
-85:                                               ; preds = %83
+84:                                               ; preds = %82
   store double 1.000000e+02, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance, align 8, !tbaa !2337
-  %86 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance)
+  %85 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance) #56
-  br label %87
+  br label %86
 
-87:                                               ; preds = %85, %83, %75
-  %88 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance, align 8, !tbaa !2337
-  %89 = fdiv double 1.000000e+00, %88
-  %90 = fcmp ogt double %80, %89
-  br i1 %90, label %.critedge, label %91
+86:                                               ; preds = %84, %82, %74
+  %87 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE7exceedsIdEEbT_E9tolerance, align 8, !tbaa !2337
+  %88 = fdiv double 1.000000e+00, %87
+  %89 = fcmp ogt double %79, %88
+  br i1 %89, label %.critedge, label %90
 
-91:                                               ; preds = %87
-  %92 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance acquire, align 8
-  %93 = icmp eq i8 %92, 0
-  br i1 %93, label %94, label %98, !prof !101
+90:                                               ; preds = %86
+  %91 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance acquire, align 8
+  %92 = icmp eq i8 %91, 0
+  br i1 %92, label %93, label %97, !prof !101
 
-94:                                               ; preds = %91
-  %95 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance) #56
-  %.not.i50 = icmp eq i32 %95, 0
-  br i1 %.not.i50, label %98, label %96
+93:                                               ; preds = %90
+  %94 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance) #56
+  %.not.i50 = icmp eq i32 %94, 0
+  br i1 %.not.i50, label %97, label %95
 
-96:                                               ; preds = %94
+95:                                               ; preds = %93
   store double 1.000000e+02, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance, align 8, !tbaa !2337
-  %97 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance)
+  %96 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance) #56
-  br label %98
+  br label %97
 
-98:                                               ; preds = %96, %94, %91
-  %99 = load double, ptr %73, align 8, !tbaa !2337
-  %100 = load double, ptr %77, align 8, !tbaa !2337
-  %101 = load double, ptr %74, align 8, !tbaa !2337
-  %102 = load double, ptr %78, align 8, !tbaa !2337
+97:                                               ; preds = %95, %93, %90
+  %98 = load double, ptr %72, align 8, !tbaa !2337
+  %99 = load double, ptr %76, align 8, !tbaa !2337
+  %100 = load double, ptr %73, align 8, !tbaa !2337
+  %101 = load double, ptr %77, align 8, !tbaa !2337
+  %102 = call double @llvm.fabs.f64(double %98)
   %103 = call double @llvm.fabs.f64(double %99)
   %104 = call double @llvm.fabs.f64(double %100)
   %105 = call double @llvm.fabs.f64(double %101)
-  %106 = call double @llvm.fabs.f64(double %102)
-  %107 = fcmp olt double %103, %104
-  %108 = select i1 %107, double %104, double %103
-  %109 = fcmp olt double %108, %105
-  %.sroa.speculated6.i.i.i = select i1 %109, double %105, double %108
-  %110 = fcmp olt double %.sroa.speculated6.i.i.i, %106
-  %111 = select i1 %110, double %106, double %.sroa.speculated6.i.i.i
-  %112 = fcmp olt double %111, 1.000000e+00
-  %.sroa.speculated.i.i.i = select i1 %112, double 1.000000e+00, double %111
-  %113 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance, align 8, !tbaa !2337
-  %114 = fmul double %113, %.sroa.speculated.i.i.i
-  %115 = fcmp oeq double %99, %100
-  br i1 %115, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i, label %116
+  %106 = fcmp olt double %102, %103
+  %107 = select i1 %106, double %103, double %102
+  %108 = fcmp olt double %107, %104
+  %.sroa.speculated6.i.i.i = select i1 %108, double %104, double %107
+  %109 = fcmp olt double %.sroa.speculated6.i.i.i, %105
+  %110 = select i1 %109, double %105, double %.sroa.speculated6.i.i.i
+  %111 = fcmp olt double %110, 1.000000e+00
+  %.sroa.speculated.i.i.i = select i1 %111, double 1.000000e+00, double %110
+  %112 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance, align 8, !tbaa !2337
+  %113 = fmul double %112, %.sroa.speculated.i.i.i
+  %114 = fcmp oeq double %98, %99
+  br i1 %114, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i, label %115
 
-116:                                              ; preds = %98
+115:                                              ; preds = %97
+  %116 = fcmp one double %102, 0x7FF0000000000000
   %117 = fcmp one double %103, 0x7FF0000000000000
-  %118 = fcmp one double %104, 0x7FF0000000000000
-  %or.cond.i.i.i.i = and i1 %117, %118
+  %or.cond.i.i.i.i = and i1 %116, %117
   br i1 %or.cond.i.i.i.i, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i: ; preds = %116
-  %119 = fsub double %99, %100
-  %120 = call noundef double @llvm.fabs.f64(double %119)
-  %121 = fmul double %114, 0x3CB0000000000000
-  %122 = fcmp ugt double %120, %121
-  br i1 %122, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i: ; preds = %115
+  %118 = fsub double %98, %99
+  %119 = call noundef double @llvm.fabs.f64(double %118)
+  %120 = fmul double %113, 0x3CB0000000000000
+  %121 = fcmp ugt double %119, %120
+  br i1 %121, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %98
-  %123 = fcmp oeq double %101, %102
-  br i1 %123, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142, label %124
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %97
+  %122 = fcmp oeq double %100, %101
+  br i1 %122, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142, label %123
 
-124:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
+123:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i
+  %124 = fcmp one double %104, 0x7FF0000000000000
   %125 = fcmp one double %105, 0x7FF0000000000000
-  %126 = fcmp one double %106, 0x7FF0000000000000
-  %or.cond.i.i13.i.i = and i1 %125, %126
+  %or.cond.i.i13.i.i = and i1 %124, %125
   br i1 %or.cond.i.i13.i.i, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit: ; preds = %124
-  %127 = fsub double %101, %102
-  %128 = call noundef double @llvm.fabs.f64(double %127)
-  %129 = fmul double %114, 0x3CB0000000000000
-  %130 = fcmp ugt double %128, %129
-  br i1 %130, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit: ; preds = %123
+  %126 = fsub double %100, %101
+  %127 = call noundef double @llvm.fabs.f64(double %126)
+  %128 = fmul double %113, 0x3CB0000000000000
+  %129 = fcmp ugt double %127, %128
+  br i1 %129, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142
 
 _ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit
-  %131 = load ptr, ptr %6, align 8, !tbaa !174
-  %132 = load ptr, ptr %51, align 8, !tbaa !174
-  %.not148175 = icmp eq ptr %131, %132
+  %130 = load ptr, ptr %6, align 8, !tbaa !174
+  %131 = load ptr, ptr %51, align 8, !tbaa !174
+  %.not148175 = icmp eq ptr %130, %131
   br i1 %.not148175, label %._crit_edge179, label %.lr.ph178
 
 .lr.ph178:                                        ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread
-  %.034177 = phi i64 [ %174, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread ], [ 0, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
-  %.sroa.0103.0176 = phi ptr [ %175, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread ], [ %131, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0176, i64 64
-  %134 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance acquire, align 8
-  %135 = icmp eq i8 %134, 0
-  br i1 %135, label %136, label %140, !prof !101
+  %.034177 = phi i64 [ %173, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread ], [ 0, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
+  %.sroa.0103.0176 = phi ptr [ %174, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread ], [ %130, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0176, i64 64
+  %133 = load atomic i8, ptr @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance acquire, align 8
+  %134 = icmp eq i8 %133, 0
+  br i1 %134, label %135, label %139, !prof !101
 
-136:                                              ; preds = %.lr.ph178
-  %137 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance) #56
-  %.not.i57 = icmp eq i32 %137, 0
-  br i1 %.not.i57, label %140, label %138
+135:                                              ; preds = %.lr.ph178
+  %136 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance) #56
+  %.not.i57 = icmp eq i32 %136, 0
+  br i1 %.not.i57, label %139, label %137
 
-138:                                              ; preds = %136
+137:                                              ; preds = %135
   store double 1.000000e+02, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance, align 8, !tbaa !2337
-  %139 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance)
+  %138 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance) #56
-  br label %140
+  br label %139
 
-140:                                              ; preds = %138, %136, %.lr.ph178
-  %141 = load double, ptr %133, align 8, !tbaa !2337
-  %142 = load double, ptr %73, align 8, !tbaa !2337
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0176, i64 72
-  %144 = load double, ptr %143, align 8, !tbaa !2337
-  %145 = load double, ptr %74, align 8, !tbaa !2337
+139:                                              ; preds = %137, %135, %.lr.ph178
+  %140 = load double, ptr %132, align 8, !tbaa !2337
+  %141 = load double, ptr %72, align 8, !tbaa !2337
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0176, i64 72
+  %143 = load double, ptr %142, align 8, !tbaa !2337
+  %144 = load double, ptr %73, align 8, !tbaa !2337
+  %145 = call double @llvm.fabs.f64(double %140)
   %146 = call double @llvm.fabs.f64(double %141)
-  %147 = call double @llvm.fabs.f64(double %142)
+  %147 = call double @llvm.fabs.f64(double %143)
   %148 = call double @llvm.fabs.f64(double %144)
-  %149 = call double @llvm.fabs.f64(double %145)
-  %150 = fcmp olt double %146, %147
-  %151 = select i1 %150, double %147, double %146
-  %152 = fcmp olt double %151, %148
-  %.sroa.speculated6.i.i.i51 = select i1 %152, double %148, double %151
-  %153 = fcmp olt double %.sroa.speculated6.i.i.i51, %149
-  %154 = select i1 %153, double %149, double %.sroa.speculated6.i.i.i51
-  %155 = fcmp olt double %154, 1.000000e+00
-  %.sroa.speculated.i.i.i52 = select i1 %155, double 1.000000e+00, double %154
-  %156 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance, align 8, !tbaa !2337
-  %157 = fmul double %156, %.sroa.speculated.i.i.i52
-  %158 = fcmp oeq double %141, %142
-  br i1 %158, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55, label %159
+  %149 = fcmp olt double %145, %146
+  %150 = select i1 %149, double %146, double %145
+  %151 = fcmp olt double %150, %147
+  %.sroa.speculated6.i.i.i51 = select i1 %151, double %147, double %150
+  %152 = fcmp olt double %.sroa.speculated6.i.i.i51, %148
+  %153 = select i1 %152, double %148, double %.sroa.speculated6.i.i.i51
+  %154 = fcmp olt double %153, 1.000000e+00
+  %.sroa.speculated.i.i.i52 = select i1 %154, double 1.000000e+00, double %153
+  %155 = load double, ptr @_ZZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_E9tolerance, align 8, !tbaa !2337
+  %156 = fmul double %155, %.sroa.speculated.i.i.i52
+  %157 = fcmp oeq double %140, %141
+  br i1 %157, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55, label %158
 
-159:                                              ; preds = %140
+158:                                              ; preds = %139
+  %159 = fcmp one double %145, 0x7FF0000000000000
   %160 = fcmp one double %146, 0x7FF0000000000000
-  %161 = fcmp one double %147, 0x7FF0000000000000
-  %or.cond.i.i.i.i53 = and i1 %160, %161
+  %or.cond.i.i.i.i53 = and i1 %159, %160
   br i1 %or.cond.i.i.i.i53, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54: ; preds = %159
-  %162 = fsub double %141, %142
-  %163 = call noundef double @llvm.fabs.f64(double %162)
-  %164 = fmul double %157, 0x3CB0000000000000
-  %165 = fcmp ugt double %163, %164
-  br i1 %165, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54: ; preds = %158
+  %161 = fsub double %140, %141
+  %162 = call noundef double @llvm.fabs.f64(double %161)
+  %163 = fmul double %156, 0x3CB0000000000000
+  %164 = fcmp ugt double %162, %163
+  br i1 %164, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread, label %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
 
-_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %140
-  %166 = fcmp oeq double %144, %145
-  br i1 %166, label %.thread, label %167
+_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %139
+  %165 = fcmp oeq double %143, %144
+  br i1 %165, label %.thread, label %166
 
-167:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
+166:                                              ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55
+  %167 = fcmp one double %147, 0x7FF0000000000000
   %168 = fcmp one double %148, 0x7FF0000000000000
-  %169 = fcmp one double %149, 0x7FF0000000000000
-  %or.cond.i.i13.i.i56 = and i1 %168, %169
+  %or.cond.i.i13.i.i56 = and i1 %167, %168
   br i1 %or.cond.i.i13.i.i56, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58: ; preds = %167
-  %170 = fsub double %144, %145
-  %171 = call noundef double @llvm.fabs.f64(double %170)
-  %172 = fmul double %157, 0x3CB0000000000000
-  %173 = fcmp ugt double %171, %172
-  br i1 %173, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread, label %.thread
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58: ; preds = %166
+  %169 = fsub double %143, %144
+  %170 = call noundef double @llvm.fabs.f64(double %169)
+  %171 = fmul double %156, 0x3CB0000000000000
+  %172 = fcmp ugt double %170, %171
+  br i1 %172, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread, label %.thread
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread: ; preds = %159, %167, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58
-  %174 = add i64 %.034177, 1
-  %175 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0176, i64 80
-  %176 = load ptr, ptr %51, align 8, !tbaa !174
-  %.not148 = icmp eq ptr %175, %176
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread: ; preds = %158, %166, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i54, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58
+  %173 = add i64 %.034177, 1
+  %174 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0176, i64 80
+  %175 = load ptr, ptr %51, align 8, !tbaa !174
+  %.not148 = icmp eq ptr %174, %175
   br i1 %.not148, label %._crit_edge179.loopexit, label %.lr.ph178, !llvm.loop !3204
 
 ._crit_edge179.loopexit:                          ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58.thread
@@ -175372,12 +175371,12 @@ _ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_ta
   br label %._crit_edge179
 
 ._crit_edge179:                                   ; preds = %._crit_edge179.loopexit, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142
-  %177 = phi ptr [ %.pre, %._crit_edge179.loopexit ], [ %131, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
-  %178 = phi ptr [ %176, %._crit_edge179.loopexit ], [ %132, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
-  %179 = ptrtoint ptr %178 to i64
-  %180 = ptrtoint ptr %177 to i64
-  %181 = sub i64 %179, %180
-  %182 = sdiv exact i64 %181, 80
+  %176 = phi ptr [ %.pre, %._crit_edge179.loopexit ], [ %130, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
+  %177 = phi ptr [ %175, %._crit_edge179.loopexit ], [ %131, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread142 ]
+  %178 = ptrtoint ptr %177 to i64
+  %179 = ptrtoint ptr %176 to i64
+  %180 = sub i64 %178, %179
+  %181 = sdiv exact i64 %180, 80
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #56
   store i32 0, ptr %52, align 8, !tbaa !473
   store ptr null, ptr %53, align 8, !tbaa !148
@@ -175389,263 +175388,262 @@ _ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_ta
   store ptr null, ptr %58, align 8, !tbaa !148
   store ptr %57, ptr %59, align 8, !tbaa !149
   store ptr %57, ptr %60, align 8, !tbaa !150
-  store i64 0, ptr %61, align 8, !tbaa !151
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !1712
-  %183 = load ptr, ptr %65, align 8, !tbaa !3207
-  %.not.i.i60 = icmp eq ptr %178, %183
-  br i1 %.not.i.i60, label %192, label %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !1712
+  %182 = load ptr, ptr %64, align 8, !tbaa !3207
+  %.not.i.i60 = icmp eq ptr %177, %182
+  br i1 %.not.i.i60, label %191, label %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i: ; preds = %._crit_edge179
-  %184 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %185 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  store ptr null, ptr %185, align 8, !tbaa !148
-  %186 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  store ptr %184, ptr %186, align 8, !tbaa !149
-  %187 = getelementptr inbounds nuw i8, ptr %178, i64 32
-  store ptr %184, ptr %187, align 8, !tbaa !150
-  %188 = getelementptr inbounds nuw i8, ptr %178, i64 40
-  store i64 0, ptr %188, align 8, !tbaa !151
-  store i32 0, ptr %184, align 8, !tbaa !473
-  %189 = getelementptr inbounds nuw i8, ptr %178, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
-  %190 = getelementptr inbounds nuw i8, ptr %178, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !1712
-  %191 = getelementptr inbounds nuw i8, ptr %178, i64 80
-  store ptr %191, ptr %51, align 8, !tbaa !3208
+  %183 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  store ptr null, ptr %184, align 8, !tbaa !148
+  %185 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  store ptr %183, ptr %185, align 8, !tbaa !149
+  %186 = getelementptr inbounds nuw i8, ptr %177, i64 32
+  store ptr %183, ptr %186, align 8, !tbaa !150
+  %187 = getelementptr inbounds nuw i8, ptr %177, i64 40
+  store i64 0, ptr %187, align 8, !tbaa !151
+  store i32 0, ptr %183, align 8, !tbaa !473
+  %188 = getelementptr inbounds nuw i8, ptr %177, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %188, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
+  %189 = getelementptr inbounds nuw i8, ptr %177, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !1712
+  %190 = getelementptr inbounds nuw i8, ptr %177, i64 80
+  store ptr %190, ptr %51, align 8, !tbaa !3208
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit
 
-192:                                              ; preds = %._crit_edge179
-  invoke void @_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %178, ptr noundef nonnull align 8 dereferenceable(80) %8)
-          to label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit unwind label %201
+191:                                              ; preds = %._crit_edge179
+  invoke void @_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE17_M_realloc_insertIJSB_EEEvN9__gnu_cxx17__normal_iteratorIPSB_SD_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %177, ptr noundef nonnull align 8 dereferenceable(80) %8)
+          to label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit unwind label %200
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit: ; preds = %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i, %192
-  %193 = load ptr, ptr %58, align 8, !tbaa !148
-  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %193)
-          to label %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev.exit unwind label %194
+_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit: ; preds = %_ZNSt16allocator_traitsISaIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEE9constructISB_JSB_EEEvRSC_PT_DpOT0_.exit.i.i, %191
+  %192 = load ptr, ptr %58, align 8, !tbaa !148
+  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %192)
+          to label %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev.exit unwind label %193
 
-194:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit
-  %195 = landingpad { ptr, i32 }
+193:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit
+  %194 = landingpad { ptr, i32 }
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #57
+  %195 = extractvalue { ptr, i32 } %194, 0
+  call void @__clang_call_terminate(ptr %195) #57
   unreachable
 
 _ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EE9push_backEOSB_.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #56
-  %197 = load ptr, ptr %53, align 8, !tbaa !148
-  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %197)
-          to label %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit unwind label %198
+  %196 = load ptr, ptr %53, align 8, !tbaa !148
+  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %196)
+          to label %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit unwind label %197
 
-198:                                              ; preds = %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev.exit
-  %199 = landingpad { ptr, i32 }
+197:                                              ; preds = %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev.exit
+  %198 = landingpad { ptr, i32 }
           catch ptr null
-  %200 = extractvalue { ptr, i32 } %199, 0
-  call void @__clang_call_terminate(ptr %200) #57
+  %199 = extractvalue { ptr, i32 } %198, 0
+  call void @__clang_call_terminate(ptr %199) #57
   unreachable
 
 _ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit: ; preds = %_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #56
   br label %.thread
 
-201:                                              ; preds = %192
-  %202 = landingpad { ptr, i32 }
+200:                                              ; preds = %191
+  %201 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost8geometry6detail7overlay18cluster_with_pointINS2_12cluster_infoENS0_5model5pointIdLm2ENS0_2cs9cartesianEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8) #56
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #56
   call void @_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #56
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #56
-  br label %303
+  br label %302
 
 .thread:                                          ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58, %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit
-  %.135 = phi i64 [ %182, %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit ], [ %.034177, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58 ], [ %.034177, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55 ]
-  %203 = load ptr, ptr %6, align 8, !tbaa !3205
-  %204 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %203, i64 %.135
-  %205 = load i64, ptr %.sroa.0113.0186261, align 8, !tbaa !3209
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  %207 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %.02022.i.i.i = load ptr, ptr %206, align 8, !tbaa !174
+  %.135 = phi i64 [ %181, %_ZN5boost8geometry6detail7overlay12cluster_infoD2Ev.exit ], [ %.034177, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit58 ], [ %.034177, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread.i.i55 ]
+  %202 = load ptr, ptr %6, align 8, !tbaa !3205
+  %203 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %202, i64 %.135
+  %204 = load i64, ptr %.sroa.0113.0186261, align 8, !tbaa !3209
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %.02022.i.i.i = load ptr, ptr %205, align 8, !tbaa !174
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.thread, %.lr.ph.i.i.i
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %.thread ]
-  %208 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
-  %209 = load i64, ptr %208, align 8, !tbaa !93
-  %210 = icmp slt i64 %205, %209
-  %.in.v.i.i.i = select i1 %210, i64 16, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
+  %208 = load i64, ptr %207, align 8, !tbaa !93
+  %209 = icmp slt i64 %204, %208
+  %.in.v.i.i.i = select i1 %209, i64 16, i64 24
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8, !tbaa !174
   %.not.i.i.i62 = icmp eq ptr %.020.i.i.i, null
   br i1 %.not.i.i.i62, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !3211
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  br i1 %210, label %._crit_edge.thread.i.i.i, label %216
+  br i1 %209, label %._crit_edge.thread.i.i.i, label %215
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.thread
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %207, %.thread ]
-  %211 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  %212 = load ptr, ptr %211, align 8, !tbaa !149
-  %213 = icmp eq ptr %.019.lcssa28.i.i.i, %212
-  br i1 %213, label %select.unfold.i.i, label %214
+  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %206, %.thread ]
+  %210 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  %211 = load ptr, ptr %210, align 8, !tbaa !149
+  %212 = icmp eq ptr %.019.lcssa28.i.i.i, %211
+  br i1 %212, label %select.unfold.i.i, label %213
 
-214:                                              ; preds = %._crit_edge.thread.i.i.i
-  %215 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #64
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %215, i64 32
+213:                                              ; preds = %._crit_edge.thread.i.i.i
+  %214 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #64
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %214, i64 32
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !93
-  br label %216
+  br label %215
 
-216:                                              ; preds = %214, %._crit_edge.i.i.i
-  %217 = phi i64 [ %.pre.i.i, %214 ], [ %209, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %214 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
-  %218 = icmp slt i64 %217, %205
-  br i1 %218, label %select.unfold.i.i, label %230
+215:                                              ; preds = %213, %._crit_edge.i.i.i
+  %216 = phi i64 [ %.pre.i.i, %213 ], [ %208, %._crit_edge.i.i.i ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %213 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %217 = icmp slt i64 %216, %204
+  br i1 %217, label %select.unfold.i.i, label %229
 
-select.unfold.i.i:                                ; preds = %216, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %216 ]
-  %219 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %207
-  br i1 %219, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %220
+select.unfold.i.i:                                ; preds = %215, %._crit_edge.thread.i.i.i
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %215 ]
+  %218 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %206
+  br i1 %218, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %219
 
-220:                                              ; preds = %select.unfold.i.i
-  %221 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
-  %222 = load i64, ptr %221, align 8, !tbaa !93
-  %223 = icmp slt i64 %205, %222
+219:                                              ; preds = %select.unfold.i.i
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
+  %221 = load i64, ptr %220, align 8, !tbaa !93
+  %222 = icmp slt i64 %204, %221
   br label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
 
-_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %220, %select.unfold.i.i
-  %224 = phi i1 [ true, %select.unfold.i.i ], [ %223, %220 ]
-  %225 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
-          to label %.noexc63 unwind label %257
+_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %219, %select.unfold.i.i
+  %223 = phi i1 [ true, %select.unfold.i.i ], [ %222, %219 ]
+  %224 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
+          to label %.noexc63 unwind label %256
 
 .noexc63:                                         ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 32
-  store i64 %205, ptr %226, align 8, !tbaa !93
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %224, ptr noundef nonnull %225, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %207) #56
-  %227 = getelementptr inbounds nuw i8, ptr %204, i64 40
-  %228 = load i64, ptr %227, align 8, !tbaa !151
-  %229 = add i64 %228, 1
-  store i64 %229, ptr %227, align 8, !tbaa !151
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
+  store i64 %204, ptr %225, align 8, !tbaa !93
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %223, ptr noundef nonnull %224, ptr noundef nonnull %.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %206) #56
+  %226 = getelementptr inbounds nuw i8, ptr %203, i64 40
+  %227 = load i64, ptr %226, align 8, !tbaa !151
+  %228 = add i64 %227, 1
+  store i64 %228, ptr %226, align 8, !tbaa !151
   %.pre203 = load ptr, ptr %6, align 8, !tbaa !3205
   %.phi.trans.insert204 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %.pre203, i64 %.135, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
   %.02022.i.i.i64.pre = load ptr, ptr %.phi.trans.insert204, align 8, !tbaa !174
-  br label %230
+  br label %229
 
-230:                                              ; preds = %.noexc63, %216
-  %.02022.i.i.i64 = phi ptr [ %.02022.i.i.i64.pre, %.noexc63 ], [ %.02022.i.i.i, %216 ]
-  %231 = phi ptr [ %.pre203, %.noexc63 ], [ %203, %216 ]
-  %232 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %231, i64 %.135
-  %233 = load i64, ptr %.sroa.0107.0181, align 8, !tbaa !3209
-  %234 = getelementptr inbounds nuw i8, ptr %232, i64 8
+229:                                              ; preds = %.noexc63, %215
+  %.02022.i.i.i64 = phi ptr [ %.02022.i.i.i64.pre, %.noexc63 ], [ %.02022.i.i.i, %215 ]
+  %230 = phi ptr [ %.pre203, %.noexc63 ], [ %202, %215 ]
+  %231 = getelementptr inbounds nuw %"struct.boost::geometry::detail::overlay::cluster_with_point", ptr %230, i64 %.135
+  %232 = load i64, ptr %.sroa.0107.0181, align 8, !tbaa !3209
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %.not23.i.i.i65 = icmp eq ptr %.02022.i.i.i64, null
   br i1 %.not23.i.i.i65, label %._crit_edge.thread.i.i.i83, label %.lr.ph.i.i.i67
 
-.lr.ph.i.i.i67:                                   ; preds = %230, %.lr.ph.i.i.i67
-  %.02024.i.i.i68 = phi ptr [ %.020.i.i.i71, %.lr.ph.i.i.i67 ], [ %.02022.i.i.i64, %230 ]
-  %235 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i68, i64 32
-  %236 = load i64, ptr %235, align 8, !tbaa !93
-  %237 = icmp slt i64 %233, %236
-  %.in.v.i.i.i69 = select i1 %237, i64 16, i64 24
+.lr.ph.i.i.i67:                                   ; preds = %229, %.lr.ph.i.i.i67
+  %.02024.i.i.i68 = phi ptr [ %.020.i.i.i71, %.lr.ph.i.i.i67 ], [ %.02022.i.i.i64, %229 ]
+  %234 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i68, i64 32
+  %235 = load i64, ptr %234, align 8, !tbaa !93
+  %236 = icmp slt i64 %232, %235
+  %.in.v.i.i.i69 = select i1 %236, i64 16, i64 24
   %.in.i.i.i70 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i68, i64 %.in.v.i.i.i69
   %.020.i.i.i71 = load ptr, ptr %.in.i.i.i70, align 8, !tbaa !174
   %.not.i.i.i72 = icmp eq ptr %.020.i.i.i71, null
   br i1 %.not.i.i.i72, label %._crit_edge.i.i.i73, label %.lr.ph.i.i.i67, !llvm.loop !3211
 
 ._crit_edge.i.i.i73:                              ; preds = %.lr.ph.i.i.i67
-  br i1 %237, label %._crit_edge.thread.i.i.i83, label %243
+  br i1 %236, label %._crit_edge.thread.i.i.i83, label %242
 
-._crit_edge.thread.i.i.i83:                       ; preds = %._crit_edge.i.i.i73, %230
-  %.019.lcssa28.i.i.i84 = phi ptr [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ], [ %234, %230 ]
-  %238 = getelementptr inbounds nuw i8, ptr %232, i64 24
-  %239 = load ptr, ptr %238, align 8, !tbaa !149
-  %240 = icmp eq ptr %.019.lcssa28.i.i.i84, %239
-  br i1 %240, label %select.unfold.i.i80, label %241
+._crit_edge.thread.i.i.i83:                       ; preds = %._crit_edge.i.i.i73, %229
+  %.019.lcssa28.i.i.i84 = phi ptr [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ], [ %233, %229 ]
+  %237 = getelementptr inbounds nuw i8, ptr %231, i64 24
+  %238 = load ptr, ptr %237, align 8, !tbaa !149
+  %239 = icmp eq ptr %.019.lcssa28.i.i.i84, %238
+  br i1 %239, label %select.unfold.i.i80, label %240
 
-241:                                              ; preds = %._crit_edge.thread.i.i.i83
-  %242 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i84) #64
-  %.phi.trans.insert.i.i85 = getelementptr inbounds nuw i8, ptr %242, i64 32
+240:                                              ; preds = %._crit_edge.thread.i.i.i83
+  %241 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i84) #64
+  %.phi.trans.insert.i.i85 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %.pre.i.i86 = load i64, ptr %.phi.trans.insert.i.i85, align 8, !tbaa !93
-  br label %243
+  br label %242
 
-243:                                              ; preds = %241, %._crit_edge.i.i.i73
-  %244 = phi i64 [ %.pre.i.i86, %241 ], [ %236, %._crit_edge.i.i.i73 ]
-  %.019.lcssa29.i.i.i74 = phi ptr [ %.019.lcssa28.i.i.i84, %241 ], [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ]
-  %245 = icmp slt i64 %244, %233
-  br i1 %245, label %select.unfold.i.i80, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
+242:                                              ; preds = %240, %._crit_edge.i.i.i73
+  %243 = phi i64 [ %.pre.i.i86, %240 ], [ %235, %._crit_edge.i.i.i73 ]
+  %.019.lcssa29.i.i.i74 = phi ptr [ %.019.lcssa28.i.i.i84, %240 ], [ %.02024.i.i.i68, %._crit_edge.i.i.i73 ]
+  %244 = icmp slt i64 %243, %232
+  br i1 %244, label %select.unfold.i.i80, label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
 
-select.unfold.i.i80:                              ; preds = %243, %._crit_edge.thread.i.i.i83
-  %.sroa.4.0.i.ph.i.i81 = phi ptr [ %.019.lcssa28.i.i.i84, %._crit_edge.thread.i.i.i83 ], [ %.019.lcssa29.i.i.i74, %243 ]
-  %246 = icmp eq ptr %.sroa.4.0.i.ph.i.i81, %234
-  br i1 %246, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82, label %247
+select.unfold.i.i80:                              ; preds = %242, %._crit_edge.thread.i.i.i83
+  %.sroa.4.0.i.ph.i.i81 = phi ptr [ %.019.lcssa28.i.i.i84, %._crit_edge.thread.i.i.i83 ], [ %.019.lcssa29.i.i.i74, %242 ]
+  %245 = icmp eq ptr %.sroa.4.0.i.ph.i.i81, %233
+  br i1 %245, label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82, label %246
 
-247:                                              ; preds = %select.unfold.i.i80
-  %248 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i81, i64 32
-  %249 = load i64, ptr %248, align 8, !tbaa !93
-  %250 = icmp slt i64 %233, %249
+246:                                              ; preds = %select.unfold.i.i80
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i81, i64 32
+  %248 = load i64, ptr %247, align 8, !tbaa !93
+  %249 = icmp slt i64 %232, %248
   br label %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
 
-_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82: ; preds = %247, %select.unfold.i.i80
-  %251 = phi i1 [ true, %select.unfold.i.i80 ], [ %250, %247 ]
-  %252 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
-          to label %.noexc87 unwind label %259
+_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82: ; preds = %246, %select.unfold.i.i80
+  %250 = phi i1 [ true, %select.unfold.i.i80 ], [ %249, %246 ]
+  %251 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #59
+          to label %.noexc87 unwind label %258
 
 .noexc87:                                         ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 32
-  store i64 %233, ptr %253, align 8, !tbaa !93
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %251, ptr noundef nonnull %252, ptr noundef nonnull %.sroa.4.0.i.ph.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %234) #56
-  %254 = getelementptr inbounds nuw i8, ptr %232, i64 40
-  %255 = load i64, ptr %254, align 8, !tbaa !151
-  %256 = add i64 %255, 1
-  store i64 %256, ptr %254, align 8, !tbaa !151
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
+  store i64 %232, ptr %252, align 8, !tbaa !93
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %250, ptr noundef nonnull %251, ptr noundef nonnull %.sroa.4.0.i.ph.i.i81, ptr noundef nonnull align 8 dereferenceable(32) %233) #56
+  %253 = getelementptr inbounds nuw i8, ptr %231, i64 40
+  %254 = load i64, ptr %253, align 8, !tbaa !151
+  %255 = add i64 %254, 1
+  store i64 %255, ptr %253, align 8, !tbaa !151
   br label %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread
 
-257:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
-  %258 = landingpad { ptr, i32 }
+256:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
+  %257 = landingpad { ptr, i32 }
           cleanup
-  br label %303
+  br label %302
 
-259:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
-  %260 = landingpad { ptr, i32 }
+258:                                              ; preds = %_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IlNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIlEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i82
+  %259 = landingpad { ptr, i32 }
           cleanup
-  br label %303
+  br label %302
 
-_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread: ; preds = %243, %.noexc87, %116, %124, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit
-  %261 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0181, i64 24
-  %.not147 = icmp eq ptr %261, %.sroa.10.1
-  br i1 %.not147, label %.critedge, label %75, !llvm.loop !3212
+_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread: ; preds = %242, %.noexc87, %115, %123, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.0107.0181, i64 24
+  %.not147 = icmp eq ptr %260, %.sroa.10.1
+  br i1 %.not147, label %.critedge, label %74, !llvm.loop !3212
 
-.critedge:                                        ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread, %87
-  %262 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %.not147180 = icmp eq ptr %262, %.sroa.10.1
+.critedge:                                        ; preds = %_ZN5boost8geometry6detail7overlay18sweep_equal_policyINS1_21no_rescale_policy_tagELb0EE6equalsINS0_5model5pointIdLm2ENS0_2cs9cartesianEEEEEbRKT_SE_.exit.thread, %86
+  %261 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %.not147180 = icmp eq ptr %261, %.sroa.10.1
   br i1 %.not147180, label %._crit_edge188, label %.lr.ph183, !llvm.loop !3213
 
-._crit_edge194.loopexit:                          ; preds = %297
+._crit_edge194.loopexit:                          ; preds = %296
   %.pre209 = load ptr, ptr %6, align 8, !tbaa !3205
-  %.pre210 = load ptr, ptr %67, align 8, !tbaa !3208
+  %.pre210 = load ptr, ptr %66, align 8, !tbaa !3208
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %._crit_edge188
-  %263 = phi ptr [ %.pre210, %._crit_edge194.loopexit ], [ %.pre208, %._crit_edge188 ]
-  %264 = phi ptr [ %.pre209, %._crit_edge194.loopexit ], [ %.pre206, %._crit_edge188 ]
-  %.not4.i.i.i.i = icmp eq ptr %264, %263
+  %262 = phi ptr [ %.pre210, %._crit_edge194.loopexit ], [ %.pre208, %._crit_edge188 ]
+  %263 = phi ptr [ %.pre209, %._crit_edge194.loopexit ], [ %.pre206, %._crit_edge188 ]
+  %.not4.i.i.i.i = icmp eq ptr %263, %262
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge194, %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %270, %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i ], [ %264, %._crit_edge194 ]
-  %265 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %266 = load ptr, ptr %265, align 8, !tbaa !148
-  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i.i, ptr noundef %266)
-          to label %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i unwind label %267
+  %.05.i.i.i.i = phi ptr [ %269, %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i ], [ %263, %._crit_edge194 ]
+  %264 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %265 = load ptr, ptr %264, align 8, !tbaa !148
+  invoke void @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE8_M_eraseEPSt13_Rb_tree_nodeIlE(ptr noundef nonnull align 8 dereferenceable(80) %.05.i.i.i.i, ptr noundef %265)
+          to label %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i unwind label %266
 
-267:                                              ; preds = %.lr.ph.i.i.i.i
-  %268 = landingpad { ptr, i32 }
+266:                                              ; preds = %.lr.ph.i.i.i.i
+  %267 = landingpad { ptr, i32 }
           catch ptr null
-  %269 = extractvalue { ptr, i32 } %268, 0
-  call void @__clang_call_terminate(ptr %269) #57
+  %268 = extractvalue { ptr, i32 } %267, 0
+  call void @__clang_call_terminate(ptr %268) #57
   unreachable
 
 _ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %270 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
-  %.not.i.i.i.i89 = icmp eq ptr %270, %263
+  %269 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
+  %.not.i.i.i.i89 = icmp eq ptr %269, %262
   br i1 %.not.i.i.i.i89, label %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !3214
 
 _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEEEvPT_.exit.i.i.i.i
@@ -175653,124 +175651,124 @@ _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster
   br label %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, %._crit_edge194
-  %271 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i ], [ %264, %._crit_edge194 ]
-  %.not.i.i.i90 = icmp eq ptr %271, null
-  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit, label %272
+  %270 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i ], [ %263, %._crit_edge194 ]
+  %.not.i.i.i90 = icmp eq ptr %270, null
+  br i1 %.not.i.i.i90, label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit, label %271
 
-272:                                              ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i
-  %273 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %274 = load ptr, ptr %273, align 8, !tbaa !3207
-  %275 = ptrtoint ptr %274 to i64
-  %276 = ptrtoint ptr %271 to i64
-  %277 = sub i64 %275, %276
-  call void @_ZdlPvm(ptr noundef nonnull %271, i64 noundef %277) #58
+271:                                              ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i
+  %272 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %273 = load ptr, ptr %272, align 8, !tbaa !3207
+  %274 = ptrtoint ptr %273 to i64
+  %275 = ptrtoint ptr %270 to i64
+  %276 = sub i64 %274, %275
+  call void @_ZdlPvm(ptr noundef nonnull %270, i64 noundef %276) #58
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i, %272
-  %.sroa.0131.0.lcssa218225231235241 = phi ptr [ %.sroa.0131.0.lcssa218.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i.thread ], [ %.sroa.0131.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i ], [ %.sroa.0131.1, %272 ]
-  %.sroa.17.0.lcssa215226230236240 = phi ptr [ %.sroa.17.0.lcssa215.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i.thread ], [ %.sroa.17.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i ], [ %.sroa.17.1, %272 ]
+_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i.thread, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i, %271
+  %.sroa.0131.0.lcssa218225231235241 = phi ptr [ %.sroa.0131.0.lcssa218.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i.thread ], [ %.sroa.0131.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i ], [ %.sroa.0131.1, %271 ]
+  %.sroa.17.0.lcssa215226230236240 = phi ptr [ %.sroa.17.0.lcssa215.ph, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i.thread ], [ %.sroa.17.1, %_ZSt8_DestroyIPN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESB_EvT_SD_RSaIT0_E.exit.i ], [ %.sroa.17.1, %271 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #56
   %.not.i.i.i91 = icmp eq ptr %.sroa.0131.0.lcssa218225231235241, null
-  br i1 %.not.i.i.i91, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit, label %278
+  br i1 %.not.i.i.i91, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit, label %277
 
-278:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit
-  %279 = ptrtoint ptr %.sroa.17.0.lcssa215226230236240 to i64
-  %280 = ptrtoint ptr %.sroa.0131.0.lcssa218225231235241 to i64
-  %281 = sub i64 %279, %280
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0131.0.lcssa218225231235241, i64 noundef %281) #58
+277:                                              ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit
+  %278 = ptrtoint ptr %.sroa.17.0.lcssa215226230236240 to i64
+  %279 = ptrtoint ptr %.sroa.0131.0.lcssa218225231235241 to i64
+  %280 = sub i64 %278, %279
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0131.0.lcssa218225231235241, i64 noundef %280) #58
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit, %278
+_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev.exit, %277
   ret void
 
-282:                                              ; preds = %.lr.ph193, %297
-  %.026191 = phi i64 [ 1, %.lr.ph193 ], [ %283, %297 ]
-  %.sroa.098.0190 = phi ptr [ %.pre206, %.lr.ph193 ], [ %300, %297 ]
+281:                                              ; preds = %.lr.ph193, %296
+  %.026191 = phi i64 [ 1, %.lr.ph193 ], [ %282, %296 ]
+  %.sroa.098.0190 = phi ptr [ %.pre206, %.lr.ph193 ], [ %299, %296 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #56
-  %283 = add nuw nsw i64 %.026191, 1
+  %282 = add nuw nsw i64 %.026191, 1
   store i64 %.026191, ptr %9, align 8, !tbaa !93
-  %284 = load ptr, ptr %68, align 8, !tbaa !148
-  %.not10.i.i.i.i = icmp eq ptr %284, null
+  %283 = load ptr, ptr %67, align 8, !tbaa !148
+  %.not10.i.i.i.i = icmp eq ptr %283, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i92
 
-.lr.ph.i.i.i.i92:                                 ; preds = %282, %.lr.ph.i.i.i.i92
-  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %284, %282 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %69, %282 ]
-  %285 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %286 = load i64, ptr %285, align 8, !tbaa !93
-  %287 = icmp slt i64 %286, %.026191
-  %.19.i.i.i.i = select i1 %287, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %287, i64 24, i64 16
+.lr.ph.i.i.i.i92:                                 ; preds = %281, %.lr.ph.i.i.i.i92
+  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %283, %281 ]
+  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i92 ], [ %68, %281 ]
+  %284 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %285 = load i64, ptr %284, align 8, !tbaa !93
+  %286 = icmp slt i64 %285, %.026191
+  %.19.i.i.i.i = select i1 %286, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %286, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !174
   %.not.i.i.i.i93 = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i93, label %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, label %.lr.ph.i.i.i.i92, !llvm.loop !3215
 
 _ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i: ; preds = %.lr.ph.i.i.i.i92
-  %288 = icmp eq ptr %.19.i.i.i.i, %69
-  br i1 %288, label %.critedge.i, label %289
+  %287 = icmp eq ptr %.19.i.i.i.i, %68
+  br i1 %287, label %.critedge.i, label %288
 
-289:                                              ; preds = %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i
-  %290 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %291 = load i64, ptr %290, align 8, !tbaa !93
-  %292 = icmp slt i64 %.026191, %291
-  br i1 %292, label %.critedge.i, label %294
+288:                                              ; preds = %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i
+  %289 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %290 = load i64, ptr %289, align 8, !tbaa !93
+  %291 = icmp slt i64 %.026191, %290
+  br i1 %291, label %.critedge.i, label %293
 
-.critedge.i:                                      ; preds = %289, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %282
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %289 ], [ %.19.i.i.i.i, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %69, %282 ]
+.critedge.i:                                      ; preds = %288, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %281
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %288 ], [ %.19.i.i.i.i, %_ZNSt3mapIlN5boost8geometry6detail7overlay12cluster_infoESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %68, %281 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #56
   store ptr %9, ptr %4, align 8, !tbaa !174, !alias.scope !3216
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #56
-  %293 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN5boost8geometry6detail7overlay12cluster_infoEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOlEESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %.noexc94 unwind label %301
+  %292 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN5boost8geometry6detail7overlay12cluster_infoEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOlEESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %.noexc94 unwind label %300
 
 .noexc94:                                         ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #56
-  br label %294
+  br label %293
 
-294:                                              ; preds = %.noexc94, %289
-  %.sroa.06.0.i = phi ptr [ %293, %.noexc94 ], [ %.19.i.i.i.i, %289 ]
-  %295 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
-  %296 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %295, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.098.0190)
-          to label %297 unwind label %301
+293:                                              ; preds = %.noexc94, %288
+  %.sroa.06.0.i = phi ptr [ %292, %.noexc94 ], [ %.19.i.i.i.i, %288 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
+  %295 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %294, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.098.0190)
+          to label %296 unwind label %300
 
-297:                                              ; preds = %294
-  %298 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 88
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.098.0190, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %298, ptr noundef nonnull align 8 dereferenceable(16) %299, i64 16, i1 false)
+296:                                              ; preds = %293
+  %297 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 88
+  %298 = getelementptr inbounds nuw i8, ptr %.sroa.098.0190, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %297, ptr noundef nonnull align 8 dereferenceable(16) %298, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #56
-  %300 = getelementptr inbounds nuw i8, ptr %.sroa.098.0190, i64 80
-  %.not146 = icmp eq ptr %300, %.pre208
-  br i1 %.not146, label %._crit_edge194.loopexit, label %282
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.098.0190, i64 80
+  %.not146 = icmp eq ptr %299, %.pre208
+  br i1 %.not146, label %._crit_edge194.loopexit, label %281
 
-301:                                              ; preds = %294, %.critedge.i
-  %302 = landingpad { ptr, i32 }
+300:                                              ; preds = %293, %.critedge.i
+  %301 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #56
-  br label %303
+  br label %302
 
-303:                                              ; preds = %259, %257, %201, %301
-  %.pn39.pn.pn = phi { ptr, i32 } [ %302, %301 ], [ %260, %259 ], [ %258, %257 ], [ %202, %201 ]
+302:                                              ; preds = %258, %256, %200, %300
+  %.pn39.pn.pn = phi { ptr, i32 } [ %301, %300 ], [ %259, %258 ], [ %257, %256 ], [ %201, %200 ]
   call void @_ZNSt6vectorIN5boost8geometry6detail7overlay18cluster_with_pointINS3_12cluster_infoENS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #56
-  br label %304
+  br label %303
 
-304:                                              ; preds = %.loopexit, %.loopexit.split-lp, %303, %70
-  %.sroa.17.0164 = phi ptr [ %.sroa.17.1, %303 ], [ %.sroa.17.1, %70 ], [ %.sroa.10.0170, %.loopexit ], [ %.sroa.10.0170, %.loopexit.split-lp ]
-  %.sroa.0131.0157 = phi ptr [ %.sroa.0131.1, %303 ], [ %.sroa.0131.1, %70 ], [ %.sroa.0131.0171, %.loopexit ], [ %.sroa.0131.0171, %.loopexit.split-lp ]
-  %.pn43.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %303 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+303:                                              ; preds = %.loopexit, %.loopexit.split-lp, %302, %69
+  %.sroa.17.0164 = phi ptr [ %.sroa.17.1, %302 ], [ %.sroa.17.1, %69 ], [ %.sroa.10.0170, %.loopexit ], [ %.sroa.10.0170, %.loopexit.split-lp ]
+  %.sroa.0131.0157 = phi ptr [ %.sroa.0131.1, %302 ], [ %.sroa.0131.1, %69 ], [ %.sroa.0131.0171, %.loopexit ], [ %.sroa.0131.0171, %.loopexit.split-lp ]
+  %.pn43.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %302 ], [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i96 = icmp eq ptr %.sroa.0131.0157, null
-  br i1 %.not.i.i.i96, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit97, label %305
+  br i1 %.not.i.i.i96, label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit97, label %304
 
-305:                                              ; preds = %304
-  %306 = ptrtoint ptr %.sroa.17.0164 to i64
-  %307 = ptrtoint ptr %.sroa.0131.0157 to i64
-  %308 = sub i64 %306, %307
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0131.0157, i64 noundef %308) #58
+304:                                              ; preds = %303
+  %305 = ptrtoint ptr %.sroa.17.0164 to i64
+  %306 = ptrtoint ptr %.sroa.0131.0157 to i64
+  %307 = sub i64 %305, %306
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0131.0157, i64 noundef %307) #58
   br label %_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit97
 
-_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit97: ; preds = %304, %305
+_ZNSt6vectorIN5boost8geometry6detail7overlay15turn_with_pointINS1_5model5pointIdLm2ENS1_2cs9cartesianEEEEESaISA_EED2Ev.exit97: ; preds = %303, %304
   resume { ptr, i32 } %.pn43.pn
 }
 

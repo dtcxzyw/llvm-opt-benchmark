@@ -1247,7 +1247,7 @@ define void @_ZN5arrow7compute8internal23RegisterVectorSelectionEPNS0_16Function
 _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSIRSE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSF_E4typeEOSJ_.exit: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %19) #26
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131) %19, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131) %19, i8 0, i64 16, i1 false)
   store i8 1, ptr %41, align 8, !tbaa !48
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %42, i8 0, i64 20, i1 false)
@@ -1265,8 +1265,8 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   store i8 1, ptr %48, align 2, !tbaa !70
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_13FilterOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %49, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !39
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %50 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %50, align 8, !tbaa !71
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -1623,7 +1623,7 @@ _ZNSt10unique_ptrIN5arrow7compute8FunctionESt14default_deleteIS2_EED2Ev.exit58: 
 _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEEaSIRSE_EENSt9enable_ifIXsr9_CallableIT_EE5valueERSF_E4typeEOSJ_.exit61: ; preds = %_ZNSt10unique_ptrIN5arrow7compute8FunctionESt14default_deleteIS2_EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %27) #26
   %182 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131) %27, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131) %27, i8 0, i64 16, i1 false)
   store i8 1, ptr %182, align 8, !tbaa !48
   %183 = getelementptr inbounds nuw i8, ptr %27, i64 52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %183, i8 0, i64 20, i1 false)
@@ -1640,8 +1640,8 @@ _ZNSt8functionIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14defa
   store i8 1, ptr %189, align 2, !tbaa !70
   %190 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @_ZN5arrow7compute8internal14OptionsWrapperINS0_11TakeOptionsEE4InitEPNS0_13KernelContextERKNS0_14KernelInitArgsE, ptr %190, align 8
-  %.sroa.0.i.i.i59.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 0, ptr %.sroa.0.i.i.i59.sroa.4.0..sroa_idx, align 8, !tbaa !39
+  %.sroa.4197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i64 0, ptr %.sroa.4197.0..sroa_idx, align 8
   %191 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr @_ZNSt17_Function_handlerIFN5arrow6ResultISt10unique_ptrINS0_7compute11KernelStateESt14default_deleteIS4_EEEEPNS3_13KernelContextERKNS3_14KernelInitArgsEEPSE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %191, align 8, !tbaa !71
   %192 = getelementptr inbounds nuw i8, ptr %27, i64 40

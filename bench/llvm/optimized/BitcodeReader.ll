@@ -4942,14 +4942,14 @@ _ZN4llvm15ParserCallbacksC2ERKS0_.exit:           ; preds = %_ZNSt8optionalISt8f
   store i64 %233, ptr %8, align 8, !noalias !570
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !570
-  %408 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %409 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPNS0_6ModuleEbbNS0_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %409, align 8, !tbaa !110, !noalias !570
-  %410 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPNS0_6ModuleEbbNS0_15ParserCallbacksEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %410, align 8, !tbaa !110, !noalias !570
-  store i64 %233, ptr %408, align 8, !noalias !570
-  %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 0, ptr %.sroa.0.i.i.i5.i.sroa.4.0..sroa_idx, align 8, !tbaa !84, !noalias !570
+  %408 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPNS0_6ModuleEbbNS0_15ParserCallbacksEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %408, align 8, !tbaa !110, !noalias !570
+  %409 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr @"_ZNSt17_Function_handlerIFPN4llvm4TypeEjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPNS0_6ModuleEbbNS0_15ParserCallbacksEE3$_0E9_M_invokeERKSt9_Any_dataOj", ptr %409, align 8, !tbaa !110, !noalias !570
+  %410 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i64 %233, ptr %410, align 8, !noalias !570
+  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i64 0, ptr %.sroa.499.0..sroa_idx, align 8, !noalias !570
   %411 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @"_ZNSt17_Function_handlerIFjjjEZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS3_15ParserCallbacksEE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %411, align 8, !tbaa !110, !noalias !570
   %412 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -4977,7 +4977,7 @@ _ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEE
   store ptr %421, ptr %417, align 8, !tbaa !567, !noalias !570
   %422 = load ptr, ptr %415, align 8, !tbaa !43, !noalias !570
   store ptr %422, ptr %418, align 8, !tbaa !43, !noalias !570
-  %.pre19.pre.i = load ptr, ptr %409, align 8, !tbaa !43, !noalias !570
+  %.pre19.pre.i = load ptr, ptr %408, align 8, !tbaa !43, !noalias !570
   store i8 1, ptr %407, align 8, !tbaa !565, !noalias !570
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #31, !noalias !570
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 32, i1 false), !noalias !570
@@ -4994,9 +4994,9 @@ _ZNSt8optionalISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEEE
   %425 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %426 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %427 = call noundef zeroext i1 %424(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %8, i32 noundef 2) #31, !noalias !570
-  %428 = load ptr, ptr %410, align 8, !tbaa !573, !noalias !570
+  %428 = load ptr, ptr %409, align 8, !tbaa !573, !noalias !570
   store ptr %428, ptr %425, align 8, !tbaa !573, !noalias !570
-  %429 = load ptr, ptr %409, align 8, !tbaa !43, !noalias !570
+  %429 = load ptr, ptr %408, align 8, !tbaa !43, !noalias !570
   store ptr %429, ptr %426, align 8, !tbaa !43, !noalias !570
   br label %_ZNSt8functionIFPN4llvm4TypeEjEEC2ERKS4_.exit.i.i
 
@@ -5010,7 +5010,7 @@ _ZNSt8functionIFPN4llvm4TypeEjEEC2ERKS4_.exit.i.i: ; preds = %423, %_ZNSt8option
 432:                                              ; preds = %_ZNSt8functionIFPN4llvm4TypeEjEEC2ERKS4_.exit.i.i
   %433 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %434 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %435 = call noundef zeroext i1 %431(ptr noundef nonnull align 8 dereferenceable(32) %430, ptr noundef nonnull align 8 dereferenceable(32) %408, i32 noundef 2) #31, !noalias !570
+  %435 = call noundef zeroext i1 %431(ptr noundef nonnull align 8 dereferenceable(32) %430, ptr noundef nonnull align 8 dereferenceable(32) %410, i32 noundef 2) #31, !noalias !570
   %436 = load ptr, ptr %412, align 8, !tbaa !575, !noalias !570
   store ptr %436, ptr %433, align 8, !tbaa !575, !noalias !570
   %437 = load ptr, ptr %411, align 8, !tbaa !43, !noalias !570
@@ -5261,11 +5261,11 @@ _ZNSt14_Optional_baseISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFj
   br i1 %.not.i.i13.i, label %_ZNSt14_Function_baseD2Ev.exit.i14.i, label %543
 
 543:                                              ; preds = %_ZNSt14_Optional_baseISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEELb0ELb0EED2Ev.exit.i12.i
-  %544 = call noundef zeroext i1 %542(ptr noundef nonnull align 8 dereferenceable(32) %408, ptr noundef nonnull align 8 dereferenceable(32) %408, i32 noundef 3) #31
+  %544 = call noundef zeroext i1 %542(ptr noundef nonnull align 8 dereferenceable(32) %410, ptr noundef nonnull align 8 dereferenceable(32) %410, i32 noundef 3) #31
   br label %_ZNSt14_Function_baseD2Ev.exit.i14.i
 
 _ZNSt14_Function_baseD2Ev.exit.i14.i:             ; preds = %543, %_ZNSt14_Optional_baseISt8functionIFvPPN4llvm8MetadataEjS0_IFPNS1_4TypeEjEES0_IFjjjEEEELb0ELb0EED2Ev.exit.i12.i
-  %545 = load ptr, ptr %409, align 8, !tbaa !43, !noalias !570
+  %545 = load ptr, ptr %408, align 8, !tbaa !43, !noalias !570
   %.not.i1.i15.i = icmp eq ptr %545, null
   br i1 %.not.i1.i15.i, label %_ZN12_GLOBAL__N_113BitcodeReader16parseBitcodeIntoEPN4llvm6ModuleEbbNS1_15ParserCallbacksE.exit, label %546
 

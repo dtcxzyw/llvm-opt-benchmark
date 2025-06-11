@@ -5880,8 +5880,8 @@ define internal fastcc void @"_Z14cmUVStreamReadIZ23cmExecuteProcessCommandRKSt6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !176
   store ptr %6, ptr %7, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZ23cmExecuteProcessCommandRKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EESaIS8_EER17cmExecutionStatusE3$_1E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %8, align 8, !tbaa !177
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -5889,8 +5889,8 @@ define internal fastcc void @"_Z14cmUVStreamReadIZ23cmExecuteProcessCommandRKSt6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = ptrtoint ptr %3 to i64
   store i64 %11, ptr %10, align 8
-  %.sroa.0.i.i.i6.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 0, ptr %.sroa.0.i.i.i6.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 0, ptr %.sroa.411.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE3$_2E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %12, align 8, !tbaa !177
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -6067,8 +6067,8 @@ define internal fastcc void @"_Z14cmUVStreamReadIZ23cmExecuteProcessCommandRKSt6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull readonly align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !176
   store ptr %6, ptr %7, align 8
-  %.sroa.0.i.i.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 0, ptr %.sroa.0.i.i.i.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr @"_ZNSt17_Function_handlerIFvSt6vectorIcSaIcEEEZ23cmExecuteProcessCommandRKS0_INSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EESaIS8_EER17cmExecutionStatusE3$_3E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %8, align 8, !tbaa !177
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -6076,8 +6076,8 @@ define internal fastcc void @"_Z14cmUVStreamReadIZ23cmExecuteProcessCommandRKSt6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = ptrtoint ptr %3 to i64
   store i64 %11, ptr %10, align 8
-  %.sroa.0.i.i.i6.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 0, ptr %.sroa.0.i.i.i6.sroa.4.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 0, ptr %.sroa.411.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr @"_ZNSt17_Function_handlerIFvvEZ23cmExecuteProcessCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE3$_4E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %12, align 8, !tbaa !177
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 80

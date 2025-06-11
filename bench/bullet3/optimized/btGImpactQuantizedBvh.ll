@@ -1146,7 +1146,6 @@ define dso_local void @_ZN21btGImpactQuantizedBvh5refitEv(ptr noundef nonnull re
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btGImpactQuantizedBvh8buildSetEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.GIM_BVH_DATA_ARRAY, align 8
-  %.sroa.0 = alloca %class.btAABB, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %3, align 8, !tbaa !55
@@ -1162,11 +1161,9 @@ define dso_local void @_ZN21btGImpactQuantizedBvh8buildSetEv(ptr noundef nonnull
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %13 unwind label %36
+          to label %13 unwind label %33
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i8 0, i64 32, i1 false)
   %14 = icmp sgt i32 %12, 0
   br i1 %14, label %15, label %.loopexit
 
@@ -1174,7 +1171,7 @@ define dso_local void @_ZN21btGImpactQuantizedBvh8buildSetEv(ptr noundef nonnull
   %16 = zext nneg i32 %12 to i64
   %17 = mul nuw nsw i64 %16, 36
   %18 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %17, i32 noundef 16)
-          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i unwind label %38
+          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i unwind label %35
 
 _ZN20btAlignedObjectArrayI12GIM_BVH_DATAE8allocateEi.exit.i.i: ; preds = %15
   %.pre.i = load i32, ptr %5, align 4, !tbaa !4
@@ -1211,107 +1208,98 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i: ; preds = %20, 
 
 30:                                               ; preds = %_ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.pre.pre)
-          to label %.lr.ph.i unwind label %38
+          to label %.lr.ph.i unwind label %35
 
 .lr.ph.i:                                         ; preds = %_ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i, %30
   store i8 1, ptr %3, align 8, !tbaa !55
   store ptr %18, ptr %4, align 8, !tbaa !13
   store i32 %12, ptr %6, align 8, !tbaa !56
   %wide.trip.count.i = zext nneg i32 %12 to i64
-  %.sroa.0.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = load ptr, ptr %4, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %32, i64 %indvars.iv.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, i64 16, i1 false), !tbaa.struct !22
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store i32 0, ptr %35, align 4, !tbaa !23
+  %32 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %18, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %32, i8 0, i64 36, i1 false)
   br i1 %exitcond.not.i, label %.lr.ph.preheader, label %31, !llvm.loop !58
 
 .loopexit:                                        ; preds = %13
   store i32 %12, ptr %5, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %31
   store i32 %12, ptr %5, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   %.pre16 = load ptr, ptr %4, align 8, !tbaa !13
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %49, %.loopexit
+._crit_edge:                                      ; preds = %46, %.loopexit
   invoke void @_ZN18btQuantizedBvhTree10build_treeER18GIM_BVH_DATA_ARRAY(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(25) %2)
-          to label %55 unwind label %36
+          to label %52 unwind label %33
 
-36:                                               ; preds = %._crit_edge, %1
-  %37 = landingpad { ptr, i32 }
+33:                                               ; preds = %._crit_edge, %1
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %60
 
-38:                                               ; preds = %30, %15
-  %39 = landingpad { ptr, i32 }
+35:                                               ; preds = %30, %15
+  %36 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  br label %63
+  br label %60
 
-40:                                               ; preds = %.lr.ph
-  %41 = landingpad { ptr, i32 }
+37:                                               ; preds = %.lr.ph
+  %38 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %60
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
-  %42 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %50, %49 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
-  %43 = load ptr, ptr %7, align 8, !tbaa !49
-  %44 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %42, i64 %indvars.iv
-  %45 = load ptr, ptr %43, align 8, !tbaa !52
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %47 = load ptr, ptr %46, align 8
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
-  invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %43, i32 noundef %48, ptr noundef nonnull align 4 dereferenceable(32) %44)
-          to label %49 unwind label %40
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
+  %39 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %47, %46 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
+  %40 = load ptr, ptr %7, align 8, !tbaa !49
+  %41 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %39, i64 %indvars.iv
+  %42 = load ptr, ptr %40, align 8, !tbaa !52
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
+  invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %40, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(32) %41)
+          to label %46 unwind label %37
 
-49:                                               ; preds = %.lr.ph
-  %50 = load ptr, ptr %4, align 8, !tbaa !13
-  %51 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %50, i64 %indvars.iv, i32 1
-  store i32 %48, ptr %51, align 4, !tbaa !23
+46:                                               ; preds = %.lr.ph
+  %47 = load ptr, ptr %4, align 8, !tbaa !13
+  %48 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %47, i64 %indvars.iv, i32 1
+  store i32 %45, ptr %48, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = load i32, ptr %5, align 4, !tbaa !4
-  %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  %49 = load i32, ptr %5, align 4, !tbaa !4
+  %50 = sext i32 %49 to i64
+  %51 = icmp slt i64 %indvars.iv.next, %50
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
-55:                                               ; preds = %._crit_edge
-  %56 = load ptr, ptr %4, align 8, !tbaa !13
-  %.not.i.i.i12 = icmp ne ptr %56, null
-  %57 = load i8, ptr %3, align 8, !range !46
-  %58 = trunc nuw i8 %57 to i1
-  %or.cond.i.i13 = select i1 %.not.i.i.i12, i1 %58, i1 false
-  br i1 %or.cond.i.i13, label %59, label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit
+52:                                               ; preds = %._crit_edge
+  %53 = load ptr, ptr %4, align 8, !tbaa !13
+  %.not.i.i.i12 = icmp ne ptr %53, null
+  %54 = load i8, ptr %3, align 8, !range !46
+  %55 = trunc nuw i8 %54 to i1
+  %or.cond.i.i13 = select i1 %.not.i.i.i12, i1 %55, i1 false
+  br i1 %or.cond.i.i13, label %56, label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit
 
-59:                                               ; preds = %55
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %56)
-          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit unwind label %60
+56:                                               ; preds = %52
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %53)
+          to label %_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit unwind label %57
 
-60:                                               ; preds = %59
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %56
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #16
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #16
   unreachable
 
-_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit: ; preds = %55, %59
+_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev.exit: ; preds = %52, %56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
   ret void
 
-63:                                               ; preds = %40, %38, %36
-  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %37, %36 ], [ %39, %38 ]
+60:                                               ; preds = %37, %35, %33
+  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ], [ %36, %35 ]
   call void @_ZN20btAlignedObjectArrayI12GIM_BVH_DATAED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %2) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #15
   resume { ptr, i32 } %.pn

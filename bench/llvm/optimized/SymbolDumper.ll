@@ -9301,7 +9301,6 @@ _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %.lr.ph, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_13InlineSiteSymE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %3) unnamed_addr #0 align 2 {
-  %.sroa.2.i45 = alloca [39 x i8], align 1
   %5 = alloca %"struct.llvm::codeview::BinaryAnnotationIterator", align 8
   %6 = alloca %"struct.llvm::HexNumber", align 8
   %7 = alloca %"struct.llvm::HexNumber", align 8
@@ -9346,12 +9345,12 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   store i8 0, ptr %37, align 8, !tbaa !333, !alias.scope !335
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %31, ptr %38, align 8, !tbaa !86
-  %.sroa.560.56..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store i64 %36, ptr %.sroa.560.56..sroa_idx, align 8, !tbaa !87
+  %.sroa.558.56..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store i64 %36, ptr %.sroa.558.56..sroa_idx, align 8, !tbaa !87
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false), !alias.scope !335
-  %.not.i.i.i.i75 = icmp eq ptr %33, %31
-  br i1 %.not.i.i.i.i75, label %_ZN4llvm9ListScopeD2Ev.exit, label %.lr.ph
+  %.not.i.i.i.i73 = icmp eq ptr %33, %31
+  br i1 %.not.i.i.i.i73, label %_ZN4llvm9ListScopeD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -9360,7 +9359,6 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.7..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %.sroa.2.i45, i64 7
   br label %48
 
 _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit, %4
@@ -9638,13 +9636,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %193, %195
   br label %198
 
 198:                                              ; preds = %79, %91, %_ZN4llvm11raw_ostreamlsEPKc.exit44, %_ZN4llvm11raw_ostreamlsEPKc.exit35, %69, %63, %56, %51, %48
-  call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %.sroa.2.i45)
   %199 = call noundef zeroext i1 @_ZN4llvm8codeview24BinaryAnnotationIterator22ParseCurrentAnnotationEv(ptr noundef nonnull align 8 dereferenceable(88) %5)
   br i1 %199, label %201, label %200
 
 200:                                              ; preds = %198
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.2.i45, i8 0, i64 39, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 1 dereferenceable(16) %.sroa.2.7..sroa_idx.i46, i64 16, i1 false), !tbaa.struct !344
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   br label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
 
 201:                                              ; preds = %198
@@ -9659,8 +9655,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %193, %195
   br label %_ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit
 
 _ZN4llvm8codeview24BinaryAnnotationIteratorppEv.exit: ; preds = %200, %201, %204
-  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %.sroa.2.i45)
-  %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.560.56..sroa_idx, align 8, !tbaa !87
+  %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.558.56..sroa_idx, align 8, !tbaa !87
   %.not.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, 0
   br i1 %.not.i.i.i.i, label %_ZN4llvm9ListScopeD2Ev.exit, label %48
 }
