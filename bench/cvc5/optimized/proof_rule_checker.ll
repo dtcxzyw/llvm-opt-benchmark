@@ -87,96 +87,96 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal16ProofRuleChecker9getUInt32E
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %5)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !11
-  %.inv.i = icmp sgt i32 %13, -1
-  br i1 %.inv.i, label %14, label %.critedge.thread
+  %14 = icmp sgt i32 %13, -1
+  br i1 %14, label %15, label %.critedge.thread
 
-14:                                               ; preds = %10
+15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
-  %15 = load ptr, ptr %0, align 8, !tbaa !6
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %15)
-  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  %17 = invoke noundef zeroext i1 @_ZNK4cvc58internal7Integer15fitsUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %18 unwind label %30
+  %16 = load ptr, ptr %0, align 8, !tbaa !6
+  %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %16)
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  %18 = invoke noundef zeroext i1 @_ZNK4cvc58internal7Integer15fitsUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %19 unwind label %31
 
-18:                                               ; preds = %14
+19:                                               ; preds = %15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %.critedge unwind label %19
+          to label %.critedge unwind label %20
 
-19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %19
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #19
+  %22 = extractvalue { ptr, i32 } %21, 0
+  call void @__clang_call_terminate(ptr %22) #19
   unreachable
 
-.critedge:                                        ; preds = %18
+.critedge:                                        ; preds = %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
-  br i1 %17, label %22, label %.critedge.thread
+  br i1 %18, label %23, label %.critedge.thread
 
-22:                                               ; preds = %.critedge
+23:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
-  %23 = load ptr, ptr %0, align 8, !tbaa !6
-  %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %23)
-  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %25 = invoke noundef i32 @_ZNK4cvc58internal7Integer13toUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %26 unwind label %35
+  %24 = load ptr, ptr %0, align 8, !tbaa !6
+  %25 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %24)
+  call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %25)
+  %26 = invoke noundef i32 @_ZNK4cvc58internal7Integer13toUnsignedIntEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %27 unwind label %36
 
-26:                                               ; preds = %22
-  store i32 %25, ptr %1, align 4, !tbaa !16
+27:                                               ; preds = %23
+  store i32 %26, ptr %1, align 4, !tbaa !16
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit12 unwind label %27
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit12 unwind label %28
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #19
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %26
+_ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
   br label %.critedge.thread
 
-30:                                               ; preds = %14
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %15
+  %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %32
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %33
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #19
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %30
+_ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
-  br label %41
+  br label %42
 
-35:                                               ; preds = %22
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %23
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit14 unwind label %37
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit14 unwind label %38
 
-37:                                               ; preds = %35
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %36
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #19
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit14:             ; preds = %35
+_ZN4cvc58internal7IntegerD2Ev.exit14:             ; preds = %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #18
-  br label %41
+  br label %42
 
 .critedge.thread:                                 ; preds = %10, %2, %.critedge, %_ZN4cvc58internal7IntegerD2Ev.exit12
-  %40 = phi i1 [ false, %.critedge ], [ true, %_ZN4cvc58internal7IntegerD2Ev.exit12 ], [ false, %2 ], [ false, %10 ]
-  ret i1 %40
+  %41 = phi i1 [ false, %.critedge ], [ true, %_ZN4cvc58internal7IntegerD2Ev.exit12 ], [ false, %2 ], [ false, %10 ]
+  ret i1 %41
 
-41:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13, %_ZN4cvc58internal7IntegerD2Ev.exit14
-  %.pn = phi { ptr, i32 } [ %36, %_ZN4cvc58internal7IntegerD2Ev.exit14 ], [ %31, %_ZN4cvc58internal7IntegerD2Ev.exit13 ]
+42:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13, %_ZN4cvc58internal7IntegerD2Ev.exit14
+  %.pn = phi { ptr, i32 } [ %37, %_ZN4cvc58internal7IntegerD2Ev.exit14 ], [ %32, %_ZN4cvc58internal7IntegerD2Ev.exit13 ]
   resume { ptr, i32 } %.pn
 }
 

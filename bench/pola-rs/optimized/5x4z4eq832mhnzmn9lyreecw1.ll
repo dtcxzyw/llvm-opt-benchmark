@@ -2337,10 +2337,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.06.0.i = phi i64 [ %15, %10 ], [ 0, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.06.0.i
   %.val21.i = load i8, ptr %12, align 1, !noalias !193, !noundef !6
-  %.not.i.i.i.i = icmp ne i8 %.val21.i, 0
-  %spec.select.i.i.i.i = zext i1 %.not.i.i.i.i to i8
-  %.inv.i.i.i.i = icmp sgt i8 %.val21.i, -1
-  %.sroa.0.0.i.i.i.i = select i1 %.inv.i.i.i.i, i8 %spec.select.i.i.i.i, i8 -1
+  %.sroa.0.0.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i8(i8 %.val21.i, i8 0)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.copyload, i64 %11
   store i8 %.sroa.0.0.i.i.i.i, ptr %13, align 1, !noalias !196
   %14 = add i64 %11, 1
@@ -2536,10 +2533,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.06.0.i = phi i64 [ %16, %11 ], [ 0, %6 ]
   %13 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.06.0.i
   %.val21.i = load i64, ptr %13, align 8, !noalias !245, !noundef !6
-  %.not.i.i.i.i = icmp ne i64 %.val21.i, 0
-  %spec.select.i.i.i.i = zext i1 %.not.i.i.i.i to i64
-  %.inv.i.i.i.i = icmp sgt i64 %.val21.i, -1
-  %.sroa.0.0.i.i.i.i = select i1 %.inv.i.i.i.i, i64 %spec.select.i.i.i.i, i64 -1
+  %.sroa.0.0.i.i.i.i = tail call noundef range(i64 -1, 2) i64 @llvm.scmp.i64.i64(i64 %.val21.i, i64 0)
   %14 = getelementptr inbounds nuw i64, ptr %.sroa.8.0.copyload, i64 %12
   store i64 %.sroa.0.0.i.i.i.i, ptr %14, align 8, !noalias !248
   %15 = add i64 %12, 1
@@ -4262,10 +4256,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.06.0.i = phi i64 [ %16, %11 ], [ 0, %6 ]
   %13 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.06.0.i
   %.val21.i = load i32, ptr %13, align 4, !noalias !557, !noundef !6
-  %.not.i.i.i.i = icmp ne i32 %.val21.i, 0
-  %spec.select.i.i.i.i = zext i1 %.not.i.i.i.i to i32
-  %.inv.i.i.i.i = icmp sgt i32 %.val21.i, -1
-  %.sroa.0.0.i.i.i.i = select i1 %.inv.i.i.i.i, i32 %spec.select.i.i.i.i, i32 -1
+  %.sroa.0.0.i.i.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %.val21.i, i32 0)
   %14 = getelementptr inbounds nuw i32, ptr %.sroa.8.0.copyload, i64 %12
   store i32 %.sroa.0.0.i.i.i.i, ptr %14, align 4, !noalias !560
   %15 = add i64 %12, 1
@@ -6386,10 +6377,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.06.0.i = phi i64 [ %16, %11 ], [ 0, %6 ]
   %13 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.06.0.i
   %.val21.i = load i16, ptr %13, align 2, !noalias !998, !noundef !6
-  %.not.i.i.i.i = icmp ne i16 %.val21.i, 0
-  %spec.select.i.i.i.i = zext i1 %.not.i.i.i.i to i16
-  %.inv.i.i.i.i = icmp sgt i16 %.val21.i, -1
-  %.sroa.0.0.i.i.i.i = select i1 %.inv.i.i.i.i, i16 %spec.select.i.i.i.i, i16 -1
+  %.sroa.0.0.i.i.i.i = tail call noundef range(i16 -1, 2) i16 @llvm.scmp.i16.i16(i16 %.val21.i, i16 0)
   %14 = getelementptr inbounds nuw i16, ptr %.sroa.8.0.copyload, i64 %12
   store i16 %.sroa.0.0.i.i.i.i, ptr %14, align 2, !noalias !1001
   %15 = add i64 %12, 1
@@ -7734,10 +7722,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %.sroa.06.0.i = phi i64 [ %16, %11 ], [ 0, %6 ]
   %13 = getelementptr inbounds nuw i128, ptr %0, i64 %.sroa.06.0.i
   %.val21.i = load i128, ptr %13, align 16, !noalias !1320, !noundef !6
-  %.not.i.i.i.i = icmp ne i128 %.val21.i, 0
-  %spec.select.i.i.i.i = zext i1 %.not.i.i.i.i to i128
-  %.inv.i.i.i.i = icmp sgt i128 %.val21.i, -1
-  %.sroa.0.0.i.i.i.i = select i1 %.inv.i.i.i.i, i128 %spec.select.i.i.i.i, i128 -1
+  %.sroa.0.0.i.i.i.i = tail call noundef range(i128 -1, 2) i128 @llvm.scmp.i128.i128(i128 %.val21.i, i128 0)
   %14 = getelementptr inbounds nuw i128, ptr %.sroa.8.0.copyload, i64 %12
   store i128 %.sroa.0.0.i.i.i.i, ptr %14, align 16, !noalias !1323
   %15 = add i64 %12, 1
@@ -103226,7 +103211,22 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #36
 declare void @llvm.experimental.noalias.scope.decl(metadata) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i8(i8, i8) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i64 -1, 2) i64 @llvm.scmp.i64.i64(i64, i64) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i128 @llvm.abs.i128(i128, i1 immarg) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i16 -1, 2) i16 @llvm.scmp.i16.i16(i16, i16) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i128 -1, 2) i128 @llvm.scmp.i128.i128(i128, i128) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #36

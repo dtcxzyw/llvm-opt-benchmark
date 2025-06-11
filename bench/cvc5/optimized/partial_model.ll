@@ -1491,17 +1491,17 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithV
   %6 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %5, i64 %4, i32 2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !127
-  %.not.i.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i.i, label %9, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %10, i64 noundef 1) #32
-  %12 = icmp eq i32 %11, 0
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %11, i64 noundef 1) #32
+  %13 = icmp eq i32 %12, 0
   br label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
 
-_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit: ; preds = %2, %9
-  %.0.i = phi i1 [ %12, %9 ], [ false, %2 ]
+_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit: ; preds = %2, %10
+  %.0.i = phi i1 [ %13, %10 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -5236,18 +5236,18 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVa
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !127
-  %.not3 = icmp eq i32 %10, 0
-  br i1 %.not3, label %11, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %13 = load i32, ptr %12, align 4, !tbaa !127
-  %.not2 = icmp eq i32 %13, 0
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %14 = load i32, ptr %13, align 4, !tbaa !127
+  %15 = icmp eq i32 %14, 0
   br label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %11, %8, %2
-  %14 = phi i1 [ false, %2 ], [ %.not2, %11 ], [ false, %8 ]
-  ret i1 %14
+_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %12, %8, %2
+  %16 = phi i1 [ false, %2 ], [ %15, %12 ], [ false, %8 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -5263,18 +5263,18 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear14ArithVa
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !127
-  %.not3 = icmp eq i32 %10, 0
-  br i1 %.not3, label %11, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %13 = load i32, ptr %12, align 4, !tbaa !127
-  %.not2 = icmp eq i32 %13, 0
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %14 = load i32, ptr %13, align 4, !tbaa !127
+  %15 = icmp eq i32 %14, 0
   br label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %11, %8, %2
-  %14 = phi i1 [ false, %2 ], [ %.not2, %11 ], [ false, %8 ]
-  ret i1 %14
+_ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %12, %8, %2
+  %16 = phi i1 [ false, %2 ], [ %15, %12 ], [ false, %8 ]
+  ret i1 %16
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5569,98 +5569,98 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZStlsISt11char_tra
   %80 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %79, i64 %6, i32 8
   %81 = load i32, ptr %80, align 4, !tbaa !126
   %82 = icmp sgt i32 %81, 1
-  br i1 %82, label %83, label %110
+  br i1 %82, label %83, label %111
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %79, i64 %6, i32 2
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 36
   %86 = load i32, ptr %85, align 4, !tbaa !127
-  %.not.i.i.i.i = icmp eq i32 %86, 0
-  br i1 %.not.i.i.i.i, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
 
 _ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit: ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %88 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %87, i64 noundef 1) #32
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %110, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %89 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %88, i64 noundef 1) #32
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %111, label %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
 
 _ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread: ; preds = %83, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit
-  %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.13, i64 noundef 16)
-  %91 = load ptr, ptr %2, align 8, !tbaa !63
-  %92 = getelementptr i8, ptr %91, i64 -24
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %2, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 240
-  %96 = load ptr, ptr %95, align 8, !tbaa !173
-  %.not.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i, label %97, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.13, i64 noundef 16)
+  %92 = load ptr, ptr %2, align 8, !tbaa !63
+  %93 = getelementptr i8, ptr %92, i64 -24
+  %94 = load i64, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %2, i64 %94
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 240
+  %97 = load ptr, ptr %96, align 8, !tbaa !173
+  %.not.i.i.i = icmp eq ptr %97, null
+  br i1 %.not.i.i.i, label %98, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-97:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
+98:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
   tail call void @_ZSt16__throw_bad_castv() #34
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit.thread
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 56
-  %99 = load i8, ptr %98, align 8, !tbaa !188
-  %.not.i1.i.i = icmp eq i8 %99, 0
-  br i1 %.not.i1.i.i, label %103, label %100
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 56
+  %100 = load i8, ptr %99, align 8, !tbaa !188
+  %.not.i1.i.i = icmp eq i8 %100, 0
+  br i1 %.not.i1.i.i, label %104, label %101
 
-100:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 67
-  %102 = load i8, ptr %101, align 1, !tbaa !157
+101:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 67
+  %103 = load i8, ptr %102, align 1, !tbaa !157
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-103:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %96)
-  %104 = load ptr, ptr %96, align 8, !tbaa !63
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call noundef signext i8 %106(ptr noundef nonnull align 8 dereferenceable(570) %96, i8 noundef signext 10)
+104:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %97)
+  %105 = load ptr, ptr %97, align 8, !tbaa !63
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call noundef signext i8 %107(ptr noundef nonnull align 8 dereferenceable(570) %97, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %100, %103
-  %.0.i.i.i = phi i8 [ %102, %100 ], [ %107, %103 ]
-  %108 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i)
-  %109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %108)
-  br label %110
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %101, %104
+  %.0.i.i.i = phi i8 [ %103, %101 ], [ %108, %104 ]
+  %109 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i)
+  %110 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %109)
+  br label %111
 
-110:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, %78
-  %111 = load ptr, ptr %2, align 8, !tbaa !63
-  %112 = getelementptr i8, ptr %111, i64 -24
-  %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %2, i64 %113
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 240
-  %116 = load ptr, ptr %115, align 8, !tbaa !173
-  %.not.i.i.i23 = icmp eq ptr %116, null
-  br i1 %.not.i.i.i23, label %117, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
+111:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZNK4cvc58internal6theory5arith6linear14ArithVariables18integralAssignmentEj.exit, %78
+  %112 = load ptr, ptr %2, align 8, !tbaa !63
+  %113 = getelementptr i8, ptr %112, i64 -24
+  %114 = load i64, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %2, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 240
+  %117 = load ptr, ptr %116, align 8, !tbaa !173
+  %.not.i.i.i23 = icmp eq ptr %117, null
+  br i1 %.not.i.i.i23, label %118, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
 
-117:                                              ; preds = %110
+118:                                              ; preds = %111
   tail call void @_ZSt16__throw_bad_castv() #34
   unreachable
 
-_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 56
-  %119 = load i8, ptr %118, align 8, !tbaa !188
-  %.not.i1.i.i25 = icmp eq i8 %119, 0
-  br i1 %.not.i1.i.i25, label %123, label %120
+_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 56
+  %120 = load i8, ptr %119, align 8, !tbaa !188
+  %.not.i1.i.i25 = icmp eq i8 %120, 0
+  br i1 %.not.i1.i.i25, label %124, label %121
 
-120:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 67
-  %122 = load i8, ptr %121, align 1, !tbaa !157
+121:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 67
+  %123 = load i8, ptr %122, align 1, !tbaa !157
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
 
-123:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
-  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %116)
-  %124 = load ptr, ptr %116, align 8, !tbaa !63
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef signext i8 %126(ptr noundef nonnull align 8 dereferenceable(570) %116, i8 noundef signext 10)
+124:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
+  tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %117)
+  %125 = load ptr, ptr %117, align 8, !tbaa !63
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
+  %127 = load ptr, ptr %126, align 8
+  %128 = tail call noundef signext i8 %127(ptr noundef nonnull align 8 dereferenceable(570) %117, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27: ; preds = %120, %123
-  %.0.i.i.i26 = phi i8 [ %122, %120 ], [ %127, %123 ]
-  %128 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i26)
-  %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %128)
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27: ; preds = %121, %124
+  %.0.i.i.i26 = phi i8 [ %123, %121 ], [ %128, %124 ]
+  %129 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %2, i8 noundef signext %.0.i.i.i26)
+  %130 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %129)
   ret void
 }
 

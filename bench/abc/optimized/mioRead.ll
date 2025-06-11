@@ -41,14 +41,14 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #17
+  %7 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #18
   %8 = tail call i32 @Mio_LibraryReadExclude(ptr noundef nonnull %2, ptr noundef %7)
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @stdout, align 8, !tbaa !3
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef %8) #17
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef %8) #18
   br label %13
 
 13:                                               ; preds = %10, %5
@@ -57,24 +57,24 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %28, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #18
+  %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %16 = add i64 %15, 1
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #19
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %1) #17
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #20
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %1) #18
   %19 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %.0, i32 noundef %3, i32 poison)
   %.not47 = icmp eq ptr %19, null
   br i1 %.not47, label %31, label %20
 
 20:                                               ; preds = %14
-  %21 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #17
+  %21 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #18
   %.not.i52 = icmp eq ptr %21, null
   br i1 %.not.i52, label %.thread57, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #18
+  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #19
   %24 = add i64 %23, 1
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #19
-  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %21) #17
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #20
+  %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %21) #18
   br label %.thread57
 
 .thread57:                                        ; preds = %22, %20
@@ -93,15 +93,15 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not48, label %.thread73, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #17
+  %34 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.1) #18
   %.not.i54 = icmp eq ptr %34, null
   br i1 %.not.i54, label %42, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #18
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #19
   %37 = add i64 %36, 1
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #19
-  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %34) #17
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #20
+  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull readonly dereferenceable(1) %34) #18
   br label %42
 
 40:                                               ; preds = %28
@@ -121,7 +121,7 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .thread73:                                        ; preds = %31, %.thread57, %42
   %.176 = phi ptr [ %32, %42 ], [ %19, %.thread57 ], [ null, %31 ]
-  tail call void @free(ptr noundef nonnull %17) #17
+  tail call void @free(ptr noundef nonnull %17) #18
   br label %.thread67
 
 .thread67:                                        ; preds = %28, %40, %.thread77, %.thread73
@@ -132,7 +132,7 @@ define noundef ptr @Mio_LibraryRead(ptr noundef %0, ptr noundef %1, ptr noundef 
 .sink.split:                                      ; preds = %.thread67, %6
   %.0.sink = phi ptr [ %7, %6 ], [ %.0, %.thread67 ]
   %.037.ph = phi ptr [ null, %6 ], [ %.170, %.thread67 ]
-  tail call void @st__free_table(ptr noundef %.0.sink) #17
+  tail call void @st__free_table(ptr noundef %.0.sink) #18
   br label %44
 
 44:                                               ; preds = %.sink.split, %.thread67
@@ -153,7 +153,7 @@ declare i32 @st__strhash(ptr noundef, i32 noundef) #2
 ; Function Attrs: nounwind uwtable
 define i32 @Mio_LibraryReadExclude(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %4
 
@@ -163,24 +163,24 @@ define i32 @Mio_LibraryReadExclude(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %6, label %9, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %7 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #17
+  %7 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #18
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @stdout, align 8, !tbaa !3
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #17
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #18
   br label %21
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.111 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
-  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #18
+  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #19
   %13 = add i64 %12, 1
-  %14 = call noalias ptr @malloc(i64 noundef %13) #19
-  %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %3) #17
-  %16 = call i32 @st__insert(ptr noundef %1, ptr noundef nonnull %14, ptr noundef null) #17
+  %14 = call noalias ptr @malloc(i64 noundef %13) #20
+  %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %3) #18
+  %16 = call i32 @st__insert(ptr noundef %1, ptr noundef nonnull %14, ptr noundef null) #18
   %17 = add nuw nsw i32 %.111, 1
-  %18 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #17
+  %18 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #18
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
@@ -191,7 +191,7 @@ define i32 @Mio_LibraryReadExclude(ptr noundef %0, ptr noundef %1) local_unnamed
 
 21:                                               ; preds = %2, %._crit_edge, %9
   %.0 = phi i32 [ -1, %9 ], [ %.1.lcssa, %._crit_edge ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #18
   ret i32 %.0
 }
 
@@ -202,14 +202,14 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @Mio_LibraryReadOne(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = tail call ptr @Io_FileOpen(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #17
+  %6 = tail call ptr @Io_FileOpen(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #18
   %7 = tail call i32 @fseek(ptr noundef %6, i64 noundef 0, i32 noundef 2)
   %8 = tail call i64 @ftell(ptr noundef %6)
   tail call void @rewind(ptr noundef %6)
   %9 = shl i64 %8, 32
   %sext.i = add i64 %9, 42949672960
   %10 = ashr exact i64 %sext.i, 32
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #19
+  %11 = tail call noalias ptr @malloc(i64 noundef %10) #20
   %12 = ashr exact i64 %9, 32
   %13 = tail call i64 @fread(ptr noundef %11, i64 noundef %12, i64 noundef 1, ptr noundef %6)
   %14 = getelementptr inbounds i8, ptr %11, i64 %12
@@ -219,7 +219,7 @@ define internal fastcc noundef ptr @Mio_LibraryReadOne(ptr noundef %0, i32 nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %endptr.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.5, i64 7, i1 false)
   %15 = tail call i32 @fclose(ptr noundef %6)
   %16 = tail call ptr @Mio_LibraryReadBuffer(ptr noundef nonnull %11, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 poison)
-  tail call void @free(ptr noundef %11) #17
+  tail call void @free(ptr noundef %11) #18
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %24, label %17
 
@@ -228,10 +228,10 @@ define internal fastcc noundef ptr @Mio_LibraryReadOne(ptr noundef %0, i32 nound
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
+  %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %20 = add i64 %19, 1
-  %21 = tail call noalias ptr @malloc(i64 noundef %20) #19
-  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %0) #17
+  %21 = tail call noalias ptr @malloc(i64 noundef %20) #20
+  %22 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %0) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %17, %18
@@ -245,18 +245,18 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %18
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #0 {
-  %6 = tail call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 1, i64 noundef 256) #20
-  %7 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #17
+  %6 = tail call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 1, i64 noundef 256) #21
+  %7 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #18
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %7, ptr %8, align 8, !tbaa !26
-  %9 = tail call ptr (...) @Mem_FlexStart() #17
+  %9 = tail call ptr (...) @Mem_FlexStart() #18
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr %9, ptr %10, align 8, !tbaa !27
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4, !tbaa !28
   store i32 100, ptr %11, align 8, !tbaa !30
-  %13 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #19
+  %13 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #20
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -322,7 +322,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   br label %16, !llvm.loop !34
 
 Io_ReadFileRemoveComments.exit:                   ; preds = %16
-  %29 = tail call ptr @strtok(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #17
+  %29 = tail call ptr @strtok(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #18
   %.not135153163.i = icmp eq ptr %29, null
   br i1 %.not135153163.i, label %.critedge.thread.i, label %.lr.ph137.lr.ph.lr.ph.i
 
@@ -348,35 +348,35 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %16
 
 31:                                               ; preds = %.backedge100.i, %.lr.ph137.i
   %.085136.i = phi ptr [ %.085.ph154.i, %.lr.ph137.i ], [ %.025.i92.i, %.backedge100.i ]
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.085136.i, ptr noundef nonnull dereferenceable(5) @.str.11) #18
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.085136.i, ptr noundef nonnull dereferenceable(5) @.str.11) #19
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.critedge2.i, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.085136.i, ptr noundef nonnull dereferenceable(6) @.str.12) #18
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.085136.i, ptr noundef nonnull dereferenceable(6) @.str.12) #19
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.critedge2.i, label %.critedge.i
 
 .critedge2.i:                                     ; preds = %34, %31
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.085136.i, ptr noundef nonnull dereferenceable(6) @.str.12) #18
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.085136.i, ptr noundef nonnull dereferenceable(6) @.str.12) #19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.preheader.i, label %.thread209.i
 
 .preheader.i:                                     ; preds = %.critedge2.i, %.backedge.i
   %.2131.i = phi ptr [ %45, %.backedge.i ], [ %.085136.i, %.critedge2.i ]
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2131.i, ptr noundef nonnull dereferenceable(5) @.str.11) #18
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2131.i, ptr noundef nonnull dereferenceable(5) @.str.11) #19
   %.not65.i = icmp eq i32 %39, 0
   br i1 %.not65.i, label %.thread209.i, label %40
 
 40:                                               ; preds = %.preheader.i
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2131.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2131.i, ptr noundef nonnull dereferenceable(5) @.str.13) #19
   %.not66.i = icmp eq i32 %41, 0
   br i1 %.not66.i, label %.critedge.i, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2131.i, ptr noundef nonnull dereferenceable(6) @.str.12) #18
+  %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2131.i, ptr noundef nonnull dereferenceable(6) @.str.12) #19
   %44 = icmp eq i32 %43, 0
-  %45 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
+  %45 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
   br i1 %44, label %46, label %.backedge.i
 
 46:                                               ; preds = %42
@@ -388,34 +388,34 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %16
   br i1 %.not64.i, label %.critedge.i, label %.preheader.i, !llvm.loop !35
 
 .thread209.i:                                     ; preds = %.preheader.i, %.critedge2.i
-  %48 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #20
+  %48 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #21
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store i32 -1, ptr %49, align 8, !tbaa !36
-  %50 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
+  %50 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
   %.not.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i, label %Abc_UtilStrsav.exit.i.i, label %51
 
 51:                                               ; preds = %.thread209.i
-  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #18
+  %52 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %50) #19
   %53 = add i64 %52, 1
-  %54 = tail call noalias ptr @malloc(i64 noundef %53) #19
-  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull readonly dereferenceable(1) %50) #17
+  %54 = tail call noalias ptr @malloc(i64 noundef %53) #20
+  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull readonly dereferenceable(1) %50) #18
   br label %Abc_UtilStrsav.exit.i.i
 
 Abc_UtilStrsav.exit.i.i:                          ; preds = %51, %.thread209.i
   %56 = phi ptr [ %54, %51 ], [ null, %.thread209.i ]
   store ptr %56, ptr %48, align 8, !tbaa !41
-  %57 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %58 = tail call double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #17
+  %57 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %58 = tail call double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #18
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store double %58, ptr %59, align 8, !tbaa !42
-  %60 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.18) #17
+  %60 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.18) #18
   %61 = load i8, ptr %60, align 1, !tbaa !25
   %.not20.i.i.i = icmp eq i8 %61, 0
   br i1 %.not20.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %Abc_UtilStrsav.exit.i.i
-  %62 = tail call ptr @__ctype_b_loc() #21
+  %62 = tail call ptr @__ctype_b_loc() #22
   %63 = load ptr, ptr %62, align 8, !tbaa !43
   br label %64
 
@@ -437,11 +437,11 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %51, %.thread209.i
 
 ._crit_edge.i.i.i:                                ; preds = %70, %64, %Abc_UtilStrsav.exit.i.i
   %.015.lcssa.i.i.i = phi ptr [ %60, %Abc_UtilStrsav.exit.i.i ], [ %71, %70 ], [ %.01521.i.i.i, %64 ]
-  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015.lcssa.i.i.i) #18
+  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015.lcssa.i.i.i) #19
   %74 = add i64 %73, 1
-  %75 = tail call noalias ptr @malloc(i64 noundef %74) #19
-  %76 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(1) %.015.lcssa.i.i.i) #17
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #18
+  %75 = tail call noalias ptr @malloc(i64 noundef %74) #20
+  %76 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %75, ptr noundef nonnull dereferenceable(1) %.015.lcssa.i.i.i) #18
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #19
   %.not29.i.i.i = icmp eq i64 %77, 0
   br i1 %.not29.i.i.i, label %chomp.exit.i.i, label %.lr.ph26.preheader.i.i.i
 
@@ -456,7 +456,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %51, %.thread209.i
   br i1 %80, label %88, label %81
 
 81:                                               ; preds = %.lr.ph26.i.i.i
-  %82 = tail call ptr @__ctype_b_loc() #21
+  %82 = tail call ptr @__ctype_b_loc() #22
   %83 = load ptr, ptr %82, align 8, !tbaa !43
   %84 = sext i8 %79 to i64
   %85 = getelementptr inbounds i16, ptr %83, i64 %84
@@ -474,22 +474,22 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %51, %.thread209.i
 chomp.exit.i.i:                                   ; preds = %88, %81, %._crit_edge.i.i.i
   %91 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %75, ptr %91, align 8, !tbaa !49
-  %92 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.19) #17
+  %92 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.19) #18
   %.not.i22.i.i = icmp eq ptr %92, null
   br i1 %.not.i22.i.i, label %Abc_UtilStrsav.exit23.i.i, label %93
 
 93:                                               ; preds = %chomp.exit.i.i
-  %94 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %92) #18
+  %94 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %92) #19
   %95 = add i64 %94, 1
-  %96 = tail call noalias ptr @malloc(i64 noundef %95) #19
-  %97 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(1) %92) #17
+  %96 = tail call noalias ptr @malloc(i64 noundef %95) #20
+  %97 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull readonly dereferenceable(1) %92) #18
   br label %Abc_UtilStrsav.exit23.i.i
 
 Abc_UtilStrsav.exit23.i.i:                        ; preds = %93, %chomp.exit.i.i
   %98 = phi ptr [ %96, %93 ], [ null, %chomp.exit.i.i ]
   %99 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %98, ptr %99, align 8, !tbaa !50
-  %100 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
+  %100 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
   %.not31.i.i = icmp eq ptr %100, null
   br i1 %.not31.i.i, label %Mio_LibraryReadGate.exit.thread89.i, label %.lr.ph.i.i
 
@@ -500,38 +500,38 @@ Abc_UtilStrsav.exit23.i.i:                        ; preds = %93, %chomp.exit.i.i
 102:                                              ; preds = %147, %.lr.ph.i.i
   %.033.i.i = phi ptr [ %101, %.lr.ph.i.i ], [ %151, %147 ]
   %storemerge32.i.i = phi ptr [ %100, %.lr.ph.i.i ], [ %152, %147 ]
-  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge32.i.i, ptr noundef nonnull dereferenceable(4) @.str.20) #18
+  %103 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge32.i.i, ptr noundef nonnull dereferenceable(4) @.str.20) #19
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %Mio_LibraryReadGate.exit.thread89.i
 
 105:                                              ; preds = %102
-  %106 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #20
-  %107 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
+  %106 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #21
+  %107 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
   %.not.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i, label %Abc_UtilStrsav.exit.i.i.i, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %107) #18
+  %109 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %107) #19
   %110 = add i64 %109, 1
-  %111 = tail call noalias ptr @malloc(i64 noundef %110) #19
-  %112 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(1) %107) #17
+  %111 = tail call noalias ptr @malloc(i64 noundef %110) #20
+  %112 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull readonly dereferenceable(1) %107) #18
   br label %Abc_UtilStrsav.exit.i.i.i
 
 Abc_UtilStrsav.exit.i.i.i:                        ; preds = %108, %105
   %113 = phi ptr [ %111, %108 ], [ null, %105 ]
   store ptr %113, ptr %106, align 8, !tbaa !51
-  %114 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(8) @.str.21) #18
+  %114 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(8) @.str.21) #19
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %124, label %117
 
 117:                                              ; preds = %Abc_UtilStrsav.exit.i.i.i
-  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(4) @.str.22) #18
+  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(4) @.str.22) #19
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %.sink.split.i.i.i, label %120
 
 120:                                              ; preds = %117
-  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(7) @.str.23) #18
+  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(7) @.str.23) #19
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.sink.split.i.i.i, label %Mio_LibraryReadGate.exit.thread.i
 
@@ -542,38 +542,38 @@ Abc_UtilStrsav.exit.i.i.i:                        ; preds = %108, %105
   br label %124
 
 124:                                              ; preds = %.sink.split.i.i.i, %Abc_UtilStrsav.exit.i.i.i
-  %125 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %126 = tail call double @strtod(ptr noundef nonnull captures(none) %125, ptr noundef null) #17
+  %125 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %126 = tail call double @strtod(ptr noundef nonnull captures(none) %125, ptr noundef null) #18
   %127 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store double %126, ptr %127, align 8, !tbaa !54
-  %128 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %129 = tail call double @strtod(ptr noundef nonnull captures(none) %128, ptr noundef null) #17
+  %128 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %129 = tail call double @strtod(ptr noundef nonnull captures(none) %128, ptr noundef null) #18
   %130 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store double %129, ptr %130, align 8, !tbaa !55
-  %131 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %132 = tail call double @strtod(ptr noundef nonnull captures(none) %131, ptr noundef null) #17
+  %131 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %132 = tail call double @strtod(ptr noundef nonnull captures(none) %131, ptr noundef null) #18
   %133 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store double %132, ptr %133, align 8, !tbaa !56
-  %134 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %135 = tail call double @strtod(ptr noundef nonnull captures(none) %134, ptr noundef null) #17
+  %134 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %135 = tail call double @strtod(ptr noundef nonnull captures(none) %134, ptr noundef null) #18
   %136 = getelementptr inbounds nuw i8, ptr %106, i64 40
   store double %135, ptr %136, align 8, !tbaa !57
-  %137 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %138 = tail call double @strtod(ptr noundef nonnull captures(none) %137, ptr noundef null) #17
+  %137 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %138 = tail call double @strtod(ptr noundef nonnull captures(none) %137, ptr noundef null) #18
   %139 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store double %138, ptr %139, align 8, !tbaa !58
-  %140 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
-  %141 = tail call double @strtod(ptr noundef nonnull captures(none) %140, ptr noundef null) #17
+  %140 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
+  %141 = tail call double @strtod(ptr noundef nonnull captures(none) %140, ptr noundef null) #18
   %142 = getelementptr inbounds nuw i8, ptr %106, i64 56
   store double %141, ptr %142, align 8, !tbaa !59
   br i1 %.not.i24.i.i, label %147, label %143
 
 143:                                              ; preds = %124
   store double %141, ptr %139, align 8, !tbaa !58
-  %144 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.25) #17
-  %145 = tail call double @strtod(ptr noundef nonnull captures(none) %144, ptr noundef null) #17
+  %144 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.25) #18
+  %145 = tail call double @strtod(ptr noundef nonnull captures(none) %144, ptr noundef null) #18
   store double %145, ptr %142, align 8, !tbaa !59
-  %146 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
+  %146 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
   br label %147
 
 147:                                              ; preds = %143, %124
@@ -584,14 +584,14 @@ Abc_UtilStrsav.exit.i.i.i:                        ; preds = %108, %105
   store double %..i.i, ptr %150, align 8, !tbaa !60
   store ptr %106, ptr %.033.i.i, align 8, !tbaa !61
   %151 = getelementptr inbounds nuw i8, ptr %106, i64 72
-  %152 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
+  %152 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #18
   %.not.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i, label %Mio_LibraryReadGate.exit.thread89.i, label %102, !llvm.loop !62
 
 Mio_LibraryReadGate.exit.thread.i:                ; preds = %120
   %puts.i.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  tail call void @Mio_PinDelete(ptr noundef nonnull %106) #17
-  tail call void @Mio_GateDelete(ptr noundef nonnull %48) #17
+  tail call void @Mio_PinDelete(ptr noundef nonnull %106) #18
+  tail call void @Mio_GateDelete(ptr noundef nonnull %48) #18
   br label %191
 
 Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_UtilStrsav.exit23.i.i
@@ -599,7 +599,7 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
   br i1 %.not71.i, label %.thread.i17, label %153
 
 153:                                              ; preds = %Mio_LibraryReadGate.exit.thread89.i
-  %154 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %48) #17
+  %154 = tail call ptr @Mio_GateReadPins(ptr noundef nonnull %48) #18
   %.not72132.i = icmp eq ptr %154, null
   br i1 %.not72132.i, label %._crit_edge.i, label %.lr.ph.i16
 
@@ -607,7 +607,7 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
   %.048134.i = phi i32 [ %155, %.lr.ph.i16 ], [ 0, %153 ]
   %.049133.i = phi ptr [ %156, %.lr.ph.i16 ], [ %154, %153 ]
   %155 = add nuw nsw i32 %.048134.i, 1
-  %156 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.049133.i) #17
+  %156 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.049133.i) #18
   %.not72.i = icmp eq ptr %156, null
   br i1 %.not72.i, label %._crit_edge.i, label %.lr.ph.i16, !llvm.loop !63
 
@@ -618,12 +618,12 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
 
 .thread.i17:                                      ; preds = %._crit_edge.i, %Mio_LibraryReadGate.exit.thread89.i
   %158 = load ptr, ptr %99, align 8, !tbaa !50
-  %159 = tail call i32 @Mio_ParseCheckFormula(ptr noundef nonnull %48, ptr noundef %158) #17
+  %159 = tail call i32 @Mio_ParseCheckFormula(ptr noundef nonnull %48, ptr noundef %158) #18
   %.not73.i = icmp eq i32 %159, 0
   br i1 %.not73.i, label %.backedge100.i, label %160
 
 .backedge100.i:                                   ; preds = %.thread.i17, %._crit_edge.i
-  tail call void @Mio_GateDelete(ptr noundef nonnull %48) #17
+  tail call void @Mio_GateDelete(ptr noundef nonnull %48) #18
   %.not.i = icmp eq ptr %.025.i92.i, null
   br i1 %.not.i, label %.critedge.i, label %31, !llvm.loop !64
 
@@ -634,12 +634,12 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
 
 162:                                              ; preds = %160
   %163 = load ptr, ptr %48, align 8, !tbaa !41
-  %164 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %163, ptr noundef null) #17
+  %164 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef %163, ptr noundef null) #18
   %.not75.i = icmp eq i32 %164, 0
   br i1 %.not75.i, label %167, label %165
 
 165:                                              ; preds = %162
-  tail call void @Mio_GateDelete(ptr noundef nonnull %48) #17
+  tail call void @Mio_GateDelete(ptr noundef nonnull %48) #18
   %166 = add nsw i32 %.051.ph.ph167.i, 1
   br label %.outer.outer.i
 
@@ -649,19 +649,19 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
   %169 = add nsw i32 %.053.ph156.i, 1
   %170 = load ptr, ptr %8, align 8, !tbaa !26
   %171 = load ptr, ptr %48, align 8, !tbaa !41
-  %172 = tail call i32 @st__lookup(ptr noundef %170, ptr noundef %171, ptr noundef null) #17
+  %172 = tail call i32 @st__lookup(ptr noundef %170, ptr noundef %171, ptr noundef null) #18
   %.not76.i = icmp eq i32 %172, 0
   br i1 %.not76.i, label %173, label %177
 
 173:                                              ; preds = %167
   %174 = load ptr, ptr %8, align 8, !tbaa !26
   %175 = load ptr, ptr %48, align 8, !tbaa !41
-  %176 = tail call i32 @st__insert(ptr noundef %174, ptr noundef %175, ptr noundef nonnull %48) #17
+  %176 = tail call i32 @st__insert(ptr noundef %174, ptr noundef %175, ptr noundef nonnull %48) #18
   br label %.outer.outer.i
 
 177:                                              ; preds = %167
   %178 = load ptr, ptr %48, align 8, !tbaa !41
-  %179 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef nonnull %6, ptr noundef %178, ptr noundef null) #17
+  %179 = tail call ptr @Mio_LibraryReadGateByName(ptr noundef nonnull %6, ptr noundef %178, ptr noundef null) #18
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
   %181 = load ptr, ptr %180, align 8, !tbaa !67
   %.not77.i = icmp eq ptr %181, null
@@ -702,7 +702,7 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
   br i1 %.not68.i, label %188, label %186
 
 186:                                              ; preds = %185
-  %187 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.186.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
+  %187 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.186.i, ptr noundef nonnull dereferenceable(5) @.str.13) #19
   %.not69.i = icmp eq i32 %187, 0
   br i1 %.not69.i, label %188, label %191
 
@@ -715,22 +715,22 @@ Mio_LibraryReadGate.exit.thread89.i:              ; preds = %147, %102, %Abc_Uti
   br label %Mio_LibraryReadInternal.exit
 
 191:                                              ; preds = %.critedge.thread.i, %186, %Mio_LibraryReadGate.exit.thread.i
-  tail call void @Mio_LibraryDelete(ptr noundef %6) #17
+  tail call void @Mio_LibraryDelete(ptr noundef %6) #18
   br label %Mio_LibraryDetectSpecialGates.exit
 
 Mio_LibraryReadInternal.exit:                     ; preds = %189, %188
-  %192 = tail call i32 @Mio_LibraryParseFormulas(ptr noundef %6) #17
+  %192 = tail call i32 @Mio_LibraryParseFormulas(ptr noundef %6) #18
   %.not15 = icmp eq i32 %192, 0
   br i1 %.not15, label %194, label %193
 
 193:                                              ; preds = %Mio_LibraryReadInternal.exit
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  tail call void @Mio_LibraryDelete(ptr noundef %6) #17
+  tail call void @Mio_LibraryDelete(ptr noundef %6) #18
   br label %Mio_LibraryDetectSpecialGates.exit
 
 194:                                              ; preds = %Mio_LibraryReadInternal.exit
   tail call void @Mio_LibrarySortGates(ptr noundef %6)
-  %195 = tail call ptr @Mio_LibraryReadGates(ptr noundef %6) #17
+  %195 = tail call ptr @Mio_LibraryReadGates(ptr noundef %6) #18
   %.not64.i18 = icmp eq ptr %195, null
   br i1 %.not64.i18, label %._crit_edge.i22, label %.lr.ph.i19
 
@@ -765,7 +765,7 @@ Mio_LibraryReadInternal.exit:                     ; preds = %189, %188
 211:                                              ; preds = %209
   %212 = load ptr, ptr %198, align 8, !tbaa !41
   %213 = load ptr, ptr %.065.i, align 8, !tbaa !41
-  %214 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(1) %213) #18
+  %214 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %212, ptr noundef nonnull dereferenceable(1) %213) #19
   %215 = icmp sgt i32 %214, 0
   br i1 %215, label %Mio_GateCompare.exit.i, label %216
 
@@ -775,7 +775,7 @@ Mio_LibraryReadInternal.exit:                     ; preds = %189, %188
 Mio_GateCompare.exit.i:                           ; preds = %216, %211, %203, %201, %197
   %.0.i.i = phi ptr [ %198, %216 ], [ %198, %197 ], [ %.065.i, %201 ], [ %.065.i, %211 ], [ %.065.i, %203 ]
   store ptr %.0.i.i, ptr %196, align 8, !tbaa !68
-  %217 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.065.i) #17
+  %217 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.065.i) #18
   %.not.i21 = icmp eq ptr %217, null
   br i1 %.not.i21, label %._crit_edge.i22, label %197, !llvm.loop !69
 
@@ -791,7 +791,7 @@ Mio_GateCompare.exit.i:                           ; preds = %216, %211, %203, %2
   br label %222
 
 222:                                              ; preds = %221, %._crit_edge.i22
-  %223 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %6) #17
+  %223 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %6) #18
   %.not4367.i = icmp eq ptr %223, null
   br i1 %.not4367.i, label %._crit_edge72.i, label %.lr.ph71.i
 
@@ -826,7 +826,7 @@ Mio_GateCompare.exit.i:                           ; preds = %216, %211, %203, %2
 239:                                              ; preds = %237
   %240 = load ptr, ptr %226, align 8, !tbaa !41
   %241 = load ptr, ptr %.168.i, align 8, !tbaa !41
-  %242 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(1) %241) #18
+  %242 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %240, ptr noundef nonnull dereferenceable(1) %241) #19
   %243 = icmp sgt i32 %242, 0
   br i1 %243, label %Mio_GateCompare.exit51.i, label %244
 
@@ -836,7 +836,7 @@ Mio_GateCompare.exit.i:                           ; preds = %216, %211, %203, %2
 Mio_GateCompare.exit51.i:                         ; preds = %244, %239, %231, %229, %225
   %.0.i50.i = phi ptr [ %226, %244 ], [ %226, %225 ], [ %.168.i, %229 ], [ %.168.i, %239 ], [ %.168.i, %231 ]
   store ptr %.0.i50.i, ptr %224, align 8, !tbaa !70
-  %245 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.168.i) #17
+  %245 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.168.i) #18
   %.not43.i = icmp eq ptr %245, null
   br i1 %.not43.i, label %._crit_edge72.i, label %225, !llvm.loop !71
 
@@ -852,7 +852,7 @@ Mio_GateCompare.exit51.i:                         ; preds = %244, %239, %231, %2
   br label %250
 
 250:                                              ; preds = %249, %._crit_edge72.i
-  %251 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %6) #17
+  %251 = tail call ptr @Mio_LibraryReadGates(ptr noundef nonnull %6) #18
   %.not4673.i = icmp eq ptr %251, null
   br i1 %.not4673.i, label %._crit_edge78.i, label %.lr.ph77.i
 
@@ -890,7 +890,7 @@ Mio_GateCompare.exit51.i:                         ; preds = %244, %239, %231, %2
 270:                                              ; preds = %268
   %271 = load ptr, ptr %257, align 8, !tbaa !41
   %272 = load ptr, ptr %.274.i, align 8, !tbaa !41
-  %273 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(1) %272) #18
+  %273 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(1) %272) #19
   %274 = icmp sgt i32 %273, 0
   br i1 %274, label %Mio_GateCompare.exit54.i, label %275
 
@@ -924,7 +924,7 @@ Mio_GateCompare.exit54.i:                         ; preds = %275, %270, %262, %2
 288:                                              ; preds = %286
   %289 = load ptr, ptr %276, align 8, !tbaa !41
   %290 = load ptr, ptr %.274.i, align 8, !tbaa !41
-  %291 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %289, ptr noundef nonnull dereferenceable(1) %290) #18
+  %291 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %289, ptr noundef nonnull dereferenceable(1) %290) #19
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %Mio_GateCompare.exit57.i, label %293
 
@@ -958,7 +958,7 @@ Mio_GateCompare.exit57.i:                         ; preds = %293, %288, %280, %2
 306:                                              ; preds = %304
   %307 = load ptr, ptr %294, align 8, !tbaa !41
   %308 = load ptr, ptr %.274.i, align 8, !tbaa !41
-  %309 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %307, ptr noundef nonnull dereferenceable(1) %308) #18
+  %309 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %307, ptr noundef nonnull dereferenceable(1) %308) #19
   %310 = icmp sgt i32 %309, 0
   br i1 %310, label %Mio_GateCompare.exit60.i, label %311
 
@@ -992,7 +992,7 @@ Mio_GateCompare.exit60.i:                         ; preds = %311, %306, %298, %2
 324:                                              ; preds = %322
   %325 = load ptr, ptr %312, align 8, !tbaa !41
   %326 = load ptr, ptr %.274.i, align 8, !tbaa !41
-  %327 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %325, ptr noundef nonnull dereferenceable(1) %326) #18
+  %327 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %325, ptr noundef nonnull dereferenceable(1) %326) #19
   %328 = icmp sgt i32 %327, 0
   br i1 %328, label %Mio_GateCompare.exit63.i, label %329
 
@@ -1002,7 +1002,7 @@ Mio_GateCompare.exit60.i:                         ; preds = %311, %306, %298, %2
 Mio_GateCompare.exit63.i:                         ; preds = %329, %324, %316, %314, %Mio_GateCompare.exit60.i
   %.0.i62.i = phi ptr [ %312, %329 ], [ %312, %Mio_GateCompare.exit60.i ], [ %.274.i, %314 ], [ %.274.i, %324 ], [ %.274.i, %316 ]
   store ptr %.0.i62.i, ptr %255, align 8, !tbaa !75
-  %330 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.274.i) #17
+  %330 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.274.i) #18
   %.not46.i = icmp eq ptr %330, null
   br i1 %.not46.i, label %._crit_edge78.i, label %256, !llvm.loop !76
 
@@ -1053,14 +1053,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Mio_ReadFile(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @Io_FileOpen(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #17
+  %3 = tail call ptr @Io_FileOpen(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 1) #18
   %4 = tail call i32 @fseek(ptr noundef %3, i64 noundef 0, i32 noundef 2)
   %5 = tail call i64 @ftell(ptr noundef %3)
   tail call void @rewind(ptr noundef %3)
   %6 = shl i64 %5, 32
   %sext = add i64 %6, 42949672960
   %7 = ashr exact i64 %sext, 32
-  %8 = tail call noalias ptr @malloc(i64 noundef %7) #19
+  %8 = tail call noalias ptr @malloc(i64 noundef %7) #20
   %9 = ashr exact i64 %6, 32
   %10 = tail call i64 @fread(ptr noundef %8, i64 noundef %9, i64 noundef 1, ptr noundef %3)
   %11 = getelementptr inbounds i8, ptr %8, i64 %9
@@ -1114,10 +1114,10 @@ define noundef ptr @Mio_LibraryCleanStr(ptr noundef readonly captures(address_is
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #18
+  %3 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #19
   %4 = add i64 %3, 1
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #19
-  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #17
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #20
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %0) #18
   br label %Abc_UtilStrsav.exit
 
 Abc_UtilStrsav.exit:                              ; preds = %1, %2
@@ -1209,11 +1209,8 @@ define range(i32 -1, 2) i32 @Mio_LibraryCompareGatesByName(ptr noundef readonly 
   %4 = load ptr, ptr %3, align 8, !tbaa !41
   %5 = load ptr, ptr %1, align 8, !tbaa !66
   %6 = load ptr, ptr %5, align 8, !tbaa !41
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #18
-  %.not = icmp ne i32 %7, 0
-  %. = zext i1 %.not to i32
-  %.inv = icmp sgt i32 %7, -1
-  %.0 = select i1 %.inv, i32 %., i32 -1
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #19
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %7, i32 0)
   ret i32 %.0
 }
 
@@ -1223,8 +1220,8 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load i32, ptr %2, align 8, !tbaa !78
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call noalias ptr @malloc(i64 noundef %5) #19
-  %7 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #17
+  %6 = tail call noalias ptr @malloc(i64 noundef %5) #20
+  %7 = tail call ptr @Mio_LibraryReadGates(ptr noundef %0) #18
   %.not35 = icmp eq ptr %7, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -1237,7 +1234,7 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %.03236, ptr %10, align 8, !tbaa !66
-  %11 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.03236) #17
+  %11 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.03236) #18
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
@@ -1245,7 +1242,7 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load i32, ptr %2, align 8, !tbaa !78
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #19
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #20
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !80
   %17 = icmp sgt i32 %12, 0
@@ -1258,7 +1255,7 @@ define void @Mio_LibrarySortGates(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge41
 
 ._crit_edge41:                                    ; preds = %.lr.ph40.preheader, %._crit_edge
-  tail call void @qsort(ptr noundef %6, i64 noundef %13, i64 noundef 8, ptr noundef nonnull @Mio_LibraryCompareGatesByName) #17
+  tail call void @qsort(ptr noundef %6, i64 noundef %13, i64 noundef 8, ptr noundef nonnull @Mio_LibraryCompareGatesByName) #18
   %20 = load i32, ptr %2, align 8, !tbaa !78
   %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = icmp sgt i32 %20, 0
@@ -1348,6 +1345,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #17
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1365,11 +1365,12 @@ attributes #13 = { mustprogress nocallback nofree nounwind willreturn "no-trappi
 attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nofree nounwind }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { nounwind willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind allocsize(0) }
+attributes #21 = { nounwind allocsize(0,1) }
+attributes #22 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

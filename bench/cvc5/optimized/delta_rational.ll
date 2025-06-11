@@ -1294,115 +1294,115 @@ define hidden void @_ZNK4cvc58internal13DeltaRational23euclidianDivideQuotientER
   %5 = alloca %"class.cvc5::internal::Integer", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !26
-  %.not.i.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i.i, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
 
 _ZNK4cvc58internal13DeltaRational10isIntegralEv.exit: ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %8, i64 noundef 1) #18
-  %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %12 = load i32, ptr %11, align 4
-  %.not.i.i.i9 = icmp eq i32 %12, 0
-  %or.cond = select i1 %10, i1 %.not.i.i.i9, i1 false
-  br i1 %or.cond, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %9, i64 noundef 1) #18
+  %11 = icmp eq i32 %10, 0
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, 0
+  %or.cond = select i1 %11, i1 %14, i1 false
+  br i1 %or.cond, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
 
-_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11: ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %13, i64 noundef 1) #18
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10: ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %15, i64 noundef 1) #18
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
 
-16:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11
+18:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   call void @_ZNK4cvc58internal13DeltaRational5floorEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   invoke void @_ZNK4cvc58internal13DeltaRational5floorEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %2)
-          to label %17 unwind label %25
-
-17:                                               ; preds = %16
-  invoke void @_ZNK4cvc58internal7Integer23euclidianDivideQuotientERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %18 unwind label %27
-
-18:                                               ; preds = %17
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %19
+          to label %19 unwind label %27
 
 19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+  invoke void @_ZNK4cvc58internal7Integer23euclidianDivideQuotientERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %20 unwind label %29
+
+20:                                               ; preds = %19
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %21
+
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #19
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %18
+_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit12 unwind label %22
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit11 unwind label %24
 
-22:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #19
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
+_ZN4cvc58internal7IntegerD2Ev.exit11:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   ret void
 
-25:                                               ; preds = %16
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4cvc58internal7IntegerD2Ev.exit13
-
-27:                                               ; preds = %17
+27:                                               ; preds = %18
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %29
+  br label %_ZN4cvc58internal7IntegerD2Ev.exit12
 
-29:                                               ; preds = %27
+29:                                               ; preds = %19
   %30 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit12 unwind label %31
+
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #19
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
+_ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit14 unwind label %32
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %34
 
-32:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit12
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #19
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit14:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13
+_ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  br label %39
+  br label %41
 
-_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread: ; preds = %3, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
-  %35 = tail call ptr @__cxa_allocate_exception(i64 40) #15
-  invoke void @_ZN4cvc58internal22DeltaRationalExceptionC2EPKcRKNS0_13DeltaRationalES6_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
-          to label %36 unwind label %37
+_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread: ; preds = %3, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
+  %37 = tail call ptr @__cxa_allocate_exception(i64 40) #15
+  invoke void @_ZN4cvc58internal22DeltaRationalExceptionC2EPKcRKNS0_13DeltaRationalES6_(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull @.str.7, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
+          to label %38 unwind label %39
 
-36:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
-  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN4cvc58internal22DeltaRationalExceptionE, ptr nonnull @_ZN4cvc58internal22DeltaRationalExceptionD2Ev) #16
+38:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN4cvc58internal22DeltaRationalExceptionE, ptr nonnull @_ZN4cvc58internal22DeltaRationalExceptionD2Ev) #16
   unreachable
 
-37:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
-  %38 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %35) #15
-  br label %39
+  tail call void @__cxa_free_exception(ptr nonnull %37) #15
+  br label %41
 
-39:                                               ; preds = %37, %_ZN4cvc58internal7IntegerD2Ev.exit14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit14 ], [ %38, %37 ]
+41:                                               ; preds = %39, %_ZN4cvc58internal7IntegerD2Ev.exit13
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit13 ], [ %40, %39 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1414,138 +1414,138 @@ define linkonce_odr hidden void @_ZNK4cvc58internal13DeltaRational5floorEv(ptr d
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %6, i64 noundef 1) #18
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %31
+  br i1 %8, label %9, label %32
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i32, ptr %10, align 4, !tbaa !26
-  %.inv.i = icmp sgt i32 %11, -1
-  br i1 %.inv.i, label %12, label %13
-
-12:                                               ; preds = %9
-  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %41
+  %12 = icmp sgt i32 %11, -1
+  br i1 %12, label %13, label %14
 
 13:                                               ; preds = %9
+  tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  br label %42
+
+14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 1)
-          to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %21
+          to label %_ZN4cvc58internal7IntegerC2Ei.exit unwind label %22
 
-_ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %13
+_ZN4cvc58internal7IntegerC2Ei.exit:               ; preds = %14
   invoke void @_ZNK4cvc58internal7IntegermiERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %14 unwind label %23
+          to label %15 unwind label %24
 
-14:                                               ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit
+15:                                               ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %15
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %16
 
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %15
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #19
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %14
+_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit4 unwind label %18
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit4 unwind label %19
 
-18:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #19
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #19
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit4:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  br label %41
+  br label %42
 
-21:                                               ; preds = %13
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %14
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4cvc58internal7IntegerD2Ev.exit5
 
-23:                                               ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN4cvc58internal7IntegerC2Ei.exit
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit5 unwind label %25
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit5 unwind label %26
 
-25:                                               ; preds = %23
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #19
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %23, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ]
+_ZN4cvc58internal7IntegerD2Ev.exit5:              ; preds = %24, %22
+  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %28
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit6 unwind label %29
 
-28:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit5
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit5
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #19
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #19
   unreachable
 
 common.resume:                                    ; preds = %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i, %_ZN4cvc58internal7IntegerD2Ev.exit6
-  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit6 ], [ %37, %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit6 ], [ %38, %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   br label %common.resume
 
-31:                                               ; preds = %2
+32:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15, !noalias !58
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %3) #15, !noalias !58
   invoke void @__gmpz_fdiv_q(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %6)
-          to label %32 unwind label %36, !noalias !58
+          to label %33 unwind label %37, !noalias !58
 
-32:                                               ; preds = %31
+33:                                               ; preds = %32
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i unwind label %36
+          to label %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i unwind label %37
 
-_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i: ; preds = %32
+_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i: ; preds = %33
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %_ZNK4cvc58internal8Rational5floorEv.exit unwind label %33
+          to label %_ZNK4cvc58internal8Rational5floorEv.exit unwind label %34
 
-33:                                               ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #19
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #19
   unreachable
 
-36:                                               ; preds = %32, %31
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %33, %32
+  %38 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i unwind label %38
+          to label %_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i unwind label %39
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #19
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #19
   unreachable
 
-_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i: ; preds = %36
+_ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit2.i: ; preds = %37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15, !noalias !58
   br label %common.resume
 
 _ZNK4cvc58internal8Rational5floorEv.exit:         ; preds = %_ZN4cvc58internal7IntegerC2ERK10__gmp_exprIA1_12__mpz_structS4_E.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15, !noalias !58
-  br label %41
+  br label %42
 
-41:                                               ; preds = %_ZNK4cvc58internal8Rational5floorEv.exit, %_ZN4cvc58internal7IntegerD2Ev.exit4, %12
+42:                                               ; preds = %_ZNK4cvc58internal8Rational5floorEv.exit, %_ZN4cvc58internal7IntegerD2Ev.exit4, %13
   ret void
 }
 
@@ -1564,115 +1564,115 @@ define hidden void @_ZNK4cvc58internal13DeltaRational24euclidianDivideRemainderE
   %5 = alloca %"class.cvc5::internal::Integer", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !26
-  %.not.i.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i.i, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
 
 _ZNK4cvc58internal13DeltaRational10isIntegralEv.exit: ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %8, i64 noundef 1) #18
-  %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %12 = load i32, ptr %11, align 4
-  %.not.i.i.i9 = icmp eq i32 %12, 0
-  %or.cond = select i1 %10, i1 %.not.i.i.i9, i1 false
-  br i1 %or.cond, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %9, i64 noundef 1) #18
+  %11 = icmp eq i32 %10, 0
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, 0
+  %or.cond = select i1 %11, i1 %14, i1 false
+  br i1 %or.cond, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
 
-_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11: ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %13, i64 noundef 1) #18
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10: ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = tail call i32 @__gmpz_cmp_ui(ptr noundef nonnull %15, i64 noundef 1) #18
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
 
-16:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11
+18:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   call void @_ZNK4cvc58internal13DeltaRational5floorEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   invoke void @_ZNK4cvc58internal13DeltaRational5floorEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Integer") align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %2)
-          to label %17 unwind label %25
-
-17:                                               ; preds = %16
-  invoke void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %18 unwind label %27
-
-18:                                               ; preds = %17
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %19
+          to label %19 unwind label %27
 
 19:                                               ; preds = %18
-  %20 = landingpad { ptr, i32 }
+  invoke void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(ptr dead_on_unwind writable sret(%"class.cvc5::internal::Integer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %20 unwind label %29
+
+20:                                               ; preds = %19
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %21
+
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #19
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %18
+_ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit12 unwind label %22
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit11 unwind label %24
 
-22:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #19
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
+_ZN4cvc58internal7IntegerD2Ev.exit11:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   ret void
 
-25:                                               ; preds = %16
-  %26 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4cvc58internal7IntegerD2Ev.exit13
-
-27:                                               ; preds = %17
+27:                                               ; preds = %18
   %28 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %29
+  br label %_ZN4cvc58internal7IntegerD2Ev.exit12
 
-29:                                               ; preds = %27
+29:                                               ; preds = %19
   %30 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit12 unwind label %31
+
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #19
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ]
+_ZN4cvc58internal7IntegerD2Ev.exit12:             ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4cvc58internal7IntegerD2Ev.exit14 unwind label %32
+          to label %_ZN4cvc58internal7IntegerD2Ev.exit13 unwind label %34
 
-32:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit12
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #19
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #19
   unreachable
 
-_ZN4cvc58internal7IntegerD2Ev.exit14:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit13
+_ZN4cvc58internal7IntegerD2Ev.exit13:             ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  br label %39
+  br label %41
 
-_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread: ; preds = %3, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit11, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
-  %35 = tail call ptr @__cxa_allocate_exception(i64 40) #15
-  invoke void @_ZN4cvc58internal22DeltaRationalExceptionC2EPKcRKNS0_13DeltaRationalES6_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
-          to label %36 unwind label %37
+_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread: ; preds = %3, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit10, %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit
+  %37 = tail call ptr @__cxa_allocate_exception(i64 40) #15
+  invoke void @_ZN4cvc58internal22DeltaRationalExceptionC2EPKcRKNS0_13DeltaRationalES6_(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
+          to label %38 unwind label %39
 
-36:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
-  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTIN4cvc58internal22DeltaRationalExceptionE, ptr nonnull @_ZN4cvc58internal22DeltaRationalExceptionD2Ev) #16
+38:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN4cvc58internal22DeltaRationalExceptionE, ptr nonnull @_ZN4cvc58internal22DeltaRationalExceptionD2Ev) #16
   unreachable
 
-37:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
-  %38 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZNK4cvc58internal13DeltaRational10isIntegralEv.exit.thread
+  %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %35) #15
-  br label %39
+  tail call void @__cxa_free_exception(ptr nonnull %37) #15
+  br label %41
 
-39:                                               ; preds = %37, %_ZN4cvc58internal7IntegerD2Ev.exit14
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit14 ], [ %38, %37 ]
+41:                                               ; preds = %39, %_ZN4cvc58internal7IntegerD2Ev.exit13
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN4cvc58internal7IntegerD2Ev.exit13 ], [ %40, %39 ]
   resume { ptr, i32 } %.pn.pn
 }
 

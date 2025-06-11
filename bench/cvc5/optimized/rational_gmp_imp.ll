@@ -393,22 +393,21 @@ define hidden noundef i32 @_ZNK4cvc58internal8Rational6absCmpERKS1_(ptr noundef 
   %4 = alloca %"class.cvc5::internal::Rational", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !15
-  %.inv.i = icmp slt i32 %6, 0
-  %7 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 0)
+  %7 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %6, i32 0)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !15
-  %10 = tail call i32 @llvm.scmp.i32.i32(i32 %9, i32 0)
+  %10 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %9, i32 0)
   %11 = icmp eq i32 %6, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
   %13 = icmp ne i32 %9, 0
   %14 = sext i1 %13 to i32
-  br label %37
+  br label %38
 
 15:                                               ; preds = %2
   %16 = icmp eq i32 %9, 0
-  br i1 %16, label %37, label %17
+  br i1 %16, label %38, label %17
 
 17:                                               ; preds = %15
   %18 = icmp sgt i32 %6, 0
@@ -418,7 +417,7 @@ define hidden noundef i32 @_ZNK4cvc58internal8Rational6absCmpERKS1_(ptr noundef 
 
 20:                                               ; preds = %17
   %21 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  br label %37
+  br label %38
 
 22:                                               ; preds = %17
   %23 = and i32 %10, %7
@@ -427,50 +426,51 @@ define hidden noundef i32 @_ZNK4cvc58internal8Rational6absCmpERKS1_(ptr noundef 
 
 24:                                               ; preds = %22
   %25 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  br label %37
+  br label %38
 
 26:                                               ; preds = %22
-  %or.cond5 = and i1 %.inv.i, %19
-  br i1 %or.cond5, label %27, label %32
+  %27 = icmp slt i32 %6, 0
+  %or.cond5 = and i1 %27, %19
+  br i1 %or.cond5, label %28, label %33
 
-27:                                               ; preds = %26
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
   call void @_ZNK4cvc58internal8RationalngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %28 = call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
+  %29 = call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %29
+          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %30
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #18
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %27
+_ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
-  br label %37
+  br label %38
 
-32:                                               ; preds = %26
+33:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
   call void @_ZNK4cvc58internal8RationalngEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %33 = call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  %34 = call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit28 unwind label %34
+          to label %_ZN4cvc58internal8RationalD2Ev.exit27 unwind label %35
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #18
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit28:            ; preds = %32
+_ZN4cvc58internal8RationalD2Ev.exit27:            ; preds = %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
-  br label %37
+  br label %38
 
-37:                                               ; preds = %15, %_ZN4cvc58internal8RationalD2Ev.exit28, %_ZN4cvc58internal8RationalD2Ev.exit, %24, %20, %12
-  %.0 = phi i32 [ %14, %12 ], [ %21, %20 ], [ %25, %24 ], [ %28, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %33, %_ZN4cvc58internal8RationalD2Ev.exit28 ], [ 1, %15 ]
+38:                                               ; preds = %15, %_ZN4cvc58internal8RationalD2Ev.exit27, %_ZN4cvc58internal8RationalD2Ev.exit, %24, %20, %12
+  %.0 = phi i32 [ %14, %12 ], [ %21, %20 ], [ %25, %24 ], [ %29, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %34, %_ZN4cvc58internal8RationalD2Ev.exit27 ], [ 1, %15 ]
   ret i32 %.0
 }
 
