@@ -7585,7 +7585,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory20SubstitutionMinimize
   %6 = alloca %"class.cvc5::internal::NodeTemplate.101", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate.101", align 8
   %8 = tail call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %8, label %9, label %72
+  br i1 %8, label %9, label %71
 
 9:                                                ; preds = %4
   switch i32 %2, label %27 [
@@ -7601,14 +7601,14 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory20SubstitutionMinimize
   %13 = load i8, ptr %12, align 1, !tbaa !72, !range !74, !noundef !52
   %14 = trunc nuw i8 %13 to i1
   %15 = xor i1 %14, true
-  br label %72
+  br label %71
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %1, align 8, !tbaa !6
   %18 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %17)
   %19 = load i8, ptr %18, align 1, !tbaa !72, !range !74, !noundef !52
   %20 = trunc nuw i8 %19 to i1
-  br label %72
+  br label %71
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %1, align 8, !tbaa !6
@@ -7616,7 +7616,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory20SubstitutionMinimize
   %24 = load i8, ptr %23, align 1, !tbaa !72, !range !74, !noundef !52
   %25 = zext nneg i8 %24 to i32
   %26 = icmp eq i32 %3, %25
-  br label %72
+  br label %71
 
 27:                                               ; preds = %9
   %28 = icmp eq i32 %3, 0
@@ -7627,10 +7627,10 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory20SubstitutionMinimize
     i32 49, label %33
     i32 47, label %33
     i32 45, label %33
-    i32 106, label %42
-    i32 105, label %42
-    i32 101, label %42
-    i32 93, label %42
+    i32 106, label %41
+    i32 105, label %41
+    i32 101, label %41
+    i32 93, label %41
   ]
 
 30:                                               ; preds = %27
@@ -7644,83 +7644,83 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory20SubstitutionMinimize
   %35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %34)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !154
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %72, label %.thread
+  %.not = icmp eq i32 %37, 0
+  br i1 %.not, label %71, label %.thread
 
 .thread:                                          ; preds = %33, %30
   switch i32 %2, label %39 [
-    i32 106, label %42
-    i32 105, label %42
-    i32 101, label %42
-    i32 93, label %42
+    i32 106, label %41
+    i32 105, label %41
+    i32 101, label %41
+    i32 93, label %41
   ]
 
-39:                                               ; preds = %29, %.thread
-  %40 = icmp eq i32 %3, 0
-  %41 = add i32 %2, -110
-  %or.cond15 = icmp ult i32 %41, 3
-  %or.cond = and i1 %40, %or.cond15
-  br i1 %or.cond, label %42, label %45
+38:                                               ; preds = %29, %.thread
+  %39 = icmp eq i32 %3, 0
+  %40 = add i32 %2, -110
+  %or.cond15 = icmp ult i32 %40, 3
+  %or.cond = and i1 %39, %or.cond15
+  br i1 %or.cond, label %41, label %44
 
-42:                                               ; preds = %29, %29, %29, %29, %39, %.thread, %.thread, %.thread, %.thread
-  %43 = load ptr, ptr %1, align 8, !tbaa !6
-  store ptr %43, ptr %5, align 8, !tbaa !25
-  %44 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isZeroENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %5)
-  br i1 %44, label %72, label %45
+41:                                               ; preds = %29, %29, %29, %29, %38, %.thread, %.thread, %.thread, %.thread
+  %42 = load ptr, ptr %1, align 8, !tbaa !6
+  store ptr %42, ptr %5, align 8, !tbaa !25
+  %43 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isZeroENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %5)
+  br i1 %43, label %71, label %44
 
-45:                                               ; preds = %42, %39
-  %46 = icmp eq i32 %2, 95
-  br i1 %46, label %47, label %50
+44:                                               ; preds = %41, %38
+  %45 = icmp eq i32 %2, 95
+  br i1 %45, label %46, label %49
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %1, align 8, !tbaa !6
-  store ptr %48, ptr %6, align 8, !tbaa !25
-  %49 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isOnesENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %6)
-  br i1 %49, label %72, label %.thread64
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %1, align 8, !tbaa !6
+  store ptr %47, ptr %6, align 8, !tbaa !25
+  %48 = call noundef zeroext i1 @_ZN4cvc58internal6theory2bv5utils6isOnesENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %6)
+  br i1 %48, label %71, label %.thread65
 
-50:                                               ; preds = %45
-  %51 = icmp eq i32 %3, 1
-  %52 = icmp eq i32 %2, 321
-  %or.cond17 = and i1 %52, %51
-  br i1 %or.cond17, label %56, label %53
+49:                                               ; preds = %44
+  %50 = icmp eq i32 %3, 1
+  %51 = icmp eq i32 %2, 321
+  %or.cond17 = and i1 %51, %50
+  br i1 %or.cond17, label %55, label %52
 
-53:                                               ; preds = %50
-  %54 = icmp eq i32 %3, 0
-  %55 = icmp eq i32 %2, 318
-  %or.cond19 = and i1 %55, %54
-  br i1 %or.cond19, label %56, label %60
+52:                                               ; preds = %49
+  %53 = icmp eq i32 %3, 0
+  %54 = icmp eq i32 %2, 318
+  %or.cond19 = and i1 %54, %53
+  br i1 %or.cond19, label %55, label %59
 
-56:                                               ; preds = %53, %50
-  %57 = load ptr, ptr %1, align 8, !tbaa !6
-  store ptr %57, ptr %7, align 8, !tbaa !25
-  %58 = call noundef i64 @_ZN4cvc58internal6theory7strings4Word9getLengthENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %7)
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %72, label %60
+55:                                               ; preds = %52, %49
+  %56 = load ptr, ptr %1, align 8, !tbaa !6
+  store ptr %56, ptr %7, align 8, !tbaa !25
+  %57 = call noundef i64 @_ZN4cvc58internal6theory7strings4Word9getLengthENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %7)
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %71, label %59
 
-60:                                               ; preds = %56, %53
-  %61 = icmp ne i32 %3, 0
-  %62 = icmp eq i32 %2, 318
-  %or.cond21 = and i1 %62, %61
-  br i1 %or.cond21, label %66, label %63
+59:                                               ; preds = %55, %52
+  %60 = icmp ne i32 %3, 0
+  %61 = icmp eq i32 %2, 318
+  %or.cond21 = and i1 %61, %60
+  br i1 %or.cond21, label %65, label %62
 
-63:                                               ; preds = %60
-  %64 = icmp eq i32 %3, 2
-  %65 = icmp eq i32 %2, 324
-  %or.cond23 = and i1 %65, %64
-  br i1 %or.cond23, label %66, label %.thread64
+62:                                               ; preds = %59
+  %63 = icmp eq i32 %3, 2
+  %64 = icmp eq i32 %2, 324
+  %or.cond23 = and i1 %64, %63
+  br i1 %or.cond23, label %65, label %.thread65
 
-66:                                               ; preds = %63, %60
-  %67 = load ptr, ptr %1, align 8, !tbaa !6
-  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %67)
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  %70 = load i32, ptr %69, align 4, !tbaa !154
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %.thread64
+65:                                               ; preds = %62, %59
+  %66 = load ptr, ptr %1, align 8, !tbaa !6
+  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v(ptr noundef nonnull align 8 dereferenceable(24) %66)
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %69 = load i32, ptr %68, align 4, !tbaa !154
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %71, label %.thread65
 
-.thread64:                                        ; preds = %47, %66, %63
-  br label %72
+.thread65:                                        ; preds = %46, %65, %62
+  br label %71
 
-72:                                               ; preds = %66, %56, %47, %42, %33, %4, %.thread64, %21, %16, %10
+71:                                               ; preds = %65, %55, %46, %41, %33, %4, %.thread65, %21, %16, %10
   %.054 = phi i1 [ %15, %10 ], [ %20, %16 ], [ %26, %21 ], [ false, %.thread64 ], [ false, %4 ], [ true, %33 ], [ true, %42 ], [ true, %47 ], [ true, %56 ], [ true, %66 ]
   ret i1 %.054
 }

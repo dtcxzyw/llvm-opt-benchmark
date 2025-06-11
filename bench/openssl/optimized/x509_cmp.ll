@@ -41,7 +41,7 @@ define range(i32 -2, 2) i32 @X509_issuer_and_serial_cmp(ptr noundef %0, ptr noun
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %10, ptr noundef nonnull %11) #9
+  %12 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %15, label %13
 
@@ -95,7 +95,7 @@ define range(i32 -2, 2) i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1) local
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %13, %9
-  %17 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %0, ptr noundef null) #9
+  %17 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %0, ptr noundef null) #8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %51, label %19
 
@@ -112,7 +112,7 @@ define range(i32 -2, 2) i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1) local
   br i1 %.not29, label %29, label %26
 
 26:                                               ; preds = %23, %19
-  %27 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %1, ptr noundef null) #9
+  %27 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %1, ptr noundef null) #8
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %51, label %29
 
@@ -142,7 +142,7 @@ define range(i32 -2, 2) i32 @X509_NAME_cmp(ptr noundef %0, ptr noundef %1) local
 
 44:                                               ; preds = %41
   %45 = sext i32 %31 to i64
-  %46 = tail call i32 @memcmp(ptr noundef nonnull %39, ptr noundef nonnull %42, i64 noundef %45) #10
+  %46 = tail call i32 @memcmp(ptr noundef nonnull %39, ptr noundef nonnull %42, i64 noundef %45) #9
   br label %47
 
 47:                                               ; preds = %44, %36
@@ -164,15 +164,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
-  %3 = tail call ptr @EVP_MD_CTX_new() #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  %3 = tail call ptr @EVP_MD_CTX_new() #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !27
-  %8 = tail call ptr @X509_NAME_oneline(ptr noundef %7, ptr noundef null, i32 noundef 0) #9
+  %8 = tail call ptr @X509_NAME_oneline(ptr noundef %7, ptr noundef null, i32 noundef 0) #8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %34, label %10
 
@@ -181,18 +181,18 @@ define range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr noundef rea
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %14 = load ptr, ptr %13, align 8, !tbaa !43
-  %15 = tail call ptr @EVP_MD_fetch(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %14) #9
+  %15 = tail call ptr @EVP_MD_fetch(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %14) #8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %3, ptr noundef nonnull %15, ptr noundef null) #9
+  %18 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %3, ptr noundef nonnull %15, ptr noundef null) #8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %34, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #10
-  %21 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %3, ptr noundef nonnull %8, i64 noundef %20) #9
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #9
+  %21 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %3, ptr noundef nonnull %8, i64 noundef %20) #8
   %.not24 = icmp eq i32 %21, 0
   br i1 %.not24, label %34, label %22
 
@@ -202,12 +202,12 @@ define range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr noundef rea
   %25 = load ptr, ptr %24, align 8, !tbaa !44
   %26 = load i32, ptr %23, align 8, !tbaa !45
   %27 = sext i32 %26 to i64
-  %28 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %3, ptr noundef %25, i64 noundef %27) #9
+  %28 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %3, ptr noundef %25, i64 noundef %27) #8
   %.not25 = icmp eq i32 %28, 0
   br i1 %.not25, label %34, label %29
 
 29:                                               ; preds = %22
-  %30 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null) #9
+  %30 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null) #8
   %.not26 = icmp eq i32 %30, 0
   br i1 %.not26, label %34, label %31
 
@@ -220,10 +220,10 @@ define range(i64 0, 4294967296) i64 @X509_issuer_and_serial_hash(ptr noundef rea
   %.019 = phi i64 [ 0, %1 ], [ 0, %5 ], [ 0, %10 ], [ %33, %31 ], [ 0, %29 ], [ 0, %22 ], [ 0, %19 ], [ 0, %17 ]
   %.018 = phi ptr [ null, %1 ], [ null, %5 ], [ %8, %10 ], [ %8, %31 ], [ %8, %29 ], [ %8, %22 ], [ %8, %19 ], [ %8, %17 ]
   %.0 = phi ptr [ null, %1 ], [ null, %5 ], [ null, %10 ], [ %15, %31 ], [ %15, %29 ], [ %15, %22 ], [ %15, %19 ], [ %15, %17 ]
-  call void @CRYPTO_free(ptr noundef %.018, ptr noundef nonnull @.str.1, i32 noundef 68) #9
-  call void @EVP_MD_free(ptr noundef %.0) #9
-  call void @EVP_MD_CTX_free(ptr noundef %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @CRYPTO_free(ptr noundef %.018, ptr noundef nonnull @.str.1, i32 noundef 68) #8
+  call void @EVP_MD_free(ptr noundef %.0) #8
+  call void @EVP_MD_CTX_free(ptr noundef %3) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
   ret i64 %.019
 }
 
@@ -296,7 +296,7 @@ define range(i32 -2, 2) i32 @X509_CRL_match(ptr noundef readonly captures(none) 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %15 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull dereferenceable(20) %14, i64 noundef 20) #10
+  %15 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %13, ptr noundef nonnull dereferenceable(20) %14, i64 noundef 20) #9
   %16 = icmp sgt i32 %15, 0
   %17 = zext i1 %16 to i32
   %.inv = icmp sgt i32 %15, -1
@@ -323,9 +323,9 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly 
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
-  %5 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null) #9
-  %6 = tail call i32 @i2d_X509_NAME(ptr noundef %4, ptr noundef null) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #8
+  %5 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null) #8
+  %6 = tail call i32 @i2d_X509_NAME(ptr noundef %4, ptr noundef null) #8
   %7 = icmp sgt i32 %6, -1
   %8 = icmp ne ptr %5, null
   %or.cond.i = select i1 %7, i1 %8, i1 false
@@ -337,7 +337,7 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly 
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !26
   %14 = sext i32 %13 to i64
-  %15 = call i32 @EVP_Digest(ptr noundef %11, i64 noundef %14, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %5, ptr noundef null) #9
+  %15 = call i32 @EVP_Digest(ptr noundef %11, i64 noundef %14, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %5, ptr noundef null) #8
   %.not16.i = icmp eq i32 %15, 0
   br i1 %.not16.i, label %X509_NAME_hash_ex.exit, label %16
 
@@ -348,17 +348,17 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly 
 
 X509_NAME_hash_ex.exit:                           ; preds = %1, %9, %16
   %.0.i = phi i64 [ %18, %16 ], [ 0, %9 ], [ 0, %1 ]
-  call void @EVP_MD_free(ptr noundef %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #9
+  call void @EVP_MD_free(ptr noundef %5) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #8
   ret i64 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
-  %6 = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef %2) #9
-  %7 = tail call i32 @i2d_X509_NAME(ptr noundef %0, ptr noundef null) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #8
+  %6 = tail call ptr @EVP_MD_fetch(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef %2) #8
+  %7 = tail call i32 @i2d_X509_NAME(ptr noundef %0, ptr noundef null) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -378,7 +378,7 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr nound
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8, !tbaa !26
   %17 = sext i32 %16 to i64
-  %18 = call i32 @EVP_Digest(ptr noundef %14, i64 noundef %17, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #9
+  %18 = call i32 @EVP_Digest(ptr noundef %14, i64 noundef %17, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #8
   %.not16 = icmp eq i32 %18, 0
   br i1 %.not16, label %33, label %19
 
@@ -403,8 +403,8 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr nound
 
 33:                                               ; preds = %19, %32, %12, %9
   %.0 = phi i64 [ %31, %32 ], [ %31, %19 ], [ 0, %12 ], [ 0, %9 ]
-  call void @EVP_MD_free(ptr noundef %6) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @EVP_MD_free(ptr noundef %6) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #8
   ret i64 %.0
 }
 
@@ -419,21 +419,21 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash_old(ptr noundef reado
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 4294967296) i64 @X509_NAME_hash_old(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
-  %3 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #9
-  %4 = tail call ptr @EVP_MD_CTX_new() #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  %3 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3) #8
+  %4 = tail call ptr @EVP_MD_CTX_new() #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   %5 = icmp eq ptr %3, null
   %6 = icmp eq ptr %4, null
   %or.cond = select i1 %5, i1 true, i1 %6
   br i1 %or.cond, label %24, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @i2d_X509_NAME(ptr noundef %0, ptr noundef null) #9
+  %8 = tail call i32 @i2d_X509_NAME(ptr noundef %0, ptr noundef null) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null) #9
+  %11 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef null) #8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %24, label %12
 
@@ -443,12 +443,12 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_old(ptr noundef %0) local_un
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = load i64, ptr %14, align 8, !tbaa !60
-  %18 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %4, ptr noundef %16, i64 noundef %17) #9
+  %18 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %4, ptr noundef %16, i64 noundef %17) #8
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %24, label %19
 
 19:                                               ; preds = %12
-  %20 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef null) #9
+  %20 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef null) #8
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %24, label %21
 
@@ -459,9 +459,9 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_old(ptr noundef %0) local_un
 
 24:                                               ; preds = %10, %12, %19, %21, %7, %1
   %.0 = phi i64 [ 0, %1 ], [ 0, %7 ], [ %23, %21 ], [ 0, %19 ], [ 0, %12 ], [ 0, %10 ]
-  call void @EVP_MD_CTX_free(ptr noundef %4) #9
-  call void @EVP_MD_free(ptr noundef %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @EVP_MD_CTX_free(ptr noundef %4) #8
+  call void @EVP_MD_free(ptr noundef %3) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
   ret i64 %.0
 }
 
@@ -489,9 +489,9 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
-  %5 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null) #9
-  %6 = tail call i32 @i2d_X509_NAME(ptr noundef %4, ptr noundef null) #9
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #8
+  %5 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null) #8
+  %6 = tail call i32 @i2d_X509_NAME(ptr noundef %4, ptr noundef null) #8
   %7 = icmp sgt i32 %6, -1
   %8 = icmp ne ptr %5, null
   %or.cond.i = select i1 %7, i1 %8, i1 false
@@ -503,7 +503,7 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !26
   %14 = sext i32 %13 to i64
-  %15 = call i32 @EVP_Digest(ptr noundef %11, i64 noundef %14, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %5, ptr noundef null) #9
+  %15 = call i32 @EVP_Digest(ptr noundef %11, i64 noundef %14, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %5, ptr noundef null) #8
   %.not16.i = icmp eq i32 %15, 0
   br i1 %.not16.i, label %X509_NAME_hash_ex.exit, label %16
 
@@ -514,8 +514,8 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly
 
 X509_NAME_hash_ex.exit:                           ; preds = %1, %9, %16
   %.0.i = phi i64 [ %18, %16 ], [ 0, %9 ], [ 0, %1 ]
-  call void @EVP_MD_free(ptr noundef %5) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #9
+  call void @EVP_MD_free(ptr noundef %5) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #8
   ret i64 %.0.i
 }
 
@@ -533,8 +533,8 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %3, label %.thread32, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @X509_check_purpose(ptr noundef %0, i32 noundef -1, i32 noundef 0) #9
-  %6 = tail call i32 @X509_check_purpose(ptr noundef %1, i32 noundef -1, i32 noundef 0) #9
+  %5 = tail call i32 @X509_check_purpose(ptr noundef %0, i32 noundef -1, i32 noundef 0) #8
+  %6 = tail call i32 @X509_check_purpose(ptr noundef %1, i32 noundef -1, i32 noundef 0) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load i32, ptr %7, align 8, !tbaa !61
   %9 = and i32 %8, 1048576
@@ -551,7 +551,7 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %19 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %17, ptr noundef nonnull dereferenceable(20) %18, i64 noundef 20) #10
+  %19 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(20) %17, ptr noundef nonnull dereferenceable(20) %18, i64 noundef 20) #9
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.thread, label %20
 
@@ -589,7 +589,7 @@ define range(i32 -1, 2) i32 @X509_cmp(ptr noundef %0, ptr noundef %1) local_unna
 37:                                               ; preds = %35
   %38 = load ptr, ptr %22, align 8, !tbaa !64
   %39 = load ptr, ptr %26, align 8, !tbaa !64
-  %40 = tail call i32 @memcmp(ptr noundef %38, ptr noundef %39, i64 noundef %31) #10
+  %40 = tail call i32 @memcmp(ptr noundef %38, ptr noundef %39, i64 noundef %31) #9
   %.fr = freeze i32 %40
   %spec.select = tail call i32 @llvm.scmp.i32.i32(i32 %.fr, i32 0)
   br label %.thread32
@@ -608,15 +608,15 @@ define range(i32 0, 2) i32 @ossl_x509_add_cert_new(ptr noundef captures(none) %0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @OPENSSL_sk_new_null() #9
+  %7 = tail call ptr @OPENSSL_sk_new_null() #8
   store ptr %7, ptr %0, align 8, !tbaa !65
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %6
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.ossl_x509_add_cert_new) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.ossl_x509_add_cert_new) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #8
   br label %13
 
 10:                                               ; preds = %6, %3
@@ -643,9 +643,9 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.X509_add_cert) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786690, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.X509_add_cert) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786690, ptr noundef null) #8
   br label %.loopexit
 
 6:                                                ; preds = %3
@@ -658,19 +658,19 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
+  %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.thread
 
 12:                                               ; preds = %.lr.ph
   %13 = add nuw nsw i32 %.02233, 1
-  %14 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
+  %14 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
   %15 = icmp slt i32 %13, %14
   br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !67
 
 .lr.ph:                                           ; preds = %.preheader, %12
   %.02233 = phi i32 [ %13, %12 ], [ 0, %.preheader ]
-  %16 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.02233) #9
+  %16 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.02233) #8
   %17 = tail call i32 @X509_cmp(ptr noundef %16, ptr noundef nonnull %1)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %12
@@ -681,7 +681,7 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not26, label %24, label %20
 
 20:                                               ; preds = %.thread
-  %21 = tail call i32 @X509_self_signed(ptr noundef nonnull %1, i32 noundef 0) #9
+  %21 = tail call i32 @X509_self_signed(ptr noundef nonnull %1, i32 noundef 0) #8
   %.not27.not = icmp eq i32 %21, 0
   %22 = icmp sgt i32 %21, 0
   %23 = zext i1 %22 to i32
@@ -691,14 +691,14 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   %25 = lshr i32 %2, 1
   %26 = and i32 %25, 1
   %sext = add nsw i32 %26, -1
-  %27 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %sext) #9
+  %27 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %sext) #8
   %.not29 = icmp eq i32 %27, 0
   br i1 %.not29, label %28, label %29
 
 28:                                               ; preds = %24
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.X509_add_cert) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.X509_add_cert) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #8
   br label %.loopexit
 
 29:                                               ; preds = %24
@@ -707,7 +707,7 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not30, label %.loopexit, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @X509_up_ref(ptr noundef nonnull %1) #9
+  %32 = tail call i32 @X509_up_ref(ptr noundef nonnull %1) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %29, %31, %6, %28, %5
@@ -733,9 +733,9 @@ define range(i32 0, 2) i32 @X509_add_certs(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 233, ptr noundef nonnull @__func__.X509_add_certs) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786690, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 233, ptr noundef nonnull @__func__.X509_add_certs) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786690, ptr noundef null) #8
   br label %9
 
 7:                                                ; preds = %3
@@ -749,7 +749,7 @@ define range(i32 0, 2) i32 @X509_add_certs(ptr noundef %0, ptr noundef %1, i32 n
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_x509_add_certs_new(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #9
+  %4 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.loopexit
 
@@ -760,7 +760,7 @@ define range(i32 0, 2) i32 @ossl_x509_add_certs_new(ptr noundef captures(none) %
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %11
   %.01418.us = phi i32 [ %12, %11 ], [ 0, %.lr.ph ]
-  %8 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.01418.us) #9
+  %8 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %.01418.us) #8
   %9 = load ptr, ptr %0, align 8, !tbaa !65
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %ossl_x509_add_cert_new.exit.us
@@ -771,7 +771,7 @@ define range(i32 0, 2) i32 @ossl_x509_add_certs_new(ptr noundef captures(none) %
   br i1 %exitcond24.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !69
 
 13:                                               ; preds = %.lr.ph.split.us
-  %14 = tail call ptr @OPENSSL_sk_new_null() #9
+  %14 = tail call ptr @OPENSSL_sk_new_null() #8
   store ptr %14, ptr %0, align 8, !tbaa !65
   %15 = icmp eq ptr %14, null
   br i1 %15, label %ossl_x509_add_cert_new.exit.thread, label %ossl_x509_add_cert_new.exit.us
@@ -791,21 +791,21 @@ ossl_x509_add_cert_new.exit.us:                   ; preds = %.lr.ph.split.us, %1
   %.01418 = phi i32 [ %19, %18 ], [ 0, %.lr.ph ]
   %20 = xor i32 %.01418, -1
   %21 = add nsw i32 %4, %20
-  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %21) #9
+  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %1, i32 noundef %21) #8
   %23 = load ptr, ptr %0, align 8, !tbaa !65
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %ossl_x509_add_cert_new.exit
 
 25:                                               ; preds = %.lr.ph.split
-  %26 = tail call ptr @OPENSSL_sk_new_null() #9
+  %26 = tail call ptr @OPENSSL_sk_new_null() #8
   store ptr %26, ptr %0, align 8, !tbaa !65
   %27 = icmp eq ptr %26, null
   br i1 %27, label %ossl_x509_add_cert_new.exit.thread, label %ossl_x509_add_cert_new.exit
 
 ossl_x509_add_cert_new.exit.thread:               ; preds = %25, %13
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.ossl_x509_add_cert_new) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 187, ptr noundef nonnull @__func__.ossl_x509_add_cert_new) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #8
   br label %.loopexit
 
 ossl_x509_add_cert_new.exit:                      ; preds = %.lr.ph.split, %25
@@ -826,7 +826,7 @@ declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_find_by_issuer_and_serial(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.x509_st, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %5
 
@@ -835,19 +835,19 @@ define ptr @X509_find_by_issuer_and_serial(ptr noundef %0, ptr noundef %1, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !70
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %1, ptr %7, align 8, !tbaa !27
-  %8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
+  %8 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5, %X509_issuer_and_serial_cmp.exit.thread
   %.013 = phi i32 [ %20, %X509_issuer_and_serial_cmp.exit.thread ], [ 0, %5 ]
-  %10 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.013) #9
+  %10 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.013) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %X509_issuer_and_serial_cmp.exit.thread, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %13, ptr noundef nonnull %6) #9
+  %14 = call i32 @ASN1_INTEGER_cmp(ptr noundef nonnull %13, ptr noundef nonnull %6) #8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %X509_issuer_and_serial_cmp.exit, label %X509_issuer_and_serial_cmp.exit.thread
 
@@ -861,13 +861,13 @@ X509_issuer_and_serial_cmp.exit:                  ; preds = %12
 
 X509_issuer_and_serial_cmp.exit.thread:           ; preds = %12, %.lr.ph, %X509_issuer_and_serial_cmp.exit
   %20 = add nuw nsw i32 %.013, 1
-  %21 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
+  %21 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #8
   %22 = icmp slt i32 %20, %21
   br i1 %22, label %.lr.ph, label %.loopexit, !llvm.loop !73
 
 .loopexit:                                        ; preds = %X509_issuer_and_serial_cmp.exit, %X509_issuer_and_serial_cmp.exit.thread, %5, %3
   %.010 = phi ptr [ null, %3 ], [ null, %5 ], [ %10, %X509_issuer_and_serial_cmp.exit ], [ null, %X509_issuer_and_serial_cmp.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #8
   ret ptr %.010
 }
 
@@ -876,19 +876,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_find_by_subject(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #9
+  %3 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 5:                                                ; preds = %.lr.ph
   %6 = add nuw nsw i32 %.09, 1
-  %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #9
+  %7 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #8
   %8 = icmp slt i32 %6, %7
   br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 .lr.ph:                                           ; preds = %2, %5
   %.09 = phi i32 [ %6, %5 ], [ 0, %2 ]
-  %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %.09) #9
+  %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %.09) #8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = tail call i32 @X509_NAME_cmp(ptr noundef %11, ptr noundef %1)
@@ -908,7 +908,7 @@ define ptr @X509_get0_pubkey(ptr noundef readonly captures(address_is_null) %0) 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !75
-  %6 = tail call ptr @X509_PUBKEY_get0(ptr noundef %5) #9
+  %6 = tail call ptr @X509_PUBKEY_get0(ptr noundef %5) #8
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -926,7 +926,7 @@ define ptr @X509_get_pubkey(ptr noundef readonly captures(address_is_null) %0) l
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !75
-  %6 = tail call ptr @X509_PUBKEY_get(ptr noundef %5) #9
+  %6 = tail call ptr @X509_PUBKEY_get(ptr noundef %5) #8
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -944,14 +944,14 @@ define range(i32 0, 2) i32 @X509_check_private_key(ptr noundef readonly captures
 X509_get0_pubkey.exit:                            ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !75
-  %6 = tail call ptr @X509_PUBKEY_get0(ptr noundef %5) #9
+  %6 = tail call ptr @X509_PUBKEY_get0(ptr noundef %5) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %X509_get0_pubkey.exit.thread, label %8
 
 X509_get0_pubkey.exit.thread:                     ; preds = %2, %X509_get0_pubkey.exit
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @__func__.X509_check_private_key) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 108, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @__func__.X509_check_private_key) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 108, ptr noundef null) #8
   br label %10
 
 8:                                                ; preds = %X509_get0_pubkey.exit
@@ -969,13 +969,13 @@ define range(i32 0, 2) i32 @ossl_x509_check_private_key(ptr noundef %0, ptr noun
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 411, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786690, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 411, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786690, ptr noundef null) #8
   br label %11
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @EVP_PKEY_eq(ptr noundef nonnull %0, ptr noundef %1) #9
+  %6 = tail call i32 @EVP_PKEY_eq(ptr noundef nonnull %0, ptr noundef %1) #8
   switch i32 %6, label %10 [
     i32 1, label %11
     i32 0, label %7
@@ -984,21 +984,21 @@ define range(i32 0, 2) i32 @ossl_x509_check_private_key(ptr noundef %0, ptr noun
   ]
 
 7:                                                ; preds = %5
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 418, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 116, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 418, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 116, ptr noundef null) #8
   br label %11
 
 8:                                                ; preds = %5
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 421, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 115, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 421, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 115, ptr noundef null) #8
   br label %11
 
 9:                                                ; preds = %5
-  tail call void @ERR_new() #9
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 424, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #9
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 117, ptr noundef null) #9
+  tail call void @ERR_new() #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 424, ptr noundef nonnull @__func__.ossl_x509_check_private_key) #8
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 117, ptr noundef null) #8
   br label %10
 
 10:                                               ; preds = %9, %5
@@ -1030,7 +1030,7 @@ define range(i32 0, 62) i32 @X509_chain_check_suiteb(ptr noundef writeonly captu
   br i1 %15, label %16, label %X509_get0_pubkey.exit
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef 0) #9
+  %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef 0) #8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %X509_get0_pubkey.exit.thread, label %X509_get0_pubkey.exit
 
@@ -1039,7 +1039,7 @@ X509_get0_pubkey.exit:                            ; preds = %16, %14
   %.04291 = phi ptr [ %17, %16 ], [ %1, %14 ]
   %19 = getelementptr inbounds nuw i8, ptr %.04291, i64 80
   %20 = load ptr, ptr %19, align 8, !tbaa !75
-  %21 = tail call ptr @X509_PUBKEY_get0(ptr noundef %20) #9
+  %21 = tail call ptr @X509_PUBKEY_get0(ptr noundef %20) #8
   %22 = icmp eq ptr %2, null
   br i1 %22, label %24, label %37
 
@@ -1048,28 +1048,28 @@ X509_get0_pubkey.exit.thread:                     ; preds = %16
   br i1 %23, label %.thread102, label %.thread104
 
 .thread102:                                       ; preds = %X509_get0_pubkey.exit.thread
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
   br label %check_suite_b.exit
 
 24:                                               ; preds = %X509_get0_pubkey.exit
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
   %25 = icmp eq ptr %21, null
   br i1 %25, label %check_suite_b.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %21, ptr noundef nonnull @.str.4) #9
+  %27 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %21, ptr noundef nonnull @.str.4) #8
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %check_suite_b.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %21, ptr noundef nonnull %11, i64 noundef 80, ptr noundef nonnull %12) #9
+  %29 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %21, ptr noundef nonnull %11, i64 noundef 80, ptr noundef nonnull %12) #8
   %.not17.i = icmp eq i32 %29, 0
   br i1 %.not17.i, label %check_suite_b.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = call i32 @OBJ_txt2nid(ptr noundef nonnull %11) #9
+  %31 = call i32 @OBJ_txt2nid(ptr noundef nonnull %11) #8
   switch i32 %31, label %check_suite_b.exit [
     i32 715, label %32
     i32 415, label %34
@@ -1090,43 +1090,43 @@ X509_get0_pubkey.exit.thread:                     ; preds = %16
 
 check_suite_b.exit:                               ; preds = %.thread102, %24, %26, %28, %30, %32, %34, %36
   %.0.i57 = phi i32 [ 0, %36 ], [ 57, %26 ], [ 57, %24 ], [ 58, %28 ], [ 60, %32 ], [ 60, %34 ], [ 58, %30 ], [ 57, %.thread102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #8
   br label %103
 
 37:                                               ; preds = %X509_get0_pubkey.exit
-  %38 = tail call i64 @X509_get_version(ptr noundef nonnull %.04291) #9
+  %38 = tail call i64 @X509_get_version(ptr noundef nonnull %.04291) #8
   %.not49 = icmp eq i64 %38, 2
   br i1 %.not49, label %40, label %.thread131.thread
 
 .thread104:                                       ; preds = %X509_get0_pubkey.exit.thread
-  %39 = tail call i64 @X509_get_version(ptr noundef null) #9
+  %39 = tail call i64 @X509_get_version(ptr noundef null) #8
   %.not49108 = icmp eq i64 %39, 2
   br i1 %.not49108, label %.thread112, label %.thread131.thread
 
 .thread112:                                       ; preds = %.thread104
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
   br label %check_suite_b.exit63.thread
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
   %41 = icmp eq ptr %21, null
   br i1 %41, label %check_suite_b.exit63.thread, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %21, ptr noundef nonnull @.str.4) #9
+  %43 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %21, ptr noundef nonnull @.str.4) #8
   %.not.i58 = icmp eq i32 %43, 0
   br i1 %.not.i58, label %check_suite_b.exit63.thread, label %44
 
 44:                                               ; preds = %42
-  %45 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %21, ptr noundef nonnull %9, i64 noundef 80, ptr noundef nonnull %10) #9
+  %45 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %21, ptr noundef nonnull %9, i64 noundef 80, ptr noundef nonnull %10) #8
   %.not17.i59 = icmp eq i32 %45, 0
   br i1 %.not17.i59, label %check_suite_b.exit63.thread, label %46
 
 46:                                               ; preds = %44
-  %47 = call i32 @OBJ_txt2nid(ptr noundef nonnull %9) #9
+  %47 = call i32 @OBJ_txt2nid(ptr noundef nonnull %9) #8
   switch i32 %47, label %check_suite_b.exit63.thread [
     i32 715, label %48
     i32 415, label %52
@@ -1148,15 +1148,15 @@ check_suite_b.exit:                               ; preds = %.thread102, %24, %2
 
 check_suite_b.exit63.thread:                      ; preds = %42, %40, %44, %48, %52, %46, %.thread112
   %.0.i61.ph = phi i32 [ 57, %.thread112 ], [ 58, %46 ], [ 60, %52 ], [ 60, %48 ], [ 58, %44 ], [ 57, %40 ], [ 57, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #8
   br label %.thread131
 
 check_suite_b.exit63:                             ; preds = %52, %50
   %.3 = phi i64 [ %51, %50 ], [ %3, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #9
-  %54 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #8
+  %54 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #8
   %55 = icmp slt i32 %.03893, %54
   br i1 %55, label %.lr.ph, label %._crit_edge
 
@@ -1164,9 +1164,9 @@ check_suite_b.exit63:                             ; preds = %52, %50
   %.2161 = phi i32 [ %80, %79 ], [ %.03893, %check_suite_b.exit63 ]
   %.143160 = phi ptr [ %57, %79 ], [ %.04291, %check_suite_b.exit63 ]
   %.187159 = phi i64 [ %.5, %79 ], [ %.3, %check_suite_b.exit63 ]
-  %56 = call i32 @X509_get_signature_nid(ptr noundef nonnull %.143160) #9
-  %57 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %.2161) #9
-  %58 = call i64 @X509_get_version(ptr noundef %57) #9
+  %56 = call i32 @X509_get_signature_nid(ptr noundef nonnull %.143160) #8
+  %57 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %.2161) #8
+  %58 = call i64 @X509_get_version(ptr noundef %57) #8
   %.not51 = icmp eq i64 %58, 2
   br i1 %.not51, label %59, label %.thread131.thread
 
@@ -1175,31 +1175,31 @@ check_suite_b.exit63:                             ; preds = %52, %50
   br i1 %60, label %X509_get0_pubkey.exit65.thread, label %X509_get0_pubkey.exit65
 
 X509_get0_pubkey.exit65.thread:                   ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   br label %check_suite_b.exit71.thread
 
 X509_get0_pubkey.exit65:                          ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %62 = load ptr, ptr %61, align 8, !tbaa !75
-  %63 = call ptr @X509_PUBKEY_get0(ptr noundef %62) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  %63 = call ptr @X509_PUBKEY_get0(ptr noundef %62) #8
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %check_suite_b.exit71.thread, label %65
 
 65:                                               ; preds = %X509_get0_pubkey.exit65
-  %66 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %63, ptr noundef nonnull @.str.4) #9
+  %66 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %63, ptr noundef nonnull @.str.4) #8
   %.not.i66 = icmp eq i32 %66, 0
   br i1 %.not.i66, label %check_suite_b.exit71.thread, label %67
 
 67:                                               ; preds = %65
-  %68 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %63, ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %8) #9
+  %68 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %63, ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %8) #8
   %.not17.i67 = icmp eq i32 %68, 0
   br i1 %.not17.i67, label %check_suite_b.exit71.thread, label %69
 
 69:                                               ; preds = %67
-  %70 = call i32 @OBJ_txt2nid(ptr noundef nonnull %7) #9
+  %70 = call i32 @OBJ_txt2nid(ptr noundef nonnull %7) #8
   switch i32 %70, label %check_suite_b.exit71.thread [
     i32 715, label %71
     i32 415, label %76
@@ -1233,16 +1233,16 @@ X509_get0_pubkey.exit65:                          ; preds = %59
 
 check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubkey.exit65, %67, %71, %72, %76, %77, %69, %X509_get0_pubkey.exit65.thread
   %.0.i69.ph = phi i32 [ 57, %X509_get0_pubkey.exit65.thread ], [ 57, %65 ], [ 57, %X509_get0_pubkey.exit65 ], [ 58, %67 ], [ 59, %71 ], [ 60, %72 ], [ 59, %76 ], [ 60, %77 ], [ 58, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
   br label %.thread131
 
 79:                                               ; preds = %77, %74
   %.5 = phi i64 [ %75, %74 ], [ %.187159, %77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
   %80 = add nuw nsw i32 %.2161, 1
-  %81 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #9
+  %81 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #8
   %82 = icmp slt i32 %80, %81
   br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
@@ -1251,20 +1251,20 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   %.143.lcssa = phi ptr [ %.04291, %check_suite_b.exit63 ], [ %57, %79 ]
   %.2.lcssa = phi i32 [ %.03893, %check_suite_b.exit63 ], [ %80, %79 ]
   %.0.lcssa = phi ptr [ %21, %check_suite_b.exit63 ], [ %63, %79 ]
-  %83 = call i32 @X509_get_signature_nid(ptr noundef nonnull %.143.lcssa) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  %84 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %.0.lcssa, ptr noundef nonnull @.str.4) #9
+  %83 = call i32 @X509_get_signature_nid(ptr noundef nonnull %.143.lcssa) #8
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  %84 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %.0.lcssa, ptr noundef nonnull @.str.4) #8
   %.not.i72 = icmp eq i32 %84, 0
   br i1 %.not.i72, label %.thread140, label %85
 
 85:                                               ; preds = %._crit_edge
-  %86 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %.0.lcssa, ptr noundef nonnull %5, i64 noundef 80, ptr noundef nonnull %6) #9
+  %86 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %.0.lcssa, ptr noundef nonnull %5, i64 noundef 80, ptr noundef nonnull %6) #8
   %.not17.i73 = icmp eq i32 %86, 0
   br i1 %.not17.i73, label %.thread140, label %87
 
 87:                                               ; preds = %85
-  %88 = call i32 @OBJ_txt2nid(ptr noundef nonnull %5) #9
+  %88 = call i32 @OBJ_txt2nid(ptr noundef nonnull %5) #8
   switch i32 %88, label %.thread140 [
     i32 715, label %89
     i32 415, label %92
@@ -1294,13 +1294,13 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
 
 .thread140:                                       ; preds = %._crit_edge, %85, %89, %90, %92, %93, %87
   %.0.i75.ph = phi i32 [ 58, %87 ], [ 60, %93 ], [ 59, %92 ], [ 60, %90 ], [ 59, %89 ], [ 58, %85 ], [ 57, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
   br label %.thread131
 
 95:                                               ; preds = %90, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
   br label %103
 
 .thread131:                                       ; preds = %check_suite_b.exit71.thread, %check_suite_b.exit63.thread, %.thread140
@@ -1350,24 +1350,24 @@ define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !77
-  %10 = tail call i32 @OBJ_obj2nid(ptr noundef %9) #9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  %10 = tail call i32 @OBJ_obj2nid(ptr noundef %9) #8
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %11 = icmp eq ptr %1, null
   br i1 %11, label %check_suite_b.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #9
+  %13 = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %1, ptr noundef nonnull @.str.4) #8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %check_suite_b.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull %5) #9
+  %15 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull %5) #8
   %.not17.i = icmp eq i32 %15, 0
   br i1 %.not17.i, label %check_suite_b.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 @OBJ_txt2nid(ptr noundef nonnull %4) #9
+  %17 = call i32 @OBJ_txt2nid(ptr noundef nonnull %4) #8
   switch i32 %17, label %check_suite_b.exit [
     i32 715, label %18
     i32 415, label %21
@@ -1400,8 +1400,8 @@ define range(i32 0, 61) i32 @X509_CRL_check_suiteb(ptr noundef readonly captures
 
 check_suite_b.exit:                               ; preds = %7, %12, %14, %16, %18, %19, %21, %22, %24
   %.0.i = phi i32 [ 0, %24 ], [ 57, %12 ], [ 57, %7 ], [ 58, %14 ], [ 59, %18 ], [ 60, %19 ], [ 59, %21 ], [ 60, %22 ], [ 58, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
   br label %25
 
 25:                                               ; preds = %3, %check_suite_b.exit
@@ -1413,19 +1413,19 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @X509_chain_up_ref(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @OPENSSL_sk_dup(ptr noundef %0) #9
+  %2 = tail call ptr @OPENSSL_sk_dup(ptr noundef %0) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader17
 
 .preheader17:                                     ; preds = %1
-  %4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #9
+  %4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader17, %8
   %.01519 = phi i32 [ %9, %8 ], [ 0, %.preheader17 ]
-  %6 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %.01519) #9
-  %7 = tail call i32 @X509_up_ref(ptr noundef %6) #9
+  %6 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %.01519) #8
+  %7 = tail call i32 @X509_up_ref(ptr noundef %6) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.preheader, label %8
 
@@ -1435,20 +1435,20 @@ define ptr @X509_chain_up_ref(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i32 %.01519, 1
-  %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #9
+  %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #8
   %11 = icmp slt i32 %9, %10
   br i1 %11, label %.lr.ph, label %.loopexit, !llvm.loop !78
 
 .lr.ph21:                                         ; preds = %.preheader, %.lr.ph21
   %.120 = phi i32 [ %12, %.lr.ph21 ], [ %.01519, %.preheader ]
   %12 = add nsw i32 %.120, -1
-  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %12) #9
-  tail call void @X509_free(ptr noundef %13) #9
+  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef %12) #8
+  tail call void @X509_free(ptr noundef %13) #8
   %14 = icmp sgt i32 %.120, 1
   br i1 %14, label %.lr.ph21, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph21, %.preheader
-  tail call void @OPENSSL_sk_free(ptr noundef nonnull %2) #9
+  tail call void @OPENSSL_sk_free(ptr noundef nonnull %2) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.preheader17, %1, %._crit_edge

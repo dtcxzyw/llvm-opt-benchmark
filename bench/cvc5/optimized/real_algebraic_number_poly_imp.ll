@@ -1306,8 +1306,8 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal19RealAlgebraicNum
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumber6isZeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !34
-  %4 = icmp eq i32 %3, 0
-  ret i1 %4
+  %.not.i = icmp eq i32 %3, 0
+  ret i1 %.not.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable

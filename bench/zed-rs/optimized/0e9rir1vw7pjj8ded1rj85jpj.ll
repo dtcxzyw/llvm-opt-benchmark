@@ -2659,12 +2659,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 17:                                               ; preds = %2
   %switch.i = icmp slt i8 %7, 1
-  %switch7.i = icmp sgt i8 %10, -1
-  %spec.select8.i = and i1 %switch.i, %switch7.i
+  %.inv8.i = icmp sgt i8 %10, -1
+  %spec.select10.i = and i1 %switch.i, %.inv8.i
   br label %"_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17h85761762827689c4E.llvm.2322846936782632955.exit"
 
 "_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17h85761762827689c4E.llvm.2322846936782632955.exit": ; preds = %14, %17
-  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select8.i, %17 ]
+  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select10.i, %17 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -6936,12 +6936,12 @@ define hidden noundef zeroext i1 @"_ZN6editor11display_map8fold_map18intersectin
 
 16:                                               ; preds = %2
   %switch = icmp slt i8 %6, 1
-  %switch7 = icmp sgt i8 %9, -1
-  %spec.select8 = and i1 %switch, %switch7
+  %.inv8 = icmp sgt i8 %9, -1
+  %spec.select10 = and i1 %switch, %.inv8
   br label %17
 
 17:                                               ; preds = %16, %13
-  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select8, %16 ]
+  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select10, %16 ]
   ret i1 %.sroa.0.0
 }
 

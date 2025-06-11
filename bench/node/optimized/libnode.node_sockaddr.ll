@@ -1045,8 +1045,8 @@ sw.bb11:                                          ; preds = %sw.bb7
 if.then.i49:                                      ; preds = %sw.bb11
   %sin6_addr.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %sin6_addr2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 16
-  %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i50, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
-  %cmp1.i = icmp eq i32 %bcmp13.i, 0
+  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i50, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
+  %cmp4.not.i.not.i = icmp eq i32 %bcmp14.i, 0
   br label %return
 
 if.end.i37:                                       ; preds = %sw.bb11
@@ -1077,7 +1077,7 @@ if.end16.i:                                       ; preds = %if.end.i37
   br label %return
 
 return:                                           ; preds = %if.end16.i, %if.end.i37, %if.then.i49, %if.end10.i, %if.end.i21, %if.end.i.i30, %if.then.i29, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
-  %retval.0 = phi i1 [ %cmp.i, %sw.bb3 ], [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp1.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
+  %retval.0 = phi i1 [ %cmp.i, %sw.bb3 ], [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp4.not.i.not.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
   ret i1 %retval.0
 }
 
