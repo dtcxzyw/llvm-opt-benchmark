@@ -15111,16 +15111,12 @@ define void @_ZN5theme8registry13ThemeRegistry19load_bundled_themes17h19ed9f68a3
   %23 = alloca [1860 x i8], align 4
   %24 = alloca [1488 x i8], align 4
   %25 = alloca [3424 x i8], align 8
-  %.sroa.13.i.i.i.i = alloca [7 x i8], align 1
-  %.sroa.14.i.i.i.i = alloca [7 x i8], align 1
   %26 = alloca [2360 x i8], align 8
   %27 = alloca [24 x i8], align 8
   %.sroa.10.i.i.i = alloca [48 x i8], align 8
   %.sroa.12.i.i.i = alloca [64 x i8], align 8
   %.sroa.13.i.i.i = alloca [1488 x i8], align 8
   %.sroa.14.i.i.i = alloca [672 x i8], align 8
-  %.sroa.16.i.i.i = alloca [7 x i8], align 1
-  %.sroa.18.i.i.i = alloca [7 x i8], align 1
   %28 = alloca [32 x i8], align 8
   %29 = alloca [32 x i8], align 8
   %30 = alloca [88 x i8], align 8
@@ -15257,8 +15253,6 @@ common.resume:                                    ; preds = %128, %54
   %.sroa.11151.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 120
   %.sroa.12152.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 184
   %.sroa.13153.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 1672
-  %.sroa.15155.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 2345
-  %.sroa.17157.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 2353
   %.sroa.4145.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 24
   %.sroa.5.0..sroa_idx146.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %.sroa.6147.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -15545,8 +15539,6 @@ common.resume:                                    ; preds = %128, %54
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.12.i.i.i)
   call void @llvm.lifetime.start.p0(i64 1488, ptr nonnull %.sroa.13.i.i.i)
   call void @llvm.lifetime.start.p0(i64 672, ptr nonnull %.sroa.14.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.16.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.18.i.i.i)
   %163 = cmpxchg weak ptr %62, i64 0, i64 8 acquire monotonic, align 8, !noalias !1822
   %164 = extractvalue { i64, i1 } %163, 1
   br i1 %164, label %172, label %165
@@ -15593,8 +15585,6 @@ common.resume:                                    ; preds = %128, %54
   %.sroa.6.0..sroa_idx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %176, i64 8
   call void @llvm.lifetime.start.p0(i64 3424, ptr nonnull %25), !noalias !1839
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3416) %.sroa.49.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(3416) %.sroa.6.0..sroa_idx2.i.i.i.i, i64 3416, i1 false), !noalias !1839
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.13.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.14.i.i.i.i)
   store i64 %.sroa.0.0.copyload1.i.i.i.i, ptr %25, align 8, !noalias !1840
   call void @llvm.experimental.noalias.scope.decl(metadata !1843)
   call void @llvm.lifetime.start.p0(i64 1488, ptr nonnull %24), !noalias !1846
@@ -16278,10 +16268,6 @@ _ZN5theme6styles7accents12AccentColors5merge17h6308ac02d112f52dE.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2085
   call void @llvm.lifetime.end.p0(i64 3424, ptr nonnull %25), !noalias !1839
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.10.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.04.i.i.i.i.i.i, i64 48, i1 false), !noalias !1822
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.13.i.i.i.i, i64 7, i1 false), !noalias !1822
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.18.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.i.i.i.i, i64 7, i1 false), !noalias !1822
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.13.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.04.i.i.i.i.i.i)
   %363 = icmp eq i64 %.sroa.026.0.copyload27.i.i.i, 2
   br i1 %363, label %.loopexit47.i.i.i.loopexit, label %484
@@ -16691,8 +16677,6 @@ _ZN5theme6styles7accents12AccentColors5merge17h6308ac02d112f52dE.exit.i: ; preds
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.11151.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.12.i.i.i, i64 64, i1 false), !noalias !1822
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1488) %.sroa.12152.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(1488) %.sroa.13.i.i.i, i64 1488, i1 false), !noalias !1822
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(672) %.sroa.13153.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(672) %.sroa.14.i.i.i, i64 672, i1 false), !noalias !1822
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.15155.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.i.i.i, i64 7, i1 false), !noalias !1822
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.17157.0..sroa_idx.i.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.18.i.i.i, i64 7, i1 false), !noalias !1822
   store i64 1, ptr %26, align 8, !noalias !1822
   store i64 1, ptr %88, align 8, !noalias !1822
   store i64 %.sroa.026.0.copyload27.i.i.i, ptr %89, align 8, !noalias !1822
@@ -16874,8 +16858,6 @@ _ZN5theme6styles7accents12AccentColors5merge17h6308ac02d112f52dE.exit.i: ; preds
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.12.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1488, ptr nonnull %.sroa.13.i.i.i)
   call void @llvm.lifetime.end.p0(i64 672, ptr nonnull %.sroa.14.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.18.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !1815
   %559 = icmp eq i64 %.sroa.024.0.copyload25.i1672, 0
   br i1 %559, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit3.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2471798985521550805.exit.i.i1.i.i2.i"

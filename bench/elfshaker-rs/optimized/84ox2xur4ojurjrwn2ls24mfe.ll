@@ -7239,8 +7239,6 @@ define void @_ZN9elfshaker4repo4pack4Pack9open_pack17h0346791b09a2990aE(ptr dead
   %12 = alloca [24 x i8], align 8
   %13 = alloca [48 x i8], align 8
   %14 = alloca [40 x i8], align 8
-  %.sroa.722 = alloca [32 x i8], align 8
-  %.sroa.616 = alloca [32 x i8], align 8
   %15 = alloca [32 x i8], align 8
   %16 = alloca [8 x i8], align 8
   %17 = alloca [24 x i8], align 8
@@ -7334,8 +7332,6 @@ define void @_ZN9elfshaker4repo4pack4Pack9open_pack17h0346791b09a2990aE(ptr dead
   %52 = ptrtoint ptr %48 to i64
   store i64 %52, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.616)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.722)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %53 = load ptr, ptr %41, align 8, !nonnull !3, !noundef !3
   %54 = load i64, ptr %42, align 8, !noundef !3
@@ -7428,23 +7424,14 @@ define void @_ZN9elfshaker4repo4pack4Pack9open_pack17h0346791b09a2990aE(ptr dead
 79:                                               ; preds = %.invoke125, %.invoke, %75
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.616, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.722, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.722)
-  %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.265.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.616, i64 32, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775799, ptr %80, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.616)
   br label %126
 
 81:                                               ; preds = %71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.722, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.616, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.722, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.722)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.616, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.616)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false)
   invoke void @"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17habea23a93376a385E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13)

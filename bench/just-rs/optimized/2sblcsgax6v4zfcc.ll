@@ -14625,7 +14625,6 @@ define noundef zeroext i1 @"_ZN72_$LT$just..token..Token$u20$as$u20$just..color_
   %39 = alloca { { i64, [2 x i64] }, { i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } } }, align 8
   %40 = alloca [2 x { ptr, ptr }], align 8
   %41 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %.sroa.10165 = alloca [7 x i8], align 1
   %42 = alloca [2 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %43 = alloca { i8, { i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, i8 }, align 1
   %44 = alloca { i8, { i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } }, i8 }, align 1
@@ -14633,7 +14632,6 @@ define noundef zeroext i1 @"_ZN72_$LT$just..token..Token$u20$as$u20$just..color_
   %46 = alloca [3 x { ptr, ptr }], align 8
   %47 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.10123 = alloca [7 x i8], align 1
-  %.sroa.12 = alloca [7 x i8], align 1
   %48 = alloca [5 x { { i64, [1 x i64] }, { i64, [1 x i64] }, i64, i32, i32, i8, [7 x i8] }], align 8
   %49 = alloca i64, align 8
   %50 = alloca { { ptr, i64 } }, align 8
@@ -15046,8 +15044,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   store i32 0, ptr %.sroa.1075.0..sroa_idx, align 4
   %.sroa.1182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 104
   store i8 3, ptr %.sroa.1182.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   %189 = getelementptr inbounds nuw i8, ptr %48, i64 112
   store i64 2, ptr %189, align 8
   %.sroa.594.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 128
@@ -15265,8 +15261,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   store i32 0, ptr %.sroa.8159.0..sroa_idx, align 4
   %.sroa.9162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 48
   store i8 3, ptr %.sroa.9162.0..sroa_idx, align 8
-  %.sroa.10165.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10165.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10165, i64 7, i1 false)
   %236 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store i64 2, ptr %236, align 8
   %.sroa.647.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %42, i64 72
@@ -15279,8 +15273,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   store i32 0, ptr %.sroa.1075.0..sroa_idx76, align 4
   %.sroa.1182.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %42, i64 104
   store i8 3, ptr %.sroa.1182.0..sroa_idx83, align 8
-  %.sroa.12.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %42, i64 105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx89, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   store ptr @anon.7c6f7af04c557118a051d24cf1a7517f.206, ptr %47, align 8
   %237 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 3, ptr %237, align 8
@@ -15688,8 +15680,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   store i32 0, ptr %.sroa.8159.0..sroa_idx160, align 4
   %.sroa.9162.0..sroa_idx163 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i8 3, ptr %.sroa.9162.0..sroa_idx163, align 8
-  %.sroa.10165.0..sroa_idx166 = getelementptr inbounds nuw i8, ptr %28, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10165.0..sroa_idx166, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10165, i64 7, i1 false)
   %343 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store i64 2, ptr %343, align 8
   %.sroa.647.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %28, i64 72
@@ -15702,8 +15692,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   store i32 0, ptr %.sroa.1075.0..sroa_idx78, align 4
   %.sroa.1182.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %28, i64 104
   store i8 3, ptr %.sroa.1182.0..sroa_idx85, align 8
-  %.sroa.12.0..sroa_idx90 = getelementptr inbounds nuw i8, ptr %28, i64 105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx90, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   store ptr @anon.7c6f7af04c557118a051d24cf1a7517f.145, ptr %33, align 8
   %344 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 2, ptr %344, align 8
@@ -15941,8 +15929,6 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   store i32 0, ptr %.sroa.1075.0..sroa_idx80, align 4
   %.sroa.1182.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store i8 3, ptr %.sroa.1182.0..sroa_idx87, align 8
-  %.sroa.12.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %22, i64 105
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12.0..sroa_idx91, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.12, i64 7, i1 false)
   %395 = getelementptr inbounds nuw i8, ptr %22, i64 112
   store i64 2, ptr %395, align 8
   %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 128

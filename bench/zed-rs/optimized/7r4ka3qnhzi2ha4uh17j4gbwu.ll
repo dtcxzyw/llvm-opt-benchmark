@@ -7421,22 +7421,14 @@ common.resume:                                    ; preds = %.thread, %218, %227
   %157 = getelementptr inbounds nuw i8, ptr %21, i64 72
   store i64 -9223372036854775807, ptr %157, align 8
   store i64 -9223372036854775808, ptr %21, align 8
-  %.sroa.966.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.966.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.966, i64 16, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 -9223372036854775808, ptr %158, align 8
-  %.sroa.578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.578.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.578, i64 16, i1 false)
   %159 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i64 -9223372036854775803, ptr %159, align 8
-  %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.586.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.586, i64 64, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %21, i64 176
   %161 = getelementptr inbounds nuw i8, ptr %21, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %160, i8 0, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %161, align 8
-  %.sroa.966.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.966.0..sroa_idx67, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.966, i64 16, i1 false)
   %162 = getelementptr inbounds nuw i8, ptr %21, i64 216
   store ptr null, ptr %162, align 8
   %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 232
@@ -7525,14 +7517,6 @@ common.resume:                                    ; preds = %.thread, %218, %227
 
 179:                                              ; preds = %172
   store i8 0, ptr %174, align 1
-  %.sroa.033.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 488
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.033.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.966, i64 16, i1 false)
-  %.sroa.033.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.033.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.578, i64 16, i1 false)
-  %.sroa.033.sroa.7.sroa.4.0..sroa.033.sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.033.sroa.7.sroa.4.0..sroa.033.sroa.7.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.586, i64 64, i1 false)
-  %.sroa.033.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %142, i64 536
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.033.sroa.0.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.966, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %142, ptr noundef nonnull align 8 dereferenceable(240) %23, i64 240, i1 false)
   %180 = getelementptr inbounds nuw i8, ptr %142, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %180, ptr noundef nonnull align 8 dereferenceable(240) %20, i64 240, i1 false)

@@ -15050,12 +15050,12 @@ define void @_ZN3awc10middleware8redirect14build_next_uri17h6b3e675da6dce98bE(pt
   %.sroa.5 = alloca [5 x i8], align 1
   %13 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %.sroa.3.sroa.0 = alloca [7 x i8], align 1
+  %.sroa.3.sroa.7 = alloca [45 x i8], align 1
   %.sroa.4 = alloca [32 x i8], align 8
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { { i8, [87 x i8] } }, align 8
   %16 = alloca { i8, [87 x i8] }, align 8
   %.sroa.10 = alloca [77 x i8], align 1
-  %.sroa.7.sroa.10 = alloca [45 x i8], align 1
   %17 = alloca [2 x { ptr, i64 }], align 8
   %18 = alloca { { i64, ptr, {} }, i64 }, align 8
   %19 = alloca { i8, [87 x i8] }, align 8
@@ -15627,7 +15627,7 @@ define void @_ZN3awc10middleware8redirect14build_next_uri17h6b3e675da6dce98bE(pt
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(77) %.sroa.10, ptr noundef nonnull align 1 dereferenceable(77) %.sroa.10.0..sroa_idx, i64 77, i1 false), !alias.scope !1889
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %.sroa.7.sroa.10, ptr noundef nonnull align 1 dereferenceable(45) %.sroa.10, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %.sroa.3.sroa.7, ptr noundef nonnull align 1 dereferenceable(45) %.sroa.10, i64 45, i1 false)
   %.sroa.10.56..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.10, i64 45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.10.56..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 77, ptr nonnull %.sroa.10)
@@ -15642,7 +15642,7 @@ define void @_ZN3awc10middleware8redirect14build_next_uri17h6b3e675da6dce98bE(pt
   %.sroa.3.sroa.6.0..sroa.3.0..sroa_idx18.c.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %.sroa.9160.0.copyload, ptr %.sroa.3.sroa.6.0..sroa.3.0..sroa_idx18.c.sroa_idx, align 2
   %.sroa.3.sroa.7.0..sroa.3.0..sroa_idx18.c.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %.sroa.3.sroa.7.0..sroa.3.0..sroa_idx18.c.sroa_idx, ptr noundef nonnull align 1 dereferenceable(45) %.sroa.7.sroa.10, i64 45, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %.sroa.3.sroa.7.0..sroa.3.0..sroa_idx18.c.sroa_idx, ptr noundef nonnull align 1 dereferenceable(45) %.sroa.3.sroa.7, i64 45, i1 false)
   %.sroa.4.0..sroa_idx19.c = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx19.c, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, i64 32, i1 false)
   call void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h2850a332abbab773E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %25)
@@ -15653,7 +15653,6 @@ define void @_ZN3awc10middleware8redirect14build_next_uri17h6b3e675da6dce98bE(pt
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %155 = load i8, ptr %154, align 2, !alias.scope !1887, !noalias !1884
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %.sroa.7.sroa.10, ptr noundef nonnull align 1 dereferenceable(45) %.sroa.10, i64 45, i1 false)
   call void @llvm.lifetime.end.p0(i64 77, ptr nonnull %.sroa.10)
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %156, align 8
@@ -15661,8 +15660,6 @@ define void @_ZN3awc10middleware8redirect14build_next_uri17h6b3e675da6dce98bE(pt
   store i8 %153, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.3.0..sroa_idx232 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %155, ptr %.sroa.3.0..sroa_idx232, align 2
-  %.sroa.4233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(45) %.sroa.4233.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(45) %.sroa.7.sroa.10, i64 45, i1 false)
   store i8 3, ptr %0, align 8
   br label %"_ZN4core3ptr48drop_in_place$LT$http..uri..builder..Builder$GT$17h82b1995f5237158eE.exit"
 

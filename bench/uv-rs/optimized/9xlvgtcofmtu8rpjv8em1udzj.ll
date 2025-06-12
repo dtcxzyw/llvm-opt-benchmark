@@ -31094,7 +31094,6 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml15from_resolut
   %65 = alloca [88 x i8], align 8
   %.sroa.0245 = alloca [112 x i8], align 8
   %.sroa.0253 = alloca [112 x i8], align 8
-  %.sroa.11271 = alloca [7 x i8], align 1
   %66 = alloca [8 x i8], align 8
   %67 = alloca [24 x i8], align 8
   %68 = alloca [40 x i8], align 8
@@ -31544,7 +31543,6 @@ default.unreachable:                              ; preds = %377, %"_ZN66_$LT$uv
   %.sroa.8262.0..sroa_idx263 = getelementptr inbounds nuw i8, ptr %84, i64 792
   %.sroa.9265.0..sroa_idx266 = getelementptr inbounds nuw i8, ptr %84, i64 800
   %.sroa.10268.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %84, i64 808
-  %.sroa.11271.0..sroa_idx272 = getelementptr inbounds nuw i8, ptr %84, i64 809
   %267 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %268 = getelementptr inbounds nuw i8, ptr %70, i64 44
   %269 = getelementptr inbounds nuw i8, ptr %70, i64 48
@@ -32703,7 +32701,6 @@ default.unreachable:                              ; preds = %377, %"_ZN66_$LT$uv
   %635 = getelementptr inbounds nuw i8, ptr %373, i64 32
   store ptr %635, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.0253)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11271)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.0245)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %65)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %64)
@@ -33709,9 +33706,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc209798c4164666cE.exit718: ; preds = %9
   store ptr %.sroa.0276.0, ptr %.sroa.8262.0..sroa_idx263, align 8
   store i64 %.sroa.5277.0, ptr %.sroa.9265.0..sroa_idx266, align 8
   store i8 0, ptr %.sroa.10268.0..sroa_idx269, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11271.0..sroa_idx272, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11271, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.0253)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11271)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
   br label %511
 
@@ -34189,7 +34184,6 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml7to_toml17h2f8
   %63 = alloca [24 x i8], align 8
   %.sroa.528 = alloca [16 x i8], align 8
   %.sroa.737 = alloca [16 x i8], align 8
-  %.sroa.414 = alloca [16 x i8], align 8
   %64 = alloca [176 x i8], align 8
   %65 = alloca [176 x i8], align 8
   %66 = alloca [168 x i8], align 8
@@ -34326,8 +34320,6 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml7to_toml17h2f8
 110:                                              ; preds = %108
   %.sroa.4.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %83, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx41, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false)
-  %.sroa.4.sroa.551.0..sroa.4.0..sroa_idx41.sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.551.0..sroa.4.0..sroa_idx41.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414, i64 16, i1 false)
   %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx41.sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx41.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.528, i64 16, i1 false)
   %.sroa.4.sroa.9.0..sroa.4.0..sroa_idx41.sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 88
@@ -34427,12 +34419,6 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml7to_toml17h2f8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx53, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %60), !noalias !8782
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61), !noalias !8782
-  %.sroa.4.sroa.564.0..sroa.4.0..sroa_idx53.sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.564.0..sroa.4.0..sroa_idx53.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414, i64 16, i1 false)
-  %.sroa.4.sroa.766.0..sroa.4.0..sroa_idx53.sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.766.0..sroa.4.0..sroa_idx53.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.528, i64 16, i1 false)
-  %.sroa.4.sroa.968.0..sroa.4.0..sroa_idx53.sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.968.0..sroa.4.0..sroa_idx53.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.737, i64 16, i1 false)
   store i64 2, ptr %80, align 8
   %.sroa.4.sroa.463.0..sroa.4.0..sroa_idx53.sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 -9223372036854775805, ptr %.sroa.4.sroa.463.0..sroa.4.0..sroa_idx53.sroa_idx, align 8
@@ -34885,9 +34871,6 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml7to_toml17h2f8
   %266 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %267 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %.sroa.4.0..sroa_idx119.i = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %.sroa.4.sroa.5130.0..sroa.4.0..sroa_idx119.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %.sroa.4.sroa.7132.0..sroa.4.0..sroa_idx119.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %.sroa.4.sroa.9134.0..sroa.4.0..sroa_idx119.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 88
   %.sroa.4.sroa.4129.0..sroa.4.0..sroa_idx119.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 32
   %.sroa.4.sroa.6131.0..sroa.4.0..sroa_idx119.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 56
   %.sroa.4.sroa.8133.0..sroa.4.0..sroa_idx119.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 80
@@ -35319,9 +35302,6 @@ define void @_ZN11uv_resolver4lock6export11pylock_toml10PylockToml7to_toml17h2f8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx119.i, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !noalias !8861
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !8883
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !8883
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.5130.0..sroa.4.0..sroa_idx119.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.646.i, i64 16, i1 false), !noalias !8861
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.7132.0..sroa.4.0..sroa_idx119.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.i, i64 16, i1 false), !noalias !8861
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.sroa.9134.0..sroa.4.0..sroa_idx119.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i, i64 16, i1 false), !noalias !8861
   store i64 2, ptr %43, align 8, !noalias !8861
   store i64 -9223372036854775805, ptr %.sroa.4.sroa.4129.0..sroa.4.0..sroa_idx119.sroa_idx.i, align 8, !noalias !8861
   store i64 -9223372036854775805, ptr %.sroa.4.sroa.6131.0..sroa.4.0..sroa_idx119.sroa_idx.i, align 8, !noalias !8861
@@ -45887,9 +45867,6 @@ define hidden void @"_ZN11uv_resolver4lock4Lock7to_toml28_$u7b$$u7b$closure$u7d$
   %8 = alloca [24 x i8], align 8
   %9 = alloca [64 x i8], align 8
   %10 = alloca [24 x i8], align 8
-  %.sroa.413 = alloca [16 x i8], align 8
-  %.sroa.619 = alloca [16 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %11 = alloca [176 x i8], align 8
   %12 = alloca [176 x i8], align 8
   %13 = alloca [176 x i8], align 8
@@ -46104,16 +46081,10 @@ define hidden void @"_ZN11uv_resolver4lock4Lock7to_toml28_$u7b$$u7b$closure$u7d$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !10230
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 -9223372036854775805, ptr %.sroa.422.0..sroa_idx, align 8
-  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.523.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.6.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i64 -9223372036854775805, ptr %.sroa.6.0..sroa_idx24, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.413, i64 16, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 80
   store i64 -9223372036854775805, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.619, i64 16, i1 false)
   store i64 2, ptr %13, align 8
   invoke void @_ZN9toml_edit12inline_table11InlineTable6insert17hc0144ba9f5395892E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %14, ptr noalias noundef nonnull align 8 dereferenceable(176) %17, ptr noalias noundef nonnull readonly align 1 @anon.3c69989b250d0a17a992ab8bb41d0401.252, i64 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %13)
           to label %63 unwind label %19
@@ -46145,16 +46116,10 @@ define hidden void @"_ZN11uv_resolver4lock4Lock7to_toml28_$u7b$$u7b$closure$u7d$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !10235
   %.sroa.426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 -9223372036854775805, ptr %.sroa.426.0..sroa_idx, align 8
-  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.527.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i64 -9223372036854775805, ptr %.sroa.628.0..sroa_idx, align 8
-  %.sroa.729.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.729.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.413, i64 16, i1 false)
   %.sroa.830.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 80
   store i64 -9223372036854775805, ptr %.sroa.830.0..sroa_idx, align 8
-  %.sroa.931.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.931.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.619, i64 16, i1 false)
   store i64 2, ptr %11, align 8
   invoke void @_ZN9toml_edit12inline_table11InlineTable6insert17hc0144ba9f5395892E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %12, ptr noalias noundef nonnull align 8 dereferenceable(176) %17, ptr noalias noundef nonnull readonly align 1 @anon.3c69989b250d0a17a992ab8bb41d0401.253, i64 noundef 5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %11)
           to label %70 unwind label %19

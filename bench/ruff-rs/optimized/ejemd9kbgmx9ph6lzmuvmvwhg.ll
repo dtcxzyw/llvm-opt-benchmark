@@ -1951,7 +1951,6 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [312 x i8], align 8
-  %.sroa.375 = alloca [40 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [24 x i8], align 8
@@ -1960,7 +1959,7 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
   %11 = alloca [24 x i8], align 8
   %12 = alloca [24 x i8], align 8
   %13 = alloca [312 x i8], align 8
-  %.sroa.4192 = alloca [40 x i8], align 8
+  %.sroa.4192 = alloca [112 x i8], align 8
   %.sroa.515 = alloca [16 x i8], align 8
   %14 = alloca [48 x i8], align 8
   %15 = alloca [48 x i8], align 8
@@ -2253,8 +2252,7 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
   %82 = load i8, ptr %81, align 4, !range !186, !noundef !9
   %.sroa.15.272..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.15, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.15.272..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.4192)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4192, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.375, i64 40, i1 false)
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.4192)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4181, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5182, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6183, i64 48, i1 false)
@@ -2268,7 +2266,7 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8185)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.sroa.0152.0.copyload.pre = load i64, ptr %.phi.trans.insert, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.4192)
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.4192)
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %13)
   store i64 %.sroa.013.0, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2361,8 +2359,6 @@ define hidden void @_ZN2ty4args12CheckCommand12into_options17hd1687853e578f35fE(
 96:                                               ; preds = %78
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store i64 -9223372036854775807, ptr %97, align 8
-  %.sroa.375.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.375.0..sroa_idx76, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.375, i64 40, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store ptr null, ptr %98, align 8
   %.sroa.2.0..sroa_idx83 = getelementptr inbounds nuw i8, ptr %5, i64 248

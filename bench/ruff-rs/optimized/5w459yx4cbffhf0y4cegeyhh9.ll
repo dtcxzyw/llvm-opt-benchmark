@@ -24837,9 +24837,7 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   %.sroa.620 = alloca [31 x i8], align 1
   %12 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [88 x i8], align 8
-  %.sroa.20 = alloca [6 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @"_ZN162_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$10visit_enum17hb49d30a6960fa8b2E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
   %13 = load i8, ptr %7, align 8, !range !699, !noundef !25
@@ -24863,7 +24861,6 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   store i16 %.sroa.5128.0.copyload, ptr %.sroa.3140.0..sroa_idx, align 2
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   br label %96
 
 16:                                               ; preds = %2
@@ -24889,7 +24886,6 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   br label %120
 
 22:                                               ; preds = %16
@@ -24928,7 +24924,6 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   br label %119
 
 30:                                               ; preds = %26
@@ -25162,10 +25157,7 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   store i32 %48, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i16 %18, ptr %.sroa.19.0..sroa_idx, align 8
-  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 114
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.20.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.20, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.689)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.627)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.620)
@@ -25210,7 +25202,6 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.689)
   br label %119
 
@@ -25258,7 +25249,6 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   br label %119
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e1bebbeffdeeeabE.exit239": ; preds = %49, %53, %117
@@ -25276,7 +25266,6 @@ define hidden void @"_ZN82_$LT$ruff..cache..CacheMessage$u20$as$u20$bincode..de.
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.20)
   br label %119
 
 119:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e1bebbeffdeeeabE.exit237", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e1bebbeffdeeeabE.exit241", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h2e1bebbeffdeeeabE.exit245", %28

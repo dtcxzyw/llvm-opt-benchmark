@@ -63082,7 +63082,7 @@ define internal fastcc void @"_ZN13rust_analyzer3cli14analysis_stats58_$LT$impl$
   %49 = alloca { ptr, [3 x i64] }, align 8
   %50 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %51 = alloca { { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, align 8
-  %52 = alloca { { i32, i32, i32 } }, align 8
+  %52 = alloca { { i32, i32, i32 } }, align 4
   %.sroa.037.sroa.11.i.i = alloca [12 x i8], align 8
   %53 = alloca { { i64, ptr, {} }, i64 }, align 8
   %54 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -65770,8 +65770,8 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
 
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h2725bc034cfc306bE.exit.i": ; preds = %900
   call void @llvm.experimental.noalias.scope.decl(metadata !15571)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %52), !noalias !15397
   %902 = load ptr, ptr %819, align 8, !noalias !15574, !nonnull !12, !align !32, !noundef !12
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %52), !noalias !15577
   invoke void @_ZN3hir9semantics14SemanticsScope6module17he81214aedcdfcaf0E(ptr noalias noundef nonnull sret({ { i32, i32, i32 } }) align 4 captures(none) dereferenceable(12) %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %160)
           to label %.noexc66.i unwind label %.body25.thread130.loopexit.split-lp.loopexit.i, !noalias !15415
 
@@ -65910,6 +65910,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47), !noalias !15608
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.090.sroa.0.sroa.6.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(64) %51, i64 64, i1 false), !noalias !15616
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %51), !noalias !15577
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.090.sroa.18.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %52, i64 12, i1 false), !noalias !15616
   store i64 1, ptr %70, align 8, !alias.scope !15571, !noalias !15616
   store ptr %802, ptr %.sroa.090.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr %806, ptr %.sroa.090.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
@@ -65923,14 +65924,13 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   store ptr %902, ptr %.sroa.090.sroa.15.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr %78, ptr %.sroa.090.sroa.16.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr %158, ptr %.sroa.090.sroa.17.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.090.sroa.18.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(12) %52, i64 12, i1 false), !noalias !15616
   store ptr null, ptr %.sroa.090.sroa.20.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr null, ptr %.sroa.090.sroa.22.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr %902, ptr %.sroa.090.sroa.24.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr %158, ptr %.sroa.090.sroa.25.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr null, ptr %.sroa.491.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
   store ptr null, ptr %.sroa.693.0..sroa_idx.i.i, align 8, !alias.scope !15571, !noalias !15616
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %52), !noalias !15397
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %52), !noalias !15577
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hb3424378d9001180E.llvm.2651244455829285093"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(504) %70)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h84d84bf22ea4b88cE.exit.i" unwind label %.body25.thread130.loopexit.split-lp.loopexit.i, !noalias !15415
 
@@ -86055,7 +86055,6 @@ define internal fastcc void @_ZN13rust_analyzer3cli5flags12RustAnalyzer6parse_17
   %208 = alloca { { i64, ptr, {} }, i64 }, align 8
   %209 = alloca { i64, [3 x i64] }, align 8
   %.sroa.0308 = alloca { { { { { { i64, ptr, {} }, i64 } } } }, { i64, [2 x i64] } }, align 8
-  %.sroa.41 = alloca [7 x i8], align 1
   %210 = alloca { { i64, ptr, {} }, i64 }, align 8
   %211 = alloca { i64, [3 x i64] }, align 8
   %212 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -89890,7 +89889,6 @@ default.unreachable:                              ; preds = %1375
 
 1381:                                             ; preds = %1375
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0308)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.41)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %208)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %208, ptr noundef nonnull align 8 dereferenceable(24) %311, i64 24, i1 false)
@@ -90903,9 +90901,7 @@ default.unreachable:                              ; preds = %1375
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %201)
   %.sroa.20.sroa.0.5..sroa_idx310 = getelementptr inbounds nuw i8, ptr %.sroa.20.sroa.0, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %.sroa.20.sroa.0.5..sroa_idx310, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0308, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.20.sroa.29, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.41, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0308)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.41)
   br label %1406
 
 1602:                                             ; preds = %1597
@@ -90954,7 +90950,6 @@ default.unreachable:                              ; preds = %1375
   %.61937 = phi i8 [ 1, %1432 ], [ 1, %1440 ], [ 0, %1448 ], [ 0, %1456 ], [ 0, %1604 ], [ 0, %1463 ]
   %.61868 = phi i8 [ 1, %1432 ], [ 0, %1440 ], [ 0, %1448 ], [ 0, %1456 ], [ 0, %1604 ], [ 0, %1463 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0308)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.41)
   br label %1409
 
 1606:                                             ; preds = %1382

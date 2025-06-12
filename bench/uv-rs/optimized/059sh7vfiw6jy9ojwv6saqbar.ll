@@ -4637,9 +4637,6 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
   %3 = alloca [200 x i8], align 8
   %4 = alloca [200 x i8], align 8
   %5 = alloca [200 x i8], align 8
-  %.sroa.685 = alloca [31 x i8], align 1
-  %.sroa.675 = alloca [16 x i8], align 8
-  %.sroa.1160 = alloca [16 x i8], align 8
   %6 = alloca [104 x i8], align 8
   %7 = alloca [200 x i8], align 8
   %8 = alloca [200 x i8], align 8
@@ -4661,8 +4658,16 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
   %23 = alloca [200 x i8], align 8
   %24 = alloca [200 x i8], align 8
   %25 = alloca [104 x i8], align 8
+  %.sroa.0.sroa.4 = alloca [16 x i8], align 8
+  %.sroa.0.sroa.6 = alloca [16 x i8], align 8
+  %.sroa.0.sroa.8 = alloca [16 x i8], align 8
   %.sroa.0.sroa.10 = alloca [16 x i8], align 8
+  %.sroa.0.sroa.12 = alloca [31 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.sroa.4)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.sroa.6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.sroa.8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.sroa.10)
+  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.0.sroa.12)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %25)
   %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %27 = tail call noalias noundef align 8 dereferenceable_or_null(1000) ptr @__rust_alloc(i64 noundef range(i64 1, 1001) 1000, i64 noundef range(i64 1, 9) 8) #24
@@ -4888,14 +4893,6 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
 
 89:                                               ; preds = %77
   store i8 2, ptr %79, align 1
-  %.sroa.4231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4231.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
-  %.sroa.7233.24..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7233.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.675, i64 16, i1 false)
-  %.sroa.15239.96..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.15239.96..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.685, i64 31, i1 false)
-  %.sroa.10235.48..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10235.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %16, i64 128
   store ptr null, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %16, i64 72
@@ -5047,14 +5044,6 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
 
 132:                                              ; preds = %120
   store i8 2, ptr %122, align 1
-  %.sroa.4250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4250.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
-  %.sroa.7252.24..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7252.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.675, i64 16, i1 false)
-  %.sroa.15258.96..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.15258.96..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.685, i64 31, i1 false)
-  %.sroa.10254.48..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10254.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
   %133 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store ptr null, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -5206,14 +5195,6 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
 
 176:                                              ; preds = %163
   store i8 2, ptr %165, align 1
-  %.sroa.4269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4269.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
-  %.sroa.7271.24..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7271.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.675, i64 16, i1 false)
-  %.sroa.15277.96..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.15277.96..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.685, i64 31, i1 false)
-  %.sroa.10273.48..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10273.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
   %177 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr null, ptr %177, align 8
   %178 = getelementptr inbounds nuw i8, ptr %8, i64 72
@@ -5375,15 +5356,15 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %25)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.4, i64 16, i1 false)
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.675, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.6, i64 16, i1 false)
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -9223372036854775808, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1160, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.8, i64 16, i1 false)
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 -9223372036854775807, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   %.sroa.0.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5391,7 +5372,7 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
   %.sroa.0.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 6, ptr %.sroa.0.sroa.11.0..sroa_idx, align 8
   %.sroa.0.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.0.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.685, i64 31, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.0.sroa.12.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.0.sroa.12, i64 31, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -5400,7 +5381,11 @@ define void @"_ZN13uv_cache_info10cache_info1_86_$LT$impl$u20$schemars..JsonSche
   %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 0, ptr %.sroa.14.sroa.5.0..sroa.14.0..sroa_idx.sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10.0..sroa_idx, i8 0, i64 40, i1 false)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.sroa.4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.sroa.6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.sroa.8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.sroa.10)
+  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.0.sroa.12)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
   ret void
 

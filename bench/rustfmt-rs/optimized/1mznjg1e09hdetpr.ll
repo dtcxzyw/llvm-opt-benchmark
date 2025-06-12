@@ -34255,22 +34255,10 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %.sroa.7233 = alloca [5 x i8], align 1
   %.sroa.7228 = alloca [5 x i8], align 1
   %.sroa.7223 = alloca [5 x i8], align 1
-  %.sroa.8218 = alloca [5 x i8], align 1
   %10 = alloca { { { { i64, ptr }, i64 } }, i8, i8, i8, [5 x i8] }, align 8
-  %.sroa.7212 = alloca [5 x i8], align 1
-  %.sroa.7207 = alloca [5 x i8], align 1
   %.sroa.7202 = alloca [5 x i8], align 1
   %.sroa.7197 = alloca [5 x i8], align 1
-  %.sroa.7192 = alloca [5 x i8], align 1
   %.sroa.7187 = alloca [5 x i8], align 1
-  %.sroa.7182 = alloca [5 x i8], align 1
-  %.sroa.7177 = alloca [5 x i8], align 1
-  %.sroa.7172 = alloca [5 x i8], align 1
-  %.sroa.7167 = alloca [5 x i8], align 1
-  %.sroa.14 = alloca [5 x i8], align 1
-  %.sroa.7157 = alloca [5 x i8], align 1
-  %.sroa.7 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %.val.i = load i8, ptr %12, align 1, !range !13, !noalias !6065, !noundef !8
@@ -34281,7 +34269,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %17 = load i8, ptr %16, align 2, !range !13, !alias.scope !6074, !noalias !6065, !noundef !8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %19 = load i32, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7157)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 193
   %.val.i125 = load i8, ptr %21, align 1, !range !13, !noalias !6077, !noundef !8
@@ -34296,7 +34283,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 612
   %32 = load i32, ptr %31, align 4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.14)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 593
   %.val.i126 = load i8, ptr %34, align 1, !range !13, !noalias !6089, !noundef !8
@@ -34319,7 +34305,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %51 = load i64, ptr %50, align 8, !alias.scope !6095, !noalias !6098, !noundef !8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 594
   %53 = load i8, ptr %52, align 2, !range !13, !alias.scope !6100, !noalias !6089, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7167)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 209
   %.val.i127 = load i8, ptr %55, align 1, !range !13, !noalias !6103, !noundef !8
@@ -34328,7 +34313,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %58 = load i64, ptr %54, align 8, !alias.scope !6109, !noalias !6103, !noundef !8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 210
   %60 = load i8, ptr %59, align 2, !range !13, !alias.scope !6112, !noalias !6103, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7172)
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 225
   %.val.i128 = load i8, ptr %62, align 1, !range !13, !noalias !6115, !noundef !8
@@ -34337,7 +34321,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %65 = load i64, ptr %61, align 8, !alias.scope !6121, !noalias !6115, !noundef !8
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 226
   %67 = load i8, ptr %66, align 2, !range !13, !alias.scope !6124, !noalias !6115, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7177)
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 241
   %.val.i129 = load i8, ptr %69, align 1, !range !13, !noalias !6127, !noundef !8
@@ -34346,7 +34329,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %72 = load i64, ptr %68, align 8, !alias.scope !6133, !noalias !6127, !noundef !8
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 242
   %74 = load i8, ptr %73, align 2, !range !13, !alias.scope !6136, !noalias !6127, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7182)
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 257
   %.val.i130 = load i8, ptr %76, align 1, !range !13, !noalias !6139, !noundef !8
@@ -34364,7 +34346,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %86 = load i64, ptr %82, align 8, !alias.scope !6157, !noalias !6151, !noundef !8
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 274
   %88 = load i8, ptr %87, align 2, !range !13, !alias.scope !6160, !noalias !6151, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7192)
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 289
   %.val.i132 = load i8, ptr %90, align 1, !range !13, !noalias !6163, !noundef !8
@@ -34395,7 +34376,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %111 = load i32, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 620
   %113 = load i32, ptr %112, align 4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7207)
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 337
   %.val.i135 = load i8, ptr %115, align 1, !range !13, !noalias !6199, !noundef !8
@@ -34404,7 +34384,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %118 = load i64, ptr %114, align 8, !alias.scope !6205, !noalias !6199, !noundef !8
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 338
   %120 = load i8, ptr %119, align 2, !range !13, !alias.scope !6208, !noalias !6199, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.7212)
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 353
   %.val.i136 = load i8, ptr %122, align 1, !range !13, !noalias !6211, !noundef !8
@@ -34454,7 +34433,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   %157 = load i32, ptr %156, align 4
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %159 = load i32, ptr %158, align 8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.8218)
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %.val.i138 = load i8, ptr %160, align 1, !range !13, !noalias !6237, !noundef !8
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -34852,8 +34830,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 %17, ptr %.sroa.6.0..sroa_idx, align 2
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 179
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7, i64 5, i1 false)
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i32 %19, ptr %386, align 8
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -34864,8 +34840,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i125, ptr %.sroa.5155.0..sroa_idx, align 1
   %.sroa.6156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 194
   store i8 %26, ptr %.sroa.6156.0..sroa_idx, align 2
-  %.sroa.7157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 195
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7157.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7157, i64 5, i1 false)
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 604
   store i32 %28, ptr %388, align 4
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 608
@@ -34894,8 +34868,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i126, ptr %.sroa.12.0..sroa_idx, align 1
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 594
   store i8 %53, ptr %.sroa.13.0..sroa_idx, align 2
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 595
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.14, i64 5, i1 false)
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %58, ptr %392, align 8
   %.sroa.4164.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -34904,8 +34876,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i127, ptr %.sroa.5165.0..sroa_idx, align 1
   %.sroa.6166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 210
   store i8 %60, ptr %.sroa.6166.0..sroa_idx, align 2
-  %.sroa.7167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 211
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7167.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7167, i64 5, i1 false)
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %65, ptr %393, align 8
   %.sroa.4169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -34914,8 +34884,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i128, ptr %.sroa.5170.0..sroa_idx, align 1
   %.sroa.6171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 226
   store i8 %67, ptr %.sroa.6171.0..sroa_idx, align 2
-  %.sroa.7172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 227
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7172.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7172, i64 5, i1 false)
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %72, ptr %394, align 8
   %.sroa.4174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -34924,8 +34892,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i129, ptr %.sroa.5175.0..sroa_idx, align 1
   %.sroa.6176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 242
   store i8 %74, ptr %.sroa.6176.0..sroa_idx, align 2
-  %.sroa.7177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7177.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7177, i64 5, i1 false)
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %79, ptr %395, align 8
   %.sroa.4179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -34934,8 +34900,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i130, ptr %.sroa.5180.0..sroa_idx, align 1
   %.sroa.6181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 258
   store i8 %81, ptr %.sroa.6181.0..sroa_idx, align 2
-  %.sroa.7182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 259
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7182.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7182, i64 5, i1 false)
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 %86, ptr %396, align 8
   %.sroa.4184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -34954,8 +34918,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i132, ptr %.sroa.5190.0..sroa_idx, align 1
   %.sroa.6191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 290
   store i8 %95, ptr %.sroa.6191.0..sroa_idx, align 2
-  %.sroa.7192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 291
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7192.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7192, i64 5, i1 false)
   %398 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 %100, ptr %398, align 8
   %.sroa.4194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -34988,8 +34950,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i135, ptr %.sroa.5205.0..sroa_idx, align 1
   %.sroa.6206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 338
   store i8 %120, ptr %.sroa.6206.0..sroa_idx, align 2
-  %.sroa.7207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 339
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7207.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7207, i64 5, i1 false)
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 %125, ptr %403, align 8
   %.sroa.4209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -34998,8 +34958,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i136, ptr %.sroa.5210.0..sroa_idx, align 1
   %.sroa.6211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 354
   store i8 %127, ptr %.sroa.6211.0..sroa_idx, align 2
-  %.sroa.7212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 355
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7212.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.7212, i64 5, i1 false)
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 %129, ptr %404, align 8
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 628
@@ -35033,8 +34991,6 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   store i8 %.val.i138, ptr %.sroa.6216.0..sroa_idx, align 1
   %.sroa.7217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i8 %165, ptr %.sroa.7217.0..sroa_idx, align 2
-  %.sroa.8218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.8218.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.8218, i64 5, i1 false)
   %416 = getelementptr inbounds nuw i8, ptr %0, i64 668
   store i32 %167, ptr %416, align 4
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -35223,21 +35179,10 @@ define hidden void @"_ZN70_$LT$rustfmt_nightly..config..Config$u20$as$u20$core..
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7233)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7228)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7223)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.8218)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7212)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7207)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7202)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7197)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7192)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7187)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7182)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7177)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7172)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7167)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.14)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7157)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.7)
   ret void
 
 470:                                              ; preds = %.body151, %.body, %287

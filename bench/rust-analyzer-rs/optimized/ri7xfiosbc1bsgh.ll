@@ -2827,7 +2827,7 @@ define internal fastcc void @_ZN3hir11term_search11term_search17h5f919aa5f47ba63
   %12 = alloca { ptr, [3 x i64] }, align 8
   %13 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %14 = alloca { { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, align 8
-  %15 = alloca { { i32, i32, i32 } }, align 8
+  %15 = alloca { { i32, i32, i32 } }, align 4
   %.sroa.037.sroa.11.i = alloca [12 x i8], align 8
   %16 = alloca { { i64, ptr, {} }, i64 }, align 8
   %17 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -3566,8 +3566,8 @@ define internal fastcc void @_ZN3hir11term_search11term_search17h5f919aa5f47ba63
 
 "_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17he02ec1e3ff2dbdaaE.exit": ; preds = %186
   call void @llvm.experimental.noalias.scope.decl(metadata !797)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
   %188 = load ptr, ptr %85, align 8, !noalias !800, !nonnull !9, !align !64, !noundef !9
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15), !noalias !800
   invoke void @_ZN3hir9semantics14SemanticsScope6module17he81214aedcdfcaf0E(ptr noalias noundef nonnull sret({ { i32, i32, i32 } }) align 4 captures(none) dereferenceable(12) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %47)
           to label %.noexc67 unwind label %.body26.thread131.loopexit.split-lp.loopexit
 
@@ -3715,6 +3715,7 @@ define internal fastcc void @_ZN3hir11term_search11term_search17h5f919aa5f47ba63
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !800
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.090.sroa.0.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false), !noalias !845
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14), !noalias !800
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.090.sroa.18.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false), !noalias !845
   store i64 1, ptr %33, align 8, !alias.scope !797, !noalias !845
   store ptr %.val, ptr %.sroa.090.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr %.val15, ptr %.sroa.090.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
@@ -3728,14 +3729,13 @@ define internal fastcc void @_ZN3hir11term_search11term_search17h5f919aa5f47ba63
   store ptr %188, ptr %.sroa.090.sroa.15.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr %41, ptr %.sroa.090.sroa.16.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr %1, ptr %.sroa.090.sroa.17.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.090.sroa.18.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false), !noalias !845
   store ptr null, ptr %.sroa.090.sroa.20.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr null, ptr %.sroa.090.sroa.22.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr %188, ptr %.sroa.090.sroa.24.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr %1, ptr %.sroa.090.sroa.25.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr null, ptr %.sroa.491.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
   store ptr null, ptr %.sroa.693.0..sroa_idx.i, align 8, !alias.scope !797, !noalias !845
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15), !noalias !800
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17he3e7dbbd94cea1a2E.llvm.12748775874117282400"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(504) %33)
           to label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h14a0acc7f37f6555E.exit" unwind label %.body26.thread131.loopexit.split-lp.loopexit
 

@@ -132828,7 +132828,6 @@ define void @"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_co
   %200 = alloca { i64, [10 x i64] }, align 8
   %201 = alloca ptr, align 8
   %202 = alloca { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, align 8
-  %.sroa.025.sroa.5.i = alloca [3 x i16], align 2
   %203 = alloca { { ptr, ptr, {} }, ptr }, align 8
   %204 = alloca { i64, [10 x i64] }, align 8
   %205 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
@@ -133341,7 +133340,6 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10148583022391705530.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %194)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %196)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %199)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.025.sroa.5.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %203)
   %363 = invoke { ptr, i64 } @"_ZN97_$LT$deltalake_core..table..config..DeltaConfigKey$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17hd47bb4b15e21c37eE"(ptr noalias noundef readonly align 1 dereferenceable(1) @anon.ee42cc83d0486e413260d7ca4d417329.981.llvm.8226331118977765550)
           to label %.noexc292 unwind label %.thread829
@@ -133671,7 +133669,6 @@ _ZN14deltalake_core5table6config11TableConfig19column_mapping_mode17h0af436b1daa
   %.sroa.025.sroa.2.0..sroa_idx137.i = getelementptr inbounds nuw i8, ptr %202, i64 8
   %.sroa.025.sroa.3.0..sroa_idx138.i = getelementptr inbounds nuw i8, ptr %202, i64 16
   %.sroa.025.sroa.4.0..sroa_idx139.i = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %.sroa.025.sroa.5.0..sroa_idx140.i = getelementptr inbounds nuw i8, ptr %202, i64 26
   %.sroa.025.sroa.6.0..sroa_idx141.i = getelementptr inbounds nuw i8, ptr %202, i64 32
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i142.i = getelementptr inbounds nuw i8, ptr %172, i64 8
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i143.i = getelementptr inbounds nuw i8, ptr %172, i64 16
@@ -133695,7 +133692,6 @@ _ZN14deltalake_core5table6config11TableConfig19column_mapping_mode17h0af436b1daa
   %.sroa.025.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 8
   %.sroa.025.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 16
   %.sroa.025.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 24
-  %.sroa.025.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 26
   %.sroa.025.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %202, i64 32
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf643b8ee8392638aE.exit.us.i"
 
@@ -133721,7 +133717,6 @@ _ZN14deltalake_core5table6config11TableConfig19column_mapping_mode17h0af436b1daa
   store ptr %456, ptr %.sroa.025.sroa.2.0..sroa_idx.i, align 8, !noalias !21087
   store ptr %451, ptr %.sroa.025.sroa.3.0..sroa_idx.i, align 8, !noalias !21087
   store i16 %455, ptr %.sroa.025.sroa.4.0..sroa_idx.i, align 8, !noalias !21087
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.025.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.025.sroa.5.i, i64 6, i1 false), !noalias !21087
   store i64 %458, ptr %.sroa.025.sroa.6.0..sroa_idx.i, align 8, !noalias !21087
   %459 = icmp eq i64 %458, 0
   br i1 %459, label %.thread95.us.i, label %.lr.ph.us.i
@@ -133812,7 +133807,6 @@ _ZN14deltalake_core5table6config11TableConfig19column_mapping_mode17h0af436b1daa
   store ptr %497, ptr %.sroa.025.sroa.2.0..sroa_idx137.i, align 8, !noalias !21087
   store ptr %492, ptr %.sroa.025.sroa.3.0..sroa_idx138.i, align 8, !noalias !21087
   store i16 %496, ptr %.sroa.025.sroa.4.0..sroa_idx139.i, align 8, !noalias !21087
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.025.sroa.5.0..sroa_idx140.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.025.sroa.5.i, i64 6, i1 false), !noalias !21087
   store i64 %499, ptr %.sroa.025.sroa.6.0..sroa_idx141.i, align 8, !noalias !21087
   %500 = icmp eq i64 %499, 0
   br i1 %500, label %.thread95.i, label %.lr.ph.i
@@ -134596,7 +134590,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %664
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %194)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %196)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.025.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %203)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.19.sroa.11.sroa.11.sroa.12.sroa.7)
   store i64 %565, ptr %226, align 8
@@ -134626,7 +134619,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %664
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %194)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %196)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.025.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %203)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3154.sroa.2, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.19.sroa.11.sroa.11.sroa.12.sroa.7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.19.sroa.11.sroa.11.sroa.12.sroa.7)

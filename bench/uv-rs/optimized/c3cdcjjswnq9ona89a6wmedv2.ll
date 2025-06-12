@@ -12260,7 +12260,6 @@ define hidden void @"_ZN174_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   %8 = alloca [96 x i8], align 8
   %9 = alloca [184 x i8], align 8
   %10 = alloca [96 x i8], align 8
-  %.sroa.61 = alloca [5 x i8], align 1
   %11 = alloca [96 x i8], align 8
   %12 = alloca [96 x i8], align 8
   %13 = alloca [96 x i8], align 8
@@ -15217,7 +15216,6 @@ define hidden void @"_ZN174_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
           to label %954 unwind label %938
 
 953:                                              ; preds = %948
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.61)
   %.sroa.7749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7749.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %140, i64 24, i1 false)
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -15333,9 +15331,6 @@ define hidden void @"_ZN174_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   store i8 %947, ptr %.sroa.59.0..sroa_idx, align 1
   %.sroa.60.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 706
   store i8 %689, ptr %.sroa.60.0..sroa_idx, align 2
-  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 707
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.61.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(5) %.sroa.61, i64 5, i1 false)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %.sroa.61)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
@@ -15670,7 +15665,6 @@ define hidden void @"_ZN175_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   %7 = alloca [96 x i8], align 8
   %8 = alloca [184 x i8], align 8
   %9 = alloca [96 x i8], align 8
-  %.sroa.65 = alloca [3 x i8], align 1
   %10 = alloca [96 x i8], align 8
   %11 = alloca [96 x i8], align 8
   %12 = alloca [96 x i8], align 8
@@ -18882,7 +18876,6 @@ define hidden void @"_ZN175_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
           to label %1032 unwind label %924
 
 1027:                                             ; preds = %1022
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.65)
   %1028 = load ptr, ptr %150, align 8, !align !10, !noundef !3
   %1029 = load i64, ptr %172, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -19010,9 +19003,6 @@ define hidden void @"_ZN175_$LT$uv_settings..settings.._..$LT$impl$u20$serde..de
   store i8 %564, ptr %.sroa.63.0..sroa_idx, align 1
   %.sroa.64.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1564
   store i8 %464, ptr %.sroa.64.0..sroa_idx, align 4
-  %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1565
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.65.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.65, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.65)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)

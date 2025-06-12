@@ -130684,9 +130684,8 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   %.sroa.517.sroa.0 = alloca [3 x i64], align 8
   %.sroa.613.sroa.0 = alloca [3 x i64], align 8
   %70 = alloca { ptr, [5 x i64] }, align 8
-  %.sroa.5 = alloca [23 x i64], align 8
   %71 = alloca { { { { i64, [36 x i64] } } } }, align 8
-  %.sroa.6796 = alloca [4 x i64], align 8
+  %.sroa.0657.sroa.6 = alloca [4 x i64], align 8
   %.sroa.8662 = alloca [6 x i8], align 2
   %.sroa.0510.sroa.0.sroa.0.sroa.0 = alloca [296 x i8], align 8
   %.sroa.0510.sroa.0.sroa.0.sroa.5 = alloca [256 x i8], align 8
@@ -130959,10 +130958,9 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   call void @llvm.lifetime.start.p0(i64 680, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %.sroa.0510.sroa.0.sroa.0.sroa.0)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %.sroa.0510.sroa.0.sroa.0.sroa.5)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0657.sroa.6)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.8662)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.6796)
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %.sroa.5)
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %152 = load i32, ptr %151, align 8, !noundef !7
@@ -131071,8 +131069,6 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0200.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %70, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.517.sroa.0)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %70)
-  %.sroa.0200.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.0200.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.5, i64 184, i1 false)
   store i64 3, ptr %71, align 8
   %.sroa.0200.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %.sroa.015.0, ptr %.sroa.0200.sroa.4.0..sroa_idx, align 8
@@ -131084,7 +131080,6 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   store i32 %152, ptr %.sroa.0200.sroa.7.0..sroa_idx, align 8
   %.sroa.0200.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 108
   store i32 %154, ptr %.sroa.0200.sroa.8.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %69)
   invoke fastcc void @"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE"(ptr noalias noundef align 8 captures(none) dereferenceable(256) %69, ptr noalias noundef readonly align 8 dereferenceable(256) %1)
           to label %202 unwind label %599
@@ -131172,14 +131167,14 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   %213 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %215 = load i64, ptr %214, align 8, !alias.scope !28730, !noalias !28733, !noundef !7
-  %.sroa.0510.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0510.sroa.0.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6796, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.6796)
   %216 = load ptr, ptr %117, align 8, !nonnull !7, !noundef !7
   %217 = load i64, ptr %119, align 8, !noundef !7
   %218 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, { ptr, [5 x i64] }, { ptr, [5 x i64] }, i8, i8, [6 x i8] }, ptr %216, i64 %217
+  %.sroa.0510.sroa.0.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 560
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0510.sroa.0.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0657.sroa.6, i64 32, i1 false)
   %.sroa.0510.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %72, i64 618
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0510.sroa.0.sroa.8.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.8662, i64 6, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0657.sroa.6)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.8662)
   %219 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %220 = load ptr, ptr %219, align 8, !nonnull !7, !noundef !7

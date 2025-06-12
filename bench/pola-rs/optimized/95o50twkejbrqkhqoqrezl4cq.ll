@@ -13424,12 +13424,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %.sroa.560 = alloca [80 x i8], align 8
-  %.sroa.052.sroa.0.sroa.0.sroa.5 = alloca [16 x i8], align 8
-  %.sroa.052.sroa.0.sroa.0.sroa.7 = alloca [16 x i8], align 8
-  %.sroa.052.sroa.0.sroa.0.sroa.9 = alloca [16 x i8], align 8
-  %.sroa.052.sroa.0.sroa.7 = alloca [3 x i8], align 1
   %.sroa.052.sroa.7 = alloca [10 x i8], align 2
-  %.sroa.656 = alloca [7 x i8], align 1
   %.sroa.545 = alloca [80 x i8], align 8
   %.sroa.647 = alloca [16 x i8], align 8
   %6 = alloca [16 x i8], align 8
@@ -13437,7 +13432,6 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %.sroa.516 = alloca [80 x i8], align 8
   %7 = alloca [104 x i8], align 8
   %.sroa.5 = alloca [80 x i8], align 8
-  %.sroa.6 = alloca [16 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -13455,10 +13449,8 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %.sroa.052.sroa.0.sroa.0.sroa.8.0..sroa_idx146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.052.sroa.0.sroa.5.0..sroa_idx132 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.052.sroa.0.sroa.6.0..sroa_idx134 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %.sroa.052.sroa.0.sroa.7.0..sroa_idx136 = getelementptr inbounds nuw i8, ptr %0, i64 77
   %.sroa.052.sroa.6.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %.sroa.052.sroa.7.0..sroa_idx125 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %.sroa.656.0..sroa_idx57 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = icmp eq i64 %2, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -13506,7 +13498,6 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
 
 35:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %0, i64 104, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
@@ -13552,15 +13543,12 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
           cleanup
   store i64 -9223372036854775807, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h285c6dee10ab2aefE.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17haeae7305fe6d4f08E.exit171": ; preds = %.invoke, %41, %44, %45
   store i64 -9223372036854775807, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.5, i64 80, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   br label %.backedge.backedge
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h285c6dee10ab2aefE.exit": ; preds = %135, %115, %112, %110, %85, %69, %46
@@ -13702,12 +13690,7 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
 91:                                               ; preds = %89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @_ZN6flate27deflate7bufread18reset_decoder_data17h1557577e9dc62eafE(ptr noalias noundef nonnull align 8 dereferenceable(72) %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.052.sroa.0.sroa.0.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.052.sroa.0.sroa.0.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.052.sroa.0.sroa.0.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.052.sroa.0.sroa.7)
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %.sroa.052.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.656)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %.sroa.052.sroa.7, i8 0, i64 10, i1 false)
   %92 = load i64, ptr %0, align 8, !range !761, !alias.scope !981, !noundef !4
   %93 = add i64 %92, 9223372036854775807
@@ -13773,42 +13756,27 @@ define hidden { i64, ptr } @"_ZN73_$LT$flate2..gz..bufread..GzDecoder$LT$R$GT$$u
   %111 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.sroa.0.sroa.0.sroa.5, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %.sroa.052.sroa.0.sroa.0.sroa.6.0..sroa_idx143, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0149.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.sroa.0.sroa.0.sroa.7, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %.sroa.052.sroa.0.sroa.0.sroa.8.0..sroa_idx146, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0149.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.sroa.0.sroa.0.sroa.9, i64 16, i1 false)
   store i32 0, ptr %.sroa.052.sroa.0.sroa.5.0..sroa_idx132, align 8
   store i8 0, ptr %.sroa.052.sroa.0.sroa.6.0..sroa_idx134, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.052.sroa.0.sroa.7.0..sroa_idx136, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.052.sroa.0.sroa.7, i64 3, i1 false)
   store i8 0, ptr %.sroa.6150.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.052.sroa.6.0..sroa_idx123, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %.sroa.052.sroa.7.0..sroa_idx125, ptr noundef nonnull align 2 dereferenceable(10) %.sroa.052.sroa.7, i64 10, i1 false)
   store i8 0, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.656.0..sroa_idx57, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.656, i64 7, i1 false)
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17h285c6dee10ab2aefE.exit"
 
 "_ZN4core3ptr49drop_in_place$LT$flate2..gz..bufread..GzState$GT$17haeae7305fe6d4f08E.exit189": ; preds = %.invoke240, %97, %100, %101
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.sroa.0.sroa.0.sroa.5, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %.sroa.052.sroa.0.sroa.0.sroa.6.0..sroa_idx143, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0149.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.sroa.0.sroa.0.sroa.7, i64 16, i1 false)
   store i64 -9223372036854775808, ptr %.sroa.052.sroa.0.sroa.0.sroa.8.0..sroa_idx146, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0149.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.052.sroa.0.sroa.0.sroa.9, i64 16, i1 false)
   store i32 0, ptr %.sroa.052.sroa.0.sroa.5.0..sroa_idx132, align 8
   store i8 0, ptr %.sroa.052.sroa.0.sroa.6.0..sroa_idx134, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.052.sroa.0.sroa.7.0..sroa_idx136, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.052.sroa.0.sroa.7, i64 3, i1 false)
   store i8 0, ptr %.sroa.6150.0..sroa_idx, align 8
   store i8 0, ptr %.sroa.052.sroa.6.0..sroa_idx123, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %.sroa.052.sroa.7.0..sroa_idx125, ptr noundef nonnull align 2 dereferenceable(10) %.sroa.052.sroa.7, i64 10, i1 false)
   store i8 0, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.656.0..sroa_idx57, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.656, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.052.sroa.0.sroa.0.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.052.sroa.0.sroa.0.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.052.sroa.0.sroa.0.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.052.sroa.0.sroa.7)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %.sroa.052.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.656)
   br label %.backedge.backedge
 
 112:                                              ; preds = %.invoke241, %109, %108

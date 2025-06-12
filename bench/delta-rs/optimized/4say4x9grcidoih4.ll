@@ -95859,7 +95859,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %45 = alloca { i64, [6 x i64] }, align 8
   %46 = alloca { { i64, [6 x i64] }, ptr }, align 8
   %.sroa.10.sroa.6 = alloca [3 x i64], align 8
-  %.sroa.11 = alloca [7 x i8], align 1
   %47 = alloca { i64, [2 x i64] }, align 8
   %.sroa.14 = alloca [5 x i64], align 8
   %48 = alloca { i64, [2 x i64] }, align 8
@@ -95938,7 +95937,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %77 = add i64 %56, 1
   store i64 %77, ptr %49, align 8, !alias.scope !23456
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.10.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
   store ptr %1, ptr %41, align 8, !noalias !23459
   %78 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -96129,8 +96127,6 @@ _ZN5serde2de9SeqAccess12next_element17h110b8d1540d05095E.exit.i: ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.sroa.6, i64 24, i1 false)
   %.sroa.1078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 48
   store i8 %.sroa.1078.0, ptr %.sroa.1078.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.11, i64 7, i1 false)
   %130 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h19433e8dc14f5ee9E"(ptr noalias noundef align 8 dereferenceable(56) %1)
           to label %135 unwind label %133
 
@@ -96166,20 +96162,17 @@ _ZN5serde2de9SeqAccess12next_element17h110b8d1540d05095E.exit.i: ; preds = %84
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   br label %.thread115
 
 140:                                              ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %142 = load ptr, ptr %141, align 8, !nonnull !24, !align !25, !noundef !24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   %.not171 = icmp eq ptr %130, null
   br i1 %.not171, label %.thread115, label %144
 
 143:                                              ; preds = %138
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.10.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @"_ZN4core3ptr76drop_in_place$LT$deltalake_core..kernel..models..actions..DomainMetadata$GT$17hd7eba18857107360E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %46)
   br label %.thread115
 
@@ -131721,7 +131714,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %55 = alloca { { i64, [11 x i64] }, ptr }, align 8
   %.sroa.11 = alloca [7 x i8], align 1
   %.sroa.1489 = alloca [5 x i64], align 8
-  %.sroa.16 = alloca [7 x i8], align 1
   %56 = alloca { i64, [2 x i64] }, align 8
   %.sroa.14 = alloca [10 x i64], align 8
   %57 = alloca { i64, [2 x i64] }, align 8
@@ -131800,7 +131792,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 %86, ptr %58, align 8, !alias.scope !32810
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.1089.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
   store ptr %1, ptr %50, align 8, !noalias !32813
@@ -132247,8 +132238,6 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.1489.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.1489, i64 40, i1 false)
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 88
   store i8 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16, i64 7, i1 false)
   %206 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17heace34b86951fd92E"(ptr noalias noundef align 8 dereferenceable(56) %1)
           to label %211 unwind label %209
 
@@ -132285,7 +132274,6 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3.0..sroa_idx, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   br label %.thread136
 
 216:                                              ; preds = %211
@@ -132293,14 +132281,12 @@ common.resume:                                    ; preds = %common.resume.sink.
   %218 = load ptr, ptr %217, align 8, !nonnull !24, !align !25, !noundef !24
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   %.not192 = icmp eq ptr %206, null
   br i1 %.not192, label %.thread136, label %220
 
 219:                                              ; preds = %214
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   call void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17ha014cb28c394e01cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %55)
   br label %.thread136
 
@@ -137705,7 +137691,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %55 = alloca { { i64, [11 x i64] }, ptr }, align 8
   %.sroa.11 = alloca [7 x i8], align 1
   %.sroa.1489 = alloca [5 x i64], align 8
-  %.sroa.16 = alloca [7 x i8], align 1
   %56 = alloca { i64, [2 x i64] }, align 8
   %.sroa.14 = alloca [10 x i64], align 8
   %57 = alloca { i64, [2 x i64] }, align 8
@@ -137785,7 +137770,6 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 %86, ptr %58, align 8, !alias.scope !34297
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.1089.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
   store ptr %1, ptr %50, align 8, !noalias !34300
@@ -138234,8 +138218,6 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.1489.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.1489, i64 40, i1 false)
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 88
   store i8 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 89
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.16, i64 7, i1 false)
   %206 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h19433e8dc14f5ee9E"(ptr noalias noundef align 8 dereferenceable(56) %1)
           to label %211 unwind label %209
 
@@ -138272,7 +138254,6 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3.0..sroa_idx, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   br label %.thread136
 
 216:                                              ; preds = %211
@@ -138280,14 +138261,12 @@ common.resume:                                    ; preds = %common.resume.sink.
   %218 = load ptr, ptr %217, align 8, !nonnull !24, !align !25, !noundef !24
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   %.not192 = icmp eq ptr %206, null
   br i1 %.not192, label %.thread136, label %220
 
 219:                                              ; preds = %214
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.11)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.1489)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.16)
   call void @"_ZN4core3ptr72drop_in_place$LT$deltalake_core..kernel..models..schema..StructField$GT$17ha014cb28c394e01cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %55)
   br label %.thread136
 

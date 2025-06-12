@@ -44878,7 +44878,6 @@ define internal void @_ZN5clang4ento5check12NewAllocator18_checkNewAllocatorIN12
   %9 = alloca %"class.std::optional.1229", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.749", align 8
   %11 = alloca %"class.clang::ConstructionContextItem", align 8
-  %.sroa.656.i.i = alloca [7 x i8], align 1
   %12 = alloca %"class.llvm::IntrusiveRefCntPtr.749", align 8
   %13 = alloca %"class.llvm::IntrusiveRefCntPtr.749", align 8
   %14 = alloca %"class.llvm::IntrusiveRefCntPtr.749", align 8
@@ -45086,7 +45085,6 @@ select.unfold37.i.i.i:                            ; preds = %_ZL18getDeepPointee
   br i1 %.not22.not.i.i.i, label %_ZL28hasNonTrivialConstructorCallPKN5clang10CXXNewExprE.exit.thread.i.i, label %.lr.ph.i.i.i
 
 _ZL28hasNonTrivialConstructorCallPKN5clang10CXXNewExprE.exit.thread.i.i: ; preds = %select.unfold37.i.i.i, %99, %_ZNK5clang10CXXNewExpr16getAllocatedTypeEv.exit.i.i.i, %82, %_ZNK5clang10CXXNewExpr14getInitializerEv.exit.i.i.i.i, %74, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.656.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !2055
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28, !noalias !2055
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -45249,8 +45247,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit42.i.i: ;
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %16, align 8, !tbaa !44, !noalias !2055
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 %.sroa.2.0.copyload.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !430, !noalias !2055
-  %.sroa.656.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.656.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.656.i.i, i64 7, i1 false), !tbaa.struct !78, !noalias !2055
   %169 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 1, ptr %169, align 8, !tbaa !400, !noalias !2055
   call fastcc void @_ZN12_GLOBAL__N_113MallocChecker21ProcessZeroAllocCheckERN5clang4ento14CheckerContextERKNS2_9CallEventEjN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEESt8optionalINS2_4SValEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0, ptr noundef %15, ptr noundef nonnull byval(%"class.std::optional.1229") align 8 %16), !noalias !2055
@@ -45265,14 +45261,10 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit42.i.i: ;
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i.i: ; preds = %171, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit42.i.i
   %172 = load ptr, ptr %15, align 8, !tbaa !10, !noalias !2055
   %.not.i.i45.i.i = icmp eq ptr %172, null
-  br i1 %.not.i.i45.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i.i, label %173
+  br i1 %.not.i.i45.i.i, label %_ZNK12_GLOBAL__N_113MallocChecker20processNewAllocationERKN5clang4ento16CXXAllocatorCallERNS2_14CheckerContextENS_16AllocationFamilyE.exit.i, label %173
 
 173:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i.i
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %172) #28, !noalias !2055
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i.i
-
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i.i: ; preds = %173, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.656.i.i)
   br label %_ZNK12_GLOBAL__N_113MallocChecker20processNewAllocationERKN5clang4ento16CXXAllocatorCallERNS2_14CheckerContextENS_16AllocationFamilyE.exit.i
 
 _ZNK12_GLOBAL__N_113MallocChecker20processNewAllocationERKN5clang4ento16CXXAllocatorCallERNS2_14CheckerContextENS_16AllocationFamilyE.exit.thread.i: ; preds = %_ZL19isStandardNewDeleteIN5clang4ento16CXXAllocatorCallEEbRKT_.exit.i.i, %_ZL19isStandardNewDeleteIN5clang4ento16CXXAllocatorCallEEbRKT_.exit.i.i, %49, %44, %34, %29
@@ -45283,8 +45275,8 @@ _ZNK12_GLOBAL__N_113MallocChecker20processNewAllocationERKN5clang4ento16CXXAlloc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %174
 
-_ZNK12_GLOBAL__N_113MallocChecker20processNewAllocationERKN5clang4ento16CXXAllocatorCallERNS2_14CheckerContextENS_16AllocationFamilyE.exit.i: ; preds = %_ZL18getDeepPointeeTypeN5clang8QualTypeE.exit.i.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i.i
-  %.sroa.019.0.i = phi ptr [ %170, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit46.i.i ], [ %71, %_ZL18getDeepPointeeTypeN5clang8QualTypeE.exit.i.i.i ]
+_ZNK12_GLOBAL__N_113MallocChecker20processNewAllocationERKN5clang4ento16CXXAllocatorCallERNS2_14CheckerContextENS_16AllocationFamilyE.exit.i: ; preds = %_ZL18getDeepPointeeTypeN5clang8QualTypeE.exit.i.i.i, %173, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i.i
+  %.sroa.019.0.i = phi ptr [ %170, %173 ], [ %170, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44.i.i ], [ %71, %_ZL18getDeepPointeeTypeN5clang8QualTypeE.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)

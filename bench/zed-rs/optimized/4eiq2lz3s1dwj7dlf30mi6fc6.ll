@@ -16802,7 +16802,6 @@ common.resume:                                    ; preds = %149, %165, %169, %1
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$task..task_template..TaskTemplate$GT$$GT$$GT$17hc70a6982280c15ddE.exit16.i.i.i.i.i.i.i.i": ; preds = %186, %184, %153, %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$task..task_template..TaskTemplate$GT$$GT$$GT$17hc70a6982280c15ddE.exit.i.i.i.i.i.i.i.i"
   store ptr null, ptr %133, align 8, !alias.scope !4522, !noalias !4523
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx6.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i.i.i.i.i.i.i.i, i64 24, i1 false), !noalias !4523
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 600
   %191 = load ptr, ptr %190, align 8, !alias.scope !4522, !noalias !4523, !noundef !4
   %192 = icmp eq ptr %191, null
