@@ -42,7 +42,7 @@
   "build-libcalls.NumWriteOnly": 150,
   "build-libcalls.NumWriteOnlyArg": 5690,
   "callsite-splitting.NumCallSiteSplit": 8434,
-  "capture-tracking.NumCapturedBefore": 17801089,
+  "capture-tracking.NumCapturedBefore": 17801085,
   "capture-tracking.NumNotCapturedBefore": 21736061,
   "cgscc.LargestCGSCC": 120708,
   "constmerge.NumIdenticalMerged": 15663,
