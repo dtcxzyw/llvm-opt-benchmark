@@ -327,7 +327,6 @@ vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vec
 169:                                              ; preds = %423, %vector_ntt.exit184.i
   %170 = phi ptr [ %109, %vector_ntt.exit184.i ], [ %424, %423 ]
   %171 = phi i64 [ %92, %vector_ntt.exit184.i ], [ %425, %423 ]
-  %.val161340.i = phi ptr [ %110, %vector_ntt.exit184.i ], [ %.val166.i, %423 ]
   %.0135.i = phi i64 [ 0, %vector_ntt.exit184.i ], [ %426, %423 ]
   %172 = load ptr, ptr %133, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %13) #5
@@ -488,14 +487,9 @@ vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vec
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef nonnull %231) #5
   %232 = add nuw nsw i64 %.04.i214.i, 1
   %exitcond337.not.i = icmp eq i64 %232, %92
-  br i1 %exitcond337.not.i, label %vector_ntt_inverse.exit215.loopexit.i, label %.lr.ph.i213.i, !llvm.loop !38
+  br i1 %exitcond337.not.i, label %vector_ntt_inverse.exit215.i, label %.lr.ph.i213.i, !llvm.loop !38
 
-vector_ntt_inverse.exit215.loopexit.i:            ; preds = %.lr.ph.i213.i
-  %.val161.pre.i = load ptr, ptr %18, align 8
-  br label %vector_ntt_inverse.exit215.i
-
-vector_ntt_inverse.exit215.i:                     ; preds = %vector_ntt_inverse.exit215.loopexit.i, %vector_ntt_inverse.exit207.i
-  %.val161.i = phi ptr [ %.val161.pre.i, %vector_ntt_inverse.exit215.loopexit.i ], [ %.val161340.i, %vector_ntt_inverse.exit207.i ]
+vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vector_ntt_inverse.exit207.i
   %.val160.i = load ptr, ptr %16, align 8
   br i1 %.not.i176.i, label %vector_add.exit.i, label %.lr.ph.i217.i
 
@@ -503,7 +497,7 @@ vector_ntt_inverse.exit215.i:                     ; preds = %vector_ntt_inverse.
   %.05.i.i = phi i64 [ %252, %poly_add.exit.i.i ], [ 0, %vector_ntt_inverse.exit215.i ]
   %233 = getelementptr inbounds nuw %struct.poly_st, ptr %104, i64 %.05.i.i
   %234 = getelementptr inbounds nuw %struct.poly_st, ptr %.val160.i, i64 %.05.i.i
-  %235 = getelementptr inbounds nuw %struct.poly_st, ptr %.val161.i, i64 %.05.i.i
+  %235 = getelementptr inbounds nuw %struct.poly_st, ptr %110, i64 %.05.i.i
   br label %236
 
 236:                                              ; preds = %236, %.lr.ph.i217.i
@@ -606,15 +600,12 @@ poly_low_bits.exit.i.i:                           ; preds = %277
 
 vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.i.i, %vector_sub.exit.i
   %.val171.i = phi i64 [ 0, %vector_sub.exit.i ], [ %282, %poly_low_bits.exit.i.i ]
-  %.val166.i = load ptr, ptr %18, align 8
-  %.val167.i = load i64, ptr %111, align 8
-  %.not.i234.i = icmp eq i64 %.val167.i, 0
-  br i1 %.not.i234.i, label %vector_max.exit.i, label %.lr.ph.i235.i
+  br i1 %.not.i176.i, label %vector_max.exit.i, label %.lr.ph.i235.i
 
 .lr.ph.i235.i:                                    ; preds = %vector_low_bits.exit.i, %poly_max.exit.i.i
   %.04.i236.i = phi i64 [ %308, %poly_max.exit.i.i ], [ 0, %vector_low_bits.exit.i ]
   %.023.i.i = phi i32 [ %307, %poly_max.exit.i.i ], [ 0, %vector_low_bits.exit.i ]
-  %284 = getelementptr inbounds nuw %struct.poly_st, ptr %.val166.i, i64 %.04.i236.i
+  %284 = getelementptr inbounds nuw %struct.poly_st, ptr %110, i64 %.04.i236.i
   br label %285
 
 285:                                              ; preds = %285, %.lr.ph.i235.i
@@ -649,8 +640,8 @@ vector_low_bits.exit.i:                           ; preds = %poly_low_bits.exit.
   br i1 %exitcond.not.i.i240.i, label %poly_max.exit.i.i, label %285, !llvm.loop !52
 
 poly_max.exit.i.i:                                ; preds = %285
-  %308 = add nuw i64 %.04.i236.i, 1
-  %exitcond.not.i241.i = icmp eq i64 %308, %.val167.i
+  %308 = add nuw nsw i64 %.04.i236.i, 1
+  %exitcond.not.i241.i = icmp eq i64 %308, %93
   br i1 %exitcond.not.i241.i, label %vector_max.exit.i, label %.lr.ph.i235.i, !llvm.loop !53
 
 vector_max.exit.i:                                ; preds = %poly_max.exit.i.i, %vector_low_bits.exit.i
@@ -755,7 +746,7 @@ vector_mult_scalar.exit258.i:                     ; preds = %vector_mult_scalar.
   br i1 %359, label %.lr.ph.i260.i, label %vector_ntt_inverse.exit262.i, !llvm.loop !38
 
 vector_ntt_inverse.exit262.i:                     ; preds = %.lr.ph.i260.i, %vector_mult_scalar.exit258.i
-  %.val169343.i = phi i64 [ 0, %vector_mult_scalar.exit258.i ], [ %358, %.lr.ph.i260.i ]
+  %.val169342.i = phi i64 [ 0, %vector_mult_scalar.exit258.i ], [ %358, %.lr.ph.i260.i ]
   %.not.i263.i = icmp eq i64 %171, 0
   br i1 %.not.i263.i, label %vector_make_hint.exit.i, label %.lr.ph.i264.i
 
@@ -794,7 +785,7 @@ vector_make_hint.exit.loopexit.i:                 ; preds = %poly_make_hint.exit
   br label %vector_make_hint.exit.i
 
 vector_make_hint.exit.i:                          ; preds = %vector_make_hint.exit.loopexit.i, %vector_ntt_inverse.exit262.i
-  %.val169.i = phi i64 [ %.val169.pre.i, %vector_make_hint.exit.loopexit.i ], [ %.val169343.i, %vector_ntt_inverse.exit262.i ]
+  %.val169.i = phi i64 [ %.val169.pre.i, %vector_make_hint.exit.loopexit.i ], [ %.val169342.i, %vector_ntt_inverse.exit262.i ]
   %.val168.i = load ptr, ptr %15, align 8
   %.not.i268.i = icmp eq i64 %.val169.i, 0
   br i1 %.not.i268.i, label %vector_max.exit281.i, label %.lr.ph.i269.i

@@ -3,7 +3,7 @@ source_filename = "bench/ffmpeg/original/simple_idct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
@@ -367,8 +367,8 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_simple_idct_add_int16_8bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ff_simple_idct_add_int16_8bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -393,8 +393,8 @@ define void @ff_simple_idct_add_int16_8bit(ptr noundef captures(none) %0, i64 no
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
   %4 = load i16, ptr %2, align 2, !tbaa !6
   %5 = sext i16 %4 to i32
   %6 = mul nsw i32 %5, 16383
@@ -613,7 +613,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -787,7 +787,7 @@ idctSparseCol_int16_8bit.exit:                    ; preds = %74, %77
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
@@ -1139,8 +1139,8 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -1367,7 +1367,7 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -1541,7 +1541,7 @@ idctSparseCol_int16_10bit.exit:                   ; preds = %74, %77
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
@@ -1894,8 +1894,8 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -2122,7 +2122,7 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -2296,7 +2296,7 @@ idctSparseCol_int16_12bit.exit:                   ; preds = %74, %77
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_simple_idct_put_int32_10bit(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
@@ -2590,7 +2590,7 @@ idctSparseColPut_int32_10bit.exit:                ; preds = %156, %159
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -2810,7 +2810,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -2904,8 +2904,8 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_simple_idct48_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @ff_simple_idct48_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -2969,7 +2969,7 @@ define void @ff_simple_idct48_add(ptr noundef captures(none) %0, i64 noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -3102,17 +3102,14 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #2
 
-attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -355,9 +355,8 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   store i32 9, ptr %mX.i127, align 8
   store ptr %incdec.ptr.i118, ptr %mpPrev.i.i, align 8
   store ptr %ilist, ptr %incdec.ptr.i118, align 16
-  %mpPrev9.i = getelementptr inbounds nuw i8, ptr %nodes, i64 32
   store ptr %incdec.ptr.i123, ptr %nodes, align 16
-  store ptr %incdec.ptr.i123, ptr %mpPrev9.i, align 16
+  store ptr %incdec.ptr.i123, ptr %mpPrev2.i.i90, align 16
   store ptr %nodes, ptr %mpPrev2.i.i130, align 16
   store ptr %incdec.ptr.i, ptr %incdec.ptr.i123, align 8
   store ptr %nodes, ptr %agg.tmp193, align 8, !alias.scope !23
@@ -1297,12 +1296,10 @@ invoke.cont825:                                   ; preds = %arrayctor.loop779
   store ptr %listB805, ptr %incdec.ptr.i710, align 8
   store ptr %incdec.ptr.i710, ptr %mpPrev.i.i675, align 8
   store ptr %incdec.ptr.i710, ptr %incdec.ptr.i705, align 16
-  %this.val.i720 = load ptr, ptr %listA784, align 8
-  %cmp.i24.i.not = icmp eq ptr %this.val.i720, %listA784
-  br i1 %cmp.i24.i.not, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i, label %while.body.i
+  br label %while.body.i
 
 while.body.i:                                     ; preds = %invoke.cont825, %if.end.i722
-  %first.sroa.0.028.i = phi ptr [ %first.sroa.0.1.i, %if.end.i722 ], [ %this.val.i720, %invoke.cont825 ]
+  %first.sroa.0.028.i = phi ptr [ %first.sroa.0.1.i, %if.end.i722 ], [ %nodesA, %invoke.cont825 ]
   %firstX.sroa.0.027.i = phi ptr [ %firstX.sroa.0.1.i, %if.end.i722 ], [ %nodesB, %invoke.cont825 ]
   %77 = getelementptr i8, ptr %firstX.sroa.0.027.i, i64 16
   %call4.val.i = load i32, ptr %77, align 8
@@ -1350,10 +1347,9 @@ while.end.i:                                      ; preds = %if.end.i722
   %cmp.i16.not.i = icmp eq ptr %firstX.sroa.0.1.i, %listB805
   br i1 %cmp.i16.not.i, label %invoke.cont827, label %_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i
 
-_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i: ; preds = %invoke.cont825, %while.end.i
-  %firstX.sroa.0.0.lcssa.i1174 = phi ptr [ %firstX.sroa.0.1.i, %while.end.i ], [ %nodesB, %invoke.cont825 ]
+_ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_iteratorIS2_PKS2_RS5_EERS3_S8_S8_.exit23.i: ; preds = %while.end.i
   %86 = load ptr, ptr %mpPrev.i.i675, align 8
-  %mpPrev7.i20.i = getelementptr inbounds nuw i8, ptr %firstX.sroa.0.0.lcssa.i1174, i64 8
+  %mpPrev7.i20.i = getelementptr inbounds nuw i8, ptr %firstX.sroa.0.1.i, i64 8
   %87 = load ptr, ptr %mpPrev7.i20.i, align 8
   %88 = load ptr, ptr %86, align 8
   %mpPrev8.i21.i = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -1361,7 +1357,7 @@ _ZN5eastl14intrusive_listIN12_GLOBAL__N_17IntNodeEE6spliceENS_23intrusive_list_i
   %89 = load ptr, ptr %86, align 8
   store ptr %89, ptr %87, align 8
   %90 = load ptr, ptr %mpPrev.i.i632, align 8
-  store ptr %firstX.sroa.0.0.lcssa.i1174, ptr %90, align 8
+  store ptr %firstX.sroa.0.1.i, ptr %90, align 8
   store ptr %90, ptr %mpPrev7.i20.i, align 8
   store ptr %listA784, ptr %86, align 8
   store ptr %86, ptr %mpPrev.i.i632, align 8
@@ -1399,9 +1395,9 @@ arrayctor.loop854:                                ; preds = %arrayctor.loop854.p
   store i32 0, ptr %gep1155, align 8
   %arrayctor.cur855.add = add nuw nsw i64 %arrayctor.cur855.idx, 24
   %arrayctor.done857 = icmp eq i64 %arrayctor.cur855.add, 192
-  br i1 %arrayctor.done857, label %while.body.i771.preheader, label %arrayctor.loop854
+  br i1 %arrayctor.done857, label %while.cond.preheader.i, label %arrayctor.loop854
 
-while.body.i771.preheader:                        ; preds = %arrayctor.loop854
+while.cond.preheader.i:                           ; preds = %arrayctor.loop854
   %mpPrev.i.i726 = getelementptr inbounds nuw i8, ptr %listA859, i64 8
   store i32 1, ptr %invariant.gep1152, align 16
   %incdec.ptr.i731 = getelementptr inbounds nuw i8, ptr %nodesA843, i64 24
@@ -1453,9 +1449,9 @@ while.body.i771.preheader:                        ; preds = %arrayctor.loop854
   store ptr %incdec.ptr.i761, ptr %incdec.ptr.i756, align 16
   br label %while.body.i771
 
-while.body.i771:                                  ; preds = %while.body.i771.preheader, %if.end.i773
-  %91 = phi ptr [ %95, %if.end.i773 ], [ %incdec.ptr.i731, %while.body.i771.preheader ]
-  %next.sroa.0.010.i = phi ptr [ %first.sroa.0.1.i774, %if.end.i773 ], [ %nodesA843, %while.body.i771.preheader ]
+while.body.i771:                                  ; preds = %while.cond.preheader.i, %if.end.i773
+  %91 = phi ptr [ %95, %if.end.i773 ], [ %incdec.ptr.i731, %while.cond.preheader.i ]
+  %next.sroa.0.010.i = phi ptr [ %first.sroa.0.1.i774, %if.end.i773 ], [ %nodesA843, %while.cond.preheader.i ]
   %92 = getelementptr i8, ptr %next.sroa.0.010.i, i64 16
   %call5.val.i = load i32, ptr %92, align 8
   %93 = getelementptr i8, ptr %91, i64 16
@@ -1476,11 +1472,11 @@ if.end.i773:                                      ; preds = %if.then9.i775, %whi
   %first.sroa.0.1.i774 = phi ptr [ %next.sroa.0.010.i, %if.then9.i775 ], [ %91, %while.body.i771 ]
   %95 = load ptr, ptr %first.sroa.0.1.i774, align 8
   %cmp.i8.not.i = icmp eq ptr %95, %listA859
-  br i1 %cmp.i8.not.i, label %while.body.i822.preheader, label %while.body.i771, !llvm.loop !234
+  br i1 %cmp.i8.not.i, label %invoke.cont880, label %while.body.i771, !llvm.loop !234
 
-while.body.i822.preheader:                        ; preds = %if.end.i773
-  %listA859.val.pre = load ptr, ptr %listA859, align 8
-  store ptr %listA859.val.pre, ptr %agg.tmp881, align 8, !alias.scope !235
+invoke.cont880:                                   ; preds = %if.end.i773
+  %listA859.val = load ptr, ptr %listA859, align 8
+  store ptr %listA859.val, ptr %agg.tmp881, align 8, !alias.scope !235
   store ptr %listA859, ptr %agg.tmp882, align 8, !alias.scope !238
   %call884 = call noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl23intrusive_list_iteratorIN12_GLOBAL__N_17IntNodeEPS3_RS3_EEiEbT_S7_T0_PKcz(ptr noundef %agg.tmp881, ptr noundef %agg.tmp882, i32 poison, ptr noundef nonnull @.str.73, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
   %call886 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %call884, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 381, ptr noundef nonnull @.str.74)
@@ -1535,9 +1531,9 @@ while.body.i822.preheader:                        ; preds = %if.end.i773
   store ptr %incdec.ptr.i811, ptr %incdec.ptr.i806, align 16
   br label %while.body.i822
 
-while.body.i822:                                  ; preds = %while.body.i822.preheader, %if.end.i824
-  %96 = phi ptr [ %100, %if.end.i824 ], [ %incdec.ptr.i781, %while.body.i822.preheader ]
-  %next.sroa.0.011.i = phi ptr [ %first.sroa.0.1.i825, %if.end.i824 ], [ %nodesB851, %while.body.i822.preheader ]
+while.body.i822:                                  ; preds = %invoke.cont880, %if.end.i824
+  %96 = phi ptr [ %100, %if.end.i824 ], [ %incdec.ptr.i781, %invoke.cont880 ]
+  %next.sroa.0.011.i = phi ptr [ %first.sroa.0.1.i825, %if.end.i824 ], [ %nodesB851, %invoke.cont880 ]
   %97 = getelementptr i8, ptr %next.sroa.0.011.i, i64 16
   %call5.val.i823 = load i32, ptr %97, align 8
   %98 = getelementptr i8, ptr %96, i64 16

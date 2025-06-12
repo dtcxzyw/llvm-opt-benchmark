@@ -711,8 +711,8 @@ define noundef i64 @_ZN6casadi16SparsityInternal4leafExxPKxPxS3_S3_S3_(i64 nound
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN6casadi16SparsityInternal9qr_countsEPKxS2_S2_PxS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef i64 @_ZN6casadi16SparsityInternal9qr_countsEPKxS2_S2_PxS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1194,8 +1194,8 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
   ret i64 %.0119.lcssa
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #5 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef captures(none) %8) local_unnamed_addr #3 align 2 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !3
   tail call void @_ZN6casadi16SparsityInternal5etreeEPKxPxS3_x(ptr noundef %0, ptr noundef %3, ptr noundef %8, i64 noundef 1)
@@ -1676,7 +1676,7 @@ define void @_ZN6casadi16SparsityInternal7ldl_rowEPKxS2_PxS3_S3_(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16SparsityInternalC2ExxPKxS2_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16SparsityInternalC2ExxPKxS2_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6casadi16SparsityInternalE, i64 16), ptr %0, align 8, !tbaa !46
@@ -1767,7 +1767,7 @@ _ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_.ex
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi16SparsityInternalD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16SparsityInternalD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6casadi16SparsityInternalE, i64 16), ptr %0, align 8, !tbaa !46
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !54
@@ -1841,7 +1841,7 @@ _ZN6casadi21GenericSharedInternalINS_12SharedObjectENS_20SharedObjectInternalEED
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi16SparsityInternal3BtfD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi16SparsityInternal3BtfD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %.not.i.i.i = icmp eq ptr %3, null
@@ -1936,17 +1936,17 @@ _ZNSt6vectorIxSaIxEED2Ev.exit10:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi16SparsityInternalD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 align 2 {
+define void @_ZN6casadi16SparsityInternalD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN6casadi16SparsityInternalD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #32
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #33
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(152) ptr @_ZNK6casadi16SparsityInternal3btfEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(152) ptr @_ZNK6casadi16SparsityInternal3btfEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !54
   %.not = icmp eq ptr %3, null
@@ -1973,13 +1973,13 @@ define noundef nonnull align 8 dereferenceable(152) ptr @_ZNK6casadi16SparsityIn
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i64 @_ZNK6casadi16SparsityInternal3btfERSt6vectorIxSaIxEES4_S4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef i64 @_ZNK6casadi16SparsityInternal3btfERSt6vectorIxSaIxEES4_S4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::vector", align 8
   %9 = alloca %"class.casadi::Sparsity", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #32
@@ -2077,7 +2077,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal5numelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK6casadi16SparsityInternal5numelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -2088,7 +2088,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal5numelEv(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal4dispERSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal4dispERSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2564,7 +2564,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit36:                  ; preds = %.body23, %187
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal3dimB5cxx11Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal3dimB5cxx11Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i64, align 8
@@ -3068,7 +3068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_denseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_denseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3083,7 +3083,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_denseEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal10get_colindEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal10get_colindEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %.ptr = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3126,7 +3126,7 @@ _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7get_rowEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7get_rowEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3171,7 +3171,7 @@ _ZNSt12_Vector_baseIxSaIxEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7get_colEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7get_colEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3249,7 +3249,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal1TEv(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal1TEv(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -3296,7 +3296,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit3:                   ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal9transposeERSt6vectorIxSaIxEEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
@@ -3488,7 +3488,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIxSaIxE
 declare void @_ZN6casadi8Sparsity7tripletExxRKSt6vectorIxSaIxEES5_RS3_b(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal3dfsExxRSt6vectorIxSaIxEES4_RKS3_RS1_IbSaIbEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK6casadi16SparsityInternal3dfsExxRSt6vectorIxSaIxEES4_RKS3_RS1_IbSaIbEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %6) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -3614,7 +3614,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal3dfsExxRSt6vectorIxSaIxEES4_RKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal3sccERSt6vectorIxSaIxEES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK6casadi16SparsityInternal3sccERSt6vectorIxSaIxEES4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.casadi::Sparsity", align 8
@@ -4385,7 +4385,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit146:                 ; preds = %.body, %329
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIxSaIxEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIxSaIxEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !53
   %5 = load ptr, ptr %0, align 8, !tbaa !48
@@ -4424,7 +4424,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noundef i64 @_ZNK6casadi8Sparsity3dfsExxRSt6vectorIxSaIxEES4_RKS3_RS1_IbSaIbEE(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal3amdEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal3amdEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6176,7 +6176,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit695:                 ; preds = %639, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_symmetricEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_symmetricEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_transposeERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret i1 %2
 }
@@ -6475,7 +6475,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !109
@@ -6738,7 +6738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6796,7 +6796,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8, !tbaa !46
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !70
@@ -6826,7 +6826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !182
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !184
@@ -6919,7 +6919,7 @@ define noundef range(i64 2, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal3bfsExRSt6vectorIxSaIxEES4_S4_RKS3_S6_x(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, i64 noundef %7) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal3bfsExRSt6vectorIxSaIxEES4_S4_RKS3_S6_x(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, i64 noundef %7) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca %"class.casadi::Sparsity", align 8
   %11 = alloca %"class.casadi::Sparsity", align 8
@@ -7172,7 +7172,7 @@ declare noundef ptr @_ZNK6casadi8Sparsity3rowEv(ptr noundef nonnull align 8 dere
 declare noundef ptr @_ZNK6casadi8Sparsity6colindEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi16SparsityInternal7matchedExRKSt6vectorIxSaIxEES5_RS3_S6_S6_S6_xx(i64 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #5 align 2 {
+define void @_ZN6casadi16SparsityInternal7matchedExRKSt6vectorIxSaIxEES5_RS3_S6_S6_S6_xx(i64 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #12 align 2 {
   %10 = load ptr, ptr %5, align 8, !tbaa !48
   %11 = getelementptr i64, ptr %10, i64 %7
   %12 = load i64, ptr %11, align 8, !tbaa !3
@@ -7227,7 +7227,7 @@ define void @_ZN6casadi16SparsityInternal7matchedExRKSt6vectorIxSaIxEES5_RS3_S6_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi16SparsityInternal9unmatchedExRKSt6vectorIxSaIxEERS3_S6_x(i64 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i64 noundef %4) local_unnamed_addr #5 align 2 {
+define void @_ZN6casadi16SparsityInternal9unmatchedExRKSt6vectorIxSaIxEERS3_S6_x(i64 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i64 noundef %4) local_unnamed_addr #12 align 2 {
   %6 = load ptr, ptr %3, align 8, !tbaa !48
   %7 = getelementptr i64, ptr %6, i64 %4
   %8 = load i64, ptr %7, align 8, !tbaa !3
@@ -7267,7 +7267,7 @@ define void @_ZN6casadi16SparsityInternal9unmatchedExRKSt6vectorIxSaIxEERS3_S6_x
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, 2) i64 @_ZN6casadi16SparsityInternal6rpruneExxdPv(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #12 align 2 {
+define noundef range(i64 0, 2) i64 @_ZN6casadi16SparsityInternal6rpruneExxdPv(i64 noundef %0, i64 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #11 align 2 {
   %5 = load ptr, ptr %3, align 8, !tbaa !48
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !3
@@ -7287,7 +7287,7 @@ define noundef range(i64 0, 2) i64 @_ZN6casadi16SparsityInternal6rpruneExxdPv(i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi16SparsityInternal7augmentExRSt6vectorIxSaIxEEPxS4_S5_S5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #5 align 2 {
+define void @_ZNK6casadi16SparsityInternal7augmentExRSt6vectorIxSaIxEEPxS4_S5_S5_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef captures(none) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7) local_unnamed_addr #12 align 2 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !69
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -7416,7 +7416,7 @@ define void @_ZNK6casadi16SparsityInternal7augmentExRSt6vectorIxSaIxEEPxS4_S5_S5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal8maxtransERSt6vectorIxSaIxEES4_RNS_8SparsityEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal8maxtransERSt6vectorIxSaIxEES4_RNS_8SparsityEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.casadi::Sparsity", align 8
   %8 = alloca %"class.std::vector", align 8
@@ -8210,7 +8210,7 @@ declare noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20Sh
 declare noundef ptr @_ZNK6casadi8Sparsity3getEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16SparsityInternal8randpermExx(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16SparsityInternal8randpermExx(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp eq i64 %2, 0
@@ -8305,7 +8305,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal6dmpermERSt6vectorIxSaIxEES4_S4_S4_S4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal6dmpermERSt6vectorIxSaIxEES4_S4_S4_S4_S4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.casadi::Sparsity", align 8
   %9 = alloca %"class.std::vector", align 8
   %10 = alloca %"class.std::vector", align 8
@@ -9936,7 +9936,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16SparsityInternal17invertPermutationERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16SparsityInternal17invertPermutationERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !53
   %5 = load ptr, ptr %1, align 8, !tbaa !48
@@ -9997,7 +9997,7 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7permuteERKSt6vectorIxSaIxEES5_xRS3_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7permuteERKSt6vectorIxSaIxEES5_xRS3_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -10241,7 +10241,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit30:             ; preds = %44, %46, %48, %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN6casadi16SparsityInternal4dropEPFxxxdPvES1_xxRSt6vectorIxSaIxEES7_(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZN6casadi16SparsityInternal4dropEPFxxxdPvES1_xxRSt6vectorIxSaIxEES7_(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #5 align 2 {
   %7 = icmp sgt i64 %3, 0
   %.pre34 = load ptr, ptr %4, align 8, !tbaa !48
   br i1 %7, label %.lr.ph32, label %._crit_edge
@@ -10309,7 +10309,7 @@ declare noundef i64 @_ZNK6casadi8Sparsity3sccERSt6vectorIxSaIxEES4_(ptr noundef 
 declare i32 @rand_r(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7permuteERKSt6vectorIxSaIxEES5_x(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i64 noundef %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7permuteERKSt6vectorIxSaIxEES5_x(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i64 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
@@ -10405,7 +10405,7 @@ define noundef range(i64 0, 2) i64 @_ZN6casadi16SparsityInternal4diagExxdPv(i64 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal7scatterExRSt6vectorIxSaIxEExPxx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK6casadi16SparsityInternal7scatterExRSt6vectorIxSaIxEExPxx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5) local_unnamed_addr #12 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -10456,7 +10456,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal7scatterExRSt6vectorIxSaIxEExPx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal8multiplyERKNS_8SparsityE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal8multiplyERKNS_8SparsityE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11370,7 +11370,7 @@ declare noundef i64 @_ZNK6casadi8Sparsity5size1Ev(ptr noundef nonnull align 8 de
 declare noundef i64 @_ZNK6casadi8Sparsity5size2Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIxSaIxEEC2EmRKxRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIxSaIxEEC2EmRKxRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp ugt i64 %1, 1152921504606846975
   br i1 %5, label %6, label %_ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit
 
@@ -11412,7 +11412,7 @@ _ZNSt12_Vector_baseIxSaIxEEC2EmRKS0_.exit.thread: ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal8get_diagERSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal8get_diagERSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -12143,7 +12143,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit110:                 ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_vectorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_vectorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -12162,7 +12162,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_vectorEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8has_diagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8has_diagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -12210,7 +12210,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8has_diagEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal9drop_diagEv(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal9drop_diagEv(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -12507,7 +12507,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit38:                  ; preds = %109, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIxSaIxEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIxSaIxEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp ugt i64 %1, 1152921504606846975
   br i1 %3, label %4, label %5
 
@@ -12561,7 +12561,7 @@ _ZNSt12_Vector_baseIxSaIxEE13_M_deallocateEPxm.exit: ; preds = %_ZNSt6vectorIxSa
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %3) #32
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
@@ -12684,7 +12684,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7repr_elB5cxx11Ex(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7repr_elB5cxx11Ex(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = load i64, ptr @_ZN6casadi13GlobalOptions11start_indexE, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4) #32
@@ -12948,13 +12948,13 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #6 align 2
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #7 align 2
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7_mtimesERKNS_8SparsityE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7_mtimesERKNS_8SparsityE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca %"struct.std::pair", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -13521,7 +13521,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit68:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_scalarEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_scalarEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13555,7 +13555,7 @@ declare noundef zeroext i1 @_ZNK6casadi8Sparsity9is_scalarEb(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK6casadi8Sparsity8is_denseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6casadi21GenericSharedInternalINS_12SharedObjectENS_20SharedObjectInternalEE16shared_from_thisINS_8SparsityEEEKT_v(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6casadi21GenericSharedInternalINS_12SharedObjectENS_20SharedObjectInternalEE16shared_from_thisINS_8SparsityEEEKT_v(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13874,7 +13874,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZNK6casadi16SparsityInternal4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define { i64, i64 } @_ZNK6casadi16SparsityInternal4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -13886,7 +13886,7 @@ define { i64, i64 } @_ZNK6casadi16SparsityInternal4sizeEv(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_emptyEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_emptyEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -13917,7 +13917,7 @@ declare void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind writable sret(%"cl
 declare void @_ZN6casadi8SparsityC1Exx(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_diagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_diagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13970,7 +13970,7 @@ declare noundef zeroext i1 @_ZNK6casadi8Sparsity7is_diagEv(ptr noundef nonnull a
 declare void @_ZN6casadi8Sparsity7tripletExxRKSt6vectorIxSaIxEES5_(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal6is_rowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal6is_rowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -13979,7 +13979,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal6is_rowEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_columnEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_columnEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13989,7 +13989,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_columnEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_squareEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_squareEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -14000,7 +14000,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_squareEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_transposeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_transposeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -14152,13 +14152,13 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %.critedge50, %69
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14is_permutationEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14is_permutationEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call noundef zeroext i1 @_ZNK6casadi16SparsityInternal14is_orthonormalEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext false)
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14is_orthonormalEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14is_orthonormalEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.casadi::Sparsity", align 8
   %4 = alloca %"class.casadi::Sparsity", align 8
   %5 = alloca %"class.casadi::Sparsity", align 8
@@ -14331,7 +14331,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 declare noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal19is_orthonormal_rowsEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal19is_orthonormal_rowsEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.casadi::Sparsity", align 8
   %4 = alloca %"class.casadi::Sparsity", align 8
   %5 = alloca %"class.casadi::Sparsity", align 8
@@ -14502,7 +14502,7 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal22is_orthonormal_columnsEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal22is_orthonormal_columnsEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.casadi::Sparsity", align 8
   %4 = alloca %"class.casadi::Sparsity", align 8
   %5 = alloca %"class.casadi::Sparsity", align 8
@@ -14673,13 +14673,13 @@ _ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_selectionEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal12is_selectionEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK6casadi16SparsityInternal19is_orthonormal_rowsEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1)
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal9nnz_lowerEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK6casadi16SparsityInternal9nnz_lowerEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -14731,7 +14731,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal9nnz_lowerEb(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal8nnz_diagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK6casadi16SparsityInternal8nnz_diagEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -14779,7 +14779,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal8nnz_diagEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal9nnz_upperEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef i64 @_ZNK6casadi16SparsityInternal9nnz_upperEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -14831,7 +14831,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal9nnz_upperEb(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal6_eraseERKSt6vectorIxSaIxEEbRS3_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal6_eraseERKSt6vectorIxSaIxEEbRS3_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16385,7 +16385,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit228:                 ; preds = %_ZNSt6vectorIxSaIxE
 declare void @_ZN6casadi5rangeEx(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal6_eraseERKSt6vectorIxSaIxEES5_bRS3_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal6_eraseERKSt6vectorIxSaIxEES5_bRS3_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18928,7 +18928,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit466:                 ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal6get_nzERKSt6vectorIxSaIxEES5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal6get_nzERKSt6vectorIxSaIxEES5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20481,7 +20481,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit301:                 ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6casadi4sortIxEEvRKSt6vectorIT_SaIS2_EERS4_RS1_IxSaIxEEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi4sortIxEEvRKSt6vectorIT_SaIS2_EERS4_RS1_IxSaIxEEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   br i1 %3, label %6, label %51
 
@@ -20734,7 +20734,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit40:             ; preds = %96, %98, %100, %102
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal3subERKSt6vectorIxSaIxEERKS0_RS3_b(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal3subERKSt6vectorIxSaIxEERKS0_RS3_b(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22695,7 +22695,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit307:                 ; preds = %737, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal6get_nzERSt6vectorIxSaIxEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal6get_nzERSt6vectorIxSaIxEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !69
@@ -22990,7 +22990,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit80:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal3subERKSt6vectorIxSaIxEES5_RS3_b(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal3subERKSt6vectorIxSaIxEES5_RS3_b(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25855,7 +25855,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit515:                 ; preds = %_ZNSt6vectorIxSaIxE
 declare void @_ZN6casadi12lookupvectorERKSt6vectorIxSaIxEEx(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7combineERKNS_8SparsityEbb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 {
+define void @_ZNK6casadi16SparsityInternal7combineERKNS_8SparsityEbb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
   %6 = load atomic i8, ptr @_ZGVZNK6casadi16SparsityInternal7combineERKNS_8SparsityEbbE7mapping acquire, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %12, !prof !376
@@ -25915,7 +25915,7 @@ _ZNK6casadi16SparsityInternal11combineGen1ILb0EEENS_8SparsityERKS2_bbRSt6vectorI
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !380
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit, label %3
@@ -25937,13 +25937,13 @@ _ZNSt12_Vector_baseIhSaIhEED2Ev.exit:             ; preds = %1, %3
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7combineERKNS_8SparsityEbbRSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #6 align 2 {
+define void @_ZNK6casadi16SparsityInternal7combineERKNS_8SparsityEbbRSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #5 align 2 {
   tail call void @_ZNK6casadi16SparsityInternal11combineGen1ILb1EEENS_8SparsityERKS2_bbRSt6vectorIhSaIhEE(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal11combineGen1ILb1EEENS_8SparsityERKS2_bbRSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #6 comdat align 2 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal11combineGen1ILb1EEENS_8SparsityERKS2_bbRSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #5 comdat align 2 {
   %7 = tail call noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %7, label %8, label %17
 
@@ -25999,7 +25999,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEiEvT_S7_RKT0_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_subsetERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal9is_subsetERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.16", align 8
   %4 = alloca %"class.casadi::Sparsity", align 8
   %5 = alloca %"class.casadi::Sparsity", align 8
@@ -26109,7 +26109,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit19:                  ; preds = %.critedge, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalERKNS_8SparsityE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalERKNS_8SparsityE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = tail call noundef ptr @_ZNK6casadi8Sparsity3getEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = icmp eq ptr %0, %3
   br i1 %4, label %_ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit, label %5
@@ -26175,7 +26175,7 @@ _ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit: ; preds = %24, %_ZSt5equal
 declare void @_ZNK6casadi8Sparsity5uniteERKS0_RSt6vectorIhSaIhEE(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal10is_stackedERKNS_8SparsityEx(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal10is_stackedERKNS_8SparsityEx(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = icmp eq i64 %2, 1
   br i1 %4, label %5, label %7
 
@@ -26365,7 +26365,7 @@ _ZSt5equalIPKxS1_EbT_S2_T0_.exit20:               ; preds = %20, %_ZSt5equalIPKx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal15pattern_inverseEv(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal15pattern_inverseEv(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -26803,7 +26803,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit46:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalExxRKSt6vectorIxSaIxEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal8is_equalExxRKSt6vectorIxSaIxEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27458,7 +27458,7 @@ _ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit: ; preds = %222, %232, %234
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal13_appendVectorERKS0_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal13_appendVectorERKS0_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28202,7 +28202,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit100:                 ; preds = %282, %284
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal14_appendColumnsERKS0_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal14_appendColumnsERKS0_(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29003,7 +29003,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit108:                 ; preds = %307, %309
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal15_enlargeColumnsExRKSt6vectorIxSaIxEEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal15_enlargeColumnsExRKSt6vectorIxSaIxEEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30202,7 +30202,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit193:                 ; preds = %430, %432
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal12_enlargeRowsExRKSt6vectorIxSaIxEEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal12_enlargeRowsExRKSt6vectorIxSaIxEEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -31596,7 +31596,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit218:                 ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal9makeDenseERSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal9makeDenseERSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -31690,7 +31690,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal6get_nzExx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK6casadi16SparsityInternal6get_nzExx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32709,7 +32709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal8_reshapeExx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal8_reshapeExx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -33628,7 +33628,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit154:                 ; preds = %338, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7_resizeExx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal7_resizeExx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #32
@@ -33927,7 +33927,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit41:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14rowsSequentialEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14rowsSequentialEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -33977,7 +33977,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal14rowsSequentialEb(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal17_removeDuplicatesERSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal17_removeDuplicatesERSt6vectorIxSaIxEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34924,7 +34924,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit143:                 ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal4findERSt6vectorIxSaIxEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal4findERSt6vectorIxSaIxEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35373,7 +35373,7 @@ _ZNSt6vectorIxSaIxEE6resizeEm.exit:               ; preds = %150, %152, %154, %1
 declare void @_ZN6casadi5rangeExxxx(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal12uni_coloringERKNS_8SparsityEx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal12uni_coloringERKNS_8SparsityEx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -35931,7 +35931,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit118:                 ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal14star_coloring2Exx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal14star_coloring2Exx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38425,7 +38425,7 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit49: 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uoutEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal13largest_firstEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal13largest_firstEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69, !noalias !515
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -38885,7 +38885,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit61:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal5pmultERKSt6vectorIxSaIxEEbbb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal5pmultERKSt6vectorIxSaIxEEbbb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0176 = alloca ptr, align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::vector", align 8
@@ -39925,7 +39925,7 @@ declare void @_ZNK6casadi8Sparsity14star_coloring2Exx(ptr dead_on_unwind writabl
 declare void @_ZNK6casadi8Sparsity5pmultERKSt6vectorIxSaIxEEbbb(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal13star_coloringExx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal13star_coloringExx(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41293,7 +41293,7 @@ _ZNK6casadi16SparsityInternal8is_equalExxPKxS2_.exit: ; preds = %.critedge54.loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal3spyERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal3spyERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69, !noalias !562
   %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -41479,7 +41479,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit22:                  ; preds = %66, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal11export_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SB_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal11export_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoRKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SB_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -43226,7 +43226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit346: ; preds = %_Z
 declare void @_ZNK6casadi11GenericType9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %0, align 8, !tbaa !109
@@ -43295,7 +43295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal10spy_matlabERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal10spy_matlabERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_ofstream", align 8
   %4 = alloca %"class.std::map", align 8
   %5 = alloca %"class.casadi::GenericType", align 8
@@ -43648,12 +43648,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #6 align 2
+declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #5 align 2
 
 declare void @_ZN6casadi11GenericTypeC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEEixEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %"class.std::tuple.36", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -43748,7 +43748,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !588
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -43766,10 +43766,10 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #7 align 2
+declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6casadi16SparsityInternal4hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+define noundef i64 @_ZNK6casadi16SparsityInternal4hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -43785,7 +43785,7 @@ define noundef i64 @_ZNK6casadi16SparsityInternal4hashEv(ptr noundef nonnull rea
 declare noundef i64 @_ZN6casadi13hash_sparsityExxPKxS1_(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_trilEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_trilEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -43844,7 +43844,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_trilEb(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_triuEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_triuEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -43902,7 +43902,7 @@ define noundef zeroext i1 @_ZNK6casadi16SparsityInternal7is_triuEb(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal5_trilEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal5_trilEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -44283,7 +44283,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit44:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal5_triuEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal5_triuEb(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -44664,7 +44664,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit44:                  ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal9get_lowerEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal9get_lowerEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -44821,7 +44821,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit:          ; preds = %_ZNSt6vectorIxSaIxE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal9get_upperEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi16SparsityInternal9get_upperEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -44991,7 +44991,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %66, %67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, -9223372036854775808) i64 @_ZNK6casadi16SparsityInternal8bw_upperEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZNK6casadi16SparsityInternal8bw_upperEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -45034,7 +45034,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZNK6casadi16SparsityInte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 0, -9223372036854775808) i64 @_ZNK6casadi16SparsityInternal8bw_lowerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #12 align 2 {
+define noundef range(i64 0, -9223372036854775808) i64 @_ZNK6casadi16SparsityInternal8bw_lowerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !69
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -45076,7 +45076,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZNK6casadi16SparsityInte
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi16SparsityInternal7spsolveEPyS1_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
+define void @_ZNK6casadi16SparsityInternal7spsolveEPyS1_b(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %.not.i = icmp eq ptr %6, null
@@ -45332,7 +45332,7 @@ _ZNK6casadi16SparsityInternal3btfEv.exit:         ; preds = %4, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNK6casadi16SparsityInternal10class_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK6casadi16SparsityInternal10class_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -45354,7 +45354,7 @@ define linkonce_odr hidden void @_ZNK6casadi16SparsityInternal10class_nameB5cxx1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi21GenericSharedInternalINS_12SharedObjectENS_20SharedObjectInternalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi21GenericSharedInternalINS_12SharedObjectENS_20SharedObjectInternalEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6casadi21GenericSharedInternalINS_12SharedObjectENS_20SharedObjectInternalEEE, i64 16), ptr %0, align 8, !tbaa !46
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !63
@@ -45440,7 +45440,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8, !tbaa !46
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !70
@@ -45468,7 +45468,7 @@ _ZN6casadi15CasadiExceptionD2Ev.exit:             ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6casadi15CasadiException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK6casadi15CasadiException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !70
   ret ptr %3
@@ -45502,7 +45502,7 @@ declare noundef i64 @_ZNK6casadi11GenericType6to_intEv(ptr noundef nonnull align
 declare void @_ZNK6casadi11GenericType16to_string_vectorB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::vector.10") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not6 = icmp eq ptr %1, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -45585,7 +45585,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #22
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS8_EEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaIS8_EEb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4) #32
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
@@ -45757,7 +45757,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIxSaIxEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %43, label %3
 
@@ -45868,7 +45868,7 @@ declare void @_ZN6casadi8Sparsity4sum2ERKS0_(ptr dead_on_unwind writable sret(%"
 declare void @_ZN6casadi8Sparsity4sum1ERKS0_(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr %0, ptr %1, i64 noundef %2) local_unnamed_addr #5 comdat {
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
   %5 = ptrtoint ptr %0 to i64
   %6 = ptrtoint ptr %1 to i64
@@ -46083,7 +46083,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__ops15_Iter_less_iterEEvT_S9_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #5 comdat {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -46231,7 +46231,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEElxNS0_5_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEElNS0_5__ops15_Iter_comp_iterIN6casadi11sortCompareIxEEEEEvT_SD_T0_T1_(ptr %0, ptr %1, i64 noundef %2, ptr %3) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEElNS0_5__ops15_Iter_comp_iterIN6casadi11sortCompareIxEEEEEvT_SD_T0_T1_(ptr %0, ptr %1, i64 noundef %2, ptr %3) local_unnamed_addr #5 comdat {
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %6 = ptrtoint ptr %0 to i64
   %7 = ptrtoint ptr %1 to i64
@@ -46473,7 +46473,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__ops15_Iter_comp_iterIN6casadi11sortCompareIxEEEEEvT_SD_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__ops15_Iter_comp_iterIN6casadi11sortCompareIxEEEEEvT_SD_T0_(ptr %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -46632,7 +46632,7 @@ _ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__ops15_Iter_comp_iterIN6casadi11sortCompareIxEEEEEvT_SD_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEENS0_5__ops15_Iter_comp_iterIN6casadi11sortCompareIxEEEEEvT_SD_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #5 comdat {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -46810,7 +46810,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEElxNS0_5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb1ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb1ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47615,7 +47615,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit130:                 ; preds = %315, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb1ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb1ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48474,7 +48474,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit140:                 ; preds = %335, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb0ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb0ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -49333,7 +49333,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit138:                 ; preds = %335, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb0ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb0ELb0ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50245,7 +50245,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit148:                 ; preds = %356, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN6casadi3strIxxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairIT_T0_Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi3strIxxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt4pairIT_T0_Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4) #32
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
@@ -50386,7 +50386,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !680
   %5 = load ptr, ptr %0, align 8, !tbaa !380
@@ -50494,7 +50494,7 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb1ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb1ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -51544,7 +51544,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit162:                 ; preds = %400, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb1ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb1ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -52658,7 +52658,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit172:                 ; preds = %424, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb0ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb0ELb1EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -53790,7 +53790,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit170:                 ; preds = %443, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb0ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNK6casadi16SparsityInternal10combineGenILb1ELb0ELb0EEENS_8SparsityERKS2_RSt6vectorIhSaIhEE(ptr dead_on_unwind noalias writable sret(%"class.casadi::Sparsity") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -54992,7 +54992,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit180:                 ; preds = %472, %_ZNSt6vectorI
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIxSaIxEE15_M_range_insertIPKxEEvN9__gnu_cxx17__normal_iteratorIPxS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIxSaIxEE15_M_range_insertIPKxEEvN9__gnu_cxx17__normal_iteratorIPxS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %2, %3
   br i1 %.not, label %_ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_.exit59, label %5
 
@@ -55149,7 +55149,7 @@ _ZSt4copyIPKxN9__gnu_cxx17__normal_iteratorIPxSt6vectorIxSaIxEEEEET0_T_SA_S9_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIxSaIxEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPxS1_EEmRKx(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIxSaIxEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPxS1_EEmRKx(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %_ZSt4fillIPxxEvT_S1_RKT0_.exit, label %5
 
@@ -55337,7 +55337,7 @@ declare noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv(ptr nound
 declare noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
   store ptr %0, ptr %6, align 8, !tbaa !701
@@ -55449,7 +55449,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %27
@@ -55650,7 +55650,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !703
   %.not = icmp eq ptr %3, null
@@ -55697,7 +55697,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %3, align 8, !tbaa !180
   %8 = inttoptr i64 %7 to ptr
@@ -55787,7 +55787,7 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 declare void @_ZN6casadi11GenericTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi11GenericTypeEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02931 = load ptr, ptr %3, align 8, !tbaa !591
@@ -55928,14 +55928,14 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold noreturn }

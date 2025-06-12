@@ -826,8 +826,8 @@ return:                                           ; preds = %for.cond13.if.end34
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -907,10 +907,10 @@ for.end:                                          ; preds = %for.body.epil, %for
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip, i1 noundef zeroext %bgr) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip, i1 noundef zeroext %bgr) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool2 = icmp ne ptr %out, null
@@ -1105,10 +1105,10 @@ return:                                           ; preds = %for.cond6.for.cond.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #3
+declare float @llvm.fmuladd.f32(float, float, float) #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #1 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef readonly captures(address_is_null) %in, ptr noundef writeonly captures(address_is_null) %out, i32 noundef %width, i32 noundef %height, i32 noundef %linepad, i1 noundef zeroext %flip) local_unnamed_addr #0 align 2 {
 entry:
   %tobool = icmp ne ptr %in, null
   %tobool1 = icmp ne ptr %out, null
@@ -1575,7 +1575,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA1R5G5B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A1R5G5B5toA1R5G5B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #3 align 2 {
 entry:
   %mul = shl nsw i32 %sN, 1
   %conv = sext i32 %mul to i64
@@ -1832,7 +1832,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter26convert_A8R8G8B8toA8R8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #3 align 2 {
 entry:
   %mul = shl nsw i32 %sN, 2
   %conv = sext i32 %mul to i64
@@ -2595,7 +2595,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #3 align 2 {
 entry:
   %mul = mul nsw i32 %sN, 3
   %conv = sext i32 %mul to i64
@@ -3336,7 +3336,7 @@ for.body:                                         ; preds = %for.body.preheader1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR5G6B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #4 align 2 {
+define void @_ZN3irr5video15CColorConverter22convert_R5G6B5toR5G6B5EPKviPv(ptr noundef readonly captures(none) %sP, i32 noundef %sN, ptr noundef writeonly captures(none) %dP) local_unnamed_addr #3 align 2 {
 entry:
   %mul = shl nsw i32 %sN, 1
   %conv = sext i32 %mul to i64
@@ -3726,7 +3726,7 @@ for.body:                                         ; preds = %for.body.prol.loope
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3irr5video15CColorConverter16canConvertFormatENS0_13ECOLOR_FORMATES2_(i32 noundef %sourceFormat, i32 noundef %destFormat) local_unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN3irr5video15CColorConverter16canConvertFormatENS0_13ECOLOR_FORMATES2_(i32 noundef %sourceFormat, i32 noundef %destFormat) local_unnamed_addr #4 align 2 {
 entry:
   switch i32 %sourceFormat, label %sw.epilog15 [
     i32 0, label %sw.bb
@@ -4958,23 +4958,22 @@ sw.epilog27:                                      ; preds = %for.body.i177, %for
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #3
+declare i16 @llvm.fshl.i16(i16, i16, i16) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #3
+declare i32 @llvm.fshl.i32(i32, i32, i32) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.fshl.v8i16(<8 x i16>, <8 x i16>, <8 x i16>) #3
+declare <8 x i16> @llvm.fshl.v8i16(<8 x i16>, <8 x i16>, <8 x i16>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #3
+declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2}
 

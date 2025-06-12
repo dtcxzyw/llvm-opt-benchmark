@@ -3299,7 +3299,7 @@ _ZL13lm_print_parsiPKdP8_IO_FILE.exit818:         ; preds = %.lr.ph.i814, %1437
   br label %1464
 
 1464:                                             ; preds = %1461, %.loopexit
-  tail call void @free(ptr noundef nonnull %79) #13
+  tail call void @free(ptr noundef %79) #13
   br label %1465
 
 1465:                                             ; preds = %81, %1464, %65, %59, %52, %._crit_edge1216, %35, %30

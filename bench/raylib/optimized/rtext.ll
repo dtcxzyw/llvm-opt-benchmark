@@ -7761,7 +7761,7 @@ define zeroext i1 @IsFontValid(ptr noundef readonly byval(%struct.Font) align 8 
   ret i1 %15
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i32 @stbtt_FindGlyphIndex(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #18 {
   %2 = zext i32 %.56.val to i64
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %2
@@ -9300,7 +9300,7 @@ define range(i32 -128, 2097152) i32 @GetCodepointNext(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @GetGlyphIndex(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+define i32 @GetGlyphIndex(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp sgt i32 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -9671,13 +9671,13 @@ DrawTextCodepoint.exit:                           ; preds = %42, %51, %.thread.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @SetTextLineSpacing(i32 noundef %0) local_unnamed_addr #22 {
+define void @SetTextLineSpacing(i32 noundef %0) local_unnamed_addr #23 {
   store i32 %0, ptr @textLineSpacing, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @MeasureText(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
+define i32 @MeasureText(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
   %.sroa.1.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @defaultFont, i64 12), align 4
   %.not = icmp eq i32 %.sroa.1.0.copyload, 0
   br i1 %.not, label %8, label %3
@@ -9698,7 +9698,7 @@ define i32 @MeasureText(ptr noundef readonly captures(address_is_null) %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @MeasureTextEx(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, float noundef %3) local_unnamed_addr #23 {
+define <2 x float> @MeasureTextEx(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, float noundef %3) local_unnamed_addr #24 {
   %5 = load i8, ptr @isGpuReady, align 1, !range !3, !noundef !4
   %6 = trunc nuw i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -9953,7 +9953,7 @@ GetGlyphIndex.exit:                               ; preds = %GetCodepointNext.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @GetGlyphInfo(ptr dead_on_unwind noalias writable writeonly sret(%struct.GlyphInfo) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Font) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #24 {
+define void @GetGlyphInfo(ptr dead_on_unwind noalias writable writeonly sret(%struct.GlyphInfo) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Font) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #25 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %1, align 8
@@ -10009,7 +10009,7 @@ GetGlyphIndex.exit:                               ; preds = %3, %22, %.thread.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @GetGlyphAtlasRec(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+define { <2 x float>, <2 x float> } @GetGlyphAtlasRec(ptr noundef readonly byval(%struct.Font) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
@@ -10069,16 +10069,16 @@ GetGlyphIndex.exit:                               ; preds = %2, %21, %.thread.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #25
+declare void @llvm.va_start.p0(ptr) #26
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #25
+declare void @llvm.va_end.p0(ptr) #26
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @TextToInteger(ptr noundef readonly captures(none) %0) local_unnamed_addr #26 {
+define i32 @TextToInteger(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %6 [
     i8 43, label %3
@@ -10122,7 +10122,7 @@ define i32 @TextToInteger(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define float @TextToFloat(ptr noundef readonly captures(none) %0) local_unnamed_addr #26 {
+define float @TextToFloat(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %6 [
     i8 43, label %3
@@ -11192,7 +11192,7 @@ define void @UnloadCodepoints(ptr noundef captures(none) %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @GetCodepointCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #26 {
+define i32 @GetCodepointCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = load i8, ptr %0, align 1
   %.not9 = icmp eq i8 %2, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -11704,7 +11704,7 @@ stbtt__buf_range.exit:                            ; preds = %49, %53, %56
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #26 {
+define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #18 {
   %.sroa.18.8.extract.shift = lshr i64 %1, 32
   %.sroa.18.8.extract.trunc = trunc nuw i64 %.sroa.18.8.extract.shift to i32
   %4 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc, i32 0)
@@ -12187,7 +12187,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #18 {
+define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #22 {
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 8
@@ -13346,7 +13346,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %529, %94, %.thread2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #24 {
+define internal fastcc void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #25 {
   %9 = alloca %struct.stbtt__csctx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %11 = load i32, ptr %10, align 4
@@ -13556,7 +13556,7 @@ stbtt_GetGlyphBox.exit:                           ; preds = %102, %12
 declare double @sqrt(double noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #24 {
+define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #25 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #44
@@ -15634,15 +15634,15 @@ attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #26 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #27 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { nofree norecurse nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

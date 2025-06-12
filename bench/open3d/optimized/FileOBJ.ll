@@ -14262,7 +14262,6 @@ thread-pre-split1368.thread:                      ; preds = %.thread, %thread-pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #36
   %404 = call i64 @strspn(ptr noundef nonnull %400, ptr noundef nonnull @.str) #38
   %405 = getelementptr inbounds nuw i8, ptr %400, i64 %404
-  store ptr %405, ptr %36, align 8, !tbaa !100
   %406 = call i64 @strcspn(ptr noundef nonnull %405, ptr noundef nonnull @.str.12) #38
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 %406
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #36
@@ -14270,11 +14269,9 @@ thread-pre-split1368.thread:                      ; preds = %.thread, %thread-pr
   %408 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %405, ptr noundef nonnull %407, ptr noundef %24)
   %409 = load double, ptr %24, align 8, !tbaa !107
   %410 = fptrunc double %409 to float
-  store ptr %407, ptr %36, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #36
   %411 = call i64 @strspn(ptr noundef nonnull %407, ptr noundef nonnull @.str) #38
   %412 = getelementptr inbounds nuw i8, ptr %407, i64 %411
-  store ptr %412, ptr %36, align 8, !tbaa !100
   %413 = call i64 @strcspn(ptr noundef nonnull %412, ptr noundef nonnull @.str.12) #38
   %414 = getelementptr inbounds nuw i8, ptr %412, i64 %413
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #36
@@ -14289,7 +14286,6 @@ _ZN7tinyobjL9parseRealEPPKcPf.exit.i:             ; preds = %388
 416:                                              ; preds = %388
   %417 = load double, ptr %23, align 8, !tbaa !107
   %418 = fptrunc double %417 to float
-  store ptr %414, ptr %36, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #36
   %419 = call i64 @strspn(ptr noundef nonnull %414, ptr noundef nonnull @.str) #38
   %420 = getelementptr inbounds nuw i8, ptr %414, i64 %419
@@ -14747,7 +14743,6 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #36
   %588 = call i64 @strspn(ptr noundef nonnull %584, ptr noundef nonnull @.str) #38
   %589 = getelementptr inbounds nuw i8, ptr %584, i64 %588
-  store ptr %589, ptr %36, align 8, !tbaa !100
   %590 = call i64 @strcspn(ptr noundef nonnull %589, ptr noundef nonnull @.str.12) #38
   %591 = getelementptr inbounds nuw i8, ptr %589, i64 %590
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #36
@@ -19601,7 +19596,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit979: ; preds = %_Z
   %2251 = getelementptr inbounds nuw i8, ptr %2248, i64 1
   %2252 = call i64 @strspn(ptr noundef nonnull %2251, ptr noundef nonnull @.str) #38
   %2253 = getelementptr inbounds nuw i8, ptr %2251, i64 %2252
-  store ptr %2253, ptr %36, align 8, !tbaa !100
   %2254 = call i64 @__isoc23_strtol(ptr noundef nonnull %2253, ptr noundef null, i32 noundef 10) #36
   %.fr = freeze i64 %2254
   %2255 = trunc i64 %.fr to i32
@@ -29286,18 +29280,15 @@ thread-pre-split407.thread:                       ; preds = %.thread, %thread-pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #36
   %153 = call i64 @strspn(ptr noundef nonnull %150, ptr noundef nonnull @.str) #38
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 %153
-  store ptr %154, ptr %24, align 8, !tbaa !100
   %155 = call i64 @strcspn(ptr noundef nonnull %154, ptr noundef nonnull @.str.12) #38
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 %155
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #36
   store double 0.000000e+00, ptr %16, align 8, !tbaa !107
   %157 = call fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef nonnull %154, ptr noundef nonnull %156, ptr noundef %16)
   %158 = load double, ptr %16, align 8, !tbaa !107
-  store ptr %156, ptr %24, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #36
   %159 = call i64 @strspn(ptr noundef nonnull %156, ptr noundef nonnull @.str) #38
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 %159
-  store ptr %160, ptr %24, align 8, !tbaa !100
   %161 = call i64 @strcspn(ptr noundef nonnull %160, ptr noundef nonnull @.str.12) #38
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 %161
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #36

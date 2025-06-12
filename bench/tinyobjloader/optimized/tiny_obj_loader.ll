@@ -2331,7 +2331,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #29
   %365 = call i64 @strspn(ptr noundef nonnull %361, ptr noundef nonnull @.str) #30
   %366 = getelementptr inbounds nuw i8, ptr %361, i64 %365
-  store ptr %366, ptr %39, align 8, !tbaa !13
   %367 = call i64 @strcspn(ptr noundef nonnull %366, ptr noundef nonnull @.str.12) #30
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 %367
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #29
@@ -2377,7 +2376,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #29
   %390 = call i64 @strspn(ptr noundef nonnull %386, ptr noundef nonnull @.str) #30
   %391 = getelementptr inbounds nuw i8, ptr %386, i64 %390
-  store ptr %391, ptr %39, align 8, !tbaa !13
   %392 = call i64 @strcspn(ptr noundef nonnull %391, ptr noundef nonnull @.str.12) #30
   %393 = getelementptr inbounds nuw i8, ptr %391, i64 %392
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #29
@@ -2423,7 +2421,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #29
   %415 = call i64 @strspn(ptr noundef nonnull %411, ptr noundef nonnull @.str) #30
   %416 = getelementptr inbounds nuw i8, ptr %411, i64 %415
-  store ptr %416, ptr %39, align 8, !tbaa !13
   %417 = call i64 @strcspn(ptr noundef nonnull %416, ptr noundef nonnull @.str.12) #30
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 %417
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #29
@@ -2484,7 +2481,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #29
   %448 = call i64 @strspn(ptr noundef nonnull %444, ptr noundef nonnull @.str) #30
   %449 = getelementptr inbounds nuw i8, ptr %444, i64 %448
-  store ptr %449, ptr %39, align 8, !tbaa !13
   %450 = call i64 @strcspn(ptr noundef nonnull %449, ptr noundef nonnull @.str.12) #30
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 %450
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #29
@@ -2561,7 +2557,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
   %487 = call i64 @strspn(ptr noundef nonnull %483, ptr noundef nonnull @.str) #30
   %488 = getelementptr inbounds nuw i8, ptr %483, i64 %487
-  store ptr %488, ptr %39, align 8, !tbaa !13
   %489 = call i64 @strcspn(ptr noundef nonnull %488, ptr noundef nonnull @.str.12) #30
   %490 = getelementptr inbounds nuw i8, ptr %488, i64 %489
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #29
@@ -8191,7 +8186,6 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit507:       ; preds = %_ZNSt6vectorIfSaIfE
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #29
   %516 = call i64 @strspn(ptr noundef nonnull %512, ptr noundef nonnull @.str) #30
   %517 = getelementptr inbounds nuw i8, ptr %512, i64 %516
-  store ptr %517, ptr %32, align 8, !tbaa !13
   %518 = call i64 @strcspn(ptr noundef nonnull %517, ptr noundef nonnull @.str.12) #30
   %519 = getelementptr inbounds nuw i8, ptr %517, i64 %518
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #29
@@ -12859,7 +12853,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1039: ; preds = %_
   %1968 = getelementptr inbounds nuw i8, ptr %1965, i64 1
   %1969 = call i64 @strspn(ptr noundef nonnull %1968, ptr noundef nonnull @.str) #30
   %1970 = getelementptr inbounds nuw i8, ptr %1968, i64 %1969
-  store ptr %1970, ptr %32, align 8, !tbaa !13
   %1971 = call i64 @strtol(ptr noundef nonnull captures(none) %1970, ptr noundef null, i32 noundef 10) #29
   %.fr = freeze i64 %1971
   %1972 = trunc i64 %.fr to i32

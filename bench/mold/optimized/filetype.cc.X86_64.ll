@@ -688,12 +688,12 @@ _ZN4moldL14is_gcc_lto_objINS_6X86_64EEEbPNS_10MappedFileEb.exit.thread: ; preds 
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 %260
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 %268
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 %271
-  %276 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %275) #14
+  %276 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %275) #14
   %.not.i.i.us.i75 = icmp ult i64 %276, 17
   br i1 %.not.i.i.us.i75, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread.us.i78, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.us.i76
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.us.i76: ; preds = %257
-  %bcmp.i.i.i.us.i77 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %275, ptr noundef nonnull dereferenceable(17) @.str.28, i64 17)
+  %bcmp.i.i.i.us.i77 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(17) %275, ptr noundef nonnull dereferenceable(17) @.str.28, i64 17)
   %277 = icmp eq i32 %bcmp.i.i.i.us.i77, 0
   br i1 %277, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit115, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread.us.i78
 
@@ -878,12 +878,12 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit.thread.i62:
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 %410
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 %418
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 %421
-  %426 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %425) #14
+  %426 = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %425) #14
   %.not.i.i42.i69 = icmp ult i64 %426, 10
   br i1 %.not.i.i42.i69, label %_ZN4moldL14is_gcc_lto_objINS_4M68KEEEbPNS_10MappedFileEb.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i43.i70
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i43.i70: ; preds = %373
-  %bcmp.i.i.i44.i71 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %425, ptr noundef nonnull dereferenceable(10) @.str.29, i64 10)
+  %bcmp.i.i.i44.i71 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %425, ptr noundef nonnull dereferenceable(10) @.str.29, i64 10)
   %427 = icmp eq i32 %bcmp.i.i.i44.i71, 0
   br i1 %427, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE11starts_withEPKc.exit115, label %_ZN4moldL14is_gcc_lto_objINS_4M68KEEEbPNS_10MappedFileEb.exit.thread
 

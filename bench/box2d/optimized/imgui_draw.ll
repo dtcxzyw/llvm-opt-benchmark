@@ -27630,8 +27630,8 @@ declare noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef, i32 noundef) local_un
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x float> @llvm.x86.sse.rsqrt.ss(<4 x float>) #36
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #34 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr readonly %.8.val, i32 %.56.val, i32 noundef %0) unnamed_addr #35 {
   %2 = zext i32 %.56.val to i64
   %3 = getelementptr inbounds nuw i8, ptr %.8.val, i64 %2
   %.val = load i8, ptr %3, align 1, !tbaa !23

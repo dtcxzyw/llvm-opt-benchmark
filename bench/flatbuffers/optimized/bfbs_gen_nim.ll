@@ -20026,7 +20026,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i: ; preds = %.thread.i
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load i16, ptr %41, align 2, !tbaa !83
+  %42 = load i16, ptr %41, align 2, !tbaa !83, !noalias !444
   %.not.i.i21.i = icmp eq i16 %42, 0
   br i1 %.not.i.i21.i, label %_ZNK10reflection5Field2idEv.exit.i, label %43
 
