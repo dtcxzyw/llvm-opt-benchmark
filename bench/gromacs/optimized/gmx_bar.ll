@@ -10557,55 +10557,52 @@ _ZL15lambda_vec_samePK12lambda_vec_tS1_.exit37.thread._crit_edge.i: ; preds = %_
   br i1 %336, label %.lr.ph.i38.i, label %_ZL25sample_coll_insert_sampleP13sample_coll_tP9samples_tP14sample_range_t.exit
 
 .lr.ph.i38.i:                                     ; preds = %325
-  %337 = getelementptr inbounds nuw i8, ptr %.052, i64 40
-  %338 = load ptr, ptr %337, align 8, !tbaa !123
   %wide.trip.count.i.i = zext nneg i32 %334 to i64
-  br label %339
+  br label %337
 
-339:                                              ; preds = %361, %.lr.ph.i38.i
-  %340 = phi i64 [ 0, %.lr.ph.i38.i ], [ %362, %361 ]
-  %indvars.iv.i39.i = phi i64 [ 0, %.lr.ph.i38.i ], [ %indvars.iv.next.i40.i, %361 ]
-  %341 = getelementptr inbounds nuw %struct.sample_range_t, ptr %338, i64 %indvars.iv.i39.i
-  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  %343 = load i8, ptr %342, align 8, !tbaa !130, !range !132, !noundef !133
-  %344 = trunc nuw i8 %343 to i1
-  br i1 %344, label %345, label %361
+337:                                              ; preds = %358, %.lr.ph.i38.i
+  %338 = phi i64 [ 0, %.lr.ph.i38.i ], [ %359, %358 ]
+  %indvars.iv.i39.i = phi i64 [ 0, %.lr.ph.i38.i ], [ %indvars.iv.next.i40.i, %358 ]
+  %339 = getelementptr inbounds nuw %struct.sample_range_t, ptr %326, i64 %indvars.iv.i39.i
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
+  %341 = load i8, ptr %340, align 8, !tbaa !130, !range !132, !noundef !133
+  %342 = trunc nuw i8 %341 to i1
+  br i1 %342, label %343, label %358
 
-345:                                              ; preds = %339
-  %346 = load ptr, ptr %328, align 8, !tbaa !112
-  %347 = getelementptr inbounds nuw ptr, ptr %346, i64 %indvars.iv.i39.i
-  %348 = load ptr, ptr %347, align 8, !tbaa !113
-  %349 = getelementptr inbounds nuw i8, ptr %348, i64 64
-  %350 = load ptr, ptr %349, align 8, !tbaa !116
-  %.not.i41.i = icmp eq ptr %350, null
-  br i1 %.not.i41.i, label %354, label %351
+343:                                              ; preds = %337
+  %344 = getelementptr inbounds nuw ptr, ptr %329, i64 %indvars.iv.i39.i
+  %345 = load ptr, ptr %344, align 8, !tbaa !113
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 64
+  %347 = load ptr, ptr %346, align 8, !tbaa !116
+  %.not.i41.i = icmp eq ptr %347, null
+  br i1 %.not.i41.i, label %351, label %348
 
-351:                                              ; preds = %345
-  %352 = getelementptr inbounds nuw i8, ptr %348, i64 88
-  %353 = load i64, ptr %352, align 8, !tbaa !134
+348:                                              ; preds = %343
+  %349 = getelementptr inbounds nuw i8, ptr %345, i64 88
+  %350 = load i64, ptr %349, align 8, !tbaa !134
   br label %.sink.split.i.i
 
-354:                                              ; preds = %345
-  %355 = getelementptr inbounds nuw i8, ptr %341, i64 4
-  %356 = load i32, ptr %355, align 4, !tbaa !129
-  %357 = load i32, ptr %341, align 8, !tbaa !126
-  %358 = sub nsw i32 %356, %357
-  %359 = sext i32 %358 to i64
+351:                                              ; preds = %343
+  %352 = getelementptr inbounds nuw i8, ptr %339, i64 4
+  %353 = load i32, ptr %352, align 4, !tbaa !129
+  %354 = load i32, ptr %339, align 8, !tbaa !126
+  %355 = sub nsw i32 %353, %354
+  %356 = sext i32 %355 to i64
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %354, %351
-  %.sink17.i.i = phi i64 [ %359, %354 ], [ %353, %351 ]
-  %360 = add nsw i64 %.sink17.i.i, %340
-  store i64 %360, ptr %335, align 8, !tbaa !122
-  br label %361
+.sink.split.i.i:                                  ; preds = %351, %348
+  %.sink17.i.i = phi i64 [ %356, %351 ], [ %350, %348 ]
+  %357 = add nsw i64 %.sink17.i.i, %338
+  store i64 %357, ptr %335, align 8, !tbaa !122
+  br label %358
 
-361:                                              ; preds = %.sink.split.i.i, %339
-  %362 = phi i64 [ %340, %339 ], [ %360, %.sink.split.i.i ]
+358:                                              ; preds = %.sink.split.i.i, %337
+  %359 = phi i64 [ %338, %337 ], [ %357, %.sink.split.i.i ]
   %indvars.iv.next.i40.i = add nuw nsw i64 %indvars.iv.i39.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i40.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZL25sample_coll_insert_sampleP13sample_coll_tP9samples_tP14sample_range_t.exit, label %339, !llvm.loop !135
+  br i1 %exitcond.not.i.i, label %_ZL25sample_coll_insert_sampleP13sample_coll_tP9samples_tP14sample_range_t.exit, label %337, !llvm.loop !135
 
-_ZL25sample_coll_insert_sampleP13sample_coll_tP9samples_tP14sample_range_t.exit: ; preds = %361, %325
+_ZL25sample_coll_insert_sampleP13sample_coll_tP9samples_tP14sample_range_t.exit: ; preds = %358, %325
   ret void
 }
 

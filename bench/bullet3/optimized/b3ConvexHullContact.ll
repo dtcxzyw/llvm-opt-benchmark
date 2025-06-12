@@ -28041,7 +28041,7 @@ define linkonce_odr dso_local void @_ZNK13b3OpenCLArrayI16b3BvhSubtreeInfoE10cop
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !317
   %13 = icmp slt i32 %12, %6
-  br i1 %13, label %14, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit
+  br i1 %13, label %14, label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
 14:                                               ; preds = %10
   %.not.i.i.i = icmp eq i32 %6, 0
@@ -28100,14 +28100,11 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i: ; preds = 
   store i8 1, ptr %27, align 8, !tbaa !315
   store ptr %.0.i18.i.i, ptr %25, align 8, !tbaa !181
   store i32 %.0.i.i, ptr %11, align 8, !tbaa !317
-  br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit
-
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit: ; preds = %10, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i
-  %.pre = load i64, ptr %4, align 8, !tbaa !378
+  %.pre.pre = load i64, ptr %4, align 8, !tbaa !378
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit, %3
-  %31 = phi i64 [ %.pre, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit.loopexit ], [ %5, %3 ]
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %10, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i, %3
+  %31 = phi i64 [ %5, %3 ], [ %.pre.pre, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE10deallocateEv.exit.i.i ], [ %5, %10 ]
   store i32 %6, ptr %7, align 4, !tbaa !316
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %_ZNK13b3OpenCLArrayI16b3BvhSubtreeInfoE17copyToHostPointerEPS0_mmb.exit, label %32

@@ -182,7 +182,6 @@ define void @_ZN32grpc_tls_certificate_distributor15SetKeyMaterialsERKNSt7__cxx1
   %14 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %15 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %16 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
-  %.sroa.9 = alloca [7 x i8], align 1
   %17 = alloca %"class.std::optional.38", align 8
   %18 = alloca %"class.std::optional.2", align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -352,13 +351,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %65
 91:                                               ; preds = %.critedge
   %92 = landingpad { ptr, i32 }
           cleanup
-  br label %395
+  br label %394
 
 93:                                               ; preds = %37
   %94 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #25
-  br label %395
+  br label %394
 
 95:                                               ; preds = %.lr.ph, %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit105
   %.sroa.0186.0208 = phi ptr [ %.pre, %.lr.ph ], [ %236, %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit105 ]
@@ -396,7 +395,7 @@ _ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInter
 106:                                              ; preds = %98
   %107 = landingpad { ptr, i32 }
           cleanup
-  br label %395
+  br label %394
 
 _ZN4absl12lts_2024072212log_internal12Check_NEImplIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
@@ -414,7 +413,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplIPN32grpc_tls_certificate_dist
   %113 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
-  br label %395
+  br label %394
 
 _ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceENS0_11WatcherInfoESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit: ; preds = %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i
   %114 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
@@ -435,7 +434,7 @@ _ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE
   %119 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25
-  br label %395
+  br label %394
 
 .critedge76:                                      ; preds = %_ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceENS0_11WatcherInfoESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit
   %120 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 80
@@ -456,7 +455,7 @@ _ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE
   %126 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
-  br label %395
+  br label %394
 
 .critedge78:                                      ; preds = %.critedge76
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #25
@@ -742,7 +741,7 @@ _ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2E
   %.pn68 = phi { ptr, i32 } [ %238, %237 ], [ %145, %144 ], [ %162, %161 ]
   call void @_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #25
-  br label %395
+  br label %394
 
 240:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %30
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -781,7 +780,6 @@ _ZN4absl12lts_202407226StatusD2Ev.exit113:        ; preds = %_ZN4absl12lts_20240
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 17
   %254 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %255 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %256 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -866,7 +864,7 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; pred
   %291 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #25
-  br label %395
+  br label %394
 
 292:                                              ; preds = %.lr.ph213, %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit149
   %.sroa.0.0212 = phi i64 [ undef, %.lr.ph213 ], [ %.sroa.0.1, %_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit149 ]
@@ -906,7 +904,7 @@ _ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInter
 303:                                              ; preds = %295
   %304 = landingpad { ptr, i32 }
           cleanup
-  br label %395
+  br label %394
 
 _ZN4absl12lts_2024072212log_internal12Check_NEImplIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit116: ; preds = %295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #25
@@ -924,7 +922,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplIPN32grpc_tls_certificate_dist
   %310 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #25
-  br label %395
+  br label %394
 
 _ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceENS0_11WatcherInfoESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit129: ; preds = %_ZNSt8_Rb_treeIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt4pairIKS2_NS0_11WatcherInfoEESt10_Select1stIS6_ESt4lessIS2_ESaIS6_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS6_EPSt18_Rb_tree_node_baseRS4_.exit.i.i126
   %311 = getelementptr inbounds nuw i8, ptr %.19.i.i.i121, i64 32
@@ -945,7 +943,7 @@ _ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE
   %316 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #25
-  br label %395
+  br label %394
 
 .critedge80:                                      ; preds = %_ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceENS0_11WatcherInfoESt4lessIS2_ESaISt4pairIKS2_S3_EEE4findERS7_.exit129
   %317 = getelementptr inbounds nuw i8, ptr %.19.i.i.i121, i64 120
@@ -966,10 +964,9 @@ _ZNSt3mapIPN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceE
   %323 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #25
-  br label %395
+  br label %394
 
 .critedge82:                                      ; preds = %.critedge80
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   %324 = load i8, ptr %19, align 8, !tbaa !3, !range !8, !noundef !9
   %325 = trunc nuw i8 %324 to i1
   br i1 %325, label %326, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133.thread
@@ -1002,7 +999,7 @@ _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr
 341:                                              ; preds = %_ZNSt22_Optional_payload_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEE12_M_constructIJRKS4_EEEvDpOT_.exit.i.i.i.i.i
   %342 = landingpad { ptr, i32 }
           cleanup
-  br label %391
+  br label %394
 
 _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133.thread: ; preds = %.critedge82
   %.phi.trans.insert219 = getelementptr inbounds nuw i8, ptr %.19.i.i.i121, i64 80
@@ -1028,7 +1025,7 @@ _ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic
 351:                                              ; preds = %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133.thread.thread
   %352 = landingpad { ptr, i32 }
           cleanup
-  br label %391
+  br label %394
 
 _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133.thread.thread222: ; preds = %326, %346, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133.thread
   %.sroa.6.0 = phi i8 [ 0, %346 ], [ 1, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit ], [ 0, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133.thread ], [ 0, %326 ]
@@ -1037,7 +1034,6 @@ _ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr
   store i64 %.sroa.0.2, ptr %17, align 8
   store ptr %.sroa.5.2, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   store i8 0, ptr %254, align 8, !tbaa !10
   %353 = load i8, ptr %241, align 8, !tbaa !10, !range !8, !noundef !9
   %354 = trunc nuw i8 %353 to i1
@@ -1135,7 +1131,6 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i145:
 _ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit149: ; preds = %336, %383, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i145, %358, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133
   %.sroa.5.1 = phi ptr [ %.sroa.5.0211, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133 ], [ %.sroa.5.2, %358 ], [ %.sroa.5.2, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i145 ], [ %.sroa.5.2, %383 ], [ %.sroa.5.0211, %336 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0212, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit133 ], [ %.sroa.0.2, %358 ], [ %.sroa.0.2, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i145 ], [ %.sroa.0.2, %383 ], [ %.sroa.0.0212, %336 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   %388 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0166.0210) #29
   %.not204 = icmp eq ptr %388, %250
   br i1 %.not204, label %._crit_edge214, label %292
@@ -1144,40 +1139,35 @@ _ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2E
   %390 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
-  br label %391
-
-391:                                              ; preds = %389, %351, %341
-  %.pn = phi { ptr, i32 } [ %390, %389 ], [ %342, %341 ], [ %352, %351 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
-  br label %395
+  br label %394
 
 _ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EEaSEOS3_.exit: ; preds = %286, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i, %240
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %392
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %391
 
-392:                                              ; preds = %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EEaSEOS3_.exit
-  %393 = landingpad { ptr, i32 }
+391:                                              ; preds = %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EEaSEOS3_.exit
+  %392 = landingpad { ptr, i32 }
           catch ptr null
-  %394 = extractvalue { ptr, i32 } %393, 0
-  call void @__clang_call_terminate(ptr %394) #27
+  %393 = extractvalue { ptr, i32 } %392, 0
+  call void @__clang_call_terminate(ptr %393) #27
   unreachable
 
 _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %_ZNSt6vectorIN9grpc_core14PemKeyCertPairESaIS1_EEaSEOS3_.exit
   ret void
 
-395:                                              ; preds = %309, %303, %391, %322, %315, %112, %106, %239, %125, %118, %290, %93, %91
-  %.pn71.pn.pn = phi { ptr, i32 } [ %291, %290 ], [ %92, %91 ], [ %94, %93 ], [ %113, %112 ], [ %107, %106 ], [ %.pn68, %239 ], [ %126, %125 ], [ %119, %118 ], [ %310, %309 ], [ %304, %303 ], [ %.pn, %391 ], [ %323, %322 ], [ %316, %315 ]
+394:                                              ; preds = %341, %351, %389, %309, %303, %322, %315, %112, %106, %239, %125, %118, %290, %93, %91
+  %.pn71.pn.pn = phi { ptr, i32 } [ %291, %290 ], [ %92, %91 ], [ %94, %93 ], [ %113, %112 ], [ %107, %106 ], [ %.pn68, %239 ], [ %126, %125 ], [ %119, %118 ], [ %310, %309 ], [ %304, %303 ], [ %323, %322 ], [ %316, %315 ], [ %390, %389 ], [ %342, %341 ], [ %352, %351 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit150 unwind label %396
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit150 unwind label %395
 
-396:                                              ; preds = %395
-  %397 = landingpad { ptr, i32 }
+395:                                              ; preds = %394
+  %396 = landingpad { ptr, i32 }
           catch ptr null
-  %398 = extractvalue { ptr, i32 } %397, 0
-  call void @__clang_call_terminate(ptr %398) #27
+  %397 = extractvalue { ptr, i32 } %396, 0
+  call void @__clang_call_terminate(ptr %397) #27
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit150:     ; preds = %395
+_ZN4absl12lts_202407229MutexLockD2Ev.exit150:     ; preds = %394
   resume { ptr, i32 } %.pn71.pn.pn
 }
 
@@ -2717,7 +2707,6 @@ define void @_ZN32grpc_tls_certificate_distributor20WatchTlsCertificatesESt10uni
   %20 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %21 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   %22 = alloca %"struct.grpc_tls_certificate_distributor::WatcherInfo", align 8
-  %.sroa.10 = alloca [7 x i8], align 1
   %23 = alloca %"class.std::optional.2", align 8
   %24 = alloca %"class.absl::lts_20240722::Status", align 8
   %25 = alloca %"class.absl::lts_20240722::Status", align 8
@@ -3057,7 +3046,6 @@ _ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatch
 
 153:                                              ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit3.i, %_ZNKSt14default_deleteIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %22) #25
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #25
   %154 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i8 0, ptr %154, align 8, !tbaa !10
@@ -3411,8 +3399,6 @@ _ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEaSIRS4_EENSt9enabl
   store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i8 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10, i64 7, i1 false)
   %297 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i8 0, ptr %297, align 8, !tbaa !10
   br i1 %294, label %298, label %_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEEC2EOS5_.exit
@@ -3729,7 +3715,6 @@ _ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i136:
 
 _ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev.exit140: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit125, %_ZSt8_DestroyIPN9grpc_core14PemKeyCertPairES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i136, %418
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %43)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %424
 
@@ -3877,7 +3862,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #25
   call void @_ZNSt14_Optional_baseISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #25
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   br label %481
 
 481:                                              ; preds = %480, %_ZNSt10unique_ptrIN32grpc_tls_certificate_distributor31TlsCertificatesWatcherInterfaceESt14default_deleteIS1_EED2Ev.exit, %62

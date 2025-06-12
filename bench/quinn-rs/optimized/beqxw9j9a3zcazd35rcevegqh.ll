@@ -940,10 +940,10 @@ define hidden void @_ZN5quinn10connection10Connecting3new17h75549434713452d2E(pt
   %.sroa.562.sroa.4.0..sroa.562.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 156
   store i8 0, ptr %.sroa.562.sroa.4.0..sroa.562.0..sroa_idx.sroa_idx.i, align 4, !noalias !38
   %.sroa.562.sroa.6.0..sroa.562.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) %.sroa.562.sroa.6.0..sroa.562.0..sroa_idx.sroa_idx.i, i8 0, i64 29, i1 false), !noalias !38
   %.sroa.764.sroa.6.0..sroa.764.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) %.sroa.764.sroa.6.0..sroa.764.0..sroa_idx.sroa_idx.i, i8 0, i64 29, i1 false), !noalias !38
   %.sroa.966.sroa.6.0..sroa.966.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) %.sroa.562.sroa.6.0..sroa.562.0..sroa_idx.sroa_idx.i, i8 0, i64 29, i1 false), !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(29) %.sroa.764.sroa.6.0..sroa.764.0..sroa_idx.sroa_idx.i, i8 0, i64 29, i1 false), !noalias !38
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.966.sroa.6.0..sroa.966.0..sroa_idx.sroa_idx.i, i8 0, i64 16, i1 false), !noalias !38
   %84 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !43
   %85 = tail call noalias noundef align 16 dereferenceable_or_null(6688) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef range(i64 64, 6689) 6688, i64 noundef range(i64 8, 17) 16) #23, !noalias !46
@@ -5596,7 +5596,6 @@ define void @"_ZN75_$LT$quinn..connection..OpenUni$u20$as$u20$core..future..futu
   %.sroa.3.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.3.sroa.4.0.copyload = load i8, ptr %.sroa.3.sroa.4.0..sroa.3.0..sroa_idx.sroa_idx, align 8
   %.not = icmp eq i64 %7, 10
-  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %10
@@ -5608,7 +5607,8 @@ define void @"_ZN75_$LT$quinn..connection..OpenUni$u20$as$u20$core..future..futu
   %.sroa.745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.745.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.1035, i64 31, i1 false)
   store i64 %7, ptr %0, align 8
-  store ptr %.sroa.3.sroa.0.0.copyload, ptr %.sroa.417.0..sroa_idx, align 8
+  %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.3.sroa.0.0.copyload, ptr %.sroa.442.0..sroa_idx, align 8
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.3.sroa.3.0.copyload, ptr %.sroa.543.0..sroa_idx, align 8
   %.sroa.644.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5620,6 +5620,7 @@ define void @"_ZN75_$LT$quinn..connection..OpenUni$u20$as$u20$core..future..futu
   tail call void @llvm.assume(i1 %13)
   %14 = trunc nuw i8 %.sroa.3.sroa.4.0.copyload to i1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5quinn11send_stream10SendStream3new17hea17808afab16838E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.417.0..sroa_idx, ptr noundef nonnull %.sroa.3.sroa.0.0.copyload, i64 noundef %.sroa.3.sroa.3.0.copyload, i1 noundef zeroext %14)
   store i64 10, ptr %0, align 8
   br label %15

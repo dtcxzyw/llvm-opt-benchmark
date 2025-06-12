@@ -8742,7 +8742,6 @@ define internal fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6Assi
   %4 = alloca %"class.std::tuple", align 8
   %5 = alloca %"class.std::tuple.69", align 1
   %6 = alloca %"struct.std::pair", align 4
-  %.sroa.7 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %2)
   %spec.select23 = tail call i32 @llvm.umax.i32(i32 %1, i32 %2)
@@ -8757,7 +8756,6 @@ define internal fastcc noundef nonnull align 4 dereferenceable(12) ptr @_ZN6Assi
   br i1 %.not11.i.i.i, label %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread.thread, label %.lr.ph.i.i.i
 
 _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread.thread: ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %14 = load ptr, ptr %13, align 8
@@ -8828,7 +8826,6 @@ _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit: ; preds = %35,
   br label %110
 
 _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread: ; preds = %31, %_ZNSt8_Rb_treeISt4pairIjjES0_IKS1_jESt10_Select1stIS3_ESt4lessIS1_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.7)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %47 = load ptr, ptr %46, align 8
@@ -8921,8 +8918,6 @@ _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEEixERS4_.exit: ; preds = %69, %_
   store i32 -1, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i8 0, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7, i64 3, i1 false)
   %86 = load ptr, ptr %79, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
   store ptr %87, ptr %79, align 8
@@ -8957,8 +8952,6 @@ _ZNKSt6vectorIN6Assimp7SIBEdgeESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
   store i32 -1, ptr %.sroa.5.0..sroa_idx10, align 4
   %.sroa.6.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i8 0, ptr %.sroa.6.0..sroa_idx12, align 4
-  %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %102, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7.0..sroa_idx14, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.7, i64 3, i1 false)
   %103 = icmp sgt i64 %92, 0
   br i1 %103, label %104, label %_ZNSt6vectorIN6Assimp7SIBEdgeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
@@ -8986,7 +8979,6 @@ _ZNSt6vectorIN6Assimp7SIBEdgeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx1
 _ZNSt6vectorIN6Assimp7SIBEdgeESaIS1_EE9push_backERKS1_.exit: ; preds = %85, %_ZNSt6vectorIN6Assimp7SIBEdgeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   %108 = phi ptr [ %87, %85 ], [ %.pre, %_ZNSt6vectorIN6Assimp7SIBEdgeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %109 = getelementptr inbounds i8, ptr %108, i64 -12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.7)
   br label %110
 
 110:                                              ; preds = %_ZNSt6vectorIN6Assimp7SIBEdgeESaIS1_EE9push_backERKS1_.exit, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit

@@ -106,7 +106,7 @@ common.resume:                                    ; preds = %.body114, %19
 .body114:                                         ; preds = %.body111, %45, %29
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn, %45 ], [ %.pn.pn.pn, %.body111 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$grep_printer..hyperlink..HyperlinkConfig$GT$17h7e045ad75e23a7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #13
-          to label %common.resume unwind label %133
+          to label %common.resume unwind label %132
 
 33:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hf8dcb19d1cf94de9E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
@@ -149,7 +149,7 @@ common.resume:                                    ; preds = %.body114, %19
 45:                                               ; preds = %.body111
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694f6e691791a077E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.body114 unwind label %133
+          to label %.body114 unwind label %132
 
 46:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
@@ -170,7 +170,7 @@ common.resume:                                    ; preds = %.body114, %19
 51:                                               ; preds = %.body
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694f6e691791a077E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.body111 unwind label %133
+          to label %.body111 unwind label %132
 
 52:                                               ; preds = %46
   %53 = landingpad { ptr, i32 }
@@ -237,7 +237,7 @@ common.resume:                                    ; preds = %.body114, %19
 73:                                               ; preds = %.body119
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h694f6e691791a077E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.body unwind label %133
+          to label %.body unwind label %132
 
 74:                                               ; preds = %68
   %75 = landingpad { ptr, i32 }
@@ -305,7 +305,7 @@ common.resume:                                    ; preds = %.body114, %19
 96:                                               ; preds = %.body117
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h840a55781da5ed08E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
-          to label %.body119 unwind label %133
+          to label %.body119 unwind label %132
 
 97:                                               ; preds = %90
   %98 = extractvalue { i64, ptr } %91, 0
@@ -404,29 +404,28 @@ common.resume:                                    ; preds = %.body114, %19
   store i8 0, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 149
   store i8 0, ptr %119, align 1
-  %120 = load ptr, ptr %11, align 8, !nonnull !17, !noundef !17
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %120, ptr %121, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %26, ptr %120, align 8
   store i64 0, ptr %0, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 150
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %123, align 8
-  store i32 0, ptr %122, align 2
-  %124 = load ptr, ptr %10, align 8, !nonnull !17, !noundef !17
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %124, ptr %125, align 8
-  %126 = load ptr, ptr %9, align 8, !nonnull !17, !noundef !17
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %126, ptr %127, align 8
-  %128 = load ptr, ptr %8, align 8, !nonnull !17, !noundef !17
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %128, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %104, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i8 0, ptr %131, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 142
-  store i8 0, ptr %132, align 2
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 150
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %122, align 8
+  store i32 0, ptr %121, align 2
+  %123 = load ptr, ptr %10, align 8, !nonnull !17, !noundef !17
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %123, ptr %124, align 8
+  %125 = load ptr, ptr %9, align 8, !nonnull !17, !noundef !17
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %125, ptr %126, align 8
+  %127 = load ptr, ptr %8, align 8, !nonnull !17, !noundef !17
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %127, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %104, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i8 0, ptr %130, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 142
+  store i8 0, ptr %131, align 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -434,8 +433,8 @@ common.resume:                                    ; preds = %.body114, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   ret void
 
-133:                                              ; preds = %96, %73, %51, %45, %.body114
-  %134 = landingpad { ptr, i32 }
+132:                                              ; preds = %96, %73, %51, %45, %.body114
+  %133 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #14
   unreachable

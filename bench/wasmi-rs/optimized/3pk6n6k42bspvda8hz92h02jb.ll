@@ -429,10 +429,10 @@ common.resume:                                    ; preds = %53, %33
   store i64 %111, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !27
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %113, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !27
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %115, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !27
-  %.sroa.5.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %117, ptr %.sroa.5.0..sroa_idx.i2, align 8, !alias.scope !9, !noalias !27
+  %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %115, ptr %.sroa.4.0..sroa_idx.i2, align 8, !alias.scope !9, !noalias !27
+  %.sroa.5.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %117, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !9, !noalias !27
   br label %118
 
 118:                                              ; preds = %121, %107
@@ -767,8 +767,8 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u
   unreachable
 
 .thread:                                          ; preds = %37, %51
-  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %51 ], [ %38, %37 ]
-  resume { ptr, i32 } %.pn7
+  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %51 ], [ %38, %37 ]
+  resume { ptr, i32 } %.pn6
 
 51:                                               ; preds = %4
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -811,7 +811,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   switch i16 %21, label %26 [
     i16 522, label %22
     i16 519, label %.loopexit.loopexit
-    i16 520, label %.loopexit.loopexit45
+    i16 520, label %.loopexit.loopexit46
     i16 521, label %.loopexit
   ]
 
@@ -823,7 +823,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   store ptr %24, ptr %18, align 8
   store ptr %0, ptr %19, align 8
   invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h6d878ad24fbd426cE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %25 unwind label %.loopexit22
+          to label %25 unwind label %.loopexit23
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -835,11 +835,11 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
 .loopexit.loopexit:                               ; preds = %20
   br label %.loopexit
 
-.loopexit.loopexit45:                             ; preds = %20
+.loopexit.loopexit46:                             ; preds = %20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit45, %.loopexit.loopexit
-  %.sroa.4.0 = phi i64 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit45 ], [ 3, %20 ]
+.loopexit:                                        ; preds = %20, %.loopexit.loopexit46, %.loopexit.loopexit
+  %.sroa.4.0 = phi i64 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit46 ], [ 3, %20 ]
   %.sroa.04.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %27 = getelementptr inbounds nuw i16, ptr %.sroa.04.0, i64 %.sroa.4.0
@@ -932,10 +932,10 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   unreachable
 
 .thread:                                          ; preds = %56, %70
-  %.pn13 = phi { ptr, i32 } [ %lpad.phi, %70 ], [ %57, %56 ]
-  resume { ptr, i32 } %.pn13
+  %.pn14 = phi { ptr, i32 } [ %lpad.phi, %70 ], [ %57, %56 ]
+  resume { ptr, i32 } %.pn14
 
-.loopexit22:                                      ; preds = %22
+.loopexit23:                                      ; preds = %22
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %70
@@ -945,8 +945,8 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
           cleanup
   br label %70
 
-70:                                               ; preds = %.loopexit.split-lp, %.loopexit22
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit22 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+70:                                               ; preds = %.loopexit.split-lp, %.loopexit23
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit23 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$smallvec..SmallVec$LT$$u5b$wasmi_core..untyped..UntypedVal$u3b$$u20$8$u5d$$GT$$GT$17h74724ec012748967E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12) #15
           to label %.thread unwind label %68
 }
@@ -3333,7 +3333,6 @@ define noundef align 8 ptr @_ZN5wasmi6engine8executor6instrs14execute_instrs17he
   %633 = alloca [32 x i8], align 8
   %634 = alloca [40 x i8], align 8
   %635 = alloca [16 x i8], align 8
-  %.sroa.11517 = alloca [6 x i8], align 2
   %.sroa.0503 = alloca [26 x i8], align 8
   %.sroa.5507 = alloca [5 x i8], align 1
   %636 = alloca [12 x i8], align 4
@@ -3345,7 +3344,6 @@ define noundef align 8 ptr @_ZN5wasmi6engine8executor6instrs14execute_instrs17he
   %639 = alloca [40 x i8], align 8
   %640 = alloca [32 x i8], align 8
   %641 = alloca [40 x i8], align 8
-  %.sroa.11489 = alloca [6 x i8], align 2
   %.sroa.0475 = alloca [26 x i8], align 8
   %.sroa.5479 = alloca [5 x i8], align 1
   %642 = alloca [12 x i8], align 4
@@ -3358,7 +3356,6 @@ define noundef align 8 ptr @_ZN5wasmi6engine8executor6instrs14execute_instrs17he
   %646 = alloca [32 x i8], align 8
   %647 = alloca [40 x i8], align 8
   %648 = alloca [16 x i8], align 8
-  %.sroa.11461 = alloca [6 x i8], align 2
   %.sroa.0448 = alloca [26 x i8], align 8
   %.sroa.5452 = alloca [5 x i8], align 1
   %.sroa.7445 = alloca [18 x i8], align 8
@@ -3369,7 +3366,6 @@ define noundef align 8 ptr @_ZN5wasmi6engine8executor6instrs14execute_instrs17he
   %651 = alloca [40 x i8], align 8
   %652 = alloca [32 x i8], align 8
   %653 = alloca [40 x i8], align 8
-  %.sroa.11434 = alloca [6 x i8], align 2
   %.sroa.0423 = alloca [26 x i8], align 8
   %.sroa.5427 = alloca [5 x i8], align 1
   %.sroa.7421 = alloca [18 x i8], align 8
@@ -3547,7 +3543,6 @@ _ZN5wasmi6engine8executor6instrs8Executor3new17h0044931beee3e6b5E.exit: ; preds 
   %.sroa.6464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %650, i64 16
   %.sroa.7465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %650, i64 24
   %.sroa.8466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %650, i64 32
-  %.sroa.9467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %650, i64 34
   %.sroa.5442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %645, i64 8
   %.sroa.6443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %645, i64 16
   %770 = getelementptr inbounds nuw i8, ptr %647, i64 8
@@ -3569,7 +3564,6 @@ _ZN5wasmi6engine8executor6instrs8Executor3new17h0044931beee3e6b5E.exit: ; preds 
   %.sroa.6437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %655, i64 16
   %.sroa.7438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %655, i64 24
   %.sroa.8439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %655, i64 32
-  %.sroa.9440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %655, i64 34
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %651, i64 8
   %.sroa.6419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %651, i64 16
   %776 = getelementptr inbounds nuw i8, ptr %653, i64 8
@@ -3602,7 +3596,6 @@ _ZN5wasmi6engine8executor6instrs8Executor3new17h0044931beee3e6b5E.exit: ; preds 
   %.sroa.6520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %638, i64 16
   %.sroa.7521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %638, i64 24
   %.sroa.8522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %638, i64 32
-  %.sroa.9523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %638, i64 34
   %.sroa.5497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %632, i64 8
   %.sroa.6498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %632, i64 16
   %793 = getelementptr inbounds nuw i8, ptr %634, i64 8
@@ -3626,7 +3619,6 @@ _ZN5wasmi6engine8executor6instrs8Executor3new17h0044931beee3e6b5E.exit: ; preds 
   %.sroa.6492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %644, i64 16
   %.sroa.7493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %644, i64 24
   %.sroa.8494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %644, i64 32
-  %.sroa.9495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %644, i64 34
   %.sroa.5469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %639, i64 8
   %.sroa.6470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %639, i64 16
   %801 = getelementptr inbounds nuw i8, ptr %641, i64 8
@@ -7653,7 +7645,6 @@ common.resume:                                    ; preds = %11667, %3207, %3110
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %644), !noalias !821
   %2759 = load ptr, ptr %708, align 8, !alias.scope !824, !noalias !825, !nonnull !3, !align !15, !noundef !3
   %2760 = call noundef align 8 dereferenceable(32) ptr @_ZN5wasmi5store5inner10StoreInner8fuel_mut17h7c5dce8a073dd60cE(ptr noalias noundef nonnull align 8 dereferenceable(344) %0), !noalias !826
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11489)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %606), !noalias !827
   %2761 = cmpxchg weak ptr %2759, i8 0, i8 1 acquire monotonic, align 1, !noalias !827
   %2762 = extractvalue { i8, i1 } %2761, 1
@@ -7722,13 +7713,11 @@ common.resume:                                    ; preds = %11667, %3207, %3110
   %2796 = load i16, ptr %2795, align 8, !noalias !827, !noundef !3
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %606), !noalias !827
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %606), !noalias !827
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9495.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11489, i64 6, i1 false), !noalias !821
   store ptr %2788, ptr %644, align 8, !noalias !821
   store i64 %2790, ptr %.sroa.5491.0..sroa_idx, align 8, !noalias !821
   store ptr %2792, ptr %.sroa.6492.0..sroa_idx, align 8, !noalias !821
   store i64 %2794, ptr %.sroa.7493.0..sroa_idx, align 8, !noalias !821
   store i16 %2796, ptr %.sroa.8494.0..sroa_idx, align 8, !noalias !821
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11489)
   %2797 = inttoptr i64 %2790 to ptr
   br label %2801
 
@@ -7736,7 +7725,6 @@ common.resume:                                    ; preds = %11667, %3207, %3110
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %606), !noalias !827
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %606), !noalias !827
   call fastcc void @_ZN5wasmi6engine8code_map7CodeMap15compile_or_wait17ha015860083f9d681E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %644, ptr noundef nonnull align 8 %2759, ptr noalias noundef align 8 dereferenceable_or_null(32) %2760, i32 noundef %2749), !noalias !826
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11489)
   %2799 = load ptr, ptr %644, align 8, !noalias !821, !noundef !3
   %2800 = icmp eq ptr %2799, null
   %.sroa.624.0.copyload.i1958.i.pre = load ptr, ptr %.sroa.5491.0..sroa_idx, align 8, !noalias !821
@@ -7984,7 +7972,6 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %638), !noalias !889
   %2884 = load ptr, ptr %708, align 8, !alias.scope !892, !noalias !893, !nonnull !3, !align !15, !noundef !3
   %2885 = call noundef align 8 dereferenceable(32) ptr @_ZN5wasmi5store5inner10StoreInner8fuel_mut17h7c5dce8a073dd60cE(ptr noalias noundef nonnull align 8 dereferenceable(344) %0), !noalias !894
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11517)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %603), !noalias !895
   %2886 = cmpxchg weak ptr %2884, i8 0, i8 1 acquire monotonic, align 1, !noalias !895
   %2887 = extractvalue { i8, i1 } %2886, 1
@@ -8053,13 +8040,11 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %2921 = load i16, ptr %2920, align 8, !noalias !895, !noundef !3
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %603), !noalias !895
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %603), !noalias !895
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9523.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11517, i64 6, i1 false), !noalias !889
   store ptr %2913, ptr %638, align 8, !noalias !889
   store i64 %2915, ptr %.sroa.5519.0..sroa_idx, align 8, !noalias !889
   store ptr %2917, ptr %.sroa.6520.0..sroa_idx, align 8, !noalias !889
   store i64 %2919, ptr %.sroa.7521.0..sroa_idx, align 8, !noalias !889
   store i16 %2921, ptr %.sroa.8522.0..sroa_idx, align 8, !noalias !889
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11517)
   %2922 = inttoptr i64 %2915 to ptr
   br label %2926
 
@@ -8067,7 +8052,6 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %603), !noalias !895
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %603), !noalias !895
   call fastcc void @_ZN5wasmi6engine8code_map7CodeMap15compile_or_wait17ha015860083f9d681E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %638, ptr noundef nonnull align 8 %2884, ptr noalias noundef align 8 dereferenceable_or_null(32) %2885, i32 noundef %2874), !noalias !894
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11517)
   %2924 = load ptr, ptr %638, align 8, !noalias !889, !noundef !3
   %2925 = icmp eq ptr %2924, null
   %.sroa.624.0.copyload.i1991.i.pre = load ptr, ptr %.sroa.5519.0..sroa_idx, align 8, !noalias !889
@@ -8468,7 +8452,6 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %655), !noalias !1003
   %3094 = load ptr, ptr %708, align 8, !alias.scope !1006, !noalias !1007, !nonnull !3, !align !15, !noundef !3
   %3095 = call noundef align 8 dereferenceable(32) ptr @_ZN5wasmi5store5inner10StoreInner8fuel_mut17h7c5dce8a073dd60cE(ptr noalias noundef nonnull align 8 dereferenceable(344) %0), !noalias !1008
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11434)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %600), !noalias !1009
   %3096 = cmpxchg weak ptr %3094, i8 0, i8 1 acquire monotonic, align 1, !noalias !1009
   %3097 = extractvalue { i8, i1 } %3096, 1
@@ -8537,13 +8520,11 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3131 = load i16, ptr %3130, align 8, !noalias !1009, !noundef !3
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %600), !noalias !1009
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %600), !noalias !1009
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9440.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11434, i64 6, i1 false), !noalias !1003
   store ptr %3123, ptr %655, align 8, !noalias !1003
   store i64 %3125, ptr %.sroa.5436.0..sroa_idx, align 8, !noalias !1003
   store ptr %3127, ptr %.sroa.6437.0..sroa_idx, align 8, !noalias !1003
   store i64 %3129, ptr %.sroa.7438.0..sroa_idx, align 8, !noalias !1003
   store i16 %3131, ptr %.sroa.8439.0..sroa_idx, align 8, !noalias !1003
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11434)
   %3132 = inttoptr i64 %3125 to ptr
   br label %3136
 
@@ -8551,7 +8532,6 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %600), !noalias !1009
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %600), !noalias !1009
   call fastcc void @_ZN5wasmi6engine8code_map7CodeMap15compile_or_wait17ha015860083f9d681E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %655, ptr noundef nonnull align 8 %3094, ptr noalias noundef align 8 dereferenceable_or_null(32) %3095, i32 noundef %3093), !noalias !1008
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11434)
   %3134 = load ptr, ptr %655, align 8, !noalias !1003, !noundef !3
   %3135 = icmp eq ptr %3134, null
   %.sroa.624.0.copyload.i.i.pre = load ptr, ptr %.sroa.5436.0..sroa_idx, align 8, !noalias !1003
@@ -8741,7 +8721,6 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %650), !noalias !1065
   %3191 = load ptr, ptr %708, align 8, !alias.scope !1068, !noalias !1069, !nonnull !3, !align !15, !noundef !3
   %3192 = call noundef align 8 dereferenceable(32) ptr @_ZN5wasmi5store5inner10StoreInner8fuel_mut17h7c5dce8a073dd60cE(ptr noalias noundef nonnull align 8 dereferenceable(344) %0), !noalias !1070
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.11461)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %597), !noalias !1071
   %3193 = cmpxchg weak ptr %3191, i8 0, i8 1 acquire monotonic, align 1, !noalias !1071
   %3194 = extractvalue { i8, i1 } %3193, 1
@@ -8810,13 +8789,11 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   %3228 = load i16, ptr %3227, align 8, !noalias !1071, !noundef !3
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %597), !noalias !1071
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %597), !noalias !1071
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.9467.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11461, i64 6, i1 false), !noalias !1065
   store ptr %3220, ptr %650, align 8, !noalias !1065
   store i64 %3222, ptr %.sroa.5463.0..sroa_idx, align 8, !noalias !1065
   store ptr %3224, ptr %.sroa.6464.0..sroa_idx, align 8, !noalias !1065
   store i64 %3226, ptr %.sroa.7465.0..sroa_idx, align 8, !noalias !1065
   store i16 %3228, ptr %.sroa.8466.0..sroa_idx, align 8, !noalias !1065
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11461)
   %3229 = inttoptr i64 %3222 to ptr
   br label %3233
 
@@ -8824,7 +8801,6 @@ _ZN5wasmi6engine8executor5stack5calls9CallStack13push_instance17h0482638a5cf2edb
   call void @"_ZN4core3ptr164drop_in_place$LT$spin..mutex..MutexGuard$LT$wasmi_collections..arena..Arena$LT$wasmi..engine..code_map..EngineFunc$C$wasmi..engine..code_map..FuncEntity$GT$$GT$$GT$17h2899712f1e3d13adE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %597), !noalias !1071
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %597), !noalias !1071
   call fastcc void @_ZN5wasmi6engine8code_map7CodeMap15compile_or_wait17ha015860083f9d681E(ptr noalias noundef align 8 captures(none) dereferenceable(40) %650, ptr noundef nonnull align 8 %3191, ptr noalias noundef align 8 dereferenceable_or_null(32) %3192, i32 noundef %3190), !noalias !1070
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11461)
   %3231 = load ptr, ptr %650, align 8, !noalias !1065, !noundef !3
   %3232 = icmp eq ptr %3231, null
   %.sroa.624.0.copyload.i1923.i.pre = load ptr, ptr %.sroa.5463.0..sroa_idx, align 8, !noalias !1065

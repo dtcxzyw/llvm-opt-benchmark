@@ -542,19 +542,6 @@ define void @_ZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS_3AST6ModuleE
   %13 = alloca %class.anon.240, align 1
   %14 = alloca %"class.std::variant", align 8
   %15 = alloca %"class.std::vector", align 8
-  %.sroa.4369 = alloca [7 x i8], align 1
-  %.sroa.4361 = alloca [7 x i8], align 1
-  %.sroa.4353 = alloca [7 x i8], align 1
-  %.sroa.4345 = alloca [7 x i8], align 1
-  %.sroa.4337 = alloca [7 x i8], align 1
-  %.sroa.4329 = alloca [7 x i8], align 1
-  %.sroa.4321 = alloca [7 x i8], align 1
-  %.sroa.4313 = alloca [7 x i8], align 1
-  %.sroa.4305 = alloca [7 x i8], align 1
-  %.sroa.4297 = alloca [7 x i8], align 1
-  %.sroa.4289 = alloca [7 x i8], align 1
-  %.sroa.4281 = alloca [7 x i8], align 1
-  %.sroa.4 = alloca [7 x i8], align 1
   %16 = alloca %class.anon.107, align 8
   %17 = alloca %"class.cxx20::expected.108", align 4
   %18 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
@@ -655,8 +642,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %.0483, ptr %.sroa.32.0481, align 8
   %.sroa.3366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.0481, i64 8
   store i8 0, ptr %.sroa.3366.0..sroa_idx, align 8
-  %.sroa.4369.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.0481, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4369.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4369, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit
 
 66:                                               ; preds = %.lr.ph
@@ -684,8 +669,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %.0483, ptr %78, align 8
   %.sroa.3366.0..sroa_idx367 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i8 0, ptr %.sroa.3366.0..sroa_idx367, align 8
-  %.sroa.4369.0..sroa_idx370 = getelementptr inbounds nuw i8, ptr %78, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4369.0..sroa_idx370, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4369, i64 7, i1 false)
   %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0375.0482, %.sroa.32.0481
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -732,8 +715,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %84, ptr %.sroa.32.0.lcssa, align 8
   %.sroa.3358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.0.lcssa, i64 8
   store i8 1, ptr %.sroa.3358.0..sroa_idx, align 8
-  %.sroa.4361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.0.lcssa, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4361.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4361, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit65
 
 86:                                               ; preds = %._crit_edge
@@ -761,8 +742,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %84, ptr %98, align 8
   %.sroa.3358.0..sroa_idx359 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 1, ptr %.sroa.3358.0..sroa_idx359, align 8
-  %.sroa.4361.0..sroa_idx362 = getelementptr inbounds nuw i8, ptr %98, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4361.0..sroa_idx362, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4361, i64 7, i1 false)
   %.not10.i.i.i.i.i.i54 = icmp eq ptr %.sroa.0375.0.lcssa, %.sroa.88.0.lcssa
   br i1 %.not10.i.i.i.i.i.i54, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i59, label %.lr.ph.i.i.i.i.i.i55
 
@@ -801,8 +780,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %103, ptr %.sroa.32.3, align 8
   %.sroa.3350.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i60.pn, i64 24
   store i8 2, ptr %.sroa.3350.0..sroa_idx, align 8
-  %.sroa.4353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i60.pn, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4353.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4353, i64 7, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i60.pn, i64 32
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit81
 
@@ -831,8 +808,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %103, ptr %118, align 8
   %.sroa.3350.0..sroa_idx351 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i8 2, ptr %.sroa.3350.0..sroa_idx351, align 8
-  %.sroa.4353.0..sroa_idx354 = getelementptr inbounds nuw i8, ptr %118, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4353.0..sroa_idx354, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4353, i64 7, i1 false)
   %.not10.i.i.i.i.i.i70 = icmp eq ptr %.sroa.0375.3, %.sroa.88.3
   br i1 %.not10.i.i.i.i.i.i70, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i75, label %.lr.ph.i.i.i.i.i.i71
 
@@ -871,8 +846,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %124, ptr %.sroa.32.4, align 8
   %.sroa.3342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.4, i64 8
   store i8 3, ptr %.sroa.3342.0..sroa_idx, align 8
-  %.sroa.4345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.4, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4345.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4345, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit97
 
 126:                                              ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit81
@@ -900,8 +873,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %124, ptr %138, align 8
   %.sroa.3342.0..sroa_idx343 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i8 3, ptr %.sroa.3342.0..sroa_idx343, align 8
-  %.sroa.4345.0..sroa_idx346 = getelementptr inbounds nuw i8, ptr %138, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4345.0..sroa_idx346, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4345, i64 7, i1 false)
   %.not10.i.i.i.i.i.i86 = icmp eq ptr %.sroa.0375.4, %.sroa.88.4
   br i1 %.not10.i.i.i.i.i.i86, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i91, label %.lr.ph.i.i.i.i.i.i87
 
@@ -940,8 +911,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %143, ptr %.sroa.32.5, align 8
   %.sroa.3334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i92.pn, i64 24
   store i8 4, ptr %.sroa.3334.0..sroa_idx, align 8
-  %.sroa.4337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i92.pn, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4337.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4337, i64 7, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i92.pn, i64 32
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit113
 
@@ -970,8 +939,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %143, ptr %158, align 8
   %.sroa.3334.0..sroa_idx335 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i8 4, ptr %.sroa.3334.0..sroa_idx335, align 8
-  %.sroa.4337.0..sroa_idx338 = getelementptr inbounds nuw i8, ptr %158, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4337.0..sroa_idx338, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4337, i64 7, i1 false)
   %.not10.i.i.i.i.i.i102 = icmp eq ptr %.sroa.0375.5, %.sroa.88.5
   br i1 %.not10.i.i.i.i.i.i102, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i107, label %.lr.ph.i.i.i.i.i.i103
 
@@ -1010,8 +977,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %164, ptr %.sroa.32.6, align 8
   %.sroa.3326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.6, i64 8
   store i8 5, ptr %.sroa.3326.0..sroa_idx, align 8
-  %.sroa.4329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.6, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4329.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4329, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit129
 
 166:                                              ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit113
@@ -1039,8 +1004,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %164, ptr %178, align 8
   %.sroa.3326.0..sroa_idx327 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i8 5, ptr %.sroa.3326.0..sroa_idx327, align 8
-  %.sroa.4329.0..sroa_idx330 = getelementptr inbounds nuw i8, ptr %178, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4329.0..sroa_idx330, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4329, i64 7, i1 false)
   %.not10.i.i.i.i.i.i118 = icmp eq ptr %.sroa.0375.6, %.sroa.88.6
   br i1 %.not10.i.i.i.i.i.i118, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i123, label %.lr.ph.i.i.i.i.i.i119
 
@@ -1079,8 +1042,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %183, ptr %.sroa.32.7, align 8
   %.sroa.3318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i124.pn, i64 24
   store i8 6, ptr %.sroa.3318.0..sroa_idx, align 8
-  %.sroa.4321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i124.pn, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4321.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4321, i64 7, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i124.pn, i64 32
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit145
 
@@ -1109,8 +1070,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %183, ptr %198, align 8
   %.sroa.3318.0..sroa_idx319 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i8 6, ptr %.sroa.3318.0..sroa_idx319, align 8
-  %.sroa.4321.0..sroa_idx322 = getelementptr inbounds nuw i8, ptr %198, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4321.0..sroa_idx322, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4321, i64 7, i1 false)
   %.not10.i.i.i.i.i.i134 = icmp eq ptr %.sroa.0375.7, %.sroa.88.7
   br i1 %.not10.i.i.i.i.i.i134, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i139, label %.lr.ph.i.i.i.i.i.i135
 
@@ -1149,8 +1108,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %204, ptr %.sroa.32.8, align 8
   %.sroa.3310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.8, i64 8
   store i8 7, ptr %.sroa.3310.0..sroa_idx, align 8
-  %.sroa.4313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.8, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4313.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4313, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit161
 
 206:                                              ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit145
@@ -1178,8 +1135,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %204, ptr %218, align 8
   %.sroa.3310.0..sroa_idx311 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store i8 7, ptr %.sroa.3310.0..sroa_idx311, align 8
-  %.sroa.4313.0..sroa_idx314 = getelementptr inbounds nuw i8, ptr %218, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4313.0..sroa_idx314, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4313, i64 7, i1 false)
   %.not10.i.i.i.i.i.i150 = icmp eq ptr %.sroa.0375.8, %.sroa.88.8
   br i1 %.not10.i.i.i.i.i.i150, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i155, label %.lr.ph.i.i.i.i.i.i151
 
@@ -1218,8 +1173,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %223, ptr %.sroa.32.9, align 8
   %.sroa.3302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i156.pn, i64 24
   store i8 8, ptr %.sroa.3302.0..sroa_idx, align 8
-  %.sroa.4305.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i156.pn, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4305.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4305, i64 7, i1 false)
   %225 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i156.pn, i64 32
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit177
 
@@ -1248,8 +1201,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %223, ptr %238, align 8
   %.sroa.3302.0..sroa_idx303 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i8 8, ptr %.sroa.3302.0..sroa_idx303, align 8
-  %.sroa.4305.0..sroa_idx306 = getelementptr inbounds nuw i8, ptr %238, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4305.0..sroa_idx306, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4305, i64 7, i1 false)
   %.not10.i.i.i.i.i.i166 = icmp eq ptr %.sroa.0375.9, %.sroa.88.9
   br i1 %.not10.i.i.i.i.i.i166, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i171, label %.lr.ph.i.i.i.i.i.i167
 
@@ -1288,8 +1239,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %244, ptr %.sroa.32.10, align 8
   %.sroa.3294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.10, i64 8
   store i8 9, ptr %.sroa.3294.0..sroa_idx, align 8
-  %.sroa.4297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.10, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4297.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4297, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit193
 
 246:                                              ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit177
@@ -1317,8 +1266,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %244, ptr %258, align 8
   %.sroa.3294.0..sroa_idx295 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store i8 9, ptr %.sroa.3294.0..sroa_idx295, align 8
-  %.sroa.4297.0..sroa_idx298 = getelementptr inbounds nuw i8, ptr %258, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4297.0..sroa_idx298, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4297, i64 7, i1 false)
   %.not10.i.i.i.i.i.i182 = icmp eq ptr %.sroa.0375.10, %.sroa.88.10
   br i1 %.not10.i.i.i.i.i.i182, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i187, label %.lr.ph.i.i.i.i.i.i183
 
@@ -1357,8 +1304,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %263, ptr %.sroa.32.11, align 8
   %.sroa.3286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i188.pn, i64 24
   store i8 10, ptr %.sroa.3286.0..sroa_idx, align 8
-  %.sroa.4289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i188.pn, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4289.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4289, i64 7, i1 false)
   %265 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i188.pn, i64 32
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit209
 
@@ -1387,8 +1332,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %263, ptr %278, align 8
   %.sroa.3286.0..sroa_idx287 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i8 10, ptr %.sroa.3286.0..sroa_idx287, align 8
-  %.sroa.4289.0..sroa_idx290 = getelementptr inbounds nuw i8, ptr %278, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4289.0..sroa_idx290, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4289, i64 7, i1 false)
   %.not10.i.i.i.i.i.i198 = icmp eq ptr %.sroa.0375.11, %.sroa.88.11
   br i1 %.not10.i.i.i.i.i.i198, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i203, label %.lr.ph.i.i.i.i.i.i199
 
@@ -1427,8 +1370,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %284, ptr %.sroa.32.12, align 8
   %.sroa.3278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.12, i64 8
   store i8 11, ptr %.sroa.3278.0..sroa_idx, align 8
-  %.sroa.4281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.32.12, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4281.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4281, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit225
 
 286:                                              ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit209
@@ -1456,8 +1397,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %284, ptr %298, align 8
   %.sroa.3278.0..sroa_idx279 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i8 11, ptr %.sroa.3278.0..sroa_idx279, align 8
-  %.sroa.4281.0..sroa_idx282 = getelementptr inbounds nuw i8, ptr %298, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4281.0..sroa_idx282, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4281, i64 7, i1 false)
   %.not10.i.i.i.i.i.i214 = icmp eq ptr %.sroa.0375.12, %.sroa.88.12
   br i1 %.not10.i.i.i.i.i.i214, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i219, label %.lr.ph.i.i.i.i.i.i215
 
@@ -1496,8 +1435,6 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   store ptr %303, ptr %.sroa.32.13, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i220.pn, i64 24
   store i8 12, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i220.pn, i64 25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %305 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i220.pn, i64 32
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit241
 
@@ -1534,8 +1471,6 @@ _ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPK
   store ptr %303, ptr %319, align 8
   %.sroa.3.0..sroa_idx272 = getelementptr inbounds nuw i8, ptr %319, i64 8
   store i8 12, ptr %.sroa.3.0..sroa_idx272, align 8
-  %.sroa.4.0..sroa_idx274 = getelementptr inbounds nuw i8, ptr %319, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx274, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %.not10.i.i.i.i.i.i230 = icmp eq ptr %.sroa.0375.13, %.sroa.88.13
   br i1 %.not10.i.i.i.i.i.i230, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i235, label %.lr.ph.i.i.i.i.i.i231
 

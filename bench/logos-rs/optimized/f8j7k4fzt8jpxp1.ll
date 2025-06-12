@@ -55,8 +55,6 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %8 = alloca [32 x i8], align 8
   %9 = alloca [32 x i8], align 8
   %10 = alloca [32 x i8], align 8
-  %.sroa.5 = alloca [24 x i8], align 8
-  %.sroa.6 = alloca [24 x i8], align 8
   %11 = alloca [32 x i8], align 8
   %12 = alloca [32 x i8], align 8
   %13 = alloca [32 x i8], align 8
@@ -95,14 +93,12 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   %46 = alloca [32 x i8], align 8
   %47 = alloca [32 x i8], align 8
   %48 = alloca [32 x i8], align 8
-  %.sroa.326 = alloca [24 x i8], align 8
   %49 = alloca [32 x i8], align 8
   %50 = alloca [32 x i8], align 8
   %51 = alloca [32 x i8], align 8
   %52 = alloca [32 x i8], align 8
   %53 = alloca [32 x i8], align 8
   %54 = alloca [32 x i8], align 8
-  %.sroa.3 = alloca [24 x i8], align 8
   %55 = alloca [32 x i8], align 8
   %56 = alloca [32 x i8], align 8
   %57 = alloca [32 x i8], align 8
@@ -483,21 +479,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 229:                                              ; preds = %225
   %.sroa.021.0.copyload = load i64, ptr %122, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %122, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   %230 = icmp eq i64 %.sroa.021.0.copyload, -9223372036854775807
   br i1 %230, label %231, label %232
 
 231:                                              ; preds = %229
   store i64 -9223372036854775807, ptr %55, align 8
-  %.sroa.6.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx66, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   br label %233
 
 232:                                              ; preds = %229
   %.sroa.2114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2114.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2114.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
   store i64 %.sroa.021.0.copyload, ptr %3, align 8
   invoke void @_ZN4core3ops8function6FnOnce9call_once17hae6689316740eb44E(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 8 %3)
           to label %240 unwind label %238
@@ -609,9 +601,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 262:                                              ; preds = %261, %260
   %.sroa.024.0.copyload = load i64, ptr %127, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.326, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx64, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %127, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx64, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   %263 = icmp eq i64 %.sroa.024.0.copyload, -9223372036854775807
   br i1 %263, label %264, label %265
 
@@ -621,7 +611,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 265:                                              ; preds = %262
   %.sroa.2116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2116.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.326, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2116.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx64, i64 24, i1 false)
   store i64 %.sroa.024.0.copyload, ptr %49, align 8
   br label %269
 
@@ -1750,9 +1740,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %596 unwind label %.loopexit308
 
 596:                                              ; preds = %594, %215, %615
-  %.sroa.4.0..sroa_idx80.sink = phi ptr [ %.sroa.4.0..sroa_idx80, %615 ], [ %.sroa.5, %215 ], [ %.sroa.5, %594 ]
   %.sroa.078.0 = phi i64 [ %.sroa.078.0.copyload79, %615 ], [ -9223372036854775807, %215 ], [ -9223372036854775807, %594 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx80.sink, i64 24, i1 false)
   %597 = getelementptr inbounds nuw i8, ptr %210, i64 264
   store ptr %597, ptr %186, align 8
   store i64 %.sroa.078.0, ptr %91, align 8
@@ -1817,6 +1805,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 615:                                              ; preds = %613
   %.sroa.078.0.copyload79 = load i64, ptr %93, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx80, i64 24, i1 false)
   br label %596
 
 616:                                              ; preds = %606, %604

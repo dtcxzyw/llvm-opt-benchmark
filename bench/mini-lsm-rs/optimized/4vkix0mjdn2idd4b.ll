@@ -3593,7 +3593,6 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %11 = alloca ptr, align 8
   %12 = alloca { ptr, i64 }, align 8
   %13 = alloca ptr, align 8
-  %.sroa.10.sroa.0.i.i = alloca [7 x i8], align 1
   %14 = alloca ptr, align 8
   %.sroa.566.i = alloca [8 x i64], align 8
   %15 = alloca { i64, [2 x i64] }, align 8
@@ -3886,7 +3885,6 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   %132 = load ptr, ptr %131, align 8, !noalias !1429, !nonnull !14, !noundef !14
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = atomicrmw add ptr %133, i8 1 monotonic, align 1, !noalias !1429
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !1429
   %135 = atomicrmw add ptr %74, i64 1 monotonic, align 8, !noalias !1429
   %136 = icmp slt i64 %135, 0
@@ -4039,8 +4037,6 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   store ptr %74, ptr %171, align 8, !noalias !1429
   %.sroa.917.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 40
   store i8 %134, ptr %.sroa.917.0..sroa_idx.i.i, align 8, !noalias !1429
-  %.sroa.10.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.sroa.0.i.i, i64 7, i1 false), !noalias !1429
   %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 48
   store ptr %.val35.i.i, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx.sroa_idx.i.i, align 1, !noalias !1429
   %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 56
@@ -4076,8 +4072,6 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   store ptr %74, ptr %.sroa.814.0..sroa_idx15.i.i, align 8, !noalias !1429
   %.sroa.917.0..sroa_idx18.i.i = getelementptr inbounds nuw i8, ptr %167, i64 40
   store i8 %134, ptr %.sroa.917.0..sroa_idx18.i.i, align 8, !noalias !1429
-  %.sroa.10.0..sroa_idx20.i.i = getelementptr inbounds nuw i8, ptr %167, i64 41
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.0..sroa_idx20.i.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10.sroa.0.i.i, i64 7, i1 false), !noalias !1429
   %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx20.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 48
   store ptr %.val35.i.i, ptr %.sroa.10.sroa.5.0..sroa.10.0..sroa_idx20.sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx20.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 56
@@ -4088,7 +4082,6 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10
   store i32 %78, ptr %.sroa.10.sroa.8.0..sroa.10.0..sroa_idx20.sroa_idx.i.i, align 8, !noalias !1429
   %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx20.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 76
   store i32 %166, ptr %.sroa.10.sroa.9.0..sroa.10.0..sroa_idx20.sroa_idx.i.i, align 4, !noalias !1429
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !1429
   %.sroa.060.0.copyload.i = load i64, ptr %17, align 8, !noalias !1414
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx6.i, align 8, !noalias !1414

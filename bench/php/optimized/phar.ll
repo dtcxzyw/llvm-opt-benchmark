@@ -7720,8 +7720,6 @@ define hidden void @zm_globals_ctor_phar(ptr noundef initializes((0, 512)) %0) #
   %39 = alloca %struct._zval_struct, align 8
   %40 = alloca %struct._zval_struct, align 8
   %41 = alloca %struct._zval_struct, align 8
-  %.sroa.162 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.162)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 8, ptr %42, align 8, !tbaa !29
@@ -7904,8 +7902,6 @@ zend_hash_str_add_mem.exit57:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx247, align 1
   %.sroa.122.0..sroa_idx325 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx325, align 1
-  %.sroa.162.0..sroa_idx400 = getelementptr inbounds nuw i8, ptr %106, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx400, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit61
 
 zend_hash_str_add_mem.exit61:                     ; preds = %zend_hash_str_add_mem.exit57, %105
@@ -7941,8 +7937,6 @@ zend_hash_str_add_mem.exit61:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx249, align 1
   %.sroa.122.0..sroa_idx327 = getelementptr inbounds nuw i8, ptr %118, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx327, align 1
-  %.sroa.162.0..sroa_idx401 = getelementptr inbounds nuw i8, ptr %118, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx401, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit65
 
 zend_hash_str_add_mem.exit65:                     ; preds = %zend_hash_str_add_mem.exit61, %117
@@ -7978,8 +7972,6 @@ zend_hash_str_add_mem.exit65:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx251, align 1
   %.sroa.122.0..sroa_idx329 = getelementptr inbounds nuw i8, ptr %130, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx329, align 1
-  %.sroa.162.0..sroa_idx402 = getelementptr inbounds nuw i8, ptr %130, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx402, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit69
 
 zend_hash_str_add_mem.exit69:                     ; preds = %zend_hash_str_add_mem.exit65, %129
@@ -8015,8 +8007,6 @@ zend_hash_str_add_mem.exit69:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx253, align 1
   %.sroa.122.0..sroa_idx331 = getelementptr inbounds nuw i8, ptr %142, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx331, align 1
-  %.sroa.162.0..sroa_idx403 = getelementptr inbounds nuw i8, ptr %142, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx403, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit73
 
 zend_hash_str_add_mem.exit73:                     ; preds = %zend_hash_str_add_mem.exit69, %141
@@ -8052,8 +8042,6 @@ zend_hash_str_add_mem.exit73:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx255, align 1
   %.sroa.122.0..sroa_idx333 = getelementptr inbounds nuw i8, ptr %154, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx333, align 1
-  %.sroa.162.0..sroa_idx404 = getelementptr inbounds nuw i8, ptr %154, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx404, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit77
 
 zend_hash_str_add_mem.exit77:                     ; preds = %zend_hash_str_add_mem.exit73, %153
@@ -8089,8 +8077,6 @@ zend_hash_str_add_mem.exit77:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx257, align 1
   %.sroa.122.0..sroa_idx335 = getelementptr inbounds nuw i8, ptr %166, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx335, align 1
-  %.sroa.162.0..sroa_idx405 = getelementptr inbounds nuw i8, ptr %166, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx405, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit81
 
 zend_hash_str_add_mem.exit81:                     ; preds = %zend_hash_str_add_mem.exit77, %165
@@ -8126,8 +8112,6 @@ zend_hash_str_add_mem.exit81:                     ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx259, align 1
   %.sroa.122.0..sroa_idx337 = getelementptr inbounds nuw i8, ptr %178, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx337, align 1
-  %.sroa.162.0..sroa_idx406 = getelementptr inbounds nuw i8, ptr %178, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx406, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit85
 
 zend_hash_str_add_mem.exit85:                     ; preds = %zend_hash_str_add_mem.exit81, %177
@@ -8163,8 +8147,6 @@ zend_hash_str_add_mem.exit85:                     ; preds = %zend_hash_str_add_m
   store i32 2, ptr %.sroa.82.0..sroa_idx261, align 1
   %.sroa.122.0..sroa_idx339 = getelementptr inbounds nuw i8, ptr %190, i64 12
   store i8 0, ptr %.sroa.122.0..sroa_idx339, align 1
-  %.sroa.162.0..sroa_idx407 = getelementptr inbounds nuw i8, ptr %190, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx407, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit89
 
 zend_hash_str_add_mem.exit89:                     ; preds = %zend_hash_str_add_mem.exit85, %189
@@ -8200,8 +8182,6 @@ zend_hash_str_add_mem.exit89:                     ; preds = %zend_hash_str_add_m
   store i32 2, ptr %.sroa.82.0..sroa_idx263, align 1
   %.sroa.122.0..sroa_idx341 = getelementptr inbounds nuw i8, ptr %202, i64 12
   store i8 0, ptr %.sroa.122.0..sroa_idx341, align 1
-  %.sroa.162.0..sroa_idx408 = getelementptr inbounds nuw i8, ptr %202, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx408, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit93
 
 zend_hash_str_add_mem.exit93:                     ; preds = %zend_hash_str_add_mem.exit89, %201
@@ -8237,8 +8217,6 @@ zend_hash_str_add_mem.exit93:                     ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx265, align 1
   %.sroa.122.0..sroa_idx343 = getelementptr inbounds nuw i8, ptr %214, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx343, align 1
-  %.sroa.162.0..sroa_idx409 = getelementptr inbounds nuw i8, ptr %214, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx409, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit97
 
 zend_hash_str_add_mem.exit97:                     ; preds = %zend_hash_str_add_mem.exit93, %213
@@ -8274,8 +8252,6 @@ zend_hash_str_add_mem.exit97:                     ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx267, align 1
   %.sroa.122.0..sroa_idx345 = getelementptr inbounds nuw i8, ptr %226, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx345, align 1
-  %.sroa.162.0..sroa_idx410 = getelementptr inbounds nuw i8, ptr %226, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx410, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit101
 
 zend_hash_str_add_mem.exit101:                    ; preds = %zend_hash_str_add_mem.exit97, %225
@@ -8311,8 +8287,6 @@ zend_hash_str_add_mem.exit101:                    ; preds = %zend_hash_str_add_m
   store i32 10, ptr %.sroa.82.0..sroa_idx269, align 1
   %.sroa.122.0..sroa_idx347 = getelementptr inbounds nuw i8, ptr %238, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx347, align 1
-  %.sroa.162.0..sroa_idx411 = getelementptr inbounds nuw i8, ptr %238, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx411, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit105
 
 zend_hash_str_add_mem.exit105:                    ; preds = %zend_hash_str_add_mem.exit101, %237
@@ -8348,8 +8322,6 @@ zend_hash_str_add_mem.exit105:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx271, align 1
   %.sroa.122.0..sroa_idx349 = getelementptr inbounds nuw i8, ptr %250, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx349, align 1
-  %.sroa.162.0..sroa_idx412 = getelementptr inbounds nuw i8, ptr %250, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx412, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit109
 
 zend_hash_str_add_mem.exit109:                    ; preds = %zend_hash_str_add_mem.exit105, %249
@@ -8385,8 +8357,6 @@ zend_hash_str_add_mem.exit109:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx273, align 1
   %.sroa.122.0..sroa_idx351 = getelementptr inbounds nuw i8, ptr %262, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx351, align 1
-  %.sroa.162.0..sroa_idx413 = getelementptr inbounds nuw i8, ptr %262, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx413, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit113
 
 zend_hash_str_add_mem.exit113:                    ; preds = %zend_hash_str_add_mem.exit109, %261
@@ -8422,8 +8392,6 @@ zend_hash_str_add_mem.exit113:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx275, align 1
   %.sroa.122.0..sroa_idx353 = getelementptr inbounds nuw i8, ptr %274, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx353, align 1
-  %.sroa.162.0..sroa_idx414 = getelementptr inbounds nuw i8, ptr %274, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx414, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit117
 
 zend_hash_str_add_mem.exit117:                    ; preds = %zend_hash_str_add_mem.exit113, %273
@@ -8459,8 +8427,6 @@ zend_hash_str_add_mem.exit117:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx277, align 1
   %.sroa.122.0..sroa_idx355 = getelementptr inbounds nuw i8, ptr %286, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx355, align 1
-  %.sroa.162.0..sroa_idx415 = getelementptr inbounds nuw i8, ptr %286, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx415, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit121
 
 zend_hash_str_add_mem.exit121:                    ; preds = %zend_hash_str_add_mem.exit117, %285
@@ -8496,8 +8462,6 @@ zend_hash_str_add_mem.exit121:                    ; preds = %zend_hash_str_add_m
   store i32 13, ptr %.sroa.82.0..sroa_idx279, align 1
   %.sroa.122.0..sroa_idx357 = getelementptr inbounds nuw i8, ptr %298, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx357, align 1
-  %.sroa.162.0..sroa_idx416 = getelementptr inbounds nuw i8, ptr %298, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx416, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit125
 
 zend_hash_str_add_mem.exit125:                    ; preds = %zend_hash_str_add_mem.exit121, %297
@@ -8533,8 +8497,6 @@ zend_hash_str_add_mem.exit125:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx281, align 1
   %.sroa.122.0..sroa_idx359 = getelementptr inbounds nuw i8, ptr %310, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx359, align 1
-  %.sroa.162.0..sroa_idx417 = getelementptr inbounds nuw i8, ptr %310, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx417, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit129
 
 zend_hash_str_add_mem.exit129:                    ; preds = %zend_hash_str_add_mem.exit125, %309
@@ -8570,8 +8532,6 @@ zend_hash_str_add_mem.exit129:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx283, align 1
   %.sroa.122.0..sroa_idx361 = getelementptr inbounds nuw i8, ptr %322, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx361, align 1
-  %.sroa.162.0..sroa_idx418 = getelementptr inbounds nuw i8, ptr %322, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx418, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit133
 
 zend_hash_str_add_mem.exit133:                    ; preds = %zend_hash_str_add_mem.exit129, %321
@@ -8607,8 +8567,6 @@ zend_hash_str_add_mem.exit133:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx285, align 1
   %.sroa.122.0..sroa_idx363 = getelementptr inbounds nuw i8, ptr %334, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx363, align 1
-  %.sroa.162.0..sroa_idx419 = getelementptr inbounds nuw i8, ptr %334, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx419, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit137
 
 zend_hash_str_add_mem.exit137:                    ; preds = %zend_hash_str_add_mem.exit133, %333
@@ -8644,8 +8602,6 @@ zend_hash_str_add_mem.exit137:                    ; preds = %zend_hash_str_add_m
   store i32 26, ptr %.sroa.82.0..sroa_idx287, align 1
   %.sroa.122.0..sroa_idx365 = getelementptr inbounds nuw i8, ptr %346, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx365, align 1
-  %.sroa.162.0..sroa_idx420 = getelementptr inbounds nuw i8, ptr %346, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx420, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit141
 
 zend_hash_str_add_mem.exit141:                    ; preds = %zend_hash_str_add_mem.exit137, %345
@@ -8681,8 +8637,6 @@ zend_hash_str_add_mem.exit141:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx289, align 1
   %.sroa.122.0..sroa_idx367 = getelementptr inbounds nuw i8, ptr %358, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx367, align 1
-  %.sroa.162.0..sroa_idx421 = getelementptr inbounds nuw i8, ptr %358, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx421, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit145
 
 zend_hash_str_add_mem.exit145:                    ; preds = %zend_hash_str_add_mem.exit141, %357
@@ -8718,8 +8672,6 @@ zend_hash_str_add_mem.exit145:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx291, align 1
   %.sroa.122.0..sroa_idx369 = getelementptr inbounds nuw i8, ptr %370, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx369, align 1
-  %.sroa.162.0..sroa_idx422 = getelementptr inbounds nuw i8, ptr %370, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx422, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit149
 
 zend_hash_str_add_mem.exit149:                    ; preds = %zend_hash_str_add_mem.exit145, %369
@@ -8755,8 +8707,6 @@ zend_hash_str_add_mem.exit149:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx293, align 1
   %.sroa.122.0..sroa_idx371 = getelementptr inbounds nuw i8, ptr %382, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx371, align 1
-  %.sroa.162.0..sroa_idx423 = getelementptr inbounds nuw i8, ptr %382, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx423, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit153
 
 zend_hash_str_add_mem.exit153:                    ; preds = %zend_hash_str_add_mem.exit149, %381
@@ -8792,8 +8742,6 @@ zend_hash_str_add_mem.exit153:                    ; preds = %zend_hash_str_add_m
   store i32 17, ptr %.sroa.82.0..sroa_idx295, align 1
   %.sroa.122.0..sroa_idx373 = getelementptr inbounds nuw i8, ptr %394, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx373, align 1
-  %.sroa.162.0..sroa_idx424 = getelementptr inbounds nuw i8, ptr %394, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx424, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit157
 
 zend_hash_str_add_mem.exit157:                    ; preds = %zend_hash_str_add_mem.exit153, %393
@@ -8829,8 +8777,6 @@ zend_hash_str_add_mem.exit157:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx297, align 1
   %.sroa.122.0..sroa_idx375 = getelementptr inbounds nuw i8, ptr %406, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx375, align 1
-  %.sroa.162.0..sroa_idx425 = getelementptr inbounds nuw i8, ptr %406, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx425, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit161
 
 zend_hash_str_add_mem.exit161:                    ; preds = %zend_hash_str_add_mem.exit157, %405
@@ -8866,8 +8812,6 @@ zend_hash_str_add_mem.exit161:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx299, align 1
   %.sroa.122.0..sroa_idx377 = getelementptr inbounds nuw i8, ptr %418, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx377, align 1
-  %.sroa.162.0..sroa_idx426 = getelementptr inbounds nuw i8, ptr %418, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx426, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit165
 
 zend_hash_str_add_mem.exit165:                    ; preds = %zend_hash_str_add_mem.exit161, %417
@@ -8903,8 +8847,6 @@ zend_hash_str_add_mem.exit165:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx301, align 1
   %.sroa.122.0..sroa_idx379 = getelementptr inbounds nuw i8, ptr %430, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx379, align 1
-  %.sroa.162.0..sroa_idx427 = getelementptr inbounds nuw i8, ptr %430, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx427, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit169
 
 zend_hash_str_add_mem.exit169:                    ; preds = %zend_hash_str_add_mem.exit165, %429
@@ -8940,8 +8882,6 @@ zend_hash_str_add_mem.exit169:                    ; preds = %zend_hash_str_add_m
   store i32 17, ptr %.sroa.82.0..sroa_idx303, align 1
   %.sroa.122.0..sroa_idx381 = getelementptr inbounds nuw i8, ptr %442, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx381, align 1
-  %.sroa.162.0..sroa_idx428 = getelementptr inbounds nuw i8, ptr %442, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx428, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit173
 
 zend_hash_str_add_mem.exit173:                    ; preds = %zend_hash_str_add_mem.exit169, %441
@@ -8977,8 +8917,6 @@ zend_hash_str_add_mem.exit173:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx305, align 1
   %.sroa.122.0..sroa_idx383 = getelementptr inbounds nuw i8, ptr %454, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx383, align 1
-  %.sroa.162.0..sroa_idx429 = getelementptr inbounds nuw i8, ptr %454, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx429, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit177
 
 zend_hash_str_add_mem.exit177:                    ; preds = %zend_hash_str_add_mem.exit173, %453
@@ -9014,8 +8952,6 @@ zend_hash_str_add_mem.exit177:                    ; preds = %zend_hash_str_add_m
   store i32 29, ptr %.sroa.82.0..sroa_idx307, align 1
   %.sroa.122.0..sroa_idx385 = getelementptr inbounds nuw i8, ptr %466, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx385, align 1
-  %.sroa.162.0..sroa_idx430 = getelementptr inbounds nuw i8, ptr %466, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx430, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit181
 
 zend_hash_str_add_mem.exit181:                    ; preds = %zend_hash_str_add_mem.exit177, %465
@@ -9051,8 +8987,6 @@ zend_hash_str_add_mem.exit181:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx309, align 1
   %.sroa.122.0..sroa_idx387 = getelementptr inbounds nuw i8, ptr %478, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx387, align 1
-  %.sroa.162.0..sroa_idx431 = getelementptr inbounds nuw i8, ptr %478, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx431, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit185
 
 zend_hash_str_add_mem.exit185:                    ; preds = %zend_hash_str_add_mem.exit181, %477
@@ -9088,8 +9022,6 @@ zend_hash_str_add_mem.exit185:                    ; preds = %zend_hash_str_add_m
   store i32 12, ptr %.sroa.82.0..sroa_idx311, align 1
   %.sroa.122.0..sroa_idx389 = getelementptr inbounds nuw i8, ptr %490, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx389, align 1
-  %.sroa.162.0..sroa_idx432 = getelementptr inbounds nuw i8, ptr %490, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx432, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit189
 
 zend_hash_str_add_mem.exit189:                    ; preds = %zend_hash_str_add_mem.exit185, %489
@@ -9125,8 +9057,6 @@ zend_hash_str_add_mem.exit189:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx313, align 1
   %.sroa.122.0..sroa_idx391 = getelementptr inbounds nuw i8, ptr %502, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx391, align 1
-  %.sroa.162.0..sroa_idx433 = getelementptr inbounds nuw i8, ptr %502, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx433, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit193
 
 zend_hash_str_add_mem.exit193:                    ; preds = %zend_hash_str_add_mem.exit189, %501
@@ -9162,8 +9092,6 @@ zend_hash_str_add_mem.exit193:                    ; preds = %zend_hash_str_add_m
   store i32 11, ptr %.sroa.82.0..sroa_idx315, align 1
   %.sroa.122.0..sroa_idx393 = getelementptr inbounds nuw i8, ptr %514, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx393, align 1
-  %.sroa.162.0..sroa_idx434 = getelementptr inbounds nuw i8, ptr %514, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx434, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit197
 
 zend_hash_str_add_mem.exit197:                    ; preds = %zend_hash_str_add_mem.exit193, %513
@@ -9199,14 +9127,11 @@ zend_hash_str_add_mem.exit197:                    ; preds = %zend_hash_str_add_m
   store i32 10, ptr %.sroa.82.0..sroa_idx317, align 1
   %.sroa.122.0..sroa_idx395 = getelementptr inbounds nuw i8, ptr %526, i64 12
   store i8 2, ptr %.sroa.122.0..sroa_idx395, align 1
-  %.sroa.162.0..sroa_idx435 = getelementptr inbounds nuw i8, ptr %526, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162.0..sroa_idx435, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.162, i64 3, i1 false)
   br label %zend_hash_str_add_mem.exit201
 
 zend_hash_str_add_mem.exit201:                    ; preds = %zend_hash_str_add_mem.exit197, %525
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
   call void @phar_restore_orig_functions() #24
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.162)
   ret void
 }
 

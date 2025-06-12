@@ -6046,10 +6046,9 @@ define hidden void @"_ZN6brotli3enc19backward_references24UnionHasher$LT$Alloc$G
   %32 = alloca { { i64, ptr, {} }, i64 }, align 8
   %33 = alloca { { { { { ptr, i64 } }, {} }, {} } }, align 8
   %34 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.5 = alloca [14 x i64], align 8
   %35 = load i64, ptr %0, align 8, !range !393, !noundef !4
   switch i64 %35, label %default.unreachable4 [
-    i64 0, label %.thread
+    i64 0, label %"_ZN4core3ptr112drop_in_place$LT$brotli..enc..backward_references..UnionHasher$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h96e8f061245e5a60E.exit"
     i64 1, label %80
     i64 2, label %92
     i64 3, label %104
@@ -6062,16 +6061,11 @@ define hidden void @"_ZN6brotli3enc19backward_references24UnionHasher$LT$Alloc$G
     i64 10, label %243
   ]
 
-.thread:                                          ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.5)
-  br label %"_ZN4core3ptr112drop_in_place$LT$brotli..enc..backward_references..UnionHasher$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h96e8f061245e5a60E.exit"
-
 default.unreachable4:                             ; preds = %2
   unreachable
 
 36:                                               ; preds = %243, %220, %197, %174, %151, %128, %116, %104, %92, %80
   %.pr = load i64, ptr %0, align 8, !alias.scope !916
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.5)
   switch i64 %.pr, label %37 [
     i64 0, label %"_ZN4core3ptr112drop_in_place$LT$brotli..enc..backward_references..UnionHasher$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h96e8f061245e5a60E.exit"
     i64 1, label %.sink.split.i
@@ -6625,11 +6619,8 @@ default.unreachable4:                             ; preds = %2
   store i64 0, ptr %0, align 8
   resume { ptr, i32 } %eh.lpad-body
 
-"_ZN4core3ptr112drop_in_place$LT$brotli..enc..backward_references..UnionHasher$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h96e8f061245e5a60E.exit": ; preds = %36, %.thread, %.sink.split.i
+"_ZN4core3ptr112drop_in_place$LT$brotli..enc..backward_references..UnionHasher$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h96e8f061245e5a60E.exit": ; preds = %2, %36, %.sink.split.i
   store i64 0, ptr %0, align 8
-  %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.5, i64 112, i1 false)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.5)
   ret void
 }
 

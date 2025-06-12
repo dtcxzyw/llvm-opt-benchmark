@@ -310,9 +310,6 @@ for.body.preheader:
   %__comp.i = alloca %"struct.__gnu_cxx::__ops::_Iter_less_iter", align 1
   %nErrorCount = alloca i32, align 4
   %heap = alloca %"class.eastl::vector", align 8
-  %ref.tmp.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp253.sroa.3 = alloca [60 x i8], align 4
-  %ref.tmp265.sroa.3 = alloca [60 x i8], align 4
   %heap297 = alloca [5 x %struct.Align16], align 16
   store i32 0, ptr %nErrorCount, align 4
   %call = tail call noundef i32 @_ZN2EA8UnitTest11GetRandSeedEv()
@@ -1684,8 +1681,6 @@ if.then.i704:                                     ; preds = %for.body239
   %incdec.ptr.i705 = getelementptr inbounds nuw i8, ptr %130, i64 64
   store ptr %incdec.ptr.i705, ptr %mpEnd.i, align 8
   store i32 %i236.01190, ptr %130, align 64
-  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %130, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp.sroa.3, i64 60, i1 false)
   br label %for.inc241
 
 if.else.i:                                        ; preds = %for.body239
@@ -1727,8 +1722,6 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i ]
   store i32 %i236.01190, ptr %retval.0.i.i.i.i.i.i.i.i.i, align 64
-  %ref.tmp.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp.sroa.3, i64 60, i1 false)
   %137 = load ptr, ptr %heap, align 8
   %tobool.not.i7.i.i = icmp eq ptr %137, null
   br i1 %tobool.not.i7.i.i, label %_ZN5eastl6vectorI7Align6415CustomAllocatorE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i, label %if.then.i8.i.i
@@ -1903,8 +1896,6 @@ if.then.i801:                                     ; preds = %invoke.cont251
   %incdec.ptr.i802 = getelementptr inbounds nuw i8, ptr %150, i64 64
   store ptr %incdec.ptr.i802, ptr %mpEnd.i, align 8
   store i32 7, ptr %150, align 64
-  %ref.tmp253.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp253.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp253.sroa.3, i64 60, i1 false)
   %.pre1204 = load ptr, ptr %heap, align 8
   %.pre1205 = load ptr, ptr %mpEnd.i, align 8
   br label %invoke.cont255
@@ -1948,8 +1939,6 @@ if.end.i.i.i.i.i.i.i.i.i787:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i790: ; preds = %if.end.i.i.i.i.i.i.i.i.i787, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i784
   %retval.0.i.i.i.i.i.i.i.i.i791 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i789, %if.end.i.i.i.i.i.i.i.i.i787 ], [ %retval.0.i.i.i785, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i784 ]
   store i32 7, ptr %retval.0.i.i.i.i.i.i.i.i.i791, align 64
-  %ref.tmp253.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i791.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i791, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp253.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i791.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp253.sroa.3, i64 60, i1 false)
   %157 = load ptr, ptr %heap, align 8
   %tobool.not.i7.i.i792 = icmp eq ptr %157, null
   br i1 %tobool.not.i7.i.i792, label %_ZN5eastl6vectorI7Align6415CustomAllocatorE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i797, label %if.then.i8.i.i793
@@ -2041,8 +2030,6 @@ if.then.i875:                                     ; preds = %invoke.cont263
   %incdec.ptr.i876 = getelementptr inbounds nuw i8, ptr %166, i64 64
   store ptr %incdec.ptr.i876, ptr %mpEnd.i, align 8
   store i32 7, ptr %166, align 64
-  %ref.tmp265.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp265.sroa.3.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp265.sroa.3, i64 60, i1 false)
   %.pre1206 = load ptr, ptr %heap, align 8
   %.pre1207 = load ptr, ptr %mpEnd.i, align 8
   br label %invoke.cont267
@@ -2086,8 +2073,6 @@ if.end.i.i.i.i.i.i.i.i.i861:                      ; preds = %_ZN5eastl10VectorBa
 _ZN5eastl34uninitialized_move_ptr_if_noexceptIP7Align64S2_S2_EET1_T_T0_S3_.exit.i.i864: ; preds = %if.end.i.i.i.i.i.i.i.i.i861, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i858
   %retval.0.i.i.i.i.i.i.i.i.i865 = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i863, %if.end.i.i.i.i.i.i.i.i.i861 ], [ %retval.0.i.i.i859, %_ZN5eastl10VectorBaseI7Align6415CustomAllocatorE10DoAllocateEm.exit.i.i858 ]
   store i32 7, ptr %retval.0.i.i.i.i.i.i.i.i.i865, align 64
-  %ref.tmp265.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i865.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i.i.i.i.i.i865, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp265.sroa.3.0.retval.0.i.i.i.i.i.i.i.i.i865.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %ref.tmp265.sroa.3, i64 60, i1 false)
   %173 = load ptr, ptr %heap, align 8
   %tobool.not.i7.i.i866 = icmp eq ptr %173, null
   br i1 %tobool.not.i7.i.i866, label %_ZN5eastl6vectorI7Align6415CustomAllocatorE16DoInsertValueEndIJS1_EEEvDpOT_.exit.i871, label %if.then.i8.i.i867

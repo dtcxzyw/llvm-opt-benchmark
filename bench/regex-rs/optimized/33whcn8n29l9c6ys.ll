@@ -4925,16 +4925,16 @@ _ZN14regex_automata3dfa7onepass3DFA18sparse_transitions17h19be505e9343be78E.exit
   %.sroa.1858.4.i = phi i64 [ %.sroa.1858.3.i, %._crit_edge.i.i.i ], [ %230, %236 ]
   %.sroa.22.2.i = phi ptr [ %217, %._crit_edge.i.i.i ], [ %228, %236 ]
   %.sroa.28.2.i = phi i8 [ %.sroa.28.1.i, %._crit_edge.i.i.i ], [ %229, %236 ]
-  %.sroa.116.0.ph.i.i = phi i64 [ %.sroa.736.0.copyload.i.i.i, %._crit_edge.i.i.i ], [ %223, %236 ]
-  %.sroa.9.0.ph.i.i = phi i8 [ %.sroa.13.2.i, %._crit_edge.i.i.i ], [ %224, %236 ]
-  %.sroa.65.0.ph.i.i = phi i8 [ %.sroa.534.0.copyload.i.i.i, %._crit_edge.i.i.i ], [ %225, %236 ]
+  %.sroa.77.0.ph.i.i = phi i64 [ %.sroa.736.0.copyload.i.i.i, %._crit_edge.i.i.i ], [ %223, %236 ]
+  %.sroa.66.0.ph.i.i = phi i8 [ %.sroa.13.2.i, %._crit_edge.i.i.i ], [ %224, %236 ]
+  %.sroa.45.0.ph.i.i = phi i8 [ %.sroa.534.0.copyload.i.i.i, %._crit_edge.i.i.i ], [ %225, %236 ]
   %237 = add i64 %.sroa.32.0.i, 1
-  %238 = lshr i64 %.sroa.116.0.ph.i.i, 43
+  %238 = lshr i64 %.sroa.77.0.ph.i.i, 43
   %.not.i = icmp eq i64 %.sroa.32.0.i, 0
   br i1 %.not.i, label %239, label %241
 
 239:                                              ; preds = %241, %.loopexit.i
-  %240 = icmp eq i8 %.sroa.65.0.ph.i.i, %.sroa.9.0.ph.i.i
+  %240 = icmp eq i8 %.sroa.45.0.ph.i.i, %.sroa.66.0.ph.i.i
   br i1 %240, label %245, label %243
 
 241:                                              ; preds = %.loopexit.i
@@ -4952,9 +4952,9 @@ _ZN14regex_automata3dfa7onepass3DFA18sparse_transitions17h19be505e9343be78E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11), !noalias !670
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !670
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !670
-  store i8 %.sroa.65.0.ph.i.i, ptr %9, align 1, !noalias !670
+  store i8 %.sroa.45.0.ph.i.i, ptr %9, align 1, !noalias !670
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !670
-  store i8 %.sroa.9.0.ph.i.i, ptr %8, align 1, !noalias !670
+  store i8 %.sroa.66.0.ph.i.i, ptr %8, align 1, !noalias !670
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !670
   store i64 %238, ptr %7, align 8, !noalias !670
   store ptr %9, ptr %10, align 8, !noalias !670
@@ -4980,7 +4980,7 @@ _ZN14regex_automata3dfa7onepass3DFA18sparse_transitions17h19be505e9343be78E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !670
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14), !noalias !670
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13), !noalias !670
-  store i8 %.sroa.9.0.ph.i.i, ptr %13, align 1, !noalias !670
+  store i8 %.sroa.66.0.ph.i.i, ptr %13, align 1, !noalias !670
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !670
   store i64 %238, ptr %12, align 8, !noalias !670
   store ptr %13, ptr %14, align 8, !noalias !670
@@ -5000,7 +5000,7 @@ _ZN14regex_automata3dfa7onepass3DFA18sparse_transitions17h19be505e9343be78E.exit
   br i1 %246, label %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit.thread", label %247
 
 247:                                              ; preds = %245, %243
-  %248 = and i64 %.sroa.116.0.ph.i.i, 4398046511104
+  %248 = and i64 %.sroa.77.0.ph.i.i, 4398046511104
   %.not83.i = icmp eq i64 %248, 0
   br i1 %.not83.i, label %251, label %249
 
@@ -5016,7 +5016,7 @@ _ZN14regex_automata3dfa7onepass3DFA18sparse_transitions17h19be505e9343be78E.exit
   br i1 %250, label %"_ZN70_$LT$regex_automata..dfa..onepass..DFA$u20$as$u20$core..fmt..Debug$GT$3fmt23debug_state_transitions17h50f54175d885717bE.exit.thread", label %251
 
 251:                                              ; preds = %249, %247
-  %252 = and i64 %.sroa.116.0.ph.i.i, 4398046511103
+  %252 = and i64 %.sroa.77.0.ph.i.i, 4398046511103
   %253 = icmp eq i64 %252, 0
   br i1 %253, label %.backedge, label %254
 
@@ -5066,7 +5066,6 @@ define void @"_ZN109_$LT$regex_automata..dfa..onepass..SparseTransitionIter$u20$
   %.promoted = load ptr, ptr %3, align 8, !alias.scope !690
   %6 = icmp eq ptr %.promoted, %5
   %.sroa.6.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %.sroa.736.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.033.0.copyload.pre = load i64, ptr %1, align 8
   br i1 %6, label %._crit_edge70, label %.lr.ph
 
@@ -5074,6 +5073,7 @@ define void @"_ZN109_$LT$regex_automata..dfa..onepass..SparseTransitionIter$u20$
   %.sroa.534.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.534.0.copyload.pre = load i8, ptr %.sroa.534.0..sroa_idx.phi.trans.insert, align 8
   %.sroa.6.0.copyload.pre = load i8, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 1
+  %.sroa.736.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.736.0.copyload.pre = load i64, ptr %.sroa.736.0..sroa_idx.phi.trans.insert, align 8
   %7 = icmp ne i64 %.sroa.033.0.copyload.pre, 1
   br label %20
@@ -5081,10 +5081,11 @@ define void @"_ZN109_$LT$regex_automata..dfa..onepass..SparseTransitionIter$u20$
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.promoted58 = load i64, ptr %8, align 8, !alias.scope !695
   %.sroa.4.0..sroa_idx.promoted = load i8, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.promoted = load i8, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 1
-  %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.promoted = load i64, ptr %.sroa.736.0..sroa_idx.phi.trans.insert, align 8
+  %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.promoted = load i64, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %9 = trunc nuw i64 %.sroa.033.0.copyload.pre to i1
   br label %10
 
@@ -5119,7 +5120,7 @@ define void @"_ZN109_$LT$regex_automata..dfa..onepass..SparseTransitionIter$u20$
 21:                                               ; preds = %10
   store i8 %19, ptr %.sroa.4.0..sroa_idx, align 8
   store i8 %19, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 1
-  store i64 %18, ptr %.sroa.736.0..sroa_idx.phi.trans.insert, align 8
+  store i64 %18, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %28, %27, %21
@@ -5136,7 +5137,7 @@ define void @"_ZN109_$LT$regex_automata..dfa..onepass..SparseTransitionIter$u20$
 27:                                               ; preds = %25
   store i8 %19, ptr %.sroa.4.0..sroa_idx, align 8
   store i8 %19, ptr %.sroa.6.0..sroa_idx.phi.trans.insert, align 1
-  store i64 %18, ptr %.sroa.736.0..sroa_idx.phi.trans.insert, align 8
+  store i64 %18, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.not45 = icmp ult i64 %11, 8796093022208
   br i1 %.not45, label %.backedge, label %29
 

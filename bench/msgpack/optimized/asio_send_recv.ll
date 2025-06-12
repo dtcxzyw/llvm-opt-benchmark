@@ -12430,7 +12430,6 @@ _ZN5boost4asio6detail10socket_ops7connectEiPK8sockaddrmRNS_6system10error_codeE.
 .critedge:                                        ; preds = %54
   store i32 0, ptr %37, align 8, !tbaa !21
   store i8 0, ptr %.sroa.4.0..sroa_idx.i12.i, align 4, !tbaa !167
-  store ptr @_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE, ptr %.sroa.54.0..sroa_idx.i.i18, align 8, !tbaa !134
   %60 = load ptr, ptr %0, align 8, !tbaa !460
   %61 = load i32, ptr %1, align 8, !tbaa !62
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8

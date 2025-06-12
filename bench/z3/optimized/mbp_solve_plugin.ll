@@ -1675,10 +1675,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3mbp18arith_solve_plugin5solve
   %7 = alloca %class.svector.29, align 8
   %8 = alloca %class.svector.29, align 8
   %9 = alloca ptr, align 8
-  %.sroa.5116 = alloca [7 x i8], align 1
-  %.sroa.5113 = alloca [7 x i8], align 1
-  %.sroa.5109 = alloca [7 x i8], align 1
-  %.sroa.5104 = alloca [7 x i8], align 1
   %10 = alloca %class.rational, align 8
   %11 = alloca %class.rational, align 8
   %12 = alloca %class.obj_ref, align 8
@@ -1892,7 +1888,6 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %83
   %107 = phi ptr [ %118, %113 ], [ %68, %.lr.ph.preheader ]
   %.026152 = phi ptr [ %122, %113 ], [ %.ptr, %.lr.ph.preheader ]
   %108 = load ptr, ptr %.026152, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5116)
   %109 = getelementptr inbounds i8, ptr %107, i64 -8
   %110 = load i32, ptr %109, align 4, !tbaa !56
   %111 = icmp eq i32 %106, %110
@@ -1914,8 +1909,6 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %83
   %116 = zext i32 %114 to i64
   %117 = getelementptr inbounds nuw %"struct.std::pair", ptr %115, i64 %116
   store i8 %78, ptr %117, align 8
-  %.sroa.5116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5116.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5116, i64 7, i1 false)
   %.sroa.5117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr %108, ptr %.sroa.5117.0..sroa_idx, align 8
   %118 = load ptr, ptr %7, align 8, !tbaa !53
@@ -1923,7 +1916,6 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %83
   %120 = load i32, ptr %119, align 4, !tbaa !56
   %121 = add i32 %120, 1
   store i32 %121, ptr %119, align 4, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5116)
   %122 = getelementptr inbounds nuw i8, ptr %.026152, i64 8
   %.not = icmp eq ptr %122, %.ptr155
   br i1 %.not, label %.loopexit140, label %105
@@ -1931,7 +1923,6 @@ _ZNK17arith_recognizers6is_addEPK4expr.exit:      ; preds = %83
 123:                                              ; preds = %112
   %124 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5116)
   br label %.loopexit.split-lp
 
 _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recognizers6is_addEPK4expr.exit
@@ -1944,7 +1935,6 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   br i1 %130, label %131, label %_ZNK17arith_recognizers9is_uminusEPK4expr.exit
 
 131:                                              ; preds = %_ZNK17arith_recognizers6is_subEPK4expr.exit
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5113)
   %132 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %133 = load ptr, ptr %132, align 8, !tbaa !24
   %134 = getelementptr inbounds i8, ptr %68, i64 -8
@@ -1968,8 +1958,6 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   %139 = phi ptr [ %.pre.i64, %.noexc67 ], [ %68, %131 ]
   %140 = getelementptr inbounds nuw %"struct.std::pair", ptr %139, i64 %.pre-phi166
   store i8 %78, ptr %140, align 8
-  %.sroa.5113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5113.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5113, i64 7, i1 false)
   %.sroa.5114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %133, ptr %.sroa.5114.0..sroa_idx, align 8
   %141 = load ptr, ptr %7, align 8, !tbaa !53
@@ -1977,7 +1965,6 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   %143 = load i32, ptr %142, align 4, !tbaa !56
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5113)
   %145 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %146 = load i32, ptr %145, align 8, !tbaa !23
   %147 = icmp ugt i32 %146, 1
@@ -1990,14 +1977,12 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
 149:                                              ; preds = %137
   %150 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5113)
   br label %.loopexit.split-lp
 
 151:                                              ; preds = %160, %.lr.ph154
   %152 = phi i32 [ %144, %.lr.ph154 ], [ %168, %160 ]
   %153 = phi ptr [ %141, %.lr.ph154 ], [ %165, %160 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph154 ], [ %indvars.iv.next, %160 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5109)
   %154 = getelementptr inbounds nuw [0 x ptr], ptr %132, i64 0, i64 %indvars.iv
   %155 = load ptr, ptr %154, align 8, !tbaa !24
   %156 = getelementptr inbounds i8, ptr %153, i64 -8
@@ -2021,8 +2006,6 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   %163 = zext i32 %161 to i64
   %164 = getelementptr inbounds nuw %"struct.std::pair", ptr %162, i64 %163
   store i8 %148, ptr %164, align 8
-  %.sroa.5109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5109.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5109, i64 7, i1 false)
   %.sroa.5110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %155, ptr %.sroa.5110.0..sroa_idx, align 8
   %165 = load ptr, ptr %7, align 8, !tbaa !53
@@ -2030,7 +2013,6 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
   %167 = load i32, ptr %166, align 4, !tbaa !56
   %168 = add i32 %167, 1
   store i32 %168, ptr %166, align 4, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5109)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %169 = load i32, ptr %145, align 8, !tbaa !23
   %170 = zext i32 %169 to i64
@@ -2040,7 +2022,6 @@ _ZNK17arith_recognizers6is_subEPK4expr.exit:      ; preds = %_ZNK17arith_recogni
 172:                                              ; preds = %159
   %173 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5109)
   br label %.loopexit.split-lp
 
 _ZNK17arith_recognizers9is_uminusEPK4expr.exit:   ; preds = %_ZNK17arith_recognizers6is_subEPK4expr.exit
@@ -2053,7 +2034,6 @@ _ZNK17arith_recognizers9is_uminusEPK4expr.exit:   ; preds = %_ZNK17arith_recogni
   br i1 %179, label %180, label %_ZNK17arith_recognizers9is_uminusEPK4expr.exit.thread
 
 180:                                              ; preds = %_ZNK17arith_recognizers9is_uminusEPK4expr.exit
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.5104)
   %181 = xor i8 %78, 1
   %182 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %183 = load ptr, ptr %182, align 8, !tbaa !24
@@ -2078,8 +2058,6 @@ _ZNK17arith_recognizers9is_uminusEPK4expr.exit:   ; preds = %_ZNK17arith_recogni
   %189 = phi ptr [ %.pre.i79, %.noexc82 ], [ %68, %180 ]
   %190 = getelementptr inbounds nuw %"struct.std::pair", ptr %189, i64 %.pre-phi
   store i8 %181, ptr %190, align 8
-  %.sroa.5104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5104.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5104, i64 7, i1 false)
   %.sroa.5105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 8
   store ptr %183, ptr %.sroa.5105.0..sroa_idx, align 8
   %191 = load ptr, ptr %7, align 8, !tbaa !53
@@ -2087,13 +2065,11 @@ _ZNK17arith_recognizers9is_uminusEPK4expr.exit:   ; preds = %_ZNK17arith_recogni
   %193 = load i32, ptr %192, align 4, !tbaa !56
   %194 = add i32 %193, 1
   store i32 %194, ptr %192, align 4, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5104)
   br label %.loopexit140
 
 195:                                              ; preds = %187
   %196 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5104)
   br label %.loopexit.split-lp
 
 _ZNK17arith_recognizers9is_uminusEPK4expr.exit.thread: ; preds = %83, %72, %_ZNK17arith_recognizers9is_uminusEPK4expr.exit

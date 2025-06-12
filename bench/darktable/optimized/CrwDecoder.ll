@@ -204,7 +204,6 @@ declare void @_ZN8rawspeed10RawDecoderC2ENS_6BufferE(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed10CrwDecoder17decodeRawInternalEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.rawspeed::RawImage") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.9 = alloca [7 x i8], align 1
   %3 = alloca %"class.rawspeed::CrwDecompressor", align 8
   %4 = alloca %"class.rawspeed::RawImage", align 8
   %5 = alloca %"class.rawspeed::Optional.62", align 8
@@ -377,7 +376,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.sroa.685.0.copyload = load i32, ptr %.sroa.685.0..sroa_idx, align 8
   %.sroa.1089.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.1089.0.copyload = load i32, ptr %.sroa.1089.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.9)
   br i1 %.not95, label %70, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit._crit_edge
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -484,8 +482,6 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit:               ; preds = %_ZNK8rawspeed10Byte
   store i32 %.sroa.580.0, ptr %.sroa.580.0..sroa_idx, align 8
   %.sroa.782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 %.sroa.782.0, ptr %.sroa.782.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   invoke void @_ZN8rawspeed15CrwDecompressorC1ENS_8RawImageEjNS_10Array1DRefIKhEENS_8OptionalIS4_EE(ptr noundef nonnull align 8 dereferenceable(360) %3, ptr noundef nonnull %4, i32 noundef %46, ptr nonnull %99, i32 %92, ptr noundef nonnull byval(%"class.rawspeed::Optional.62") align 8 %5)
           to label %112 unwind label %173
 
@@ -635,7 +631,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %169, %
 
 _ZN8rawspeed15CrwDecompressorD2Ev.exit:           ; preds = %_ZNSt5arrayIN8rawspeed20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS2_EEEELm2EED2Ev.exit.i, %157, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %172
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %3) #31
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   ret void
 
 173:                                              ; preds = %_ZN8rawspeed8RawImageC2ERKS0_.exit
@@ -653,7 +648,6 @@ _ZN8rawspeed15CrwDecompressorD2Ev.exit:           ; preds = %_ZNSt5arrayIN8rawsp
 177:                                              ; preds = %175, %173
   %.pn55 = phi { ptr, i32 } [ %176, %175 ], [ %174, %173 ]
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %3) #31
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   resume { ptr, i32 } %.pn55
 }
 

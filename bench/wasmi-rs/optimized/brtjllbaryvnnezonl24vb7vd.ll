@@ -4287,8 +4287,6 @@ define void @_ZN5wasmi6engine10translator5stack8provider13ProviderStack15sync_lo
 define void @_ZN5wasmi6engine10translator5stack8provider13ProviderStack15preserve_locals17h168ebc4f8fc68123E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(104) %1, i32 noundef %2, ptr noalias noundef align 8 dereferenceable(88) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [4 x i8], align 2
-  %.sroa.4.i = alloca [14 x i8], align 2
-  %.sroa.56.i = alloca [7 x i8], align 1
   %7 = alloca [16 x i8], align 8
   %8 = alloca [16 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -4449,16 +4447,8 @@ _ZN5wasmi6engine10translator5stack8provider13ProviderStack23preserve_locals_inpl
 
 77:                                               ; preds = %75, %67
   %.sroa.412.2.i = phi i16 [ %.sroa.412.0.ph.i, %67 ], [ %76, %75 ]
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %.sroa.4.i)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.56.i)
   store i16 %.sroa.412.2.i, ptr %.sroa.015.023.i, align 8, !noalias !385
-  %.sroa.4.0..sroa.0.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.4.0..sroa.0.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.4.i, i64 14, i1 false), !noalias !385
   store i8 10, ptr %65, align 8, !noalias !385
-  %.sroa.56.0..sroa.0.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.56.0..sroa.0.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.56.i, i64 7, i1 false), !noalias !385
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %.sroa.4.i)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.56.i)
   %78 = add i64 %54, -1
   store i64 %78, ptr %11, align 8, !alias.scope !381, !noalias !383
   %79 = icmp eq i64 %78, 0
@@ -7028,7 +7018,7 @@ define noundef align 8 ptr @_ZN5wasmi6module6Module8validate17h2bee9a16215ed2ffE
   store i64 %59, ptr %13, align 8
   store ptr %61, ptr %.sroa.428.0..sroa_idx, align 8
   %.not95 = icmp eq i64 %59, 4
-  br i1 %.not95, label %66, label %.thread126
+  br i1 %.not95, label %66, label %.thread125
 
 66:                                               ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.428.0..sroa_idx, i64 24, i1 false)
@@ -7054,7 +7044,7 @@ define noundef align 8 ptr @_ZN5wasmi6module6Module8validate17h2bee9a16215ed2ffE
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.1069.sroa.4.0..sroa.1069.0..sroa_idx.sroa_idx, align 8
   store i64 0, ptr %.sroa.1069.sroa.5.0..sroa.1069.0..sroa_idx.sroa_idx, align 8
   invoke void @"_ZN10wasmparser9validator4func23FuncToValidate$LT$T$GT$14into_validator17hf9614f63ebf10c2fE"(ptr noalias noundef nonnull sret([224 x i8]) align 8 captures(none) dereferenceable(224) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(176) %8)
-          to label %73 unwind label %.loopexit128
+          to label %73 unwind label %.loopexit127
 
 67:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %9)
@@ -7064,43 +7054,43 @@ define noundef align 8 ptr @_ZN5wasmi6module6Module8validate17h2bee9a16215ed2ffE
   %69 = icmp eq i64 %68, 4
   br i1 %69, label %"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE.exit113", label %93
 
-.thread126:                                       ; preds = %65
+.thread125:                                       ; preds = %65
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   br label %93
 
-70:                                               ; preds = %.loopexit128, %.loopexit.split-lp129, %75
-  %.pn = phi { ptr, i32 } [ %lpad.phi137, %75 ], [ %lpad.loopexit130, %.loopexit128 ], [ %lpad.loopexit.split-lp131, %.loopexit.split-lp129 ]
+70:                                               ; preds = %.loopexit127, %.loopexit.split-lp128, %75
+  %.pn = phi { ptr, i32 } [ %lpad.phi136, %75 ], [ %lpad.loopexit129, %.loopexit127 ], [ %lpad.loopexit.split-lp130, %.loopexit.split-lp128 ]
   %71 = load i64, ptr %13, align 8, !range !29, !noundef !3
   %72 = icmp eq i64 %71, 4
   br i1 %72, label %51, label %92
 
-.loopexit128:                                     ; preds = %66, %80
-  %lpad.loopexit130 = landingpad { ptr, i32 }
+.loopexit127:                                     ; preds = %66, %80
+  %lpad.loopexit129 = landingpad { ptr, i32 }
           cleanup
   br label %70
 
-.loopexit.split-lp129:                            ; preds = %81
-  %lpad.loopexit.split-lp131 = landingpad { ptr, i32 }
+.loopexit.split-lp128:                            ; preds = %81
+  %lpad.loopexit.split-lp130 = landingpad { ptr, i32 }
           cleanup
   br label %70
 
 73:                                               ; preds = %66
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %8)
   %74 = invoke noundef align 8 ptr @"_ZN10wasmparser9validator4func22FuncValidator$LT$T$GT$8validate17h06fdae052ab1bf89E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10)
-          to label %76 unwind label %.loopexit133
+          to label %76 unwind label %.loopexit132
 
-.loopexit133:                                     ; preds = %73
-  %lpad.loopexit135 = landingpad { ptr, i32 }
+.loopexit132:                                     ; preds = %73
+  %lpad.loopexit134 = landingpad { ptr, i32 }
           cleanup
   br label %75
 
-.loopexit.split-lp134:                            ; preds = %77
-  %lpad.loopexit.split-lp136 = landingpad { ptr, i32 }
+.loopexit.split-lp133:                            ; preds = %77
+  %lpad.loopexit.split-lp135 = landingpad { ptr, i32 }
           cleanup
   br label %75
 
-75:                                               ; preds = %.loopexit.split-lp134, %.loopexit133
-  %lpad.phi137 = phi { ptr, i32 } [ %lpad.loopexit135, %.loopexit133 ], [ %lpad.loopexit.split-lp136, %.loopexit.split-lp134 ]
+75:                                               ; preds = %.loopexit.split-lp133, %.loopexit132
+  %lpad.phi136 = phi { ptr, i32 } [ %lpad.loopexit134, %.loopexit132 ], [ %lpad.loopexit.split-lp135, %.loopexit.split-lp133 ]
   invoke void @"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hf46b427618c11e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %9) #25
           to label %70 unwind label %90
 
@@ -7114,16 +7104,16 @@ define noundef align 8 ptr @_ZN5wasmi6module6Module8validate17h2bee9a16215ed2ffE
   store ptr %74, ptr %78, align 8, !noalias !704
   store i8 20, ptr %4, align 8, !noalias !704
   %79 = invoke noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %4)
-          to label %81 unwind label %.loopexit.split-lp134
+          to label %81 unwind label %.loopexit.split-lp133
 
 80:                                               ; preds = %76
   invoke void @"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hf46b427618c11e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %9)
-          to label %67 unwind label %.loopexit128
+          to label %67 unwind label %.loopexit127
 
 81:                                               ; preds = %77
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !704
   invoke void @"_ZN4core3ptr118drop_in_place$LT$wasmparser..validator..func..FuncValidator$LT$wasmparser..validator..core..ValidatorResources$GT$$GT$17hf46b427618c11e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %9)
-          to label %82 unwind label %.loopexit.split-lp129
+          to label %82 unwind label %.loopexit.split-lp128
 
 82:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %9)
@@ -7169,8 +7159,8 @@ default.unreachable:                              ; preds = %93, %85
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$wasmparser..validator..ValidPayload$GT$17hc2408bee54d66e4bE"(ptr noalias noundef align 8 dereferenceable(320) %13) #25
           to label %51 unwind label %90
 
-93:                                               ; preds = %.thread126, %67
-  %94 = phi i64 [ %59, %.thread126 ], [ %68, %67 ]
+93:                                               ; preds = %.thread125, %67
+  %94 = phi i64 [ %59, %.thread125 ], [ %68, %67 ]
   %95 = add nsw i64 %94, -2
   %96 = call i64 @llvm.umin.i64(i64 %95, i64 3)
   switch i64 %96, label %default.unreachable [

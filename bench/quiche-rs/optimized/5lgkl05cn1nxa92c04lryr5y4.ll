@@ -561,12 +561,12 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   br i1 %.not.i, label %8, label %7
 
 7:                                                ; preds = %2
-  %.sroa.4.0..sroa_idx19.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.7.0.copyload.i = load i64, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !63, !noalias !60
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !63, !noalias !60
-  store ptr null, ptr %.sroa.4.0..sroa_idx19.i, align 8, !alias.scope !60, !noalias !63
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !60, !noalias !63
   %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %.sroa.0.0.copyload.i, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !60, !noalias !63
   %.sroa.2.sroa.3.0..sroa.2.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5664,8 +5664,6 @@ define void @_ZN6quiche6ranges8RangeSet7flatten17h16d054e070b9d9daE(ptr dead_on_
   store i64 %.sroa.0.sroa.0.0, ptr %.sroa.747.0..sroa_idx, align 8
   %.sroa.747.sroa.4.0..sroa.747.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %.sroa.747.sroa.4.0..sroa.747.0..sroa_idx.sroa_idx, align 8
-  %.sroa.747.sroa.5.0..sroa.747.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %7, ptr %.sroa.747.sroa.5.0..sroa.747.0..sroa_idx.sroa_idx, align 8
   %.sroa.747.sroa.6.0..sroa.747.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sroa.0.sroa.5.sroa.6.0, ptr %.sroa.747.sroa.6.0..sroa.747.0..sroa_idx.sroa_idx, align 8
   %.sroa.747.sroa.7.0..sroa.747.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5696,12 +5694,13 @@ define void @_ZN6quiche6ranges8RangeSet7flatten17h16d054e070b9d9daE(ptr dead_on_
   store i64 0, ptr %.sroa.069.sroa.5.0..sroa_idx, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink11.i, ptr %.sroa.470.0..sroa_idx, align 8
-  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %19, ptr %.sroa.571.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %21
 
 21:                                               ; preds = %6, %12
+  %.sink = phi ptr [ %7, %6 ], [ %19, %12 ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %.sink, ptr %22, align 8
   ret void
 }
 

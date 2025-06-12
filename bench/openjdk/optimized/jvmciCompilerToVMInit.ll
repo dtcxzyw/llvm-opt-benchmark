@@ -17193,7 +17193,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   %26 = alloca %class.JVMCIObject, align 8
   %27 = alloca %union.jvalue, align 8
   %28 = alloca %class.JVMCIObject, align 8
-  %.sroa.131 = alloca [7 x i8], align 1
   %29 = alloca ptr, align 8
   %30 = alloca %class.JVMCIObject, align 8
   %31 = alloca ptr, align 8
@@ -18371,8 +18370,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0, ptr %37, align 8
   %.sroa.130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 %.sroa.130.0, ptr %.sroa.130.0..sroa_idx, align 8
-  %.sroa.131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %790 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02979.0, i8 %.sroa.42981.0, ptr %.sroa.02974.0, i8 %.sroa.42976.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %37, ptr noundef nonnull %1) #7
   %791 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2235 = icmp eq i8 %791, 0
@@ -18479,8 +18476,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.1, ptr %46, align 8
   %.sroa.130.0..sroa_idx3113 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 %.sroa.130.1, ptr %.sroa.130.0..sroa_idx3113, align 8
-  %.sroa.131.0..sroa_idx3335 = getelementptr inbounds nuw i8, ptr %46, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3335, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %833 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02969.0, i8 %.sroa.42971.0, ptr %.sroa.02964.0, i8 %.sroa.42966.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %46, ptr noundef nonnull %1) #7
   %834 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2239 = icmp eq i8 %834, 0
@@ -18586,8 +18581,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.2, ptr %55, align 8
   %.sroa.130.0..sroa_idx3115 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i8 %.sroa.130.2, ptr %.sroa.130.0..sroa_idx3115, align 8
-  %.sroa.131.0..sroa_idx3336 = getelementptr inbounds nuw i8, ptr %55, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3336, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %875 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02959.0, i8 %.sroa.42961.0, ptr %.sroa.02954.0, i8 %.sroa.42956.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %55, ptr noundef nonnull %1) #7
   %876 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2243 = icmp eq i8 %876, 0
@@ -18694,8 +18687,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.3, ptr %64, align 8
   %.sroa.130.0..sroa_idx3117 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i8 %.sroa.130.3, ptr %.sroa.130.0..sroa_idx3117, align 8
-  %.sroa.131.0..sroa_idx3337 = getelementptr inbounds nuw i8, ptr %64, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3337, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %918 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02949.0, i8 %.sroa.42951.0, ptr %.sroa.02944.0, i8 %.sroa.42946.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %64, ptr noundef nonnull %1) #7
   %919 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2247 = icmp eq i8 %919, 0
@@ -18802,8 +18793,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.4, ptr %73, align 8
   %.sroa.130.0..sroa_idx3119 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i8 %.sroa.130.4, ptr %.sroa.130.0..sroa_idx3119, align 8
-  %.sroa.131.0..sroa_idx3338 = getelementptr inbounds nuw i8, ptr %73, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3338, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %961 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02939.0, i8 %.sroa.42941.0, ptr %.sroa.02934.0, i8 %.sroa.42936.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %73, ptr noundef nonnull %1) #7
   %962 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2251 = icmp eq i8 %962, 0
@@ -18910,8 +18899,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.5, ptr %82, align 8
   %.sroa.130.0..sroa_idx3121 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i8 %.sroa.130.5, ptr %.sroa.130.0..sroa_idx3121, align 8
-  %.sroa.131.0..sroa_idx3339 = getelementptr inbounds nuw i8, ptr %82, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3339, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1004 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02929.0, i8 %.sroa.42931.0, ptr %.sroa.02924.0, i8 %.sroa.42926.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %82, ptr noundef nonnull %1) #7
   %1005 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2255 = icmp eq i8 %1005, 0
@@ -19016,8 +19003,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.6, ptr %91, align 8
   %.sroa.130.0..sroa_idx3123 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i8 %.sroa.130.6, ptr %.sroa.130.0..sroa_idx3123, align 8
-  %.sroa.131.0..sroa_idx3340 = getelementptr inbounds nuw i8, ptr %91, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3340, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1045 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02919.0, i8 %.sroa.42921.0, ptr %.sroa.02914.0, i8 %.sroa.42916.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %91, ptr noundef nonnull %1) #7
   %1046 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2259 = icmp eq i8 %1046, 0
@@ -19096,8 +19081,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3053.sroa.speculated, ptr %98, align 8
   %.sroa.130.0..sroa_idx3125 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 %.sroa.130.0.copyload3249.sroa.speculated, ptr %.sroa.130.0..sroa_idx3125, align 8
-  %.sroa.131.0..sroa_idx3341 = getelementptr inbounds nuw i8, ptr %98, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3341, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1076 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02909.0, i8 %.sroa.42911.0, ptr %.sroa.02904.0, i8 %.sroa.42906.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %98, ptr noundef nonnull %1) #7
   %1077 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2262 = icmp eq i8 %1077, 0
@@ -19176,8 +19159,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3054.sroa.speculated, ptr %105, align 8
   %.sroa.130.0..sroa_idx3127 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i8 %.sroa.130.0.copyload3250.sroa.speculated, ptr %.sroa.130.0..sroa_idx3127, align 8
-  %.sroa.131.0..sroa_idx3342 = getelementptr inbounds nuw i8, ptr %105, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3342, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1107 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02899.0, i8 %.sroa.42901.0, ptr %.sroa.02894.0, i8 %.sroa.42896.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %105, ptr noundef nonnull %1) #7
   %1108 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2265 = icmp eq i8 %1108, 0
@@ -19252,8 +19233,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %460, ptr %112, align 8
   %.sroa.130.0..sroa_idx3129 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i8 %461, ptr %.sroa.130.0..sroa_idx3129, align 8
-  %.sroa.131.0..sroa_idx3343 = getelementptr inbounds nuw i8, ptr %112, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3343, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1136 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02889.0, i8 %.sroa.42891.0, ptr %.sroa.02884.0, i8 %.sroa.42886.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %112, ptr noundef nonnull %1) #7
   %1137 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2268 = icmp eq i8 %1137, 0
@@ -19359,8 +19338,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.7, ptr %121, align 8
   %.sroa.130.0..sroa_idx3131 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i8 %.sroa.130.7, ptr %.sroa.130.0..sroa_idx3131, align 8
-  %.sroa.131.0..sroa_idx3344 = getelementptr inbounds nuw i8, ptr %121, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3344, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1178 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02879.0, i8 %.sroa.42881.0, ptr %.sroa.02874.0, i8 %.sroa.42876.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %121, ptr noundef nonnull %1) #7
   %1179 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2272 = icmp eq i8 %1179, 0
@@ -19466,8 +19443,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.8, ptr %130, align 8
   %.sroa.130.0..sroa_idx3133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i8 %.sroa.130.8, ptr %.sroa.130.0..sroa_idx3133, align 8
-  %.sroa.131.0..sroa_idx3345 = getelementptr inbounds nuw i8, ptr %130, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3345, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02869.0, i8 %.sroa.42871.0, ptr %.sroa.02864.0, i8 %.sroa.42866.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %130, ptr noundef nonnull %1) #7
   %1221 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2276 = icmp eq i8 %1221, 0
@@ -19574,8 +19549,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.9, ptr %139, align 8
   %.sroa.130.0..sroa_idx3135 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i8 %.sroa.130.9, ptr %.sroa.130.0..sroa_idx3135, align 8
-  %.sroa.131.0..sroa_idx3346 = getelementptr inbounds nuw i8, ptr %139, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3346, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1263 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02859.0, i8 %.sroa.42861.0, ptr %.sroa.02854.0, i8 %.sroa.42856.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %139, ptr noundef nonnull %1) #7
   %1264 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2280 = icmp eq i8 %1264, 0
@@ -19654,8 +19627,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3062.sroa.speculated, ptr %146, align 8
   %.sroa.130.0..sroa_idx3137 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i8 %.sroa.130.0.copyload3265.sroa.speculated, ptr %.sroa.130.0..sroa_idx3137, align 8
-  %.sroa.131.0..sroa_idx3347 = getelementptr inbounds nuw i8, ptr %146, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3347, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1294 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02849.0, i8 %.sroa.42851.0, ptr %.sroa.02844.0, i8 %.sroa.42846.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %146, ptr noundef nonnull %1) #7
   %1295 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2283 = icmp eq i8 %1295, 0
@@ -19734,8 +19705,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3063.sroa.speculated, ptr %153, align 8
   %.sroa.130.0..sroa_idx3139 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i8 %.sroa.130.0.copyload3266.sroa.speculated, ptr %.sroa.130.0..sroa_idx3139, align 8
-  %.sroa.131.0..sroa_idx3348 = getelementptr inbounds nuw i8, ptr %153, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3348, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1325 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02839.0, i8 %.sroa.42841.0, ptr %.sroa.02834.0, i8 %.sroa.42836.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %153, ptr noundef nonnull %1) #7
   %1326 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2286 = icmp eq i8 %1326, 0
@@ -19814,8 +19783,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3064.sroa.speculated, ptr %160, align 8
   %.sroa.130.0..sroa_idx3141 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i8 %.sroa.130.0.copyload3267.sroa.speculated, ptr %.sroa.130.0..sroa_idx3141, align 8
-  %.sroa.131.0..sroa_idx3349 = getelementptr inbounds nuw i8, ptr %160, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3349, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1356 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02829.0, i8 %.sroa.42831.0, ptr %.sroa.02824.0, i8 %.sroa.42826.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %160, ptr noundef nonnull %1) #7
   %1357 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2289 = icmp eq i8 %1357, 0
@@ -19894,8 +19861,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3065.sroa.speculated, ptr %167, align 8
   %.sroa.130.0..sroa_idx3143 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store i8 %.sroa.130.0.copyload3268.sroa.speculated, ptr %.sroa.130.0..sroa_idx3143, align 8
-  %.sroa.131.0..sroa_idx3350 = getelementptr inbounds nuw i8, ptr %167, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3350, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1387 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02819.0, i8 %.sroa.42821.0, ptr %.sroa.02814.0, i8 %.sroa.42816.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %167, ptr noundef nonnull %1) #7
   %1388 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2292 = icmp eq i8 %1388, 0
@@ -19974,8 +19939,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3066.sroa.speculated, ptr %174, align 8
   %.sroa.130.0..sroa_idx3145 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i8 %.sroa.130.0.copyload3269.sroa.speculated, ptr %.sroa.130.0..sroa_idx3145, align 8
-  %.sroa.131.0..sroa_idx3351 = getelementptr inbounds nuw i8, ptr %174, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3351, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1418 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02809.0, i8 %.sroa.42811.0, ptr %.sroa.02804.0, i8 %.sroa.42806.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %174, ptr noundef nonnull %1) #7
   %1419 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2295 = icmp eq i8 %1419, 0
@@ -20080,8 +20043,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.10, ptr %183, align 8
   %.sroa.130.0..sroa_idx3147 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i8 %.sroa.130.10, ptr %.sroa.130.0..sroa_idx3147, align 8
-  %.sroa.131.0..sroa_idx3352 = getelementptr inbounds nuw i8, ptr %183, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3352, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1459 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02799.0, i8 %.sroa.42801.0, ptr %.sroa.02794.0, i8 %.sroa.42796.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %183, ptr noundef nonnull %1) #7
   %1460 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2299 = icmp eq i8 %1460, 0
@@ -20160,8 +20121,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3069.sroa.speculated, ptr %190, align 8
   %.sroa.130.0..sroa_idx3149 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i8 %.sroa.130.0.copyload3274.sroa.speculated, ptr %.sroa.130.0..sroa_idx3149, align 8
-  %.sroa.131.0..sroa_idx3353 = getelementptr inbounds nuw i8, ptr %190, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3353, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1490 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02789.0, i8 %.sroa.42791.0, ptr %.sroa.02784.0, i8 %.sroa.42786.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %190, ptr noundef nonnull %1) #7
   %1491 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2302 = icmp eq i8 %1491, 0
@@ -20267,8 +20226,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.11, ptr %199, align 8
   %.sroa.130.0..sroa_idx3151 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i8 %.sroa.130.11, ptr %.sroa.130.0..sroa_idx3151, align 8
-  %.sroa.131.0..sroa_idx3354 = getelementptr inbounds nuw i8, ptr %199, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3354, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1532 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02779.0, i8 %.sroa.42781.0, ptr %.sroa.02774.0, i8 %.sroa.42776.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %199, ptr noundef nonnull %1) #7
   %1533 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2306 = icmp eq i8 %1533, 0
@@ -20347,8 +20304,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3072.sroa.speculated, ptr %206, align 8
   %.sroa.130.0..sroa_idx3153 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i8 %.sroa.130.0.copyload3279.sroa.speculated, ptr %.sroa.130.0..sroa_idx3153, align 8
-  %.sroa.131.0..sroa_idx3355 = getelementptr inbounds nuw i8, ptr %206, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3355, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1563 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02769.0, i8 %.sroa.42771.0, ptr %.sroa.02764.0, i8 %.sroa.42766.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %206, ptr noundef nonnull %1) #7
   %1564 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2309 = icmp eq i8 %1564, 0
@@ -20455,8 +20410,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.12, ptr %215, align 8
   %.sroa.130.0..sroa_idx3155 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i8 %.sroa.130.12, ptr %.sroa.130.0..sroa_idx3155, align 8
-  %.sroa.131.0..sroa_idx3356 = getelementptr inbounds nuw i8, ptr %215, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3356, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1606 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02759.0, i8 %.sroa.42761.0, ptr %.sroa.02754.0, i8 %.sroa.42756.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %215, ptr noundef nonnull %1) #7
   %1607 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2313 = icmp eq i8 %1607, 0
@@ -20535,8 +20488,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3075.sroa.speculated, ptr %222, align 8
   %.sroa.130.0..sroa_idx3157 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store i8 %.sroa.130.0.copyload3284.sroa.speculated, ptr %.sroa.130.0..sroa_idx3157, align 8
-  %.sroa.131.0..sroa_idx3357 = getelementptr inbounds nuw i8, ptr %222, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3357, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1637 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02749.0, i8 %.sroa.42751.0, ptr %.sroa.02744.0, i8 %.sroa.42746.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %222, ptr noundef nonnull %1) #7
   %1638 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2316 = icmp eq i8 %1638, 0
@@ -20615,8 +20566,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3076.sroa.speculated, ptr %229, align 8
   %.sroa.130.0..sroa_idx3159 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i8 %.sroa.130.0.copyload3285.sroa.speculated, ptr %.sroa.130.0..sroa_idx3159, align 8
-  %.sroa.131.0..sroa_idx3358 = getelementptr inbounds nuw i8, ptr %229, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3358, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1668 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02739.0, i8 %.sroa.42741.0, ptr %.sroa.02734.0, i8 %.sroa.42736.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %229, ptr noundef nonnull %1) #7
   %1669 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2319 = icmp eq i8 %1669, 0
@@ -20695,8 +20644,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3077.sroa.speculated, ptr %236, align 8
   %.sroa.130.0..sroa_idx3161 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i8 %.sroa.130.0.copyload3286.sroa.speculated, ptr %.sroa.130.0..sroa_idx3161, align 8
-  %.sroa.131.0..sroa_idx3359 = getelementptr inbounds nuw i8, ptr %236, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3359, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1699 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02729.0, i8 %.sroa.42731.0, ptr %.sroa.02724.0, i8 %.sroa.42726.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %236, ptr noundef nonnull %1) #7
   %1700 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2322 = icmp eq i8 %1700, 0
@@ -20802,8 +20749,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.13, ptr %245, align 8
   %.sroa.130.0..sroa_idx3163 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i8 %.sroa.130.13, ptr %.sroa.130.0..sroa_idx3163, align 8
-  %.sroa.131.0..sroa_idx3360 = getelementptr inbounds nuw i8, ptr %245, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3360, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1741 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02719.0, i8 %.sroa.42721.0, ptr %.sroa.02714.0, i8 %.sroa.42716.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %245, ptr noundef nonnull %1) #7
   %1742 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2326 = icmp eq i8 %1742, 0
@@ -20909,8 +20854,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.14, ptr %254, align 8
   %.sroa.130.0..sroa_idx3165 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i8 %.sroa.130.14, ptr %.sroa.130.0..sroa_idx3165, align 8
-  %.sroa.131.0..sroa_idx3361 = getelementptr inbounds nuw i8, ptr %254, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3361, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1783 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02709.0, i8 %.sroa.42711.0, ptr %.sroa.02704.0, i8 %.sroa.42706.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %254, ptr noundef nonnull %1) #7
   %1784 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2330 = icmp eq i8 %1784, 0
@@ -21016,8 +20959,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.15, ptr %263, align 8
   %.sroa.130.0..sroa_idx3167 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i8 %.sroa.130.15, ptr %.sroa.130.0..sroa_idx3167, align 8
-  %.sroa.131.0..sroa_idx3362 = getelementptr inbounds nuw i8, ptr %263, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3362, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1825 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02699.0, i8 %.sroa.42701.0, ptr %.sroa.02694.0, i8 %.sroa.42696.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %263, ptr noundef nonnull %1) #7
   %1826 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2334 = icmp eq i8 %1826, 0
@@ -21123,8 +21064,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.16, ptr %272, align 8
   %.sroa.130.0..sroa_idx3169 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i8 %.sroa.130.16, ptr %.sroa.130.0..sroa_idx3169, align 8
-  %.sroa.131.0..sroa_idx3363 = getelementptr inbounds nuw i8, ptr %272, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3363, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1867 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02689.0, i8 %.sroa.42691.0, ptr %.sroa.02684.0, i8 %.sroa.42686.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %272, ptr noundef nonnull %1) #7
   %1868 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2338 = icmp eq i8 %1868, 0
@@ -21203,8 +21142,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3086.sroa.speculated, ptr %279, align 8
   %.sroa.130.0..sroa_idx3171 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store i8 %.sroa.130.0.copyload3303.sroa.speculated, ptr %.sroa.130.0..sroa_idx3171, align 8
-  %.sroa.131.0..sroa_idx3364 = getelementptr inbounds nuw i8, ptr %279, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3364, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1898 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02679.0, i8 %.sroa.42681.0, ptr %.sroa.02674.0, i8 %.sroa.42676.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %279, ptr noundef nonnull %1) #7
   %1899 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2341 = icmp eq i8 %1899, 0
@@ -21311,8 +21248,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.17, ptr %288, align 8
   %.sroa.130.0..sroa_idx3173 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i8 %.sroa.130.17, ptr %.sroa.130.0..sroa_idx3173, align 8
-  %.sroa.131.0..sroa_idx3365 = getelementptr inbounds nuw i8, ptr %288, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3365, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1941 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02669.0, i8 %.sroa.42671.0, ptr %.sroa.02664.0, i8 %.sroa.42666.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %288, ptr noundef nonnull %1) #7
   %1942 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2345 = icmp eq i8 %1942, 0
@@ -21391,8 +21326,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3089.sroa.speculated, ptr %295, align 8
   %.sroa.130.0..sroa_idx3175 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i8 %.sroa.130.0.copyload3308.sroa.speculated, ptr %.sroa.130.0..sroa_idx3175, align 8
-  %.sroa.131.0..sroa_idx3366 = getelementptr inbounds nuw i8, ptr %295, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3366, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %1972 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02659.0, i8 %.sroa.42661.0, ptr %.sroa.02654.0, i8 %.sroa.42656.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %295, ptr noundef nonnull %1) #7
   %1973 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2348 = icmp eq i8 %1973, 0
@@ -21471,8 +21404,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3090.sroa.speculated, ptr %302, align 8
   %.sroa.130.0..sroa_idx3177 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i8 %.sroa.130.0.copyload3309.sroa.speculated, ptr %.sroa.130.0..sroa_idx3177, align 8
-  %.sroa.131.0..sroa_idx3367 = getelementptr inbounds nuw i8, ptr %302, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3367, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2003 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02649.0, i8 %.sroa.42651.0, ptr %.sroa.02644.0, i8 %.sroa.42646.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %302, ptr noundef nonnull %1) #7
   %2004 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2351 = icmp eq i8 %2004, 0
@@ -21551,8 +21482,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3091.sroa.speculated, ptr %309, align 8
   %.sroa.130.0..sroa_idx3179 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i8 %.sroa.130.0.copyload3310.sroa.speculated, ptr %.sroa.130.0..sroa_idx3179, align 8
-  %.sroa.131.0..sroa_idx3368 = getelementptr inbounds nuw i8, ptr %309, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3368, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2034 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02639.0, i8 %.sroa.42641.0, ptr %.sroa.02634.0, i8 %.sroa.42636.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %309, ptr noundef nonnull %1) #7
   %2035 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2354 = icmp eq i8 %2035, 0
@@ -21631,8 +21560,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3092.sroa.speculated, ptr %316, align 8
   %.sroa.130.0..sroa_idx3181 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store i8 %.sroa.130.0.copyload3311.sroa.speculated, ptr %.sroa.130.0..sroa_idx3181, align 8
-  %.sroa.131.0..sroa_idx3369 = getelementptr inbounds nuw i8, ptr %316, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3369, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2065 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02629.0, i8 %.sroa.42631.0, ptr %.sroa.02624.0, i8 %.sroa.42626.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %316, ptr noundef nonnull %1) #7
   %2066 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2357 = icmp eq i8 %2066, 0
@@ -21711,8 +21638,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3093.sroa.speculated, ptr %323, align 8
   %.sroa.130.0..sroa_idx3183 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i8 %.sroa.130.0.copyload3312.sroa.speculated, ptr %.sroa.130.0..sroa_idx3183, align 8
-  %.sroa.131.0..sroa_idx3370 = getelementptr inbounds nuw i8, ptr %323, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3370, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2096 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02619.0, i8 %.sroa.42621.0, ptr %.sroa.02614.0, i8 %.sroa.42616.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %323, ptr noundef nonnull %1) #7
   %2097 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2360 = icmp eq i8 %2097, 0
@@ -21791,8 +21716,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3094.sroa.speculated, ptr %330, align 8
   %.sroa.130.0..sroa_idx3185 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i8 %.sroa.130.0.copyload3313.sroa.speculated, ptr %.sroa.130.0..sroa_idx3185, align 8
-  %.sroa.131.0..sroa_idx3371 = getelementptr inbounds nuw i8, ptr %330, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3371, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2127 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02609.0, i8 %.sroa.42611.0, ptr %.sroa.02604.0, i8 %.sroa.42606.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %330, ptr noundef nonnull %1) #7
   %2128 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2363 = icmp eq i8 %2128, 0
@@ -21871,8 +21794,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3095.sroa.speculated, ptr %337, align 8
   %.sroa.130.0..sroa_idx3187 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store i8 %.sroa.130.0.copyload3314.sroa.speculated, ptr %.sroa.130.0..sroa_idx3187, align 8
-  %.sroa.131.0..sroa_idx3372 = getelementptr inbounds nuw i8, ptr %337, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3372, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2158 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02599.0, i8 %.sroa.42601.0, ptr %.sroa.02594.0, i8 %.sroa.42596.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %337, ptr noundef nonnull %1) #7
   %2159 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2366 = icmp eq i8 %2159, 0
@@ -21951,8 +21872,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3096.sroa.speculated, ptr %344, align 8
   %.sroa.130.0..sroa_idx3189 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store i8 %.sroa.130.0.copyload3315.sroa.speculated, ptr %.sroa.130.0..sroa_idx3189, align 8
-  %.sroa.131.0..sroa_idx3373 = getelementptr inbounds nuw i8, ptr %344, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3373, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2189 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02589.0, i8 %.sroa.42591.0, ptr %.sroa.02584.0, i8 %.sroa.42586.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %344, ptr noundef nonnull %1) #7
   %2190 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2369 = icmp eq i8 %2190, 0
@@ -22031,8 +21950,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3097.sroa.speculated, ptr %351, align 8
   %.sroa.130.0..sroa_idx3191 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i8 %.sroa.130.0.copyload3316.sroa.speculated, ptr %.sroa.130.0..sroa_idx3191, align 8
-  %.sroa.131.0..sroa_idx3374 = getelementptr inbounds nuw i8, ptr %351, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3374, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2220 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02579.0, i8 %.sroa.42581.0, ptr %.sroa.02574.0, i8 %.sroa.42576.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %351, ptr noundef nonnull %1) #7
   %2221 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2372 = icmp eq i8 %2221, 0
@@ -22111,8 +22028,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3098.sroa.speculated, ptr %358, align 8
   %.sroa.130.0..sroa_idx3193 = getelementptr inbounds nuw i8, ptr %358, i64 8
   store i8 %.sroa.130.0.copyload3317.sroa.speculated, ptr %.sroa.130.0..sroa_idx3193, align 8
-  %.sroa.131.0..sroa_idx3375 = getelementptr inbounds nuw i8, ptr %358, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3375, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2251 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02569.0, i8 %.sroa.42571.0, ptr %.sroa.02564.0, i8 %.sroa.42566.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %358, ptr noundef nonnull %1) #7
   %2252 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2375 = icmp eq i8 %2252, 0
@@ -22191,8 +22106,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3099.sroa.speculated, ptr %365, align 8
   %.sroa.130.0..sroa_idx3195 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i8 %.sroa.130.0.copyload3318.sroa.speculated, ptr %.sroa.130.0..sroa_idx3195, align 8
-  %.sroa.131.0..sroa_idx3376 = getelementptr inbounds nuw i8, ptr %365, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3376, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2282 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02559.0, i8 %.sroa.42561.0, ptr %.sroa.02554.0, i8 %.sroa.42556.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %365, ptr noundef nonnull %1) #7
   %2283 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2378 = icmp eq i8 %2283, 0
@@ -22271,8 +22184,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3100.sroa.speculated, ptr %372, align 8
   %.sroa.130.0..sroa_idx3197 = getelementptr inbounds nuw i8, ptr %372, i64 8
   store i8 %.sroa.130.0.copyload3319.sroa.speculated, ptr %.sroa.130.0..sroa_idx3197, align 8
-  %.sroa.131.0..sroa_idx3377 = getelementptr inbounds nuw i8, ptr %372, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3377, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2313 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02549.0, i8 %.sroa.42551.0, ptr %.sroa.02544.0, i8 %.sroa.42546.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %372, ptr noundef nonnull %1) #7
   %2314 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2381 = icmp eq i8 %2314, 0
@@ -22351,8 +22262,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3101.sroa.speculated, ptr %379, align 8
   %.sroa.130.0..sroa_idx3199 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i8 %.sroa.130.0.copyload3320.sroa.speculated, ptr %.sroa.130.0..sroa_idx3199, align 8
-  %.sroa.131.0..sroa_idx3378 = getelementptr inbounds nuw i8, ptr %379, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3378, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2344 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02539.0, i8 %.sroa.42541.0, ptr %.sroa.02534.0, i8 %.sroa.42536.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %379, ptr noundef nonnull %1) #7
   %2345 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2384 = icmp eq i8 %2345, 0
@@ -22431,8 +22340,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3102.sroa.speculated, ptr %386, align 8
   %.sroa.130.0..sroa_idx3201 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i8 %.sroa.130.0.copyload3321.sroa.speculated, ptr %.sroa.130.0..sroa_idx3201, align 8
-  %.sroa.131.0..sroa_idx3379 = getelementptr inbounds nuw i8, ptr %386, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3379, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2375 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02529.0, i8 %.sroa.42531.0, ptr %.sroa.02524.0, i8 %.sroa.42526.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %386, ptr noundef nonnull %1) #7
   %2376 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2387 = icmp eq i8 %2376, 0
@@ -22511,8 +22418,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3103.sroa.speculated, ptr %393, align 8
   %.sroa.130.0..sroa_idx3203 = getelementptr inbounds nuw i8, ptr %393, i64 8
   store i8 %.sroa.130.0.copyload3322.sroa.speculated, ptr %.sroa.130.0..sroa_idx3203, align 8
-  %.sroa.131.0..sroa_idx3380 = getelementptr inbounds nuw i8, ptr %393, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3380, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2406 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02519.0, i8 %.sroa.42521.0, ptr %.sroa.02514.0, i8 %.sroa.42516.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %393, ptr noundef nonnull %1) #7
   %2407 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2390 = icmp eq i8 %2407, 0
@@ -22591,8 +22496,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3104.sroa.speculated, ptr %400, align 8
   %.sroa.130.0..sroa_idx3205 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i8 %.sroa.130.0.copyload3323.sroa.speculated, ptr %.sroa.130.0..sroa_idx3205, align 8
-  %.sroa.131.0..sroa_idx3381 = getelementptr inbounds nuw i8, ptr %400, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3381, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2437 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02509.0, i8 %.sroa.42511.0, ptr %.sroa.02504.0, i8 %.sroa.42506.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %400, ptr noundef nonnull %1) #7
   %2438 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2393 = icmp eq i8 %2438, 0
@@ -22671,8 +22574,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3105.sroa.speculated, ptr %407, align 8
   %.sroa.130.0..sroa_idx3207 = getelementptr inbounds nuw i8, ptr %407, i64 8
   store i8 %.sroa.130.0.copyload3324.sroa.speculated, ptr %.sroa.130.0..sroa_idx3207, align 8
-  %.sroa.131.0..sroa_idx3382 = getelementptr inbounds nuw i8, ptr %407, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3382, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2468 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02499.0, i8 %.sroa.42501.0, ptr %.sroa.02494.0, i8 %.sroa.42496.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %407, ptr noundef nonnull %1) #7
   %2469 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2396 = icmp eq i8 %2469, 0
@@ -22751,8 +22652,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3106.sroa.speculated, ptr %414, align 8
   %.sroa.130.0..sroa_idx3209 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i8 %.sroa.130.0.copyload3325.sroa.speculated, ptr %.sroa.130.0..sroa_idx3209, align 8
-  %.sroa.131.0..sroa_idx3383 = getelementptr inbounds nuw i8, ptr %414, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3383, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2499 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02489.0, i8 %.sroa.42491.0, ptr %.sroa.02484.0, i8 %.sroa.42486.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %414, ptr noundef nonnull %1) #7
   %2500 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2399 = icmp eq i8 %2500, 0
@@ -22831,8 +22730,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3107.sroa.speculated, ptr %421, align 8
   %.sroa.130.0..sroa_idx3211 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i8 %.sroa.130.0.copyload3326.sroa.speculated, ptr %.sroa.130.0..sroa_idx3211, align 8
-  %.sroa.131.0..sroa_idx3384 = getelementptr inbounds nuw i8, ptr %421, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3384, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2530 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02479.0, i8 %.sroa.42481.0, ptr %.sroa.02474.0, i8 %.sroa.42476.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %421, ptr noundef nonnull %1) #7
   %2531 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2402 = icmp eq i8 %2531, 0
@@ -22939,8 +22836,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.18, ptr %430, align 8
   %.sroa.130.0..sroa_idx3213 = getelementptr inbounds nuw i8, ptr %430, i64 8
   store i8 %.sroa.130.18, ptr %.sroa.130.0..sroa_idx3213, align 8
-  %.sroa.131.0..sroa_idx3385 = getelementptr inbounds nuw i8, ptr %430, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3385, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2573 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02469.0, i8 %.sroa.42471.0, ptr %.sroa.02464.0, i8 %.sroa.42466.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %430, ptr noundef nonnull %1) #7
   %2574 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2406 = icmp eq i8 %2574, 0
@@ -23019,8 +22914,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3110.sroa.speculated, ptr %437, align 8
   %.sroa.130.0..sroa_idx3215 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store i8 %.sroa.130.0.copyload3331.sroa.speculated, ptr %.sroa.130.0..sroa_idx3215, align 8
-  %.sroa.131.0..sroa_idx3386 = getelementptr inbounds nuw i8, ptr %437, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3386, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2604 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02459.0, i8 %.sroa.42461.0, ptr %.sroa.02454.0, i8 %.sroa.42456.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %437, ptr noundef nonnull %1) #7
   %2605 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2409 = icmp eq i8 %2605, 0
@@ -23099,8 +22992,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %.sroa.02984.0.copyload3111.sroa.speculated, ptr %444, align 8
   %.sroa.130.0..sroa_idx3217 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store i8 %.sroa.130.0.copyload3332.sroa.speculated, ptr %.sroa.130.0..sroa_idx3217, align 8
-  %.sroa.131.0..sroa_idx3387 = getelementptr inbounds nuw i8, ptr %444, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3387, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2635 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02449.0, i8 %.sroa.42451.0, ptr %.sroa.02444.0, i8 %.sroa.42446.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %444, ptr noundef nonnull %1) #7
   %2636 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2412 = icmp eq i8 %2636, 0
@@ -23175,8 +23066,6 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   store ptr %460, ptr %451, align 8
   %.sroa.130.0..sroa_idx3219 = getelementptr inbounds nuw i8, ptr %451, i64 8
   store i8 %461, ptr %.sroa.130.0..sroa_idx3219, align 8
-  %.sroa.131.0..sroa_idx3388 = getelementptr inbounds nuw i8, ptr %451, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131.0..sroa_idx3388, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.131, i64 7, i1 false)
   %2664 = call { ptr, i8 } @_ZN8JVMCIEnv10new_VMFlagE11JVMCIObjectS0_S0_PS_(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %.sroa.02439.0, i8 %.sroa.42441.0, ptr %.sroa.0.0, i8 %.sroa.4.0, ptr noundef nonnull byval(%class.JVMCIObject) align 8 %451, ptr noundef nonnull %1) #7
   %2665 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %1) #7
   %.not2415 = icmp eq i8 %2665, 0

@@ -221,9 +221,6 @@ $_ZTVN7glslang17TSmallArrayVectorE = comdat any
 define noundef ptr @_ZNK7glslang20TIntermConstantUnion4foldENS_9TOperatorEPKNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(201) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.glslang::TType", align 8
   %5 = alloca %"class.glslang::TConstUnionArray", align 8
-  %.sroa.68 = alloca [3 x i8], align 1
-  %.sroa.76 = alloca [3 x i8], align 1
-  %.sroa.82 = alloca [6 x i8], align 2
   store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 256, ptr %6, align 8
@@ -2684,24 +2681,18 @@ _ZNK7glslang11TConstUnionltERKS0_.exit:           ; preds = %1195, %1205, %1209,
   store ptr null, ptr %10, align 8
   store i64 2, ptr %11, align 8
   store i8 0, ptr %12, align 8
-  %.sroa.68.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68, i64 3, i1 false)
   store i32 -1, ptr %13, align 4
   store i32 -1, ptr %14, align 8
   store i64 -4292882433, ptr %15, align 4
   store i64 -1, ptr %16, align 4
   store i8 0, ptr %22, align 4
   store i32 0, ptr %17, align 1
-  %.sroa.76.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76.16..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76, i64 3, i1 false)
   store i32 -2048, ptr %18, align 4
   store i32 0, ptr %19, align 8
   store i32 -1, ptr %23, align 4
   store ptr null, ptr %24, align 8
   store i8 0, ptr %20, align 8
   store i8 0, ptr %21, align 1
-  %.sroa.82.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82.16..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82, i64 6, i1 false)
   %1244 = and i32 %1243, -2097152
   %1245 = or disjoint i32 %1244, 268
   br label %.loopexit.sink.split
@@ -2793,24 +2784,18 @@ _ZNK7glslang11TConstUniongtERKS0_.exit:           ; preds = %1246, %1256, %1260,
   store ptr null, ptr %10, align 8
   store i64 2, ptr %11, align 8
   store i8 0, ptr %12, align 8
-  %.sroa.68.16..sroa_idx635 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.16..sroa_idx635, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68, i64 3, i1 false)
   store i32 -1, ptr %13, align 4
   store i32 -1, ptr %14, align 8
   store i64 -4292882433, ptr %15, align 4
   store i64 -1, ptr %16, align 4
   store i8 0, ptr %22, align 4
   store i32 0, ptr %17, align 1
-  %.sroa.76.16..sroa_idx701 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76.16..sroa_idx701, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76, i64 3, i1 false)
   store i32 -2048, ptr %18, align 4
   store i32 0, ptr %19, align 8
   store i32 -1, ptr %23, align 4
   store ptr null, ptr %24, align 8
   store i8 0, ptr %20, align 8
   store i8 0, ptr %21, align 1
-  %.sroa.82.16..sroa_idx767 = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82.16..sroa_idx767, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82, i64 6, i1 false)
   %1295 = and i32 %1294, -2097152
   %1296 = or disjoint i32 %1295, 268
   br label %.loopexit.sink.split
@@ -2903,24 +2888,18 @@ _ZNK7glslang11TConstUniongtERKS0_.exit448:        ; preds = %1297, %1307, %1311,
   store ptr null, ptr %10, align 8
   store i64 2, ptr %11, align 8
   store i8 0, ptr %12, align 8
-  %.sroa.68.16..sroa_idx636 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.16..sroa_idx636, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68, i64 3, i1 false)
   store i32 -1, ptr %13, align 4
   store i32 -1, ptr %14, align 8
   store i64 -4292882433, ptr %15, align 4
   store i64 -1, ptr %16, align 4
   store i8 0, ptr %22, align 4
   store i32 0, ptr %17, align 1
-  %.sroa.76.16..sroa_idx702 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76.16..sroa_idx702, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76, i64 3, i1 false)
   store i32 -2048, ptr %18, align 4
   store i32 0, ptr %19, align 8
   store i32 -1, ptr %23, align 4
   store ptr null, ptr %24, align 8
   store i8 0, ptr %20, align 8
   store i8 0, ptr %21, align 1
-  %.sroa.82.16..sroa_idx768 = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82.16..sroa_idx768, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82, i64 6, i1 false)
   %1347 = and i32 %1346, -2097152
   %1348 = or disjoint i32 %1347, 268
   br label %.loopexit.sink.split
@@ -3013,24 +2992,18 @@ _ZNK7glslang11TConstUnionltERKS0_.exit454:        ; preds = %1349, %1359, %1363,
   store ptr null, ptr %10, align 8
   store i64 2, ptr %11, align 8
   store i8 0, ptr %12, align 8
-  %.sroa.68.16..sroa_idx637 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.16..sroa_idx637, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68, i64 3, i1 false)
   store i32 -1, ptr %13, align 4
   store i32 -1, ptr %14, align 8
   store i64 -4292882433, ptr %15, align 4
   store i64 -1, ptr %16, align 4
   store i8 0, ptr %22, align 4
   store i32 0, ptr %17, align 1
-  %.sroa.76.16..sroa_idx703 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76.16..sroa_idx703, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76, i64 3, i1 false)
   store i32 -2048, ptr %18, align 4
   store i32 0, ptr %19, align 8
   store i32 -1, ptr %23, align 4
   store ptr null, ptr %24, align 8
   store i8 0, ptr %20, align 8
   store i8 0, ptr %21, align 1
-  %.sroa.82.16..sroa_idx769 = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82.16..sroa_idx769, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82, i64 6, i1 false)
   %1399 = and i32 %1398, -2097152
   %1400 = or disjoint i32 %1399, 268
   br label %.loopexit.sink.split
@@ -3048,24 +3021,18 @@ _ZNK7glslang11TConstUnionltERKS0_.exit454:        ; preds = %1349, %1359, %1363,
   store ptr null, ptr %10, align 8
   store i64 2, ptr %11, align 8
   store i8 0, ptr %12, align 8
-  %.sroa.68.16..sroa_idx638 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.16..sroa_idx638, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68, i64 3, i1 false)
   store i32 -1, ptr %13, align 4
   store i32 -1, ptr %14, align 8
   store i64 -4292882433, ptr %15, align 4
   store i64 -1, ptr %16, align 4
   store i8 0, ptr %22, align 4
   store i32 0, ptr %17, align 1
-  %.sroa.76.16..sroa_idx704 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76.16..sroa_idx704, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76, i64 3, i1 false)
   store i32 -2048, ptr %18, align 4
   store i32 0, ptr %19, align 8
   store i32 -1, ptr %23, align 4
   store ptr null, ptr %24, align 8
   store i8 0, ptr %20, align 8
   store i8 0, ptr %21, align 1
-  %.sroa.82.16..sroa_idx770 = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82.16..sroa_idx770, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82, i64 6, i1 false)
   %1408 = and i32 %1407, -2097152
   %1409 = or disjoint i32 %1408, 268
   br label %.loopexit.sink.split
@@ -3084,24 +3051,18 @@ _ZNK7glslang11TConstUnionltERKS0_.exit454:        ; preds = %1349, %1359, %1363,
   store ptr null, ptr %10, align 8
   store i64 2, ptr %11, align 8
   store i8 0, ptr %12, align 8
-  %.sroa.68.16..sroa_idx639 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68.16..sroa_idx639, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.68, i64 3, i1 false)
   store i32 -1, ptr %13, align 4
   store i32 -1, ptr %14, align 8
   store i64 -4292882433, ptr %15, align 4
   store i64 -1, ptr %16, align 4
   store i8 0, ptr %22, align 4
   store i32 0, ptr %17, align 1
-  %.sroa.76.16..sroa_idx705 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76.16..sroa_idx705, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.76, i64 3, i1 false)
   store i32 -2048, ptr %18, align 4
   store i32 0, ptr %19, align 8
   store i32 -1, ptr %23, align 4
   store ptr null, ptr %24, align 8
   store i8 0, ptr %20, align 8
   store i8 0, ptr %21, align 1
-  %.sroa.82.16..sroa_idx771 = getelementptr inbounds nuw i8, ptr %4, i64 90
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82.16..sroa_idx771, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.82, i64 6, i1 false)
   %1418 = and i32 %1417, -2097152
   %1419 = or disjoint i32 %1418, 268
   br label %.loopexit.sink.split

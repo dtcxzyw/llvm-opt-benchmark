@@ -2004,7 +2004,6 @@ entry:
   %listInt64145 = alloca %"class.eastl::fixed_list.22", align 8
   %ref.tmp164 = alloca i32, align 4
   %fl = alloca %"class.eastl::fixed_list.30", align 8
-  %a218.sroa.6 = alloca [60 x i8], align 4
   %listInt5 = alloca %"class.eastl::fixed_list.40", align 8
   %listInt5330 = alloca %"class.eastl::fixed_list.47", align 8
   %A = alloca [6 x i32], align 16
@@ -3327,8 +3326,6 @@ invoke.cont221:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i = phi ptr [ %183, %if.then.i.i7.i.i.i.i.i ], [ %185, %if.then4.i.i13.i.i.i.i.i ], [ %call1.i.i.i.i.i.i.i.i340, %if.else.i.i.i.i.i.i.i.i339 ]
   %mValue.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i.i, align 64
-  %a218.sroa.6.0.mValue.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i, align 8
   %189 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i, i64 8
@@ -3373,8 +3370,6 @@ invoke.cont222:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i344 = phi ptr [ %191, %if.then.i.i7.i.i.i.i.i343 ], [ %193, %if.then4.i.i13.i.i.i.i.i354 ], [ %call1.i.i.i.i.i.i.i.i361, %if.else.i.i.i.i.i.i.i.i357 ]
   %mValue.i.i.i345 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i344, i64 64
   store i32 0, ptr %mValue.i.i.i345, align 64
-  %a218.sroa.6.0.mValue.i.i.i345.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i344, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i345.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i344, align 8
   %197 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i347 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i344, i64 8
@@ -3419,8 +3414,6 @@ invoke.cont223:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i366 = phi ptr [ %199, %if.then.i.i7.i.i.i.i.i365 ], [ %201, %if.then4.i.i13.i.i.i.i.i376 ], [ %call1.i.i.i.i.i.i.i.i383, %if.else.i.i.i.i.i.i.i.i379 ]
   %mValue.i.i.i367 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i366, i64 64
   store i32 0, ptr %mValue.i.i.i367, align 64
-  %a218.sroa.6.0.mValue.i.i.i367.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i366, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i367.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i366, align 8
   %205 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i369 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i366, i64 8
@@ -3465,8 +3458,6 @@ invoke.cont224:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i388 = phi ptr [ %207, %if.then.i.i7.i.i.i.i.i387 ], [ %209, %if.then4.i.i13.i.i.i.i.i398 ], [ %call1.i.i.i.i.i.i.i.i405, %if.else.i.i.i.i.i.i.i.i401 ]
   %mValue.i.i.i389 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i388, i64 64
   store i32 0, ptr %mValue.i.i.i389, align 64
-  %a218.sroa.6.0.mValue.i.i.i389.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i388, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i389.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i388, align 8
   %213 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i391 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i388, i64 8
@@ -3511,8 +3502,6 @@ invoke.cont225:                                   ; preds = %if.then4.i.i13.i.i.
   %result.0.i.i.i.i.i410 = phi ptr [ %215, %if.then.i.i7.i.i.i.i.i409 ], [ %217, %if.then4.i.i13.i.i.i.i.i420 ], [ %call1.i.i.i.i.i.i.i.i427, %if.else.i.i.i.i.i.i.i.i423 ]
   %mValue.i.i.i411 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i410, i64 64
   store i32 0, ptr %mValue.i.i.i411, align 64
-  %a218.sroa.6.0.mValue.i.i.i411.sroa_idx = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i410, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6.0.mValue.i.i.i411.sroa_idx, ptr noundef nonnull align 4 dereferenceable(60) %a218.sroa.6, i64 60, i1 false)
   store ptr %fl, ptr %result.0.i.i.i.i.i410, align 8
   %221 = load ptr, ptr %mpPrev.i.i.i.i335, align 8
   %mpPrev2.i.i.i413 = getelementptr inbounds nuw i8, ptr %result.0.i.i.i.i.i410, i64 8

@@ -134,7 +134,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h48d8c5eec1e3497dE"(ptr noalias noundef writeonly sret({ [1 x i64], i64, [2 x i64] }) align 8 captures(none) dereferenceable(32) initializes((8, 16)) %0, ptr noalias noundef align 8 dereferenceable(40) %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { {}, { double, { { { i64, ptr }, i64 } } } }, align 8
   %5 = alloca { [1 x i64], i64, [2 x i64] }, align 8
-  %.sroa.323 = alloca [16 x i8], align 8
+  %.sroa.322 = alloca [16 x i8], align 8
   %6 = alloca { [1 x i64], i64, [2 x i64] }, align 8
   %.sroa.3 = alloca [16 x i8], align 8
   %7 = load i64, ptr %1, align 8, !range !4, !noundef !5
@@ -213,15 +213,15 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   br label %27
 
 30:                                               ; preds = %22
-  %.sroa.014.0.copyload15 = load i64, ptr %6, align 8, !alias.scope !54
-  %.sroa.719.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.323, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.719.0..sroa_idx20, i64 16, i1 false)
+  %.sroa.013.0.copyload14 = load i64, ptr %6, align 8, !alias.scope !54
+  %.sroa.718.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.322, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.718.0..sroa_idx19, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  store i64 %.sroa.014.0.copyload15, ptr %0, align 8, !alias.scope !55
-  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %25, ptr %.sroa.222.0..sroa_idx, align 8, !alias.scope !55
-  %.sroa.323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.323.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.323, i64 16, i1 false), !alias.scope !55
+  store i64 %.sroa.013.0.copyload14, ptr %0, align 8, !alias.scope !55
+  %.sroa.221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %25, ptr %.sroa.221.0..sroa_idx, align 8, !alias.scope !55
+  %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.322.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.322, i64 16, i1 false), !alias.scope !55
   br label %31
 
 31:                                               ; preds = %27, %21, %30
@@ -260,8 +260,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..chain..Chain
   br i1 %.not5, label %18, label %15
 
 .critedge._crit_edge.sink.split.i:                ; preds = %.lr.ph.split.us.i, %4
-  store ptr null, ptr %5, align 8, !alias.scope !62, !noalias !65
-  store i64 0, ptr %0, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %11
 
 14:                                               ; preds = %.lr.ph.split.us.i

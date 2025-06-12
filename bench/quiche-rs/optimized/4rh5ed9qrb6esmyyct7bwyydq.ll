@@ -1630,7 +1630,6 @@ define void @_ZN12tokio_quiche8settings6config6Config3new17h5f142b6e5b804931E(pt
   %.sroa.528 = alloca [16 x i8], align 8
   %.sroa.18 = alloca [496 x i8], align 16
   %25 = alloca [528 x i8], align 16
-  %.sroa.16 = alloca [6 x i8], align 2
   %26 = alloca [4 x i8], align 4
   %27 = alloca [24 x i8], align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -1680,7 +1679,6 @@ define void @_ZN12tokio_quiche8settings6config6Config3new17h5f142b6e5b804931E(pt
   %44 = load i8, ptr %43, align 1, !range !9, !noundef !3
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %46 = load i8, ptr %45, align 1, !range !9, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 496, ptr nonnull %.sroa.18)
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
@@ -2637,7 +2635,6 @@ common.resume:                                    ; preds = %391, %.body, %426, 
   store ptr %.sroa.13.167, ptr %398, align 8
   store i128 2, ptr %0, align 16
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.16)
   %399 = load i32, ptr %26, align 4, !alias.scope !198, !noundef !3
   %400 = icmp eq i32 %399, -1
   br i1 %400, label %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$std..fs..File$GT$$GT$17ha3d183035f15b831E.exit54", label %401
@@ -2704,9 +2701,6 @@ common.resume:                                    ; preds = %391, %.body, %426, 
   store i8 %44, ptr %.sroa.14.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 585
   store i8 %46, ptr %.sroa.15.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 586
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.16.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.16, i64 6, i1 false)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.16)
   br label %"_ZN4core3ptr62drop_in_place$LT$core..option..Option$LT$std..fs..File$GT$$GT$17ha3d183035f15b831E.exit54"
 
 418:                                              ; preds = %407
@@ -9270,13 +9264,9 @@ common.resume:                                    ; preds = %.thread995, %350, %
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN85_$LT$tokio_quiche..settings..quic..QuicSettings$u20$as$u20$core..default..Default$GT$7default17h776a7c6d26b36046E"(ptr dead_on_unwind noalias noundef writable writeonly sret([368 x i8]) align 16 captures(none) dereferenceable(368) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
-  %.sroa.49 = alloca [16 x i8], align 8
-  %.sroa.4 = alloca [16 x i8], align 8
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hf88ef806596b9221E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull @anon.7374cd21b91d9246b4a7cc38cadcd57a.505, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @anon.7374cd21b91d9246b4a7cc38cadcd57a.505, i64 16), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7374cd21b91d9246b4a7cc38cadcd57a.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.49)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1113
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h62e833883907692aE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, i64 noundef 5, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc unwind label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4ad0ef2637c3c2dfE.exit4"
@@ -9339,12 +9329,8 @@ define void @"_ZN85_$LT$tokio_quiche..settings..quic..QuicSettings$u20$as$u20$co
   store i8 0, ptr %30, align 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 -9223372036854775808, ptr %31, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 -9223372036854775808, ptr %32, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.49.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.49, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %7, ptr %33, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -9390,8 +9376,6 @@ define void @"_ZN85_$LT$tokio_quiche..settings..quic..QuicSettings$u20$as$u20$co
   store i8 0, ptr %51, align 2
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %52, align 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 

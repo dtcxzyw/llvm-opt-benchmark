@@ -137,13 +137,11 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly21PriorityThreadFactoryC2ESt10shared_ptrINS_13ThreadFactoryEEi(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
-  %.sroa.6 = alloca [56 x i8], align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.6)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly17InitThreadFactoryE, i64 16), ptr %0, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %9, align 8, !tbaa !7
@@ -171,29 +169,24 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %18, align 8, !tbaa !30, !noalias !18
   store ptr %13, ptr %16, align 16, !noalias !18
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %19 = load i64, ptr %.sroa.6, align 8, !noalias !18
-  store i64 %19, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !18
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
-  store ptr @_ZN5folly6detail8function5call_IZNS_17InitThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEONS_8FunctionIFvvEEESA_Ed_UlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %21, align 16, !tbaa !28, !noalias !18
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %22, align 8, !tbaa !30, !noalias !18
-  store ptr null, ptr %20, align 16, !noalias !18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %12, ptr %23, align 8, !tbaa !15, !alias.scope !18
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  store ptr @_ZN5folly6detail8function5call_IZNS_17InitThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEONS_8FunctionIFvvEEESA_Ed_UlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %20, align 16, !tbaa !28, !noalias !18
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %21, align 8, !tbaa !30, !noalias !18
+  store ptr null, ptr %19, align 16, !noalias !18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %12, ptr %22, align 8, !tbaa !15, !alias.scope !18
   store ptr %16, ptr %11, align 8, !tbaa !31, !alias.scope !18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.6)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5folly21PriorityThreadFactoryE, i64 16), ptr %0, align 8, !tbaa !16
   ret void
 
 _ZN5folly8FunctionIFvvEED2Ev.exit9:               ; preds = %3
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.6)
   call void @_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
