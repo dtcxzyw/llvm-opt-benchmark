@@ -456,7 +456,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_Pad(ptr noundef captures(address_is_n
   %umax.i = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 1)
   %16 = getelementptr i8, ptr %0, i64 %12
   %scevgep = getelementptr i8, ptr %16, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %umax.i, i1 false), !tbaa !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %umax.i, i1 false)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %13

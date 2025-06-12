@@ -16393,8 +16393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %_ZN
   %101 = mul i64 %95, %indvar
   %scevgep = getelementptr i8, ptr %65, i64 %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #28
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr nonnull align 16 %10, i64 %95, i1 false), !tbaa !196
+  tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %95, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #28
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond49.not = icmp eq i64 %indvar.next, %wide.trip.count48

@@ -109294,7 +109294,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit17.i.thread:      ; preds = %340, %338
   br label %342
 
 _ZSt4copyIPKdPdET0_T_S4_S3_.exit17.i:             ; preds = %_ZSt9__advanceIPKdlEvRT_T0_St26random_access_iterator_tag.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %320, ptr nonnull align 8 %83, i64 %334, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %320, i8 0, i64 %334, i1 false)
   %.pre21.i = load ptr, ptr %331, align 8, !tbaa !529
   %gepdiff = sub nuw nsw i64 24, %334
   %341 = icmp samesign ult i64 %334, 16

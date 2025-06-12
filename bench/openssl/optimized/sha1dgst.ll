@@ -380,7 +380,7 @@ SHA1_Update.exit:                                 ; preds = %25, %37, %.thread52
 
 55:                                               ; preds = %48
   %56 = sub nsw i64 64, %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull align 16 %5, i64 %56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 54, i64 %56, i1 false)
   tail call void @sha1_block_data_order(ptr noundef nonnull %0, ptr noundef nonnull %49, i64 noundef 1) #6
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 %56
   %58 = add nsw i64 %47, -24
