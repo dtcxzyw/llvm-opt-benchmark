@@ -1124,24 +1124,24 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   call fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12, i32 noundef %65, i8 noundef zeroext %66)
   %67 = load i32, ptr @hf_gbcs_message_krp, align 4
   call fastcc void @dissect_gbcs_message_element(ptr noundef %21, i32 noundef %67, ptr noundef %0, ptr noundef nonnull %12)
-  %.pre36.pre = load i32, ptr %12, align 4
+  %.pre37.pre = load i32, ptr %12, align 4
   br label %68
 
 68:                                               ; preds = %.critedge, %33
-  %.pre36 = phi i32 [ %.pre36.pre, %.critedge ], [ %64, %33 ]
+  %.pre37 = phi i32 [ %.pre37.pre, %.critedge ], [ %64, %33 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  br label %165
+  br label %164
 
 69:                                               ; preds = %27
   %70 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %71 = icmp eq i8 %70, -35
-  br i1 %71, label %72, label %165
+  br i1 %71, label %72, label %164
 
 72:                                               ; preds = %69
   %73 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %74 = icmp eq i8 %73, 9
-  br i1 %74, label %75, label %165
+  br i1 %74, label %75, label %164
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
@@ -1229,57 +1229,57 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %137 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %137, 0
-  br i1 %.not, label %163, label %138
+  br i1 %.not, label %162, label %138
 
 138:                                              ; preds = %75
-  %139 = icmp sgt i8 %119, -1
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  store i8 1, ptr %140, align 8
-  %141 = trunc i64 %85 to i32
-  %142 = shl i32 %141, 8
-  %143 = trunc i64 %80 to i32
-  %144 = and i32 %143, 255
-  %145 = or disjoint i32 %142, %144
-  %146 = zext i16 %124 to i32
-  %147 = add nsw i32 %146, -1
-  %148 = call ptr @fragment_add_seq_check(ptr noundef nonnull @gbcs_message_gbt_reassembly_table, ptr noundef %0, i32 noundef %131, ptr noundef %1, i32 noundef %145, ptr noundef null, i32 noundef %147, i32 noundef range(i32 1, 0) %137, i1 noundef zeroext %139)
-  %149 = load i32, ptr %12, align 4
-  %150 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %149, ptr noundef %1, ptr noundef nonnull @.str.588, ptr noundef %148, ptr noundef nonnull @gbcs_message_gbt_frag_items, ptr noundef null, ptr noundef %21)
-  %.not.i = icmp eq ptr %150, null
-  br i1 %.not.i, label %155, label %151
+  %.not36 = icmp sgt i8 %119, -1
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  store i8 1, ptr %139, align 8
+  %140 = trunc i64 %85 to i32
+  %141 = shl i32 %140, 8
+  %142 = trunc i64 %80 to i32
+  %143 = and i32 %142, 255
+  %144 = or disjoint i32 %141, %143
+  %145 = zext i16 %124 to i32
+  %146 = add nsw i32 %145, -1
+  %147 = call ptr @fragment_add_seq_check(ptr noundef nonnull @gbcs_message_gbt_reassembly_table, ptr noundef %0, i32 noundef %131, ptr noundef %1, i32 noundef %144, ptr noundef null, i32 noundef %146, i32 noundef range(i32 1, 0) %137, i1 noundef zeroext %.not36)
+  %148 = load i32, ptr %12, align 4
+  %149 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %148, ptr noundef %1, ptr noundef nonnull @.str.588, ptr noundef %147, ptr noundef nonnull @gbcs_message_gbt_frag_items, ptr noundef null, ptr noundef %21)
+  %.not.i = icmp eq ptr %149, null
+  br i1 %.not.i, label %154, label %150
 
-151:                                              ; preds = %138
-  %152 = load ptr, ptr @gbcs_gbcs_handle, align 8
-  %153 = call ptr @proto_tree_get_parent_tree(ptr noundef %21)
-  %154 = call i32 @call_dissector_with_data(ptr noundef %152, ptr noundef nonnull %150, ptr noundef %1, ptr noundef %153, ptr noundef null)
+150:                                              ; preds = %138
+  %151 = load ptr, ptr @gbcs_gbcs_handle, align 8
+  %152 = call ptr @proto_tree_get_parent_tree(ptr noundef %21)
+  %153 = call i32 @call_dissector_with_data(ptr noundef %151, ptr noundef nonnull %149, ptr noundef %1, ptr noundef %152, ptr noundef null)
   %.pre = load i32, ptr %12, align 4
   br label %dissect_gbcs_gbt_payload.exit
 
-155:                                              ; preds = %138
-  %156 = load ptr, ptr %16, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %156, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.589, i32 noundef %146)
-  %157 = load i32, ptr %12, align 4
-  %158 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %157, i32 noundef range(i32 1, 0) %137)
-  %159 = call ptr @proto_tree_get_parent_tree(ptr noundef %21)
-  %160 = call i32 @call_data_dissector(ptr noundef %158, ptr noundef %1, ptr noundef %159)
+154:                                              ; preds = %138
+  %155 = load ptr, ptr %16, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %155, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.589, i32 noundef %145)
+  %156 = load i32, ptr %12, align 4
+  %157 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %156, i32 noundef range(i32 1, 0) %137)
+  %158 = call ptr @proto_tree_get_parent_tree(ptr noundef %21)
+  %159 = call i32 @call_data_dissector(ptr noundef %157, ptr noundef %1, ptr noundef %158)
   br label %dissect_gbcs_gbt_payload.exit
 
-dissect_gbcs_gbt_payload.exit:                    ; preds = %151, %155
-  %161 = phi i32 [ %.pre, %151 ], [ %157, %155 ]
-  %162 = add i32 %161, %137
-  br label %163
+dissect_gbcs_gbt_payload.exit:                    ; preds = %150, %154
+  %160 = phi i32 [ %.pre, %151 ], [ %156, %155 ]
+  %161 = add i32 %160, %137
+  br label %162
 
-163:                                              ; preds = %dissect_gbcs_gbt_payload.exit, %75
-  %164 = phi i32 [ %162, %dissect_gbcs_gbt_payload.exit ], [ %131, %75 ]
+162:                                              ; preds = %dissect_gbcs_gbt_payload.exit, %75
+  %163 = phi i32 [ %161, %dissect_gbcs_gbt_payload.exit ], [ %131, %75 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  br label %165
+  br label %164
 
-165:                                              ; preds = %69, %72, %163, %68
-  %166 = phi i32 [ 0, %69 ], [ 0, %72 ], [ %164, %163 ], [ %.pre36, %68 ]
-  call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %166)
-  %167 = call i32 @tvb_captured_length(ptr noundef %0)
+164:                                              ; preds = %69, %72, %162, %68
+  %165 = phi i32 [ 0, %69 ], [ 0, %72 ], [ %163, %163 ], [ %.pre37, %68 ]
+  call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %165)
+  %166 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  ret i32 %167
+  ret i32 %166
 }
 
 ; Function Attrs: null_pointer_is_valid

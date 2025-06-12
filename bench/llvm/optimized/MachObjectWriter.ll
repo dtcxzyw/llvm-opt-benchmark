@@ -6297,7 +6297,7 @@ define internal fastcc void @"_ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCA
   %26 = and i64 %25, 9223372034707292159
   %or.cond = icmp eq i64 %26, 0
   %or.cond4 = select i1 %or.cond.i, i1 %or.cond, i1 false
-  br i1 %or.cond4, label %36, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+  br i1 %or.cond4, label %35, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %1
   %27 = trunc i64 %25 to i32
@@ -6305,124 +6305,124 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %1
   %28 = and i64 %25, 2147483648
   %.not.i14 = icmp eq i64 %28, 0
   %.0.i.i15 = select i1 %.not.i14, i32 0, i32 %.sroa.02.0.extract.trunc.i13
-  %29 = icmp slt i64 %22, 0
-  %sh.diff.i16 = lshr i64 %22, 24
-  %tr.sh.diff.i17 = trunc i64 %sh.diff.i16 to i32
-  %30 = and i32 %tr.sh.diff.i17, -256
-  %31 = select i1 %29, i32 %30, i32 0
-  %32 = trunc i64 %22 to i32
-  %33 = shl i32 %32, 16
-  %34 = or i32 %31, %33
-  %35 = or i32 %34, %.0.i.i15
-  br label %36
+  %.not9.i16 = icmp slt i64 %22, 0
+  %sh.diff.i17 = lshr i64 %22, 24
+  %tr.sh.diff.i18 = trunc i64 %sh.diff.i17 to i32
+  %29 = and i32 %tr.sh.diff.i18, -256
+  %30 = select i1 %.not9.i16, i32 %30, i32 0
+  %31 = trunc i64 %22 to i32
+  %32 = shl i32 %31, 16
+  %33 = or i32 %30, %32
+  %34 = or i32 %33, %.0.i.i15
+  br label %35
 
-36:                                               ; preds = %1, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
-  %37 = phi i32 [ %35, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ], [ 0, %1 ]
-  %38 = load i8, ptr %0, align 4, !tbaa !503, !range !296, !noundef !472
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %switch.lookup
+35:                                               ; preds = %1, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+  %36 = phi i32 [ %34, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread ], [ 0, %1 ]
+  %37 = load i8, ptr %0, align 4, !tbaa !503, !range !296, !noundef !472
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %switch.lookup
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2016
-  %42 = load ptr, ptr %41, align 8, !tbaa !202
-  %43 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2024
-  %44 = load i32, ptr %43, align 8, !tbaa !203
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2016
+  %41 = load ptr, ptr %40, align 8, !tbaa !202
+  %42 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2024
+  %43 = load i32, ptr %42, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  %.not.i.i.i = icmp eq i32 %44, 1
+  %.not.i.i.i = icmp eq i32 %43, 1
   %spec.select.i.i.i = select i1 %.not.i.i.i, i32 50, i32 838860800
   store i32 %spec.select.i.i.i, ptr %11, align 4, !tbaa !204
-  %45 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull %11, i64 noundef 4) #20
+  %44 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull %11, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %46 = load ptr, ptr %41, align 8, !tbaa !202
-  %47 = load i32, ptr %43, align 8, !tbaa !203
+  %45 = load ptr, ptr %40, align 8, !tbaa !202
+  %46 = load i32, ptr %42, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %.not.i.i.i18 = icmp eq i32 %47, 1
-  %spec.select.i.i.i19 = select i1 %.not.i.i.i18, i32 24, i32 402653184
-  store i32 %spec.select.i.i.i19, ptr %10, align 4, !tbaa !204
-  %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %10, i64 noundef 4) #20
+  %.not.i.i.i19 = icmp eq i32 %46, 1
+  %spec.select.i.i.i20 = select i1 %.not.i.i.i19, i32 24, i32 402653184
+  store i32 %spec.select.i.i.i20, ptr %10, align 4, !tbaa !204
+  %47 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull %10, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %50 = load i32, ptr %49, align 4, !tbaa !123
-  %51 = load ptr, ptr %41, align 8, !tbaa !202
-  %52 = load i32, ptr %43, align 8, !tbaa !203
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !123
+  %50 = load ptr, ptr %40, align 8, !tbaa !202
+  %51 = load i32, ptr %42, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %.not.i.i.i20 = icmp eq i32 %52, 1
-  %53 = call i32 @llvm.bswap.i32(i32 %50)
-  %spec.select.i.i.i21 = select i1 %.not.i.i.i20, i32 %50, i32 %53
-  store i32 %spec.select.i.i.i21, ptr %9, align 4, !tbaa !204
-  %54 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %9, i64 noundef 4) #20
+  %.not.i.i.i21 = icmp eq i32 %51, 1
+  %52 = call i32 @llvm.bswap.i32(i32 %49)
+  %spec.select.i.i.i22 = select i1 %.not.i.i.i21, i32 %49, i32 %52
+  store i32 %spec.select.i.i.i22, ptr %9, align 4, !tbaa !204
+  %53 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull %9, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %55 = load ptr, ptr %41, align 8, !tbaa !202
-  %56 = load i32, ptr %43, align 8, !tbaa !203
+  %54 = load ptr, ptr %40, align 8, !tbaa !202
+  %55 = load i32, ptr %42, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %.not.i.i.i22 = icmp eq i32 %56, 1
-  %57 = call i32 @llvm.bswap.i32(i32 %20)
-  %spec.select.i.i.i23 = select i1 %.not.i.i.i22, i32 %20, i32 %57
-  store i32 %spec.select.i.i.i23, ptr %8, align 4, !tbaa !204
-  %58 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull %8, i64 noundef 4) #20
+  %.not.i.i.i23 = icmp eq i32 %55, 1
+  %56 = call i32 @llvm.bswap.i32(i32 %20)
+  %spec.select.i.i.i24 = select i1 %.not.i.i.i23, i32 %20, i32 %56
+  store i32 %spec.select.i.i.i24, ptr %8, align 4, !tbaa !204
+  %57 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull %8, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %59 = load ptr, ptr %41, align 8, !tbaa !202
-  %60 = load i32, ptr %43, align 8, !tbaa !203
+  %58 = load ptr, ptr %40, align 8, !tbaa !202
+  %59 = load i32, ptr %42, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %.not.i.i.i24 = icmp eq i32 %60, 1
-  %61 = call i32 @llvm.bswap.i32(i32 %37)
-  %spec.select.i.i.i25 = select i1 %.not.i.i.i24, i32 %37, i32 %61
-  store i32 %spec.select.i.i.i25, ptr %7, align 4, !tbaa !204
-  %62 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull %7, i64 noundef 4) #20
+  %.not.i.i.i25 = icmp eq i32 %59, 1
+  %60 = call i32 @llvm.bswap.i32(i32 %36)
+  %spec.select.i.i.i26 = select i1 %.not.i.i.i25, i32 %36, i32 %60
+  store i32 %spec.select.i.i.i26, ptr %7, align 4, !tbaa !204
+  %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull %7, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %63 = load ptr, ptr %41, align 8, !tbaa !202
+  %62 = load ptr, ptr %40, align 8, !tbaa !202
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !204
-  %64 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull %6, i64 noundef 4) #20
+  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %6, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %85
+  br label %84
 
-switch.lookup:                                    ; preds = %36
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !123
-  %67 = sext i32 %66 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE", i64 0, i64 %67
+switch.lookup:                                    ; preds = %35
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !123
+  %66 = sext i32 %65 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @"switch.table._ZZN4llvm16MachObjectWriter11writeObjectERNS_11MCAssemblerEENK3$_1clERKNS0_15VersionInfoTypeE", i64 0, i64 %66
   %switch.load = load i32, ptr %switch.gep, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2016
-  %69 = load ptr, ptr %68, align 8, !tbaa !202
-  %70 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2024
-  %71 = load i32, ptr %70, align 8, !tbaa !203
+  %67 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2016
+  %68 = load ptr, ptr %67, align 8, !tbaa !202
+  %69 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2024
+  %70 = load i32, ptr %69, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %.not.i.i.i28 = icmp eq i32 %71, 1
-  %72 = shl nuw nsw i32 %switch.load, 24
-  %spec.select.i.i.i29 = select i1 %.not.i.i.i28, i32 %switch.load, i32 %72
-  store i32 %spec.select.i.i.i29, ptr %5, align 4, !tbaa !204
-  %73 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull %5, i64 noundef 4) #20
+  %.not.i.i.i29 = icmp eq i32 %70, 1
+  %71 = shl nuw nsw i32 %switch.load, 24
+  %spec.select.i.i.i30 = select i1 %.not.i.i.i29, i32 %switch.load, i32 %71
+  store i32 %spec.select.i.i.i30, ptr %5, align 4, !tbaa !204
+  %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %68, ptr noundef nonnull %5, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %74 = load ptr, ptr %68, align 8, !tbaa !202
-  %75 = load i32, ptr %70, align 8, !tbaa !203
+  %73 = load ptr, ptr %67, align 8, !tbaa !202
+  %74 = load i32, ptr %69, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %.not.i.i.i30 = icmp eq i32 %75, 1
-  %spec.select.i.i.i31 = select i1 %.not.i.i.i30, i32 16, i32 268435456
-  store i32 %spec.select.i.i.i31, ptr %4, align 4, !tbaa !204
-  %76 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %74, ptr noundef nonnull %4, i64 noundef 4) #20
+  %.not.i.i.i31 = icmp eq i32 %74, 1
+  %spec.select.i.i.i32 = select i1 %.not.i.i.i31, i32 16, i32 268435456
+  store i32 %spec.select.i.i.i32, ptr %4, align 4, !tbaa !204
+  %75 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull %4, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %77 = load ptr, ptr %68, align 8, !tbaa !202
-  %78 = load i32, ptr %70, align 8, !tbaa !203
+  %76 = load ptr, ptr %67, align 8, !tbaa !202
+  %77 = load i32, ptr %69, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %.not.i.i.i32 = icmp eq i32 %78, 1
-  %79 = call i32 @llvm.bswap.i32(i32 %20)
-  %spec.select.i.i.i33 = select i1 %.not.i.i.i32, i32 %20, i32 %79
-  store i32 %spec.select.i.i.i33, ptr %3, align 4, !tbaa !204
-  %80 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef nonnull %3, i64 noundef 4) #20
+  %.not.i.i.i33 = icmp eq i32 %77, 1
+  %78 = call i32 @llvm.bswap.i32(i32 %20)
+  %spec.select.i.i.i34 = select i1 %.not.i.i.i33, i32 %20, i32 %78
+  store i32 %spec.select.i.i.i34, ptr %3, align 4, !tbaa !204
+  %79 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull %3, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %81 = load ptr, ptr %68, align 8, !tbaa !202
-  %82 = load i32, ptr %70, align 8, !tbaa !203
+  %80 = load ptr, ptr %67, align 8, !tbaa !202
+  %81 = load i32, ptr %69, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %.not.i.i.i34 = icmp eq i32 %82, 1
-  %83 = call i32 @llvm.bswap.i32(i32 %37)
-  %spec.select.i.i.i35 = select i1 %.not.i.i.i34, i32 %37, i32 %83
-  store i32 %spec.select.i.i.i35, ptr %2, align 4, !tbaa !204
-  %84 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef nonnull %2, i64 noundef 4) #20
+  %.not.i.i.i35 = icmp eq i32 %81, 1
+  %82 = call i32 @llvm.bswap.i32(i32 %36)
+  %spec.select.i.i.i36 = select i1 %.not.i.i.i35, i32 %36, i32 %82
+  store i32 %spec.select.i.i.i36, ptr %2, align 4, !tbaa !204
+  %83 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull %2, i64 noundef 4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %switch.lookup, %40
+84:                                               ; preds = %switch.lookup, %39
   ret void
 }
 

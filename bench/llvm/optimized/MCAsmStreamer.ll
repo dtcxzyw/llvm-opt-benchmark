@@ -14995,7 +14995,7 @@ define internal fastcc void @_ZL20EmitSDKVersionSuffixRN4llvm11raw_ostreamERKNS_
   %3 = and i64 %.8.val, 9223372034707292159
   %4 = icmp eq i64 %3, 0
   %or.cond8 = select i1 %or.cond.i, i1 %4, i1 false
-  br i1 %or.cond8, label %58, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
+  br i1 %or.cond8, label %57, label %_ZNK4llvm12VersionTuple5emptyEv.exit.thread
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15044,63 +15044,63 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %23
   %27 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, i64 noundef %26) #22
   %28 = lshr i64 %.0.val, 32
   %29 = and i64 %28, 2147483647
-  %30 = icmp slt i64 %.0.val, 0
-  br i1 %30, label %31, label %58
+  %.not = icmp slt i64 %.0.val, 0
+  br i1 %.not, label %31, label %58
 
-31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %32 = load ptr, ptr %7, align 8, !tbaa !296
-  %33 = load ptr, ptr %5, align 8, !tbaa !297
+30:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %31 = load ptr, ptr %7, align 8, !tbaa !296
+  %32 = load ptr, ptr %5, align 8, !tbaa !297
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = icmp ult i64 %36, 2
   br i1 %37, label %38, label %40
 
-38:                                               ; preds = %31
-  %39 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.12, i64 noundef 2) #22
+37:                                               ; preds = %30
+  %38 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.12, i64 noundef 2) #22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
-40:                                               ; preds = %31
-  store i16 8236, ptr %33, align 1
-  %41 = load ptr, ptr %5, align 8, !tbaa !297
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  store ptr %42, ptr %5, align 8, !tbaa !297
+39:                                               ; preds = %30
+  store i16 8236, ptr %32, align 1
+  %40 = load ptr, ptr %5, align 8, !tbaa !297
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
+  store ptr %41, ptr %5, align 8, !tbaa !297
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
-_ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %38, %40
-  %.0.i.i9 = phi ptr [ %39, %38 ], [ %0, %40 ]
-  %43 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i9, i64 noundef %29) #22
+_ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %37, %39
+  %.0.i.i9 = phi ptr [ %38, %38 ], [ %0, %40 ]
+  %42 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i9, i64 noundef %29) #22
   %.sroa.0.0.extract.trunc = and i64 %.8.val, 2147483647
-  %44 = and i64 %.8.val, 2147483648
-  %.not = icmp eq i64 %44, 0
-  br i1 %.not, label %58, label %45
+  %43 = and i64 %.8.val, 2147483648
+  %.not9 = icmp eq i64 %43, 0
+  br i1 %.not9, label %57, label %44
 
-45:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10
-  %46 = load ptr, ptr %7, align 8, !tbaa !296
-  %47 = load ptr, ptr %5, align 8, !tbaa !297
+44:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10
+  %45 = load ptr, ptr %7, align 8, !tbaa !296
+  %46 = load ptr, ptr %5, align 8, !tbaa !297
   %48 = ptrtoint ptr %46 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
   %51 = icmp ult i64 %50, 2
   br i1 %51, label %52, label %54
 
-52:                                               ; preds = %45
-  %53 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.12, i64 noundef 2) #22
+51:                                               ; preds = %44
+  %52 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull @.str.12, i64 noundef 2) #22
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
-54:                                               ; preds = %45
-  store i16 8236, ptr %47, align 1
-  %55 = load ptr, ptr %5, align 8, !tbaa !297
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
-  store ptr %56, ptr %5, align 8, !tbaa !297
+53:                                               ; preds = %44
+  store i16 8236, ptr %46, align 1
+  %54 = load ptr, ptr %5, align 8, !tbaa !297
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
+  store ptr %55, ptr %5, align 8, !tbaa !297
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
-_ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %52, %54
-  %.0.i.i15 = phi ptr [ %53, %52 ], [ %0, %54 ]
-  %57 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i15, i64 noundef %.sroa.0.0.extract.trunc) #22
-  br label %58
+_ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %51, %53
+  %.0.i.i15 = phi ptr [ %52, %52 ], [ %0, %54 ]
+  %56 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i15, i64 noundef %.sroa.0.0.extract.trunc) #22
+  br label %57
 
-58:                                               ; preds = %1, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit16, %_ZN4llvm11raw_ostreamlsEPKc.exit10
+57:                                               ; preds = %1, %_ZN4llvm11raw_ostreamlsEPKc.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit16, %_ZN4llvm11raw_ostreamlsEPKc.exit10
   ret void
 }
 

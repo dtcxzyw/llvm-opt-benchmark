@@ -2646,292 +2646,292 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
   %85 = shl i32 %.53653, 7
   %86 = add i8 %.53790, -7
   %87 = icmp eq i32 %57, 15
-  br i1 %87, label %.preheader4321, label %229
+  br i1 %87, label %.preheader4321.preheader, label %229
 
-.preheader4321:                                   ; preds = %77, %.loopexit
+.preheader4321.preheader:                         ; preds = %77, %.loopexit
   %.13965 = phi i32 [ %.23966, %.loopexit ], [ %78, %77 ]
   %.63791 = phi i8 [ %.73792, %.loopexit ], [ %86, %77 ]
   %.63654 = phi i32 [ %.73655, %.loopexit ], [ %85, %77 ]
   %.33624 = phi i32 [ %.43625, %.loopexit ], [ %84, %77 ]
-  %.73490 = phi i32 [ %.83491, %.loopexit ], [ %.63489, %77 ]
-  %.7 = phi i32 [ %.8, %.loopexit ], [ %.6, %77 ]
+  %.74398 = phi i32 [ %.83491, %.loopexit ], [ %.63489, %77 ]
+  %.734904397 = phi i32 [ %.8, %.loopexit ], [ %.6, %77 ]
   %88 = icmp eq i32 %.13965, 0
   br i1 %88, label %.thread, label %89
 
-89:                                               ; preds = %.preheader4321
-  %90 = icmp eq i8 %.63791, 0
-  br i1 %90, label %91, label %102
+89:     ; preds = %.preheader4321.preheader
+  %89 = icmp eq i8 %.63791, 0
+  br i1 %89, label %90, label %101
 
-91:                                               ; preds = %89
-  %92 = icmp eq i32 %.73490, 0
-  br i1 %92, label %93, label %95
+90:                                               ; preds = %89
+  %91 = icmp eq i32 %.73490, 0
+  br i1 %91, label %92, label %94
 
-93:                                               ; preds = %91
-  %94 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.7, i32 noundef 1)
-  br label %95
+92:                                               ; preds = %90
+  %93 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.7, i32 noundef 1)
+  br label %94
 
-95:                                               ; preds = %93, %91
-  %96 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.7)
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw i32 %97, 24
-  %99 = or i32 %98, %.63654
-  %100 = add i32 %.73490, -1
-  %101 = add i32 %.7, 1
-  br label %104
+94:                                               ; preds = %92, %90
+  %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.7)
+  %96 = zext i8 %95 to i32
+  %97 = shl nuw i32 %96, 24
+  %98 = or i32 %97, %.63654
+  %99 = add i32 %.73490, -1
+  %100 = add i32 %.7, 1
+  br label %103
 
-102:                                              ; preds = %89
-  %103 = add i8 %.63791, -1
-  br label %104
+101:                                              ; preds = %89
+  %102 = add i8 %.63791, -1
+  br label %103
 
-104:                                              ; preds = %102, %95
-  %.83793 = phi i8 [ 7, %95 ], [ %103, %102 ]
-  %.83656 = phi i32 [ %99, %95 ], [ %.63654, %102 ]
-  %.93492 = phi i32 [ %100, %95 ], [ %.73490, %102 ]
-  %.9 = phi i32 [ %101, %95 ], [ %.7, %102 ]
-  %105 = lshr i32 %.83656, 31
+103:                                              ; preds = %101, %94
+  %.83793 = phi i8 [ 7, %95 ], [ %102, %102 ]
+  %.83656 = phi i32 [ %98, %95 ], [ %.63654, %102 ]
+  %.93492 = phi i32 [ %99, %95 ], [ %.73490, %102 ]
+  %.9 = phi i32 [ %100, %95 ], [ %.7, %102 ]
+  %104 = lshr i32 %.83656, 31
   %trunc4295 = icmp sgt i32 %.83656, -1
   %.str.58..str.59 = select i1 %trunc4295, ptr @.str.58, ptr @.str.59
-  %106 = load i32, ptr @hf_gsm_a_gm_presence, align 4
-  %107 = add i32 %.9, -1
-  %108 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %106, ptr noundef %0, i32 noundef %107, i32 noundef 1, i32 noundef %105, ptr noundef nonnull @.str.61, ptr noundef nonnull %.str.58..str.59, i32 noundef %105)
-  %109 = add i32 %.33624, 1
-  %110 = add nsw i32 %.13965, -1
-  %111 = shl i32 %.83656, 1
+  %105 = load i32, ptr @hf_gsm_a_gm_presence, align 4
+  %106 = add i32 %.9, -1
+  %107 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %41, i32 noundef %105, ptr noundef %0, i32 noundef %106, i32 noundef 1, i32 noundef %104, ptr noundef nonnull @.str.61, ptr noundef nonnull %.str.58..str.59, i32 noundef %104)
+  %108 = add i32 %.33624, 1
+  %109 = add nsw i32 %.13965, -1
+  %110 = shl i32 %.83656, 1
   br i1 %trunc4295, label %.preheader, label %133
 
-.preheader:                                       ; preds = %104
-  %.not43024340 = icmp eq i32 %110, 0
+.preheader:                                       ; preds = %103
+  %.not43024340 = icmp eq i32 %109, 0
   br i1 %.not43024340, label %.thread, label %.lr.ph4347
 
-.lr.ph4347:                                       ; preds = %.preheader, %127
+.lr.ph4347:                                       ; preds = %.preheader, %126
   %.104346 = phi i32 [ %.11, %127 ], [ %.9, %.preheader ]
   %.1034934345 = phi i32 [ %.113494, %127 ], [ %.93492, %.preheader ]
-  %.536264344 = phi i32 [ %132, %127 ], [ %109, %.preheader ]
-  %.936574343 = phi i32 [ %129, %127 ], [ %111, %.preheader ]
-  %.937944342 = phi i8 [ %131, %127 ], [ %.83793, %.preheader ]
-  %.339674341 = phi i32 [ %128, %127 ], [ %110, %.preheader ]
+  %.536264344 = phi i32 [ %131, %127 ], [ %108, %.preheader ]
+  %.936574343 = phi i32 [ %128, %127 ], [ %110, %.preheader ]
+  %.937944342 = phi i8 [ %130, %127 ], [ %.83793, %.preheader ]
+  %.339674341 = phi i32 [ %127, %127 ], [ %109, %.preheader ]
   %..33967 = call i32 @llvm.umin.i32(i32 %.339674341, i32 8)
-  %112 = zext i8 %.937944342 to i32
-  %113 = icmp samesign ugt i32 %..33967, %112
-  br i1 %113, label %114, label %127
+  %111 = zext i8 %.937944342 to i32
+  %112 = icmp samesign ugt i32 %..33967, %111
+  br i1 %112, label %113, label %126
 
-114:                                              ; preds = %.lr.ph4347
-  %115 = icmp eq i32 %.1034934345, 0
-  br i1 %115, label %116, label %118
+113:                                              ; preds = %.lr.ph4347
+  %114 = icmp eq i32 %.1034934345, 0
+  br i1 %114, label %115, label %117
 
-116:                                              ; preds = %114
-  %117 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.104346, i32 noundef 1)
-  br label %118
+115:                                              ; preds = %113
+  %116 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.104346, i32 noundef 1)
+  br label %117
 
-118:                                              ; preds = %116, %114
-  %119 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.104346)
-  %120 = zext i8 %119 to i32
-  %121 = sub nuw nsw i32 24, %112
-  %122 = shl nuw i32 %120, %121
-  %123 = or i32 %122, %.936574343
-  %124 = add i32 %.1034934345, -1
-  %125 = add i32 %.104346, 1
-  %126 = add i8 %.937944342, 8
-  br label %127
+117:                                              ; preds = %115, %113
+  %118 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.104346)
+  %119 = zext i8 %118 to i32
+  %120 = sub nuw nsw i32 24, %111
+  %121 = shl nuw i32 %119, %120
+  %122 = or i32 %121, %.936574343
+  %123 = add i32 %.1034934345, -1
+  %124 = add i32 %.104346, 1
+  %125 = add i8 %.937944342, 8
+  br label %126
 
-127:                                              ; preds = %.lr.ph4347, %118
-  %.103795 = phi i8 [ %126, %118 ], [ %.937944342, %.lr.ph4347 ]
-  %.103658 = phi i32 [ %123, %118 ], [ %.936574343, %.lr.ph4347 ]
-  %.113494 = phi i32 [ %124, %118 ], [ %.1034934345, %.lr.ph4347 ]
-  %.11 = phi i32 [ %125, %118 ], [ %.104346, %.lr.ph4347 ]
-  %128 = sub i32 %.339674341, %..33967
-  %129 = shl i32 %.103658, %..33967
-  %130 = trunc nuw nsw i32 %..33967 to i8
-  %131 = sub i8 %.103795, %130
-  %132 = add i32 %.536264344, %..33967
-  %.not4302 = icmp eq i32 %128, 0
+126:                                              ; preds = %.lr.ph4347, %117
+  %.103795 = phi i8 [ %125, %118 ], [ %.937944342, %.lr.ph4347 ]
+  %.103658 = phi i32 [ %122, %118 ], [ %.936574343, %.lr.ph4347 ]
+  %.113494 = phi i32 [ %123, %118 ], [ %.1034934345, %.lr.ph4347 ]
+  %.11 = phi i32 [ %124, %118 ], [ %.104346, %.lr.ph4347 ]
+  %127 = sub i32 %.339674341, %..33967
+  %128 = shl i32 %.103658, %..33967
+  %129 = trunc nuw nsw i32 %..33967 to i8
+  %130 = sub i8 %.103795, %129
+  %131 = add i32 %.536264344, %..33967
+  %.not4302 = icmp eq i32 %127, 0
   br i1 %.not4302, label %.loopexit, label %.lr.ph4347, !llvm.loop !6
 
-133:                                              ; preds = %104
-  %134 = icmp ult i32 %.13965, 5
-  br i1 %134, label %.loopexit, label %135
+132:                                              ; preds = %103
+  %133 = icmp ult i32 %.13965, 5
+  br i1 %133, label %.loopexit, label %134
 
-135:                                              ; preds = %133
-  %136 = icmp ult i8 %.83793, 4
-  br i1 %136, label %137, label %150
+134:                                              ; preds = %132
+  %135 = icmp ult i8 %.83793, 4
+  br i1 %135, label %136, label %149
 
-137:                                              ; preds = %135
-  %138 = icmp eq i32 %.93492, 0
-  br i1 %138, label %139, label %141
+136:                                              ; preds = %134
+  %137 = icmp eq i32 %.93492, 0
+  br i1 %137, label %138, label %140
 
-139:                                              ; preds = %137
-  %140 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.9, i32 noundef 1)
-  br label %141
+138:                                              ; preds = %136
+  %139 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.9, i32 noundef 1)
+  br label %140
 
-141:                                              ; preds = %139, %137
-  %142 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.9)
-  %143 = zext i8 %142 to i32
+140:                                              ; preds = %138, %136
+  %141 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.9)
+  %142 = zext i8 %141 to i32
   %narrow4297 = sub nuw nsw i8 24, %.83793
-  %144 = zext nneg i8 %narrow4297 to i32
-  %145 = shl nuw i32 %143, %144
-  %146 = or i32 %145, %111
-  %147 = add i32 %.93492, -1
-  %148 = add i32 %.9, 1
-  %149 = or disjoint i8 %.83793, 8
-  br label %150
+  %143 = zext nneg i8 %narrow4297 to i32
+  %144 = shl nuw i32 %142, %143
+  %145 = or i32 %144, %110
+  %146 = add i32 %.93492, -1
+  %147 = add i32 %.9, 1
+  %148 = or disjoint i8 %.83793, 8
+  br label %149
 
-150:                                              ; preds = %135, %141
-  %.113796 = phi i8 [ %149, %141 ], [ %.83793, %135 ]
-  %.113659 = phi i32 [ %146, %141 ], [ %111, %135 ]
-  %.123495 = phi i32 [ %147, %141 ], [ %.93492, %135 ]
-  %.12 = phi i32 [ %148, %141 ], [ %.9, %135 ]
-  %151 = lshr i32 %.113659, 28
-  %152 = load i32, ptr @hf_gsm_a_gm_acc_tech_type, align 4
-  %153 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %152, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0)
-  %154 = add i32 %.33624, 5
-  %155 = add nsw i32 %.13965, -5
-  %156 = shl i32 %.113659, 4
-  %157 = add i8 %.113796, -4
-  %158 = icmp ult i32 %155, 3
-  br i1 %158, label %.loopexit, label %159
+149:                                              ; preds = %134, %140
+  %.113796 = phi i8 [ %148, %141 ], [ %.83793, %135 ]
+  %.113659 = phi i32 [ %145, %141 ], [ %110, %135 ]
+  %.123495 = phi i32 [ %146, %141 ], [ %.93492, %135 ]
+  %.12 = phi i32 [ %147, %141 ], [ %.9, %135 ]
+  %150 = lshr i32 %.113659, 28
+  %151 = load i32, ptr @hf_gsm_a_gm_acc_tech_type, align 4
+  %152 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %151, ptr noundef %0, i32 noundef %108, i32 noundef 4, i32 noundef 0)
+  %153 = add i32 %.33624, 5
+  %154 = add nsw i32 %.13965, -5
+  %155 = shl i32 %.113659, 4
+  %156 = add i8 %.113796, -4
+  %157 = icmp ult i32 %154, 3
+  br i1 %157, label %.loopexit, label %158
 
-159:                                              ; preds = %150
-  %160 = icmp ult i8 %157, 3
-  br i1 %160, label %161, label %174
+158:                                              ; preds = %149
+  %159 = icmp ult i8 %156, 3
+  br i1 %159, label %160, label %173
 
-161:                                              ; preds = %159
-  %162 = icmp eq i32 %.123495, 0
-  br i1 %162, label %163, label %165
+160:                                              ; preds = %158
+  %161 = icmp eq i32 %.123495, 0
+  br i1 %161, label %162, label %164
 
-163:                                              ; preds = %161
-  %164 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.12, i32 noundef 1)
-  br label %165
+162:                                              ; preds = %160
+  %163 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.12, i32 noundef 1)
+  br label %164
 
-165:                                              ; preds = %163, %161
-  %166 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.12)
-  %167 = zext i8 %166 to i32
+164:                                              ; preds = %162, %160
+  %165 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.12)
+  %166 = zext i8 %165 to i32
   %narrow4299 = sub nuw nsw i8 28, %.113796
-  %168 = zext nneg i8 %narrow4299 to i32
-  %169 = shl nuw i32 %167, %168
-  %170 = or i32 %169, %156
-  %171 = add i32 %.123495, -1
-  %172 = add i32 %.12, 1
-  %.not4298 = icmp ne i8 %157, 0
+  %167 = zext nneg i8 %narrow4299 to i32
+  %168 = shl nuw i32 %166, %167
+  %169 = or i32 %168, %155
+  %170 = add i32 %.123495, -1
+  %171 = add i32 %.12, 1
+  %.not4298 = icmp ne i8 %156, 0
   %.4304 = zext i1 %.not4298 to i32
-  %173 = or disjoint i8 %157, 8
-  br label %174
+  %172 = or disjoint i8 %156, 8
+  br label %173
 
-174:                                              ; preds = %159, %165
+173:                                              ; preds = %158, %164
   %.33927 = phi i32 [ %.4304, %165 ], [ 0, %159 ]
-  %.123797 = phi i8 [ %173, %165 ], [ %157, %159 ]
-  %.123660 = phi i32 [ %170, %165 ], [ %156, %159 ]
-  %.133496 = phi i32 [ %171, %165 ], [ %.123495, %159 ]
-  %.13 = phi i32 [ %172, %165 ], [ %.12, %159 ]
-  %175 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %154, i32 noundef 3)
-  %176 = zext i8 %175 to i32
-  switch i32 %151, label %181 [
-    i32 4, label %177
-    i32 3, label %179
+  %.123797 = phi i8 [ %172, %165 ], [ %156, %159 ]
+  %.123660 = phi i32 [ %169, %165 ], [ %155, %159 ]
+  %.133496 = phi i32 [ %170, %165 ], [ %.123495, %159 ]
+  %.13 = phi i32 [ %171, %165 ], [ %.12, %159 ]
+  %174 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %153, i32 noundef 3)
+  %175 = zext i8 %174 to i32
+  switch i32 %150, label %181 [
+    i32 4, label %176
+    i32 3, label %178
   ]
 
-177:                                              ; preds = %174
-  %switch.tableidx = add i8 %175, -1
-  %178 = icmp ult i8 %switch.tableidx, 3
-  br i1 %178, label %switch.lookup, label %188
+176:                                              ; preds = %173
+  %switch.tableidx = add i8 %174, -1
+  %177 = icmp ult i8 %switch.tableidx, 3
+  br i1 %177, label %switch.lookup, label %187
 
-179:                                              ; preds = %174
-  %switch.tableidx4393 = add i8 %175, -1
-  %180 = icmp ult i8 %switch.tableidx4393, 3
-  br i1 %180, label %switch.lookup4392, label %188
+178:                                              ; preds = %173
+  %switch.tableidx4415 = add i8 %174, -1
+  %179 = icmp ult i8 %switch.tableidx4415, 3
+  br i1 %179, label %switch.lookup4414, label %187
 
-181:                                              ; preds = %174
-  %182 = icmp ult i32 %.113659, -1879048192
-  br i1 %182, label %183, label %188
+180:                                              ; preds = %173
+  %181 = icmp ult i32 %.113659, -1879048192
+  br i1 %181, label %182, label %187
 
-183:                                              ; preds = %181
-  %switch.tableidx4397 = add i8 %175, -2
-  %184 = icmp ult i8 %switch.tableidx4397, 4
-  br i1 %184, label %switch.lookup4396, label %188
+182:                                              ; preds = %180
+  %switch.tableidx4419 = add i8 %174, -2
+  %183 = icmp ult i8 %switch.tableidx4419, 4
+  br i1 %183, label %switch.lookup4418, label %187
 
-switch.lookup:                                    ; preds = %177
-  %185 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %185
+switch.lookup:                                    ; preds = %176
+  %184 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %184
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %188
+  br label %187
 
-switch.lookup4392:                                ; preds = %179
-  %186 = zext nneg i8 %switch.tableidx4393 to i64
-  %switch.gep4394 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %186
-  %switch.load4395 = load ptr, ptr %switch.gep4394, align 8
-  br label %188
+switch.lookup4414:                                ; preds = %178
+  %185 = zext nneg i8 %switch.tableidx4415 to i64
+  %switch.gep4416 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %185
+  %switch.load4417 = load ptr, ptr %switch.gep4416, align 8
+  br label %187
 
-switch.lookup4396:                                ; preds = %183
-  %187 = zext nneg i8 %switch.tableidx4397 to i64
-  %switch.gep4398 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %187
-  %switch.load4399 = load ptr, ptr %switch.gep4398, align 8
-  br label %188
+switch.lookup4418:                                ; preds = %182
+  %186 = zext nneg i8 %switch.tableidx4419 to i64
+  %switch.gep4420 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %186
+  %switch.load4421 = load ptr, ptr %switch.gep4420, align 8
+  br label %187
 
-188:                                              ; preds = %183, %switch.lookup4396, %179, %switch.lookup4392, %177, %switch.lookup, %181
-  %.13989 = phi ptr [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %177 ], [ %switch.load4395, %switch.lookup4392 ], [ @.str.65, %179 ], [ %switch.load4399, %switch.lookup4396 ], [ @.str.65, %183 ]
-  %189 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
-  %190 = xor i32 %.33927, -1
-  %191 = add i32 %.13, %190
-  %192 = add nuw nsw i32 %.33927, 1
-  %193 = load ptr, ptr %12, align 8
-  %194 = zext i8 %175 to i64
-  %195 = call ptr @decode_bits_in_field(ptr noundef %193, i32 noundef %154, i32 noundef 3, i64 noundef %194, i32 noundef 0)
-  %196 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %41, i32 noundef %189, ptr noundef %0, i32 noundef %191, i32 noundef %192, i32 noundef %176, ptr noundef nonnull @.str.71, ptr noundef %195, ptr noundef nonnull %.13989, i32 noundef %176)
-  %197 = add i32 %.33624, 8
-  %198 = add nsw i32 %.13965, -8
-  %199 = shl i32 %.123660, 3
-  %200 = add i8 %.123797, -3
-  %201 = icmp ult i32 %198, 2
-  br i1 %201, label %.loopexit, label %202
+187:                                              ; preds = %182, %switch.lookup4418, %178, %switch.lookup4414, %176, %switch.lookup, %180
+  %.13989 = phi ptr [ @.str.70, %181 ], [ %switch.load, %switch.lookup ], [ @.str.65, %177 ], [ %switch.load4417, %switch.lookup4392 ], [ @.str.65, %179 ], [ %switch.load4421, %switch.lookup4396 ], [ @.str.65, %183 ]
+  %188 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
+  %189 = xor i32 %.33927, -1
+  %190 = add i32 %.13, %189
+  %191 = add nuw nsw i32 %.33927, 1
+  %192 = load ptr, ptr %12, align 8
+  %193 = zext i8 %174 to i64
+  %194 = call ptr @decode_bits_in_field(ptr noundef %192, i32 noundef %153, i32 noundef 3, i64 noundef %193, i32 noundef 0)
+  %195 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %41, i32 noundef %188, ptr noundef %0, i32 noundef %190, i32 noundef %191, i32 noundef %175, ptr noundef nonnull @.str.71, ptr noundef %194, ptr noundef nonnull %.13989, i32 noundef %175)
+  %196 = add i32 %.33624, 8
+  %197 = add nsw i32 %.13965, -8
+  %198 = shl i32 %.123660, 3
+  %199 = add i8 %.123797, -3
+  %200 = icmp ult i32 %197, 2
+  br i1 %200, label %.loopexit, label %201
 
-202:                                              ; preds = %188
-  %203 = icmp ult i8 %200, 2
-  br i1 %203, label %204, label %217
+201:                                              ; preds = %187
+  %202 = icmp ult i8 %199, 2
+  br i1 %202, label %203, label %216
 
-204:                                              ; preds = %202
-  %205 = icmp eq i32 %.133496, 0
-  br i1 %205, label %206, label %208
+203:                                              ; preds = %201
+  %204 = icmp eq i32 %.133496, 0
+  br i1 %204, label %205, label %207
 
-206:                                              ; preds = %204
-  %207 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.13, i32 noundef 1)
-  br label %208
+205:                                              ; preds = %203
+  %206 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_gm_not_enough_data, ptr noundef %0, i32 noundef %.13, i32 noundef 1)
+  br label %207
 
-208:                                              ; preds = %206, %204
-  %209 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.13)
-  %210 = zext i8 %209 to i32
+207:                                              ; preds = %205, %203
+  %208 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.13)
+  %209 = zext i8 %208 to i32
   %narrow4301 = sub nuw nsw i8 27, %.123797
-  %211 = zext nneg i8 %narrow4301 to i32
-  %212 = shl nuw i32 %210, %211
-  %213 = or i32 %212, %199
-  %214 = add i32 %.133496, -1
-  %215 = add i32 %.13, 1
-  %.4305 = zext nneg i8 %200 to i32
-  %216 = or disjoint i8 %200, 8
-  br label %217
+  %210 = zext nneg i8 %narrow4301 to i32
+  %211 = shl nuw i32 %209, %210
+  %212 = or i32 %211, %198
+  %213 = add i32 %.133496, -1
+  %214 = add i32 %.13, 1
+  %.4305 = zext nneg i8 %199 to i32
+  %215 = or disjoint i8 %199, 8
+  br label %216
 
-217:                                              ; preds = %202, %208
+216:                                              ; preds = %201, %207
   %.53929 = phi i32 [ %.4305, %208 ], [ 0, %202 ]
-  %.133798 = phi i8 [ %216, %208 ], [ %200, %202 ]
-  %.133661 = phi i32 [ %213, %208 ], [ %199, %202 ]
-  %.143497 = phi i32 [ %214, %208 ], [ %.133496, %202 ]
-  %.14 = phi i32 [ %215, %208 ], [ %.13, %202 ]
-  %218 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %197, i32 noundef 2)
-  %219 = zext i8 %218 to i32
-  %220 = load i32, ptr @hf_gsm_a_gm_8psk_power_class, align 4
-  %221 = xor i32 %.53929, -1
-  %222 = add i32 %.14, %221
-  %223 = add nuw nsw i32 %.53929, 1
-  %224 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %220, ptr noundef %0, i32 noundef %222, i32 noundef %223, i32 noundef %219)
-  %225 = add i32 %.33624, 10
-  %226 = add nsw i32 %.13965, -10
-  %227 = shl i32 %.133661, 2
-  %228 = add i8 %.133798, -2
+  %.133798 = phi i8 [ %215, %208 ], [ %199, %202 ]
+  %.133661 = phi i32 [ %212, %208 ], [ %198, %202 ]
+  %.143497 = phi i32 [ %213, %208 ], [ %.133496, %202 ]
+  %.14 = phi i32 [ %214, %208 ], [ %.13, %202 ]
+  %217 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %196, i32 noundef 2)
+  %218 = zext i8 %217 to i32
+  %219 = load i32, ptr @hf_gsm_a_gm_8psk_power_class, align 4
+  %220 = xor i32 %.53929, -1
+  %221 = add i32 %.14, %220
+  %222 = add nuw nsw i32 %.53929, 1
+  %223 = call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %219, ptr noundef %0, i32 noundef %221, i32 noundef %222, i32 noundef %218)
+  %224 = add i32 %.33624, 10
+  %225 = add nsw i32 %.13965, -10
+  %226 = shl i32 %.133661, 2
+  %227 = add i8 %.133798, -2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %127, %188, %150, %133, %217
-  %.23966 = phi i32 [ %110, %133 ], [ %155, %150 ], [ %198, %188 ], [ %226, %217 ], [ 0, %127 ]
-  %.73792 = phi i8 [ %.83793, %133 ], [ %157, %150 ], [ %200, %188 ], [ %228, %217 ], [ %131, %127 ]
-  %.73655 = phi i32 [ %111, %133 ], [ %156, %150 ], [ %199, %188 ], [ %227, %217 ], [ %129, %127 ]
-  %.43625 = phi i32 [ %109, %133 ], [ %154, %150 ], [ %197, %188 ], [ %225, %217 ], [ %132, %127 ]
+.loopexit:                                        ; preds = %126, %187, %149, %133, %217
+  %.23966 = phi i32 [ %109, %133 ], [ %154, %150 ], [ %197, %188 ], [ %226, %217 ], [ 0, %127 ]
+  %.73792 = phi i8 [ %.83793, %133 ], [ %156, %150 ], [ %199, %188 ], [ %228, %217 ], [ %130, %127 ]
+  %.73655 = phi i32 [ %110, %133 ], [ %155, %150 ], [ %198, %188 ], [ %227, %217 ], [ %128, %127 ]
+  %.43625 = phi i32 [ %108, %133 ], [ %153, %150 ], [ %196, %188 ], [ %225, %217 ], [ %131, %127 ]
   %.83491 = phi i32 [ %.93492, %133 ], [ %.123495, %150 ], [ %.133496, %188 ], [ %.143497, %217 ], [ %.113494, %127 ]
   %.8 = phi i32 [ %.9, %133 ], [ %.12, %150 ], [ %.13, %188 ], [ %.14, %217 ], [ %.11, %127 ]
   br i1 %trunc4295, label %.thread, label %.preheader4321, !llvm.loop !8
@@ -2980,44 +2980,44 @@ switch.lookup4396:                                ; preds = %183
   ]
 
 249:                                              ; preds = %246
-  %switch.tableidx4401 = add i8 %247, -1
-  %250 = icmp ult i8 %switch.tableidx4401, 3
-  br i1 %250, label %switch.lookup4400, label %260
+  %switch.tableidx4423 = add i8 %247, -1
+  %250 = icmp ult i8 %switch.tableidx4423, 3
+  br i1 %250, label %switch.lookup4422, label %260
 
 251:                                              ; preds = %246
-  %switch.tableidx4405 = add i8 %247, -1
-  %252 = icmp ult i8 %switch.tableidx4405, 3
-  br i1 %252, label %switch.lookup4404, label %260
+  %switch.tableidx4427 = add i8 %247, -1
+  %252 = icmp ult i8 %switch.tableidx4427, 3
+  br i1 %252, label %switch.lookup4426, label %260
 
 253:                                              ; preds = %246
   %254 = icmp ult i32 %.43652, -1879048192
   br i1 %254, label %255, label %260
 
 255:                                              ; preds = %253
-  %switch.tableidx4409 = add i8 %247, -2
-  %256 = icmp ult i8 %switch.tableidx4409, 4
-  br i1 %256, label %switch.lookup4408, label %260
+  %switch.tableidx4431 = add i8 %247, -2
+  %256 = icmp ult i8 %switch.tableidx4431, 4
+  br i1 %256, label %switch.lookup4430, label %260
 
-switch.lookup4400:                                ; preds = %249
-  %257 = zext nneg i8 %switch.tableidx4401 to i64
-  %switch.gep4402 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
-  %switch.load4403 = load ptr, ptr %switch.gep4402, align 8
+switch.lookup4422:                                ; preds = %249
+  %257 = zext nneg i8 %switch.tableidx4423 to i64
+  %switch.gep4424 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.3, i64 0, i64 %257
+  %switch.load4425 = load ptr, ptr %switch.gep4424, align 8
   br label %260
 
-switch.lookup4404:                                ; preds = %251
-  %258 = zext nneg i8 %switch.tableidx4405 to i64
-  %switch.gep4406 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
-  %switch.load4407 = load ptr, ptr %switch.gep4406, align 8
+switch.lookup4426:                                ; preds = %251
+  %258 = zext nneg i8 %switch.tableidx4427 to i64
+  %switch.gep4428 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.4, i64 0, i64 %258
+  %switch.load4429 = load ptr, ptr %switch.gep4428, align 8
   br label %260
 
-switch.lookup4408:                                ; preds = %255
-  %259 = zext nneg i8 %switch.tableidx4409 to i64
-  %switch.gep4410 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
-  %switch.load4411 = load ptr, ptr %switch.gep4410, align 8
+switch.lookup4430:                                ; preds = %255
+  %259 = zext nneg i8 %switch.tableidx4431 to i64
+  %switch.gep4432 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.de_gmm_ms_radio_acc_cap.5, i64 0, i64 %259
+  %switch.load4433 = load ptr, ptr %switch.gep4432, align 8
   br label %260
 
-260:                                              ; preds = %255, %switch.lookup4408, %251, %switch.lookup4404, %249, %switch.lookup4400, %253
-  %.23990 = phi ptr [ @.str.70, %253 ], [ %switch.load4403, %switch.lookup4400 ], [ @.str.65, %249 ], [ %switch.load4407, %switch.lookup4404 ], [ @.str.65, %251 ], [ %switch.load4411, %switch.lookup4408 ], [ @.str.65, %255 ]
+260:                                              ; preds = %255, %switch.lookup4430, %251, %switch.lookup4426, %249, %switch.lookup4422, %253
+  %.23990 = phi ptr [ @.str.70, %253 ], [ %switch.load4425, %switch.lookup4400 ], [ @.str.65, %249 ], [ %switch.load4429, %switch.lookup4404 ], [ @.str.65, %251 ], [ %switch.load4433, %switch.lookup4408 ], [ @.str.65, %255 ]
   %261 = load i32, ptr @hf_gsm_a_gm_rf_power_capability, align 4
   %262 = xor i32 %.73931, -1
   %263 = add i32 %.15, %262

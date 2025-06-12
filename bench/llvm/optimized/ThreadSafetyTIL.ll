@@ -787,59 +787,59 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberI
 define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologicalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %26, label %7
+  %.not = icmp slt i32 %5, 0
+  br i1 %.not, label %26, label %7
 
-7:                                                ; preds = %3
-  %8 = or disjoint i32 %5, -2147483648
-  store i32 %8, ptr %4, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
-  %11 = load i8, ptr %10, align 8, !tbaa !31
-  switch i8 %11, label %._crit_edge [
+6:                                                ; preds = %3
+  %7 = or disjoint i32 %5, -2147483648
+  store i32 %7, ptr %4, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %10 = load i8, ptr %9, align 8, !tbaa !31
+  switch i8 %10, label %._crit_edge [
     i8 25, label %.lr.ph.preheader
-    i8 26, label %12
+    i8 26, label %11
   ]
 
-12:                                               ; preds = %7
+11:                                               ; preds = %6
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %7, %12
-  %.sink = phi i64 [ 24, %12 ], [ 16, %7 ]
-  %.sroa.6.0.i.i.ph = phi i64 [ 2, %12 ], [ 1, %7 ]
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.6.0.i.i.ph
+.lr.ph.preheader:                                 ; preds = %6, %11
+  %.sink = phi i64 [ 24, %11 ], [ 16, %7 ]
+  %.sroa.6.0.i.i.ph = phi i64 [ 2, %11 ], [ 1, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.sroa.6.0.i.i.ph
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %4, align 8
-  %15 = and i32 %.pre, -2147483648
+  %14 = and i32 %.pre, -2147483648
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %7, %._crit_edge.loopexit
-  %16 = phi i32 [ %15, %._crit_edge.loopexit ], [ -2147483648, %7 ]
-  %.014.lcssa = phi i32 [ %24, %._crit_edge.loopexit ], [ %2, %7 ]
-  %17 = add i32 %.014.lcssa, -1
-  %18 = and i32 %17, 2147483647
-  %19 = or disjoint i32 %16, %18
-  store i32 %19, ptr %4, align 8
-  %20 = load ptr, ptr %1, align 8, !tbaa !24
-  %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
-  store ptr %0, ptr %22, align 8, !tbaa !25
-  br label %26
+._crit_edge:                                      ; preds = %6, %._crit_edge.loopexit
+  %15 = phi i32 [ %14, %._crit_edge.loopexit ], [ -2147483648, %7 ]
+  %.014.lcssa = phi i32 [ %23, %._crit_edge.loopexit ], [ %2, %7 ]
+  %16 = add i32 %.014.lcssa, -1
+  %17 = and i32 %16, 2147483647
+  %18 = or disjoint i32 %15, %17
+  store i32 %18, ptr %4, align 8
+  %19 = load ptr, ptr %1, align 8, !tbaa !24
+  %20 = zext nneg i32 %17 to i64
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  store ptr %0, ptr %21, align 8, !tbaa !25
+  br label %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01419 = phi i32 [ %24, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.01518 = phi ptr [ %25, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %23 = load ptr, ptr %.01518, align 8, !tbaa !25
-  %24 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologicalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.01419)
-  %25 = getelementptr inbounds nuw i8, ptr %.01518, i64 8
-  %.not = icmp eq ptr %25, %14
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  %.01420 = phi i32 [ %23, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.01519 = phi ptr [ %24, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %22 = load ptr, ptr %.01519, align 8, !tbaa !25
+  %23 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologicalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %22, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.01420)
+  %24 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
+  %.not16 = icmp eq ptr %24, %13
+  br i1 %.not16, label %._crit_edge.loopexit, label %.lr.ph
 
-26:                                               ; preds = %3, %._crit_edge
-  %.0 = phi i32 [ %17, %._crit_edge ], [ %2, %3 ]
+25:                                               ; preds = %3, %._crit_edge
+  %.0 = phi i32 [ %16, %._crit_edge ], [ %2, %3 ]
   ret i32 %.0
 }
 
@@ -847,56 +847,56 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologic
 define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
-  %6 = icmp slt i32 %5, 0
-  br i1 %6, label %7, label %30
+  %.not = icmp slt i32 %5, 0
+  br i1 %.not, label %7, label %30
 
-7:                                                ; preds = %3
-  %8 = and i32 %5, 2147483647
-  store i32 %8, ptr %4, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %13, label %11
+6:                                                ; preds = %3
+  %7 = and i32 %5, 2147483647
+  store i32 %7, ptr %4, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  %.not19 = icmp eq ptr %9, null
+  br i1 %.not19, label %12, label %10
 
-11:                                               ; preds = %7
-  %12 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2)
-  br label %13
+10:                                               ; preds = %6
+  %11 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %9, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2)
+  br label %12
 
-13:                                               ; preds = %11, %7
-  %.016 = phi i32 [ %12, %11 ], [ %2, %7 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
-  %.not1920 = icmp eq i64 %17, 0
-  br i1 %.not1920, label %._crit_edge, label %.lr.ph
+12:                                               ; preds = %10, %6
+  %.016 = phi i32 [ %11, %10 ], [ %2, %7 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = load i64, ptr %15, align 8, !tbaa !18
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %.not2021 = icmp eq i64 %16, 0
+  br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %13
-  %.1.lcssa = phi i32 [ %.016, %13 ], [ %28, %.lr.ph ]
-  %19 = add i32 %.1.lcssa, 1
-  %20 = load i32, ptr %4, align 8
-  %21 = and i32 %.1.lcssa, 2147483647
-  %22 = and i32 %20, -2147483648
-  %23 = or disjoint i32 %22, %21
-  store i32 %23, ptr %4, align 8
-  %24 = load ptr, ptr %1, align 8, !tbaa !24
-  %25 = zext nneg i32 %21 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
-  store ptr %0, ptr %26, align 8, !tbaa !25
-  br label %30
+._crit_edge:                                      ; preds = %.lr.ph, %12
+  %.1.lcssa = phi i32 [ %.016, %12 ], [ %27, %.lr.ph ]
+  %18 = add i32 %.1.lcssa, 1
+  %19 = load i32, ptr %4, align 8
+  %20 = and i32 %.1.lcssa, 2147483647
+  %21 = and i32 %19, -2147483648
+  %22 = or disjoint i32 %21, %20
+  store i32 %22, ptr %4, align 8
+  %23 = load ptr, ptr %1, align 8, !tbaa !24
+  %24 = zext nneg i32 %20 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  store ptr %0, ptr %25, align 8, !tbaa !25
+  br label %29
 
-.lr.ph:                                           ; preds = %13, %.lr.ph
-  %.122 = phi i32 [ %28, %.lr.ph ], [ %.016, %13 ]
-  %.01721 = phi ptr [ %29, %.lr.ph ], [ %15, %13 ]
-  %27 = load ptr, ptr %.01721, align 8, !tbaa !25
-  %28 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.122)
-  %29 = getelementptr inbounds nuw i8, ptr %.01721, i64 8
-  %.not19 = icmp eq ptr %29, %18
-  br i1 %.not19, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %12, %.lr.ph
+  %.123 = phi i32 [ %27, %.lr.ph ], [ %.016, %12 ]
+  %.01722 = phi ptr [ %28, %.lr.ph ], [ %14, %12 ]
+  %26 = load ptr, ptr %.01722, align 8, !tbaa !25
+  %27 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %26, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.123)
+  %28 = getelementptr inbounds nuw i8, ptr %.01722, i64 8
+  %.not20 = icmp eq ptr %28, %17
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
-30:                                               ; preds = %3, %._crit_edge
-  %.0 = phi i32 [ %19, %._crit_edge ], [ %2, %3 ]
+29:                                               ; preds = %3, %._crit_edge
+  %.0 = phi i32 [ %18, %._crit_edge ], [ %2, %3 ]
   ret i32 %.0
 }
 

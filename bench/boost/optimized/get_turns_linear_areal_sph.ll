@@ -196681,7 +196681,7 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %.0.i.i.i58 = load ptr, ptr %105, align 8, !tbaa !174
   %106 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i57, ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i.i58)
-  br i1 %106, label %107, label %.thread64
+  br i1 %106, label %107, label %.thread65
 
 107:                                              ; preds = %101
   %108 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEENS5_ILb1ESG_SE_SQ_SU_SV_EESU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -196717,21 +196717,21 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
 124:                                              ; preds = %111, %120, %107
   %.036.in = phi i1 [ %110, %107 ], [ %58, %111 ], [ %123, %120 ]
   %.035.in.in = phi i32 [ %109, %107 ], [ %57, %111 ], [ %121, %120 ]
-  %125 = icmp slt i32 %.035.in.in, 0
-  %brmerge = or i1 %125, %.036.in
-  %.mux = select i1 %125, i32 2, i32 1
+  %.not = icmp slt i32 %.035.in.in, 0
+  %brmerge = or i1 %.not, %.036.in
+  %.mux = select i1 %.not, i32 2, i32 1
   br i1 %brmerge, label %.critedge.sink.split, label %.critedge
 
-.thread64:                                        ; preds = %101
-  %126 = icmp slt i32 %57, 0
-  br i1 %126, label %.critedge.sink.split, label %.critedge
+.thread65:                                        ; preds = %101
+  %.not68 = icmp slt i32 %57, 0
+  br i1 %.not68, label %.critedge.sink.split, label %.critedge
 
-.critedge.sink.split:                             ; preds = %124, %.thread, %100, %.thread64
+.critedge.sink.split:                             ; preds = %124, %.thread, %100, %.thread65
   %.sink = phi i32 [ 2, %.thread64 ], [ %.mux, %124 ], [ 1, %100 ], [ 1, %.thread ]
   store i32 %.sink, ptr %0, align 4, !tbaa !2661
   br label %.critedge
 
-.critedge:                                        ; preds = %124, %.critedge.sink.split, %.thread64, %.thread, %3, %9
+.critedge:                                        ; preds = %124, %.critedge.sink.split, %.thread65, %.thread, %3, %9
   %.1 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %.thread ], [ false, %.thread64 ], [ true, %.critedge.sink.split ], [ false, %124 ]
   ret i1 %.1
 }
@@ -223117,7 +223117,7 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %.0.i.i.i58 = load ptr, ptr %105, align 8, !tbaa !174
   %106 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i58)
-  br i1 %106, label %107, label %.thread64
+  br i1 %106, label %107, label %.thread65
 
 107:                                              ; preds = %101
   %108 = call noundef i32 @_ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_range_from_sectionILb0ENS0_7sectionINS0_5model3boxINS7_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEEEELm2EEESE_NS0_22ever_circling_iteratorIN9__gnu_cxx17__normal_iteratorIPKSE_St6vectorISE_SaISE_EEEEEENS0_10strategies6relate9sphericalIvEENS1_17no_rescale_policyEEENS5_ILb1ESG_SE_SQ_SU_SV_EESU_E9pk_wrt_q2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -223153,21 +223153,21 @@ _ZNK5boost8geometry6detail7overlay15side_calculatorINS1_9get_turns29unique_sub_r
 124:                                              ; preds = %111, %120, %107
   %.036.in = phi i1 [ %110, %107 ], [ %58, %111 ], [ %123, %120 ]
   %.035.in.in = phi i32 [ %109, %107 ], [ %57, %111 ], [ %121, %120 ]
-  %125 = icmp slt i32 %.035.in.in, 0
-  %brmerge = or i1 %125, %.036.in
-  %.mux = select i1 %125, i32 2, i32 1
+  %.not = icmp slt i32 %.035.in.in, 0
+  %brmerge = or i1 %.not, %.036.in
+  %.mux = select i1 %.not, i32 2, i32 1
   br i1 %brmerge, label %.critedge.sink.split, label %.critedge
 
-.thread64:                                        ; preds = %101
-  %126 = icmp slt i32 %57, 0
-  br i1 %126, label %.critedge.sink.split, label %.critedge
+.thread65:                                        ; preds = %101
+  %.not68 = icmp slt i32 %57, 0
+  br i1 %.not68, label %.critedge.sink.split, label %.critedge
 
-.critedge.sink.split:                             ; preds = %124, %.thread, %100, %.thread64
+.critedge.sink.split:                             ; preds = %124, %.thread, %100, %.thread65
   %.sink = phi i32 [ 2, %.thread64 ], [ %.mux, %124 ], [ 1, %100 ], [ 1, %.thread ]
   store i32 %.sink, ptr %0, align 4, !tbaa !2661
   br label %.critedge
 
-.critedge:                                        ; preds = %124, %.critedge.sink.split, %.thread64, %.thread, %3, %9
+.critedge:                                        ; preds = %124, %.critedge.sink.split, %.thread65, %.thread, %3, %9
   %.1 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %.thread ], [ false, %.thread64 ], [ true, %.critedge.sink.split ], [ false, %124 ]
   ret i1 %.1
 }
