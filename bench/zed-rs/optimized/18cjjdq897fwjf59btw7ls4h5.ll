@@ -40824,8 +40824,8 @@ _ZN4core3ops8function6FnOnce9call_once17hfc717b8f1dcef179E.exit.i.i.i: ; preds =
   unreachable
 
 .thread:                                          ; preds = %35, %.body17, %303
-  %.pn1138 = phi { ptr, i32 } [ %304, %303 ], [ %.pn9, %.body17 ], [ %.pn9, %35 ]
-  resume { ptr, i32 } %.pn1138
+  %.pn1137 = phi { ptr, i32 } [ %304, %303 ], [ %.pn9, %.body17 ], [ %.pn9, %35 ]
+  resume { ptr, i32 } %.pn1137
 
 303:                                              ; preds = %32
   %304 = landingpad { ptr, i32 }

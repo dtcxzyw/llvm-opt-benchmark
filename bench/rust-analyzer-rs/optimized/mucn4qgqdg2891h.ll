@@ -54838,8 +54838,8 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !12172
   %.sroa.4757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1679, ptr %.sroa.4757.0..sroa_idx, align 8, !noalias !12181
-  %.sroa.5.0..sroa_idx758 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.494, ptr %.sroa.5.0..sroa_idx758, align 8, !noalias !12181
+  %.sroa.5758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr @anon.5bcdf0f39a39a1f1bdb121e0a7249614.494, ptr %.sroa.5758.0..sroa_idx, align 8, !noalias !12181
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 9, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !12181
   %1709 = getelementptr inbounds nuw i8, ptr %1685, i64 872
@@ -54879,7 +54879,7 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
           to label %.noexc.i710 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i709, !noalias !12172
 
 .noexc.i710:                                      ; preds = %1724
-  %1729 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h082e17c26402f63aE.llvm.2681043041644741927"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1728, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5.0..sroa_idx758)
+  %1729 = invoke noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h082e17c26402f63aE.llvm.2681043041644741927"(ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1728, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.5758.0..sroa_idx)
           to label %.noexc16.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i709, !noalias !12172
 
 .noexc16.i:                                       ; preds = %.noexc.i710

@@ -104214,7 +104214,7 @@ define hidden void @"_ZN94_$LT$tokio_retry..future..RetryIf$LT$I$C$A$C$C$GT$$u20
   %.sroa.17213.i.i = alloca [6 x i32], align 8
   %.sroa.18214.i.i = alloca [20 x i32], align 8
   %.sroa.0206.i.i = alloca { { i32, [39 x i32] }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, align 8
-  %.sroa.0200.sroa.10.i.i = alloca [6 x i8], align 2
+  %.sroa.22.i.i = alloca [6 x i8], align 2
   %.sroa.0200.sroa.11.i.i = alloca [512 x i8], align 8
   %.sroa.6202.i.i = alloca [991 x i8], align 1
   %.sroa.0203.sroa.0.i.i = alloca { { i32, [39 x i32] }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, align 8
@@ -104857,7 +104857,7 @@ common.resume102:                                 ; preds = %common.resume102.si
 .body.i.i:                                        ; preds = %288, %139
   %.pn74.i.i = phi { ptr, i32 } [ %289, %288 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i.i.i, %139 ]
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %.sroa.0206.i.i)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.0200.sroa.10.i.i)
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.22.i.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %.sroa.0200.sroa.11.i.i)
   call void @llvm.lifetime.end.p0(i64 991, ptr nonnull %.sroa.6202.i.i)
   br label %.body138.i.i
@@ -104908,7 +104908,7 @@ common.resume102:                                 ; preds = %common.resume102.si
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59), !noalias !15279
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %.sroa.0203.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(448) %.sroa.0206.i.i, i64 448, i1 false), !noalias !15258
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %.sroa.0206.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0203.sroa.12.i.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0200.sroa.10.i.i, i64 6, i1 false), !alias.scope !15312, !noalias !15258
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.0203.sroa.12.i.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.22.i.i, i64 6, i1 false), !alias.scope !15312, !noalias !15258
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %.sroa.0203.sroa.13.i.i, ptr noundef nonnull align 8 dereferenceable(512) %.sroa.0200.sroa.11.i.i, i64 512, i1 false), !alias.scope !15312, !noalias !15258
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(991) %.sroa.8205.i.i, ptr noundef nonnull align 1 dereferenceable(991) %.sroa.6202.i.i, i64 991, i1 false), !alias.scope !15312, !noalias !15258
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.0200.sroa.10.i.i)

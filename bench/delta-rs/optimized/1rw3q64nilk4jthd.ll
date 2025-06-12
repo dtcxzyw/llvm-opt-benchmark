@@ -130685,7 +130685,7 @@ define void @_ZN14deltalake_core8protocol11checkpoints24parquet_bytes_from_state
   %.sroa.613.sroa.0 = alloca [3 x i64], align 8
   %70 = alloca { ptr, [5 x i64] }, align 8
   %71 = alloca { { { { i64, [36 x i64] } } } }, align 8
-  %.sroa.0657.sroa.6 = alloca [4 x i64], align 8
+  %.sroa.6796 = alloca [4 x i64], align 8
   %.sroa.8662 = alloca [6 x i8], align 2
   %.sroa.0510.sroa.0.sroa.0.sroa.0 = alloca [296 x i8], align 8
   %.sroa.0510.sroa.0.sroa.0.sroa.5 = alloca [256 x i8], align 8

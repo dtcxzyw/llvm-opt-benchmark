@@ -6199,7 +6199,7 @@ _ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7clas
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %.not17 = icmp eq ptr %29, null
-  br i1 %.not17, label %30, label %98
+  br i1 %.not17, label %30, label %88
 
 30:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
@@ -6280,17 +6280,17 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerIPKcNS1_16scanner_policiesINS1_16itera
   store ptr %36, ptr %31, align 8, !tbaa !200
   store ptr %31, ptr %3, align 8, !tbaa !244
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %45, ptr %4, align 8, !tbaa !146
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %46, align 8, !tbaa !148
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %33, ptr %4, align 8, !tbaa !146
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %34, align 8, !tbaa !148
   invoke void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr noundef nonnull align 8 dereferenceable(9) %4)
-          to label %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit unwind label %86
+          to label %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit unwind label %76
 
-_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %38
+_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:; preds = %38
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !246
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %40 = load ptr, ptr %47, align 8, !tbaa !246
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %50 = load ptr, ptr %49, align 8, !tbaa !80
   %.not.i.i20 = icmp eq ptr %48, %50
   br i1 %.not.i.i20, label %54, label %51
@@ -6302,119 +6302,119 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %38
   store ptr %53, ptr %47, align 8, !tbaa !246
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
-54:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit
-  %55 = load ptr, ptr %5, align 8, !tbaa !78
-  %56 = ptrtoint ptr %48 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %59 = icmp eq i64 %58, 9223372036854775800
-  br i1 %59, label %60, label %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
+42:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit
+  %43 = load ptr, ptr %5, align 8, !tbaa !78
+  %44 = ptrtoint ptr %48 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  %47 = icmp eq i64 %46, 9223372036854775800
+  br i1 %47, label %48, label %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
 
-60:                                               ; preds = %54
+48:                                               ; preds = %42
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.57) #28
-          to label %.noexc unwind label %88
+          to label %.noexc unwind label %78
 
-.noexc:                                           ; preds = %60
+.noexc:                                           ; preds = %48
   unreachable
 
-_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %54
-  %61 = ashr exact i64 %58, 3
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %61, i64 1)
-  %62 = add nsw i64 %.sroa.speculated.i.i.i.i, %61
-  %63 = icmp ult i64 %62, %61
-  %64 = call i64 @llvm.umin.i64(i64 %62, i64 1152921504606846975)
-  %65 = select i1 %63, i64 1152921504606846975, i64 %64
-  %.not.i.i.i.i = icmp ne i64 %65, 0
+_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %42
+  %49 = ashr exact i64 %46, 3
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
+  %50 = add nsw i64 %.sroa.speculated.i.i.i.i, %49
+  %51 = icmp ult i64 %50, %49
+  %52 = call i64 @llvm.umin.i64(i64 %50, i64 1152921504606846975)
+  %53 = select i1 %51, i64 1152921504606846975, i64 %52
+  %.not.i.i.i.i = icmp ne i64 %53, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
-  %66 = shl nuw nsw i64 %65, 3
-  %67 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #31
-          to label %.noexc21 unwind label %88
+  %54 = shl nuw nsw i64 %53, 3
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #31
+          to label %.noexc21 unwind label %78
 
 .noexc21:                                         ; preds = %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
-  %68 = getelementptr inbounds i8, ptr %67, i64 %58
-  store ptr %0, ptr %68, align 8, !tbaa !17
-  %69 = icmp sgt i64 %58, 0
-  br i1 %69, label %70, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
+  %56 = getelementptr inbounds i8, ptr %55, i64 %46
+  store ptr %0, ptr %56, align 8, !tbaa !17
+  %57 = icmp sgt i64 %46, 0
+  br i1 %57, label %58, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
 
-70:                                               ; preds = %.noexc21
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %67, ptr align 8 %55, i64 %58, i1 false)
+58:                                               ; preds = %.noexc21
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %43, i64 %46, i1 false)
   br label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
 
-_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i: ; preds = %70, %.noexc21
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, label %72
+_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i: ; preds = %58, %.noexc21
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %43, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, label %60
 
-72:                                               ; preds = %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %58) #30
+60:                                               ; preds = %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %46) #30
   br label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %72, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
-  store ptr %67, ptr %5, align 8, !tbaa !78
-  store ptr %71, ptr %47, align 8, !tbaa !246
-  %73 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
-  store ptr %73, ptr %49, align 8, !tbaa !80
+_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
+  store ptr %55, ptr %5, align 8, !tbaa !78
+  store ptr %59, ptr %47, align 8, !tbaa !246
+  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  store ptr %61, ptr %49, align 8, !tbaa !80
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
 _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit: ; preds = %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, %51
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = load i64, ptr %74, align 8, !tbaa !247
-  %76 = add i64 %75, 1
-  store i64 %76, ptr %74, align 8, !tbaa !247
-  %77 = load ptr, ptr %8, align 8, !tbaa !220
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %7
-  store ptr %31, ptr %78, align 8, !tbaa !17
-  %79 = load i8, ptr %46, align 8, !tbaa !148, !range !109, !noundef !110
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %63 = load i64, ptr %62, align 8, !tbaa !247
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %62, align 8, !tbaa !247
+  %65 = load ptr, ptr %8, align 8, !tbaa !220
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %7
+  store ptr %31, ptr %66, align 8, !tbaa !17
+  %67 = load i8, ptr %34, align 8, !tbaa !148, !range !109, !noundef !110
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit
 
-81:                                               ; preds = %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
-  %82 = load ptr, ptr %4, align 8, !tbaa !146
-  br label %83
+69:                                               ; preds = %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
+  %70 = load ptr, ptr %4, align 8, !tbaa !146
+  br label %71
 
-83:                                               ; preds = %83, %81
-  %84 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %82) #27
-  %85 = icmp eq i32 %84, 4
-  br i1 %85, label %83, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit, !llvm.loop !149
+71:                                               ; preds = %71, %69
+  %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %70) #27
+  %73 = icmp eq i32 %72, 4
+  br i1 %73, label %71, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit, !llvm.loop !149
 
-_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit: ; preds = %83, %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
+_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit: ; preds = %71, %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars14intlit_grammarENS1_15closure_contextINS6_8closures14intlit_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  br label %98
+  br label %88
 
-86:                                               ; preds = %38
-  %87 = landingpad { ptr, i32 }
+76:                                               ; preds = %38
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22
 
-88:                                               ; preds = %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i, %60
-  %89 = landingpad { ptr, i32 }
+78:                                               ; preds = %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars14intlit_grammarENS2_15closure_contextINS7_8closures14intlit_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i, %48
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %90 = load i8, ptr %46, align 8, !tbaa !148, !range !109, !noundef !110
-  %91 = trunc nuw i8 %90 to i1
-  br i1 %91, label %92, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22
+  %80 = load i8, ptr %34, align 8, !tbaa !148, !range !109, !noundef !110
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22
 
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %4, align 8, !tbaa !146
-  br label %94
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %4, align 8, !tbaa !146
+  br label %84
 
-94:                                               ; preds = %94, %92
-  %95 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %93) #27
-  %96 = icmp eq i32 %95, 4
-  br i1 %96, label %94, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, !llvm.loop !149
+84:                                               ; preds = %84, %82
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %83) #27
+  %86 = icmp eq i32 %85, 4
+  br i1 %86, label %84, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, !llvm.loop !149
 
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22:    ; preds = %94, %88, %86
-  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %89, %88 ], [ %89, %94 ]
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22:    ; preds = %84, %78, %76
+  %.pn = phi { ptr, i32 } [ %77, %86 ], [ %79, %88 ], [ %79, %94 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   call void @_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
-  br label %97
+  br label %87
 
-97:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, %_ZN5boost6spirit7classic4ruleINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESC_ED2Ev.exit.i
+87:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, %_ZN5boost6spirit7classic4ruleINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESC_ED2Ev.exit.i
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22 ], [ %37, %_ZN5boost6spirit7classic4ruleINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESC_ED2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   resume { ptr, i32 } %.pn.pn
 
-98:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit
+88:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit
   %.015 = phi ptr [ %31, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars14intlit_grammar10definitionINS_6spirit7classic7scannerIPKcNS7_16scanner_policiesINS7_16iteration_policyENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteISH_EEED2Ev.exit ], [ %29, %_ZNSt6vectorIPN5boost4wave8grammars14intlit_grammar10definitionINS0_6spirit7classic7scannerIPKcNS6_16scanner_policiesINS6_16iteration_policyENS6_12match_policyENS6_13action_policyEEEEEEESaISH_EE6resizeEm.exit ]
   ret ptr %.015
 }

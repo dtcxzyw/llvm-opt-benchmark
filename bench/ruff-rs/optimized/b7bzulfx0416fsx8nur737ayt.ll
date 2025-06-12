@@ -15913,7 +15913,7 @@ define hidden void @_ZN14ruff_workspace9pyproject12load_options17h3e471e59e06f14
   %30 = tail call noundef zeroext i1 @_ZN3std4path4Path9ends_with17hfaef9740b144b17aE(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 1 @anon.e792752b4454889dead1a66caae2c60f.280, i64 noundef 14)
   br i1 %30, label %44, label %31
 
-common.resume:                                    ; preds = %63, %38, %76, %178
+common.resume:                                    ; preds = %63, %38, %76, %177
   %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %.pn, %178 ], [ %39, %38 ], [ %64, %63 ]
   resume { ptr, i32 } %common.resume.op
 
@@ -16091,14 +16091,14 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit: ; 
   %.pr57 = load i64, ptr %26, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1022
   %68 = icmp eq i64 %.pr57, 4
-  %.phi.trans.insert70 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.pre71 = load ptr, ptr %.phi.trans.insert70, align 8
+  %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.pre69 = load ptr, ptr %.phi.trans.insert68, align 8
   br i1 %68, label %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._crit_edge, label %140
 
 69:                                               ; preds = %_ZN14ruff_workspace9pyproject15parse_ruff_toml17h5c852033e3ed3b39E.exit.thread, %96, %70, %73, %119, %_ZN14ruff_workspace9pyproject15parse_ruff_toml17h5c852033e3ed3b39E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(4720) %23, i64 4720, i1 false)
   call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %23)
-  br label %185
+  br label %184
 
 70:                                               ; preds = %_ZN14ruff_workspace9pyproject15parse_ruff_toml17h5c852033e3ed3b39E.exit
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 4713
@@ -16270,20 +16270,20 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit: ; 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15)
   br label %119
 
-136:                                              ; preds = %178, %175, %76
+136:                                              ; preds = %177, %174, %76
   %137 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #21
   unreachable
 
 _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._crit_edge: ; preds = %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit.thread
-  %138 = phi ptr [ %48, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit.thread ], [ %.pre71, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit ]
+  %138 = phi ptr [ %48, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit.thread ], [ %.pre69, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit ]
   call void @llvm.lifetime.end.p0(i64 4744, ptr nonnull %26)
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %138, ptr %139, align 8
   store i64 2, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4744, ptr nonnull %27)
-  br label %185
+  br label %184
 
 140:                                              ; preds = %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -16292,15 +16292,15 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._cr
   call void @llvm.lifetime.end.p0(i64 4744, ptr nonnull %26)
   store i64 %.pr57, ptr %27, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %.pre71, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.pre69, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 4720, ptr nonnull %25)
   %141 = and i64 %.pr57, -2
   %switch = icmp eq i64 %141, 2
   br i1 %switch, label %.thread, label %165
 
-.thread:                                          ; preds = %140
-  %142 = getelementptr inbounds nuw i8, ptr %25, i64 4392
-  store i64 -9223372036854775808, ptr %142, align 8, !alias.scope !1041
+142:                                              ; preds = %140
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4392
+  store i64 -9223372036854775808, ptr %.sroa.432.0..sroa_idx, align 8, !alias.scope !1041
   %143 = getelementptr inbounds nuw i8, ptr %25, i64 4416
   store i64 -9223372036854775808, ptr %143, align 8, !alias.scope !1041
   %144 = getelementptr inbounds nuw i8, ptr %25, i64 4714
@@ -16422,14 +16422,14 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._cr
   store i8 3, ptr %.sroa.4985.0..sroa_idx.i, align 4, !alias.scope !1041
   %.sroa.5086.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 2113
   store i32 50529027, ptr %.sroa.5086.0..sroa_idx.i, align 1, !alias.scope !1041
-  %162 = getelementptr inbounds nuw i8, ptr %25, i64 4632
-  store i64 -9223372036854775807, ptr %162, align 8, !alias.scope !1041
-  %163 = getelementptr inbounds nuw i8, ptr %25, i64 4328
-  store i64 2, ptr %163, align 8, !alias.scope !1041
+  %163 = getelementptr inbounds nuw i8, ptr %25, i64 4632
+  store i64 -9223372036854775807, ptr %163, align 8, !alias.scope !1041
+  %164 = getelementptr inbounds nuw i8, ptr %25, i64 4328
+  store i64 2, ptr %164, align 8, !alias.scope !1041
   %164 = getelementptr inbounds nuw i8, ptr %25, i64 4713
   br label %169
 
-165:                                              ; preds = %140
+165: ; preds = %140
   %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4712) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(4712) %.sroa.4.0..sroa_idx, i64 4712, i1 false)
   store i64 %.pr57, ptr %25, align 8
@@ -16442,67 +16442,67 @@ _ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._cr
 .thread73:                                        ; preds = %169, %181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(4720) %25, i64 4720, i1 false)
   call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %25)
-  br label %182
+  br label %181
 
-168:                                              ; preds = %165
+170:                                              ; preds = %165
   %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %27, i64 4720
   %.pre69 = load i64, ptr %.phi.trans.insert68, align 8, !range !33
   %.not75 = icmp eq i64 %.pre69, -9223372036854775807
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(4720) %25, i64 4720, i1 false)
   call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %25)
-  br i1 %.not75, label %182, label %183
+  br i1 %.not75, label %181, label %182
 
-169:                                              ; preds = %.thread, %165
+171:                                              ; preds = %142, %165
   %170 = phi ptr [ %164, %.thread ], [ %167, %165 ]
   %171 = getelementptr inbounds nuw i8, ptr %27, i64 4720
   %172 = load i64, ptr %171, align 8, !range !33, !noundef !4
   %switch76 = icmp slt i64 %172, -9223372036854775806
   br i1 %switch76, label %.thread73, label %173
 
-173:                                              ; preds = %169
+172:                                              ; preds = %171
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4728
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
   store i64 %172, ptr %24, align 8
   %.sroa.555.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.555.0..sroa_idx56, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.555.0..sroa_idx, i64 16, i1 false)
-  %174 = invoke noundef i8 @_ZN14ruff_workspace9pyproject29get_minimum_supported_version17h3e39f285f727555cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
-          to label %177 unwind label %175
+  %173 = invoke noundef i8 @_ZN14ruff_workspace9pyproject29get_minimum_supported_version17h3e39f285f727555cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+          to label %177 unwind label %174
 
-175:                                              ; preds = %173
-  %176 = landingpad { ptr, i32 }
+174:                                              ; preds = %172
+  %175 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$17h56d764e460777fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #20
           to label %178 unwind label %136
 
-177:                                              ; preds = %173
-  store i8 %174, ptr %170, align 1
+176:                                              ; preds = %172
+  store i8 %173, ptr %170, align 1
   invoke void @"_ZN4core3ptr68drop_in_place$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$17h56d764e460777fa1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24)
-          to label %181 unwind label %179
+          to label %181 unwind label %178
 
-178:                                              ; preds = %179, %175
-  %.pn = phi { ptr, i32 } [ %180, %179 ], [ %176, %175 ]
+177:                                              ; preds = %178, %174
+  %.pn = phi { ptr, i32 } [ %179, %179 ], [ %175, %175 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$ruff_workspace..options..Options$GT$17hb66b7734ac4af369E"(ptr noalias noundef nonnull align 8 dereferenceable(4720) %25) #20
           to label %common.resume unwind label %136
 
-179:                                              ; preds = %177
-  %180 = landingpad { ptr, i32 }
+178:                                              ; preds = %176
+  %179 = landingpad { ptr, i32 }
           cleanup
-  br label %178
+  br label %177
 
-181:                                              ; preds = %177
+180:                                              ; preds = %176
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %.thread73
 
-182:                                              ; preds = %.thread73, %183, %168
+181:                                              ; preds = %.thread73, %182, %170
   call void @llvm.lifetime.end.p0(i64 4744, ptr nonnull %27)
-  br label %185
+  br label %184
 
-183:                                              ; preds = %168
-  %184 = getelementptr inbounds nuw i8, ptr %27, i64 4720
-  call void @"_ZN4core3ptr55drop_in_place$LT$ruff_workspace..pyproject..Project$GT$17h8dbcf5d4ab2f0a9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %184)
-  br label %182
+182:                                              ; preds = %170
+  %183 = getelementptr inbounds nuw i8, ptr %27, i64 4720
+  call void @"_ZN4core3ptr55drop_in_place$LT$ruff_workspace..pyproject..Project$GT$17h8dbcf5d4ab2f0a9eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %183)
+  br label %181
 
-185:                                              ; preds = %69, %182, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._crit_edge
+184:                                              ; preds = %69, %181, %_ZN14ruff_workspace9pyproject20parse_pyproject_toml17h15654e06f760e702E.exit._crit_edge
   ret void
 }
 
