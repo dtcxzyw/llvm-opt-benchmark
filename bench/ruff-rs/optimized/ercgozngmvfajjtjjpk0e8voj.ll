@@ -9367,8 +9367,8 @@ define void @"_ZN143_$LT$ruff_python_formatter..verbatim..VerbatimText$u20$as$u2
   %48 = load i8, ptr %47, align 1, !alias.scope !514, !noundef !3
   %49 = icmp slt i8 %48, -64
   %.not.old = icmp eq ptr %28, null
-  %or.cond34 = select i1 %49, i1 true, i1 %.not.old
-  br i1 %or.cond34, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %50, !prof !176
+  %or.cond35 = select i1 %49, i1 true, i1 %.not.old
+  br i1 %or.cond35, label %"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit.thread", label %50, !prof !176
 
 "_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E.exit": ; preds = %35
   %.not.old.old = icmp eq ptr %28, null
@@ -9418,9 +9418,9 @@ define void @"_ZN143_$LT$ruff_python_formatter..verbatim..VerbatimText$u20$as$u2
   br label %67
 
 66:                                               ; preds = %.lr.ph.i
-  %.sroa.4.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.228.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx19, i64 20, i1 false)
+  %.sroa.419.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.sroa.229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.229.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.419.0..sroa_idx20, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !517
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   store i32 %64, ptr %0, align 8

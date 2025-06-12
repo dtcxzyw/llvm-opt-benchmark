@@ -4291,9 +4291,9 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$tokio..loom..std..parking_lot..RwLo
 define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3new17h49c23d2147e33e28E(ptr noalias noundef writeonly sret({ { { { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }, { { ptr } } }, ptr }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1, ptr noalias noundef align 8 captures(none) dereferenceable(224) %2, ptr noundef nonnull %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef align 8 captures(none) dereferenceable(72) %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { { i64 }, { i64 }, { { { { i32, i32 }, i64, { ptr, ptr }, { ptr, ptr }, { { { { i32 } }, { { i8 } }, [3 x i8], { i32, i32 } } }, i32, i8, i8, [2 x i8] }, { { { ptr, i64 }, { i64 }, i64 }, i64, { i8 }, [7 x i8] }, { { {}, { { { i8 } }, [7 x i8], { { ptr, ptr, i8, [7 x i8] } } } }, { { { { i64 } } }, {} } }, { i8 }, {}, {}, [7 x i8] }, { { [17 x i32], i32 }, ptr, { { {}, { { { i8 } }, [7 x i8], { { { i64, i32 }, { i64, i32 }, i64, i8, [7 x i8] } } } } }, { [20 x i32], i32, [1 x i32] } }, ptr, { { { { i32 } }, { { i8 } }, [3 x i8], { i32, i32 } } } } }, align 8
   %8 = alloca { { ptr, i64 }, { i64 }, i64 }, align 8
-  %.sroa.538 = alloca [23 x i8], align 1
+  %.sroa.539 = alloca [23 x i8], align 1
   %9 = alloca { { i64, [7 x i64] }, { { i64, ptr }, i64, i64 }, i32, i32, i8, {}, [7 x i8] }, align 8
-  %.sroa.432 = alloca [24 x i8], align 1
+  %.sroa.433 = alloca [24 x i8], align 1
   %.sroa.02.sroa.0.sroa.0 = alloca [104 x i8], align 8
   %.sroa.5 = alloca [231 x i8], align 1
   %10 = alloca ptr, align 8
@@ -4306,7 +4306,7 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   %.0 = select i1 %trunc, i32 %14, i32 31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 231, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.432)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.433)
   %.sroa.432.7..sroa_idx70 = getelementptr inbounds nuw i8, ptr %.sroa.432, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.432.7..sroa_idx70, i8 0, i64 17, i1 false), !alias.scope !383
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !386
@@ -4325,12 +4325,12 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.02.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 137
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %7), !noalias !389
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.432, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.432)
-  %.sroa.5.168..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %.sroa.5.168..sroa_idx, ptr noundef nonnull align 8 dereferenceable(224) %2, i64 224, i1 false)
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 416
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(24) %.sroa.433, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.433)
+  %.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %.sroa.6.0..sroa_idx30, ptr noundef nonnull align 8 dereferenceable(224) %2, i64 224, i1 false)
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   store i64 1, ptr %7, align 8, !noalias !389
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %18, align 8, !noalias !389
@@ -4346,8 +4346,8 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   store i64 0, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 176
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 177
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(231) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(231) %.sroa.5, i64 231, i1 false)
+  %.sroa.731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 177
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(231) %.sroa.731.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(231) %.sroa.5, i64 231, i1 false)
   %.sroa.6.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %7, i64 408
   store ptr %3, ptr %.sroa.6.0..sroa_idx30, align 8
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !392
@@ -4406,10 +4406,10 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %36, ptr %38, align 8
-  %.sroa.467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr %37, ptr %.sroa.467.0..sroa_idx, align 8
-  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.568.0..sroa_idx, i8 0, i64 20, i1 false)
+  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store ptr %37, ptr %.sroa.469.0..sroa_idx, align 8
+  %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.570.0..sroa_idx, i8 0, i64 20, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 100
   store i32 %.0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -4441,14 +4441,14 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
 49:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull align 8 dereferenceable(112) %9, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9)
-  %.sroa.538.7..sroa_idx71 = getelementptr inbounds nuw i8, ptr %.sroa.538, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.538.7..sroa_idx71, i8 0, i64 16, i1 false)
+  %.sroa.539.7..sroa_idx73 = getelementptr inbounds nuw i8, ptr %.sroa.539, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.539.7..sroa_idx73, i8 0, i64 16, i1 false)
   %.cast = ptrtoint ptr %42 to i64
   store i64 0, ptr %0, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.3.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.538, i64 23, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.0.sroa.3.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.539, i64 23, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.cast, ptr %.sroa.2.0..sroa_idx, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4486,11 +4486,11 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
           to label %.critedge.thread unwind label %51
 
 "_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit": ; preds = %.critedge.thread, %.critedge
-  %.pn.pn475660 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %.pn.pn475661, %.critedge.thread ]
-  resume { ptr, i32 } %.pn.pn475660
+  %.pn.pn485761 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %.pn.pn485762, %.critedge.thread ]
+  resume { ptr, i32 } %.pn.pn485761
 
 .critedge.thread:                                 ; preds = %24, %.noexc28, %.critedge
-  %.pn.pn475661 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %54, %.noexc28 ], [ %25, %24 ]
+  %.pn.pn485762 = phi { ptr, i32 } [ %.pn, %.critedge ], [ %54, %.noexc28 ], [ %25, %24 ]
   invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
           to label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit" unwind label %51
 }

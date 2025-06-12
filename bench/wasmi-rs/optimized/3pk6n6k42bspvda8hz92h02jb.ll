@@ -429,10 +429,10 @@ common.resume:                                    ; preds = %53, %33
   store i64 %111, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !27
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %113, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !27
-  %.sroa.4.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %115, ptr %.sroa.4.0..sroa_idx.i2, align 8, !alias.scope !9, !noalias !27
-  %.sroa.5.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %117, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !9, !noalias !27
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %115, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !9, !noalias !27
+  %.sroa.5.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %117, ptr %.sroa.5.0..sroa_idx.i2, align 8, !alias.scope !9, !noalias !27
   br label %118
 
 118:                                              ; preds = %121, %107
@@ -767,8 +767,8 @@ define internal fastcc void @"_ZN5wasmi6engine8executor6instrs4copy59_$LT$impl$u
   unreachable
 
 .thread:                                          ; preds = %37, %51
-  %.pn6 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %51 ], [ %38, %37 ]
-  resume { ptr, i32 } %.pn6
+  %.pn7 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %51 ], [ %38, %37 ]
+  resume { ptr, i32 } %.pn7
 
 51:                                               ; preds = %4
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -811,7 +811,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   switch i16 %21, label %26 [
     i16 522, label %22
     i16 519, label %.loopexit.loopexit
-    i16 520, label %.loopexit.loopexit46
+    i16 520, label %.loopexit.loopexit45
     i16 521, label %.loopexit
   ]
 
@@ -823,7 +823,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   store ptr %24, ptr %18, align 8
   store ptr %0, ptr %19, align 8
   invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h6d878ad24fbd426cE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10)
-          to label %25 unwind label %.loopexit23
+          to label %25 unwind label %.loopexit22
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -835,10 +835,10 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
 .loopexit.loopexit:                               ; preds = %20
   br label %.loopexit
 
-.loopexit.loopexit46:                             ; preds = %20
+.loopexit.loopexit45:                             ; preds = %20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit46, %.loopexit.loopexit
+.loopexit:                                        ; preds = %20, %.loopexit.loopexit45, %.loopexit.loopexit
   %.sroa.4.0 = phi i64 [ 1, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit46 ], [ 3, %20 ]
   %.sroa.04.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
@@ -932,10 +932,10 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
   unreachable
 
 .thread:                                          ; preds = %56, %70
-  %.pn14 = phi { ptr, i32 } [ %lpad.phi, %70 ], [ %57, %56 ]
-  resume { ptr, i32 } %.pn14
+  %.pn13 = phi { ptr, i32 } [ %lpad.phi, %70 ], [ %57, %56 ]
+  resume { ptr, i32 } %.pn13
 
-.loopexit23:                                      ; preds = %22
+.loopexit22:                                      ; preds = %22
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %70
@@ -945,7 +945,7 @@ define internal fastcc noundef ptr @"_ZN5wasmi6engine8executor6instrs4copy59_$LT
           cleanup
   br label %70
 
-70:                                               ; preds = %.loopexit.split-lp, %.loopexit23
+70:                                               ; preds = %.loopexit.split-lp, %.loopexit22
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit23 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr99drop_in_place$LT$smallvec..SmallVec$LT$$u5b$wasmi_core..untyped..UntypedVal$u3b$$u20$8$u5d$$GT$$GT$17h74724ec012748967E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %12) #15
           to label %.thread unwind label %68

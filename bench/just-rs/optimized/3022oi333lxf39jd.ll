@@ -8198,13 +8198,13 @@ default.unreachable:                              ; preds = %166
   %.sroa.24.i.sroa.12.1 = phi i8 [ %.sroa.24.i.sroa.12.0179, %170 ], [ %.sroa.24.i.sroa.12.0179, %.noexc17 ], [ %.sroa.24.i.sroa.12.0179, %175 ], [ %.sroa.24.i.sroa.12.0179, %.noexc18 ], [ %.sroa.24.i.sroa.12.0179, %180 ], [ %.sroa.24.i.sroa.12.0179, %183 ], [ %.sroa.24.i.sroa.12.0179, %186 ], [ %.sroa.24.i.sroa.12.0179, %189 ], [ %.sroa.24.i.sroa.12.0179, %192 ], [ %.sroa.0.i.i.sroa.8.24.copyload, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ %.sroa.24.i.sroa.12.0179, %.noexc20 ], [ %.sroa.24.i.sroa.12.0179, %212 ], [ %.sroa.07.i.i.sroa.8.24.copyload, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.24.i.sroa.13.1 = phi i8 [ %.sroa.24.i.sroa.13.0205, %170 ], [ %.sroa.24.i.sroa.13.0205, %.noexc17 ], [ %.sroa.24.i.sroa.13.0205, %175 ], [ %.sroa.24.i.sroa.13.0205, %.noexc18 ], [ %.sroa.24.i.sroa.13.0205, %180 ], [ %.sroa.24.i.sroa.13.0205, %183 ], [ %.sroa.24.i.sroa.13.0205, %186 ], [ %.sroa.24.i.sroa.13.0205, %189 ], [ %.sroa.24.i.sroa.13.0205, %192 ], [ %.sroa.0.i.i.sroa.9.24.copyload, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ %.sroa.24.i.sroa.13.0205, %.noexc20 ], [ %.sroa.24.i.sroa.13.0205, %212 ], [ %.sroa.07.i.i.sroa.9.24.copyload, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.24.i.sroa.15.1 = phi ptr [ %.sroa.24.i.sroa.15.0207, %170 ], [ %.sroa.24.i.sroa.15.0207, %.noexc17 ], [ %.sroa.24.i.sroa.15.0207, %175 ], [ %.sroa.24.i.sroa.15.0207, %.noexc18 ], [ %.sroa.24.i.sroa.15.0207, %180 ], [ %.sroa.24.i.sroa.15.0207, %183 ], [ %.sroa.24.i.sroa.15.0207, %186 ], [ %.sroa.24.i.sroa.15.0207, %189 ], [ %.sroa.24.i.sroa.15.0207, %192 ], [ %.sroa.0.i.i.sroa.11.24.copyload, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ %.sroa.24.i.sroa.15.0207, %.noexc20 ], [ %.sroa.24.i.sroa.15.0207, %212 ], [ %.sroa.07.i.i.sroa.11.24.copyload, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
-  %.sroa.1631.0.i = phi i8 [ %172, %170 ], [ undef, %.noexc17 ], [ %177, %175 ], [ undef, %.noexc18 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %191, %189 ], [ %194, %192 ], [ undef, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ undef, %.noexc20 ], [ %214, %212 ], [ undef, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
+  %.sroa.1633.0.i = phi i8 [ %172, %170 ], [ undef, %.noexc17 ], [ %177, %175 ], [ undef, %.noexc18 ], [ %182, %180 ], [ %185, %183 ], [ %188, %186 ], [ %191, %189 ], [ %194, %192 ], [ undef, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ undef, %.noexc20 ], [ %214, %212 ], [ undef, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.29.0.i = phi ptr [ undef, %170 ], [ undef, %.noexc17 ], [ undef, %175 ], [ undef, %.noexc18 ], [ undef, %180 ], [ undef, %183 ], [ undef, %186 ], [ undef, %189 ], [ undef, %192 ], [ %203, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ undef, %.noexc20 ], [ undef, %212 ], [ %223, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.31.0.i = phi i64 [ undef, %170 ], [ undef, %.noexc17 ], [ undef, %175 ], [ undef, %.noexc18 ], [ undef, %180 ], [ undef, %183 ], [ undef, %186 ], [ undef, %189 ], [ undef, %192 ], [ %205, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ undef, %.noexc20 ], [ undef, %212 ], [ %225, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.33.0.i = phi i8 [ undef, %170 ], [ undef, %.noexc17 ], [ undef, %175 ], [ undef, %.noexc18 ], [ undef, %180 ], [ undef, %183 ], [ undef, %186 ], [ undef, %189 ], [ undef, %192 ], [ %199, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ undef, %.noexc20 ], [ undef, %212 ], [ %219, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.35.0.i = phi i8 [ undef, %170 ], [ undef, %.noexc17 ], [ undef, %175 ], [ undef, %.noexc18 ], [ undef, %180 ], [ undef, %183 ], [ undef, %186 ], [ undef, %189 ], [ undef, %192 ], [ %201, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit.i.i" ], [ undef, %.noexc20 ], [ undef, %212 ], [ %221, %"_ZN57_$LT$just..shell..Shell$u20$as$u20$core..clone..Clone$GT$5clone17hacf4b4189f6d6ce3E.exit6.i.i" ]
   %.sroa.1027.0.insert.ext = zext nneg i8 %169 to i64
-  %.sroa.1027.1.insert.ext = zext i8 %.sroa.1631.0.i to i64
+  %.sroa.1027.1.insert.ext = zext i8 %.sroa.1633.0.i to i64
   %.sroa.1027.1.insert.shift = shl nuw nsw i64 %.sroa.1027.1.insert.ext, 8
   %.sroa.1027.1.insert.insert = or disjoint i64 %.sroa.1027.1.insert.shift, %.sroa.1027.0.insert.ext
   %230 = inttoptr i64 %.sroa.1027.1.insert.insert to ptr
@@ -8330,8 +8330,8 @@ default.unreachable:                              ; preds = %166
   br label %270
 
 270:                                              ; preds = %.noexc23, %71
-  %.sink50.i = phi i64 [ %267, %.noexc23 ], [ -9223372036854775808, %71 ]
-  store i64 %.sink50.i, ptr %21, align 8, !noalias !1454
+  %.sink53.i = phi i64 [ %267, %.noexc23 ], [ -9223372036854775808, %71 ]
+  store i64 %.sink53.i, ptr %21, align 8, !noalias !1454
   %271 = getelementptr inbounds nuw i8, ptr %.sroa.024.0206, i64 80
   %272 = getelementptr inbounds nuw i8, ptr %.sroa.024.0206, i64 152
   %273 = load i8, ptr %272, align 8, !range !36, !alias.scope !1446, !noalias !1443, !noundef !16
@@ -8339,7 +8339,7 @@ default.unreachable:                              ; preds = %166
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.024.0206, i64 32
   %275 = load i64, ptr %274, align 8, !range !18, !alias.scope !1446, !noalias !1443, !noundef !16
   %276 = icmp eq i64 %275, -9223372036854775808
-  %277 = inttoptr i64 %.sink50.i to ptr
+  %277 = inttoptr i64 %.sink53.i to ptr
   br i1 %276, label %287, label %278
 
 278:                                              ; preds = %270

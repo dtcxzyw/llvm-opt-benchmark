@@ -11552,9 +11552,9 @@ define hidden noundef ptr @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIte
   %6 = load i64, ptr %4, align 8, !range !1237, !noundef !14
   %7 = icmp ne i64 %6, -9223372036854775808
   %8 = load i64, ptr %5, align 8
-  %.not75 = icmp eq i64 %8, 0
-  %or.cond76 = select i1 %7, i1 %.not75, i1 false
-  br i1 %or.cond76, label %.lr.ph, label %.loopexit
+  %.not76 = icmp eq i64 %8, 0
+  %or.cond77 = select i1 %7, i1 %.not76, i1 false
+  br i1 %or.cond77, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120

@@ -6436,10 +6436,10 @@ define void @"_ZN90_$LT$quinn_proto..config..transport..TransportConfig$u20$as$u
 
 _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %1
   store i64 1, ptr %7, align 8
-  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %.sroa.413.0..sroa_idx, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %5, ptr %.sroa.514.0..sroa_idx, align 8
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %.sroa.414.0..sroa_idx, align 8
+  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 %5, ptr %.sroa.515.0..sroa_idx, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -6469,14 +6469,14 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %1
   store i16 1200, ptr %22, align 2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 600, ptr %23, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 60, ptr %.sroa.68.0..sroa_idx, align 8
-  %.sroa.79.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %.sroa.79.0..sroa_idx, align 8
-  %.sroa.911.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i16 1452, ptr %.sroa.911.0..sroa_idx, align 8
+  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %.sroa.47.0..sroa_idx, align 8
+  %.sroa.69.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 60, ptr %.sroa.69.0..sroa_idx, align 8
+  %.sroa.710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %.sroa.710.0..sroa_idx, align 8
+  %.sroa.912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i16 1452, ptr %.sroa.912.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i16 20, ptr %.sroa.10.0..sroa_idx, align 2
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6711,8 +6711,8 @@ define void @_ZN11quinn_proto6config14EndpointConfig3new17h4706acf783d4a574E(ptr
 
 20:                                               ; preds = %15
   store i64 1, ptr %17, align 8
-  %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 1, ptr %.sroa.410.0..sroa_idx, align 8
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 1, ptr %.sroa.411.0..sroa_idx, align 8
   store ptr %17, ptr %5, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.180, ptr %21, align 8
@@ -6765,8 +6765,8 @@ define void @_ZN11quinn_proto6config14EndpointConfig3new17h4706acf783d4a574E(ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.180, ptr %41, align 8
   store i64 %25, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %35, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %35, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 7, ptr %.sroa.5.0..sroa_idx, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -7068,18 +7068,18 @@ define void @_ZN11quinn_proto6config12ServerConfig3new17hf775873be6c90e2eE(ptr d
 
 26:                                               ; preds = %.noexc14
   store i64 1, ptr %21, align 8, !noalias !397
-  %.sroa.413.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 1, ptr %.sroa.413.0..sroa_idx.i, align 8, !noalias !397
-  %.sroa.514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %19, ptr %.sroa.514.0..sroa_idx.i, align 8, !noalias !397
+  %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 1, ptr %.sroa.414.0..sroa_idx.i, align 8, !noalias !397
+  %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 %19, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !397
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %7)
   store i64 1, ptr %7, align 8
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1, ptr %28, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 30000, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 30000, ptr %.sroa.429.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -7088,24 +7088,24 @@ define void @_ZN11quinn_proto6config12ServerConfig3new17hf775873be6c90e2eE(ptr d
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 333000000, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.929.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 600, ptr %.sroa.929.0..sroa_idx, align 8
+  %.sroa.930.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
+  store i64 600, ptr %.sroa.930.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 0, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.1130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i64 60, ptr %.sroa.1130.0..sroa_idx, align 8
+  %.sroa.1131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
+  store i64 60, ptr %.sroa.1131.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8
-  %.sroa.1331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store i16 1452, ptr %.sroa.1331.0..sroa_idx, align 8
+  %.sroa.1332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 96
+  store i16 1452, ptr %.sroa.1332.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 98
   store i16 20, ptr %.sroa.14.0..sroa_idx, align 2
-  %.sroa.1532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i32 1000000000, ptr %.sroa.1532.0..sroa_idx, align 8
-  %.sroa.1633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 144
-  store i32 1000000001, ptr %.sroa.1633.0..sroa_idx, align 8
-  %.sroa.1734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 152
-  store ptr %21, ptr %.sroa.1734.0..sroa_idx, align 8
+  %.sroa.1533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
+  store i32 1000000000, ptr %.sroa.1533.0..sroa_idx, align 8
+  %.sroa.1634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 144
+  store i32 1000000001, ptr %.sroa.1634.0..sroa_idx, align 8
+  %.sroa.1735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 152
+  store ptr %21, ptr %.sroa.1735.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @anon.3c0e62ec32d53d0c2b6b7436a86f1cec.143, ptr %.sroa.18.0..sroa_idx, align 8
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -7257,8 +7257,8 @@ define void @_ZN11quinn_proto6config12ServerConfig3new17hf775873be6c90e2eE(ptr d
 
 66:                                               ; preds = %55
   store i64 1, ptr %61, align 8
-  %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i64 1, ptr %.sroa.436.0..sroa_idx, align 8
+  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i64 1, ptr %.sroa.437.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %30, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -7340,8 +7340,8 @@ define void @_ZN11quinn_proto6config12ServerConfig3new17hf775873be6c90e2eE(ptr d
           to label %.noexc25 unwind label %82
 
 .critedge:                                        ; preds = %.noexc25, %98, %91, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit"
-  %.pn.pn40 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit" ], [ %.pn, %91 ], [ %eh.lpad-body, %98 ], [ %eh.lpad-body, %.noexc25 ]
-  resume { ptr, i32 } %.pn.pn40
+  %.pn.pn41 = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$quinn_proto..crypto..ServerConfig$GT$$GT$17hbaf3f5c42b7e7f08E.exit" ], [ %.pn, %91 ], [ %eh.lpad-body, %98 ], [ %eh.lpad-body, %.noexc25 ]
+  resume { ptr, i32 } %.pn.pn41
 
 .noexc25:                                         ; preds = %94, %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !431)

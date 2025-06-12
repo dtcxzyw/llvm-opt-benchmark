@@ -67,9 +67,9 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17hf6ed
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  br i1 %10, label %14, label %13
+  br i1 %10, label %13, label %12
 
-13:                                               ; preds = %7
+12:                                               ; preds = %7
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.510.0..sroa_idx, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
@@ -80,12 +80,12 @@ define hidden void @_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17hf6ed
   store i64 -9223372036854775808, ptr %.sroa.77.0..sroa_idx, align 8
   br label %15
 
-14:                                               ; preds = %7
+13:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, i64 32, i1 false)
   br label %15
 
-15:                                               ; preds = %14, %13
+15:                                               ; preds = %13, %12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.6)
   store i64 %9, ptr %0, align 8
   ret void

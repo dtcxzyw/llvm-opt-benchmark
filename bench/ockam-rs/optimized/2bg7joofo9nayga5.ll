@@ -8792,7 +8792,7 @@ define hidden void @"_ZN9sqlx_core4pool10CloseEvent8do_until28_$u7b$$u7b$closure
   %. = select i1 %10, i64 17, i64 13
   br label %11
 
-11:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..task..poll..Poll$LT$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17hd66736c3218f36d1E.llvm.6880954279671448737.exit", %7
+13:                                               ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..task..poll..Poll$LT$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17hd66736c3218f36d1E.llvm.6880954279671448737.exit", %7
   %.sink = phi i64 [ %., %"_ZN4core3ptr90drop_in_place$LT$core..task..poll..Poll$LT$sqlx_core..sync..AsyncSemaphoreReleaser$GT$$GT$17hd66736c3218f36d1E.llvm.6880954279671448737.exit" ], [ 16, %7 ]
   store i64 %.sink, ptr %0, align 8
   ret void
@@ -8879,10 +8879,10 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$14acquire_perm
 42:                                               ; preds = %36
   %.fca.1.extract14 = extractvalue { ptr, i32 } %40, 1
   store i64 16, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.fca.0.extract12, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.fca.1.extract14, ptr %.sroa.5.0..sroa_idx23, align 8
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.fca.0.extract12, ptr %.sroa.423.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.fca.1.extract14, ptr %.sroa.5.0..sroa_idx24, align 8
   br label %13
 
 43:                                               ; preds = %36

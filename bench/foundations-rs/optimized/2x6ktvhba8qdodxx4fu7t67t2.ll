@@ -852,9 +852,9 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   invoke void @_ZN5hyper5proto2h24ping8Recorder15record_non_data17h5088fa5d0b8c940aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39)
           to label %70 unwind label %68, !noalias !90
 
-.thread255.i.i:                                   ; preds = %189, %177
-  %.sroa.22.1253.i.i = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 1
-  %.sroa.0126.1254.i.i = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
+.thread260.i.i:                                   ; preds = %189, %177
+  %.sroa.22.1258.i.i = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 1
+  %.sroa.0126.1259.i.i = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 0
   br label %.body4.thread
 
 .thread195.i.i:                                   ; preds = %186, %68
@@ -954,11 +954,11 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   unreachable
 
 101:                                              ; preds = %146, %145
-  br i1 %.sroa.080.1.i.i, label %186, label %.thread270.i.i
+  br i1 %.sroa.080.1.i.i, label %186, label %.thread275.i.i
 
-.thread270.i.i:                                   ; preds = %101
-  %.sroa.22.1268.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 1
-  %.sroa.0126.1269.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 0
+.thread275.i.i:                                   ; preds = %101
+  %.sroa.22.1273.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 1
+  %.sroa.0126.1274.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 0
   br label %.body4.thread
 
 .thread.i.i:                                      ; preds = %174, %.thread191.i.i, %167, %.thread186.i.i, %154, %.critedge.i.i
@@ -1107,8 +1107,8 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !94
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16), !noalias !87
   %140 = load ptr, ptr %35, align 8, !noalias !87, !noundef !3
-  %.not260.i.i = icmp eq ptr %140, null
-  br i1 %.not260.i.i, label %188, label %187
+  %.not265.i.i = icmp eq ptr %140, null
+  br i1 %.not265.i.i, label %188, label %187
 
 141:                                              ; preds = %262, %257, %254, %253, %230, %190, %189, %186, %146, %144, %.thread164.i.i, %120, %109
   %142 = landingpad { ptr, i32 }
@@ -1226,7 +1226,7 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.a050844006ed878c94dea3ed76d4dc70.32, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a050844006ed878c94dea3ed76d4dc70.218) #22
           to label %172 unwind label %.thread.i.i, !noalias !90
 
-172:                                              ; preds = %.thread232.i.i, %.thread191.i.i
+172:                                              ; preds = %.thread237.i.i, %.thread191.i.i
   unreachable
 
 173:                                              ; preds = %167
@@ -1247,14 +1247,14 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
 176:                                              ; preds = %174
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30), !noalias !87
   invoke void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %34)
-          to label %180 unwind label %.thread241.i.i, !noalias !90
+          to label %180 unwind label %.thread246.i.i, !noalias !90
 
 177:                                              ; preds = %.body.i.i.i
   %178 = load ptr, ptr %35, align 8, !noalias !87, !noundef !3
-  %.not259.i.i = icmp eq ptr %178, null
-  br i1 %.not259.i.i, label %.thread255.i.i, label %189
+  %.not264.i.i = icmp eq ptr %178, null
+  br i1 %.not264.i.i, label %.thread260.i.i, label %189
 
-.thread241.i.i:                                   ; preds = %176
+.thread246.i.i:                                   ; preds = %176
   %179 = landingpad { ptr, i32 }
           cleanup
   br label %190
@@ -1273,9 +1273,9 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   br label %257
 
 .thread195.thread.i.i:                            ; preds = %190, %.thread195.i.i
-  %.sroa.069.2.i.i = phi i8 [ %.sroa.069.1246.i.i, %190 ], [ %.sroa.069.1.i.i, %.thread195.i.i ]
-  %.sroa.071.2.i.i = phi i8 [ %.sroa.071.1247.i.i, %190 ], [ %.sroa.071.1.i.i, %.thread195.i.i ]
-  %.pn142.i.i = phi { ptr, i32 } [ %.pn134.pn248.i.i, %190 ], [ %.pn134.pn.i.i, %.thread195.i.i ]
+  %.sroa.069.2.i.i = phi i8 [ %.sroa.069.1251.i.i, %190 ], [ %.sroa.069.1.i.i, %.thread195.i.i ]
+  %.sroa.071.2.i.i = phi i8 [ %.sroa.071.1252.i.i, %190 ], [ %.sroa.071.1.i.i, %.thread195.i.i ]
+  %.pn142.i.i = phi { ptr, i32 } [ %.pn134.pn253.i.i, %190 ], [ %.pn134.pn.i.i, %.thread195.i.i ]
   %.sroa.22.1.i.i = extractvalue { ptr, i32 } %.pn142.i.i, 1
   %.sroa.0126.1.i.i = extractvalue { ptr, i32 } %.pn142.i.i, 0
   %181 = trunc nuw i8 %.sroa.069.2.i.i to i1
@@ -1316,10 +1316,10 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   invoke void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #23
           to label %.thread255.i.i unwind label %141, !noalias !90
 
-190:                                              ; preds = %.thread241.i.i, %.thread195.i.i
-  %.pn134.pn248.i.i = phi { ptr, i32 } [ %179, %.thread241.i.i ], [ %.pn134.pn.i.i, %.thread195.i.i ]
-  %.sroa.071.1247.i.i = phi i8 [ 0, %.thread241.i.i ], [ %.sroa.071.1.i.i, %.thread195.i.i ]
-  %.sroa.069.1246.i.i = phi i8 [ 1, %.thread241.i.i ], [ %.sroa.069.1.i.i, %.thread195.i.i ]
+190:                                              ; preds = %.thread246.i.i, %.thread195.i.i
+  %.pn134.pn253.i.i = phi { ptr, i32 } [ %179, %.thread241.i.i ], [ %.pn134.pn.i.i, %.thread195.i.i ]
+  %.sroa.071.1252.i.i = phi i8 [ 0, %.thread241.i.i ], [ %.sroa.071.1.i.i, %.thread195.i.i ]
+  %.sroa.069.1251.i.i = phi i8 [ 1, %.thread241.i.i ], [ %.sroa.069.1.i.i, %.thread195.i.i ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$http..response..Response$LT$h2..share..RecvStream$GT$$GT$17h70a6d7542ab89e4bE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %36) #23
           to label %.thread195.thread.i.i unwind label %141, !noalias !90
 
@@ -1357,8 +1357,8 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   %201 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9poll_pipe28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0dd0e93dd97c7ec1E", i64 16) monotonic, align 8, !noalias !87
   switch i8 %201, label %202 [
     i8 0, label %.critedge145.i.i
-    i8 1, label %.thread227.i.i
-    i8 2, label %.thread227.i.i
+    i8 1, label %.thread232.i.i
+    i8 2, label %.thread232.i.i
   ], !prof !107
 
 202:                                              ; preds = %200
@@ -1367,15 +1367,15 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
 
 204:                                              ; preds = %202
   %205 = icmp eq i8 %203, 0
-  br i1 %205, label %.critedge145.i.i, label %.thread227.i.i
+  br i1 %205, label %.critedge145.i.i, label %.thread232.i.i
 
-.thread227.i.i:                                   ; preds = %200, %204, %200
-  %.sroa.048.0229.i.i = phi i8 [ %203, %204 ], [ %201, %200 ], [ %201, %200 ]
+.thread232.i.i:                                   ; preds = %200, %204, %200
+  %.sroa.048.0234.i.i = phi i8 [ %203, %204 ], [ %201, %200 ], [ %201, %200 ]
   %206 = load ptr, ptr @"_ZN5hyper5proto2h26client19ClientTask$LT$B$GT$9poll_pipe28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h0dd0e93dd97c7ec1E", align 8, !noalias !87, !nonnull !3, !align !108, !noundef !3
-  %207 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %206, i8 noundef %.sroa.048.0229.i.i)
+  %207 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %206, i8 noundef %.sroa.048.0234.i.i)
           to label %208 unwind label %254, !noalias !90
 
-208:                                              ; preds = %.thread227.i.i
+208:                                              ; preds = %.thread232.i.i
   br i1 %207, label %209, label %.critedge145.i.i
 
 209:                                              ; preds = %208
@@ -1386,12 +1386,12 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !87
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !87
   %.not140.i.i = icmp eq i64 %213, 0
-  br i1 %.not140.i.i, label %.thread232.i.i, label %214
+  br i1 %.not140.i.i, label %.thread237.i.i, label %214
 
 214:                                              ; preds = %209
   %.sroa.0116.0.copyload.i.i = load ptr, ptr %211, align 8, !noalias !90
   %.not141.i.i = icmp eq ptr %.sroa.0116.0.copyload.i.i, null
-  br i1 %.not141.i.i, label %.thread232.i.i, label %215, !prof !16
+  br i1 %.not141.i.i, label %.thread237.i.i, label %215, !prof !16
 
 215:                                              ; preds = %214
   store ptr %.sroa.0116.0.copyload.i.i, ptr %13, align 8, !noalias !87
@@ -1427,7 +1427,7 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %210, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %220 unwind label %254, !noalias !90
 
-.thread232.i.i:                                   ; preds = %214, %209
+.thread237.i.i:                                   ; preds = %214, %209
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.a050844006ed878c94dea3ed76d4dc70.32, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a050844006ed878c94dea3ed76d4dc70.221) #22
           to label %172 unwind label %254, !noalias !90
 
@@ -1470,9 +1470,9 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   call void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %232)
   br label %263
 
-.body4.thread:                                    ; preds = %.thread255.i.i, %.thread270.i.i, %223, %230, %239, %249, %253, %255, %258, %262
-  %.sroa.0126.6.i.i = phi ptr [ %241, %239 ], [ %.sroa.0126.1216.i.i, %255 ], [ %226, %230 ], [ %226, %223 ], [ %241, %253 ], [ %241, %249 ], [ %.sroa.0126.1216.i.i, %262 ], [ %.sroa.0126.1216.i.i, %258 ], [ %.sroa.0126.1254.i.i, %.thread255.i.i ], [ %.sroa.0126.1269.i.i, %.thread270.i.i ]
-  %.sroa.22.6.i.i = phi i32 [ %242, %239 ], [ %.sroa.22.1214.i.i, %255 ], [ %225, %230 ], [ %225, %223 ], [ %242, %253 ], [ %242, %249 ], [ %.sroa.22.1214.i.i, %262 ], [ %.sroa.22.1214.i.i, %258 ], [ %.sroa.22.1253.i.i, %.thread255.i.i ], [ %.sroa.22.1268.i.i, %.thread270.i.i ]
+.body4.thread:                                    ; preds = %.thread260.i.i, %.thread275.i.i, %223, %230, %239, %249, %253, %255, %258, %262
+  %.sroa.0126.6.i.i = phi ptr [ %241, %239 ], [ %.sroa.0126.1216.i.i, %255 ], [ %226, %230 ], [ %226, %223 ], [ %241, %253 ], [ %241, %249 ], [ %.sroa.0126.1216.i.i, %262 ], [ %.sroa.0126.1216.i.i, %258 ], [ %.sroa.0126.1259.i.i, %.thread255.i.i ], [ %.sroa.0126.1274.i.i, %.thread270.i.i ]
+  %.sroa.22.6.i.i = phi i32 [ %242, %239 ], [ %.sroa.22.1214.i.i, %255 ], [ %225, %230 ], [ %225, %223 ], [ %242, %253 ], [ %242, %249 ], [ %.sroa.22.1214.i.i, %262 ], [ %.sroa.22.1214.i.i, %258 ], [ %.sroa.22.1258.i.i, %.thread255.i.i ], [ %.sroa.22.1273.i.i, %.thread270.i.i ]
   %236 = insertvalue { ptr, i32 } poison, ptr %.sroa.0126.6.i.i, 0
   %237 = insertvalue { ptr, i32 } %236, i32 %.sroa.22.6.i.i, 1
   br label %266
@@ -1511,7 +1511,7 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   invoke void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %250)
           to label %.body4.thread unwind label %141, !noalias !90
 
-254:                                              ; preds = %.thread232.i.i, %215, %.thread227.i.i, %202, %64
+254:                                              ; preds = %.thread237.i.i, %215, %.thread232.i.i, %202, %64
   %lpad.thr_comm220.i.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr37drop_in_place$LT$h2..error..Error$GT$17hf3e24d8d489a6b34E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15) #23
@@ -26312,12 +26312,12 @@ define hidden void @_ZN11foundations9telemetry7metrics8internal12new_registry17h
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.1223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %.sroa.28.0, ptr %.sroa.1223.0..sroa_idx, align 8
+  %.sroa.1225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %.sroa.28.0, ptr %.sroa.1225.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %.sroa.31.0, ptr %.sroa.13.0..sroa_idx, align 8
-  %.sroa.1424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %2, ptr %.sroa.1424.0..sroa_idx, align 8
+  %.sroa.1426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %2, ptr %.sroa.1426.0..sroa_idx, align 8
   ret void
 }
 

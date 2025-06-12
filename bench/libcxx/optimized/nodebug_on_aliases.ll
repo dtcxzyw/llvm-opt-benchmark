@@ -3636,10 +3636,10 @@ define linkonce_odr hidden void @_ZNO5clang12ast_matchers8internal23VariadicOper
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !181, !alias.scope !214
   store i8 0, ptr %18, align 8, !noalias !214
-  %.sroa.522.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 144, ptr %.sroa.522.0..sroa_idx.i, align 4, !noalias !214
-  %.sroa.6.0..sroa_idx23.i = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 144, ptr %.sroa.6.0..sroa_idx23.i, align 8, !noalias !214
+  %.sroa.6.0..sroa_idx23.i = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 144, ptr %.sroa.6.0..sroa_idx23.i, align 4, !noalias !214
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 144, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !214
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %7, ptr %22, align 8, !tbaa !47, !noalias !214
   %23 = atomicrmw add ptr %8, i32 1 monotonic, align 4, !noalias !214

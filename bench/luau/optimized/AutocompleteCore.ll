@@ -8295,7 +8295,7 @@ define internal fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unorder
   %7 = alloca %"class.std::shared_ptr.129", align 8
   %8 = alloca %"struct.Luau::AutocompleteEntry", align 8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread34, label %9
+  br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %3)
@@ -8306,19 +8306,19 @@ define internal fastcc void @_ZN4LuauL27tryAddTypeCorrectSuggestionERSt13unorder
   %15 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstTypeErrorEE5valueE, align 4
   %16 = icmp eq i32 %12, %15
   %or.cond.i = select i1 %14, i1 true, i1 %16
-  br i1 %or.cond.i, label %.thread34, label %17
+  br i1 %or.cond.i, label %.thread, label %17
 
 17:                                               ; preds = %9
   %18 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstTypeFunctionEE5valueE, align 4, !tbaa !4
   %19 = icmp ne i32 %12, %18
   %.not.i.i.i = icmp eq ptr %10, null
   %or.cond26.i = or i1 %.not.i.i.i, %19
-  br i1 %or.cond26.i, label %.thread40, label %20
+  br i1 %or.cond26.i, label %.thread41, label %20
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %10, align 8, !tbaa !174
   %22 = icmp eq i32 %21, 8
-  br i1 %22, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i, label %.thread40
+  br i1 %22, label %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i, label %.thread41
 
 _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -8328,7 +8328,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %20
   %27 = extractvalue { ptr, i8 } %26, 0
   %28 = extractvalue { ptr, i8 } %26, 1
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %.thread34, label %30
+  br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -8338,10 +8338,10 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %20
   %35 = extractvalue { ptr, i8 } %34, 0
   %36 = extractvalue { ptr, i8 } %34, 1
   %37 = trunc i8 %36 to i1
-  br i1 %37, label %.thread34, label %.thread40
+  br i1 %37, label %.thread, label %.thread41
 
-.thread34:                                        ; preds = %5, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i, %9, %30
-  %.sroa.028.033 = phi ptr [ %35, %30 ], [ %27, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i ], [ %10, %9 ], [ %3, %5 ]
+.thread:                                          ; preds = %5, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i, %9, %30
+  %.sroa.029.034 = phi ptr [ %35, %30 ], [ %27, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i ], [ %10, %9 ], [ %3, %5 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #28
   %38 = load ptr, ptr %1, align 8, !tbaa !59
   store ptr %38, ptr %7, align 8, !tbaa !59
@@ -8352,7 +8352,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %20
   %.not.i.i.i18 = icmp eq ptr %41, null
   br i1 %.not.i.i.i18, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit, label %42
 
-42:                                               ; preds = %.thread34
+42:                                               ; preds = %.thread
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26
   %.not.i.i.i.i = icmp eq i8 %44, 0
@@ -8368,8 +8368,8 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %20
   %49 = atomicrmw volatile add ptr %43, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %.thread34, %45, %48
-  invoke fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef %.sroa.028.033, i1 noundef zeroext false)
+_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit:    ; preds = %.thread, %45, %48
+  invoke fastcc void @_ZN4LuauL21tryGetTypeNameInScopeB5cxx11ESt10shared_ptrINS_5ScopeEEPKNS_4TypeEb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7, ptr noundef %.sroa.029.034, i1 noundef zeroext false)
           to label %50 unwind label %80
 
 50:                                               ; preds = %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit
@@ -8432,8 +8432,8 @@ _ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_.exit unwind label %82
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_.exit: ; preds = %76
-  %.not45 = icmp eq ptr %77, null
-  br i1 %.not45, label %84, label %78
+  %.not46 = icmp eq ptr %77, null
+  br i1 %.not46, label %84, label %78
 
 78:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17AutocompleteEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_.exit
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 68
@@ -8455,7 +8455,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau1
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %8) #28
   store i32 4, ptr %8, align 8, !tbaa !65
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sroa.028.033, ptr %85, align 8, !tbaa !26
+  store ptr %.sroa.029.034, ptr %85, align 8, !tbaa !26
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 1, ptr %86, align 8, !tbaa !93
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -8710,14 +8710,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23: ; preds = %183, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #28
-  br label %.thread40
+  br label %.thread41
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %171, %80
   %.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %.pn, %171 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #28
   resume { ptr, i32 } %.pn.pn
 
-.thread40:                                        ; preds = %20, %17, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23, %30
+.thread41:                                        ; preds = %20, %17, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit23, %30
   ret void
 }
 

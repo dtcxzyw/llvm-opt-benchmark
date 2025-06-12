@@ -169,10 +169,10 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %18, align 8, !tbaa !30, !noalias !18
   store ptr %13, ptr %16, align 16, !noalias !18
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store ptr @_ZN5folly6detail8function5call_IZNS_17InitThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEONS_8FunctionIFvvEEESA_Ed_UlvE_Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE, ptr %20, align 16, !tbaa !28, !noalias !18
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 136
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %21, align 8, !tbaa !30, !noalias !18
   store ptr null, ptr %19, align 16, !noalias !18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -182,11 +182,11 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   ret void
 
 _ZN5folly8FunctionIFvvEED2Ev.exit9:               ; preds = %3
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   call void @_ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #20
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -846,7 +846,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i: ; preds = %_ZNSt6vectorI16
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 4) #32
-  br label %728
+  br label %729
 
 _ZNK11gguf_reader4readIcEEbRSt6vectorIT_SaIS2_EEm.exit: ; preds = %_ZNK11gguf_reader4readIcEEbRSt6vectorIT_SaIS2_EEm.exit.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -920,7 +920,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i337: ; preds = %_ZNSt6vector
 _ZNSt6vectorIcSaIcEED2Ev.exit341:                 ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i337, %80
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 4) #32
-  br label %728
+  br label %729
 
 89:                                               ; preds = %_ZNK11gguf_reader4readIcEEbRSt6vectorIT_SaIS2_EEm.exit
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 4) #32
@@ -1042,7 +1042,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i346: ; preds = %_ZNSt6vector
 
 gguf_free.exit348:                                ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i346, %136
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
-  br label %.critedge332
+  br label %725
 
 145:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %146 = add nuw nsw i64 %.0277578, 1
@@ -1342,7 +1342,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i352, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i351
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #29
-  br label %725
+  br label %726
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %145
   br i1 %.9252, label %._crit_edge.thread, label %277
@@ -1394,7 +1394,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i356: ; preds = %_ZNSt6vector
 
 gguf_free.exit358:                                ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i356, %292
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
-  br label %.critedge332
+  br label %725
 
 ._crit_edge.thread:                               ; preds = %.preheader475, %._crit_edge
   %301 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1518,7 +1518,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i361: ; preds = %_ZNSt6vector
 
 gguf_free.exit363:                                ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i361, %354
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
-  br label %.critedge332
+  br label %725
 
 363:                                              ; preds = %.lr.ph597, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit.thread461
   %.0282594 = phi i64 [ 0, %.lr.ph597 ], [ %541, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit.thread461 ]
@@ -1697,7 +1697,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i371, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i370
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #29
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %13) #29
-  br label %725
+  br label %726
 
 440:                                              ; preds = %432
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #29
@@ -1993,7 +1993,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i377: ; preds = %_ZNSt6vector
 
 gguf_free.exit379:                                ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i377, %559
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
-  br label %.critedge332
+  br label %725
 
 .loopexit473.thread:                              ; preds = %.preheader472, %_ZNSt6vectorI16gguf_tensor_infoSaIS0_EE9push_backERKS0_.exit, %.loopexit473
   %568 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -2067,7 +2067,7 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i382: ; preds = %_ZNSt6vector
 
 gguf_free.exit384:                                ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i382, %599
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
-  br label %.critedge332
+  br label %725
 
 608:                                              ; preds = %578
   %609 = call i64 @ftell(ptr noundef %0)
@@ -2157,11 +2157,11 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i387: ; preds = %_ZNSt6vector
 
 659:                                              ; preds = %_ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i387, %634
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 88) #32
-  br label %.critedge332
+  br label %725
 
 .critedge325:                                     ; preds = %643, %608
   %.not311 = icmp eq ptr %2, null
-  br i1 %.not311, label %.critedge332, label %660
+  br i1 %.not311, label %725, label %660
 
 660:                                              ; preds = %.critedge325
   %661 = trunc i8 %1 to i1
@@ -2289,25 +2289,25 @@ _ZSt8_DestroyIP7gguf_kvS0_EvT_S2_RSaIT0_E.exit.i.i.i387: ; preds = %_ZNSt6vector
 
 ._crit_edge606:                                   ; preds = %714, %695
   call void @ggml_set_no_alloc(ptr noundef nonnull %674, i1 noundef zeroext %661)
-  br label %.critedge332
+  br label %725
 
-.critedge332:                                     ; preds = %659, %676, %.critedge330, %.critedge328, %.critedge325, %._crit_edge606, %gguf_free.exit363, %gguf_free.exit384, %gguf_free.exit379, %gguf_free.exit358, %gguf_free.exit348
+725:                                              ; preds = %659, %676, %.critedge330, %.critedge328, %.critedge325, %._crit_edge606, %gguf_free.exit363, %gguf_free.exit384, %gguf_free.exit379, %gguf_free.exit358, %gguf_free.exit348
   %.3 = phi ptr [ null, %gguf_free.exit384 ], [ null, %659 ], [ null, %gguf_free.exit379 ], [ null, %gguf_free.exit358 ], [ null, %gguf_free.exit348 ], [ null, %gguf_free.exit363 ], [ %17, %._crit_edge606 ], [ %17, %.critedge325 ], [ null, %.critedge328 ], [ null, %.critedge330 ], [ null, %676 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
-  br label %728
+  br label %729
 
-725:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353
+726:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353
   %.2261 = phi i32 [ %.3262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372 ], [ %.1260, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353 ]
   %.2257 = phi ptr [ %.3258, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit372 ], [ %.1256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit353 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
-  %726 = insertvalue { ptr, i32 } poison, ptr %.2257, 0
-  %727 = insertvalue { ptr, i32 } %726, i32 %.2261, 1
+  %727 = insertvalue { ptr, i32 } poison, ptr %.2257, 0
+  %728 = insertvalue { ptr, i32 } %727, i32 %.2261, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
-  resume { ptr, i32 } %727
+  resume { ptr, i32 } %728
 
-728:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit341, %_ZNSt6vectorIcSaIcEED2Ev.exit, %.critedge332
+729:                                              ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit341, %_ZNSt6vectorIcSaIcEED2Ev.exit, %725
   %.2 = phi ptr [ %.3, %.critedge332 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit341 ], [ null, %_ZNSt6vectorIcSaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   ret ptr %.2

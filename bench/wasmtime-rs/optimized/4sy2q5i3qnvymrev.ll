@@ -167,7 +167,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   store i8 2, ptr %0, align 8
-  br label %33
+  br label %32
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds i8, ptr %12, i64 %9
@@ -178,7 +178,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   store ptr %26, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %.sroa.612.0..sroa_idx, align 8
-  br label %33
+  br label %32
 
 27:                                               ; preds = %14
   %28 = ptrtoint ptr %18 to i64
@@ -190,9 +190,9 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %31, ptr %32, align 8
   store i8 2, ptr %0, align 8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %27, %25, %19
+32:                                               ; preds = %27, %25, %19
   ret void
 }
 

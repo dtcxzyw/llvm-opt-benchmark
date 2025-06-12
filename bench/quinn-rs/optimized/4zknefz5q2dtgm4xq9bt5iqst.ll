@@ -944,13 +944,13 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
 
 27:                                               ; preds = %25
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.569.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.569.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i64 32, i1 false)
+  %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.570.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i64 32, i1 false)
   store i64 %26, ptr %0, align 8
-  %.sroa.468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.3.sroa.0.0.copyload, ptr %.sroa.468.0..sroa_idx, align 8
-  %.sroa.670.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sroa.4.0.copyload, ptr %.sroa.670.0..sroa_idx, align 8
+  %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.3.sroa.0.0.copyload, ptr %.sroa.469.0..sroa_idx, align 8
+  %.sroa.671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %.sroa.4.0.copyload, ptr %.sroa.671.0..sroa_idx, align 8
   br label %46
 
 28:                                               ; preds = %25
@@ -1011,7 +1011,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h741546456d46718aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #18
           to label %.body unwind label %87
 
-48:                                               ; preds = %._crit_edge94, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h7194b102a7b493b8E.exit"
+48:                                               ; preds = %._crit_edge95, %"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h7194b102a7b493b8E.exit"
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %47
@@ -1024,15 +1024,15 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   %52 = load ptr, ptr %7, align 8, !nonnull !8, !noundef !8
   %53 = load ptr, ptr %51, align 8, !nonnull !8, !noundef !8
   %54 = icmp eq ptr %52, %53
-  br i1 %54, label %._crit_edge94, label %.lr.ph93
+  br i1 %54, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph93:                                         ; preds = %50
+.lr.ph94:                                         ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %58
 
-58:                                               ; preds = %.lr.ph93, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56"
+58:                                               ; preds = %.lr.ph94, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56"
   %59 = phi ptr [ %52, %.lr.ph93 ], [ %84, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56" ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %60, ptr %7, align 8
@@ -1065,7 +1065,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
 .noexc52:                                         ; preds = %68
   unreachable
 
-._crit_edge94:                                    ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56", %50
+._crit_edge95:                                    ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit56", %50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.026)
   invoke void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..drain..Drain$LT$$LP$bytes..bytes..Bytes$C$u64$RP$$GT$$GT$17h5bc8bcd2bf1c004aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %89 unwind label %48
@@ -1112,7 +1112,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   %84 = load ptr, ptr %7, align 8, !nonnull !8, !noundef !8
   %85 = load ptr, ptr %51, align 8, !nonnull !8, !noundef !8
   %86 = icmp eq ptr %84, %85
-  br i1 %86, label %._crit_edge94, label %58
+  br i1 %86, label %._crit_edge95, label %58
 
 87:                                               ; preds = %69, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17hfec8fc4c72887350E.exit", %47
   %88 = landingpad { ptr, i32 }
@@ -1120,7 +1120,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #16
   unreachable
 
-89:                                               ; preds = %._crit_edge94
+89:                                               ; preds = %._crit_edge95
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.429.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)

@@ -26513,7 +26513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !400
   %.not.i.i = icmp eq ptr %47, %49
-  br i1 %.not.i.i, label %52, label %50
+  br i1 %.not.i.i, label %53, label %50
 
 50:                                               ; preds = %43
   store ptr %1, ptr %47, align 8, !tbaa !425
@@ -26523,60 +26523,60 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
   store ptr %51, ptr %46, align 8, !tbaa !424
   br label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE9push_backEOS1_.exit
 
-52:                                               ; preds = %43
-  %53 = load ptr, ptr %44, align 8, !tbaa !397
-  %54 = ptrtoint ptr %47 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = icmp eq i64 %56, 9223372036854775792
-  br i1 %57, label %58, label %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+53:                                               ; preds = %43
+  %54 = load ptr, ptr %44, align 8, !tbaa !397
+  %55 = ptrtoint ptr %47 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = icmp eq i64 %57, 9223372036854775792
+  br i1 %58, label %59, label %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
-58:                                               ; preds = %52
+59:                                               ; preds = %53
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.482) #30
   unreachable
 
-_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %52
-  %59 = ashr exact i64 %56, 4
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
-  %60 = add nsw i64 %.sroa.speculated.i.i.i.i, %59
-  %61 = icmp ult i64 %60, %59
-  %62 = call i64 @llvm.umin.i64(i64 %60, i64 576460752303423487)
-  %63 = select i1 %61, i64 576460752303423487, i64 %62
-  %.not.i.i.i.i = icmp ne i64 %63, 0
+_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %53
+  %60 = ashr exact i64 %57, 4
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %60, i64 1)
+  %61 = add nsw i64 %.sroa.speculated.i.i.i.i, %60
+  %62 = icmp ult i64 %61, %60
+  %63 = call i64 @llvm.umin.i64(i64 %61, i64 576460752303423487)
+  %64 = select i1 %62, i64 576460752303423487, i64 %63
+  %.not.i.i.i.i = icmp ne i64 %64, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
-  %64 = shl nuw nsw i64 %63, 4
-  %65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #31
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %56
-  store ptr %1, ptr %66, align 8, !tbaa !425
-  %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %65 = shl nuw nsw i64 %64, 4
+  %66 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #31
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %57
+  store ptr %1, ptr %67, align 8, !tbaa !425
+  %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i8 %.sroa.0.0.copyload, ptr %.sroa.5.0..sroa_idx11, align 8, !tbaa !321
-  %.not10.i.i.i.i.i.i = icmp eq ptr %53, %47
+  %.not10.i.i.i.i.i.i = icmp eq ptr %54, %47
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i.i ], [ %65, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i.i.i ], [ %53, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.012.i.i.i.i.i.i = phi ptr [ %69, %.lr.ph.i.i.i.i.i.i ], [ %66, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i.i.i.i ], [ %54, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !427, !alias.scope !428
-  %67 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %67, %47
+  %68 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %68, %47
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !432
 
 _ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %65, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %68, %.lr.ph.i.i.i.i.i.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
-  %.not.i23.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %70
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %66, %_ZNKSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %69, %.lr.ph.i.i.i.i.i.i ]
+  %70 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+  %.not.i23.i.i.i = icmp eq ptr %54, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %71
 
-70:                                               ; preds = %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %56) #27
+71:                                               ; preds = %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %57) #27
   br label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %70, %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
-  store ptr %65, ptr %44, align 8, !tbaa !397
-  store ptr %69, ptr %46, align 8, !tbaa !424
-  %71 = getelementptr inbounds nuw %"struct.TristateVisitor::RefStrength", ptr %65, i64 %63
-  store ptr %71, ptr %48, align 8, !tbaa !400
+_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %71, %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
+  store ptr %66, ptr %44, align 8, !tbaa !397
+  store ptr %70, ptr %46, align 8, !tbaa !424
+  %72 = getelementptr inbounds nuw %"struct.TristateVisitor::RefStrength", ptr %66, i64 %64
+  store ptr %72, ptr %48, align 8, !tbaa !400
   br label %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE9push_backEOS1_.exit: ; preds = %50, %_ZNSt6vectorIN15TristateVisitor11RefStrengthESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i

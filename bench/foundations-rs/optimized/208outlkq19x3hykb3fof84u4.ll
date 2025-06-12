@@ -20590,8 +20590,8 @@ _ZN5tonic9transport5error5Error4with17h68528342bb55060eE.exit:
   store ptr %1, ptr %0, align 8, !alias.scope !3908, !noalias !3912
   %.sroa.5.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx1, align 8, !alias.scope !3908, !noalias !3912
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3908, !noalias !3912
+  %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %.sroa.62.0..sroa_idx, align 8, !alias.scope !3908, !noalias !3912
   ret void
 }
 
