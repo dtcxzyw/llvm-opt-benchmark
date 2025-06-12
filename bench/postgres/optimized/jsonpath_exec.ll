@@ -1053,7 +1053,7 @@ JsonbInitBinary.exit:                             ; preds = %22, %33, %36
   store i8 %13, ptr %57, align 2
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 59
   store i8 %14, ptr %58, align 1
-  %59 = trunc nuw i32 %.lobit to i1
+  %59 = icmp slt i32 %45, 0
   %60 = icmp ne ptr %6, null
   %or.cond = or i1 %60, %59
   br i1 %or.cond, label %69, label %61
@@ -1553,7 +1553,7 @@ CountJsonPathVars.exit:                           ; preds = %executeJsonPath.exi
   store i8 %17, ptr %62, align 2
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 59
   store i8 1, ptr %63, align 1
-  %64 = trunc nuw i32 %.lobit.i to i1
+  %64 = icmp slt i32 %47, 0
   %65 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, i1 noundef zeroext %64) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #11
@@ -1848,7 +1848,7 @@ CountJsonPathVars.exit:                           ; preds = %executeJsonPath.exi
   store i8 %15, ptr %60, align 2
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 59
   store i8 1, ptr %61, align 1
-  %62 = trunc nuw i32 %.lobit.i to i1
+  %62 = icmp slt i32 %45, 0
   %63 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext %62) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #11
@@ -8104,7 +8104,7 @@ CountJsonPathVars.exit:                           ; preds = %executeJsonPath.exi
   store i8 %19, ptr %64, align 2
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 59
   store i8 1, ptr %65, align 1
-  %66 = trunc nuw i32 %.lobit.i to i1
+  %66 = icmp slt i32 %49, 0
   %67 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9, i1 noundef zeroext %66) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11

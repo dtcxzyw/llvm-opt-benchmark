@@ -398,11 +398,11 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %93 = add nsw i32 %92, -1
   %94 = ashr i32 %93, 31
   %95 = trunc nsw i32 %94 to i8
-  %96 = trunc nsw i32 %90 to i1
+  %96 = icmp eq i32 %47, %.2140
   %97 = xor i8 %91, -1
   %98 = xor i8 %95, -1
   %99 = or i8 %91, %98
-  %100 = trunc nsw i32 %94 to i1
+  %100 = icmp eq i32 %49, %.2140
   br label %101
 
 101:                                              ; preds = %87, %131

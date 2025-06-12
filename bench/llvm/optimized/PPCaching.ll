@@ -48,9 +48,9 @@ define dso_local { i64, i8 } @_ZN5clang12Preprocessor16LastBacktrackPosEv(ptr no
   %5 = load i64, ptr %4, align 8, !tbaa !8
   %.lobit = lshr i64 %5, 63
   %6 = trunc nuw nsw i64 %.lobit to i8
-  %7 = ashr i64 %5, 63
-  %8 = xor i64 %7, %5
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %8, 0
+  %.lobit3 = ashr i64 %5, 63
+  %7 = xor i64 %.lobit3, %5
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %7, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %6, 1
   ret { i64, i8 } %.fca.1.insert
 }
@@ -511,21 +511,21 @@ define dso_local void @_ZN5clang12Preprocessor23CommitBacktrackedTokensEv(ptr no
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = load i64, ptr %5, align 8, !tbaa !8
   store ptr %5, ptr %3, align 8, !tbaa !10
-  %.not = icmp sgt i64 %6, -1
-  br i1 %.not, label %_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit, label %7
+  %7 = icmp slt i64 %6, 0
+  br i1 %7, label %8, label %_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit
 
-7:                                                ; preds = %1
+8:                                                ; preds = %1
   call void @_ZN5clang12Preprocessor29PopUnannotatedBacktrackTokensEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.133") align 8 %2, ptr noundef nonnull align 8 dereferenceable(3288) %0)
-  %8 = load ptr, ptr %2, align 8, !tbaa !21
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = icmp eq ptr %8, %9
-  br i1 %10, label %_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit, label %11
+  %9 = load ptr, ptr %2, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit, label %12
 
-11:                                               ; preds = %7
-  call void @free(ptr noundef %8) #17
+12:                                               ; preds = %8
+  call void @free(ptr noundef %9) #17
   br label %_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit: ; preds = %11, %7, %1
+_ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit: ; preds = %12, %8, %1
   ret void
 }
 
@@ -539,13 +539,13 @@ define dso_local void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull a
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   %6 = load i64, ptr %5, align 8, !tbaa !8
-  %7 = ashr i64 %6, 63
-  %8 = xor i64 %7, %6
+  %.lobit3.i = ashr i64 %6, 63
+  %7 = xor i64 %.lobit3.i, %6
   store ptr %5, ptr %3, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2928
-  store i64 %8, ptr %9, align 8, !tbaa !267
-  %.not = icmp sgt i64 %6, -1
-  br i1 %.not, label %59, label %10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2928
+  store i64 %7, ptr %8, align 8, !tbaa !267
+  %9 = icmp slt i64 %6, 0
+  br i1 %9, label %10, label %59
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #17

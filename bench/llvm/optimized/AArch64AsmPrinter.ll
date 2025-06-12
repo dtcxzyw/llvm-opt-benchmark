@@ -11135,8 +11135,8 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit: ; preds = %2, %49
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8
   %.sroa.0.0.copyload.i = load i8, ptr %6, align 8, !tbaa !747
   %.sroa.21.0.copyload.i = load i64, ptr %44, align 8, !tbaa !73
-  %.phi.trans.insert311 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %.val68.pre = load ptr, ptr %.phi.trans.insert311, align 8, !tbaa !378
+  %.phi.trans.insert310 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %.val68.pre = load ptr, ptr %.phi.trans.insert310, align 8, !tbaa !378
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val67.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !91
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -11415,7 +11415,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit165:              ; preds = %_ZN4llvm13MCInstBui
   br label %_ZN4llvm13MCInstBuilder6addImmEl.exit183
 
 _ZN4llvm13MCInstBuilder6addImmEl.exit183:         ; preds = %.preheader, %_ZN4llvm13MCInstBuilderD2Ev.exit184
-  %indvars.iv307 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next308, %_ZN4llvm13MCInstBuilderD2Ev.exit184 ]
+  %indvars.iv306 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next307, %_ZN4llvm13MCInstBuilderD2Ev.exit184 ]
   %158 = phi i64 [ %147, %.preheader ], [ %167, %_ZN4llvm13MCInstBuilderD2Ev.exit184 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, i8 0, i64 16, i1 false)
@@ -11432,7 +11432,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit183:         ; preds = %.preheader, %_ZN4ll
   %.val56.pre = load ptr, ptr %62, align 8, !tbaa !378
   %.val55.pre = load ptr, ptr %61, align 8, !tbaa !91
   store i8 2, ptr %157, align 8
-  store i64 %indvars.iv307, ptr %.sroa.22.0..sroa_idx.i.i.i182, align 8
+  store i64 %indvars.iv306, ptr %.sroa.22.0..sroa_idx.i.i.i182, align 8
   store i32 4, ptr %153, align 8, !tbaa !26
   %160 = load ptr, ptr %.val55.pre, align 8, !tbaa !3
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 1272
@@ -11448,9 +11448,9 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit183:         ; preds = %.preheader, %_ZN4ll
 
 _ZN4llvm13MCInstBuilderD2Ev.exit184:              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit183, %165
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #24
-  %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 12
-  %166 = icmp ne i64 %indvars.iv.next308, 24
-  %167 = lshr i64 %147, %indvars.iv.next308
+  %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 12
+  %166 = icmp ne i64 %indvars.iv.next307, 24
+  %167 = lshr i64 %147, %indvars.iv.next307
   %168 = icmp ne i64 %167, 0
   %169 = select i1 %166, i1 %168, i1 false
   br i1 %169, label %_ZN4llvm13MCInstBuilder6addImmEl.exit183, label %.loopexit, !llvm.loop !1083
@@ -11497,7 +11497,6 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit197:         ; preds = %146
 
 _ZN4llvm13MCInstBuilderD2Ev.exit198:              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit197, %184
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #24
-  %.not294 = icmp sgt i32 %.sroa.8.0.copyload, -1
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -11509,94 +11508,94 @@ _ZN4llvm13MCInstBuilderD2Ev.exit198:              ; preds = %_ZN4llvm13MCInstBui
   %.sroa.22.0..sroa_idx.i.i.i12.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.22.0..sroa_idx.i.i.i15.i = getelementptr inbounds nuw i8, ptr %3, i64 88
-  br i1 %.not294, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.us", label %.lr.ph.preheader.i
+  br i1 %148, label %.lr.ph.preheader.i.us, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit"
 
-"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.us": ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit198, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us
-  %indvars.iv304 = phi i64 [ %indvars.iv.next305, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us ], [ 16, %_ZN4llvm13MCInstBuilderD2Ev.exit198 ]
-  %192 = lshr i64 %43, %indvars.iv304
-  %.not295.us = icmp eq i64 %192, 0
-  br i1 %.not295.us, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.us"
+.lr.ph.preheader.i.us:                            ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit198, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us
+  %indvars.iv303 = phi i64 [ %indvars.iv.next304, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us ], [ 16, %_ZN4llvm13MCInstBuilderD2Ev.exit198 ]
+  %192 = lshr i64 %43, %indvars.iv303
+  %193 = sub nuw nsw i64 64, %indvars.iv303
+  br label %.lr.ph.i.us
 
-"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.us": ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.us"
-  %193 = and i64 %192, 65535
-  %194 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8, !tbaa !659
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 22
-  %196 = load i16, ptr %195, align 2, !tbaa !664
-  %.not.i.i.i.us = icmp ugt i16 %196, 32
-  br i1 %.not.i.i.i.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us
+.lr.ph.i.us:                                      ; preds = %208, %.lr.ph.preheader.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %208 ]
+  %194 = lshr i64 %192, %indvars.iv.i.us
+  %195 = and i64 %194, 65535
+  %.not11.not.i.us = icmp eq i64 %195, 65535
+  br i1 %.not11.not.i.us, label %208, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit.us"
 
-_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.us"
-  %197 = load ptr, ptr %61, align 8, !tbaa !91
+_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit.us"
+  %196 = load ptr, ptr %61, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
   br label %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us
 
-_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.us"
-  %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %199 = load ptr, ptr %198, align 8, !tbaa !666
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 32
-  %201 = load i8, ptr %200, align 1, !tbaa !73
-  %.fr296.us = freeze i8 %201
-  %202 = and i8 %.fr296.us, 1
-  %.not.i.us = icmp eq i8 %202, 0
-  %203 = load ptr, ptr %61, align 8, !tbaa !91
+_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit.us"
+  %197 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %198 = load ptr, ptr %197, align 8, !tbaa !666
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 32
+  %200 = load i8, ptr %199, align 1, !tbaa !73
+  %.fr295.us = freeze i8 %200
+  %201 = and i8 %.fr295.us, 1
+  %.not.i.us = icmp eq i8 %201, 0
+  %202 = load ptr, ptr %61, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
   %spec.select.i.us = select i1 %.not.i.us, i32 5227, i32 5228
   br label %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us
 
 _ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us:     ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us
-  %204 = phi ptr [ %197, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us ], [ %203, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us ]
-  %205 = phi i32 [ 5227, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us ], [ %spec.select.i.us, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us ]
+  %203 = phi ptr [ %196, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us ], [ %202, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us ]
+  %204 = phi i32 [ 5227, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us ], [ %spec.select.i.us, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 16, i1 false)
   store ptr %186, ptr %185, align 8, !tbaa !25
   store i32 6, ptr %188, align 4, !tbaa !27
-  store i32 %205, ptr %3, align 8, !tbaa !651
+  store i32 %204, ptr %3, align 8, !tbaa !651
   store i8 1, ptr %186, align 8
   store i64 256, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8
   store i8 1, ptr %189, align 8
   store i64 256, ptr %.sroa.22.0..sroa_idx.i.i.i8.i, align 8
   store i8 2, ptr %190, align 8
-  store i64 %193, ptr %.sroa.22.0..sroa_idx.i.i.i12.i, align 8
-  %.pre.i.us = load ptr, ptr %204, align 8, !tbaa !3
+  store i64 %209, ptr %.sroa.22.0..sroa_idx.i.i.i12.i, align 8
+  %.pre.i.us = load ptr, ptr %203, align 8, !tbaa !3
   %.phi.trans.insert21.i.us = getelementptr inbounds nuw i8, ptr %.pre.i.us, i64 1272
   %.pre22.i.us = load ptr, ptr %.phi.trans.insert21.i.us, align 8
   %.val.pre.i.us = load ptr, ptr %62, align 8, !tbaa !378
   store i8 2, ptr %191, align 8
-  store i64 %indvars.iv304, ptr %.sroa.22.0..sroa_idx.i.i.i15.i, align 8
+  store i64 %indvars.iv303, ptr %.sroa.22.0..sroa_idx.i.i.i15.i, align 8
   store i32 4, ptr %187, align 8, !tbaa !26
-  call void %.pre22.i.us(ptr noundef nonnull align 8 dereferenceable(296) %204, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(304) %.val.pre.i.us) #24
-  %206 = load ptr, ptr %185, align 8, !tbaa !25
-  %207 = icmp eq ptr %206, %186
-  br i1 %207, label %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us, label %208
+  call void %.pre22.i.us(ptr noundef nonnull align 8 dereferenceable(296) %203, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(304) %.val.pre.i.us) #24
+  %205 = load ptr, ptr %185, align 8, !tbaa !25
+  %206 = icmp eq ptr %205, %186
+  br i1 %206, label %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us, label %207
 
-208:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us
-  call void @free(ptr noundef %206) #24
+207:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us
+  call void @free(ptr noundef %205) #24
   br label %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us
 
-_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us: ; preds = %208, %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us
+_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us: ; preds = %207, %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i.us
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #24
-  %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 16
-  %.not49.us = icmp eq i64 %indvars.iv.next305, 64
-  br i1 %.not49.us, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.us", !llvm.loop !1084
+  %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 16
+  %.not49.us = icmp eq i64 %indvars.iv.next304, 64
+  br i1 %.not49.us, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %.lr.ph.preheader.i.us, !llvm.loop !1084
 
-.lr.ph.preheader.i:                               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit198, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit
+208:                                              ; preds = %.lr.ph.i.us
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 16
+  %.not.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %193
+  br i1 %.not.not.i.us, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %.lr.ph.i.us, !llvm.loop !1085
+
+"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit.us": ; preds = %.lr.ph.i.us
+  %209 = and i64 %192, 65535
+  %210 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8, !tbaa !659
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 22
+  %212 = load i16, ptr %211, align 2, !tbaa !664
+  %.not.i.i.i.us = icmp ugt i16 %212, 32
+  br i1 %.not.i.i.i.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i.us, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i.us
+
+"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit": ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit198, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit ], [ 16, %_ZN4llvm13MCInstBuilderD2Ev.exit198 ]
-  %209 = lshr i64 %43, %indvars.iv
-  %210 = sub nuw nsw i64 64, %indvars.iv
-  br label %.lr.ph.i
+  %213 = lshr i64 %43, %indvars.iv
+  %.not294 = icmp eq i64 %213, 0
+  br i1 %.not294, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread"
 
-211:                                              ; preds = %.lr.ph.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
-  %.not.not.i = icmp eq i64 %indvars.iv.next.i, %210
-  br i1 %.not.not.i, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %.lr.ph.i, !llvm.loop !1085
-
-.lr.ph.i:                                         ; preds = %211, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %211 ]
-  %212 = lshr i64 %209, %indvars.iv.i
-  %213 = and i64 %212, 65535
-  %.not11.not.i = icmp eq i64 %213, 65535
-  br i1 %.not11.not.i, label %211, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit"
-
-_ZN4llvm13MCInstBuilder6addImmEl.exit217:         ; preds = %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit, %211, %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us, %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.us"
+_ZN4llvm13MCInstBuilder6addImmEl.exit217:         ; preds = %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit, %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit", %_ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit.us, %208
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #24
   %214 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -11640,26 +11639,26 @@ _ZN4llvm13MCInstBuilderD2Ev.exit218:              ; preds = %_ZN4llvm13MCInstBui
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #24
   br label %.loopexit
 
-"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit": ; preds = %.lr.ph.i
-  %227 = and i64 %209, 65535
+"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread": ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit"
+  %227 = and i64 %213, 65535
   %228 = load ptr, ptr @_ZN4llvm7AArch6413GPR64RegClassE, align 8, !tbaa !659
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 22
   %230 = load i16, ptr %229, align 2, !tbaa !664
   %.not.i.i.i = icmp ugt i16 %230, 32
   br i1 %.not.i.i.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i
 
-_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit"
+_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread.i: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread"
   %231 = load ptr, ptr %61, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
   br label %_ZN4llvm13MCInstBuilder6addImmEl.exit16.i
 
-_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread.loopexit"
+_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.i: ; preds = %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit.thread"
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %233 = load ptr, ptr %232, align 8, !tbaa !666
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load i8, ptr %234, align 1, !tbaa !73
-  %.fr296 = freeze i8 %235
-  %236 = and i8 %.fr296, 1
+  %.fr295 = freeze i8 %235
+  %236 = and i8 %.fr295, 1
   %.not.i = icmp eq i8 %236, 0
   %237 = load ptr, ptr %61, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
@@ -11699,7 +11698,7 @@ _ZN12_GLOBAL__N_117AArch64AsmPrinter8emitMOVKEN4llvm8RegisterEmj.exit: ; preds =
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %.not49 = icmp eq i64 %indvars.iv.next, 64
-  br i1 %.not49, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %.lr.ph.preheader.i, !llvm.loop !1084
+  br i1 %.not49, label %_ZN4llvm13MCInstBuilder6addImmEl.exit217, label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrEENK3$_0clEi.exit", !llvm.loop !1084
 
 .loopexit:                                        ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit184, %_ZN4llvm13MCInstBuilderD2Ev.exit218, %145
   %243 = trunc i64 %39 to i16
