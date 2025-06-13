@@ -813,7 +813,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %.val87 = load i32, ptr %90, align 4, !tbaa !18
   %91 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %92 = call i32 @llvm.umax.i32(i32 %.val87, i32 15)
-  %spec.store.select.i = add i32 %92, 1
+  %spec.store.select.i = add nsw i32 %92, 1
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 0, ptr %93, align 4, !tbaa !11
   store i32 %spec.store.select.i, ptr %91, align 8, !tbaa !15

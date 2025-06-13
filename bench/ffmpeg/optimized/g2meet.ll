@@ -2126,8 +2126,8 @@ define internal fastcc void @g2m_paint_cursor(ptr noundef readonly captures(none
   %.073.idx = zext i32 %narrow to i64
   %.073 = getelementptr inbounds nuw i8, ptr %5, i64 %.073.idx
   %32 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
-  %narrow90 = mul i32 %32, 3
-  %.0.idx = zext i32 %narrow90 to i64
+  %narrow90 = mul nuw nsw i32 %32, 3
+  %.0.idx = zext nneg i32 %narrow90 to i64
   %.0 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx
   %33 = tail call i32 @llvm.smin.i32(i32 %16, i32 0)
   %.177 = add nsw i32 %.076, %33

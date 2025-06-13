@@ -4591,7 +4591,7 @@ Vec_StrFree.exit:                                 ; preds = %.split28.us, %.spli
 define noalias noundef ptr @Gia_ManSumGenDec(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %3 = tail call i32 @llvm.umax.i32(i32 %0, i32 15)
-  %spec.store.select.i = add i32 %3, 1
+  %spec.store.select.i = add nsw i32 %3, 1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !41
   store i32 %spec.store.select.i, ptr %2, align 8, !tbaa !43
@@ -6848,7 +6848,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #3
 define ptr @Gia_ManDupGenComp(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %4 = tail call i32 @llvm.umax.i32(i32 %0, i32 15)
-  %spec.store.select.i = add i32 %4, 1
+  %spec.store.select.i = add nsw i32 %4, 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4, !tbaa !41
   store i32 %spec.store.select.i, ptr %3, align 8, !tbaa !43

@@ -1023,7 +1023,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %138 = add nsw i32 %.val106196, %.val112.lcssa
   %139 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %140 = tail call i32 @llvm.umax.i32(i32 %138, i32 15)
-  %spec.store.select.i142 = add i32 %140, 1
+  %spec.store.select.i142 = add nsw i32 %140, 1
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store i32 %spec.store.select.i142, ptr %139, align 8, !tbaa !10
   %.not.i143 = icmp eq i32 %spec.store.select.i142, 0

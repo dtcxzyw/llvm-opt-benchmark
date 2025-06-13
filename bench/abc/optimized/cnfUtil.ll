@@ -1699,7 +1699,7 @@ define noalias noundef ptr @Cnf_DataReadFromFile(ptr noundef %0) local_unnamed_a
 Vec_IntAlloc.exit:                                ; preds = %20
   %30 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %31 = tail call i32 @llvm.umax.i32(i32 %26, i32 15)
-  %spec.store.select.i = add nuw i32 %31, 1
+  %spec.store.select.i = add nuw nsw i32 %31, 1
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 0, ptr %32, align 4, !tbaa !71
   store i32 %spec.store.select.i, ptr %30, align 8, !tbaa !72

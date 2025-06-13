@@ -242,12 +242,12 @@ define dso_local noundef i32 @parse_opt_verbosity_cb(ptr noundef readonly captur
 
 13:                                               ; preds = %8
   %14 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
-  %spec.select = add nuw i32 %14, 1
+  %spec.select = add nuw nsw i32 %14, 1
   br label %17
 
 15:                                               ; preds = %8
   %16 = tail call i32 @llvm.smin.i32(i32 %12, i32 0)
-  %spec.select12 = add i32 %16, -1
+  %spec.select12 = add nsw i32 %16, -1
   br label %17
 
 17:                                               ; preds = %15, %13, %7

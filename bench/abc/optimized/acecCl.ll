@@ -2056,7 +2056,7 @@ define noalias noundef ptr @Acec_RewriteTop(ptr noundef %0, ptr noundef readonly
   %.val53.val = load i32, ptr %6, align 4, !tbaa !41
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
   %8 = tail call i32 @llvm.umax.i32(i32 %.val53.val, i32 15)
-  %spec.store.select.i = add i32 %8, 1
+  %spec.store.select.i = add nsw i32 %8, 1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %9, align 4, !tbaa !41
   store i32 %spec.store.select.i, ptr %7, align 8, !tbaa !48

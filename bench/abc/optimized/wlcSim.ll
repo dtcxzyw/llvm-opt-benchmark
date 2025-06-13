@@ -237,7 +237,7 @@ Vec_PtrAlloc.exit:                                ; preds = %Vec_WrdStart.exit, 
   %54 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
   %55 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %56 = tail call i32 @llvm.umax.i32(i32 %54, i32 7)
-  %spec.store.select.i140 = add nuw i32 %56, 1
+  %spec.store.select.i140 = add nuw nsw i32 %56, 1
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 0, ptr %57, align 4, !tbaa !11
   store i32 %spec.store.select.i140, ptr %55, align 8, !tbaa !48

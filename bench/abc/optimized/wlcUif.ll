@@ -12,7 +12,7 @@ define void @Wlc_NtkCollectBoxes(ptr noundef readonly captures(none) %0, ptr nou
   %.val = load i32, ptr %3, align 4, !tbaa !3
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %5 = tail call i32 @llvm.umax.i32(i32 %.val, i32 15)
-  %spec.store.select.i = add i32 %5, 1
+  %spec.store.select.i = add nsw i32 %5, 1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %spec.store.select.i, ptr %4, align 8, !tbaa !10
   %.not.i = icmp eq i32 %spec.store.select.i, 0

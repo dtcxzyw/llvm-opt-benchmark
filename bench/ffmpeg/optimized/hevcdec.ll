@@ -10784,7 +10784,7 @@ hevc_luma_mv_mvp_mode.exit:                       ; preds = %125, %99, %83
   %182 = add i32 %6, %4
   %183 = add i32 %182, %181
   %184 = call i32 @llvm.smax.i32(i32 %183, i32 -9)
-  %spec.select.i = add i32 %184, 9
+  %spec.select.i = add nsw i32 %184, 9
   call void @ff_progress_frame_await(ptr noundef nonnull %171, i32 noundef %spec.select.i) #15
   %.pre = load i8, ptr %163, align 2, !tbaa !538
   br label %hevc_await_progress.exit
@@ -10827,7 +10827,7 @@ hevc_await_progress.exit:                         ; preds = %178, %174, %._crit_
   %204 = add i32 %6, %4
   %205 = add i32 %204, %203
   %206 = call i32 @llvm.smax.i32(i32 %205, i32 -9)
-  %spec.select.i261 = add i32 %206, 9
+  %spec.select.i261 = add nsw i32 %206, 9
   call void @ff_progress_frame_await(ptr noundef nonnull %193, i32 noundef %spec.select.i261) #15
   %.pr.pre = load i8, ptr %163, align 2, !tbaa !538
   br label %hevc_await_progress.exit262

@@ -9769,7 +9769,7 @@ define internal fastcc void @sort_mono(ptr noundef captures(none) %0, ptr nounde
   %55 = load i32, ptr %54, align 4, !tbaa !117
   %56 = icmp eq i32 %53, 7
   %57 = tail call i32 @llvm.smax.i32(i32 %53, i32 2)
-  %spec.select.i = add nuw i32 %57, 1
+  %spec.select.i = add nuw nsw i32 %57, 1
   %.0.i = select i1 %56, i32 7, i32 %spec.select.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, i8 0, i64 80, i1 false)
   store i32 %55, ptr %9, align 4, !tbaa !117
@@ -10013,7 +10013,7 @@ define internal fastcc void @decorr_mono_buffer(ptr noundef readonly captures(no
   %11 = load i32, ptr %10, align 4, !tbaa !117
   %12 = icmp eq i32 %9, 7
   %13 = tail call i32 @llvm.smax.i32(i32 %9, i32 2)
-  %spec.select = add nuw i32 %13, 1
+  %spec.select = add nuw nsw i32 %13, 1
   %.0 = select i1 %12, i32 7, i32 %spec.select
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, i8 0, i64 80, i1 false)
@@ -13484,7 +13484,7 @@ define internal fastcc void @sort_stereo(ptr noundef captures(none) %0, ptr noun
   %68 = load i32, ptr %67, align 4, !tbaa !117
   %69 = icmp eq i32 %66, 7
   %70 = call i32 @llvm.smax.i32(i32 %66, i32 2)
-  %spec.select.i = add nuw i32 %70, 1
+  %spec.select.i = add nuw nsw i32 %70, 1
   %.0.i = select i1 %69, i32 7, i32 %spec.select.i
   store i32 %68, ptr %9, align 4, !tbaa !117
   store i32 %.0.i, ptr %3, align 4, !tbaa !119
@@ -13732,7 +13732,7 @@ define internal fastcc void @decorr_stereo_buffer(ptr noundef nonnull captures(n
   %14 = load i32, ptr %13, align 4, !tbaa !117
   %15 = icmp eq i32 %12, 7
   %16 = tail call i32 @llvm.smax.i32(i32 %12, i32 2)
-  %spec.select = add nuw i32 %16, 1
+  %spec.select = add nuw nsw i32 %16, 1
   %.0 = select i1 %15, i32 7, i32 %spec.select
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %14, ptr %17, align 4, !tbaa !117

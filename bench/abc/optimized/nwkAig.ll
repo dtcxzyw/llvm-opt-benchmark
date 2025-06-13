@@ -506,7 +506,7 @@ Abc_UtilStrsav.exit:                              ; preds = %5, %8
   %21 = add nsw i32 %20, %.val111
   %22 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %23 = tail call i32 @llvm.umax.i32(i32 %21, i32 15)
-  %spec.store.select.i = add i32 %23, 1
+  %spec.store.select.i = add nsw i32 %23, 1
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %spec.store.select.i, ptr %22, align 8, !tbaa !72
   %.not.i141 = icmp eq i32 %spec.store.select.i, 0

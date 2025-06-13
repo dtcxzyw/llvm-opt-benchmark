@@ -469,7 +469,7 @@ define noundef ptr @LivenessToSafetyTransformation(i32 noundef %0, ptr noundef r
   %.val375 = load i32, ptr %8, align 4, !tbaa !31
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %10 = tail call i32 @llvm.umax.i32(i32 %.val375, i32 7)
-  %spec.store.select.i = add i32 %10, 1
+  %spec.store.select.i = add nsw i32 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %11, align 4, !tbaa !3
   store i32 %spec.store.select.i, ptr %9, align 8, !tbaa !52
@@ -2285,7 +2285,7 @@ define noundef ptr @LivenessToSafetyTransformationAbs(i32 noundef %0, ptr nounde
   %.val392 = load i32, ptr %9, align 4, !tbaa !31
   %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %11 = tail call i32 @llvm.umax.i32(i32 %.val392, i32 7)
-  %spec.store.select.i = add i32 %11, 1
+  %spec.store.select.i = add nsw i32 %11, 1
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %12, align 4, !tbaa !3
   store i32 %spec.store.select.i, ptr %10, align 8, !tbaa !52
@@ -4128,7 +4128,7 @@ define noundef ptr @LivenessToSafetyTransformationOneStepLoop(i32 noundef %0, pt
   %.val293 = load i32, ptr %12, align 4, !tbaa !31
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %14 = tail call i32 @llvm.umax.i32(i32 %.val293, i32 7)
-  %spec.store.select.i = add i32 %14, 1
+  %spec.store.select.i = add nsw i32 %14, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %15, align 4, !tbaa !3
   store i32 %spec.store.select.i, ptr %13, align 8, !tbaa !52
@@ -6421,7 +6421,7 @@ define noundef ptr @LivenessToSafetyTransformationWithLTL(i32 noundef %0, ptr no
   %.val438 = load i32, ptr %10, align 4, !tbaa !31
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %12 = tail call i32 @llvm.umax.i32(i32 %.val438, i32 7)
-  %spec.store.select.i = add i32 %12, 1
+  %spec.store.select.i = add nsw i32 %12, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %13, align 4, !tbaa !3
   store i32 %spec.store.select.i, ptr %11, align 8, !tbaa !52

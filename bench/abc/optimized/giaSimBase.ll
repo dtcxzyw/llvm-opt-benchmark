@@ -25494,7 +25494,7 @@ Vec_WrdStartTruthTables.exit:                     ; preds = %..loopexit28_crit_e
   %49 = mul nsw i32 %48, %45
   %50 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %51 = tail call i32 @llvm.umax.i32(i32 %49, i32 15)
-  %spec.store.select.i = add i32 %51, 1
+  %spec.store.select.i = add nsw i32 %51, 1
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %52, align 4, !tbaa !155
   store i32 %spec.store.select.i, ptr %50, align 8, !tbaa !431

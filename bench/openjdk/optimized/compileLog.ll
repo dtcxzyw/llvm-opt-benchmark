@@ -709,7 +709,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
 
 40:                                               ; preds = %37
   %41 = tail call i32 @llvm.smin.i32(i32 %.287, i32 1)
-  %spec.select = add nsw i32 %41, 1
+  %spec.select = add nuw nsw i32 %41, 1
   br label %44
 
 42:                                               ; preds = %37

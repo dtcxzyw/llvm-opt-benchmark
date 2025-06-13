@@ -387,7 +387,7 @@ define internal range(i32 -515, 1) i32 @snd_hwdep_control_ioctl(ptr noundef read
   tail call void @mutex_lock(ptr noundef nonnull @register_mutex) #11
   %17 = icmp slt i32 %16, 0
   %18 = tail call i32 @llvm.smin.i32(i32 %16, i32 3)
-  %19 = add nsw i32 %18, 1
+  %19 = add nuw nsw i32 %18, 1
   %20 = select i1 %17, i32 0, i32 %19
   %.fr10 = freeze i32 %20
   %21 = icmp slt i32 %.fr10, 4

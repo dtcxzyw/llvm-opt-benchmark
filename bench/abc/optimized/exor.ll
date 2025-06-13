@@ -1361,7 +1361,7 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph, %18
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %49 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %50 = tail call i32 @llvm.umax.i32(i32 %.061.lcssa, i32 7)
-  %spec.store.select.i = add i32 %50, 1
+  %spec.store.select.i = add nsw i32 %50, 1
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 0, ptr %51, align 4, !tbaa !27
   store i32 %spec.store.select.i, ptr %49, align 8, !tbaa !87

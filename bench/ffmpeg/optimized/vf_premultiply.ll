@@ -801,7 +801,7 @@ define internal void @unpremultiply8offset(ptr noundef readonly captures(none) %
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 %23, %10
   %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
-  %spec.select.us = mul i32 %25, 255
+  %spec.select.us = mul nuw nsw i32 %25, 255
   %26 = zext i8 %16 to i32
   %27 = udiv i32 %spec.select.us, %26
   %28 = add nsw i32 %27, %10

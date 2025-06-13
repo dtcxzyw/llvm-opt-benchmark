@@ -77,9 +77,9 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRect(ptr noundef %0, ptr nound
 
 24:                                               ; preds = %13
   %25 = tail call i32 @llvm.smin.i32(i32 %6, i32 65534)
-  %spec.select = add nsw i32 %25, 1
+  %spec.select = add nuw nsw i32 %25, 1
   %26 = tail call i32 @llvm.smin.i32(i32 %7, i32 65534)
-  %27 = add nsw i32 %26, 1
+  %27 = add nuw nsw i32 %26, 1
   %28 = tail call i32 @XFillRectangle(ptr noundef %16, i64 noundef %18, ptr noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %spec.select, i32 noundef %27) #10
   br label %33
 
@@ -136,9 +136,9 @@ define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr 
 
 31:                                               ; preds = %20
   %32 = tail call i32 @llvm.smin.i32(i32 %6, i32 65534)
-  %spec.select.i = add nsw i32 %32, 1
+  %spec.select.i = add nuw nsw i32 %32, 1
   %33 = tail call i32 @llvm.smin.i32(i32 %7, i32 65534)
-  %34 = add nsw i32 %33, 1
+  %34 = add nuw nsw i32 %33, 1
   %35 = tail call i32 @XFillRectangle(ptr noundef %23, i64 noundef %25, ptr noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %spec.select.i, i32 noundef %34) #10
   br label %.sink.split
 

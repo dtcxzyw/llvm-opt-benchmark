@@ -12015,7 +12015,7 @@ define linkonce_odr dso_local void @_ZN8axi4_slv19transaction_processEv(ptr noun
   %74 = load i64, ptr %20, align 8, !tbaa !641
   store i64 %74, ptr %3, align 8, !tbaa !83
   %75 = call i64 @llvm.smax.i64(i64 %74, i64 -2)
-  %76 = add i64 %75, 2
+  %76 = add nsw i64 %75, 2
   store i64 %76, ptr %20, align 8, !tbaa !641
   %77 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIl9ar_packetSt4lessIlESaISt4pairIKlS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(8) %3) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !629
@@ -12101,7 +12101,7 @@ define linkonce_odr dso_local void @_ZN8axi4_slv19transaction_processEv(ptr noun
   %122 = add nsw i64 %121, 1
   store i64 %122, ptr %6, align 8, !tbaa !83
   %123 = call i64 @llvm.smax.i64(i64 %121, i64 -2)
-  %124 = add i64 %123, 2
+  %124 = add nsw i64 %123, 2
   store i64 %124, ptr %37, align 8, !tbaa !641
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !629
@@ -18059,7 +18059,7 @@ define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EE19transaction
   %74 = load i64, ptr %20, align 8, !tbaa !715
   store i64 %74, ptr %3, align 8, !tbaa !83
   %75 = call i64 @llvm.smax.i64(i64 %74, i64 -2)
-  %76 = add i64 %75, 2
+  %76 = add nsw i64 %75, 2
   store i64 %76, ptr %20, align 8, !tbaa !715
   %77 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIl9ar_packetSt4lessIlESaISt4pairIKlS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(8) %3) #28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !629
@@ -18145,7 +18145,7 @@ define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EE19transaction
   %122 = add nsw i64 %121, 1
   store i64 %122, ptr %6, align 8, !tbaa !83
   %123 = call i64 @llvm.smax.i64(i64 %121, i64 -2)
-  %124 = add i64 %123, 2
+  %124 = add nsw i64 %123, 2
   store i64 %124, ptr %37, align 8, !tbaa !715
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !629

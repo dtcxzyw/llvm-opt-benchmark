@@ -5561,7 +5561,7 @@ Abc_Clock.exit:                                   ; preds = %0, %5
   %9 = call i32 @Extra_FileSize(ptr noundef nonnull @.str.23) #28
   %10 = sdiv i32 %9, 12
   %11 = call i32 @llvm.umax.i32(i32 %10, i32 15)
-  %spec.store.select.i = add i32 %11, 1
+  %spec.store.select.i = add nsw i32 %11, 1
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_WrdAlloc.exit, label %12
 

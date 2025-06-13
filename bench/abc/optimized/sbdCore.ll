@@ -4370,7 +4370,7 @@ Vec_IntPush.exit122:                              ; preds = %.Vec_IntGrow.exit10
 .critedge:                                        ; preds = %128, %171, %127
   %172 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #30
   %173 = call i32 @llvm.umax.i32(i32 %20, i32 7)
-  %spec.store.select.i = add i32 %173, 1
+  %spec.store.select.i = add nsw i32 %173, 1
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 0, ptr %174, align 4, !tbaa !139
   store i32 %spec.store.select.i, ptr %172, align 8, !tbaa !141

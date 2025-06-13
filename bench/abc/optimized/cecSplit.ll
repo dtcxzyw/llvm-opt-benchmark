@@ -1026,7 +1026,7 @@ Vec_PtrPush.exit:                                 ; preds = %57
   %.val125 = load i32, ptr %121, align 4, !tbaa !36
   %122 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %123 = call i32 @llvm.umax.i32(i32 %.val125, i32 15)
-  %spec.store.select.i = add i32 %123, 1
+  %spec.store.select.i = add nsw i32 %123, 1
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 0, ptr %124, align 4, !tbaa !36
   store i32 %spec.store.select.i, ptr %122, align 8, !tbaa !37
@@ -1333,7 +1333,7 @@ Vec_PtrPush.exit147:                              ; preds = %Vec_PtrPush.exit147
   %.val = load i32, ptr %266, align 4, !tbaa !36
   %267 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %268 = call i32 @llvm.umax.i32(i32 %.val, i32 15)
-  %spec.store.select.i149 = add i32 %268, 1
+  %spec.store.select.i149 = add nsw i32 %268, 1
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 4
   store i32 0, ptr %269, align 4, !tbaa !36
   store i32 %spec.store.select.i149, ptr %267, align 8, !tbaa !37
@@ -2162,7 +2162,7 @@ Abc_Clock.exit199.us:                             ; preds = %111, %102
   %.val192.us = load i32, ptr %141, align 4, !tbaa !36
   %142 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %143 = call i32 @llvm.umax.i32(i32 %.val192.us, i32 15)
-  %spec.store.select.i.us = add i32 %143, 1
+  %spec.store.select.i.us = add nsw i32 %143, 1
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 0, ptr %144, align 4, !tbaa !36
   store i32 %spec.store.select.i.us, ptr %142, align 8, !tbaa !37
@@ -2433,7 +2433,7 @@ Vec_PtrPush.exit211.us:                           ; preds = %Vec_PtrGrow.exit.i2
   %.val.us = load i32, ptr %274, align 4, !tbaa !36
   %275 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   %276 = call i32 @llvm.umax.i32(i32 %.val.us, i32 15)
-  %spec.store.select.i216.us = add i32 %276, 1
+  %spec.store.select.i216.us = add nsw i32 %276, 1
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 4
   store i32 0, ptr %277, align 4, !tbaa !36
   store i32 %spec.store.select.i216.us, ptr %275, align 8, !tbaa !37

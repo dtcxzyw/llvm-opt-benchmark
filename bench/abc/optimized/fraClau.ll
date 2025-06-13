@@ -1802,7 +1802,7 @@ define void @Fra_ClauMinimizeClause_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = sdiv i32 %.val3896, 2
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %12 = tail call i32 @llvm.umax.i32(i32 %10, i32 15)
-  %spec.store.select.i.i = add i32 %12, 1
+  %spec.store.select.i.i = add nsw i32 %12, 1
   %13 = getelementptr i8, ptr %11, i64 4
   store i32 0, ptr %13, align 4, !tbaa !21
   store i32 %spec.store.select.i.i, ptr %11, align 8, !tbaa !23

@@ -998,7 +998,7 @@ define ptr @Gia_AigerReadFromMemory(ptr noundef %0, i32 noundef %1, i32 noundef 
   store i32 %2, ptr %128, align 8, !tbaa !62
   %129 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %130 = tail call i32 @llvm.umax.i32(i32 %13, i32 15)
-  %spec.store.select.i = add i32 %130, 1
+  %spec.store.select.i = add nsw i32 %130, 1
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 4
   store i32 %spec.store.select.i, ptr %129, align 8, !tbaa !34
   %.not.i = icmp eq i32 %spec.store.select.i, 0

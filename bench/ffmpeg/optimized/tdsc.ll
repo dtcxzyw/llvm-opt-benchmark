@@ -1531,8 +1531,8 @@ tdsc_load_cursor.exit.i:                          ; preds = %650, %478, %457, %b
   %.079.i = getelementptr inbounds nuw i8, ptr %666, i64 %.079.idx.i
   %.178.i = add i32 %spec.select.i, %693
   %694 = call i32 @llvm.smax.i32(i32 %680, i32 0)
-  %narrow1.i = mul i32 %694, 3
-  %.0.idx.i = zext i32 %narrow1.i to i64
+  %narrow1.i = mul nuw nsw i32 %694, 3
+  %.0.idx.i = zext nneg i32 %narrow1.i to i64
   %.0.i114 = getelementptr inbounds nuw i8, ptr %673, i64 %.0.idx.i
   %695 = icmp slt i32 %671, 0
   br i1 %695, label %696, label %704

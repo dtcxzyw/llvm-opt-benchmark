@@ -491,7 +491,7 @@ define internal fastcc noalias noundef ptr @Exp_And(i32 noundef %0, ptr noundef 
   %8 = add nsw i32 %.val30, %.val
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %10 = tail call i32 @llvm.umax.i32(i32 %8, i32 15)
-  %spec.store.select.i = add i32 %10, 1
+  %spec.store.select.i = add nsw i32 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %spec.store.select.i, ptr %9, align 8, !tbaa !16
   %.not.i = icmp eq i32 %spec.store.select.i, 0

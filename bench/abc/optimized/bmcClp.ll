@@ -7706,7 +7706,7 @@ define ptr @Bmc_CollapseOne_int2(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   store ptr %23, ptr %22, align 8, !tbaa !134
   %27 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %28 = tail call i32 @llvm.umax.i32(i32 %2, i32 15)
-  %spec.store.select.i = add i32 %28, 1
+  %spec.store.select.i = add nsw i32 %28, 1
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %29, align 4, !tbaa !28
   store i32 %spec.store.select.i, ptr %27, align 8, !tbaa !43
@@ -8833,7 +8833,7 @@ define ptr @Bmc_CollapseOne_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store ptr %21, ptr %20, align 8, !tbaa !134
   %25 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %26 = tail call i32 @llvm.umax.i32(i32 %1, i32 15)
-  %spec.store.select.i = add i32 %26, 1
+  %spec.store.select.i = add nsw i32 %26, 1
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %27, align 4, !tbaa !28
   store i32 %spec.store.select.i, ptr %25, align 8, !tbaa !43

@@ -125,7 +125,7 @@ thread-pre-split:                                 ; preds = %15, %.thread
   %55 = mul nsw i32 %54, %.0146
   %56 = load i32, ptr %5, align 4, !tbaa !3
   %57 = tail call i32 @llvm.smax.i32(i32 %55, i32 -4)
-  %58 = add i32 %57, 5
+  %58 = add nsw i32 %57, 5
   %59 = icmp slt i32 %56, %58
   %.pre198 = load i32, ptr %7, align 4, !tbaa !3
   br i1 %59, label %62, label %60
@@ -191,7 +191,7 @@ thread-pre-split:                                 ; preds = %15, %.thread
   %82 = mul nsw i32 %74, %.pr188.pre205
   %83 = mul nsw i32 %82, %.0146
   %84 = tail call i32 @llvm.smax.i32(i32 %83, i32 -4)
-  %85 = add i32 %84, 5
+  %85 = add nsw i32 %84, 5
   %86 = icmp sge i32 %56, %85
   %or.cond5 = or i1 %24, %86
   %87 = icmp ne i32 %.0, 0

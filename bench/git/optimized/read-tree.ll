@@ -728,7 +728,7 @@ define dso_local range(i32 0, 129) i32 @cmd_read_tree(i32 noundef %0, ptr nounde
   %316 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr @threeway_merge, ptr %316, align 8, !tbaa !77
   %317 = call i32 @llvm.umax.i32(i32 %.165.lcssa, i32 3)
-  %spec.select = add i32 %317, -2
+  %spec.select = add nsw i32 %317, -2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %315, %308, %304

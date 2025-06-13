@@ -904,7 +904,7 @@ hw_device_setup_for_decode.exit:                  ; preds = %.thread.i
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 572
   %207 = load i32, ptr %206, align 4, !tbaa !105
   %208 = call i32 @llvm.smax.i32(i32 %207, i32 0)
-  %storemerge = add nuw i32 %208, 8
+  %storemerge = add nuw nsw i32 %208, 8
   store i32 %storemerge, ptr %206, align 4, !tbaa !105
   br label %209
 

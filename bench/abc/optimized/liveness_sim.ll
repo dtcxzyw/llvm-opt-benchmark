@@ -60,7 +60,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetySim(ptr noundef %0, i3
   %.val191.i = load i32, ptr %19, align 4, !tbaa !24
   %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
   %21 = tail call i32 @llvm.umax.i32(i32 %.val191.i, i32 7)
-  %spec.store.select.i.i = add i32 %21, 1
+  %spec.store.select.i.i = add nsw i32 %21, 1
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %22, align 4, !tbaa !33
   store i32 %spec.store.select.i.i, ptr %20, align 8, !tbaa !35

@@ -1282,7 +1282,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %0, ptr n
 
 28:                                               ; preds = %25
   %29 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
-  %30 = add nuw i32 %29, 2
+  %30 = add nuw nsw i32 %29, 2
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %.078, i32 noundef %30) #7
   %32 = icmp slt i32 %31, 1
   br i1 %32, label %.thread98, label %36

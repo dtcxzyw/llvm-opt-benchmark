@@ -11858,7 +11858,7 @@ define ptr @Acb_DeriveOnePatchFunction(ptr noundef readonly captures(none) %0, i
   %.val81 = load i32, ptr %8, align 4, !tbaa !19
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %10 = tail call i32 @llvm.umax.i32(i32 %.val81, i32 15)
-  %spec.store.select.i = add i32 %10, 1
+  %spec.store.select.i = add nsw i32 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %11, align 4, !tbaa !19
   store i32 %spec.store.select.i, ptr %9, align 8, !tbaa !22

@@ -3230,53 +3230,57 @@ define internal fastcc void @copy_struct_reg() unnamed_addr #4 {
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.41)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !32
-  %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 8)
-  %.02532 = add i32 %13, -1
-  %14 = icmp sgt i32 %.02532, -1
-  br i1 %14, label %select.unfold, label %.loopexit31
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %select.unfold.preheader, label %.loopexit31
 
-select.unfold:                                    ; preds = %10, %select.unfold
-  %.02533 = phi i32 [ %.025, %select.unfold ], [ %.02532, %10 ]
+select.unfold.preheader:                          ; preds = %10
+  %14 = tail call i32 @llvm.umin.i32(i32 %12, i32 8)
+  br label %select.unfold
+
+select.unfold:                                    ; preds = %select.unfold.preheader, %select.unfold
+  %.025.in32 = phi i32 [ %.025, %select.unfold ], [ %14, %select.unfold.preheader ]
+  %.025 = add nsw i32 %.025.in32, -1
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.271)
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.272, i32 noundef %.02533)
-  %.025 = add nsw i32 %.02533, -1
-  %.not = icmp eq i32 %.02533, 0
-  br i1 %.not, label %.loopexit31, label %select.unfold, !llvm.loop !126
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.272, i32 noundef %.025)
+  %15 = icmp samesign ugt i32 %.025.in32, 1
+  br i1 %15, label %select.unfold, label %.loopexit31, !llvm.loop !126
 
 .loopexit31:                                      ; preds = %select.unfold, %.loopexit31.sink.split, %10
   %.024 = phi i32 [ 0, %10 ], [ 1, %.loopexit31.sink.split ], [ 0, %select.unfold ]
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !32
-  %17 = icmp sgt i32 %16, 8
-  br i1 %17, label %18, label %.loopexit
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !32
+  %18 = icmp sgt i32 %17, 8
+  br i1 %18, label %19, label %.loopexit
 
-18:                                               ; preds = %.loopexit31
-  %19 = tail call fastcc zeroext i1 @has_flonum(ptr noundef nonnull %5, i32 noundef 8, i32 noundef 16, i32 noundef 0)
-  br i1 %19, label %20, label %21
+19:                                               ; preds = %.loopexit31
+  %20 = tail call fastcc zeroext i1 @has_flonum(ptr noundef nonnull %5, i32 noundef 8, i32 noundef 16, i32 noundef 0)
+  br i1 %20, label %21, label %22
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.274, i32 noundef %.024)
   br label %.loopexit
 
-21:                                               ; preds = %18
-  %22 = select i1 %6, ptr @.str.258, ptr @.str.54
-  %23 = select i1 %6, ptr @.str.85, ptr @.str.72
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.182, ptr noundef nonnull %23)
-  %24 = load i32, ptr %15, align 4, !tbaa !32
-  %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 16)
-  %.034 = add i32 %25, -1
-  %26 = icmp sgt i32 %.034, 7
-  br i1 %26, label %select.unfold29, label %.loopexit
+22:                                               ; preds = %19
+  %23 = select i1 %6, ptr @.str.258, ptr @.str.54
+  %24 = select i1 %6, ptr @.str.85, ptr @.str.72
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.182, ptr noundef nonnull %24)
+  %25 = load i32, ptr %16, align 4, !tbaa !32
+  %26 = icmp sgt i32 %25, 8
+  br i1 %26, label %select.unfold29.preheader, label %.loopexit
 
-select.unfold29:                                  ; preds = %21, %select.unfold29
-  %.035 = phi i32 [ %.0, %select.unfold29 ], [ %.034, %21 ]
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.275, ptr noundef nonnull %23)
-  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %.035, ptr noundef nonnull %22)
-  %.0 = add nsw i32 %.035, -1
-  %27 = icmp samesign ugt i32 %.035, 8
-  br i1 %27, label %select.unfold29, label %.loopexit, !llvm.loop !127
+select.unfold29.preheader:                        ; preds = %22
+  %27 = tail call i32 @llvm.umin.i32(i32 %25, i32 16)
+  br label %select.unfold29
 
-.loopexit:                                        ; preds = %select.unfold29, %21, %20, %.loopexit31
+select.unfold29:                                  ; preds = %select.unfold29.preheader, %select.unfold29
+  %.0.in33 = phi i32 [ %.0, %select.unfold29 ], [ %27, %select.unfold29.preheader ]
+  %.0 = add nsw i32 %.0.in33, -1
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.275, ptr noundef nonnull %24)
+  tail call void (ptr, ...) @println(ptr noundef nonnull @.str.276, i32 noundef %.0, ptr noundef nonnull %23)
+  %28 = icmp samesign ugt i32 %.0.in33, 9
+  br i1 %28, label %select.unfold29, label %.loopexit, !llvm.loop !127
+
+.loopexit:                                        ; preds = %select.unfold29, %22, %21, %.loopexit31
   ret void
 }
 
@@ -3821,6 +3825,9 @@ declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

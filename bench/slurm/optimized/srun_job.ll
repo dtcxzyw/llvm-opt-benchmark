@@ -4741,7 +4741,7 @@ define internal noalias noundef ptr @_srun_signal_mgr(ptr noundef %0) #0 {
   %28 = load i64, ptr @_handle_intr.last_intr, align 8
   %29 = sub nsw i64 %.val.i, %28
   %30 = call i64 @llvm.smin.i64(i64 %29, i64 10)
-  %spec.select.i.i = mul i64 %30, 1000000
+  %spec.select.i.i = mul nsw i64 %30, 1000000
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_handle_intr.last_intr, i64 8), align 8
   %32 = sub i64 %.val4.i, %31
   %33 = add nsw i64 %32, %spec.select.i.i

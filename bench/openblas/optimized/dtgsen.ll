@@ -224,20 +224,20 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %122 = load i32, ptr %4, align 4, !tbaa !3
   %123 = shl i32 %122, 2
   %124 = tail call i32 @llvm.smax.i32(i32 %123, i32 -15)
-  %125 = add i32 %124, 16
+  %125 = add nsw i32 %124, 16
   %126 = shl i32 %120, 1
   %127 = sub nsw i32 %122, %120
   %128 = mul nsw i32 %126, %127
   %129 = tail call i32 @llvm.smax.i32(i32 %125, i32 %128)
   %130 = tail call i32 @llvm.smax.i32(i32 %122, i32 -5)
-  %131 = add i32 %130, 6
+  %131 = add nsw i32 %130, 6
   br label %150
 
 132:                                              ; preds = %._crit_edge, %._crit_edge
   %133 = load i32, ptr %4, align 4, !tbaa !3
   %134 = shl i32 %133, 2
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 -15)
-  %136 = add i32 %135, 16
+  %136 = add nsw i32 %135, 16
   %137 = shl i32 %120, 2
   %138 = sub nsw i32 %133, %120
   %139 = mul nsw i32 %137, %138
@@ -253,13 +253,13 @@ define void @dtgsen_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %146 = load i32, ptr %4, align 4, !tbaa !3
   %147 = shl i32 %146, 2
   %148 = tail call i32 @llvm.smax.i32(i32 %147, i32 -15)
-  %149 = add i32 %148, 16
+  %149 = add nsw i32 %148, 16
   br label %150
 
 150:                                              ; preds = %132, %.thread585, %121
   %.0524 = phi i32 [ %129, %121 ], [ %140, %132 ], [ %149, %.thread585 ]
   %.0 = phi i32 [ %131, %121 ], [ %145, %132 ], [ 1, %.thread585 ]
-  %151 = sitofp i32 %.0524 to double
+  %151 = uitofp nneg i32 %.0524 to double
   store double %151, ptr %20, align 8, !tbaa !7
   store i32 %.0, ptr %22, align 4, !tbaa !3
   %152 = load i32, ptr %21, align 4, !tbaa !3

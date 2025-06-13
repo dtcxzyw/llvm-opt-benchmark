@@ -62,7 +62,7 @@ define range(i32 -2147483633, -2147483648) i32 @ff_mpeg4_get_video_packet_prefix
 6:                                                ; preds = %3
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 2)
-  %spec.select = add nuw i32 %8, 15
+  %spec.select = add nuw nsw i32 %8, 15
   br label %10
 
 9:                                                ; preds = %3

@@ -1924,7 +1924,7 @@ stringzone.exit.i:                                ; preds = %585, %583, %763, %7
   %storemerge.i = add nsw i64 %777, -402
   store i64 %storemerge.i, ptr @min_year, align 8
   %778 = call i64 @llvm.smin.i64(i64 %.pr.pre840.i, i64 9223372036854775405)
-  %storemerge337.i = add nsw i64 %778, 402
+  %storemerge337.i = add nuw nsw i64 %778, 402
   store i64 %storemerge337.i, ptr @max_year, align 8
   br i1 %.0311.lcssa.i, label %779, label %thread-pre-split.i77
 
