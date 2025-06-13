@@ -60707,21 +60707,15 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   %101 = load atomic i64, ptr %100 monotonic, align 8
   %.0.i.i.i.i.i.i.i22 = inttoptr i64 %101 to ptr
   %102 = call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %.0.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %.0.i.i.i.i.i.i.i22)
-  %.not.i.i.i.i.i.i = icmp ne i32 %102, 0
-  %..i.i.i.i.i.i = zext i1 %.not.i.i.i.i.i.i to i32
-  %.inv.i.i.i.i.i.i = icmp sgt i32 %102, -1
-  %.0.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i, i32 %..i.i.i.i.i.i, i32 -1
-  %.not.i.i24 = icmp eq i32 %.0.i.i.i.i.i.i, 0
+  %.0.i.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %102, i32 0)
+  %.not.i.i24 = icmp eq i32 %102, 0
   br i1 %.not.i.i24, label %103, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
 
 103:                                              ; preds = %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit23
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i22, i64 64
   %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 64
   %106 = call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %105, ptr noundef nonnull align 16 dereferenceable(64) %104)
-  %.not.i.i.i.i8.i.i = icmp ne i32 %106, 0
-  %..i.i.i.i9.i.i = zext i1 %.not.i.i.i.i8.i.i to i32
-  %.inv.i.i.i.i10.i.i = icmp sgt i32 %106, -1
-  %.0.i.i.i.i11.i.i = select i1 %.inv.i.i.i.i10.i.i, i32 %..i.i.i.i9.i.i, i32 -1
+  %.0.i.i.i.i8.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %106, i32 0)
   br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
 
 107:                                              ; preds = %74
@@ -60744,7 +60738,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %common.resume
 
 _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit: ; preds = %103, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit23, %77
-  %.3 = phi i32 [ %.2, %77 ], [ %.0.i.i.i.i11.i.i, %103 ], [ %.0.i.i.i.i.i.i, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit23 ]
+  %.3 = phi i32 [ %.2, %77 ], [ %.0.i.i.i.i8.i.i, %103 ], [ %.0.i.i.i.i.i.i, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit23 ]
   ret i32 %.3
 }
 
@@ -64569,10 +64563,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit10
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit10: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i.i8, %55
-  %.inv.i.i.i = icmp sgt i32 %12, -1
-  %.not.i.i.i = icmp ne i32 %12, 0
-  %..i.i.i = zext i1 %.not.i.i.i to i32
-  %.0.i.i.i = select i1 %.inv.i.i.i, i32 %..i.i.i, i32 -1
+  %.0.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %12, i32 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #22
   ret i32 %.0.i.i.i
 
@@ -64990,10 +64981,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   %63 = load atomic i64, ptr %62 monotonic, align 8
   %.0.i.i.i.i.i.i.i22 = inttoptr i64 %63 to ptr
   %64 = call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %.0.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %.0.i.i.i.i.i.i.i22)
-  %.not.i.i.i.i.i24 = icmp ne i32 %64, 0
-  %..i.i.i.i.i = zext i1 %.not.i.i.i.i.i24 to i32
-  %.inv.i.i.i.i.i = icmp sgt i32 %64, -1
-  %.0.i.i.i.i.i = select i1 %.inv.i.i.i.i.i, i32 %..i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %64, i32 0)
   br label %65
 
 65:                                               ; preds = %39, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit23
@@ -65157,10 +65145,7 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 64
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i22, i64 64
   %66 = call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %64, ptr noundef nonnull align 16 dereferenceable(64) %65)
-  %.not.i.i.i.i.i24 = icmp ne i32 %66, 0
-  %..i.i.i.i.i = zext i1 %.not.i.i.i.i.i24 to i32
-  %.inv.i.i.i.i.i = icmp sgt i32 %66, -1
-  %.0.i.i.i.i.i = select i1 %.inv.i.i.i.i.i, i32 %..i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %66, i32 0)
   br label %67
 
 67:                                               ; preds = %39, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit23
@@ -86148,10 +86133,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit11
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit11: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i.i9, %72
-  %.inv.i.i.i = icmp sgt i32 %29, -1
-  %.not.i.i.i = icmp ne i32 %29, 0
-  %..i.i.i = zext i1 %.not.i.i.i to i32
-  %.0.i.i.i = select i1 %.inv.i.i.i, i32 %..i.i.i, i32 -1
+  %.0.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %29, i32 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #22
   ret i32 %.0.i.i.i
 
@@ -87264,6 +87246,9 @@ declare i128 @llvm.umin.i128(i128, i128) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #35
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #35
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

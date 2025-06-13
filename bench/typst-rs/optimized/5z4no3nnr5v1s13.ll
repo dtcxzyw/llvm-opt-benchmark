@@ -17540,7 +17540,7 @@ _ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i: ; pre
   %33 = extractvalue { ptr, i64 } %32, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2759
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %38, label %40
+  br i1 %34, label %38, label %39
 
 35:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.i, %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread8.i
   %.sroa.0.0412.i = phi ptr [ %21, %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread8.i ], [ %23, %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.i ]
@@ -17553,25 +17553,22 @@ _ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i: ; pre
   br label %"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit"
 
 38:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i
-  %39 = icmp ne i64 %13, 0
-  %..i = zext i1 %39 to i64
-  %.inv.i = icmp sgt i64 %13, -1
-  %.0.i = select i1 %.inv.i, i64 %..i, i64 -1
+  %.0.i = tail call i64 @llvm.scmp.i64.i64(i64 %13, i64 0)
   store i8 3, ptr %0, align 8, !alias.scope !2743, !noalias !2746
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !2743, !noalias !2746
   br label %"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit"
 
-40:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i
-  %41 = extractvalue { ptr, i64 } %32, 1
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %33, ptr %42, align 8, !alias.scope !2743, !noalias !2746
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %41, ptr %43, align 8, !alias.scope !2743, !noalias !2746
+39:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i
+  %40 = extractvalue { ptr, i64 } %32, 1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %33, ptr %41, align 8, !alias.scope !2743, !noalias !2746
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %40, ptr %42, align 8, !alias.scope !2743, !noalias !2746
   store i8 30, ptr %0, align 8, !alias.scope !2743, !noalias !2746
   br label %"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit"
 
-"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit": ; preds = %35, %38, %40
+"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit": ; preds = %35, %38, %39
   ret void
 }
 
@@ -133792,10 +133789,7 @@ define noundef nonnull align 8 ptr @"_ZN55_$LT$i64$u20$as$u20$typst..foundations
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i64 -1, 2) i64 @"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$6signum17h422ba6949932dd10E"(i64 noundef %0) unnamed_addr #7 {
-  %2 = icmp ne i64 %0, 0
-  %. = zext i1 %2 to i64
-  %.inv = icmp sgt i64 %0, -1
-  %.0 = select i1 %.inv, i64 %., i64 -1
+  %.0 = tail call i64 @llvm.scmp.i64.i64(i64 %0, i64 0)
   ret i64 %.0
 }
 
@@ -141675,6 +141669,9 @@ declare i16 @llvm.usub.sat.i16(i16, i16) #60
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #60
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i64 -1, 2) i64 @llvm.scmp.i64.i64(i64, i64) #60
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #60
