@@ -5923,13 +5923,13 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   %77 = extractvalue { ptr, i32 } %76, 1
   %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE) #23
   %79 = icmp eq i32 %77, %78
-  br i1 %79, label %80, label %115
+  br i1 %79, label %80, label %116
 
 80:                                               ; preds = %75
   %81 = extractvalue { ptr, i32 } %76, 0
   %82 = call ptr @__cxa_begin_catch(ptr %81) #23
   invoke void @__cxa_end_catch()
-          to label %83 unwind label %113
+          to label %83 unwind label %114
 
 83:                                               ; preds = %67, %80
   %.115 = phi i1 [ true, %80 ], [ %73, %67 ]
@@ -5944,7 +5944,7 @@ _ZN4CGAL7compareINS_11Interval_ntILb0EEES2_EENS_22Real_embeddable_traitsINS_15Co
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  br i1 %.115, label %87, label %119
+  br i1 %.115, label %87, label %120
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %1, align 8, !tbaa !25
@@ -5971,7 +5971,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i.i:        ; preds = %87
 94:                                               ; preds = %93
   unreachable
 
-common.resume:                                    ; preds = %115, %104, %95
+common.resume:                                    ; preds = %116, %104, %95
   %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %105, %104 ], [ %.merged, %115 ]
   resume { ptr, i32 } %common.resume.op
 
@@ -6030,8 +6030,8 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   %107 = load atomic i64, ptr %106 monotonic, align 8
   %.0.i.i.i.i.i.i.i21 = inttoptr i64 %107 to ptr
   %108 = call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %.0.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(128) %.0.i.i.i.i.i.i.i21)
-  %.not.i.i.i23 = icmp eq i32 %108, 0
-  br i1 %.not.i.i.i23, label %109, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %108, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %109, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
 
 109:                                              ; preds = %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit22
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i21, i64 64
@@ -6040,31 +6040,31 @@ _ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecisi
   br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
 
 _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit: ; preds = %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit22, %109
-  %.0.i.i.in.i = phi i32 [ %112, %109 ], [ %108, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit22 ]
-  %.0.i.i.i = icmp slt i32 %.0.i.i.in.i, 0
-  br label %119
+  %.0.i.i.i = phi i32 [ %112, %109 ], [ %108, %_ZNK4CGAL15Exact_converterINS_5EpeckENS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclINS_7Point_2IS1_EEEEDcRKT_.exit22 ]
+  %113 = icmp slt i32 %.0.i.i.i, 0
+  br label %120
 
-113:                                              ; preds = %80
-  %114 = landingpad { ptr, i32 }
+114:                                              ; preds = %80
+  %115 = landingpad { ptr, i32 }
           cleanup
-  br label %115
+  br label %116
 
-115:                                              ; preds = %113, %75
-  %.merged = phi { ptr, i32 } [ %114, %113 ], [ %76, %75 ]
+116:                                              ; preds = %114, %75
+  %.merged = phi { ptr, i32 } [ %115, %113 ], [ %76, %75 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %4)
-  %116 = load i32, ptr %4, align 4
-  %117 = and i32 %116, -24577
-  %118 = or disjoint i32 %117, %17
-  store i32 %118, ptr %5, align 4
+  %117 = load i32, ptr %4, align 4
+  %118 = and i32 %117, -24577
+  %119 = or disjoint i32 %118, %17
+  store i32 %119, ptr %5, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %common.resume
 
-119:                                              ; preds = %83, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
-  %.3 = phi i1 [ %.0.i.i.i, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit ], [ %.2, %83 ]
+120:                                              ; preds = %83, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+  %.3 = phi i1 [ %113, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit ], [ %.2, %83 ]
   ret i1 %.3
 }
 

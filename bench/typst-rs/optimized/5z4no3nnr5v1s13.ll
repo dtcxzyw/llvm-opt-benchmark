@@ -17540,7 +17540,7 @@ _ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i: ; pre
   %33 = extractvalue { ptr, i64 } %32, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !2759
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %38, label %39
+  br i1 %34, label %38, label %40
 
 35:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.i, %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread8.i
   %.sroa.0.0412.i = phi ptr [ %21, %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread8.i ], [ %23, %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.i ]
@@ -17559,16 +17559,16 @@ _ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i: ; pre
   store i64 %.0.i, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !2743, !noalias !2746
   br label %"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit"
 
-39:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i
-  %40 = extractvalue { ptr, i64 } %32, 1
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %33, ptr %41, align 8, !alias.scope !2743, !noalias !2746
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %40, ptr %42, align 8, !alias.scope !2743, !noalias !2746
+40:                                               ; preds = %_ZN5typst11foundations4args4Args6expect17h53e414c08ae51c96E.exit.thread.i
+  %41 = extractvalue { ptr, i64 } %32, 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %33, ptr %42, align 8, !alias.scope !2743, !noalias !2746
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %41, ptr %43, align 8, !alias.scope !2743, !noalias !2746
   store i8 30, ptr %0, align 8, !alias.scope !2743, !noalias !2746
   br label %"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit"
 
-"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit": ; preds = %35, %38, %39
+"_ZN55_$LT$i64$u20$as$u20$typst..foundations..int..i64Ext$GT$11signum_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17h287378ea1e766383E.exit": ; preds = %35, %38, %40
   ret void
 }
 

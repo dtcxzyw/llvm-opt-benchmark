@@ -28289,7 +28289,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4CGAL13Intersections8internal22do
   %8 = alloca %"class.CGAL::CartesianKernelFunctors::Collinear_2.282", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef nonnull align 16 dereferenceable(128) %9)
-  %.not.i.i.i = icmp eq i32 %10, 0
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %11, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
 
 11:                                               ; preds = %4
@@ -28299,25 +28299,25 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4CGAL13Intersections8internal22do
   br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
 
 _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit: ; preds = %4, %11
-  %.0.i.i.in.i = phi i32 [ %14, %11 ], [ %10, %4 ]
-  %.0.i.i.i = icmp sgt i32 %.0.i.i.in.i, -1
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %16 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %1, ptr noundef nonnull align 16 dereferenceable(128) %15)
-  %.not.i.i.i116 = icmp eq i32 %16, 0
-  br i1 %.not.i.i.i116, label %17, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit119
+  %.0.i.i.i = phi i32 [ %14, %11 ], [ %10, %4 ]
+  %15 = icmp sgt i32 %.0.i.i.i, -1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %17 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %1, ptr noundef nonnull align 16 dereferenceable(128) %16)
+  %.not.i.i.i.i.i.i.i116.not = icmp eq i32 %17, 0
+  br i1 %.not.i.i.i.i.i.i.i116.not, label %18, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit126
 
-17:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %20 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %19, ptr noundef nonnull align 16 dereferenceable(64) %18)
-  br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit119
+18:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %21 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %20, ptr noundef nonnull align 16 dereferenceable(64) %19)
+  br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit126
 
-_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit119: ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit, %17
-  %.0.i.i.in.i117 = phi i32 [ %20, %17 ], [ %16, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit ]
-  %.0.i.i.i118 = icmp sgt i32 %.0.i.i.in.i117, -1
-  %21 = zext i1 %.0.i.i.i to i32
-  %.0.i.i.in.i.lobit = lshr i32 %.0.i.i.in.i, 31
-  %22 = zext i1 %.0.i.i.i118 to i32
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit126: ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit, %18
+  %.0.i.i.i121.in = phi i32 [ %21, %17 ], [ %17, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit ]
+  %.0.i.i.i121 = icmp sgt i32 %.0.i.i.i121.in, -1
+  %21 = zext i1 %15 to i32
+  %.0.i.i.in.i.lobit = lshr i32 %15, 31
+  %23 = zext i1 %.0.i.i.i118 to i32
   %spec.select.idx.i.i = select i1 %.0.i.i.i, i64 128, i64 0
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx.i.i
   %23 = shl nuw nsw i32 %.0.i.i.in.i.lobit, 7
@@ -28333,7 +28333,7 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14mult
   %.not.i.i.i126 = icmp eq i32 %26, 0
   br i1 %.not.i.i.i126, label %27, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129
 
-27:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit119
+27:; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit119
   %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 64
   %30 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %29, ptr noundef nonnull align 16 dereferenceable(64) %28)
@@ -28349,10 +28349,10 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14mult
   %.not.i.i.i130 = icmp eq i32 %32, 0
   br i1 %.not.i.i.i130, label %33, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
-  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
-  %36 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %35, ptr noundef nonnull align 16 dereferenceable(64) %34)
+26:                                               ; preds = %31
+  %27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
+  %29 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %28, ptr noundef nonnull align 16 dereferenceable(64) %27)
   br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133
 
 _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133: ; preds = %31, %33
@@ -28360,20 +28360,20 @@ _ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14mult
   %.0.i.i.i132 = icmp slt i32 %.0.i.i.in.i131, 0
   br i1 %.0.i.i.i132, label %134, label %37
 
-37:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133
+37:; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133
   %38 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123)
   %.0.i.i.i.i.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %38, i32 0)
   %.not.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i, label %39, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+  br i1 %.not.i.i, label %31, label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit154.thread248
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123, i64 64
-  %41 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
-  %42 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %40)
-  %.0.i.i.i.i8.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %42, i32 0)
-  br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+31:                                               ; preds = %37
+  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %34 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %33, ptr noundef nonnull align 16 dereferenceable(64) %32)
+  %.0.i.i.i.i8.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %34, i32 0)
+  br label %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit154.thread248
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit: ; preds = %37, %39
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit154.thread248: ; preds = %37, %31
   %.0.i.i = phi i32 [ %.0.i.i.i.i8.i.i, %39 ], [ %.0.i.i.i.i.i.i, %37 ]
   switch i32 %.0.i.i, label %133 [
     i32 -1, label %43
@@ -28381,14 +28381,14 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14
     i32 1, label %96
   ]
 
-43:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
-  %44 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123)
-  %.0.i.i.i.i.i.i134 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %44, i32 0)
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit.thread: ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+  %40 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123)
+  %.0.i.i.i.i.i.i134 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %40, i32 0)
   %.not.i.i135 = icmp eq i32 %44, 0
   br i1 %.not.i.i135, label %45, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123, i64 64
+45:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit.thread
+  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i123, i64 59
   %47 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 64
   %48 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %47, ptr noundef nonnull align 16 dereferenceable(64) %46)
   %.0.i.i.i.i8.i.i137 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %48, i32 0)
@@ -28402,199 +28402,199 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14
     i32 1, label %50
   ]
 
-49:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
+46:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
   br label %134
 
-50:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
+48:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
   %51 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
   %.0.i.i.i.i.i.i139 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %51, i32 0)
   %.not.i.i140 = icmp eq i32 %51, 0
   br i1 %.not.i.i140, label %52, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
+52:; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 59
   %54 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 64
   %55 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %54, ptr noundef nonnull align 16 dereferenceable(64) %53)
   %.0.i.i.i.i8.i.i142 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %55, i32 0)
   br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143: ; preds = %50, %52
-  %.0.i.i141 = phi i32 [ %.0.i.i.i.i8.i.i142, %52 ], [ %.0.i.i.i.i.i.i139, %50 ]
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143:; preds = %50, %52
+  %.0.i.i141 = phi i32 [ %.0.i.i.i.i8.i.i142, %52 ], [ %.0.i.i.i.i.i.i131, %50 ]
   switch i32 %.0.i.i141, label %78 [
     i32 -1, label %56
     i32 0, label %64
     i32 1, label %70
   ]
 
-56:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
-  %57 = select i1 %.0.i.i.i118, i32 3, i32 2
-  %58 = select i1 %.0.i.i.i118, i32 2, i32 3
-  %59 = select i1 %.0.i.i.i, i32 2, i32 0
-  %60 = or disjoint i32 %59, %22
-  %61 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESM_SM_SM_iiiiRKSJ_bi(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, i32 noundef %21, i32 noundef %.0.i.i.in.i.lobit, i32 noundef %57, i32 noundef %58, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %60)
-  %62 = extractvalue { i64, i64 } %61, 0
-  %.sroa.31176.0.extract.shift = lshr i64 %62, 32
-  %.sroa.31176.0.extract.trunc = trunc nuw i64 %.sroa.31176.0.extract.shift to i32
-  %63 = extractvalue { i64, i64 } %61, 1
-  %.sroa.44.8.extract.trunc185 = trunc i64 %63 to i32
-  %.sroa.62.8.extract.shift190 = and i64 %63, -4294967296
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit176.thread: ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
+  %52 = select i1 %.0.i.i.i121, i32 3, i32 2
+  %53 = select i1 %.0.i.i.i121, i32 2, i32 3
+  %54 = select i1 %15, i32 2, i32 0
+  %55 = or disjoint i32 %54, %22
+  %56 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESM_SM_SM_iiiiRKSJ_bi(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, i32 noundef %21, i32 noundef %.0.i.i.in.i.lobit, i32 noundef %52, i32 noundef %53, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %55)
+  %57 = extractvalue { i64, i64 } %56, 0
+  %.sroa.31227.0.extract.shift = lshr i64 %57, 32
+  %.sroa.31227.0.extract.trunc = trunc nuw i64 %.sroa.31227.0.extract.shift to i32
+  %58 = extractvalue { i64, i64 } %56, 1
+  %.sroa.44.8.extract.trunc236 = trunc i64 %58 to i32
+  %.sroa.62.8.extract.shift241 = and i64 %58, -4294967296
   br label %134
 
-64:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
+59:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
-  br i1 %3, label %65, label %.critedge
+  br i1 %3, label %60, label %.critedge
 
-65:                                               ; preds = %64
-  %66 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123)
+60:                                               ; preds = %59
+  %61 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
-  br i1 %66, label %67, label %134
+  br i1 %61, label %62, label %134
 
-67:                                               ; preds = %65
-  %68 = select i1 %.0.i.i.i118, i32 3, i32 2
-  %69 = select i1 %.0.i.i.i118, i32 2, i32 3
+62:                                               ; preds = %60
+  %63 = select i1 %.0.i.i.i121, i32 3, i32 2
+  %64 = select i1 %.0.i.i.i121, i32 2, i32 3
   br label %134
 
-.critedge:                                        ; preds = %64
+.critedge:                                        ; preds = %59
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   br label %134
 
-70:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
-  %71 = select i1 %.0.i.i.i118, i32 3, i32 2
-  %72 = select i1 %.0.i.i.i118, i32 2, i32 3
-  %73 = select i1 %.0.i.i.i, i32 2, i32 0
-  %74 = or disjoint i32 %73, %22
-  %75 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal30seg_seg_do_intersect_containedINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESM_SM_SM_iiiiRKSJ_bi(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, i32 noundef %21, i32 noundef %.0.i.i.in.i.lobit, i32 noundef %71, i32 noundef %72, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %74)
-  %76 = extractvalue { i64, i64 } %75, 0
-  %.sroa.31176.0.extract.shift177 = lshr i64 %76, 32
-  %.sroa.31176.0.extract.trunc178 = trunc nuw i64 %.sroa.31176.0.extract.shift177 to i32
-  %77 = extractvalue { i64, i64 } %75, 1
-  %.sroa.44.8.extract.trunc184 = trunc i64 %77 to i32
-  %.sroa.62.8.extract.shift188 = and i64 %77, -4294967296
+65:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
+  %66 = select i1 %.0.i.i.i121, i32 3, i32 2
+  %67 = select i1 %.0.i.i.i121, i32 2, i32 3
+  %68 = select i1 %15, i32 2, i32 0
+  %69 = or disjoint i32 %68, %22
+  %70 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal30seg_seg_do_intersect_containedINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESM_SM_SM_iiiiRKSJ_bi(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, i32 noundef %21, i32 noundef %.0.i.i.in.i.lobit, i32 noundef %66, i32 noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %69)
+  %71 = extractvalue { i64, i64 } %70, 0
+  %.sroa.31227.0.extract.shift228 = lshr i64 %71, 32
+  %.sroa.31227.0.extract.trunc229 = trunc nuw i64 %.sroa.31227.0.extract.shift228 to i32
+  %72 = extractvalue { i64, i64 } %70, 1
+  %.sroa.44.8.extract.trunc235 = trunc i64 %72 to i32
+  %.sroa.62.8.extract.shift239 = and i64 %72, -4294967296
   br label %134
 
-78:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
+73:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143
   unreachable
 
-79:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
+74:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138
   unreachable
 
-80:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+80:; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
   br i1 %3, label %81, label %95
 
-81:                                               ; preds = %80
+81:; preds = %80
   %82 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
   %.0.i.i.i.i.i.i144 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %82, i32 0)
   %.not.i.i145 = icmp eq i32 %82, 0
   br i1 %.not.i.i145, label %83, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
 
-83:                                               ; preds = %81
+83:; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
   %85 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 64
-  %86 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %85, ptr noundef nonnull align 16 dereferenceable(64) %84)
+  %86 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(59) %85, ptr noundef nonnull align 16 dereferenceable(64) %84)
   %.0.i.i.i.i8.i.i147 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %86, i32 0)
   br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148: ; preds = %81, %83
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148:; preds = %81, %83
   %.0.i.i146 = phi i32 [ %.0.i.i.i.i8.i.i147, %83 ], [ %.0.i.i.i.i.i.i144, %81 ]
   switch i32 %.0.i.i146, label %94 [
-    i32 -1, label %87
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit187.thread
     i32 0, label %134
     i32 1, label %89
   ]
 
-87:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit187.thread: ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #23
-  %88 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
+  %80 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #23
-  br i1 %88, label %134, label %95
+  br i1 %80, label %134, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit187.thread
 
-89:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
+81:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #23
-  %90 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
+  %82 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #23
-  br i1 %90, label %91, label %95
+  br i1 %82, label %83, label %87
 
-91:                                               ; preds = %89
-  %92 = select i1 %.0.i.i.i118, i32 3, i32 2
-  %93 = select i1 %.0.i.i.i118, i32 2, i32 3
+83:                                               ; preds = %81
+  %84 = select i1 %.0.i.i.i121, i32 3, i32 2
+  %85 = select i1 %.0.i.i.i121, i32 2, i32 3
   br label %134
 
-94:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
+86:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148
   unreachable
 
-95:                                               ; preds = %87, %89, %80
+87:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit187.thread, %89, %80
   br label %134
 
-96:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+96:; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
   %97 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i)
   %.0.i.i.i.i.i.i149 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %97, i32 0)
-  %.not.i.i150 = icmp eq i32 %97, 0
-  br i1 %.not.i.i150, label %98, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
+  %.not.i.i192 = icmp eq i32 %97, 0
+  br i1 %.not.i.i192, label %89, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
-  %100 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
-  %101 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %100, ptr noundef nonnull align 16 dereferenceable(64) %99)
-  %.0.i.i.i.i8.i.i152 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %101, i32 0)
+89:                                               ; preds = %96
+  %90 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
+  %92 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %91, ptr noundef nonnull align 16 dereferenceable(64) %90)
+  %.0.i.i.i.i8.i.i152 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %92, i32 0)
   br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153: ; preds = %96, %98
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153:; preds = %96, %98
   %.0.i.i151 = phi i32 [ %.0.i.i.i.i8.i.i152, %98 ], [ %.0.i.i.i.i.i.i149, %96 ]
   switch i32 %.0.i.i151, label %132 [
     i32 -1, label %134
-    i32 0, label %102
+    i32 0, label %93
     i32 1, label %103
   ]
 
-102:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
+93:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
   br label %134
 
-103:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
-  %104 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121)
-  %.0.i.i.i.i.i.i154 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %104, i32 0)
-  %.not.i.i155 = icmp eq i32 %104, 0
+94:                                               ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
+  %95 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121)
+  %.0.i.i.i.i.i.i154 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %95, i32 0)
+  %.not.i.i155 = icmp eq i32 %95, 0
   br i1 %.not.i.i155, label %105, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 64
+105:; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %spec.select.i.i121, i64 59
   %107 = getelementptr inbounds nuw i8, ptr %spec.select.i.i125, i64 64
   %108 = tail call noundef i32 @_ZNK5boost14multiprecision8backends16rational_adaptorINS1_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEE7compareERKS8_(ptr noundef nonnull align 16 dereferenceable(64) %107, ptr noundef nonnull align 16 dereferenceable(64) %106)
   %.0.i.i.i.i8.i.i157 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %108, i32 0)
   br label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
 
-_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158: ; preds = %103, %105
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158:; preds = %94, %105
   %.0.i.i156 = phi i32 [ %.0.i.i.i.i8.i.i157, %105 ], [ %.0.i.i.i.i.i.i154, %103 ]
   switch i32 %.0.i.i156, label %131 [
-    i32 -1, label %109
+    i32 -1, label %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit209.thread
     i32 0, label %118
     i32 1, label %122
   ]
 
-109:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
-  %110 = select i1 %.0.i.i.i118, i32 3, i32 2
-  %111 = select i1 %.0.i.i.i118, i32 2, i32 3
-  %112 = select i1 %.0.i.i.i, i32 5, i32 4
-  %113 = select i1 %.0.i.i.i118, i32 2, i32 0
-  %114 = or disjoint i32 %113, %112
-  %115 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESM_SM_SM_iiiiRKSJ_bi(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, i32 noundef %110, i32 noundef %111, i32 noundef %21, i32 noundef %.0.i.i.in.i.lobit, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %114)
-  %116 = extractvalue { i64, i64 } %115, 0
-  %.sroa.31176.0.extract.shift179 = lshr i64 %116, 32
-  %.sroa.31176.0.extract.trunc180 = trunc nuw i64 %.sroa.31176.0.extract.shift179 to i32
-  %117 = extractvalue { i64, i64 } %115, 1
-  %.sroa.44.8.extract.trunc183 = trunc i64 %117 to i32
-  %.sroa.62.8.extract.shift186 = and i64 %117, -4294967296
+_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit209.thread: ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
+  %100 = select i1 %.0.i.i.i121, i32 3, i32 2
+  %101 = select i1 %.0.i.i.i121, i32 2, i32 3
+  %102 = select i1 %15, i32 5, i32 4
+  %103 = select i1 %.0.i.i.i121, i32 2, i32 0
+  %104 = or disjoint i32 %103, %102
+  %105 = tail call { i64, i64 } @_ZN4CGAL13Intersections8internal29seg_seg_do_intersect_crossingINS_16Simple_cartesianIN5boost14multiprecision6numberINS5_8backends16rational_adaptorINS7_15cpp_int_backendILm0ELm0ELNS5_16cpp_integer_typeE1ELNS5_18cpp_int_check_typeE0ESaIyEEEEELNS5_26expression_template_optionE1EEEEEEENS1_15S2S2_inter_infoERKNT_7Point_2ESM_SM_SM_iiiiRKSJ_bi(ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i121, i32 noundef %100, i32 noundef %101, i32 noundef %21, i32 noundef %.0.i.i.in.i.lobit, ptr noundef nonnull align 1 dereferenceable(1) %2, i1 noundef zeroext %3, i32 noundef %104)
+  %106 = extractvalue { i64, i64 } %105, 0
+  %.sroa.31227.0.extract.shift230 = lshr i64 %106, 32
+  %.sroa.31227.0.extract.trunc231 = trunc nuw i64 %.sroa.31227.0.extract.shift230 to i32
+  %107 = extractvalue { i64, i64 } %105, 1
+  %.sroa.44.8.extract.trunc234 = trunc i64 %107 to i32
+  %.sroa.62.8.extract.shift237 = and i64 %107, -4294967296
   br label %134
 
-118:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
+108:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #23
-  br i1 %3, label %119, label %.critedge2
+  br i1 %3, label %109, label %.critedge2
 
-119:                                              ; preds = %118
-  %120 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
+109:                                              ; preds = %108
+  %110 = call noundef zeroext i1 @_ZNK4CGAL23CartesianKernelFunctors11Collinear_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_SL_(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i123, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i, ptr noundef nonnull align 16 dereferenceable(128) %spec.select.i.i125)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #23
-  br i1 %120, label %134, label %121
+  br i1 %110, label %134, label %121
 
-.critedge2:                                       ; preds = %118
+.critedge2:                                       ; preds = %108
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #23
   br label %121
 
@@ -28616,17 +28616,17 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14
   %.sroa.62.8.extract.shift = and i64 %130, -4294967296
   br label %134
 
-131:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
+111:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit158
   unreachable
 
-132:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
+_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit143.thread: ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153
   unreachable
 
-133:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit
+133:; preds = %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit154.thread248
   unreachable
 
-134:                                              ; preds = %119, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148, %87, %65, %.critedge, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133, %122, %121, %109, %102, %95, %91, %70, %67, %56, %49
-  %.sroa.31176.0 = phi i32 [ %.0.i.i.in.i.lobit, %49 ], [ %.sroa.31176.0.extract.trunc, %56 ], [ %68, %67 ], [ %.sroa.31176.0.extract.trunc178, %70 ], [ %21, %95 ], [ %92, %91 ], [ %21, %102 ], [ %.sroa.31176.0.extract.trunc180, %109 ], [ %.0.i.i.in.i.lobit, %121 ], [ %.sroa.31176.0.extract.trunc182, %122 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129 ], [ %.0.i.i136, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138 ], [ %.0.i.i.in.i.lobit, %.critedge ], [ %.0.i.i.in.i.lobit, %65 ], [ %21, %87 ], [ %21, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148 ], [ %.0.i.i151, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153 ], [ %21, %119 ]
+134:; preds = %119, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit187.thread, %65, %.critedge, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit126, %122, %121, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit209.thread, %93, %95, %83, %65, %67, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit176.thread, %49
+  %.sroa.31176.0 = phi i32 [ %.0.i.i.in.i.lobit, %49 ], [ %.sroa.31227.0.extract.trunc, %56 ], [ %68, %67 ], [ %.sroa.31176.0.extract.trunc178, %70 ], [ %21, %95 ], [ %92, %91 ], [ %21, %102 ], [ %.sroa.31176.0.extract.trunc180, %109 ], [ %.0.i.i.in.i.lobit, %121 ], [ %.sroa.31176.0.extract.trunc182, %122 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133 ], [ -1, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129 ], [ %.0.i.i136, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138 ], [ %.0.i.i.in.i.lobit, %.critedge ], [ %.0.i.i.in.i.lobit, %65 ], [ %21, %87 ], [ %21, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148 ], [ %.0.i.i151, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153 ], [ %21, %119 ]
   %.sroa.31.0 = phi i64 [ 0, %49 ], [ %62, %56 ], [ 0, %67 ], [ %76, %70 ], [ 0, %95 ], [ 0, %91 ], [ 0, %102 ], [ %116, %109 ], [ 0, %121 ], [ %129, %122 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138 ], [ 0, %.critedge ], [ 0, %65 ], [ 0, %87 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153 ], [ 0, %119 ]
   %.sroa.18.0 = phi i64 [ 0, %49 ], [ %62, %56 ], [ 256, %67 ], [ %76, %70 ], [ 0, %95 ], [ 256, %91 ], [ 0, %102 ], [ %116, %109 ], [ 0, %121 ], [ %129, %122 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138 ], [ 0, %.critedge ], [ 0, %65 ], [ 256, %87 ], [ 256, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153 ], [ 256, %119 ]
   %.sroa.0160.0 = phi i64 [ 1, %49 ], [ %62, %56 ], [ 1, %67 ], [ %76, %70 ], [ 1, %95 ], [ 1, %91 ], [ 1, %102 ], [ %116, %109 ], [ 1, %121 ], [ %129, %122 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit133 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors9Less_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit129 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit138 ], [ 1, %.critedge ], [ 1, %65 ], [ 1, %87 ], [ 1, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit148 ], [ 0, %_ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14multiprecision6numberINS4_8backends16rational_adaptorINS6_15cpp_int_backendILm0ELm0ELNS4_16cpp_integer_typeE1ELNS4_18cpp_int_check_typeE0ESaIyEEEEELNS4_26expression_template_optionE1EEEEEEclERKNS_7Point_2ISG_EESL_.exit153 ], [ 1, %119 ]
@@ -28638,9 +28638,9 @@ _ZNK4CGAL23CartesianKernelFunctors12Compare_xy_2INS_16Simple_cartesianIN5boost14
   %.sroa.31.0.insert.insert = or disjoint i64 %.sroa.31176.0.insert.shift, %.sroa.31.0.insert.ext
   %.sroa.18.0.insert.ext = and i64 %.sroa.18.0, 65280
   %.sroa.18.0.insert.insert = or disjoint i64 %.sroa.31.0.insert.insert, %.sroa.18.0.insert.ext
-  %.sroa.0160.0.insert.ext = and i64 %.sroa.0160.0, 255
-  %.sroa.0160.0.insert.insert = or disjoint i64 %.sroa.18.0.insert.insert, %.sroa.0160.0.insert.ext
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0160.0.insert.insert, 0
+  %.sroa.0211.0.insert.ext = and i64 %.sroa.0160.0, 255
+  %.sroa.0211.0.insert.insert = or disjoint i64 %.sroa.18.0.insert.insert, %.sroa.0211.0.insert.ext
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0211.0.insert.insert, 0
   %.sroa.44.8.insert.ext = zext i32 %.sroa.44.0 to i64
   %.sroa.44.8.insert.insert = or disjoint i64 %.sroa.62.0, %.sroa.44.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.44.8.insert.insert, 1

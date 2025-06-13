@@ -162,36 +162,36 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_
   %10 = icmp eq i32 %8, 0
   br i1 %10, label %11, label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
-11:                                               ; preds = %6
+11:; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !35
   %14 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %13, i32 0)
   br label %_ZNK4cvc58internal13DeltaRational3sgnEv.exit
 
 _ZNK4cvc58internal13DeltaRational3sgnEv.exit:     ; preds = %6, %11
-  %.0.i = phi i32 [ %14, %11 ], [ %9, %6 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.0.i, ptr %15, align 4, !tbaa !29
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(64) %3)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 1, ptr %17, align 8, !tbaa !30
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 1, ptr %18, align 8, !tbaa !31
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 0, ptr %19, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 0, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 0, ptr %21, align 8, !tbaa !30
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %4, ptr %22, align 8, !tbaa !39
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i8 1, ptr %23, align 8, !tbaa !32
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %5, ptr %24, align 8, !tbaa !33
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 0, ptr %25, align 8, !tbaa !34
+  %.0.i = phi i32 [ %18, %11 ], [ %9, %6 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.0.i, ptr %19, align 4, !tbaa !29
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(64) %3)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 1, ptr %21, align 8, !tbaa !30
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 1, ptr %22, align 8, !tbaa !31
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 0, ptr %23, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 0, ptr %24, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 0, ptr %25, align 8, !tbaa !30
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %4, ptr %26, align 8, !tbaa !39
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i8 1, ptr %27, align 8, !tbaa !32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr %5, ptr %28, align 8, !tbaa !33
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i32 0, ptr %29, align 8, !tbaa !34
   ret void
 }
 
@@ -204,7 +204,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo8conflictEj
   %9 = icmp eq i32 %7, 0
   br i1 %9, label %10, label %_ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE.exit
 
-10:                                               ; preds = %5
+10:; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %12 = load i32, ptr %11, align 4, !tbaa !35
   %13 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %12, i32 0)
@@ -212,28 +212,28 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo8conflictEj
 
 _ZN4cvc58internal6theory5arith6linear10UpdateInfoC2EbjRKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintE.exit: ; preds = %5, %10
   %.0.i.i = phi i32 [ %13, %10 ], [ %8, %5 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.0.i.i, ptr %14, align 4, !tbaa !29
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef nonnull align 8 dereferenceable(64) %2)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 1, ptr %16, align 8, !tbaa !30
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 1, ptr %17, align 8, !tbaa !31
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 0, ptr %18, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 0, ptr %19, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 0, ptr %20, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %3, ptr %21, align 8, !tbaa !39
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i8 1, ptr %22, align 8, !tbaa !32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %4, ptr %23, align 8, !tbaa !33
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i32 0, ptr %24, align 8, !tbaa !34
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.0.i.i, ptr %18, align 4, !tbaa !29
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(64) %2)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 1, ptr %20, align 8, !tbaa !30
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 1, ptr %21, align 8, !tbaa !31
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 0, ptr %22, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 0, ptr %23, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 0, ptr %24, align 8, !tbaa !30
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store ptr %3, ptr %25, align 8, !tbaa !39
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i8 1, ptr %26, align 8, !tbaa !32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr %4, ptr %27, align 8, !tbaa !33
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i32 0, ptr %28, align 8, !tbaa !34
   ret void
 }
 
@@ -814,12 +814,12 @@ define internal void @__cxx_global_var_init.18() #6 section ".text.startup" comd
   br i1 %5, label %6, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, !prof !53
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #12
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14
+  %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
           to label %10 unwind label %12
 
 10:                                               ; preds = %8
@@ -827,13 +827,13 @@ define internal void @__cxx_global_var_init.18() #6 section ".text.startup" comd
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %9, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8, !tbaa !54
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #12
   br label %_ZN4cvc58internal4expr9NodeValue4nullEv.exit
 
 12:                                               ; preds = %8
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #12
   resume { ptr, i32 } %13
 
 _ZN4cvc58internal4expr9NodeValue4nullEv.exit:     ; preds = %3, %6, %10
@@ -864,7 +864,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal13DeltaRationalC2ERKS1_(ptr no
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #15
+  tail call void @__clang_call_terminate(ptr %9) #14
   unreachable
 
 common.resume:                                    ; preds = %.body, %5
@@ -897,7 +897,7 @@ _ZN4cvc58internal8RationalC2ERKS1_.exit:          ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #15
+  tail call void @__clang_call_terminate(ptr %18) #14
   unreachable
 
 _ZN4cvc58internal8RationalC2ERKS1_.exit6:         ; preds = %.noexc5
@@ -917,7 +917,7 @@ _ZN4cvc58internal8RationalC2ERKS1_.exit6:         ; preds = %.noexc5
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #15
+  tail call void @__clang_call_terminate(ptr %23) #14
   unreachable
 }
 
@@ -931,8 +931,8 @@ declare void @__gmpq_clear(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -969,7 +969,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_simplex_update.cpp() #6 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 
