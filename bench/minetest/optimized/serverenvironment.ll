@@ -23939,10 +23939,9 @@ _ZNK3irr4core8CMatrix4IfE18getRotationDegreesERKNS0_8vector3dIfEE.exit: ; preds 
   %95 = fpext <2 x float> %94 to <2 x double>
   %96 = fmul nsz <2 x double> %95, splat (double 5.000000e-01)
   %97 = call nsz <2 x double> @llvm.sin.v2f64(<2 x double> %96)
-  %98 = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %99 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %98)
-  %shift = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %100 = fmul nsz <2 x double> %99, %shift
+  %98 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %96)
+  %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %100 = fmul nsz <2 x double> %98, %99
   %mul6.i.i36 = extractelement <2 x double> %100, i64 0
   %101 = fmul nsz <2 x double> %97, %99
   %shift74 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
