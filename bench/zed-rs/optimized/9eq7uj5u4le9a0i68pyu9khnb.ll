@@ -85625,12 +85625,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 17:                                               ; preds = %2
   %switch.i = icmp slt i8 %7, 1
-  %.inv8.i = icmp sgt i8 %10, -1
-  %spec.select10.i = and i1 %switch.i, %.inv8.i
+  %switch7.i = icmp sgt i8 %10, -1
+  %spec.select8.i = and i1 %switch.i, %switch7.i
   br label %"_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17he7f233948d9ef72eE.llvm.1503349291000977302.exit"
 
 "_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17he7f233948d9ef72eE.llvm.1503349291000977302.exit": ; preds = %14, %17
-  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select10.i, %17 ]
+  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select8.i, %17 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -85657,12 +85657,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 17:                                               ; preds = %2
   %switch.i = icmp slt i8 %7, 1
-  %.inv8.i = icmp sgt i8 %10, -1
-  %spec.select10.i = and i1 %switch.i, %.inv8.i
+  %switch7.i = icmp sgt i8 %10, -1
+  %spec.select8.i = and i1 %switch.i, %switch7.i
   br label %"_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17h591f12c1d08e1d57E.llvm.1503349291000977302.exit"
 
 "_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17h591f12c1d08e1d57E.llvm.1503349291000977302.exit": ; preds = %14, %17
-  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select10.i, %17 ]
+  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select8.i, %17 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -85689,12 +85689,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 
 17:                                               ; preds = %2
   %switch.i = icmp slt i8 %7, 1
-  %.inv8.i = icmp sgt i8 %10, -1
-  %spec.select10.i = and i1 %switch.i, %.inv8.i
+  %switch7.i = icmp sgt i8 %10, -1
+  %spec.select8.i = and i1 %switch.i, %switch7.i
   br label %"_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17he1250f7b79a6d8c7E.llvm.1503349291000977302.exit"
 
 "_ZN6editor11display_map8fold_map18intersecting_folds28_$u7b$$u7b$closure$u7d$$u7d$17he1250f7b79a6d8c7E.llvm.1503349291000977302.exit": ; preds = %14, %17
-  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select10.i, %17 ]
+  %.sroa.0.0.i = phi i1 [ %spec.select.i, %14 ], [ %spec.select8.i, %17 ]
   ret i1 %.sroa.0.0.i
 }
 
@@ -176457,12 +176457,12 @@ define hidden noundef zeroext i1 @"_ZN6editor11display_map8fold_map18intersectin
 
 16:                                               ; preds = %2
   %switch = icmp slt i8 %6, 1
-  %.inv8 = icmp sgt i8 %9, -1
-  %spec.select10 = and i1 %switch, %.inv8
+  %switch7 = icmp sgt i8 %9, -1
+  %spec.select8 = and i1 %switch, %switch7
   br label %17
 
 17:                                               ; preds = %16, %13
-  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select10, %16 ]
+  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select8, %16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -176488,12 +176488,12 @@ define hidden noundef zeroext i1 @"_ZN6editor11display_map8fold_map18intersectin
 
 16:                                               ; preds = %2
   %switch = icmp slt i8 %6, 1
-  %.inv8 = icmp sgt i8 %9, -1
-  %spec.select10 = and i1 %switch, %.inv8
+  %switch7 = icmp sgt i8 %9, -1
+  %spec.select8 = and i1 %switch, %switch7
   br label %17
 
 17:                                               ; preds = %16, %13
-  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select10, %16 ]
+  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select8, %16 ]
   ret i1 %.sroa.0.0
 }
 
@@ -176519,12 +176519,12 @@ define hidden noundef zeroext i1 @"_ZN6editor11display_map8fold_map18intersectin
 
 16:                                               ; preds = %2
   %switch = icmp slt i8 %6, 1
-  %.inv8 = icmp sgt i8 %9, -1
-  %spec.select10 = and i1 %switch, %.inv8
+  %switch7 = icmp sgt i8 %9, -1
+  %spec.select8 = and i1 %switch, %switch7
   br label %17
 
 17:                                               ; preds = %16, %13
-  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select10, %16 ]
+  %.sroa.0.0 = phi i1 [ %spec.select, %13 ], [ %spec.select8, %16 ]
   ret i1 %.sroa.0.0
 }
 

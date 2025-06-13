@@ -180944,7 +180944,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry15detail_dispatch6with
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %10, i8 0, i64 17, i1 false)
   %.sroa.07.011.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.not12.i.i = icmp eq ptr %.sroa.07.011.i.i, %14
-  br i1 %.not12.i.i, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55, label %.lr.ph.i.i
+  br i1 %.not12.i.i, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %.sroa.07.014.i.i = phi ptr [ %.sroa.07.0.i.i, %.lr.ph.i.i ], [ %.sroa.07.011.i.i, %19 ]
@@ -180960,7 +180960,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry15detail_dispatch6with
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !3535, !range !17
   %23 = trunc nuw i8 %.pre.i.i to i1
-  br i1 %23, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55, label %._crit_edge.thread.i.i
+  br i1 %23, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54, label %._crit_edge.thread.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -180982,18 +180982,18 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry15detail_dispatch6with
   %30 = load i32, ptr %29, align 4, !tbaa !3539
   %31 = sub i32 0, %30
   %32 = icmp eq i32 %27, %31
-  br i1 %32, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55, label %36
+  br i1 %32, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54, label %36
 
 33:                                               ; preds = %25
   %34 = icmp eq i32 %27, 0
-  br i1 %34, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55, label %36
+  br i1 %34, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54, label %36
 
 ._crit_edge.thread.i.thread.i:                    ; preds = %._crit_edge.thread.i.i
   %.pr = load i32, ptr %10, align 4, !tbaa !3538
   %35 = icmp eq i32 %.pr, 0
-  br i1 %35, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55, label %36
+  br i1 %35, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54, label %36
 
-_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55: ; preds = %19, %._crit_edge.i.i, %28, %33, %._crit_edge.thread.i.thread.i
+_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54: ; preds = %19, %._crit_edge.i.i, %28, %33, %._crit_edge.thread.i.thread.i
   %.0.i.i.i.i.ph = phi i32 [ 0, %._crit_edge.i.i ], [ -1, %28 ], [ -1, %33 ], [ -1, %._crit_edge.thread.i.thread.i ], [ -1, %19 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #56
@@ -181006,8 +181006,8 @@ _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS
   %38 = load ptr, ptr %37, align 8, !tbaa !174
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !174
-  %.not74 = icmp eq ptr %38, %40
-  br i1 %.not74, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread, label %.lr.ph
+  %.not73 = icmp eq ptr %38, %40
+  br i1 %.not73, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -181018,10 +181018,10 @@ _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS
   br label %46
 
 46:                                               ; preds = %.lr.ph, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread
-  %47 = phi ptr [ %40, %.lr.ph ], [ %120, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread ]
-  %.sroa.048.075 = phi ptr [ %38, %.lr.ph ], [ %121, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread ]
-  %48 = load ptr, ptr %.sroa.048.075, align 8, !tbaa !174
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.048.075, i64 8
+  %47 = phi ptr [ %40, %.lr.ph ], [ %121, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread ]
+  %.sroa.047.074 = phi ptr [ %38, %.lr.ph ], [ %122, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread ]
+  %48 = load ptr, ptr %.sroa.047.074, align 8, !tbaa !174
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.047.074, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !174
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %48 to i64
@@ -181043,7 +181043,7 @@ _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS
 
 .lr.ph.i.i25:                                     ; preds = %55, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit
   %.sroa.07.014.i.i26 = phi ptr [ %.sroa.07.0.i.i28, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit ], [ %.sroa.07.011.i.i23, %55 ]
-  %.sroa.0.013.i.i27 = phi ptr [ %107, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit ], [ %48, %55 ]
+  %.sroa.0.013.i.i27 = phi ptr [ %108, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit ], [ %48, %55 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #56
   store i8 0, ptr %4, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #56
@@ -181071,8 +181071,8 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geo
 
 66:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.i
   %67 = and i64 %63, 4294967296
-  %.not41.i = icmp eq i64 %67, 0
-  br i1 %.not41.i, label %68, label %100
+  %.not33.i = icmp eq i64 %67, 0
+  br i1 %.not33.i, label %68, label %101
 
 68:                                               ; preds = %66
   switch i32 %65, label %74 [
@@ -181085,140 +181085,134 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geo
   %71 = trunc nuw i8 %70 to i1
   %72 = select i1 %71, ptr %.sroa.0.013.i.i27, ptr %.sroa.07.014.i.i26
   %73 = call noundef i32 @_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE10side_equalINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEiRKT_RKT0_RKNSC_10count_infoE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(5) %7)
-  br label %89
+  br label %90
 
 74:                                               ; preds = %68
   %75 = load i8, ptr %6, align 1, !tbaa !15, !range !17, !noundef !18
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %.thread.i, label %77
+  br i1 %76, label %79, label %77
 
 77:                                               ; preds = %74
   %78 = call noundef i32 @_ZNK5boost8geometry8strategy4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_SG_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.013.i.i27, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.014.i.i26, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %89
-
-.thread.i:                                        ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i27, i64 8
-  %80 = load double, ptr %79, align 8, !tbaa !1472
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i.i26, i64 8
-  %82 = load double, ptr %81, align 8, !tbaa !1472
-  %.inv.i.i = icmp slt i32 %65, 1
-  %83 = select i1 %.inv.i.i, i32 -1, i32 1
-  %84 = fsub double 1.800000e+02, %80
-  %85 = fsub double %84, %82
-  %86 = fcmp ole double %85, 1.800000e+02
-  %87 = sub nsw i32 0, %83
-  %88 = select i1 %86, i32 %87, i32 %83
   br label %90
 
-89:                                               ; preds = %77, %69
-  %.030.i = phi i32 [ %73, %69 ], [ %78, %77 ]
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i27, i64 8
+  %81 = load double, ptr %80, align 8, !tbaa !1472
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i.i26, i64 8
+  %83 = load double, ptr %82, align 8, !tbaa !1472
+  %84 = call noundef i32 @llvm.scmp.i32.i32(i32 %65, i32 0)
+  %85 = fsub double 1.800000e+02, %81
+  %86 = fsub double %85, %83
+  %87 = fcmp ole double %86, 1.800000e+02
+  %88 = sub nsw i32 0, %84
+  %89 = select i1 %87, i32 %88, i32 %84
+  br label %90
+
+90:                                               ; preds = %79, %77, %69
+  %.030.i = phi i32 [ %73, %69 ], [ %89, %79 ], [ %78, %77 ]
   %.not32.i = icmp eq i32 %.030.i, 0
-  br i1 %.not32.i, label %._crit_edge.i.i31.thread, label %._crit_edge.i
+  br i1 %.not32.i, label %._crit_edge.i.i31.thread, label %91
 
-._crit_edge.i:                                    ; preds = %89
-  %.pre.i47 = load i32, ptr %7, align 8, !tbaa !3540
-  br label %90
-
-._crit_edge.i.i31.thread:                         ; preds = %89
+._crit_edge.i.i31.thread:                         ; preds = %90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #56
   br label %.loopexit
 
-90:                                               ; preds = %._crit_edge.i, %.thread.i
-  %91 = phi i32 [ %65, %.thread.i ], [ %.pre.i47, %._crit_edge.i ]
-  %.03036.i = phi i32 [ %88, %.thread.i ], [ %.030.i, %._crit_edge.i ]
-  %92 = mul nsw i32 %.03036.i, %91
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %97
+91:                                               ; preds = %90
+  %92 = load i32, ptr %7, align 8, !tbaa !3540
+  %93 = mul nsw i32 %92, %.030.i
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %95, label %98
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %8, align 4, !tbaa !3538
-  %96 = add nsw i32 %95, %91
-  store i32 %96, ptr %8, align 4, !tbaa !3538
-  br label %97
+95:                                               ; preds = %91
+  %96 = load i32, ptr %8, align 4, !tbaa !3538
+  %97 = add nsw i32 %96, %92
+  store i32 %97, ptr %8, align 4, !tbaa !3538
+  br label %98
 
-97:                                               ; preds = %94, %90
-  %98 = load i32, ptr %44, align 4, !tbaa !3537
-  %99 = add nsw i32 %98, %91
-  store i32 %99, ptr %44, align 4, !tbaa !3537
+98:                                               ; preds = %95, %91
+  %99 = load i32, ptr %44, align 4, !tbaa !3537
+  %100 = add nsw i32 %99, %92
+  store i32 %100, ptr %44, align 4, !tbaa !3537
   br label %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit
 
-100:                                              ; preds = %66
-  %101 = load i32, ptr %42, align 4, !tbaa !3539
-  %102 = sub nsw i32 %101, %65
-  store i32 %102, ptr %42, align 4, !tbaa !3539
-  %103 = load i32, ptr %43, align 4, !tbaa !3542
-  %104 = sub nsw i32 %103, %65
-  store i32 %104, ptr %43, align 4, !tbaa !3542
+101:                                              ; preds = %66
+  %102 = load i32, ptr %42, align 4, !tbaa !3539
+  %103 = sub nsw i32 %102, %65
+  store i32 %103, ptr %42, align 4, !tbaa !3539
+  %104 = load i32, ptr %43, align 4, !tbaa !3542
+  %105 = sub nsw i32 %104, %65
+  store i32 %105, ptr %43, align 4, !tbaa !3542
   br label %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit
 
-_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit: ; preds = %.lr.ph.i.i25, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.i, %97, %100
-  %105 = load i8, ptr %45, align 4, !tbaa !3535, !range !17, !noundef !18
-  %106 = trunc nuw i8 %105 to i1
+_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit: ; preds = %.lr.ph.i.i25, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.i, %98, %101
+  %106 = load i8, ptr %45, align 4, !tbaa !3535, !range !17, !noundef !18
+  %107 = trunc nuw i8 %106 to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #56
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i27, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i27, i64 16
   %.sroa.07.0.i.i28 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i.i26, i64 16
   %.not.i.i29 = icmp eq ptr %.sroa.07.0.i.i28, %50
-  %or.cond.not.i.i30.not = select i1 %106, i1 true, i1 %.not.i.i29
+  %or.cond.not.i.i30.not = select i1 %107, i1 true, i1 %.not.i.i29
   br i1 %or.cond.not.i.i30.not, label %._crit_edge.i.i31, label %.lr.ph.i.i25, !llvm.loop !3534
 
 ._crit_edge.i.i31:                                ; preds = %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit
-  %108 = trunc nuw i8 %105 to i1
-  br i1 %108, label %.loopexit, label %._crit_edge.thread.i.i34
+  %109 = trunc nuw i8 %106 to i1
+  br i1 %109, label %.loopexit, label %._crit_edge.thread.i.i34
 
 ._crit_edge.thread.i.i34:                         ; preds = %._crit_edge.i.i31
   %.pre.i36 = load i32, ptr %44, align 4, !tbaa !3537
   %.pre7.i38 = load i32, ptr %43, align 4
-  %109 = icmp eq i32 %.pre7.i38, 0
+  %110 = icmp eq i32 %.pre7.i38, 0
   %.not.i.i.i.i39 = icmp eq i32 %.pre.i36, 0
-  %or.cond.i.i.i.i40 = select i1 %.not.i.i.i.i39, i1 true, i1 %109
-  br i1 %or.cond.i.i.i.i40, label %._crit_edge.thread.i.thread.i44, label %110
+  %or.cond.i.i.i.i40 = select i1 %.not.i.i.i.i39, i1 true, i1 %110
+  br i1 %or.cond.i.i.i.i40, label %._crit_edge.thread.i.thread.i44, label %111
 
-110:                                              ; preds = %._crit_edge.thread.i.i34
-  %111 = icmp sgt i32 %.pre.i36, 0
-  %112 = load i32, ptr %8, align 4, !tbaa !3538
-  br i1 %111, label %113, label %117
+111:                                              ; preds = %._crit_edge.thread.i.i34
+  %112 = icmp sgt i32 %.pre.i36, 0
+  %113 = load i32, ptr %8, align 4, !tbaa !3538
+  br i1 %112, label %114, label %118
 
-113:                                              ; preds = %110
-  %114 = load i32, ptr %42, align 4, !tbaa !3539
-  %115 = sub i32 0, %114
-  %116 = icmp eq i32 %112, %115
-  br i1 %116, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45, label %.loopexit
+114:                                              ; preds = %111
+  %115 = load i32, ptr %42, align 4, !tbaa !3539
+  %116 = sub i32 0, %115
+  %117 = icmp eq i32 %113, %116
+  br i1 %117, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45, label %.loopexit
 
-117:                                              ; preds = %110
-  %118 = icmp eq i32 %112, 0
-  br i1 %118, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45, label %.loopexit
-
-._crit_edge.thread.i.thread.i44:                  ; preds = %._crit_edge.thread.i.i34
-  %.pr73 = load i32, ptr %8, align 4, !tbaa !3538
-  %119 = icmp eq i32 %.pr73, 0
+118:                                              ; preds = %111
+  %119 = icmp eq i32 %113, 0
   br i1 %119, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45, label %.loopexit
 
-_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45: ; preds = %55, %._crit_edge.thread.i.thread.i44, %117, %113
+._crit_edge.thread.i.thread.i44:                  ; preds = %._crit_edge.thread.i.i34
+  %.pr72 = load i32, ptr %8, align 4, !tbaa !3538
+  %120 = icmp eq i32 %.pr72, 0
+  br i1 %120, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45, label %.loopexit
+
+_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45: ; preds = %55, %._crit_edge.thread.i.thread.i44, %118, %114
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #56
   %.pre = load ptr, ptr %39, align 8, !tbaa !174
   br label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread
 
 _ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread: ; preds = %46, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45
-  %120 = phi ptr [ %47, %46 ], [ %.pre, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45 ]
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.048.075, i64 24
-  %.not = icmp eq ptr %121, %120
+  %121 = phi ptr [ %47, %46 ], [ %.pre, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45 ]
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.047.074, i64 24
+  %.not = icmp eq ptr %122, %121
   br i1 %.not, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread, label %46, !llvm.loop !3543
 
-.loopexit:                                        ; preds = %113, %117, %._crit_edge.thread.i.thread.i44, %._crit_edge.i.i31, %._crit_edge.i.i31.thread
-  %.0.i.i.i.i42.ph.neg = phi i32 [ 0, %._crit_edge.i.i31.thread ], [ -1, %113 ], [ -1, %117 ], [ -1, %._crit_edge.thread.i.thread.i44 ], [ 0, %._crit_edge.i.i31 ]
+.loopexit:                                        ; preds = %114, %118, %._crit_edge.thread.i.thread.i44, %._crit_edge.i.i31, %._crit_edge.i.i31.thread
+  %.0.i.i.i.i42.ph.neg = phi i32 [ 0, %._crit_edge.i.i31.thread ], [ -1, %114 ], [ -1, %118 ], [ -1, %._crit_edge.thread.i.thread.i44 ], [ 0, %._crit_edge.i.i31 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #56
   br label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread
 
-_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread, %36, %.loopexit, %3, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55
-  %.3 = phi i32 [ %.0.i.i.i.i.ph, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread55 ], [ -1, %3 ], [ %.0.i.i.i.i42.ph.neg, %.loopexit ], [ 1, %36 ], [ 1, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread ]
+_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread: ; preds = %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread, %36, %.loopexit, %3, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54
+  %.3 = phi i32 [ %.0.i.i.i.i.ph, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread54 ], [ -1, %3 ], [ %.0.i.i.i.i42.ph.neg, %.loopexit ], [ 1, %36 ], [ 1, %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit45.thread ]
   ret i32 %.3
 }
 
@@ -181255,8 +181249,8 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geo
 
 20:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit
   %21 = and i64 %17, 4294967296
-  %.not41 = icmp eq i64 %21, 0
-  br i1 %.not41, label %22, label %56
+  %.not33 = icmp eq i64 %21, 0
+  br i1 %.not33, label %22, label %57
 
 22:                                               ; preds = %20
   switch i32 %19, label %28 [
@@ -181269,86 +181263,80 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geo
   %25 = trunc nuw i8 %24 to i1
   %26 = select i1 %25, ptr %2, ptr %3
   %27 = call noundef i32 @_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE10side_equalINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEiRKT_RKT0_RKNSC_10count_infoE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(5) %9)
-  br label %43
+  br label %44
 
 28:                                               ; preds = %22
   %29 = load i8, ptr %8, align 1, !tbaa !15, !range !17, !noundef !18
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %33, label %31
 
 31:                                               ; preds = %28
   %32 = call noundef i32 @_ZNK5boost8geometry8strategy4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_SG_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %43
+  br label %44
 
-.thread:                                          ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !1472
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = load double, ptr %35, align 8, !tbaa !1472
-  %.inv.i = icmp slt i32 %19, 1
-  %37 = select i1 %.inv.i, i32 -1, i32 1
-  %38 = fsub double 1.800000e+02, %34
-  %39 = fsub double %38, %36
-  %40 = fcmp ole double %39, 1.800000e+02
-  %41 = sub nsw i32 0, %37
-  %42 = select i1 %40, i32 %41, i32 %37
-  br label %45
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load double, ptr %34, align 8, !tbaa !1472
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = load double, ptr %36, align 8, !tbaa !1472
+  %38 = call noundef i32 @llvm.scmp.i32.i32(i32 %19, i32 0)
+  %39 = fsub double 1.800000e+02, %35
+  %40 = fsub double %39, %37
+  %41 = fcmp ole double %40, 1.800000e+02
+  %42 = sub nsw i32 0, %38
+  %43 = select i1 %41, i32 %42, i32 %38
+  br label %44
 
-43:                                               ; preds = %31, %23
-  %.030 = phi i32 [ %27, %23 ], [ %32, %31 ]
+44:                                               ; preds = %31, %33, %23
+  %.030 = phi i32 [ %27, %23 ], [ %43, %33 ], [ %32, %31 ]
   %.not32 = icmp eq i32 %.030, 0
-  br i1 %.not32, label %.thread39, label %._crit_edge
+  br i1 %.not32, label %.thread, label %46
 
-._crit_edge:                                      ; preds = %43
-  %.pre = load i32, ptr %9, align 8, !tbaa !3540
-  br label %45
-
-.thread39:                                        ; preds = %43
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 1, ptr %44, align 4, !tbaa !3535
+.thread:                                          ; preds = %44
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 1, ptr %45, align 4, !tbaa !3535
   store i32 0, ptr %4, align 4, !tbaa !3538
-  br label %67
+  br label %68
 
-45:                                               ; preds = %._crit_edge, %.thread
-  %46 = phi i32 [ %19, %.thread ], [ %.pre, %._crit_edge ]
-  %.03036 = phi i32 [ %42, %.thread ], [ %.030, %._crit_edge ]
-  %47 = mul nsw i32 %46, %.03036
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %52
+46:                                               ; preds = %44
+  %47 = load i32, ptr %9, align 8, !tbaa !3540
+  %48 = mul nsw i32 %47, %.030
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %4, align 4, !tbaa !3538
-  %51 = add nsw i32 %50, %46
-  store i32 %51, ptr %4, align 4, !tbaa !3538
-  br label %52
+50:                                               ; preds = %46
+  %51 = load i32, ptr %4, align 4, !tbaa !3538
+  %52 = add nsw i32 %51, %47
+  store i32 %52, ptr %4, align 4, !tbaa !3538
+  br label %53
 
-52:                                               ; preds = %45, %49
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %54 = load i32, ptr %53, align 4, !tbaa !3537
-  %55 = add nsw i32 %54, %46
-  store i32 %55, ptr %53, align 4, !tbaa !3537
+53:                                               ; preds = %46, %50
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %55 = load i32, ptr %54, align 4, !tbaa !3537
+  %56 = add nsw i32 %55, %47
+  store i32 %56, ptr %54, align 4, !tbaa !3537
   br label %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread
 
-56:                                               ; preds = %20
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %58 = load i32, ptr %57, align 4, !tbaa !3539
-  %59 = sub nsw i32 %58, %19
-  store i32 %59, ptr %57, align 4, !tbaa !3539
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %61 = load i32, ptr %60, align 4, !tbaa !3542
-  %62 = sub nsw i32 %61, %19
-  store i32 %62, ptr %60, align 4, !tbaa !3542
+57:                                               ; preds = %20
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !3539
+  %60 = sub nsw i32 %59, %19
+  store i32 %60, ptr %58, align 4, !tbaa !3539
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !3542
+  %63 = sub nsw i32 %62, %19
+  store i32 %63, ptr %61, align 4, !tbaa !3542
   br label %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread
 
-_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread: ; preds = %5, %52, %56, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %64 = load i8, ptr %63, align 4, !tbaa !3535, !range !17, !noundef !18
-  %65 = trunc nuw i8 %64 to i1
-  %66 = xor i1 %65, true
-  br label %67
+_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread: ; preds = %5, %53, %57, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %65 = load i8, ptr %64, align 4, !tbaa !3535, !range !17, !noundef !18
+  %66 = trunc nuw i8 %65 to i1
+  %67 = xor i1 %66, true
+  br label %68
 
-67:                                               ; preds = %.thread39, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread
-  %.1 = phi i1 [ %66, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread ], [ false, %.thread39 ]
+68:                                               ; preds = %.thread, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread
+  %.1 = phi i1 [ %67, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.thread ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #56
@@ -208171,8 +208159,8 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6
 
 20:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit
   %21 = and i64 %17, 4294967296
-  %.not41 = icmp eq i64 %21, 0
-  br i1 %.not41, label %22, label %56
+  %.not33 = icmp eq i64 %21, 0
+  br i1 %.not33, label %22, label %57
 
 22:                                               ; preds = %20
   switch i32 %19, label %28 [
@@ -208185,86 +208173,80 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6
   %25 = trunc nuw i8 %24 to i1
   %26 = select i1 %25, ptr %2, ptr %3
   %27 = call noundef i32 @_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE10side_equalINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EEiRKT_RKT0_RKNS9_10count_infoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(5) %9)
-  br label %43
+  br label %44
 
 28:                                               ; preds = %22
   %29 = load i8, ptr %8, align 1, !tbaa !15, !range !17, !noundef !18
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %.thread, label %31
+  br i1 %30, label %33, label %31
 
 31:                                               ; preds = %28
   %32 = call noundef i32 @_ZN5boost8geometry8strategy8envelope6detail12side_of_poleIvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEEiRKT_SG_SG_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br label %43
+  br label %44
 
-.thread:                                          ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !1472
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = load double, ptr %35, align 8, !tbaa !1472
-  %.inv.i = icmp slt i32 %19, 1
-  %37 = select i1 %.inv.i, i32 -1, i32 1
-  %38 = fsub double 1.800000e+02, %34
-  %39 = fsub double %38, %36
-  %40 = fcmp ole double %39, 1.800000e+02
-  %41 = sub nsw i32 0, %37
-  %42 = select i1 %40, i32 %41, i32 %37
-  br label %45
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %35 = load double, ptr %34, align 8, !tbaa !1472
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = load double, ptr %36, align 8, !tbaa !1472
+  %38 = call noundef i32 @llvm.scmp.i32.i32(i32 %19, i32 0)
+  %39 = fsub double 1.800000e+02, %35
+  %40 = fsub double %39, %37
+  %41 = fcmp ole double %40, 1.800000e+02
+  %42 = sub nsw i32 0, %38
+  %43 = select i1 %41, i32 %42, i32 %38
+  br label %44
 
-43:                                               ; preds = %31, %23
-  %.030 = phi i32 [ %27, %23 ], [ %32, %31 ]
+44:                                               ; preds = %31, %33, %23
+  %.030 = phi i32 [ %27, %23 ], [ %43, %33 ], [ %32, %31 ]
   %.not32 = icmp eq i32 %.030, 0
-  br i1 %.not32, label %.thread39, label %._crit_edge
+  br i1 %.not32, label %.thread, label %46
 
-._crit_edge:                                      ; preds = %43
-  %.pre = load i32, ptr %9, align 8, !tbaa !4206
-  br label %45
-
-.thread39:                                        ; preds = %43
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 1, ptr %44, align 4, !tbaa !4200
+.thread:                                          ; preds = %44
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 1, ptr %45, align 4, !tbaa !4200
   store i32 0, ptr %4, align 4, !tbaa !4203
-  br label %67
+  br label %68
 
-45:                                               ; preds = %._crit_edge, %.thread
-  %46 = phi i32 [ %19, %.thread ], [ %.pre, %._crit_edge ]
-  %.03036 = phi i32 [ %42, %.thread ], [ %.030, %._crit_edge ]
-  %47 = mul nsw i32 %46, %.03036
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %52
+46:                                               ; preds = %44
+  %47 = load i32, ptr %9, align 8, !tbaa !4206
+  %48 = mul nsw i32 %47, %.030
+  %49 = icmp sgt i32 %48, 0
+  br i1 %49, label %50, label %53
 
-49:                                               ; preds = %45
-  %50 = load i32, ptr %4, align 4, !tbaa !4203
-  %51 = add nsw i32 %50, %46
-  store i32 %51, ptr %4, align 4, !tbaa !4203
-  br label %52
+50:                                               ; preds = %46
+  %51 = load i32, ptr %4, align 4, !tbaa !4203
+  %52 = add nsw i32 %51, %47
+  store i32 %52, ptr %4, align 4, !tbaa !4203
+  br label %53
 
-52:                                               ; preds = %45, %49
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %54 = load i32, ptr %53, align 4, !tbaa !4202
-  %55 = add nsw i32 %54, %46
-  store i32 %55, ptr %53, align 4, !tbaa !4202
+53:                                               ; preds = %46, %50
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %55 = load i32, ptr %54, align 4, !tbaa !4202
+  %56 = add nsw i32 %55, %47
+  store i32 %56, ptr %54, align 4, !tbaa !4202
   br label %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread
 
-56:                                               ; preds = %20
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %58 = load i32, ptr %57, align 4, !tbaa !4204
-  %59 = sub nsw i32 %58, %19
-  store i32 %59, ptr %57, align 4, !tbaa !4204
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %61 = load i32, ptr %60, align 4, !tbaa !4208
-  %62 = sub nsw i32 %61, %19
-  store i32 %62, ptr %60, align 4, !tbaa !4208
+57:                                               ; preds = %20
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !4204
+  %60 = sub nsw i32 %59, %19
+  store i32 %60, ptr %58, align 4, !tbaa !4204
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !4208
+  %63 = sub nsw i32 %62, %19
+  store i32 %63, ptr %61, align 4, !tbaa !4208
   br label %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread
 
-_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread: ; preds = %5, %52, %56, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %64 = load i8, ptr %63, align 4, !tbaa !4200, !range !17, !noundef !18
-  %65 = trunc nuw i8 %64 to i1
-  %66 = xor i1 %65, true
-  br label %67
+_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread: ; preds = %5, %53, %57, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %65 = load i8, ptr %64, align 4, !tbaa !4200, !range !17, !noundef !18
+  %66 = trunc nuw i8 %65 to i1
+  %67 = xor i1 %66, true
+  br label %68
 
-67:                                               ; preds = %.thread39, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread
-  %.1 = phi i1 [ %66, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread ], [ false, %.thread39 ]
+68:                                               ; preds = %.thread, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread
+  %.1 = phi i1 [ %67, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_8envelope6detail12side_of_poleIvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESH_EENS9_10count_infoERKT_RKT0_SO_RNS9_7counterERbSR_SR_.exit.thread ], [ false, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #56
@@ -214159,21 +214141,21 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8geometry6detail7overlay17range
   %31 = sub i32 0, %30
   %32 = icmp eq i32 %.pre.fr.i.i, %31
   %33 = select i1 %32, i32 -1, i32 1
-  br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12
+  br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11
 
 34:                                               ; preds = %26
   %35 = icmp eq i32 %.pre.fr.i.i, 0
   %36 = select i1 %35, i32 -1, i32 1
-  br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12
+  br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11
 
 ._crit_edge.thread.i.thread.i.i.i:                ; preds = %._crit_edge.thread.i.i.i.i
   %37 = icmp eq i32 %.pre.fr.i.i, 0
-  br i1 %37, label %._crit_edge.thread.i.thread.i.thread.i.i, label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12
+  br i1 %37, label %._crit_edge.thread.i.thread.i.thread.i.i, label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11
 
 ._crit_edge.thread.i.thread.i.thread.i.i:         ; preds = %._crit_edge.thread.i.thread.i.i.i, %20
-  br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12
+  br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11
 
-_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12: ; preds = %28, %34, %._crit_edge.thread.i.thread.i.thread.i.i, %._crit_edge.thread.i.thread.i.i.i
+_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11: ; preds = %28, %34, %._crit_edge.thread.i.thread.i.thread.i.i, %._crit_edge.thread.i.thread.i.i.i
   %.0.i.i.i.i.i.i.ph = phi i32 [ 1, %._crit_edge.thread.i.thread.i.i.i ], [ -1, %._crit_edge.thread.i.thread.i.thread.i.i ], [ %36, %34 ], [ %33, %28 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #56
@@ -214201,8 +214183,8 @@ _ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %48
 
-48:                                               ; preds = %120, %.lr.ph.i
-  %.sroa.0.029.i = phi ptr [ %.sroa.0.027.i, %.lr.ph.i ], [ %.sroa.0.0.i, %120 ]
+48:                                               ; preds = %121, %.lr.ph.i
+  %.sroa.0.029.i = phi ptr [ %.sroa.0.027.i, %.lr.ph.i ], [ %.sroa.0.0.i, %121 ]
   %49 = load ptr, ptr %2, align 8, !tbaa !174
   %50 = load ptr, ptr %14, align 8, !tbaa !174
   %51 = ptrtoint ptr %50 to i64
@@ -214225,7 +214207,7 @@ _ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %55, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i
   %.sroa.07.014.i.i.i.i.i = phi ptr [ %.sroa.07.0.i.i.i.i.i, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i ], [ %.sroa.07.011.i.i.i.i.i, %55 ]
-  %.sroa.0.013.i.i.i.i.i = phi ptr [ %107, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i ], [ %49, %55 ]
+  %.sroa.0.013.i.i.i.i.i = phi ptr [ %108, %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i ], [ %49, %55 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #56
   store i8 0, ptr %5, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #56
@@ -214253,8 +214235,8 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geo
 
 66:                                               ; preds = %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.i.i
   %67 = and i64 %63, 4294967296
-  %.not41.i.i = icmp eq i64 %67, 0
-  br i1 %.not41.i.i, label %68, label %100
+  %.not33.i.i = icmp eq i64 %67, 0
+  br i1 %.not33.i.i, label %68, label %101
 
 68:                                               ; preds = %66
   switch i32 %65, label %74 [
@@ -214267,139 +214249,133 @@ _ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geo
   %71 = trunc nuw i8 %70 to i1
   %72 = select i1 %71, ptr %.sroa.0.013.i.i.i.i.i, ptr %.sroa.07.014.i.i.i.i.i
   %73 = call noundef i32 @_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE10side_equalINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEiRKT_RKT0_RKNSC_10count_infoE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i, ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 4 dereferenceable(5) %8)
-  br label %89
+  br label %90
 
 74:                                               ; preds = %68
   %75 = load i8, ptr %7, align 1, !tbaa !15, !range !17, !noundef !18
   %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %.thread.i.i, label %77
+  br i1 %76, label %79, label %77
 
 77:                                               ; preds = %74
   %78 = call noundef i32 @_ZNK5boost8geometry8strategy4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_SG_EEiRKT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.013.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.014.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i)
-  br label %89
-
-.thread.i.i:                                      ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i.i.i, i64 8
-  %80 = load double, ptr %79, align 8, !tbaa !1472
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i.i.i.i.i, i64 8
-  %82 = load double, ptr %81, align 8, !tbaa !1472
-  %.inv.i.i.i = icmp slt i32 %65, 1
-  %83 = select i1 %.inv.i.i.i, i32 -1, i32 1
-  %84 = fsub double 1.800000e+02, %80
-  %85 = fsub double %84, %82
-  %86 = fcmp ole double %85, 1.800000e+02
-  %87 = sub nsw i32 0, %83
-  %88 = select i1 %86, i32 %87, i32 %83
   br label %90
 
-89:                                               ; preds = %77, %69
-  %.030.i.i = phi i32 [ %73, %69 ], [ %78, %77 ]
+79:                                               ; preds = %74
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i.i.i, i64 8
+  %81 = load double, ptr %80, align 8, !tbaa !1472
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i.i.i.i.i, i64 8
+  %83 = load double, ptr %82, align 8, !tbaa !1472
+  %84 = call noundef i32 @llvm.scmp.i32.i32(i32 %65, i32 0)
+  %85 = fsub double 1.800000e+02, %81
+  %86 = fsub double %85, %83
+  %87 = fcmp ole double %86, 1.800000e+02
+  %88 = sub nsw i32 0, %84
+  %89 = select i1 %87, i32 %88, i32 %84
+  br label %90
+
+90:                                               ; preds = %79, %77, %69
+  %.030.i.i = phi i32 [ %73, %69 ], [ %89, %79 ], [ %78, %77 ]
   %.not32.i.i = icmp eq i32 %.030.i.i, 0
-  br i1 %.not32.i.i, label %._crit_edge.i.i.i.i.thread.i, label %._crit_edge.i.i
+  br i1 %.not32.i.i, label %._crit_edge.i.i.i.i.thread.i, label %91
 
-._crit_edge.i.i:                                  ; preds = %89
-  %.pre.i.i10 = load i32, ptr %8, align 8, !tbaa !3540
-  br label %90
-
-._crit_edge.i.i.i.i.thread.i:                     ; preds = %89
+._crit_edge.i.i.i.i.thread.i:                     ; preds = %90
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #56
-  br label %120
+  br label %121
 
-90:                                               ; preds = %._crit_edge.i.i, %.thread.i.i
-  %91 = phi i32 [ %65, %.thread.i.i ], [ %.pre.i.i10, %._crit_edge.i.i ]
-  %.03036.i.i = phi i32 [ %88, %.thread.i.i ], [ %.030.i.i, %._crit_edge.i.i ]
-  %92 = mul nsw i32 %.03036.i.i, %91
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %94, label %97
+91:                                               ; preds = %90
+  %92 = load i32, ptr %8, align 8, !tbaa !3540
+  %93 = mul nsw i32 %92, %.030.i.i
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %95, label %98
 
-94:                                               ; preds = %90
-  %95 = load i32, ptr %9, align 4, !tbaa !3538
-  %96 = add nsw i32 %95, %91
-  store i32 %96, ptr %9, align 4, !tbaa !3538
-  br label %97
+95:                                               ; preds = %91
+  %96 = load i32, ptr %9, align 4, !tbaa !3538
+  %97 = add nsw i32 %96, %92
+  store i32 %97, ptr %9, align 4, !tbaa !3538
+  br label %98
 
-97:                                               ; preds = %94, %90
-  %98 = load i32, ptr %46, align 4, !tbaa !3537
-  %99 = add nsw i32 %98, %91
-  store i32 %99, ptr %46, align 4, !tbaa !3537
+98:                                               ; preds = %95, %91
+  %99 = load i32, ptr %46, align 4, !tbaa !3537
+  %100 = add nsw i32 %99, %92
+  store i32 %100, ptr %46, align 4, !tbaa !3537
   br label %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i
 
-100:                                              ; preds = %66
-  %101 = load i32, ptr %44, align 4, !tbaa !3539
-  %102 = sub nsw i32 %101, %65
-  store i32 %102, ptr %44, align 4, !tbaa !3539
-  %103 = load i32, ptr %45, align 4, !tbaa !3542
-  %104 = sub nsw i32 %103, %65
-  store i32 %104, ptr %45, align 4, !tbaa !3542
+101:                                              ; preds = %66
+  %102 = load i32, ptr %44, align 4, !tbaa !3539
+  %103 = sub nsw i32 %102, %65
+  store i32 %103, ptr %44, align 4, !tbaa !3539
+  %104 = load i32, ptr %45, align 4, !tbaa !3542
+  %105 = sub nsw i32 %104, %65
+  store i32 %105, ptr %45, align 4, !tbaa !3542
   br label %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i
 
-_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i: ; preds = %100, %97, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.i.i, %.lr.ph.i.i.i.i.i
-  %105 = load i8, ptr %47, align 4, !tbaa !3535, !range !17, !noundef !18
-  %106 = trunc nuw i8 %105 to i1
+_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i: ; preds = %101, %98, %_ZN5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE13check_segmentINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EENSC_10count_infoERKT_RKT0_SR_RNSC_7counterERbSU_SU_.exit.i.i, %.lr.ph.i.i.i.i.i
+  %106 = load i8, ptr %47, align 4, !tbaa !3535, !range !17, !noundef !18
+  %107 = trunc nuw i8 %106 to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #56
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #56
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i.i.i, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i.i.i, i64 16
   %.sroa.07.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %.sroa.07.0.i.i.i.i.i, %50
-  %or.cond.not.i.i.i.i.not.i = select i1 %106, i1 true, i1 %.not.i.i.i.i.i
+  %or.cond.not.i.i.i.i.not.i = select i1 %107, i1 true, i1 %.not.i.i.i.i.i
   br i1 %or.cond.not.i.i.i.i.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !3534
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %_ZNK5boost8geometry8strategy6within6detail22spherical_winding_baseINS1_4side10geographicINS1_7andoyerENS0_3srs8spheroidIdEEvEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESK_EEbRKT_RKT0_SQ_RNSC_7counterE.exit.i
-  br i1 %106, label %120, label %._crit_edge.thread.i.i.i.i.i
+  br i1 %107, label %121, label %._crit_edge.thread.i.i.i.i.i
 
 ._crit_edge.thread.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i.i.i
   %.pre.i.i.i.i8 = load i32, ptr %46, align 4, !tbaa !3537
   %.pre7.i.i.i.i = load i32, ptr %45, align 4
-  %108 = icmp eq i32 %.pre7.i.i.i.i, 0
+  %109 = icmp eq i32 %.pre7.i.i.i.i, 0
   %.not.i.i.i.i.i.i.i = icmp eq i32 %.pre.i.i.i.i8, 0
-  %or.cond.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %108
+  %or.cond.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 true, i1 %109
   %.pre.i.i.i9 = load i32, ptr %9, align 4, !tbaa !3538
   %.pre.fr.i.i.i = freeze i32 %.pre.i.i.i9
-  br i1 %or.cond.i.i.i.i.i.i.i, label %._crit_edge.thread.i.thread.i.i.i.i, label %109
+  br i1 %or.cond.i.i.i.i.i.i.i, label %._crit_edge.thread.i.thread.i.i.i.i, label %110
 
-109:                                              ; preds = %._crit_edge.thread.i.i.i.i.i
-  %110 = icmp sgt i32 %.pre.i.i.i.i8, 0
-  br i1 %110, label %111, label %116
+110:                                              ; preds = %._crit_edge.thread.i.i.i.i.i
+  %111 = icmp sgt i32 %.pre.i.i.i.i8, 0
+  br i1 %111, label %112, label %117
 
-111:                                              ; preds = %109
-  %112 = load i32, ptr %44, align 4, !tbaa !3539
-  %113 = sub i32 0, %112
-  %114 = icmp eq i32 %.pre.fr.i.i.i, %113
-  %115 = select i1 %114, i32 -1, i32 1
+112:                                              ; preds = %110
+  %113 = load i32, ptr %44, align 4, !tbaa !3539
+  %114 = sub i32 0, %113
+  %115 = icmp eq i32 %.pre.fr.i.i.i, %114
+  %116 = select i1 %115, i32 -1, i32 1
   br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i
 
-116:                                              ; preds = %109
-  %117 = icmp eq i32 %.pre.fr.i.i.i, 0
-  %118 = select i1 %117, i32 -1, i32 1
+117:                                              ; preds = %110
+  %118 = icmp eq i32 %.pre.fr.i.i.i, 0
+  %119 = select i1 %118, i32 -1, i32 1
   br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i
 
 ._crit_edge.thread.i.thread.i.i.i.i:              ; preds = %._crit_edge.thread.i.i.i.i.i
-  %119 = icmp eq i32 %.pre.fr.i.i.i, 0
-  br i1 %119, label %._crit_edge.thread.i.thread.i.thread.i.i.i, label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i
+  %120 = icmp eq i32 %.pre.fr.i.i.i, 0
+  br i1 %120, label %._crit_edge.thread.i.thread.i.thread.i.i.i, label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i
 
 ._crit_edge.thread.i.thread.i.thread.i.i.i:       ; preds = %55, %._crit_edge.thread.i.thread.i.i.i.i
   br label %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i
 
-_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i: ; preds = %._crit_edge.thread.i.thread.i.thread.i.i.i, %._crit_edge.thread.i.thread.i.i.i.i, %116, %111
-  %.0.i.i.i.i.i.i.ph.i = phi i32 [ 1, %._crit_edge.thread.i.thread.i.i.i.i ], [ -1, %._crit_edge.thread.i.thread.i.thread.i.i.i ], [ %118, %116 ], [ %115, %111 ]
+_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i: ; preds = %._crit_edge.thread.i.thread.i.thread.i.i.i, %._crit_edge.thread.i.thread.i.i.i.i, %117, %112
+  %.0.i.i.i.i.i.i.ph.i = phi i32 [ 1, %._crit_edge.thread.i.thread.i.i.i.i ], [ -1, %._crit_edge.thread.i.thread.i.thread.i.i.i ], [ %119, %117 ], [ %116, %112 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #56
   br label %_ZN5boost8geometry6detail7overlayL17range_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSI_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKT0_RKT1_b.exit
 
-120:                                              ; preds = %._crit_edge.i.i.i.i.i, %._crit_edge.i.i.i.i.thread.i
+121:                                              ; preds = %._crit_edge.i.i.i.i.i, %._crit_edge.i.i.i.i.thread.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #56
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i, i64 16
   %.not.i = icmp eq ptr %.sroa.0.0.i, %40
   br i1 %.not.i, label %_ZN5boost8geometry6detail7overlayL17range_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSI_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKT0_RKT1_b.exit, label %48, !llvm.loop !4357
 
-_ZN5boost8geometry6detail7overlayL17range_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSI_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKT0_RKT1_b.exit: ; preds = %120, %48, %4, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i, %.preheader.i, %38, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12
-  %.0 = phi i32 [ %.0.i.i.i.i.i.i.ph, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread12 ], [ 0, %38 ], [ %.0.i.i.i.i.i.i.ph.i, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i ], [ 0, %.preheader.i ], [ -1, %4 ], [ -1, %48 ], [ 0, %120 ]
+_ZN5boost8geometry6detail7overlayL17range_in_geometryINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEESD_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSI_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKT0_RKT1_b.exit: ; preds = %121, %48, %4, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i, %.preheader.i, %38, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11
+  %.0 = phi i32 [ %.0.i.i.i.i.i.i.ph, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread11 ], [ 0, %38 ], [ %.0.i.i.i.i.i.i.ph.i, %_ZN5boost8geometry6detail7overlay24point_in_geometry_helperINS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISB_NS0_10strategies6relate8services18strategy_converterINS0_8strategy12intersection19geographic_segmentsINSL_7andoyerELm1ENS0_3srs8spheroidIdEEvEEE16altered_strategyEEEiRKT_RKSD_RKT0_.exit.thread24.i ], [ 0, %.preheader.i ], [ -1, %4 ], [ -1, %48 ], [ 0, %121 ]
   ret i32 %.0
 }
 
@@ -217140,6 +217116,9 @@ declare i64 @llvm.smin.i64(i64, i64) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #53
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #53
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

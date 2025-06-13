@@ -3881,10 +3881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn25
 
 74:                                               ; preds = %_ZNK5boost6locale8impl_icu12collate_implIcE15do_real_compareENS0_13collate_levelEPKcS6_S6_S6_R10UErrorCode.exit
-  %.not17 = icmp ne i32 %.0.i, 0
-  %. = zext i1 %.not17 to i32
-  %.inv = icmp sgt i32 %.0.i, -1
-  %.015 = select i1 %.inv, i32 %., i32 -1
+  %.015 = call i32 @llvm.scmp.i32.i32(i32 %.0.i, i32 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #23
   ret i32 %.015
 
@@ -5244,10 +5241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   resume { ptr, i32 } %.pn.pn25
 
 52:                                               ; preds = %6
-  %.not17 = icmp ne i32 %11, 0
-  %. = zext i1 %.not17 to i32
-  %.inv = icmp sgt i32 %11, -1
-  %.015 = select i1 %.inv, i32 %., i32 -1
+  %.015 = call i32 @llvm.scmp.i32.i32(i32 %11, i32 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23
   ret i32 %.015
 
@@ -6063,6 +6057,9 @@ declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #21
 
 attributes #0 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn }

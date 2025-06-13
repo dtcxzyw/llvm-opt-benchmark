@@ -3768,10 +3768,7 @@ define internal void @decimalCmpFunc(ptr noundef %0, i32 %1, ptr noundef readonl
 
 decimal_cmp.exit:                                 ; preds = %21, %34, %36
   %.0.i = phi i32 [ %22, %21 ], [ %35, %34 ], [ %spec.select41.i, %36 ]
-  %.not20 = icmp ne i32 %.0.i, 0
-  %spec.store.select = zext i1 %.not20 to i32
-  %.inv = icmp sgt i32 %.0.i, -1
-  %.0 = select i1 %.inv, i32 %spec.store.select, i32 -1
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %.0.i, i32 0)
   tail call void @sqlite3_result_int(ptr noundef %0, i32 noundef %.0) #43
   br label %decimal_free.exit
 
@@ -65095,6 +65092,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #40
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #40

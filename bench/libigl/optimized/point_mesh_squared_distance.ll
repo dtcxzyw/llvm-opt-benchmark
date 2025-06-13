@@ -57384,10 +57384,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit18
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit18: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i.i16, %56
-  %.inv.i.i.i.i = icmp sgt i32 %13, -1
-  %.not.i.i.i.i = icmp ne i32 %13, 0
-  %..i.i.i.i = zext i1 %.not.i.i.i.i to i32
-  %.0.i.i.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
+  %.0.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %13, i32 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #22
   ret i32 %.0.i.i.i.i
 
@@ -72042,10 +72039,7 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
   br label %_ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit
 
 _ZN5boost14multiprecision6numberINS0_8backends16rational_adaptorINS2_15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEEEELNS0_26expression_template_optionE1EED2Ev.exit: ; preds = %_ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyELb0EED2Ev.exit2.i.i, %29
-  %.inv.i.i.i = icmp sgt i32 %9, -1
-  %.not.i.i.i = icmp ne i32 %9, 0
-  %..i.i.i = zext i1 %.not.i.i.i to i32
-  %.0.i.i.i = select i1 %.inv.i.i.i, i32 %..i.i.i, i32 -1
+  %.0.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %9, i32 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #22
   ret i32 %.0.i.i.i
 
@@ -115067,6 +115061,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #35
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #35
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

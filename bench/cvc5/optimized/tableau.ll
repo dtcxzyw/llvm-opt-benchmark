@@ -343,10 +343,7 @@ _ZNK4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE9findOnRowEjj.exit:
   %29 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %28, i64 %.2.i, i32 6
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !75
-  %32 = icmp ne i32 %31, 0
-  %.neg = sext i1 %32 to i32
-  %.inv.i = icmp sgt i32 %31, -1
-  %.neg25 = select i1 %.inv.i, i32 %.neg, i32 1
+  %32 = tail call i32 @llvm.scmp.i32.i32(i32 0, i32 %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
   call void @_ZNK4cvc58internal8Rational7inverseEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %29)
@@ -374,8 +371,8 @@ _ZNK4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE9findOnRowEjj.exit:
   %43 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %42, i64 %41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !14
-  %.sroa.0.026 = load i32, ptr %43, align 8, !tbaa !9
-  %46 = icmp eq i32 %.sroa.0.026, -1
+  %.sroa.0.025 = load i32, ptr %43, align 8, !tbaa !9
+  %46 = icmp eq i32 %.sroa.0.025, -1
   br i1 %46, label %._crit_edge, label %.lr.ph
 
 47:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE9findOnRowEjj.exit
@@ -396,8 +393,8 @@ _ZN4cvc58internal8RationalD2Ev.exit19:            ; preds = %47
   br label %_ZN4cvc58internal8RationalD2Ev.exit21
 
 .lr.ph:                                           ; preds = %37, %_ZN4cvc58internal8RationalmLERKS1_.exit
-  %.sroa.0.027 = phi i32 [ %.sroa.0.0, %_ZN4cvc58internal8RationalmLERKS1_.exit ], [ %.sroa.0.026, %37 ]
-  %52 = zext i32 %.sroa.0.027 to i64
+  %.sroa.0.026 = phi i32 [ %.sroa.0.0, %_ZN4cvc58internal8RationalmLERKS1_.exit ], [ %.sroa.0.025, %37 ]
+  %52 = zext i32 %.sroa.0.026 to i64
   %53 = load ptr, ptr %27, align 8, !tbaa !17
   %54 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %53, i64 %52, i32 6
   invoke void @__gmpq_mul(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -468,7 +465,7 @@ _ZN4cvc58internal8RationalmLERKS1_.exit:          ; preds = %.lr.ph
   %92 = load ptr, ptr %3, align 8, !tbaa !64
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8
-  invoke void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %91, i32 noundef %.neg25)
+  invoke void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %91, i32 noundef %32)
           to label %95 unwind label %99
 
 95:                                               ; preds = %90
@@ -523,8 +520,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear6MatrixINS
   %10 = load i32, ptr %9, align 8, !tbaa !80
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !14
-  %.not163166 = icmp eq i32 %10, -1
-  br i1 %.not163166, label %._crit_edge, label %.lr.ph
+  %.not161164 = icmp eq i32 %10, -1
+  br i1 %.not161164, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -534,8 +531,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear6MatrixINS
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
-  %.sroa.0128.0167 = phi i32 [ %10, %.lr.ph ], [ %25, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread ]
-  %18 = zext i32 %.sroa.0128.0167 to i64
+  %.sroa.0126.0165 = phi i32 [ %10, %.lr.ph ], [ %25, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread ]
+  %18 = zext i32 %.sroa.0126.0165 to i64
   %19 = load ptr, ptr %13, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -556,8 +553,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear6MatrixINS
 _ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit: ; preds = %17
   %33 = getelementptr inbounds nuw i32, ptr %28, i64 %26
   %34 = load i32, ptr %33, align 4, !tbaa !9
-  %.not165 = icmp eq i32 %34, -1
-  br i1 %.not165, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread, label %35
+  %.not163 = icmp eq i32 %34, -1
+  br i1 %.not163, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread, label %35
 
 35:                                               ; preds = %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit
   %36 = load ptr, ptr %16, align 8, !tbaa !67
@@ -569,174 +566,165 @@ _ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit: ; preds = %17
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %43 = load i32, ptr %42, align 4, !tbaa !75
-  %44 = icmp ne i32 %43, 0
-  %45 = zext i1 %44 to i32
-  %.inv.i = icmp sgt i32 %43, -1
-  %46 = select i1 %.inv.i, i32 %45, i32 -1
+  %44 = call noundef i32 @llvm.scmp.i32.i32(i32 %43, i32 0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
-  %47 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %19, i64 %40, i32 6
-  call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %47)
+  %45 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %19, i64 %40, i32 6
+  call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %45)
   invoke void @__gmpq_add(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalpLERKS1_.exit unwind label %61
+          to label %_ZN4cvc58internal8RationalpLERKS1_.exit unwind label %57
 
 _ZN4cvc58internal8RationalpLERKS1_.exit:          ; preds = %35
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %48
+          to label %_ZN4cvc58internal8RationalD2Ev.exit unwind label %46
 
-48:                                               ; preds = %_ZN4cvc58internal8RationalpLERKS1_.exit
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %_ZN4cvc58internal8RationalpLERKS1_.exit
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #18
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #18
   unreachable
 
 _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %_ZN4cvc58internal8RationalpLERKS1_.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  %51 = load i32, ptr %42, align 4, !tbaa !75
-  %52 = icmp ne i32 %51, 0
-  %53 = zext i1 %52 to i32
-  %.inv.i111 = icmp sgt i32 %51, -1
-  %54 = select i1 %.inv.i111, i32 %53, i32 -1
-  %.not = icmp eq i32 %46, %54
-  br i1 %.not, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread, label %55
+  %49 = load i32, ptr %42, align 4, !tbaa !75
+  %50 = call noundef i32 @llvm.scmp.i32.i32(i32 %49, i32 0)
+  %.not = icmp eq i32 %44, %50
+  br i1 %.not, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread, label %51
 
-55:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
-  %56 = load ptr, ptr %3, align 8, !tbaa !64
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %1, i32 noundef %22, i32 noundef %46, i32 noundef %54)
-  %59 = icmp eq i32 %54, 0
-  br i1 %59, label %60, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
+51:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
+  %52 = load ptr, ptr %3, align 8, !tbaa !64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %1, i32 noundef %22, i32 noundef %44, i32 noundef %50)
+  %55 = icmp eq i32 %49, 0
+  br i1 %55, label %56, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
 
-60:                                               ; preds = %55
-  call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11removeEntryEj(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.sroa.0128.0167)
+56:                                               ; preds = %51
+  call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11removeEntryEj(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.sroa.0126.0165)
   br label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
 
-61:                                               ; preds = %35
-  %62 = landingpad { ptr, i32 }
+57:                                               ; preds = %35
+  %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit112 unwind label %63
+          to label %_ZN4cvc58internal8RationalD2Ev.exit111 unwind label %59
 
-63:                                               ; preds = %61
-  %64 = landingpad { ptr, i32 }
+59:                                               ; preds = %57
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #18
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit112:           ; preds = %61
+_ZN4cvc58internal8RationalD2Ev.exit111:           ; preds = %57
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  br label %109
+  br label %103
 
-_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread: ; preds = %17, %_ZN4cvc58internal8RationalD2Ev.exit, %60, %55, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit
-  %.not163 = icmp eq i32 %25, -1
-  br i1 %.not163, label %._crit_edge.loopexit, label %17, !llvm.loop !82
+_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread: ; preds = %17, %_ZN4cvc58internal8RationalD2Ev.exit, %56, %51, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit
+  %.not161 = icmp eq i32 %25, -1
+  br i1 %.not161, label %._crit_edge.loopexit, label %17, !llvm.loop !82
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
   %.pre = load ptr, ptr %0, align 8, !tbaa !11
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %66 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %4 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %68 = load i32, ptr %67, align 8, !tbaa !26
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %66, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !14
-  %.sroa.0128.1168 = load i32, ptr %70, align 8, !tbaa !9
-  %.not164169 = icmp eq i32 %.sroa.0128.1168, -1
-  br i1 %.not164169, label %.critedge56, label %.lr.ph172
+  %62 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %4 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %64 = load i32, ptr %63, align 8, !tbaa !26
+  %65 = zext i32 %64 to i64
+  %66 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %62, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !14
+  %.sroa.0126.1166 = load i32, ptr %66, align 8, !tbaa !9
+  %.not162167 = icmp eq i32 %.sroa.0126.1166, -1
+  br i1 %.not162167, label %.critedge56, label %.lr.ph170
 
-.lr.ph172:                                        ; preds = %._crit_edge
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.pre173 = load ptr, ptr %72, align 8, !tbaa !17
-  br label %75
+.lr.ph170:                                        ; preds = %._crit_edge
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.pre171 = load ptr, ptr %68, align 8, !tbaa !17
+  br label %71
 
-75:                                               ; preds = %.lr.ph172, %106
-  %76 = phi ptr [ %.pre173, %.lr.ph172 ], [ %107, %106 ]
-  %.sroa.0128.1170 = phi i32 [ %.sroa.0128.1168, %.lr.ph172 ], [ %.sroa.0128.1, %106 ]
-  %77 = zext i32 %.sroa.0128.1170 to i64
-  %78 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %76, i64 %77
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !20
-  %81 = zext i32 %80 to i64
-  %82 = load ptr, ptr %73, align 8, !tbaa !67
-  %83 = getelementptr inbounds nuw %"struct.std::pair", ptr %82, i64 %81, i32 1
-  %84 = load i8, ptr %83, align 4, !tbaa !71, !range !83, !noundef !84
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %87
+71:                                               ; preds = %.lr.ph170, %100
+  %72 = phi ptr [ %.pre171, %.lr.ph170 ], [ %101, %100 ]
+  %.sroa.0126.1168 = phi i32 [ %.sroa.0126.1166, %.lr.ph170 ], [ %.sroa.0126.1, %100 ]
+  %73 = zext i32 %.sroa.0126.1168 to i64
+  %74 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !20
+  %77 = zext i32 %76 to i64
+  %78 = load ptr, ptr %69, align 8, !tbaa !67
+  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %78, i64 %77, i32 1
+  %80 = load i8, ptr %79, align 4, !tbaa !71, !range !83, !noundef !84
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %83
 
-86:                                               ; preds = %75
-  store i8 0, ptr %83, align 4, !tbaa !71
-  br label %106
+82:                                               ; preds = %71
+  store i8 0, ptr %79, align 4, !tbaa !71
+  br label %100
 
-87:                                               ; preds = %75
+83:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
-  %88 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %88)
-  invoke void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %89 unwind label %101
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  invoke void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %85 unwind label %95
 
-89:                                               ; preds = %87
-  %90 = load i32, ptr %74, align 4, !tbaa !75
-  %91 = icmp ne i32 %90, 0
-  %92 = zext i1 %91 to i32
-  %.inv.i116 = icmp sgt i32 %90, -1
-  %93 = select i1 %.inv.i116, i32 %92, i32 -1
-  %94 = load ptr, ptr %3, align 8, !tbaa !64
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = load ptr, ptr %95, align 8
-  invoke void %96(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %1, i32 noundef %80, i32 noundef 0, i32 noundef %93)
-          to label %97 unwind label %101
+85:                                               ; preds = %83
+  %86 = load i32, ptr %70, align 4, !tbaa !75
+  %87 = call noundef i32 @llvm.scmp.i32.i32(i32 %86, i32 0)
+  %88 = load ptr, ptr %3, align 8, !tbaa !64
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %90 = load ptr, ptr %89, align 8
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %1, i32 noundef %76, i32 noundef 0, i32 noundef %87)
+          to label %91 unwind label %95
 
-97:                                               ; preds = %89
+91:                                               ; preds = %85
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit117 unwind label %98
+          to label %_ZN4cvc58internal8RationalD2Ev.exit115 unwind label %92
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+92:                                               ; preds = %91
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #18
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit117:           ; preds = %97
+_ZN4cvc58internal8RationalD2Ev.exit115:           ; preds = %91
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
-  %.pre174 = load ptr, ptr %72, align 8, !tbaa !17
-  br label %106
+  %.pre172 = load ptr, ptr %68, align 8, !tbaa !17
+  br label %100
 
-101:                                              ; preds = %89, %87
-  %102 = landingpad { ptr, i32 }
+95:                                               ; preds = %85, %83
+  %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit118 unwind label %103
+          to label %_ZN4cvc58internal8RationalD2Ev.exit116 unwind label %97
 
-103:                                              ; preds = %101
-  %104 = landingpad { ptr, i32 }
+97:                                               ; preds = %95
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #18
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit118:           ; preds = %101
+_ZN4cvc58internal8RationalD2Ev.exit116:           ; preds = %95
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
-  br label %109
+  br label %103
 
-106:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit117, %86
-  %107 = phi ptr [ %.pre174, %_ZN4cvc58internal8RationalD2Ev.exit117 ], [ %76, %86 ]
-  %108 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %107, i64 %77, i32 2
-  %.sroa.0128.1 = load i32, ptr %108, align 8, !tbaa !9
-  %.not164 = icmp eq i32 %.sroa.0128.1, -1
-  br i1 %.not164, label %.critedge56, label %75, !llvm.loop !85
+100:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit115, %82
+  %101 = phi ptr [ %.pre172, %_ZN4cvc58internal8RationalD2Ev.exit115 ], [ %72, %82 ]
+  %102 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %101, i64 %73, i32 2
+  %.sroa.0126.1 = load i32, ptr %102, align 8, !tbaa !9
+  %.not162 = icmp eq i32 %.sroa.0126.1, -1
+  br i1 %.not162, label %.critedge56, label %71, !llvm.loop !85
 
-.critedge56:                                      ; preds = %106, %._crit_edge
+.critedge56:                                      ; preds = %100, %._crit_edge
   ret void
 
-109:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit118, %_ZN4cvc58internal8RationalD2Ev.exit112
-  %.pn53 = phi { ptr, i32 } [ %62, %_ZN4cvc58internal8RationalD2Ev.exit112 ], [ %102, %_ZN4cvc58internal8RationalD2Ev.exit118 ]
+103:                                              ; preds = %_ZN4cvc58internal8RationalD2Ev.exit116, %_ZN4cvc58internal8RationalD2Ev.exit111
+  %.pn53 = phi { ptr, i32 } [ %58, %_ZN4cvc58internal8RationalD2Ev.exit111 ], [ %96, %_ZN4cvc58internal8RationalD2Ev.exit116 ]
   resume { ptr, i32 } %.pn53
 }
 
@@ -750,8 +738,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear6MatrixINS
   %9 = load i32, ptr %8, align 8, !tbaa !80
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !14
-  %.not150 = icmp eq i32 %9, -1
-  br i1 %.not150, label %._crit_edge, label %.lr.ph
+  %.not149 = icmp eq i32 %9, -1
+  br i1 %.not149, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -761,8 +749,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory5arith6linear6MatrixINS
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
-  %.sroa.0114.0151 = phi i32 [ %9, %.lr.ph ], [ %24, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread ]
-  %17 = zext i32 %.sroa.0114.0151 to i64
+  %.sroa.0114.0150 = phi i32 [ %9, %.lr.ph ], [ %24, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread ]
+  %17 = zext i32 %.sroa.0114.0150 to i64
   %18 = load ptr, ptr %12, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -798,7 +786,7 @@ _ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit: ; preds = %16
   %41 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %18, i64 %39, i32 6
   call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %41)
   invoke void @__gmpq_add(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN4cvc58internal8RationalpLERKS1_.exit unwind label %48
+          to label %_ZN4cvc58internal8RationalpLERKS1_.exit unwind label %49
 
 _ZN4cvc58internal8RationalpLERKS1_.exit:          ; preds = %34
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -815,31 +803,31 @@ _ZN4cvc58internal8RationalD2Ev.exit:              ; preds = %_ZN4cvc58internal8R
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !75
-  %.not149 = icmp eq i32 %46, 0
-  br i1 %.not149, label %47, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
 
-47:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
-  call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11removeEntryEj(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.sroa.0114.0151)
+48:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit
+  call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11removeEntryEj(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %.sroa.0114.0150)
   br label %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread
 
-48:                                               ; preds = %34
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %34
+  %50 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit99 unwind label %50
+          to label %_ZN4cvc58internal8RationalD2Ev.exit99 unwind label %51
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %49
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #18
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit99:            ; preds = %48
+_ZN4cvc58internal8RationalD2Ev.exit99:            ; preds = %49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
-  br label %87
+  br label %88
 
-_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread: ; preds = %16, %_ZN4cvc58internal8RationalD2Ev.exit, %47, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit
+_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread: ; preds = %16, %_ZN4cvc58internal8RationalD2Ev.exit, %48, %_ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit
   %.not = icmp eq i32 %24, -1
   br i1 %.not, label %._crit_edge.loopexit, label %16, !llvm.loop !86
 
@@ -848,92 +836,92 @@ _ZNK4cvc58internal8DenseMapISt4pairIjbEE5isKeyEj.exit.thread: ; preds = %16, %_Z
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %53 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %3 ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %55 = load i32, ptr %54, align 8, !tbaa !26
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %53, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !14
-  %.sroa.0114.1152 = load i32, ptr %57, align 8, !tbaa !9
-  %.not147153 = icmp eq i32 %.sroa.0114.1152, -1
-  br i1 %.not147153, label %.critedge44, label %.lr.ph156
+  %54 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %3 ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %56 = load i32, ptr %55, align 8, !tbaa !26
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %54, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !14
+  %.sroa.0114.1151 = load i32, ptr %58, align 8, !tbaa !9
+  %.not147152 = icmp eq i32 %.sroa.0114.1151, -1
+  br i1 %.not147152, label %.critedge44, label %.lr.ph155
 
-.lr.ph156:                                        ; preds = %._crit_edge
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre157 = load ptr, ptr %59, align 8, !tbaa !17
-  br label %61
+.lr.ph155:                                        ; preds = %._crit_edge
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.pre156 = load ptr, ptr %60, align 8, !tbaa !17
+  br label %62
 
-61:                                               ; preds = %.lr.ph156, %84
-  %62 = phi ptr [ %.pre157, %.lr.ph156 ], [ %85, %84 ]
-  %.sroa.0114.1154 = phi i32 [ %.sroa.0114.1152, %.lr.ph156 ], [ %.sroa.0114.1, %84 ]
-  %63 = zext i32 %.sroa.0114.1154 to i64
-  %64 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %62, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !20
-  %67 = zext i32 %66 to i64
-  %68 = load ptr, ptr %60, align 8, !tbaa !67
-  %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %68, i64 %67, i32 1
-  %70 = load i8, ptr %69, align 4, !tbaa !71, !range !83, !noundef !84
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %73
+62:                                               ; preds = %.lr.ph155, %85
+  %63 = phi ptr [ %.pre156, %.lr.ph155 ], [ %86, %85 ]
+  %.sroa.0114.1153 = phi i32 [ %.sroa.0114.1151, %.lr.ph155 ], [ %.sroa.0114.1, %85 ]
+  %64 = zext i32 %.sroa.0114.1153 to i64
+  %65 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %67 = load i32, ptr %66, align 4, !tbaa !20
+  %68 = zext i32 %67 to i64
+  %69 = load ptr, ptr %61, align 8, !tbaa !67
+  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %69, i64 %68, i32 1
+  %71 = load i8, ptr %70, align 4, !tbaa !71, !range !83, !noundef !84
+  %72 = trunc nuw i8 %71 to i1
+  br i1 %72, label %73, label %74
 
-72:                                               ; preds = %61
-  store i8 0, ptr %69, align 4, !tbaa !71
-  br label %84
+73:                                               ; preds = %62
+  store i8 0, ptr %70, align 4, !tbaa !71
+  br label %85
 
-73:                                               ; preds = %61
+74:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
-  %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %74)
-  invoke void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, i32 noundef %66, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %75 unwind label %79
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  call void @_ZNK4cvc58internal8RationalmlERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %75)
+  invoke void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %1, i32 noundef %67, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %76 unwind label %80
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit103 unwind label %76
+          to label %_ZN4cvc58internal8RationalD2Ev.exit103 unwind label %77
 
-76:                                               ; preds = %75
-  %77 = landingpad { ptr, i32 }
+77:                                               ; preds = %76
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %78 = extractvalue { ptr, i32 } %77, 0
-  call void @__clang_call_terminate(ptr %78) #18
+  %79 = extractvalue { ptr, i32 } %78, 0
+  call void @__clang_call_terminate(ptr %79) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit103:           ; preds = %75
+_ZN4cvc58internal8RationalD2Ev.exit103:           ; preds = %76
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  %.pre158 = load ptr, ptr %59, align 8, !tbaa !17
-  br label %84
+  %.pre157 = load ptr, ptr %60, align 8, !tbaa !17
+  br label %85
 
-79:                                               ; preds = %73
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %74
+  %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @__gmpq_clear(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4cvc58internal8RationalD2Ev.exit104 unwind label %81
+          to label %_ZN4cvc58internal8RationalD2Ev.exit104 unwind label %82
 
-81:                                               ; preds = %79
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %80
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #18
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #18
   unreachable
 
-_ZN4cvc58internal8RationalD2Ev.exit104:           ; preds = %79
+_ZN4cvc58internal8RationalD2Ev.exit104:           ; preds = %80
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
-  br label %87
+  br label %88
 
-84:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit103, %72
-  %85 = phi ptr [ %.pre158, %_ZN4cvc58internal8RationalD2Ev.exit103 ], [ %62, %72 ]
-  %86 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %85, i64 %63, i32 2
-  %.sroa.0114.1 = load i32, ptr %86, align 8, !tbaa !9
+85:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit103, %73
+  %86 = phi ptr [ %.pre157, %_ZN4cvc58internal8RationalD2Ev.exit103 ], [ %63, %73 ]
+  %87 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %86, i64 %64, i32 2
+  %.sroa.0114.1 = load i32, ptr %87, align 8, !tbaa !9
   %.not147 = icmp eq i32 %.sroa.0114.1, -1
-  br i1 %.not147, label %.critedge44, label %61, !llvm.loop !87
+  br i1 %.not147, label %.critedge44, label %62, !llvm.loop !87
 
-.critedge44:                                      ; preds = %84, %._crit_edge
+.critedge44:                                      ; preds = %85, %._crit_edge
   ret void
 
-87:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit104, %_ZN4cvc58internal8RationalD2Ev.exit99
-  %.pn41 = phi { ptr, i32 } [ %49, %_ZN4cvc58internal8RationalD2Ev.exit99 ], [ %80, %_ZN4cvc58internal8RationalD2Ev.exit104 ]
+88:                                               ; preds = %_ZN4cvc58internal8RationalD2Ev.exit104, %_ZN4cvc58internal8RationalD2Ev.exit99
+  %.pn41 = phi { ptr, i32 } [ %50, %_ZN4cvc58internal8RationalD2Ev.exit99 ], [ %81, %_ZN4cvc58internal8RationalD2Ev.exit104 ]
   resume { ptr, i32 } %.pn41
 }
 
@@ -2246,95 +2234,92 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear7Tableau27substitutePlu
   %6 = alloca %"struct.std::pair", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !75
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11clearBufferEv.exit, label %9
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11clearBufferEv.exit, label %10
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %11 = zext i32 %1 to i64
-  %12 = load ptr, ptr %10, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %11
-  %14 = load i32, ptr %13, align 4, !tbaa !9
-  tail call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %14, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %15 = zext i32 %2 to i64
-  %16 = load ptr, ptr %10, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
-  %18 = load i32, ptr %17, align 4, !tbaa !9
-  %19 = load i32, ptr %7, align 4, !tbaa !75
-  %20 = icmp ne i32 %19, 0
-  %21 = zext i1 %20 to i32
-  %.inv.i = icmp sgt i32 %19, -1
-  %22 = select i1 %.inv.i, i32 %21, i32 -1
-  %23 = load ptr, ptr %4, align 8, !tbaa !64
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %14, i32 noundef %2, i32 noundef 0, i32 noundef %22)
-  %26 = zext i32 %18 to i64
-  %27 = load ptr, ptr %0, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %27, i64 %26
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !14
-  %.sroa.08.015.i = load i32, ptr %28, align 8, !tbaa !9
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %12 = zext i32 %1 to i64
+  %13 = load ptr, ptr %11, align 8, !tbaa !3
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
+  %15 = load i32, ptr %14, align 4, !tbaa !9
+  tail call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE8addEntryEjjRKS5_(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %15, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %16 = zext i32 %2 to i64
+  %17 = load ptr, ptr %11, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %19 = load i32, ptr %18, align 4, !tbaa !9
+  %20 = load i32, ptr %7, align 4, !tbaa !75
+  %21 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %20, i32 0)
+  %22 = load ptr, ptr %4, align 8, !tbaa !64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %15, i32 noundef %2, i32 noundef 0, i32 noundef %21)
+  %25 = zext i32 %19 to i64
+  %26 = load ptr, ptr %0, align 8, !tbaa !11
+  %27 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %26, i64 %25
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !14
+  %.sroa.08.015.i = load i32, ptr %27, align 8, !tbaa !9
   %.not16.i = icmp eq i32 %.sroa.08.015.i, -1
   br i1 %.not16.i, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre.i = load ptr, ptr %30, align 8, !tbaa !17
-  br label %32
+.lr.ph.i:                                         ; preds = %10
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.pre.i = load ptr, ptr %29, align 8, !tbaa !17
+  br label %31
 
-32:                                               ; preds = %32, %.lr.ph.i
-  %33 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %38, %32 ]
-  %.sroa.08.017.i = phi i32 [ %.sroa.08.015.i, %.lr.ph.i ], [ %.sroa.08.0.i, %32 ]
-  %34 = zext i32 %.sroa.08.017.i to i64
-  %35 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %33, i64 %34, i32 1
-  %36 = load i32, ptr %35, align 4, !tbaa !20
+31:                                               ; preds = %31, %.lr.ph.i
+  %32 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %37, %31 ]
+  %.sroa.08.017.i = phi i32 [ %.sroa.08.015.i, %.lr.ph.i ], [ %.sroa.08.0.i, %31 ]
+  %33 = zext i32 %.sroa.08.017.i to i64
+  %34 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %32, i64 %33, i32 1
+  %35 = load i32, ptr %34, align 4, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  %37 = zext i32 %.sroa.08.017.i to i40
-  store i40 %37, ptr %6, align 8
-  call void @_ZN4cvc58internal8DenseMapISt4pairIjbEE3setEjRKS3_(ptr noundef nonnull align 8 dereferenceable(72) %31, i32 noundef %36, ptr noundef nonnull align 4 dereferenceable(5) %6)
+  %36 = zext i32 %.sroa.08.017.i to i40
+  store i40 %36, ptr %6, align 8
+  call void @_ZN4cvc58internal8DenseMapISt4pairIjbEE3setEjRKS3_(ptr noundef nonnull align 8 dereferenceable(72) %30, i32 noundef %35, ptr noundef nonnull align 4 dereferenceable(5) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  %38 = load ptr, ptr %30, align 8, !tbaa !17
-  %39 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %38, i64 %34, i32 2
-  %.sroa.08.0.i = load i32, ptr %39, align 8, !tbaa !9
-  %.not.i14 = icmp eq i32 %.sroa.08.0.i, -1
-  br i1 %.not.i14, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit, label %32, !llvm.loop !24
+  %37 = load ptr, ptr %29, align 8, !tbaa !17
+  %38 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %37, i64 %33, i32 2
+  %.sroa.08.0.i = load i32, ptr %38, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %.sroa.08.0.i, -1
+  br i1 %.not.i, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit, label %31, !llvm.loop !24
 
-_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit: ; preds = %32, %9
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %18, ptr %40, align 8, !tbaa !26
-  call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE26rowPlusBufferTimesConstantEjRKS5_RNS3_25CoefficientChangeCallbackE(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i32 -1, ptr %40, align 8, !tbaa !26
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %42 = load ptr, ptr %41, align 8, !tbaa !66
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.promoted.i.i = load ptr, ptr %43, align 8, !tbaa !66
-  %44 = icmp eq ptr %42, %.promoted.i.i
-  br i1 %44, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11clearBufferEv.exit, label %.lr.ph.i.i
+_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit: ; preds = %31, %10
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %19, ptr %39, align 8, !tbaa !26
+  call void @_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE26rowPlusBufferTimesConstantEjRKS5_RNS3_25CoefficientChangeCallbackE(ptr noundef nonnull align 8 dereferenceable(352) %0, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i32 -1, ptr %39, align 8, !tbaa !26
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %41 = load ptr, ptr %40, align 8, !tbaa !66
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %.promoted.i.i = load ptr, ptr %42, align 8, !tbaa !66
+  %43 = icmp eq ptr %41, %.promoted.i.i
+  br i1 %43, label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11clearBufferEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %48 = load ptr, ptr %47, align 8, !tbaa !67
-  br label %49
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %47 = load ptr, ptr %46, align 8, !tbaa !67
+  br label %48
 
-49:                                               ; preds = %49, %.lr.ph.i.i
-  %50 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %51, %49 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 -4
-  %52 = load i32, ptr %51, align 4, !tbaa !9
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %46, i64 %53
-  store i32 -1, ptr %54, align 4, !tbaa !9
-  %55 = getelementptr inbounds nuw %"struct.std::pair", ptr %48, i64 %53
-  store i32 0, ptr %55, align 4, !tbaa !68
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i8 0, ptr %56, align 4, !tbaa !71
-  %57 = icmp eq ptr %42, %51
-  br i1 %57, label %._crit_edge.i.i, label %49, !llvm.loop !72
+48:                                               ; preds = %48, %.lr.ph.i.i
+  %49 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %50, %48 ]
+  %50 = getelementptr inbounds i8, ptr %49, i64 -4
+  %51 = load i32, ptr %50, align 4, !tbaa !9
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %45, i64 %52
+  store i32 -1, ptr %53, align 4, !tbaa !9
+  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %52
+  store i32 0, ptr %54, align 4, !tbaa !68
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i8 0, ptr %55, align 4, !tbaa !71
+  %56 = icmp eq ptr %41, %50
+  br i1 %56, label %._crit_edge.i.i, label %48, !llvm.loop !72
 
-._crit_edge.i.i:                                  ; preds = %49
-  store ptr %51, ptr %43, align 8, !tbaa !73
+._crit_edge.i.i:                                  ; preds = %48
+  store ptr %50, ptr %42, align 8, !tbaa !73
   br label %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11clearBufferEv.exit
 
 _ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE11clearBufferEv.exit: ; preds = %._crit_edge.i.i, %_ZN4cvc58internal6theory5arith6linear6MatrixINS0_8RationalEE17loadRowIntoBufferEj.exit, %5
@@ -4282,14 +4267,17 @@ define internal void @_GLOBAL__sub_I_tableau.cpp() #12 section ".text.startup" {
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
@@ -4308,8 +4296,8 @@ attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nounwind }
 attributes #18 = { noreturn nounwind }

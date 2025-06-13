@@ -56287,10 +56287,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit: ; pred
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit17
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit17: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit, %73
-  %.not = icmp ne i32 %69, 0
-  %. = zext i1 %.not to i32
-  %.inv = icmp sgt i32 %69, -1
-  %.0 = select i1 %.inv, i32 %., i32 -1
+  %.0 = call i32 @llvm.scmp.i32.i32(i32 %69, i32 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #45
   ret i32 %.0
 
@@ -56816,10 +56813,7 @@ _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEED2Ev.exit: ; pred
   br label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEED2Ev.exit18
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEED2Ev.exit18: ; preds = %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEED2Ev.exit, %81
-  %.not = icmp ne i32 %71, 0
-  %. = zext i1 %.not to i32
-  %.inv = icmp sgt i32 %71, -1
-  %.0 = select i1 %.inv, i32 %., i32 -1
+  %.0 = call i32 @llvm.scmp.i32.i32(i32 %71, i32 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #45
   ret i32 %.0
 
@@ -83990,6 +83984,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #43
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #43
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

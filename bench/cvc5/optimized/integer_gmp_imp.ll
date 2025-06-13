@@ -612,9 +612,9 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer8isBitSetEj(ptr noun
   unreachable
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %2
-  %.not.i = icmp ne i32 %5, 0
+  %9 = icmp ne i32 %5, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  ret i1 %.not.i
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -700,8 +700,8 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit8:  ; preds = %_ZN10__gmp_exprIA1_
 define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer6isZeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !11
-  %.not = icmp eq i32 %3, 0
-  ret i1 %.not
+  %4 = icmp eq i32 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1051,11 +1051,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer16strictlyNegativeEv
 define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal7Integer3sgnEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !11
-  %4 = icmp ne i32 %3, 0
-  %5 = zext i1 %4 to i32
-  %.inv = icmp sgt i32 %3, -1
-  %6 = select i1 %.inv, i32 %5, i32 -1
-  ret i32 %6
+  %4 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 0)
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1924,15 +1921,15 @@ declare i64 @__gmpz_scan1(ptr noundef, i64 noundef) local_unnamed_addr #6
 define hidden noundef i64 @_ZNK4cvc58internal7Integer6lengthEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !11
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %6, label %4
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %7, label %5
 
-4:                                                ; preds = %1
-  %5 = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %0, i32 noundef 2) #18
-  br label %6
+5:                                                ; preds = %1
+  %6 = tail call i64 @__gmpz_sizeinbase(ptr noundef nonnull %0, i32 noundef 2) #18
+  br label %7
 
-6:                                                ; preds = %1, %4
-  %.0 = phi i64 [ %5, %4 ], [ 1, %1 ]
+7:                                                ; preds = %1, %5
+  %.0 = phi i64 [ %6, %5 ], [ 1, %1 ]
   ret i64 %.0
 }
 
@@ -2063,6 +2060,9 @@ declare i64 @__gmpn_popcount(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare i32 @__gmpz_cmp(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare void @__gmpz_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15

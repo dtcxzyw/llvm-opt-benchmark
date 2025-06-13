@@ -156686,9 +156686,9 @@ _ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit20: ; preds = %.thread, %._cri
 
 51:                                               ; preds = %_ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit20
   %52 = icmp eq i32 %13, 0
-  br i1 %52, label %.thread100, label %_ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit23
+  br i1 %52, label %.thread98, label %_ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit23
 
-.thread100:                                       ; preds = %51
+.thread98:                                        ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double 0.000000e+00, ptr %53, align 8, !tbaa !2579
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #56
@@ -156730,10 +156730,10 @@ _ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit23: ; preds = %.thread.i.i22, 
   %72 = fdiv double %70, %71
   br label %_ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit26
 
-_ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit26: ; preds = %.thread100, %._crit_edge.i.i24
-  %73 = phi ptr [ %64, %._crit_edge.i.i24 ], [ %55, %.thread100 ]
-  %74 = phi ptr [ %62, %._crit_edge.i.i24 ], [ %53, %.thread100 ]
-  %75 = phi double [ %72, %._crit_edge.i.i24 ], [ 0.000000e+00, %.thread100 ]
+_ZN5boost8geometry13segment_ratioIiEC2ERKiS4_.exit26: ; preds = %.thread98, %._crit_edge.i.i24
+  %73 = phi ptr [ %64, %._crit_edge.i.i24 ], [ %55, %.thread98 ]
+  %74 = phi ptr [ %62, %._crit_edge.i.i24 ], [ %53, %.thread98 ]
+  %75 = phi double [ %72, %._crit_edge.i.i24 ], [ 0.000000e+00, %.thread98 ]
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %75, ptr %76, align 8, !tbaa !2579
   %77 = icmp eq i32 %3, %5
@@ -156898,7 +156898,7 @@ _ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit46: ; preds = %142
   store i32 1, ptr %11, align 8, !tbaa !2577
   store i32 1, ptr %47, align 4, !tbaa !2578
   store double 1.000000e+06, ptr %74, align 8, !tbaa !2579
-  br label %.thread104
+  br label %.thread102
 
 _ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit52: ; preds = %142
   store i32 1, ptr %10, align 8, !tbaa !2577
@@ -156907,7 +156907,7 @@ _ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit52: ; preds = %142
   store i32 1, ptr %12, align 8, !tbaa !2577
   store i32 1, ptr %73, align 4, !tbaa !2578
   store double 1.000000e+06, ptr %76, align 8, !tbaa !2579
-  br label %.thread104
+  br label %.thread102
 
 143:                                              ; preds = %142
   %144 = or i32 %124, %123
@@ -156918,7 +156918,7 @@ _ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit52: ; preds = %142
   %146 = icmp samesign ugt i32 %123, 3
   %147 = icmp samesign ugt i32 %124, 3
   %or.cond3 = and i1 %146, %147
-  br i1 %or.cond3, label %148, label %.thread104
+  br i1 %or.cond3, label %148, label %.thread102
 
 148:                                              ; preds = %145, %143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2817)
@@ -156961,19 +156961,14 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %8) #56, !noalias !2817
   br label %161
 
-.thread104:                                       ; preds = %_ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit52, %_ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit46, %145
-  %.not.i = icmp ne i32 %13, 0
-  %.inv.i = icmp slt i32 %13, 1
-  %.not.i53 = icmp ne i32 %14, 0
-  %.inv.i54 = icmp slt i32 %14, 1
-  %158 = xor i1 %.not.i, %.not.i53
-  %not..inv.i54 = xor i1 %.inv.i54, true
-  %159 = select i1 %not..inv.i54, i1 true, i1 %158
-  %160 = select i1 %.inv.i, i1 %159, i1 %.inv.i54
+.thread102:                                       ; preds = %_ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit52, %_ZN5boost8geometry13segment_ratioIiE6assignERKiS4_.exit46, %145
+  %158 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %3)
+  %159 = tail call i32 @llvm.scmp.i32.i32(i32 %6, i32 %5)
+  %160 = icmp ne i32 %158, %159
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIiLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIiEEEEE18segments_collinearINS5_17referring_segmentIKS9_EESH_SB_EENSD_11return_typeERKT_RKT0_biiiiRKT1_SR_SR_SR_(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<int, 2, boost::geometry::cs::cartesian>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %160, i32 noundef %123, i32 noundef %124, i32 noundef %125, i32 noundef %141, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %161
 
-161:                                              ; preds = %.thread104, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIiLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIiEEEEE8disjointEv.exit
+161:                                              ; preds = %.thread102, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIiLm2ENS0_2cs9cartesianEEENS0_13segment_ratioIiEEEEE8disjointEv.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #56

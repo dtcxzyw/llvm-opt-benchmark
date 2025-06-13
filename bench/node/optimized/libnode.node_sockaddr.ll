@@ -874,14 +874,11 @@ sw.bb15:                                          ; preds = %sw.bb7
   %sin6_addr.i25 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %sin6_addr2.i = getelementptr inbounds nuw i8, ptr %other, i64 16
   %call3.i26 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i25, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i, i64 noundef 16) #25
-  %cmp4.not.i = icmp ne i32 %call3.i26, 0
-  %..i27 = zext i1 %cmp4.not.i to i32
-  %cmp.inv.i = icmp sgt i32 %call3.i26, -1
-  %retval.0.i28 = select i1 %cmp.inv.i, i32 %..i27, i32 -1
+  %retval.0.i27 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %call3.i26, i32 0)
   br label %return
 
 return:                                           ; preds = %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24, %if.end.i16, %sw.bb9, %if.else.i, %if.end.i, %sw.bb5, %entry, %sw.bb, %sw.bb7, %sw.bb15, %sw.bb3
-  %retval.0 = phi i32 [ %retval.0.i, %sw.bb3 ], [ %retval.0.i28, %sw.bb15 ], [ -2, %sw.bb7 ], [ -2, %sw.bb ], [ -2, %entry ], [ -2, %sw.bb5 ], [ -1, %if.end.i ], [ %..i, %if.else.i ], [ -2, %sw.bb9 ], [ %spec.select, %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24 ], [ 1, %if.end.i16 ]
+  %retval.0 = phi i32 [ %retval.0.i, %sw.bb3 ], [ %retval.0.i27, %sw.bb15 ], [ -2, %sw.bb7 ], [ -2, %sw.bb ], [ -2, %entry ], [ -2, %sw.bb5 ], [ -1, %if.end.i ], [ %..i, %if.else.i ], [ -2, %sw.bb9 ], [ %spec.select, %_ZN4node12_GLOBAL__N_117compare_ipv4_ipv6ERKNS_13SocketAddressES3_.exit24 ], [ 1, %if.end.i16 ]
   ret i32 %retval.0
 }
 
@@ -1048,8 +1045,8 @@ sw.bb11:                                          ; preds = %sw.bb7
 if.then.i49:                                      ; preds = %sw.bb11
   %sin6_addr.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %sin6_addr2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 16
-  %bcmp14.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i50, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
-  %cmp4.not.i.not.i = icmp eq i32 %bcmp14.i, 0
+  %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %sin6_addr.i.i50, ptr noundef nonnull readonly dereferenceable(16) %sin6_addr2.i.i, i64 16)
+  %cmp1.i = icmp eq i32 %bcmp13.i, 0
   br label %return
 
 if.end.i37:                                       ; preds = %sw.bb11
@@ -1080,7 +1077,7 @@ if.end16.i:                                       ; preds = %if.end.i37
   br label %return
 
 return:                                           ; preds = %if.end16.i, %if.end.i37, %if.then.i49, %if.end10.i, %if.end.i21, %if.end.i.i30, %if.then.i29, %entry, %sw.bb, %sw.bb7, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit, %sw.bb3
-  %retval.0 = phi i1 [ %cmp.i, %sw.bb3 ], [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp4.not.i.not.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
+  %retval.0 = phi i1 [ %cmp.i, %sw.bb3 ], [ %retval.0.i, %_ZN4node12_GLOBAL__N_120in_network_ipv4_ipv6ERKNS_13SocketAddressES3_i.exit ], [ false, %sw.bb7 ], [ false, %sw.bb ], [ false, %entry ], [ %cmp14.i, %if.end10.i ], [ false, %if.end.i21 ], [ false, %if.then.i29 ], [ %.not.i35, %if.end.i.i30 ], [ %cmp1.i, %if.then.i49 ], [ %cmp28.i, %if.end16.i ], [ false, %if.end.i37 ]
   ret i1 %retval.0
 }
 
@@ -9391,6 +9388,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

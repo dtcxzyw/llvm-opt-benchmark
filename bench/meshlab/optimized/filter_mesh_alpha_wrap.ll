@@ -17727,11 +17727,8 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %56, %59
   br label %_ZN4CGAL4MpzfD2Ev.exit9
 
 _ZN4CGAL4MpzfD2Ev.exit9:                          ; preds = %64, %67
-  %.inv.i.i.i.i = icmp sgt i32 %.0.i.i.i, -1
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
-  ret i32 %.0.i.i3.i.i
+  %.0.i.i2.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  ret i32 %.0.i.i2.i.i
 
 68:                                               ; preds = %4
   %69 = landingpad { ptr, i32 }
@@ -21157,10 +21154,7 @@ _ZN4CGAL4MpzfD2Ev.exit62:                         ; preds = %115, %118
   br label %_ZN4CGAL4MpzfD2Ev.exit65
 
 _ZN4CGAL4MpzfD2Ev.exit65:                         ; preds = %123, %126
-  %.inv.i.i.i.i.i.i = icmp sgt i32 %45, -1
-  %.not.i.i.i.i.i.i = icmp ne i32 %45, 0
-  %..i.i.i.i.i.i = zext i1 %.not.i.i.i.i.i.i to i32
-  %.0.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i, i32 %..i.i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %45, i32 0)
   ret i32 %.0.i.i.i.i.i.i
 
 127:                                              ; preds = %12
@@ -27161,10 +27155,7 @@ _ZN4CGAL4MpzfD2Ev.exit269:                        ; preds = %1060, %1063
   br label %_ZN4CGAL4MpzfD2Ev.exit272
 
 _ZN4CGAL4MpzfD2Ev.exit272:                        ; preds = %1068, %1071
-  %.inv.i.i.i.i.i.i = icmp sgt i32 %886, -1
-  %.not.i.i.i.i.i.i = icmp ne i32 %886, 0
-  %..i.i.i.i.i.i = zext i1 %.not.i.i.i.i.i.i to i32
-  %.0.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i, i32 %..i.i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %886, i32 0)
   ret i32 %.0.i.i.i.i.i.i
 
 1072:                                             ; preds = %12
@@ -33789,10 +33780,7 @@ _ZN4CGAL4MpzfD2Ev.exit200:                        ; preds = %931, %934
   br label %_ZN4CGAL4MpzfD2Ev.exit203
 
 _ZN4CGAL4MpzfD2Ev.exit203:                        ; preds = %939, %942
-  %.inv.i.i.i.i.i.i = icmp sgt i32 %805, -1
-  %.not.i.i.i.i.i.i = icmp ne i32 %805, 0
-  %..i.i.i.i.i.i = zext i1 %.not.i.i.i.i.i.i to i32
-  %.0.i.i.i.i.i.i = select i1 %.inv.i.i.i.i.i.i, i32 %..i.i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %805, i32 0)
   ret i32 %.0.i.i.i.i.i.i
 
 943:                                              ; preds = %15
@@ -58932,11 +58920,8 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %61, %64
   br label %_ZN4CGAL4MpzfD2Ev.exit17
 
 _ZN4CGAL4MpzfD2Ev.exit17:                         ; preds = %69, %72
-  %.inv.i.i.i.i = icmp sgt i32 %.0.i.i.i, -1
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
-  ret i32 %.0.i.i3.i.i
+  %.0.i.i2.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  ret i32 %.0.i.i2.i.i
 
 73:                                               ; preds = %9
   %74 = landingpad { ptr, i32 }
@@ -74328,10 +74313,8 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
   unreachable
 
 _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit96: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit92, %128
-  %.inv.i.inv.i.i.i = icmp sgt i32 %50, -1
-  %132 = icmp ne i32 %50, 0
-  %..i.i.i.i.i = zext i1 %132 to i32
-  %.0.i.i.i.i.i = select i1 %.inv.i.inv.i.i.i, i32 %..i.i.i.i.i, i32 -1
+  %132 = call noundef i32 @llvm.scmp.i32.i32(i32 %50, i32 0)
+  %.0.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %132, i32 0)
   ret i32 %.0.i.i.i.i.i
 
 133:                                              ; preds = %25
@@ -75899,11 +75882,8 @@ _ZN4CGAL4MpzfD2Ev.exit17:                         ; preds = %79, %81
   br label %_ZN4CGAL4MpzfD2Ev.exit20
 
 _ZN4CGAL4MpzfD2Ev.exit20:                         ; preds = %86, %88
-  %.inv.i.i.i.i = icmp sgt i32 %.0.i.i.i, -1
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
-  ret i32 %.0.i.i3.i.i
+  %.0.i.i2.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  ret i32 %.0.i.i2.i.i
 
 89:                                               ; preds = %23, %5
   %90 = landingpad { ptr, i32 }
@@ -81020,11 +81000,8 @@ _ZN4CGAL4MpzfD2Ev.exit20:                         ; preds = %82, %84
   br label %_ZN4CGAL4MpzfD2Ev.exit23
 
 _ZN4CGAL4MpzfD2Ev.exit23:                         ; preds = %89, %91
-  %.inv.i.i.i.i = icmp sgt i32 %.0.i.i.i, -1
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
-  ret i32 %.0.i.i3.i.i
+  %.0.i.i2.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  ret i32 %.0.i.i2.i.i
 
 92:                                               ; preds = %26, %6
   %93 = landingpad { ptr, i32 }
@@ -99771,11 +99748,8 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i:    ; preds = %83, %80, %67, %60, 
   br label %_ZN4CGAL4MpzfD2Ev.exit
 
 _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %92, %94
-  %.inv.i.i.i = icmp sgt i32 %.0.i.i, -1
-  %.not.i.i2.i = icmp ne i32 %.0.i.i, 0
-  %..i.i.i = zext i1 %.not.i.i2.i to i32
-  %.0.i.i3.i = select i1 %.inv.i.i.i, i32 %..i.i.i, i32 -1
-  ret i32 %.0.i.i3.i
+  %.0.i.i2.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i, i32 0)
+  ret i32 %.0.i.i2.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -125321,10 +125295,7 @@ _ZN4CGAL4MpzfD2Ev.exit31:                         ; preds = %61, %64
   br label %_ZN4CGAL4MpzfD2Ev.exit34
 
 _ZN4CGAL4MpzfD2Ev.exit34:                         ; preds = %69, %72
-  %.inv.i.i.i.i.i = icmp sgt i32 %24, -1
-  %.not.i.i.i.i.i = icmp ne i32 %24, 0
-  %..i.i.i.i.i = zext i1 %.not.i.i.i.i.i to i32
-  %.0.i.i.i.i.i = select i1 %.inv.i.i.i.i.i, i32 %..i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %24, i32 0)
   ret i32 %.0.i.i.i.i.i
 
 73:                                               ; preds = %7
@@ -136205,17 +136176,17 @@ _ZN4CGALngERKNS_4MpzfE.exit:                      ; preds = %_ZN4CGAL4Mpzf4initE
   %32 = sub nsw i32 0, %31
   store i32 %32, ptr %24, align 8, !alias.scope !2470
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %8, ptr noundef nonnull align 8 dereferenceable(88) %1)
-          to label %33 unwind label %73
+          to label %33 unwind label %72
 
 33:                                               ; preds = %_ZN4CGALngERKNS_4MpzfE.exit
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %2)
-          to label %34 unwind label %75
+          to label %34 unwind label %74
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %36 = load i32, ptr %35, align 8, !noalias !2473
   invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %9, i32 noundef %36)
-          to label %37 unwind label %77
+          to label %37 unwind label %76
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -136308,93 +136279,92 @@ _ZN4CGAL4MpzfD2Ev.exit16:                         ; preds = %60, %63
   br label %_ZN4CGAL4MpzfD2Ev.exit19
 
 _ZN4CGAL4MpzfD2Ev.exit19:                         ; preds = %68, %71
-  %.inv.i.i.i.i.i = icmp sgt i32 %39, -1
-  %.not.i.i.i.i.i.not = icmp eq i32 %39, 0
-  %72 = select i1 %.not.i.i.i.i.i.not, i64 0, i64 4294967297
-  %.sroa.0.0.insert.insert = select i1 %.inv.i.i.i.i.i, i64 %72, i64 -1
+  %.0.i.i.i.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %39, i32 0)
+  %.sroa.2.0.insert.ext = zext i32 %.0.i.i.i.i.i to i64
+  %.sroa.0.0.insert.insert = mul nuw i64 %.sroa.2.0.insert.ext, 4294967297
   ret i64 %.sroa.0.0.insert.insert
 
-73:                                               ; preds = %_ZN4CGALngERKNS_4MpzfE.exit
-  %74 = landingpad { ptr, i32 }
+72:                                               ; preds = %_ZN4CGALngERKNS_4MpzfE.exit
+  %73 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL4MpzfD2Ev.exit28
 
-75:                                               ; preds = %33
-  %76 = landingpad { ptr, i32 }
+74:                                               ; preds = %33
+  %75 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4CGAL4MpzfD2Ev.exit25
 
-77:                                               ; preds = %34
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %34
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %79 = load ptr, ptr %9, align 8
-  br label %80
+  %78 = load ptr, ptr %9, align 8
+  br label %79
 
-80:                                               ; preds = %80, %77
-  %.pn.i.i23 = phi ptr [ %79, %77 ], [ %storemerge.i.i24, %80 ]
+79:                                               ; preds = %79, %76
+  %.pn.i.i23 = phi ptr [ %78, %76 ], [ %storemerge.i.i24, %79 ]
   %storemerge.i.i24 = getelementptr inbounds i8, ptr %.pn.i.i23, i64 -8
   store ptr %storemerge.i.i24, ptr %9, align 8
-  %81 = load i64, ptr %storemerge.i.i24, align 8
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %80, label %83, !llvm.loop !210
+  %80 = load i64, ptr %storemerge.i.i24, align 8
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %79, label %82, !llvm.loop !210
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %85 = icmp eq ptr %storemerge.i.i24, %84
-  br i1 %85, label %_ZN4CGAL4MpzfD2Ev.exit25, label %86
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %84 = icmp eq ptr %storemerge.i.i24, %83
+  br i1 %84, label %_ZN4CGAL4MpzfD2Ev.exit25, label %85
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   store ptr %.pn.i.i23, ptr %9, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i24) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit25
 
-_ZN4CGAL4MpzfD2Ev.exit25:                         ; preds = %86, %83, %75
-  %.pn.pn = phi { ptr, i32 } [ %76, %75 ], [ %78, %83 ], [ %78, %86 ]
-  %87 = load ptr, ptr %7, align 8
-  br label %88
+_ZN4CGAL4MpzfD2Ev.exit25:                         ; preds = %85, %82, %74
+  %.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %77, %82 ], [ %77, %85 ]
+  %86 = load ptr, ptr %7, align 8
+  br label %87
 
-88:                                               ; preds = %88, %_ZN4CGAL4MpzfD2Ev.exit25
-  %.pn.i.i26 = phi ptr [ %87, %_ZN4CGAL4MpzfD2Ev.exit25 ], [ %storemerge.i.i27, %88 ]
+87:                                               ; preds = %87, %_ZN4CGAL4MpzfD2Ev.exit25
+  %.pn.i.i26 = phi ptr [ %86, %_ZN4CGAL4MpzfD2Ev.exit25 ], [ %storemerge.i.i27, %87 ]
   %storemerge.i.i27 = getelementptr inbounds i8, ptr %.pn.i.i26, i64 -8
   store ptr %storemerge.i.i27, ptr %7, align 8
-  %89 = load i64, ptr %storemerge.i.i27, align 8
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %88, label %91, !llvm.loop !210
+  %88 = load i64, ptr %storemerge.i.i27, align 8
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %87, label %90, !llvm.loop !210
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %93 = icmp eq ptr %storemerge.i.i27, %92
-  br i1 %93, label %_ZN4CGAL4MpzfD2Ev.exit28, label %94
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %92 = icmp eq ptr %storemerge.i.i27, %91
+  br i1 %92, label %_ZN4CGAL4MpzfD2Ev.exit28, label %93
 
-94:                                               ; preds = %91
+93:                                               ; preds = %90
   store ptr %.pn.i.i26, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i27) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit28
 
-_ZN4CGAL4MpzfD2Ev.exit28:                         ; preds = %94, %91, %73
-  %.pn.pn.pn = phi { ptr, i32 } [ %74, %73 ], [ %.pn.pn, %91 ], [ %.pn.pn, %94 ]
-  %95 = load ptr, ptr %8, align 8
-  br label %96
+_ZN4CGAL4MpzfD2Ev.exit28:                         ; preds = %93, %90, %72
+  %.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn.pn, %90 ], [ %.pn.pn, %93 ]
+  %94 = load ptr, ptr %8, align 8
+  br label %95
 
-96:                                               ; preds = %96, %_ZN4CGAL4MpzfD2Ev.exit28
-  %.pn.i.i29 = phi ptr [ %95, %_ZN4CGAL4MpzfD2Ev.exit28 ], [ %storemerge.i.i30, %96 ]
+95:                                               ; preds = %95, %_ZN4CGAL4MpzfD2Ev.exit28
+  %.pn.i.i29 = phi ptr [ %94, %_ZN4CGAL4MpzfD2Ev.exit28 ], [ %storemerge.i.i30, %95 ]
   %storemerge.i.i30 = getelementptr inbounds i8, ptr %.pn.i.i29, i64 -8
   store ptr %storemerge.i.i30, ptr %8, align 8
-  %97 = load i64, ptr %storemerge.i.i30, align 8
-  %98 = icmp eq i64 %97, 0
-  br i1 %98, label %96, label %99, !llvm.loop !210
+  %96 = load i64, ptr %storemerge.i.i30, align 8
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %95, label %98, !llvm.loop !210
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %101 = icmp eq ptr %storemerge.i.i30, %100
-  br i1 %101, label %_ZN4CGAL4MpzfD2Ev.exit31, label %102
+98:                                               ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %100 = icmp eq ptr %storemerge.i.i30, %99
+  br i1 %100, label %_ZN4CGAL4MpzfD2Ev.exit31, label %101
 
-102:                                              ; preds = %99
+101:                                              ; preds = %98
   store ptr %.pn.i.i29, ptr %8, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i30) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit31
 
-_ZN4CGAL4MpzfD2Ev.exit31:                         ; preds = %99, %102
+_ZN4CGAL4MpzfD2Ev.exit31:                         ; preds = %98, %101
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -163470,47 +163440,35 @@ define linkonce_odr noundef i32 @_ZN4CGAL17compare_quotientsINS_4MpzfEEENS_19Sam
   %10 = alloca %"struct.CGAL::Mpzf", align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8
-  %.not.i.i.i.i.i = icmp ne i32 %12, 0
-  %..i.i.i.i.i = zext i1 %.not.i.i.i.i.i to i32
-  %.inv.i.i.i.i.i = icmp sgt i32 %12, -1
-  %.0.i.i.i.i.i = select i1 %.inv.i.i.i.i.i, i32 %..i.i.i.i.i, i32 -1
+  %.0.i.i.i.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %12, i32 0)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load i32, ptr %13, align 8
-  %.not.i.i.i.i.i36 = icmp ne i32 %14, 0
-  %..i.i.i.i.i37 = zext i1 %.not.i.i.i.i.i36 to i32
-  %.inv.i.i.i.i.i38 = icmp sgt i32 %14, -1
-  %.0.i.i.i.i.i39 = select i1 %.inv.i.i.i.i.i38, i32 %..i.i.i.i.i37, i32 -1
-  %15 = mul nsw i32 %.0.i.i.i.i.i39, %.0.i.i.i.i.i
+  %.0.i.i.i.i.i36 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %14, i32 0)
+  %15 = mul nsw i32 %.0.i.i.i.i.i36, %.0.i.i.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %17 = load i32, ptr %16, align 8
-  %.not.i.i.i.i.i40 = icmp ne i32 %17, 0
-  %..i.i.i.i.i41 = zext i1 %.not.i.i.i.i.i40 to i32
-  %.inv.i.i.i.i.i42 = icmp sgt i32 %17, -1
-  %.0.i.i.i.i.i43 = select i1 %.inv.i.i.i.i.i42, i32 %..i.i.i.i.i41, i32 -1
+  %.0.i.i.i.i.i37 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %17, i32 0)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %19 = load i32, ptr %18, align 8
-  %.not.i.i.i.i.i44 = icmp ne i32 %19, 0
-  %..i.i.i.i.i45 = zext i1 %.not.i.i.i.i.i44 to i32
-  %.inv.i.i.i.i.i46 = icmp sgt i32 %19, -1
-  %.0.i.i.i.i.i47 = select i1 %.inv.i.i.i.i.i46, i32 %..i.i.i.i.i45, i32 -1
-  %20 = mul nsw i32 %.0.i.i.i.i.i47, %.0.i.i.i.i.i43
+  %.0.i.i.i.i.i38 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %19, i32 0)
+  %20 = mul nsw i32 %.0.i.i.i.i.i38, %.0.i.i.i.i.i37
   %21 = icmp eq i32 %15, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %4
   %23 = sub nsw i32 0, %20
-  br label %_ZN4CGAL4MpzfD2Ev.exit71
+  br label %_ZN4CGAL4MpzfD2Ev.exit56
 
 24:                                               ; preds = %4
   %25 = icmp eq i32 %20, 0
-  br i1 %25, label %_ZN4CGAL4MpzfD2Ev.exit71, label %26
+  br i1 %25, label %_ZN4CGAL4MpzfD2Ev.exit56, label %26
 
 26:                                               ; preds = %24
   %27 = icmp eq i32 %15, %20
-  br i1 %27, label %28, label %192
+  br i1 %27, label %28, label %194
 
 28:                                               ; preds = %26
-  %29 = mul nsw i32 %.0.i.i.i.i.i47, %.0.i.i.i.i.i39
+  %29 = mul nsw i32 %.0.i.i.i.i.i38, %.0.i.i.i.i.i36
   call void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %3)
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 84
   store i32 0, ptr %30, align 4
@@ -163539,405 +163497,402 @@ define linkonce_odr noundef i32 @_ZN4CGAL17compare_quotientsINS_4MpzfEEENS_19Sam
 
 41:                                               ; preds = %36
   store i32 -1, ptr %38, align 8
-  %narrow = sub nsw i32 0, %29
-  %42 = zext nneg i32 %narrow to i64
-  store i64 %42, ptr %32, align 8
+  %42 = sext i32 %29 to i64
+  %43 = sub nsw i64 0, %42
+  store i64 %43, ptr %32, align 8
   br label %_ZN4CGAL4MpzfC2Ei.exit
 
 _ZN4CGAL4MpzfC2Ei.exit:                           ; preds = %41, %39, %34
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %7)
-          to label %43 unwind label %148
+          to label %44 unwind label %150
 
-43:                                               ; preds = %_ZN4CGAL4MpzfC2Ei.exit
-  %44 = load ptr, ptr %7, align 8
-  br label %45
+44:                                               ; preds = %_ZN4CGAL4MpzfC2Ei.exit
+  %45 = load ptr, ptr %7, align 8
+  br label %46
 
-45:                                               ; preds = %45, %43
-  %.pn.i.i = phi ptr [ %44, %43 ], [ %storemerge.i.i, %45 ]
+46:                                               ; preds = %46, %44
+  %.pn.i.i = phi ptr [ %45, %44 ], [ %storemerge.i.i, %46 ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 -8
   store ptr %storemerge.i.i, ptr %7, align 8
-  %46 = load i64, ptr %storemerge.i.i, align 8
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %45, label %48, !llvm.loop !210
+  %47 = load i64, ptr %storemerge.i.i, align 8
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %46, label %49, !llvm.loop !210
 
-48:                                               ; preds = %45
-  %49 = icmp eq ptr %storemerge.i.i, %31
-  br i1 %49, label %_ZN4CGAL4MpzfD2Ev.exit, label %50
+49:                                               ; preds = %46
+  %50 = icmp eq ptr %storemerge.i.i, %31
+  br i1 %50, label %_ZN4CGAL4MpzfD2Ev.exit, label %51
 
-50:                                               ; preds = %48
+51:                                               ; preds = %49
   store ptr %.pn.i.i, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit
 
-_ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %48, %50
-  %51 = load ptr, ptr %6, align 8
-  br label %52
+_ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %49, %51
+  %52 = load ptr, ptr %6, align 8
+  br label %53
 
-52:                                               ; preds = %52, %_ZN4CGAL4MpzfD2Ev.exit
-  %.pn.i.i56 = phi ptr [ %51, %_ZN4CGAL4MpzfD2Ev.exit ], [ %storemerge.i.i57, %52 ]
-  %storemerge.i.i57 = getelementptr inbounds i8, ptr %.pn.i.i56, i64 -8
-  store ptr %storemerge.i.i57, ptr %6, align 8
-  %53 = load i64, ptr %storemerge.i.i57, align 8
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %52, label %55, !llvm.loop !210
+53:                                               ; preds = %53, %_ZN4CGAL4MpzfD2Ev.exit
+  %.pn.i.i41 = phi ptr [ %52, %_ZN4CGAL4MpzfD2Ev.exit ], [ %storemerge.i.i42, %53 ]
+  %storemerge.i.i42 = getelementptr inbounds i8, ptr %.pn.i.i41, i64 -8
+  store ptr %storemerge.i.i42, ptr %6, align 8
+  %54 = load i64, ptr %storemerge.i.i42, align 8
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %53, label %56, !llvm.loop !210
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %57 = icmp eq ptr %storemerge.i.i57, %56
-  br i1 %57, label %_ZN4CGAL4MpzfD2Ev.exit58, label %58
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %58 = icmp eq ptr %storemerge.i.i42, %57
+  br i1 %58, label %_ZN4CGAL4MpzfD2Ev.exit43, label %59
 
-58:                                               ; preds = %55
-  store ptr %.pn.i.i56, ptr %6, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i57) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit58
+59:                                               ; preds = %56
+  store ptr %.pn.i.i41, ptr %6, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i42) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit43
 
-_ZN4CGAL4MpzfD2Ev.exit58:                         ; preds = %55, %58
+_ZN4CGAL4MpzfD2Ev.exit43:                         ; preds = %56, %59
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1)
-          to label %59 unwind label %165
+          to label %60 unwind label %167
 
-59:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit58
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 84
-  store i32 0, ptr %60, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 8, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %62, ptr %10, align 8
-  br i1 %33, label %63, label %65
+60:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit43
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  store i32 0, ptr %61, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 8, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %63, ptr %10, align 8
+  br i1 %33, label %64, label %66
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i32 0, ptr %64, align 8
-  br label %_ZN4CGAL4MpzfC2Ei.exit59
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store i32 0, ptr %65, align 8
+  br label %_ZN4CGAL4MpzfC2Ei.exit44
 
-65:                                               ; preds = %59
-  %66 = icmp sgt i32 %29, 0
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  br i1 %66, label %68, label %70
+66:                                               ; preds = %60
+  %67 = icmp sgt i32 %29, 0
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  br i1 %67, label %69, label %71
 
-68:                                               ; preds = %65
-  store i32 1, ptr %67, align 8
-  %69 = zext nneg i32 %29 to i64
-  store i64 %69, ptr %62, align 8
-  br label %_ZN4CGAL4MpzfC2Ei.exit59
+69:                                               ; preds = %66
+  store i32 1, ptr %68, align 8
+  %70 = zext nneg i32 %29 to i64
+  store i64 %70, ptr %63, align 8
+  br label %_ZN4CGAL4MpzfC2Ei.exit44
 
-70:                                               ; preds = %65
-  store i32 -1, ptr %67, align 8
-  %narrow90 = sub nsw i32 0, %29
-  %71 = zext nneg i32 %narrow90 to i64
-  store i64 %71, ptr %62, align 8
-  br label %_ZN4CGAL4MpzfC2Ei.exit59
+71:                                               ; preds = %66
+  store i32 -1, ptr %68, align 8
+  %72 = sext i32 %29 to i64
+  %73 = sub nsw i64 0, %72
+  store i64 %73, ptr %63, align 8
+  br label %_ZN4CGAL4MpzfC2Ei.exit44
 
-_ZN4CGAL4MpzfC2Ei.exit59:                         ; preds = %70, %68, %63
+_ZN4CGAL4MpzfC2Ei.exit44:                         ; preds = %71, %69, %64
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %8, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(88) %10)
-          to label %72 unwind label %167
+          to label %74 unwind label %169
 
-72:                                               ; preds = %_ZN4CGAL4MpzfC2Ei.exit59
-  %73 = load ptr, ptr %10, align 8
-  br label %74
+74:                                               ; preds = %_ZN4CGAL4MpzfC2Ei.exit44
+  %75 = load ptr, ptr %10, align 8
+  br label %76
 
-74:                                               ; preds = %74, %72
-  %.pn.i.i60 = phi ptr [ %73, %72 ], [ %storemerge.i.i61, %74 ]
+76:                                               ; preds = %76, %74
+  %.pn.i.i45 = phi ptr [ %75, %74 ], [ %storemerge.i.i46, %76 ]
+  %storemerge.i.i46 = getelementptr inbounds i8, ptr %.pn.i.i45, i64 -8
+  store ptr %storemerge.i.i46, ptr %10, align 8
+  %77 = load i64, ptr %storemerge.i.i46, align 8
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %76, label %79, !llvm.loop !210
+
+79:                                               ; preds = %76
+  %80 = icmp eq ptr %storemerge.i.i46, %62
+  br i1 %80, label %_ZN4CGAL4MpzfD2Ev.exit47, label %81
+
+81:                                               ; preds = %79
+  store ptr %.pn.i.i45, ptr %10, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i46) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit47
+
+_ZN4CGAL4MpzfD2Ev.exit47:                         ; preds = %79, %81
+  %82 = load ptr, ptr %9, align 8
+  br label %83
+
+83:                                               ; preds = %83, %_ZN4CGAL4MpzfD2Ev.exit47
+  %.pn.i.i48 = phi ptr [ %82, %_ZN4CGAL4MpzfD2Ev.exit47 ], [ %storemerge.i.i49, %83 ]
+  %storemerge.i.i49 = getelementptr inbounds i8, ptr %.pn.i.i48, i64 -8
+  store ptr %storemerge.i.i49, ptr %9, align 8
+  %84 = load i64, ptr %storemerge.i.i49, align 8
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %83, label %86, !llvm.loop !210
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %88 = icmp eq ptr %storemerge.i.i49, %87
+  br i1 %88, label %_ZN4CGAL4MpzfD2Ev.exit50, label %89
+
+89:                                               ; preds = %86
+  store ptr %.pn.i.i48, ptr %9, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i49) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit50
+
+_ZN4CGAL4MpzfD2Ev.exit50:                         ; preds = %86, %89
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %91 = load i32, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %93 = load i32, ptr %92, align 8
+  %94 = xor i32 %93, %91
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %96, label %98
+
+96:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit50
+  %.inv.i.i.i = icmp sgt i32 %91, -1
+  %97 = select i1 %.inv.i.i.i, i32 1, i32 -1
+  br label %133
+
+98:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit50
+  %99 = call i32 @llvm.abs.i32(i32 %91, i1 true)
+  %100 = call i32 @llvm.abs.i32(i32 %93, i1 true)
+  %101 = icmp eq i32 %93, 0
+  br i1 %101, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, label %102
+
+102:                                              ; preds = %98
+  %103 = icmp eq i32 %91, 0
+  br i1 %103, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, label %104
+
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  %106 = load i32, ptr %105, align 4
+  %107 = add nsw i32 %106, %99
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 84
+  %109 = load i32, ptr %108, align 4
+  %110 = add nsw i32 %109, %100
+  %.not.i.i.i.i = icmp eq i32 %107, %110
+  br i1 %.not.i.i.i.i, label %113, label %111
+
+111:                                              ; preds = %104
+  %112 = sub nsw i32 %107, %110
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
+
+113:                                              ; preds = %104
+  %114 = load ptr, ptr %5, align 8
+  %115 = zext nneg i32 %99 to i64
+  %116 = getelementptr i64, ptr %114, i64 %115
+  %117 = load ptr, ptr %8, align 8
+  %118 = zext nneg i32 %100 to i64
+  %119 = getelementptr i64, ptr %117, i64 %118
+  %smax.i.i.i.i = call i32 @llvm.abs.i32(i32 %91, i1 false)
+  %smax54.i.i.i.i = call i32 @llvm.abs.i32(i32 %93, i1 false)
+  %umin.i.i.i.i = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i, i32 %smax54.i.i.i.i)
+  br label %122
+
+120:                                              ; preds = %122
+  %121 = add nuw i32 %.02246.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i32 %121, %umin.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i, label %128, label %122, !llvm.loop !241
+
+122:                                              ; preds = %120, %113
+  %.pn49.i.i.i.i = phi ptr [ %116, %113 ], [ %.02148.i.i.i.i, %120 ]
+  %.pn50.i.i.i.i = phi ptr [ %119, %113 ], [ %.02347.i.i.i.i, %120 ]
+  %.02246.i.i.i.i = phi i32 [ 0, %113 ], [ %121, %120 ]
+  %.02347.i.i.i.i = getelementptr i8, ptr %.pn50.i.i.i.i, i64 -8
+  %.02148.i.i.i.i = getelementptr i8, ptr %.pn49.i.i.i.i, i64 -8
+  %123 = load i64, ptr %.02148.i.i.i.i, align 8
+  %124 = load i64, ptr %.02347.i.i.i.i, align 8
+  %.not30.i.i.i.i = icmp eq i64 %123, %124
+  br i1 %.not30.i.i.i.i, label %120, label %125
+
+125:                                              ; preds = %122
+  %126 = icmp ult i64 %123, %124
+  %127 = select i1 %126, i32 -1, i32 1
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
+
+128:                                              ; preds = %120
+  %129 = sub nsw i32 %99, %100
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
+
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i:  ; preds = %128, %125, %111, %102, %98
+  %.0.i.i.i.i = phi i32 [ %112, %111 ], [ %127, %125 ], [ %129, %128 ], [ -1, %102 ], [ %99, %98 ]
+  %130 = icmp slt i32 %91, 0
+  %131 = sub nsw i32 0, %.0.i.i.i.i
+  %132 = select i1 %130, i32 %131, i32 %.0.i.i.i.i
+  br label %133
+
+133:                                              ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, %96
+  %.0.i.i.i = phi i32 [ %97, %96 ], [ %132, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i ]
+  %134 = load ptr, ptr %8, align 8
+  br label %135
+
+135:                                              ; preds = %135, %133
+  %.pn.i.i51 = phi ptr [ %134, %133 ], [ %storemerge.i.i52, %135 ]
+  %storemerge.i.i52 = getelementptr inbounds i8, ptr %.pn.i.i51, i64 -8
+  store ptr %storemerge.i.i52, ptr %8, align 8
+  %136 = load i64, ptr %storemerge.i.i52, align 8
+  %137 = icmp eq i64 %136, 0
+  br i1 %137, label %135, label %138, !llvm.loop !210
+
+138:                                              ; preds = %135
+  %.0.i.i2.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %140 = icmp eq ptr %storemerge.i.i52, %139
+  br i1 %140, label %_ZN4CGAL4MpzfD2Ev.exit53, label %141
+
+141:                                              ; preds = %138
+  store ptr %.pn.i.i51, ptr %8, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i52) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit53
+
+_ZN4CGAL4MpzfD2Ev.exit53:                         ; preds = %138, %141
+  %142 = load ptr, ptr %5, align 8
+  br label %143
+
+143:                                              ; preds = %143, %_ZN4CGAL4MpzfD2Ev.exit53
+  %.pn.i.i54 = phi ptr [ %142, %_ZN4CGAL4MpzfD2Ev.exit53 ], [ %storemerge.i.i55, %143 ]
+  %storemerge.i.i55 = getelementptr inbounds i8, ptr %.pn.i.i54, i64 -8
+  store ptr %storemerge.i.i55, ptr %5, align 8
+  %144 = load i64, ptr %storemerge.i.i55, align 8
+  %145 = icmp eq i64 %144, 0
+  br i1 %145, label %143, label %146, !llvm.loop !210
+
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %148 = icmp eq ptr %storemerge.i.i55, %147
+  br i1 %148, label %_ZN4CGAL4MpzfD2Ev.exit56, label %149
+
+149:                                              ; preds = %146
+  store ptr %.pn.i.i54, ptr %5, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i55) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit56
+
+150:                                              ; preds = %_ZN4CGAL4MpzfC2Ei.exit
+  %151 = landingpad { ptr, i32 }
+          cleanup
+  %152 = load ptr, ptr %7, align 8
+  br label %153
+
+153:                                              ; preds = %153, %150
+  %.pn.i.i57 = phi ptr [ %152, %150 ], [ %storemerge.i.i58, %153 ]
+  %storemerge.i.i58 = getelementptr inbounds i8, ptr %.pn.i.i57, i64 -8
+  store ptr %storemerge.i.i58, ptr %7, align 8
+  %154 = load i64, ptr %storemerge.i.i58, align 8
+  %155 = icmp eq i64 %154, 0
+  br i1 %155, label %153, label %156, !llvm.loop !210
+
+156:                                              ; preds = %153
+  %157 = icmp eq ptr %storemerge.i.i58, %31
+  br i1 %157, label %_ZN4CGAL4MpzfD2Ev.exit59, label %158
+
+158:                                              ; preds = %156
+  store ptr %.pn.i.i57, ptr %7, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i58) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit59
+
+_ZN4CGAL4MpzfD2Ev.exit59:                         ; preds = %158, %156
+  %159 = load ptr, ptr %6, align 8
+  br label %160
+
+160:                                              ; preds = %160, %_ZN4CGAL4MpzfD2Ev.exit59
+  %.pn.i.i60 = phi ptr [ %159, %_ZN4CGAL4MpzfD2Ev.exit59 ], [ %storemerge.i.i61, %160 ]
   %storemerge.i.i61 = getelementptr inbounds i8, ptr %.pn.i.i60, i64 -8
-  store ptr %storemerge.i.i61, ptr %10, align 8
-  %75 = load i64, ptr %storemerge.i.i61, align 8
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %74, label %77, !llvm.loop !210
+  store ptr %storemerge.i.i61, ptr %6, align 8
+  %161 = load i64, ptr %storemerge.i.i61, align 8
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %160, label %163, !llvm.loop !210
 
-77:                                               ; preds = %74
-  %78 = icmp eq ptr %storemerge.i.i61, %61
-  br i1 %78, label %_ZN4CGAL4MpzfD2Ev.exit62, label %79
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %165 = icmp eq ptr %storemerge.i.i61, %164
+  br i1 %165, label %_ZN4CGAL4MpzfD2Ev.exit62, label %166
 
-79:                                               ; preds = %77
-  store ptr %.pn.i.i60, ptr %10, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i61) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit62
+166:                                              ; preds = %163
+  store ptr %.pn.i.i60, ptr %6, align 8
+  br label %_ZN4CGAL4MpzfD2Ev.exit62.sink.split
 
-_ZN4CGAL4MpzfD2Ev.exit62:                         ; preds = %77, %79
-  %80 = load ptr, ptr %9, align 8
-  br label %81
+167:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit43
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit68
 
-81:                                               ; preds = %81, %_ZN4CGAL4MpzfD2Ev.exit62
-  %.pn.i.i63 = phi ptr [ %80, %_ZN4CGAL4MpzfD2Ev.exit62 ], [ %storemerge.i.i64, %81 ]
+169:                                              ; preds = %_ZN4CGAL4MpzfC2Ei.exit44
+  %170 = landingpad { ptr, i32 }
+          cleanup
+  %171 = load ptr, ptr %10, align 8
+  br label %172
+
+172:                                              ; preds = %172, %169
+  %.pn.i.i63 = phi ptr [ %171, %169 ], [ %storemerge.i.i64, %172 ]
   %storemerge.i.i64 = getelementptr inbounds i8, ptr %.pn.i.i63, i64 -8
-  store ptr %storemerge.i.i64, ptr %9, align 8
-  %82 = load i64, ptr %storemerge.i.i64, align 8
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %81, label %84, !llvm.loop !210
+  store ptr %storemerge.i.i64, ptr %10, align 8
+  %173 = load i64, ptr %storemerge.i.i64, align 8
+  %174 = icmp eq i64 %173, 0
+  br i1 %174, label %172, label %175, !llvm.loop !210
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %86 = icmp eq ptr %storemerge.i.i64, %85
-  br i1 %86, label %_ZN4CGAL4MpzfD2Ev.exit65, label %87
+175:                                              ; preds = %172
+  %176 = icmp eq ptr %storemerge.i.i64, %62
+  br i1 %176, label %_ZN4CGAL4MpzfD2Ev.exit65, label %177
 
-87:                                               ; preds = %84
-  store ptr %.pn.i.i63, ptr %9, align 8
+177:                                              ; preds = %175
+  store ptr %.pn.i.i63, ptr %10, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i64) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit65
 
-_ZN4CGAL4MpzfD2Ev.exit65:                         ; preds = %84, %87
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %91 = load i32, ptr %90, align 8
-  %92 = xor i32 %91, %89
-  %93 = icmp slt i32 %92, 0
-  br i1 %93, label %94, label %96
+_ZN4CGAL4MpzfD2Ev.exit65:                         ; preds = %177, %175
+  %178 = load ptr, ptr %9, align 8
+  br label %179
 
-94:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit65
-  %.inv.i.i.i = icmp sgt i32 %89, -1
-  %95 = select i1 %.inv.i.i.i, i32 1, i32 -1
-  br label %131
-
-96:                                               ; preds = %_ZN4CGAL4MpzfD2Ev.exit65
-  %97 = call i32 @llvm.abs.i32(i32 %89, i1 true)
-  %98 = call i32 @llvm.abs.i32(i32 %91, i1 true)
-  %99 = icmp eq i32 %91, 0
-  br i1 %99, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, label %100
-
-100:                                              ; preds = %96
-  %101 = icmp eq i32 %89, 0
-  br i1 %101, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, label %102
-
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %104 = load i32, ptr %103, align 4
-  %105 = add nsw i32 %104, %97
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 84
-  %107 = load i32, ptr %106, align 4
-  %108 = add nsw i32 %107, %98
-  %.not.i.i.i.i = icmp eq i32 %105, %108
-  br i1 %.not.i.i.i.i, label %111, label %109
-
-109:                                              ; preds = %102
-  %110 = sub nsw i32 %105, %108
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-
-111:                                              ; preds = %102
-  %112 = load ptr, ptr %5, align 8
-  %113 = zext nneg i32 %97 to i64
-  %114 = getelementptr i64, ptr %112, i64 %113
-  %115 = load ptr, ptr %8, align 8
-  %116 = zext nneg i32 %98 to i64
-  %117 = getelementptr i64, ptr %115, i64 %116
-  %smax.i.i.i.i = call i32 @llvm.abs.i32(i32 %89, i1 false)
-  %smax54.i.i.i.i = call i32 @llvm.abs.i32(i32 %91, i1 false)
-  %umin.i.i.i.i = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i, i32 %smax54.i.i.i.i)
-  br label %120
-
-118:                                              ; preds = %120
-  %119 = add nuw i32 %.02246.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i32 %119, %umin.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %126, label %120, !llvm.loop !241
-
-120:                                              ; preds = %118, %111
-  %.pn49.i.i.i.i = phi ptr [ %114, %111 ], [ %.02148.i.i.i.i, %118 ]
-  %.pn50.i.i.i.i = phi ptr [ %117, %111 ], [ %.02347.i.i.i.i, %118 ]
-  %.02246.i.i.i.i = phi i32 [ 0, %111 ], [ %119, %118 ]
-  %.02347.i.i.i.i = getelementptr i8, ptr %.pn50.i.i.i.i, i64 -8
-  %.02148.i.i.i.i = getelementptr i8, ptr %.pn49.i.i.i.i, i64 -8
-  %121 = load i64, ptr %.02148.i.i.i.i, align 8
-  %122 = load i64, ptr %.02347.i.i.i.i, align 8
-  %.not30.i.i.i.i = icmp eq i64 %121, %122
-  br i1 %.not30.i.i.i.i, label %118, label %123
-
-123:                                              ; preds = %120
-  %124 = icmp ult i64 %121, %122
-  %125 = select i1 %124, i32 -1, i32 1
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-
-126:                                              ; preds = %118
-  %127 = sub nsw i32 %97, %98
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
-
-_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i:  ; preds = %126, %123, %109, %100, %96
-  %.0.i.i.i.i = phi i32 [ %110, %109 ], [ %125, %123 ], [ %127, %126 ], [ -1, %100 ], [ %97, %96 ]
-  %128 = icmp slt i32 %89, 0
-  %129 = sub nsw i32 0, %.0.i.i.i.i
-  %130 = select i1 %128, i32 %129, i32 %.0.i.i.i.i
-  br label %131
-
-131:                                              ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i, %94
-  %.0.i.i.i = phi i32 [ %95, %94 ], [ %130, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i ]
-  %132 = load ptr, ptr %8, align 8
-  br label %133
-
-133:                                              ; preds = %133, %131
-  %.pn.i.i66 = phi ptr [ %132, %131 ], [ %storemerge.i.i67, %133 ]
+179:                                              ; preds = %179, %_ZN4CGAL4MpzfD2Ev.exit65
+  %.pn.i.i66 = phi ptr [ %178, %_ZN4CGAL4MpzfD2Ev.exit65 ], [ %storemerge.i.i67, %179 ]
   %storemerge.i.i67 = getelementptr inbounds i8, ptr %.pn.i.i66, i64 -8
-  store ptr %storemerge.i.i67, ptr %8, align 8
-  %134 = load i64, ptr %storemerge.i.i67, align 8
-  %135 = icmp eq i64 %134, 0
-  br i1 %135, label %133, label %136, !llvm.loop !210
+  store ptr %storemerge.i.i67, ptr %9, align 8
+  %180 = load i64, ptr %storemerge.i.i67, align 8
+  %181 = icmp eq i64 %180, 0
+  br i1 %181, label %179, label %182, !llvm.loop !210
 
-136:                                              ; preds = %133
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
-  %.inv.i.i.i.i = icmp sgt i32 %.0.i.i.i, -1
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
-  %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %138 = icmp eq ptr %storemerge.i.i67, %137
-  br i1 %138, label %_ZN4CGAL4MpzfD2Ev.exit68, label %139
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %184 = icmp eq ptr %storemerge.i.i67, %183
+  br i1 %184, label %_ZN4CGAL4MpzfD2Ev.exit68, label %185
 
-139:                                              ; preds = %136
-  store ptr %.pn.i.i66, ptr %8, align 8
+185:                                              ; preds = %182
+  store ptr %.pn.i.i66, ptr %9, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i67) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit68
 
-_ZN4CGAL4MpzfD2Ev.exit68:                         ; preds = %136, %139
-  %140 = load ptr, ptr %5, align 8
-  br label %141
+_ZN4CGAL4MpzfD2Ev.exit68:                         ; preds = %185, %182, %167
+  %.pn33 = phi { ptr, i32 } [ %168, %167 ], [ %170, %182 ], [ %170, %185 ]
+  %186 = load ptr, ptr %5, align 8
+  br label %187
 
-141:                                              ; preds = %141, %_ZN4CGAL4MpzfD2Ev.exit68
-  %.pn.i.i69 = phi ptr [ %140, %_ZN4CGAL4MpzfD2Ev.exit68 ], [ %storemerge.i.i70, %141 ]
-  %storemerge.i.i70 = getelementptr inbounds i8, ptr %.pn.i.i69, i64 -8
-  store ptr %storemerge.i.i70, ptr %5, align 8
-  %142 = load i64, ptr %storemerge.i.i70, align 8
-  %143 = icmp eq i64 %142, 0
-  br i1 %143, label %141, label %144, !llvm.loop !210
-
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %146 = icmp eq ptr %storemerge.i.i70, %145
-  br i1 %146, label %_ZN4CGAL4MpzfD2Ev.exit71, label %147
-
-147:                                              ; preds = %144
-  store ptr %.pn.i.i69, ptr %5, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i70) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit71
-
-148:                                              ; preds = %_ZN4CGAL4MpzfC2Ei.exit
-  %149 = landingpad { ptr, i32 }
-          cleanup
-  %150 = load ptr, ptr %7, align 8
-  br label %151
-
-151:                                              ; preds = %151, %148
-  %.pn.i.i72 = phi ptr [ %150, %148 ], [ %storemerge.i.i73, %151 ]
+187:                                              ; preds = %187, %_ZN4CGAL4MpzfD2Ev.exit68
+  %.pn.i.i72 = phi ptr [ %186, %_ZN4CGAL4MpzfD2Ev.exit68 ], [ %storemerge.i.i73, %187 ]
   %storemerge.i.i73 = getelementptr inbounds i8, ptr %.pn.i.i72, i64 -8
-  store ptr %storemerge.i.i73, ptr %7, align 8
-  %152 = load i64, ptr %storemerge.i.i73, align 8
-  %153 = icmp eq i64 %152, 0
-  br i1 %153, label %151, label %154, !llvm.loop !210
+  store ptr %storemerge.i.i73, ptr %5, align 8
+  %188 = load i64, ptr %storemerge.i.i73, align 8
+  %189 = icmp eq i64 %188, 0
+  br i1 %189, label %187, label %190, !llvm.loop !210
 
-154:                                              ; preds = %151
-  %155 = icmp eq ptr %storemerge.i.i73, %31
-  br i1 %155, label %_ZN4CGAL4MpzfD2Ev.exit74, label %156
+190:                                              ; preds = %187
+  %191 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %192 = icmp eq ptr %storemerge.i.i73, %191
+  br i1 %192, label %_ZN4CGAL4MpzfD2Ev.exit62, label %193
 
-156:                                              ; preds = %154
-  store ptr %.pn.i.i72, ptr %7, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i73) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit74
+193:                                              ; preds = %190
+  store ptr %.pn.i.i72, ptr %5, align 8
+  br label %_ZN4CGAL4MpzfD2Ev.exit62.sink.split
 
-_ZN4CGAL4MpzfD2Ev.exit74:                         ; preds = %156, %154
-  %157 = load ptr, ptr %6, align 8
-  br label %158
+194:                                              ; preds = %26
+  %195 = icmp slt i32 %15, %20
+  %196 = select i1 %195, i32 -1, i32 1
+  br label %_ZN4CGAL4MpzfD2Ev.exit56
 
-158:                                              ; preds = %158, %_ZN4CGAL4MpzfD2Ev.exit74
-  %.pn.i.i75 = phi ptr [ %157, %_ZN4CGAL4MpzfD2Ev.exit74 ], [ %storemerge.i.i76, %158 ]
-  %storemerge.i.i76 = getelementptr inbounds i8, ptr %.pn.i.i75, i64 -8
-  store ptr %storemerge.i.i76, ptr %6, align 8
-  %159 = load i64, ptr %storemerge.i.i76, align 8
-  %160 = icmp eq i64 %159, 0
-  br i1 %160, label %158, label %161, !llvm.loop !210
-
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %163 = icmp eq ptr %storemerge.i.i76, %162
-  br i1 %163, label %_ZN4CGAL4MpzfD2Ev.exit77, label %164
-
-164:                                              ; preds = %161
-  store ptr %.pn.i.i75, ptr %6, align 8
-  br label %_ZN4CGAL4MpzfD2Ev.exit77.sink.split
-
-165:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit58
-  %166 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit83
-
-167:                                              ; preds = %_ZN4CGAL4MpzfC2Ei.exit59
-  %168 = landingpad { ptr, i32 }
-          cleanup
-  %169 = load ptr, ptr %10, align 8
-  br label %170
-
-170:                                              ; preds = %170, %167
-  %.pn.i.i78 = phi ptr [ %169, %167 ], [ %storemerge.i.i79, %170 ]
-  %storemerge.i.i79 = getelementptr inbounds i8, ptr %.pn.i.i78, i64 -8
-  store ptr %storemerge.i.i79, ptr %10, align 8
-  %171 = load i64, ptr %storemerge.i.i79, align 8
-  %172 = icmp eq i64 %171, 0
-  br i1 %172, label %170, label %173, !llvm.loop !210
-
-173:                                              ; preds = %170
-  %174 = icmp eq ptr %storemerge.i.i79, %61
-  br i1 %174, label %_ZN4CGAL4MpzfD2Ev.exit80, label %175
-
-175:                                              ; preds = %173
-  store ptr %.pn.i.i78, ptr %10, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i79) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit80
-
-_ZN4CGAL4MpzfD2Ev.exit80:                         ; preds = %175, %173
-  %176 = load ptr, ptr %9, align 8
-  br label %177
-
-177:                                              ; preds = %177, %_ZN4CGAL4MpzfD2Ev.exit80
-  %.pn.i.i81 = phi ptr [ %176, %_ZN4CGAL4MpzfD2Ev.exit80 ], [ %storemerge.i.i82, %177 ]
-  %storemerge.i.i82 = getelementptr inbounds i8, ptr %.pn.i.i81, i64 -8
-  store ptr %storemerge.i.i82, ptr %9, align 8
-  %178 = load i64, ptr %storemerge.i.i82, align 8
-  %179 = icmp eq i64 %178, 0
-  br i1 %179, label %177, label %180, !llvm.loop !210
-
-180:                                              ; preds = %177
-  %181 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %182 = icmp eq ptr %storemerge.i.i82, %181
-  br i1 %182, label %_ZN4CGAL4MpzfD2Ev.exit83, label %183
-
-183:                                              ; preds = %180
-  store ptr %.pn.i.i81, ptr %9, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i82) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit83
-
-_ZN4CGAL4MpzfD2Ev.exit83:                         ; preds = %183, %180, %165
-  %.pn33 = phi { ptr, i32 } [ %166, %165 ], [ %168, %180 ], [ %168, %183 ]
-  %184 = load ptr, ptr %5, align 8
-  br label %185
-
-185:                                              ; preds = %185, %_ZN4CGAL4MpzfD2Ev.exit83
-  %.pn.i.i87 = phi ptr [ %184, %_ZN4CGAL4MpzfD2Ev.exit83 ], [ %storemerge.i.i88, %185 ]
-  %storemerge.i.i88 = getelementptr inbounds i8, ptr %.pn.i.i87, i64 -8
-  store ptr %storemerge.i.i88, ptr %5, align 8
-  %186 = load i64, ptr %storemerge.i.i88, align 8
-  %187 = icmp eq i64 %186, 0
-  br i1 %187, label %185, label %188, !llvm.loop !210
-
-188:                                              ; preds = %185
-  %189 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %190 = icmp eq ptr %storemerge.i.i88, %189
-  br i1 %190, label %_ZN4CGAL4MpzfD2Ev.exit77, label %191
-
-191:                                              ; preds = %188
-  store ptr %.pn.i.i87, ptr %5, align 8
-  br label %_ZN4CGAL4MpzfD2Ev.exit77.sink.split
-
-192:                                              ; preds = %26
-  %193 = icmp slt i32 %15, %20
-  %194 = select i1 %193, i32 -1, i32 1
-  br label %_ZN4CGAL4MpzfD2Ev.exit71
-
-_ZN4CGAL4MpzfD2Ev.exit71:                         ; preds = %147, %144, %24, %192, %22
-  %.027 = phi i32 [ %23, %22 ], [ %194, %192 ], [ %15, %24 ], [ %.0.i.i3.i.i, %144 ], [ %.0.i.i3.i.i, %147 ]
+_ZN4CGAL4MpzfD2Ev.exit56:                         ; preds = %149, %146, %24, %194, %22
+  %.027 = phi i32 [ %23, %22 ], [ %196, %194 ], [ %15, %24 ], [ %.0.i.i2.i.i, %146 ], [ %.0.i.i2.i.i, %149 ]
   ret i32 %.027
 
-_ZN4CGAL4MpzfD2Ev.exit77.sink.split:              ; preds = %164, %191
-  %storemerge.i.i88.lcssa.sink = phi ptr [ %storemerge.i.i88, %191 ], [ %storemerge.i.i76, %164 ]
-  %.pn33.pn.ph = phi { ptr, i32 } [ %.pn33, %191 ], [ %149, %164 ]
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i88.lcssa.sink) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit77
+_ZN4CGAL4MpzfD2Ev.exit62.sink.split:              ; preds = %166, %193
+  %storemerge.i.i73.lcssa.sink = phi ptr [ %storemerge.i.i73, %193 ], [ %storemerge.i.i61, %166 ]
+  %.pn33.pn.ph = phi { ptr, i32 } [ %.pn33, %193 ], [ %151, %166 ]
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i73.lcssa.sink) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit62
 
-_ZN4CGAL4MpzfD2Ev.exit77:                         ; preds = %_ZN4CGAL4MpzfD2Ev.exit77.sink.split, %188, %161
-  %.pn33.pn = phi { ptr, i32 } [ %149, %161 ], [ %.pn33, %188 ], [ %.pn33.pn.ph, %_ZN4CGAL4MpzfD2Ev.exit77.sink.split ]
+_ZN4CGAL4MpzfD2Ev.exit62:                         ; preds = %_ZN4CGAL4MpzfD2Ev.exit62.sink.split, %190, %163
+  %.pn33.pn = phi { ptr, i32 } [ %151, %163 ], [ %.pn33, %190 ], [ %.pn33.pn.ph, %_ZN4CGAL4MpzfD2Ev.exit62.sink.split ]
   resume { ptr, i32 } %.pn33.pn
 }
 
@@ -164102,11 +164057,8 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i:  ; preds = %62, %59, %45, %36, 
   br label %_ZN4CGAL4MpzfD2Ev.exit
 
 _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %72, %75
-  %.inv.i.i.i.i = icmp sgt i32 %.0.i.i.i, -1
-  %.not.i.i2.i.i = icmp ne i32 %.0.i.i.i, 0
-  %..i.i.i.i = zext i1 %.not.i.i2.i.i to i32
-  %.0.i.i3.i.i = select i1 %.inv.i.i.i.i, i32 %..i.i.i.i, i32 -1
-  ret i32 %.0.i.i3.i.i
+  %.0.i.i2.i.i = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  ret i32 %.0.i.i2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -189489,8 +189441,7 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i:  ; preds = %62, %59, %45, %36, 
 
 _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit: ; preds = %30, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i
   %.0.i.i.i = phi i32 [ %31, %30 ], [ %66, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i ]
-  %.inv.i.i.i.i = icmp slt i32 %.0.i.i.i, 0
-  %.0.i.i3.i.i = tail call i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
+  %.0.i.i2.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i, i32 0)
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 256
@@ -189502,9 +189453,9 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit
-  %.inv.i.i.i79 = icmp sgt i32 %70, -1
-  %76 = select i1 %.inv.i.i.i79, i32 1, i32 -1
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit80
+  %.inv.i.i.i76 = icmp sgt i32 %70, -1
+  %76 = select i1 %.inv.i.i.i76, i32 1, i32 -1
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit77
 
 77:                                               ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit
   %78 = tail call i32 @llvm.abs.i32(i32 %70, i1 true)
@@ -189537,26 +189488,26 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   %96 = load ptr, ptr %68, align 8
   %97 = zext nneg i32 %79 to i64
   %98 = getelementptr i64, ptr %96, i64 %97
-  %smax.i.i.i.i69 = tail call i32 @llvm.abs.i32(i32 %70, i1 false)
-  %smax54.i.i.i.i70 = tail call i32 @llvm.abs.i32(i32 %72, i1 false)
-  %umin.i.i.i.i71 = tail call i32 @llvm.umin.i32(i32 %smax.i.i.i.i69, i32 %smax54.i.i.i.i70)
+  %smax.i.i.i.i66 = tail call i32 @llvm.abs.i32(i32 %70, i1 false)
+  %smax54.i.i.i.i67 = tail call i32 @llvm.abs.i32(i32 %72, i1 false)
+  %umin.i.i.i.i68 = tail call i32 @llvm.umin.i32(i32 %smax.i.i.i.i66, i32 %smax54.i.i.i.i67)
   br label %101
 
 99:                                               ; preds = %101
-  %100 = add nuw i32 %.02246.i.i.i.i74, 1
-  %exitcond.not.i.i.i.i78 = icmp eq i32 %100, %umin.i.i.i.i71
-  br i1 %exitcond.not.i.i.i.i78, label %107, label %101, !llvm.loop !241
+  %100 = add nuw i32 %.02246.i.i.i.i71, 1
+  %exitcond.not.i.i.i.i75 = icmp eq i32 %100, %umin.i.i.i.i68
+  br i1 %exitcond.not.i.i.i.i75, label %107, label %101, !llvm.loop !241
 
 101:                                              ; preds = %99, %92
-  %.pn49.i.i.i.i72 = phi ptr [ %95, %92 ], [ %.02148.i.i.i.i76, %99 ]
-  %.pn50.i.i.i.i73 = phi ptr [ %98, %92 ], [ %.02347.i.i.i.i75, %99 ]
-  %.02246.i.i.i.i74 = phi i32 [ 0, %92 ], [ %100, %99 ]
-  %.02347.i.i.i.i75 = getelementptr i8, ptr %.pn50.i.i.i.i73, i64 -8
-  %.02148.i.i.i.i76 = getelementptr i8, ptr %.pn49.i.i.i.i72, i64 -8
-  %102 = load i64, ptr %.02148.i.i.i.i76, align 8
-  %103 = load i64, ptr %.02347.i.i.i.i75, align 8
-  %.not30.i.i.i.i77 = icmp eq i64 %102, %103
-  br i1 %.not30.i.i.i.i77, label %99, label %104
+  %.pn49.i.i.i.i69 = phi ptr [ %95, %92 ], [ %.02148.i.i.i.i73, %99 ]
+  %.pn50.i.i.i.i70 = phi ptr [ %98, %92 ], [ %.02347.i.i.i.i72, %99 ]
+  %.02246.i.i.i.i71 = phi i32 [ 0, %92 ], [ %100, %99 ]
+  %.02347.i.i.i.i72 = getelementptr i8, ptr %.pn50.i.i.i.i70, i64 -8
+  %.02148.i.i.i.i73 = getelementptr i8, ptr %.pn49.i.i.i.i69, i64 -8
+  %102 = load i64, ptr %.02148.i.i.i.i73, align 8
+  %103 = load i64, ptr %.02347.i.i.i.i72, align 8
+  %.not30.i.i.i.i74 = icmp eq i64 %102, %103
+  br i1 %.not30.i.i.i.i74, label %99, label %104
 
 104:                                              ; preds = %101
   %105 = icmp ult i64 %102, %103
@@ -189572,24 +189523,21 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i62: ; preds = %107, %104, %90, %8
   %109 = icmp slt i32 %70, 0
   %110 = sub nsw i32 0, %.0.i.i.i.i63
   %111 = select i1 %109, i32 %110, i32 %.0.i.i.i.i63
-  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit80
+  br label %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit77
 
-_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit80: ; preds = %75, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i62
+_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit77: ; preds = %75, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i62
   %.0.i.i.i64 = phi i32 [ %76, %75 ], [ %111, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i62 ]
-  %.not.i.i2.i.i65 = icmp ne i32 %.0.i.i.i64, 0
-  %..i.i.i.i66 = zext i1 %.not.i.i2.i.i65 to i32
-  %.inv.i.i.i.i67 = icmp sgt i32 %.0.i.i.i64, -1
-  %.0.i.i3.i.i68 = select i1 %.inv.i.i.i.i67, i32 %..i.i.i.i66, i32 -1
-  %.not = icmp eq i32 %.0.i.i3.i.i, %.0.i.i3.i.i68
+  %.0.i.i2.i.i65 = tail call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i64, i32 0)
+  %.not = icmp eq i32 %.0.i.i2.i.i, %.0.i.i2.i.i65
   br i1 %.not, label %113, label %112
 
-112:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit80
-  %.0.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i3.i.i, i32 %.0.i.i3.i.i68)
-  br label %759
+112:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit77
+  %.0.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i2.i.i, i32 %.0.i.i2.i.i65)
+  br label %760
 
-113:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit80
-  %or.cond = icmp eq i32 %.0.i.i.i, 0
-  br i1 %or.cond, label %759, label %114
+113:                                              ; preds = %_ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsIT_T0_E4TypeEE7Compare11result_typeERKS4_RKS5_.exit77
+  %or.cond = icmp eq i32 %.0.i.i.i64, 0
+  br i1 %or.cond, label %760, label %114
 
 114:                                              ; preds = %113
   %115 = sub nsw i32 0, %25
@@ -189613,7 +189561,7 @@ _ZN4CGAL7compareINS_4MpzfES1_EENS_22Real_embeddable_traitsINS_15Coercion_traitsI
   %126 = zext nneg i32 %125 to i64
   %127 = shl nuw nsw i64 %126, 3
   %128 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %127) #41
-          to label %.noexc unwind label %609
+          to label %.noexc unwind label %610
 
 .noexc:                                           ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
@@ -189692,7 +189640,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i:           ; preds = %.noexc, %121
   %167 = load i32, ptr %166, align 8, !noalias !3751
   %168 = sub nsw i32 0, %167
   invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %11, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef %168)
-          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit unwind label %611
+          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit unwind label %612
 
 _ZN4CGALmiERKNS_4MpzfES2_.exit:                   ; preds = %164
   call void @llvm.experimental.noalias.scope.decl(metadata !3754)
@@ -189707,24 +189655,24 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit:                   ; preds = %164
   %175 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 8, ptr %175, align 8, !alias.scope !3754
   %176 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i198
 
 177:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit
   %178 = or disjoint i32 %172, 1
   %179 = zext nneg i32 %178 to i64
   %180 = shl nuw nsw i64 %179, 3
   %181 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %180) #41
-          to label %.noexc211 unwind label %613
+          to label %.noexc205 unwind label %614
 
-.noexc211:                                        ; preds = %177
+.noexc205:                                        ; preds = %177
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = zext nneg i32 %172 to i64
   store i64 %183, ptr %181, align 8, !noalias !3754
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i198
 
-_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204:        ; preds = %.noexc211, %174
-  %.sink.i.i.i205 = phi ptr [ %176, %174 ], [ %182, %.noexc211 ]
-  store ptr %.sink.i.i.i205, ptr %10, align 8, !alias.scope !3754
+_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i198:        ; preds = %.noexc205, %174
+  %.sink.i.i.i199 = phi ptr [ %176, %174 ], [ %182, %.noexc205 ]
+  store ptr %.sink.i.i.i199, ptr %10, align 8, !alias.scope !3754
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %185 = load i32, ptr %184, align 4, !noalias !3754
   %186 = shl nsw i32 %185, 1
@@ -189733,10 +189681,10 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204:        ; preds = %.noexc211, %174
   %188 = icmp eq i32 %170, 0
   br i1 %188, label %217, label %189
 
-189:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204
+189:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i198
   %190 = load ptr, ptr %11, align 8, !noalias !3754
   %191 = zext nneg i32 %171 to i64
-  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i205, ptr noundef %190, i64 noundef %191)
+  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i199, ptr noundef %190, i64 noundef %191)
           to label %192 unwind label %202
 
 192:                                              ; preds = %189
@@ -189747,7 +189695,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204:        ; preds = %.noexc211, %174
   %197 = load i64, ptr %196, align 8
   %198 = icmp eq i64 %197, 0
   %199 = sext i1 %198 to i32
-  %spec.select.i209 = add nsw i32 %172, %199
+  %spec.select.i203 = add nsw i32 %172, %199
   %200 = load i64, ptr %193, align 8
   %201 = icmp eq i64 %200, 0
   br i1 %201, label %212, label %217
@@ -189759,22 +189707,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204:        ; preds = %.noexc211, %174
   br label %205
 
 205:                                              ; preds = %205, %202
-  %.pn.i.i.i206 = phi ptr [ %204, %202 ], [ %storemerge.i.i.i207, %205 ]
-  %storemerge.i.i.i207 = getelementptr inbounds i8, ptr %.pn.i.i.i206, i64 -8
-  store ptr %storemerge.i.i.i207, ptr %10, align 8, !alias.scope !3754
-  %206 = load i64, ptr %storemerge.i.i.i207, align 8
+  %.pn.i.i.i200 = phi ptr [ %204, %202 ], [ %storemerge.i.i.i201, %205 ]
+  %storemerge.i.i.i201 = getelementptr inbounds i8, ptr %.pn.i.i.i200, i64 -8
+  store ptr %storemerge.i.i.i201, ptr %10, align 8, !alias.scope !3754
+  %206 = load i64, ptr %storemerge.i.i.i201, align 8
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %205, label %208, !llvm.loop !210
 
 208:                                              ; preds = %205
   %209 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %210 = icmp eq ptr %storemerge.i.i.i207, %209
-  br i1 %210, label %.body212, label %211
+  %210 = icmp eq ptr %storemerge.i.i.i201, %209
+  br i1 %210, label %.body206, label %211
 
 211:                                              ; preds = %208
-  store ptr %.pn.i.i.i206, ptr %10, align 8, !alias.scope !3754
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i207) #38
-  br label %.body212
+  store ptr %.pn.i.i.i200, ptr %10, align 8, !alias.scope !3754
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i201) #38
+  br label %.body206
 
 212:                                              ; preds = %192
   %213 = getelementptr inbounds nuw i8, ptr %193, i64 8
@@ -189782,22 +189730,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204:        ; preds = %.noexc211, %174
   %214 = load i32, ptr %187, align 4, !alias.scope !3754
   %215 = add nsw i32 %214, 1
   store i32 %215, ptr %187, align 4, !alias.scope !3754
-  %216 = add nsw i32 %spec.select.i209, -1
+  %216 = add nsw i32 %spec.select.i203, -1
   br label %217
 
-217:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204, %192, %212
-  %.sink.i210 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i204 ], [ %216, %212 ], [ %spec.select.i209, %192 ]
+217:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i198, %192, %212
+  %.sink.i204 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i198 ], [ %216, %212 ], [ %spec.select.i203, %192 ]
   %218 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store i32 %.sink.i210, ptr %218, align 8, !alias.scope !3754
+  store i32 %.sink.i204, ptr %218, align 8, !alias.scope !3754
   %219 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %220 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %221 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %222 = load i32, ptr %221, align 8, !noalias !3757
   %223 = sub nsw i32 0, %222
   invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %13, ptr noundef nonnull align 8 dereferenceable(88) %219, ptr noundef nonnull align 8 dereferenceable(88) %220, i32 noundef %223)
-          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit82 unwind label %615
+          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit79 unwind label %616
 
-_ZN4CGALmiERKNS_4MpzfES2_.exit82:                 ; preds = %217
+_ZN4CGALmiERKNS_4MpzfES2_.exit79:                 ; preds = %217
   call void @llvm.experimental.noalias.scope.decl(metadata !3760)
   %224 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %225 = load i32, ptr %224, align 8, !noalias !3760
@@ -189806,28 +189754,28 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit82:                 ; preds = %217
   %228 = icmp samesign ult i32 %226, 5
   br i1 %228, label %229, label %232
 
-229:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit82
+229:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit79
   %230 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 8, ptr %230, align 8, !alias.scope !3760
   %231 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i209
 
-232:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit82
+232:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit79
   %233 = or disjoint i32 %227, 1
   %234 = zext nneg i32 %233 to i64
   %235 = shl nuw nsw i64 %234, 3
   %236 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %235) #41
-          to label %.noexc222 unwind label %617
+          to label %.noexc216 unwind label %618
 
-.noexc222:                                        ; preds = %232
+.noexc216:                                        ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = zext nneg i32 %227 to i64
   store i64 %238, ptr %236, align 8, !noalias !3760
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i209
 
-_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215:        ; preds = %.noexc222, %229
-  %.sink.i.i.i216 = phi ptr [ %231, %229 ], [ %237, %.noexc222 ]
-  store ptr %.sink.i.i.i216, ptr %12, align 8, !alias.scope !3760
+_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i209:        ; preds = %.noexc216, %229
+  %.sink.i.i.i210 = phi ptr [ %231, %229 ], [ %237, %.noexc216 ]
+  store ptr %.sink.i.i.i210, ptr %12, align 8, !alias.scope !3760
   %239 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %240 = load i32, ptr %239, align 4, !noalias !3760
   %241 = shl nsw i32 %240, 1
@@ -189836,10 +189784,10 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215:        ; preds = %.noexc222, %229
   %243 = icmp eq i32 %225, 0
   br i1 %243, label %272, label %244
 
-244:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215
+244:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i209
   %245 = load ptr, ptr %13, align 8, !noalias !3760
   %246 = zext nneg i32 %226 to i64
-  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i216, ptr noundef %245, i64 noundef %246)
+  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i210, ptr noundef %245, i64 noundef %246)
           to label %247 unwind label %257
 
 247:                                              ; preds = %244
@@ -189850,7 +189798,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215:        ; preds = %.noexc222, %229
   %252 = load i64, ptr %251, align 8
   %253 = icmp eq i64 %252, 0
   %254 = sext i1 %253 to i32
-  %spec.select.i220 = add nsw i32 %227, %254
+  %spec.select.i214 = add nsw i32 %227, %254
   %255 = load i64, ptr %248, align 8
   %256 = icmp eq i64 %255, 0
   br i1 %256, label %267, label %272
@@ -189862,22 +189810,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215:        ; preds = %.noexc222, %229
   br label %260
 
 260:                                              ; preds = %260, %257
-  %.pn.i.i.i217 = phi ptr [ %259, %257 ], [ %storemerge.i.i.i218, %260 ]
-  %storemerge.i.i.i218 = getelementptr inbounds i8, ptr %.pn.i.i.i217, i64 -8
-  store ptr %storemerge.i.i.i218, ptr %12, align 8, !alias.scope !3760
-  %261 = load i64, ptr %storemerge.i.i.i218, align 8
+  %.pn.i.i.i211 = phi ptr [ %259, %257 ], [ %storemerge.i.i.i212, %260 ]
+  %storemerge.i.i.i212 = getelementptr inbounds i8, ptr %.pn.i.i.i211, i64 -8
+  store ptr %storemerge.i.i.i212, ptr %12, align 8, !alias.scope !3760
+  %261 = load i64, ptr %storemerge.i.i.i212, align 8
   %262 = icmp eq i64 %261, 0
   br i1 %262, label %260, label %263, !llvm.loop !210
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %265 = icmp eq ptr %storemerge.i.i.i218, %264
-  br i1 %265, label %.body223, label %266
+  %265 = icmp eq ptr %storemerge.i.i.i212, %264
+  br i1 %265, label %.body217, label %266
 
 266:                                              ; preds = %263
-  store ptr %.pn.i.i.i217, ptr %12, align 8, !alias.scope !3760
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i218) #38
-  br label %.body223
+  store ptr %.pn.i.i.i211, ptr %12, align 8, !alias.scope !3760
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i212) #38
+  br label %.body217
 
 267:                                              ; preds = %247
   %268 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -189885,27 +189833,27 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215:        ; preds = %.noexc222, %229
   %269 = load i32, ptr %242, align 4, !alias.scope !3760
   %270 = add nsw i32 %269, 1
   store i32 %270, ptr %242, align 4, !alias.scope !3760
-  %271 = add nsw i32 %spec.select.i220, -1
+  %271 = add nsw i32 %spec.select.i214, -1
   br label %272
 
-272:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215, %247, %267
-  %.sink.i221 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i215 ], [ %271, %267 ], [ %spec.select.i220, %247 ]
+272:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i209, %247, %267
+  %.sink.i215 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i209 ], [ %271, %267 ], [ %spec.select.i214, %247 ]
   %273 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store i32 %.sink.i221, ptr %273, align 8, !alias.scope !3760
-  invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %12, i32 noundef %.sink.i221)
-          to label %_ZN4CGALplERKNS_4MpzfES2_.exit unwind label %619
+  store i32 %.sink.i215, ptr %273, align 8, !alias.scope !3760
+  invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %9, ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %12, i32 noundef %.sink.i215)
+          to label %_ZN4CGALplERKNS_4MpzfES2_.exit unwind label %620
 
 _ZN4CGALplERKNS_4MpzfES2_.exit:                   ; preds = %272
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef nonnull align 8 dereferenceable(88) %9)
-          to label %274 unwind label %621
+          to label %274 unwind label %622
 
 274:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
   %275 = load i32, ptr %69, align 8, !noalias !3763
   %276 = sub nsw i32 0, %275
   invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %16, ptr noundef nonnull align 8 dereferenceable(88) %68, ptr noundef nonnull align 8 dereferenceable(88) %67, i32 noundef %276)
-          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit84 unwind label %623
+          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit81 unwind label %624
 
-_ZN4CGALmiERKNS_4MpzfES2_.exit84:                 ; preds = %274
+_ZN4CGALmiERKNS_4MpzfES2_.exit81:                 ; preds = %274
   call void @llvm.experimental.noalias.scope.decl(metadata !3766)
   %277 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %278 = load i32, ptr %277, align 8, !noalias !3766
@@ -189914,28 +189862,28 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit84:                 ; preds = %274
   %281 = icmp samesign ult i32 %279, 5
   br i1 %281, label %282, label %285
 
-282:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit84
+282:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit81
   %283 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 8, ptr %283, align 8, !alias.scope !3766
   %284 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i220
 
-285:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit84
+285:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit81
   %286 = or disjoint i32 %280, 1
   %287 = zext nneg i32 %286 to i64
   %288 = shl nuw nsw i64 %287, 3
   %289 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %288) #41
-          to label %.noexc233 unwind label %625
+          to label %.noexc227 unwind label %626
 
-.noexc233:                                        ; preds = %285
+.noexc227:                                        ; preds = %285
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %291 = zext nneg i32 %280 to i64
   store i64 %291, ptr %289, align 8, !noalias !3766
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i220
 
-_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226:        ; preds = %.noexc233, %282
-  %.sink.i.i.i227 = phi ptr [ %284, %282 ], [ %290, %.noexc233 ]
-  store ptr %.sink.i.i.i227, ptr %15, align 8, !alias.scope !3766
+_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i220:        ; preds = %.noexc227, %282
+  %.sink.i.i.i221 = phi ptr [ %284, %282 ], [ %290, %.noexc227 ]
+  store ptr %.sink.i.i.i221, ptr %15, align 8, !alias.scope !3766
   %292 = getelementptr inbounds nuw i8, ptr %16, i64 84
   %293 = load i32, ptr %292, align 4, !noalias !3766
   %294 = shl nsw i32 %293, 1
@@ -189944,10 +189892,10 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226:        ; preds = %.noexc233, %282
   %296 = icmp eq i32 %278, 0
   br i1 %296, label %325, label %297
 
-297:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226
+297:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i220
   %298 = load ptr, ptr %16, align 8, !noalias !3766
   %299 = zext nneg i32 %279 to i64
-  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i227, ptr noundef %298, i64 noundef %299)
+  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i221, ptr noundef %298, i64 noundef %299)
           to label %300 unwind label %310
 
 300:                                              ; preds = %297
@@ -189958,7 +189906,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226:        ; preds = %.noexc233, %282
   %305 = load i64, ptr %304, align 8
   %306 = icmp eq i64 %305, 0
   %307 = sext i1 %306 to i32
-  %spec.select.i231 = add nsw i32 %280, %307
+  %spec.select.i225 = add nsw i32 %280, %307
   %308 = load i64, ptr %301, align 8
   %309 = icmp eq i64 %308, 0
   br i1 %309, label %320, label %325
@@ -189970,22 +189918,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226:        ; preds = %.noexc233, %282
   br label %313
 
 313:                                              ; preds = %313, %310
-  %.pn.i.i.i228 = phi ptr [ %312, %310 ], [ %storemerge.i.i.i229, %313 ]
-  %storemerge.i.i.i229 = getelementptr inbounds i8, ptr %.pn.i.i.i228, i64 -8
-  store ptr %storemerge.i.i.i229, ptr %15, align 8, !alias.scope !3766
-  %314 = load i64, ptr %storemerge.i.i.i229, align 8
+  %.pn.i.i.i222 = phi ptr [ %312, %310 ], [ %storemerge.i.i.i223, %313 ]
+  %storemerge.i.i.i223 = getelementptr inbounds i8, ptr %.pn.i.i.i222, i64 -8
+  store ptr %storemerge.i.i.i223, ptr %15, align 8, !alias.scope !3766
+  %314 = load i64, ptr %storemerge.i.i.i223, align 8
   %315 = icmp eq i64 %314, 0
   br i1 %315, label %313, label %316, !llvm.loop !210
 
 316:                                              ; preds = %313
   %317 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %318 = icmp eq ptr %storemerge.i.i.i229, %317
-  br i1 %318, label %.body234, label %319
+  %318 = icmp eq ptr %storemerge.i.i.i223, %317
+  br i1 %318, label %.body228, label %319
 
 319:                                              ; preds = %316
-  store ptr %.pn.i.i.i228, ptr %15, align 8, !alias.scope !3766
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i229) #38
-  br label %.body234
+  store ptr %.pn.i.i.i222, ptr %15, align 8, !alias.scope !3766
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i223) #38
+  br label %.body228
 
 320:                                              ; preds = %300
   %321 = getelementptr inbounds nuw i8, ptr %301, i64 8
@@ -189993,20 +189941,20 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226:        ; preds = %.noexc233, %282
   %322 = load i32, ptr %295, align 4, !alias.scope !3766
   %323 = add nsw i32 %322, 1
   store i32 %323, ptr %295, align 4, !alias.scope !3766
-  %324 = add nsw i32 %spec.select.i231, -1
+  %324 = add nsw i32 %spec.select.i225, -1
   br label %325
 
-325:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226, %300, %320
-  %.sink.i232 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i226 ], [ %324, %320 ], [ %spec.select.i231, %300 ]
+325:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i220, %300, %320
+  %.sink.i226 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i220 ], [ %324, %320 ], [ %spec.select.i225, %300 ]
   %326 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store i32 %.sink.i232, ptr %326, align 8, !alias.scope !3766
+  store i32 %.sink.i226, ptr %326, align 8, !alias.scope !3766
   %327 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %328 = load i32, ptr %327, align 8, !noalias !3769
   %329 = sub nsw i32 0, %328
   invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %19, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %329)
-          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit86 unwind label %627
+          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit83 unwind label %628
 
-_ZN4CGALmiERKNS_4MpzfES2_.exit86:                 ; preds = %325
+_ZN4CGALmiERKNS_4MpzfES2_.exit83:                 ; preds = %325
   call void @llvm.experimental.noalias.scope.decl(metadata !3772)
   %330 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %331 = load i32, ptr %330, align 8, !noalias !3772
@@ -190015,28 +189963,28 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit86:                 ; preds = %325
   %334 = icmp samesign ult i32 %332, 5
   br i1 %334, label %335, label %338
 
-335:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit86
+335:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit83
   %336 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 8, ptr %336, align 8, !alias.scope !3772
   %337 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i231
 
-338:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit86
+338:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit83
   %339 = or disjoint i32 %333, 1
   %340 = zext nneg i32 %339 to i64
   %341 = shl nuw nsw i64 %340, 3
   %342 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %341) #41
-          to label %.noexc244 unwind label %629
+          to label %.noexc238 unwind label %630
 
-.noexc244:                                        ; preds = %338
+.noexc238:                                        ; preds = %338
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = zext nneg i32 %333 to i64
   store i64 %344, ptr %342, align 8, !noalias !3772
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i231
 
-_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237:        ; preds = %.noexc244, %335
-  %.sink.i.i.i238 = phi ptr [ %337, %335 ], [ %343, %.noexc244 ]
-  store ptr %.sink.i.i.i238, ptr %18, align 8, !alias.scope !3772
+_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i231:        ; preds = %.noexc238, %335
+  %.sink.i.i.i232 = phi ptr [ %337, %335 ], [ %343, %.noexc238 ]
+  store ptr %.sink.i.i.i232, ptr %18, align 8, !alias.scope !3772
   %345 = getelementptr inbounds nuw i8, ptr %19, i64 84
   %346 = load i32, ptr %345, align 4, !noalias !3772
   %347 = shl nsw i32 %346, 1
@@ -190045,10 +189993,10 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237:        ; preds = %.noexc244, %335
   %349 = icmp eq i32 %331, 0
   br i1 %349, label %378, label %350
 
-350:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237
+350:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i231
   %351 = load ptr, ptr %19, align 8, !noalias !3772
   %352 = zext nneg i32 %332 to i64
-  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i238, ptr noundef %351, i64 noundef %352)
+  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i232, ptr noundef %351, i64 noundef %352)
           to label %353 unwind label %363
 
 353:                                              ; preds = %350
@@ -190059,7 +190007,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237:        ; preds = %.noexc244, %335
   %358 = load i64, ptr %357, align 8
   %359 = icmp eq i64 %358, 0
   %360 = sext i1 %359 to i32
-  %spec.select.i242 = add nsw i32 %333, %360
+  %spec.select.i236 = add nsw i32 %333, %360
   %361 = load i64, ptr %354, align 8
   %362 = icmp eq i64 %361, 0
   br i1 %362, label %373, label %378
@@ -190071,22 +190019,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237:        ; preds = %.noexc244, %335
   br label %366
 
 366:                                              ; preds = %366, %363
-  %.pn.i.i.i239 = phi ptr [ %365, %363 ], [ %storemerge.i.i.i240, %366 ]
-  %storemerge.i.i.i240 = getelementptr inbounds i8, ptr %.pn.i.i.i239, i64 -8
-  store ptr %storemerge.i.i.i240, ptr %18, align 8, !alias.scope !3772
-  %367 = load i64, ptr %storemerge.i.i.i240, align 8
+  %.pn.i.i.i233 = phi ptr [ %365, %363 ], [ %storemerge.i.i.i234, %366 ]
+  %storemerge.i.i.i234 = getelementptr inbounds i8, ptr %.pn.i.i.i233, i64 -8
+  store ptr %storemerge.i.i.i234, ptr %18, align 8, !alias.scope !3772
+  %367 = load i64, ptr %storemerge.i.i.i234, align 8
   %368 = icmp eq i64 %367, 0
   br i1 %368, label %366, label %369, !llvm.loop !210
 
 369:                                              ; preds = %366
   %370 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %371 = icmp eq ptr %storemerge.i.i.i240, %370
-  br i1 %371, label %.body245, label %372
+  %371 = icmp eq ptr %storemerge.i.i.i234, %370
+  br i1 %371, label %.body239, label %372
 
 372:                                              ; preds = %369
-  store ptr %.pn.i.i.i239, ptr %18, align 8, !alias.scope !3772
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i240) #38
-  br label %.body245
+  store ptr %.pn.i.i.i233, ptr %18, align 8, !alias.scope !3772
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i234) #38
+  br label %.body239
 
 373:                                              ; preds = %353
   %374 = getelementptr inbounds nuw i8, ptr %354, i64 8
@@ -190094,22 +190042,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237:        ; preds = %.noexc244, %335
   %375 = load i32, ptr %348, align 4, !alias.scope !3772
   %376 = add nsw i32 %375, 1
   store i32 %376, ptr %348, align 4, !alias.scope !3772
-  %377 = add nsw i32 %spec.select.i242, -1
+  %377 = add nsw i32 %spec.select.i236, -1
   br label %378
 
-378:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237, %353, %373
-  %.sink.i243 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i237 ], [ %377, %373 ], [ %spec.select.i242, %353 ]
+378:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i231, %353, %373
+  %.sink.i237 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i231 ], [ %377, %373 ], [ %spec.select.i236, %353 ]
   %379 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store i32 %.sink.i243, ptr %379, align 8, !alias.scope !3772
+  store i32 %.sink.i237, ptr %379, align 8, !alias.scope !3772
   %380 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %381 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %382 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %383 = load i32, ptr %382, align 8, !noalias !3775
   %384 = sub nsw i32 0, %383
   invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %21, ptr noundef nonnull align 8 dereferenceable(88) %380, ptr noundef nonnull align 8 dereferenceable(88) %381, i32 noundef %384)
-          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit88 unwind label %631
+          to label %_ZN4CGALmiERKNS_4MpzfES2_.exit85 unwind label %632
 
-_ZN4CGALmiERKNS_4MpzfES2_.exit88:                 ; preds = %378
+_ZN4CGALmiERKNS_4MpzfES2_.exit85:                 ; preds = %378
   call void @llvm.experimental.noalias.scope.decl(metadata !3778)
   %385 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %386 = load i32, ptr %385, align 8, !noalias !3778
@@ -190118,28 +190066,28 @@ _ZN4CGALmiERKNS_4MpzfES2_.exit88:                 ; preds = %378
   %389 = icmp samesign ult i32 %387, 5
   br i1 %389, label %390, label %393
 
-390:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit88
+390:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit85
   %391 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 8, ptr %391, align 8, !alias.scope !3778
   %392 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i242
 
-393:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit88
+393:                                              ; preds = %_ZN4CGALmiERKNS_4MpzfES2_.exit85
   %394 = or disjoint i32 %388, 1
   %395 = zext nneg i32 %394 to i64
   %396 = shl nuw nsw i64 %395, 3
   %397 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %396) #41
-          to label %.noexc255 unwind label %633
+          to label %.noexc249 unwind label %634
 
-.noexc255:                                        ; preds = %393
+.noexc249:                                        ; preds = %393
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = zext nneg i32 %388 to i64
   store i64 %399, ptr %397, align 8, !noalias !3778
-  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248
+  br label %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i242
 
-_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248:        ; preds = %.noexc255, %390
-  %.sink.i.i.i249 = phi ptr [ %392, %390 ], [ %398, %.noexc255 ]
-  store ptr %.sink.i.i.i249, ptr %20, align 8, !alias.scope !3778
+_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i242:        ; preds = %.noexc249, %390
+  %.sink.i.i.i243 = phi ptr [ %392, %390 ], [ %398, %.noexc249 ]
+  store ptr %.sink.i.i.i243, ptr %20, align 8, !alias.scope !3778
   %400 = getelementptr inbounds nuw i8, ptr %21, i64 84
   %401 = load i32, ptr %400, align 4, !noalias !3778
   %402 = shl nsw i32 %401, 1
@@ -190148,10 +190096,10 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248:        ; preds = %.noexc255, %390
   %404 = icmp eq i32 %386, 0
   br i1 %404, label %433, label %405
 
-405:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248
+405:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i242
   %406 = load ptr, ptr %21, align 8, !noalias !3778
   %407 = zext nneg i32 %387 to i64
-  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i249, ptr noundef %406, i64 noundef %407)
+  invoke void @__gmpn_sqr(ptr noundef nonnull %.sink.i.i.i243, ptr noundef %406, i64 noundef %407)
           to label %408 unwind label %418
 
 408:                                              ; preds = %405
@@ -190162,7 +190110,7 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248:        ; preds = %.noexc255, %390
   %413 = load i64, ptr %412, align 8
   %414 = icmp eq i64 %413, 0
   %415 = sext i1 %414 to i32
-  %spec.select.i253 = add nsw i32 %388, %415
+  %spec.select.i247 = add nsw i32 %388, %415
   %416 = load i64, ptr %409, align 8
   %417 = icmp eq i64 %416, 0
   br i1 %417, label %428, label %433
@@ -190174,22 +190122,22 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248:        ; preds = %.noexc255, %390
   br label %421
 
 421:                                              ; preds = %421, %418
-  %.pn.i.i.i250 = phi ptr [ %420, %418 ], [ %storemerge.i.i.i251, %421 ]
-  %storemerge.i.i.i251 = getelementptr inbounds i8, ptr %.pn.i.i.i250, i64 -8
-  store ptr %storemerge.i.i.i251, ptr %20, align 8, !alias.scope !3778
-  %422 = load i64, ptr %storemerge.i.i.i251, align 8
+  %.pn.i.i.i244 = phi ptr [ %420, %418 ], [ %storemerge.i.i.i245, %421 ]
+  %storemerge.i.i.i245 = getelementptr inbounds i8, ptr %.pn.i.i.i244, i64 -8
+  store ptr %storemerge.i.i.i245, ptr %20, align 8, !alias.scope !3778
+  %422 = load i64, ptr %storemerge.i.i.i245, align 8
   %423 = icmp eq i64 %422, 0
   br i1 %423, label %421, label %424, !llvm.loop !210
 
 424:                                              ; preds = %421
   %425 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %426 = icmp eq ptr %storemerge.i.i.i251, %425
-  br i1 %426, label %.body256, label %427
+  %426 = icmp eq ptr %storemerge.i.i.i245, %425
+  br i1 %426, label %.body250, label %427
 
 427:                                              ; preds = %424
-  store ptr %.pn.i.i.i250, ptr %20, align 8, !alias.scope !3778
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i251) #38
-  br label %.body256
+  store ptr %.pn.i.i.i244, ptr %20, align 8, !alias.scope !3778
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i.i245) #38
+  br label %.body250
 
 428:                                              ; preds = %408
   %429 = getelementptr inbounds nuw i8, ptr %409, i64 8
@@ -190197,21 +190145,21 @@ _ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248:        ; preds = %.noexc255, %390
   %430 = load i32, ptr %403, align 4, !alias.scope !3778
   %431 = add nsw i32 %430, 1
   store i32 %431, ptr %403, align 4, !alias.scope !3778
-  %432 = add nsw i32 %spec.select.i253, -1
+  %432 = add nsw i32 %spec.select.i247, -1
   br label %433
 
-433:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248, %408, %428
-  %.sink.i254 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i248 ], [ %432, %428 ], [ %spec.select.i253, %408 ]
+433:                                              ; preds = %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i242, %408, %428
+  %.sink.i248 = phi i32 [ 0, %_ZN4CGAL4MpzfC2ENS0_8allocateEi.exit.i242 ], [ %432, %428 ], [ %spec.select.i247, %408 ]
   %434 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  store i32 %.sink.i254, ptr %434, align 8, !alias.scope !3778
-  invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %17, ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %20, i32 noundef %.sink.i254)
-          to label %_ZN4CGALplERKNS_4MpzfES2_.exit90 unwind label %635
+  store i32 %.sink.i248, ptr %434, align 8, !alias.scope !3778
+  invoke void @_ZN4CGAL4Mpzf4aorsERKS0_S2_i(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %17, ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 8 dereferenceable(88) %20, i32 noundef %.sink.i248)
+          to label %_ZN4CGALplERKNS_4MpzfES2_.exit87 unwind label %636
 
-_ZN4CGALplERKNS_4MpzfES2_.exit90:                 ; preds = %433
+_ZN4CGALplERKNS_4MpzfES2_.exit87:                 ; preds = %433
   invoke void @_ZN4CGALmlERKNS_4MpzfES2_(ptr dead_on_unwind nonnull writable sret(%"struct.CGAL::Mpzf") align 8 %14, ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(88) %17)
-          to label %435 unwind label %637
+          to label %435 unwind label %638
 
-435:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit90
+435:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit87
   %436 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %437 = load i32, ptr %436, align 8
   %438 = getelementptr inbounds nuw i8, ptr %14, i64 80
@@ -190221,19 +190169,19 @@ _ZN4CGALplERKNS_4MpzfES2_.exit90:                 ; preds = %433
   br i1 %441, label %442, label %444
 
 442:                                              ; preds = %435
-  %.inv.i.i.i109 = icmp sgt i32 %437, -1
-  %443 = select i1 %.inv.i.i.i109, i32 1, i32 -1
+  %.inv.i.i.i103 = icmp sgt i32 %437, -1
+  %443 = select i1 %.inv.i.i.i103, i32 1, i32 -1
   br label %479
 
 444:                                              ; preds = %435
   %445 = call i32 @llvm.abs.i32(i32 %437, i1 true)
   %446 = call i32 @llvm.abs.i32(i32 %439, i1 true)
   %447 = icmp eq i32 %439, 0
-  br i1 %447, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92, label %448
+  br i1 %447, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89, label %448
 
 448:                                              ; preds = %444
   %449 = icmp eq i32 %437, 0
-  br i1 %449, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92, label %450
+  br i1 %449, label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89, label %450
 
 450:                                              ; preds = %448
   %451 = getelementptr inbounds nuw i8, ptr %6, i64 84
@@ -190242,12 +190190,12 @@ _ZN4CGALplERKNS_4MpzfES2_.exit90:                 ; preds = %433
   %454 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %455 = load i32, ptr %454, align 4
   %456 = add nsw i32 %455, %446
-  %.not.i.i.i.i91 = icmp eq i32 %453, %456
-  br i1 %.not.i.i.i.i91, label %459, label %457
+  %.not.i.i.i.i88 = icmp eq i32 %453, %456
+  br i1 %.not.i.i.i.i88, label %459, label %457
 
 457:                                              ; preds = %450
   %458 = sub nsw i32 %453, %456
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89
 
 459:                                              ; preds = %450
   %460 = load ptr, ptr %6, align 8
@@ -190256,45 +190204,45 @@ _ZN4CGALplERKNS_4MpzfES2_.exit90:                 ; preds = %433
   %463 = load ptr, ptr %14, align 8
   %464 = zext nneg i32 %446 to i64
   %465 = getelementptr i64, ptr %463, i64 %464
-  %smax.i.i.i.i99 = call i32 @llvm.abs.i32(i32 %437, i1 false)
-  %smax54.i.i.i.i100 = call i32 @llvm.abs.i32(i32 %439, i1 false)
-  %umin.i.i.i.i101 = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i99, i32 %smax54.i.i.i.i100)
+  %smax.i.i.i.i93 = call i32 @llvm.abs.i32(i32 %437, i1 false)
+  %smax54.i.i.i.i94 = call i32 @llvm.abs.i32(i32 %439, i1 false)
+  %umin.i.i.i.i95 = call i32 @llvm.umin.i32(i32 %smax.i.i.i.i93, i32 %smax54.i.i.i.i94)
   br label %468
 
 466:                                              ; preds = %468
-  %467 = add nuw i32 %.02246.i.i.i.i104, 1
-  %exitcond.not.i.i.i.i108 = icmp eq i32 %467, %umin.i.i.i.i101
-  br i1 %exitcond.not.i.i.i.i108, label %474, label %468, !llvm.loop !241
+  %467 = add nuw i32 %.02246.i.i.i.i98, 1
+  %exitcond.not.i.i.i.i102 = icmp eq i32 %467, %umin.i.i.i.i95
+  br i1 %exitcond.not.i.i.i.i102, label %474, label %468, !llvm.loop !241
 
 468:                                              ; preds = %466, %459
-  %.pn49.i.i.i.i102 = phi ptr [ %462, %459 ], [ %.02148.i.i.i.i106, %466 ]
-  %.pn50.i.i.i.i103 = phi ptr [ %465, %459 ], [ %.02347.i.i.i.i105, %466 ]
-  %.02246.i.i.i.i104 = phi i32 [ 0, %459 ], [ %467, %466 ]
-  %.02347.i.i.i.i105 = getelementptr i8, ptr %.pn50.i.i.i.i103, i64 -8
-  %.02148.i.i.i.i106 = getelementptr i8, ptr %.pn49.i.i.i.i102, i64 -8
-  %469 = load i64, ptr %.02148.i.i.i.i106, align 8
-  %470 = load i64, ptr %.02347.i.i.i.i105, align 8
-  %.not30.i.i.i.i107 = icmp eq i64 %469, %470
-  br i1 %.not30.i.i.i.i107, label %466, label %471
+  %.pn49.i.i.i.i96 = phi ptr [ %462, %459 ], [ %.02148.i.i.i.i100, %466 ]
+  %.pn50.i.i.i.i97 = phi ptr [ %465, %459 ], [ %.02347.i.i.i.i99, %466 ]
+  %.02246.i.i.i.i98 = phi i32 [ 0, %459 ], [ %467, %466 ]
+  %.02347.i.i.i.i99 = getelementptr i8, ptr %.pn50.i.i.i.i97, i64 -8
+  %.02148.i.i.i.i100 = getelementptr i8, ptr %.pn49.i.i.i.i96, i64 -8
+  %469 = load i64, ptr %.02148.i.i.i.i100, align 8
+  %470 = load i64, ptr %.02347.i.i.i.i99, align 8
+  %.not30.i.i.i.i101 = icmp eq i64 %469, %470
+  br i1 %.not30.i.i.i.i101, label %466, label %471
 
 471:                                              ; preds = %468
   %472 = icmp ult i64 %469, %470
   %473 = select i1 %472, i32 -1, i32 1
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89
 
 474:                                              ; preds = %466
   %475 = sub nsw i32 %445, %446
-  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92
+  br label %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89
 
-_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92: ; preds = %474, %471, %457, %448, %444
-  %.0.i.i.i.i93 = phi i32 [ %458, %457 ], [ %473, %471 ], [ %475, %474 ], [ -1, %448 ], [ %445, %444 ]
+_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89: ; preds = %474, %471, %457, %448, %444
+  %.0.i.i.i.i90 = phi i32 [ %458, %457 ], [ %473, %471 ], [ %475, %474 ], [ -1, %448 ], [ %445, %444 ]
   %476 = icmp slt i32 %437, 0
-  %477 = sub nsw i32 0, %.0.i.i.i.i93
-  %478 = select i1 %476, i32 %477, i32 %.0.i.i.i.i93
+  %477 = sub nsw i32 0, %.0.i.i.i.i90
+  %478 = select i1 %476, i32 %477, i32 %.0.i.i.i.i90
   br label %479
 
-479:                                              ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92, %442
-  %.0.i.i.i94 = phi i32 [ %443, %442 ], [ %478, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92 ]
+479:                                              ; preds = %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89, %442
+  %.0.i.i.i91 = phi i32 [ %443, %442 ], [ %478, %_ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i89 ]
   %480 = load ptr, ptr %14, align 8
   br label %481
 
@@ -190307,10 +190255,7 @@ _ZN4CGAL11Mpzf_abscmpERKNS_4MpzfES2_.exit.i.i.i92: ; preds = %474, %471, %457, %
   br i1 %483, label %481, label %484, !llvm.loop !210
 
 484:                                              ; preds = %481
-  %.not.i.i2.i.i95 = icmp ne i32 %.0.i.i.i94, 0
-  %..i.i.i.i96 = zext i1 %.not.i.i2.i.i95 to i32
-  %.inv.i.i.i.i97 = icmp sgt i32 %.0.i.i.i94, -1
-  %.0.i.i3.i.i98 = select i1 %.inv.i.i.i.i97, i32 %..i.i.i.i96, i32 -1
+  %.0.i.i2.i.i92 = call noundef i32 @llvm.scmp.i32.i32(i32 %.0.i.i.i91, i32 0)
   %485 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %486 = icmp eq ptr %storemerge.i.i, %485
   br i1 %486, label %_ZN4CGAL4MpzfD2Ev.exit, label %487
@@ -190325,757 +190270,758 @@ _ZN4CGAL4MpzfD2Ev.exit:                           ; preds = %484, %487
   br label %489
 
 489:                                              ; preds = %489, %_ZN4CGAL4MpzfD2Ev.exit
-  %.pn.i.i111 = phi ptr [ %488, %_ZN4CGAL4MpzfD2Ev.exit ], [ %storemerge.i.i112, %489 ]
-  %storemerge.i.i112 = getelementptr inbounds i8, ptr %.pn.i.i111, i64 -8
-  store ptr %storemerge.i.i112, ptr %17, align 8
-  %490 = load i64, ptr %storemerge.i.i112, align 8
+  %.pn.i.i105 = phi ptr [ %488, %_ZN4CGAL4MpzfD2Ev.exit ], [ %storemerge.i.i106, %489 ]
+  %storemerge.i.i106 = getelementptr inbounds i8, ptr %.pn.i.i105, i64 -8
+  store ptr %storemerge.i.i106, ptr %17, align 8
+  %490 = load i64, ptr %storemerge.i.i106, align 8
   %491 = icmp eq i64 %490, 0
   br i1 %491, label %489, label %492, !llvm.loop !210
 
 492:                                              ; preds = %489
   %493 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %494 = icmp eq ptr %storemerge.i.i112, %493
-  br i1 %494, label %_ZN4CGAL4MpzfD2Ev.exit113, label %495
+  %494 = icmp eq ptr %storemerge.i.i106, %493
+  br i1 %494, label %_ZN4CGAL4MpzfD2Ev.exit107, label %495
 
 495:                                              ; preds = %492
-  store ptr %.pn.i.i111, ptr %17, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i112) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit113
+  store ptr %.pn.i.i105, ptr %17, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i106) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit107
 
-_ZN4CGAL4MpzfD2Ev.exit113:                        ; preds = %492, %495
+_ZN4CGAL4MpzfD2Ev.exit107:                        ; preds = %492, %495
   %496 = load ptr, ptr %20, align 8
   br label %497
 
-497:                                              ; preds = %497, %_ZN4CGAL4MpzfD2Ev.exit113
-  %.pn.i.i114 = phi ptr [ %496, %_ZN4CGAL4MpzfD2Ev.exit113 ], [ %storemerge.i.i115, %497 ]
-  %storemerge.i.i115 = getelementptr inbounds i8, ptr %.pn.i.i114, i64 -8
-  store ptr %storemerge.i.i115, ptr %20, align 8
-  %498 = load i64, ptr %storemerge.i.i115, align 8
+497:                                              ; preds = %497, %_ZN4CGAL4MpzfD2Ev.exit107
+  %.pn.i.i108 = phi ptr [ %496, %_ZN4CGAL4MpzfD2Ev.exit107 ], [ %storemerge.i.i109, %497 ]
+  %storemerge.i.i109 = getelementptr inbounds i8, ptr %.pn.i.i108, i64 -8
+  store ptr %storemerge.i.i109, ptr %20, align 8
+  %498 = load i64, ptr %storemerge.i.i109, align 8
   %499 = icmp eq i64 %498, 0
   br i1 %499, label %497, label %500, !llvm.loop !210
 
 500:                                              ; preds = %497
   %501 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %502 = icmp eq ptr %storemerge.i.i115, %501
-  br i1 %502, label %_ZN4CGAL4MpzfD2Ev.exit116, label %503
+  %502 = icmp eq ptr %storemerge.i.i109, %501
+  br i1 %502, label %_ZN4CGAL4MpzfD2Ev.exit110, label %503
 
 503:                                              ; preds = %500
-  store ptr %.pn.i.i114, ptr %20, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i115) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit116
+  store ptr %.pn.i.i108, ptr %20, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i109) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit110
 
-_ZN4CGAL4MpzfD2Ev.exit116:                        ; preds = %500, %503
+_ZN4CGAL4MpzfD2Ev.exit110:                        ; preds = %500, %503
   %504 = load ptr, ptr %21, align 8
   br label %505
 
-505:                                              ; preds = %505, %_ZN4CGAL4MpzfD2Ev.exit116
-  %.pn.i.i117 = phi ptr [ %504, %_ZN4CGAL4MpzfD2Ev.exit116 ], [ %storemerge.i.i118, %505 ]
-  %storemerge.i.i118 = getelementptr inbounds i8, ptr %.pn.i.i117, i64 -8
-  store ptr %storemerge.i.i118, ptr %21, align 8
-  %506 = load i64, ptr %storemerge.i.i118, align 8
+505:                                              ; preds = %505, %_ZN4CGAL4MpzfD2Ev.exit110
+  %.pn.i.i111 = phi ptr [ %504, %_ZN4CGAL4MpzfD2Ev.exit110 ], [ %storemerge.i.i112, %505 ]
+  %storemerge.i.i112 = getelementptr inbounds i8, ptr %.pn.i.i111, i64 -8
+  store ptr %storemerge.i.i112, ptr %21, align 8
+  %506 = load i64, ptr %storemerge.i.i112, align 8
   %507 = icmp eq i64 %506, 0
   br i1 %507, label %505, label %508, !llvm.loop !210
 
 508:                                              ; preds = %505
   %509 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %510 = icmp eq ptr %storemerge.i.i118, %509
-  br i1 %510, label %_ZN4CGAL4MpzfD2Ev.exit119, label %511
+  %510 = icmp eq ptr %storemerge.i.i112, %509
+  br i1 %510, label %_ZN4CGAL4MpzfD2Ev.exit113, label %511
 
 511:                                              ; preds = %508
-  store ptr %.pn.i.i117, ptr %21, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i118) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit119
+  store ptr %.pn.i.i111, ptr %21, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i112) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit113
 
-_ZN4CGAL4MpzfD2Ev.exit119:                        ; preds = %508, %511
+_ZN4CGAL4MpzfD2Ev.exit113:                        ; preds = %508, %511
   %512 = load ptr, ptr %18, align 8
   br label %513
 
-513:                                              ; preds = %513, %_ZN4CGAL4MpzfD2Ev.exit119
-  %.pn.i.i120 = phi ptr [ %512, %_ZN4CGAL4MpzfD2Ev.exit119 ], [ %storemerge.i.i121, %513 ]
-  %storemerge.i.i121 = getelementptr inbounds i8, ptr %.pn.i.i120, i64 -8
-  store ptr %storemerge.i.i121, ptr %18, align 8
-  %514 = load i64, ptr %storemerge.i.i121, align 8
+513:                                              ; preds = %513, %_ZN4CGAL4MpzfD2Ev.exit113
+  %.pn.i.i114 = phi ptr [ %512, %_ZN4CGAL4MpzfD2Ev.exit113 ], [ %storemerge.i.i115, %513 ]
+  %storemerge.i.i115 = getelementptr inbounds i8, ptr %.pn.i.i114, i64 -8
+  store ptr %storemerge.i.i115, ptr %18, align 8
+  %514 = load i64, ptr %storemerge.i.i115, align 8
   %515 = icmp eq i64 %514, 0
   br i1 %515, label %513, label %516, !llvm.loop !210
 
 516:                                              ; preds = %513
   %517 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %518 = icmp eq ptr %storemerge.i.i121, %517
-  br i1 %518, label %_ZN4CGAL4MpzfD2Ev.exit122, label %519
+  %518 = icmp eq ptr %storemerge.i.i115, %517
+  br i1 %518, label %_ZN4CGAL4MpzfD2Ev.exit116, label %519
 
 519:                                              ; preds = %516
-  store ptr %.pn.i.i120, ptr %18, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i121) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit122
+  store ptr %.pn.i.i114, ptr %18, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i115) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit116
 
-_ZN4CGAL4MpzfD2Ev.exit122:                        ; preds = %516, %519
+_ZN4CGAL4MpzfD2Ev.exit116:                        ; preds = %516, %519
   %520 = load ptr, ptr %19, align 8
   br label %521
 
-521:                                              ; preds = %521, %_ZN4CGAL4MpzfD2Ev.exit122
-  %.pn.i.i123 = phi ptr [ %520, %_ZN4CGAL4MpzfD2Ev.exit122 ], [ %storemerge.i.i124, %521 ]
-  %storemerge.i.i124 = getelementptr inbounds i8, ptr %.pn.i.i123, i64 -8
-  store ptr %storemerge.i.i124, ptr %19, align 8
-  %522 = load i64, ptr %storemerge.i.i124, align 8
+521:                                              ; preds = %521, %_ZN4CGAL4MpzfD2Ev.exit116
+  %.pn.i.i117 = phi ptr [ %520, %_ZN4CGAL4MpzfD2Ev.exit116 ], [ %storemerge.i.i118, %521 ]
+  %storemerge.i.i118 = getelementptr inbounds i8, ptr %.pn.i.i117, i64 -8
+  store ptr %storemerge.i.i118, ptr %19, align 8
+  %522 = load i64, ptr %storemerge.i.i118, align 8
   %523 = icmp eq i64 %522, 0
   br i1 %523, label %521, label %524, !llvm.loop !210
 
 524:                                              ; preds = %521
   %525 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %526 = icmp eq ptr %storemerge.i.i124, %525
-  br i1 %526, label %_ZN4CGAL4MpzfD2Ev.exit125, label %527
+  %526 = icmp eq ptr %storemerge.i.i118, %525
+  br i1 %526, label %_ZN4CGAL4MpzfD2Ev.exit119, label %527
 
 527:                                              ; preds = %524
-  store ptr %.pn.i.i123, ptr %19, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i124) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit125
+  store ptr %.pn.i.i117, ptr %19, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i118) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit119
 
-_ZN4CGAL4MpzfD2Ev.exit125:                        ; preds = %524, %527
+_ZN4CGAL4MpzfD2Ev.exit119:                        ; preds = %524, %527
   %528 = load ptr, ptr %15, align 8
   br label %529
 
-529:                                              ; preds = %529, %_ZN4CGAL4MpzfD2Ev.exit125
-  %.pn.i.i126 = phi ptr [ %528, %_ZN4CGAL4MpzfD2Ev.exit125 ], [ %storemerge.i.i127, %529 ]
-  %storemerge.i.i127 = getelementptr inbounds i8, ptr %.pn.i.i126, i64 -8
-  store ptr %storemerge.i.i127, ptr %15, align 8
-  %530 = load i64, ptr %storemerge.i.i127, align 8
+529:                                              ; preds = %529, %_ZN4CGAL4MpzfD2Ev.exit119
+  %.pn.i.i120 = phi ptr [ %528, %_ZN4CGAL4MpzfD2Ev.exit119 ], [ %storemerge.i.i121, %529 ]
+  %storemerge.i.i121 = getelementptr inbounds i8, ptr %.pn.i.i120, i64 -8
+  store ptr %storemerge.i.i121, ptr %15, align 8
+  %530 = load i64, ptr %storemerge.i.i121, align 8
   %531 = icmp eq i64 %530, 0
   br i1 %531, label %529, label %532, !llvm.loop !210
 
 532:                                              ; preds = %529
   %533 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %534 = icmp eq ptr %storemerge.i.i127, %533
-  br i1 %534, label %_ZN4CGAL4MpzfD2Ev.exit128, label %535
+  %534 = icmp eq ptr %storemerge.i.i121, %533
+  br i1 %534, label %_ZN4CGAL4MpzfD2Ev.exit122, label %535
 
 535:                                              ; preds = %532
-  store ptr %.pn.i.i126, ptr %15, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i127) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit128
+  store ptr %.pn.i.i120, ptr %15, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i121) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit122
 
-_ZN4CGAL4MpzfD2Ev.exit128:                        ; preds = %532, %535
+_ZN4CGAL4MpzfD2Ev.exit122:                        ; preds = %532, %535
   %536 = load ptr, ptr %16, align 8
   br label %537
 
-537:                                              ; preds = %537, %_ZN4CGAL4MpzfD2Ev.exit128
-  %.pn.i.i129 = phi ptr [ %536, %_ZN4CGAL4MpzfD2Ev.exit128 ], [ %storemerge.i.i130, %537 ]
-  %storemerge.i.i130 = getelementptr inbounds i8, ptr %.pn.i.i129, i64 -8
-  store ptr %storemerge.i.i130, ptr %16, align 8
-  %538 = load i64, ptr %storemerge.i.i130, align 8
+537:                                              ; preds = %537, %_ZN4CGAL4MpzfD2Ev.exit122
+  %.pn.i.i123 = phi ptr [ %536, %_ZN4CGAL4MpzfD2Ev.exit122 ], [ %storemerge.i.i124, %537 ]
+  %storemerge.i.i124 = getelementptr inbounds i8, ptr %.pn.i.i123, i64 -8
+  store ptr %storemerge.i.i124, ptr %16, align 8
+  %538 = load i64, ptr %storemerge.i.i124, align 8
   %539 = icmp eq i64 %538, 0
   br i1 %539, label %537, label %540, !llvm.loop !210
 
 540:                                              ; preds = %537
   %541 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %542 = icmp eq ptr %storemerge.i.i130, %541
-  br i1 %542, label %_ZN4CGAL4MpzfD2Ev.exit131, label %543
+  %542 = icmp eq ptr %storemerge.i.i124, %541
+  br i1 %542, label %_ZN4CGAL4MpzfD2Ev.exit125, label %543
 
 543:                                              ; preds = %540
-  store ptr %.pn.i.i129, ptr %16, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i130) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit131
+  store ptr %.pn.i.i123, ptr %16, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i124) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit125
 
-_ZN4CGAL4MpzfD2Ev.exit131:                        ; preds = %540, %543
+_ZN4CGAL4MpzfD2Ev.exit125:                        ; preds = %540, %543
   %544 = load ptr, ptr %6, align 8
   br label %545
 
-545:                                              ; preds = %545, %_ZN4CGAL4MpzfD2Ev.exit131
-  %.pn.i.i132 = phi ptr [ %544, %_ZN4CGAL4MpzfD2Ev.exit131 ], [ %storemerge.i.i133, %545 ]
-  %storemerge.i.i133 = getelementptr inbounds i8, ptr %.pn.i.i132, i64 -8
-  store ptr %storemerge.i.i133, ptr %6, align 8
-  %546 = load i64, ptr %storemerge.i.i133, align 8
+545:                                              ; preds = %545, %_ZN4CGAL4MpzfD2Ev.exit125
+  %.pn.i.i126 = phi ptr [ %544, %_ZN4CGAL4MpzfD2Ev.exit125 ], [ %storemerge.i.i127, %545 ]
+  %storemerge.i.i127 = getelementptr inbounds i8, ptr %.pn.i.i126, i64 -8
+  store ptr %storemerge.i.i127, ptr %6, align 8
+  %546 = load i64, ptr %storemerge.i.i127, align 8
   %547 = icmp eq i64 %546, 0
   br i1 %547, label %545, label %548, !llvm.loop !210
 
 548:                                              ; preds = %545
   %549 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %550 = icmp eq ptr %storemerge.i.i133, %549
-  br i1 %550, label %_ZN4CGAL4MpzfD2Ev.exit134, label %551
+  %550 = icmp eq ptr %storemerge.i.i127, %549
+  br i1 %550, label %_ZN4CGAL4MpzfD2Ev.exit128, label %551
 
 551:                                              ; preds = %548
-  store ptr %.pn.i.i132, ptr %6, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i133) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit134
+  store ptr %.pn.i.i126, ptr %6, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i127) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit128
 
-_ZN4CGAL4MpzfD2Ev.exit134:                        ; preds = %548, %551
+_ZN4CGAL4MpzfD2Ev.exit128:                        ; preds = %548, %551
   %552 = load ptr, ptr %9, align 8
   br label %553
 
-553:                                              ; preds = %553, %_ZN4CGAL4MpzfD2Ev.exit134
-  %.pn.i.i135 = phi ptr [ %552, %_ZN4CGAL4MpzfD2Ev.exit134 ], [ %storemerge.i.i136, %553 ]
-  %storemerge.i.i136 = getelementptr inbounds i8, ptr %.pn.i.i135, i64 -8
-  store ptr %storemerge.i.i136, ptr %9, align 8
-  %554 = load i64, ptr %storemerge.i.i136, align 8
+553:                                              ; preds = %553, %_ZN4CGAL4MpzfD2Ev.exit128
+  %.pn.i.i129 = phi ptr [ %552, %_ZN4CGAL4MpzfD2Ev.exit128 ], [ %storemerge.i.i130, %553 ]
+  %storemerge.i.i130 = getelementptr inbounds i8, ptr %.pn.i.i129, i64 -8
+  store ptr %storemerge.i.i130, ptr %9, align 8
+  %554 = load i64, ptr %storemerge.i.i130, align 8
   %555 = icmp eq i64 %554, 0
   br i1 %555, label %553, label %556, !llvm.loop !210
 
 556:                                              ; preds = %553
   %557 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %558 = icmp eq ptr %storemerge.i.i136, %557
-  br i1 %558, label %_ZN4CGAL4MpzfD2Ev.exit137, label %559
+  %558 = icmp eq ptr %storemerge.i.i130, %557
+  br i1 %558, label %_ZN4CGAL4MpzfD2Ev.exit131, label %559
 
 559:                                              ; preds = %556
-  store ptr %.pn.i.i135, ptr %9, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i136) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit137
+  store ptr %.pn.i.i129, ptr %9, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i130) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit131
 
-_ZN4CGAL4MpzfD2Ev.exit137:                        ; preds = %556, %559
+_ZN4CGAL4MpzfD2Ev.exit131:                        ; preds = %556, %559
   %560 = load ptr, ptr %12, align 8
   br label %561
 
-561:                                              ; preds = %561, %_ZN4CGAL4MpzfD2Ev.exit137
-  %.pn.i.i138 = phi ptr [ %560, %_ZN4CGAL4MpzfD2Ev.exit137 ], [ %storemerge.i.i139, %561 ]
-  %storemerge.i.i139 = getelementptr inbounds i8, ptr %.pn.i.i138, i64 -8
-  store ptr %storemerge.i.i139, ptr %12, align 8
-  %562 = load i64, ptr %storemerge.i.i139, align 8
+561:                                              ; preds = %561, %_ZN4CGAL4MpzfD2Ev.exit131
+  %.pn.i.i132 = phi ptr [ %560, %_ZN4CGAL4MpzfD2Ev.exit131 ], [ %storemerge.i.i133, %561 ]
+  %storemerge.i.i133 = getelementptr inbounds i8, ptr %.pn.i.i132, i64 -8
+  store ptr %storemerge.i.i133, ptr %12, align 8
+  %562 = load i64, ptr %storemerge.i.i133, align 8
   %563 = icmp eq i64 %562, 0
   br i1 %563, label %561, label %564, !llvm.loop !210
 
 564:                                              ; preds = %561
   %565 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %566 = icmp eq ptr %storemerge.i.i139, %565
-  br i1 %566, label %_ZN4CGAL4MpzfD2Ev.exit140, label %567
+  %566 = icmp eq ptr %storemerge.i.i133, %565
+  br i1 %566, label %_ZN4CGAL4MpzfD2Ev.exit134, label %567
 
 567:                                              ; preds = %564
-  store ptr %.pn.i.i138, ptr %12, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i139) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit140
+  store ptr %.pn.i.i132, ptr %12, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i133) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit134
 
-_ZN4CGAL4MpzfD2Ev.exit140:                        ; preds = %564, %567
+_ZN4CGAL4MpzfD2Ev.exit134:                        ; preds = %564, %567
   %568 = load ptr, ptr %13, align 8
   br label %569
 
-569:                                              ; preds = %569, %_ZN4CGAL4MpzfD2Ev.exit140
-  %.pn.i.i141 = phi ptr [ %568, %_ZN4CGAL4MpzfD2Ev.exit140 ], [ %storemerge.i.i142, %569 ]
-  %storemerge.i.i142 = getelementptr inbounds i8, ptr %.pn.i.i141, i64 -8
-  store ptr %storemerge.i.i142, ptr %13, align 8
-  %570 = load i64, ptr %storemerge.i.i142, align 8
+569:                                              ; preds = %569, %_ZN4CGAL4MpzfD2Ev.exit134
+  %.pn.i.i135 = phi ptr [ %568, %_ZN4CGAL4MpzfD2Ev.exit134 ], [ %storemerge.i.i136, %569 ]
+  %storemerge.i.i136 = getelementptr inbounds i8, ptr %.pn.i.i135, i64 -8
+  store ptr %storemerge.i.i136, ptr %13, align 8
+  %570 = load i64, ptr %storemerge.i.i136, align 8
   %571 = icmp eq i64 %570, 0
   br i1 %571, label %569, label %572, !llvm.loop !210
 
 572:                                              ; preds = %569
   %573 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %574 = icmp eq ptr %storemerge.i.i142, %573
-  br i1 %574, label %_ZN4CGAL4MpzfD2Ev.exit143, label %575
+  %574 = icmp eq ptr %storemerge.i.i136, %573
+  br i1 %574, label %_ZN4CGAL4MpzfD2Ev.exit137, label %575
 
 575:                                              ; preds = %572
-  store ptr %.pn.i.i141, ptr %13, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i142) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit143
+  store ptr %.pn.i.i135, ptr %13, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i136) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit137
 
-_ZN4CGAL4MpzfD2Ev.exit143:                        ; preds = %572, %575
+_ZN4CGAL4MpzfD2Ev.exit137:                        ; preds = %572, %575
   %576 = load ptr, ptr %10, align 8
   br label %577
 
-577:                                              ; preds = %577, %_ZN4CGAL4MpzfD2Ev.exit143
-  %.pn.i.i144 = phi ptr [ %576, %_ZN4CGAL4MpzfD2Ev.exit143 ], [ %storemerge.i.i145, %577 ]
-  %storemerge.i.i145 = getelementptr inbounds i8, ptr %.pn.i.i144, i64 -8
-  store ptr %storemerge.i.i145, ptr %10, align 8
-  %578 = load i64, ptr %storemerge.i.i145, align 8
+577:                                              ; preds = %577, %_ZN4CGAL4MpzfD2Ev.exit137
+  %.pn.i.i138 = phi ptr [ %576, %_ZN4CGAL4MpzfD2Ev.exit137 ], [ %storemerge.i.i139, %577 ]
+  %storemerge.i.i139 = getelementptr inbounds i8, ptr %.pn.i.i138, i64 -8
+  store ptr %storemerge.i.i139, ptr %10, align 8
+  %578 = load i64, ptr %storemerge.i.i139, align 8
   %579 = icmp eq i64 %578, 0
   br i1 %579, label %577, label %580, !llvm.loop !210
 
 580:                                              ; preds = %577
   %581 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %582 = icmp eq ptr %storemerge.i.i145, %581
-  br i1 %582, label %_ZN4CGAL4MpzfD2Ev.exit146, label %583
+  %582 = icmp eq ptr %storemerge.i.i139, %581
+  br i1 %582, label %_ZN4CGAL4MpzfD2Ev.exit140, label %583
 
 583:                                              ; preds = %580
-  store ptr %.pn.i.i144, ptr %10, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i145) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit146
+  store ptr %.pn.i.i138, ptr %10, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i139) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit140
 
-_ZN4CGAL4MpzfD2Ev.exit146:                        ; preds = %580, %583
+_ZN4CGAL4MpzfD2Ev.exit140:                        ; preds = %580, %583
   %584 = load ptr, ptr %11, align 8
   br label %585
 
-585:                                              ; preds = %585, %_ZN4CGAL4MpzfD2Ev.exit146
-  %.pn.i.i147 = phi ptr [ %584, %_ZN4CGAL4MpzfD2Ev.exit146 ], [ %storemerge.i.i148, %585 ]
-  %storemerge.i.i148 = getelementptr inbounds i8, ptr %.pn.i.i147, i64 -8
-  store ptr %storemerge.i.i148, ptr %11, align 8
-  %586 = load i64, ptr %storemerge.i.i148, align 8
+585:                                              ; preds = %585, %_ZN4CGAL4MpzfD2Ev.exit140
+  %.pn.i.i141 = phi ptr [ %584, %_ZN4CGAL4MpzfD2Ev.exit140 ], [ %storemerge.i.i142, %585 ]
+  %storemerge.i.i142 = getelementptr inbounds i8, ptr %.pn.i.i141, i64 -8
+  store ptr %storemerge.i.i142, ptr %11, align 8
+  %586 = load i64, ptr %storemerge.i.i142, align 8
   %587 = icmp eq i64 %586, 0
   br i1 %587, label %585, label %588, !llvm.loop !210
 
 588:                                              ; preds = %585
   %589 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %590 = icmp eq ptr %storemerge.i.i148, %589
-  br i1 %590, label %_ZN4CGAL4MpzfD2Ev.exit149, label %591
+  %590 = icmp eq ptr %storemerge.i.i142, %589
+  br i1 %590, label %_ZN4CGAL4MpzfD2Ev.exit143, label %591
 
 591:                                              ; preds = %588
-  store ptr %.pn.i.i147, ptr %11, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i148) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit149
+  store ptr %.pn.i.i141, ptr %11, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i142) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit143
 
-_ZN4CGAL4MpzfD2Ev.exit149:                        ; preds = %588, %591
+_ZN4CGAL4MpzfD2Ev.exit143:                        ; preds = %588, %591
   %592 = load ptr, ptr %7, align 8
   br label %593
 
-593:                                              ; preds = %593, %_ZN4CGAL4MpzfD2Ev.exit149
-  %.pn.i.i150 = phi ptr [ %592, %_ZN4CGAL4MpzfD2Ev.exit149 ], [ %storemerge.i.i151, %593 ]
-  %storemerge.i.i151 = getelementptr inbounds i8, ptr %.pn.i.i150, i64 -8
-  store ptr %storemerge.i.i151, ptr %7, align 8
-  %594 = load i64, ptr %storemerge.i.i151, align 8
+593:                                              ; preds = %593, %_ZN4CGAL4MpzfD2Ev.exit143
+  %.pn.i.i144 = phi ptr [ %592, %_ZN4CGAL4MpzfD2Ev.exit143 ], [ %storemerge.i.i145, %593 ]
+  %storemerge.i.i145 = getelementptr inbounds i8, ptr %.pn.i.i144, i64 -8
+  store ptr %storemerge.i.i145, ptr %7, align 8
+  %594 = load i64, ptr %storemerge.i.i145, align 8
   %595 = icmp eq i64 %594, 0
   br i1 %595, label %593, label %596, !llvm.loop !210
 
 596:                                              ; preds = %593
   %597 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %598 = icmp eq ptr %storemerge.i.i151, %597
-  br i1 %598, label %_ZN4CGAL4MpzfD2Ev.exit152, label %599
+  %598 = icmp eq ptr %storemerge.i.i145, %597
+  br i1 %598, label %_ZN4CGAL4MpzfD2Ev.exit146, label %599
 
 599:                                              ; preds = %596
-  store ptr %.pn.i.i150, ptr %7, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i151) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit152
+  store ptr %.pn.i.i144, ptr %7, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i145) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit146
 
-_ZN4CGAL4MpzfD2Ev.exit152:                        ; preds = %596, %599
+_ZN4CGAL4MpzfD2Ev.exit146:                        ; preds = %596, %599
   %600 = load ptr, ptr %8, align 8
   br label %601
 
-601:                                              ; preds = %601, %_ZN4CGAL4MpzfD2Ev.exit152
-  %.pn.i.i153 = phi ptr [ %600, %_ZN4CGAL4MpzfD2Ev.exit152 ], [ %storemerge.i.i154, %601 ]
-  %storemerge.i.i154 = getelementptr inbounds i8, ptr %.pn.i.i153, i64 -8
-  store ptr %storemerge.i.i154, ptr %8, align 8
-  %602 = load i64, ptr %storemerge.i.i154, align 8
+601:                                              ; preds = %601, %_ZN4CGAL4MpzfD2Ev.exit146
+  %.pn.i.i147 = phi ptr [ %600, %_ZN4CGAL4MpzfD2Ev.exit146 ], [ %storemerge.i.i148, %601 ]
+  %storemerge.i.i148 = getelementptr inbounds i8, ptr %.pn.i.i147, i64 -8
+  store ptr %storemerge.i.i148, ptr %8, align 8
+  %602 = load i64, ptr %storemerge.i.i148, align 8
   %603 = icmp eq i64 %602, 0
   br i1 %603, label %601, label %604, !llvm.loop !210
 
 604:                                              ; preds = %601
   %605 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %606 = icmp eq ptr %storemerge.i.i154, %605
-  br i1 %606, label %_ZN4CGAL4MpzfD2Ev.exit155, label %607
+  %606 = icmp eq ptr %storemerge.i.i148, %605
+  br i1 %606, label %_ZN4CGAL4MpzfD2Ev.exit149, label %607
 
 607:                                              ; preds = %604
-  store ptr %.pn.i.i153, ptr %8, align 8
+  store ptr %.pn.i.i147, ptr %8, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i148) #38
+  br label %_ZN4CGAL4MpzfD2Ev.exit149
+
+_ZN4CGAL4MpzfD2Ev.exit149:                        ; preds = %604, %607
+  %608 = icmp slt i32 %.0.i.i.i, 0
+  %609 = sub nsw i32 0, %.0.i.i2.i.i92
+  %spec.select = select i1 %608, i32 %609, i32 %.0.i.i2.i.i92
+  br label %760
+
+610:                                              ; preds = %124
+  %611 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body
+
+612:                                              ; preds = %164
+  %613 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit191
+
+614:                                              ; preds = %177
+  %615 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body206
+
+616:                                              ; preds = %217
+  %617 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit185
+
+618:                                              ; preds = %232
+  %619 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body217
+
+620:                                              ; preds = %272
+  %621 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit179
+
+622:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
+  %623 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit176
+
+624:                                              ; preds = %274
+  %625 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit173
+
+626:                                              ; preds = %285
+  %627 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body228
+
+628:                                              ; preds = %325
+  %629 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit167
+
+630:                                              ; preds = %338
+  %631 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body239
+
+632:                                              ; preds = %378
+  %633 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit161
+
+634:                                              ; preds = %393
+  %635 = landingpad { ptr, i32 }
+          cleanup
+  br label %.body250
+
+636:                                              ; preds = %433
+  %637 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN4CGAL4MpzfD2Ev.exit155
+
+638:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit87
+  %639 = landingpad { ptr, i32 }
+          cleanup
+  %640 = load ptr, ptr %17, align 8
+  br label %641
+
+641:                                              ; preds = %641, %638
+  %.pn.i.i153 = phi ptr [ %640, %638 ], [ %storemerge.i.i154, %641 ]
+  %storemerge.i.i154 = getelementptr inbounds i8, ptr %.pn.i.i153, i64 -8
+  store ptr %storemerge.i.i154, ptr %17, align 8
+  %642 = load i64, ptr %storemerge.i.i154, align 8
+  %643 = icmp eq i64 %642, 0
+  br i1 %643, label %641, label %644, !llvm.loop !210
+
+644:                                              ; preds = %641
+  %645 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %646 = icmp eq ptr %storemerge.i.i154, %645
+  br i1 %646, label %_ZN4CGAL4MpzfD2Ev.exit155, label %647
+
+647:                                              ; preds = %644
+  store ptr %.pn.i.i153, ptr %17, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i154) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit155
 
-_ZN4CGAL4MpzfD2Ev.exit155:                        ; preds = %604, %607
-  %608 = sub nsw i32 0, %.0.i.i3.i.i98
-  %spec.select = select i1 %.inv.i.i.i.i, i32 %608, i32 %.0.i.i3.i.i98
-  br label %759
+_ZN4CGAL4MpzfD2Ev.exit155:                        ; preds = %647, %644, %636
+  %.pn.pn = phi { ptr, i32 } [ %637, %636 ], [ %639, %644 ], [ %639, %647 ]
+  %648 = load ptr, ptr %20, align 8
+  br label %649
 
-609:                                              ; preds = %124
-  %610 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
+649:                                              ; preds = %649, %_ZN4CGAL4MpzfD2Ev.exit155
+  %.pn.i.i156 = phi ptr [ %648, %_ZN4CGAL4MpzfD2Ev.exit155 ], [ %storemerge.i.i157, %649 ]
+  %storemerge.i.i157 = getelementptr inbounds i8, ptr %.pn.i.i156, i64 -8
+  store ptr %storemerge.i.i157, ptr %20, align 8
+  %650 = load i64, ptr %storemerge.i.i157, align 8
+  %651 = icmp eq i64 %650, 0
+  br i1 %651, label %649, label %652, !llvm.loop !210
 
-611:                                              ; preds = %164
-  %612 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit197
+652:                                              ; preds = %649
+  %653 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %654 = icmp eq ptr %storemerge.i.i157, %653
+  br i1 %654, label %.body250, label %655
 
-613:                                              ; preds = %177
-  %614 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body212
+655:                                              ; preds = %652
+  store ptr %.pn.i.i156, ptr %20, align 8
+  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i157) #38
+  br label %.body250
 
-615:                                              ; preds = %217
-  %616 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit191
+.body250:                                         ; preds = %655, %652, %634, %427, %424
+  %.pn.pn.pn = phi { ptr, i32 } [ %635, %634 ], [ %419, %427 ], [ %419, %424 ], [ %.pn.pn, %652 ], [ %.pn.pn, %655 ]
+  %656 = load ptr, ptr %21, align 8
+  br label %657
 
-617:                                              ; preds = %232
-  %618 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body223
-
-619:                                              ; preds = %272
-  %620 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit185
-
-621:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit
-  %622 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit182
-
-623:                                              ; preds = %274
-  %624 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit179
-
-625:                                              ; preds = %285
-  %626 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body234
-
-627:                                              ; preds = %325
-  %628 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit173
-
-629:                                              ; preds = %338
-  %630 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body245
-
-631:                                              ; preds = %378
-  %632 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit167
-
-633:                                              ; preds = %393
-  %634 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body256
-
-635:                                              ; preds = %433
-  %636 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZN4CGAL4MpzfD2Ev.exit161
-
-637:                                              ; preds = %_ZN4CGALplERKNS_4MpzfES2_.exit90
-  %638 = landingpad { ptr, i32 }
-          cleanup
-  %639 = load ptr, ptr %17, align 8
-  br label %640
-
-640:                                              ; preds = %640, %637
-  %.pn.i.i159 = phi ptr [ %639, %637 ], [ %storemerge.i.i160, %640 ]
+657:                                              ; preds = %657, %.body250
+  %.pn.i.i159 = phi ptr [ %656, %.body250 ], [ %storemerge.i.i160, %657 ]
   %storemerge.i.i160 = getelementptr inbounds i8, ptr %.pn.i.i159, i64 -8
-  store ptr %storemerge.i.i160, ptr %17, align 8
-  %641 = load i64, ptr %storemerge.i.i160, align 8
-  %642 = icmp eq i64 %641, 0
-  br i1 %642, label %640, label %643, !llvm.loop !210
+  store ptr %storemerge.i.i160, ptr %21, align 8
+  %658 = load i64, ptr %storemerge.i.i160, align 8
+  %659 = icmp eq i64 %658, 0
+  br i1 %659, label %657, label %660, !llvm.loop !210
 
-643:                                              ; preds = %640
-  %644 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %645 = icmp eq ptr %storemerge.i.i160, %644
-  br i1 %645, label %_ZN4CGAL4MpzfD2Ev.exit161, label %646
+660:                                              ; preds = %657
+  %661 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %662 = icmp eq ptr %storemerge.i.i160, %661
+  br i1 %662, label %_ZN4CGAL4MpzfD2Ev.exit161, label %663
 
-646:                                              ; preds = %643
-  store ptr %.pn.i.i159, ptr %17, align 8
+663:                                              ; preds = %660
+  store ptr %.pn.i.i159, ptr %21, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i160) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit161
 
-_ZN4CGAL4MpzfD2Ev.exit161:                        ; preds = %646, %643, %635
-  %.pn.pn = phi { ptr, i32 } [ %636, %635 ], [ %638, %643 ], [ %638, %646 ]
-  %647 = load ptr, ptr %20, align 8
-  br label %648
+_ZN4CGAL4MpzfD2Ev.exit161:                        ; preds = %663, %660, %632
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %633, %632 ], [ %.pn.pn.pn, %660 ], [ %.pn.pn.pn, %663 ]
+  %664 = load ptr, ptr %18, align 8
+  br label %665
 
-648:                                              ; preds = %648, %_ZN4CGAL4MpzfD2Ev.exit161
-  %.pn.i.i162 = phi ptr [ %647, %_ZN4CGAL4MpzfD2Ev.exit161 ], [ %storemerge.i.i163, %648 ]
+665:                                              ; preds = %665, %_ZN4CGAL4MpzfD2Ev.exit161
+  %.pn.i.i162 = phi ptr [ %664, %_ZN4CGAL4MpzfD2Ev.exit161 ], [ %storemerge.i.i163, %665 ]
   %storemerge.i.i163 = getelementptr inbounds i8, ptr %.pn.i.i162, i64 -8
-  store ptr %storemerge.i.i163, ptr %20, align 8
-  %649 = load i64, ptr %storemerge.i.i163, align 8
-  %650 = icmp eq i64 %649, 0
-  br i1 %650, label %648, label %651, !llvm.loop !210
+  store ptr %storemerge.i.i163, ptr %18, align 8
+  %666 = load i64, ptr %storemerge.i.i163, align 8
+  %667 = icmp eq i64 %666, 0
+  br i1 %667, label %665, label %668, !llvm.loop !210
 
-651:                                              ; preds = %648
-  %652 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %653 = icmp eq ptr %storemerge.i.i163, %652
-  br i1 %653, label %.body256, label %654
+668:                                              ; preds = %665
+  %669 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %670 = icmp eq ptr %storemerge.i.i163, %669
+  br i1 %670, label %.body239, label %671
 
-654:                                              ; preds = %651
-  store ptr %.pn.i.i162, ptr %20, align 8
+671:                                              ; preds = %668
+  store ptr %.pn.i.i162, ptr %18, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i163) #38
-  br label %.body256
+  br label %.body239
 
-.body256:                                         ; preds = %654, %651, %633, %427, %424
-  %.pn.pn.pn = phi { ptr, i32 } [ %634, %633 ], [ %419, %427 ], [ %419, %424 ], [ %.pn.pn, %651 ], [ %.pn.pn, %654 ]
-  %655 = load ptr, ptr %21, align 8
-  br label %656
+.body239:                                         ; preds = %671, %668, %630, %372, %369
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %631, %630 ], [ %364, %372 ], [ %364, %369 ], [ %.pn.pn.pn.pn, %668 ], [ %.pn.pn.pn.pn, %671 ]
+  %672 = load ptr, ptr %19, align 8
+  br label %673
 
-656:                                              ; preds = %656, %.body256
-  %.pn.i.i165 = phi ptr [ %655, %.body256 ], [ %storemerge.i.i166, %656 ]
+673:                                              ; preds = %673, %.body239
+  %.pn.i.i165 = phi ptr [ %672, %.body239 ], [ %storemerge.i.i166, %673 ]
   %storemerge.i.i166 = getelementptr inbounds i8, ptr %.pn.i.i165, i64 -8
-  store ptr %storemerge.i.i166, ptr %21, align 8
-  %657 = load i64, ptr %storemerge.i.i166, align 8
-  %658 = icmp eq i64 %657, 0
-  br i1 %658, label %656, label %659, !llvm.loop !210
+  store ptr %storemerge.i.i166, ptr %19, align 8
+  %674 = load i64, ptr %storemerge.i.i166, align 8
+  %675 = icmp eq i64 %674, 0
+  br i1 %675, label %673, label %676, !llvm.loop !210
 
-659:                                              ; preds = %656
-  %660 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %661 = icmp eq ptr %storemerge.i.i166, %660
-  br i1 %661, label %_ZN4CGAL4MpzfD2Ev.exit167, label %662
+676:                                              ; preds = %673
+  %677 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %678 = icmp eq ptr %storemerge.i.i166, %677
+  br i1 %678, label %_ZN4CGAL4MpzfD2Ev.exit167, label %679
 
-662:                                              ; preds = %659
-  store ptr %.pn.i.i165, ptr %21, align 8
+679:                                              ; preds = %676
+  store ptr %.pn.i.i165, ptr %19, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i166) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit167
 
-_ZN4CGAL4MpzfD2Ev.exit167:                        ; preds = %662, %659, %631
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %632, %631 ], [ %.pn.pn.pn, %659 ], [ %.pn.pn.pn, %662 ]
-  %663 = load ptr, ptr %18, align 8
-  br label %664
+_ZN4CGAL4MpzfD2Ev.exit167:                        ; preds = %679, %676, %628
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %629, %628 ], [ %.pn.pn.pn.pn.pn, %676 ], [ %.pn.pn.pn.pn.pn, %679 ]
+  %680 = load ptr, ptr %15, align 8
+  br label %681
 
-664:                                              ; preds = %664, %_ZN4CGAL4MpzfD2Ev.exit167
-  %.pn.i.i168 = phi ptr [ %663, %_ZN4CGAL4MpzfD2Ev.exit167 ], [ %storemerge.i.i169, %664 ]
+681:                                              ; preds = %681, %_ZN4CGAL4MpzfD2Ev.exit167
+  %.pn.i.i168 = phi ptr [ %680, %_ZN4CGAL4MpzfD2Ev.exit167 ], [ %storemerge.i.i169, %681 ]
   %storemerge.i.i169 = getelementptr inbounds i8, ptr %.pn.i.i168, i64 -8
-  store ptr %storemerge.i.i169, ptr %18, align 8
-  %665 = load i64, ptr %storemerge.i.i169, align 8
-  %666 = icmp eq i64 %665, 0
-  br i1 %666, label %664, label %667, !llvm.loop !210
+  store ptr %storemerge.i.i169, ptr %15, align 8
+  %682 = load i64, ptr %storemerge.i.i169, align 8
+  %683 = icmp eq i64 %682, 0
+  br i1 %683, label %681, label %684, !llvm.loop !210
 
-667:                                              ; preds = %664
-  %668 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %669 = icmp eq ptr %storemerge.i.i169, %668
-  br i1 %669, label %.body245, label %670
+684:                                              ; preds = %681
+  %685 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %686 = icmp eq ptr %storemerge.i.i169, %685
+  br i1 %686, label %.body228, label %687
 
-670:                                              ; preds = %667
-  store ptr %.pn.i.i168, ptr %18, align 8
+687:                                              ; preds = %684
+  store ptr %.pn.i.i168, ptr %15, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i169) #38
-  br label %.body245
+  br label %.body228
 
-.body245:                                         ; preds = %670, %667, %629, %372, %369
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %630, %629 ], [ %364, %372 ], [ %364, %369 ], [ %.pn.pn.pn.pn, %667 ], [ %.pn.pn.pn.pn, %670 ]
-  %671 = load ptr, ptr %19, align 8
-  br label %672
+.body228:                                         ; preds = %687, %684, %626, %319, %316
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %627, %626 ], [ %311, %319 ], [ %311, %316 ], [ %.pn.pn.pn.pn.pn.pn, %684 ], [ %.pn.pn.pn.pn.pn.pn, %687 ]
+  %688 = load ptr, ptr %16, align 8
+  br label %689
 
-672:                                              ; preds = %672, %.body245
-  %.pn.i.i171 = phi ptr [ %671, %.body245 ], [ %storemerge.i.i172, %672 ]
+689:                                              ; preds = %689, %.body228
+  %.pn.i.i171 = phi ptr [ %688, %.body228 ], [ %storemerge.i.i172, %689 ]
   %storemerge.i.i172 = getelementptr inbounds i8, ptr %.pn.i.i171, i64 -8
-  store ptr %storemerge.i.i172, ptr %19, align 8
-  %673 = load i64, ptr %storemerge.i.i172, align 8
-  %674 = icmp eq i64 %673, 0
-  br i1 %674, label %672, label %675, !llvm.loop !210
+  store ptr %storemerge.i.i172, ptr %16, align 8
+  %690 = load i64, ptr %storemerge.i.i172, align 8
+  %691 = icmp eq i64 %690, 0
+  br i1 %691, label %689, label %692, !llvm.loop !210
 
-675:                                              ; preds = %672
-  %676 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %677 = icmp eq ptr %storemerge.i.i172, %676
-  br i1 %677, label %_ZN4CGAL4MpzfD2Ev.exit173, label %678
+692:                                              ; preds = %689
+  %693 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %694 = icmp eq ptr %storemerge.i.i172, %693
+  br i1 %694, label %_ZN4CGAL4MpzfD2Ev.exit173, label %695
 
-678:                                              ; preds = %675
-  store ptr %.pn.i.i171, ptr %19, align 8
+695:                                              ; preds = %692
+  store ptr %.pn.i.i171, ptr %16, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i172) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit173
 
-_ZN4CGAL4MpzfD2Ev.exit173:                        ; preds = %678, %675, %627
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %628, %627 ], [ %.pn.pn.pn.pn.pn, %675 ], [ %.pn.pn.pn.pn.pn, %678 ]
-  %679 = load ptr, ptr %15, align 8
-  br label %680
+_ZN4CGAL4MpzfD2Ev.exit173:                        ; preds = %695, %692, %624
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %625, %624 ], [ %.pn.pn.pn.pn.pn.pn.pn, %692 ], [ %.pn.pn.pn.pn.pn.pn.pn, %695 ]
+  %696 = load ptr, ptr %6, align 8
+  br label %697
 
-680:                                              ; preds = %680, %_ZN4CGAL4MpzfD2Ev.exit173
-  %.pn.i.i174 = phi ptr [ %679, %_ZN4CGAL4MpzfD2Ev.exit173 ], [ %storemerge.i.i175, %680 ]
+697:                                              ; preds = %697, %_ZN4CGAL4MpzfD2Ev.exit173
+  %.pn.i.i174 = phi ptr [ %696, %_ZN4CGAL4MpzfD2Ev.exit173 ], [ %storemerge.i.i175, %697 ]
   %storemerge.i.i175 = getelementptr inbounds i8, ptr %.pn.i.i174, i64 -8
-  store ptr %storemerge.i.i175, ptr %15, align 8
-  %681 = load i64, ptr %storemerge.i.i175, align 8
-  %682 = icmp eq i64 %681, 0
-  br i1 %682, label %680, label %683, !llvm.loop !210
+  store ptr %storemerge.i.i175, ptr %6, align 8
+  %698 = load i64, ptr %storemerge.i.i175, align 8
+  %699 = icmp eq i64 %698, 0
+  br i1 %699, label %697, label %700, !llvm.loop !210
 
-683:                                              ; preds = %680
-  %684 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %685 = icmp eq ptr %storemerge.i.i175, %684
-  br i1 %685, label %.body234, label %686
+700:                                              ; preds = %697
+  %701 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %702 = icmp eq ptr %storemerge.i.i175, %701
+  br i1 %702, label %_ZN4CGAL4MpzfD2Ev.exit176, label %703
 
-686:                                              ; preds = %683
-  store ptr %.pn.i.i174, ptr %15, align 8
+703:                                              ; preds = %700
+  store ptr %.pn.i.i174, ptr %6, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i175) #38
-  br label %.body234
+  br label %_ZN4CGAL4MpzfD2Ev.exit176
 
-.body234:                                         ; preds = %686, %683, %625, %319, %316
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %626, %625 ], [ %311, %319 ], [ %311, %316 ], [ %.pn.pn.pn.pn.pn.pn, %683 ], [ %.pn.pn.pn.pn.pn.pn, %686 ]
-  %687 = load ptr, ptr %16, align 8
-  br label %688
+_ZN4CGAL4MpzfD2Ev.exit176:                        ; preds = %703, %700, %622
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %623, %622 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %700 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %703 ]
+  %704 = load ptr, ptr %9, align 8
+  br label %705
 
-688:                                              ; preds = %688, %.body234
-  %.pn.i.i177 = phi ptr [ %687, %.body234 ], [ %storemerge.i.i178, %688 ]
+705:                                              ; preds = %705, %_ZN4CGAL4MpzfD2Ev.exit176
+  %.pn.i.i177 = phi ptr [ %704, %_ZN4CGAL4MpzfD2Ev.exit176 ], [ %storemerge.i.i178, %705 ]
   %storemerge.i.i178 = getelementptr inbounds i8, ptr %.pn.i.i177, i64 -8
-  store ptr %storemerge.i.i178, ptr %16, align 8
-  %689 = load i64, ptr %storemerge.i.i178, align 8
-  %690 = icmp eq i64 %689, 0
-  br i1 %690, label %688, label %691, !llvm.loop !210
+  store ptr %storemerge.i.i178, ptr %9, align 8
+  %706 = load i64, ptr %storemerge.i.i178, align 8
+  %707 = icmp eq i64 %706, 0
+  br i1 %707, label %705, label %708, !llvm.loop !210
 
-691:                                              ; preds = %688
-  %692 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %693 = icmp eq ptr %storemerge.i.i178, %692
-  br i1 %693, label %_ZN4CGAL4MpzfD2Ev.exit179, label %694
+708:                                              ; preds = %705
+  %709 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %710 = icmp eq ptr %storemerge.i.i178, %709
+  br i1 %710, label %_ZN4CGAL4MpzfD2Ev.exit179, label %711
 
-694:                                              ; preds = %691
-  store ptr %.pn.i.i177, ptr %16, align 8
+711:                                              ; preds = %708
+  store ptr %.pn.i.i177, ptr %9, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i178) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit179
 
-_ZN4CGAL4MpzfD2Ev.exit179:                        ; preds = %694, %691, %623
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %624, %623 ], [ %.pn.pn.pn.pn.pn.pn.pn, %691 ], [ %.pn.pn.pn.pn.pn.pn.pn, %694 ]
-  %695 = load ptr, ptr %6, align 8
-  br label %696
+_ZN4CGAL4MpzfD2Ev.exit179:                        ; preds = %711, %708, %620
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %621, %620 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %708 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %711 ]
+  %712 = load ptr, ptr %12, align 8
+  br label %713
 
-696:                                              ; preds = %696, %_ZN4CGAL4MpzfD2Ev.exit179
-  %.pn.i.i180 = phi ptr [ %695, %_ZN4CGAL4MpzfD2Ev.exit179 ], [ %storemerge.i.i181, %696 ]
+713:                                              ; preds = %713, %_ZN4CGAL4MpzfD2Ev.exit179
+  %.pn.i.i180 = phi ptr [ %712, %_ZN4CGAL4MpzfD2Ev.exit179 ], [ %storemerge.i.i181, %713 ]
   %storemerge.i.i181 = getelementptr inbounds i8, ptr %.pn.i.i180, i64 -8
-  store ptr %storemerge.i.i181, ptr %6, align 8
-  %697 = load i64, ptr %storemerge.i.i181, align 8
-  %698 = icmp eq i64 %697, 0
-  br i1 %698, label %696, label %699, !llvm.loop !210
+  store ptr %storemerge.i.i181, ptr %12, align 8
+  %714 = load i64, ptr %storemerge.i.i181, align 8
+  %715 = icmp eq i64 %714, 0
+  br i1 %715, label %713, label %716, !llvm.loop !210
 
-699:                                              ; preds = %696
-  %700 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %701 = icmp eq ptr %storemerge.i.i181, %700
-  br i1 %701, label %_ZN4CGAL4MpzfD2Ev.exit182, label %702
+716:                                              ; preds = %713
+  %717 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %718 = icmp eq ptr %storemerge.i.i181, %717
+  br i1 %718, label %.body217, label %719
 
-702:                                              ; preds = %699
-  store ptr %.pn.i.i180, ptr %6, align 8
+719:                                              ; preds = %716
+  store ptr %.pn.i.i180, ptr %12, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i181) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit182
+  br label %.body217
 
-_ZN4CGAL4MpzfD2Ev.exit182:                        ; preds = %702, %699, %621
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %622, %621 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %699 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %702 ]
-  %703 = load ptr, ptr %9, align 8
-  br label %704
+.body217:                                         ; preds = %719, %716, %618, %266, %263
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %619, %618 ], [ %258, %266 ], [ %258, %263 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %716 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %719 ]
+  %720 = load ptr, ptr %13, align 8
+  br label %721
 
-704:                                              ; preds = %704, %_ZN4CGAL4MpzfD2Ev.exit182
-  %.pn.i.i183 = phi ptr [ %703, %_ZN4CGAL4MpzfD2Ev.exit182 ], [ %storemerge.i.i184, %704 ]
+721:                                              ; preds = %721, %.body217
+  %.pn.i.i183 = phi ptr [ %720, %.body217 ], [ %storemerge.i.i184, %721 ]
   %storemerge.i.i184 = getelementptr inbounds i8, ptr %.pn.i.i183, i64 -8
-  store ptr %storemerge.i.i184, ptr %9, align 8
-  %705 = load i64, ptr %storemerge.i.i184, align 8
-  %706 = icmp eq i64 %705, 0
-  br i1 %706, label %704, label %707, !llvm.loop !210
+  store ptr %storemerge.i.i184, ptr %13, align 8
+  %722 = load i64, ptr %storemerge.i.i184, align 8
+  %723 = icmp eq i64 %722, 0
+  br i1 %723, label %721, label %724, !llvm.loop !210
 
-707:                                              ; preds = %704
-  %708 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %709 = icmp eq ptr %storemerge.i.i184, %708
-  br i1 %709, label %_ZN4CGAL4MpzfD2Ev.exit185, label %710
+724:                                              ; preds = %721
+  %725 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %726 = icmp eq ptr %storemerge.i.i184, %725
+  br i1 %726, label %_ZN4CGAL4MpzfD2Ev.exit185, label %727
 
-710:                                              ; preds = %707
-  store ptr %.pn.i.i183, ptr %9, align 8
+727:                                              ; preds = %724
+  store ptr %.pn.i.i183, ptr %13, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i184) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit185
 
-_ZN4CGAL4MpzfD2Ev.exit185:                        ; preds = %710, %707, %619
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %620, %619 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %707 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %710 ]
-  %711 = load ptr, ptr %12, align 8
-  br label %712
+_ZN4CGAL4MpzfD2Ev.exit185:                        ; preds = %727, %724, %616
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %617, %616 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %724 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %727 ]
+  %728 = load ptr, ptr %10, align 8
+  br label %729
 
-712:                                              ; preds = %712, %_ZN4CGAL4MpzfD2Ev.exit185
-  %.pn.i.i186 = phi ptr [ %711, %_ZN4CGAL4MpzfD2Ev.exit185 ], [ %storemerge.i.i187, %712 ]
+729:                                              ; preds = %729, %_ZN4CGAL4MpzfD2Ev.exit185
+  %.pn.i.i186 = phi ptr [ %728, %_ZN4CGAL4MpzfD2Ev.exit185 ], [ %storemerge.i.i187, %729 ]
   %storemerge.i.i187 = getelementptr inbounds i8, ptr %.pn.i.i186, i64 -8
-  store ptr %storemerge.i.i187, ptr %12, align 8
-  %713 = load i64, ptr %storemerge.i.i187, align 8
-  %714 = icmp eq i64 %713, 0
-  br i1 %714, label %712, label %715, !llvm.loop !210
+  store ptr %storemerge.i.i187, ptr %10, align 8
+  %730 = load i64, ptr %storemerge.i.i187, align 8
+  %731 = icmp eq i64 %730, 0
+  br i1 %731, label %729, label %732, !llvm.loop !210
 
-715:                                              ; preds = %712
-  %716 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %717 = icmp eq ptr %storemerge.i.i187, %716
-  br i1 %717, label %.body223, label %718
+732:                                              ; preds = %729
+  %733 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %734 = icmp eq ptr %storemerge.i.i187, %733
+  br i1 %734, label %.body206, label %735
 
-718:                                              ; preds = %715
-  store ptr %.pn.i.i186, ptr %12, align 8
+735:                                              ; preds = %732
+  store ptr %.pn.i.i186, ptr %10, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i187) #38
-  br label %.body223
+  br label %.body206
 
-.body223:                                         ; preds = %718, %715, %617, %266, %263
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %618, %617 ], [ %258, %266 ], [ %258, %263 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %715 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %718 ]
-  %719 = load ptr, ptr %13, align 8
-  br label %720
+.body206:                                         ; preds = %735, %732, %614, %211, %208
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %615, %614 ], [ %203, %211 ], [ %203, %208 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %732 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %735 ]
+  %736 = load ptr, ptr %11, align 8
+  br label %737
 
-720:                                              ; preds = %720, %.body223
-  %.pn.i.i189 = phi ptr [ %719, %.body223 ], [ %storemerge.i.i190, %720 ]
+737:                                              ; preds = %737, %.body206
+  %.pn.i.i189 = phi ptr [ %736, %.body206 ], [ %storemerge.i.i190, %737 ]
   %storemerge.i.i190 = getelementptr inbounds i8, ptr %.pn.i.i189, i64 -8
-  store ptr %storemerge.i.i190, ptr %13, align 8
-  %721 = load i64, ptr %storemerge.i.i190, align 8
-  %722 = icmp eq i64 %721, 0
-  br i1 %722, label %720, label %723, !llvm.loop !210
+  store ptr %storemerge.i.i190, ptr %11, align 8
+  %738 = load i64, ptr %storemerge.i.i190, align 8
+  %739 = icmp eq i64 %738, 0
+  br i1 %739, label %737, label %740, !llvm.loop !210
 
-723:                                              ; preds = %720
-  %724 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %725 = icmp eq ptr %storemerge.i.i190, %724
-  br i1 %725, label %_ZN4CGAL4MpzfD2Ev.exit191, label %726
+740:                                              ; preds = %737
+  %741 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %742 = icmp eq ptr %storemerge.i.i190, %741
+  br i1 %742, label %_ZN4CGAL4MpzfD2Ev.exit191, label %743
 
-726:                                              ; preds = %723
-  store ptr %.pn.i.i189, ptr %13, align 8
+743:                                              ; preds = %740
+  store ptr %.pn.i.i189, ptr %11, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i190) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit191
 
-_ZN4CGAL4MpzfD2Ev.exit191:                        ; preds = %726, %723, %615
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %616, %615 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %723 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %726 ]
-  %727 = load ptr, ptr %10, align 8
-  br label %728
+_ZN4CGAL4MpzfD2Ev.exit191:                        ; preds = %743, %740, %612
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %613, %612 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %740 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %743 ]
+  %744 = load ptr, ptr %7, align 8
+  br label %745
 
-728:                                              ; preds = %728, %_ZN4CGAL4MpzfD2Ev.exit191
-  %.pn.i.i192 = phi ptr [ %727, %_ZN4CGAL4MpzfD2Ev.exit191 ], [ %storemerge.i.i193, %728 ]
+745:                                              ; preds = %745, %_ZN4CGAL4MpzfD2Ev.exit191
+  %.pn.i.i192 = phi ptr [ %744, %_ZN4CGAL4MpzfD2Ev.exit191 ], [ %storemerge.i.i193, %745 ]
   %storemerge.i.i193 = getelementptr inbounds i8, ptr %.pn.i.i192, i64 -8
-  store ptr %storemerge.i.i193, ptr %10, align 8
-  %729 = load i64, ptr %storemerge.i.i193, align 8
-  %730 = icmp eq i64 %729, 0
-  br i1 %730, label %728, label %731, !llvm.loop !210
+  store ptr %storemerge.i.i193, ptr %7, align 8
+  %746 = load i64, ptr %storemerge.i.i193, align 8
+  %747 = icmp eq i64 %746, 0
+  br i1 %747, label %745, label %748, !llvm.loop !210
 
-731:                                              ; preds = %728
-  %732 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %733 = icmp eq ptr %storemerge.i.i193, %732
-  br i1 %733, label %.body212, label %734
+748:                                              ; preds = %745
+  %749 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %750 = icmp eq ptr %storemerge.i.i193, %749
+  br i1 %750, label %.body, label %751
 
-734:                                              ; preds = %731
-  store ptr %.pn.i.i192, ptr %10, align 8
+751:                                              ; preds = %748
+  store ptr %.pn.i.i192, ptr %7, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i193) #38
-  br label %.body212
+  br label %.body
 
-.body212:                                         ; preds = %734, %731, %613, %211, %208
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %614, %613 ], [ %203, %211 ], [ %203, %208 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %731 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %734 ]
-  %735 = load ptr, ptr %11, align 8
-  br label %736
+.body:                                            ; preds = %751, %748, %610, %158, %155
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %611, %610 ], [ %150, %158 ], [ %150, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %748 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %751 ]
+  %752 = load ptr, ptr %8, align 8
+  br label %753
 
-736:                                              ; preds = %736, %.body212
-  %.pn.i.i195 = phi ptr [ %735, %.body212 ], [ %storemerge.i.i196, %736 ]
+753:                                              ; preds = %753, %.body
+  %.pn.i.i195 = phi ptr [ %752, %.body ], [ %storemerge.i.i196, %753 ]
   %storemerge.i.i196 = getelementptr inbounds i8, ptr %.pn.i.i195, i64 -8
-  store ptr %storemerge.i.i196, ptr %11, align 8
-  %737 = load i64, ptr %storemerge.i.i196, align 8
-  %738 = icmp eq i64 %737, 0
-  br i1 %738, label %736, label %739, !llvm.loop !210
+  store ptr %storemerge.i.i196, ptr %8, align 8
+  %754 = load i64, ptr %storemerge.i.i196, align 8
+  %755 = icmp eq i64 %754, 0
+  br i1 %755, label %753, label %756, !llvm.loop !210
 
-739:                                              ; preds = %736
-  %740 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %741 = icmp eq ptr %storemerge.i.i196, %740
-  br i1 %741, label %_ZN4CGAL4MpzfD2Ev.exit197, label %742
+756:                                              ; preds = %753
+  %757 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %758 = icmp eq ptr %storemerge.i.i196, %757
+  br i1 %758, label %_ZN4CGAL4MpzfD2Ev.exit197, label %759
 
-742:                                              ; preds = %739
-  store ptr %.pn.i.i195, ptr %11, align 8
+759:                                              ; preds = %756
+  store ptr %.pn.i.i195, ptr %8, align 8
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i196) #38
   br label %_ZN4CGAL4MpzfD2Ev.exit197
 
-_ZN4CGAL4MpzfD2Ev.exit197:                        ; preds = %742, %739, %611
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %612, %611 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %739 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %742 ]
-  %743 = load ptr, ptr %7, align 8
-  br label %744
-
-744:                                              ; preds = %744, %_ZN4CGAL4MpzfD2Ev.exit197
-  %.pn.i.i198 = phi ptr [ %743, %_ZN4CGAL4MpzfD2Ev.exit197 ], [ %storemerge.i.i199, %744 ]
-  %storemerge.i.i199 = getelementptr inbounds i8, ptr %.pn.i.i198, i64 -8
-  store ptr %storemerge.i.i199, ptr %7, align 8
-  %745 = load i64, ptr %storemerge.i.i199, align 8
-  %746 = icmp eq i64 %745, 0
-  br i1 %746, label %744, label %747, !llvm.loop !210
-
-747:                                              ; preds = %744
-  %748 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %749 = icmp eq ptr %storemerge.i.i199, %748
-  br i1 %749, label %.body, label %750
-
-750:                                              ; preds = %747
-  store ptr %.pn.i.i198, ptr %7, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i199) #38
-  br label %.body
-
-.body:                                            ; preds = %750, %747, %609, %158, %155
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %610, %609 ], [ %150, %158 ], [ %150, %155 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %747 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %750 ]
-  %751 = load ptr, ptr %8, align 8
-  br label %752
-
-752:                                              ; preds = %752, %.body
-  %.pn.i.i201 = phi ptr [ %751, %.body ], [ %storemerge.i.i202, %752 ]
-  %storemerge.i.i202 = getelementptr inbounds i8, ptr %.pn.i.i201, i64 -8
-  store ptr %storemerge.i.i202, ptr %8, align 8
-  %753 = load i64, ptr %storemerge.i.i202, align 8
-  %754 = icmp eq i64 %753, 0
-  br i1 %754, label %752, label %755, !llvm.loop !210
-
-755:                                              ; preds = %752
-  %756 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %757 = icmp eq ptr %storemerge.i.i202, %756
-  br i1 %757, label %_ZN4CGAL4MpzfD2Ev.exit203, label %758
-
-758:                                              ; preds = %755
-  store ptr %.pn.i.i201, ptr %8, align 8
-  call void @_ZdaPv(ptr noundef nonnull %storemerge.i.i202) #38
-  br label %_ZN4CGAL4MpzfD2Ev.exit203
-
-_ZN4CGAL4MpzfD2Ev.exit203:                        ; preds = %755, %758
+_ZN4CGAL4MpzfD2Ev.exit197:                        ; preds = %756, %759
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-759:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit155, %113, %112
-  %.041 = phi i32 [ %.0.i.i, %112 ], [ 0, %113 ], [ %spec.select, %_ZN4CGAL4MpzfD2Ev.exit155 ]
+760:                                              ; preds = %_ZN4CGAL4MpzfD2Ev.exit149, %113, %112
+  %.041 = phi i32 [ %.0.i.i, %112 ], [ 0, %113 ], [ %spec.select, %_ZN4CGAL4MpzfD2Ev.exit149 ]
   ret i32 %.041
 }
 
@@ -213663,10 +213609,10 @@ declare i32 @llvm.smin.i32(i32, i32) #35
 declare i32 @llvm.umax.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #35
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #35
+declare double @llvm.sqrt.f64(double) #35
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

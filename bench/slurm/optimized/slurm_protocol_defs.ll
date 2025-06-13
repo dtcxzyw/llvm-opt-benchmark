@@ -3336,10 +3336,7 @@ define dso_local range(i32 -1, 2) i32 @slurm_sort_char_list_asc(ptr noundef read
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %4) #24
-  %.not = icmp ne i32 %5, 0
-  %. = zext i1 %.not to i32
-  %.inv = icmp sgt i32 %5, -1
-  %.0 = select i1 %.inv, i32 %., i32 -1
+  %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
   ret i32 %.0
 }
 
