@@ -430,7 +430,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %_ZN4absl12lts_20240
   %.not.not = icmp ugt ptr %105, %8
   br i1 %.not.not, label %.lr.ph.i.preheader, label %120, !prof !69
 
-120:                                              ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #29
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull @.str, i32 noundef 169, i64 24, ptr nonnull @.str.4) #30
           to label %121 unwind label %122

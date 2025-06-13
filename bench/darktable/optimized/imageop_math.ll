@@ -97,24 +97,24 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(address) %0, i
   %invariant.op = xor i64 %71, -1
   br label %72
 
-72:                                               ; preds = %.lr.ph.us, %.loopexit.us
+71:                                               ; preds = %.lr.ph.us, %.loopexit.us
   %.0151175.us = phi i32 [ 0, %.lr.ph.us ], [ %96, %.loopexit.us ]
   %.0152174.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %95, %.loopexit.us ]
   %.0154173.us = phi ptr [ %62, %.lr.ph.us ], [ %94, %.loopexit.us ]
-  %73 = fptosi float %.0152174.us to i32
-  %74 = mul i32 %48, %73
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %70, i64 %75
-  %.not171.us = icmp sgt i64 %75, %invariant.op
+  %72 = fptosi float %.0152174.us to i32
+  %73 = mul i32 %48, %72
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %70, i64 %74
+  %.not171.us = icmp sgt i64 %74, %invariant.op
   %77 = getelementptr inbounds i8, ptr %76, i64 %50
   %78 = icmp ult ptr %77, %52
   %or.cond = select i1 %.not171.us, i1 %78, i1 false
   br i1 %or.cond, label %.preheader.us.preheader, label %.loopexit.us
 
-.preheader.us.preheader:                          ; preds = %72
-  %invariant.gep = getelementptr i8, ptr %76, i64 %56
-  %invariant.gep191 = getelementptr i8, ptr %76, i64 %57
-  %invariant.gep193 = getelementptr i8, ptr %76, i64 %58
+.preheader.us.preheader:                          ; preds = %71
+  %invariant.gep = getelementptr i8, ptr %75, i64 %56
+  %invariant.gep191 = getelementptr i8, ptr %75, i64 %57
+  %invariant.gep193 = getelementptr i8, ptr %75, i64 %58
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
@@ -130,7 +130,7 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(address) %0, i
   %84 = load i8, ptr %gep194, align 1, !tbaa !10
   %85 = zext i8 %84 to i16
   %86 = add nuw nsw i16 %83, %85
-  %87 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
   %88 = load i8, ptr %87, align 1, !tbaa !10
   %89 = zext i8 %88 to i16
   %90 = add nuw nsw i16 %86, %89
@@ -142,12 +142,12 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(address) %0, i
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit.us, label %.preheader.us
 
-.loopexit.us:                                     ; preds = %.preheader.us, %72
+.loopexit.us:                                     ; preds = %.preheader.us, %71
   %94 = getelementptr inbounds nuw i8, ptr %.0154173.us, i64 4
   %95 = fadd reassoc nsz arcp contract afn float %.0152174.us, %20
   %96 = add nuw i32 %.0151175.us, 1
   %exitcond186.not = icmp eq i32 %96, %23
-  br i1 %exitcond186.not, label %._crit_edge.us, label %72
+  br i1 %exitcond186.not, label %._crit_edge.us, label %71
 
 ._crit_edge.us:                                   ; preds = %.loopexit.us
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1

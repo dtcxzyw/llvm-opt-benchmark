@@ -17596,14 +17596,14 @@ _ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit173: ; preds = %4
   %418 = icmp ugt i32 %.val137, 1
   br i1 %418, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIPN12_GLOBAL__N_111RegPairInfoEEvT_S3_.exit
 
-.lr.ph.i.i.preheader:                             ; preds = %_ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit173
+.lr.ph.i.i.preheader:; preds = %_ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit173
   %.val135 = load ptr, ptr %4, align 8, !tbaa !25
   %419 = zext i32 %.val137 to i64
   %420 = getelementptr inbounds nuw %"struct.(anonymous namespace)::RegPairInfo", ptr %.val135, i64 %419
   %.012.i.i = getelementptr inbounds i8, ptr %420, i64 -32
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+.lr.ph.i.i:; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
   %.0913.i.i = phi ptr [ %421, %.lr.ph.i.i ], [ %.val135, %.lr.ph.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -17611,10 +17611,10 @@ _ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit173: ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i, i64 32, i1 false), !tbaa.struct !1308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !1308
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %421 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 32
+  %422 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 32
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -32
-  %422 = icmp ult ptr %421, %.0.i.i
-  br i1 %422, label %.lr.ph.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_111RegPairInfoEEvT_S3_.exit, !llvm.loop !1310
+  %423 = icmp ult ptr %422, %.0.i.i
+  br i1 %423, label %.lr.ph.i.i, label %_ZSt7reverseIPN12_GLOBAL__N_111RegPairInfoEEvT_S3_.exit, !llvm.loop !1310
 
 _ZSt7reverseIPN12_GLOBAL__N_111RegPairInfoEEvT_S3_.exit: ; preds = %.lr.ph.i.i, %._crit_edge, %_ZN4llvm16MachineFrameInfo18setObjectAlignmentEiNS_5AlignE.exit173, %6
   ret void

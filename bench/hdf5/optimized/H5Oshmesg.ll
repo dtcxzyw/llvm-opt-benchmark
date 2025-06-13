@@ -64,15 +64,15 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr readnone cap
   %.not = icmp eq i8 %30, 0
   br i1 %.not, label %50, label %35
 
-31:                                               ; preds = %22
+31: ; preds = %22
   %32 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %33 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__shmesg_decode, i32 noundef 86, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.3) #8
   br label %65
 
-35:                                               ; preds = %24
-  %36 = icmp eq i64 %4, 1
-  br i1 %36, label %46, label %37
+35:; preds = %24
+  %.not = icmp eq i64 %4, 1
+  br i1 %.not, label %46, label %37
 
 37:                                               ; preds = %35
   %38 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #8
@@ -85,42 +85,42 @@ define internal noundef ptr @H5O__shmesg_decode(ptr noundef %0, ptr readnone cap
   %45 = icmp ult i64 %44, %41
   br i1 %45, label %46, label %50
 
-46:                                               ; preds = %35, %37
+46:; preds = %35, %37
   %47 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
   %48 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
   %49 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__shmesg_decode, i32 noundef 90, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.3) #8
   br label %65
 
-50:                                               ; preds = %37, %24
+50:; preds = %37, %24
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %16) #8
-  %51 = load ptr, ptr %7, align 8, !tbaa !3
-  %52 = icmp ugt ptr %51, %.ptr34
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %25, %53
-  %55 = icmp eq i64 %54, -1
-  %or.cond31 = or i1 %52, %55
-  br i1 %or.cond31, label %56, label %60
+  %53 = load ptr, ptr %7, align 8, !tbaa !3
+  %54 = icmp ugt ptr %53, %.ptr34
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %25, %55
+  %57 = icmp eq i64 %56, -1
+  %or.cond31 = or i1 %54, %57
+  br i1 %or.cond31, label %58, label %62
 
-56:                                               ; preds = %50
-  %57 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
-  %58 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
-  %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__shmesg_decode, i32 noundef 94, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.3) #8
-  br label %65
+58:                                               ; preds = %50
+  %59 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !13
+  %60 = load i64, ptr @H5E_OVERFLOW_g, align 8, !tbaa !13
+  %61 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__shmesg_decode, i32 noundef 94, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.3) #8
+  br label %67
 
-60:                                               ; preds = %50
-  %61 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %61, ptr %7, align 8, !tbaa !3
-  %62 = load i8, ptr %51, align 1, !tbaa !15
-  %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 %63, ptr %64, align 4, !tbaa !19
+62:                                               ; preds = %50
+  %63 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  store ptr %63, ptr %7, align 8, !tbaa !3
+  %64 = load i8, ptr %53, align 1, !tbaa !15
+  %65 = zext i8 %64 to i32
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 %65, ptr %66, align 4, !tbaa !19
   br label %.thread
 
-65:                                               ; preds = %31, %46, %56
-  %66 = call ptr @H5MM_xfree(ptr noundef nonnull %16) #8
+67:                                               ; preds = %31, %46, %58
+  %68 = call ptr @H5MM_xfree(ptr noundef nonnull %16) #8
   br label %.thread
 
-.thread:                                          ; preds = %18, %60, %65, %6
+.thread:                                          ; preds = %18, %62, %67, %6
   %.0 = phi ptr [ null, %65 ], [ null, %6 ], [ %16, %60 ], [ null, %18 ]
   ret ptr %.0
 }

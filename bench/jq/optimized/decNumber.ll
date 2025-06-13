@@ -15577,10 +15577,10 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4, !tbaa !30
   %8 = load i32, ptr %1, align 4, !tbaa !25
-  %.neg46 = add i32 %7, 1
-  %9 = sub i32 %.neg46, %8
-  %.ptr42 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %10 = load i16, ptr %.ptr42, align 2, !tbaa !11
+  %.neg50 = add i32 %7, 1
+  %9 = sub i32 %.neg50, %8
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %10 = load i16, ptr %.ptr, align 2, !tbaa !11
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %12, label %27
 
@@ -15636,7 +15636,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %42 = load i32, ptr %41, align 4, !tbaa !30
   %43 = sub nsw i32 %42, %32
   store i32 %43, ptr %41, align 4, !tbaa !30
-  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %.ptr42, i32 noundef %39, ptr noundef %2, ptr noundef %3)
+  call fastcc void @decSetCoeff(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %.ptr, i32 noundef %39, ptr noundef %2, ptr noundef %3)
   %44 = load i32, ptr %2, align 4, !tbaa !16
   call fastcc void @decApplyRound(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %44, ptr noundef %3)
   %45 = load i32, ptr %3, align 4, !tbaa !16
@@ -15661,11 +15661,11 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %52
-  %57 = load i16, ptr %.ptr42, align 2, !tbaa !11
+  %57 = load i16, ptr %.ptr, align 2, !tbaa !11
   %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @DECPOWERS, i64 4), align 4, !tbaa !16
   %59 = trunc i32 %58 to i16
   %60 = mul i16 %57, %59
-  store i16 %60, ptr %.ptr42, align 2, !tbaa !11
+  store i16 %60, ptr %.ptr, align 2, !tbaa !11
   br label %decShiftToMost.exit
 
 61:                                               ; preds = %52
@@ -15676,9 +15676,9 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %63 = add nuw nsw i32 %53, 2
   %64 = udiv i32 %63, 3
   %65 = shl nuw nsw i32 %64, 1
-  %.idx47 = zext nneg i32 %65 to i64
-  %.add48 = add nuw nsw i64 %.idx47, 10
-  %.add4149 = add nuw nsw i64 %.idx47, 8
+  %.idx51 = zext nneg i32 %65 to i64
+  %.add4652 = add nuw nsw i64 %.idx51, 10
+  %.add53 = add nuw nsw i64 %.idx51, 8
   br label %78
 
 66:                                               ; preds = %61
@@ -15688,8 +15688,8 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 1
   %.idx = zext nneg i32 %71 to i64
-  %.add = add nuw nsw i64 %.idx, 10
-  %.add41 = add nuw nsw i64 %.idx, 8
+  %.add46 = add nuw nsw i64 %.idx, 10
+  %.add = add nuw nsw i64 %.idx, 8
   %72 = icmp samesign ult i32 %54, 50
   br i1 %72, label %73, label %78
 
@@ -15701,20 +15701,20 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br label %82
 
 78:                                               ; preds = %.thread, %66
-  %.add4153 = phi i64 [ %.add4149, %.thread ], [ %.add41, %66 ]
-  %.add51 = phi i64 [ %.add48, %.thread ], [ %.add, %66 ]
+  %.add57 = phi i64 [ %.add53, %.thread ], [ %.add, %66 ]
+  %.add4655 = phi i64 [ %.add4652, %.thread ], [ %.add46, %66 ]
   %79 = phi i32 [ %64, %.thread ], [ %70, %66 ]
   %80 = add nuw nsw i32 %53, 3
   %81 = udiv i32 %80, 3
   br label %82
 
 82:                                               ; preds = %78, %73
-  %.add4152 = phi i64 [ %.add41, %73 ], [ %.add4153, %78 ]
-  %.add50 = phi i64 [ %.add, %73 ], [ %.add51, %78 ]
+  %.add56 = phi i64 [ %.add, %73 ], [ %.add57, %78 ]
+  %.add4654 = phi i64 [ %.add46, %73 ], [ %.add4655, %78 ]
   %83 = phi i32 [ %70, %73 ], [ %79, %78 ]
   %84 = phi i32 [ %77, %73 ], [ %81, %78 ]
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %.ptr42, i64 %85
+  %86 = getelementptr inbounds nuw i16, ptr %.ptr, i64 %85
   %87 = getelementptr inbounds i8, ptr %86, i64 -2
   %.not78.i = icmp eq i32 %83, 0
   br i1 %.not78.i, label %.lr.ph91.i.preheader, label %.lr.ph.i
@@ -15725,9 +15725,9 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br label %90
 
 90:                                               ; preds = %101, %.lr.ph.i
-  %.281.i.idx = phi i64 [ %.add50, %.lr.ph.i ], [ %.281.i.add, %101 ]
+  %.281.i.idx = phi i64 [ %.add4654, %.lr.ph.i ], [ %.281.i.add, %101 ]
   %.16280.i = phi i32 [ 0, %.lr.ph.i ], [ %102, %101 ]
-  %.16579.i.idx = phi i64 [ %.add4152, %.lr.ph.i ], [ %.16579.i.add, %101 ]
+  %.16579.i.idx = phi i64 [ %.add56, %.lr.ph.i ], [ %.16579.i.add, %101 ]
   %.281.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.281.i.idx
   %.16579.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.16579.i.idx
   %91 = load i16, ptr %.16579.i.ptr, align 2, !tbaa !11
@@ -15759,7 +15759,7 @@ define internal fastcc void @decSetSubnormal(ptr noundef %0, ptr noundef readonl
   br i1 %.not7588.i, label %decShiftToMost.exit, label %.lr.ph91.i.preheader
 
 .lr.ph91.i.preheader:                             ; preds = %82, %.loopexit76.i
-  %.390.i.idx.ph = phi i64 [ %.add50, %82 ], [ %.281.i.add, %.loopexit76.i ]
+  %.390.i.idx.ph = phi i64 [ %.add4654, %82 ], [ %.281.i.add, %.loopexit76.i ]
   %.26389.i.ph = phi i16 [ 0, %82 ], [ %103, %.loopexit76.i ]
   br label %.lr.ph91.i
 
@@ -15779,7 +15779,7 @@ decShiftToMost.exit:                              ; preds = %.lr.ph91.i, %56, %.
   br label %105
 
 105:                                              ; preds = %decShiftToMost.exit, %49
-  %106 = load i16, ptr %.ptr42, align 2, !tbaa !11
+  %106 = load i16, ptr %.ptr, align 2, !tbaa !11
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %108, label %119
 

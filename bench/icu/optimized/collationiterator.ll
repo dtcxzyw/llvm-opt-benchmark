@@ -4472,7 +4472,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit85:      ; preds = %.thread92, %.thread
   %324 = icmp sgt i32 %323, 1
   br i1 %324, label %.lr.ph.preheader, label %.thread88
 
-.lr.ph.preheader:                                 ; preds = %.loopexit99
+.lr.ph.preheader:; preds = %.loopexit99
   %325 = load ptr, ptr %5, align 8, !tbaa !3
   %326 = zext nneg i32 %323 to i64
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 %326

@@ -4075,7 +4075,7 @@ define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr noundef non
   %23 = icmp sgt i64 %strlen, 1
   br i1 %23, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %20
+.lr.ph.preheader:; preds = %20
   %strchr = getelementptr inbounds nuw i8, ptr %22, i64 %strlen
   %24 = getelementptr inbounds i8, ptr %strchr, i64 -1
   br label %.lr.ph
@@ -5048,7 +5048,7 @@ define internal fastcc range(i32 0, 2) i32 @boundaryStart(ptr noundef %0, ptr no
 
 11:                                               ; preds = %9
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
-  %.not8097 = icmp slt i64 %12, 1
+  %.not79 = icmp slt i64 %12, 1
   br i1 %.not8097, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %11

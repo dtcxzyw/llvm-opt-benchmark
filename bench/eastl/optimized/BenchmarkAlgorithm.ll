@@ -9481,17 +9481,17 @@ lpad9:                                            ; preds = %invoke.cont7
   br label %ehcleanup
 
 lpad17.loopexit:                                  ; preds = %if.then, %invoke.cont25, %invoke.cont27, %_ZSt7reverseISt14_List_iteratorI10TestObjectEEvT_S3_.exit.i, %_ZN5eastl7reverseINS_12ListIteratorI10TestObjectPS2_RS2_EEEEvT_S6_.exit.i, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIP10TestObjectSt6vectorIS2_SaIS2_EEEEEvT_S8_.exit.i, %_ZN5eastl7reverseIP10TestObjectEEvT_S3_.exit.i
-  %lpad.loopexit1651 = landingpad { ptr, i32 }
+  %lpad.loopexit1650 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17.loopexit.split-lp:                         ; preds = %if.then43, %invoke.cont46, %invoke.cont48
-  %lpad.loopexit.split-lp1652 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp1651 = landingpad { ptr, i32 }
           cleanup
   br label %lpad17
 
 lpad17:                                           ; preds = %lpad17.loopexit.split-lp, %lpad17.loopexit
-  %lpad.phi1653 = phi { ptr, i32 } [ %lpad.loopexit1651, %lpad17.loopexit ], [ %lpad.loopexit.split-lp1652, %lpad17.loopexit.split-lp ]
+  %lpad.phi1652 = phi { ptr, i32 } [ %lpad.loopexit1650, %lpad17.loopexit ], [ %lpad.loopexit.split-lp1651, %lpad17.loopexit.split-lp ]
   call void @_ZN5eastl6vectorI10TestObjectNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %eaVectorTO) #9
   br label %ehcleanup
 
@@ -9967,7 +9967,7 @@ invoke.cont64:                                    ; preds = %invoke.cont61
           to label %invoke.cont81 unwind label %lpad79
 
 ehcleanup:                                        ; preds = %lpad17, %lpad9
-  %.pn110 = phi { ptr, i32 } [ %lpad.phi1653, %lpad17 ], [ %45, %lpad9 ]
+  %.pn110 = phi { ptr, i32 } [ %lpad.phi1652, %lpad17 ], [ %45, %lpad9 ]
   call void @_ZNSt6vectorI10TestObjectSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %stdVectorTO) #9
   br label %ehcleanup52
 
@@ -10409,20 +10409,20 @@ for.body.i439.preheader:                          ; preds = %invoke.cont217
   br label %for.body.i439
 
 for.body.i439:                                    ; preds = %for.body.i439.preheader, %_ZN10TestObjectD2Ev.exit.i451
-  %inc3.i.i4521569 = phi i64 [ %inc3.i.i452, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject12sTODtorCountE.promoted, %for.body.i439.preheader ]
-  %inc.i5.i4501568 = phi i32 [ %inc.i5.i4501567, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted, %for.body.i439.preheader ]
-  %inc.i1.i4441566 = phi i64 [ %inc.i1.i444, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject18sTOMoveAssignCountE.promoted, %for.body.i439.preheader ]
-  %inc4.i.i.i4431565 = phi i64 [ %inc4.i.i.i443, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject19sTODefaultCtorCountE.promoted, %for.body.i439.preheader ]
-  %inc3.i.i.i4421564 = phi i64 [ %inc3.i.i.i442, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject12sTOCtorCountE.promoted, %for.body.i439.preheader ]
+  %inc3.i.i4521568 = phi i64 [ %inc3.i.i452, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject12sTODtorCountE.promoted, %for.body.i439.preheader ]
+  %inc.i5.i4501567 = phi i32 [ %inc.i5.i4501566, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted, %for.body.i439.preheader ]
+  %inc.i1.i4441565 = phi i64 [ %inc.i1.i444, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject18sTOMoveAssignCountE.promoted, %for.body.i439.preheader ]
+  %inc4.i.i.i4431564 = phi i64 [ %inc4.i.i.i443, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject19sTODefaultCtorCountE.promoted, %for.body.i439.preheader ]
+  %inc3.i.i.i4421563 = phi i64 [ %inc3.i.i.i442, %_ZN10TestObjectD2Ev.exit.i451 ], [ %_ZN10TestObject12sTOCtorCountE.promoted, %for.body.i439.preheader ]
   %agg.tmp218.sroa.0.0 = phi ptr [ %155, %_ZN10TestObjectD2Ev.exit.i451 ], [ %153, %for.body.i439.preheader ]
   %generator.sroa.0.07.i = phi i32 [ %inc.i.i440, %_ZN10TestObjectD2Ev.exit.i451 ], [ 0, %for.body.i439.preheader ]
   %inc.i.i440 = add nuw nsw i32 %generator.sroa.0.07.i, 1
   store i64 %inc.i.i.i441, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !125
-  %inc3.i.i.i442 = add nsw i64 %inc3.i.i.i4421564, 1
+  %inc3.i.i.i442 = add nsw i64 %inc3.i.i.i4421563, 1
   store i64 %inc3.i.i.i442, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !125
-  %inc4.i.i.i443 = add nsw i64 %inc4.i.i.i4431565, 1
+  %inc4.i.i.i443 = add nsw i64 %inc4.i.i.i4431564, 1
   store i64 %inc4.i.i.i443, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !125
-  %inc.i1.i444 = add nsw i64 %inc.i1.i4441566, 1
+  %inc.i1.i444 = add nsw i64 %inc.i1.i4441565, 1
   store i64 %inc.i1.i444, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %mValue.i.i445 = getelementptr inbounds nuw i8, ptr %agg.tmp218.sroa.0.0, i64 16
   store i32 %generator.sroa.0.07.i, ptr %mValue.i.i445, align 4
@@ -10435,14 +10435,14 @@ for.body.i439:                                    ; preds = %for.body.i439.prehe
   br i1 %cmp.not.i3.i448, label %_ZN10TestObjectD2Ev.exit.i451, label %if.then.i4.i449
 
 if.then.i4.i449:                                  ; preds = %for.body.i439
-  %inc.i5.i450 = add nsw i32 %inc.i5.i4501568, 1
+  %inc.i5.i450 = add nsw i32 %inc.i5.i4501567, 1
   store i32 %inc.i5.i450, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN10TestObjectD2Ev.exit.i451
 
 _ZN10TestObjectD2Ev.exit.i451:                    ; preds = %if.then.i4.i449, %for.body.i439
-  %inc.i5.i4501567 = phi i32 [ %inc.i5.i450, %if.then.i4.i449 ], [ %inc.i5.i4501568, %for.body.i439 ]
+  %inc.i5.i4501566 = phi i32 [ %inc.i5.i450, %if.then.i4.i449 ], [ %inc.i5.i4501567, %for.body.i439 ]
   store i64 %_ZN10TestObject8sTOCountE.promoted, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i.i452 = add nsw i64 %inc3.i.i4521569, 1
+  %inc3.i.i452 = add nsw i64 %inc3.i.i4521568, 1
   store i64 %inc3.i.i452, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %155 = load ptr, ptr %agg.tmp218.sroa.0.0, align 8
   %cmp.i.not.i453 = icmp eq ptr %155, %eaListTOLarge
@@ -10488,13 +10488,13 @@ for.body.lr.ph.i476:                              ; preds = %for.inc.i.i.i.i.i45
   store i64 %157, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %_M_finish.i.i7.i471 = getelementptr inbounds nuw i8, ptr %stdVectorTOLarge, i64 8
   store ptr %incdec.ptr.i.i.i.i.i468, ptr %_M_finish.i.i7.i471, align 8
-  %_ZN10TestObject18sTOMoveAssignCountE.promoted1574 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %_ZN10TestObject16sMagicErrorCountE.promoted1576 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %_ZN10TestObject12sTODtorCountE.promoted1579 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %_ZN10TestObject18sTOMoveAssignCountE.promoted1573 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %_ZN10TestObject16sMagicErrorCountE.promoted1575 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %_ZN10TestObject12sTODtorCountE.promoted1578 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %for.body.i478
 
 for.body.i478:                                    ; preds = %_ZN10TestObjectD2Ev.exit.i489, %for.body.lr.ph.i476
-  %inc.i5.i4881578 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted1576, %for.body.lr.ph.i476 ], [ %inc.i5.i4881577, %_ZN10TestObjectD2Ev.exit.i489 ]
+  %inc.i5.i4881577 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted1575, %for.body.lr.ph.i476 ], [ %inc.i5.i4881576, %_ZN10TestObjectD2Ev.exit.i489 ]
   %generator.sroa.0.010.i = phi i32 [ 0, %for.body.lr.ph.i476 ], [ %inc.i.i480, %_ZN10TestObjectD2Ev.exit.i489 ]
   %first.sroa.0.09.i = phi ptr [ %call5.i.i.i.i2.i.i473, %for.body.lr.ph.i476 ], [ %incdec.ptr.i.i492, %_ZN10TestObjectD2Ev.exit.i489 ]
   %inc.i.i480 = add nuw nsw i32 %generator.sroa.0.010.i, 1
@@ -10508,21 +10508,21 @@ for.body.i478:                                    ; preds = %_ZN10TestObjectD2Ev
   br i1 %cmp.not.i3.i486, label %_ZN10TestObjectD2Ev.exit.i489, label %if.then.i4.i487
 
 if.then.i4.i487:                                  ; preds = %for.body.i478
-  %inc.i5.i488 = add nsw i32 %inc.i5.i4881578, 1
+  %inc.i5.i488 = add nsw i32 %inc.i5.i4881577, 1
   store i32 %inc.i5.i488, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN10TestObjectD2Ev.exit.i489
 
 _ZN10TestObjectD2Ev.exit.i489:                    ; preds = %if.then.i4.i487, %for.body.i478
-  %inc.i5.i4881577 = phi i32 [ %inc.i5.i488, %if.then.i4.i487 ], [ %inc.i5.i4881578, %for.body.i478 ]
+  %inc.i5.i4881576 = phi i32 [ %inc.i5.i488, %if.then.i4.i487 ], [ %inc.i5.i4881577, %for.body.i478 ]
   %incdec.ptr.i.i492 = getelementptr inbounds nuw i8, ptr %first.sroa.0.09.i, i64 24
   %cmp.i.not.i493 = icmp eq ptr %first.sroa.0.09.i, %__cur.08.i.i.i.i.i461
   br i1 %cmp.i.not.i493, label %invoke.cont241, label %for.body.i478, !llvm.loop !129
 
 invoke.cont241:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i489
-  %159 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1579, 10000
+  %159 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1578, 10000
   %160 = add i64 %_ZN10TestObject12sTOCtorCountE.promoted.i457, 20000
   %161 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i458, 20000
-  %162 = add i64 %_ZN10TestObject18sTOMoveAssignCountE.promoted1574, 10000
+  %162 = add i64 %_ZN10TestObject18sTOMoveAssignCountE.promoted1573, 10000
   store i64 %156, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %160, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !130
   store i64 %161, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !130
@@ -10720,30 +10720,30 @@ invoke.cont271:                                   ; preds = %invoke.cont268
   br i1 %cmp.i.not6.i580, label %invoke.cont278, label %for.body.i581.preheader
 
 for.body.i581.preheader:                          ; preds = %invoke.cont271
-  %_ZN10TestObject8sTOCountE.promoted1581 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %_ZN10TestObject12sTOCtorCountE.promoted1582 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !143
-  %_ZN10TestObject19sTODefaultCtorCountE.promoted1584 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !143
-  %_ZN10TestObject18sTOMoveAssignCountE.promoted1586 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %_ZN10TestObject16sMagicErrorCountE.promoted1588 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %_ZN10TestObject12sTODtorCountE.promoted1591 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc.i.i.i584 = add nsw i64 %_ZN10TestObject8sTOCountE.promoted1581, 1
+  %_ZN10TestObject8sTOCountE.promoted1580 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %_ZN10TestObject12sTOCtorCountE.promoted1581 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !143
+  %_ZN10TestObject19sTODefaultCtorCountE.promoted1583 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !143
+  %_ZN10TestObject18sTOMoveAssignCountE.promoted1585 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %_ZN10TestObject16sMagicErrorCountE.promoted1587 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %_ZN10TestObject12sTODtorCountE.promoted1590 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc.i.i.i584 = add nsw i64 %_ZN10TestObject8sTOCountE.promoted1580, 1
   br label %for.body.i581
 
 for.body.i581:                                    ; preds = %for.body.i581.preheader, %_ZN10TestObjectD2Ev.exit.i594
-  %inc3.i.i5951592 = phi i64 [ %inc3.i.i595, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject12sTODtorCountE.promoted1591, %for.body.i581.preheader ]
-  %inc.i5.i5931590 = phi i32 [ %inc.i5.i5931589, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted1588, %for.body.i581.preheader ]
-  %inc.i1.i5871587 = phi i64 [ %inc.i1.i587, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject18sTOMoveAssignCountE.promoted1586, %for.body.i581.preheader ]
-  %inc4.i.i.i5861585 = phi i64 [ %inc4.i.i.i586, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject19sTODefaultCtorCountE.promoted1584, %for.body.i581.preheader ]
-  %inc3.i.i.i5851583 = phi i64 [ %inc3.i.i.i585, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject12sTOCtorCountE.promoted1582, %for.body.i581.preheader ]
+  %inc3.i.i5951591 = phi i64 [ %inc3.i.i595, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject12sTODtorCountE.promoted1590, %for.body.i581.preheader ]
+  %inc.i5.i5931589 = phi i32 [ %inc.i5.i5931588, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject16sMagicErrorCountE.promoted1587, %for.body.i581.preheader ]
+  %inc.i1.i5871586 = phi i64 [ %inc.i1.i587, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject18sTOMoveAssignCountE.promoted1585, %for.body.i581.preheader ]
+  %inc4.i.i.i5861584 = phi i64 [ %inc4.i.i.i586, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject19sTODefaultCtorCountE.promoted1583, %for.body.i581.preheader ]
+  %inc3.i.i.i5851582 = phi i64 [ %inc3.i.i.i585, %_ZN10TestObjectD2Ev.exit.i594 ], [ %_ZN10TestObject12sTOCtorCountE.promoted1581, %for.body.i581.preheader ]
   %agg.tmp272.sroa.0.0 = phi ptr [ %184, %_ZN10TestObjectD2Ev.exit.i594 ], [ %182, %for.body.i581.preheader ]
   %generator.sroa.0.07.i582 = phi i32 [ %inc.i.i583, %_ZN10TestObjectD2Ev.exit.i594 ], [ 0, %for.body.i581.preheader ]
   %inc.i.i583 = add nuw nsw i32 %generator.sroa.0.07.i582, 1
   store i64 %inc.i.i.i584, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !143
-  %inc3.i.i.i585 = add nsw i64 %inc3.i.i.i5851583, 1
+  %inc3.i.i.i585 = add nsw i64 %inc3.i.i.i5851582, 1
   store i64 %inc3.i.i.i585, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !143
-  %inc4.i.i.i586 = add nsw i64 %inc4.i.i.i5861585, 1
+  %inc4.i.i.i586 = add nsw i64 %inc4.i.i.i5861584, 1
   store i64 %inc4.i.i.i586, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !143
-  %inc.i1.i587 = add nsw i64 %inc.i1.i5871587, 1
+  %inc.i1.i587 = add nsw i64 %inc.i1.i5871586, 1
   store i64 %inc.i1.i587, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %mValue.i.i588 = getelementptr inbounds nuw i8, ptr %agg.tmp272.sroa.0.0, i64 16
   store i32 %generator.sroa.0.07.i582, ptr %mValue.i.i588, align 4
@@ -10756,14 +10756,14 @@ for.body.i581:                                    ; preds = %for.body.i581.prehe
   br i1 %cmp.not.i3.i591, label %_ZN10TestObjectD2Ev.exit.i594, label %if.then.i4.i592
 
 if.then.i4.i592:                                  ; preds = %for.body.i581
-  %inc.i5.i593 = add nsw i32 %inc.i5.i5931590, 1
+  %inc.i5.i593 = add nsw i32 %inc.i5.i5931589, 1
   store i32 %inc.i5.i593, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN10TestObjectD2Ev.exit.i594
 
 _ZN10TestObjectD2Ev.exit.i594:                    ; preds = %if.then.i4.i592, %for.body.i581
-  %inc.i5.i5931589 = phi i32 [ %inc.i5.i593, %if.then.i4.i592 ], [ %inc.i5.i5931590, %for.body.i581 ]
-  store i64 %_ZN10TestObject8sTOCountE.promoted1581, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i.i595 = add nsw i64 %inc3.i.i5951592, 1
+  %inc.i5.i5931588 = phi i32 [ %inc.i5.i593, %if.then.i4.i592 ], [ %inc.i5.i5931589, %for.body.i581 ]
+  store i64 %_ZN10TestObject8sTOCountE.promoted1580, ptr @_ZN10TestObject8sTOCountE, align 8
+  %inc3.i.i595 = add nsw i64 %inc3.i.i5951591, 1
   store i64 %inc3.i.i595, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %184 = load ptr, ptr %agg.tmp272.sroa.0.0, align 8
   %cmp.i.not.i596 = icmp eq ptr %184, %eaListTOSmall
@@ -10809,13 +10809,13 @@ for.body.lr.ph.i621:                              ; preds = %for.inc.i.i.i.i.i60
   store i64 %186, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %_M_finish.i.i7.i615 = getelementptr inbounds nuw i8, ptr %stdVectorTOSmall, i64 8
   store ptr %incdec.ptr.i.i.i.i.i612, ptr %_M_finish.i.i7.i615, align 8
-  %_ZN10TestObject18sTOMoveAssignCountE.promoted1597 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %_ZN10TestObject16sMagicErrorCountE.promoted1599 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
-  %_ZN10TestObject12sTODtorCountE.promoted1602 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %_ZN10TestObject18sTOMoveAssignCountE.promoted1596 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %_ZN10TestObject16sMagicErrorCountE.promoted1598 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
+  %_ZN10TestObject12sTODtorCountE.promoted1601 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %for.body.i623
 
 for.body.i623:                                    ; preds = %_ZN10TestObjectD2Ev.exit.i636, %for.body.lr.ph.i621
-  %inc.i5.i6351601 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted1599, %for.body.lr.ph.i621 ], [ %inc.i5.i6351600, %_ZN10TestObjectD2Ev.exit.i636 ]
+  %inc.i5.i6351600 = phi i32 [ %_ZN10TestObject16sMagicErrorCountE.promoted1598, %for.body.lr.ph.i621 ], [ %inc.i5.i6351599, %_ZN10TestObjectD2Ev.exit.i636 ]
   %generator.sroa.0.010.i625 = phi i32 [ 0, %for.body.lr.ph.i621 ], [ %inc.i.i627, %_ZN10TestObjectD2Ev.exit.i636 ]
   %first.sroa.0.09.i626 = phi ptr [ %call5.i.i.i.i2.i.i617, %for.body.lr.ph.i621 ], [ %incdec.ptr.i.i639, %_ZN10TestObjectD2Ev.exit.i636 ]
   %inc.i.i627 = add nuw nsw i32 %generator.sroa.0.010.i625, 1
@@ -10829,21 +10829,21 @@ for.body.i623:                                    ; preds = %_ZN10TestObjectD2Ev
   br i1 %cmp.not.i3.i633, label %_ZN10TestObjectD2Ev.exit.i636, label %if.then.i4.i634
 
 if.then.i4.i634:                                  ; preds = %for.body.i623
-  %inc.i5.i635 = add nsw i32 %inc.i5.i6351601, 1
+  %inc.i5.i635 = add nsw i32 %inc.i5.i6351600, 1
   store i32 %inc.i5.i635, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   br label %_ZN10TestObjectD2Ev.exit.i636
 
 _ZN10TestObjectD2Ev.exit.i636:                    ; preds = %if.then.i4.i634, %for.body.i623
-  %inc.i5.i6351600 = phi i32 [ %inc.i5.i635, %if.then.i4.i634 ], [ %inc.i5.i6351601, %for.body.i623 ]
+  %inc.i5.i6351599 = phi i32 [ %inc.i5.i635, %if.then.i4.i634 ], [ %inc.i5.i6351600, %for.body.i623 ]
   %incdec.ptr.i.i639 = getelementptr inbounds nuw i8, ptr %first.sroa.0.09.i626, i64 24
   %cmp.i.not.i640 = icmp eq ptr %first.sroa.0.09.i626, %__cur.08.i.i.i.i.i605
   br i1 %cmp.i.not.i640, label %invoke.cont295, label %for.body.i623, !llvm.loop !129
 
 invoke.cont295:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i636
-  %188 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1602, 10
+  %188 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1601, 10
   %189 = add i64 %_ZN10TestObject12sTOCtorCountE.promoted.i601, 20
   %190 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i602, 20
-  %191 = add i64 %_ZN10TestObject18sTOMoveAssignCountE.promoted1597, 10
+  %191 = add i64 %_ZN10TestObject18sTOMoveAssignCountE.promoted1596, 10
   store i64 %185, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %189, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !146
   store i64 %190, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !146

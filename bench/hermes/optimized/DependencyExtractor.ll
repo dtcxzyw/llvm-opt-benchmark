@@ -2840,8 +2840,8 @@ _ZSt6all_ofIPKjPFbjEEbT_S4_T0_.exit:              ; preds = %for.body.i.i.i.i, %
 define linkonce_odr hidden void @_ZN6hermes5regex13MatchCharNode15reverseChildrenEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i32, ptr %Size.i, align 8
-  %cmp19.i.i = icmp ugt i32 %0, 1
+  %1 = load i32, ptr %Size.i, align 8
+  %cmp19.i.i = icmp ugt i32 %1, 1
   br i1 %cmp19.i.i, label %while.body.i.i.preheader, label %_ZSt7reverseIPjEvT_S1_.exit
 
 while.body.i.i.preheader:                         ; preds = %entry

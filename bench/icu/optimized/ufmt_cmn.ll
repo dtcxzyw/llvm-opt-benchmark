@@ -133,7 +133,7 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
   %29 = icmp sgt i32 %.1, 1
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.critedge
+.lr.ph.preheader:; preds = %.critedge
   %30 = zext nneg i32 %.1 to i64
   %31 = getelementptr inbounds nuw i16, ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -2

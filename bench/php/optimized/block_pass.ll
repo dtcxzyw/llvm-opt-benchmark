@@ -708,14 +708,14 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
 
 339:                                              ; preds = %335, %326
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.0.i150.i, ptr readonly align 8 %.0.i95, i64 %130, i1 false)
-  br label %.lr.ph177.preheader.i
+  br label %zend_bitset_union.exit.i
 
 340:                                              ; preds = %335
   %341 = getelementptr inbounds nuw i8, ptr %316, i64 20
   %342 = load i32, ptr %341, align 4, !tbaa !102
   %343 = icmp slt i32 %342, 2
   %or.cond152.i = or i1 %.not.i151.i, %343
-  br i1 %or.cond152.i, label %.lr.ph177.preheader.i, label %.lr.ph.i.i
+  br i1 %or.cond152.i, label %zend_bitset_union.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %340, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %340 ]
@@ -727,13 +727,13 @@ zend_arena_alloc.exit.i:                          ; preds = %138, %136
   store i64 %348, ptr %346, align 8, !tbaa !96
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %129
-  br i1 %exitcond.not.i.i, label %.lr.ph177.preheader.i, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %zend_bitset_union.exit.i, label %.lr.ph.i.i
 
-.lr.ph177.preheader.i:                            ; preds = %.lr.ph.i.i, %340, %339
+zend_bitset_union.exit.i:                         ; preds = %.lr.ph.i.i, %340, %339
   %.1128173.i = getelementptr inbounds i8, ptr %334, i64 -32
   br label %.lr.ph177.i
 
-.lr.ph177.i:                                      ; preds = %456, %.lr.ph177.preheader.i
+.lr.ph177.i:                                      ; preds = %456, %zend_bitset_union.exit.i
   %.1128176.i = phi ptr [ %.1128.i, %456 ], [ %.1128173.i, %.lr.ph177.preheader.i ]
   %.pn175.i = phi ptr [ %.1128176.i, %456 ], [ %334, %.lr.ph177.preheader.i ]
   %349 = getelementptr inbounds i8, ptr %.pn175.i, i64 -1

@@ -213568,9 +213568,9 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   %27 = load i8, ptr %26, align 1, !tbaa !46
   switch i8 %27, label %64 [
     i8 0, label %28
-    i8 1, label %37
-    i8 2, label %46
-    i8 3, label %55
+    i8 1, label %38
+    i8 2, label %48
+    i8 3, label %58
   ]
 
 28:                                               ; preds = %23
@@ -213587,29 +213587,29 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
   %.05478 = phi ptr [ %.054, %.lr.ph79 ], [ %.05476, %.lr.ph79.preheader ]
-  %.05577 = phi ptr [ %35, %.lr.ph79 ], [ %30, %.lr.ph79.preheader ]
-  %33 = load i8, ptr %.05577, align 1, !tbaa !46
+  %.05478 = phi ptr [ %35, %.lr.ph79 ], [ %30, %.lr.ph79.preheader ]
+  %33 = load i8, ptr %.05478, align 1, !tbaa !46
   %34 = load i8, ptr %.05478, align 1, !tbaa !46
-  %35 = getelementptr inbounds nuw i8, ptr %.05577, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.05478, i64 1
   store i8 %34, ptr %.05577, align 1, !tbaa !46
   store i8 %33, ptr %.05478, align 1, !tbaa !46
   %.054 = getelementptr inbounds i8, ptr %.05478, i64 -1
-  %36 = icmp ult ptr %35, %.054
-  br i1 %36, label %.lr.ph79, label %JS_DupValue.exit, !llvm.loop !1302
+  %37 = icmp ult ptr %35, %.054
+  br i1 %37, label %.lr.ph79, label %JS_DupValue.exit, !llvm.loop !1302
 
-37:                                               ; preds = %23
+38:                                               ; preds = %23
   %.not82 = icmp eq i32 %20, 1
   br i1 %.not82, label %JS_DupValue.exit, label %.lr.ph75.preheader
 
-.lr.ph75.preheader:                               ; preds = %37
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %39 = load ptr, ptr %38, align 8, !tbaa !46
+.lr.ph75.preheader:; preds = %37
+  %.05272 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %39 = load ptr, ptr %.05272, align 8, !tbaa !46
   %40 = zext nneg i32 %20 to i64
   %41 = getelementptr inbounds nuw i16, ptr %39, i64 %40
   %.05272 = getelementptr inbounds i8, ptr %41, i64 -2
   br label %.lr.ph75
 
-.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
+.lr.ph75:; preds = %.lr.ph75.preheader, %.lr.ph75
   %.05274 = phi ptr [ %.052, %.lr.ph75 ], [ %.05272, %.lr.ph75.preheader ]
   %.05373 = phi ptr [ %44, %.lr.ph75 ], [ %39, %.lr.ph75.preheader ]
   %42 = load i16, ptr %.05373, align 2, !tbaa !253
@@ -213618,22 +213618,22 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   store i16 %43, ptr %.05373, align 2, !tbaa !253
   store i16 %42, ptr %.05274, align 2, !tbaa !253
   %.052 = getelementptr inbounds i8, ptr %.05274, i64 -2
-  %45 = icmp ult ptr %44, %.052
-  br i1 %45, label %.lr.ph75, label %JS_DupValue.exit, !llvm.loop !1303
+  %47 = icmp ult ptr %44, %.052
+  br i1 %47, label %.lr.ph75, label %JS_DupValue.exit, !llvm.loop !1303
 
-46:                                               ; preds = %23
+48:                                               ; preds = %23
   %.not81 = icmp eq i32 %20, 1
   br i1 %.not81, label %JS_DupValue.exit, label %.lr.ph71.preheader
 
-.lr.ph71.preheader:                               ; preds = %46
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %48 = load ptr, ptr %47, align 8, !tbaa !46
+.lr.ph71.preheader:; preds = %46
+  %.05068 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %48 = load ptr, ptr %.05068, align 8, !tbaa !46
   %49 = zext nneg i32 %20 to i64
   %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
   %.05068 = getelementptr inbounds i8, ptr %50, i64 -4
   br label %.lr.ph71
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %.lr.ph71
+.lr.ph71:; preds = %.lr.ph71.preheader, %.lr.ph71
   %.05070 = phi ptr [ %.050, %.lr.ph71 ], [ %.05068, %.lr.ph71.preheader ]
   %.05169 = phi ptr [ %53, %.lr.ph71 ], [ %48, %.lr.ph71.preheader ]
   %51 = load i32, ptr %.05169, align 4, !tbaa !67
@@ -213642,22 +213642,22 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   store i32 %52, ptr %.05169, align 4, !tbaa !67
   store i32 %51, ptr %.05070, align 4, !tbaa !67
   %.050 = getelementptr inbounds i8, ptr %.05070, i64 -4
-  %54 = icmp ult ptr %53, %.050
-  br i1 %54, label %.lr.ph71, label %JS_DupValue.exit, !llvm.loop !1304
+  %57 = icmp ult ptr %53, %.050
+  br i1 %57, label %.lr.ph71, label %JS_DupValue.exit, !llvm.loop !1304
 
-55:                                               ; preds = %23
+58:                                               ; preds = %23
   %.not80 = icmp eq i32 %20, 1
   br i1 %.not80, label %JS_DupValue.exit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %55
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 56
+.lr.ph.preheader:; preds = %55
+  %.065 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !46
   %58 = zext nneg i32 %20 to i64
   %59 = getelementptr inbounds nuw i64, ptr %57, i64 %58
   %.065 = getelementptr inbounds i8, ptr %59, i64 -8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph:; preds = %.lr.ph.preheader, %.lr.ph
   %.067 = phi ptr [ %.0, %.lr.ph ], [ %.065, %.lr.ph.preheader ]
   %.04966 = phi ptr [ %62, %.lr.ph ], [ %57, %.lr.ph.preheader ]
   %60 = load i64, ptr %.04966, align 8, !tbaa !45
@@ -213666,17 +213666,17 @@ js_typed_array_get_length_internal.exit:          ; preds = %get_typed_array.exi
   store i64 %61, ptr %.04966, align 8, !tbaa !45
   store i64 %60, ptr %.067, align 8, !tbaa !45
   %.0 = getelementptr inbounds i8, ptr %.067, i64 -8
-  %63 = icmp ult ptr %62, %.0
-  br i1 %63, label %.lr.ph, label %JS_DupValue.exit, !llvm.loop !1305
+  %67 = icmp ult ptr %62, %.0
+  br i1 %67, label %.lr.ph, label %JS_DupValue.exit, !llvm.loop !1305
 
-64:                                               ; preds = %23
+68:                                               ; preds = %23
   tail call void @abort() #44
   unreachable
 
-JS_DupValue.exit:                                 ; preds = %.lr.ph, %.lr.ph71, %.lr.ph75, %.lr.ph79, %55, %46, %37, %28, %22
-  %65 = load i32, ptr %7, align 4, !tbaa !107
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %7, align 4, !tbaa !107
+JS_DupValue.exit:                                 ; preds = %.lr.ph, %.lr.ph71, %.lr.ph75, %.lr.ph79, %58, %48, %38, %28, %22
+  %69 = load i32, ptr %7, align 4, !tbaa !107
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %7, align 4, !tbaa !107
   br label %js_typed_array_get_length_internal.exit.thread
 
 js_typed_array_get_length_internal.exit.thread:   ; preds = %get_typed_array.exit.thread.i, %17, %js_typed_array_get_length_internal.exit, %JS_DupValue.exit

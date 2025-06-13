@@ -57972,8 +57972,8 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   store double %33, ptr %31, align 1
   %34 = getelementptr inbounds nuw i8, ptr %.150, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %.not = icmp ugt ptr %34, %6
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !353
+  %.not55 = icmp ugt ptr %34, %6
+  br i1 %.not55, label %.loopexit, label %.preheader, !llvm.loop !353
 
 .loopexit:                                        ; preds = %.preheader, %2
   %36 = phi ptr [ %9, %2 ], [ %.150, %.preheader ]
@@ -57982,20 +57982,20 @@ define internal void @stbir__fancy_alpha_weight_2ch(ptr noundef %0, i32 noundef 
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.256 = phi ptr [ %44, %.lr.ph ], [ %.0, %.loopexit ]
-  %.25155 = phi ptr [ %45, %.lr.ph ], [ %36, %.loopexit ]
-  %38 = load float, ptr %.25155, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.25155, i64 4
+  %.257 = phi ptr [ %44, %.lr.ph ], [ %.0, %.loopexit ]
+  %.25156 = phi ptr [ %45, %.lr.ph ], [ %36, %.loopexit ]
+  %38 = load float, ptr %.25156, align 4
+  %39 = getelementptr inbounds nuw i8, ptr %.25156, i64 4
   %40 = load float, ptr %39, align 4
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25155) #54, !srcloc !354
-  store float %38, ptr %.256, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.256, i64 4
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.25156) #54, !srcloc !354
+  store float %38, ptr %.257, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %.257, i64 4
   store float %40, ptr %41, align 4
   %42 = fmul float %38, %40
-  %43 = getelementptr inbounds nuw i8, ptr %.256, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.257, i64 8
   store float %42, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.256, i64 12
-  %45 = getelementptr inbounds nuw i8, ptr %.25155, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.257, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %.25156, i64 8
   %46 = icmp ult ptr %45, %6
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !355
 

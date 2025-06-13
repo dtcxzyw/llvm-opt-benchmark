@@ -73,7 +73,7 @@ for.end:                                          ; preds = %_ZN6hermes2vm7GCSco
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm7GCScope4markERNS0_12RootAcceptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) local_unnamed_addr #0 align 2 {
-for.body.lr.ph:
+entry:
   %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %chunks_, align 8
   %curChunkIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 208

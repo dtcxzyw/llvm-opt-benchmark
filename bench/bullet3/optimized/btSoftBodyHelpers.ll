@@ -347,9 +347,9 @@ define dso_local void @_ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi
 
 139:                                              ; preds = %.lr.ph1363, %242
   %140 = phi i32 [ %113, %.lr.ph1363 ], [ %243, %242 ]
-  %indvars.iv1401 = phi i64 [ 0, %.lr.ph1363 ], [ %indvars.iv.next1402, %242 ]
+  %indvars.iv1399 = phi i64 [ 0, %.lr.ph1363 ], [ %indvars.iv.next1400, %242 ]
   %141 = load ptr, ptr %115, align 8, !tbaa !15
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv1401
+  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv1399
   %143 = load ptr, ptr %142, align 8, !tbaa !16
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 417
   %145 = load i8, ptr %144, align 1, !tbaa !18, !range !33, !noundef !34
@@ -398,7 +398,7 @@ define dso_local void @_ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi
   store i32 0, ptr %121, align 4, !tbaa !38
   store i32 0, ptr %122, align 8, !tbaa !39
   %167 = load ptr, ptr %115, align 8, !tbaa !15
-  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv1401
+  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv1399
   %169 = load ptr, ptr %168, align 8, !tbaa !16
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 36
   %171 = load i32, ptr %170, align 4, !tbaa !40
@@ -426,7 +426,7 @@ define dso_local void @_ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi
 .lr.ph:                                           ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next, %.lr.ph ]
   %177 = load ptr, ptr %115, align 8, !tbaa !15
-  %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv1401
+  %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv1399
   %179 = load ptr, ptr %178, align 8, !tbaa !16
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load ptr, ptr %180, align 8, !tbaa !41
@@ -469,25 +469,25 @@ define dso_local void @_ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi
 _ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader: ; preds = %._crit_edge
   %190 = load i32, ptr %137, align 4, !tbaa !52
   %191 = icmp sgt i32 %190, 0
-  br i1 %191, label %.lr.ph1360, label %.loopexit1447
+  br i1 %191, label %.lr.ph1360, label %.loopexit1445
 
-.loopexit1447:                                    ; preds = %_ZN20btConvexHullComputer7computeEPKfiiff.exit, %_ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader
+.loopexit1445:                                    ; preds = %_ZN20btConvexHullComputer7computeEPKfiiff.exit, %_ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader
   call void @_ZN20btConvexHullComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %45) #27
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %45) #27
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %188)
           to label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit unwind label %192
 
-192:                                              ; preds = %.loopexit1447
+192:                                              ; preds = %.loopexit1445
   %193 = landingpad { ptr, i32 }
           catch ptr null
   %194 = extractvalue { ptr, i32 } %193, 0
   call void @__clang_call_terminate(ptr %194) #28
   unreachable
 
-_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %.loopexit1447
+_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %.loopexit1445
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #27
-  %.pre1439 = load i32, ptr %112, align 4, !tbaa !8
+  %.pre1437 = load i32, ptr %112, align 4, !tbaa !8
   br label %242
 
 195:                                              ; preds = %._crit_edge
@@ -497,9 +497,9 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %.loopexit1447
 
 .lr.ph1360:                                       ; preds = %_ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader, %_ZN20btConvexHullComputer7computeEPKfiiff.exit
   %197 = phi i32 [ %237, %_ZN20btConvexHullComputer7computeEPKfiiff.exit ], [ %190, %_ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader ]
-  %indvars.iv1398 = phi i64 [ %indvars.iv.next1399, %_ZN20btConvexHullComputer7computeEPKfiiff.exit ], [ 0, %_ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader ]
+  %indvars.iv1396 = phi i64 [ %indvars.iv.next1397, %_ZN20btConvexHullComputer7computeEPKfiiff.exit ], [ 0, %_ZN20btConvexHullComputer7computeEPKfiiff.exit.preheader ]
   %198 = load ptr, ptr %136, align 8, !tbaa !51
-  %199 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv1398
+  %199 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv1396
   %200 = load i32, ptr %199, align 4, !tbaa !61
   %201 = load ptr, ptr %132, align 8, !tbaa !58
   %202 = sext i32 %200 to i64
@@ -515,17 +515,17 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %.loopexit1447
   br i1 %.not2241352, label %_ZN20btConvexHullComputer7computeEPKfiiff.exit, label %.lr.ph1357.preheader
 
 .lr.ph1357.preheader:                             ; preds = %.lr.ph1360
-  %210 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %211 = load i32, ptr %210, align 4, !tbaa !65
-  %212 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %203, i64 %206, i32 2
-  %213 = load i32, ptr %212, align 4, !tbaa !65
+  %211 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %212 = load i32, ptr %211, align 4, !tbaa !65
+  %213 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %203, i64 %206, i32 2
+  %214 = load i32, ptr %213, align 4, !tbaa !65
   %214 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %207, i64 %209
   br label %.lr.ph1357
 
 .lr.ph1357:                                       ; preds = %.lr.ph1357.preheader, %227
   %.02071355 = phi ptr [ %234, %227 ], [ %214, %.lr.ph1357.preheader ]
-  %.02091354 = phi i32 [ %.02101353, %227 ], [ %213, %.lr.ph1357.preheader ]
-  %.02101353 = phi i32 [ %216, %227 ], [ %211, %.lr.ph1357.preheader ]
+  %.02091354 = phi i32 [ %.02101353, %227 ], [ %214, %.lr.ph1357.preheader ]
+  %.02101353 = phi i32 [ %216, %227 ], [ %212, %.lr.ph1357.preheader ]
   %215 = getelementptr inbounds nuw i8, ptr %.02071355, i64 8
   %216 = load i32, ptr %215, align 4, !tbaa !65
   %217 = load ptr, ptr %124, align 8, !tbaa !37
@@ -563,10 +563,10 @@ _ZN20btConvexHullComputer7computeEPKfiiff.exit.loopexit: ; preds = %227
 
 _ZN20btConvexHullComputer7computeEPKfiiff.exit:   ; preds = %_ZN20btConvexHullComputer7computeEPKfiiff.exit.loopexit, %.lr.ph1360
   %237 = phi i32 [ %.pre, %_ZN20btConvexHullComputer7computeEPKfiiff.exit.loopexit ], [ %197, %.lr.ph1360 ]
-  %indvars.iv.next1399 = add nuw nsw i64 %indvars.iv1398, 1
+  %indvars.iv.next1397 = add nuw nsw i64 %indvars.iv1396, 1
   %238 = sext i32 %237 to i64
-  %239 = icmp slt i64 %indvars.iv.next1399, %238
-  br i1 %239, label %.lr.ph1360, label %.loopexit1447, !llvm.loop !68
+  %239 = icmp slt i64 %indvars.iv.next1397, %238
+  br i1 %239, label %.lr.ph1360, label %.loopexit1445, !llvm.loop !68
 
 240:                                              ; preds = %235, %195
   %.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %236, %235 ]
@@ -589,10 +589,10 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   br label %common.resume
 
 242:                                              ; preds = %139, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit
-  %243 = phi i32 [ %140, %139 ], [ %.pre1439, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ]
-  %indvars.iv.next1402 = add nuw nsw i64 %indvars.iv1401, 1
+  %243 = phi i32 [ %140, %139 ], [ %.pre1437, %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit ]
+  %indvars.iv.next1400 = add nuw nsw i64 %indvars.iv1399, 1
   %244 = sext i32 %243 to i64
-  %245 = icmp slt i64 %indvars.iv.next1402, %244
+  %245 = icmp slt i64 %indvars.iv.next1400, %244
   br i1 %245, label %139, label %.loopexit1350, !llvm.loop !69
 
 246:                                              ; preds = %3
@@ -627,9 +627,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
 
 267:                                              ; preds = %.lr.ph1365, %320
   %268 = phi i32 [ %249, %.lr.ph1365 ], [ %321, %320 ]
-  %indvars.iv1404 = phi i64 [ 0, %.lr.ph1365 ], [ %indvars.iv.next1405, %320 ]
+  %indvars.iv1402 = phi i64 [ 0, %.lr.ph1365 ], [ %indvars.iv.next1403, %320 ]
   %269 = load ptr, ptr %251, align 8, !tbaa !73
-  %270 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %269, i64 %indvars.iv1404
+  %270 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %269, i64 %indvars.iv1402
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load ptr, ptr %271, align 8, !tbaa !74
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 20
@@ -744,14 +744,14 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #27
-  %.pre1440 = load i32, ptr %248, align 4, !tbaa !70
+  %.pre1438 = load i32, ptr %248, align 4, !tbaa !70
   br label %320
 
 320:                                              ; preds = %267, %277
-  %321 = phi i32 [ %268, %267 ], [ %.pre1440, %277 ]
-  %indvars.iv.next1405 = add nuw nsw i64 %indvars.iv1404, 1
+  %321 = phi i32 [ %268, %267 ], [ %.pre1438, %277 ]
+  %indvars.iv.next1403 = add nuw nsw i64 %indvars.iv1402, 1
   %322 = sext i32 %321 to i64
-  %323 = icmp slt i64 %indvars.iv.next1405, %322
+  %323 = icmp slt i64 %indvars.iv.next1403, %322
   br i1 %323, label %267, label %.loopexit1348, !llvm.loop !80
 
 .loopexit1348:                                    ; preds = %320, %.preheader1347, %246
@@ -771,9 +771,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
 
 329:                                              ; preds = %.lr.ph1367, %349
   %330 = phi i32 [ %326, %.lr.ph1367 ], [ %350, %349 ]
-  %indvars.iv1407 = phi i64 [ 0, %.lr.ph1367 ], [ %indvars.iv.next1408, %349 ]
+  %indvars.iv1405 = phi i64 [ 0, %.lr.ph1367 ], [ %indvars.iv.next1406, %349 ]
   %331 = load ptr, ptr %328, align 8, !tbaa !85
-  %332 = getelementptr inbounds nuw %"struct.btSoftBody::Link", ptr %331, i64 %indvars.iv1407
+  %332 = getelementptr inbounds nuw %"struct.btSoftBody::Link", ptr %331, i64 %indvars.iv1405
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8, !tbaa !74
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 20
@@ -793,14 +793,14 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 32
   %348 = load ptr, ptr %347, align 8
   call void %348(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %342, ptr noundef nonnull align 4 dereferenceable(16) %345, ptr noundef nonnull align 4 dereferenceable(16) %40)
-  %.pre1441 = load i32, ptr %325, align 4, !tbaa !81
+  %.pre1439 = load i32, ptr %325, align 4, !tbaa !81
   br label %349
 
 349:                                              ; preds = %329, %339
-  %350 = phi i32 [ %330, %329 ], [ %.pre1441, %339 ]
-  %indvars.iv.next1408 = add nuw nsw i64 %indvars.iv1407, 1
+  %350 = phi i32 [ %330, %329 ], [ %.pre1439, %339 ]
+  %indvars.iv.next1406 = add nuw nsw i64 %indvars.iv1405, 1
   %351 = sext i32 %350 to i64
-  %352 = icmp slt i64 %indvars.iv.next1408, %351
+  %352 = icmp slt i64 %indvars.iv.next1406, %351
   br i1 %352, label %329, label %.loopexit1346, !llvm.loop !86
 
 .loopexit1346:                                    ; preds = %349, %.preheader1345, %.loopexit1348
@@ -823,9 +823,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
 
 361:                                              ; preds = %.lr.ph1369, %408
   %362 = phi i32 [ %355, %.lr.ph1369 ], [ %409, %408 ]
-  %indvars.iv1410 = phi i64 [ 0, %.lr.ph1369 ], [ %indvars.iv.next1411, %408 ]
+  %indvars.iv1408 = phi i64 [ 0, %.lr.ph1369 ], [ %indvars.iv.next1409, %408 ]
   %363 = load ptr, ptr %357, align 8, !tbaa !73
-  %364 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %363, i64 %indvars.iv1410
+  %364 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %363, i64 %indvars.iv1408
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load ptr, ptr %365, align 8, !tbaa !74
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 20
@@ -894,14 +894,14 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void %407(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %381, ptr noundef nonnull align 4 dereferenceable(16) %56, ptr noundef nonnull align 4 dereferenceable(16) %57)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #27
-  %.pre1442 = load i32, ptr %354, align 4, !tbaa !70
+  %.pre1440 = load i32, ptr %354, align 4, !tbaa !70
   br label %408
 
 408:                                              ; preds = %361, %371
-  %409 = phi i32 [ %362, %361 ], [ %.pre1442, %371 ]
-  %indvars.iv.next1411 = add nuw nsw i64 %indvars.iv1410, 1
+  %409 = phi i32 [ %362, %361 ], [ %.pre1440, %371 ]
+  %indvars.iv.next1409 = add nuw nsw i64 %indvars.iv1408, 1
   %410 = sext i32 %409 to i64
-  %411 = icmp slt i64 %indvars.iv.next1411, %410
+  %411 = icmp slt i64 %indvars.iv.next1409, %410
   br i1 %411, label %361, label %.loopexit1344, !llvm.loop !87
 
 .loopexit1344:                                    ; preds = %408, %.preheader1343, %.loopexit1346
@@ -951,9 +951,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   br label %435
 
 435:                                              ; preds = %.lr.ph1372, %435
-  %indvars.iv1413 = phi i64 [ 0, %.lr.ph1372 ], [ %indvars.iv.next1414, %435 ]
+  %indvars.iv1411 = phi i64 [ 0, %.lr.ph1372 ], [ %indvars.iv.next1412, %435 ]
   %436 = load ptr, ptr %424, align 8, !tbaa !93
-  %437 = getelementptr inbounds nuw %"struct.btSoftBody::RContact", ptr %436, i64 %indvars.iv1413
+  %437 = getelementptr inbounds nuw %"struct.btSoftBody::RContact", ptr %436, i64 %indvars.iv1411
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #27
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 64
   %439 = load ptr, ptr %438, align 8, !tbaa !94
@@ -1124,10 +1124,10 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #27
-  %indvars.iv.next1414 = add nuw nsw i64 %indvars.iv1413, 1
+  %indvars.iv.next1412 = add nuw nsw i64 %indvars.iv1411, 1
   %554 = load i32, ptr %421, align 4, !tbaa !89
   %555 = sext i32 %554 to i64
-  %556 = icmp slt i64 %indvars.iv.next1414, %555
+  %556 = icmp slt i64 %indvars.iv.next1412, %555
   br i1 %556, label %435, label %.loopexit1342, !llvm.loop !104
 
 .loopexit1342:                                    ; preds = %435, %420, %.loopexit1344
@@ -1158,9 +1158,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
 
 569:                                              ; preds = %.lr.ph1375, %628
   %570 = phi i32 [ %563, %.lr.ph1375 ], [ %629, %628 ]
-  %indvars.iv1416 = phi i64 [ 0, %.lr.ph1375 ], [ %indvars.iv.next1417, %628 ]
+  %indvars.iv1414 = phi i64 [ 0, %.lr.ph1375 ], [ %indvars.iv.next1415, %628 ]
   %571 = load ptr, ptr %565, align 8, !tbaa !109
-  %572 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %571, i64 %indvars.iv1416
+  %572 = getelementptr inbounds nuw %"struct.btSoftBody::Face", ptr %571, i64 %indvars.iv1414
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 8
   %574 = load ptr, ptr %573, align 8, !tbaa !74
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 20
@@ -1255,14 +1255,14 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #27
-  %.pre1443 = load i32, ptr %562, align 4, !tbaa !105
+  %.pre1441 = load i32, ptr %562, align 4, !tbaa !105
   br label %628
 
 628:                                              ; preds = %569, %579
-  %629 = phi i32 [ %570, %569 ], [ %.pre1443, %579 ]
-  %indvars.iv.next1417 = add nuw nsw i64 %indvars.iv1416, 1
+  %629 = phi i32 [ %570, %569 ], [ %.pre1441, %579 ]
+  %indvars.iv.next1415 = add nuw nsw i64 %indvars.iv1414, 1
   %630 = sext i32 %629 to i64
-  %631 = icmp slt i64 %indvars.iv.next1417, %630
+  %631 = icmp slt i64 %indvars.iv.next1415, %630
   br i1 %631, label %569, label %._crit_edge1376, !llvm.loop !110
 
 ._crit_edge1376:                                  ; preds = %628, %558
@@ -1310,9 +1310,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
 
 654:                                              ; preds = %.lr.ph1379, %737
   %655 = phi i32 [ %639, %.lr.ph1379 ], [ %738, %737 ]
-  %indvars.iv1419 = phi i64 [ 0, %.lr.ph1379 ], [ %indvars.iv.next1420, %737 ]
+  %indvars.iv1417 = phi i64 [ 0, %.lr.ph1379 ], [ %indvars.iv.next1418, %737 ]
   %656 = load ptr, ptr %641, align 8, !tbaa !115
-  %657 = getelementptr inbounds nuw %"struct.btSoftBody::Tetra", ptr %656, i64 %indvars.iv1419
+  %657 = getelementptr inbounds nuw %"struct.btSoftBody::Tetra", ptr %656, i64 %indvars.iv1417
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 8
   %659 = load ptr, ptr %658, align 8, !tbaa !74
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 20
@@ -1478,14 +1478,14 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %81) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79) #27
-  %.pre1444 = load i32, ptr %638, align 4, !tbaa !111
+  %.pre1442 = load i32, ptr %638, align 4, !tbaa !111
   br label %737
 
 737:                                              ; preds = %654, %664
-  %738 = phi i32 [ %655, %654 ], [ %.pre1444, %664 ]
-  %indvars.iv.next1420 = add nuw nsw i64 %indvars.iv1419, 1
+  %738 = phi i32 [ %655, %654 ], [ %.pre1442, %664 ]
+  %indvars.iv.next1418 = add nuw nsw i64 %indvars.iv1417, 1
   %739 = sext i32 %738 to i64
-  %740 = icmp slt i64 %indvars.iv.next1420, %739
+  %740 = icmp slt i64 %indvars.iv.next1418, %739
   br i1 %740, label %654, label %._crit_edge1380, !llvm.loop !116
 
 .loopexit1350:                                    ; preds = %242, %111, %632, %._crit_edge1380
@@ -1546,9 +1546,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   br label %901
 
 782:                                              ; preds = %.lr.ph1382, %782
-  %indvars.iv1422 = phi i64 [ 0, %.lr.ph1382 ], [ %indvars.iv.next1423, %782 ]
+  %indvars.iv1420 = phi i64 [ 0, %.lr.ph1382 ], [ %indvars.iv.next1421, %782 ]
   %783 = load ptr, ptr %745, align 8, !tbaa !121
-  %784 = getelementptr inbounds nuw %"struct.btSoftBody::Anchor", ptr %783, i64 %indvars.iv1422
+  %784 = getelementptr inbounds nuw %"struct.btSoftBody::Anchor", ptr %783, i64 %indvars.iv1420
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82) #27
   %785 = getelementptr inbounds nuw i8, ptr %784, i64 24
   %786 = load ptr, ptr %785, align 8, !tbaa !122
@@ -1778,17 +1778,17 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void %897(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %894, ptr noundef nonnull align 4 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %85)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %82) #27
-  %indvars.iv.next1423 = add nuw nsw i64 %indvars.iv1422, 1
+  %indvars.iv.next1421 = add nuw nsw i64 %indvars.iv1420, 1
   %898 = load i32, ptr %742, align 4, !tbaa !117
   %899 = sext i32 %898 to i64
-  %900 = icmp slt i64 %indvars.iv.next1423, %899
+  %900 = icmp slt i64 %indvars.iv.next1421, %899
   br i1 %900, label %782, label %.preheader1339, !llvm.loop !126
 
 901:                                              ; preds = %.lr.ph1384, %949
   %902 = phi i32 [ %770, %.lr.ph1384 ], [ %950, %949 ]
-  %indvars.iv1425 = phi i64 [ 0, %.lr.ph1384 ], [ %indvars.iv.next1426, %949 ]
+  %indvars.iv1423 = phi i64 [ 0, %.lr.ph1384 ], [ %indvars.iv.next1424, %949 ]
   %903 = load ptr, ptr %772, align 8, !tbaa !73
-  %904 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %903, i64 %indvars.iv1425
+  %904 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %903, i64 %indvars.iv1423
   %905 = getelementptr inbounds nuw i8, ptr %904, i64 8
   %906 = load ptr, ptr %905, align 8, !tbaa !74
   %907 = getelementptr inbounds nuw i8, ptr %906, i64 20
@@ -1888,14 +1888,14 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86) #27
-  %.pre1445 = load i32, ptr %769, align 4, !tbaa !70
+  %.pre1443 = load i32, ptr %769, align 4, !tbaa !70
   br label %949
 
 949:                                              ; preds = %911, %915, %901
-  %950 = phi i32 [ %902, %911 ], [ %.pre1445, %915 ], [ %902, %901 ]
-  %indvars.iv.next1426 = add nuw nsw i64 %indvars.iv1425, 1
+  %950 = phi i32 [ %902, %911 ], [ %.pre1443, %915 ], [ %902, %901 ]
+  %indvars.iv.next1424 = add nuw nsw i64 %indvars.iv1423, 1
   %951 = sext i32 %950 to i64
-  %952 = icmp slt i64 %indvars.iv.next1426, %951
+  %952 = icmp slt i64 %indvars.iv.next1424, %951
   br i1 %952, label %901, label %.loopexit1340, !llvm.loop !129
 
 .loopexit1340:                                    ; preds = %949, %.preheader1339, %.loopexit1350
@@ -1916,9 +1916,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   br label %960
 
 960:                                              ; preds = %.lr.ph1392, %._crit_edge1388
-  %indvars.iv1433 = phi i64 [ 0, %.lr.ph1392 ], [ %indvars.iv.next1434, %._crit_edge1388 ]
+  %indvars.iv1431 = phi i64 [ 0, %.lr.ph1392 ], [ %indvars.iv.next1432, %._crit_edge1388 ]
   %961 = load ptr, ptr %957, align 8, !tbaa !134
-  %962 = getelementptr inbounds nuw %"struct.btSoftBody::Note", ptr %961, i64 %indvars.iv1433
+  %962 = getelementptr inbounds nuw %"struct.btSoftBody::Note", ptr %961, i64 %indvars.iv1431
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87) #27
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %963, i64 16, i1 false), !tbaa.struct !44
@@ -1933,7 +1933,7 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   %968 = getelementptr inbounds nuw i8, ptr %962, i64 72
   %.promoted1389 = load float, ptr %958, align 4, !tbaa !4
   %.promoted1390 = load float, ptr %959, align 4, !tbaa !4
-  %wide.trip.count1431 = zext nneg i32 %965 to i64
+  %wide.trip.count1429 = zext nneg i32 %965 to i64
   br label %977
 
 ._crit_edge1388:                                  ; preds = %977, %960
@@ -1944,21 +1944,21 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   %973 = load ptr, ptr %972, align 8
   call void %973(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %87, ptr noundef %970)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %87) #27
-  %indvars.iv.next1434 = add nuw nsw i64 %indvars.iv1433, 1
+  %indvars.iv.next1432 = add nuw nsw i64 %indvars.iv1431, 1
   %974 = load i32, ptr %954, align 4, !tbaa !130
   %975 = sext i32 %974 to i64
-  %976 = icmp slt i64 %indvars.iv.next1434, %975
+  %976 = icmp slt i64 %indvars.iv.next1432, %975
   br i1 %976, label %960, label %.loopexit1338, !llvm.loop !139
 
 977:                                              ; preds = %.lr.ph1387, %977
-  %indvars.iv1428 = phi i64 [ 0, %.lr.ph1387 ], [ %indvars.iv.next1429, %977 ]
+  %indvars.iv1426 = phi i64 [ 0, %.lr.ph1387 ], [ %indvars.iv.next1427, %977 ]
   %978 = phi float [ %.promoted1390, %.lr.ph1387 ], [ %996, %977 ]
   %979 = phi float [ %.promoted1389, %.lr.ph1387 ], [ %995, %977 ]
   %980 = phi float [ %.promoted, %.lr.ph1387 ], [ %994, %977 ]
-  %981 = getelementptr inbounds nuw [4 x ptr], ptr %967, i64 0, i64 %indvars.iv1428
+  %981 = getelementptr inbounds nuw [4 x ptr], ptr %967, i64 0, i64 %indvars.iv1426
   %982 = load ptr, ptr %981, align 8, !tbaa !42
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 16
-  %984 = getelementptr inbounds nuw [4 x float], ptr %968, i64 0, i64 %indvars.iv1428
+  %984 = getelementptr inbounds nuw [4 x float], ptr %968, i64 0, i64 %indvars.iv1426
   %985 = load float, ptr %983, align 4, !tbaa !4
   %986 = load float, ptr %984, align 4, !tbaa !4
   %987 = fmul float %985, %986
@@ -1974,9 +1974,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   store float %995, ptr %958, align 4, !tbaa !4
   %996 = fadd float %993, %978
   store float %996, ptr %959, align 4, !tbaa !4
-  %indvars.iv.next1429 = add nuw nsw i64 %indvars.iv1428, 1
-  %exitcond1432.not = icmp eq i64 %indvars.iv.next1429, %wide.trip.count1431
-  br i1 %exitcond1432.not, label %._crit_edge1388, label %977, !llvm.loop !140
+  %indvars.iv.next1427 = add nuw nsw i64 %indvars.iv1426, 1
+  %exitcond1430.not = icmp eq i64 %indvars.iv.next1427, %wide.trip.count1429
+  br i1 %exitcond1430.not, label %._crit_edge1388, label %977, !llvm.loop !140
 
 .loopexit1338:                                    ; preds = %._crit_edge1388, %.preheader1337, %.loopexit1340
   %997 = and i32 %2, 512
@@ -2129,9 +2129,9 @@ common.resume:                                    ; preds = %1415, %1366, %1347,
   br label %1083
 
 1083:                                             ; preds = %.lr.ph1394, %1495
-  %indvars.iv1436 = phi i64 [ 0, %.lr.ph1394 ], [ %indvars.iv.next1437, %1495 ]
+  %indvars.iv1434 = phi i64 [ 0, %.lr.ph1394 ], [ %indvars.iv.next1435, %1495 ]
   %1084 = load ptr, ptr %1034, align 8, !tbaa !206
-  %1085 = getelementptr inbounds nuw ptr, ptr %1084, i64 %indvars.iv1436
+  %1085 = getelementptr inbounds nuw ptr, ptr %1084, i64 %indvars.iv1434
   %1086 = load ptr, ptr %1085, align 8, !tbaa !207
   %1087 = load ptr, ptr %1086, align 8, !tbaa !66
   %1088 = getelementptr inbounds nuw i8, ptr %1087, i64 40
@@ -2927,10 +2927,10 @@ _ZNK10btSoftBody4Body5xformEv.exit777:            ; preds = %_ZNK10btSoftBody4Bo
   br label %1495
 
 1495:                                             ; preds = %1083, %_ZNK10btSoftBody4Body5xformEv.exit777, %_ZNK10btSoftBody4Body5xformEv.exit712
-  %indvars.iv.next1437 = add nuw nsw i64 %indvars.iv1436, 1
+  %indvars.iv.next1435 = add nuw nsw i64 %indvars.iv1434, 1
   %1496 = load i32, ptr %1031, align 4, !tbaa !205
   %1497 = sext i32 %1496 to i64
-  %1498 = icmp slt i64 %indvars.iv.next1437, %1497
+  %1498 = icmp slt i64 %indvars.iv.next1435, %1497
   br i1 %1498, label %1083, label %.loopexit, !llvm.loop !211
 
 .loopexit:                                        ; preds = %1495, %.preheader, %1029

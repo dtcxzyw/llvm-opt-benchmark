@@ -2432,12 +2432,12 @@ define internal noundef i32 @Get_Kerning(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %7, i64 80
-  %.val7 = load i32, ptr %9, align 8, !tbaa !249
+  %.val = load i32, ptr %9, align 8, !tbaa !249
   %10 = zext i32 %1 to i64
   %11 = shl nuw nsw i64 %10, 16
-  %12 = zext i32 %2 to i64
+  %11 = zext i32 %2 to i64
   %13 = or i64 %11, %12
-  %.not3.i = icmp eq i32 %.val7, 0
+  %.not3.i = icmp eq i32 %.val, 0
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %8
@@ -5370,14 +5370,14 @@ define internal fastcc i32 @T1_Read_PFM(ptr noundef %0, ptr noundef readonly cap
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %.thread87, label %53
 
-53:                                               ; preds = %29
+50:                                               ; preds = %29
   %.ptr = getelementptr inbounds nuw i8, ptr %48, i64 2
-  %54 = icmp ugt ptr %.ptr, %10
-  br i1 %54, label %.thread.sink.split, label %55
+  %51 = icmp ugt ptr %.ptr, %10
+  br i1 %51, label %.thread.sink.split, label %52
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  %57 = load i8, ptr %56, align 1, !tbaa !95
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !95
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 8
   %60 = load i8, ptr %48, align 1, !tbaa !95
@@ -5395,7 +5395,7 @@ define internal fastcc i32 @T1_Read_PFM(ptr noundef %0, ptr noundef readonly cap
   %69 = icmp eq i32 %62, 0
   br i1 %69, label %.thread87, label %70
 
-70:                                               ; preds = %68
+70: ; preds = %68
   %71 = zext nneg i32 %62 to i64
   %72 = call ptr @ft_mem_qrealloc(ptr noundef %6, i64 noundef 16, i64 noundef 0, i64 noundef %71, ptr noundef null, ptr noundef nonnull %4) #16
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -5404,12 +5404,12 @@ define internal fastcc i32 @T1_Read_PFM(ptr noundef %0, ptr noundef readonly cap
   %.not = icmp eq i32 %74, 0
   br i1 %.not, label %75, label %.thread
 
-75:                                               ; preds = %70
+75:; preds = %70
   %76 = load i32, ptr %63, align 8, !tbaa !249
   %77 = shl i32 %76, 2
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %48, i64 %78
-  %.ptr80 = getelementptr inbounds nuw i8, ptr %79, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %81 = load ptr, ptr %80, align 8, !tbaa !446
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5417,7 +5417,7 @@ define internal fastcc i32 @T1_Read_PFM(ptr noundef %0, ptr noundef readonly cap
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %75
+.lr.ph:; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %86 = load ptr, ptr %85, align 8, !tbaa !448
   %wide.trip.count = zext nneg i32 %83 to i64
@@ -5426,83 +5426,83 @@ define internal fastcc i32 @T1_Read_PFM(ptr noundef %0, ptr noundef readonly cap
 87:                                               ; preds = %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !449
+  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !449
 
-88:                                               ; preds = %.lr.ph, %87
+85:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
-  %90 = load ptr, ptr %89, align 8, !tbaa !450
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %92 = load i16, ptr %91, align 4, !tbaa !235
-  %93 = icmp eq i16 %92, 7
-  br i1 %93, label %94, label %87
+  %86 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
+  %87 = load ptr, ptr %86, align 8, !tbaa !450
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 12
+  %89 = load i16, ptr %88, align 4, !tbaa !235
+  %90 = icmp eq i16 %89, 7
+  br i1 %90, label %91, label %87
 
-94:                                               ; preds = %88
-  store ptr %90, ptr %80, align 8, !tbaa !446
+91:                                               ; preds = %85
+  store ptr %87, ptr %80, align 8, !tbaa !446
   br label %.loopexit
 
-.loopexit:                                        ; preds = %87, %75, %94
+.loopexit:                                        ; preds = %87, %75, %91
   %.not81 = icmp eq i32 %77, 0
-  br i1 %.not81, label %111, label %.lr.ph79
+  br i1 %.not81, label %108, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.loopexit, %.lr.ph79
-  %.06878 = phi ptr [ %109, %.lr.ph79 ], [ %.ptr, %.loopexit ]
-  %.06977 = phi ptr [ %108, %.lr.ph79 ], [ %72, %.loopexit ]
-  %95 = load i8, ptr %.06878, align 1, !tbaa !95
-  %96 = zext i8 %95 to i64
-  %97 = call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %96) #16
-  store i32 %97, ptr %.06977, align 4, !tbaa !326
-  %98 = getelementptr inbounds nuw i8, ptr %.06878, i64 1
-  %99 = load i8, ptr %98, align 1, !tbaa !95
-  %100 = zext i8 %99 to i64
-  %101 = call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %100) #16
-  %102 = getelementptr inbounds nuw i8, ptr %.06977, i64 4
-  store i32 %101, ptr %102, align 4, !tbaa !328
-  %103 = getelementptr inbounds nuw i8, ptr %.06878, i64 2
-  %104 = load i16, ptr %103, align 1
-  %105 = sext i16 %104 to i32
-  %106 = getelementptr inbounds nuw i8, ptr %.06977, i64 8
-  store i32 %105, ptr %106, align 4, !tbaa !329
-  %107 = getelementptr inbounds nuw i8, ptr %.06977, i64 12
-  store i32 0, ptr %107, align 4, !tbaa !330
-  %108 = getelementptr inbounds nuw i8, ptr %.06977, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %.06878, i64 4
-  %110 = icmp ult ptr %109, %.ptr80
-  br i1 %110, label %.lr.ph79, label %._crit_edge.loopexit, !llvm.loop !451
+  %.06878 = phi ptr [ %106, %.lr.ph79 ], [ %.ptr, %.loopexit ]
+  %.06977 = phi ptr [ %105, %.lr.ph79 ], [ %72, %.loopexit ]
+  %92 = load i8, ptr %.06878, align 1, !tbaa !95
+  %93 = zext i8 %92 to i64
+  %94 = call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %93) #16
+  store i32 %94, ptr %.06977, align 4, !tbaa !326
+  %95 = getelementptr inbounds nuw i8, ptr %.06878, i64 1
+  %96 = load i8, ptr %95, align 1, !tbaa !95
+  %97 = zext i8 %96 to i64
+  %98 = call i32 @FT_Get_Char_Index(ptr noundef %0, i64 noundef %97) #16
+  %99 = getelementptr inbounds nuw i8, ptr %.06977, i64 4
+  store i32 %98, ptr %99, align 4, !tbaa !328
+  %100 = getelementptr inbounds nuw i8, ptr %.06878, i64 2
+  %101 = load i16, ptr %100, align 1
+  %102 = sext i16 %101 to i32
+  %103 = getelementptr inbounds nuw i8, ptr %.06977, i64 8
+  store i32 %102, ptr %103, align 4, !tbaa !329
+  %104 = getelementptr inbounds nuw i8, ptr %.06977, i64 12
+  store i32 0, ptr %104, align 4, !tbaa !330
+  %105 = getelementptr inbounds nuw i8, ptr %.06977, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.06878, i64 4
+  %107 = icmp ult ptr %106, %.ptr80
+  br i1 %107, label %.lr.ph79, label %._crit_edge.loopexit, !llvm.loop !451
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph79
   %.pre = load ptr, ptr %73, align 8, !tbaa !245
   %.pre84 = load i32, ptr %63, align 8, !tbaa !249
-  br label %111
+  br label %108
 
-111:                                              ; preds = %.loopexit, %._crit_edge.loopexit
-  %112 = phi i32 [ %.pre84, %._crit_edge.loopexit ], [ %76, %.loopexit ]
-  %113 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %72, %.loopexit ]
+108:                                              ; preds = %.loopexit, %._crit_edge.loopexit
+  %109 = phi i32 [ %.pre84, %._crit_edge.loopexit ], [ %76, %.loopexit ]
+  %110 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %72, %.loopexit ]
   store ptr %81, ptr %80, align 8, !tbaa !446
-  %114 = zext i32 %112 to i64
-  call void @qsort(ptr noundef %113, i64 noundef %114, i64 noundef 16, ptr noundef nonnull @compare_kern_pairs) #16
+  %111 = zext i32 %109 to i64
+  call void @qsort(ptr noundef %110, i64 noundef %111, i64 noundef 16, ptr noundef nonnull @compare_kern_pairs) #16
   %.pr.pre = load i32, ptr %4, align 4, !tbaa !19
-  %115 = icmp eq i32 %.pr.pre, 0
-  br i1 %115, label %.thread87, label %.thread
+  %112 = icmp eq i32 %.pr.pre, 0
+  br i1 %112, label %.thread87, label %.thread
 
-.thread.sink.split:                               ; preds = %55, %53, %3
+.thread.sink.split:                               ; preds = %52, %50, %3
   store i32 2, ptr %4, align 4, !tbaa !19
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %70, %111
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %117 = load ptr, ptr %116, align 8, !tbaa !245
-  call void @ft_mem_free(ptr noundef %6, ptr noundef %117) #16
-  store ptr null, ptr %116, align 8, !tbaa !245
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 0, ptr %118, align 8, !tbaa !249
+.thread:                                          ; preds = %.thread.sink.split, %70, %108
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %114 = load ptr, ptr %113, align 8, !tbaa !245
+  call void @ft_mem_free(ptr noundef %6, ptr noundef %114) #16
+  store ptr null, ptr %113, align 8, !tbaa !245
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i32 0, ptr %115, align 8, !tbaa !249
   %.pre86 = load i32, ptr %4, align 4, !tbaa !19
   br label %.thread87
 
-.thread87:                                        ; preds = %25, %13, %29, %68, %.thread, %111
-  %119 = phi i32 [ %.pre86, %.thread ], [ 0, %111 ], [ 0, %68 ], [ 0, %29 ], [ 0, %13 ], [ 0, %25 ]
+.thread87:                                        ; preds = %25, %13, %29, %68, %.thread, %108
+  %116 = phi i32 [ %.pre86, %.thread ], [ 0, %111 ], [ 0, %68 ], [ 0, %29 ], [ 0, %13 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  ret i32 %119
+  ret i32 %116
 }
 
 declare hidden void @FT_Stream_ExitFrame(ptr noundef) local_unnamed_addr #5

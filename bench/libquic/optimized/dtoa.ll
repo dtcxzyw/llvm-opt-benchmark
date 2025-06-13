@@ -5851,57 +5851,57 @@ define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr nounde
   %5 = sext i32 %4 to i64
   %.idx = shl nsw i64 %5, 2
   %.add55 = add nsw i64 %.idx, 20
-  %.ptr58 = getelementptr inbounds i8, ptr %0, i64 %.add55
-  %6 = load i32, ptr %.ptr58, align 4, !tbaa !20
-  %.not.i = icmp ult i32 %6, 65536
-  %7 = shl nuw i32 %6, 16
-  %spec.select.i = select i1 %.not.i, i32 %7, i32 %6
+  %.ptr57 = getelementptr inbounds i8, ptr %0, i64 %.add55
+  %7 = load i32, ptr %.ptr57, align 4, !tbaa !20
+  %.not.i = icmp ult i32 %7, 65536
+  %8 = shl nuw i32 %7, 16
+  %spec.select.i = select i1 %.not.i, i32 %8, i32 %7
   %spec.select26.i = select i1 %.not.i, i32 16, i32 0
   %.not21.i = icmp ult i32 %spec.select.i, 16777216
-  %8 = or disjoint i32 %spec.select26.i, 8
-  %9 = shl nuw i32 %spec.select.i, 8
-  %.117.i = select i1 %.not21.i, i32 %9, i32 %spec.select.i
-  %.1.i = select i1 %.not21.i, i32 %8, i32 %spec.select26.i
+  %9 = or disjoint i32 %spec.select26.i, 8
+  %10 = shl nuw i32 %spec.select.i, 8
+  %.117.i = select i1 %.not21.i, i32 %10, i32 %spec.select.i
+  %.1.i = select i1 %.not21.i, i32 %9, i32 %spec.select26.i
   %.not22.i = icmp ult i32 %.117.i, 268435456
-  %10 = or disjoint i32 %.1.i, 4
-  %11 = shl nuw i32 %.117.i, 4
-  %.218.i = select i1 %.not22.i, i32 %11, i32 %.117.i
-  %.2.i = select i1 %.not22.i, i32 %10, i32 %.1.i
+  %11 = or disjoint i32 %.1.i, 4
+  %12 = shl nuw i32 %.117.i, 4
+  %.218.i = select i1 %.not22.i, i32 %12, i32 %.117.i
+  %.2.i = select i1 %.not22.i, i32 %11, i32 %.1.i
   %.not23.i = icmp ult i32 %.218.i, 1073741824
-  %12 = or disjoint i32 %.2.i, 2
-  %13 = shl nuw i32 %.218.i, 2
-  %.319.i = select i1 %.not23.i, i32 %13, i32 %.218.i
-  %.3.i = select i1 %.not23.i, i32 %12, i32 %.2.i
-  %14 = add nuw nsw i32 %.3.i, 1
+  %13 = or disjoint i32 %.2.i, 2
+  %14 = shl nuw i32 %.218.i, 2
+  %.319.i = select i1 %.not23.i, i32 %14, i32 %.218.i
+  %.3.i = select i1 %.not23.i, i32 %13, i32 %.2.i
+  %15 = add nuw nsw i32 %.3.i, 1
   %.not25.i = icmp ult i32 %.319.i, 1073741824
-  %spec.select27.i = select i1 %.not25.i, i32 32, i32 %14
+  %spec.select27.i = select i1 %.not25.i, i32 32, i32 %15
   %.not2428.i = icmp slt i32 %.319.i, 0
   %.020.i = select i1 %.not2428.i, i32 %.3.i, i32 %spec.select27.i
-  %15 = sub nuw nsw i32 32, %.020.i
-  store i32 %15, ptr %1, align 4, !tbaa !20
-  %16 = icmp samesign ult i32 %.020.i, 11
-  br i1 %16, label %17, label %30
+  %16 = sub nuw nsw i32 32, %.020.i
+  store i32 %16, ptr %1, align 4, !tbaa !20
+  %17 = icmp samesign ult i32 %.020.i, 11
+  br i1 %17, label %18, label %30
 
-17:                                               ; preds = %2
-  %18 = sub nuw nsw i32 11, %.020.i
-  %19 = lshr i32 %6, %18
-  %20 = icmp sgt i32 %4, 1
-  br i1 %20, label %21, label %24
+18:                                               ; preds = %2
+  %19 = sub nuw nsw i32 11, %.020.i
+  %20 = lshr i32 %7, %19
+  %21 = icmp sgt i32 %4, 1
+  br i1 %21, label %22, label %25
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.ptr58, i64 -4
-  %23 = load i32, ptr %22, align 4, !tbaa !20
-  br label %24
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %.ptr58, i64 -4
+  %24 = load i32, ptr %23, align 4, !tbaa !20
+  br label %25
 
-24:                                               ; preds = %17, %21
-  %25 = phi i32 [ %23, %21 ], [ 0, %17 ]
-  %26 = add nuw nsw i32 %.020.i, 21
-  %27 = shl i32 %6, %26
-  %28 = lshr i32 %25, %18
-  %29 = or i32 %28, %27
-  br label %51
+25:                                               ; preds = %18, %22
+  %26 = phi i32 [ %24, %21 ], [ 0, %17 ]
+  %27 = add nuw nsw i32 %.020.i, 21
+  %28 = shl i32 %7, %27
+  %29 = lshr i32 %26, %19
+  %30 = or i32 %29, %28
+  br label %53
 
-30:                                               ; preds = %2
+33:                                               ; preds = %2
   %31 = icmp sgt i32 %4, 1
   br i1 %31, label %32, label %34
 
@@ -5911,7 +5911,7 @@ define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr nounde
   %33 = load i32, ptr %.ptr59, align 4, !tbaa !20
   br label %34
 
-34:                                               ; preds = %30, %32
+34:; preds = %30, %32
   %.0.idx = phi i64 [ %.add56, %32 ], [ %.add55, %30 ]
   %35 = phi i32 [ %33, %32 ], [ 0, %30 ]
   %.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.idx
@@ -5919,7 +5919,7 @@ define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr nounde
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %51, label %37
 
-37:                                               ; preds = %34
+37:; preds = %34
   %38 = shl i32 %6, %36
   %39 = sub nuw nsw i32 43, %.020.i
   %40 = lshr i32 %35, %39
@@ -5932,16 +5932,16 @@ define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr nounde
   %45 = load i32, ptr %44, align 4, !tbaa !20
   br label %46
 
-46:                                               ; preds = %37, %43
-  %47 = phi i32 [ %45, %43 ], [ 0, %37 ]
-  %48 = shl i32 %35, %36
-  %49 = lshr i32 %47, %39
-  %50 = or i32 %49, %48
-  br label %51
+48:                                               ; preds = %37, %43
+  %49 = phi i32 [ %45, %43 ], [ 0, %37 ]
+  %50 = shl i32 %35, %36
+  %51 = lshr i32 %49, %39
+  %52 = or i32 %51, %50
+  br label %53
 
-51:                                               ; preds = %34, %46, %24
-  %.sink = phi i32 [ %50, %46 ], [ %29, %24 ], [ %35, %34 ]
-  %.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %41, %46 ], [ %19, %24 ], [ %6, %34 ]
+53:                                               ; preds = %34, %48, %25
+  %.sink = phi i32 [ %52, %46 ], [ %30, %24 ], [ %35, %34 ]
+  %.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %41, %46 ], [ %20, %24 ], [ %7, %34 ]
   %.sroa.0.4.insert.shift11.sink.in.in = or i32 %.sroa.0.4.insert.shift11.sink.in.in.in, 1072693248
   %.sroa.0.4.insert.shift11.sink.in = zext i32 %.sroa.0.4.insert.shift11.sink.in.in to i64
   %.sroa.0.4.insert.shift11.sink = shl nuw i64 %.sroa.0.4.insert.shift11.sink.in, 32

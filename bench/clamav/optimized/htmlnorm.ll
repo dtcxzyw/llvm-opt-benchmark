@@ -5768,14 +5768,14 @@ define internal fastcc ptr @cli_readchunk(ptr noundef nonnull captures(none) %0)
   br label %24
 
 24:                                               ; preds = %21, %16
-  %.pre-phi = phi i64 [ %9, %21 ], [ %.pre9, %16 ]
-  %25 = phi i64 [ %6, %21 ], [ %.pre8, %16 ]
-  %26 = phi i64 [ %8, %21 ], [ %.pre, %16 ]
+  %25 = phi i64 [ %9, %21 ], [ %.pre9, %16 ]
+  %26 = phi i64 [ %6, %21 ], [ %.pre8, %16 ]
+  %.0125 = phi i64 [ %8, %21 ], [ %.pre, %16 ]
   %.0125 = phi ptr [ %23, %21 ], [ %20, %16 ]
   %27 = sub i64 0, %26
   %28 = getelementptr inbounds i8, ptr %.0125, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 %25
-  %30 = icmp sgt i64 %.pre-phi, 0
+  %30 = icmp sgt i64 %25, 0
   %31 = icmp ne ptr %.0125, null
   %or.cond = select i1 %30, i1 %31, i1 false
   br i1 %or.cond, label %33, label %32

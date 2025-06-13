@@ -1494,14 +1494,14 @@ parse_double.exit538:                             ; preds = %.preheader680
   %.not41.i540 = icmp slt i64 %.fr48.i539, 1
   br i1 %.not41.i540, label %.loopexit669.backedge, label %.lr.ph.i541
 
-.lr.ph.i541:                                      ; preds = %365
+.lr.ph.i542:                                      ; preds = %365
   %368 = getelementptr inbounds nuw i8, ptr %307, i64 %.fr48.i539
   %.02340.i542 = getelementptr inbounds i8, ptr %368, i64 -1
   %369 = add nuw i64 %.fr48.i539, 1
   %.not29.i543 = icmp ult i64 %369, %305
   br i1 %.not29.i543, label %.lr.ph.split.us.i553, label %.lr.ph.split.i544
 
-.lr.ph.split.us.i553:                             ; preds = %.lr.ph.i541, %376
+.lr.ph.split.us.i553:                             ; preds = %.lr.ph.i542, %376
   %.02343.us.i554 = phi ptr [ %.023.us.i558, %376 ], [ %.02340.i542, %.lr.ph.i541 ]
   %.pn42.us.i555 = phi ptr [ %.02343.us.i554, %376 ], [ %368, %.lr.ph.i541 ]
   %370 = load i8, ptr %.02343.us.i554, align 1, !tbaa !23
@@ -1532,7 +1532,7 @@ parse_double.exit538:                             ; preds = %.preheader680
   %.not.us.i559 = icmp ult ptr %.023.us.i558, %307
   br i1 %.not.us.i559, label %.loopexit669.backedge, label %.lr.ph.split.us.i553
 
-.lr.ph.split.i544:                                ; preds = %.lr.ph.i541, %383
+.lr.ph.split.i544:                                ; preds = %.lr.ph.i542, %383
   %.02343.i545 = phi ptr [ %.023.i547, %383 ], [ %.02340.i542, %.lr.ph.i541 ]
   %377 = load i8, ptr %.02343.i545, align 1, !tbaa !23
   switch i8 %377, label %.thread36.i550 [

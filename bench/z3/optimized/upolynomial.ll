@@ -17968,19 +17968,19 @@ define hidden noundef i32 @_ZN11upolynomial7manager24nonzero_root_lower_boundEjP
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw %class.mpz, ptr %6, i64 %12
   %.012.i.i = getelementptr inbounds i8, ptr %13, i64 -16
-  %14 = icmp ugt i32 %11, 1
+  %15 = icmp ugt i32 %11, 1
   br i1 %14, label %.lr.ph.i.i, label %_ZSt7reverseIP3mpzEvT_S2_.exit
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %.015.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %10 ]
   %.pn14.i.i = phi ptr [ %.015.i.i, %.lr.ph.i.i ], [ %13, %10 ]
   %.0913.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %6, %10 ]
-  %15 = load i32, ptr %.0913.i.i, align 4, !tbaa !27
-  %16 = load i32, ptr %.015.i.i, align 4, !tbaa !27
-  store i32 %16, ptr %.0913.i.i, align 4, !tbaa !27
-  store i32 %15, ptr %.015.i.i, align 4, !tbaa !27
-  %17 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
-  %18 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
+  %16 = load i32, ptr %.0913.i.i, align 4, !tbaa !27
+  %17 = load i32, ptr %.015.i.i, align 4, !tbaa !27
+  store i32 %17, ptr %.0913.i.i, align 4, !tbaa !27
+  store i32 %16, ptr %.015.i.i, align 4, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
+  %19 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
   %19 = load ptr, ptr %17, align 8, !tbaa !44
   %20 = load ptr, ptr %18, align 8, !tbaa !44
   store ptr %20, ptr %17, align 8, !tbaa !44
@@ -18010,24 +18010,24 @@ define hidden noundef i32 @_ZN11upolynomial7manager24nonzero_root_lower_boundEjP
   store i8 %39, ptr %24, align 4
   %40 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -16
-  %41 = icmp ult ptr %40, %.0.i.i
-  br i1 %41, label %.lr.ph.i.i, label %_ZSt7reverseIP3mpzEvT_S2_.exit, !llvm.loop !186
+  %42 = icmp ult ptr %40, %.0.i.i
+  br i1 %42, label %.lr.ph.i.i, label %_ZSt7reverseIP3mpzEvT_S2_.exit, !llvm.loop !186
 
 _ZSt7reverseIP3mpzEvT_S2_.exit:                   ; preds = %.lr.ph.i.i, %10
-  %42 = tail call noundef i32 @_ZN11upolynomial7manager31knuth_positive_root_upper_boundEjPK3mpz(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %11, ptr noundef nonnull %6)
-  %43 = tail call noundef i32 @_ZN11upolynomial7manager31knuth_negative_root_upper_boundEjPK3mpz(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %11, ptr noundef nonnull %6)
+  %43 = tail call noundef i32 @_ZN11upolynomial7manager31knuth_positive_root_upper_boundEjPK3mpz(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %11, ptr noundef nonnull %6)
+  %44 = tail call noundef i32 @_ZN11upolynomial7manager31knuth_negative_root_upper_boundEjPK3mpz(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %11, ptr noundef nonnull %6)
   br i1 %14, label %.lr.ph.i.i20, label %_ZSt7reverseIP3mpzEvT_S2_.exit25
 
 .lr.ph.i.i20:                                     ; preds = %_ZSt7reverseIP3mpzEvT_S2_.exit, %.lr.ph.i.i20
   %.015.i.i21 = phi ptr [ %.0.i.i24, %.lr.ph.i.i20 ], [ %.012.i.i, %_ZSt7reverseIP3mpzEvT_S2_.exit ]
   %.pn14.i.i22 = phi ptr [ %.015.i.i21, %.lr.ph.i.i20 ], [ %13, %_ZSt7reverseIP3mpzEvT_S2_.exit ]
   %.0913.i.i23 = phi ptr [ %69, %.lr.ph.i.i20 ], [ %6, %_ZSt7reverseIP3mpzEvT_S2_.exit ]
-  %44 = load i32, ptr %.0913.i.i23, align 4, !tbaa !27
-  %45 = load i32, ptr %.015.i.i21, align 4, !tbaa !27
-  store i32 %45, ptr %.0913.i.i23, align 4, !tbaa !27
-  store i32 %44, ptr %.015.i.i21, align 4, !tbaa !27
-  %46 = getelementptr inbounds nuw i8, ptr %.0913.i.i23, i64 8
-  %47 = getelementptr inbounds i8, ptr %.pn14.i.i22, i64 -8
+  %45 = load i32, ptr %.0913.i.i23, align 4, !tbaa !27
+  %46 = load i32, ptr %.015.i.i21, align 4, !tbaa !27
+  store i32 %46, ptr %.0913.i.i23, align 4, !tbaa !27
+  store i32 %45, ptr %.015.i.i21, align 4, !tbaa !27
+  %47 = getelementptr inbounds nuw i8, ptr %.0913.i.i23, i64 8
+  %48 = getelementptr inbounds i8, ptr %.pn14.i.i22, i64 -8
   %48 = load ptr, ptr %46, align 8, !tbaa !44
   %49 = load ptr, ptr %47, align 8, !tbaa !44
   store ptr %49, ptr %46, align 8, !tbaa !44
@@ -18057,11 +18057,11 @@ _ZSt7reverseIP3mpzEvT_S2_.exit:                   ; preds = %.lr.ph.i.i, %10
   store i8 %68, ptr %53, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.0913.i.i23, i64 16
   %.0.i.i24 = getelementptr inbounds i8, ptr %.015.i.i21, i64 -16
-  %70 = icmp ult ptr %69, %.0.i.i24
-  br i1 %70, label %.lr.ph.i.i20, label %_ZSt7reverseIP3mpzEvT_S2_.exit25, !llvm.loop !186
+  %71 = icmp ult ptr %69, %.0.i.i24
+  br i1 %71, label %.lr.ph.i.i20, label %_ZSt7reverseIP3mpzEvT_S2_.exit25, !llvm.loop !186
 
 _ZSt7reverseIP3mpzEvT_S2_.exit25:                 ; preds = %.lr.ph.i.i20, %_ZSt7reverseIP3mpzEvT_S2_.exit
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %42, i32 %43)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %43, i32 %44)
   ret i32 %.sroa.speculated
 }
 

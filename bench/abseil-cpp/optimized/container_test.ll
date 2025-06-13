@@ -115561,9 +115561,9 @@ _ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26ra
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
   %28 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !20
   %29 = icmp slt i32 %28, %27
-  br i1 %29, label %.preheader.i.i.i.preheader, label %38
+  br i1 %29, label %.preheader.i.i.i, label %38
 
-.preheader.i.i.i.preheader:                       ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i
+.preheader.i.i.i:                                 ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
   br label %.preheader.i.i.i
 

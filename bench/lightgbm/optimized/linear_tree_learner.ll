@@ -5709,7 +5709,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %53
+  br i1 %12, label %13, label %55
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -5808,9 +5808,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  br label %53
+  br label %55
 
-53:                                               ; preds = %._crit_edge42, %6
+55:                                               ; preds = %._crit_edge42, %6
   ret void
 }
 
@@ -5822,7 +5822,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %46
+  br i1 %11, label %12, label %48
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -5902,9 +5902,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  br label %46
+  br label %48
 
-46:                                               ; preds = %._crit_edge, %5
+48:                                               ; preds = %._crit_edge, %5
   ret void
 }
 
@@ -19108,7 +19108,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %53
+  br i1 %12, label %13, label %55
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -19207,9 +19207,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  br label %53
+  br label %55
 
-53:                                               ; preds = %._crit_edge42, %6
+55:                                               ; preds = %._crit_edge42, %6
   ret void
 }
 
@@ -19221,7 +19221,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE1
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %46
+  br i1 %11, label %12, label %48
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -19301,9 +19301,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  br label %46
+  br label %48
 
-46:                                               ; preds = %._crit_edge, %5
+48:                                               ; preds = %._crit_edge, %5
   ret void
 }
 
@@ -25332,7 +25332,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %53
+  br i1 %12, label %13, label %55
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -25431,9 +25431,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  br label %53
+  br label %55
 
-53:                                               ; preds = %._crit_edge42, %6
+55:                                               ; preds = %._crit_edge42, %6
   ret void
 }
 
@@ -25445,7 +25445,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %46
+  br i1 %11, label %12, label %48
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -25525,9 +25525,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  br label %46
+  br label %48
 
-46:                                               ; preds = %._crit_edge, %5
+48:                                               ; preds = %._crit_edge, %5
   ret void
 }
 
@@ -27026,7 +27026,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %10 = alloca i32, align 4
   %11 = load i32, ptr %2, align 4, !tbaa !153
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %13, label %53
+  br i1 %12, label %13, label %55
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
@@ -27125,9 +27125,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  br label %53
+  br label %55
 
-53:                                               ; preds = %._crit_edge42, %6
+55:                                               ; preds = %._crit_edge42, %6
   ret void
 }
 
@@ -27139,7 +27139,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE15Ca
   %9 = alloca i32, align 4
   %10 = load i32, ptr %2, align 4, !tbaa !153
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %12, label %46
+  br i1 %11, label %12, label %48
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
@@ -27219,9 +27219,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEfEvT_S7_RKT0_.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  br label %46
+  br label %48
 
-46:                                               ; preds = %._crit_edge, %5
+48:                                               ; preds = %._crit_edge, %5
   ret void
 }
 

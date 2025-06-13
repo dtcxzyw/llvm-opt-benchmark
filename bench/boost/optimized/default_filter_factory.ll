@@ -35458,38 +35458,38 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %.not3031.i.i.i = icmp eq i64 %5, 0
   br i1 %.not3031.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %.preheader.i.i.i
 
-16:                                               ; preds = %._crit_edge.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.022.037.i.i.i, i64 4
+17:                                               ; preds = %._crit_edge.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.022.037.i.i.i, i64 4
   %.not29.i.i.i = icmp eq ptr %.sroa.022.037.i.i.i, %13
   br i1 %.not29.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %.preheader.i.i.i, !llvm.loop !326
 
-.preheader.i.i.i:                                 ; preds = %.preheader.lr.ph.i.i.i, %16
-  %.sroa.022.037.i.i.i = phi ptr [ %17, %16 ], [ %10, %.preheader.lr.ph.i.i.i ]
-  br label %18
+.preheader.i.i.i:                                 ; preds = %.preheader.lr.ph.i.i.i, %17
+  %.sroa.022.037.i.i.i = phi ptr [ %18, %16 ], [ %10, %.preheader.lr.ph.i.i.i ]
+  br label %19
 
-18:                                               ; preds = %21, %.preheader.i.i.i
-  %.sroa.0.033.i.i.i = phi ptr [ %14, %.preheader.i.i.i ], [ %23, %21 ]
-  %.sroa.020.032.i.i.i = phi ptr [ %.sroa.022.037.i.i.i, %.preheader.i.i.i ], [ %22, %21 ]
-  %19 = load i32, ptr %.sroa.020.032.i.i.i, align 4, !tbaa !84
-  %20 = load i32, ptr %.sroa.0.033.i.i.i, align 4, !tbaa !84
-  %.not16.i.i.i = icmp eq i32 %19, %20
-  br i1 %.not16.i.i.i, label %21, label %._crit_edge.i.i.i
+19:                                               ; preds = %22, %.preheader.i.i.i
+  %.sroa.0.033.i.i.i = phi ptr [ %14, %.preheader.i.i.i ], [ %24, %21 ]
+  %.sroa.020.032.i.i.i = phi ptr [ %.sroa.022.037.i.i.i, %.preheader.i.i.i ], [ %23, %21 ]
+  %20 = load i32, ptr %.sroa.020.032.i.i.i, align 4, !tbaa !84
+  %21 = load i32, ptr %.sroa.0.033.i.i.i, align 4, !tbaa !84
+  %.not16.i.i.i = icmp eq i32 %20, %21
+  br i1 %.not16.i.i.i, label %22, label %._crit_edge.i.i.i
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.020.032.i.i.i, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i.i, i64 4
-  %.not30.i.i.i = icmp eq ptr %23, %15
-  br i1 %.not30.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %18, !llvm.loop !327
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.020.032.i.i.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i.i, i64 4
+  %.not30.i.i.i = icmp eq ptr %24, %15
+  br i1 %.not30.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %19, !llvm.loop !327
 
-._crit_edge.i.i.i:                                ; preds = %18
-  %24 = icmp eq ptr %.sroa.0.033.i.i.i, %15
-  br i1 %24, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %16
+._crit_edge.i.i.i:                                ; preds = %19
+  %25 = icmp eq ptr %.sroa.0.033.i.i.i, %15
+  br i1 %25, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit, label %17
 
-_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit: ; preds = %16, %._crit_edge.i.i.i, %21, %2, %8, %.preheader.lr.ph.i.i.i
+_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEvRKT_.exit: ; preds = %17, %._crit_edge.i.i.i, %22, %2, %8, %.preheader.lr.ph.i.i.i
   %.3.i.i.i = phi i8 [ 0, %2 ], [ 0, %8 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 1, %21 ], [ 0, %16 ], [ 1, %._crit_edge.i.i.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !323
-  store i8 %.3.i.i.i, ptr %26, align 1, !tbaa !105
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !323
+  store i8 %.3.i.i.i, ptr %27, align 1, !tbaa !105
   ret void
 }
 
@@ -35520,38 +35520,38 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix15type_dispatcher13ca
   %.not3132.i.i.i = icmp eq i64 %5, 0
   br i1 %.not3132.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %.preheader.i.i.i
 
-16:                                               ; preds = %._crit_edge.i.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %.02038.i.i.i, i64 4
+17:                                               ; preds = %._crit_edge.i.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %.02038.i.i.i, i64 4
   %.not24.i.i.i = icmp eq ptr %.02038.i.i.i, %13
   br i1 %.not24.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %.preheader.i.i.i, !llvm.loop !328
 
-.preheader.i.i.i:                                 ; preds = %.preheader.lr.ph.i.i.i, %16
-  %.02038.i.i.i = phi ptr [ %17, %16 ], [ %10, %.preheader.lr.ph.i.i.i ]
-  br label %18
+.preheader.i.i.i:                                 ; preds = %.preheader.lr.ph.i.i.i, %17
+  %.02038.i.i.i = phi ptr [ %18, %16 ], [ %10, %.preheader.lr.ph.i.i.i ]
+  br label %19
 
-18:                                               ; preds = %21, %.preheader.i.i.i
-  %.034.i.i.i = phi ptr [ %.02038.i.i.i, %.preheader.i.i.i ], [ %22, %21 ]
-  %.sroa.0.033.i.i.i = phi ptr [ %14, %.preheader.i.i.i ], [ %23, %21 ]
-  %19 = load i32, ptr %.034.i.i.i, align 4, !tbaa !84
-  %20 = load i32, ptr %.sroa.0.033.i.i.i, align 4, !tbaa !84
-  %.not25.i.i.i = icmp eq i32 %19, %20
-  br i1 %.not25.i.i.i, label %21, label %._crit_edge.i.i.i
+19:                                               ; preds = %22, %.preheader.i.i.i
+  %.034.i.i.i = phi ptr [ %.02038.i.i.i, %.preheader.i.i.i ], [ %23, %21 ]
+  %.sroa.0.033.i.i.i = phi ptr [ %14, %.preheader.i.i.i ], [ %24, %21 ]
+  %20 = load i32, ptr %.034.i.i.i, align 4, !tbaa !84
+  %21 = load i32, ptr %.sroa.0.033.i.i.i, align 4, !tbaa !84
+  %.not25.i.i.i = icmp eq i32 %20, %21
+  br i1 %.not25.i.i.i, label %22, label %._crit_edge.i.i.i
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.034.i.i.i, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i.i, i64 4
-  %.not31.i.i.i = icmp eq ptr %23, %15
-  br i1 %.not31.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %18, !llvm.loop !329
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %.034.i.i.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i.i, i64 4
+  %.not31.i.i.i = icmp eq ptr %24, %15
+  br i1 %.not31.i.i.i, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %19, !llvm.loop !329
 
-._crit_edge.i.i.i:                                ; preds = %18
-  %24 = icmp eq ptr %.sroa.0.033.i.i.i, %15
-  br i1 %24, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %16
+._crit_edge.i.i.i:                                ; preds = %19
+  %25 = icmp eq ptr %.sroa.0.033.i.i.i, %15
+  br i1 %25, label %_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit, label %17
 
-_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %16, %._crit_edge.i.i.i, %21, %2, %8, %.preheader.lr.ph.i.i.i
+_ZNK5boost3log11v2_mt_posix19save_result_wrapperIRKNS1_3aux9anonymous16string_predicateINS1_12contains_funEEEbEclINS1_20basic_string_literalIwSt11char_traitsIwEEEEEvRKT_.exit: ; preds = %17, %._crit_edge.i.i.i, %22, %2, %8, %.preheader.lr.ph.i.i.i
   %.3.i.i.i = phi i8 [ 0, %2 ], [ 0, %8 ], [ 1, %.preheader.lr.ph.i.i.i ], [ 1, %21 ], [ 0, %16 ], [ 1, %._crit_edge.i.i.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !323
-  store i8 %.3.i.i.i, ptr %26, align 1, !tbaa !105
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !323
+  store i8 %.3.i.i.i, ptr %27, align 1, !tbaa !105
   ret void
 }
 

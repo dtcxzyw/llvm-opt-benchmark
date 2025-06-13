@@ -1722,30 +1722,30 @@ define hidden void @_ZN3ue211ue2_literal7reverseEv(ptr noundef nonnull readonly 
   %4 = icmp sgt i64 %3, 1
   br i1 %4, label %.lr.ph.i.i.preheader, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
 
-.lr.ph.i.i.preheader:                             ; preds = %1
+.lr.ph.i.i.preheader:; preds = %1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 %3
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %6, i64 -1
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %.lr.ph.i.i.preheader ]
+.lr.ph.i.i:; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+  %.sroa.05.09.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %.lr.ph.i.i.preheader ]
   %.sroa.05.09.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %5, %.lr.ph.i.i.preheader ]
-  %7 = load i8, ptr %.sroa.05.09.i.i, align 1
-  %8 = load i8, ptr %.sroa.0.010.i.i, align 1
+  %9 = load i8, ptr %.sroa.05.09.i.i, align 1
+  %8 = load i8, ptr %.sroa.05.09.i.i, align 1
   store i8 %8, ptr %.sroa.05.09.i.i, align 1
-  store i8 %7, ptr %.sroa.0.010.i.i, align 1
+  store i8 %7, ptr %.sroa.05.09.i.i, align 1
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 1
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -1
-  %10 = icmp ult ptr %9, %.sroa.0.0.i.i
-  br i1 %10, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !24
+  %11 = icmp ult ptr %9, %.sroa.0.0.i.i
+  br i1 %11, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !24
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit: ; preds = %.lr.ph.i.i, %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i64, ptr %12, align 8
-  %14 = lshr i64 %13, 1
-  %.not15 = icmp ult i64 %13, 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = load i64, ptr %13, align 8
+  %15 = lshr i64 %14, 1
+  %.not15 = icmp ult i64 %14, 2
   br i1 %.not15, label %._crit_edge, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit
 
 ._crit_edge:                                      ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
@@ -1753,7 +1753,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit:    ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12
   %.014 = phi i64 [ %44, %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12 ], [ 0, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ]
-  %15 = xor i64 %.014, -1
+  %16 = xor i64 %.014, -1
   %16 = add i64 %13, %15
   %17 = lshr i64 %.014, 6
   %18 = load ptr, ptr %11, align 8
@@ -1845,20 +1845,20 @@ _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i:  ; preds = %_ZSt7reverseIN9__gn
   %22 = and i64 %.014.i, 63
   %23 = shl nuw i64 1, %22
   %24 = and i64 %21, %23
-  %.not.i = icmp eq i64 %24, 0
+  %.not = icmp eq i64 %24, 0
   %25 = lshr i64 %17, 6
   %26 = getelementptr inbounds nuw i64, ptr %19, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %17, 63
   %29 = shl nuw i64 1, %28
   %30 = and i64 %27, %29
-  %.not13.i = icmp eq i64 %30, 0
+  %.not13 = icmp eq i64 %30, 0
   %31 = xor i64 %23, -1
   %32 = and i64 %21, %31
   %33 = or i64 %21, %23
-  %storemerge.i = select i1 %.not13.i, i64 %32, i64 %33
-  store i64 %storemerge.i, ptr %20, align 8
-  br i1 %.not.i, label %39, label %34
+  %storemerge = select i1 %.not13, i64 %32, i64 %33
+  store i64 %storemerge, ptr %20, align 8
+  br i1 %.not, label %39, label %34
 
 34:                                               ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i
   %35 = load ptr, ptr %12, align 8
@@ -1878,8 +1878,8 @@ _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i:  ; preds = %_ZSt7reverseIN9__gn
   br label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i
 
 _ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i: ; preds = %39, %34
-  %45 = add nuw nsw i64 %.014.i, 1
-  %exitcond.not.i = icmp eq i64 %45, %15
+  %46 = add nuw nsw i64 %.014.i, 1
+  %exitcond.not.i = icmp eq i64 %46, %16
   br i1 %exitcond.not.i, label %_ZN3ue211ue2_literal7reverseEv.exit, label %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit.i, !llvm.loop !25
 
 _ZN3ue211ue2_literal7reverseEv.exit:              ; preds = %_ZN5boost14dynamic_bitsetImSaImEE3setEmb.exit12.i, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit.i

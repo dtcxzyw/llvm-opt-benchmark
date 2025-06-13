@@ -6438,20 +6438,20 @@ _ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.thread: ; preds = %.sink.split
   %47 = zext i1 %46 to i32
   %48 = or i32 %40, %47
   %.not27 = icmp eq i32 %48, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not27, label %.loopexit, label %49
 
-.lr.ph.preheader:                                 ; preds = %43
-  %49 = load i16, ptr %7, align 8, !tbaa !3
-  %50 = and i16 %49, 2
-  %.not.i28 = icmp eq i16 %50, 0
-  %51 = load ptr, ptr %21, align 8
-  %52 = select i1 %.not.i28, ptr %51, ptr %20
-  %53 = getelementptr inbounds i16, ptr %52, i64 %24
-  %54 = getelementptr inbounds nuw i16, ptr %53, i64 %26
-  %55 = getelementptr inbounds i8, ptr %54, i64 -2
+49:                                               ; preds = %43
+  %50 = load i16, ptr %7, align 8, !tbaa !3
+  %51 = and i16 %50, 2
+  %.not.i28 = icmp eq i16 %51, 0
+  %52 = load ptr, ptr %21, align 8
+  %53 = select i1 %.not.i28, ptr %52, ptr %20
+  %54 = getelementptr inbounds i16, ptr %53, i64 %24
+  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %26
+  %56 = getelementptr inbounds i8, ptr %55, i64 -2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
+.loopexit:                                        ; preds = %49, %68
   %.140 = phi ptr [ %.2, %68 ], [ %53, %.lr.ph.preheader ]
   %56 = load i16, ptr %.140, align 2, !tbaa !10
   %57 = and i16 %56, -1024
