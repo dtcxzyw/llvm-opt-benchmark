@@ -2621,13 +2621,16 @@ getEncTypeStr.exit:                               ; preds = %63, %.lr.ph875, %ge
   br i1 %.not55.i, label %.critedge.thread.i, label %259
 
 259:                                              ; preds = %257
+  %.not5672.i = icmp slt i64 %258, 1
+  br i1 %.not5672.i, label %.critedge.i, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %259
   %260 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %258
   %.071.i = getelementptr inbounds i8, ptr %260, i64 -1
-  %.not5672.i = icmp ult ptr %.071.i, %spec.select.i
-  br i1 %.not5672.i, label %.critedge.i, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %259, %263
-  %.073.i = phi ptr [ %.0.i, %263 ], [ %.071.i, %259 ]
+.lr.ph.i:                                         ; preds = %263, %.lr.ph.preheader.i
+  %.073.i = phi ptr [ %.0.i, %263 ], [ %.071.i, %.lr.ph.preheader.i ]
   %261 = load i8, ptr %.073.i, align 1, !tbaa !43
   %262 = icmp eq i8 %261, 32
   br i1 %262, label %263, label %.critedge.i
@@ -4069,13 +4072,16 @@ define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr noundef non
   %21 = load ptr, ptr %0, align 8, !tbaa !57
   %22 = tail call ptr @lineGetData(ptr noundef %21) #21
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %22)
-  %strchr = getelementptr inbounds i8, ptr %22, i64 %strlen
-  %23 = getelementptr inbounds i8, ptr %strchr, i64 -1
-  %24 = icmp ugt ptr %23, %22
-  br i1 %24, label %.lr.ph, label %.loopexit
+  %23 = icmp sgt i64 %strlen, 1
+  br i1 %23, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph:                                           ; preds = %20, %27
-  %25 = phi ptr [ %28, %27 ], [ %23, %20 ]
+.lr.ph.preheader:                                 ; preds = %20
+  %strchr = getelementptr inbounds nuw i8, ptr %22, i64 %strlen
+  %24 = getelementptr inbounds i8, ptr %strchr, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
+  %25 = phi ptr [ %28, %27 ], [ %24, %.lr.ph.preheader ]
   %26 = load i8, ptr %25, align 1, !tbaa !43
   switch i8 %26, label %.loopexit [
     i8 59, label %.loopexit.loopexit
@@ -5042,15 +5048,16 @@ define internal fastcc range(i32 0, 2) i32 @boundaryStart(ptr noundef %0, ptr no
 
 11:                                               ; preds = %9
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
-  %.not79 = icmp eq i64 %12, 0
+  %.not8097 = icmp slt i64 %12, 1
+  br i1 %.not8097, label %.critedge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %12
   %.06496 = getelementptr inbounds i8, ptr %13, i64 -1
-  %.not8097 = icmp ult ptr %.06496, %spec.select
-  %or.cond100 = select i1 %.not79, i1 true, i1 %.not8097
-  br i1 %or.cond100, label %.critedge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %16
-  %.06498 = phi ptr [ %.064, %16 ], [ %.06496, %11 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
+  %.06498 = phi ptr [ %.064, %16 ], [ %.06496, %.lr.ph.preheader ]
   %14 = load i8, ptr %.06498, align 1, !tbaa !43
   %15 = icmp eq i8 %14, 32
   br i1 %15, label %16, label %.critedge

@@ -1694,7 +1694,7 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   br i1 %.not, label %.thread, label %.preheader170
 
 .preheader170:                                    ; preds = %22
-  %.not128191 = icmp eq ptr %24, %18
+  %.not128191 = icmp eq i64 %1, 1
   br i1 %.not128191, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader170
@@ -1712,12 +1712,16 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %29 = getelementptr inbounds i8, ptr %.091192, i64 -1
   %30 = add nuw nsw i32 %.089193, 1
   %.not128 = icmp eq ptr %29, %18
-  br i1 %.not128, label %._crit_edge, label %.lr.ph
+  br i1 %.not128, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %28, %.lr.ph, %.preheader170
-  %.091.lcssa = phi ptr [ %18, %.preheader170 ], [ %.091192, %.lr.ph ], [ %18, %28 ]
-  %.089.lcssa = phi i32 [ 1, %.preheader170 ], [ %.089193, %.lr.ph ], [ %26, %28 ]
-  %31 = load i8, ptr %.091.lcssa, align 1, !tbaa !3
+.._crit_edge.loopexit_crit_edge:                  ; preds = %28
+  %.pre.pre = load i8, ptr %18, align 1, !tbaa !3
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.preheader170
+  %31 = phi i8 [ %25, %.preheader170 ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph ]
+  %.091.lcssa = phi ptr [ %24, %.preheader170 ], [ %18, %.._crit_edge.loopexit_crit_edge ], [ %.091192, %.lr.ph ]
+  %.089.lcssa = phi i32 [ 1, %.preheader170 ], [ %26, %.._crit_edge.loopexit_crit_edge ], [ %.089193, %.lr.ph ]
   %32 = zext i8 %31 to i32
   br label %33
 
@@ -1762,8 +1766,8 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %48 = icmp ult i16 %2, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next, 152
-  %or.cond253 = select i1 %48, i1 true, i1 %exitcond223.not
-  br i1 %or.cond253, label %.thread136, label %.preheader168
+  %or.cond258 = select i1 %48, i1 true, i1 %exitcond223.not
+  br i1 %or.cond258, label %.thread136, label %.preheader168
 
 49:                                               ; preds = %.preheader168
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8

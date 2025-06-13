@@ -1916,10 +1916,11 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   %865 = getelementptr i8, ptr %864, i64 -1
   %866 = load i8, ptr %865, align 1, !tbaa !35
   %867 = icmp eq i8 %866, 13
+  %.neg.neg.i.i = zext i1 %867 to i64
   %.neg.i.i = sext i1 %867 to i64
-  %868 = zext i1 %867 to i64
-  %869 = getelementptr inbounds i8, ptr %864, i64 %.neg.i.i
-  %.not5759.i.i = icmp eq ptr %850, %869
+  %868 = getelementptr inbounds i8, ptr %864, i64 %.neg.i.i
+  %869 = add i64 %861, %857
+  %.not5759.i.i = icmp eq i64 %869, %.neg.neg.i.i
   br i1 %.not5759.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %862, %877
@@ -1943,7 +1944,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   %879 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %880 = getelementptr inbounds nuw i8, ptr %.04760.i.i, i64 1
   store i8 %878, ptr %.04760.i.i, align 1, !tbaa !35
-  %.not57.i.i = icmp eq ptr %879, %869
+  %.not57.i.i = icmp eq ptr %879, %868
   br i1 %.not57.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !71
 
 ._crit_edge.i.i:                                  ; preds = %877, %862
@@ -1954,7 +1955,7 @@ yy_try_NUL_trans.exit:                            ; preds = %769, %753
   br label %884
 
 884:                                              ; preds = %._crit_edge.i.i, %855
-  %.049.i.i = phi i64 [ %868, %._crit_edge.i.i ], [ 0, %855 ]
+  %.049.i.i = phi i64 [ %.neg.neg.i.i, %._crit_edge.i.i ], [ 0, %855 ]
   %.048.i.i = phi i64 [ %883, %._crit_edge.i.i ], [ %857, %855 ]
   store i64 %.049.i.i, ptr %856, align 8, !tbaa !70
   %885 = trunc i64 %.048.i.i to i32

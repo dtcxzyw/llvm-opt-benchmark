@@ -454,8 +454,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr4.i = getelementptr inbounds i8, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -1
   %cmp673.i = icmp ult ptr %pSource, %spec.select.i
-  %cmp774.i = icmp ult ptr %pDest, %add.ptr5.i
-  %or.cond7275.i = select i1 %cmp673.i, i1 %cmp774.i, i1 false
+  %cmp774.i = icmp sgt i64 %nDestCapacity, 1
+  %or.cond7275.i = and i1 %cmp774.i, %cmp673.i
   br i1 %or.cond7275.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %land.end14.i
@@ -573,8 +573,8 @@ if.end:                                           ; preds = %entry
   %add.ptr4 = getelementptr inbounds i8, ptr %pDest, i64 %nDestCapacity
   %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr4, i64 -1
   %cmp673 = icmp ult ptr %pSource, %spec.select
-  %cmp774 = icmp ult ptr %pDest, %add.ptr5
-  %or.cond7275 = select i1 %cmp673, i1 %cmp774, i1 false
+  %cmp774 = icmp sgt i64 %nDestCapacity, 1
+  %or.cond7275 = and i1 %cmp673, %cmp774
   br i1 %or.cond7275, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end, %land.end14
@@ -740,8 +740,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -2
   %cmp665.i = icmp ult ptr %pSource, %spec.select.i
-  %cmp766.i = icmp ult ptr %pDest, %add.ptr5.i
-  %or.cond4267.i = select i1 %cmp665.i, i1 %cmp766.i, i1 false
+  %cmp766.i = icmp sgt i64 %nDestCapacity, 1
+  %or.cond4267.i = and i1 %cmp766.i, %cmp665.i
   br i1 %or.cond4267.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %land.end14.i
@@ -868,8 +868,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr4.i = getelementptr inbounds i16, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -2
   %cmp622.i = icmp ult ptr %pSource, %spec.select.i
-  %cmp723.i = icmp ult ptr %pDest, %add.ptr5.i
-  %or.cond2124.i = select i1 %cmp622.i, i1 %cmp723.i, i1 false
+  %cmp723.i = icmp sgt i64 %nDestCapacity, 1
+  %or.cond2124.i = and i1 %cmp723.i, %cmp622.i
   br i1 %or.cond2124.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %land.end14.i
@@ -934,8 +934,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
   %cmp665.i = icmp ult ptr %pSource, %spec.select.i
-  %cmp766.i = icmp ult ptr %pDest, %add.ptr5.i
-  %or.cond4267.i = select i1 %cmp665.i, i1 %cmp766.i, i1 false
+  %cmp766.i = icmp sgt i64 %nDestCapacity, 1
+  %or.cond4267.i = and i1 %cmp766.i, %cmp665.i
   br i1 %or.cond4267.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %land.end14.i
@@ -1061,8 +1061,8 @@ if.end.i:                                         ; preds = %entry
   %add.ptr4.i = getelementptr inbounds i32, ptr %pDest, i64 %nDestCapacity
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 -4
   %cmp621.i = icmp ult ptr %pSource, %spec.select.i
-  %cmp722.i = icmp ult ptr %pDest, %add.ptr5.i
-  %or.cond23.i = select i1 %cmp621.i, i1 %cmp722.i, i1 false
+  %cmp722.i = icmp sgt i64 %nDestCapacity, 1
+  %or.cond23.i = and i1 %cmp722.i, %cmp621.i
   br i1 %or.cond23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.i, %land.rhs12.i
@@ -6955,14 +6955,17 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local noundef ptr @_ZN2EA4StdC6StrrevEPc(ptr noundef returned captures(address, ret: address, provenance) %pString) local_unnamed_addr #1 {
 entry:
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %pString) #38
-  %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %call.i
-  %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
-  %cmp11 = icmp ult ptr %pString, %p2.010
-  br i1 %cmp11, label %for.body, label %for.end
+  %cmp11 = icmp sgt i64 %call.i, 1
+  br i1 %cmp11, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %p2.013 = phi ptr [ %p2.0, %for.body ], [ %p2.010, %entry ]
-  %p1.012 = phi ptr [ %incdec.ptr, %for.body ], [ %pString, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %add.ptr = getelementptr inbounds nuw i8, ptr %pString, i64 %call.i
+  %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %p2.013 = phi ptr [ %p2.0, %for.body ], [ %p2.010, %for.body.preheader ]
+  %p1.012 = phi ptr [ %incdec.ptr, %for.body ], [ %pString, %for.body.preheader ]
   %0 = load i8, ptr %p2.013, align 1
   %1 = load i8, ptr %p1.012, align 1
   store i8 %1, ptr %p2.013, align 1
@@ -7032,14 +7035,17 @@ while.end.i:                                      ; preds = %while.cond.i
 _ZN2EA4StdC6StrlenEPKDs.exit:                     ; preds = %for.body.i, %for.body.i.preheader, %while.end.i
   %.pn.i = phi i64 [ %sub.ptr.lhs.cast12.i, %while.end.i ], [ %0, %for.body.i.preheader ], [ %3, %for.body.i ]
   %retval.0.in.i = sub i64 %.pn.i, %0
-  %add.ptr = getelementptr inbounds i8, ptr %pString, i64 %retval.0.in.i
-  %p2.013 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
-  %cmp14 = icmp ult ptr %pString, %p2.013
-  br i1 %cmp14, label %for.body, label %for.end
+  %cmp14 = icmp sgt i64 %retval.0.in.i, 2
+  br i1 %cmp14, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit, %for.body
-  %p2.016 = phi ptr [ %p2.0, %for.body ], [ %p2.013, %_ZN2EA4StdC6StrlenEPKDs.exit ]
-  %p1.015 = phi ptr [ %incdec.ptr, %for.body ], [ %pString, %_ZN2EA4StdC6StrlenEPKDs.exit ]
+for.body.preheader:                               ; preds = %_ZN2EA4StdC6StrlenEPKDs.exit
+  %add.ptr = getelementptr inbounds nuw i8, ptr %pString, i64 %retval.0.in.i
+  %p2.013 = getelementptr inbounds i8, ptr %add.ptr, i64 -2
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %p2.016 = phi ptr [ %p2.0, %for.body ], [ %p2.013, %for.body.preheader ]
+  %p1.015 = phi ptr [ %incdec.ptr, %for.body ], [ %pString, %for.body.preheader ]
   %9 = load i16, ptr %p2.016, align 2
   %10 = load i16, ptr %p1.015, align 2
   store i16 %10, ptr %p2.016, align 2
@@ -7057,14 +7063,17 @@ for.end:                                          ; preds = %for.body, %_ZN2EA4S
 define dso_local noundef ptr @_ZN2EA4StdC6StrrevEPDi(ptr noundef returned captures(address, ret: address, provenance) %pString) local_unnamed_addr #1 {
 entry:
   %wcslen.i = tail call noundef i64 @wcslen(ptr readonly %pString)
-  %add.ptr = getelementptr inbounds i32, ptr %pString, i64 %wcslen.i
-  %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
-  %cmp11 = icmp ult ptr %pString, %p2.010
-  br i1 %cmp11, label %for.body, label %for.end
+  %cmp11 = icmp sgt i64 %wcslen.i, 1
+  br i1 %cmp11, label %for.body.preheader, label %for.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %p2.013 = phi ptr [ %p2.0, %for.body ], [ %p2.010, %entry ]
-  %p1.012 = phi ptr [ %incdec.ptr, %for.body ], [ %pString, %entry ]
+for.body.preheader:                               ; preds = %entry
+  %add.ptr = getelementptr inbounds nuw i32, ptr %pString, i64 %wcslen.i
+  %p2.010 = getelementptr inbounds i8, ptr %add.ptr, i64 -4
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %p2.013 = phi ptr [ %p2.0, %for.body ], [ %p2.010, %for.body.preheader ]
+  %p1.012 = phi ptr [ %incdec.ptr, %for.body ], [ %pString, %for.body.preheader ]
   %0 = load i32, ptr %p2.013, align 4
   %1 = load i32, ptr %p1.012, align 4
   store i32 %1, ptr %p2.013, align 4

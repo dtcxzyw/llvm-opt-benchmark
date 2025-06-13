@@ -641,12 +641,16 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   switch i32 %3, label %default.unreachable3 [
     i32 0, label %4
     i32 1, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
-    i32 2, label %33
+    i32 2, label %31
   ]
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 16, !tbaa !35
+  %switch = icmp ult i64 %6, 4
+  br i1 %switch, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %4
   %7 = and i64 %6, 1
   %.not.i.i = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -654,68 +658,60 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   %10 = select i1 %.not.i.i, ptr %8, ptr %9
   %11 = lshr i64 %6, 1
   %12 = getelementptr inbounds nuw %"struct.grpc_core::WorkSerializer::WorkSerializerImpl::CallbackWrapper", ptr %10, i64 %11
-  %13 = icmp ult i64 %6, 2
-  br i1 %13, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %4
   %.012.i.i = getelementptr inbounds i8, ptr %12, i64 -32
-  %14 = icmp ult ptr %10, %.012.i.i
-  br i1 %14, label %.lr.ph.i.i, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %15
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %17
-
-17:                                               ; preds = %17, %.lr.ph.i.i
-  %.015.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %17 ]
-  %.pn14.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %.015.i.i, %17 ]
-  %.0913.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %31, %17 ]
+15:                                               ; preds = %15, %.lr.ph.i.i
+  %.015.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %15 ]
+  %.pn14.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %.015.i.i, %15 ]
+  %.0913.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %29, %15 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
-  %18 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
-  %19 = load ptr, ptr %18, align 16, !tbaa !41
-  call void %19(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2) #25
-  %20 = load ptr, ptr %18, align 16, !tbaa !41
-  store ptr %20, ptr %15, align 16, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !43
-  store ptr %22, ptr %16, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %18, align 16, !tbaa !41
-  store ptr null, ptr %21, align 8, !tbaa !43
-  %23 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -16
-  %24 = load ptr, ptr %23, align 16, !tbaa !41
-  call void %24(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i) #25
-  %25 = load ptr, ptr %23, align 16, !tbaa !41
-  store ptr %25, ptr %18, align 16, !tbaa !41
-  %26 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
-  %27 = load ptr, ptr %26, align 8, !tbaa !43
-  store ptr %27, ptr %21, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %23, align 16, !tbaa !41
-  store ptr null, ptr %26, align 8, !tbaa !43
-  %28 = load ptr, ptr %15, align 16, !tbaa !41
-  call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i) #25
-  %29 = load ptr, ptr %15, align 16, !tbaa !41
-  store ptr %29, ptr %23, align 16, !tbaa !41
-  %30 = load ptr, ptr %16, align 8, !tbaa !43
-  store ptr %30, ptr %26, align 8, !tbaa !43
+  %16 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
+  %17 = load ptr, ptr %16, align 16, !tbaa !41
+  call void %17(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2) #25
+  %18 = load ptr, ptr %16, align 16, !tbaa !41
+  store ptr %18, ptr %13, align 16, !tbaa !41
+  %19 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !43
+  store ptr %20, ptr %14, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %16, align 16, !tbaa !41
+  store ptr null, ptr %19, align 8, !tbaa !43
+  %21 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -16
+  %22 = load ptr, ptr %21, align 16, !tbaa !41
+  call void %22(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i) #25
+  %23 = load ptr, ptr %21, align 16, !tbaa !41
+  store ptr %23, ptr %16, align 16, !tbaa !41
+  %24 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
+  %25 = load ptr, ptr %24, align 8, !tbaa !43
+  store ptr %25, ptr %19, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %21, align 16, !tbaa !41
+  store ptr null, ptr %24, align 8, !tbaa !43
+  %26 = load ptr, ptr %13, align 16, !tbaa !41
+  call void %26(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i) #25
+  %27 = load ptr, ptr %13, align 16, !tbaa !41
+  store ptr %27, ptr %21, align 16, !tbaa !41
+  %28 = load ptr, ptr %14, align 8, !tbaa !43
+  store ptr %28, ptr %24, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
-  %31 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 32
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -32
-  %32 = icmp ult ptr %31, %.0.i.i
-  br i1 %32, label %17, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, !llvm.loop !70
+  %30 = icmp ult ptr %29, %.0.i.i
+  br i1 %30, label %15, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, !llvm.loop !70
 
-33:                                               ; preds = %1
-  %34 = load ptr, ptr %0, align 16, !tbaa !33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 16 dereferenceable(176) %0) #25
+31:                                               ; preds = %1
+  %32 = load ptr, ptr %0, align 16, !tbaa !33
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 16 dereferenceable(176) %0) #25
   br label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
 
 default.unreachable3:                             ; preds = %1
   unreachable
 
-_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit: ; preds = %17, %.preheader.i.i, %4, %1, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %1 ], [ true, %4 ], [ true, %.preheader.i.i ], [ true, %17 ]
+_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit: ; preds = %15, %4, %1, %31
+  %.0 = phi i1 [ false, %31 ], [ false, %1 ], [ true, %4 ], [ true, %15 ]
   ret i1 %.0
 }
 

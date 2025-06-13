@@ -6942,19 +6942,22 @@ _ZN9Node_List4pushEP4Node.exit97.i:               ; preds = %84, %83
   %98 = getelementptr inbounds nuw ptr, ptr %.sroa.27.7.i, i64 %57
   store ptr %59, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = load i32, ptr %81, align 8
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %102
-  %.084182.i = getelementptr inbounds i8, ptr %103, i64 -8
-  %.not92183.i = icmp ult ptr %.084182.i, %100
-  br i1 %.not92183.i, label %.loopexit.i, label %.lr.ph188.i
+  %100 = load i32, ptr %81, align 8
+  %.not92183.i = icmp eq i32 %100, 0
+  br i1 %.not92183.i, label %.loopexit.i, label %.lr.ph188.preheader.i
 
-.lr.ph188.i:                                      ; preds = %_ZN9Node_List4pushEP4Node.exit97.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i
-  %.084187.i = phi ptr [ %.084.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.084182.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
-  %.sroa.47.1186.i = phi i32 [ %.sroa.47.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.47.0203.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
-  %.sroa.7.1185.i = phi i32 [ %.sroa.7.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.7.7.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
-  %.sroa.27.1184.i = phi ptr [ %.sroa.27.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.27.7.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
+.lr.ph188.preheader.i:                            ; preds = %_ZN9Node_List4pushEP4Node.exit97.i
+  %101 = load ptr, ptr %99, align 8
+  %102 = zext i32 %100 to i64
+  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %102
+  br label %.lr.ph188.i
+
+.lr.ph188.i:                                      ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit.i, %.lr.ph188.preheader.i
+  %.pn.i = phi ptr [ %360, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %103, %.lr.ph188.preheader.i ]
+  %.sroa.47.1186.i = phi i32 [ %.sroa.47.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.47.0203.i, %.lr.ph188.preheader.i ]
+  %.sroa.7.1185.i = phi i32 [ %.sroa.7.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.7.7.i, %.lr.ph188.preheader.i ]
+  %.sroa.27.1184.i = phi ptr [ %.sroa.27.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.27.7.i, %.lr.ph188.preheader.i ]
+  %.084187.i = getelementptr inbounds i8, ptr %.pn.i, i64 -8
   %104 = load ptr, ptr %.084187.i, align 8
   %105 = load ptr, ptr %49, align 8
   %106 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef %104) #15
@@ -7414,8 +7417,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit.i:         ; preds = %_ZN16Unique_Node_Li
   %358 = load i32, ptr %81, align 8
   %359 = zext i32 %358 to i64
   %360 = getelementptr inbounds nuw ptr, ptr %357, i64 %359
-  %.084.i = getelementptr inbounds i8, ptr %360, i64 -8
-  %.not92.i = icmp ult ptr %.084.i, %357
+  %.not92.i = icmp eq i32 %358, 0
   br i1 %.not92.i, label %.loopexit.i, label %.lr.ph188.i, !llvm.loop !38
 
 361:                                              ; preds = %80

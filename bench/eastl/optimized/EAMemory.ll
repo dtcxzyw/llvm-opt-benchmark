@@ -1713,19 +1713,20 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %cmp4.not17 = icmp ugt ptr %pMemory, %add.ptr1
+  %0 = sub i64 %memorySize, %findSize
+  %cmp4.not17 = icmp slt i64 %0, 0
   br i1 %cmp4.not17, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %0 = load i8, ptr %pFind, align 1
+  %1 = load i8, ptr %pFind, align 1
   %sub = add i64 %findSize, -1
   %cmp.not7.i = icmp eq i64 %sub, 0
   br i1 %cmp.not7.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %pCurrent8.018.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %pMemory, %for.body.lr.ph ]
-  %1 = load i8, ptr %pCurrent8.018.us, align 1
-  %cmp7.us = icmp eq i8 %1, %0
+  %2 = load i8, ptr %pCurrent8.018.us, align 1
+  %cmp7.us = icmp eq i8 %2, %1
   br i1 %cmp7.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body.us
@@ -1735,8 +1736,8 @@ for.inc.us:                                       ; preds = %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %pCurrent8.018 = phi ptr [ %incdec.ptr, %for.inc ], [ %pMemory, %for.body.lr.ph ]
-  %2 = load i8, ptr %pCurrent8.018, align 1
-  %cmp7 = icmp eq i8 %2, %0
+  %3 = load i8, ptr %pCurrent8.018, align 1
+  %cmp7 = icmp eq i8 %3, %1
   br i1 %cmp7, label %for.body.i, label %for.inc
 
 for.body.i:                                       ; preds = %for.body, %for.inc.i
@@ -1745,9 +1746,9 @@ for.body.i:                                       ; preds = %for.body, %for.inc.
   %nCharCount.addr.08.i = phi i64 [ %dec.i, %for.inc.i ], [ %sub, %for.body ]
   %p1.09.i = getelementptr inbounds nuw i8, ptr %p1.09.i.pn, i64 1
   %p2.010.i = getelementptr inbounds nuw i8, ptr %p2.010.i.pn, i64 1
-  %3 = load i8, ptr %p1.09.i, align 1
-  %4 = load i8, ptr %p2.010.i, align 1
-  %cmp2.not.i = icmp eq i8 %3, %4
+  %4 = load i8, ptr %p1.09.i, align 1
+  %5 = load i8, ptr %p2.010.i, align 1
+  %cmp2.not.i = icmp eq i8 %4, %5
   br i1 %cmp2.not.i, label %for.inc.i, label %for.inc
 
 for.inc.i:                                        ; preds = %for.body.i

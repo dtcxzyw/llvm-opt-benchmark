@@ -1618,12 +1618,12 @@ define internal void @m4sl_cb(ptr noundef captures(none) %0, ptr noundef %1, i32
   %11 = sext i32 %2 to i64
   %12 = getelementptr i8, ptr %1, i64 %11
   %.ptr68 = getelementptr i8, ptr %12, i64 -4
-  %.not.i.i = icmp ult ptr %1, %.ptr68
+  %.not.i.i = icmp sgt i32 %2, 4
   br i1 %.not.i.i, label %get8.exit.i, label %skip_identical.exit
 
 get8.exit.i:                                      ; preds = %3
   %13 = load i8, ptr %1, align 1, !tbaa !9
-  %or.cond = icmp slt i32 %2, 10
+  %or.cond = icmp samesign ult i32 %2, 10
   br i1 %or.cond, label %skip_identical.exit, label %get8.exit45.i
 
 get8.exit45.i:                                    ; preds = %get8.exit.i
@@ -2028,12 +2028,12 @@ define internal void @sdt_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 
   %9 = sext i32 %2 to i64
   %10 = getelementptr i8, ptr %1, i64 %9
   %.ptr111 = getelementptr i8, ptr %10, i64 -4
-  %.not.i.i = icmp ult ptr %1, %.ptr111
+  %.not.i.i = icmp sgt i32 %2, 4
   br i1 %.not.i.i, label %get8.exit.i, label %skip_identical.exit
 
 get8.exit.i:                                      ; preds = %3
   %11 = load i8, ptr %1, align 1, !tbaa !9
-  %or.cond122 = icmp slt i32 %2, 10
+  %or.cond122 = icmp ult i32 %2, 10
   br i1 %or.cond122, label %skip_identical.exit, label %get8.exit45.i
 
 get8.exit45.i:                                    ; preds = %get8.exit.i
@@ -2214,12 +2214,12 @@ define internal void @pat_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 
   %9 = sext i32 %2 to i64
   %10 = getelementptr i8, ptr %1, i64 %9
   %.ptr173 = getelementptr i8, ptr %10, i64 -4
-  %.not.i.i = icmp ult ptr %1, %.ptr173
+  %.not.i.i = icmp sgt i32 %2, 4
   br i1 %.not.i.i, label %get8.exit.i, label %skip_identical.exit
 
 get8.exit.i:                                      ; preds = %3
   %11 = load i8, ptr %1, align 1, !tbaa !9
-  %12 = icmp slt i32 %2, 9
+  %12 = icmp samesign ult i32 %2, 9
   br i1 %12, label %skip_identical.exit, label %get16.exit.i
 
 get16.exit.i:                                     ; preds = %get8.exit.i
@@ -2774,12 +2774,12 @@ define internal void @eit_cb(ptr noundef readonly captures(none) %0, ptr noundef
   %23 = sext i32 %2 to i64
   %24 = getelementptr i8, ptr %1, i64 %23
   %.ptr35 = getelementptr i8, ptr %24, i64 -4
-  %.not.i.i = icmp ult ptr %1, %.ptr35
+  %.not.i.i = icmp sgt i32 %2, 4
   br i1 %.not.i.i, label %get8.exit.i, label %parse_section_header.exit.thread
 
 get8.exit.i:                                      ; preds = %22
   %25 = load i8, ptr %1, align 1, !tbaa !9
-  %26 = icmp slt i32 %2, 9
+  %26 = icmp samesign ult i32 %2, 9
   br i1 %26, label %parse_section_header.exit.thread, label %get16.exit.i
 
 get16.exit.i:                                     ; preds = %get8.exit.i
@@ -5138,12 +5138,12 @@ define internal void @pmt_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 
   %12 = sext i32 %2 to i64
   %13 = getelementptr i8, ptr %1, i64 %12
   %.ptr478 = getelementptr i8, ptr %13, i64 -4
-  %.not.i.i = icmp ult ptr %1, %.ptr478
+  %.not.i.i = icmp sgt i32 %2, 4
   br i1 %.not.i.i, label %get8.exit.i, label %skip_identical.exit
 
 get8.exit.i:                                      ; preds = %3
   %14 = load i8, ptr %1, align 1, !tbaa !9
-  %15 = icmp slt i32 %2, 9
+  %15 = icmp samesign ult i32 %2, 9
   br i1 %15, label %skip_identical.exit, label %get16.exit.i
 
 get16.exit.i:                                     ; preds = %get8.exit.i

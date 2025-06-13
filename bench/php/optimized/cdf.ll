@@ -1860,11 +1860,9 @@ cdf_check_stream_offset.exit:                     ; preds = %10
 24:                                               ; preds = %cdf_check_stream_offset.exit
   %25 = zext nneg i32 %20 to i64
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 %25
-  %.not.i156 = icmp ult ptr %26, %11
   %27 = add nuw nsw i64 %25, %12
   %.not12.i158 = icmp ugt i64 %27, %18
-  %or.cond225 = select i1 %.not.i156, i1 true, i1 %.not12.i158
-  br i1 %or.cond225, label %cdf_check_stream_offset.exit160.thread, label %cdf_check_stream_offset.exit160
+  br i1 %.not12.i158, label %cdf_check_stream_offset.exit160.thread, label %cdf_check_stream_offset.exit160
 
 cdf_check_stream_offset.exit160.thread:           ; preds = %24
   %28 = tail call ptr @__errno_location() #22

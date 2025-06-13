@@ -3212,13 +3212,13 @@ define void @_ZN6Assimp12BaseImporter13ConvertToUTF8ERSt6vectorIcSaIcEE(ptr noun
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %30, i64 %35, i1 false)
-  %.pre79 = load ptr, ptr %4, align 8
-  %.pre80 = load ptr, ptr %0, align 8
+  %.pre78 = load ptr, ptr %4, align 8
+  %.pre79 = load ptr, ptr %0, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit: ; preds = %27, %32
-  %36 = phi ptr [ %29, %27 ], [ %.pre80, %32 ]
-  %37 = phi ptr [ %30, %27 ], [ %.pre79, %32 ]
+  %36 = phi ptr [ %29, %27 ], [ %.pre79, %32 ]
+  %37 = phi ptr [ %30, %27 ], [ %.pre78, %32 ]
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %36 to i64
   %40 = add i64 %38, -3
@@ -3243,55 +3243,53 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.ex
   %50 = sub i64 %48, %49
   %51 = lshr i64 %50, 2
   %52 = getelementptr inbounds nuw i32, ptr %46, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %.not7.i = icmp eq ptr %46, %53
-  br i1 %.not7.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %.lr.ph.i
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %.noexc48
-  %.sroa.04.09.i = phi ptr [ %62, %.noexc48 ], [ %2, %44 ]
-  %.08.i = phi ptr [ %63, %.noexc48 ], [ %46, %44 ]
-  %54 = load i32, ptr %.08.i, align 4
-  %55 = icmp ult i32 %54, 1114112
-  %56 = and i32 %54, -2048
-  %57 = icmp ne i32 %56, 55296
-  %58 = and i1 %55, %57
-  br i1 %58, label %_ZN4utf86appendISt20back_insert_iteratorISt6vectorIcSaIcEEEEET_jS6_.exit.i, label %59
+  %.sroa.04.09.i = phi ptr [ %61, %.noexc48 ], [ %2, %44 ]
+  %.08.i = phi ptr [ %62, %.noexc48 ], [ %46, %44 ]
+  %53 = load i32, ptr %.08.i, align 4
+  %54 = icmp ult i32 %53, 1114112
+  %55 = and i32 %53, -2048
+  %56 = icmp ne i32 %55, 55296
+  %57 = and i1 %54, %56
+  br i1 %57, label %_ZN4utf86appendISt20back_insert_iteratorISt6vectorIcSaIcEEEEET_jS6_.exit.i, label %58
 
-59:                                               ; preds = %.lr.ph.i
-  %60 = call ptr @__cxa_allocate_exception(i64 16) #27
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 %54, ptr %61, align 8
-  invoke void @__cxa_throw(ptr nonnull %60, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZNSt9exceptionD2Ev) #31
+58:                                               ; preds = %.lr.ph.i
+  %59 = call ptr @__cxa_allocate_exception(i64 16) #27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4utf818invalid_code_pointE, i64 16), ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i32 %53, ptr %60, align 8
+  invoke void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZNSt9exceptionD2Ev) #31
           to label %.noexc unwind label %.loopexit.split-lp60
 
-.noexc:                                           ; preds = %59
+.noexc:                                           ; preds = %58
   unreachable
 
 _ZN4utf86appendISt20back_insert_iteratorISt6vectorIcSaIcEEEEET_jS6_.exit.i: ; preds = %.lr.ph.i
-  %62 = invoke ptr @_ZN4utf88internal6appendISt20back_insert_iteratorISt6vectorIcSaIcEEEcEET_jS7_(i32 noundef %54, ptr %.sroa.04.09.i)
+  %61 = invoke ptr @_ZN4utf88internal6appendISt20back_insert_iteratorISt6vectorIcSaIcEEEcEET_jS7_(i32 noundef %53, ptr %.sroa.04.09.i)
           to label %.noexc48 unwind label %.loopexit59
 
 .noexc48:                                         ; preds = %_ZN4utf86appendISt20back_insert_iteratorISt6vectorIcSaIcEEEEET_jS6_.exit.i
-  %63 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.08.i, i64 4
   %.not.i = icmp eq ptr %.08.i, %52
   br i1 %.not.i, label %_ZN4utf88utf32to8ISt20back_insert_iteratorISt6vectorIcSaIcEEEPiEET_T0_S8_S7_.exit, label %.lr.ph.i, !llvm.loop !34
 
 _ZN4utf88utf32to8ISt20back_insert_iteratorISt6vectorIcSaIcEEEPiEET_T0_S8_S7_.exit: ; preds = %.noexc48
-  %.pre = load ptr, ptr %2, align 8
-  %.not.i.i.i = icmp eq ptr %.pre, null
+  %63 = load ptr, ptr %2, align 8
+  %.not.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %64
 
 64:                                               ; preds = %_ZN4utf88utf32to8ISt20back_insert_iteratorISt6vectorIcSaIcEEEPiEET_T0_S8_S7_.exit
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = ptrtoint ptr %66 to i64
-  %68 = ptrtoint ptr %.pre to i64
+  %68 = ptrtoint ptr %63 to i64
   %69 = sub i64 %67, %68
-  call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef %69) #28
+  call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %69) #28
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %44, %_ZN4utf88utf32to8ISt20back_insert_iteratorISt6vectorIcSaIcEEEPiEET_T0_S8_S7_.exit, %64
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZN4utf88utf32to8ISt20back_insert_iteratorISt6vectorIcSaIcEEEPiEET_T0_S8_S7_.exit, %64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #27
   br label %.loopexit58.thread
 
@@ -3300,7 +3298,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %44, %_ZN4utf88utf32
           cleanup
   br label %70
 
-.loopexit.split-lp60:                             ; preds = %59
+.loopexit.split-lp60:                             ; preds = %58
   %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
           cleanup
   br label %70
@@ -3351,12 +3349,12 @@ _ZNSt6vectorIcSaIcEED2Ev.exit50:                  ; preds = %70, %72
   br i1 %.not46, label %.loopexit58.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit58.loopexit:                             ; preds = %.lr.ph
-  %.pre77 = load ptr, ptr %0, align 8
-  %.pre78 = load i16, ptr %.pre77, align 2
+  %.pre = load ptr, ptr %0, align 8
+  %.pre77 = load i16, ptr %.pre, align 2
   br label %.loopexit58
 
 .loopexit58:                                      ; preds = %.loopexit58.loopexit, %.loopexit71
-  %88 = phi i16 [ %.pre78, %.loopexit58.loopexit ], [ %78, %.loopexit71 ]
+  %88 = phi i16 [ %.pre77, %.loopexit58.loopexit ], [ %78, %.loopexit71 ]
   %89 = icmp eq i16 %88, -257
   br i1 %89, label %90, label %.loopexit58.thread
 

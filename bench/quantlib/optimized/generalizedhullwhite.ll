@@ -11782,15 +11782,16 @@ invoke.cont12:                                    ; preds = %entry, %if.then.i3.
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %8, i64 %div.i.i.i
   %9 = and i64 %1, -9223372036854775745
   %cmp.i.i.i = icmp ugt i64 %9, -9223372036854775808
+  %storemerge.idx.i.i.i.neg = select i1 %cmp.i.i.i, i64 8, i64 0
   %storemerge.idx.i.i.i = select i1 %cmp.i.i.i, i64 -8, i64 0
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %storemerge.idx.i.i.i
   %10 = trunc i64 %1 to i32
   %conv4.i.i.i = and i32 %10, 63
-  %cmp.not.i.i.i = icmp eq ptr %8, %storemerge.i.i.i
+  %add.ptr.i.i.i.idx = shl nsw i64 %div.i.i.i, 3
+  %cmp.not.i.i.i = icmp eq i64 %add.ptr.i.i.i.idx, %storemerge.idx.i.i.i.neg
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont12
-  %add.ptr.i.i.i.idx = shl nsw i64 %div.i.i.i, 3
   %sub.ptr.sub.i.i.i = add nsw i64 %storemerge.idx.i.i.i, %add.ptr.i.i.i.idx
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %8, i8 -1, i64 %sub.ptr.sub.i.i.i, i1 false)
   %cmp9.not.i.i.i = icmp eq i32 %conv4.i.i.i, 0

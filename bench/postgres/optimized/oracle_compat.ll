@@ -1137,9 +1137,7 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly captures(re
   %60 = zext nneg i32 %50 to i64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
   %62 = getelementptr inbounds i8, ptr %61, i64 -1
-  %.not87105 = icmp ule ptr %59, %62
-  %or.cond119.not = select i1 %2, i1 %.not87105, i1 false
-  br i1 %or.cond119.not, label %.lr.ph.preheader, label %.thread
+  br i1 %2, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %53
   %63 = getelementptr i8, ptr %0, i64 %.v
@@ -1176,7 +1174,7 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly captures(re
   %75 = icmp slt i32 %.068, 1
   %not. = xor i1 %3, true
   %or.cond6 = select i1 %not., i1 true, i1 %75
-  %.not88112 = icmp ugt ptr %59, %62
+  %.not88112 = icmp eq i32 %50, 0
   %or.cond130 = select i1 %or.cond6, i1 true, i1 %.not88112
   br i1 %or.cond130, label %.thread93, label %.lr.ph114
 

@@ -256852,7 +256852,8 @@ _ZSt4moveIPP8QCPLayerS2_ET0_T_S4_S3_.exit:        ; preds = %29, %32
 49:                                               ; preds = %46
   %50 = getelementptr i8, ptr %48, i64 -8
   %51 = load ptr, ptr %50, align 8
-  %.not.i.i.i.i.i68 = icmp eq ptr %50, %.058
+  %.idx.mask = and i64 %.086, 2305843009213693951
+  %.not.i.i.i.i.i68 = icmp eq i64 %.idx.mask, 1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPP8QCPLayerS2_ET0_T_S4_S3_.exit, label %52
 
 52:                                               ; preds = %49
@@ -279444,7 +279445,8 @@ _ZSt4moveIPP7QCPBarsS2_ET0_T_S4_S3_.exit:         ; preds = %29, %32
 49:                                               ; preds = %46
   %50 = getelementptr i8, ptr %48, i64 -8
   %51 = load ptr, ptr %50, align 8
-  %.not.i.i.i.i.i68 = icmp eq ptr %50, %.058
+  %.idx.mask = and i64 %.086, 2305843009213693951
+  %.not.i.i.i.i.i68 = icmp eq i64 %.idx.mask, 1
   br i1 %.not.i.i.i.i.i68, label %_ZSt13move_backwardIPP7QCPBarsS2_ET0_T_S4_S3_.exit, label %52
 
 52:                                               ; preds = %49

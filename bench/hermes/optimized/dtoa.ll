@@ -7999,19 +7999,18 @@ declare i32 @llvm.get.rounding() #10
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly captures(address) %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
+define internal fastcc double @b2d(ptr noundef readonly captures(none) %a, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %e) unnamed_addr #12 {
 entry:
-  %x.ptr = getelementptr inbounds nuw i8, ptr %a, i64 24
   %wds = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %wds, align 4
   %idx.ext = sext i32 %0 to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %1 = getelementptr i8, ptr %a, i64 %add.ptr.idx
-  %incdec.ptr.ptr = getelementptr i8, ptr %1, i64 20
-  %2 = load i32, ptr %incdec.ptr.ptr, align 4
-  %tobool.not.i = icmp ult i32 %2, 65536
-  %shl.i = shl nuw i32 %2, 16
-  %spec.select.i = select i1 %tobool.not.i, i32 %shl.i, i32 %2
+  %add.ptr.add = add nsw i64 %add.ptr.idx, 20
+  %incdec.ptr.ptr = getelementptr inbounds i8, ptr %a, i64 %add.ptr.add
+  %1 = load i32, ptr %incdec.ptr.ptr, align 4
+  %tobool.not.i = icmp ult i32 %1, 65536
+  %shl.i = shl nuw i32 %1, 16
+  %spec.select.i = select i1 %tobool.not.i, i32 %shl.i, i32 %1
   %spec.select14.i = select i1 %tobool.not.i, i32 16, i32 0
   %tobool2.not.i = icmp ult i32 %spec.select.i, 16777216
   %add.i = or disjoint i32 %spec.select14.i, 8
@@ -8040,19 +8039,19 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub1 = sub nuw nsw i32 11, %retval.0.i
-  %shr = lshr i32 %2, %sub1
-  %cmp2 = icmp ugt ptr %incdec.ptr.ptr, %x.ptr
+  %shr = lshr i32 %1, %sub1
+  %cmp2 = icmp sgt i32 %0, 1
   br i1 %cmp2, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.then
-  %incdec.ptr3 = getelementptr i8, ptr %1, i64 16
-  %3 = load i32, ptr %incdec.ptr3, align 4
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %incdec.ptr.ptr, i64 -4
+  %2 = load i32, ptr %incdec.ptr3, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then, %cond.true
-  %cond = phi i32 [ %3, %cond.true ], [ 0, %if.then ]
+  %cond = phi i32 [ %2, %cond.true ], [ 0, %if.then ]
   %add = add nuw nsw i32 %retval.0.i, 21
-  %shl = shl i32 %2, %add
+  %shl = shl i32 %1, %add
   %shr5 = lshr i32 %cond, %sub1
   %or6 = or i32 %shr5, %shl
   br label %ret_d
@@ -8062,32 +8061,34 @@ if.end:                                           ; preds = %entry
   br i1 %cmp8, label %cond.true9, label %cond.end12
 
 cond.true9:                                       ; preds = %if.end
-  %incdec.ptr10 = getelementptr i8, ptr %1, i64 16
-  %4 = load i32, ptr %incdec.ptr10, align 4
+  %add.ptr.add45 = add nuw nsw i64 %add.ptr.idx, 16
+  %incdec.ptr10.ptr = getelementptr inbounds nuw i8, ptr %a, i64 %add.ptr.add45
+  %3 = load i32, ptr %incdec.ptr10.ptr, align 4
   br label %cond.end12
 
 cond.end12:                                       ; preds = %if.end, %cond.true9
-  %xa.0 = phi ptr [ %incdec.ptr10, %cond.true9 ], [ %incdec.ptr.ptr, %if.end ]
-  %cond13 = phi i32 [ %4, %cond.true9 ], [ 0, %if.end ]
+  %xa.0.idx = phi i64 [ %add.ptr.add45, %cond.true9 ], [ %add.ptr.add, %if.end ]
+  %cond13 = phi i32 [ %3, %cond.true9 ], [ 0, %if.end ]
+  %xa.0.ptr = getelementptr inbounds i8, ptr %a, i64 %xa.0.idx
   %sub14 = add nsw i32 %retval.0.i, -11
   %tobool.not = icmp eq i32 %sub14, 0
   br i1 %tobool.not, label %ret_d, label %if.then15
 
 if.then15:                                        ; preds = %cond.end12
-  %shl16 = shl i32 %2, %sub14
+  %shl16 = shl i32 %1, %sub14
   %sub18 = sub nuw nsw i32 43, %retval.0.i
   %shr19 = lshr i32 %cond13, %sub18
   %or17 = or i32 %shl16, %shr19
-  %cmp22 = icmp ugt ptr %xa.0, %x.ptr
+  %cmp22 = icmp sgt i64 %xa.0.idx, 24
   br i1 %cmp22, label %cond.true23, label %cond.end26
 
 cond.true23:                                      ; preds = %if.then15
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %xa.0, i64 -4
-  %5 = load i32, ptr %incdec.ptr24, align 4
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %xa.0.ptr, i64 -4
+  %4 = load i32, ptr %incdec.ptr24, align 4
   br label %cond.end26
 
 cond.end26:                                       ; preds = %if.then15, %cond.true23
-  %cond27 = phi i32 [ %5, %cond.true23 ], [ 0, %if.then15 ]
+  %cond27 = phi i32 [ %4, %cond.true23 ], [ 0, %if.then15 ]
   %shl28 = shl i32 %cond13, %sub14
   %shr30 = lshr i32 %cond27, %sub18
   %or31 = or i32 %shr30, %shl28
@@ -8095,7 +8096,7 @@ cond.end26:                                       ; preds = %if.then15, %cond.tr
 
 ret_d:                                            ; preds = %cond.end12, %cond.end26, %cond.end
   %or31.sink = phi i32 [ %or31, %cond.end26 ], [ %or6, %cond.end ], [ %cond13, %cond.end12 ]
-  %d.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %or17, %cond.end26 ], [ %shr, %cond.end ], [ %2, %cond.end12 ]
+  %d.sroa.0.4.insert.shift11.sink.in.in.in = phi i32 [ %or17, %cond.end26 ], [ %shr, %cond.end ], [ %1, %cond.end12 ]
   %d.sroa.0.4.insert.shift11.sink.in.in = or i32 %d.sroa.0.4.insert.shift11.sink.in.in.in, 1072693248
   %d.sroa.0.4.insert.shift11.sink.in = zext i32 %d.sroa.0.4.insert.shift11.sink.in.in to i64
   %d.sroa.0.4.insert.shift11.sink = shl nuw i64 %d.sroa.0.4.insert.shift11.sink.in, 32

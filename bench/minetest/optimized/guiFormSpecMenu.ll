@@ -96537,7 +96537,8 @@ if.else61:                                        ; preds = %for.cond
 if.then64:                                        ; preds = %if.else61
   %add.ptr.i149 = getelementptr inbounds i8, ptr %add.ptr.i148, i64 -8
   %20 = load ptr, ptr %add.ptr.i149, align 8, !tbaa !182
-  %tobool.not.i.i.i.i.i156 = icmp eq ptr %add.ptr.i149, %__p.sroa.0.0
+  %add.ptr.i148.idx.mask = and i64 %__n.0, 2305843009213693951
+  %tobool.not.i.i.i.i.i156 = icmp eq i64 %add.ptr.i148.idx.mask, 1
   br i1 %tobool.not.i.i.i.i.i156, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit, label %if.then.i.i.i.i.i157
 
 if.then.i.i.i.i.i157:                             ; preds = %if.then64

@@ -3139,15 +3139,15 @@ for.inc.i28.i:                                    ; preds = %while.body.i.i31.i,
   br i1 %cmp1.not.i30.i, label %invoke.cont20, label %for.body.i20.i, !llvm.loop !86
 
 invoke.cont20:                                    ; preds = %for.inc.i28.i, %_ZSt25__unguarded_linear_insertIPN3re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS3_S9_EEEEvT_T0_.exit.i10.i, %invoke.cont14, %if.else.i
-  %36 = load ptr, ptr %16, align 8
-  %37 = load i32, ptr %sorted, align 8
-  %idx.ext.i78 = sext i32 %37 to i64
-  %add.ptr.i79 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %36, i64 %idx.ext.i78
-  %i.0271 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 -8
-  %cmp.not272 = icmp eq ptr %i.0271, %36
+  %36 = load i32, ptr %sorted, align 8
+  %cmp.not272 = icmp eq i32 %36, 1
   br i1 %cmp.not272, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont20
+  %idx.ext.i78 = sext i32 %36 to i64
+  %37 = load ptr, ptr %16, align 8
+  %add.ptr.i79 = getelementptr inbounds %"class.re2::SparseArray<int>::IndexValue", ptr %37, i64 %idx.ext.i78
+  %i.0271 = getelementptr inbounds i8, ptr %add.ptr.i79, i64 -8
   %start_unanchored_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %start_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body
@@ -3194,7 +3194,7 @@ lpad15.loopexit.split-lp:                         ; preds = %if.then.i.i70
 
 for.inc:                                          ; preds = %for.body, %if.then35
   %i.0 = getelementptr inbounds i8, ptr %i.0273, i64 -8
-  %cmp.not = icmp eq ptr %i.0, %36
+  %cmp.not = icmp eq ptr %i.0, %37
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !88
 
 for.end:                                          ; preds = %for.inc, %invoke.cont20

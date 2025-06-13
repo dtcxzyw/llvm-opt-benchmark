@@ -4603,13 +4603,13 @@ define hidden void @_ZN16PhaseMacroExpand27process_users_of_allocationEP8CallNod
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 8
-  %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 -8
-  %.not86109 = icmp ult ptr %12, %7
+  %.not86109 = icmp eq i32 %9, 0
   br i1 %.not86109, label %._crit_edge113, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %5
+  %10 = zext i32 %9 to i64
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
+  %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4633,15 +4633,18 @@ define hidden void @_ZN16PhaseMacroExpand27process_users_of_allocationEP8CallNod
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %30 = load i32, ptr %29, align 8
+  %.not98107 = icmp eq i32 %30, 0
+  br i1 %.not98107, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %26
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
-  %.not98107 = icmp ult ptr %33, %28
-  br i1 %.not98107, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %56
-  %34 = phi i32 [ %57, %56 ], [ %30, %26 ]
-  %.073108 = phi ptr [ %61, %56 ], [ %33, %26 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %56
+  %34 = phi i32 [ %57, %56 ], [ %30, %.lr.ph.preheader ]
+  %.073108 = phi ptr [ %61, %56 ], [ %33, %.lr.ph.preheader ]
   %35 = load ptr, ptr %.073108, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 44
   %37 = load i32, ptr %36, align 4
@@ -4991,13 +4994,13 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
   %.pre123 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert124 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre125 = load i32, ptr %.phi.trans.insert124, align 8
-  %248 = zext i32 %.pre125 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %.pre123, i64 %248
-  %250 = getelementptr inbounds i8, ptr %249, i64 -8
-  %.not89119 = icmp ult ptr %250, %.pre123
+  %.not89119 = icmp eq i32 %.pre125, 0
   br i1 %.not89119, label %.loopexit, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %._crit_edge118
+  %248 = zext i32 %.pre125 to i64
+  %249 = getelementptr inbounds nuw ptr, ptr %.pre123, i64 %248
+  %250 = getelementptr inbounds i8, ptr %249, i64 -8
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %252
 
@@ -12762,13 +12765,13 @@ define hidden void @_ZN16PhaseMacroExpand24expand_subtypecheck_nodeEP16SubTypeCh
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load i32, ptr %15, align 8
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
-  %.036 = getelementptr inbounds i8, ptr %18, i64 -8
-  %.not37 = icmp ult ptr %.036, %14
+  %.not37 = icmp eq i32 %16, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %.036 = getelementptr inbounds i8, ptr %18, i64 -8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

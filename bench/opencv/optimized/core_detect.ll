@@ -3360,6 +3360,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %17
   %27 = getelementptr inbounds i64, ptr %21, i64 %26
   %28 = and i64 %12, -9223372036854775745
   %29 = icmp ugt i64 %28, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i.i.neg = select i1 %29, i64 8, i64 0
   %storemerge.idx.i.i.i.i.i.i = select i1 %29, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 %storemerge.idx.i.i.i.i.i.i
   %30 = trunc i64 %12 to i32
@@ -3368,12 +3369,13 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %17
   store i32 %31, ptr %15, align 8
   %.idx.i.i = shl nuw nsw i64 %24, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 0, i64 %.idx.i.i, i1 false)
-  %.not.i.i.i67 = icmp eq ptr %21, %storemerge.i.i.i.i.i.i
+  %.idx = shl nsw i64 %26, 3
+  %.not.i.i.i67 = icmp eq i64 %.idx, %storemerge.idx.i.i.i.i.i.i.neg
   br i1 %.not.i.i.i67, label %39, label %32
 
 32:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
-  %.idx = shl nsw i64 %26, 3
-  %33 = add nsw i64 %.idx, %storemerge.idx.i.i.i.i.i.i
+  %.idx389 = shl nsw i64 %26, 3
+  %33 = add nsw i64 %.idx389, %storemerge.idx.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 -1, i64 %33, i1 false)
   %.not27.i.i.i = icmp eq i32 %31, 0
   br i1 %.not27.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit, label %_ZSt14__fill_bvectorPmjjb.exit29.i.i.i

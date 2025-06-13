@@ -1667,22 +1667,20 @@ define hidden void @"_ZN113_$LT$$RF$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #5 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = lshr i64 %4, 7
-  %6 = and i64 %4, 127
-  %7 = icmp ne i64 %6, 0
-  %8 = zext i1 %7 to i64
-  %9 = getelementptr inbounds nuw <2 x i64>, ptr %2, i64 %5
-  %10 = getelementptr inbounds nuw <2 x i64>, ptr %9, i64 %8
-  %11 = icmp eq ptr %2, %10
-  br i1 %11, label %._crit_edge, label %.lr.ph.preheader
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load i64, ptr %2, align 8, !noundef !3
+  %.not8.not = icmp eq i64 %3, 0
+  br i1 %.not8.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %12 = add nuw nsw i64 %5, %8
-  %13 = shl nuw nsw i64 %12, 4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %2, i8 0, i64 %13, i1 false)
+  %4 = and i64 %3, 127
+  %5 = icmp ne i64 %4, 0
+  %6 = zext i1 %5 to i64
+  %7 = lshr i64 %3, 7
+  %8 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %9 = add nuw nsw i64 %7, %6
+  %10 = shl nuw nsw i64 %9, 4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %10, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %1
@@ -3818,37 +3816,35 @@ define hidden void @"_ZN52_$LT$$RF$G$u20$as$u20$petgraph..visit..Visitable$GT$9r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1092)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1095)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1097)
-  %4 = load ptr, ptr %1, align 8, !alias.scope !1100, !noalias !1092, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i64, ptr %5, align 8, !alias.scope !1100, !noalias !1092, !noundef !3
-  %7 = lshr i64 %6, 7
-  %8 = and i64 %6, 127
-  %9 = icmp ne i64 %8, 0
-  %10 = zext i1 %9 to i64
-  %11 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %7
-  %12 = getelementptr inbounds nuw <2 x i64>, ptr %11, i64 %10
-  %13 = icmp eq ptr %4, %12
-  br i1 %13, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, label %.lr.ph.preheader.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i64, ptr %4, align 8, !alias.scope !1100, !noalias !1092, !noundef !3
+  %.not8.not.i.i = icmp eq i64 %5, 0
+  br i1 %.not8.not.i.i, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2
-  %14 = add nuw nsw i64 %7, %10
-  %15 = shl nuw nsw i64 %14, 4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 0, i64 %15, i1 false), !noalias !1101
+  %6 = and i64 %5, 127
+  %7 = icmp ne i64 %6, 0
+  %8 = zext i1 %7 to i64
+  %9 = lshr i64 %5, 7
+  %10 = load ptr, ptr %1, align 8, !alias.scope !1100, !noalias !1092, !nonnull !3, !noundef !3
+  %11 = add nuw nsw i64 %9, %8
+  %12 = shl nuw nsw i64 %11, 4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %10, i8 0, i64 %12, i1 false), !noalias !1101
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i: ; preds = %.lr.ph.preheader.i.i, %2
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !1092, !noalias !1095, !noundef !3
-  %18 = icmp ult i64 %17, 230584300921369396
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp ugt i64 %17, %6
-  br i1 %19, label %20, label %"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit", !prof !475
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %14 = load i64, ptr %13, align 8, !alias.scope !1092, !noalias !1095, !noundef !3
+  %15 = icmp ult i64 %14, 230584300921369396
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ugt i64 %14, %5
+  br i1 %16, label %17, label %"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit", !prof !475
 
-20:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
-  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186), !noalias !1092
+17:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i
+  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186), !noalias !1092
   br label %"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit"
 
-"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit": ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, %20
+"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186.exit": ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit.i, %17
   ret void
 }
 
@@ -9946,37 +9942,35 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN97_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$petgraph..visit..Visitable$GT$9reset_map17h78d0aaae2bc1392cE.llvm.2437970333601430186"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2204)
-  %3 = load ptr, ptr %1, align 8, !alias.scope !2204, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8, !alias.scope !2204, !noundef !3
-  %6 = lshr i64 %5, 7
-  %7 = and i64 %5, 127
-  %8 = icmp ne i64 %7, 0
-  %9 = zext i1 %8 to i64
-  %10 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %6
-  %11 = getelementptr inbounds nuw <2 x i64>, ptr %10, i64 %9
-  %12 = icmp eq ptr %3, %11
-  br i1 %12, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, label %.lr.ph.preheader.i
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = load i64, ptr %3, align 8, !alias.scope !2204, !noundef !3
+  %.not8.not.i = icmp eq i64 %4, 0
+  br i1 %.not8.not.i, label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
-  %13 = add nuw nsw i64 %6, %9
-  %14 = shl nuw nsw i64 %13, 4
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 0, i64 %14, i1 false), !noalias !2204
+  %5 = and i64 %4, 127
+  %6 = icmp ne i64 %5, 0
+  %7 = zext i1 %6 to i64
+  %8 = lshr i64 %4, 7
+  %9 = load ptr, ptr %1, align 8, !alias.scope !2204, !nonnull !3, !noundef !3
+  %10 = add nuw nsw i64 %8, %7
+  %11 = shl nuw nsw i64 %10, 4
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %11, i1 false), !noalias !2204
   br label %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
 
 _ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit: ; preds = %2, %.lr.ph.preheader.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = icmp ult i64 %16, 230584300921369396
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp ugt i64 %16, %5
-  br i1 %18, label %19, label %20, !prof !475
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = icmp ult i64 %13, 230584300921369396
+  tail call void @llvm.assume(i1 %14)
+  %15 = icmp ugt i64 %13, %4
+  br i1 %15, label %16, label %17, !prof !475
 
-19:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
-  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186)
-  br label %20
+16:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit
+  tail call void @_ZN11fixedbitset11FixedBitSet4grow7do_grow17h9d42c545361ca595E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd36b81b9194d7464b8dc5e827f030d4.151.llvm.2437970333601430186)
+  br label %17
 
-20:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, %19
+17:                                               ; preds = %_ZN11fixedbitset11FixedBitSet5clear17h9e58cda2ad60b73cE.llvm.2437970333601430186.exit, %16
   ret void
 }
 

@@ -54488,7 +54488,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %48, i64 -4
   %51 = load i32, ptr %50, align 4, !tbaa !20
-  %.not.i.i.i.i.i35 = icmp eq ptr %50, %.sroa.043.0
+  %.not.i.i.i.i.i35 = icmp eq i64 %.0, 1
   br i1 %.not.i.i.i.i.i35, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %52
 
 52:                                               ; preds = %49
@@ -80444,7 +80444,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %94, i64 -8
   %97 = load i64, ptr %96, align 4
-  %.not.i.i.i.i.i59.i.i = icmp eq ptr %96, %.sroa.068.0.i.i
+  %.not.i.i.i.i.i59.i.i = icmp eq i64 %.0.i.i, 1
   br i1 %.not.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %98
 
 98:                                               ; preds = %95
@@ -81293,7 +81293,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 84:                                               ; preds = %81
   %85 = getelementptr inbounds i8, ptr %83, i64 -8
   %86 = load i64, ptr %85, align 4
-  %.not.i.i.i.i.i59.i.i = icmp eq ptr %85, %.sroa.068.0.i.i
+  %.not.i.i.i.i.i59.i.i = icmp eq i64 %.0.i.i, 1
   br i1 %.not.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %87
 
 87:                                               ; preds = %84
@@ -85068,7 +85068,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_S
 95:                                               ; preds = %92
   %96 = getelementptr inbounds i8, ptr %94, i64 -8
   %97 = load i64, ptr %96, align 4
-  %.not.i.i.i.i.i59.i.i = icmp eq ptr %96, %.sroa.068.0.i.i
+  %.not.i.i.i.i.i59.i.i = icmp eq i64 %.0.i.i, 1
   br i1 %.not.i.i.i.i.i59.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_17ElementESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, label %98
 
 98:                                               ; preds = %95
@@ -115561,17 +115561,21 @@ _ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26ra
   %.ptr.i.i.i = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
   %28 = load i32, ptr %.ptr.i.i.i, align 4, !tbaa !20
   %29 = icmp slt i32 %28, %27
-  br i1 %29, label %.preheader.i.i.i, label %38
+  br i1 %29, label %.preheader.i.i.i.preheader, label %38
 
-.preheader.i.i.i:                                 ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i, %.preheader.i.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %30, %.preheader.i.i.i ], [ %25, %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i ]
+.preheader.i.i.i.preheader:                       ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i
+  %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %25, i64 %.sroa.019.0.add.i.i.i
+  br label %.preheader.i.i.i
+
+.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %.preheader.i.i.i
+  %.sroa.0.0.i.i.i = phi ptr [ %30, %.preheader.i.i.i ], [ %25, %.preheader.i.i.i.preheader ]
   %30 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !20
   %32 = icmp slt i32 %28, %31
   br i1 %32, label %33, label %.preheader.i.i.i, !llvm.loop !325
 
 33:                                               ; preds = %.preheader.i.i.i
-  store i32 %31, ptr %.ptr.i.i.i, align 4, !tbaa !20
+  store i32 %31, ptr %.ptr.i.i.i.le, align 4, !tbaa !20
   store i32 %28, ptr %30, align 4, !tbaa !20
   %.not.i.i.i = icmp eq i64 %.sroa.019.0.idx.i.i.i, -4
   br i1 %.not.i.i.i, label %_ZN4absl18c_next_permutationISt6vectorIiSaIiEEEEbRT_.exit, label %.lr.ph.i.i.preheader.i.i
@@ -115593,7 +115597,7 @@ _ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26ra
   br i1 %37, label %.lr.ph.i.i.i.i, label %_ZN4absl18c_next_permutationISt6vectorIiSaIiEEEEbRT_.exit, !llvm.loop !326
 
 38:                                               ; preds = %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i
-  %39 = icmp eq ptr %.ptr.i.i.i, %22
+  %39 = icmp eq i64 %.sroa.019.0.idx.i.i.i, -12
   br i1 %39, label %.lr.ph.i14.i.i.i, label %_ZSt9__reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_St26random_access_iterator_tag.exit.i.i.i, !llvm.loop !327
 
 .lr.ph.i14.i.i.i:                                 ; preds = %38, %.lr.ph.i14.i.i.i

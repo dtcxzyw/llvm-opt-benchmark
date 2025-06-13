@@ -1955,13 +1955,16 @@ _.exit:                                           ; preds = %9, %11
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %79, ptr %80, align 8, !tbaa !20
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #20
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 %81
-  %.0149 = getelementptr inbounds i8, ptr %82, i64 -1
-  %83 = icmp ugt ptr %.0149, %79
-  br i1 %83, label %.lr.ph, label %.critedge
+  %82 = icmp sgt i64 %81, 1
+  br i1 %82, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph:                                           ; preds = %78, %86
-  %.0150 = phi ptr [ %.0, %86 ], [ %.0149, %78 ]
+.lr.ph.preheader:                                 ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 %81
+  %.0149 = getelementptr inbounds i8, ptr %83, i64 -1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %86
+  %.0150 = phi ptr [ %.0, %86 ], [ %.0149, %.lr.ph.preheader ]
   %84 = load i8, ptr %.0150, align 1, !tbaa !27
   %85 = icmp eq i8 %84, 47
   br i1 %85, label %86, label %.critedge

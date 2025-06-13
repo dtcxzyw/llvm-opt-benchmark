@@ -5687,16 +5687,19 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   %414 = load ptr, ptr %413, align 8
   %415 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %416 = load i32, ptr %415, align 8
+  %.not359448 = icmp eq i32 %416, 0
+  br i1 %.not359448, label %._crit_edge453, label %.lr.ph452.preheader
+
+.lr.ph452.preheader:                              ; preds = %_ZN4Node7set_reqEjPS_.exit377
   %417 = zext i32 %416 to i64
   %418 = getelementptr inbounds nuw ptr, ptr %414, i64 %417
   %.0321447 = getelementptr inbounds i8, ptr %418, i64 -8
-  %.not359448 = icmp ult ptr %.0321447, %414
-  br i1 %.not359448, label %._crit_edge453, label %.lr.ph452
+  br label %.lr.ph452
 
-.lr.ph452:                                        ; preds = %_ZN4Node7set_reqEjPS_.exit377, %._crit_edge443
-  %.0321451 = phi ptr [ %.0321, %._crit_edge443 ], [ %.0321447, %_ZN4Node7set_reqEjPS_.exit377 ]
-  %.0322450 = phi ptr [ %.1323, %._crit_edge443 ], [ null, %_ZN4Node7set_reqEjPS_.exit377 ]
-  %.0324449 = phi ptr [ %.2326, %._crit_edge443 ], [ null, %_ZN4Node7set_reqEjPS_.exit377 ]
+.lr.ph452:                                        ; preds = %.lr.ph452.preheader, %._crit_edge443
+  %.0321451 = phi ptr [ %.0321, %._crit_edge443 ], [ %.0321447, %.lr.ph452.preheader ]
+  %.0322450 = phi ptr [ %.1323, %._crit_edge443 ], [ null, %.lr.ph452.preheader ]
+  %.0324449 = phi ptr [ %.2326, %._crit_edge443 ], [ null, %.lr.ph452.preheader ]
   %419 = load ptr, ptr %.0321451, align 8
   tail call void @_ZN12PhaseIterGVN19rehash_node_delayedEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef %419)
   %420 = load ptr, ptr %419, align 8
@@ -5858,14 +5861,17 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %491 = load ptr, ptr %490, align 8
   %492 = load i32, ptr %192, align 8
+  %.not360466 = icmp eq i32 %492, 0
+  br i1 %.not360466, label %._crit_edge470, label %.lr.ph469.preheader
+
+.lr.ph469.preheader:                              ; preds = %._crit_edge453
   %493 = zext i32 %492 to i64
   %494 = getelementptr inbounds nuw ptr, ptr %491, i64 %493
   %.0311465 = getelementptr inbounds i8, ptr %494, i64 -8
-  %.not360466 = icmp ult ptr %.0311465, %491
-  br i1 %.not360466, label %._crit_edge470, label %.lr.ph469
+  br label %.lr.ph469
 
-.lr.ph469:                                        ; preds = %._crit_edge453, %._crit_edge464
-  %.0311467 = phi ptr [ %.0311, %._crit_edge464 ], [ %.0311465, %._crit_edge453 ]
+.lr.ph469:                                        ; preds = %.lr.ph469.preheader, %._crit_edge464
+  %.0311467 = phi ptr [ %.0311, %._crit_edge464 ], [ %.0311465, %.lr.ph469.preheader ]
   %495 = load ptr, ptr %.0311467, align 8
   %496 = load ptr, ptr %495, align 8
   %497 = load ptr, ptr %496, align 8
@@ -5877,14 +5883,17 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   %502 = load ptr, ptr %501, align 8
   %503 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %504 = load i32, ptr %503, align 8
+  %.not362460 = icmp eq i32 %504, 0
+  br i1 %.not362460, label %._crit_edge464, label %.lr.ph463.preheader
+
+.lr.ph463.preheader:                              ; preds = %.lr.ph469
   %505 = zext i32 %504 to i64
   %506 = getelementptr inbounds nuw ptr, ptr %502, i64 %505
   %507 = getelementptr inbounds i8, ptr %506, i64 -8
-  %.not362460 = icmp ult ptr %507, %502
-  br i1 %.not362460, label %._crit_edge464, label %.lr.ph463
+  br label %.lr.ph463
 
-.lr.ph463:                                        ; preds = %.lr.ph469, %._crit_edge458
-  %.0307461 = phi ptr [ %529, %._crit_edge458 ], [ %507, %.lr.ph469 ]
+.lr.ph463:                                        ; preds = %.lr.ph463.preheader, %._crit_edge458
+  %.0307461 = phi ptr [ %529, %._crit_edge458 ], [ %507, %.lr.ph463.preheader ]
   %508 = load ptr, ptr %.0307461, align 8
   %509 = load ptr, ptr %370, align 8
   %510 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %509, ptr noundef %508) #8
@@ -5944,14 +5953,17 @@ _ZN4Node7set_reqEjPS_.exit377:                    ; preds = %_ZN4Node7set_reqEjP
   %531 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %530, ptr noundef nonnull %128) #8
   %532 = load ptr, ptr %148, align 8
   %533 = load i32, ptr %150, align 8
+  %.not361472 = icmp eq i32 %533, 0
+  br i1 %.not361472, label %._crit_edge476, label %.lr.ph475.preheader
+
+.lr.ph475.preheader:                              ; preds = %._crit_edge470
   %534 = zext i32 %533 to i64
   %535 = getelementptr inbounds nuw ptr, ptr %532, i64 %534
   %.0304471 = getelementptr inbounds i8, ptr %535, i64 -8
-  %.not361472 = icmp ult ptr %.0304471, %532
-  br i1 %.not361472, label %._crit_edge476, label %.lr.ph475
+  br label %.lr.ph475
 
-.lr.ph475:                                        ; preds = %._crit_edge470, %559
-  %.0304473 = phi ptr [ %.0304, %559 ], [ %.0304471, %._crit_edge470 ]
+.lr.ph475:                                        ; preds = %.lr.ph475.preheader, %559
+  %.0304473 = phi ptr [ %.0304, %559 ], [ %.0304471, %.lr.ph475.preheader ]
   %536 = load ptr, ptr %.0304473, align 8
   %537 = icmp eq ptr %536, %40
   br i1 %537, label %538, label %558
@@ -6423,13 +6435,13 @@ define hidden noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr n
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
-  %.04870 = getelementptr inbounds i8, ptr %23, i64 -8
-  %.not71 = icmp ult ptr %.04870, %19
+  %.not71 = icmp eq i32 %21, 0
   br i1 %.not71, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %4
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.04870 = getelementptr inbounds i8, ptr %23, i64 -8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 2408
   br label %25
 
@@ -6451,13 +6463,13 @@ define hidden noundef ptr @_ZN6IfNode12dominated_byEP4NodeP12PhaseIterGVNb(ptr n
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %40 = load i32, ptr %39, align 8
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
-  %.04967 = getelementptr inbounds i8, ptr %42, i64 -8
-  %.not5268 = icmp ult ptr %.04967, %38
+  %.not5268 = icmp eq i32 %40, 0
   br i1 %.not5268, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %.04967 = getelementptr inbounds i8, ptr %42, i64 -8
   %.not54 = icmp ne ptr %31, %17
   %or.cond.not = and i1 %3, %.not54
   br label %43

@@ -15112,18 +15112,21 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4poolINS_33default_user_allocat
   br i1 %42, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit, label %43
 
 43:                                               ; preds = %36
+  %.not27.i.i = icmp eq i64 %40, %.0.i
+  br i1 %.not27.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
+
+.lr.ph.preheader.i.i:                             ; preds = %43
   %.026.i.i = getelementptr inbounds i8, ptr %41, i64 %5
-  %.not27.i.i = icmp eq ptr %.026.i.i, %.0
-  br i1 %.not27.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %43
   %.022.lcssa.i.i = phi ptr [ %41, %43 ], [ %.029.i.i, %.lr.ph.i.i ]
   store ptr %.022.lcssa.i.i, ptr %.0, align 8, !tbaa !17
   br label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit
 
-.lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
-  %.029.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.026.i.i, %43 ]
-  %.02228.i.i = phi ptr [ %.029.i.i, %.lr.ph.i.i ], [ %41, %43 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.029.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.026.i.i, %.lr.ph.preheader.i.i ]
+  %.02228.i.i = phi ptr [ %.029.i.i, %.lr.ph.i.i ], [ %41, %.lr.ph.preheader.i.i ]
   store ptr %.02228.i.i, ptr %.029.i.i, align 8, !tbaa !17
   %.0.i.i = getelementptr inbounds i8, ptr %.029.i.i, i64 %5
   %.not.i.i = icmp eq ptr %.0.i.i, %.0
@@ -15304,13 +15307,16 @@ _ZN5boost25simple_segregated_storageImE8malloc_nEmm.exit: ; preds = %.lr.ph, %.p
 
 69:                                               ; preds = %63
   %70 = sub i64 0, %.0.i.i
-  %.026.i.i.i = getelementptr inbounds i8, ptr %67, i64 %70
-  %.not27.i.i.i = icmp eq ptr %.026.i.i.i, %55
-  br i1 %.not27.i.i.i, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i, label %.lr.ph.i.i.i
+  %.not27.i.i.i = icmp eq i64 %66, %.0.i.i
+  br i1 %.not27.i.i.i, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i, label %.lr.ph.preheader.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %69, %.lr.ph.i.i.i
-  %.029.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.026.i.i.i, %69 ]
-  %.02228.i.i.i = phi ptr [ %.029.i.i.i, %.lr.ph.i.i.i ], [ %67, %69 ]
+.lr.ph.preheader.i.i.i:                           ; preds = %69
+  %.026.i.i.i = getelementptr inbounds i8, ptr %67, i64 %70
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
+  %.029.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.026.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.02228.i.i.i = phi ptr [ %.029.i.i.i, %.lr.ph.i.i.i ], [ %67, %.lr.ph.preheader.i.i.i ]
   store ptr %.02228.i.i.i, ptr %.029.i.i.i, align 8, !tbaa !17
   %.0.i.i.i = getelementptr inbounds i8, ptr %.029.i.i.i, i64 %70
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %55
@@ -15327,13 +15333,16 @@ _ZN5boost25simple_segregated_storageImE9find_prevEPv.exit.i: ; preds = %.prehead
 
 76:                                               ; preds = %_ZN5boost25simple_segregated_storageImE9find_prevEPv.exit.i
   %77 = sub i64 0, %.0.i.i
-  %.026.i.i = getelementptr inbounds i8, ptr %74, i64 %77
-  %.not27.i.i = icmp eq ptr %.026.i.i, %55
-  br i1 %.not27.i.i, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i, label %.lr.ph.i.i
+  %.not27.i.i = icmp eq i64 %73, %.0.i.i
+  br i1 %.not27.i.i, label %_ZN5boost25simple_segregated_storageImE9add_blockEPvmm.exit.sink.split.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %76, %.lr.ph.i.i
-  %.029.i.i = phi ptr [ %.0.i10.i, %.lr.ph.i.i ], [ %.026.i.i, %76 ]
-  %.02228.i.i = phi ptr [ %.029.i.i, %.lr.ph.i.i ], [ %74, %76 ]
+.lr.ph.preheader.i.i:                             ; preds = %76
+  %.026.i.i = getelementptr inbounds i8, ptr %74, i64 %77
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.029.i.i = phi ptr [ %.0.i10.i, %.lr.ph.i.i ], [ %.026.i.i, %.lr.ph.preheader.i.i ]
+  %.02228.i.i = phi ptr [ %.029.i.i, %.lr.ph.i.i ], [ %74, %.lr.ph.preheader.i.i ]
   store ptr %.02228.i.i, ptr %.029.i.i, align 8, !tbaa !17
   %.0.i10.i = getelementptr inbounds i8, ptr %.029.i.i, i64 %77
   %.not.i.i40 = icmp eq ptr %.0.i10.i, %55
