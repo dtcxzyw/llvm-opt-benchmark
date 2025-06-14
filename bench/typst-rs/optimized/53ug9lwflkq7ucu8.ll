@@ -1330,12 +1330,12 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %49 = zext i32 %45 to i64
   %50 = mul nuw i64 %49, %22
   %51 = shl nuw nsw i64 %indvars.iv170.i, 3
-  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.split.i
+  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.i
 
 .split.split.split.i.preheader:                   ; preds = %.split.i
   br i1 %.not134.not.i, label %.split35.us.i, label %.split.split.split.i
 
-.split.split.us.split.i:                          ; preds = %.split.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i
+.split.split.us.i:                                ; preds = %.split.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i ], [ 0, %.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1579,12 +1579,12 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %49 = zext i32 %45 to i64
   %50 = mul nuw i64 %49, %22
   %51 = shl nuw nsw i64 %indvars.iv235.i, 3
-  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.split.i
+  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.i
 
 .split.split.split.i.preheader:                   ; preds = %.split.i
   br i1 %.not186.not.i, label %.split48.us.i, label %.split.split.split.i
 
-.split.split.us.split.i:                          ; preds = %.split.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i"
+.split.split.us.i:                                ; preds = %.split.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i"
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i" ], [ 0, %.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = trunc nuw nsw i64 %indvars.iv.i to i32

@@ -8826,9 +8826,9 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not.i = icmp eq i64 %33, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
-  br i1 %.not.i, label %45, label %35
+  br i1 %.not.i, label %45, label %40
 
-35:                                               ; preds = %25
+40:                                               ; preds = %25
   %36 = lshr i64 %33, 6
   %37 = and i64 %33, 63
   %38 = icmp ne i64 %37, 0
@@ -8837,7 +8837,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   invoke void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %34, i64 noundef %40)
           to label %45 unwind label %41
 
-41:                                               ; preds = %35
+41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = load ptr, ptr %34, align 8
@@ -8848,7 +8848,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIhSaIhEESaIvELN9_
   call void @_ZdlPv(ptr noundef nonnull %43) #26
   br label %.body10
 
-45:                                               ; preds = %35, %25
+45:                                               ; preds = %40, %25
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %33, ptr %46, align 8
   ret void
