@@ -1889,49 +1889,49 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
 
 48:                                               ; preds = %47
   %.not44.i28 = icmp samesign ult i32 %39, 56
-  br i1 %.not44.i28, label %._crit_edge.thread.i35, label %49
+  br i1 %.not44.i28, label %._crit_edge.thread.i35, label %._crit_edge.i31
 
-49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %51 = zext nneg i32 %39 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull readonly align 4 dereferenceable(1) %3, i64 %41, i1 false)
-  %53 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %50)
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %41
-  %55 = sub nuw nsw i64 8, %41
+._crit_edge.i31:                                  ; preds = %48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %50 = zext nneg i32 %39 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 4 dereferenceable(1) %3, i64 %41, i1 false)
+  %52 = tail call i32 @mbedtls_internal_ripemd160_process(ptr noundef nonnull %0, ptr noundef nonnull %49)
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 %41
+  %54 = sub nuw nsw i64 8, %41
   %.not45.i34 = icmp eq i32 %39, 56
   br i1 %.not45.i34, label %mbedtls_ripemd160_free.exit, label %._crit_edge.thread.i35
 
-._crit_edge.thread.i35:                           ; preds = %47, %49, %48
-  %.1.lcssa60.i36 = phi i64 [ %55, %49 ], [ 8, %48 ], [ 8, %47 ]
-  %.137.lcssa59.i37 = phi ptr [ %54, %49 ], [ %3, %48 ], [ %3, %47 ]
+._crit_edge.thread.i35:                           ; preds = %47, %._crit_edge.i31, %48
+  %.1.lcssa60.i36 = phi i64 [ %54, %49 ], [ 8, %48 ], [ 8, %47 ]
+  %.137.lcssa59.i37 = phi ptr [ %53, %49 ], [ %3, %48 ], [ %3, %47 ]
   %.05358.i38 = phi i32 [ 0, %49 ], [ %39, %48 ], [ 0, %47 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %57 = zext nneg i32 %.05358.i38 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 1 %.137.lcssa59.i37, i64 %.1.lcssa60.i36, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %56 = zext nneg i32 %.05358.i38 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %.137.lcssa59.i37, i64 %.1.lcssa60.i36, i1 false)
   br label %mbedtls_ripemd160_free.exit
 
-mbedtls_ripemd160_free.exit:                      ; preds = %49, %._crit_edge.thread.i35
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load i32, ptr %59, align 4, !tbaa !7
-  store i32 %60, ptr %1, align 1
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %63 = load i32, ptr %62, align 4, !tbaa !7
-  store i32 %63, ptr %61, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load i32, ptr %65, align 4, !tbaa !7
-  store i32 %66, ptr %64, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %69 = load i32, ptr %68, align 4, !tbaa !7
-  store i32 %69, ptr %67, align 1
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %72 = load i32, ptr %71, align 4, !tbaa !7
-  store i32 %72, ptr %70, align 1
+mbedtls_ripemd160_free.exit:                      ; preds = %._crit_edge.i31, %._crit_edge.thread.i35
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = load i32, ptr %58, align 4, !tbaa !7
+  store i32 %59, ptr %1, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !7
+  store i32 %62, ptr %60, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %65 = load i32, ptr %64, align 4, !tbaa !7
+  store i32 %65, ptr %63, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %68 = load i32, ptr %67, align 4, !tbaa !7
+  store i32 %68, ptr %66, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %71 = load i32, ptr %70, align 4, !tbaa !7
+  store i32 %71, ptr %69, align 1
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 92) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   ret i32 0

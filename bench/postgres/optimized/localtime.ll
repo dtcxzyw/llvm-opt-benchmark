@@ -3454,7 +3454,7 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   %110 = sub i64 %109, %.079
   %111 = add i64 %110, %33
   %112 = icmp slt i64 %111, 0
-  br i1 %112, label %.lr.ph.preheader, label %.preheader53
+  br i1 %112, label %.lr.ph.preheader, label %.preheader50
 
 .lr.ph.preheader:                                 ; preds = %107
   %113 = tail call i64 @llvm.umax.i64(i64 %111, i64 -86400)
@@ -3474,40 +3474,40 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   %126 = trunc i64 %120 to i32
   %127 = xor i32 %126, -1
   %128 = add i32 %127, %108
-  br label %.preheader53
+  br label %.preheader50
 
-.preheader53:                                     ; preds = %.lr.ph.preheader, %107
+.preheader50:                                     ; preds = %.lr.ph.preheader, %107
   %.082.lcssa = phi i64 [ %111, %107 ], [ %125, %.lr.ph.preheader ]
   %.080.lcssa = phi i32 [ %108, %107 ], [ %128, %.lr.ph.preheader ]
   %129 = icmp sgt i64 %.082.lcssa, 86399
-  br i1 %129, label %.lr.ph72.preheader, label %.preheader51
+  br i1 %129, label %.lr.ph69.preheader, label %.preheader48
 
-.lr.ph72.preheader:                               ; preds = %.preheader53
+.lr.ph69.preheader:                               ; preds = %.preheader50
   %130 = add nsw i64 %.082.lcssa, -86400
   %131 = tail call i64 @llvm.usub.sat.i64(i64 %.082.lcssa, i64 172799)
   %132 = add nuw i64 %131, 86399
   %133 = udiv i64 %132, 86400
-  %.neg109 = mul nsw i64 %133, -86400
-  %134 = add nsw i64 %.neg109, %130
+  %.neg106 = mul nsw i64 %133, -86400
+  %134 = add nsw i64 %.neg106, %130
   %135 = trunc i64 %133 to i32
   %136 = add i32 %.080.lcssa, %135
   %137 = add i32 %136, 1
-  br label %.preheader51
+  br label %.preheader48
 
-.preheader51:                                     ; preds = %.lr.ph72.preheader, %.preheader53
+.preheader48:                                     ; preds = %.lr.ph69.preheader, %.preheader50
   %.183.lcssa = phi i64 [ %.082.lcssa, %.preheader53 ], [ %134, %.lr.ph72.preheader ]
   %.181.lcssa = phi i32 [ %.080.lcssa, %.preheader53 ], [ %137, %.lr.ph72.preheader ]
   %138 = icmp slt i32 %.181.lcssa, 0
-  br i1 %138, label %.lr.ph77, label %.preheader.preheader
+  br i1 %138, label %.lr.ph74, label %.preheader.preheader
 
-.lr.ph77:                                         ; preds = %.preheader51, %150
-  %.276 = phi i32 [ %154, %150 ], [ %.181.lcssa, %.preheader51 ]
-  %.21875 = phi i32 [ %141, %150 ], [ %.016, %.preheader51 ]
-  %139 = icmp eq i32 %.21875, -2147483648
+.lr.ph74:                                         ; preds = %.preheader48, %150
+  %.273 = phi i32 [ %154, %150 ], [ %.181.lcssa, %.preheader51 ]
+  %.21872 = phi i32 [ %141, %150 ], [ %.016, %.preheader51 ]
+  %139 = icmp eq i32 %.21872, -2147483648
   br i1 %139, label %.thread, label %140
 
-140:                                              ; preds = %.lr.ph77
-  %141 = add nsw i32 %.21875, -1
+140:                                              ; preds = %.lr.ph74
+  %141 = add nsw i32 %.21872, -1
   %142 = and i32 %141, 3
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %150
@@ -3527,11 +3527,11 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   %151 = phi i64 [ 0, %140 ], [ 1, %144 ], [ %149, %146 ]
   %152 = getelementptr inbounds nuw [2 x i32], ptr @year_lengths, i64 0, i64 %151
   %153 = load i32, ptr %152, align 4
-  %154 = add i32 %153, %.276
+  %154 = add i32 %153, %.273
   %155 = icmp slt i32 %154, 0
-  br i1 %155, label %.lr.ph77, label %.preheader.preheader, !llvm.loop !51
+  br i1 %155, label %.lr.ph74, label %.preheader.preheader, !llvm.loop !51
 
-.preheader.preheader:                             ; preds = %150, %.preheader51
+.preheader.preheader:                             ; preds = %150, %.preheader48
   %.420.ph = phi i32 [ %.016, %.preheader51 ], [ %141, %150 ]
   %.3.ph = phi i32 [ %.181.lcssa, %.preheader51 ], [ %154, %150 ]
   br label %.preheader
@@ -3546,7 +3546,7 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
 158:                                              ; preds = %.preheader
   %159 = srem i32 %.420, 100
   %.not94 = icmp eq i32 %159, 0
-  br i1 %.not94, label %160, label %.thread112
+  br i1 %.not94, label %160, label %.thread109
 
 160:                                              ; preds = %158
   %161 = srem i32 %.420, 400
@@ -3557,9 +3557,9 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   %.not95 = icmp slt i32 %.3, %165
   br i1 %.not95, label %176, label %166
 
-.thread112:                                       ; preds = %158
-  %.not95113 = icmp slt i32 %.3, 366
-  br i1 %.not95113, label %176, label %.thread30
+.thread109:                                       ; preds = %158
+  %.not95110 = icmp slt i32 %.3, 366
+  br i1 %.not95110, label %176, label %.thread30
 
 .thread28:                                        ; preds = %.preheader
   %.not9529 = icmp slt i32 %.3, 365
@@ -3571,7 +3571,7 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   %169 = zext i1 %168 to i64
   br label %.thread30
 
-.thread30:                                        ; preds = %.thread112, %.thread28, %166
+.thread30:                                        ; preds = %.thread109, %.thread28, %166
   %170 = phi i64 [ %169, %166 ], [ 0, %.thread28 ], [ 1, %.thread112 ]
   %171 = icmp eq i32 %.420, 2147483647
   br i1 %171, label %.thread, label %increment_overflow.exit106
@@ -3583,7 +3583,7 @@ increment_overflow.exit106:                       ; preds = %.thread30
   %175 = add nsw i32 %.420, 1
   br label %.preheader, !llvm.loop !52
 
-176:                                              ; preds = %.thread112, %.thread28, %160
+176:                                              ; preds = %.thread109, %.thread28, %160
   store i32 %.420, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 20), align 4
   %177 = icmp slt i32 %.420, -2147481748
   br i1 %177, label %.thread, label %178
@@ -3655,22 +3655,22 @@ leaps_thru_end_of.exit109:                        ; preds = %183, %191
   %220 = phi i64 [ 0, %leaps_thru_end_of.exit109 ], [ 1, %213 ], [ %218, %215 ]
   %221 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @mon_lengths, i64 0, i64 %220
   %222 = load i32, ptr %221, align 16
-  %.not9880 = icmp slt i32 %.3, %222
-  br i1 %.not9880, label %._crit_edge, label %.lr.ph83
+  %.not9877 = icmp slt i32 %.3, %222
+  br i1 %.not9877, label %._crit_edge, label %.lr.ph80
 
-.lr.ph83:                                         ; preds = %219, %.lr.ph83
+.lr.ph80:                                         ; preds = %219, %.lr.ph80
   %223 = phi i32 [ %228, %.lr.ph83 ], [ %222, %219 ]
-  %.482 = phi i32 [ %224, %.lr.ph83 ], [ %.3, %219 ]
-  %storemerge9781 = phi i32 [ %225, %.lr.ph83 ], [ 0, %219 ]
-  %224 = sub i32 %.482, %223
-  %225 = add i32 %storemerge9781, 1
+  %.479 = phi i32 [ %224, %.lr.ph83 ], [ %.3, %219 ]
+  %storemerge9778 = phi i32 [ %225, %.lr.ph83 ], [ 0, %219 ]
+  %224 = sub i32 %.479, %223
+  %225 = add i32 %storemerge9778, 1
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds i32, ptr %221, i64 %226
   %228 = load i32, ptr %227, align 4
   %.not98 = icmp slt i32 %224, %228
-  br i1 %.not98, label %._crit_edge, label %.lr.ph83, !llvm.loop !53
+  br i1 %.not98, label %._crit_edge, label %.lr.ph80, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %.lr.ph83, %219
+._crit_edge:                                      ; preds = %.lr.ph80, %219
   %storemerge97.lcssa = phi i32 [ 0, %219 ], [ %225, %.lr.ph83 ]
   %.4.lcssa = phi i32 [ %.3, %219 ], [ %224, %.lr.ph83 ]
   store i32 %storemerge97.lcssa, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 16), align 8
@@ -3680,7 +3680,7 @@ leaps_thru_end_of.exit109:                        ; preds = %183, %191
   store i64 %109, ptr getelementptr inbounds nuw (i8, ptr @tm, i64 40), align 8
   br label %231
 
-.thread:                                          ; preds = %57, %60, %.critedge, %.lr.ph77, %.thread30, %176
+.thread:                                          ; preds = %57, %60, %.critedge, %.lr.ph74, %.thread30, %176
   %230 = tail call ptr @__errno_location() #19
   store i32 75, ptr %230, align 4
   br label %231

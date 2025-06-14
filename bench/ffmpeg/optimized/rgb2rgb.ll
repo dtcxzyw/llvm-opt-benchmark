@@ -2004,13 +2004,13 @@ define internal void @rgb24tobgr24_c(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @shuffle_bytes_0321_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
   %.neg = add nsw i32 %2, -15
-  %4 = sext i32 %.neg to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 %4
+  %5 = sext i32 %.neg to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 %5
+  %7 = getelementptr inbounds i8, ptr %1, i64 %4
   %7 = icmp sgt i32 %2, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %8 = sub nsw i32 15, %2
   %9 = sext i32 %8 to i64
   br label %.lr.ph
@@ -2038,13 +2038,13 @@ define internal void @shuffle_bytes_0321_c(ptr noundef readonly captures(none) %
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @shuffle_bytes_2103_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
   %.neg = add nsw i32 %2, -15
-  %4 = sext i32 %.neg to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 %4
+  %5 = sext i32 %.neg to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 %5
+  %7 = getelementptr inbounds i8, ptr %1, i64 %4
   %7 = icmp sgt i32 %2, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %8 = sub nsw i32 15, %2
   %9 = sext i32 %8 to i64
   br label %.lr.ph

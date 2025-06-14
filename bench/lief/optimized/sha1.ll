@@ -1490,14 +1490,14 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha1_self_test(i32 noundef %0) local_
   store i32 271733878, ptr %9, align 4, !tbaa !7
   store i32 -1009589776, ptr %10, align 4, !tbaa !7
   %23 = icmp eq i64 %indvars.iv, 2
-  br i1 %23, label %24, label %._crit_edge.thread.i34
+  br i1 %23, label %24, label %._crit_edge.thread.i35
 
 24:                                               ; preds = %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1000) %2, i8 97, i64 1000, i1 false)
   br label %25
 
 25:                                               ; preds = %24, %mbedtls_sha1_update.exit
-  %.01845 = phi i32 [ 0, %24 ], [ %46, %mbedtls_sha1_update.exit ]
+  %.01849 = phi i32 [ 0, %24 ], [ %46, %mbedtls_sha1_update.exit ]
   %26 = load i32, ptr %4, align 4, !tbaa !7
   %27 = and i32 %26, 63
   %28 = sub nuw nsw i32 64, %27
@@ -1549,24 +1549,24 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha1_self_test(i32 noundef %0) local_
   br label %mbedtls_sha1_update.exit
 
 mbedtls_sha1_update.exit:                         ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %46 = add nuw nsw i32 %.01845, 1
+  %46 = add nuw nsw i32 %.01849, 1
   %exitcond.not = icmp eq i32 %46, 1000
-  br i1 %exitcond.not, label %mbedtls_sha1_update.exit38.loopexit, label %25, !llvm.loop !18
+  br i1 %exitcond.not, label %mbedtls_sha1_update.exit42.loopexit, label %25, !llvm.loop !18
 
-._crit_edge.thread.i34:                           ; preds = %22
+._crit_edge.thread.i35:                           ; preds = %22
   %47 = getelementptr inbounds nuw [3 x i64], ptr @sha1_test_buflen, i64 0, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw [3 x [57 x i8]], ptr @sha1_test_buf, i64 0, i64 %indvars.iv
   %50 = trunc i64 %48 to i32
   store i32 %50, ptr %4, align 4, !tbaa !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull align 1 %49, i64 %48, i1 false)
-  br label %mbedtls_sha1_update.exit38
+  br label %mbedtls_sha1_update.exit42
 
-mbedtls_sha1_update.exit38.loopexit:              ; preds = %mbedtls_sha1_update.exit
+mbedtls_sha1_update.exit42.loopexit:              ; preds = %mbedtls_sha1_update.exit
   %.pre = load i32, ptr %4, align 4, !tbaa !7
-  br label %mbedtls_sha1_update.exit38
+  br label %mbedtls_sha1_update.exit42
 
-mbedtls_sha1_update.exit38:                       ; preds = %mbedtls_sha1_update.exit38.loopexit, %._crit_edge.thread.i34
+mbedtls_sha1_update.exit42:                       ; preds = %mbedtls_sha1_update.exit42.loopexit, %._crit_edge.thread.i35
   %51 = phi i32 [ %.pre, %mbedtls_sha1_update.exit38.loopexit ], [ %50, %._crit_edge.thread.i34 ]
   %52 = and i32 %51, 63
   %53 = zext nneg i32 %52 to i64
@@ -1576,13 +1576,13 @@ mbedtls_sha1_update.exit38:                       ; preds = %mbedtls_sha1_update
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %53
   br i1 %55, label %56, label %59
 
-56:                                               ; preds = %mbedtls_sha1_update.exit38
+56:                                               ; preds = %mbedtls_sha1_update.exit42
   %57 = sub nuw nsw i32 55, %52
   %58 = zext nneg i32 %57 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %gep, i8 0, i64 %58, i1 false)
   br label %mbedtls_sha1_finish.exit
 
-59:                                               ; preds = %mbedtls_sha1_update.exit38
+59:                                               ; preds = %mbedtls_sha1_update.exit42
   %60 = xor i32 %52, 63
   %61 = zext nneg i32 %60 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %gep, i8 0, i64 %61, i1 false)
@@ -1627,18 +1627,18 @@ mbedtls_sha1_finish.exit:                         ; preds = %56, %59
 
 82:                                               ; preds = %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond49.not, label %.loopexit, label %.backedge.backedge
+  %exitcond53.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond53.not, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %82, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %82 ], [ %indvars.iv.next50, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %82 ], [ %indvars.iv.next54, %.thread ]
   br label %.backedge, !llvm.loop !21
 
 .thread:                                          ; preds = %81
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond49.not51 = icmp eq i64 %indvars.iv.next50, 3
-  br i1 %exitcond49.not51, label %83, label %.backedge.backedge
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond53.not55 = icmp eq i64 %indvars.iv.next54, 3
+  br i1 %exitcond53.not55, label %83, label %.backedge.backedge
 
 83:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)
