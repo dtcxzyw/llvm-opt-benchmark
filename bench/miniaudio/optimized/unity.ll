@@ -3074,24 +3074,24 @@ define range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef captures(addres
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.preheader59
 
-.preheader59:                                     ; preds = %.preheader60, %49
-  %7 = phi i1 [ true, %.preheader60 ], [ false, %49 ]
+.preheader59:                                     ; preds = %.preheader60, %53
+  %7 = phi i1 [ true, %.preheader60 ], [ false, %53 ]
   %8 = load i32, ptr %5, align 4, !tbaa !60
   %.not69 = icmp eq i32 %8, 0
-  br i1 %.not69, label %.thread54, label %.preheader58
+  br i1 %.not69, label %.thread54, label %13
 
-.preheader58:                                     ; preds = %.preheader59, %40
+13:                                               ; preds = %.preheader59, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader59 ]
   br label %9
 
-9:                                                ; preds = %.preheader58, %ma_ffs_32.exit
+9:; preds = %13, %ma_ffs_32.exit
   %10 = load ptr, ptr %0, align 8, !tbaa !58
   %11 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %10, i64 %indvars.iv
   %12 = load atomic i32, ptr %11 seq_cst, align 4
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %40, label %.preheader
 
-.preheader:                                       ; preds = %9, %16
+.preheader:; preds = %9, %16
   %.08.i = phi i32 [ %17, %16 ], [ 0, %9 ]
   %14 = shl nuw i32 1, %.08.i
   %15 = and i32 %14, %12
@@ -3108,60 +3108,60 @@ define range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef captures(addres
 
 ma_ffs_32.exit:                                   ; preds = %.preheader, %.ma_ffs_32.exit_crit_edge
   %.0.lcssa.i = phi i32 [ 32, %.ma_ffs_32.exit_crit_edge ], [ %.08.i, %.preheader ]
-  %18 = shl nuw i32 1, %.0.lcssa.i
-  %19 = or i32 %18, %12
-  %20 = load ptr, ptr %0, align 8, !tbaa !58
-  %21 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %20, i64 %indvars.iv
-  %22 = cmpxchg volatile ptr %21, i32 %12, i32 %19 seq_cst seq_cst, align 4
-  %23 = extractvalue { i32, i1 } %22, 1
-  br i1 %23, label %24, label %9
+  %22 = shl nuw i32 1, %.0.lcssa.i
+  %23 = or i32 %22, %12
+  %24 = load ptr, ptr %0, align 8, !tbaa !58
+  %25 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %24, i64 %indvars.iv
+  %26 = cmpxchg volatile ptr %25, i32 %12, i32 %23 seq_cst seq_cst, align 4
+  %27 = extractvalue { i32, i1 } %26, 1
+  br i1 %27, label %28, label %9
 
-24:                                               ; preds = %ma_ffs_32.exit
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = atomicrmw add ptr %6, i32 1 seq_cst, align 8
-  %27 = shl i32 %25, 5
-  %28 = add i32 %.0.lcssa.i, %27
-  %29 = load i32, ptr %5, align 4, !tbaa !60
-  %.not = icmp ult i32 %28, %29
-  br i1 %.not, label %30, label %.thread54
+28:                                               ; preds = %ma_ffs_32.exit
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  %30 = atomicrmw add ptr %6, i32 1 seq_cst, align 8
+  %31 = shl i32 %29, 5
+  %32 = add i32 %.0.lcssa.i, %31
+  %33 = load i32, ptr %5, align 4, !tbaa !60
+  %.not = icmp ult i32 %32, %33
+  br i1 %.not, label %34, label %.thread54
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !59
-  %33 = zext i32 %28 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !3
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 4, !tbaa !3
-  %37 = zext i32 %36 to i64
-  %38 = shl nuw i64 %37, 32
-  %39 = or disjoint i64 %38, %33
-  store i64 %39, ptr %1, align 8, !tbaa !63
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !59
+  %37 = zext i32 %32 to i64
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %39 = load i32, ptr %38, align 4, !tbaa !3
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %38, align 4, !tbaa !3
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw i64 %41, 32
+  %43 = or disjoint i64 %42, %37
+  store i64 %43, ptr %1, align 8, !tbaa !63
   br label %.thread54
 
-40:                                               ; preds = %9
+44:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %5, align 4, !tbaa !60
-  %42 = lshr i32 %41, 5
-  %43 = and i32 %41, 31
-  %.not.i = icmp ne i32 %43, 0
-  %44 = zext i1 %.not.i to i32
-  %spec.select.i45 = add nuw nsw i32 %42, %44
-  %45 = zext nneg i32 %spec.select.i45 to i64
-  %46 = icmp samesign ult i64 %indvars.iv.next, %45
-  br i1 %46, label %.preheader58, label %._crit_edge, !llvm.loop !65
+  %45 = load i32, ptr %5, align 4, !tbaa !60
+  %46 = lshr i32 %45, 5
+  %47 = and i32 %45, 31
+  %.not.i = icmp ne i32 %47, 0
+  %48 = zext i1 %.not.i to i32
+  %spec.select.i45 = add nuw nsw i32 %46, %48
+  %49 = zext nneg i32 %spec.select.i45 to i64
+  %50 = icmp samesign ult i64 %indvars.iv.next, %49
+  br i1 %50, label %.preheader58, label %._crit_edge, !llvm.loop !65
 
-._crit_edge:                                      ; preds = %40
+._crit_edge:                                      ; preds = %44
   %47 = load i32, ptr %6, align 8, !tbaa !66
-  %48 = icmp ult i32 %47, %41
-  br i1 %48, label %49, label %.thread54
+  %52 = icmp ult i32 %47, %41
+  br i1 %52, label %49, label %.thread54
 
 49:                                               ; preds = %._crit_edge
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #66, !srcloc !39
   br i1 %7, label %.preheader59, label %.thread54, !llvm.loop !67
 
-.thread54:                                        ; preds = %.preheader59, %._crit_edge, %49, %30, %24, %2
-  %.0 = phi i32 [ -2, %2 ], [ -4, %24 ], [ 0, %30 ], [ -4, %49 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
+.thread54:                                        ; preds = %.preheader59, %._crit_edge, %53, %34, %28, %2
+  %.0 = phi i32 [ -2, %2 ], [ -4, %28 ], [ 0, %30 ], [ -4, %53 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
   ret i32 %.0
 }
 
@@ -3420,20 +3420,20 @@ ma_semaphore_init.exit:                           ; preds = %56, %59, %52, %33
   %63 = phi i1 [ true, %ma_semaphore_init.exit ], [ false, %104 ]
   %64 = load i32, ptr %48, align 4, !tbaa !60
   %.not69.i = icmp eq i32 %64, 0
-  br i1 %.not69.i, label %ma_slot_allocator_alloc.exit, label %.preheader58.i
+  br i1 %.not69.i, label %ma_slot_allocator_alloc.exit, label %15
 
-.preheader58.i:                                   ; preds = %.preheader59.i, %95
+69:                                               ; preds = %.preheader59.i, %95
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %95 ], [ 0, %.preheader59.i ]
   br label %65
 
-65:                                               ; preds = %ma_ffs_32.exit.i, %.preheader58.i
-  %66 = load ptr, ptr %31, align 8, !tbaa !58
+65:; preds = %ma_ffs_32.exit.i, %15
+  %70 = load ptr, ptr %31, align 8, !tbaa !58
   %67 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %66, i64 %indvars.iv.i
   %68 = load atomic i32, ptr %67 seq_cst, align 4
-  %69 = icmp eq i32 %68, -1
+  %73 = icmp eq i32 %76, -1
   br i1 %69, label %95, label %.preheader.i
 
-.preheader.i:                                     ; preds = %65, %72
+.preheader.i:; preds = %65, %72
   %.08.i.i = phi i32 [ %73, %72 ], [ 0, %65 ]
   %70 = shl nuw i32 1, %.08.i.i
   %71 = and i32 %70, %68
@@ -3445,52 +3445,52 @@ ma_semaphore_init.exit:                           ; preds = %56, %59, %52, %33
   %exitcond.not.i.i = icmp eq i32 %73, 32
   br i1 %exitcond.not.i.i, label %.ma_ffs_32.exit_crit_edge.i, label %.preheader.i, !llvm.loop !62
 
-.ma_ffs_32.exit_crit_edge.i:                      ; preds = %72
+.ma_ffs_32.exit_crit_edge.i:                      ; preds = %76
   br label %ma_ffs_32.exit.i, !llvm.loop !62
 
 ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %.ma_ffs_32.exit_crit_edge.i
   %.0.lcssa.i.i = phi i32 [ 32, %.ma_ffs_32.exit_crit_edge.i ], [ %.08.i.i, %.preheader.i ]
-  %74 = shl nuw i32 1, %.0.lcssa.i.i
-  %75 = or i32 %74, %68
-  %76 = load ptr, ptr %31, align 8, !tbaa !58
-  %77 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %76, i64 %indvars.iv.i
-  %78 = cmpxchg volatile ptr %77, i32 %68, i32 %75 seq_cst seq_cst, align 4
-  %79 = extractvalue { i32, i1 } %78, 1
-  br i1 %79, label %80, label %65
+  %78 = shl nuw i32 1, %.0.lcssa.i.i
+  %79 = or i32 %78, %72
+  %80 = load ptr, ptr %31, align 8, !tbaa !58
+  %81 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %80, i64 %indvars.iv.i
+  %82 = cmpxchg volatile ptr %81, i32 %72, i32 %79 seq_cst seq_cst, align 4
+  %83 = extractvalue { i32, i1 } %82, 1
+  br i1 %83, label %84, label %69
 
-80:                                               ; preds = %ma_ffs_32.exit.i
-  %81 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %82 = atomicrmw add ptr %62, i32 1 seq_cst, align 8
-  %83 = shl i32 %81, 5
-  %84 = add i32 %.0.lcssa.i.i, %83
-  %85 = load i32, ptr %48, align 4, !tbaa !60
-  %.not.i = icmp ult i32 %84, %85
-  br i1 %.not.i, label %86, label %ma_slot_allocator_alloc.exit
+84:                                               ; preds = %ma_ffs_32.exit.i
+  %85 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %86 = atomicrmw add ptr %62, i32 1 seq_cst, align 8
+  %87 = shl i32 %85, 5
+  %88 = add i32 %.0.lcssa.i.i, %87
+  %89 = load i32, ptr %48, align 4, !tbaa !60
+  %.not.i = icmp ult i32 %88, %89
+  br i1 %.not.i, label %90, label %ma_slot_allocator_alloc.exit
 
-86:                                               ; preds = %80
-  %87 = load ptr, ptr %47, align 8, !tbaa !59
-  %88 = zext i32 %84 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !3
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %89, align 4, !tbaa !3
-  %92 = zext i32 %91 to i64
-  %93 = shl nuw i64 %92, 32
-  %94 = or disjoint i64 %93, %88
-  store i64 %94, ptr %61, align 8, !tbaa !63
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %47, align 8, !tbaa !59
+  %92 = zext i32 %88 to i64
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !3
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %93, align 4, !tbaa !3
+  %96 = zext i32 %95 to i64
+  %97 = shl nuw i64 %96, 32
+  %98 = or disjoint i64 %97, %92
+  store i64 %98, ptr %61, align 8, !tbaa !63
   br label %ma_slot_allocator_alloc.exit
 
-95:                                               ; preds = %65
+99:                                               ; preds = %69
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %96 = load i32, ptr %48, align 4, !tbaa !60
-  %97 = lshr i32 %96, 5
-  %98 = and i32 %96, 31
-  %.not.i.i38 = icmp ne i32 %98, 0
-  %99 = zext i1 %.not.i.i38 to i32
-  %spec.select.i45.i = add nuw nsw i32 %97, %99
-  %100 = zext nneg i32 %spec.select.i45.i to i64
-  %101 = icmp samesign ult i64 %indvars.iv.next.i, %100
-  br i1 %101, label %.preheader58.i, label %._crit_edge.i, !llvm.loop !65
+  %100 = load i32, ptr %48, align 4, !tbaa !60
+  %101 = lshr i32 %100, 5
+  %102 = and i32 %100, 31
+  %.not.i.i38 = icmp ne i32 %102, 0
+  %103 = zext i1 %.not.i.i38 to i32
+  %spec.select.i45.i = add nuw nsw i32 %101, %103
+  %104 = zext nneg i32 %spec.select.i45.i to i64
+  %105 = icmp samesign ult i64 %indvars.iv.next.i, %104
+  br i1 %105, label %.preheader58.i, label %._crit_edge.i, !llvm.loop !65
 
 ._crit_edge.i:                                    ; preds = %95
   %102 = load i32, ptr %62, align 8, !tbaa !66
@@ -3501,14 +3501,14 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %.ma_
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #66, !srcloc !39
   br i1 %63, label %.preheader59.i, label %ma_slot_allocator_alloc.exit, !llvm.loop !67
 
-ma_slot_allocator_alloc.exit:                     ; preds = %.preheader59.i, %._crit_edge.i, %104, %80, %86
-  %105 = load ptr, ptr %30, align 8, !tbaa !79
-  %106 = load i64, ptr %61, align 8, !tbaa !80
-  %107 = and i64 %106, 65535
-  %108 = getelementptr inbounds nuw %struct.ma_job, ptr %105, i64 %107, i32 1
-  store i64 -1, ptr %108, align 8, !tbaa !69
-  %109 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %106, ptr %109, align 8, !tbaa !81
+ma_slot_allocator_alloc.exit:                     ; preds = %.preheader59.i, %._crit_edge.i, %104, %84, %90
+  %109 = load ptr, ptr %30, align 8, !tbaa !79
+  %110 = load i64, ptr %61, align 8, !tbaa !80
+  %111 = and i64 %110, 65535
+  %112 = getelementptr inbounds nuw %struct.ma_job, ptr %109, i64 %111, i32 1
+  store i64 -1, ptr %112, align 8, !tbaa !69
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %110, ptr %113, align 8, !tbaa !81
   br label %ma_job_queue_get_heap_layout.exit.thread
 
 ma_job_queue_get_heap_layout.exit.thread:         ; preds = %ma_zero_memory_default.exit, %6, %ma_zero_memory_default.exit32, %3, %ma_slot_allocator_alloc.exit
@@ -3697,49 +3697,49 @@ define range(i32 -4, 1) i32 @ma_job_queue_post(ptr noundef %0, ptr noundef reado
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %.preheader59.i
 
-.preheader59.i:                                   ; preds = %41, %5
-  %9 = phi i1 [ true, %5 ], [ false, %41 ]
+.preheader59.i:                                   ; preds = %45, %5
+  %9 = phi i1 [ true, %5 ], [ false, %45 ]
   %10 = load i32, ptr %7, align 4, !tbaa !60
   %.not69.i = icmp eq i32 %10, 0
-  br i1 %.not69.i, label %ma_slot_allocator_alloc.exit.thread, label %.preheader58.i
+  br i1 %.not69.i, label %ma_slot_allocator_alloc.exit.thread, label %73
 
-.preheader58.i:                                   ; preds = %.preheader59.i, %32
+15:                                               ; preds = %.preheader59.i, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %.preheader59.i ]
   br label %11
 
-11:                                               ; preds = %ma_ffs_32.exit.i, %.preheader58.i
+11:; preds = %ma_ffs_32.exit.i, %15
   %12 = load ptr, ptr %6, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %12, i64 %indvars.iv.i
   %14 = load atomic i32, ptr %13 seq_cst, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %32, label %.preheader.i
 
-.preheader.i:                                     ; preds = %11, %18
-  %.08.i.i = phi i32 [ %19, %18 ], [ 0, %11 ]
+.preheader.i:; preds = %11, %18
+  %.08.i.i = phi i32 [ %19, %22 ], [ 0, %11 ]
   %16 = shl nuw i32 1, %.08.i.i
   %17 = and i32 %16, %14
   %.not.i46.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i46.not.i, label %ma_ffs_32.exit.i, label %18
+  br i1 %.not.i46.not.i, label %ma_ffs_32.exit.i, label %22
 
 18:                                               ; preds = %.preheader.i
   %19 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %19, 32
   br i1 %exitcond.not.i.i, label %.ma_ffs_32.exit_crit_edge.i, label %.preheader.i, !llvm.loop !62
 
-.ma_ffs_32.exit_crit_edge.i:                      ; preds = %18
+.ma_ffs_32.exit_crit_edge.i:                      ; preds = %22
   br label %ma_ffs_32.exit.i, !llvm.loop !62
 
 ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %.ma_ffs_32.exit_crit_edge.i
   %.0.lcssa.i.i = phi i32 [ 32, %.ma_ffs_32.exit_crit_edge.i ], [ %.08.i.i, %.preheader.i ]
-  %20 = shl nuw i32 1, %.0.lcssa.i.i
-  %21 = or i32 %20, %14
-  %22 = load ptr, ptr %6, align 8, !tbaa !58
-  %23 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %22, i64 %indvars.iv.i
-  %24 = cmpxchg volatile ptr %23, i32 %14, i32 %21 seq_cst seq_cst, align 4
-  %25 = extractvalue { i32, i1 } %24, 1
-  br i1 %25, label %26, label %11
+  %24 = shl nuw i32 1, %.0.lcssa.i.i
+  %25 = or i32 %24, %14
+  %26 = load ptr, ptr %6, align 8, !tbaa !58
+  %27 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %26, i64 %indvars.iv.i
+  %28 = cmpxchg volatile ptr %27, i32 %14, i32 %25 seq_cst seq_cst, align 4
+  %29 = extractvalue { i32, i1 } %28, 1
+  br i1 %29, label %30, label %11
 
-26:                                               ; preds = %ma_ffs_32.exit.i
+36:                                               ; preds = %ma_ffs_32.exit.i
   %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   %28 = atomicrmw add ptr %8, i32 1 seq_cst, align 8
   %29 = shl i32 %27, 5
@@ -3750,17 +3750,17 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %.ma_
 
 32:                                               ; preds = %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = load i32, ptr %7, align 4, !tbaa !60
-  %34 = lshr i32 %33, 5
-  %35 = and i32 %33, 31
-  %.not.i.i = icmp ne i32 %35, 0
-  %36 = zext i1 %.not.i.i to i32
-  %spec.select.i45.i = add nuw nsw i32 %34, %36
-  %37 = zext nneg i32 %spec.select.i45.i to i64
-  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.preheader58.i, label %._crit_edge.i, !llvm.loop !65
+  %37 = load i32, ptr %7, align 4, !tbaa !60
+  %38 = lshr i32 %37, 5
+  %39 = and i32 %37, 31
+  %.not.i.i = icmp ne i32 %39, 0
+  %40 = zext i1 %.not.i.i to i32
+  %spec.select.i45.i = add nuw nsw i32 %38, %40
+  %41 = zext nneg i32 %spec.select.i45.i to i64
+  %42 = icmp samesign ult i64 %indvars.iv.next.i, %41
+  br i1 %42, label %.preheader58.i, label %._crit_edge.i, !llvm.loop !65
 
-._crit_edge.i:                                    ; preds = %32
+._crit_edge.i:                                    ; preds = %36
   %39 = load i32, ptr %8, align 8, !tbaa !66
   %40 = icmp ult i32 %39, %33
   br i1 %40, label %41, label %ma_slot_allocator_alloc.exit.thread
@@ -3769,105 +3769,105 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %.ma_
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #66, !srcloc !39
   br i1 %9, label %.preheader59.i, label %ma_slot_allocator_alloc.exit.thread, !llvm.loop !67
 
-42:                                               ; preds = %26
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %44 = load ptr, ptr %43, align 8, !tbaa !59
-  %45 = zext i32 %30 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
-  %47 = load i32, ptr %46, align 4, !tbaa !3
-  %48 = add i32 %47, 1
-  store i32 %48, ptr %46, align 4, !tbaa !3
-  %49 = zext i32 %48 to i64
-  %50 = shl nuw i64 %49, 32
-  %51 = or disjoint i64 %50, %45
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %53 = load ptr, ptr %52, align 8, !tbaa !79
-  %54 = and i32 %30, 65535
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.ma_job, ptr %53, i64 %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %56, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false), !tbaa.struct !83
-  %57 = load ptr, ptr %52, align 8, !tbaa !79
-  %58 = getelementptr inbounds nuw %struct.ma_job, ptr %57, i64 %55
-  store i64 %51, ptr %58, align 8, !tbaa !7
-  %59 = load i16, ptr %1, align 8, !tbaa !7
-  %60 = load ptr, ptr %52, align 8, !tbaa !79
-  %61 = getelementptr inbounds nuw %struct.ma_job, ptr %60, i64 %55
-  store i16 %59, ptr %61, align 8, !tbaa !7
-  %62 = load ptr, ptr %52, align 8, !tbaa !79
-  %63 = getelementptr inbounds nuw %struct.ma_job, ptr %62, i64 %55, i32 1
-  store i64 -1, ptr %63, align 8, !tbaa !69
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %65 = atomicrmw volatile xchg ptr %64, i32 1 acquire, align 4
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %ma_spinlock_lock.exit, label %.preheader.i37
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %48 = load ptr, ptr %47, align 8, !tbaa !59
+  %49 = zext i32 %30 to i64
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !3
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 4, !tbaa !3
+  %53 = zext i32 %52 to i64
+  %54 = shl nuw i64 %53, 32
+  %55 = or disjoint i64 %54, %49
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %57 = load ptr, ptr %56, align 8, !tbaa !79
+  %58 = and i32 %34, 65535
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr inbounds nuw %struct.ma_job, ptr %57, i64 %59
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %60, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false), !tbaa.struct !83
+  %61 = load ptr, ptr %56, align 8, !tbaa !79
+  %62 = getelementptr inbounds nuw %struct.ma_job, ptr %61, i64 %59
+  store i64 %55, ptr %62, align 8, !tbaa !7
+  %63 = load i16, ptr %1, align 8, !tbaa !7
+  %64 = load ptr, ptr %56, align 8, !tbaa !79
+  %65 = getelementptr inbounds nuw %struct.ma_job, ptr %64, i64 %59
+  store i16 %63, ptr %65, align 8, !tbaa !7
+  %66 = load ptr, ptr %56, align 8, !tbaa !79
+  %67 = getelementptr inbounds nuw %struct.ma_job, ptr %66, i64 %59, i32 1
+  store i64 -1, ptr %67, align 8, !tbaa !69
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %69 = atomicrmw volatile xchg ptr %68, i32 1 acquire, align 4
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %ma_spinlock_lock.exit, label %.preheader.i37
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i37
-  %67 = atomicrmw volatile xchg ptr %64, i32 1 acquire, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %ma_spinlock_lock.exit, label %.preheader.i37
+  %71 = atomicrmw volatile xchg ptr %68, i32 1 acquire, align 4
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %ma_spinlock_lock.exit, label %.preheader.i37
 
-.preheader.i37:                                   ; preds = %42, %.loopexit.i
-  %69 = load atomic volatile i32, ptr %64 monotonic, align 4
-  %70 = icmp eq i32 %69, 1
-  br i1 %70, label %.lr.ph.i, label %.loopexit.i
+.preheader.i37:                                   ; preds = %46, %.loopexit.i
+  %73 = load atomic volatile i32, ptr %68 monotonic, align 4
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i37, %.lr.ph.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #66, !srcloc !39
-  %71 = load atomic volatile i32, ptr %64 monotonic, align 4
-  %72 = icmp eq i32 %71, 1
-  br i1 %72, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !40
+  %75 = load atomic volatile i32, ptr %68 monotonic, align 4
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !40
 
-ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %invariant.op = or disjoint i64 %45, 4294967296
-  br label %74
+ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %46
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %invariant.op = or disjoint i64 %49, 4294967296
+  br label %78
 
-74:                                               ; preds = %.backedge, %ma_spinlock_lock.exit
-  %75 = load atomic i64, ptr %73 seq_cst, align 8
-  %76 = load ptr, ptr %52, align 8, !tbaa !79
-  %77 = and i64 %75, 65535
-  %78 = getelementptr inbounds nuw %struct.ma_job, ptr %76, i64 %77, i32 1
-  %79 = load atomic i64, ptr %78 seq_cst, align 8
-  %80 = load atomic i64, ptr %73 seq_cst, align 8
-  %81 = xor i64 %80, %75
-  %82 = and i64 %81, -4294901761
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %84, label %.backedge
+78:                                               ; preds = %.backedge, %ma_spinlock_lock.exit
+  %79 = load atomic i64, ptr %77 seq_cst, align 8
+  %80 = load ptr, ptr %56, align 8, !tbaa !79
+  %81 = and i64 %79, 65535
+  %82 = getelementptr inbounds nuw %struct.ma_job, ptr %80, i64 %81, i32 1
+  %83 = load atomic i64, ptr %82 seq_cst, align 8
+  %84 = load atomic i64, ptr %77 seq_cst, align 8
+  %85 = xor i64 %84, %79
+  %86 = and i64 %85, -4294901761
+  %87 = icmp eq i64 %86, 0
+  br i1 %87, label %88, label %.backedge
 
-84:                                               ; preds = %74
-  %85 = and i64 %79, 65535
-  %86 = icmp eq i64 %85, 65535
-  br i1 %86, label %87, label %93
+88:                                               ; preds = %78
+  %89 = and i64 %83, 65535
+  %90 = icmp eq i64 %89, 65535
+  br i1 %90, label %91, label %97
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %52, align 8, !tbaa !79
-  %89 = getelementptr inbounds nuw %struct.ma_job, ptr %88, i64 %77, i32 1
-  %90 = and i64 %79, -4294967296
-  %.reass = add i64 %90, %invariant.op
-  %91 = cmpxchg volatile ptr %89, i64 %79, i64 %.reass seq_cst seq_cst, align 8
-  %92 = extractvalue { i64, i1 } %91, 1
-  br i1 %92, label %98, label %.backedge
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %56, align 8, !tbaa !79
+  %93 = getelementptr inbounds nuw %struct.ma_job, ptr %92, i64 %81, i32 1
+  %94 = and i64 %83, -4294967296
+  %.reass = add i64 %94, %invariant.op
+  %95 = cmpxchg volatile ptr %93, i64 %83, i64 %.reass seq_cst seq_cst, align 8
+  %96 = extractvalue { i64, i1 } %95, 1
+  br i1 %96, label %102, label %.backedge
 
-93:                                               ; preds = %84
-  %94 = and i64 %75, -4294967296
-  %95 = add i64 %94, 4294967296
-  %96 = or disjoint i64 %85, %95
-  %97 = cmpxchg volatile ptr %73, i64 %75, i64 %96 seq_cst seq_cst, align 8
+97:                                               ; preds = %88
+  %98 = and i64 %79, -4294967296
+  %99 = add i64 %98, 4294967296
+  %100 = or disjoint i64 %89, %99
+  %101 = cmpxchg volatile ptr %77, i64 %79, i64 %100 seq_cst seq_cst, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %93, %87, %74
-  br label %74
+.backedge:                                        ; preds = %97, %91, %78
+  br label %78
 
-98:                                               ; preds = %87
-  %99 = and i64 %75, -4294967296
-  %100 = add i64 %99, 4294967296
+110:                                              ; preds = %91
+  %103 = and i64 %75, -4294967296
+  %100 = add i64 %103, 4294967296
   %101 = or disjoint i64 %100, %45
   %102 = cmpxchg volatile ptr %73, i64 %75, i64 %101 seq_cst seq_cst, align 8
   store atomic volatile i32 0, ptr %64 release, align 4
   %103 = load i32, ptr %0, align 8, !tbaa !77
   %104 = and i32 %103, 1
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %ma_slot_allocator_alloc.exit.thread
+  br i1 %105, label %110, label %ma_slot_allocator_alloc.exit.thread
 
 106:                                              ; preds = %98
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3881,8 +3881,8 @@ ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
   %114 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %108) #66
   br label %ma_slot_allocator_alloc.exit.thread
 
-ma_slot_allocator_alloc.exit.thread:              ; preds = %.preheader59.i, %._crit_edge.i, %41, %26, %98, %106, %2
-  %.0 = phi i32 [ -2, %2 ], [ 0, %106 ], [ 0, %98 ], [ -4, %26 ], [ -4, %41 ], [ -4, %._crit_edge.i ], [ -4, %.preheader59.i ]
+ma_slot_allocator_alloc.exit.thread:              ; preds = %.preheader59.i, %._crit_edge.i, %45, %30, %102, %110, %2
+  %.0 = phi i32 [ -2, %2 ], [ 0, %110 ], [ 0, %102 ], [ -4, %30 ], [ -4, %45 ], [ -4, %._crit_edge.i ], [ -4, %.preheader59.i ]
   ret i32 %.0
 }
 

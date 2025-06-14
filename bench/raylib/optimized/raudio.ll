@@ -3070,20 +3070,20 @@ define hidden range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef captures
   %7 = phi i1 [ true, %.preheader60 ], [ false, %52 ]
   %8 = load i32, ptr %5, align 4
   %.not69 = icmp eq i32 %8, 0
-  br i1 %.not69, label %.thread54, label %.preheader58
+  br i1 %.not69, label %.thread54, label %13
 
-.preheader58:                                     ; preds = %.preheader59, %43
+13:                                               ; preds = %.preheader59, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader59 ]
   br label %9
 
-9:                                                ; preds = %.preheader58, %ma_ffs_32.exit
+9:; preds = %13, %ma_ffs_32.exit
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %10, i64 %indvars.iv
   %12 = load atomic i32, ptr %11 seq_cst, align 4
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %43, label %.preheader
 
-.preheader:                                       ; preds = %9, %16
+.preheader:; preds = %9, %16
   %.08.i = phi i32 [ %17, %16 ], [ 0, %9 ]
   %14 = shl nuw i32 1, %.08.i
   %15 = and i32 %14, %12
@@ -3097,28 +3097,28 @@ define hidden range(i32 -4, 1) i32 @ma_slot_allocator_alloc(ptr noundef captures
 
 ma_ffs_32.exit:                                   ; preds = %.preheader, %16
   %.0.lcssa.i = phi i32 [ 32, %16 ], [ %.08.i, %.preheader ]
-  %18 = shl nuw i32 1, %.0.lcssa.i
-  %19 = or i32 %18, %12
-  %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %20, i64 %indvars.iv
-  %22 = cmpxchg volatile ptr %21, i32 %12, i32 %19 seq_cst seq_cst, align 4
-  %23 = extractvalue { i32, i1 } %22, 1
-  br i1 %23, label %24, label %9
+  %22 = shl nuw i32 1, %.0.lcssa.i
+  %23 = or i32 %22, %12
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %24, i64 %indvars.iv
+  %26 = cmpxchg volatile ptr %25, i32 %12, i32 %23 seq_cst seq_cst, align 4
+  %27 = extractvalue { i32, i1 } %26, 1
+  br i1 %27, label %28, label %9
 
-24:                                               ; preds = %ma_ffs_32.exit
-  %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = atomicrmw add ptr %6, i32 1 seq_cst, align 8
-  %27 = shl i32 %25, 5
-  %28 = add i32 %.0.lcssa.i, %27
-  %29 = load i32, ptr %5, align 4
-  %.not = icmp ult i32 %28, %29
-  br i1 %.not, label %30, label %.thread54
+28:                                               ; preds = %ma_ffs_32.exit
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  %30 = atomicrmw add ptr %6, i32 1 seq_cst, align 8
+  %31 = shl i32 %29, 5
+  %32 = add i32 %.0.lcssa.i, %31
+  %33 = load i32, ptr %5, align 4
+  %.not = icmp ult i32 %32, %33
+  br i1 %.not, label %34, label %.thread54
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = zext i32 %28 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = zext i32 %32 to i64
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -3131,29 +3131,29 @@ ma_ffs_32.exit:                                   ; preds = %.preheader, %16
   store i64 %42, ptr %1, align 8
   br label %.thread54
 
-43:                                               ; preds = %9
+47:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = load i32, ptr %5, align 4
-  %45 = lshr i32 %44, 5
-  %46 = and i32 %44, 31
-  %.not.i = icmp ne i32 %46, 0
-  %47 = zext i1 %.not.i to i32
-  %spec.select.i45 = add nuw nsw i32 %45, %47
-  %48 = zext nneg i32 %spec.select.i45 to i64
-  %49 = icmp samesign ult i64 %indvars.iv.next, %48
-  br i1 %49, label %.preheader58, label %._crit_edge
+  %48 = load i32, ptr %5, align 4
+  %49 = lshr i32 %48, 5
+  %50 = and i32 %48, 31
+  %.not.i = icmp ne i32 %50, 0
+  %51 = zext i1 %.not.i to i32
+  %spec.select.i45 = add nuw nsw i32 %49, %51
+  %52 = zext nneg i32 %spec.select.i45 to i64
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
+  br i1 %53, label %.preheader58, label %._crit_edge
 
-._crit_edge:                                      ; preds = %43
+._crit_edge:                                      ; preds = %47
   %50 = load i32, ptr %6, align 8
-  %51 = icmp ult i32 %50, %44
+  %51 = icmp ult i32 %50, %48
   br i1 %51, label %52, label %.thread54
 
 52:                                               ; preds = %._crit_edge
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #71, !srcloc !3
   br i1 %7, label %.preheader59, label %.thread54
 
-.thread54:                                        ; preds = %.preheader59, %._crit_edge, %52, %30, %24, %2
-  %.0 = phi i32 [ -2, %2 ], [ -4, %24 ], [ 0, %30 ], [ -4, %52 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
+.thread54:                                        ; preds = %.preheader59, %._crit_edge, %52, %34, %28, %2
+  %.0 = phi i32 [ -2, %2 ], [ -4, %28 ], [ 0, %34 ], [ -4, %52 ], [ -4, %._crit_edge ], [ -4, %.preheader59 ]
   ret i32 %.0
 }
 
@@ -3412,54 +3412,54 @@ ma_semaphore_init.exit:                           ; preds = %57, %60, %53, %34
   %64 = phi i1 [ true, %ma_semaphore_init.exit ], [ false, %108 ]
   %65 = load i32, ptr %49, align 4
   %.not69.i = icmp eq i32 %65, 0
-  br i1 %.not69.i, label %ma_slot_allocator_alloc.exit, label %.preheader58.i
+  br i1 %.not69.i, label %ma_slot_allocator_alloc.exit, label %15
 
-.preheader58.i:                                   ; preds = %.preheader59.i, %99
+15:; preds = %.preheader59.i, %103
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %99 ], [ 0, %.preheader59.i ]
   br label %66
 
-66:                                               ; preds = %ma_ffs_32.exit.i, %.preheader58.i
-  %67 = load ptr, ptr %32, align 8
-  %68 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %67, i64 %indvars.iv.i
-  %69 = load atomic i32, ptr %68 seq_cst, align 4
-  %70 = icmp eq i32 %69, -1
-  br i1 %70, label %99, label %.preheader.i
+70:                                               ; preds = %ma_ffs_32.exit.i, %.preheader58.i
+  %71 = load ptr, ptr %32, align 8
+  %72 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %71, i64 %indvars.iv.i
+  %73 = load atomic i32, ptr %72 seq_cst, align 4
+  %74 = icmp eq i32 %73, -1
+  br i1 %74, label %103, label %.preheader.i
 
-.preheader.i:                                     ; preds = %66, %73
-  %.08.i.i = phi i32 [ %74, %73 ], [ 0, %66 ]
-  %71 = shl nuw i32 1, %.08.i.i
-  %72 = and i32 %71, %69
-  %.not.i46.not.i = icmp eq i32 %72, 0
-  br i1 %.not.i46.not.i, label %ma_ffs_32.exit.i, label %73
+.preheader.i:                                     ; preds = %70, %77
+  %.08.i.i = phi i32 [ %78, %77 ], [ 0, %66 ]
+  %75 = shl nuw i32 1, %.08.i.i
+  %76 = and i32 %75, %73
+  %.not.i46.not.i = icmp eq i32 %76, 0
+  br i1 %.not.i46.not.i, label %ma_ffs_32.exit.i, label %77
 
-73:                                               ; preds = %.preheader.i
-  %74 = add nuw nsw i32 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %74, 32
+77:                                               ; preds = %.preheader.i
+  %78 = add nuw nsw i32 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %78, 32
   br i1 %exitcond.not.i.i, label %ma_ffs_32.exit.i, label %.preheader.i
 
-ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %73
-  %.0.lcssa.i.i = phi i32 [ 32, %73 ], [ %.08.i.i, %.preheader.i ]
-  %75 = shl nuw i32 1, %.0.lcssa.i.i
-  %76 = or i32 %75, %69
-  %77 = load ptr, ptr %32, align 8
-  %78 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %77, i64 %indvars.iv.i
-  %79 = cmpxchg volatile ptr %78, i32 %69, i32 %76 seq_cst seq_cst, align 4
-  %80 = extractvalue { i32, i1 } %79, 1
-  br i1 %80, label %81, label %66
+ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %77
+  %.0.lcssa.i.i = phi i32 [ 32, %77 ], [ %.08.i.i, %.preheader.i ]
+  %79 = shl nuw i32 1, %.0.lcssa.i.i
+  %80 = or i32 %79, %73
+  %81 = load ptr, ptr %32, align 8
+  %82 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %81, i64 %indvars.iv.i
+  %83 = cmpxchg volatile ptr %82, i32 %73, i32 %80 seq_cst seq_cst, align 4
+  %84 = extractvalue { i32, i1 } %83, 1
+  br i1 %84, label %85, label %70
 
-81:                                               ; preds = %ma_ffs_32.exit.i
-  %82 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %83 = atomicrmw add ptr %63, i32 1 seq_cst, align 8
-  %84 = shl i32 %82, 5
-  %85 = add i32 %.0.lcssa.i.i, %84
-  %86 = load i32, ptr %49, align 4
-  %.not.i = icmp ult i32 %85, %86
-  br i1 %.not.i, label %87, label %ma_slot_allocator_alloc.exit
+85:                                               ; preds = %ma_ffs_32.exit.i
+  %86 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %87 = atomicrmw add ptr %63, i32 1 seq_cst, align 8
+  %88 = shl i32 %86, 5
+  %89 = add i32 %.0.lcssa.i.i, %88
+  %90 = load i32, ptr %49, align 4
+  %.not.i = icmp ult i32 %89, %90
+  br i1 %.not.i, label %91, label %ma_slot_allocator_alloc.exit
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %48, align 8
-  %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+91:                                               ; preds = %85
+  %92 = load ptr, ptr %48, align 8
+  %93 = zext i32 %89 to i64
+  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4
@@ -3469,22 +3469,22 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %73
   %96 = zext i32 %95 to i64
   %97 = shl nuw i64 %96, 32
   %98 = or disjoint i64 %97, %89
-  store i64 %98, ptr %62, align 8
+  store i64 %102, ptr %62, align 8
   br label %ma_slot_allocator_alloc.exit
 
-99:                                               ; preds = %66
+103:                                              ; preds = %70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %100 = load i32, ptr %49, align 4
-  %101 = lshr i32 %100, 5
-  %102 = and i32 %100, 31
-  %.not.i.i38 = icmp ne i32 %102, 0
-  %103 = zext i1 %.not.i.i38 to i32
-  %spec.select.i45.i = add nuw nsw i32 %101, %103
-  %104 = zext nneg i32 %spec.select.i45.i to i64
-  %105 = icmp samesign ult i64 %indvars.iv.next.i, %104
-  br i1 %105, label %.preheader58.i, label %._crit_edge.i
+  %104 = load i32, ptr %49, align 4
+  %105 = lshr i32 %104, 5
+  %106 = and i32 %104, 31
+  %.not.i.i38 = icmp ne i32 %106, 0
+  %107 = zext i1 %.not.i.i38 to i32
+  %spec.select.i45.i = add nuw nsw i32 %105, %107
+  %108 = zext nneg i32 %spec.select.i45.i to i64
+  %109 = icmp samesign ult i64 %indvars.iv.next.i, %108
+  br i1 %109, label %.preheader58.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %99
+._crit_edge.i:                                    ; preds = %103
   %106 = load i32, ptr %63, align 8
   %107 = icmp ult i32 %106, %100
   br i1 %107, label %108, label %ma_slot_allocator_alloc.exit
@@ -3493,15 +3493,15 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %73
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #71, !srcloc !3
   br i1 %64, label %.preheader59.i, label %ma_slot_allocator_alloc.exit
 
-ma_slot_allocator_alloc.exit:                     ; preds = %.preheader59.i, %._crit_edge.i, %108, %81, %87
-  %109 = load ptr, ptr %30, align 8
-  %110 = load i64, ptr %62, align 8
-  %111 = and i64 %110, 65535
-  %112 = getelementptr inbounds nuw %struct.ma_job, ptr %109, i64 %111, i32 1
-  store i64 -1, ptr %112, align 8
-  %113 = load i64, ptr %62, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %113, ptr %114, align 8
+ma_slot_allocator_alloc.exit:                     ; preds = %.preheader59.i, %._crit_edge.i, %108, %85, %91
+  %113 = load ptr, ptr %30, align 8
+  %114 = load i64, ptr %62, align 8
+  %115 = and i64 %114, 65535
+  %116 = getelementptr inbounds nuw %struct.ma_job, ptr %113, i64 %115, i32 1
+  store i64 -1, ptr %116, align 8
+  %117 = load i64, ptr %62, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %117, ptr %118, align 8
   br label %ma_job_queue_get_heap_layout.exit.thread
 
 ma_job_queue_get_heap_layout.exit.thread:         ; preds = %ma_zero_memory_default.exit, %6, %ma_zero_memory_default.exit32, %3, %ma_slot_allocator_alloc.exit
@@ -3696,61 +3696,61 @@ define hidden range(i32 -4, 1) i32 @ma_job_queue_post(ptr noundef %0, ptr nounde
   %.not69.i = icmp eq i32 %10, 0
   br i1 %.not69.i, label %ma_slot_allocator_alloc.exit.thread, label %.preheader58.i
 
-.preheader58.i:                                   ; preds = %.preheader59.i, %32
+15:                                               ; preds = %.preheader59.i, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %.preheader59.i ]
   br label %11
 
-11:                                               ; preds = %ma_ffs_32.exit.i, %.preheader58.i
+11:; preds = %ma_ffs_32.exit.i, %15
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %12, i64 %indvars.iv.i
   %14 = load atomic i32, ptr %13 seq_cst, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %32, label %.preheader.i
 
-.preheader.i:                                     ; preds = %11, %18
-  %.08.i.i = phi i32 [ %19, %18 ], [ 0, %11 ]
+.preheader.i:; preds = %11, %18
+  %.08.i.i = phi i32 [ %19, %22 ], [ 0, %11 ]
   %16 = shl nuw i32 1, %.08.i.i
   %17 = and i32 %16, %14
   %.not.i46.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i46.not.i, label %ma_ffs_32.exit.i, label %18
+  br i1 %.not.i46.not.i, label %ma_ffs_32.exit.i, label %22
 
 18:                                               ; preds = %.preheader.i
   %19 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %19, 32
   br i1 %exitcond.not.i.i, label %ma_ffs_32.exit.i, label %.preheader.i
 
-ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %18
-  %.0.lcssa.i.i = phi i32 [ 32, %18 ], [ %.08.i.i, %.preheader.i ]
-  %20 = shl nuw i32 1, %.0.lcssa.i.i
-  %21 = or i32 %20, %14
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %22, i64 %indvars.iv.i
-  %24 = cmpxchg volatile ptr %23, i32 %14, i32 %21 seq_cst seq_cst, align 4
-  %25 = extractvalue { i32, i1 } %24, 1
-  br i1 %25, label %26, label %11
+ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %22
+  %.0.lcssa.i.i = phi i32 [ 32, %22 ], [ %.08.i.i, %.preheader.i ]
+  %24 = shl nuw i32 1, %.0.lcssa.i.i
+  %25 = or i32 %24, %14
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct.ma_slot_allocator_group, ptr %26, i64 %indvars.iv.i
+  %28 = cmpxchg volatile ptr %27, i32 %14, i32 %25 seq_cst seq_cst, align 4
+  %29 = extractvalue { i32, i1 } %28, 1
+  br i1 %29, label %30, label %11
 
-26:                                               ; preds = %ma_ffs_32.exit.i
-  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %28 = atomicrmw add ptr %8, i32 1 seq_cst, align 8
-  %29 = shl i32 %27, 5
-  %30 = add i32 %.0.lcssa.i.i, %29
-  %31 = load i32, ptr %7, align 4
-  %.not.i = icmp ult i32 %30, %31
-  br i1 %.not.i, label %42, label %ma_slot_allocator_alloc.exit.thread
+30:                                               ; preds = %ma_ffs_32.exit.i
+  %31 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %32 = atomicrmw add ptr %8, i32 1 seq_cst, align 8
+  %33 = shl i32 %31, 5
+  %34 = add i32 %.0.lcssa.i.i, %33
+  %35 = load i32, ptr %7, align 4
+  %.not.i = icmp ult i32 %34, %35
+  br i1 %.not.i, label %46, label %ma_slot_allocator_alloc.exit.thread
 
-32:                                               ; preds = %11
+36:                                               ; preds = %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = load i32, ptr %7, align 4
-  %34 = lshr i32 %33, 5
-  %35 = and i32 %33, 31
-  %.not.i.i = icmp ne i32 %35, 0
-  %36 = zext i1 %.not.i.i to i32
-  %spec.select.i45.i = add nuw nsw i32 %34, %36
-  %37 = zext nneg i32 %spec.select.i45.i to i64
-  %38 = icmp samesign ult i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.preheader58.i, label %._crit_edge.i
+  %37 = load i32, ptr %7, align 4
+  %38 = lshr i32 %37, 5
+  %39 = and i32 %37, 31
+  %.not.i.i = icmp ne i32 %39, 0
+  %40 = zext i1 %.not.i.i to i32
+  %spec.select.i45.i = add nuw nsw i32 %38, %40
+  %41 = zext nneg i32 %spec.select.i45.i to i64
+  %42 = icmp samesign ult i64 %indvars.iv.next.i, %41
+  br i1 %42, label %.preheader58.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %32
+._crit_edge.i:                                    ; preds = %36
   %39 = load i32, ptr %8, align 8
   %40 = icmp ult i32 %39, %33
   br i1 %40, label %41, label %ma_slot_allocator_alloc.exit.thread
@@ -3759,11 +3759,11 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %18
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #71, !srcloc !3
   br i1 %9, label %.preheader59.i, label %ma_slot_allocator_alloc.exit.thread
 
-42:                                               ; preds = %26
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %44 = load ptr, ptr %43, align 8
-  %45 = zext i32 %30 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+46:                                               ; preds = %30
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %48 = load ptr, ptr %47, align 8
+  %49 = zext i32 %34 to i64
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -3773,8 +3773,8 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %18
   %52 = zext i32 %51 to i64
   %53 = shl nuw i64 %52, 32
   %54 = or disjoint i64 %53, %45
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %56 = load ptr, ptr %55, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %55 = load ptr, ptr %54, align 8
   %57 = and i32 %30, 65535
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw %struct.ma_job, ptr %56, i64 %58
@@ -3789,34 +3789,34 @@ ma_ffs_32.exit.i:                                 ; preds = %.preheader.i, %18
   %65 = load ptr, ptr %55, align 8
   %66 = getelementptr inbounds nuw %struct.ma_job, ptr %65, i64 %58, i32 1
   store i64 -1, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %68 = atomicrmw volatile xchg ptr %67, i32 1 acquire, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %68 = atomicrmw volatile xchg ptr %68, i32 1 acquire, align 4
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %ma_spinlock_lock.exit, label %.preheader.i37
+  br i1 %69, label %81, label %.preheader.i37
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i37
-  %70 = atomicrmw volatile xchg ptr %67, i32 1 acquire, align 4
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %ma_spinlock_lock.exit, label %.preheader.i37
+  %74 = atomicrmw volatile xchg ptr %71, i32 1 acquire, align 4
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %ma_spinlock_lock.exit, label %.preheader.i37
 
-.preheader.i37:                                   ; preds = %42, %.loopexit.i
-  %72 = load atomic volatile i32, ptr %67 monotonic, align 4
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %.lr.ph.i, label %.loopexit.i
+.preheader.i37:                                   ; preds = %46, %.loopexit.i
+  %76 = load atomic volatile i32, ptr %71 monotonic, align 4
+  %77 = icmp eq i32 %76, 1
+  br i1 %77, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i37, %.lr.ph.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #71, !srcloc !3
-  %74 = load atomic volatile i32, ptr %67 monotonic, align 4
-  %75 = icmp eq i32 %74, 1
-  br i1 %75, label %.lr.ph.i, label %.loopexit.i
+  %78 = load atomic volatile i32, ptr %71 monotonic, align 4
+  %79 = icmp eq i32 %78, 1
+  br i1 %79, label %.lr.ph.i, label %.loopexit.i
 
-ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+81:                                               ; preds = %.loopexit.i, %42
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %invariant.op = or disjoint i64 %45, 4294967296
-  br label %77
+  br label %85
 
-77:                                               ; preds = %.backedge, %ma_spinlock_lock.exit
-  %78 = load atomic i64, ptr %76 seq_cst, align 8
+91:                                               ; preds = %.backedge, %81
+  %82 = load atomic i64, ptr %80 seq_cst, align 8
   %79 = load ptr, ptr %55, align 8
   %80 = and i64 %78, 65535
   %81 = getelementptr inbounds nuw %struct.ma_job, ptr %79, i64 %80, i32 1
@@ -3832,24 +3832,24 @@ ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
   %89 = icmp eq i64 %88, 65535
   br i1 %89, label %90, label %96
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %55, align 8
-  %92 = getelementptr inbounds nuw %struct.ma_job, ptr %91, i64 %80, i32 1
-  %93 = and i64 %82, -4294967296
-  %.reass = add i64 %93, %invariant.op
-  %94 = cmpxchg volatile ptr %92, i64 %82, i64 %.reass seq_cst seq_cst, align 8
-  %95 = extractvalue { i64, i1 } %94, 1
-  br i1 %95, label %101, label %.backedge
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %55, align 8
+  %96 = getelementptr inbounds nuw %struct.ma_job, ptr %95, i64 %84, i32 1
+  %97 = and i64 %86, -4294967296
+  %.reass = add i64 %97, %invariant.op
+  %98 = cmpxchg volatile ptr %96, i64 %86, i64 %.reass seq_cst seq_cst, align 8
+  %99 = extractvalue { i64, i1 } %98, 1
+  br i1 %99, label %105, label %.backedge
 
-96:                                               ; preds = %87
-  %97 = and i64 %78, -4294967296
-  %98 = add i64 %97, 4294967296
-  %99 = or disjoint i64 %88, %98
-  %100 = cmpxchg volatile ptr %76, i64 %78, i64 %99 seq_cst seq_cst, align 8
+100:                                              ; preds = %91
+  %101 = and i64 %82, -4294967296
+  %102 = add i64 %101, 4294967296
+  %103 = or disjoint i64 %92, %102
+  %104 = cmpxchg volatile ptr %80, i64 %82, i64 %103 seq_cst seq_cst, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %96, %90, %77
-  br label %77
+.backedge:                                        ; preds = %100, %94, %81
+  br label %81
 
 101:                                              ; preds = %90
   %102 = and i64 %78, -4294967296
@@ -3862,7 +3862,7 @@ ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %ma_slot_allocator_alloc.exit.thread
 
-109:                                              ; preds = %101
+105:                                              ; preds = %101
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %112 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %111) #71
@@ -3874,8 +3874,8 @@ ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %42
   %117 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %111) #71
   br label %ma_slot_allocator_alloc.exit.thread
 
-ma_slot_allocator_alloc.exit.thread:              ; preds = %.preheader59.i, %._crit_edge.i, %41, %26, %101, %109, %2
-  %.0 = phi i32 [ -2, %2 ], [ 0, %109 ], [ 0, %101 ], [ -4, %26 ], [ -4, %41 ], [ -4, %._crit_edge.i ], [ -4, %.preheader59.i ]
+ma_slot_allocator_alloc.exit.thread:              ; preds = %.preheader59.i, %._crit_edge.i, %41, %30, %105, %113, %2
+  %.0 = phi i32 [ -2, %2 ], [ 0, %113 ], [ 0, %105 ], [ -4, %30 ], [ -4, %41 ], [ -4, %._crit_edge.i ], [ -4, %.preheader59.i ]
   ret i32 %.0
 }
 
