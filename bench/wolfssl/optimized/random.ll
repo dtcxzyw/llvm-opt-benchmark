@@ -903,16 +903,16 @@ define internal fastcc range(i32 0, 3) i32 @Hash_DRBG_Generate(ptr noundef %0, p
   call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %4, ptr noundef nonnull readonly align 1 dereferenceable(55) %16, i64 55, i1 false)
   %17 = lshr i32 %2, 5
   %18 = and i32 %2, 31
   %.not.i = icmp ne i32 %18, 0
   %19 = zext i1 %.not.i to i32
   %20 = add nuw nsw i32 %17, %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(55) %4, ptr noundef nonnull readonly align 1 dereferenceable(55) %16, i64 55, i1 false)
-  %.not10.i = icmp eq i32 %20, 0
-  br i1 %.not10.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i
+  %umax.i = tail call i32 @llvm.umax.i32(i32 %20, i32 1)
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %15, %array_add_one.exit.i
+.lr.ph.i:                                         ; preds = %array_add_one.exit.i, %15
   %.0217.i = phi i32 [ %43, %array_add_one.exit.i ], [ 0, %15 ]
   %.0236.i = phi ptr [ %.124.i, %array_add_one.exit.i ], [ %1, %15 ]
   %.0255.i = phi i32 [ %.126.i, %array_add_one.exit.i ], [ %2, %15 ]
@@ -974,11 +974,11 @@ array_add_one.exit.i:                             ; preds = %array_add_one.exit.
   %.126.i = phi i32 [ 0, %39 ], [ 0, %29 ], [ %41, %array_add_one.exit.loopexit.i ]
   %.124.i = phi ptr [ %.0236.i, %39 ], [ %.0236.i, %29 ], [ %42, %array_add_one.exit.loopexit.i ]
   %43 = add nuw nsw i32 %.0217.i, 1
-  %exitcond.not.i = icmp eq i32 %43, %20
+  %exitcond.not.i = icmp eq i32 %43, %umax.i
   br i1 %exitcond.not.i, label %.lr.ph29.preheader.i.i, label %.lr.ph.i, !llvm.loop !31
 
-.lr.ph29.preheader.i.i:                           ; preds = %array_add_one.exit.i, %26, %.thread2.i, %15
-  %44 = phi i1 [ false, %.thread2.i ], [ false, %15 ], [ %28, %26 ], [ %28, %array_add_one.exit.i ]
+.lr.ph29.preheader.i.i:                           ; preds = %array_add_one.exit.i, %26, %.thread2.i
+  %44 = phi i1 [ false, %.thread2.i ], [ %28, %26 ], [ %28, %array_add_one.exit.i ]
   br label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i, %.lr.ph29.preheader.i.i
@@ -1590,6 +1590,9 @@ declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

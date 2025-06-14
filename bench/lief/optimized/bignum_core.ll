@@ -1254,7 +1254,7 @@ define hidden i32 @mbedtls_mpi_core_fill_random(ptr noundef %0, i64 noundef %1, 
   br i1 %.not, label %20, label %mbedtls_mpi_core_bigendian_to_host.exit
 
 20:                                               ; preds = %12
-  %21 = icmp eq i64 %10, 0
+  %21 = icmp eq i64 %2, 0
   %22 = getelementptr i64, ptr %0, i64 %10
   %.01214.i = getelementptr i8, ptr %22, i64 -8
   %.not15.i = icmp ugt ptr %0, %.01214.i
@@ -1330,7 +1330,7 @@ mbedtls_mpi_core_bitlen.exit.thread:              ; preds = %10, %mbedtls_mpi_co
   %37 = sub nuw i64 %3, %32
   %38 = shl i64 %37, 3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 %34
-  %40 = icmp eq i64 %32, 0
+  %40 = icmp eq i64 %25, 0
   %41 = getelementptr i64, ptr %0, i64 %32
   %.01214.i.i = getelementptr i8, ptr %41, i64 -8
   %.not15.i.i = icmp ugt ptr %0, %.01214.i.i

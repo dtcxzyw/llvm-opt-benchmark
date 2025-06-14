@@ -39147,7 +39147,7 @@ define internal fastcc void @"_ZN14polars_parquet7parquet8encoding9bitpacked6dec
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = icmp ult i64 %15, 2305843009213693952
   tail call void @llvm.assume(i1 %16)
-  %.not = icmp eq i64 %10, 0
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
@@ -39161,6 +39161,7 @@ define internal fastcc void @"_ZN14polars_parquet7parquet8encoding9bitpacked6dec
   %23 = shl i64 %22, 2
   %24 = and i64 %23, 2305843009213693948
   %.promoted16 = load i64, ptr %18, align 8, !alias.scope !3184
+  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %28
 
 ._crit_edge.loopexit:                             ; preds = %_ZN14polars_parquet7parquet8encoding9bitpacked6decode11decode_pack17he3b20eb4ee3e3a12E.exit
@@ -39227,7 +39228,7 @@ define internal fastcc void @"_ZN14polars_parquet7parquet8encoding9bitpacked6dec
 
 _ZN14polars_parquet7parquet8encoding9bitpacked6decode11decode_pack17he3b20eb4ee3e3a12E.exit: ; preds = %41, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h4455f0d8d4d9664dE.exit.i"
   %45 = getelementptr i8, ptr %.sroa.03.014, i64 128
-  %exitcond.not = icmp eq i64 %31, %10
+  %exitcond.not = icmp eq i64 %31, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %28
 }
 

@@ -19817,16 +19817,16 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i: ; p
   br i1 %132, label %143, label %_ZN11flatbuffers8verifier19verify_vector_range17h0bb03440ad4bb992E.exit.i
 
 _ZN11flatbuffers8verifier19verify_vector_range17h0bb03440ad4bb992E.exit.i: ; preds = %130
-  %spec.select.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %128, i64 %116)
+  %.not.i.i.i40.i544.not = icmp ugt i64 %128, %116
+  br i1 %.not.i.i.i40.i544.not, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %_ZN11flatbuffers8verifier19verify_vector_range17h0bb03440ad4bb992E.exit.i
+  %spec.select.i.i.i.i = sub nuw i64 %128, %116
   %133 = lshr i64 %spec.select.i.i.i.i, 2
-  %134 = and i64 %spec.select.i.i.i.i, 3
+  %134 = and i64 %128, 3
   %.not.i.i.i.i = icmp ne i64 %134, 0
   %135 = zext i1 %.not.i.i.i.i to i64
   %.0.i.i.i.i = add nuw nsw i64 %133, %135
-  %.not.i.i.i40.i544 = icmp eq i64 %.0.i.i.i.i, 0
-  br i1 %.not.i.i.i40.i544, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %_ZN11flatbuffers8verifier19verify_vector_range17h0bb03440ad4bb992E.exit.i
   %.sroa.472.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.sroa.573.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 40
   %.sroa.275.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -19982,8 +19982,8 @@ _ZN11flatbuffers8verifier19verify_vector_range17h0bb03440ad4bb992E.exit.i: ; pre
   %.sroa.6103.0546 = phi i64 [ %116, %.lr.ph ], [ %145, %535 ]
   %.sroa.0102.0545 = phi i64 [ 0, %.lr.ph ], [ %147, %535 ]
   %145 = add i64 %.sroa.6103.0546, 4
-  %146 = add nsw i64 %.sroa.9.0195547, -1
-  %147 = add nuw nsw i64 %.sroa.0102.0545, 1
+  %146 = add i64 %.sroa.9.0195547, -1
+  %147 = add i64 %.sroa.0102.0545, 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.4111)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35), !noalias !4246
   call void @llvm.experimental.noalias.scope.decl(metadata !4247)
@@ -22397,16 +22397,16 @@ _ZN11flatbuffers8verifier8Verifier9in_buffer17h1e8b13549aa46a89E.exit.i.i.i.i: ;
   br i1 %106, label %112, label %_ZN11flatbuffers8verifier19verify_vector_range17h9b658c51c9ec8c11E.exit.i.i
 
 _ZN11flatbuffers8verifier19verify_vector_range17h9b658c51c9ec8c11E.exit.i.i: ; preds = %104
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %102, i64 %90)
+  %.not.i.i.i40126.not.i.i = icmp ugt i64 %102, %90
+  br i1 %.not.i.i.i40126.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+
+.lr.ph.i.i:                                       ; preds = %_ZN11flatbuffers8verifier19verify_vector_range17h9b658c51c9ec8c11E.exit.i.i
+  %spec.select.i.i.i.i.i = sub nuw i64 %102, %90
   %107 = lshr i64 %spec.select.i.i.i.i.i, 2
-  %108 = and i64 %spec.select.i.i.i.i.i, 3
+  %108 = and i64 %102, 3
   %.not.i.i.i.i.i = icmp ne i64 %108, 0
   %109 = zext i1 %.not.i.i.i.i.i to i64
   %.0.i.i.i.i.i = add nuw nsw i64 %107, %109
-  %.not.i.i.i40126.i.i = icmp eq i64 %.0.i.i.i.i.i, 0
-  br i1 %.not.i.i.i40126.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %_ZN11flatbuffers8verifier19verify_vector_range17h9b658c51c9ec8c11E.exit.i.i
   %.sroa.432.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.sroa.533.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.sroa.235.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -22449,8 +22449,8 @@ _ZN11flatbuffers8verifier19verify_vector_range17h9b658c51c9ec8c11E.exit.i.i: ; p
   %.sroa.654.0128.i.i = phi i64 [ %90, %.lr.ph.i.i ], [ %114, %193 ]
   %.sroa.053.0127.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %116, %193 ]
   %114 = add i64 %.sroa.654.0128.i.i, 4
-  %115 = add nsw i64 %.sroa.9.068130.i.i, -1
-  %116 = add nuw nsw i64 %.sroa.053.0127.i.i, 1
+  %115 = add i64 %.sroa.9.068130.i.i, -1
+  %116 = add i64 %.sroa.053.0127.i.i, 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %.sroa.459.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !4733
   call void @llvm.experimental.noalias.scope.decl(metadata !4734)
@@ -156662,9 +156662,6 @@ declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #41
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #38
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

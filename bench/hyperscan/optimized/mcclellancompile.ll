@@ -2654,6 +2654,10 @@ _ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i:  ; preds = %_ZN3ue212_GLOBAL__N
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 24
   %262 = load ptr, ptr %261, align 8
   %263 = load ptr, ptr %260, align 8
+  %.not.i30.i = icmp eq ptr %262, %263
+  br i1 %.not.i30.i, label %279, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
+
+_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %_ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i
   %264 = ptrtoint ptr %262 to i64
   %265 = ptrtoint ptr %263 to i64
   %266 = sub i64 %264, %265
@@ -2663,10 +2667,6 @@ _ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i:  ; preds = %_ZN3ue212_GLOBAL__N
   %270 = icmp ne i64 %269, 0
   %271 = zext i1 %270 to i64
   %272 = add nuw nsw i64 %268, %271
-  %.not.i30.i = icmp eq i64 %272, 0
-  br i1 %.not.i30.i, label %279, label %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
-
-_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %_ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i
   %273 = shl nuw nsw i64 %272, 3
   %274 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %273) #23
           to label %.noexc158.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit.i.i
@@ -2688,7 +2688,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %_ZNKSt6vectorImSaIm
   br label %.body.i
 
 279:                                              ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i.i, %.noexc158.i, %_ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i
-  %.sroa.0198.0.i = phi ptr [ null, %_ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i ], [ %274, %.noexc158.i ], [ %274, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i.i ]
+  %.sroa.0198.0.i = phi ptr [ null, %_ZNSt5queueItSt5dequeItSaItEEEC2IS2_vEEv.exit.i ], [ %274, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i.i ], [ %274, %.noexc158.i ]
   %280 = load ptr, ptr %172, align 8
   %.not322.i = icmp eq ptr %280, %170
   br i1 %.not322.i, label %.preheader.i, label %.lr.ph.i

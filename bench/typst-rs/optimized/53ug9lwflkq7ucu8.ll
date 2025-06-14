@@ -511,15 +511,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4, !alias.scope !16, !noundef !4
+  %.not.i172 = icmp eq i32 %17, 0
+  br i1 %.not.i172, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %18 = lshr i32 %17, 3
   %19 = and i32 %17, 7
   %.not.i.i.i = icmp ne i32 %19, 0
   %20 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %18, %20
-  %.not.i172 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i172, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8, !alias.scope !21, !noundef !4
   %23 = lshr i32 %22, 3
@@ -567,7 +567,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.6.0174 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %55, %.loopexit ]
   %.sroa.085.0173 = phi i32 [ 0, %.lr.ph ], [ %54, %.loopexit ]
   %54 = add i32 %.sroa.085.0173, 8
-  %55 = add nsw i32 %.sroa.6.0174, -1
+  %55 = add i32 %.sroa.6.0174, -1
   br label %56
 
 ._crit_edge:                                      ; preds = %.loopexit, %143, %155, %159, %2
@@ -886,15 +886,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4, !alias.scope !78, !noundef !4
+  %.not.i168 = icmp eq i32 %17, 0
+  br i1 %.not.i168, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %18 = lshr i32 %17, 3
   %19 = and i32 %17, 7
   %.not.i.i.i = icmp ne i32 %19, 0
   %20 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %18, %20
-  %.not.i168 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i168, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8, !alias.scope !83, !noundef !4
   %23 = lshr i32 %22, 3
@@ -942,7 +942,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.6.0170 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %55, %.loopexit ]
   %.sroa.085.0169 = phi i32 [ 0, %.lr.ph ], [ %54, %.loopexit ]
   %54 = add i32 %.sroa.085.0169, 8
-  %55 = add nsw i32 %.sroa.6.0170, -1
+  %55 = add i32 %.sroa.6.0170, -1
   br label %56
 
 ._crit_edge:                                      ; preds = %.loopexit, %144, %156, %160, %2
@@ -1247,15 +1247,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4, !alias.scope !135, !noundef !4
+  %.not.i173 = icmp eq i32 %11, 0
+  br i1 %.not.i173, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %12 = lshr i32 %11, 3
   %13 = and i32 %11, 7
   %.not.i.i.i = icmp ne i32 %13, 0
   %14 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %12, %14
-  %.not.i173 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i173, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8, !alias.scope !140, !noundef !4
   %17 = lshr i32 %16, 3
@@ -1270,7 +1270,6 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %24 = load i64, ptr %23, align 8
   %25 = load ptr, ptr %1, align 8, !nonnull !4, !align !26
   %.not134.not.i = icmp eq i32 %16, 0
-  %.not133.not.i = icmp eq i32 %11, 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1080
@@ -1293,7 +1292,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.044.0175 = phi i32 [ 0, %.lr.ph ], [ %38, %.loopexit ]
   %.sroa.6.0174 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %39, %.loopexit ]
   %38 = add i32 %.sroa.044.0175, 8
-  %39 = add nsw i32 %.sroa.6.0174, -1
+  %39 = add i32 %.sroa.6.0174, -1
   br label %40
 
 ._crit_edge:                                      ; preds = %.loopexit, %85, %2
@@ -1331,20 +1330,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %49 = zext i32 %45 to i64
   %50 = mul nuw i64 %49, %22
   %51 = shl nuw nsw i64 %indvars.iv170.i, 3
-  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.i
+  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.split.i
 
 .split.split.split.i.preheader:                   ; preds = %.split.i
   br i1 %.not134.not.i, label %.split35.us.i, label %.split.split.split.i
 
-.split.split.us.i:                                ; preds = %.split.i
-  br i1 %.not133.not.i, label %.split.split.us.split.us.i, label %.split.split.us.split.i
-
-.split.split.us.split.us.i:                       ; preds = %.split.split.us.i
-  %.0.sroa.speculated.i.i.us.us.i = call noundef i32 @llvm.umin.i32(i32 %.sroa.050.0, i32 %20)
-  br label %.split35.us.i
-
-.split.split.us.split.i:                          ; preds = %.split.split.us.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i ], [ 0, %.split.split.us.i ]
+.split.split.us.split.i:                          ; preds = %.split.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i ], [ 0, %.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = trunc nuw nsw i64 %indvars.iv.i to i32
   %53 = add nsw i32 %.sroa.050.0, %52
@@ -1382,8 +1374,8 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i: ;
   %.not.i.i.i.i = icmp ult i64 %65, %24
   br i1 %.not.i.i.i.i, label %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i, label %.split40.us.i
 
-.split35.us.i:                                    ; preds = %.split.split.split.i.preheader, %.split.split.us.split.i, %.split.split.us.split.us.i
-  %.us-phi37.i = phi i32 [ %.0.sroa.speculated.i.i.us.us.i, %.split.split.us.split.us.i ], [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.sroa.050.0, %.split.split.split.i.preheader ]
+.split35.us.i:                                    ; preds = %.split.split.split.i.preheader, %.split.split.us.split.i
+  %.us-phi37.i = phi i32 [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.sroa.050.0, %.split.split.split.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !153
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !153
@@ -1504,15 +1496,15 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4, !alias.scope !183, !noundef !4
+  %.not.i207 = icmp eq i32 %11, 0
+  br i1 %.not.i207, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %2
   %12 = lshr i32 %11, 3
   %13 = and i32 %11, 7
   %.not.i.i.i = icmp ne i32 %13, 0
   %14 = zext i1 %.not.i.i.i to i32
   %.0.i.i.i = add nuw nsw i32 %12, %14
-  %.not.i207 = icmp eq i32 %.0.i.i.i, 0
-  br i1 %.not.i207, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8, !alias.scope !188, !noundef !4
   %17 = lshr i32 %16, 3
@@ -1527,7 +1519,6 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8
   %.not186.not.i = icmp eq i32 %16, 0
-  %.not185.not.i = icmp eq i32 %11, 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1080
@@ -1550,7 +1541,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %.sroa.044.0209 = phi i32 [ 0, %.lr.ph ], [ %38, %.loopexit ]
   %.sroa.6.0208 = phi i32 [ %.0.i.i.i, %.lr.ph ], [ %39, %.loopexit ]
   %38 = add i32 %.sroa.044.0209, 8
-  %39 = add nsw i32 %.sroa.6.0208, -1
+  %39 = add i32 %.sroa.6.0208, -1
   br label %40
 
 ._crit_edge:                                      ; preds = %.loopexit, %97, %2
@@ -1588,20 +1579,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %49 = zext i32 %45 to i64
   %50 = mul nuw i64 %49, %22
   %51 = shl nuw nsw i64 %indvars.iv235.i, 3
-  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.i
+  br i1 %46, label %.split.split.split.i.preheader, label %.split.split.us.split.i
 
 .split.split.split.i.preheader:                   ; preds = %.split.i
   br i1 %.not186.not.i, label %.split48.us.i, label %.split.split.split.i
 
-.split.split.us.i:                                ; preds = %.split.i
-  br i1 %.not185.not.i, label %.split.split.us.split.us.i, label %.split.split.us.split.i
-
-.split.split.us.split.us.i:                       ; preds = %.split.split.us.i
-  %.0.sroa.speculated.i.i.us.us.i = call noundef i32 @llvm.umin.i32(i32 %.sroa.050.0, i32 %20)
-  br label %.split48.us.i
-
-.split.split.us.split.i:                          ; preds = %.split.split.us.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i"
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i" ], [ 0, %.split.split.us.i ]
+.split.split.us.split.i:                          ; preds = %.split.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i"
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i" ], [ 0, %.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = trunc nuw nsw i64 %indvars.iv.i to i32
   %53 = add nsw i32 %.sroa.050.0, %52
@@ -1647,8 +1631,8 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %72 = icmp eq i64 %71, -2
   br i1 %72, label %.split53.us.i, label %82
 
-.split48.us.i:                                    ; preds = %.split.split.split.i.preheader, %.split.split.us.split.i, %.split.split.us.split.us.i
-  %.us-phi50.i = phi i32 [ %.0.sroa.speculated.i.i.us.us.i, %.split.split.us.split.us.i ], [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.sroa.050.0, %.split.split.split.i.preheader ]
+.split48.us.i:                                    ; preds = %.split.split.split.i.preheader, %.split.split.us.split.i
+  %.us-phi50.i = phi i32 [ %.0.sroa.speculated.i.i.us.i, %.split.split.us.split.i ], [ %.sroa.050.0, %.split.split.split.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !199
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !199
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !199
