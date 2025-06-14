@@ -253,8 +253,8 @@ define dso_local range(i32 0, 2) i32 @grabbag__replaygain_analyze(ptr noundef re
   store float %100, ptr %101, align 4, !tbaa !13
   %102 = icmp eq i32 %97, -2147483648
   %103 = tail call i32 @llvm.abs.i32(i32 %97, i1 true)
-  %104 = tail call i32 @llvm.smax.i32(i32 %.10136190, i32 %103)
-  %105 = select i1 %102, i32 2147483647, i32 %104
+  %104 = select i1 %102, i32 2147483647, i32 %103
+  %105 = tail call i32 @llvm.smax.i32(i32 %.10136190, i32 %104)
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %106 = add i32 %.7148188, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
