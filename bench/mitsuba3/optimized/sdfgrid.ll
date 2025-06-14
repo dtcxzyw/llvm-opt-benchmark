@@ -3213,143 +3213,137 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %3
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load i32, ptr %17, align 16
-  %19 = icmp eq i64 %12, 0
-  br i1 %19, label %20, label %21
+  %15 = icmp eq i64 %12, 0
+  br i1 %15, label %16, label %17
 
-20:                                               ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit
+16:                                               ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit
   tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.28) #35
   unreachable
 
-21:                                               ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  br label %25
+17:                                               ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %12, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br label %21
 
-25:                                               ; preds = %_ZN5drjit7divisorIiiEC2Ei.exit.i, %21
-  %.03236.i = phi i64 [ 0, %21 ], [ %57, %_ZN5drjit7divisorIiiEC2Ei.exit.i ]
-  %26 = phi i64 [ %12, %21 ], [ %56, %_ZN5drjit7divisorIiiEC2Ei.exit.i ]
-  %27 = getelementptr inbounds nuw i64, ptr %10, i64 %.03236.i
-  %28 = load i64, ptr %27, align 8
+21:                                               ; preds = %_ZN5drjit7divisorIiiEC2Ei.exit.i, %17
+  %.03236.i = phi i64 [ 0, %17 ], [ %53, %_ZN5drjit7divisorIiiEC2Ei.exit.i ]
+  %22 = phi i64 [ %12, %17 ], [ %52, %_ZN5drjit7divisorIiiEC2Ei.exit.i ]
+  %23 = getelementptr inbounds nuw i64, ptr %10, i64 %.03236.i
+  %24 = load i64, ptr %23, align 8
+  %25 = trunc i64 %24 to i32
+  %26 = sub nuw nsw i64 2, %.03236.i
+  %27 = getelementptr inbounds nuw i32, ptr %19, i64 %26
+  store i32 %25, ptr %27, align 4
+  %28 = load i64, ptr %23, align 8
   %29 = trunc i64 %28 to i32
-  %30 = sub nuw nsw i64 2, %.03236.i
-  %31 = getelementptr inbounds nuw i32, ptr %23, i64 %30
-  store i32 %29, ptr %31, align 4
-  %32 = load i64, ptr %27, align 8
-  %33 = trunc i64 %32 to i32
-  %34 = tail call i32 @llvm.abs.i32(i32 %33, i1 true)
-  %.not.i.i = icmp eq i32 %33, 0
-  %35 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %34, i1 true)
-  %36 = trunc nuw nsw i32 %35 to i8
-  %37 = xor i8 %36, 31
-  %38 = select i1 %.not.i.i, i8 -1, i8 %37
-  %39 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %34)
-  %40 = icmp samesign ult i32 %39, 2
-  br i1 %40, label %_ZN5drjit7divisorIiiEC2Ei.exit.i, label %41
+  %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
+  %.not.i.i = icmp eq i32 %29, 0
+  %31 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
+  %32 = trunc nuw nsw i32 %31 to i8
+  %33 = xor i8 %32, 31
+  %34 = select i1 %.not.i.i, i8 -1, i8 %33
+  %35 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %30)
+  %36 = icmp samesign ult i32 %35, 2
+  br i1 %36, label %_ZN5drjit7divisorIiiEC2Ei.exit.i, label %37
 
-41:                                               ; preds = %25
-  %42 = zext i8 %38 to i32
-  %43 = add nsw i32 %42, -1
-  %44 = shl nuw i32 1, %43
-  %45 = zext i32 %44 to i64
-  %46 = shl nuw i64 %45, 32
-  %47 = zext nneg i32 %34 to i64
-  %48 = udiv i64 %46, %47
-  %49 = urem i64 %46, %47
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %48 to i32
-  %.sroa.2.0.extract.trunc.i.i = trunc nuw nsw i64 %49 to i32
-  %50 = shl i32 %.sroa.0.0.extract.trunc.i.i, 1
-  %51 = or disjoint i32 %50, 1
-  %52 = shl nuw i32 %.sroa.2.0.extract.trunc.i.i, 1
-  %.not17.not.i.i = icmp ult i32 %52, %34
-  %53 = add nsw i32 %50, 2
-  %spec.select.i = select i1 %.not17.not.i.i, i32 %51, i32 %53
+37:                                               ; preds = %21
+  %38 = zext i8 %34 to i32
+  %39 = add nsw i32 %38, -1
+  %40 = shl nuw i32 1, %39
+  %41 = zext i32 %40 to i64
+  %42 = shl nuw i64 %41, 32
+  %43 = zext nneg i32 %30 to i64
+  %44 = udiv i64 %42, %43
+  %45 = urem i64 %42, %43
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %44 to i32
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw nsw i64 %45 to i32
+  %46 = shl i32 %.sroa.0.0.extract.trunc.i.i, 1
+  %47 = or disjoint i32 %46, 1
+  %48 = shl nuw i32 %.sroa.2.0.extract.trunc.i.i, 1
+  %.not17.not.i.i = icmp ult i32 %48, %30
+  %49 = add nsw i32 %46, 2
+  %spec.select.i = select i1 %.not17.not.i.i, i32 %47, i32 %49
   br label %_ZN5drjit7divisorIiiEC2Ei.exit.i
 
-_ZN5drjit7divisorIiiEC2Ei.exit.i:                 ; preds = %41, %25
-  %.sroa.2.0.i = phi i32 [ 0, %25 ], [ %spec.select.i, %41 ]
-  %54 = getelementptr inbounds nuw [3 x %"struct.drjit::divisor"], ptr %24, i64 0, i64 %30
-  store i32 %33, ptr %54, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 4
+_ZN5drjit7divisorIiiEC2Ei.exit.i:                 ; preds = %37, %21
+  %.sroa.2.0.i = phi i32 [ 0, %21 ], [ %spec.select.i, %37 ]
+  %50 = getelementptr inbounds nuw [3 x %"struct.drjit::divisor"], ptr %20, i64 0, i64 %26
+  store i32 %29, ptr %50, align 1
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %.sroa.2.0.i, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i8 %38, ptr %.sroa.5.0..sroa_idx.i, align 1
-  %55 = load i64, ptr %27, align 8
-  %56 = mul i64 %55, %26
-  store i64 %56, ptr %22, align 8
-  %57 = add nuw nsw i64 %.03236.i, 1
-  %exitcond.not.i = icmp eq i64 %57, 3
-  br i1 %exitcond.not.i, label %_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit, label %25, !llvm.loop !65
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i8 %34, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %51 = load i64, ptr %23, align 8
+  %52 = mul i64 %51, %22
+  store i64 %52, ptr %18, align 8
+  %53 = add nuw nsw i64 %.03236.i, 1
+  %exitcond.not.i = icmp eq i64 %53, 3
+  br i1 %exitcond.not.i, label %_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit, label %21, !llvm.loop !65
 
 _ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit: ; preds = %_ZN5drjit7divisorIiiEC2Ei.exit.i
-  %58 = and i8 %14, 1
-  store i8 %58, ptr %13, align 4
-  store i32 %16, ptr %15, align 4
-  store i32 %18, ptr %17, align 16
-  br i1 %8, label %83, label %59
+  %54 = and i8 %14, 1
+  store i8 %54, ptr %13, align 4
+  br i1 %8, label %79, label %55
 
-59:                                               ; preds = %_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load i64, ptr %60, align 8
-  %.not.i7 = icmp eq i64 %61, %56
-  br i1 %.not.i7, label %63, label %62
+55:                                               ; preds = %_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %57 = load i64, ptr %56, align 8
+  %.not.i7 = icmp eq i64 %57, %52
+  br i1 %.not.i7, label %59, label %58
 
-62:                                               ; preds = %59
+58:                                               ; preds = %55
   tail call void (ptr, ...) @_ZN5drjit11drjit_raiseEPKcz(ptr noundef nonnull @.str.33) #35
   unreachable
 
-63:                                               ; preds = %59
-  %64 = icmp ugt i64 %56, 4611686018427387903
-  %65 = shl i64 %56, 2
-  %66 = select i1 %64, i64 -1, i64 %65
-  %67 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %66) #37
-  %.not.i.i8 = icmp eq i64 %56, 0
+59:                                               ; preds = %55
+  %60 = icmp ugt i64 %52, 4611686018427387903
+  %61 = shl i64 %52, 2
+  %62 = select i1 %60, i64 -1, i64 %61
+  %63 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #37
+  %.not.i.i8 = icmp eq i64 %52, 0
   br i1 %.not.i.i8, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %63
-  %68 = load ptr, ptr %1, align 8
-  br label %69
+.lr.ph.i.i:                                       ; preds = %59
+  %64 = load ptr, ptr %1, align 8
+  br label %65
 
-69:                                               ; preds = %69, %.lr.ph.i.i
-  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %73, %69 ]
-  %70 = getelementptr inbounds float, ptr %68, i64 %.011.i.i
-  %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds float, ptr %67, i64 %.011.i.i
-  store float %71, ptr %72, align 4
-  %73 = add nuw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %73, %56
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %69, !llvm.loop !66
+65:                                               ; preds = %65, %.lr.ph.i.i
+  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %69, %65 ]
+  %66 = getelementptr inbounds float, ptr %64, i64 %.011.i.i
+  %67 = load float, ptr %66, align 4
+  %68 = getelementptr inbounds float, ptr %63, i64 %.011.i.i
+  store float %67, ptr %68, align 4
+  %69 = add nuw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %69, %52
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %65, !llvm.loop !66
 
-._crit_edge.i.i:                                  ; preds = %69, %63
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %75 = load i8, ptr %74, align 16
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit
+._crit_edge.i.i:                                  ; preds = %65, %59
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = load i8, ptr %70, align 16
+  %72 = trunc i8 %71 to i1
+  br i1 %72, label %73, label %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit
 
-77:                                               ; preds = %._crit_edge.i.i
-  %78 = load ptr, ptr %7, align 16
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit, label %80
+73:                                               ; preds = %._crit_edge.i.i
+  %74 = load ptr, ptr %7, align 16
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit, label %76
 
-80:                                               ; preds = %77
-  tail call void @_ZdaPv(ptr noundef nonnull %78) #36
-  %.pre.i.i = load i64, ptr %60, align 8
+76:                                               ; preds = %73
+  tail call void @_ZdaPv(ptr noundef nonnull %74) #36
+  %.pre.i.i = load i64, ptr %56, align 8
   br label %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit
 
-_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit: ; preds = %._crit_edge.i.i, %77, %80
-  %81 = phi i64 [ %56, %77 ], [ %.pre.i.i, %80 ], [ %56, %._crit_edge.i.i ]
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %81, ptr %82, align 8
-  store ptr %67, ptr %7, align 16
-  store i8 1, ptr %74, align 16
-  br label %83
+_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit: ; preds = %._crit_edge.i.i, %73, %76
+  %77 = phi i64 [ %52, %73 ], [ %.pre.i.i, %76 ], [ %52, %._crit_edge.i.i ]
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %77, ptr %78, align 8
+  store ptr %63, ptr %7, align 16
+  store i8 1, ptr %70, align 16
+  br label %79
 
-83:                                               ; preds = %_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit, %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit
+79:                                               ; preds = %_ZN5drjit7TextureIfLm3EE4initEPKmmbNS_10FilterModeENS_8WrapModeEb.exit, %_ZN5drjit7TextureIfLm3EE9set_valueERKNS_12DynamicArrayIfEEb.exit
   ret void
 }
 

@@ -295,12 +295,12 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26: ; preds = %59, %_ZN9grpc_cor
   br label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split
 
 _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; preds = %74, %71, %68, %.thread.i31, %62, %47, %44, %41, %.thread.i, %34
-  %.sink53 = phi i64 [ %2, %34 ], [ %2, %.thread.i ], [ %2, %41 ], [ %2, %44 ], [ %2, %47 ], [ 60000, %62 ], [ 60000, %.thread.i31 ], [ 60000, %68 ], [ 60000, %71 ], [ 60000, %74 ]
-  %.sink52 = phi i64 [ %35, %34 ], [ %35, %.thread.i ], [ %35, %41 ], [ %35, %44 ], [ %35, %47 ], [ %.sroa.04.0.copyload, %62 ], [ %.sroa.04.0.copyload, %.thread.i31 ], [ %.sroa.04.0.copyload, %68 ], [ %.sroa.04.0.copyload, %71 ], [ %.sroa.04.0.copyload, %74 ]
+  %.sink54 = phi i64 [ %2, %34 ], [ %2, %.thread.i ], [ %2, %41 ], [ %2, %44 ], [ %2, %47 ], [ 60000, %62 ], [ 60000, %.thread.i31 ], [ 60000, %68 ], [ 60000, %71 ], [ 60000, %74 ]
+  %.sink53 = phi i64 [ %35, %34 ], [ %35, %.thread.i ], [ %35, %41 ], [ %35, %44 ], [ %35, %47 ], [ %.sroa.04.0.copyload, %62 ], [ %.sroa.04.0.copyload, %.thread.i31 ], [ %.sroa.04.0.copyload, %68 ], [ %.sroa.04.0.copyload, %71 ], [ %.sroa.04.0.copyload, %74 ]
   %.sroa.04.0.i.sink = phi i64 [ 9223372036854775807, %34 ], [ 9223372036854775807, %.thread.i ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %44 ], [ %48, %47 ], [ 9223372036854775807, %62 ], [ 9223372036854775807, %.thread.i31 ], [ 9223372036854775807, %68 ], [ -9223372036854775808, %71 ], [ %75, %74 ]
-  store i64 %.sink53, ptr %0, align 8, !tbaa !18
+  store i64 %.sink54, ptr %0, align 8, !tbaa !18
   %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink52, ptr %.sroa.440.0..sroa_idx, align 8, !tbaa !18
+  store i64 %.sink53, ptr %.sroa.440.0..sroa_idx, align 8, !tbaa !18
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.04.0.i.sink, ptr %.sroa.541.0..sroa_idx, align 8, !tbaa !18
   br label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46

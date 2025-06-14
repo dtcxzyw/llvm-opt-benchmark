@@ -2487,13 +2487,13 @@ if.else18.i.i:                                    ; preds = %if.end.i.i
 _ZN2EA4StdCgeERKNS0_8int128_tES3_.exit:           ; preds = %if.then.i.i, %if.then8.i.i, %if.else18.i.i
   %retval.0.i.i = phi i1 [ %cmp.i.i.i59, %if.then.i.i ], [ true, %if.then8.i.i ], [ true, %if.else18.i.i ]
   %shl.i = shl nuw i64 1, %sh_prom.i
-  br i1 %cmp.i50, label %if.then.i63, label %if.then8.i
+  br i1 %cmp.i50, label %if.then.i63, label %if.else6.i
 
 _ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread:    ; preds = %if.then8.i.i, %if.else18.i.i
   %shl.i105 = shl nuw i64 1, %sh_prom.i
-  br i1 %cmp.i50, label %if.then.i63.thread, label %if.then8.i.thread
+  br i1 %cmp.i50, label %if.then.i63.thread, label %if.else6.i.thread
 
-if.then8.i.thread:                                ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread
+if.else6.i.thread:                                ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit.thread
   %15 = load i64, ptr %mPart114.i, align 8
   br label %if.end22.thread
 
@@ -2518,18 +2518,18 @@ if.else.i64:                                      ; preds = %if.then.i63.thread,
   store i64 %and.i, ptr %quotient, align 8
   br label %if.end22
 
-if.then8.i:                                       ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit
+if.else6.i:                                       ; preds = %_ZN2EA4StdCgeERKNS0_8int128_tES3_.exit
   %19 = load i64, ptr %mPart114.i, align 8
   br i1 %retval.0.i.i, label %if.then10.i, label %if.end22.thread
 
-if.then10.i:                                      ; preds = %if.then8.i
+if.then10.i:                                      ; preds = %if.else6.i
   %or11.i = or i64 %19, %shl.i
   store i64 %or11.i, ptr %mPart114.i, align 8
   br label %if.then20
 
-if.end22.thread:                                  ; preds = %if.then8.i, %if.then8.i.thread
-  %20 = phi i64 [ %15, %if.then8.i.thread ], [ %19, %if.then8.i ]
-  %shl.i109117 = phi i64 [ %shl.i105, %if.then8.i.thread ], [ %shl.i, %if.then8.i ]
+if.end22.thread:                                  ; preds = %if.else6.i, %if.else6.i.thread
+  %20 = phi i64 [ %15, %if.else6.i.thread ], [ %19, %if.else6.i ]
+  %shl.i109117 = phi i64 [ %shl.i105, %if.else6.i.thread ], [ %shl.i, %if.else6.i ]
   %not15.i = xor i64 %shl.i109117, -1
   %and16.i = and i64 %20, %not15.i
   store i64 %and16.i, ptr %mPart114.i, align 8

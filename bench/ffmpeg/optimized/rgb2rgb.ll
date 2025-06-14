@@ -2003,17 +2003,21 @@ define internal void @rgb24tobgr24_c(ptr noundef readonly captures(none) %0, ptr
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @shuffle_bytes_0321_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
-  %4 = sub i32 15, %2
-  %5 = sext i32 %4 to i64
-  %6 = sub nsw i64 0, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 %6
-  %9 = icmp sgt i32 %2, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %.neg = add nsw i32 %2, -15
+  %4 = sext i32 %.neg to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 %4
+  %6 = getelementptr inbounds i8, ptr %1, i64 %4
+  %7 = icmp sgt i32 %2, 0
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
+.lr.ph.preheader:                                 ; preds = %3
+  %8 = sub nsw i32 15, %2
+  %9 = sext i32 %8 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %10 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = and i32 %11, 16711935
   %13 = and i32 %11, -16711936
@@ -2021,7 +2025,7 @@ define internal void @shuffle_bytes_0321_c(ptr noundef readonly captures(none) %
   %15 = or disjoint i32 %12, %14
   %16 = shl i32 %13, 16
   %17 = or disjoint i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
+  %18 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
   %19 = icmp slt i64 %indvars.iv, 11
@@ -2033,17 +2037,21 @@ define internal void @shuffle_bytes_0321_c(ptr noundef readonly captures(none) %
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @shuffle_bytes_2103_c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #3 {
-  %4 = sub i32 15, %2
-  %5 = sext i32 %4 to i64
-  %6 = sub nsw i64 0, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 %6
-  %9 = icmp sgt i32 %2, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %.neg = add nsw i32 %2, -15
+  %4 = sext i32 %.neg to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 %4
+  %6 = getelementptr inbounds i8, ptr %1, i64 %4
+  %7 = icmp sgt i32 %2, 0
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %5, %3 ]
-  %10 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
+.lr.ph.preheader:                                 ; preds = %3
+  %8 = sub nsw i32 15, %2
+  %9 = sext i32 %8 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %9, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %10 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !4
   %12 = and i32 %11, -16711936
   %13 = and i32 %11, 16711935
@@ -2051,7 +2059,7 @@ define internal void @shuffle_bytes_2103_c(ptr noundef readonly captures(none) %
   %15 = or disjoint i32 %12, %14
   %16 = shl i32 %13, 16
   %17 = or disjoint i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
+  %18 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
   %19 = icmp slt i64 %indvars.iv, 11
