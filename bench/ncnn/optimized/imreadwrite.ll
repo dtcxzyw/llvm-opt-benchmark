@@ -11409,27 +11409,27 @@ define internal void @_ZL15stbi__idct_simdPhiPs(ptr noundef writeonly captures(n
   %270 = bitcast <16 x i8> %259 to <2 x i64>
   %271 = extractelement <2 x i64> %270, i64 1
   store i64 %271, ptr %269, align 1, !tbaa !23
-  %272 = getelementptr inbounds i8, ptr %269, i64 %268
+  %273 = getelementptr inbounds i8, ptr %269, i64 %268
   %273 = extractelement <2 x i64> %262, i64 0
   store i64 %273, ptr %272, align 1, !tbaa !23
-  %274 = getelementptr inbounds i8, ptr %272, i64 %268
+  %274 = getelementptr inbounds i8, ptr %273, i64 %268
   %275 = bitcast <16 x i8> %261 to <2 x i64>
-  %276 = extractelement <2 x i64> %275, i64 1
-  store i64 %276, ptr %274, align 1, !tbaa !23
-  %277 = getelementptr inbounds i8, ptr %274, i64 %268
+  %277 = extractelement <2 x i64> %275, i64 1
+  store i64 %277, ptr %274, align 1, !tbaa !23
+  %278 = getelementptr inbounds i8, ptr %274, i64 %268
   %278 = extractelement <2 x i64> %264, i64 0
   store i64 %278, ptr %277, align 1, !tbaa !23
-  %279 = getelementptr inbounds i8, ptr %277, i64 %268
+  %279 = getelementptr inbounds i8, ptr %278, i64 %268
   %280 = bitcast <16 x i8> %263 to <2 x i64>
-  %281 = extractelement <2 x i64> %280, i64 1
-  store i64 %281, ptr %279, align 1, !tbaa !23
-  %282 = getelementptr inbounds i8, ptr %279, i64 %268
+  %282 = extractelement <2 x i64> %280, i64 1
+  store i64 %282, ptr %279, align 1, !tbaa !23
+  %283 = getelementptr inbounds i8, ptr %279, i64 %268
   %283 = extractelement <2 x i64> %266, i64 0
   store i64 %283, ptr %282, align 1, !tbaa !23
-  %284 = getelementptr inbounds i8, ptr %282, i64 %268
+  %284 = getelementptr inbounds i8, ptr %283, i64 %268
   %285 = bitcast <16 x i8> %265 to <2 x i64>
-  %286 = extractelement <2 x i64> %285, i64 1
-  store i64 %286, ptr %284, align 1, !tbaa !23
+  %287 = extractelement <2 x i64> %285, i64 1
+  store i64 %287, ptr %284, align 1, !tbaa !23
   ret void
 }
 
