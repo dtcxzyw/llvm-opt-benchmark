@@ -7668,9 +7668,9 @@ ecpyalloc.exit93:                                 ; preds = %85
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @rpytime(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
-  %.off202 = add i64 %1, -9223372036854775807
-  %switch203 = icmp ult i64 %.off202, 2
-  br i1 %switch203, label %198, label %3
+  %.off204 = add i64 %1, -9223372036854775807
+  %switch205 = icmp ult i64 %.off204, 2
+  br i1 %switch205, label %198, label %3
 
 3:                                                ; preds = %2
   %4 = icmp sgt i64 %1, 1970
@@ -7699,110 +7699,110 @@ define internal fastcc i64 @rpytime(ptr noundef readonly captures(none) %0, i64 
 16:                                               ; preds = %11, %5
   %.091 = phi i64 [ %10, %5 ], [ %1, %11 ]
   %.083 = phi i64 [ %8, %5 ], [ 0, %11 ]
-  %.not126 = icmp eq i64 %.091, 1970
-  br i1 %.not126, label %.preheader, label %.lr.ph.preheader
+  %.not128 = icmp eq i64 %.091, 1970
+  br i1 %.not128, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %16
-  %.083172 = phi i64 [ %14, %.thread ], [ %.083, %16 ]
-  %.091171 = phi i64 [ %.neg115, %.thread ], [ %.091, %16 ]
+  %.083174 = phi i64 [ %14, %.thread ], [ %.083, %16 ]
+  %.091173 = phi i64 [ %.neg115, %.thread ], [ %.091, %16 ]
   br label %.lr.ph
 
 .preheader:                                       ; preds = %oadd.exit, %16
   %.184.lcssa = phi i64 [ %.083, %16 ], [ %93, %oadd.exit ]
-  %.080.lcssa = phi i64 [ 1970, %16 ], [ %.091171, %oadd.exit ]
+  %.080.lcssa = phi i64 [ 1970, %16 ], [ %.091173, %oadd.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
-  %.not99130 = icmp eq i32 %18, 0
-  br i1 %.not99130, label %._crit_edge.thread, label %.lr.ph133
+  %.not99132 = icmp eq i32 %18, 0
+  br i1 %.not99132, label %._crit_edge.thread, label %.lr.ph135
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
   br label %123
 
-.lr.ph133:                                        ; preds = %.preheader
+.lr.ph135:                                        ; preds = %.preheader
   %21 = and i64 %.080.lcssa, 3
   %22 = icmp eq i64 %21, 0
   %23 = srem i64 %.080.lcssa, 400
   %24 = icmp eq i64 %23, 0
   %25 = zext i1 %24 to i64
-  br i1 %22, label %.lr.ph133.split.us, label %.lr.ph133.split
+  br i1 %22, label %.lr.ph135.split.us, label %.lr.ph135.split
 
-.lr.ph133.split.us:                               ; preds = %.lr.ph133
+.lr.ph135.split.us:                               ; preds = %.lr.ph135
   %26 = srem i64 %.080.lcssa, 100
   %.not105 = icmp eq i64 %26, 0
-  br i1 %.not105, label %.lr.ph133.split.us.split.us, label %.lr.ph133.split.us.split
+  br i1 %.not105, label %.lr.ph135.split.us.split.us, label %.lr.ph135.split.us.split
 
-.lr.ph133.split.us.split.us:                      ; preds = %.lr.ph133.split.us, %oadd.exit110.us.us
-  %.285132.us.us = phi i64 [ %38, %oadd.exit110.us.us ], [ %.184.lcssa, %.lr.ph133.split.us ]
-  %.090131.us.us = phi i32 [ %39, %oadd.exit110.us.us ], [ 0, %.lr.ph133.split.us ]
-  %27 = sext i32 %.090131.us.us to i64
+.lr.ph135.split.us.split.us:                      ; preds = %.lr.ph135.split.us, %oadd.exit110.us.us
+  %.285134.us.us = phi i64 [ %38, %oadd.exit110.us.us ], [ %.184.lcssa, %.lr.ph135.split.us ]
+  %.090133.us.us = phi i32 [ %39, %oadd.exit110.us.us ], [ 0, %.lr.ph135.split.us ]
+  %27 = sext i32 %.090133.us.us to i64
   %28 = getelementptr inbounds [2 x [12 x i32]], ptr @len_months, i64 0, i64 %25, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %.285132.us.us, 0
+  %31 = icmp slt i64 %.285134.us.us, 0
   br i1 %31, label %35, label %32
 
-32:                                               ; preds = %.lr.ph133.split.us.split.us
-  %33 = sub nuw nsw i64 9223372036854775807, %.285132.us.us
+32:                                               ; preds = %.lr.ph135.split.us.split.us
+  %33 = sub nuw nsw i64 9223372036854775807, %.285134.us.us
   %34 = icmp slt i64 %33, %30
   br i1 %34, label %.split.us, label %oadd.exit110.us.us
 
-35:                                               ; preds = %.lr.ph133.split.us.split.us
-  %36 = sub nsw i64 -9223372036854775808, %.285132.us.us
+35:                                               ; preds = %.lr.ph135.split.us.split.us
+  %36 = sub nsw i64 -9223372036854775808, %.285134.us.us
   %37 = icmp sgt i64 %36, %30
   br i1 %37, label %.split.us, label %oadd.exit110.us.us
 
 oadd.exit110.us.us:                               ; preds = %35, %32
-  %38 = add i64 %.285132.us.us, %30
-  %39 = add nuw i32 %.090131.us.us, 1
+  %38 = add i64 %.285134.us.us, %30
+  %39 = add nuw i32 %.090133.us.us, 1
   %.not99.us.us = icmp eq i32 %39, %18
-  br i1 %.not99.us.us, label %._crit_edge, label %.lr.ph133.split.us.split.us, !llvm.loop !81
+  br i1 %.not99.us.us, label %._crit_edge, label %.lr.ph135.split.us.split.us, !llvm.loop !81
 
-.lr.ph133.split.us.split:                         ; preds = %.lr.ph133.split.us, %oadd.exit110.us
-  %.285132.us = phi i64 [ %51, %oadd.exit110.us ], [ %.184.lcssa, %.lr.ph133.split.us ]
-  %.090131.us = phi i32 [ %52, %oadd.exit110.us ], [ 0, %.lr.ph133.split.us ]
-  %40 = sext i32 %.090131.us to i64
+.lr.ph135.split.us.split:                         ; preds = %.lr.ph135.split.us, %oadd.exit110.us
+  %.285134.us = phi i64 [ %51, %oadd.exit110.us ], [ %.184.lcssa, %.lr.ph135.split.us ]
+  %.090133.us = phi i32 [ %52, %oadd.exit110.us ], [ 0, %.lr.ph135.split.us ]
+  %40 = sext i32 %.090133.us to i64
   %41 = getelementptr inbounds [2 x [12 x i32]], ptr @len_months, i64 0, i64 1, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %.285132.us, 0
+  %44 = icmp slt i64 %.285134.us, 0
   br i1 %44, label %48, label %45
 
-45:                                               ; preds = %.lr.ph133.split.us.split
-  %46 = sub nuw nsw i64 9223372036854775807, %.285132.us
+45:                                               ; preds = %.lr.ph135.split.us.split
+  %46 = sub nuw nsw i64 9223372036854775807, %.285134.us
   %47 = icmp slt i64 %46, %43
   br i1 %47, label %.split.us, label %oadd.exit110.us
 
-48:                                               ; preds = %.lr.ph133.split.us.split
-  %49 = sub nsw i64 -9223372036854775808, %.285132.us
+48:                                               ; preds = %.lr.ph135.split.us.split
+  %49 = sub nsw i64 -9223372036854775808, %.285134.us
   %50 = icmp sgt i64 %49, %43
   br i1 %50, label %.split.us, label %oadd.exit110.us
 
 oadd.exit110.us:                                  ; preds = %48, %45
-  %51 = add i64 %.285132.us, %43
-  %52 = add nuw i32 %.090131.us, 1
+  %51 = add i64 %.285134.us, %43
+  %52 = add nuw i32 %.090133.us, 1
   %.not99.us = icmp eq i32 %52, %18
-  br i1 %.not99.us, label %._crit_edge, label %.lr.ph133.split.us.split, !llvm.loop !81
+  br i1 %.not99.us, label %._crit_edge, label %.lr.ph135.split.us.split, !llvm.loop !81
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %oadd.exit
-  %.080128 = phi i64 [ %.181, %oadd.exit ], [ 1970, %.lr.ph.preheader ]
-  %.184127 = phi i64 [ %93, %oadd.exit ], [ %.083172, %.lr.ph.preheader ]
-  %53 = icmp sgt i64 %.091171, %.080128
+  %.080130 = phi i64 [ %.181, %oadd.exit ], [ 1970, %.lr.ph.preheader ]
+  %.184129 = phi i64 [ %93, %oadd.exit ], [ %.083174, %.lr.ph.preheader ]
+  %53 = icmp sgt i64 %.091173, %.080130
   br i1 %53, label %54, label %68
 
 54:                                               ; preds = %.lr.ph
-  %55 = and i64 %.080128, 3
+  %55 = and i64 %.080130, 3
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %54
-  %58 = srem i64 %.080128, 100
+  %58 = srem i64 %.080130, 100
   %.not107 = icmp eq i64 %58, 0
   br i1 %.not107, label %59, label %63
 
 59:                                               ; preds = %57
-  %60 = srem i64 %.080128, 400
+  %60 = srem i64 %.080130, 400
   %61 = icmp eq i64 %60, 0
   %62 = zext i1 %61 to i64
   br label %63
@@ -7811,11 +7811,11 @@ oadd.exit110.us:                                  ; preds = %48, %45
   %64 = phi i64 [ 0, %54 ], [ 1, %57 ], [ %62, %59 ]
   %65 = getelementptr inbounds nuw [2 x i32], ptr @len_years, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
-  %67 = add nsw i64 %.080128, 1
+  %67 = add nsw i64 %.080130, 1
   br label %83
 
 68:                                               ; preds = %.lr.ph
-  %69 = add nsw i64 %.080128, -1
+  %69 = add nsw i64 %.080130, -1
   %70 = and i64 %69, 3
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %72, label %78
@@ -7842,16 +7842,16 @@ oadd.exit110.us:                                  ; preds = %48, %45
   %.086 = phi i32 [ %66, %63 ], [ %82, %78 ]
   %.181 = phi i64 [ %67, %63 ], [ %69, %78 ]
   %84 = sext i32 %.086 to i64
-  %85 = icmp slt i64 %.184127, 0
+  %85 = icmp slt i64 %.184129, 0
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %83
-  %87 = sub nsw i64 -9223372036854775808, %.184127
+  %87 = sub nsw i64 -9223372036854775808, %.184129
   %88 = icmp sgt i64 %87, %84
   br i1 %88, label %92, label %oadd.exit
 
 89:                                               ; preds = %83
-  %90 = sub nuw nsw i64 9223372036854775807, %.184127
+  %90 = sub nuw nsw i64 9223372036854775807, %.184129
   %91 = icmp slt i64 %90, %84
   br i1 %91, label %92, label %oadd.exit
 
@@ -7861,27 +7861,27 @@ oadd.exit110.us:                                  ; preds = %48, %45
   unreachable
 
 oadd.exit:                                        ; preds = %86, %89
-  %93 = add i64 %.184127, %84
-  %.not = icmp eq i64 %.091171, %.181
+  %93 = add i64 %.184129, %84
+  %.not = icmp eq i64 %.091173, %.181
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !82
 
-.lr.ph133.split:                                  ; preds = %.lr.ph133, %oadd.exit110
-  %.285132 = phi i64 [ %105, %oadd.exit110 ], [ %.184.lcssa, %.lr.ph133 ]
-  %.090131 = phi i32 [ %106, %oadd.exit110 ], [ 0, %.lr.ph133 ]
-  %94 = sext i32 %.090131 to i64
+.lr.ph135.split:                                  ; preds = %.lr.ph135, %oadd.exit110
+  %.285134 = phi i64 [ %105, %oadd.exit110 ], [ %.184.lcssa, %.lr.ph135 ]
+  %.090133 = phi i32 [ %106, %oadd.exit110 ], [ 0, %.lr.ph135 ]
+  %94 = sext i32 %.090133 to i64
   %95 = getelementptr inbounds [2 x [12 x i32]], ptr @len_months, i64 0, i64 0, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %.285132, 0
+  %98 = icmp slt i64 %.285134, 0
   br i1 %98, label %99, label %102
 
-99:                                               ; preds = %.lr.ph133.split
-  %100 = sub nsw i64 -9223372036854775808, %.285132
+99:                                               ; preds = %.lr.ph135.split
+  %100 = sub nsw i64 -9223372036854775808, %.285134
   %101 = icmp sgt i64 %100, %97
   br i1 %101, label %.split.us, label %oadd.exit110
 
-102:                                              ; preds = %.lr.ph133.split
-  %103 = sub nuw nsw i64 9223372036854775807, %.285132
+102:                                              ; preds = %.lr.ph135.split
+  %103 = sub nuw nsw i64 9223372036854775807, %.285134
   %104 = icmp slt i64 %103, %97
   br i1 %104, label %.split.us, label %oadd.exit110
 
@@ -7891,10 +7891,10 @@ oadd.exit:                                        ; preds = %86, %89
   unreachable
 
 oadd.exit110:                                     ; preds = %99, %102
-  %105 = add i64 %.285132, %97
-  %106 = add nuw i32 %.090131, 1
+  %105 = add i64 %.285134, %97
+  %106 = add nuw i32 %.090133, 1
   %.not99 = icmp eq i32 %106, %18
-  br i1 %.not99, label %._crit_edge, label %.lr.ph133.split, !llvm.loop !81
+  br i1 %.not99, label %._crit_edge, label %.lr.ph135.split, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %oadd.exit110, %oadd.exit110.us, %oadd.exit110.us.us
   %.285.lcssa = phi i64 [ %38, %oadd.exit110.us.us ], [ %51, %oadd.exit110.us ], [ %105, %oadd.exit110 ]
@@ -7930,21 +7930,21 @@ oadd.exit110:                                     ; preds = %99, %102
   unreachable
 
 123:                                              ; preds = %._crit_edge.thread, %118, %114, %._crit_edge
-  %.285.lcssa177 = phi i64 [ %.285.lcssa, %114 ], [ %.285.lcssa, %._crit_edge ], [ %.285.lcssa, %118 ], [ %.184.lcssa, %._crit_edge.thread ]
-  %.090.lcssa176 = phi i32 [ 1, %114 ], [ %18, %._crit_edge ], [ 1, %118 ], [ 0, %._crit_edge.thread ]
+  %.285.lcssa179 = phi i64 [ %.285.lcssa, %114 ], [ %.285.lcssa, %._crit_edge ], [ %.285.lcssa, %118 ], [ %.184.lcssa, %._crit_edge.thread ]
+  %.090.lcssa178 = phi i32 [ 1, %114 ], [ %18, %._crit_edge ], [ 1, %118 ], [ 0, %._crit_edge.thread ]
   %.187 = phi i32 [ 29, %114 ], [ %108, %._crit_edge ], [ 28, %118 ], [ %20, %._crit_edge.thread ]
   %124 = add i32 %.187, -1
   %125 = sext i32 %124 to i64
-  %126 = icmp slt i64 %.285.lcssa177, 0
+  %126 = icmp slt i64 %.285.lcssa179, 0
   br i1 %126, label %127, label %130
 
 127:                                              ; preds = %123
-  %128 = sub nsw i64 -9223372036854775808, %.285.lcssa177
+  %128 = sub nsw i64 -9223372036854775808, %.285.lcssa179
   %129 = icmp sgt i64 %128, %125
   br i1 %129, label %133, label %oadd.exit111
 
 130:                                              ; preds = %123
-  %131 = sub nuw nsw i64 9223372036854775807, %.285.lcssa177
+  %131 = sub nuw nsw i64 9223372036854775807, %.285.lcssa179
   %132 = icmp slt i64 %131, %125
   br i1 %132, label %133, label %oadd.exit111
 
@@ -7954,7 +7954,7 @@ oadd.exit110:                                     ; preds = %99, %102
   unreachable
 
 oadd.exit111:                                     ; preds = %127, %130
-  %134 = add i64 %.285.lcssa177, %125
+  %134 = add i64 %.285.lcssa179, %125
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %136 = load i32, ptr %135, align 8
   %.off = add i32 %136, -1
@@ -7983,62 +7983,62 @@ oadd.exit111:                                     ; preds = %127, %130
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %148 = load i32, ptr %147, align 8
   %149 = sext i32 %148 to i64
-  %.not101139 = icmp eq i64 %.0, %149
-  br i1 %.not101139, label %._crit_edge145, label %.lr.ph144
+  %.not101141 = icmp eq i64 %.0, %149
+  br i1 %.not101141, label %._crit_edge147, label %.lr.ph146
 
-.lr.ph144:                                        ; preds = %146
+.lr.ph146:                                        ; preds = %146
   %150 = icmp eq i32 %136, 1
-  br i1 %150, label %.lr.ph144.split.us, label %.lr.ph144.split
+  br i1 %150, label %.lr.ph146.split.us, label %.lr.ph146.split
 
-.lr.ph144.split.us:                               ; preds = %.lr.ph144, %oadd.exit112.us
-  %.1142.us = phi i64 [ %spec.store.select.us, %oadd.exit112.us ], [ %.0, %.lr.ph144 ]
-  %.4141.us = phi i64 [ %152, %oadd.exit112.us ], [ %134, %.lr.ph144 ]
-  %.288140.us = phi i32 [ %155, %oadd.exit112.us ], [ %124, %.lr.ph144 ]
-  %151 = icmp eq i64 %.4141.us, 9223372036854775807
-  br i1 %151, label %.split149.us, label %oadd.exit112.us
+.lr.ph146.split.us:                               ; preds = %.lr.ph146, %oadd.exit112.us
+  %.1144.us = phi i64 [ %spec.store.select.us, %oadd.exit112.us ], [ %.0, %.lr.ph146 ]
+  %.4143.us = phi i64 [ %152, %oadd.exit112.us ], [ %134, %.lr.ph146 ]
+  %.288142.us = phi i32 [ %155, %oadd.exit112.us ], [ %124, %.lr.ph146 ]
+  %151 = icmp eq i64 %.4143.us, 9223372036854775807
+  br i1 %151, label %.split151.us, label %oadd.exit112.us
 
-oadd.exit112.us:                                  ; preds = %.lr.ph144.split.us
-  %152 = add nsw i64 %.4141.us, 1
-  %153 = add i64 %.1142.us, 1
+oadd.exit112.us:                                  ; preds = %.lr.ph146.split.us
+  %152 = add nsw i64 %.4143.us, 1
+  %153 = add i64 %.1144.us, 1
   %154 = icmp sgt i64 %153, 6
   %spec.store.select.us = select i1 %154, i64 0, i64 %153
-  %155 = add i32 %.288140.us, 1
+  %155 = add i32 %.288142.us, 1
   %.not101.us = icmp eq i64 %spec.store.select.us, %149
-  br i1 %.not101.us, label %._crit_edge145, label %.lr.ph144.split.us, !llvm.loop !83
+  br i1 %.not101.us, label %._crit_edge147, label %.lr.ph146.split.us, !llvm.loop !83
 
-.lr.ph144.split:                                  ; preds = %.lr.ph144, %oadd.exit113
-  %.1142 = phi i64 [ %spec.store.select2, %oadd.exit113 ], [ %.0, %.lr.ph144 ]
-  %.4141 = phi i64 [ %158, %oadd.exit113 ], [ %134, %.lr.ph144 ]
-  %.288140 = phi i32 [ %161, %oadd.exit113 ], [ %124, %.lr.ph144 ]
-  %156 = icmp eq i64 %.4141, -9223372036854775808
+.lr.ph146.split:                                  ; preds = %.lr.ph146, %oadd.exit113
+  %.1144 = phi i64 [ %spec.store.select2, %oadd.exit113 ], [ %.0, %.lr.ph146 ]
+  %.4143 = phi i64 [ %158, %oadd.exit113 ], [ %134, %.lr.ph146 ]
+  %.288142 = phi i32 [ %161, %oadd.exit113 ], [ %124, %.lr.ph146 ]
+  %156 = icmp eq i64 %.4143, -9223372036854775808
   br i1 %156, label %157, label %oadd.exit113
 
-.split149.us:                                     ; preds = %.lr.ph144.split.us
+.split151.us:                                     ; preds = %.lr.ph146.split.us
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #29
   unreachable
 
-157:                                              ; preds = %.lr.ph144.split
+157:                                              ; preds = %.lr.ph146.split
   tail call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   tail call void @exit(i32 noundef 1) #29
   unreachable
 
-oadd.exit113:                                     ; preds = %.lr.ph144.split
-  %158 = add nsw i64 %.4141, -1
-  %159 = add i64 %.1142, -1
+oadd.exit113:                                     ; preds = %.lr.ph146.split
+  %158 = add nsw i64 %.4143, -1
+  %159 = add i64 %.1144, -1
   %160 = icmp slt i64 %159, 0
   %spec.store.select2 = select i1 %160, i64 6, i64 %159
-  %161 = add i32 %.288140, -1
+  %161 = add i32 %.288142, -1
   %.not101 = icmp eq i64 %spec.store.select2, %149
-  br i1 %.not101, label %._crit_edge145, label %.lr.ph144.split, !llvm.loop !83
+  br i1 %.not101, label %._crit_edge147, label %.lr.ph146.split, !llvm.loop !83
 
-._crit_edge145:                                   ; preds = %oadd.exit113, %oadd.exit112.us, %146
+._crit_edge147:                                   ; preds = %oadd.exit113, %oadd.exit112.us, %146
   %.288.lcssa = phi i32 [ %124, %146 ], [ %155, %oadd.exit112.us ], [ %161, %oadd.exit113 ]
   %.4.lcssa = phi i64 [ %134, %146 ], [ %152, %oadd.exit112.us ], [ %158, %oadd.exit113 ]
   %162 = icmp slt i32 %.288.lcssa, 0
   br i1 %162, label %178, label %163
 
-163:                                              ; preds = %._crit_edge145
+163:                                              ; preds = %._crit_edge147
   %164 = and i64 %.080.lcssa, 3
   %165 = icmp eq i64 %164, 0
   br i1 %165, label %166, label %172
@@ -8056,7 +8056,7 @@ oadd.exit113:                                     ; preds = %.lr.ph144.split
 
 172:                                              ; preds = %166, %168, %163
   %173 = phi i64 [ 0, %163 ], [ 1, %166 ], [ %171, %168 ]
-  %174 = sext i32 %.090.lcssa176 to i64
+  %174 = sext i32 %.090.lcssa178 to i64
   %175 = getelementptr inbounds [2 x [12 x i32]], ptr @len_months, i64 0, i64 %173, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = icmp sge i32 %.288.lcssa, %176
@@ -8064,7 +8064,7 @@ oadd.exit113:                                     ; preds = %.lr.ph144.split
   %or.cond4 = select i1 %177, i1 %.b103, i1 false
   br i1 %or.cond4, label %179, label %180
 
-178:                                              ; preds = %._crit_edge145
+178:                                              ; preds = %._crit_edge147
   %.old.b104 = load i1, ptr @noise, align 1
   br i1 %.old.b104, label %179, label %180
 

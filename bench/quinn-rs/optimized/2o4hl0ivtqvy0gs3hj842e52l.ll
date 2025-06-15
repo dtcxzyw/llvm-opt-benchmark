@@ -3443,10 +3443,10 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds 
   br label %31
 
 31:                                               ; preds = %.loopexit, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit
-  %.sink18 = phi i64 [ 8, %.loopexit ], [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
+  %.sink16 = phi i64 [ 8, %.loopexit ], [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
   %.sink = phi i64 [ %30, %.loopexit ], [ %13, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
   %storemerge = phi i64 [ 0, %.loopexit ], [ 1, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink16
   store i64 %.sink, ptr %32, align 8
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -3971,10 +3971,10 @@ _ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit: ; preds 
   br label %31
 
 31:                                               ; preds = %.loopexit, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit
-  %.sink18 = phi i64 [ 8, %.loopexit ], [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
+  %.sink16 = phi i64 [ 8, %.loopexit ], [ 16, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
   %.sink = phi i64 [ %30, %.loopexit ], [ %13, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
   %storemerge = phi i64 [ 0, %.loopexit ], [ 1, %_ZN5bytes3buf8buf_impl3Buf17try_copy_to_slice17h7851f3d94865f6a6E.exit ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink18
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink16
   store i64 %.sink, ptr %32, align 8
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

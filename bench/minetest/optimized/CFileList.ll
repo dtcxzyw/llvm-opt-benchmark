@@ -5089,51 +5089,46 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6v
   %IsDirectory.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 76
   %14 = load i8, ptr %IsDirectory.i, align 4, !tbaa !54, !range !43, !noundef !44
   %cmp.not.i = icmp eq i8 %14, %1
-  br i1 %cmp.not.i, label %if.end.i, label %if.then.i
-
-if.then.i:                                        ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit
-  %15 = or i8 %14, %1
-  %or.cond.not = icmp eq i8 %15, 0
-  br i1 %or.cond.not, label %if.end24, label %return
+  br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit
   %FullName.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 32
-  %16 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %17 = load i8, ptr %16, align 1, !tbaa !25
-  %tobool.not37.i.i = icmp eq i8 %17, 0
+  %15 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %16 = load i8, ptr %15, align 1, !tbaa !25
+  %tobool.not37.i.i = icmp eq i8 %16, 0
   br i1 %tobool.not37.i.i, label %for.end.i.i, label %land.rhs.lr.ph.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %if.end.i
   %FullName7.i = getelementptr inbounds nuw i8, ptr %element, i64 32
-  %18 = load ptr, ptr %FullName7.i, align 8, !tbaa !3
+  %17 = load ptr, ptr %FullName7.i, align 8, !tbaa !3
   br label %land.rhs.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %inc.i.i = add i32 %i.038.i.i, 1
   %idxprom.i.i = zext i32 %inc.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 %idxprom.i.i
-  %19 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !25
-  %tobool.not.i.i = icmp eq i8 %19, 0
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %idxprom.i.i
+  %18 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !25
+  %tobool.not.i.i = icmp eq i8 %18, 0
   br i1 %tobool.not.i.i, label %for.end.i.i, label %land.rhs.i.i, !llvm.loop !74
 
 land.rhs.i.i:                                     ; preds = %for.cond.i.i, %land.rhs.lr.ph.i.i
-  %20 = phi i8 [ %17, %land.rhs.lr.ph.i.i ], [ %19, %for.cond.i.i ]
+  %19 = phi i8 [ %16, %land.rhs.lr.ph.i.i ], [ %18, %for.cond.i.i ]
   %idxprom39.i.i = phi i64 [ 0, %land.rhs.lr.ph.i.i ], [ %idxprom.i.i, %for.cond.i.i ]
   %i.038.i.i = phi i32 [ 0, %land.rhs.lr.ph.i.i ], [ %inc.i.i, %for.cond.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %idxprom39.i.i
-  %21 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !25
-  %tobool3.not.i.i = icmp eq i8 %21, 0
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %idxprom39.i.i
+  %20 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !25
+  %tobool3.not.i.i = icmp eq i8 %20, 0
   br i1 %tobool3.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %conv.i.i = sext i8 %20 to i32
-  %22 = add nsw i32 %conv.i.i, -65
-  %or.cond.i.i.i49 = icmp ult i32 %22, 26
+  %conv.i.i = sext i8 %19 to i32
+  %21 = add nsw i32 %conv.i.i, -65
+  %or.cond.i.i.i49 = icmp ult i32 %21, 26
   %add.i.i.i = add nsw i32 %conv.i.i, 32
   %cond.i.i.i = select i1 %or.cond.i.i.i49, i32 %add.i.i.i, i32 %conv.i.i
-  %conv8.i.i = sext i8 %21 to i32
-  %23 = add nsw i32 %conv8.i.i, -65
-  %or.cond.i29.i.i = icmp ult i32 %23, 26
+  %conv8.i.i = sext i8 %20 to i32
+  %22 = add nsw i32 %conv8.i.i, -65
+  %or.cond.i29.i.i = icmp ult i32 %22, 26
   %add.i30.i.i = add nsw i32 %conv8.i.i, 32
   %cond.i31.i.i = select i1 %or.cond.i29.i.i, i32 %add.i30.i.i, i32 %conv8.i.i
   %tobool10.not.i.i = icmp eq i32 %cond.i.i.i, %cond.i31.i.i
@@ -5141,11 +5136,11 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
 
 for.end.i.i:                                      ; preds = %land.rhs.i.i, %for.cond.i.i, %if.end.i
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 40
-  %24 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
-  %conv.i32.i.i = trunc i64 %24 to i32
+  %23 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
+  %conv.i32.i.i = trunc i64 %23 to i32
   %_M_string_length.i.i33.i.i = getelementptr inbounds nuw i8, ptr %element, i64 40
-  %25 = load i64, ptr %_M_string_length.i.i33.i.i, align 8, !tbaa !10
-  %conv.i34.i.i = trunc i64 %25 to i32
+  %24 = load i64, ptr %_M_string_length.i.i33.i.i, align 8, !tbaa !10
+  %conv.i34.i.i = trunc i64 %24 to i32
   %cmp15.i.i = icmp ult i32 %conv.i32.i.i, %conv.i34.i.i
   br i1 %cmp15.i.i, label %return, label %for.end.i.i.if.end.i56_crit_edge
 
@@ -5159,37 +5154,37 @@ _ZNK3irr2io14SFileListEntryltERKS1_.exit:         ; preds = %for.body.i.i
   br i1 %cmp.le.i.i, label %return, label %if.end.i56
 
 if.end.i56:                                       ; preds = %_ZNK3irr2io14SFileListEntryltERKS1_.exit, %for.end.i.i.if.end.i56_crit_edge
-  %26 = phi ptr [ %.pre92, %for.end.i.i.if.end.i56_crit_edge ], [ %18, %_ZNK3irr2io14SFileListEntryltERKS1_.exit ]
-  %27 = load i8, ptr %26, align 1, !tbaa !25
-  %tobool.not37.i.i58 = icmp eq i8 %27, 0
+  %25 = phi ptr [ %.pre92, %for.end.i.i.if.end.i56_crit_edge ], [ %17, %_ZNK3irr2io14SFileListEntryltERKS1_.exit ]
+  %26 = load i8, ptr %25, align 1, !tbaa !25
+  %tobool.not37.i.i58 = icmp eq i8 %26, 0
   br i1 %tobool.not37.i.i58, label %for.end.i.i83, label %land.rhs.i.i61
 
 for.cond.i.i78:                                   ; preds = %for.body.i.i66
   %inc.i.i79 = add i32 %i.038.i.i63, 1
   %idxprom.i.i80 = zext i32 %inc.i.i79 to i64
-  %arrayidx.i.i81 = getelementptr inbounds nuw i8, ptr %26, i64 %idxprom.i.i80
-  %28 = load i8, ptr %arrayidx.i.i81, align 1, !tbaa !25
-  %tobool.not.i.i82 = icmp eq i8 %28, 0
+  %arrayidx.i.i81 = getelementptr inbounds nuw i8, ptr %25, i64 %idxprom.i.i80
+  %27 = load i8, ptr %arrayidx.i.i81, align 1, !tbaa !25
+  %tobool.not.i.i82 = icmp eq i8 %27, 0
   br i1 %tobool.not.i.i82, label %for.end.i.i83, label %land.rhs.i.i61, !llvm.loop !74
 
 land.rhs.i.i61:                                   ; preds = %if.end.i56, %for.cond.i.i78
-  %29 = phi i8 [ %28, %for.cond.i.i78 ], [ %27, %if.end.i56 ]
+  %28 = phi i8 [ %27, %for.cond.i.i78 ], [ %26, %if.end.i56 ]
   %idxprom39.i.i62 = phi i64 [ %idxprom.i.i80, %for.cond.i.i78 ], [ 0, %if.end.i56 ]
   %i.038.i.i63 = phi i32 [ %inc.i.i79, %for.cond.i.i78 ], [ 0, %if.end.i56 ]
-  %arrayidx.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %16, i64 %idxprom39.i.i62
-  %30 = load i8, ptr %arrayidx.i.i.i.i64, align 1, !tbaa !25
-  %tobool3.not.i.i65 = icmp eq i8 %30, 0
+  %arrayidx.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %15, i64 %idxprom39.i.i62
+  %29 = load i8, ptr %arrayidx.i.i.i.i64, align 1, !tbaa !25
+  %tobool3.not.i.i65 = icmp eq i8 %29, 0
   br i1 %tobool3.not.i.i65, label %for.end.i.i83, label %for.body.i.i66
 
 for.body.i.i66:                                   ; preds = %land.rhs.i.i61
-  %conv.i.i67 = sext i8 %29 to i32
-  %31 = add nsw i32 %conv.i.i67, -65
-  %or.cond.i.i.i68 = icmp ult i32 %31, 26
+  %conv.i.i67 = sext i8 %28 to i32
+  %30 = add nsw i32 %conv.i.i67, -65
+  %or.cond.i.i.i68 = icmp ult i32 %30, 26
   %add.i.i.i69 = add nsw i32 %conv.i.i67, 32
   %cond.i.i.i70 = select i1 %or.cond.i.i.i68, i32 %add.i.i.i69, i32 %conv.i.i67
-  %conv8.i.i71 = sext i8 %30 to i32
-  %32 = add nsw i32 %conv8.i.i71, -65
-  %or.cond.i29.i.i72 = icmp ult i32 %32, 26
+  %conv8.i.i71 = sext i8 %29 to i32
+  %31 = add nsw i32 %conv8.i.i71, -65
+  %or.cond.i29.i.i72 = icmp ult i32 %31, 26
   %add.i30.i.i73 = add nsw i32 %conv8.i.i71, 32
   %cond.i31.i.i74 = select i1 %or.cond.i29.i.i72, i32 %add.i30.i.i73, i32 %conv8.i.i71
   %tobool10.not.i.i75 = icmp eq i32 %cond.i.i.i70, %cond.i31.i.i74
@@ -5197,11 +5192,11 @@ for.body.i.i66:                                   ; preds = %land.rhs.i.i61
 
 for.end.i.i83:                                    ; preds = %land.rhs.i.i61, %for.cond.i.i78, %if.end.i56
   %_M_string_length.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %element, i64 40
-  %33 = load i64, ptr %_M_string_length.i.i.i.i84, align 8, !tbaa !10
-  %conv.i32.i.i85 = trunc i64 %33 to i32
+  %32 = load i64, ptr %_M_string_length.i.i.i.i84, align 8, !tbaa !10
+  %conv.i32.i.i85 = trunc i64 %32 to i32
   %_M_string_length.i.i33.i.i86 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i, i64 40
-  %34 = load i64, ptr %_M_string_length.i.i33.i.i86, align 8, !tbaa !10
-  %conv.i34.i.i87 = trunc i64 %34 to i32
+  %33 = load i64, ptr %_M_string_length.i.i33.i.i86, align 8, !tbaa !10
+  %conv.i34.i.i87 = trunc i64 %33 to i32
   %cmp15.i.i88 = icmp ult i32 %conv.i32.i.i85, %conv.i34.i.i87
   br i1 %cmp15.i.i88, label %return, label %if.end24
 
@@ -5209,7 +5204,7 @@ _ZNK3irr2io14SFileListEntryltERKS1_.exit89:       ; preds = %for.body.i.i66
   %cmp.le.i.i77 = icmp slt i32 %cond.i.i.i70, %cond.i31.i.i74
   br i1 %cmp.le.i.i77, label %return, label %if.end24
 
-if.end24:                                         ; preds = %_ZNK3irr2io14SFileListEntryltERKS1_.exit89, %for.end.i.i83, %if.then.i
+if.end24:                                         ; preds = %_ZNK3irr2io14SFileListEntryltERKS1_.exit89, %for.end.i.i83
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.0.lcssa.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5217,8 +5212,8 @@ if.end24:                                         ; preds = %_ZNK3irr2io14SFileL
   %conv29 = trunc i64 %sub.ptr.div.i to i32
   br label %return
 
-return:                                           ; preds = %if.end24, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89, %for.end.i.i83, %_ZNK3irr2io14SFileListEntryltERKS1_.exit, %for.end.i.i, %if.then.i, %entry
-  %retval.1 = phi i32 [ -1, %entry ], [ %conv29, %if.end24 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit ], [ -1, %if.then.i ], [ -1, %for.end.i.i ], [ -1, %for.end.i.i83 ]
+return:                                           ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit, %if.end24, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89, %for.end.i.i83, %_ZNK3irr2io14SFileListEntryltERKS1_.exit, %for.end.i.i, %entry
+  %retval.1 = phi i32 [ -1, %entry ], [ %conv29, %if.end24 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit89 ], [ -1, %_ZNK3irr2io14SFileListEntryltERKS1_.exit ], [ -1, %for.end.i.i ], [ -1, %for.end.i.i83 ], [ -1, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEES4_ET_SB_SB_RKT0_.exit ]
   ret i32 %retval.1
 }
 

@@ -3357,7 +3357,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %22, %19, %_ZN4llvm5
   %29 = load i64, ptr %0, align 8, !tbaa !9
   %30 = load i64, ptr %25, align 8, !tbaa !9
   %31 = icmp eq i64 %29, %30
-  br i1 %31, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
+  br i1 %31, label %33, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
 _ZNK4llvm5APInteqERKS0_.exit.i:                   ; preds = %_ZN4llvm5APIntD2Ev.exit
   %32 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %25) #15
@@ -3387,11 +3387,6 @@ _ZNK4llvm13ConstantRange9isFullSetEv.exit:        ; preds = %_ZNK4llvm5APInteqER
   %45 = icmp eq i32 %44, %.fr
   br i1 %45, label %_ZNK4llvm5APInteqERKS0_.exit.i22, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
 
-_ZNK4llvm13ConstantRange10isEmptySetEv.exit:      ; preds = %28
-  %.old = or i64 %30, %29
-  %spec.select.i.old = icmp eq i64 %.old, 0
-  br i1 %spec.select.i.old, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit24, label %_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread
-
 _ZNK4llvm5APInteqERKS0_.exit.i22:                 ; preds = %43, %_ZNK4llvm13ConstantRange9isFullSetEv.exit
   %46 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %47 = icmp eq i32 %46, %.fr
@@ -3403,7 +3398,7 @@ _ZNK4llvm5APInteqERKS0_.exit.i22:                 ; preds = %43, %_ZNK4llvm13Con
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %6, i64 noundef 0, i1 noundef zeroext false) #14
   br label %_ZN4llvm5APIntC2Ejmbb.exit25
 
-_ZNK4llvm13ConstantRange10isEmptySetEv.exit24:    ; preds = %33, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit, %35
+_ZNK4llvm13ConstantRange10isEmptySetEv.exit24:    ; preds = %33, %35
   %49 = or i64 %30, %29
   %.fr66 = freeze i64 %49
   %spec.select.i23 = icmp eq i64 %.fr66, 0
@@ -3440,7 +3435,7 @@ _ZN4llvm5APIntD2Ev.exit27:                        ; preds = %58, %55, %_ZN4llvm5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   br label %_ZN4llvm5APIntaSERKS0_.exit
 
-_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %35, %_ZNK4llvm5APInteqERKS0_.exit.i, %43, %_ZNK4llvm13ConstantRange10isEmptySetEv.exit
+_ZNK4llvm13ConstantRange10isEmptySetEv.exit.thread: ; preds = %28, %35, %_ZNK4llvm5APInteqERKS0_.exit.i, %43
   %61 = call noundef ptr @_ZNK4llvm13ConstantRange16getSingleElementEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %74, label %62

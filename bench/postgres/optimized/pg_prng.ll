@@ -9,37 +9,28 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @pg_prng_seed(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = add i64 %1, -7046029254386353131
-  %4 = lshr i64 %3, 30
-  %5 = xor i64 %4, %3
-  %6 = mul i64 %5, -4658895280553007687
-  %7 = lshr i64 %6, 27
-  %8 = xor i64 %7, %6
-  %9 = mul i64 %8, -7723592293110705685
-  %10 = lshr i64 %9, 31
-  %11 = xor i64 %10, %9
-  store i64 %11, ptr %0, align 8
-  %12 = add i64 %1, 4354685564936845354
-  %13 = lshr i64 %12, 30
-  %14 = xor i64 %13, %12
-  %15 = mul i64 %14, -4658895280553007687
-  %16 = lshr i64 %15, 27
-  %17 = xor i64 %16, %15
-  %18 = mul i64 %17, -7723592293110705685
-  %19 = lshr i64 %18, 31
-  %20 = xor i64 %19, %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %21, align 8
-  %22 = or i64 %3, %12
-  %or.cond = icmp eq i64 %22, 0
-  br i1 %or.cond, label %23, label %pg_prng_seed_check.exit, !prof !3
-
-23:                                               ; preds = %2
-  store i64 6364136223846793005, ptr %0, align 8
-  store i64 1442695040888963407, ptr %21, align 8
-  br label %pg_prng_seed_check.exit
-
-pg_prng_seed_check.exit:                          ; preds = %2, %23
+pg_prng_seed_check.exit:
+  %2 = add i64 %1, -7046029254386353131
+  %3 = lshr i64 %2, 30
+  %4 = xor i64 %3, %2
+  %5 = mul i64 %4, -4658895280553007687
+  %6 = lshr i64 %5, 27
+  %7 = xor i64 %6, %5
+  %8 = mul i64 %7, -7723592293110705685
+  %9 = lshr i64 %8, 31
+  %10 = xor i64 %9, %8
+  store i64 %10, ptr %0, align 8
+  %11 = add i64 %1, 4354685564936845354
+  %12 = lshr i64 %11, 30
+  %13 = xor i64 %12, %11
+  %14 = mul i64 %13, -4658895280553007687
+  %15 = lshr i64 %14, 27
+  %16 = xor i64 %15, %14
+  %17 = mul i64 %16, -7723592293110705685
+  %18 = lshr i64 %17, 31
+  %19 = xor i64 %18, %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %19, ptr %20, align 8
   ret void
 }
 
@@ -53,7 +44,7 @@ define noundef zeroext i1 @pg_prng_seed_check(ptr noundef captures(none) %0) loc
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %.critedge, !prof !4
+  br i1 %7, label %8, label %.critedge, !prof !3
 
 8:                                                ; preds = %4
   store i64 6364136223846793005, ptr %0, align 8
@@ -89,16 +80,6 @@ define void @pg_prng_fseed(ptr noundef writeonly captures(none) initializes((0, 
   %22 = xor i64 %21, %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = or i64 %5, %14
-  %or.cond.i = icmp eq i64 %24, 0
-  br i1 %or.cond.i, label %25, label %pg_prng_seed.exit, !prof !3
-
-25:                                               ; preds = %2
-  store i64 6364136223846793005, ptr %0, align 8
-  store i64 1442695040888963407, ptr %23, align 8
-  br label %pg_prng_seed.exit
-
-pg_prng_seed.exit:                                ; preds = %2, %25
   ret void
 }
 
@@ -126,7 +107,7 @@ define i64 @pg_prng_uint64(ptr noundef captures(none) %0) local_unnamed_addr #1 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i64 @pg_prng_uint64_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ugt i64 %2, %1
-  br i1 %4, label %5, label %25, !prof !5
+  br i1 %4, label %5, label %25, !prof !4
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
@@ -152,7 +133,7 @@ define i64 @pg_prng_uint64_range(ptr noundef captures(none) %0, i64 noundef %1, 
   %22 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 37)
   %23 = lshr i64 %17, %7
   %24 = icmp ugt i64 %23, %6
-  br i1 %24, label %9, label %.loopexit, !llvm.loop !6
+  br i1 %24, label %9, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %9
   store i64 %21, ptr %0, align 8
@@ -211,7 +192,7 @@ define range(i64 0, -9223372036854775808) i64 @pg_prng_int64p(ptr noundef captur
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i64 @pg_prng_int64_range(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp sgt i64 %2, %1
-  br i1 %4, label %5, label %26, !prof !5
+  br i1 %4, label %5, label %26, !prof !4
 
 5:                                                ; preds = %3
   %6 = sub i64 %2, %1
@@ -237,7 +218,7 @@ define i64 @pg_prng_int64_range(ptr noundef captures(none) %0, i64 noundef %1, i
   %22 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 37)
   %23 = lshr i64 %17, %7
   %24 = icmp ugt i64 %23, %6
-  br i1 %24, label %9, label %.loopexit.i, !llvm.loop !6
+  br i1 %24, label %9, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %9
   store i64 %21, ptr %0, align 8
@@ -447,8 +428,7 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!"branch_weights", i32 1, i32 4001}
-!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
+!3 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}

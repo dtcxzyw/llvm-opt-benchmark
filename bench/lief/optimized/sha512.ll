@@ -827,14 +827,14 @@ define internal fastcc range(i32 0, 2) i32 @mbedtls_sha512_common_self_test(i32 
   store i64 %.sink.i, ptr %20, align 8, !tbaa !9
   store i32 %1, ptr %21, align 8, !tbaa !11
   %34 = icmp eq i64 %indvars.iv, 2
-  br i1 %34, label %35, label %._crit_edge.thread.i57
+  br i1 %34, label %35, label %._crit_edge.thread.i56
 
 35:                                               ; preds = %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1000) %6, i8 97, i64 1000, i1 false)
   br label %36
 
 36:                                               ; preds = %35, %mbedtls_sha512_update.exit
-  %.074 = phi i32 [ 0, %35 ], [ %63, %mbedtls_sha512_update.exit ]
+  %.070 = phi i32 [ 0, %35 ], [ %63, %mbedtls_sha512_update.exit ]
   %37 = load i64, ptr %4, align 8, !tbaa !9
   %38 = trunc i64 %37 to i32
   %39 = and i32 %38, 127
@@ -900,48 +900,48 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %54
   br label %mbedtls_sha512_update.exit
 
 mbedtls_sha512_update.exit:                       ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %63 = add nuw nsw i32 %.074, 1
+  %63 = add nuw nsw i32 %.070, 1
   %exitcond.not = icmp eq i32 %63, 1000
-  br i1 %exitcond.not, label %mbedtls_sha512_update.exit68, label %36, !llvm.loop !23
+  br i1 %exitcond.not, label %mbedtls_sha512_update.exit64, label %36, !llvm.loop !23
 
-._crit_edge.thread.i57:                           ; preds = %33
+._crit_edge.thread.i56:                           ; preds = %33
   %64 = getelementptr inbounds nuw [3 x [113 x i8]], ptr @sha_test_buf, i64 0, i64 %indvars.iv
   %65 = getelementptr inbounds nuw [3 x i64], ptr @sha_test_buflen, i64 0, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !9
   store i64 %66, ptr %4, align 8, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 1 %64, i64 %66, i1 false)
-  br label %mbedtls_sha512_update.exit68
+  br label %mbedtls_sha512_update.exit64
 
-mbedtls_sha512_update.exit68:                     ; preds = %mbedtls_sha512_update.exit, %._crit_edge.thread.i57
+mbedtls_sha512_update.exit64:                     ; preds = %mbedtls_sha512_update.exit, %._crit_edge.thread.i56
   %67 = call i32 @mbedtls_sha512_finish(ptr noundef nonnull %4, ptr noundef nonnull %3)
   %68 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %68, i64 %26)
   %.not45 = icmp eq i32 %bcmp, 0
   br i1 %.not45, label %69, label %72
 
-69:                                               ; preds = %mbedtls_sha512_update.exit68
+69:                                               ; preds = %mbedtls_sha512_update.exit64
   br i1 %.not41, label %70, label %.thread
 
 70:                                               ; preds = %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond82.not, label %.loopexit, label %.backedge.backedge
+  %exitcond78.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond78.not, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %70, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %70 ], [ %indvars.iv.next83, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %70 ], [ %indvars.iv.next79, %.thread ]
   br label %.backedge, !llvm.loop !24
 
 .thread:                                          ; preds = %69
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond82.not84 = icmp eq i64 %indvars.iv.next83, 3
-  br i1 %exitcond82.not84, label %71, label %.backedge.backedge
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond78.not80 = icmp eq i64 %indvars.iv.next79, 3
+  br i1 %exitcond78.not80, label %71, label %.backedge.backedge
 
 71:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)
   br label %.loopexit
 
-72:                                               ; preds = %mbedtls_sha512_update.exit68
+72:                                               ; preds = %mbedtls_sha512_update.exit64
   br i1 %.not41, label %.loopexit, label %73
 
 73:                                               ; preds = %72
