@@ -43150,24 +43150,24 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %or.cond62.i = icmp ult i32 %68, -15
   br i1 %or.cond62.i, label %77, label %69
 
-69:                                               ; preds = %66
+7:                                                ; preds = %66
   %70 = zext nneg i32 %57 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %.012, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %73 = sext i32 %55 to i64
   %74 = sub nsw i64 %73, %70
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %71, i64 %74, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull align 1 %9, i64 %74, i1 false)
   store i8 46, ptr %71, align 1
-  %75 = getelementptr i8, ptr %.012, i64 %73
-  %76 = getelementptr i8, ptr %75, i64 1
+  %13 = getelementptr i8, ptr %.012, i64 %73
+  %76 = getelementptr i8, ptr %13, i64 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
 77:                                               ; preds = %66
   %78 = add i32 %57, 3
-  %or.cond.i = icmp ult i32 %78, 4
-  br i1 %or.cond.i, label %79, label %88
+  %16 = icmp ult i32 %78, 4
+  br i1 %16, label %79, label %88
 
-79:                                               ; preds = %77
+56:                                               ; preds = %77
   %80 = sub nsw i32 0, %57
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr i8, ptr %.012, i64 %81
@@ -43182,12 +43182,12 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %87 = getelementptr i8, ptr %83, i64 %84
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-88:                                               ; preds = %77
+88: ; preds = %77
   %89 = icmp eq i32 %55, 1
   br i1 %89, label %96, label %90
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %.012, i64 2
+90:; preds = %88
+  %69 = getelementptr inbounds nuw i8, ptr %.012, i64 2
   %92 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %93 = sext i32 %55 to i64
   %94 = add nsw i64 %93, -1
@@ -43196,8 +43196,8 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %95 = getelementptr i8, ptr %.012, i64 %93
   br label %96
 
-96:                                               ; preds = %90, %88
-  %.pn.i = phi ptr [ %95, %90 ], [ %.012, %88 ]
+_ZN8nlohmann6detail9dtoa_impl15append_exponentEPci.exit: ; preds = %90, %88
+  %.0 = phi ptr [ %95, %90 ], [ %.012, %88 ]
   %.056.i = getelementptr i8, ptr %.pn.i, i64 1
   %97 = getelementptr i8, ptr %.pn.i, i64 2
   store i8 101, ptr %.056.i, align 1

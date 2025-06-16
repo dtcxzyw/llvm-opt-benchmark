@@ -12634,13 +12634,13 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %65 = getelementptr i8, ptr %63, i64 2
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-66:                                               ; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
+66:; preds = %_ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit
   %67 = icmp slt i32 %57, 1
   %68 = add i32 %57, -16
   %or.cond62.i = icmp ult i32 %68, -15
   br i1 %or.cond62.i, label %77, label %69
 
-69:                                               ; preds = %66
+69:  ; preds = %66
   %70 = zext nneg i32 %57 to i64
   %71 = getelementptr inbounds nuw i8, ptr %.012, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
@@ -12652,12 +12652,12 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %76 = getelementptr i8, ptr %75, i64 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-77:                                               ; preds = %66
+77: ; preds = %66
   %78 = add i32 %57, 3
   %or.cond.i = icmp ult i32 %78, 4
   br i1 %or.cond.i, label %79, label %88
 
-79:                                               ; preds = %77
+79:; preds = %77
   %80 = sub nsw i32 0, %57
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr i8, ptr %.012, i64 %81
@@ -12669,16 +12669,16 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   store i8 46, ptr %85, align 1
   %86 = getelementptr inbounds nuw i8, ptr %.012, i64 2
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %86, i8 48, i64 %81, i1 false)
-  %87 = getelementptr i8, ptr %83, i64 %84
+  %30 = getelementptr i8, ptr %83, i64 %84
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-88:                                               ; preds = %77
+88:       ; preds = %77
   %89 = icmp eq i32 %55, 1
   br i1 %89, label %96, label %90
 
-90:                                               ; preds = %88
+90: ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %.012, i64 2
-  %92 = getelementptr inbounds nuw i8, ptr %.012, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %93 = sext i32 %55 to i64
   %94 = add nsw i64 %93, -1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %91, ptr nonnull align 1 %92, i64 %94, i1 false)
@@ -12686,7 +12686,7 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %95 = getelementptr i8, ptr %.012, i64 %93
   br label %96
 
-96:                                               ; preds = %90, %88
+96: ; preds = %90, %88
   %.pn.i = phi ptr [ %95, %90 ], [ %.012, %88 ]
   %.056.i = getelementptr i8, ptr %.pn.i, i64 1
   %97 = getelementptr i8, ptr %.pn.i, i64 2
@@ -12697,9 +12697,9 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   %.023.i.i = getelementptr i8, ptr %.pn.i, i64 3
   store i8 %storemerge.i.i, ptr %97, align 1
   %99 = icmp samesign ult i32 %.0.i.i, 10
-  br i1 %99, label %100, label %105
+  br i1 %99, label %100, label %48
 
-100:                                              ; preds = %96
+100:; preds = %96
   %101 = getelementptr i8, ptr %.pn.i, i64 4
   store i8 48, ptr %.023.i.i, align 1
   %102 = trunc nuw nsw i32 %.0.i.i to i8
@@ -12708,12 +12708,12 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   store i8 %103, ptr %101, align 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-105:                                              ; preds = %96
+48:                                               ; preds = %96
   %106 = icmp samesign ult i32 %.0.i.i, 100
   %107 = getelementptr i8, ptr %.pn.i, i64 4
   br i1 %106, label %108, label %114
 
-108:                                              ; preds = %105
+108:; preds = %48
   %.lhs.trunc.i.i = trunc nuw nsw i32 %.0.i.i to i8
   %109 = udiv i8 %.lhs.trunc.i.i, 10
   %110 = or disjoint i8 %109, 48
@@ -12724,7 +12724,7 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   store i8 %112, ptr %107, align 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-114:                                              ; preds = %105
+114:; preds = %105
   %115 = udiv i32 %.0.i.i, 100
   %116 = trunc i32 %115 to i8
   %117 = add i8 %116, 48
@@ -12741,7 +12741,7 @@ _ZN8nlohmann6detail9dtoa_impl6grisu2IdEEvPcRiS4_T_.exit: ; preds = %.lr.ph.i23.i
   store i8 %123, ptr %121, align 1
   br label %_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit
 
-_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit: ; preds = %114, %108, %100, %79, %69, %58, %15
+_ZN8nlohmann6detail9dtoa_impl13format_bufferEPciiii.exit:; preds = %114, %108, %100, %79, %69, %58, %15
   %.0 = phi ptr [ %18, %15 ], [ %65, %58 ], [ %76, %69 ], [ %87, %79 ], [ %104, %100 ], [ %113, %108 ], [ %124, %114 ]
   ret ptr %.0
 }
