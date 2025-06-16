@@ -2449,15 +2449,14 @@ declare void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatEifiib(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #8 {
-  %7 = sub i32 %3, %1
-  %8 = add i32 %3, %1
-  %.not63 = icmp sgt i32 %7, %8
-  br i1 %.not63, label %.thread, label %.lr.ph67
+  %7 = add nsw i32 %3, %1
+  %.not63 = icmp slt i32 %1, 0
+  br i1 %.not63, label %.thread, label %.lr.ph67.split
 
-.lr.ph67:                                         ; preds = %6
+.lr.ph67.split:                                   ; preds = %6
+  %8 = sub i32 %3, %1
   %9 = sub nsw i32 %4, %1
-  %10 = add i32 %4, %1
-  %.not4556 = icmp sgt i32 %9, %10
+  %10 = add nsw i32 %4, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2466,13 +2465,10 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  br i1 %.not4556, label %.thread, label %.lr.ph67.split
-
-.lr.ph67.split:                                   ; preds = %.lr.ph67
   br i1 %5, label %.lr.ph.us, label %.lr.ph
 
 .lr.ph.us:                                        ; preds = %.lr.ph67.split, %._crit_edge.us
-  %.03964.us70 = phi i32 [ %21, %._crit_edge.us ], [ %7, %.lr.ph67.split ]
+  %.03964.us70 = phi i32 [ %21, %._crit_edge.us ], [ %8, %.lr.ph67.split ]
   %19 = icmp sgt i32 %.03964.us70, -1
   %.not46.us = icmp eq i32 %.03964.us70, %3
   %20 = zext nneg i32 %.03964.us70 to i64
@@ -2480,7 +2476,7 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
 
 ._crit_edge.us:                                   ; preds = %33, %45, %.lr.ph.split.us.us, %.lr.ph.us
   %21 = add i32 %.03964.us70, 1
-  %.not.us75 = icmp sgt i32 %21, %8
+  %.not.us75 = icmp sgt i32 %21, %7
   br i1 %.not.us75, label %.thread, label %.lr.ph.us, !llvm.loop !128
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us
@@ -2509,9 +2505,9 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %25, %.lr.ph.split.us.split.split.us.us.split.us
-  %34 = add i32 %.057.us.us58.us.us, 1
-  %exitcond96.not = icmp eq i32 %.057.us.us58.us.us, %10
-  br i1 %exitcond96.not, label %._crit_edge.us, label %.lr.ph.split.us.split.split.us.us.split.us, !llvm.loop !129
+  %34 = add nsw i32 %.057.us.us58.us.us, 1
+  %.not45.us.us59.us.us.not = icmp slt i32 %.057.us.us58.us.us, %10
+  br i1 %.not45.us.us59.us.us.not, label %.lr.ph.split.us.split.split.us.us.split.us, label %._crit_edge.us, !llvm.loop !129
 
 .lr.ph.split.us.split.split.us.us.split:          ; preds = %.lr.ph.split.us.split.us76, %45
   %.057.us.us58.us = phi i32 [ %46, %45 ], [ %9, %.lr.ph.split.us.split.us76 ]
@@ -2533,12 +2529,12 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %37, %.lr.ph.split.us.split.split.us.us.split
-  %46 = add i32 %.057.us.us58.us, 1
-  %exitcond97.not = icmp eq i32 %.057.us.us58.us, %10
-  br i1 %exitcond97.not, label %._crit_edge.us, label %.lr.ph.split.us.split.split.us.us.split, !llvm.loop !129
+  %46 = add nsw i32 %.057.us.us58.us, 1
+  %.not45.us.us59.us.not = icmp slt i32 %.057.us.us58.us, %10
+  br i1 %.not45.us.us59.us.not, label %.lr.ph.split.us.split.split.us.us.split, label %._crit_edge.us, !llvm.loop !129
 
 .lr.ph:                                           ; preds = %.lr.ph67.split, %._crit_edge
-  %.03964 = phi i32 [ %62, %._crit_edge ], [ %7, %.lr.ph67.split ]
+  %.03964 = phi i32 [ %62, %._crit_edge ], [ %8, %.lr.ph67.split ]
   %47 = icmp sgt i32 %.03964, -1
   %48 = zext nneg i32 %.03964 to i64
   br i1 %47, label %.lr.ph.split.us, label %._crit_edge
@@ -2566,17 +2562,17 @@ define hidden noundef zeroext i1 @_ZN2cv27check_maximum_neighbourhoodERKNS_3MatE
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %52, %.lr.ph.split.us.split
-  %61 = add i32 %.057.us, 1
-  %exitcond.not = icmp eq i32 %.057.us, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !129
+  %61 = add nsw i32 %.057.us, 1
+  %.not45.us.not = icmp slt i32 %.057.us, %10
+  br i1 %.not45.us.not, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %60, %.lr.ph.split.us, %.lr.ph
-  %62 = add i32 %.03964, 1
-  %exitcond95.not = icmp eq i32 %.03964, %8
-  br i1 %exitcond95.not, label %.thread, label %.lr.ph, !llvm.loop !128
+  %62 = add nsw i32 %.03964, 1
+  %.not.not = icmp slt i32 %.03964, %7
+  br i1 %.not.not, label %.lr.ph, label %.thread, !llvm.loop !128
 
-.thread:                                          ; preds = %._crit_edge, %52, %._crit_edge.us, %25, %37, %.lr.ph67, %6
-  %.not55 = phi i1 [ true, %6 ], [ true, %.lr.ph67 ], [ false, %37 ], [ false, %25 ], [ true, %._crit_edge.us ], [ false, %52 ], [ true, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %52, %._crit_edge.us, %25, %37, %6
+  %.not55 = phi i1 [ true, %6 ], [ false, %37 ], [ false, %25 ], [ true, %._crit_edge.us ], [ false, %52 ], [ true, %._crit_edge ]
   ret i1 %.not55
 }
 
