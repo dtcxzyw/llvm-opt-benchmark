@@ -553,15 +553,15 @@ define dso_local void @_ZN5clang7targets16getDarwinDefinesERNS_12MacroBuilderERK
   %35 = load i32, ptr %34, align 4, !tbaa !23
   %36 = and i32 %35, -9
   %spec.select.i = icmp eq i32 %36, 1
-  %.sink232.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 5
-  %.sink232.sroa.gep242 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %.sink234.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sink234.sroa.gep243 = getelementptr inbounds nuw i8, ptr %10, i64 5
-  %.sink237.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %.sink237.sroa.gep244 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  br i1 %spec.select.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread226, label %38
+  %.sink229.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %.sink229.sroa.gep239 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %.sink231.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sink231.sroa.gep240 = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %.sink234.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %.sink234.sroa.gep241 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  br i1 %spec.select.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223, label %38
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread226: ; preds = %5
+_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223: ; preds = %5
   %37 = call noundef zeroext i1 @_ZNK4llvm6Triple16getMacOSXVersionERNS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 4 dereferenceable(16) %9) #7
   store ptr @.str.16, ptr %3, align 8, !tbaa !33
   %.sroa.4202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -601,15 +601,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %38
   store i64 11, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !34
   br label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread207
 
-_ZN4llvmeqENS_9StringRefES0_.exit38:              ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread226
-  %.sroa.0.0.copyload230 = phi ptr [ @.str.16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread226 ], [ %44, %38 ]
-  %bcmp.i37 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0.0.copyload230, ptr noundef nonnull dereferenceable(5) @.str.19, i64 5)
+_ZN4llvmeqENS_9StringRefES0_.exit38:              ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223
+  %.sroa.0.0.copyload227 = phi ptr [ @.str.16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223 ], [ %44, %38 ]
+  %bcmp.i37 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0.0.copyload227, ptr noundef nonnull dereferenceable(5) @.str.19, i64 5)
   %51 = icmp eq i32 %bcmp.i37, 0
   br i1 %51, label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread207
 
 _ZN4llvmeqENS_9StringRefES0_.exit38.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !35
-  br label %178
+  br label %181
 
 _ZN4llvmeqENS_9StringRefES0_.exit38.thread207:    ; preds = %38, %50, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit38
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %10) #7
@@ -629,14 +629,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.thread207:    ; preds = %38, %50, %_ZN4llvme
   br i1 %60, label %.thread, label %61
 
 61:                                               ; preds = %56
-  %.not213 = icmp eq i32 %55, 10
+  %.not212 = icmp eq i32 %55, 10
   %62 = and i64 %.fr, 9223372028264841216
   %63 = icmp samesign ult i64 %62, 42949672960
-  %or.cond219 = select i1 %.not213, i1 %63, i1 false
-  br i1 %or.cond219, label %.thread, label %..critedge.thread_crit_edge
+  %or.cond216 = select i1 %.not212, i1 %63, i1 false
+  br i1 %or.cond216, label %.thread, label %..critedge.thread_crit_edge
 
 ..critedge.thread_crit_edge:                      ; preds = %61
-  %.pre222 = trunc i64 %.fr to i32
+  %.pre219 = trunc i64 %.fr to i32
   br label %.critedge.thread
 
 .thread:                                          ; preds = %61, %56
@@ -651,309 +651,309 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.thread207:    ; preds = %38, %50, %_ZN4llvme
   store i8 %67, ptr %68, align 1, !tbaa !8
   %69 = trunc nuw i64 %57 to i32
   %70 = and i32 %69, 2147483647
-  %.not217 = icmp sgt i64 %.fr, -1
-  %71 = call i32 @llvm.umin.i32(i32 %70, i32 9)
-  %72 = trunc nuw nsw i32 %71 to i8
-  %73 = or disjoint i8 %72, 48
-  %74 = select i1 %.not217, i8 48, i8 %73
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %74, ptr %75, align 1, !tbaa !8
-  %76 = trunc i64 %59 to i32
-  %.sroa.0177.0.extract.trunc = and i32 %76, 2147483647
-  %77 = and i64 %59, 2147483648
-  %.not218 = icmp eq i64 %77, 0
-  %78 = call i32 @llvm.umin.i32(i32 %.sroa.0177.0.extract.trunc, i32 9)
-  %79 = trunc nuw nsw i32 %78 to i8
-  %80 = or disjoint i8 %79, 48
-  %81 = select i1 %.not218, i8 48, i8 %80
-  %82 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %81, ptr %82, align 1, !tbaa !8
-  %83 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 0, ptr %83, align 1, !tbaa !8
-  br label %.thread231
+  %71 = icmp slt i64 %.fr, 0
+  %72 = call i32 @llvm.umin.i32(i32 %70, i32 9)
+  %73 = trunc nuw nsw i32 %72 to i8
+  %74 = or disjoint i8 %73, 48
+  %75 = select i1 %71, i8 %74, i8 48
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 %75, ptr %76, align 1, !tbaa !8
+  %77 = trunc i64 %59 to i32
+  %.sroa.0177.0.extract.trunc = and i32 %77, 2147483647
+  %78 = and i64 %59, 2147483648
+  %.not215 = icmp eq i64 %78, 0
+  %79 = call i32 @llvm.umin.i32(i32 %.sroa.0177.0.extract.trunc, i32 9)
+  %80 = trunc nuw nsw i32 %79 to i8
+  %81 = or disjoint i8 %80, 48
+  %82 = select i1 %.not215, i8 48, i8 %81
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  store i8 %82, ptr %83, align 1, !tbaa !8
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i8 0, ptr %84, align 1, !tbaa !8
+  br label %.thread228
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit38.thread207
-  %84 = icmp ult i32 %55, 10
-  br i1 %84, label %85, label %.critedge..critedge.thread_crit_edge
+  %85 = icmp ult i32 %55, 10
+  br i1 %85, label %86, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.critedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %.critedge.thread
 
-85:                                               ; preds = %.critedge
-  %86 = trunc i64 %.fr to i8
-  %87 = or disjoint i8 %86, 48
-  store i8 %87, ptr %10, align 1, !tbaa !8
-  %88 = lshr i64 %.fr, 32
-  %89 = trunc nuw i64 %88 to i32
-  %90 = and i32 %89, 2147483647
-  %.not = icmp sgt i64 %.fr, -1
-  %.0.i57 = select i1 %.not, i32 0, i32 %90
-  %91 = udiv i32 %.0.i57, 10
-  %92 = trunc i32 %91 to i8
-  %93 = add i8 %92, 48
-  %94 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %93, ptr %94, align 1, !tbaa !8
-  %95 = urem i32 %.0.i57, 10
-  %96 = trunc nuw nsw i32 %95 to i8
-  %97 = or disjoint i8 %96, 48
-  %98 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %97, ptr %98, align 1, !tbaa !8
-  %99 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %100 = load i64, ptr %99, align 8
-  br label %120
+86:                                               ; preds = %.critedge
+  %87 = trunc i64 %.fr to i8
+  %88 = or disjoint i8 %87, 48
+  store i8 %88, ptr %10, align 1, !tbaa !8
+  %89 = lshr i64 %.fr, 32
+  %90 = trunc nuw i64 %89 to i32
+  %91 = and i32 %90, 2147483647
+  %92 = icmp slt i64 %.fr, 0
+  %.0.i57 = select i1 %92, i32 %91, i32 0
+  %93 = udiv i32 %.0.i57, 10
+  %94 = trunc i32 %93 to i8
+  %95 = add i8 %94, 48
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 %95, ptr %96, align 1, !tbaa !8
+  %97 = urem i32 %.0.i57, 10
+  %98 = trunc nuw nsw i32 %97 to i8
+  %99 = or disjoint i8 %98, 48
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 %99, ptr %100, align 1, !tbaa !8
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %102 = load i64, ptr %101, align 8
+  br label %123
 
 .critedge.thread:                                 ; preds = %..critedge.thread_crit_edge, %.critedge..critedge.thread_crit_edge
-  %.pre-phi = phi i32 [ %.pre222, %..critedge.thread_crit_edge ], [ %55, %.critedge..critedge.thread_crit_edge ]
-  %101 = phi i64 [ %59, %..critedge.thread_crit_edge ], [ %.pre, %.critedge..critedge.thread_crit_edge ]
-  %102 = udiv i32 %.pre-phi, 10
-  %103 = trunc i32 %102 to i8
-  %104 = add i8 %103, 48
-  store i8 %104, ptr %10, align 1, !tbaa !8
-  %105 = urem i32 %.pre-phi, 10
-  %106 = trunc nuw nsw i32 %105 to i8
-  %107 = or disjoint i8 %106, 48
-  %108 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %107, ptr %108, align 1, !tbaa !8
-  %109 = lshr i64 %.fr, 32
-  %110 = trunc nuw i64 %109 to i32
-  %111 = and i32 %110, 2147483647
-  %.not215 = icmp sgt i64 %.fr, -1
-  %.0.i83 = select i1 %.not215, i32 0, i32 %111
-  %112 = udiv i32 %.0.i83, 10
-  %113 = trunc i32 %112 to i8
-  %114 = add i8 %113, 48
-  %115 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %114, ptr %115, align 1, !tbaa !8
-  %116 = urem i32 %.0.i83, 10
-  %117 = trunc nuw nsw i32 %116 to i8
-  %118 = or disjoint i8 %117, 48
-  %119 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %118, ptr %119, align 1, !tbaa !8
-  br label %120
+  %.pre-phi = phi i32 [ %.pre219, %..critedge.thread_crit_edge ], [ %55, %.critedge..critedge.thread_crit_edge ]
+  %103 = phi i64 [ %59, %..critedge.thread_crit_edge ], [ %.pre, %.critedge..critedge.thread_crit_edge ]
+  %104 = udiv i32 %.pre-phi, 10
+  %105 = trunc i32 %104 to i8
+  %106 = add i8 %105, 48
+  store i8 %106, ptr %10, align 1, !tbaa !8
+  %107 = urem i32 %.pre-phi, 10
+  %108 = trunc nuw nsw i32 %107 to i8
+  %109 = or disjoint i8 %108, 48
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 %109, ptr %110, align 1, !tbaa !8
+  %111 = lshr i64 %.fr, 32
+  %112 = trunc nuw i64 %111 to i32
+  %113 = and i32 %112, 2147483647
+  %114 = icmp slt i64 %.fr, 0
+  %.0.i83 = select i1 %114, i32 %113, i32 0
+  %115 = udiv i32 %.0.i83, 10
+  %116 = trunc i32 %115 to i8
+  %117 = add i8 %116, 48
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 %117, ptr %118, align 1, !tbaa !8
+  %119 = urem i32 %.0.i83, 10
+  %120 = trunc nuw nsw i32 %119 to i8
+  %121 = or disjoint i8 %120, 48
+  %122 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  store i8 %121, ptr %122, align 1, !tbaa !8
+  br label %123
 
-120:                                              ; preds = %85, %.critedge.thread
-  %.sink241 = phi i64 [ %100, %85 ], [ %101, %.critedge.thread ]
-  %.sink237.sroa.phi = phi ptr [ %.sink237.sroa.gep, %85 ], [ %.sink237.sroa.gep244, %.critedge.thread ]
-  %.sink234.sroa.phi = phi ptr [ %.sink234.sroa.gep, %85 ], [ %.sink234.sroa.gep243, %.critedge.thread ]
-  %.sink232.sroa.phi = phi ptr [ %.sink232.sroa.gep, %85 ], [ %.sink232.sroa.gep242, %.critedge.thread ]
-  %121 = phi i8 [ %87, %85 ], [ %104, %.critedge.thread ]
-  %122 = trunc i64 %.sink241 to i32
-  %.sroa.0157.0.extract.trunc = and i32 %122, 2147483647
-  %123 = and i64 %.sink241, 2147483648
-  %.not212 = icmp eq i64 %123, 0
-  %.0.i70 = select i1 %.not212, i32 0, i32 %.sroa.0157.0.extract.trunc
-  %124 = udiv i32 %.0.i70, 10
-  %125 = trunc i32 %124 to i8
-  %126 = add i8 %125, 48
-  store i8 %126, ptr %.sink237.sroa.phi, align 1, !tbaa !8
-  %127 = urem i32 %.0.i70, 10
-  %128 = trunc nuw nsw i32 %127 to i8
-  %129 = or disjoint i8 %128, 48
+123:                                              ; preds = %86, %.critedge.thread
+  %.sink238 = phi i64 [ %102, %86 ], [ %103, %.critedge.thread ]
+  %.sink234.sroa.phi = phi ptr [ %.sink234.sroa.gep, %86 ], [ %.sink234.sroa.gep241, %.critedge.thread ]
+  %.sink231.sroa.phi = phi ptr [ %.sink231.sroa.gep, %86 ], [ %.sink231.sroa.gep240, %.critedge.thread ]
+  %.sink229.sroa.phi = phi ptr [ %.sink229.sroa.gep, %86 ], [ %.sink229.sroa.gep239, %.critedge.thread ]
+  %124 = phi i8 [ %88, %86 ], [ %106, %.critedge.thread ]
+  %125 = trunc i64 %.sink238 to i32
+  %.sroa.0157.0.extract.trunc = and i32 %125, 2147483647
+  %126 = and i64 %.sink238, 2147483648
+  %.not = icmp eq i64 %126, 0
+  %.0.i70 = select i1 %.not, i32 0, i32 %.sroa.0157.0.extract.trunc
+  %127 = udiv i32 %.0.i70, 10
+  %128 = trunc i32 %127 to i8
+  %129 = add i8 %128, 48
   store i8 %129, ptr %.sink234.sroa.phi, align 1, !tbaa !8
-  store i8 0, ptr %.sink232.sroa.phi, align 1, !tbaa !8
-  switch i32 %52, label %158 [
-    i32 26, label %130
-    i32 5, label %137
-    i32 27, label %144
-    i32 29, label %151
+  %130 = urem i32 %.0.i70, 10
+  %131 = trunc nuw nsw i32 %130 to i8
+  %132 = or disjoint i8 %131, 48
+  store i8 %132, ptr %.sink231.sroa.phi, align 1, !tbaa !8
+  store i8 0, ptr %.sink229.sroa.phi, align 1, !tbaa !8
+  switch i32 %52, label %161 [
+    i32 26, label %133
+    i32 5, label %140
+    i32 27, label %147
+    i32 29, label %154
   ]
 
-130:                                              ; preds = %120
+133:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #7
-  %131 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %132 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %132, align 1, !tbaa !3
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %135, align 1, !tbaa !3
   store ptr @.str.20, ptr %11, align 8, !tbaa !8
-  store i8 3, ptr %131, align 8, !tbaa !9
+  store i8 3, ptr %134, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #7
-  %133 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %134 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %134, align 1, !tbaa !3
-  %.not.i103 = icmp eq i8 %121, 0
-  br i1 %.not.i103, label %_ZN4llvm5TwineC2EPKc.exit, label %135
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %137, align 1, !tbaa !3
+  %.not.i103 = icmp eq i8 %124, 0
+  br i1 %.not.i103, label %_ZN4llvm5TwineC2EPKc.exit, label %138
 
-135:                                              ; preds = %130
+138:                                              ; preds = %133
   store ptr %10, ptr %12, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit
 
-_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %130, %135
-  %storemerge.i = phi i8 [ 3, %135 ], [ 1, %130 ]
-  store i8 %storemerge.i, ptr %133, align 8, !tbaa !9
-  %136 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i16 257, ptr %136, align 8
+_ZN4llvm5TwineC2EPKc.exit:                        ; preds = %133, %138
+  %storemerge.i = phi i8 [ 3, %138 ], [ 1, %133 ]
+  store i8 %storemerge.i, ptr %136, align 8, !tbaa !9
+  %139 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i16 257, ptr %139, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #7
-  br label %166
+  br label %169
 
-137:                                              ; preds = %120
+140:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #7
-  %138 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %139 = getelementptr inbounds nuw i8, ptr %14, i64 33
-  store i8 1, ptr %139, align 1, !tbaa !3
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %14, i64 33
+  store i8 1, ptr %142, align 1, !tbaa !3
   store ptr @.str.21, ptr %14, align 8, !tbaa !8
-  store i8 3, ptr %138, align 8, !tbaa !9
+  store i8 3, ptr %141, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #7
-  %140 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %141 = getelementptr inbounds nuw i8, ptr %15, i64 33
-  store i8 1, ptr %141, align 1, !tbaa !3
-  %.not.i107 = icmp eq i8 %121, 0
-  br i1 %.not.i107, label %_ZN4llvm5TwineC2EPKc.exit109, label %142
+  %143 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  store i8 1, ptr %144, align 1, !tbaa !3
+  %.not.i107 = icmp eq i8 %124, 0
+  br i1 %.not.i107, label %_ZN4llvm5TwineC2EPKc.exit109, label %145
 
-142:                                              ; preds = %137
+145:                                              ; preds = %140
   store ptr %10, ptr %15, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit109
 
-_ZN4llvm5TwineC2EPKc.exit109:                     ; preds = %137, %142
-  %storemerge.i108 = phi i8 [ 3, %142 ], [ 1, %137 ]
-  store i8 %storemerge.i108, ptr %140, align 8, !tbaa !9
-  %143 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i16 257, ptr %143, align 8
+_ZN4llvm5TwineC2EPKc.exit109:                     ; preds = %140, %145
+  %storemerge.i108 = phi i8 [ 3, %145 ], [ 1, %140 ]
+  store i8 %storemerge.i108, ptr %143, align 8, !tbaa !9
+  %146 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i16 257, ptr %146, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #7
-  br label %166
+  br label %169
 
-144:                                              ; preds = %120
+147:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #7
-  %145 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %146 = getelementptr inbounds nuw i8, ptr %17, i64 33
-  store i8 1, ptr %146, align 1, !tbaa !3
+  %148 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %17, i64 33
+  store i8 1, ptr %149, align 1, !tbaa !3
   store ptr @.str.22, ptr %17, align 8, !tbaa !8
-  store i8 3, ptr %145, align 8, !tbaa !9
+  store i8 3, ptr %148, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #7
-  %147 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %148 = getelementptr inbounds nuw i8, ptr %18, i64 33
-  store i8 1, ptr %148, align 1, !tbaa !3
-  %.not.i112 = icmp eq i8 %121, 0
-  br i1 %.not.i112, label %_ZN4llvm5TwineC2EPKc.exit114, label %149
+  %150 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %18, i64 33
+  store i8 1, ptr %151, align 1, !tbaa !3
+  %.not.i112 = icmp eq i8 %124, 0
+  br i1 %.not.i112, label %_ZN4llvm5TwineC2EPKc.exit114, label %152
 
-149:                                              ; preds = %144
+152:                                              ; preds = %147
   store ptr %10, ptr %18, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit114
 
-_ZN4llvm5TwineC2EPKc.exit114:                     ; preds = %144, %149
-  %storemerge.i113 = phi i8 [ 3, %149 ], [ 1, %144 ]
-  store i8 %storemerge.i113, ptr %147, align 8, !tbaa !9
-  %150 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i16 257, ptr %150, align 8
+_ZN4llvm5TwineC2EPKc.exit114:                     ; preds = %147, %152
+  %storemerge.i113 = phi i8 [ 3, %152 ], [ 1, %147 ]
+  store i8 %storemerge.i113, ptr %150, align 8, !tbaa !9
+  %153 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i16 257, ptr %153, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #7
-  br label %166
+  br label %169
 
-151:                                              ; preds = %120
+154:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #7
-  %152 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %153 = getelementptr inbounds nuw i8, ptr %20, i64 33
-  store i8 1, ptr %153, align 1, !tbaa !3
+  %155 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %20, i64 33
+  store i8 1, ptr %156, align 1, !tbaa !3
   store ptr @.str.23, ptr %20, align 8, !tbaa !8
-  store i8 3, ptr %152, align 8, !tbaa !9
+  store i8 3, ptr %155, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #7
-  %154 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %155 = getelementptr inbounds nuw i8, ptr %21, i64 33
-  store i8 1, ptr %155, align 1, !tbaa !3
-  %.not.i117 = icmp eq i8 %121, 0
-  br i1 %.not.i117, label %_ZN4llvm5TwineC2EPKc.exit119, label %156
+  %157 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %21, i64 33
+  store i8 1, ptr %158, align 1, !tbaa !3
+  %.not.i117 = icmp eq i8 %124, 0
+  br i1 %.not.i117, label %_ZN4llvm5TwineC2EPKc.exit119, label %159
 
-156:                                              ; preds = %151
+159:                                              ; preds = %154
   store ptr %10, ptr %21, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit119
 
-_ZN4llvm5TwineC2EPKc.exit119:                     ; preds = %151, %156
-  %storemerge.i118 = phi i8 [ 3, %156 ], [ 1, %151 ]
-  store i8 %storemerge.i118, ptr %154, align 8, !tbaa !9
-  %157 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store i16 257, ptr %157, align 8
+_ZN4llvm5TwineC2EPKc.exit119:                     ; preds = %154, %159
+  %storemerge.i118 = phi i8 [ 3, %159 ], [ 1, %154 ]
+  store i8 %storemerge.i118, ptr %157, align 8, !tbaa !9
+  %160 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store i16 257, ptr %160, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %22)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #7
-  br label %166
+  br label %169
 
-158:                                              ; preds = %120
-  br i1 %spec.select.i39, label %.thread231, label %166
+161:                                              ; preds = %123
+  br i1 %spec.select.i39, label %.thread228, label %169
 
-.thread231:                                       ; preds = %.thread, %158
-  %159 = phi i8 [ %121, %158 ], [ 1, %.thread ]
+.thread228:                                       ; preds = %.thread, %161
+  %162 = phi i8 [ %124, %161 ], [ 1, %.thread ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #7
-  %160 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %161 = getelementptr inbounds nuw i8, ptr %23, i64 33
-  store i8 1, ptr %161, align 1, !tbaa !3
+  %163 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %23, i64 33
+  store i8 1, ptr %164, align 1, !tbaa !3
   store ptr @.str.24, ptr %23, align 8, !tbaa !8
-  store i8 3, ptr %160, align 8, !tbaa !9
+  store i8 3, ptr %163, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #7
-  %162 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %163 = getelementptr inbounds nuw i8, ptr %24, i64 33
-  store i8 1, ptr %163, align 1, !tbaa !3
-  %.not.i123 = icmp eq i8 %159, 0
-  br i1 %.not.i123, label %_ZN4llvm5TwineC2EPKc.exit125, label %164
+  %165 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %24, i64 33
+  store i8 1, ptr %166, align 1, !tbaa !3
+  %.not.i123 = icmp eq i8 %162, 0
+  br i1 %.not.i123, label %_ZN4llvm5TwineC2EPKc.exit125, label %167
 
-164:                                              ; preds = %.thread231
+167:                                              ; preds = %.thread228
   store ptr %10, ptr %24, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit125
 
-_ZN4llvm5TwineC2EPKc.exit125:                     ; preds = %.thread231, %164
-  %storemerge.i124 = phi i8 [ 3, %164 ], [ 1, %.thread231 ]
-  store i8 %storemerge.i124, ptr %162, align 8, !tbaa !9
-  %165 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i16 257, ptr %165, align 8
+_ZN4llvm5TwineC2EPKc.exit125:                     ; preds = %.thread228, %167
+  %storemerge.i124 = phi i8 [ 3, %167 ], [ 1, %.thread228 ]
+  store i8 %storemerge.i124, ptr %165, align 8, !tbaa !9
+  %168 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i16 257, ptr %168, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %23, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %25)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #7
-  br label %166
+  br label %169
 
-166:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit109, %_ZN4llvm5TwineC2EPKc.exit119, %_ZN4llvm5TwineC2EPKc.exit125, %158, %_ZN4llvm5TwineC2EPKc.exit114, %_ZN4llvm5TwineC2EPKc.exit
-  %167 = load i32, ptr %34, align 4, !tbaa !23
-  %168 = and i32 %167, -9
-  %spec.select.i.i = icmp eq i32 %168, 1
-  br i1 %spec.select.i.i, label %170, label %169
+169:                                              ; preds = %_ZN4llvm5TwineC2EPKc.exit109, %_ZN4llvm5TwineC2EPKc.exit119, %_ZN4llvm5TwineC2EPKc.exit125, %161, %_ZN4llvm5TwineC2EPKc.exit114, %_ZN4llvm5TwineC2EPKc.exit
+  %170 = load i32, ptr %34, align 4, !tbaa !23
+  %171 = and i32 %170, -9
+  %spec.select.i.i = icmp eq i32 %171, 1
+  br i1 %spec.select.i.i, label %173, label %172
 
-169:                                              ; preds = %166
-  switch i32 %167, label %_ZNK4llvm6Triple10isOSDarwinEv.exit [
-    i32 26, label %170
-    i32 5, label %170
-    i32 27, label %170
-    i32 29, label %170
-    i32 30, label %170
+172:                                              ; preds = %169
+  switch i32 %170, label %_ZNK4llvm6Triple10isOSDarwinEv.exit [
+    i32 26, label %173
+    i32 5, label %173
+    i32 27, label %173
+    i32 29, label %173
+    i32 30, label %173
   ]
 
-170:                                              ; preds = %169, %169, %169, %169, %169, %166
+173:                                              ; preds = %172, %172, %172, %172, %172, %169
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #7
-  %171 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %172 = getelementptr inbounds nuw i8, ptr %26, i64 33
-  store i8 1, ptr %172, align 1, !tbaa !3
+  %174 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  store i8 1, ptr %175, align 1, !tbaa !3
   store ptr @.str.25, ptr %26, align 8, !tbaa !8
-  store i8 3, ptr %171, align 8, !tbaa !9
+  store i8 3, ptr %174, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #7
-  %173 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %174 = getelementptr inbounds nuw i8, ptr %27, i64 33
-  store i8 1, ptr %174, align 1, !tbaa !3
-  %175 = load i8, ptr %10, align 1, !tbaa !8
-  %.not.i128 = icmp eq i8 %175, 0
-  br i1 %.not.i128, label %_ZN4llvm5TwineC2EPKc.exit130, label %176
+  %176 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %27, i64 33
+  store i8 1, ptr %177, align 1, !tbaa !3
+  %178 = load i8, ptr %10, align 1, !tbaa !8
+  %.not.i128 = icmp eq i8 %178, 0
+  br i1 %.not.i128, label %_ZN4llvm5TwineC2EPKc.exit130, label %179
 
-176:                                              ; preds = %170
+179:                                              ; preds = %173
   store ptr %10, ptr %27, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit130
 
-_ZN4llvm5TwineC2EPKc.exit130:                     ; preds = %170, %176
-  %storemerge.i129 = phi i8 [ 3, %176 ], [ 1, %170 ]
-  store i8 %storemerge.i129, ptr %173, align 8, !tbaa !9
-  %177 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i16 257, ptr %177, align 8
+_ZN4llvm5TwineC2EPKc.exit130:                     ; preds = %173, %179
+  %storemerge.i129 = phi i8 [ 3, %179 ], [ 1, %173 ]
+  store i8 %storemerge.i129, ptr %176, align 8, !tbaa !9
+  %180 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i16 257, ptr %180, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %28)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #7
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %169, %_ZN4llvm5TwineC2EPKc.exit130
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %172, %_ZN4llvm5TwineC2EPKc.exit130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !35
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10) #7
-  br label %178
+  br label %181
 
-178:                                              ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit38.thread
+181:                                              ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit38.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
   ret void
 }

@@ -397,7 +397,7 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
   %19 = zext nneg i8 %8 to i32
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @rdmap_messages, ptr noundef nonnull @.str.220)
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.219, i32 noundef %16, i32 noundef %18, ptr noundef %20, ptr noundef nonnull %.str.217..str.218.i)
-  %21 = trunc nuw i8 %.lobit to i1
+  %21 = icmp slt i8 %6, 0
   %. = select i1 %21, i32 14, i32 18
   %22 = icmp eq i8 %8, 1
   %23 = icmp eq i8 %8, 7

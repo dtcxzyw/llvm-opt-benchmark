@@ -783,35 +783,35 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %47, %49, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %.not = icmp sgt i64 %8, -1
-  br i1 %.not, label %65, label %54
+  %54 = icmp slt i64 %8, 0
+  br i1 %54, label %55, label %66
 
-54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %55 = load i32, ptr %0, align 8
-  %56 = and i32 %55, 8
-  %57 = icmp ne i32 %56, 0
-  %or.cond3 = select i1 %46, i1 %57, i1 false
-  br i1 %or.cond3, label %65, label %58
+55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %56 = load i32, ptr %0, align 8
+  %57 = and i32 %56, 8
+  %58 = icmp ne i32 %57, 0
+  %or.cond3 = select i1 %46, i1 %58, i1 false
+  br i1 %or.cond3, label %66, label %59
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %59, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds i8, ptr %62, i64 %63
-  store i8 45, ptr %64, align 1
-  br label %65
+59:                                               ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %61 = load i32, ptr %60, align 8
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %60, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = sext i32 %61 to i64
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  store i8 45, ptr %65, align 1
+  br label %66
 
-65:                                               ; preds = %54, %58, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %66 = load i32, ptr %7, align 4
-  %67 = load i32, ptr %5, align 4
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %66, i32 noundef %67, i32 noundef %2, ptr noundef %3)
+66:                                               ; preds = %55, %59, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %67 = load i32, ptr %7, align 4
+  %68 = load i32, ptr %5, align 4
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %67, i32 noundef %68, i32 noundef %2, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %65
-  %.0 = phi i1 [ true, %65 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %66
+  %.0 = phi i1 [ true, %66 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -942,8 +942,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31: ; preds = %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge, %58, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30
   %65 = phi i32 [ %.pre, %._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31_crit_edge ], [ 1, %58 ], [ %62, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i30 ]
-  %.not34 = icmp sgt i32 %65, %2
-  br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
+  %.not33 = icmp sgt i32 %65, %2
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
   %66 = sext i32 %65 to i64
@@ -959,37 +959,37 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConv
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i, %50, %48, %._crit_edge
-  %.not33 = icmp sgt i64 %8, -1
-  br i1 %.not33, label %82, label %70
+  %70 = icmp slt i64 %8, 0
+  br i1 %70, label %71, label %83
 
-70:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %71 = load i32, ptr %0, align 8
-  %72 = and i32 %71, 8
-  %73 = icmp ne i32 %72, 0
-  %74 = fcmp oeq double %1, 0.000000e+00
-  %or.cond = select i1 %74, i1 %73, i1 false
-  br i1 %or.cond, label %82, label %75
+71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %72 = load i32, ptr %0, align 8
+  %73 = and i32 %72, 8
+  %74 = icmp ne i32 %73, 0
+  %75 = fcmp oeq double %1, 0.000000e+00
+  %or.cond = select i1 %75, i1 %74, i1 false
+  br i1 %or.cond, label %83, label %76
 
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %77 = load i32, ptr %76, align 8
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %76, align 8
-  %79 = load ptr, ptr %3, align 8
-  %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  store i8 45, ptr %81, align 1
-  br label %82
+76:                                               ; preds = %71
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %78 = load i32, ptr %77, align 8
+  %79 = add nsw i32 %78, 1
+  store i32 %79, ptr %77, align 8
+  %80 = load ptr, ptr %3, align 8
+  %81 = sext i32 %78 to i64
+  %82 = getelementptr inbounds i8, ptr %80, i64 %81
+  store i8 45, ptr %82, align 1
+  br label %83
 
-82:                                               ; preds = %70, %75, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %83 = load i32, ptr %5, align 4
-  %84 = add nsw i32 %83, -1
-  %85 = load i32, ptr %7, align 4
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %85, i32 noundef %84, ptr noundef %3)
+83:                                               ; preds = %71, %76, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %84 = load i32, ptr %5, align 4
+  %85 = add nsw i32 %84, -1
+  %86 = load i32, ptr %7, align 4
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %86, i32 noundef %85, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %82
-  %.0 = phi i1 [ true, %82 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %83
+  %.0 = phi i1 [ true, %83 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -1086,143 +1086,143 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit: ; preds = %46, %48, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaModeENS0_23DoubleToStringConverter8DtoaModeE.exit.i
-  %.not55 = icmp sgt i64 %8, -1
-  br i1 %.not55, label %64, label %53
+  %53 = icmp slt i64 %8, 0
+  br i1 %53, label %54, label %65
 
-53:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %54 = load i32, ptr %0, align 8
-  %55 = and i32 %54, 8
-  %56 = icmp ne i32 %55, 0
-  %or.cond3 = select i1 %45, i1 %56, i1 false
-  br i1 %or.cond3, label %64, label %57
+54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %55 = load i32, ptr %0, align 8
+  %56 = and i32 %55, 8
+  %57 = icmp ne i32 %56, 0
+  %or.cond3 = select i1 %45, i1 %57, i1 false
+  br i1 %or.cond3, label %65, label %58
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %58, align 8
-  %61 = load ptr, ptr %3, align 8
-  %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds i8, ptr %61, i64 %62
-  store i8 45, ptr %63, align 1
-  br label %64
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %60 = load i32, ptr %59, align 8
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = sext i32 %60 to i64
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
+  store i8 45, ptr %64, align 1
+  br label %65
 
-64:                                               ; preds = %53, %57, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
-  %65 = load i32, ptr %5, align 4
-  %66 = add nsw i32 %65, -1
-  %67 = sub i32 1, %65
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp sgt i32 %67, %69
-  %71 = load i32, ptr %0, align 8
-  br i1 %70, label %.thread, label %72
+65:                                               ; preds = %54, %58, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit
+  %66 = load i32, ptr %5, align 4
+  %67 = add nsw i32 %66, -1
+  %68 = sub i32 1, %66
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp sgt i32 %68, %70
+  %72 = load i32, ptr %0, align 8
+  br i1 %71, label %.thread, label %73
 
-72:                                               ; preds = %64
-  %73 = lshr i32 %71, 2
-  %.lobit = and i32 %73, 1
-  %74 = sub i32 %65, %2
-  %75 = add nsw i32 %74, %.lobit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp sgt i32 %75, %77
-  %79 = and i32 %71, 16
-  %.not = icmp eq i32 %79, 0
-  br i1 %.not, label %98, label %81
+73:                                               ; preds = %65
+  %74 = lshr i32 %72, 2
+  %.lobit = and i32 %74, 1
+  %75 = sub i32 %66, %2
+  %76 = add nsw i32 %75, %.lobit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp sgt i32 %76, %78
+  %80 = and i32 %72, 16
+  %.not = icmp eq i32 %80, 0
+  br i1 %.not, label %99, label %82
 
-.thread:                                          ; preds = %64
-  %80 = and i32 %71, 16
-  %.not49 = icmp eq i32 %80, 0
+.thread:                                          ; preds = %65
+  %81 = and i32 %72, 16
+  %.not49 = icmp eq i32 %81, 0
   br i1 %.not49, label %.thread..thread51_crit_edge, label %.thread50
 
 .thread..thread51_crit_edge:                      ; preds = %.thread
-  %.pre65 = load i32, ptr %7, align 4
+  %.pre64 = load i32, ptr %7, align 4
   br label %.thread51
 
-81:                                               ; preds = %72
-  br i1 %78, label %.thread50, label %82
+82:                                               ; preds = %73
+  br i1 %79, label %.thread50, label %83
 
-82:                                               ; preds = %81
-  %.sroa.speculated32 = call i32 @llvm.smax.i32(i32 %65, i32 1)
+83:                                               ; preds = %82
+  %.sroa.speculated32 = call i32 @llvm.smax.i32(i32 %66, i32 1)
   br label %.thread50
 
-.thread50:                                        ; preds = %.thread, %81, %82
-  %83 = phi i1 [ false, %82 ], [ true, %81 ], [ true, %.thread ]
-  %84 = phi i32 [ %.sroa.speculated32, %82 ], [ 1, %81 ], [ 1, %.thread ]
+.thread50:                                        ; preds = %.thread, %82, %83
+  %84 = phi i1 [ false, %83 ], [ true, %82 ], [ true, %.thread ]
+  %85 = phi i32 [ %.sroa.speculated32, %83 ], [ 1, %82 ], [ 1, %.thread ]
   %.promoted = load i32, ptr %7, align 4
-  %85 = icmp sgt i32 %.promoted, %84
-  br i1 %85, label %.lr.ph.preheader, label %.critedge
+  %86 = icmp sgt i32 %.promoted, %85
+  br i1 %86, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.thread50
-  %86 = zext nneg i32 %.promoted to i64
-  %87 = zext nneg i32 %84 to i64
-  %indvars.iv.next74 = add nsw i64 %86, -1
-  %88 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next74
-  %89 = load i8, ptr %88, align 1
-  %90 = icmp eq i8 %89, 48
-  br i1 %90, label %.lr.ph76, label %.critedge
+  %87 = zext nneg i32 %.promoted to i64
+  %88 = zext nneg i32 %85 to i64
+  %indvars.iv.next73 = add nsw i64 %87, -1
+  %89 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next73
+  %90 = load i8, ptr %89, align 1
+  %91 = icmp eq i8 %90, 48
+  br i1 %91, label %.lr.ph75, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph76
-  %indvars.iv.next = add nsw i64 %indvars.iv.next75, -1
-  %91 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
-  %92 = load i8, ptr %91, align 1
-  %93 = icmp eq i8 %92, 48
-  br i1 %93, label %.lr.ph76, label %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, !llvm.loop !9
+.lr.ph:                                           ; preds = %.lr.ph75
+  %indvars.iv.next = add nsw i64 %indvars.iv.next74, -1
+  %92 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %93 = load i8, ptr %92, align 1
+  %94 = icmp eq i8 %93, 48
+  br i1 %94, label %.lr.ph75, label %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge, !llvm.loop !9
 
-.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv.next75 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next74, %.lr.ph.preheader ]
-  %94 = trunc nsw i64 %indvars.iv.next75 to i32
-  %95 = icmp sgt i64 %indvars.iv.next75, %87
-  br i1 %95, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
+.lr.ph75:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv.next74 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next73, %.lr.ph.preheader ]
+  %95 = trunc nsw i64 %indvars.iv.next74 to i32
+  %96 = icmp sgt i64 %indvars.iv.next74, %88
+  br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !9
 
-.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge: ; preds = %.lr.ph
-  store i32 %94, ptr %7, align 4
-  %96 = trunc nuw nsw i64 %indvars.iv.next75 to i32
+.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge: ; preds = %.lr.ph
+  store i32 %95, ptr %7, align 4
+  %97 = trunc nuw nsw i64 %indvars.iv.next74 to i32
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph76
-  store i32 %94, ptr %7, align 4
+.critedge.loopexit:                               ; preds = %.lr.ph75
+  store i32 %95, ptr %7, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, %.thread50
-  %97 = phi i32 [ %.promoted, %.thread50 ], [ %94, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %94, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %96, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %84, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge, %.thread50
+  %98 = phi i32 [ %.promoted, %.thread50 ], [ %95, %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %95, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread50 ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit66_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %85, %.critedge.loopexit ]
   %.sroa.speculated41 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
-  br i1 %83, label %.thread51, label %._crit_edge64
+  br i1 %84, label %.thread51, label %._crit_edge63
 
-98:                                               ; preds = %72
-  %.pre66 = load i32, ptr %7, align 4
-  br i1 %78, label %.thread51, label %._crit_edge64
+99:                                               ; preds = %73
+  %.pre65 = load i32, ptr %7, align 4
+  br i1 %79, label %.thread51, label %._crit_edge63
 
-.thread51:                                        ; preds = %.thread..thread51_crit_edge, %.critedge, %98
-  %99 = phi i32 [ %.pre66, %98 ], [ %97, %.critedge ], [ %.pre65, %.thread..thread51_crit_edge ]
-  %.04853 = phi i32 [ %2, %98 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread51_crit_edge ]
-  %100 = icmp slt i32 %99, %.04853
-  br i1 %100, label %.lr.ph59.preheader, label %._crit_edge
+.thread51:                                        ; preds = %.thread..thread51_crit_edge, %.critedge, %99
+  %100 = phi i32 [ %.pre65, %99 ], [ %98, %.critedge ], [ %.pre64, %.thread..thread51_crit_edge ]
+  %.04853 = phi i32 [ %2, %99 ], [ %.sroa.speculated41, %.critedge ], [ %2, %.thread..thread51_crit_edge ]
+  %101 = icmp slt i32 %100, %.04853
+  br i1 %101, label %.lr.ph58.preheader, label %._crit_edge
 
-.lr.ph59.preheader:                               ; preds = %.thread51
-  %101 = sext i32 %99 to i64
-  %scevgep = getelementptr i8, ptr %6, i64 %101
-  %102 = xor i32 %99, -1
-  %103 = add i32 %.04853, %102
-  %104 = zext i32 %103 to i64
-  %105 = add nuw nsw i64 %104, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %105, i1 false)
+.lr.ph58.preheader:                               ; preds = %.thread51
+  %102 = sext i32 %100 to i64
+  %scevgep = getelementptr i8, ptr %6, i64 %102
+  %103 = xor i32 %100, -1
+  %104 = add i32 %.04853, %103
+  %105 = zext i32 %104 to i64
+  %106 = add nuw nsw i64 %105, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %106, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph59.preheader, %.thread51
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.04853, i32 noundef %66, ptr noundef %3)
+._crit_edge:                                      ; preds = %.lr.ph58.preheader, %.thread51
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.04853, i32 noundef %67, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-._crit_edge64:                                    ; preds = %98, %.critedge
-  %106 = phi i32 [ %97, %.critedge ], [ %.pre66, %98 ]
-  %.04854 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %98 ]
-  %107 = sub nsw i32 %.04854, %65
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %107, i32 0)
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %106, i32 noundef %65, i32 noundef %.sroa.speculated, ptr noundef %3)
+._crit_edge63:                                    ; preds = %99, %.critedge
+  %107 = phi i32 [ %98, %.critedge ], [ %.pre65, %99 ]
+  %.04854 = phi i32 [ %.sroa.speculated41, %.critedge ], [ %2, %99 ]
+  %108 = sub nsw i32 %.04854, %66
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %108, i32 0)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS0_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %107, i32 noundef %66, i32 noundef %.sroa.speculated, ptr noundef %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %._crit_edge, %._crit_edge64, %42
-  %.021 = phi i1 [ false, %42 ], [ true, %._crit_edge64 ], [ true, %._crit_edge ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS0_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %._crit_edge, %._crit_edge63, %42
+  %.021 = phi i1 [ false, %42 ], [ true, %._crit_edge63 ], [ true, %._crit_edge ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
   ret i1 %.021
 }
 

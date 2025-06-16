@@ -10384,7 +10384,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i: ; preds = %_ZN4llvmgtERKNS_1
   br label %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit
 
 _ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit: ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i, %74, %78, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i
-  %.pre-phi168 = phi i64 [ %49, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %49, %74 ], [ %49, %78 ], [ %49, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %.sroa.27.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ]
+  %.pre-phi164 = phi i64 [ %49, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %49, %74 ], [ %49, %78 ], [ %49, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %.sroa.27.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ]
   %.pre-phi = phi i64 [ %48, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.i ], [ %48, %74 ], [ %48, %78 ], [ %48, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.i ], [ %.sroa.06.0.copyload, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread12.i ]
   %.val = load i32, ptr %16, align 4, !tbaa !655
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -10428,21 +10428,21 @@ _ZNK4llvm12VersionTuple5emptyEv.exit:             ; preds = %_ZL40targetVersionO
   %97 = and i32 %96, 2147483647
   %98 = icmp uge i32 %89, %88
   %99 = icmp samesign ult i32 %97, %94
-  %or.cond164 = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond164, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
+  %or.cond160 = select i1 %98, i1 %99, i1 false
+  br i1 %or.cond160, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread:   ; preds = %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE.exit, %83, %91
   %100 = icmp eq i32 %.val42, 32
   %101 = icmp ne ptr %3, null
   %or.cond = and i1 %101, %100
-  br i1 %or.cond, label %102, label %132
+  br i1 %or.cond, label %102, label %133
 
 102:                                              ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %103 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %104 = load i32, ptr %103, align 4, !tbaa !655
   %105 = and i32 %104, -9
   %spec.select.i = icmp eq i32 %105, 1
-  br i1 %spec.select.i, label %106, label %132
+  br i1 %spec.select.i, label %106, label %133
 
 106:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25
@@ -10497,176 +10497,176 @@ _ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit: ; preds = %106, %106
   %124 = lshr i64 %.pre-phi, 32
   %125 = trunc nuw i64 %124 to i32
   %126 = and i32 %125, 2147483647
-  %.not158 = icmp sgt i64 %.pre-phi, -1
-  %.0.i50 = select i1 %.not158, i32 0, i32 %126
-  %127 = trunc i64 %.pre-phi168 to i32
-  %.sroa.0129.0.extract.trunc = and i32 %127, 2147483647
-  %128 = and i64 %.pre-phi168, 2147483648
-  %.not159 = icmp eq i64 %128, 0
-  %.0.i56 = select i1 %.not159, i32 0, i32 %.sroa.0129.0.extract.trunc
+  %127 = icmp slt i64 %.pre-phi, 0
+  %.0.i50 = select i1 %127, i32 %126, i32 0
+  %128 = trunc i64 %.pre-phi164 to i32
+  %.sroa.0129.0.extract.trunc = and i32 %128, 2147483647
+  %129 = and i64 %.pre-phi164, 2147483648
+  %.not157 = icmp eq i64 %129, 0
+  %.0.i56 = select i1 %.not157, i32 0, i32 %.sroa.0129.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !656
-  %129 = load ptr, ptr %0, align 8, !tbaa !3
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 264
-  %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %.0.i, i32 noundef %123, i32 noundef %.0.i50, i32 noundef %.0.i56, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %8) #25
-  br label %197
+  %130 = load ptr, ptr %0, align 8, !tbaa !3
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 264
+  %132 = load ptr, ptr %131, align 8
+  call void %132(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %.0.i, i32 noundef %123, i32 noundef %.0.i50, i32 noundef %.0.i56, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %8) #25
+  br label %201
 
-132:                                              ; preds = %102, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
-  switch i32 %.val, label %147 [
+133:                                              ; preds = %102, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
+  switch i32 %.val, label %148 [
     i32 9, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
     i32 1, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
-    i32 5, label %133
-    i32 26, label %137
-    i32 27, label %140
-    i32 29, label %143
-    i32 30, label %144
+    i32 5, label %134
+    i32 26, label %138
+    i32 27, label %141
+    i32 29, label %144
+    i32 30, label %145
   ]
 
-133:                                              ; preds = %132
-  br i1 %100, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58, label %134
-
 134:                                              ; preds = %133
-  %135 = icmp eq i32 %.val42, 31
-  %136 = select i1 %135, i32 7, i32 2
+  br i1 %100, label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58, label %135
+
+135:                                              ; preds = %134
+  %136 = icmp eq i32 %.val42, 31
+  %137 = select i1 %136, i32 7, i32 2
   br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
 
-137:                                              ; preds = %132
-  %138 = icmp eq i32 %.val42, 31
-  %139 = select i1 %138, i32 8, i32 3
+138:                                              ; preds = %133
+  %139 = icmp eq i32 %.val42, 31
+  %140 = select i1 %139, i32 8, i32 3
   br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
 
-140:                                              ; preds = %132
-  %141 = icmp eq i32 %.val42, 31
-  %142 = select i1 %141, i32 9, i32 4
+141:                                              ; preds = %133
+  %142 = icmp eq i32 %.val42, 31
+  %143 = select i1 %142, i32 9, i32 4
   br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
 
-143:                                              ; preds = %132
+144:                                              ; preds = %133
   br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
 
-144:                                              ; preds = %132
-  %145 = icmp eq i32 %.val42, 31
-  %146 = select i1 %145, i32 12, i32 11
+145:                                              ; preds = %133
+  %146 = icmp eq i32 %.val42, 31
+  %147 = select i1 %146, i32 12, i32 11
   br label %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
 
-147:                                              ; preds = %132
+148:                                              ; preds = %133
   unreachable
 
-_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58: ; preds = %132, %132, %133, %134, %137, %140, %143, %144
-  %.0.i57 = phi i32 [ %136, %134 ], [ %139, %137 ], [ %142, %140 ], [ 10, %143 ], [ %146, %144 ], [ 1, %132 ], [ 1, %132 ], [ 6, %133 ]
-  %148 = trunc i64 %.pre-phi to i32
-  %149 = lshr i64 %.pre-phi, 32
-  %150 = trunc nuw i64 %149 to i32
-  %151 = and i32 %150, 2147483647
-  %.not156 = icmp sgt i64 %.pre-phi, -1
-  %.0.i65 = select i1 %.not156, i32 0, i32 %151
-  %152 = trunc i64 %.pre-phi168 to i32
-  %.sroa.0121.0.extract.trunc = and i32 %152, 2147483647
-  %153 = and i64 %.pre-phi168, 2147483648
-  %.not157 = icmp eq i64 %153, 0
-  %.0.i71 = select i1 %.not157, i32 0, i32 %.sroa.0121.0.extract.trunc
+_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58: ; preds = %133, %133, %134, %135, %138, %141, %144, %145
+  %.0.i57 = phi i32 [ %137, %135 ], [ %140, %138 ], [ %143, %141 ], [ 10, %144 ], [ %147, %145 ], [ 1, %133 ], [ 1, %133 ], [ 6, %134 ]
+  %149 = trunc i64 %.pre-phi to i32
+  %150 = lshr i64 %.pre-phi, 32
+  %151 = trunc nuw i64 %150 to i32
+  %152 = and i32 %151, 2147483647
+  %153 = icmp slt i64 %.pre-phi, 0
+  %.0.i65 = select i1 %153, i32 %152, i32 0
+  %154 = trunc i64 %.pre-phi164 to i32
+  %.sroa.0121.0.extract.trunc = and i32 %154, 2147483647
+  %155 = and i64 %.pre-phi164, 2147483648
+  %.not156 = icmp eq i64 %155, 0
+  %.0.i71 = select i1 %.not156, i32 0, i32 %.sroa.0121.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !656
-  %154 = load ptr, ptr %0, align 8, !tbaa !3
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 256
-  %156 = load ptr, ptr %155, align 8
-  call void %156(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %.0.i57, i32 noundef %148, i32 noundef %.0.i65, i32 noundef %.0.i71, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %9) #25
+  %156 = load ptr, ptr %0, align 8, !tbaa !3
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 256
+  %158 = load ptr, ptr %157, align 8
+  call void %158(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %.0.i57, i32 noundef %149, i32 noundef %.0.i65, i32 noundef %.0.i71, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %9) #25
   br label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
 
 _ZN4llvmgeERKNS_12VersionTupleES2_.exit:          ; preds = %91, %_ZNK4llvm12VersionTuple5emptyEv.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58
   %.0 = phi i1 [ true, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit58 ], [ false, %_ZNK4llvm12VersionTuple5emptyEv.exit ], [ false, %91 ]
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %182, label %157
+  br i1 %.not, label %185, label %159
 
-157:                                              ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
-  %158 = load i32, ptr %16, align 4, !tbaa !655
-  %159 = and i32 %158, -9
-  %spec.select.i72 = icmp eq i32 %159, 1
-  br i1 %spec.select.i72, label %160, label %182
+159:                                              ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
+  %160 = load i32, ptr %16, align 4, !tbaa !655
+  %161 = and i32 %160, -9
+  %spec.select.i72 = icmp eq i32 %161, 1
+  br i1 %spec.select.i72, label %162, label %185
 
-160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %162 = load i32, ptr %161, align 8, !tbaa !657
-  %163 = icmp eq i32 %162, 32
-  br i1 %163, label %164, label %182
+162:                                              ; preds = %159
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %164 = load i32, ptr %163, align 8, !tbaa !657
+  %165 = icmp eq i32 %164, 32
+  br i1 %165, label %166, label %185
 
-164:                                              ; preds = %160
-  %165 = call { i64, i64 } @_ZNK4llvm6Triple13getiOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #25
-  %166 = extractvalue { i64, i64 } %165, 0
-  %167 = extractvalue { i64, i64 } %165, 1
-  %168 = call fastcc { i64, i64 } @_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %3, i64 %166, i64 %167)
-  %169 = extractvalue { i64, i64 } %168, 0
-  %170 = extractvalue { i64, i64 } %168, 1
-  %171 = getelementptr i8, ptr %3, i64 44
-  %.val47 = load i32, ptr %171, align 4, !tbaa !655
-  %.val48 = load i32, ptr %161, align 8
-  %172 = call fastcc noundef i32 @_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE(i32 %.val47, i32 %.val48)
-  %173 = trunc i64 %169 to i32
-  %174 = lshr i64 %169, 32
-  %175 = trunc nuw i64 %174 to i32
-  %176 = and i32 %175, 2147483647
-  %.not160 = icmp sgt i64 %169, -1
-  %.0.i79 = select i1 %.not160, i32 0, i32 %176
-  %177 = trunc i64 %170 to i32
-  %.sroa.0107.0.extract.trunc = and i32 %177, 2147483647
-  %178 = and i64 %170, 2147483648
-  %.not161 = icmp eq i64 %178, 0
-  %.0.i85 = select i1 %.not161, i32 0, i32 %.sroa.0107.0.extract.trunc
+166:                                              ; preds = %162
+  %167 = call { i64, i64 } @_ZNK4llvm6Triple13getiOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #25
+  %168 = extractvalue { i64, i64 } %167, 0
+  %169 = extractvalue { i64, i64 } %167, 1
+  %170 = call fastcc { i64, i64 } @_ZL40targetVersionOrMinimumSupportedOSVersionRKN4llvm6TripleENS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %3, i64 %168, i64 %169)
+  %171 = extractvalue { i64, i64 } %170, 0
+  %172 = extractvalue { i64, i64 } %170, 1
+  %173 = getelementptr i8, ptr %3, i64 44
+  %.val47 = load i32, ptr %173, align 4, !tbaa !655
+  %.val48 = load i32, ptr %163, align 8
+  %174 = call fastcc noundef i32 @_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE(i32 %.val47, i32 %.val48)
+  %175 = trunc i64 %171 to i32
+  %176 = lshr i64 %171, 32
+  %177 = trunc nuw i64 %176 to i32
+  %178 = and i32 %177, 2147483647
+  %179 = icmp slt i64 %171, 0
+  %.0.i79 = select i1 %179, i32 %178, i32 0
+  %180 = trunc i64 %172 to i32
+  %.sroa.0107.0.extract.trunc = and i32 %180, 2147483647
+  %181 = and i64 %172, 2147483648
+  %.not158 = icmp eq i64 %181, 0
+  %.0.i85 = select i1 %.not158, i32 0, i32 %.sroa.0107.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !656
-  %179 = load ptr, ptr %0, align 8, !tbaa !3
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 264
-  %181 = load ptr, ptr %180, align 8
-  call void %181(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %172, i32 noundef %173, i32 noundef %.0.i79, i32 noundef %.0.i85, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %10) #25
-  br label %182
+  %182 = load ptr, ptr %0, align 8, !tbaa !3
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 264
+  %184 = load ptr, ptr %183, align 8
+  call void %184(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %174, i32 noundef %175, i32 noundef %.0.i79, i32 noundef %.0.i85, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %10) #25
+  br label %185
 
-182:                                              ; preds = %157, %160, %164, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
-  br i1 %.0, label %197, label %183
+185:                                              ; preds = %159, %162, %166, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit
+  br i1 %.0, label %201, label %186
 
-183:                                              ; preds = %182
+186:                                              ; preds = %185
   %.val49 = load i32, ptr %16, align 4, !tbaa !655
-  switch i32 %.val49, label %187 [
+  switch i32 %.val49, label %190 [
     i32 9, label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
     i32 1, label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
-    i32 5, label %184
-    i32 26, label %185
-    i32 27, label %186
+    i32 5, label %187
+    i32 26, label %188
+    i32 27, label %189
   ]
 
-184:                                              ; preds = %183
+187:                                              ; preds = %186
   br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
 
-185:                                              ; preds = %183
+188:                                              ; preds = %186
   br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
 
-186:                                              ; preds = %183
+189:                                              ; preds = %186
   br label %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit
 
-187:                                              ; preds = %183
+190:                                              ; preds = %186
   unreachable
 
-_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %183, %183, %184, %185, %186
-  %.0.i86 = phi i32 [ 0, %184 ], [ 2, %185 ], [ 3, %186 ], [ 1, %183 ], [ 1, %183 ]
-  %188 = trunc i64 %.pre-phi to i32
-  %189 = lshr i64 %.pre-phi, 32
-  %190 = trunc nuw i64 %189 to i32
-  %191 = and i32 %190, 2147483647
-  %.not162 = icmp sgt i64 %.pre-phi, -1
-  %.0.i93 = select i1 %.not162, i32 0, i32 %191
-  %192 = trunc i64 %.pre-phi168 to i32
-  %.sroa.0.0.extract.trunc = and i32 %192, 2147483647
-  %193 = and i64 %.pre-phi168, 2147483648
-  %.not163 = icmp eq i64 %193, 0
-  %.0.i99 = select i1 %.not163, i32 0, i32 %.sroa.0.0.extract.trunc
+_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit: ; preds = %186, %186, %187, %188, %189
+  %.0.i86 = phi i32 [ 0, %187 ], [ 2, %188 ], [ 3, %189 ], [ 1, %186 ], [ 1, %186 ]
+  %191 = trunc i64 %.pre-phi to i32
+  %192 = lshr i64 %.pre-phi, 32
+  %193 = trunc nuw i64 %192 to i32
+  %194 = and i32 %193, 2147483647
+  %195 = icmp slt i64 %.pre-phi, 0
+  %.0.i93 = select i1 %195, i32 %194, i32 0
+  %196 = trunc i64 %.pre-phi164 to i32
+  %.sroa.0.0.extract.trunc = and i32 %196, 2147483647
+  %197 = and i64 %.pre-phi164, 2147483648
+  %.not159 = icmp eq i64 %197, 0
+  %.0.i99 = select i1 %.not159, i32 0, i32 %.sroa.0.0.extract.trunc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !656
-  %194 = load ptr, ptr %0, align 8, !tbaa !3
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 248
-  %196 = load ptr, ptr %195, align 8
-  call void %196(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %.0.i86, i32 noundef %188, i32 noundef %.0.i93, i32 noundef %.0.i99, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %11) #25
-  br label %197
+  %198 = load ptr, ptr %0, align 8, !tbaa !3
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 248
+  %200 = load ptr, ptr %199, align 8
+  call void %200(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %.0.i86, i32 noundef %191, i32 noundef %.0.i93, i32 noundef %.0.i99, ptr noundef nonnull byval(%"class.llvm::VersionTuple") align 8 %11) #25
+  br label %201
 
-197:                                              ; preds = %182, %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
+201:                                              ; preds = %185, %_ZL33getMachoVersionMinLoadCommandTypeRKN4llvm6TripleE.exit, %_ZL32getMachoBuildVersionPlatformTypeRKN4llvm6TripleE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit
 
-_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %19, %20, %5, %197
+_ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %19, %20, %5, %201
   ret void
 }
 

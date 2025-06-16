@@ -288,7 +288,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t21size_first_byte_read
   br i1 %11, label %12, label %30
 
 12:                                               ; preds = %7
-  %13 = trunc nuw i8 %.lobit to i1
+  %13 = icmp slt i8 %4, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12

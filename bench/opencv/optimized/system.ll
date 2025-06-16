@@ -9054,10 +9054,10 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
   %70 = and i8 %69, 1
   store i8 %70, ptr %67, align 1, !tbaa !14
   %71 = call { i32, i32, i32, i32 } asm "cpuid\0A\09", "={ax},={bx},={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #56, !srcloc !213
-  %.fr87 = freeze { i32, i32, i32, i32 } %71
-  %72 = extractvalue { i32, i32, i32, i32 } %.fr87, 1
-  %73 = extractvalue { i32, i32, i32, i32 } %.fr87, 2
-  %74 = extractvalue { i32, i32, i32, i32 } %.fr87, 3
+  %.fr88 = freeze { i32, i32, i32, i32 } %71
+  %72 = extractvalue { i32, i32, i32, i32 } %.fr88, 1
+  %73 = extractvalue { i32, i32, i32, i32 } %.fr88, 2
+  %74 = extractvalue { i32, i32, i32, i32 } %.fr88, 3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %76 = trunc i32 %72 to i8
   %77 = lshr i8 %76, 5
@@ -9196,12 +9196,13 @@ _ZN2cv19getBuildInformationB5cxx11Ev.exit:        ; preds = %7, %11, %14
   br label %169
 
 162:                                              ; preds = %147
-  %163 = trunc nuw i32 %.lobit to i1
+  %163 = icmp slt i32 %72, 0
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %165 = trunc nuw nsw i32 %.lobit to i8
+  %.lobit87 = lshr i32 %72, 31
+  %165 = trunc nuw nsw i32 %.lobit87 to i8
   store i8 %165, ptr %164, align 1, !tbaa !14
-  %166 = and i32 %.lobit, %88
-  %or.cond34 = icmp ne i32 %166, 0
+  %166 = trunc i32 %88 to i1
+  %or.cond34 = and i1 %163, %166
   %167 = select i1 %or.cond34, i8 %112, i8 0
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i8 %167, ptr %168, align 1, !tbaa !14

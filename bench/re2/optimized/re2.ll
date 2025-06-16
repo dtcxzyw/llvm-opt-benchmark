@@ -2476,17 +2476,17 @@ if.end79:                                         ; preds = %if.then76
 
 if.end85:                                         ; preds = %if.end79
   %bf.load = load i32, ptr %error_code_.i.i, align 4
-  %bf.cast.not = icmp sgt i32 %bf.load, -1
-  %call96 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %prefix_, i64 noundef 0) #30
-  br i1 %bf.cast.not, label %if.else94, label %if.then86
+  %bf.cast = icmp slt i32 %bf.load, 0
+  %call88 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %prefix_, i64 noundef 0) #30
+  br i1 %bf.cast, label %if.then86, label %if.else94
 
 if.then86:                                        ; preds = %if.end85
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %call96, i64 %call81
+  %add.ptr.i105 = getelementptr inbounds i8, ptr %call88, i64 %call81
   %cmp10.i = icmp sgt i64 %call81, 0
   br i1 %cmp10.i, label %for.body.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit113
 
 for.body.i:                                       ; preds = %if.then86, %for.inc.i
-  %a.addr.012.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call96, %if.then86 ]
+  %a.addr.012.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %call88, %if.then86 ]
   %b.addr.011.i = phi ptr [ %incdec.ptr13.i, %for.inc.i ], [ %add.ptr.i, %if.then86 ]
   %11 = load i8, ptr %a.addr.012.i, align 1
   %12 = load i8, ptr %b.addr.011.i, align 1
@@ -2504,7 +2504,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i107, label %for.body.i, label %_ZN4absl7debian211string_view13remove_prefixEm.exit113, !llvm.loop !20
 
 if.else94:                                        ; preds = %if.end85
-  %bcmp = tail call i32 @bcmp(ptr nonnull %call96, ptr %add.ptr.i, i64 %call81)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %call88, ptr %add.ptr.i, i64 %call81)
   %cmp99.not = icmp eq i32 %bcmp, 0
   br i1 %cmp99.not, label %_ZN4absl7debian211string_view13remove_prefixEm.exit113, label %return
 
@@ -3736,9 +3736,9 @@ if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #30
   %prefix_foldcase_ = getelementptr inbounds nuw i8, ptr %this, i64 68
   %bf.load = load i32, ptr %prefix_foldcase_, align 4
-  %bf.cast.not = icmp slt i32 %bf.load, 0
+  %bf.cast = icmp slt i32 %bf.load, 0
   %cmp1320 = icmp sgt i32 %spec.select, 0
-  %or.cond22 = and i1 %bf.cast.not, %cmp1320
+  %or.cond22 = and i1 %bf.cast, %cmp1320
   br i1 %or.cond22, label %for.body.preheader, label %if.end24
 
 for.body.preheader:                               ; preds = %if.end

@@ -166,7 +166,7 @@ _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread:   ; preds = %38, %34, %5, %_ZN4l
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !3
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %42, align 4, !tbaa !7
-  br label %142
+  br label %145
 
 _ZN4llvmltERKNS_12VersionTupleES2_.exit.thread17: ; preds = %36, %32, %_ZN4llvmltERKNS_12VersionTupleES2_.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -209,7 +209,7 @@ _ZN4llvmgtERKNS_12VersionTupleES2_.exit:          ; preds = %63
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread:   ; preds = %63, %59, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread17, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %4, i64 20, i1 false)
-  br label %142
+  br label %145
 
 _ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread19: ; preds = %61, %57, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -240,130 +240,130 @@ _ZNK4llvm12VersionTuple9normalizeEv.exit:         ; preds = %_ZN4llvmgtERKNS_12V
   br i1 %81, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread, label %82
 
 82:                                               ; preds = %_ZNK4llvm12VersionTuple9normalizeEv.exit
-  %.not.i.i.i = icmp sgt i64 %.sroa.0.0.i, -1
-  br i1 %.not.i.i.i, label %91, label %83
+  %83 = icmp slt i64 %.sroa.0.0.i, 0
+  br i1 %83, label %84, label %92
 
-83:                                               ; preds = %82
-  %84 = lshr i64 %.sroa.0.0.i, 32
-  %85 = and i64 %84, 2147483647
-  %86 = shl i64 %.sroa.0.0.i, 32
-  %87 = or disjoint i64 %85, %86
-  %88 = mul i64 %87, -4658895280553007687
-  %89 = lshr i64 %88, 31
-  %90 = xor i64 %89, %88
-  br label %91
+84:                                               ; preds = %82
+  %85 = lshr i64 %.sroa.0.0.i, 32
+  %86 = and i64 %85, 2147483647
+  %87 = shl i64 %.sroa.0.0.i, 32
+  %88 = or disjoint i64 %86, %87
+  %89 = mul i64 %88, -4658895280553007687
+  %90 = lshr i64 %89, 31
+  %91 = xor i64 %90, %89
+  br label %92
 
-91:                                               ; preds = %83, %82
-  %.0.in.i.i.i = phi i64 [ %90, %83 ], [ %.sroa.0.0.i, %82 ]
-  %92 = and i64 %.sroa.5.0.i, 2147483648
-  %.not24.i.i.i = icmp eq i64 %92, 0
-  br i1 %.not24.i.i.i, label %99, label %93
+92:                                               ; preds = %84, %82
+  %.0.in.i.i.i = phi i64 [ %91, %84 ], [ %.sroa.0.0.i, %82 ]
+  %93 = and i64 %.sroa.5.0.i, 2147483648
+  %.not.i.i.i = icmp eq i64 %93, 0
+  br i1 %.not.i.i.i, label %100, label %94
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   %.sroa.014.0.extract.trunc.i.i.i = and i64 %.sroa.5.0.i, 2147483647
-  %94 = shl i64 %.0.in.i.i.i, 32
-  %95 = or disjoint i64 %94, %.sroa.014.0.extract.trunc.i.i.i
-  %96 = mul i64 %95, -4658895280553007687
-  %97 = lshr i64 %96, 31
-  %98 = xor i64 %97, %96
-  br label %99
+  %95 = shl i64 %.0.in.i.i.i, 32
+  %96 = or disjoint i64 %95, %.sroa.014.0.extract.trunc.i.i.i
+  %97 = mul i64 %96, -4658895280553007687
+  %98 = lshr i64 %97, 31
+  %99 = xor i64 %98, %97
+  br label %100
 
-99:                                               ; preds = %93, %91
-  %.1.in.i.i.i = phi i64 [ %98, %93 ], [ %.0.in.i.i.i, %91 ]
-  %.not25.i.i.i = icmp sgt i64 %.sroa.5.0.i, -1
-  br i1 %.not25.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i, label %100
+100:                                              ; preds = %94, %92
+  %.1.in.i.i.i = phi i64 [ %99, %94 ], [ %.0.in.i.i.i, %92 ]
+  %101 = icmp slt i64 %.sroa.5.0.i, 0
+  br i1 %101, label %102, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i
 
-100:                                              ; preds = %99
-  %101 = lshr i64 %.sroa.5.0.i, 32
-  %102 = and i64 %101, 2147483647
-  %103 = shl i64 %.1.in.i.i.i, 32
-  %104 = or disjoint i64 %103, %102
-  %105 = mul i64 %104, -4658895280553007687
-  %106 = lshr i64 %105, 31
-  %107 = xor i64 %106, %105
+102:                                              ; preds = %100
+  %103 = lshr i64 %.sroa.5.0.i, 32
+  %104 = and i64 %103, 2147483647
+  %105 = shl i64 %.1.in.i.i.i, 32
+  %106 = or disjoint i64 %105, %104
+  %107 = mul i64 %106, -4658895280553007687
+  %108 = lshr i64 %107, 31
+  %109 = xor i64 %108, %107
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i: ; preds = %100, %99
-  %.2.in.i.i.i = phi i64 [ %107, %100 ], [ %.1.in.i.i.i, %99 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i: ; preds = %102, %100
+  %.2.in.i.i.i = phi i64 [ %109, %102 ], [ %.1.in.i.i.i, %100 ]
   %.2.i.i.i = trunc i64 %.2.in.i.i.i to i32
-  %108 = add i32 %80, -1
-  %109 = and i32 %108, %.2.i.i.i
-  %110 = trunc i64 %.sroa.0.0.i to i32
-  br label %111
+  %110 = add i32 %80, -1
+  %111 = and i32 %110, %.2.i.i.i
+  %112 = trunc i64 %.sroa.0.0.i to i32
+  br label %113
 
-111:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i
-  %.017.i = phi i32 [ %109, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i ], [ %133, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i ]
-  %.015.i = phi i32 [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i ], [ %131, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i ]
-  %112 = zext i32 %.017.i to i64
-  %113 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %78, i64 %112
-  %114 = load i64, ptr %113, align 4
-  %115 = trunc i64 %114 to i32
-  %116 = icmp eq i32 %110, %115
-  br i1 %116, label %117, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i, !prof !16
+113:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i
+  %.017.i = phi i32 [ %111, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i ], [ %135, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i ]
+  %.015.i = phi i32 [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i ], [ %133, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i ]
+  %114 = zext i32 %.017.i to i64
+  %115 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %78, i64 %114
+  %116 = load i64, ptr %115, align 4
+  %117 = trunc i64 %116 to i32
+  %118 = icmp eq i32 %112, %117
+  br i1 %118, label %119, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i, !prof !16
 
-117:                                              ; preds = %111
-  %118 = xor i64 %114, %.sroa.0.0.i
-  %119 = and i64 %118, 9223372032559808512
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %121, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i, !prof !16
+119:                                              ; preds = %113
+  %120 = xor i64 %116, %.sroa.0.0.i
+  %121 = and i64 %120, 9223372032559808512
+  %122 = icmp eq i64 %121, 0
+  br i1 %122, label %123, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i, !prof !16
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %123 = load i64, ptr %122, align 4
-  %124 = xor i64 %123, %.sroa.5.0.i
-  %125 = and i64 %124, 9223372034707292159
-  %or.cond.i = icmp eq i64 %125, 0
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %125 = load i64, ptr %124, align 4
+  %126 = xor i64 %125, %.sroa.5.0.i
+  %127 = and i64 %126, 9223372034707292159
+  %or.cond.i = icmp eq i64 %127, 0
   br i1 %or.cond.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i, !prof !17
 
-_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i: ; preds = %121, %117, %111
-  %126 = and i64 %114, 9223372036854775807
-  %or.cond31.i = icmp eq i64 %126, 2147483647
-  br i1 %or.cond31.i, label %127, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i, !prof !18
+_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i: ; preds = %123, %119, %113
+  %128 = and i64 %116, 9223372036854775807
+  %or.cond31.i = icmp eq i64 %128, 2147483647
+  br i1 %or.cond31.i, label %129, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i, !prof !18
 
-127:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i
-  %128 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %129 = load i64, ptr %128, align 4
-  %130 = and i64 %129, 9223372034707292159
-  %or.cond29.i = icmp eq i64 %130, 0
+129:                                              ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i
+  %130 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %131 = load i64, ptr %130, align 4
+  %132 = and i64 %131, 9223372034707292159
+  %or.cond29.i = icmp eq i64 %132, 0
   br i1 %or.cond29.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i, !prof !17
 
-_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i: ; preds = %127, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i
-  %131 = add i32 %.015.i, 1
-  %132 = add i32 %.015.i, %.017.i
-  %133 = and i32 %132, %108
-  br label %111, !llvm.loop !19
+_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i: ; preds = %129, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread.i
+  %133 = add i32 %.015.i, 1
+  %134 = add i32 %.015.i, %.017.i
+  %135 = and i32 %134, %110
+  br label %113, !llvm.loop !19
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit: ; preds = %121
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit: ; preds = %123
   %.not20 = icmp eq i32 %.017.i, %80
-  br i1 %.not20, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread, label %134
+  br i1 %.not20, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread, label %136
 
-134:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit
-  %135 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(16) %135, i64 16, i1 false), !tbaa.struct !3
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %136, align 4, !tbaa !7
-  br label %142
+136:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit
+  %137 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(16) %137, i64 16, i1 false), !tbaa.struct !3
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %138, align 4, !tbaa !7
+  br label %145
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread: ; preds = %127, %_ZNK4llvm12VersionTuple9normalizeEv.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit
-  %.not21 = icmp sgt i64 %7, -1
-  br i1 %.not21, label %140, label %137
-
-137:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  %138 = and i64 %7, 4294967295
-  store i64 %138, ptr %6, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %139, align 8
-  call void @_ZNK5clang13DarwinSDKInfo27RelatedTargetVersionMapping3mapERKN4llvm12VersionTupleES5_St8optionalIS3_E(ptr dead_on_unwind writable sret(%"class.std::optional") align 4 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  br label %142
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread: ; preds = %129, %_ZNK4llvm12VersionTuple9normalizeEv.exit, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit
+  %139 = icmp slt i64 %7, 0
+  br i1 %139, label %140, label %143
 
 140:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %141, align 4, !tbaa !7
-  br label %142
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  %141 = and i64 %7, 4294967295
+  store i64 %141, ptr %6, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %142, align 8
+  call void @_ZNK5clang13DarwinSDKInfo27RelatedTargetVersionMapping3mapERKN4llvm12VersionTupleES5_St8optionalIS3_E(ptr dead_on_unwind writable sret(%"class.std::optional") align 4 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  br label %145
 
-142:                                              ; preds = %134, %137, %140, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread
+143:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E6doFindIS2_EEPS7_RKT_.exit.thread
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %144, align 4, !tbaa !7
+  br label %145
+
+145:                                              ; preds = %136, %140, %143, %_ZN4llvmgtERKNS_12VersionTupleES2_.exit.thread, %_ZN4llvmltERKNS_12VersionTupleES2_.exit.thread
   ret void
 }
 
@@ -2370,137 +2370,137 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
 
 8:                                                ; preds = %3
   %9 = load i64, ptr %1, align 4
-  %.not.i.i = icmp sgt i64 %9, -1
-  br i1 %.not.i.i, label %18, label %10
+  %10 = icmp slt i64 %9, 0
+  br i1 %10, label %11, label %19
 
-10:                                               ; preds = %8
-  %11 = lshr i64 %9, 32
-  %12 = and i64 %11, 2147483647
-  %13 = shl i64 %9, 32
-  %14 = or disjoint i64 %12, %13
-  %15 = mul i64 %14, -4658895280553007687
-  %16 = lshr i64 %15, 31
-  %17 = xor i64 %16, %15
-  br label %18
+11:                                               ; preds = %8
+  %12 = lshr i64 %9, 32
+  %13 = and i64 %12, 2147483647
+  %14 = shl i64 %9, 32
+  %15 = or disjoint i64 %13, %14
+  %16 = mul i64 %15, -4658895280553007687
+  %17 = lshr i64 %16, 31
+  %18 = xor i64 %17, %16
+  br label %19
 
-18:                                               ; preds = %10, %8
-  %.0.in.i.i = phi i64 [ %17, %10 ], [ %9, %8 ]
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 4
-  %21 = and i64 %20, 2147483648
-  %.not24.i.i = icmp eq i64 %21, 0
-  br i1 %.not24.i.i, label %28, label %22
+19:                                               ; preds = %11, %8
+  %.0.in.i.i = phi i64 [ %18, %11 ], [ %9, %8 ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load i64, ptr %20, align 4
+  %22 = and i64 %21, 2147483648
+  %.not.i.i = icmp eq i64 %22, 0
+  br i1 %.not.i.i, label %29, label %23
 
-22:                                               ; preds = %18
-  %.sroa.014.0.extract.trunc.i.i = and i64 %20, 2147483647
-  %23 = shl i64 %.0.in.i.i, 32
-  %24 = or disjoint i64 %.sroa.014.0.extract.trunc.i.i, %23
-  %25 = mul i64 %24, -4658895280553007687
-  %26 = lshr i64 %25, 31
-  %27 = xor i64 %26, %25
-  br label %28
+23:                                               ; preds = %19
+  %.sroa.014.0.extract.trunc.i.i = and i64 %21, 2147483647
+  %24 = shl i64 %.0.in.i.i, 32
+  %25 = or disjoint i64 %.sroa.014.0.extract.trunc.i.i, %24
+  %26 = mul i64 %25, -4658895280553007687
+  %27 = lshr i64 %26, 31
+  %28 = xor i64 %27, %26
+  br label %29
 
-28:                                               ; preds = %22, %18
-  %.1.in.i.i = phi i64 [ %27, %22 ], [ %.0.in.i.i, %18 ]
-  %.not25.i.i = icmp sgt i64 %20, -1
-  br i1 %.not25.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit, label %29
+29:                                               ; preds = %23, %19
+  %.1.in.i.i = phi i64 [ %28, %23 ], [ %.0.in.i.i, %19 ]
+  %30 = icmp slt i64 %21, 0
+  br i1 %30, label %31, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit
 
-29:                                               ; preds = %28
-  %30 = lshr i64 %20, 32
-  %31 = and i64 %30, 2147483647
-  %32 = shl i64 %.1.in.i.i, 32
-  %33 = or disjoint i64 %32, %31
-  %34 = mul i64 %33, -4658895280553007687
-  %35 = lshr i64 %34, 31
-  %36 = xor i64 %35, %34
+31:                                               ; preds = %29
+  %32 = lshr i64 %21, 32
+  %33 = and i64 %32, 2147483647
+  %34 = shl i64 %.1.in.i.i, 32
+  %35 = or disjoint i64 %34, %33
+  %36 = mul i64 %35, -4658895280553007687
+  %37 = lshr i64 %36, 31
+  %38 = xor i64 %37, %36
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit
 
-_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit: ; preds = %28, %29
-  %.2.in.i.i = phi i64 [ %36, %29 ], [ %.1.in.i.i, %28 ]
+_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit: ; preds = %29, %31
+  %.2.in.i.i = phi i64 [ %38, %31 ], [ %.1.in.i.i, %29 ]
   %.2.i.i = trunc i64 %.2.in.i.i to i32
-  %37 = add i32 %6, -1
-  %38 = and i32 %37, %.2.i.i
-  %39 = trunc i64 %9 to i32
-  br label %40
+  %39 = add i32 %6, -1
+  %40 = and i32 %39, %.2.i.i
+  %41 = trunc i64 %9 to i32
+  br label %42
 
-40:                                               ; preds = %.thread, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit
+42:                                               ; preds = %.thread, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit
   %.029 = phi ptr [ null, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %spec.select, %.thread ]
-  %.027 = phi i32 [ %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %79, %.thread ]
-  %.025 = phi i32 [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %77, %.thread ]
-  %41 = zext i32 %.027 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %41
-  %43 = load i64, ptr %42, align 4
-  %44 = trunc i64 %43 to i32
-  %45 = icmp eq i32 %39, %44
-  br i1 %45, label %46, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, !prof !16
+  %.027 = phi i32 [ %40, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %81, %.thread ]
+  %.025 = phi i32 [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %79, %.thread ]
+  %43 = zext i32 %.027 to i64
+  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %43
+  %45 = load i64, ptr %44, align 4
+  %46 = trunc i64 %45 to i32
+  %47 = icmp eq i32 %41, %46
+  br i1 %47, label %48, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, !prof !16
 
-46:                                               ; preds = %40
-  %47 = xor i64 %43, %9
-  %48 = and i64 %47, 9223372032559808512
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, !prof !16
+48:                                               ; preds = %42
+  %49 = xor i64 %45, %9
+  %50 = and i64 %49, 9223372032559808512
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, !prof !16
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %52 = load i64, ptr %51, align 4
-  %53 = xor i64 %52, %20
-  %54 = and i64 %53, 9223372034707292159
-  %or.cond = icmp eq i64 %54, 0
+52:                                               ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %54 = load i64, ptr %53, align 4
+  %55 = xor i64 %54, %21
+  %56 = and i64 %55, 9223372034707292159
+  %or.cond = icmp eq i64 %56, 0
   br i1 %or.cond, label %.loopexit, label %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, !prof !17
 
-_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread: ; preds = %40, %46, %50
-  switch i32 %44, label %.thread [
-    i32 2147483647, label %55
-    i32 2147483646, label %64
+_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread: ; preds = %42, %48, %52
+  switch i32 %46, label %.thread [
+    i32 2147483647, label %57
+    i32 2147483646, label %66
   ], !prof !137
 
-55:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread
-  %56 = and i64 %43, 9223372032559808512
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %58, label %.thread, !prof !16
+57:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread
+  %58 = and i64 %45, 9223372032559808512
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %60, label %.thread, !prof !16
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %60 = load i64, ptr %59, align 4
-  %61 = and i64 %60, 9223372034707292159
-  %or.cond50 = icmp eq i64 %61, 0
-  br i1 %or.cond50, label %62, label %.thread, !prof !17
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %62 = load i64, ptr %61, align 4
+  %63 = and i64 %62, 9223372034707292159
+  %or.cond50 = icmp eq i64 %63, 0
+  br i1 %or.cond50, label %64, label %.thread, !prof !17
 
-62:                                               ; preds = %58
+64:                                               ; preds = %60
   %.not = icmp eq ptr %.029, null
-  %63 = select i1 %.not, ptr %42, ptr %.029
+  %65 = select i1 %.not, ptr %44, ptr %.029
   br label %.loopexit
 
-64:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread
-  %65 = and i64 %43, 9223372032559808512
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %67, label %.thread
+66:                                               ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread
+  %67 = and i64 %45, 9223372032559808512
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %.thread
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %69 = load i64, ptr %68, align 4
-  %70 = and i64 %69, 2147483647
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %72, label %.thread
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %71 = load i64, ptr %70, align 4
+  %72 = and i64 %71, 2147483647
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %.thread
 
-72:                                               ; preds = %67
-  %73 = and i64 %69, 9223372032559808512
-  %74 = icmp eq i64 %73, 0
+74:                                               ; preds = %69
+  %75 = and i64 %71, 9223372032559808512
+  %76 = icmp eq i64 %75, 0
   br label %.thread
 
-.thread:                                          ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, %55, %58, %72, %67, %64
-  %75 = phi i1 [ false, %67 ], [ false, %64 ], [ %74, %72 ], [ false, %58 ], [ false, %55 ], [ false, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread ]
-  %76 = icmp eq ptr %.029, null
-  %or.cond.not = select i1 %75, i1 %76, i1 false
-  %spec.select = select i1 %or.cond.not, ptr %42, ptr %.029
-  %77 = add i32 %.025, 1
-  %78 = add i32 %.025, %.027
-  %79 = and i32 %78, %37
-  br label %40, !llvm.loop !138
+.thread:                                          ; preds = %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread, %57, %60, %74, %69, %66
+  %77 = phi i1 [ false, %69 ], [ false, %66 ], [ %76, %74 ], [ false, %60 ], [ false, %57 ], [ false, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit.thread ]
+  %78 = icmp eq ptr %.029, null
+  %or.cond.not = select i1 %77, i1 %78, i1 false
+  %spec.select = select i1 %or.cond.not, ptr %44, ptr %.029
+  %79 = add i32 %.025, 1
+  %80 = add i32 %.025, %.027
+  %81 = and i32 %80, %39
+  br label %42, !llvm.loop !138
 
-.loopexit:                                        ; preds = %50, %3, %62
-  %.sink = phi ptr [ %63, %62 ], [ null, %3 ], [ %42, %50 ]
-  %.0 = phi i1 [ false, %62 ], [ false, %3 ], [ true, %50 ]
+.loopexit:                                        ; preds = %52, %3, %64
+  %.sink = phi ptr [ %65, %64 ], [ null, %3 ], [ %44, %52 ]
+  %.0 = phi i1 [ false, %64 ], [ false, %3 ], [ true, %52 ]
   store ptr %.sink, ptr %2, align 8, !tbaa !44
   ret i1 %.0
 }

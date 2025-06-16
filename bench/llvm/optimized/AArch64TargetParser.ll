@@ -5090,20 +5090,20 @@ _ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread4:  ; preds = %2, %_ZNK4llvm7AArch
   %51 = lshr i64 %13, 32
   %52 = trunc nuw i64 %51 to i32
   %53 = and i32 %52, 2147483647
-  %.not20.i = icmp sgt i64 %13, -1
-  %54 = add nuw i32 %53, 5
-  %55 = select i1 %.not20.i, i32 5, i32 %54
-  %56 = lshr i64 %15, 32
-  %57 = trunc nuw i64 %56 to i32
-  %58 = and i32 %57, 2147483647
-  %.not21.i = icmp sgt i64 %15, -1
-  %59 = icmp ule i32 %58, %55
-  %60 = select i1 %.not21.i, i1 true, i1 %59
+  %54 = icmp slt i64 %13, 0
+  %55 = add nuw i32 %53, 5
+  %56 = select i1 %54, i32 %55, i32 5
+  %57 = lshr i64 %15, 32
+  %58 = trunc nuw i64 %57 to i32
+  %59 = and i32 %58, 2147483647
+  %60 = icmp sgt i64 %15, -1
+  %61 = icmp ule i32 %59, %56
+  %62 = select i1 %60, i1 true, i1 %61
   br label %_ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit
 
 _ZNK4llvm7AArch648ArchInfo7impliesERKS1_.exit:    ; preds = %5, %50, %47, %44, %42, %40, %18, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread4, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit
-  %61 = phi i1 [ true, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit ], [ %60, %50 ], [ false, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread4 ], [ false, %47 ], [ true, %18 ], [ false, %40 ], [ true, %42 ], [ %spec.select.i.i.i, %44 ], [ true, %5 ]
-  ret i1 %61
+  %63 = phi i1 [ true, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit ], [ %62, %50 ], [ false, %_ZNK4llvm7AArch648ArchInfoeqERKS1_.exit.thread4 ], [ false, %47 ], [ true, %18 ], [ false, %40 ], [ true, %42 ], [ %spec.select.i.i.i, %44 ], [ true, %5 ]
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable

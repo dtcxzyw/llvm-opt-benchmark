@@ -8150,7 +8150,7 @@ define hidden void @_ZNK5clang6driver10toolchains13MSVCToolChain27ComputeEffecti
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = extractvalue { i64, i64 } %23, 1
   %27 = and i64 %26, 2147483648
-  %.not83 = icmp eq i64 %27, 0
+  %.not = icmp eq i64 %27, 0
   %28 = and i64 %24, 4294967295
   %29 = tail call i64 @llvm.smin.i64(i64 %24, i64 0)
   %30 = and i64 %29, 9223372032559808512
@@ -8158,7 +8158,7 @@ define hidden void @_ZNK5clang6driver10toolchains13MSVCToolChain27ComputeEffecti
   %32 = or disjoint i64 %31, -9223372036854775808
   %33 = and i64 %26, 2147483647
   %34 = or disjoint i64 %33, 2147483648
-  %35 = select i1 %.not83, i64 2147483648, i64 %34
+  %35 = select i1 %.not, i64 2147483648, i64 %34
   store i64 %32, ptr %7, align 8, !tbaa !25
   store i64 %35, ptr %25, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #18
@@ -8222,8 +8222,8 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %49
   %58 = add nuw i64 %54, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
-  %.not = icmp ugt i64 %56, %58
-  br i1 %.not, label %_ZN4llvmplERKNS_5TwineES2_.exit59, label %_ZN4llvmplERKNS_5TwineES2_.exit
+  %.not83 = icmp ugt i64 %56, %58
+  br i1 %.not83, label %_ZN4llvmplERKNS_5TwineES2_.exit59, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %_ZNK4llvm9StringRef5splitEc.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #18

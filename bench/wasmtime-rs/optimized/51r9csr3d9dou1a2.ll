@@ -32650,8 +32650,8 @@ common.ret:                                       ; preds = %77, %"_ZN4core3ptr7
   br label %"_ZN4core3ptr73drop_in_place$LT$alloc..sync..Arc$LT$wasi_common..file..FileEntry$GT$$GT$17h3d1411b1e743f61dE.exit"
 
 20:                                               ; preds = %8
-  %trunc.i.not = icmp sgt i64 %14, -1
-  br i1 %trunc.i.not, label %25, label %21
+  %trunc.i = icmp slt i64 %14, 0
+  br i1 %trunc.i, label %21, label %25
 
 21:                                               ; preds = %20
   %22 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hef1ee2547ce057e8E"(i8 noundef 28)

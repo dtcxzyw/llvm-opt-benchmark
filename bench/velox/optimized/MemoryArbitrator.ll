@@ -7224,8 +7224,8 @@ for.body8:                                        ; preds = %_ZN5folly18threadlo
   %6 = load ptr, ptr %call3, align 8
   %node11 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034, i32 3
   %bf.load.i = load i32, ptr %node11, align 8
-  %bf.cast.i.not = icmp sgt i32 %bf.load.i, -1
-  br i1 %bf.cast.i.not, label %if.then, label %for.inc20
+  %bf.cast.i = icmp slt i32 %bf.load.i, 0
+  br i1 %bf.cast.i, label %for.inc20, label %if.then
 
 if.then:                                          ; preds = %for.body8
   %conv16 = trunc i64 %i5.034 to i32

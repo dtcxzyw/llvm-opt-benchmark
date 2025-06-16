@@ -343,24 +343,24 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 14:                                               ; preds = %14, %9
   %.sroa.07.0.i = phi i64 [ %2, %9 ], [ %.sroa.0.0.i.i.i.i, %14 ]
-  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %19, %14 ]
+  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %20, %14 ]
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i32, ptr %15, align 4, !noundef !7
   %16 = zext nneg i32 %.val.i to i64
-  %.not.i.i.i.i = icmp sgt i32 %.val.i, -1
-  call void @llvm.assume(i1 %.not.i.i.i.i)
+  %17 = icmp sgt i32 %.val.i, -1
+  call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !44
   store i64 %.sroa.07.0.i, ptr %6, align 8, !noalias !49
   store i64 %16, ptr %5, align 8, !noalias !49
-  %17 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %18 = icmp slt i8 %17, 0
-  %.sroa.0.0.i.i.i.i = select i1 %18, i64 %.sroa.07.0.i, i64 %16
+  %18 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %19 = icmp slt i8 %18, 0
+  %.sroa.0.0.i.i.i.i = select i1 %19, i64 %.sroa.07.0.i, i64 %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !44
-  %19 = add nuw i64 %.sroa.09.0.i, 1
-  %20 = icmp eq i64 %19, %13
-  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h59391a2a7cd37df1E.exit", label %14
+  %20 = add nuw i64 %.sroa.09.0.i, 1
+  %21 = icmp eq i64 %20, %13
+  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h59391a2a7cd37df1E.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h59391a2a7cd37df1E.exit": ; preds = %14, %3
   %.sroa.04.0.i = phi i64 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %14 ]
@@ -5241,23 +5241,23 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 14:                                               ; preds = %14, %9
   %.sroa.07.0.i = phi i64 [ %2, %9 ], [ %.sroa.0.0.i.i.i.i, %14 ]
-  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %18, %14 ]
+  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %19, %14 ]
   %15 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i64, ptr %15, align 8, !noundef !7
-  %.not.i.i.i.i = icmp sgt i64 %.val.i, -1
-  call void @llvm.assume(i1 %.not.i.i.i.i)
+  %16 = icmp sgt i64 %.val.i, -1
+  call void @llvm.assume(i1 %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !759
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !759
   store i64 %.sroa.07.0.i, ptr %6, align 8, !noalias !764
   store i64 %.val.i, ptr %5, align 8, !noalias !764
-  %16 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %17 = icmp slt i8 %16, 0
-  %.sroa.0.0.i.i.i.i = select i1 %17, i64 %.sroa.07.0.i, i64 %.val.i
+  %17 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %18 = icmp slt i8 %17, 0
+  %.sroa.0.0.i.i.i.i = select i1 %18, i64 %.sroa.07.0.i, i64 %.val.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !759
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !759
-  %18 = add nuw i64 %.sroa.09.0.i, 1
-  %19 = icmp eq i64 %18, %13
-  br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0697f53eeeaf01cfE.exit", label %14
+  %19 = add nuw i64 %.sroa.09.0.i, 1
+  %20 = icmp eq i64 %19, %13
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0697f53eeeaf01cfE.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0697f53eeeaf01cfE.exit": ; preds = %14, %3
   %.sroa.04.0.i = phi i64 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %14 ]
@@ -7193,24 +7193,24 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 14:                                               ; preds = %14, %9
   %.sroa.07.0.i = phi i64 [ %2, %9 ], [ %.sroa.0.0.i.i.i.i, %14 ]
-  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %19, %14 ]
+  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %20, %14 ]
   %15 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i16, ptr %15, align 2, !noundef !7
   %16 = zext nneg i16 %.val.i to i64
-  %.not.i.i.i.i = icmp sgt i16 %.val.i, -1
-  call void @llvm.assume(i1 %.not.i.i.i.i)
+  %17 = icmp sgt i16 %.val.i, -1
+  call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1042
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !1042
   store i64 %.sroa.07.0.i, ptr %6, align 8, !noalias !1047
   store i64 %16, ptr %5, align 8, !noalias !1047
-  %17 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %18 = icmp slt i8 %17, 0
-  %.sroa.0.0.i.i.i.i = select i1 %18, i64 %.sroa.07.0.i, i64 %16
+  %18 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %19 = icmp slt i8 %18, 0
+  %.sroa.0.0.i.i.i.i = select i1 %19, i64 %.sroa.07.0.i, i64 %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1042
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1042
-  %19 = add nuw i64 %.sroa.09.0.i, 1
-  %20 = icmp eq i64 %19, %13
-  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha5c4a64ad8b830c0E.exit", label %14
+  %20 = add nuw i64 %.sroa.09.0.i, 1
+  %21 = icmp eq i64 %20, %13
+  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha5c4a64ad8b830c0E.exit", label %14
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha5c4a64ad8b830c0E.exit": ; preds = %14, %3
   %.sroa.04.0.i = phi i64 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %14 ]
@@ -14551,24 +14551,24 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 13:                                               ; preds = %13, %9
   %.sroa.07.0.i = phi i64 [ %2, %9 ], [ %.sroa.0.0.i.i.i.i, %13 ]
-  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %18, %13 ]
+  %.sroa.09.0.i = phi i64 [ 0, %9 ], [ %19, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.09.0.i
   %.val.i = load i8, ptr %14, align 1, !noundef !7
   %15 = zext nneg i8 %.val.i to i64
-  %.not.i.i.i.i = icmp sgt i8 %.val.i, -1
-  call void @llvm.assume(i1 %.not.i.i.i.i)
+  %16 = icmp sgt i8 %.val.i, -1
+  call void @llvm.assume(i1 %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !2168
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !2168
   store i64 %.sroa.07.0.i, ptr %6, align 8, !noalias !2173
   store i64 %15, ptr %5, align 8, !noalias !2173
-  %16 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-  %17 = icmp slt i8 %16, 0
-  %.sroa.0.0.i.i.i.i = select i1 %17, i64 %.sroa.07.0.i, i64 %15
+  %17 = call noundef i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h8c6b6b78f4c9da32E"(ptr noalias noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %18 = icmp slt i8 %17, 0
+  %.sroa.0.0.i.i.i.i = select i1 %18, i64 %.sroa.07.0.i, i64 %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !2168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !2168
-  %18 = add nuw i64 %.sroa.09.0.i, 1
-  %19 = icmp eq i64 %18, %12
-  br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5a4c68b1acacdc42E.exit", label %13
+  %19 = add nuw i64 %.sroa.09.0.i, 1
+  %20 = icmp eq i64 %19, %12
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5a4c68b1acacdc42E.exit", label %13
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5a4c68b1acacdc42E.exit": ; preds = %13, %3
   %.sroa.04.0.i = phi i64 [ %2, %3 ], [ %.sroa.0.0.i.i.i.i, %13 ]
