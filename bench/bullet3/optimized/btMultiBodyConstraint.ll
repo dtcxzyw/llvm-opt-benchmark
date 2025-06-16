@@ -586,10 +586,9 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i: ; preds = %165, %_ZNK20btAl
 .lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
   %167 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i ]
   %168 = sext i32 %142 to i64
-  %wide.trip.count.i = sext i32 %143 to i64
   %169 = shl nsw i64 %168, 2
   %scevgep = getelementptr i8, ptr %167, i64 %169
-  %170 = sub nsw i64 %wide.trip.count.i, %168
+  %170 = sext i32 %136 to i64
   %171 = shl nsw i64 %170, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %171, i1 false), !tbaa !50
   br label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit
@@ -679,10 +678,9 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i377: ; preds = %198, %_ZNK20b
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit387: ; preds = %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i377, %..lr.ph.i364_crit_edge
   %200 = phi ptr [ %.pre726, %..lr.ph.i364_crit_edge ], [ %.0.i.i.i373, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i377 ]
   %201 = sext i32 %174 to i64
-  %wide.trip.count.i365 = sext i32 %176 to i64
   %202 = shl nsw i64 %201, 2
   %scevgep687 = getelementptr i8, ptr %200, i64 %202
-  %203 = sub nsw i64 %wide.trip.count.i365, %201
+  %203 = sext i32 %136 to i64
   %204 = shl nsw i64 %203, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep687, i8 0, i64 %204, i1 false), !tbaa !50
   store i32 %176, ptr %173, align 4, !tbaa !30
@@ -824,10 +822,9 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i401: ; preds = %255, %_ZNK20b
 .lr.ph.i388:                                      ; preds = %..lr.ph.i388_crit_edge, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i401
   %257 = phi ptr [ %.pre728, %..lr.ph.i388_crit_edge ], [ %.0.i.i.i397, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i401 ]
   %258 = sext i32 %234 to i64
-  %wide.trip.count.i389 = sext i32 %233 to i64
   %259 = shl nsw i64 %258, 2
   %scevgep690 = getelementptr i8, ptr %257, i64 %259
-  %260 = sub nsw i64 %wide.trip.count.i389, %258
+  %260 = sext i32 %136 to i64
   %261 = shl nsw i64 %260, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep690, i8 0, i64 %261, i1 false), !tbaa !50
   br label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit411
@@ -1119,10 +1116,9 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i455: ; preds = %418, %_ZNK20b
 .lr.ph.i442:                                      ; preds = %..lr.ph.i442_crit_edge, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i455
   %420 = phi ptr [ %.pre732, %..lr.ph.i442_crit_edge ], [ %.0.i.i.i451, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i455 ]
   %421 = sext i32 %395 to i64
-  %wide.trip.count.i443 = sext i32 %396 to i64
   %422 = shl nsw i64 %421, 2
   %scevgep691 = getelementptr i8, ptr %420, i64 %422
-  %423 = sub nsw i64 %wide.trip.count.i443, %421
+  %423 = sext i32 %388 to i64
   %424 = shl nsw i64 %423, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep691, i8 0, i64 %424, i1 false), !tbaa !50
   br label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit465
@@ -1212,10 +1208,9 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i479: ; preds = %451, %_ZNK20b
 _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit489: ; preds = %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i479, %..lr.ph.i466_crit_edge
   %453 = phi ptr [ %.pre734, %..lr.ph.i466_crit_edge ], [ %.0.i.i.i475, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i479 ]
   %454 = sext i32 %427 to i64
-  %wide.trip.count.i467 = sext i32 %429 to i64
   %455 = shl nsw i64 %454, 2
   %scevgep692 = getelementptr i8, ptr %453, i64 %455
-  %456 = sub nsw i64 %wide.trip.count.i467, %454
+  %456 = sext i32 %388 to i64
   %457 = shl nsw i64 %456, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep692, i8 0, i64 %457, i1 false), !tbaa !50
   store i32 %429, ptr %426, align 4, !tbaa !30
@@ -1389,10 +1384,9 @@ _ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i513: ; preds = %526, %_ZNK20b
 .lr.ph.i500:                                      ; preds = %..lr.ph.i500_crit_edge, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i513
   %528 = phi ptr [ %.pre736, %..lr.ph.i500_crit_edge ], [ %.0.i.i.i509, %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i513 ]
   %529 = sext i32 %505 to i64
-  %wide.trip.count.i501 = sext i32 %504 to i64
   %530 = shl nsw i64 %529, 2
   %scevgep700 = getelementptr i8, ptr %528, i64 %530
-  %531 = sub nsw i64 %wide.trip.count.i501, %529
+  %531 = sext i32 %388 to i64
   %532 = shl nsw i64 %531, 2
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep700, i8 0, i64 %532, i1 false), !tbaa !50
   br label %_ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit523

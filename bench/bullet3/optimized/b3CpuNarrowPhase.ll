@@ -1623,11 +1623,10 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %175
 .lr.ph168:                                        ; preds = %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i, %..lr.ph.i124_crit_edge
   %233 = phi ptr [ %.pre194, %..lr.ph.i124_crit_edge ], [ %.0.i18.i.i132, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ]
   %234 = sext i32 %196 to i64
-  %wide.trip.count.i125 = sext i32 %208 to i64
   %235 = shl nsw i64 %234, 2
   %scevgep177 = getelementptr i8, ptr %233, i64 %235
-  %236 = sub nsw i64 %wide.trip.count.i125, %234
-  %237 = shl nsw i64 %236, 2
+  %236 = zext nneg i32 %199 to i64
+  %237 = shl nuw nsw i64 %236, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep177, i8 0, i64 %237, i1 false), !tbaa !79
   store i32 %208, ptr %195, align 4, !tbaa !62
   %238 = load ptr, ptr %174, align 8, !tbaa !138
