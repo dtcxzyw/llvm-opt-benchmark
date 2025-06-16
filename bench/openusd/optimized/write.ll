@@ -5354,60 +5354,60 @@ avifWriteGridPayload.exit.thread:                 ; preds = %13, %19, %22, %26, 
 .split.us.preheader:                              ; preds = %33, %38
   call void @avifRWStreamFinishWrite(ptr noundef nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  %41 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  store i32 %5, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  store i32 %1, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %15, i64 140
-  store i32 %2, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store i32 %3, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %15, i64 148
-  store i32 %4, ptr %45, align 4
-  %46 = load i16, ptr %15, align 8
-  store i16 %46, ptr %6, align 2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  store i32 %5, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  store i32 %1, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 140
+  store i32 %2, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  store i32 %3, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 148
+  store i32 %4, ptr %48, align 4
+  %49 = load i16, ptr %15, align 8
+  store i16 %49, ptr %6, align 2
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %59
-  %.05463.us = phi i32 [ %70, %59 ], [ 0, %.split.us.preheader ]
-  %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 520
-  %53 = load ptr, ptr %52, align 8
-  %54 = call fastcc ptr @avifEncoderDataCreateItem(ptr noundef %51, ptr noundef %53, ptr noundef nonnull %10, i64 noundef 6, i32 noundef %.05463.us)
-  %.not59.us = icmp eq ptr %54, null
-  br i1 %.not59.us, label %.loopexit, label %55
+.split.us:                                        ; preds = %.split.us.preheader, %62
+  %.05463.us = phi i32 [ %73, %59 ], [ 0, %.split.us.preheader ]
+  %54 = load ptr, ptr %50, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 520
+  %56 = load ptr, ptr %55, align 8
+  %57 = call fastcc ptr @avifEncoderDataCreateItem(ptr noundef %54, ptr noundef %56, ptr noundef nonnull %10, i64 noundef 6, i32 noundef %.05463.us)
+  %.not59.us = icmp eq ptr %57, null
+  br i1 %.not59.us, label %.loopexit, label %58
 
-55:                                               ; preds = %.split.us
-  %56 = load i32, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %58 = call i32 @avifCodecCreate(i32 noundef %56, i32 noundef 2, ptr noundef nonnull %57) #13
-  %.not60.us = icmp eq i32 %58, 0
-  br i1 %.not60.us, label %59, label %.loopexit
+58:                                               ; preds = %.split.us
+  %59 = load i32, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %61 = call i32 @avifCodecCreate(i32 noundef %59, i32 noundef 2, ptr noundef nonnull %60) #13
+  %.not60.us = icmp eq i32 %61, 0
+  br i1 %.not60.us, label %62, label %.loopexit
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %48, align 8
-  %61 = load ptr, ptr %57, align 8
-  store ptr %60, ptr %61, align 8
-  %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %49, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  store i32 %5, ptr %64, align 8
-  %65 = load i32, ptr %50, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %54, i64 152
-  store i32 %65, ptr %66, align 8
-  %67 = load i16, ptr %6, align 2
-  %68 = getelementptr inbounds nuw i8, ptr %54, i64 156
-  store i16 %67, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %54, i64 60
-  store i32 1, ptr %69, align 4
-  %70 = add nuw nsw i32 %.05463.us, 1
-  %exitcond.not = icmp eq i32 %70, %9
-  br i1 %exitcond.not, label %.loopexit, label %.split.us, !llvm.loop !49
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %51, align 8
+  %64 = load ptr, ptr %60, align 8
+  store ptr %63, ptr %64, align 8
+  %65 = load ptr, ptr %60, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store ptr %52, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 56
+  store i32 %5, ptr %67, align 8
+  %68 = load i32, ptr %53, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %57, i64 152
+  store i32 %68, ptr %69, align 8
+  %70 = load i16, ptr %6, align 2
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 156
+  store i16 %70, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %57, i64 60
+  store i32 1, ptr %72, align 4
+  %73 = add nuw nsw i32 %.05463.us, 1
+  %exitcond66.not = icmp eq i32 %73, %9
+  br i1 %exitcond66.not, label %.loopexit, label %.split.us, !llvm.loop !49
 
 .split:                                           ; preds = %7
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -5443,8 +5443,8 @@ avifWriteGridPayload.exit.thread:                 ; preds = %13, %19, %22, %26, 
   store i16 %90, ptr %6, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %55, %.split.us, %.split, %78, %82, %avifWriteGridPayload.exit.thread
-  %.0 = phi i32 [ %.0.i.ph, %avifWriteGridPayload.exit.thread ], [ 26, %.split ], [ %81, %78 ], [ 0, %82 ], [ 0, %59 ], [ %58, %55 ], [ 26, %.split.us ]
+.loopexit:                                        ; preds = %62, %58, %.split.us, %.split, %78, %82, %avifWriteGridPayload.exit.thread
+  %.0 = phi i32 [ %.0.i.ph, %avifWriteGridPayload.exit.thread ], [ 26, %.split ], [ %81, %78 ], [ 0, %82 ], [ 0, %59 ], [ %61, %55 ], [ 26, %.split.us ]
   ret i32 %.0
 }
 

@@ -22,26 +22,26 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Gia_ParComputeSignature(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !3
-  %5 = getelementptr i8, ptr %4, i64 4
-  %.val = load i32, ptr %5, align 4, !tbaa !28
-  %6 = icmp sgt i32 %.val, 0
+  %4 = getelementptr i8, ptr %4, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph25, label %.critedge
 
 .lr.ph25:                                         ; preds = %2
-  %7 = getelementptr i8, ptr %0, i64 32
-  %.val14 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = getelementptr i8, ptr %0, i64 32
+  %.val14 = load ptr, ptr %8, align 8, !tbaa !29
   %.not = icmp eq ptr %.val14, null
   br i1 %.not, label %.critedge, label %.lr.ph25.split
 
 .lr.ph25.split:                                   ; preds = %.lr.ph25
-  %8 = getelementptr i8, ptr %0, i64 784
-  %9 = getelementptr i8, ptr %0, i64 768
-  %10 = getelementptr i8, ptr %4, i64 8
-  %.val15.val = load ptr, ptr %10, align 8, !tbaa !30
-  %.val17 = load ptr, ptr %9, align 8, !tbaa !31
-  %.val18 = load i32, ptr %8, align 8, !tbaa !32
-  %11 = icmp sgt i32 %.val18, 0
-  br i1 %11, label %.lr.ph.us.preheader, label %.critedge
+  %9 = getelementptr i8, ptr %0, i64 784
+  %10 = getelementptr i8, ptr %0, i64 768
+  %11 = getelementptr i8, ptr %4, i64 8
+  %.val15.val = load ptr, ptr %11, align 8, !tbaa !30
+  %.val17 = load ptr, ptr %10, align 8, !tbaa !31
+  %.val18 = load i32, ptr %9, align 8, !tbaa !32
+  %12 = icmp sgt i32 %.val18, 0
+  br i1 %12, label %.lr.ph.us.preheader, label %.critedge
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph25.split
   %wide.trip.count36 = zext nneg i32 %.val to i64
@@ -50,31 +50,31 @@ define void @Gia_ParComputeSignature(ptr noundef readonly captures(none) %0, i32
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv33 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next34, %._crit_edge.us ]
-  %.lcssa2122.us30 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %21, %._crit_edge.us ]
-  %12 = getelementptr inbounds nuw i32, ptr %.val15.val, i64 %indvars.iv33
-  %13 = load i32, ptr %12, align 4, !tbaa !33
-  %14 = mul nsw i32 %.val18, %13
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %.val17, i64 %15
-  br label %17
+  %.lcssa2122.us30 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %22, %._crit_edge.us ]
+  %13 = getelementptr inbounds nuw i32, ptr %.val15.val, i64 %indvars.iv33
+  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %15 = mul nsw i32 %.val18, %14
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i64, ptr %.val17, i64 %16
+  br label %18
 
-17:                                               ; preds = %.lr.ph.us, %17
+18:                                               ; preds = %.lr.ph.us, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %17 ]
-  %18 = phi i64 [ %.lcssa2122.us30, %.lr.ph.us ], [ %21, %17 ]
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
-  %20 = load i64, ptr %19, align 8, !tbaa !34
-  %21 = xor i64 %18, %20
+  %19 = phi i64 [ %.lcssa2122.us30, %.lr.ph.us ], [ %22, %17 ]
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %21 = load i64, ptr %20, align 8, !tbaa !34
+  %22 = xor i64 %19, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !35
 
-._crit_edge.us:                                   ; preds = %17
+._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
   br i1 %exitcond37.not, label %.critedge, label %.lr.ph.us, !llvm.loop !37
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph25.split, %.lr.ph25, %2
-  %.lcssa21.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph25.split ], [ %21, %._crit_edge.us ]
+  %.lcssa21.lcssa = phi i64 [ 0, %2 ], [ 0, %.lr.ph25 ], [ 0, %.lr.ph25.split ], [ %22, %._crit_edge.us ]
   %22 = load ptr, ptr @stdout, align 8, !tbaa !38
   br label %23
 
