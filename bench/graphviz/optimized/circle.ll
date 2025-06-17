@@ -438,7 +438,7 @@ setSubtreeSize.exit:                              ; preds = %.loopexit.i35, %172
   store double 0.000000e+00, ptr %199, align 8, !tbaa !31
   tail call fastcc void @setChildPositions(ptr noundef %0, ptr noundef %.022)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  %200 = add i64 %spec.select21.i, 1
+  %200 = add nuw i64 %spec.select21.i, 1
   %mul.ov.i.i.i = icmp ugt i64 %spec.select21.i, 2305843009213693950
   br i1 %mul.ov.i.i.i, label %201, label %204
 
@@ -529,8 +529,8 @@ gv_isspace.exit.thread.i.i:                       ; preds = %225, %225, %225, %2
   %229 = getelementptr inbounds nuw double, ptr %205, i64 %.053.i.i
   store double %228, ptr %229, align 8, !tbaa !62
   %230 = add i64 %.053.i.i, 1
-  %exitcond.not = icmp eq i64 %.053.i.i, %spec.select21.i
-  br i1 %exitcond.not, label %getRankseps.exit.i, label %.lr.ph54.i.i, !llvm.loop !65
+  %exitcond55.not.i.i = icmp eq i64 %.053.i.i, %spec.select21.i
+  br i1 %exitcond55.not.i.i, label %getRankseps.exit.i, label %.lr.ph54.i.i, !llvm.loop !65
 
 getRankseps.exit.i:                               ; preds = %.critedge2.loopexit.i.i, %.lr.ph54.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18

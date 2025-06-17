@@ -8249,9 +8249,9 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
 
 113:                                              ; preds = %121, %115, %109
   %.sroa.03.5 = phi i64 [ %132, %121 ], [ %.sroa.03.4173, %115 ], [ %.sroa.03.4173, %109 ]
-  %114 = add nuw nsw i64 %.sroa.036.0174, 1
-  %.not61.not = icmp ult i64 %.sroa.036.0174, %.sroa.0.0.sroa.speculated.i63
-  br i1 %.not61.not, label %109, label %.loopexit
+  %114 = add i64 %.sroa.036.0174, 1
+  %exitcond196.not = icmp eq i64 %.sroa.036.0174, %.sroa.0.0.sroa.speculated.i63
+  br i1 %exitcond196.not, label %.loopexit, label %109
 
 115:                                              ; preds = %109
   %116 = lshr i32 %111, 5
