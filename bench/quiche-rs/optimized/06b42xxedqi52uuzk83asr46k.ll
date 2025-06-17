@@ -7176,19 +7176,13 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit96: ; preds = %_ZN4core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i64 0, 10) i64 @_ZN6quiche6packet11pkt_num_len17h246dbb8a0458762fE(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
+define noundef range(i64 0, 9) i64 @_ZN6quiche6packet11pkt_num_len17h246dbb8a0458762fE(i64 noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = tail call i64 @llvm.usub.sat.i64(i64 %0, i64 %1)
   %4 = add i64 %3, 1
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %4, i1 false)
-  %6 = trunc nuw nsw i64 %5 to i32
-  %7 = sub nuw nsw i32 64, %6
-  %8 = lshr i32 %7, 3
-  %9 = and i32 %7, 7
-  %.not = icmp ne i32 %9, 0
-  %10 = zext i1 %.not to i32
-  %.sroa.0.0 = add nuw nsw i32 %8, %10
-  %11 = zext nneg i32 %.sroa.0.0 to i64
-  ret i64 %11
+  %6 = sub nuw nsw i64 71, %5
+  %.sroa.0.0 = lshr i64 %6, 3
+  ret i64 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

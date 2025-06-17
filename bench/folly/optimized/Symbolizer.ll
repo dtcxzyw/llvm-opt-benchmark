@@ -578,7 +578,7 @@ _ZN5folly10symbolizer17getStackTraceSafeILm100EEEbRNS0_10FrameArrayIXT_EEE.exit:
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(13) %14, ptr nonnull @.str.1, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 31))
           to label %_ZN5folly10symbolizer21SafeStackTracePrinter5printENS_5RangeIPKcEE.exit unwind label %18
 
-18:                                               ; preds = %269, %.noexc34, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit93.i", %228, %.noexc31, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit79.i", %.noexc29, %.noexc28, %.noexc27, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit65.i", %.noexc25, %.noexc24, %.noexc23, %.critedge.i, %.noexc21, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit46.i", %97, %.noexc18, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i", %.noexc16, %.noexc15, %.noexc, %50, %24, %13, %_ZN5folly10symbolizer21SafeStackTracePrinter5printENS_5RangeIPKcEE.exit, %2, %265, %20
+18:                                               ; preds = %247, %.noexc34, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit81.i", %208, %.noexc31, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit70.i", %.noexc29, %.noexc28, %.noexc27, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit59.i", %.noexc25, %.noexc24, %.noexc23, %.critedge.i, %.noexc21, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit43.i", %91, %.noexc18, %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i", %.noexc16, %.noexc15, %.noexc, %50, %24, %13, %_ZN5folly10symbolizer21SafeStackTracePrinter5printENS_5RangeIPKcEE.exit, %2, %243, %20
   %19 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev"(i8 0, ptr nonnull %0) #19
@@ -642,13 +642,13 @@ _ZN5folly10symbolizer22getAsyncStackTraceSafeILm100EEEbRNS0_10FrameArrayIXT_EEE.
 
 _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.exit13: ; preds = %_ZN5folly10symbolizer22getAsyncStackTraceSafeILm100EEEbRNS0_10FrameArrayIXT_EEE.exit
   store i64 0, ptr %35, align 8, !tbaa !24
-  br label %279
+  br label %257
 
 .loopexit:                                        ; preds = %40, %38
   %43 = load ptr, ptr %4, align 8, !tbaa !10
   %44 = load i64, ptr %43, align 8, !tbaa !24
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %279, label %46
+  br i1 %45, label %257, label %46
 
 46:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
@@ -692,474 +692,429 @@ _ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.e
           to label %.noexc17 unwind label %18
 
 .noexc17:                                         ; preds = %.noexc16
-  br i1 %.not.i14, label %._crit_edge.thread.i.i.i.i, label %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i, !prof !23
+  %65 = ptrtoint ptr %47 to i64
+  %66 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %65, i1 true)
+  %67 = sub nuw nsw i64 67, %66
+  %68 = lshr i64 %67, 2
+  %.0.i1.i.i.i.i = select i1 %.not.i14, i64 1, i64 %68, !prof !23
+  %69 = icmp samesign ugt i64 %.0.i1.i.i.i.i, 2
+  br i1 %69, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !76
 
-._crit_edge.thread.i.i.i.i:                       ; preds = %.noexc17
-  %65 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !76
-  br label %86
+.lr.ph.i.i.i.i:                                   ; preds = %.noexc17, %.lr.ph.i.i.i.i
+  %.0.i3.i.i.i.i = phi i64 [ %71, %.lr.ph.i.i.i.i ], [ %65, %.noexc17 ]
+  %.014.i2.i.i.i.i = phi i64 [ %70, %.lr.ph.i.i.i.i ], [ %68, %.noexc17 ]
+  %70 = add i64 %.014.i2.i.i.i.i, -2
+  %71 = lshr i64 %.0.i3.i.i.i.i, 8
+  %72 = and i64 %.0.i3.i.i.i.i, 255
+  %73 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2, !tbaa !77
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 %70
+  store i16 %74, ptr %75, align 1
+  %76 = icmp ugt i64 %70, 2
+  br i1 %76, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !78, !llvm.loop !79
 
-_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i: ; preds = %.noexc17
-  %66 = ptrtoint ptr %47 to i64
-  %67 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %66, i1 true)
-  %68 = sub nuw nsw i64 64, %67
-  %69 = lshr i64 %68, 2
-  %70 = and i64 %68, 3
-  %71 = icmp ne i64 %70, 0
-  %72 = zext i1 %71 to i64
-  %73 = add nuw nsw i64 %69, %72
-  %74 = icmp samesign ugt i64 %73, 2
-  br i1 %74, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !77
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.noexc17
+  %.014.i.lcssa.i.i.i.i = phi i64 [ %.0.i1.i.i.i.i, %.noexc17 ], [ %70, %.lr.ph.i.i.i.i ]
+  %.0.i.lcssa.i.i.i.i = phi i64 [ %65, %.noexc17 ], [ %71, %.lr.ph.i.i.i.i ]
+  %77 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
+  %78 = load i16, ptr %77, align 2, !tbaa !77
+  %79 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
+  br i1 %79, label %80, label %81, !prof !23
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i, %.lr.ph.i.i.i.i
-  %.0.i3.i.i.i.i = phi i64 [ %76, %.lr.ph.i.i.i.i ], [ %66, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i ]
-  %.014.i2.i.i.i.i = phi i64 [ %75, %.lr.ph.i.i.i.i ], [ %73, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i ]
-  %75 = add i64 %.014.i2.i.i.i.i, -2
-  %76 = lshr i64 %.0.i3.i.i.i.i, 8
-  %77 = and i64 %.0.i3.i.i.i.i, 255
-  %78 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %77
-  %79 = load i16, ptr %78, align 2, !tbaa !76
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 %75
-  store i16 %79, ptr %80, align 1
-  %81 = icmp ugt i64 %75, 2
-  br i1 %81, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !78, !llvm.loop !79
-
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i
-  %.014.i.lcssa.i.i.i.i = phi i64 [ %73, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i ], [ %75, %.lr.ph.i.i.i.i ]
-  %.0.i.lcssa.i.i.i.i = phi i64 [ %66, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i ], [ %76, %.lr.ph.i.i.i.i ]
-  %82 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
-  %83 = load i16, ptr %82, align 2, !tbaa !76
-  %84 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
-  br i1 %84, label %85, label %86, !prof !80
-
-85:                                               ; preds = %._crit_edge.i.i.i.i
-  store i16 %83, ptr %3, align 16
+80:                                               ; preds = %._crit_edge.i.i.i.i
+  store i16 %78, ptr %3, align 16
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i"
 
-86:                                               ; preds = %._crit_edge.i.i.i.i, %._crit_edge.thread.i.i.i.i
-  %87 = phi i16 [ %65, %._crit_edge.thread.i.i.i.i ], [ %83, %._crit_edge.i.i.i.i ]
-  %.0.i1712.i.i.i.i = phi i64 [ 1, %._crit_edge.thread.i.i.i.i ], [ %73, %._crit_edge.i.i.i.i ]
-  %88 = lshr i16 %87, 8
-  %89 = trunc nuw i16 %88 to i8
-  store i8 %89, ptr %3, align 16, !tbaa !21
+81:                                               ; preds = %._crit_edge.i.i.i.i
+  %82 = lshr i16 %78, 8
+  %83 = trunc nuw i16 %82 to i8
+  store i8 %83, ptr %3, align 16, !tbaa !21
   br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i"
 
-"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i": ; preds = %86, %85
-  %.0.i1711.i.i.i.i = phi i64 [ %73, %85 ], [ %.0.i1712.i.i.i.i, %86 ]
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1711.i.i.i.i
-  %91 = load ptr, ptr %52, align 8, !tbaa !7
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %93 = load ptr, ptr %92, align 8
-  invoke void %93(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %90)
+"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i": ; preds = %81, %80
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1.i.i.i.i
+  %85 = load ptr, ptr %52, align 8, !tbaa !7
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %87 = load ptr, ptr %86, align 8
+  invoke void %87(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %84)
           to label %.noexc18 unwind label %18
 
 .noexc18:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i"
-  %94 = load ptr, ptr %52, align 8, !tbaa !7
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %96 = load ptr, ptr %95, align 8
-  invoke void %96(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 55))
+  %88 = load ptr, ptr %52, align 8, !tbaa !7
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %90 = load ptr, ptr %89, align 8
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.5, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 55))
           to label %.noexc19 unwind label %18
 
 .noexc19:                                         ; preds = %.noexc18
-  br i1 %.not.i14, label %.critedge.i, label %97
+  br i1 %.not.i14, label %.critedge.i, label %91
 
-97:                                               ; preds = %.noexc19
-  %98 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !81
-  %100 = load ptr, ptr %52, align 8, !tbaa !7
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load ptr, ptr %101, align 8
-  invoke void %102(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
+91:                                               ; preds = %.noexc19
+  %92 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %93 = load ptr, ptr %92, align 8, !tbaa !80
+  %94 = load ptr, ptr %52, align 8, !tbaa !7
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %96 = load ptr, ptr %95, align 8
+  invoke void %96(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
           to label %.noexc20 unwind label %18
 
-.noexc20:                                         ; preds = %97
-  %.not.i.i.i.i34.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i34.i, label %._crit_edge.thread.i.i.i45.i, label %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i, !prof !23
+.noexc20:                                         ; preds = %91
+  %97 = ptrtoint ptr %93 to i64
+  %.not.i.i.i.i34.i = icmp eq ptr %93, null
+  %98 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %97, i1 true)
+  %99 = sub nuw nsw i64 67, %98
+  %100 = lshr i64 %99, 2
+  %.0.i1.i.i.i35.i = select i1 %.not.i.i.i.i34.i, i64 1, i64 %100, !prof !23
+  %101 = icmp samesign ugt i64 %.0.i1.i.i.i35.i, 2
+  br i1 %101, label %.lr.ph.i.i.i40.i, label %._crit_edge.i.i.i36.i, !prof !76
 
-._crit_edge.thread.i.i.i45.i:                     ; preds = %.noexc20
-  %103 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !76
-  br label %124
+.lr.ph.i.i.i40.i:                                 ; preds = %.noexc20, %.lr.ph.i.i.i40.i
+  %.0.i3.i.i.i41.i = phi i64 [ %103, %.lr.ph.i.i.i40.i ], [ %97, %.noexc20 ]
+  %.014.i2.i.i.i42.i = phi i64 [ %102, %.lr.ph.i.i.i40.i ], [ %100, %.noexc20 ]
+  %102 = add i64 %.014.i2.i.i.i42.i, -2
+  %103 = lshr i64 %.0.i3.i.i.i41.i, 8
+  %104 = and i64 %.0.i3.i.i.i41.i, 255
+  %105 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %104
+  %106 = load i16, ptr %105, align 2, !tbaa !77
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 %102
+  store i16 %106, ptr %107, align 1
+  %108 = icmp ugt i64 %102, 2
+  br i1 %108, label %.lr.ph.i.i.i40.i, label %._crit_edge.i.i.i36.i, !prof !78, !llvm.loop !79
 
-_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i: ; preds = %.noexc20
-  %104 = ptrtoint ptr %99 to i64
-  %105 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %104, i1 true)
-  %106 = sub nuw nsw i64 64, %105
-  %107 = lshr i64 %106, 2
-  %108 = and i64 %106, 3
-  %109 = icmp ne i64 %108, 0
-  %110 = zext i1 %109 to i64
-  %111 = add nuw nsw i64 %107, %110
-  %112 = icmp samesign ugt i64 %111, 2
-  br i1 %112, label %.lr.ph.i.i.i42.i, label %._crit_edge.i.i.i36.i, !prof !77
+._crit_edge.i.i.i36.i:                            ; preds = %.lr.ph.i.i.i40.i, %.noexc20
+  %.014.i.lcssa.i.i.i37.i = phi i64 [ %.0.i1.i.i.i35.i, %.noexc20 ], [ %102, %.lr.ph.i.i.i40.i ]
+  %.0.i.lcssa.i.i.i38.i = phi i64 [ %97, %.noexc20 ], [ %103, %.lr.ph.i.i.i40.i ]
+  %109 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i38.i
+  %110 = load i16, ptr %109, align 2, !tbaa !77
+  %111 = icmp eq i64 %.014.i.lcssa.i.i.i37.i, 2
+  br i1 %111, label %112, label %113, !prof !23
 
-.lr.ph.i.i.i42.i:                                 ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i, %.lr.ph.i.i.i42.i
-  %.0.i3.i.i.i43.i = phi i64 [ %114, %.lr.ph.i.i.i42.i ], [ %104, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i ]
-  %.014.i2.i.i.i44.i = phi i64 [ %113, %.lr.ph.i.i.i42.i ], [ %111, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i ]
-  %113 = add i64 %.014.i2.i.i.i44.i, -2
-  %114 = lshr i64 %.0.i3.i.i.i43.i, 8
-  %115 = and i64 %.0.i3.i.i.i43.i, 255
-  %116 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %115
-  %117 = load i16, ptr %116, align 2, !tbaa !76
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 %113
-  store i16 %117, ptr %118, align 1
-  %119 = icmp ugt i64 %113, 2
-  br i1 %119, label %.lr.ph.i.i.i42.i, label %._crit_edge.i.i.i36.i, !prof !78, !llvm.loop !79
+112:                                              ; preds = %._crit_edge.i.i.i36.i
+  store i16 %110, ptr %3, align 16
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit43.i"
 
-._crit_edge.i.i.i36.i:                            ; preds = %.lr.ph.i.i.i42.i, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i
-  %.014.i.lcssa.i.i.i37.i = phi i64 [ %111, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i ], [ %113, %.lr.ph.i.i.i42.i ]
-  %.0.i.lcssa.i.i.i38.i = phi i64 [ %104, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i35.i ], [ %114, %.lr.ph.i.i.i42.i ]
-  %120 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i38.i
-  %121 = load i16, ptr %120, align 2, !tbaa !76
-  %122 = icmp eq i64 %.014.i.lcssa.i.i.i37.i, 2
-  br i1 %122, label %123, label %124, !prof !80
+113:                                              ; preds = %._crit_edge.i.i.i36.i
+  %114 = lshr i16 %110, 8
+  %115 = trunc nuw i16 %114 to i8
+  store i8 %115, ptr %3, align 16, !tbaa !21
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit43.i"
 
-123:                                              ; preds = %._crit_edge.i.i.i36.i
-  store i16 %121, ptr %3, align 16
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit46.i"
-
-124:                                              ; preds = %._crit_edge.i.i.i36.i, %._crit_edge.thread.i.i.i45.i
-  %125 = phi i16 [ %103, %._crit_edge.thread.i.i.i45.i ], [ %121, %._crit_edge.i.i.i36.i ]
-  %.0.i1712.i.i.i39.i = phi i64 [ 1, %._crit_edge.thread.i.i.i45.i ], [ %111, %._crit_edge.i.i.i36.i ]
-  %126 = lshr i16 %125, 8
-  %127 = trunc nuw i16 %126 to i8
-  store i8 %127, ptr %3, align 16, !tbaa !21
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit46.i"
-
-"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit46.i": ; preds = %124, %123
-  %.0.i1711.i.i.i40.i = phi i64 [ %111, %123 ], [ %.0.i1712.i.i.i39.i, %124 ]
-  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1711.i.i.i40.i
-  %129 = load ptr, ptr %52, align 8, !tbaa !7
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
-  %131 = load ptr, ptr %130, align 8
-  invoke void %131(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %128)
+"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit43.i": ; preds = %113, %112
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1.i.i.i35.i
+  %117 = load ptr, ptr %52, align 8, !tbaa !7
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %119 = load ptr, ptr %118, align 8
+  invoke void %119(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %116)
           to label %.noexc21 unwind label %18
 
-.noexc21:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit46.i"
-  %132 = load ptr, ptr %52, align 8, !tbaa !7
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %134 = load ptr, ptr %133, align 8
-  invoke void %134(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
+.noexc21:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit43.i"
+  %120 = load ptr, ptr %52, align 8, !tbaa !7
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %122 = load ptr, ptr %121, align 8
+  invoke void %122(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
           to label %.noexc22 unwind label %18
 
 .noexc22:                                         ; preds = %.noexc21
-  %135 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %136 = load ptr, ptr %135, align 8, !tbaa !87
-  %137 = ptrtoint ptr %136 to i64
+  %123 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %124 = load ptr, ptr %123, align 8, !tbaa !86
+  %.fr88.i = freeze ptr %124
+  %125 = ptrtoint ptr %.fr88.i to i64
   br label %.noexc25
 
 .critedge.i:                                      ; preds = %.noexc19
-  %138 = load ptr, ptr %52, align 8, !tbaa !7
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  %140 = load ptr, ptr %139, align 8
-  invoke void %140(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
+  %126 = load ptr, ptr %52, align 8, !tbaa !7
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %128 = load ptr, ptr %127, align 8
+  invoke void %128(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
           to label %.noexc23 unwind label %18
 
 .noexc23:                                         ; preds = %.critedge.i
-  %141 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !76
-  %142 = lshr i16 %141, 8
-  %143 = trunc nuw i16 %142 to i8
-  store i8 %143, ptr %3, align 16, !tbaa !21
-  %144 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %145 = load ptr, ptr %52, align 8, !tbaa !7
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  %147 = load ptr, ptr %146, align 8
-  invoke void %147(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %144)
+  %129 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !77
+  %130 = lshr i16 %129, 8
+  %131 = trunc nuw i16 %130 to i8
+  store i8 %131, ptr %3, align 16, !tbaa !21
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %133 = load ptr, ptr %52, align 8, !tbaa !7
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %135 = load ptr, ptr %134, align 8
+  invoke void %135(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %132)
           to label %.noexc24 unwind label %18
 
 .noexc24:                                         ; preds = %.noexc23
-  %148 = load ptr, ptr %52, align 8, !tbaa !7
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = load ptr, ptr %149, align 8
-  invoke void %150(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
+  %136 = load ptr, ptr %52, align 8, !tbaa !7
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  %138 = load ptr, ptr %137, align 8
+  invoke void %138(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
           to label %.noexc25 unwind label %18
 
 .noexc25:                                         ; preds = %.noexc24, %.noexc22
-  %151 = phi i64 [ %137, %.noexc22 ], [ 0, %.noexc24 ]
-  %152 = load ptr, ptr %52, align 8, !tbaa !7
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %154 = load ptr, ptr %153, align 8
-  invoke void %154(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
+  %.fr.i = phi i64 [ %125, %.noexc22 ], [ 0, %.noexc24 ]
+  %139 = load ptr, ptr %52, align 8, !tbaa !7
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  %141 = load ptr, ptr %140, align 8
+  invoke void %141(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
           to label %.noexc26 unwind label %18
 
 .noexc26:                                         ; preds = %.noexc25
-  %.not.i.i.i.i53.i = icmp eq i64 %151, 0
-  br i1 %.not.i.i.i.i53.i, label %._crit_edge.thread.i.i.i64.i, label %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i, !prof !23
+  %.not.i.i.i.i50.i = icmp eq i64 %.fr.i, 0
+  %142 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr.i, i1 true)
+  %143 = sub nuw nsw i64 67, %142
+  %144 = lshr i64 %143, 2
+  br i1 %.not.i.i.i.i50.i, label %._crit_edge.i.i.i52.thread.i, label %146, !prof !23
 
-._crit_edge.thread.i.i.i64.i:                     ; preds = %.noexc26
-  %155 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !76
-  br label %175
+._crit_edge.i.i.i52.thread.i:                     ; preds = %.noexc26
+  %145 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !77
+  br label %159
 
-_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i: ; preds = %.noexc26
-  %156 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %151, i1 true)
-  %157 = sub nuw nsw i64 64, %156
-  %158 = lshr i64 %157, 2
-  %159 = and i64 %157, 3
-  %160 = icmp ne i64 %159, 0
-  %161 = zext i1 %160 to i64
-  %162 = add nuw nsw i64 %158, %161
-  %163 = icmp samesign ugt i64 %162, 2
-  br i1 %163, label %.lr.ph.i.i.i61.i, label %._crit_edge.i.i.i55.i, !prof !77
+146:                                              ; preds = %.noexc26
+  %147 = icmp ugt i64 %.fr.i, 255
+  br i1 %147, label %.lr.ph.i.i.i56.i, label %._crit_edge.i.i.i52.i, !prof !87
 
-.lr.ph.i.i.i61.i:                                 ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i, %.lr.ph.i.i.i61.i
-  %.0.i3.i.i.i62.i = phi i64 [ %165, %.lr.ph.i.i.i61.i ], [ %151, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i ]
-  %.014.i2.i.i.i63.i = phi i64 [ %164, %.lr.ph.i.i.i61.i ], [ %162, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i ]
-  %164 = add i64 %.014.i2.i.i.i63.i, -2
-  %165 = lshr i64 %.0.i3.i.i.i62.i, 8
-  %166 = and i64 %.0.i3.i.i.i62.i, 255
-  %167 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %166
-  %168 = load i16, ptr %167, align 2, !tbaa !76
-  %169 = getelementptr inbounds nuw i8, ptr %3, i64 %164
-  store i16 %168, ptr %169, align 1
-  %170 = icmp ugt i64 %164, 2
-  br i1 %170, label %.lr.ph.i.i.i61.i, label %._crit_edge.i.i.i55.i, !prof !78, !llvm.loop !79
+.lr.ph.i.i.i56.i:                                 ; preds = %146, %.lr.ph.i.i.i56.i
+  %.0.i3.i.i.i57.i = phi i64 [ %149, %.lr.ph.i.i.i56.i ], [ %.fr.i, %146 ]
+  %.014.i2.i.i.i58.i = phi i64 [ %148, %.lr.ph.i.i.i56.i ], [ %144, %146 ]
+  %148 = add i64 %.014.i2.i.i.i58.i, -2
+  %149 = lshr i64 %.0.i3.i.i.i57.i, 8
+  %150 = and i64 %.0.i3.i.i.i57.i, 255
+  %151 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %150
+  %152 = load i16, ptr %151, align 2, !tbaa !77
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 %148
+  store i16 %152, ptr %153, align 1
+  %154 = icmp ugt i64 %148, 2
+  br i1 %154, label %.lr.ph.i.i.i56.i, label %._crit_edge.i.i.i52.i, !prof !78, !llvm.loop !79
 
-._crit_edge.i.i.i55.i:                            ; preds = %.lr.ph.i.i.i61.i, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i
-  %.014.i.lcssa.i.i.i56.i = phi i64 [ %162, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i ], [ %164, %.lr.ph.i.i.i61.i ]
-  %.0.i.lcssa.i.i.i57.i = phi i64 [ %151, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i54.i ], [ %165, %.lr.ph.i.i.i61.i ]
-  %171 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i57.i
-  %172 = load i16, ptr %171, align 2, !tbaa !76
-  %173 = icmp eq i64 %.014.i.lcssa.i.i.i56.i, 2
-  br i1 %173, label %174, label %175, !prof !80
+._crit_edge.i.i.i52.i:                            ; preds = %.lr.ph.i.i.i56.i, %146
+  %.014.i.lcssa.i.i.i53.i = phi i64 [ %144, %146 ], [ %148, %.lr.ph.i.i.i56.i ]
+  %.0.i.lcssa.i.i.i54.i = phi i64 [ %.fr.i, %146 ], [ %149, %.lr.ph.i.i.i56.i ]
+  %155 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i54.i
+  %156 = load i16, ptr %155, align 2, !tbaa !77
+  %157 = icmp eq i64 %.014.i.lcssa.i.i.i53.i, 2
+  br i1 %157, label %158, label %159, !prof !88
 
-174:                                              ; preds = %._crit_edge.i.i.i55.i
-  store i16 %172, ptr %3, align 16
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit65.i"
+158:                                              ; preds = %._crit_edge.i.i.i52.i
+  store i16 %156, ptr %3, align 16
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit59.i"
 
-175:                                              ; preds = %._crit_edge.i.i.i55.i, %._crit_edge.thread.i.i.i64.i
-  %176 = phi i16 [ %155, %._crit_edge.thread.i.i.i64.i ], [ %172, %._crit_edge.i.i.i55.i ]
-  %.0.i1712.i.i.i58.i = phi i64 [ 1, %._crit_edge.thread.i.i.i64.i ], [ %162, %._crit_edge.i.i.i55.i ]
-  %177 = lshr i16 %176, 8
-  %178 = trunc nuw i16 %177 to i8
-  store i8 %178, ptr %3, align 16, !tbaa !21
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit65.i"
+159:                                              ; preds = %._crit_edge.i.i.i52.i, %._crit_edge.i.i.i52.thread.i
+  %160 = phi i16 [ %145, %._crit_edge.i.i.i52.thread.i ], [ %156, %._crit_edge.i.i.i52.i ]
+  %161 = phi i64 [ 1, %._crit_edge.i.i.i52.thread.i ], [ %144, %._crit_edge.i.i.i52.i ]
+  %162 = lshr i16 %160, 8
+  %163 = trunc nuw i16 %162 to i8
+  store i8 %163, ptr %3, align 16, !tbaa !21
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit59.i"
 
-"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit65.i": ; preds = %175, %174
-  %.0.i1711.i.i.i59.i = phi i64 [ %162, %174 ], [ %.0.i1712.i.i.i58.i, %175 ]
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1711.i.i.i59.i
-  %180 = load ptr, ptr %52, align 8, !tbaa !7
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %182 = load ptr, ptr %181, align 8
-  invoke void %182(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %179)
+"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit59.i": ; preds = %159, %158
+  %164 = phi i64 [ %144, %158 ], [ %161, %159 ]
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 %164
+  %166 = load ptr, ptr %52, align 8, !tbaa !7
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
+  %168 = load ptr, ptr %167, align 8
+  invoke void %168(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %165)
           to label %.noexc27 unwind label %18
 
-.noexc27:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit65.i"
-  %183 = load ptr, ptr %52, align 8, !tbaa !7
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %185 = load ptr, ptr %184, align 8
-  invoke void %185(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.7, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 5))
+.noexc27:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit59.i"
+  %169 = load ptr, ptr %52, align 8, !tbaa !7
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %171 = load ptr, ptr %170, align 8
+  invoke void %171(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.7, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 5))
           to label %.noexc28 unwind label %18
 
 .noexc28:                                         ; preds = %.noexc27
-  %186 = load ptr, ptr %52, align 8, !tbaa !7
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %188 = load ptr, ptr %187, align 8
-  invoke void %188(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.8, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 37))
+  %172 = load ptr, ptr %52, align 8, !tbaa !7
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  %174 = load ptr, ptr %173, align 8
+  invoke void %174(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.8, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 37))
           to label %.noexc29 unwind label %18
 
 .noexc29:                                         ; preds = %.noexc28
-  %189 = load ptr, ptr %52, align 8, !tbaa !7
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  %191 = load ptr, ptr %190, align 8
-  invoke void %191(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
+  %175 = load ptr, ptr %52, align 8, !tbaa !7
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
+  %177 = load ptr, ptr %176, align 8
+  invoke void %177(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
           to label %.noexc30 unwind label %18
 
 .noexc30:                                         ; preds = %.noexc29
-  %.not.i.i.i.i67.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i67.i, label %._crit_edge.thread.i.i.i78.i, label %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i, !prof !23
+  %178 = ptrtoint ptr %51 to i64
+  %.not.i.i.i.i61.i = icmp eq ptr %51, null
+  %179 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %178, i1 true)
+  %180 = sub nuw nsw i64 67, %179
+  %181 = lshr i64 %180, 2
+  %.0.i1.i.i.i62.i = select i1 %.not.i.i.i.i61.i, i64 1, i64 %181, !prof !23
+  %182 = icmp samesign ugt i64 %.0.i1.i.i.i62.i, 2
+  br i1 %182, label %.lr.ph.i.i.i67.i, label %._crit_edge.i.i.i63.i, !prof !76
 
-._crit_edge.thread.i.i.i78.i:                     ; preds = %.noexc30
-  %192 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !76
-  br label %213
+.lr.ph.i.i.i67.i:                                 ; preds = %.noexc30, %.lr.ph.i.i.i67.i
+  %.0.i3.i.i.i68.i = phi i64 [ %184, %.lr.ph.i.i.i67.i ], [ %178, %.noexc30 ]
+  %.014.i2.i.i.i69.i = phi i64 [ %183, %.lr.ph.i.i.i67.i ], [ %181, %.noexc30 ]
+  %183 = add i64 %.014.i2.i.i.i69.i, -2
+  %184 = lshr i64 %.0.i3.i.i.i68.i, 8
+  %185 = and i64 %.0.i3.i.i.i68.i, 255
+  %186 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %185
+  %187 = load i16, ptr %186, align 2, !tbaa !77
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 %183
+  store i16 %187, ptr %188, align 1
+  %189 = icmp ugt i64 %183, 2
+  br i1 %189, label %.lr.ph.i.i.i67.i, label %._crit_edge.i.i.i63.i, !prof !78, !llvm.loop !79
 
-_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i: ; preds = %.noexc30
-  %193 = ptrtoint ptr %51 to i64
-  %194 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %193, i1 true)
-  %195 = sub nuw nsw i64 64, %194
-  %196 = lshr i64 %195, 2
-  %197 = and i64 %195, 3
-  %198 = icmp ne i64 %197, 0
-  %199 = zext i1 %198 to i64
-  %200 = add nuw nsw i64 %196, %199
-  %201 = icmp samesign ugt i64 %200, 2
-  br i1 %201, label %.lr.ph.i.i.i75.i, label %._crit_edge.i.i.i69.i, !prof !77
+._crit_edge.i.i.i63.i:                            ; preds = %.lr.ph.i.i.i67.i, %.noexc30
+  %.014.i.lcssa.i.i.i64.i = phi i64 [ %.0.i1.i.i.i62.i, %.noexc30 ], [ %183, %.lr.ph.i.i.i67.i ]
+  %.0.i.lcssa.i.i.i65.i = phi i64 [ %178, %.noexc30 ], [ %184, %.lr.ph.i.i.i67.i ]
+  %190 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i65.i
+  %191 = load i16, ptr %190, align 2, !tbaa !77
+  %192 = icmp eq i64 %.014.i.lcssa.i.i.i64.i, 2
+  br i1 %192, label %193, label %194, !prof !23
 
-.lr.ph.i.i.i75.i:                                 ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i, %.lr.ph.i.i.i75.i
-  %.0.i3.i.i.i76.i = phi i64 [ %203, %.lr.ph.i.i.i75.i ], [ %193, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i ]
-  %.014.i2.i.i.i77.i = phi i64 [ %202, %.lr.ph.i.i.i75.i ], [ %200, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i ]
-  %202 = add i64 %.014.i2.i.i.i77.i, -2
-  %203 = lshr i64 %.0.i3.i.i.i76.i, 8
-  %204 = and i64 %.0.i3.i.i.i76.i, 255
-  %205 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %204
-  %206 = load i16, ptr %205, align 2, !tbaa !76
-  %207 = getelementptr inbounds nuw i8, ptr %3, i64 %202
-  store i16 %206, ptr %207, align 1
-  %208 = icmp ugt i64 %202, 2
-  br i1 %208, label %.lr.ph.i.i.i75.i, label %._crit_edge.i.i.i69.i, !prof !78, !llvm.loop !79
+193:                                              ; preds = %._crit_edge.i.i.i63.i
+  store i16 %191, ptr %3, align 16
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit70.i"
 
-._crit_edge.i.i.i69.i:                            ; preds = %.lr.ph.i.i.i75.i, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i
-  %.014.i.lcssa.i.i.i70.i = phi i64 [ %200, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i ], [ %202, %.lr.ph.i.i.i75.i ]
-  %.0.i.lcssa.i.i.i71.i = phi i64 [ %193, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i68.i ], [ %203, %.lr.ph.i.i.i75.i ]
-  %209 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i71.i
-  %210 = load i16, ptr %209, align 2, !tbaa !76
-  %211 = icmp eq i64 %.014.i.lcssa.i.i.i70.i, 2
-  br i1 %211, label %212, label %213, !prof !80
+194:                                              ; preds = %._crit_edge.i.i.i63.i
+  %195 = lshr i16 %191, 8
+  %196 = trunc nuw i16 %195 to i8
+  store i8 %196, ptr %3, align 16, !tbaa !21
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit70.i"
 
-212:                                              ; preds = %._crit_edge.i.i.i69.i
-  store i16 %210, ptr %3, align 16
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit79.i"
-
-213:                                              ; preds = %._crit_edge.i.i.i69.i, %._crit_edge.thread.i.i.i78.i
-  %214 = phi i16 [ %192, %._crit_edge.thread.i.i.i78.i ], [ %210, %._crit_edge.i.i.i69.i ]
-  %.0.i1712.i.i.i72.i = phi i64 [ 1, %._crit_edge.thread.i.i.i78.i ], [ %200, %._crit_edge.i.i.i69.i ]
-  %215 = lshr i16 %214, 8
-  %216 = trunc nuw i16 %215 to i8
-  store i8 %216, ptr %3, align 16, !tbaa !21
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit79.i"
-
-"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit79.i": ; preds = %213, %212
-  %.0.i1711.i.i.i73.i = phi i64 [ %200, %212 ], [ %.0.i1712.i.i.i72.i, %213 ]
-  %217 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1711.i.i.i73.i
-  %218 = load ptr, ptr %52, align 8, !tbaa !7
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
-  %220 = load ptr, ptr %219, align 8
-  invoke void %220(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %217)
+"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit70.i": ; preds = %194, %193
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1.i.i.i62.i
+  %198 = load ptr, ptr %52, align 8, !tbaa !7
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  %200 = load ptr, ptr %199, align 8
+  invoke void %200(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %197)
           to label %.noexc31 unwind label %18
 
-.noexc31:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit79.i"
-  %221 = load ptr, ptr %52, align 8, !tbaa !7
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %223 = load ptr, ptr %222, align 8
-  invoke void %223(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
+.noexc31:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit70.i"
+  %201 = load ptr, ptr %52, align 8, !tbaa !7
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
+  %203 = load ptr, ptr %202, align 8
+  invoke void %203(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.6, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 18))
           to label %.noexc32 unwind label %18
 
 .noexc32:                                         ; preds = %.noexc31
-  br i1 %.not.i.i.i.i67.i, label %228, label %224
+  br i1 %.not.i.i.i.i61.i, label %208, label %204
 
-224:                                              ; preds = %.noexc32
-  %225 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %226 = load ptr, ptr %225, align 8, !tbaa !88
-  %227 = ptrtoint ptr %226 to i64
-  br label %228
+204:                                              ; preds = %.noexc32
+  %205 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %206 = load ptr, ptr %205, align 8, !tbaa !89
+  %.fr90.i = freeze ptr %206
+  %207 = ptrtoint ptr %.fr90.i to i64
+  br label %208
 
-228:                                              ; preds = %224, %.noexc32
-  %229 = phi i64 [ %227, %224 ], [ 0, %.noexc32 ]
-  %230 = load ptr, ptr %52, align 8, !tbaa !7
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
-  %232 = load ptr, ptr %231, align 8
-  invoke void %232(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
+208:                                              ; preds = %204, %.noexc32
+  %.fr89.i = phi i64 [ %207, %204 ], [ 0, %.noexc32 ]
+  %209 = load ptr, ptr %52, align 8, !tbaa !7
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
+  %211 = load ptr, ptr %210, align 8
+  invoke void %211(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 2))
           to label %.noexc33 unwind label %18
 
-.noexc33:                                         ; preds = %228
-  %.not.i.i.i.i81.i = icmp eq i64 %229, 0
-  br i1 %.not.i.i.i.i81.i, label %._crit_edge.thread.i.i.i92.i, label %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i, !prof !23
+.noexc33:                                         ; preds = %208
+  %.not.i.i.i.i72.i = icmp eq i64 %.fr89.i, 0
+  %212 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr89.i, i1 true)
+  %213 = sub nuw nsw i64 67, %212
+  %214 = lshr i64 %213, 2
+  br i1 %.not.i.i.i.i72.i, label %._crit_edge.i.i.i74.thread.i, label %216, !prof !23
 
-._crit_edge.thread.i.i.i92.i:                     ; preds = %.noexc33
-  %233 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !76
-  br label %253
+._crit_edge.i.i.i74.thread.i:                     ; preds = %.noexc33
+  %215 = load i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, align 2, !tbaa !77
+  br label %229
 
-_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i: ; preds = %.noexc33
-  %234 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %229, i1 true)
-  %235 = sub nuw nsw i64 64, %234
-  %236 = lshr i64 %235, 2
-  %237 = and i64 %235, 3
-  %238 = icmp ne i64 %237, 0
-  %239 = zext i1 %238 to i64
-  %240 = add nuw nsw i64 %236, %239
-  %241 = icmp samesign ugt i64 %240, 2
-  br i1 %241, label %.lr.ph.i.i.i89.i, label %._crit_edge.i.i.i83.i, !prof !77
+216:                                              ; preds = %.noexc33
+  %217 = icmp ugt i64 %.fr89.i, 255
+  br i1 %217, label %.lr.ph.i.i.i78.i, label %._crit_edge.i.i.i74.i, !prof !91
 
-.lr.ph.i.i.i89.i:                                 ; preds = %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i, %.lr.ph.i.i.i89.i
-  %.0.i3.i.i.i90.i = phi i64 [ %243, %.lr.ph.i.i.i89.i ], [ %229, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i ]
-  %.014.i2.i.i.i91.i = phi i64 [ %242, %.lr.ph.i.i.i89.i ], [ %240, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i ]
-  %242 = add i64 %.014.i2.i.i.i91.i, -2
-  %243 = lshr i64 %.0.i3.i.i.i90.i, 8
-  %244 = and i64 %.0.i3.i.i.i90.i, 255
-  %245 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %244
-  %246 = load i16, ptr %245, align 2, !tbaa !76
-  %247 = getelementptr inbounds nuw i8, ptr %3, i64 %242
-  store i16 %246, ptr %247, align 1
-  %248 = icmp ugt i64 %242, 2
-  br i1 %248, label %.lr.ph.i.i.i89.i, label %._crit_edge.i.i.i83.i, !prof !78, !llvm.loop !79
+.lr.ph.i.i.i78.i:                                 ; preds = %216, %.lr.ph.i.i.i78.i
+  %.0.i3.i.i.i79.i = phi i64 [ %219, %.lr.ph.i.i.i78.i ], [ %.fr89.i, %216 ]
+  %.014.i2.i.i.i80.i = phi i64 [ %218, %.lr.ph.i.i.i78.i ], [ %214, %216 ]
+  %218 = add i64 %.014.i2.i.i.i80.i, -2
+  %219 = lshr i64 %.0.i3.i.i.i79.i, 8
+  %220 = and i64 %.0.i3.i.i.i79.i, 255
+  %221 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %220
+  %222 = load i16, ptr %221, align 2, !tbaa !77
+  %223 = getelementptr inbounds nuw i8, ptr %3, i64 %218
+  store i16 %222, ptr %223, align 1
+  %224 = icmp ugt i64 %218, 2
+  br i1 %224, label %.lr.ph.i.i.i78.i, label %._crit_edge.i.i.i74.i, !prof !78, !llvm.loop !79
 
-._crit_edge.i.i.i83.i:                            ; preds = %.lr.ph.i.i.i89.i, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i
-  %.014.i.lcssa.i.i.i84.i = phi i64 [ %240, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i ], [ %242, %.lr.ph.i.i.i89.i ]
-  %.0.i.lcssa.i.i.i85.i = phi i64 [ %229, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i82.i ], [ %243, %.lr.ph.i.i.i89.i ]
-  %249 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i85.i
-  %250 = load i16, ptr %249, align 2, !tbaa !76
-  %251 = icmp eq i64 %.014.i.lcssa.i.i.i84.i, 2
-  br i1 %251, label %252, label %253, !prof !80
+._crit_edge.i.i.i74.i:                            ; preds = %.lr.ph.i.i.i78.i, %216
+  %.014.i.lcssa.i.i.i75.i = phi i64 [ %214, %216 ], [ %218, %.lr.ph.i.i.i78.i ]
+  %.0.i.lcssa.i.i.i76.i = phi i64 [ %.fr89.i, %216 ], [ %219, %.lr.ph.i.i.i78.i ]
+  %225 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i76.i
+  %226 = load i16, ptr %225, align 2, !tbaa !77
+  %227 = icmp eq i64 %.014.i.lcssa.i.i.i75.i, 2
+  br i1 %227, label %228, label %229, !prof !92
 
-252:                                              ; preds = %._crit_edge.i.i.i83.i
-  store i16 %250, ptr %3, align 16
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit93.i"
+228:                                              ; preds = %._crit_edge.i.i.i74.i
+  store i16 %226, ptr %3, align 16
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit81.i"
 
-253:                                              ; preds = %._crit_edge.i.i.i83.i, %._crit_edge.thread.i.i.i92.i
-  %254 = phi i16 [ %233, %._crit_edge.thread.i.i.i92.i ], [ %250, %._crit_edge.i.i.i83.i ]
-  %.0.i1712.i.i.i86.i = phi i64 [ 1, %._crit_edge.thread.i.i.i92.i ], [ %240, %._crit_edge.i.i.i83.i ]
-  %255 = lshr i16 %254, 8
-  %256 = trunc nuw i16 %255 to i8
-  store i8 %256, ptr %3, align 16, !tbaa !21
-  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit93.i"
+229:                                              ; preds = %._crit_edge.i.i.i74.i, %._crit_edge.i.i.i74.thread.i
+  %230 = phi i16 [ %215, %._crit_edge.i.i.i74.thread.i ], [ %226, %._crit_edge.i.i.i74.i ]
+  %231 = phi i64 [ 1, %._crit_edge.i.i.i74.thread.i ], [ %214, %._crit_edge.i.i.i74.i ]
+  %232 = lshr i16 %230, 8
+  %233 = trunc nuw i16 %232 to i8
+  store i8 %233, ptr %3, align 16, !tbaa !21
+  br label %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit81.i"
 
-"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit93.i": ; preds = %253, %252
-  %.0.i1711.i.i.i87.i = phi i64 [ %240, %252 ], [ %.0.i1712.i.i.i86.i, %253 ]
-  %257 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i1711.i.i.i87.i
-  %258 = load ptr, ptr %52, align 8, !tbaa !7
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %260 = load ptr, ptr %259, align 8
-  invoke void %260(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %257)
+"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit81.i": ; preds = %229, %228
+  %234 = phi i64 [ %214, %228 ], [ %231, %229 ]
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 %234
+  %236 = load ptr, ptr %52, align 8, !tbaa !7
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  %238 = load ptr, ptr %237, align 8
+  invoke void %238(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull %3, ptr nonnull %235)
           to label %.noexc34 unwind label %18
 
-.noexc34:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit93.i"
-  %261 = load ptr, ptr %52, align 8, !tbaa !7
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 24
-  %263 = load ptr, ptr %262, align 8
-  invoke void %263(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 25))
-          to label %264 unwind label %18
+.noexc34:                                         ; preds = %"_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit81.i"
+  %239 = load ptr, ptr %52, align 8, !tbaa !7
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
+  %241 = load ptr, ptr %240, align 8
+  invoke void %241(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 25))
+          to label %242 unwind label %18
 
-264:                                              ; preds = %.noexc34
+242:                                              ; preds = %.noexc34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
-  br i1 %1, label %265, label %269
+  br i1 %1, label %243, label %247
 
-265:                                              ; preds = %264
-  %266 = load ptr, ptr %0, align 8, !tbaa !7
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
-  %268 = load ptr, ptr %267, align 8
-  invoke void %268(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %279 unwind label %18
+243:                                              ; preds = %242
+  %244 = load ptr, ptr %0, align 8, !tbaa !7
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
+  %246 = load ptr, ptr %245, align 8
+  invoke void %246(ptr noundef nonnull align 8 dereferenceable(56) %0)
+          to label %257 unwind label %18
 
-269:                                              ; preds = %264
-  %270 = load ptr, ptr %52, align 8, !tbaa !7
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
-  %272 = load ptr, ptr %271, align 8
-  invoke void %272(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 38))
+247:                                              ; preds = %242
+  %248 = load ptr, ptr %52, align 8, !tbaa !7
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
+  %250 = load ptr, ptr %249, align 8
+  invoke void %250(ptr noundef nonnull align 8 dereferenceable(13) %52, ptr nonnull @.str, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 38))
           to label %_ZN5folly10symbolizer21SafeStackTracePrinter27printUnsymbolizedStackTraceEv.exit37 unwind label %18
 
-_ZN5folly10symbolizer21SafeStackTracePrinter27printUnsymbolizedStackTraceEv.exit37: ; preds = %269
-  %273 = load ptr, ptr %4, align 8, !tbaa !10
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %275 = load i64, ptr %273, align 8, !tbaa !24
-  %276 = trunc i64 %275 to i32
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %278 = load i32, ptr %277, align 8, !tbaa !27
-  call void @backtrace_symbols_fd(ptr noundef nonnull %274, i32 noundef %276, i32 noundef %278) #19
-  br label %279
+_ZN5folly10symbolizer21SafeStackTracePrinter27printUnsymbolizedStackTraceEv.exit37: ; preds = %247
+  %251 = load ptr, ptr %4, align 8, !tbaa !10
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = load i64, ptr %251, align 8, !tbaa !24
+  %254 = trunc i64 %253 to i32
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %256 = load i32, ptr %255, align 8, !tbaa !27
+  call void @backtrace_symbols_fd(ptr noundef nonnull %252, i32 noundef %254, i32 noundef %256) #19
+  br label %257
 
-279:                                              ; preds = %.loopexit, %265, %_ZN5folly10symbolizer21SafeStackTracePrinter27printUnsymbolizedStackTraceEv.exit37, %_ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.exit13
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5folly10symbolizer18FDSymbolizePrinter5flushEv(ptr noundef nonnull align 8 dereferenceable(32) %280)
-          to label %.noexc.i.i.i unwind label %284
+257:                                              ; preds = %.loopexit, %243, %_ZN5folly10symbolizer21SafeStackTracePrinter27printUnsymbolizedStackTraceEv.exit37, %_ZN5folly10symbolizer6detail13fixFrameArrayILm100EEEbRNS0_10FrameArrayIXT_EEEl.exit13
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  invoke void @_ZN5folly10symbolizer18FDSymbolizePrinter5flushEv(ptr noundef nonnull align 8 dereferenceable(32) %258)
+          to label %.noexc.i.i.i unwind label %262
 
-.noexc.i.i.i:                                     ; preds = %279
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %282 = load i32, ptr %281, align 8, !tbaa !27
-  %283 = invoke noundef i32 @_ZN5folly10fsyncNoIntEi(i32 noundef %282)
-          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev.exit" unwind label %284
+.noexc.i.i.i:                                     ; preds = %257
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %260 = load i32, ptr %259, align 8, !tbaa !27
+  %261 = invoke noundef i32 @_ZN5folly10fsyncNoIntEi(i32 noundef %260)
+          to label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev.exit" unwind label %262
 
-284:                                              ; preds = %.noexc.i.i.i, %279
-  %285 = landingpad { ptr, i32 }
+262:                                              ; preds = %.noexc.i.i.i, %257
+  %263 = landingpad { ptr, i32 }
           catch ptr null
-  %286 = extractvalue { ptr, i32 } %285, 0
-  call void @__clang_call_terminate(ptr %286) #23
+  %264 = extractvalue { ptr, i32 } %263, 0
+  call void @__clang_call_terminate(ptr %264) #23
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev.exit": ; preds = %.noexc.i.i.i
@@ -1365,17 +1320,20 @@ attributes #23 = { noreturn nounwind }
 !73 = !{!"p1 _ZTSN5folly10symbolizer7ElfFileE", !12, i64 0}
 !74 = distinct !{!74, !75}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!55, !55, i64 0}
-!77 = !{!"branch_weights", i32 1074279, i32 2146409369}
+!76 = !{!"branch_weights", i32 1, i32 1999}
+!77 = !{!55, !55, i64 0}
 !78 = !{!"branch_weights", i32 0, i32 1}
 !79 = distinct !{!79, !75}
-!80 = !{!"branch_weights", !"expected", i32 1073742, i32 2146409906}
-!81 = !{!82, !12, i64 16}
-!82 = !{!"_ZTSN5folly14AsyncStackRootE", !83, i64 0, !86, i64 8, !12, i64 16, !12, i64 24}
-!83 = !{!"_ZTSSt6atomicIPN5folly15AsyncStackFrameEE", !84, i64 0}
-!84 = !{!"_ZTSSt13__atomic_baseIPN5folly15AsyncStackFrameEE", !85, i64 0}
-!85 = !{!"p1 _ZTSN5folly15AsyncStackFrameE", !12, i64 0}
-!86 = !{!"p1 _ZTSN5folly14AsyncStackRootE", !12, i64 0}
-!87 = !{!82, !12, i64 24}
-!88 = !{!89, !12, i64 8}
-!89 = !{!"_ZTSN5folly15AsyncStackFrameE", !85, i64 0, !12, i64 8, !86, i64 16}
+!80 = !{!81, !12, i64 16}
+!81 = !{!"_ZTSN5folly14AsyncStackRootE", !82, i64 0, !85, i64 8, !12, i64 16, !12, i64 24}
+!82 = !{!"_ZTSSt6atomicIPN5folly15AsyncStackFrameEE", !83, i64 0}
+!83 = !{!"_ZTSSt13__atomic_baseIPN5folly15AsyncStackFrameEE", !84, i64 0}
+!84 = !{!"p1 _ZTSN5folly15AsyncStackFrameE", !12, i64 0}
+!85 = !{!"p1 _ZTSN5folly14AsyncStackRootE", !12, i64 0}
+!86 = !{!81, !12, i64 24}
+!87 = !{!"branch_weights", i32 1074279, i32 2146409369}
+!88 = !{!"branch_weights", !"expected", i32 1073742, i32 2146409906}
+!89 = !{!90, !12, i64 8}
+!90 = !{!"_ZTSN5folly15AsyncStackFrameE", !84, i64 0, !12, i64 8, !85, i64 16}
+!91 = !{!"branch_weights", i32 1073741824, i32 1073741824}
+!92 = !{!"branch_weights", !"expected", i32 1073205, i32 2146410443}

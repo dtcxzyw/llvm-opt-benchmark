@@ -155,7 +155,7 @@ _Z7deallocIN22small_object_allocator5chunkEEvPT_.exit: ; preds = %5, %_Z7dealloc
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
   %4 = icmp eq i64 %1, 0
-  br i1 %4, label %18, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -167,22 +167,19 @@ define hidden void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonn
 
 10:                                               ; preds = %5
   tail call void @_ZN6memory10deallocateEPv(ptr noundef %2)
-  br label %18
+  br label %16
 
 11:                                               ; preds = %5
-  %12 = lshr i64 %1, 3
-  %13 = and i64 %1, 7
-  %.not = icmp ne i64 %13, 0
-  %14 = zext i1 %.not to i64
-  %spec.select = add nuw nsw i64 %12, %14
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %16 = getelementptr inbounds nuw [32 x ptr], ptr %15, i64 0, i64 %spec.select
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
-  store ptr %17, ptr %2, align 8, !tbaa !17
-  store ptr %2, ptr %16, align 8, !tbaa !17
-  br label %18
+  %12 = add nuw nsw i64 %1, 7
+  %spec.select = lshr i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw [32 x ptr], ptr %13, i64 0, i64 %spec.select
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
+  store ptr %15, ptr %2, align 8, !tbaa !17
+  store ptr %2, ptr %14, align 8, !tbaa !17
+  br label %16
 
-18:                                               ; preds = %3, %11, %10
+16:                                               ; preds = %3, %11, %10
   ret void
 }
 

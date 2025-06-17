@@ -5497,34 +5497,31 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %13
 
 13:                                               ; preds = %13, %8
-  %14 = phi i64 [ %29, %13 ], [ %.sroa.42.0.copyload, %8 ]
-  %.sroa.06.0.i.i.i = phi i64 [ %30, %13 ], [ 0, %8 ]
+  %14 = phi i64 [ %26, %13 ], [ %.sroa.42.0.copyload, %8 ]
+  %.sroa.06.0.i.i.i = phi i64 [ %27, %13 ], [ 0, %8 ]
   %15 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %.sroa.0.0.copyload, i64 %.sroa.06.0.i.i.i
   %.val21.i.i.i = load i32, ptr %15, align 4, !noalias !1181, !noundef !3
   %16 = zext i32 %.val21.i.i.i to i64
-  %17 = lshr i64 %16, 5
-  %18 = and i64 %16, 31
-  %19 = icmp ne i64 %18, 0
-  %20 = zext i1 %19 to i64
-  %21 = add nuw nsw i64 %17, %20
-  %22 = mul nuw nsw i64 %21, 33
-  %23 = add nuw nsw i64 %22, 1
-  %24 = load i64, ptr %4, align 8, !noalias !1189, !noundef !3
-  %25 = add i64 %23, %24
-  store i64 %25, ptr %4, align 8, !noalias !1189
-  %26 = load i64, ptr %6, align 8, !noalias !1189, !noundef !3
-  %27 = add i64 %23, %26
-  %28 = getelementptr inbounds nuw i64, ptr %.sroa.53.0.copyload, i64 %14
-  store i64 %27, ptr %28, align 8, !noalias !1196
-  %29 = add i64 %14, 1
-  %30 = add nuw i64 %.sroa.06.0.i.i.i, 1
-  %31 = icmp eq i64 %30, %12
-  br i1 %31, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h270235a2cb236d87E.exit", label %13
+  %17 = add nuw nsw i64 %16, 31
+  %18 = lshr i64 %17, 5
+  %19 = mul nuw nsw i64 %18, 33
+  %20 = add nuw nsw i64 %19, 1
+  %21 = load i64, ptr %4, align 8, !noalias !1189, !noundef !3
+  %22 = add i64 %20, %21
+  store i64 %22, ptr %4, align 8, !noalias !1189
+  %23 = load i64, ptr %6, align 8, !noalias !1189, !noundef !3
+  %24 = add i64 %20, %23
+  %25 = getelementptr inbounds nuw i64, ptr %.sroa.53.0.copyload, i64 %14
+  store i64 %24, ptr %25, align 8, !noalias !1196
+  %26 = add i64 %14, 1
+  %27 = add nuw i64 %.sroa.06.0.i.i.i, 1
+  %28 = icmp eq i64 %27, %12
+  br i1 %28, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h270235a2cb236d87E.exit", label %13
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h270235a2cb236d87E.exit": ; preds = %13, %2
-  %storemerge.i.i = phi i64 [ %.sroa.42.0.copyload, %2 ], [ %29, %13 ]
-  %32 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %32)
+  %storemerge.i.i = phi i64 [ %.sroa.42.0.copyload, %2 ], [ %26, %13 ]
+  %29 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %29)
   store i64 %storemerge.i.i, ptr %.sroa.01.0.copyload, align 8, !noalias !1181
   ret void
 }
@@ -7278,7 +7275,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i"
 
 "_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i": ; preds = %11, %4
-  %8 = phi i64 [ %21, %11 ], [ %.promoted, %4 ]
+  %8 = phi i64 [ %18, %11 ], [ %.promoted, %4 ]
   %9 = phi ptr [ %12, %11 ], [ %.promoted.i.i, %4 ]
   %10 = icmp eq ptr %9, %6
   br i1 %10, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he05865d8b95f28efE.exit", label %11
@@ -7288,27 +7285,24 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   store ptr %12, ptr %1, align 8, !alias.scope !1727, !noalias !1730
   %.val5.i.i = load i32, ptr %9, align 4, !noalias !1732, !noundef !3
   %13 = zext i32 %.val5.i.i to i64
-  %14 = lshr i64 %13, 5
-  %15 = and i64 %13, 31
-  %16 = icmp ne i64 %15, 0
-  %17 = zext i1 %16 to i64
-  %18 = add nuw nsw i64 %14, %17
-  %19 = mul nuw nsw i64 %18, 33
-  %20 = add nuw nsw i64 %19, 1
-  %.not.i.i.i.i.not.i.i = icmp eq i64 %20, %7
-  %21 = add i64 %8, 1
-  store i64 %21, ptr %3, align 8, !noalias !1733
-  br i1 %.not.i.i.i.i.not.i.i, label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i", label %22
+  %14 = add nuw nsw i64 %13, 31
+  %15 = lshr i64 %14, 5
+  %16 = mul nuw nsw i64 %15, 33
+  %17 = add nuw nsw i64 %16, 1
+  %.not.i.i.i.i.not.i.i = icmp eq i64 %17, %7
+  %18 = add i64 %8, 1
+  store i64 %18, ptr %3, align 8, !noalias !1733
+  br i1 %.not.i.i.i.i.not.i.i, label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i", label %19
 
-22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %8, ptr %23, align 8, !alias.scope !1740, !noalias !1743
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %20, ptr %24, align 8, !alias.scope !1740, !noalias !1743
+19:                                               ; preds = %11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %8, ptr %20, align 8, !alias.scope !1740, !noalias !1743
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %17, ptr %21, align 8, !alias.scope !1740, !noalias !1743
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he05865d8b95f28efE.exit"
 
-"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he05865d8b95f28efE.exit": ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i", %22
-  %storemerge.i.i = phi i64 [ 1, %22 ], [ 0, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i" ]
+"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he05865d8b95f28efE.exit": ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i", %19
+  %storemerge.i.i = phi i64 [ 1, %19 ], [ 0, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i.i" ]
   store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !1744, !noalias !1743
   ret void
 }
@@ -8627,7 +8621,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i"
 
 "_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i", %4
-  %12 = phi i64 [ %43, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted, %4 ]
+  %12 = phi i64 [ %40, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted, %4 ]
   %13 = phi i64 [ %28, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted14.i, %4 ]
   %14 = phi ptr [ %29, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted13.i, %4 ]
   %15 = phi i64 [ %30, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i" ], [ %.promoted12.i, %4 ]
@@ -8678,31 +8672,28 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %35, label %.split.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i"
 
 .split.i.i.i:                                     ; preds = %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i"
-  %36 = lshr i64 %21, 5
-  %37 = and i64 %21, 31
-  %38 = icmp ne i64 %37, 0
-  %39 = zext i1 %38 to i64
-  %40 = add nuw nsw i64 %36, %39
-  %41 = mul nuw nsw i64 %40, 33
-  %42 = add nuw nsw i64 %41, 1
+  %36 = add nuw nsw i64 %21, 31
+  %37 = lshr i64 %36, 5
+  %38 = mul nuw nsw i64 %37, 33
+  %39 = add nuw nsw i64 %38, 1
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i": ; preds = %.split.i.i.i, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i"
-  %phi.call.i.i.i = phi i64 [ %42, %.split.i.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i" ]
+  %phi.call.i.i.i = phi i64 [ %39, %.split.i.i.i ], [ 1, %"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcf7d7e6598e69770E.exit.i" ]
   %.not.i.i.i.not.i = icmp eq i64 %phi.call.i.i.i, %11
-  %43 = add i64 %12, 1
-  store i64 %43, ptr %3, align 8, !noalias !2351
-  br i1 %.not.i.i.i.not.i, label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i", label %44
+  %40 = add i64 %12, 1
+  store i64 %40, ptr %3, align 8, !noalias !2351
+  br i1 %.not.i.i.i.not.i, label %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i", label %41
 
-44:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i"
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %12, ptr %45, align 8, !alias.scope !2356, !noalias !2331
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %phi.call.i.i.i, ptr %46, align 8, !alias.scope !2356, !noalias !2331
+41:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hdfd29eb4a468b61eE.exit.i"
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %12, ptr %42, align 8, !alias.scope !2356, !noalias !2331
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %phi.call.i.i.i, ptr %43, align 8, !alias.scope !2356, !noalias !2331
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hdfe2a886483167e3E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17hdfe2a886483167e3E.exit: ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i", %23, %44
-  %storemerge.i = phi i64 [ 1, %44 ], [ 0, %23 ], [ 0, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hdfe2a886483167e3E.exit: ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i", %23, %41
+  %storemerge.i = phi i64 [ 1, %41 ], [ 0, %23 ], [ 0, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h44c47c96a2b02a24E.exit.i" ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !2328, !noalias !2331
   ret void
 }

@@ -1318,183 +1318,180 @@ mbedtls_mpi_core_bitlen.exit.thread:              ; preds = %10, %mbedtls_mpi_co
   %25 = phi i64 [ %21, %mbedtls_mpi_core_bitlen.exit ], [ 0, %10 ]
   %26 = phi i32 [ %spec.select, %mbedtls_mpi_core_bitlen.exit ], [ 250, %10 ]
   %27 = phi i64 [ %24, %mbedtls_mpi_core_bitlen.exit ], [ 0, %10 ]
-  %28 = and i64 %25, 7
-  %29 = icmp ne i64 %28, 0
-  %30 = zext i1 %29 to i64
-  %31 = lshr i64 %25, 3
-  %32 = add nuw nsw i64 %31, %30
-  %33 = shl nuw nsw i64 %32, 3
-  %34 = sub nsw i64 %33, %25
-  %35 = icmp ult i64 %3, %32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  %37 = sub nuw i64 %3, %32
-  %38 = shl i64 %37, 3
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %34
-  %40 = icmp eq i64 %32, 0
-  %41 = getelementptr i64, ptr %0, i64 %32
-  %.01214.i.i = getelementptr i8, ptr %41, i64 -8
+  %28 = add nuw nsw i64 %25, 7
+  %29 = and i64 %28, 4611686018427387896
+  %30 = sub nsw i64 %29, %25
+  %31 = lshr i64 %28, 3
+  %32 = icmp ult i64 %3, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %29
+  %34 = sub nuw i64 %3, %31
+  %35 = shl i64 %34, 3
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  %37 = icmp eq i64 %25, 0
+  %38 = getelementptr i64, ptr %0, i64 %31
+  %.01214.i.i = getelementptr i8, ptr %38, i64 -8
   %.not15.i.i = icmp ugt ptr %0, %.01214.i.i
-  %or.cond.i.i = or i1 %40, %.not15.i.i
-  %42 = lshr i64 %27, 6
-  %43 = and i64 %27, 63
-  %44 = icmp eq i64 %42, %3
+  %or.cond.i.i = or i1 %37, %.not15.i.i
+  %39 = lshr i64 %27, 6
+  %40 = and i64 %27, 63
+  %41 = icmp eq i64 %39, %3
   %.not.i27 = icmp ult i64 %27, 64
-  %45 = sub i64 %3, %42
-  %46 = icmp ult i64 %45, %3
-  %47 = shl i64 %45, 3
-  %scevgep.i = getelementptr i8, ptr %0, i64 %47
-  %48 = shl nuw nsw i64 %42, 3
+  %42 = sub i64 %3, %39
+  %43 = icmp ult i64 %42, %3
+  %44 = shl i64 %42, 3
+  %scevgep.i = getelementptr i8, ptr %0, i64 %44
+  %45 = shl nuw nsw i64 %39, 3
   %invariant.gep.i = getelementptr i8, ptr %0, i64 -8
-  %49 = sub nuw nsw i64 64, %43
-  %50 = shl nuw nsw i64 %3, 3
-  %51 = icmp ugt i64 %3, 1
+  %46 = sub nuw nsw i64 64, %40
+  %47 = shl nuw nsw i64 %3, 3
+  %48 = icmp ugt i64 %3, 1
   %.not20.i = icmp eq i64 %3, 0
-  br i1 %35, label %mbedtls_mpi_core_fill_random.exit.split, label %mbedtls_mpi_core_bitlen.exit.thread.split.preheader
+  br i1 %32, label %mbedtls_mpi_core_fill_random.exit.split, label %mbedtls_mpi_core_bitlen.exit.thread.split.preheader
 
 mbedtls_mpi_core_bitlen.exit.thread.split.preheader: ; preds = %mbedtls_mpi_core_bitlen.exit.thread
   %.not4249.i = icmp ne i64 %3, 0
-  %52 = icmp ne i64 %43, 0
-  %or.cond.i = and i1 %44, %52
-  %53 = icmp ugt i64 %42, %3
-  %brmerge = select i1 %53, i1 true, i1 %or.cond.i
-  %brmerge40.not = and i1 %.not4249.i, %52
+  %49 = icmp ne i64 %40, 0
+  %or.cond.i = and i1 %41, %49
+  %50 = icmp ugt i64 %39, %3
+  %brmerge = select i1 %50, i1 true, i1 %or.cond.i
+  %brmerge40.not = and i1 %.not4249.i, %49
   br label %mbedtls_mpi_core_bitlen.exit.thread.split
 
 mbedtls_mpi_core_bitlen.exit.thread.split:        ; preds = %mbedtls_mpi_core_bitlen.exit.thread.split.preheader, %mbedtls_mpi_core_lt_ct.exit
-  %.0 = phi i32 [ %72, %mbedtls_mpi_core_lt_ct.exit ], [ %26, %mbedtls_mpi_core_bitlen.exit.thread.split.preheader ]
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %34, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 0, i64 %38, i1 false)
-  %54 = tail call i32 %4(ptr noundef %5, ptr noundef %39, i64 noundef %25) #10
-  %.not.i25 = icmp eq i32 %54, 0
-  br i1 %.not.i25, label %55, label %mbedtls_mpi_core_fill_random.exit.split
+  %.0 = phi i32 [ %69, %mbedtls_mpi_core_lt_ct.exit ], [ %26, %mbedtls_mpi_core_bitlen.exit.thread.split.preheader ]
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %30, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %35, i1 false)
+  %51 = tail call i32 %4(ptr noundef %5, ptr noundef %36, i64 noundef %25) #10
+  %.not.i25 = icmp eq i32 %51, 0
+  br i1 %.not.i25, label %52, label %mbedtls_mpi_core_fill_random.exit.split
 
-55:                                               ; preds = %mbedtls_mpi_core_bitlen.exit.thread.split
+52:                                               ; preds = %mbedtls_mpi_core_bitlen.exit.thread.split
   br i1 %or.cond.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %55, %.lr.ph.i.i
-  %.01217.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.01214.i.i, %55 ]
-  %.016.i.i = phi ptr [ %60, %.lr.ph.i.i ], [ %0, %55 ]
-  %56 = load i64, ptr %.016.i.i, align 8, !tbaa !3
-  %57 = tail call noundef i64 @llvm.bswap.i64(i64 %56)
-  %58 = load i64, ptr %.01217.i.i, align 8, !tbaa !3
-  %59 = tail call noundef i64 @llvm.bswap.i64(i64 %58)
-  store i64 %59, ptr %.016.i.i, align 8, !tbaa !3
-  store i64 %57, ptr %.01217.i.i, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
+.lr.ph.i.i:                                       ; preds = %52, %.lr.ph.i.i
+  %.01217.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.01214.i.i, %52 ]
+  %.016.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %0, %52 ]
+  %53 = load i64, ptr %.016.i.i, align 8, !tbaa !3
+  %54 = tail call noundef i64 @llvm.bswap.i64(i64 %53)
+  %55 = load i64, ptr %.01217.i.i, align 8, !tbaa !3
+  %56 = tail call noundef i64 @llvm.bswap.i64(i64 %55)
+  store i64 %56, ptr %.016.i.i, align 8, !tbaa !3
+  store i64 %54, ptr %.01217.i.i, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 8
   %.012.i.i = getelementptr i8, ptr %.01217.i.i, i64 -8
-  %.not.i.i = icmp ugt ptr %60, %.012.i.i
+  %.not.i.i = icmp ugt ptr %57, %.012.i.i
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %55
-  br i1 %brmerge, label %61, label %62
+.loopexit:                                        ; preds = %.lr.ph.i.i, %52
+  br i1 %brmerge, label %58, label %59
 
-61:                                               ; preds = %.loopexit
-  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %50, i1 false)
+58:                                               ; preds = %.loopexit
+  tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %47, i1 false)
   br label %mbedtls_mpi_core_shift_r.exit
 
-62:                                               ; preds = %.loopexit
+59:                                               ; preds = %.loopexit
   br i1 %.not.i27, label %.loopexit44.i, label %.preheader45.i
 
-.preheader45.i:                                   ; preds = %62
-  br i1 %44, label %.preheader43.i, label %.lr.ph.i
+.preheader45.i:                                   ; preds = %59
+  br i1 %41, label %.preheader43.i, label %.lr.ph.i
 
 .preheader43.i:                                   ; preds = %.lr.ph.i, %.preheader45.i
-  br i1 %46, label %.lr.ph48.preheader.i, label %.loopexit44.i
+  br i1 %43, label %.lr.ph48.preheader.i, label %.loopexit44.i
 
 .lr.ph48.preheader.i:                             ; preds = %.preheader43.i
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %48, i1 false), !tbaa !3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %45, i1 false), !tbaa !3
   br label %.loopexit44.i
 
 .lr.ph.i:                                         ; preds = %.preheader45.i, %.lr.ph.i
-  %.046.i = phi i64 [ %66, %.lr.ph.i ], [ 0, %.preheader45.i ]
-  %63 = getelementptr i64, ptr %0, i64 %.046.i
-  %64 = getelementptr i64, ptr %63, i64 %42
-  %65 = load i64, ptr %64, align 8, !tbaa !3
-  store i64 %65, ptr %63, align 8, !tbaa !3
-  %66 = add nuw i64 %.046.i, 1
-  %exitcond.not.i = icmp eq i64 %66, %45
+  %.046.i = phi i64 [ %63, %.lr.ph.i ], [ 0, %.preheader45.i ]
+  %60 = getelementptr i64, ptr %0, i64 %.046.i
+  %61 = getelementptr i64, ptr %60, i64 %39
+  %62 = load i64, ptr %61, align 8, !tbaa !3
+  store i64 %62, ptr %60, align 8, !tbaa !3
+  %63 = add nuw i64 %.046.i, 1
+  %exitcond.not.i = icmp eq i64 %63, %42
   br i1 %exitcond.not.i, label %.preheader43.i, label %.lr.ph.i, !llvm.loop !24
 
-.loopexit44.i:                                    ; preds = %.lr.ph48.preheader.i, %.preheader43.i, %62
+.loopexit44.i:                                    ; preds = %.lr.ph48.preheader.i, %.preheader43.i, %59
   br i1 %brmerge40.not, label %.lr.ph52.i, label %mbedtls_mpi_core_shift_r.exit
 
 .lr.ph52.i:                                       ; preds = %.loopexit44.i, %.lr.ph52.i
-  %.251.i = phi i64 [ %71, %.lr.ph52.i ], [ %3, %.loopexit44.i ]
-  %.03850.i = phi i64 [ %68, %.lr.ph52.i ], [ 0, %.loopexit44.i ]
+  %.251.i = phi i64 [ %68, %.lr.ph52.i ], [ %3, %.loopexit44.i ]
+  %.03850.i = phi i64 [ %65, %.lr.ph52.i ], [ 0, %.loopexit44.i ]
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %.251.i
-  %67 = load i64, ptr %gep.i, align 8, !tbaa !3
-  %68 = shl i64 %67, %49
-  %69 = lshr i64 %67, %43
-  %70 = or i64 %69, %.03850.i
-  store i64 %70, ptr %gep.i, align 8, !tbaa !3
-  %71 = add i64 %.251.i, -1
-  %.not42.i = icmp eq i64 %71, 0
+  %64 = load i64, ptr %gep.i, align 8, !tbaa !3
+  %65 = shl i64 %64, %46
+  %66 = lshr i64 %64, %40
+  %67 = or i64 %66, %.03850.i
+  store i64 %67, ptr %gep.i, align 8, !tbaa !3
+  %68 = add i64 %.251.i, -1
+  %.not42.i = icmp eq i64 %68, 0
   br i1 %.not42.i, label %mbedtls_mpi_core_shift_r.exit, label %.lr.ph52.i, !llvm.loop !25
 
-mbedtls_mpi_core_shift_r.exit:                    ; preds = %.lr.ph52.i, %.loopexit44.i, %61
-  %72 = add nsw i32 %.0, -1
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %mbedtls_mpi_core_fill_random.exit.split, label %74
+mbedtls_mpi_core_shift_r.exit:                    ; preds = %.lr.ph52.i, %.loopexit44.i, %58
+  %69 = add nsw i32 %.0, -1
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %mbedtls_mpi_core_fill_random.exit.split, label %71
 
-74:                                               ; preds = %mbedtls_mpi_core_shift_r.exit
-  %75 = load i64, ptr %0, align 8, !tbaa !3
-  %76 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %75, i64 %1) #10, !srcloc !10
-  %77 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  br i1 %51, label %.lr.ph.i28, label %mbedtls_mpi_core_uint_le_mpi.exit
+71:                                               ; preds = %mbedtls_mpi_core_shift_r.exit
+  %72 = load i64, ptr %0, align 8, !tbaa !3
+  %73 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %72, i64 %1) #10, !srcloc !10
+  %74 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  br i1 %48, label %.lr.ph.i28, label %mbedtls_mpi_core_uint_le_mpi.exit
 
-.lr.ph.i28:                                       ; preds = %74, %.lr.ph.i28
-  %.011.i = phi i64 [ %82, %.lr.ph.i28 ], [ 1, %74 ]
-  %.0910.i = phi i64 [ %81, %.lr.ph.i28 ], [ %77, %74 ]
-  %78 = getelementptr inbounds nuw i64, ptr %0, i64 %.011.i
-  %79 = load i64, ptr %78, align 8, !tbaa !3
-  %80 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %79) #10, !srcloc !12
-  %81 = or i64 %80, %.0910.i
-  %82 = add nuw i64 %.011.i, 1
-  %exitcond.not.i29 = icmp eq i64 %82, %3
+.lr.ph.i28:                                       ; preds = %71, %.lr.ph.i28
+  %.011.i = phi i64 [ %79, %.lr.ph.i28 ], [ 1, %71 ]
+  %.0910.i = phi i64 [ %78, %.lr.ph.i28 ], [ %74, %71 ]
+  %75 = getelementptr inbounds nuw i64, ptr %0, i64 %.011.i
+  %76 = load i64, ptr %75, align 8, !tbaa !3
+  %77 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %76) #10, !srcloc !12
+  %78 = or i64 %77, %.0910.i
+  %79 = add nuw i64 %.011.i, 1
+  %exitcond.not.i29 = icmp eq i64 %79, %3
   br i1 %exitcond.not.i29, label %mbedtls_mpi_core_uint_le_mpi.exit, label %.lr.ph.i28, !llvm.loop !13
 
-mbedtls_mpi_core_uint_le_mpi.exit:                ; preds = %.lr.ph.i28, %74
-  %.09.lcssa.i = phi i64 [ %77, %74 ], [ %81, %.lr.ph.i28 ]
-  %83 = extractvalue { i64, i64, i64 } %76, 1
-  %84 = xor i64 %83, -1
-  %85 = or i64 %.09.lcssa.i, %84
-  %86 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %87 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %88 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+mbedtls_mpi_core_uint_le_mpi.exit:                ; preds = %.lr.ph.i28, %71
+  %.09.lcssa.i = phi i64 [ %74, %71 ], [ %78, %.lr.ph.i28 ]
+  %80 = extractvalue { i64, i64, i64 } %73, 1
+  %81 = xor i64 %80, -1
+  %82 = or i64 %.09.lcssa.i, %81
+  %83 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %84 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %85 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
   br i1 %.not20.i, label %mbedtls_mpi_core_lt_ct.exit, label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %mbedtls_mpi_core_uint_le_mpi.exit, %.lr.ph.i30
-  %.023.i = phi i64 [ %89, %.lr.ph.i30 ], [ %3, %mbedtls_mpi_core_uint_le_mpi.exit ]
-  %.01822.i = phi i64 [ %104, %.lr.ph.i30 ], [ %88, %mbedtls_mpi_core_uint_le_mpi.exit ]
-  %.01921.i = phi i64 [ %103, %.lr.ph.i30 ], [ %86, %mbedtls_mpi_core_uint_le_mpi.exit ]
-  %89 = add i64 %.023.i, -1
-  %90 = getelementptr inbounds nuw i64, ptr %2, i64 %89
-  %91 = load i64, ptr %90, align 8, !tbaa !3
-  %92 = getelementptr inbounds nuw i64, ptr %0, i64 %89
-  %93 = load i64, ptr %92, align 8, !tbaa !3
-  %94 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %91, i64 %93) #10, !srcloc !10
-  %95 = extractvalue { i64, i64, i64 } %94, 1
-  %96 = or i64 %95, %.01822.i
-  %97 = load i64, ptr %92, align 8, !tbaa !3
-  %98 = load i64, ptr %90, align 8, !tbaa !3
-  %99 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %97, i64 %98) #10, !srcloc !10
-  %100 = extractvalue { i64, i64, i64 } %99, 1
-  %101 = xor i64 %96, -1
-  %102 = and i64 %100, %101
-  %103 = or i64 %102, %.01921.i
-  %104 = or i64 %100, %96
-  %.not.i31 = icmp eq i64 %89, 0
+  %.023.i = phi i64 [ %86, %.lr.ph.i30 ], [ %3, %mbedtls_mpi_core_uint_le_mpi.exit ]
+  %.01822.i = phi i64 [ %101, %.lr.ph.i30 ], [ %85, %mbedtls_mpi_core_uint_le_mpi.exit ]
+  %.01921.i = phi i64 [ %100, %.lr.ph.i30 ], [ %83, %mbedtls_mpi_core_uint_le_mpi.exit ]
+  %86 = add i64 %.023.i, -1
+  %87 = getelementptr inbounds nuw i64, ptr %2, i64 %86
+  %88 = load i64, ptr %87, align 8, !tbaa !3
+  %89 = getelementptr inbounds nuw i64, ptr %0, i64 %86
+  %90 = load i64, ptr %89, align 8, !tbaa !3
+  %91 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %88, i64 %90) #10, !srcloc !10
+  %92 = extractvalue { i64, i64, i64 } %91, 1
+  %93 = or i64 %92, %.01822.i
+  %94 = load i64, ptr %89, align 8, !tbaa !3
+  %95 = load i64, ptr %87, align 8, !tbaa !3
+  %96 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %94, i64 %95) #10, !srcloc !10
+  %97 = extractvalue { i64, i64, i64 } %96, 1
+  %98 = xor i64 %93, -1
+  %99 = and i64 %97, %98
+  %100 = or i64 %99, %.01921.i
+  %101 = or i64 %97, %93
+  %.not.i31 = icmp eq i64 %86, 0
   br i1 %.not.i31, label %mbedtls_mpi_core_lt_ct.exit, label %.lr.ph.i30, !llvm.loop !14
 
 mbedtls_mpi_core_lt_ct.exit:                      ; preds = %.lr.ph.i30, %mbedtls_mpi_core_uint_le_mpi.exit
-  %.019.lcssa.i = phi i64 [ %86, %mbedtls_mpi_core_uint_le_mpi.exit ], [ %103, %.lr.ph.i30 ]
-  %105 = and i64 %.019.lcssa.i, %85
-  %106 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
-  %107 = icmp eq i64 %105, %106
-  br i1 %107, label %mbedtls_mpi_core_bitlen.exit.thread.split, label %mbedtls_mpi_core_fill_random.exit.split, !llvm.loop !44
+  %.019.lcssa.i = phi i64 [ %83, %mbedtls_mpi_core_uint_le_mpi.exit ], [ %100, %.lr.ph.i30 ]
+  %102 = and i64 %.019.lcssa.i, %82
+  %103 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 0) #10, !srcloc !11
+  %104 = icmp eq i64 %102, %103
+  br i1 %104, label %mbedtls_mpi_core_bitlen.exit.thread.split, label %mbedtls_mpi_core_fill_random.exit.split, !llvm.loop !44
 
 mbedtls_mpi_core_fill_random.exit.split:          ; preds = %mbedtls_mpi_core_lt_ct.exit, %mbedtls_mpi_core_shift_r.exit, %mbedtls_mpi_core_bitlen.exit.thread.split, %mbedtls_mpi_core_bitlen.exit.thread
-  %.022.split = phi i32 [ -4, %mbedtls_mpi_core_bitlen.exit.thread ], [ 0, %mbedtls_mpi_core_lt_ct.exit ], [ -14, %mbedtls_mpi_core_shift_r.exit ], [ %54, %mbedtls_mpi_core_bitlen.exit.thread.split ]
+  %.022.split = phi i32 [ -4, %mbedtls_mpi_core_bitlen.exit.thread ], [ 0, %mbedtls_mpi_core_lt_ct.exit ], [ -14, %mbedtls_mpi_core_shift_r.exit ], [ %51, %mbedtls_mpi_core_bitlen.exit.thread.split ]
   ret i32 %.022.split
 }
 
